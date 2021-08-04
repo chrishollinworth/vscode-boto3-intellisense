@@ -1,5 +1,7 @@
 """
-Main interface for s3 service client waiters.
+Type annotations for s3 service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html)
 
 Usage::
 
@@ -24,16 +26,16 @@ Usage::
 """
 import sys
 from datetime import datetime
+from typing import Union
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_s3.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 
 __all__ = (
     "BucketExistsWaiter",
@@ -42,46 +44,57 @@ __all__ = (
     "ObjectNotExistsWaiter",
 )
 
-
 class BucketExistsWaiter(Boto3Waiter):
     """
-    [Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.BucketExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.BucketExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketexistswaiter)
     """
 
     def wait(
-        self, Bucket: str, ExpectedBucketOwner: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        Bucket: str,
+        ExpectedBucketOwner: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [BucketExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.BucketExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.BucketExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketexistswaiter)
         """
-
 
 class BucketNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.BucketNotExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.BucketNotExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketnotexistswaiter)
     """
 
     def wait(
-        self, Bucket: str, ExpectedBucketOwner: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        Bucket: str,
+        ExpectedBucketOwner: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [BucketNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.BucketNotExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.BucketNotExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketnotexistswaiter)
         """
-
 
 class ObjectExistsWaiter(Boto3Waiter):
     """
-    [Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.ObjectExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.ObjectExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectexistswaiter)
     """
 
     def wait(
         self,
+        *,
         Bucket: str,
         Key: str,
         IfMatch: str = None,
-        IfModifiedSince: datetime = None,
+        IfModifiedSince: Union[datetime, str] = None,
         IfNoneMatch: str = None,
-        IfUnmodifiedSince: datetime = None,
+        IfUnmodifiedSince: Union[datetime, str] = None,
         Range: str = None,
         VersionId: str = None,
         SSECustomerAlgorithm: str = None,
@@ -90,26 +103,28 @@ class ObjectExistsWaiter(Boto3Waiter):
         RequestPayer: Literal["requester"] = None,
         PartNumber: int = None,
         ExpectedBucketOwner: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ObjectExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.ObjectExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.ObjectExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectexistswaiter)
         """
-
 
 class ObjectNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.ObjectNotExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.ObjectNotExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectnotexistswaiter)
     """
 
     def wait(
         self,
+        *,
         Bucket: str,
         Key: str,
         IfMatch: str = None,
-        IfModifiedSince: datetime = None,
+        IfModifiedSince: Union[datetime, str] = None,
         IfNoneMatch: str = None,
-        IfUnmodifiedSince: datetime = None,
+        IfUnmodifiedSince: Union[datetime, str] = None,
         Range: str = None,
         VersionId: str = None,
         SSECustomerAlgorithm: str = None,
@@ -118,8 +133,9 @@ class ObjectNotExistsWaiter(Boto3Waiter):
         RequestPayer: Literal["requester"] = None,
         PartNumber: int = None,
         ExpectedBucketOwner: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ObjectNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3.html#S3.Waiter.ObjectNotExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3.html#S3.Waiter.ObjectNotExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectnotexistswaiter)
         """

@@ -1,9 +1,23 @@
-from mypy_boto3_outposts import (
-    Client,
-    OutpostsClient,
-)
+"""
+Main interface for outposts service.
 
-__all__ = (
-    "Client",
-    "OutpostsClient",
-)
+Usage::
+
+    ```python
+    import boto3
+    from mypy_boto3_outposts import (
+        Client,
+        OutpostsClient,
+    )
+
+    session = boto3.Session()
+
+    client: OutpostsClient = boto3.client("outposts")
+    session_client: OutpostsClient = session.client("outposts")
+    ```
+"""
+from .client import OutpostsClient
+
+Client = OutpostsClient
+
+__all__ = ("Client", "OutpostsClient")

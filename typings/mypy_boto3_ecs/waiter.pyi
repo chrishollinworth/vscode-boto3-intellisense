@@ -1,5 +1,7 @@
 """
-Main interface for ecs service client waiters.
+Type annotations for ecs service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html)
 
 Usage::
 
@@ -27,13 +29,12 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_ecs.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 
 __all__ = (
     "ServicesInactiveWaiter",
@@ -42,70 +43,78 @@ __all__ = (
     "TasksStoppedWaiter",
 )
 
-
 class ServicesInactiveWaiter(Boto3Waiter):
     """
-    [Waiter.ServicesInactive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesinactivewaiter)
     """
 
     def wait(
         self,
+        *,
         services: List[str],
         cluster: str = None,
         include: List[Literal["TAGS"]] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ServicesInactive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesInactive.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesInactive.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesinactivewaiter)
         """
-
 
 class ServicesStableWaiter(Boto3Waiter):
     """
-    [Waiter.ServicesStable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesStable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesStable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesstablewaiter)
     """
 
     def wait(
         self,
+        *,
         services: List[str],
         cluster: str = None,
         include: List[Literal["TAGS"]] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ServicesStable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesStable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesStable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesstablewaiter)
         """
-
 
 class TasksRunningWaiter(Boto3Waiter):
     """
-    [Waiter.TasksRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksRunning)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksrunningwaiter)
     """
 
     def wait(
         self,
+        *,
         tasks: List[str],
         cluster: str = None,
         include: List[Literal["TAGS"]] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [TasksRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksRunning.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksrunningwaiter)
         """
-
 
 class TasksStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.TasksStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksStopped)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksStopped)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksstoppedwaiter)
     """
 
     def wait(
         self,
+        *,
         tasks: List[str],
         cluster: str = None,
         include: List[Literal["TAGS"]] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [TasksStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksStopped.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksStopped.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksstoppedwaiter)
         """

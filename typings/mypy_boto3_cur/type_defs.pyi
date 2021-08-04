@@ -1,16 +1,27 @@
 """
-Main interface for cur service type definitions.
+Type annotations for cur service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cur/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_cur.type_defs import ReportDefinitionTypeDef
+    from mypy_boto3_cur.type_defs import DeleteReportDefinitionRequestRequestTypeDef
 
-    data: ReportDefinitionTypeDef = {...}
+    data: DeleteReportDefinitionRequestRequestTypeDef = {...}
     ```
 """
 import sys
-from typing import List
+from typing import Any, Dict, List
+
+from .literals import (
+    AdditionalArtifactType,
+    AWSRegionType,
+    CompressionFormatType,
+    ReportFormatType,
+    ReportVersioningType,
+    TimeUnitType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -21,76 +32,111 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
-    "ReportDefinitionTypeDef",
+    "DeleteReportDefinitionRequestRequestTypeDef",
     "DeleteReportDefinitionResponseTypeDef",
+    "DescribeReportDefinitionsRequestRequestTypeDef",
     "DescribeReportDefinitionsResponseTypeDef",
+    "ModifyReportDefinitionRequestRequestTypeDef",
     "PaginatorConfigTypeDef",
+    "PutReportDefinitionRequestRequestTypeDef",
+    "ReportDefinitionTypeDef",
+    "ResponseMetadataTypeDef",
+)
+
+DeleteReportDefinitionRequestRequestTypeDef = TypedDict(
+    "DeleteReportDefinitionRequestRequestTypeDef",
+    {
+        "ReportName": str,
+    },
+    total=False,
+)
+
+DeleteReportDefinitionResponseTypeDef = TypedDict(
+    "DeleteReportDefinitionResponseTypeDef",
+    {
+        "ResponseMessage": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReportDefinitionsRequestRequestTypeDef = TypedDict(
+    "DescribeReportDefinitionsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeReportDefinitionsResponseTypeDef = TypedDict(
+    "DescribeReportDefinitionsResponseTypeDef",
+    {
+        "ReportDefinitions": List["ReportDefinitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyReportDefinitionRequestRequestTypeDef = TypedDict(
+    "ModifyReportDefinitionRequestRequestTypeDef",
+    {
+        "ReportName": str,
+        "ReportDefinition": "ReportDefinitionTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+PutReportDefinitionRequestRequestTypeDef = TypedDict(
+    "PutReportDefinitionRequestRequestTypeDef",
+    {
+        "ReportDefinition": "ReportDefinitionTypeDef",
+    },
 )
 
 _RequiredReportDefinitionTypeDef = TypedDict(
     "_RequiredReportDefinitionTypeDef",
     {
         "ReportName": str,
-        "TimeUnit": Literal["HOURLY", "DAILY", "MONTHLY"],
-        "Format": Literal["textORcsv", "Parquet"],
-        "Compression": Literal["ZIP", "GZIP", "Parquet"],
+        "TimeUnit": TimeUnitType,
+        "Format": ReportFormatType,
+        "Compression": CompressionFormatType,
         "AdditionalSchemaElements": List[Literal["RESOURCES"]],
         "S3Bucket": str,
         "S3Prefix": str,
-        "S3Region": Literal[
-            "af-south-1",
-            "ap-east-1",
-            "ap-south-1",
-            "ap-southeast-1",
-            "ap-southeast-2",
-            "ap-northeast-1",
-            "ap-northeast-2",
-            "ap-northeast-3",
-            "ca-central-1",
-            "eu-central-1",
-            "eu-west-1",
-            "eu-west-2",
-            "eu-west-3",
-            "eu-north-1",
-            "eu-south-1",
-            "me-south-1",
-            "sa-east-1",
-            "us-east-1",
-            "us-east-2",
-            "us-west-1",
-            "us-west-2",
-            "cn-north-1",
-            "cn-northwest-1",
-        ],
+        "S3Region": AWSRegionType,
     },
 )
 _OptionalReportDefinitionTypeDef = TypedDict(
     "_OptionalReportDefinitionTypeDef",
     {
-        "AdditionalArtifacts": List[Literal["REDSHIFT", "QUICKSIGHT", "ATHENA"]],
+        "AdditionalArtifacts": List[AdditionalArtifactType],
         "RefreshClosedReports": bool,
-        "ReportVersioning": Literal["CREATE_NEW_REPORT", "OVERWRITE_REPORT"],
+        "ReportVersioning": ReportVersioningType,
+        "BillingViewArn": str,
     },
     total=False,
 )
 
-
 class ReportDefinitionTypeDef(_RequiredReportDefinitionTypeDef, _OptionalReportDefinitionTypeDef):
     pass
 
-
-DeleteReportDefinitionResponseTypeDef = TypedDict(
-    "DeleteReportDefinitionResponseTypeDef", {"ResponseMessage": str}, total=False
-)
-
-DescribeReportDefinitionsResponseTypeDef = TypedDict(
-    "DescribeReportDefinitionsResponseTypeDef",
-    {"ReportDefinitions": List["ReportDefinitionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )

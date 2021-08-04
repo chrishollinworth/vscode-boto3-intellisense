@@ -27,8 +27,8 @@ Usage::
     list_tasks_paginator: ListTasksPaginator = client.get_paginator("list_tasks")
     ```
 """
-from mypy_boto3_datasync.client import DataSyncClient
-from mypy_boto3_datasync.paginator import (
+from .client import DataSyncClient
+from .paginator import (
     ListAgentsPaginator,
     ListLocationsPaginator,
     ListTagsForResourcePaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_datasync.paginator import (
 )
 
 Client = DataSyncClient
-
 
 __all__ = (
     "Client",

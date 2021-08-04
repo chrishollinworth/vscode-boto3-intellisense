@@ -23,15 +23,10 @@ Usage::
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
     ```
 """
-from mypy_boto3_cloudhsmv2.client import CloudHSMV2Client
-from mypy_boto3_cloudhsmv2.paginator import (
-    DescribeBackupsPaginator,
-    DescribeClustersPaginator,
-    ListTagsPaginator,
-)
+from .client import CloudHSMV2Client
+from .paginator import DescribeBackupsPaginator, DescribeClustersPaginator, ListTagsPaginator
 
 Client = CloudHSMV2Client
-
 
 __all__ = (
     "Client",

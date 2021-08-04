@@ -9,6 +9,11 @@ Usage::
         Client,
         EndpointDeletedWaiter,
         EndpointInServiceWaiter,
+        ImageCreatedWaiter,
+        ImageDeletedWaiter,
+        ImageUpdatedWaiter,
+        ImageVersionCreatedWaiter,
+        ImageVersionDeletedWaiter,
         ListActionsPaginator,
         ListAlgorithmsPaginator,
         ListAppImageConfigsPaginator,
@@ -78,6 +83,11 @@ Usage::
 
     endpoint_deleted_waiter: EndpointDeletedWaiter = client.get_waiter("endpoint_deleted")
     endpoint_in_service_waiter: EndpointInServiceWaiter = client.get_waiter("endpoint_in_service")
+    image_created_waiter: ImageCreatedWaiter = client.get_waiter("image_created")
+    image_deleted_waiter: ImageDeletedWaiter = client.get_waiter("image_deleted")
+    image_updated_waiter: ImageUpdatedWaiter = client.get_waiter("image_updated")
+    image_version_created_waiter: ImageVersionCreatedWaiter = client.get_waiter("image_version_created")
+    image_version_deleted_waiter: ImageVersionDeletedWaiter = client.get_waiter("image_version_deleted")
     notebook_instance_deleted_waiter: NotebookInstanceDeletedWaiter = client.get_waiter("notebook_instance_deleted")
     notebook_instance_in_service_waiter: NotebookInstanceInServiceWaiter = client.get_waiter("notebook_instance_in_service")
     notebook_instance_stopped_waiter: NotebookInstanceStoppedWaiter = client.get_waiter("notebook_instance_stopped")
@@ -140,8 +150,8 @@ Usage::
     search_paginator: SearchPaginator = client.get_paginator("search")
     ```
 """
-from mypy_boto3_sagemaker.client import SageMakerClient
-from mypy_boto3_sagemaker.paginator import (
+from .client import SageMakerClient
+from .paginator import (
     ListActionsPaginator,
     ListAlgorithmsPaginator,
     ListAppImageConfigsPaginator,
@@ -196,9 +206,14 @@ from mypy_boto3_sagemaker.paginator import (
     ListWorkteamsPaginator,
     SearchPaginator,
 )
-from mypy_boto3_sagemaker.waiter import (
+from .waiter import (
     EndpointDeletedWaiter,
     EndpointInServiceWaiter,
+    ImageCreatedWaiter,
+    ImageDeletedWaiter,
+    ImageUpdatedWaiter,
+    ImageVersionCreatedWaiter,
+    ImageVersionDeletedWaiter,
     NotebookInstanceDeletedWaiter,
     NotebookInstanceInServiceWaiter,
     NotebookInstanceStoppedWaiter,
@@ -209,11 +224,15 @@ from mypy_boto3_sagemaker.waiter import (
 
 Client = SageMakerClient
 
-
 __all__ = (
     "Client",
     "EndpointDeletedWaiter",
     "EndpointInServiceWaiter",
+    "ImageCreatedWaiter",
+    "ImageDeletedWaiter",
+    "ImageUpdatedWaiter",
+    "ImageVersionCreatedWaiter",
+    "ImageVersionDeletedWaiter",
     "ListActionsPaginator",
     "ListAlgorithmsPaginator",
     "ListAppImageConfigsPaginator",

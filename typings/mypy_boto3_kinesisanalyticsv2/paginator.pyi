@@ -1,5 +1,7 @@
 """
-Main interface for kinesisanalyticsv2 service client paginators.
+Type annotations for kinesisanalyticsv2 service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalyticsv2/paginators.html)
 
 Usage::
 
@@ -22,7 +24,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_kinesisanalyticsv2.type_defs import (
+from .type_defs import (
     ListApplicationSnapshotsResponseTypeDef,
     ListApplicationsResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -30,28 +32,30 @@ from mypy_boto3_kinesisanalyticsv2.type_defs import (
 
 __all__ = ("ListApplicationSnapshotsPaginator", "ListApplicationsPaginator")
 
-
 class ListApplicationSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplicationSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalyticsv2/paginators.html#listapplicationsnapshotspaginator)
     """
 
     def paginate(
-        self, ApplicationName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApplicationName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationSnapshotsResponseTypeDef]:
         """
-        [ListApplicationSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalyticsv2/paginators.html#listapplicationsnapshotspaginator)
         """
-
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalyticsv2/paginators.html#listapplicationspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalyticsv2/paginators.html#listapplicationspaginator)
         """

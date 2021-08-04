@@ -8,7 +8,8 @@ Usage::
     from mypy_boto3_devops_guru import (
         Client,
         DescribeResourceCollectionHealthPaginator,
-        DevopsGuruClient,
+        DevOpsGuruClient,
+        GetCostEstimationPaginator,
         GetResourceCollectionPaginator,
         ListAnomaliesForInsightPaginator,
         ListEventsPaginator,
@@ -20,10 +21,11 @@ Usage::
 
     session = boto3.Session()
 
-    client: DevopsGuruClient = boto3.client("devops-guru")
-    session_client: DevopsGuruClient = session.client("devops-guru")
+    client: DevOpsGuruClient = boto3.client("devops-guru")
+    session_client: DevOpsGuruClient = session.client("devops-guru")
 
     describe_resource_collection_health_paginator: DescribeResourceCollectionHealthPaginator = client.get_paginator("describe_resource_collection_health")
+    get_cost_estimation_paginator: GetCostEstimationPaginator = client.get_paginator("get_cost_estimation")
     get_resource_collection_paginator: GetResourceCollectionPaginator = client.get_paginator("get_resource_collection")
     list_anomalies_for_insight_paginator: ListAnomaliesForInsightPaginator = client.get_paginator("list_anomalies_for_insight")
     list_events_paginator: ListEventsPaginator = client.get_paginator("list_events")
@@ -33,9 +35,10 @@ Usage::
     search_insights_paginator: SearchInsightsPaginator = client.get_paginator("search_insights")
     ```
 """
-from mypy_boto3_devops_guru.client import DevopsGuruClient
-from mypy_boto3_devops_guru.paginator import (
+from .client import DevOpsGuruClient
+from .paginator import (
     DescribeResourceCollectionHealthPaginator,
+    GetCostEstimationPaginator,
     GetResourceCollectionPaginator,
     ListAnomaliesForInsightPaginator,
     ListEventsPaginator,
@@ -45,13 +48,13 @@ from mypy_boto3_devops_guru.paginator import (
     SearchInsightsPaginator,
 )
 
-Client = DevopsGuruClient
-
+Client = DevOpsGuruClient
 
 __all__ = (
     "Client",
     "DescribeResourceCollectionHealthPaginator",
-    "DevopsGuruClient",
+    "DevOpsGuruClient",
+    "GetCostEstimationPaginator",
     "GetResourceCollectionPaginator",
     "ListAnomaliesForInsightPaginator",
     "ListEventsPaginator",

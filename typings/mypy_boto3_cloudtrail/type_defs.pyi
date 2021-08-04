@@ -1,17 +1,21 @@
 """
-Main interface for cloudtrail service type definitions.
+Type annotations for cloudtrail service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_cloudtrail.type_defs import AdvancedEventSelectorTypeDef
+    from mypy_boto3_cloudtrail.type_defs import AddTagsRequestRequestTypeDef
 
-    data: AdvancedEventSelectorTypeDef = {...}
+    data: AddTagsRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import IO, List, Union
+from typing import Any, Dict, List, Union
+
+from .literals import LookupAttributeKeyType, ReadWriteTypeType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,54 +26,98 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AddTagsRequestRequestTypeDef",
     "AdvancedEventSelectorTypeDef",
     "AdvancedFieldSelectorTypeDef",
+    "CreateTrailRequestRequestTypeDef",
+    "CreateTrailResponseTypeDef",
     "DataResourceTypeDef",
+    "DeleteTrailRequestRequestTypeDef",
+    "DescribeTrailsRequestRequestTypeDef",
+    "DescribeTrailsResponseTypeDef",
     "EventSelectorTypeDef",
     "EventTypeDef",
+    "GetEventSelectorsRequestRequestTypeDef",
+    "GetEventSelectorsResponseTypeDef",
+    "GetInsightSelectorsRequestRequestTypeDef",
+    "GetInsightSelectorsResponseTypeDef",
+    "GetTrailRequestRequestTypeDef",
+    "GetTrailResponseTypeDef",
+    "GetTrailStatusRequestRequestTypeDef",
+    "GetTrailStatusResponseTypeDef",
     "InsightSelectorTypeDef",
+    "ListPublicKeysRequestRequestTypeDef",
+    "ListPublicKeysResponseTypeDef",
+    "ListTagsRequestRequestTypeDef",
+    "ListTagsResponseTypeDef",
+    "ListTrailsRequestRequestTypeDef",
+    "ListTrailsResponseTypeDef",
+    "LookupAttributeTypeDef",
+    "LookupEventsRequestRequestTypeDef",
+    "LookupEventsResponseTypeDef",
+    "PaginatorConfigTypeDef",
     "PublicKeyTypeDef",
+    "PutEventSelectorsRequestRequestTypeDef",
+    "PutEventSelectorsResponseTypeDef",
+    "PutInsightSelectorsRequestRequestTypeDef",
+    "PutInsightSelectorsResponseTypeDef",
+    "RemoveTagsRequestRequestTypeDef",
     "ResourceTagTypeDef",
     "ResourceTypeDef",
+    "ResponseMetadataTypeDef",
+    "StartLoggingRequestRequestTypeDef",
+    "StopLoggingRequestRequestTypeDef",
     "TagTypeDef",
     "TrailInfoTypeDef",
     "TrailTypeDef",
-    "CreateTrailResponseTypeDef",
-    "DescribeTrailsResponseTypeDef",
-    "GetEventSelectorsResponseTypeDef",
-    "GetInsightSelectorsResponseTypeDef",
-    "GetTrailResponseTypeDef",
-    "GetTrailStatusResponseTypeDef",
-    "ListPublicKeysResponseTypeDef",
-    "ListTagsResponseTypeDef",
-    "ListTrailsResponseTypeDef",
-    "LookupAttributeTypeDef",
-    "LookupEventsResponseTypeDef",
-    "PaginatorConfigTypeDef",
-    "PutEventSelectorsResponseTypeDef",
-    "PutInsightSelectorsResponseTypeDef",
+    "UpdateTrailRequestRequestTypeDef",
     "UpdateTrailResponseTypeDef",
 )
 
-_RequiredAdvancedEventSelectorTypeDef = TypedDict(
-    "_RequiredAdvancedEventSelectorTypeDef",
-    {"FieldSelectors": List["AdvancedFieldSelectorTypeDef"]},
+_RequiredAddTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredAddTagsRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
 )
-_OptionalAdvancedEventSelectorTypeDef = TypedDict(
-    "_OptionalAdvancedEventSelectorTypeDef", {"Name": str}, total=False
+_OptionalAddTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalAddTagsRequestRequestTypeDef",
+    {
+        "TagsList": List["TagTypeDef"],
+    },
+    total=False,
 )
 
+class AddTagsRequestRequestTypeDef(
+    _RequiredAddTagsRequestRequestTypeDef, _OptionalAddTagsRequestRequestTypeDef
+):
+    pass
+
+_RequiredAdvancedEventSelectorTypeDef = TypedDict(
+    "_RequiredAdvancedEventSelectorTypeDef",
+    {
+        "FieldSelectors": List["AdvancedFieldSelectorTypeDef"],
+    },
+)
+_OptionalAdvancedEventSelectorTypeDef = TypedDict(
+    "_OptionalAdvancedEventSelectorTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
 
 class AdvancedEventSelectorTypeDef(
     _RequiredAdvancedEventSelectorTypeDef, _OptionalAdvancedEventSelectorTypeDef
 ):
     pass
 
-
 _RequiredAdvancedFieldSelectorTypeDef = TypedDict(
-    "_RequiredAdvancedFieldSelectorTypeDef", {"Field": str}
+    "_RequiredAdvancedFieldSelectorTypeDef",
+    {
+        "Field": str,
+    },
 )
 _OptionalAdvancedFieldSelectorTypeDef = TypedDict(
     "_OptionalAdvancedFieldSelectorTypeDef",
@@ -84,21 +132,97 @@ _OptionalAdvancedFieldSelectorTypeDef = TypedDict(
     total=False,
 )
 
-
 class AdvancedFieldSelectorTypeDef(
     _RequiredAdvancedFieldSelectorTypeDef, _OptionalAdvancedFieldSelectorTypeDef
 ):
     pass
 
+_RequiredCreateTrailRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTrailRequestRequestTypeDef",
+    {
+        "Name": str,
+        "S3BucketName": str,
+    },
+)
+_OptionalCreateTrailRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTrailRequestRequestTypeDef",
+    {
+        "S3KeyPrefix": str,
+        "SnsTopicName": str,
+        "IncludeGlobalServiceEvents": bool,
+        "IsMultiRegionTrail": bool,
+        "EnableLogFileValidation": bool,
+        "CloudWatchLogsLogGroupArn": str,
+        "CloudWatchLogsRoleArn": str,
+        "KmsKeyId": str,
+        "IsOrganizationTrail": bool,
+        "TagsList": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateTrailRequestRequestTypeDef(
+    _RequiredCreateTrailRequestRequestTypeDef, _OptionalCreateTrailRequestRequestTypeDef
+):
+    pass
+
+CreateTrailResponseTypeDef = TypedDict(
+    "CreateTrailResponseTypeDef",
+    {
+        "Name": str,
+        "S3BucketName": str,
+        "S3KeyPrefix": str,
+        "SnsTopicName": str,
+        "SnsTopicARN": str,
+        "IncludeGlobalServiceEvents": bool,
+        "IsMultiRegionTrail": bool,
+        "TrailARN": str,
+        "LogFileValidationEnabled": bool,
+        "CloudWatchLogsLogGroupArn": str,
+        "CloudWatchLogsRoleArn": str,
+        "KmsKeyId": str,
+        "IsOrganizationTrail": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DataResourceTypeDef = TypedDict(
-    "DataResourceTypeDef", {"Type": str, "Values": List[str]}, total=False
+    "DataResourceTypeDef",
+    {
+        "Type": str,
+        "Values": List[str],
+    },
+    total=False,
+)
+
+DeleteTrailRequestRequestTypeDef = TypedDict(
+    "DeleteTrailRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DescribeTrailsRequestRequestTypeDef = TypedDict(
+    "DescribeTrailsRequestRequestTypeDef",
+    {
+        "trailNameList": List[str],
+        "includeShadowTrails": bool,
+    },
+    total=False,
+)
+
+DescribeTrailsResponseTypeDef = TypedDict(
+    "DescribeTrailsResponseTypeDef",
+    {
+        "trailList": List["TrailTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 EventSelectorTypeDef = TypedDict(
     "EventSelectorTypeDef",
     {
-        "ReadWriteType": Literal["ReadOnly", "WriteOnly", "All"],
+        "ReadWriteType": ReadWriteTypeType,
         "IncludeManagementEvents": bool,
         "DataResources": List["DataResourceTypeDef"],
         "ExcludeManagementEventSources": List[str],
@@ -122,14 +246,201 @@ EventTypeDef = TypedDict(
     total=False,
 )
 
+GetEventSelectorsRequestRequestTypeDef = TypedDict(
+    "GetEventSelectorsRequestRequestTypeDef",
+    {
+        "TrailName": str,
+    },
+)
+
+GetEventSelectorsResponseTypeDef = TypedDict(
+    "GetEventSelectorsResponseTypeDef",
+    {
+        "TrailARN": str,
+        "EventSelectors": List["EventSelectorTypeDef"],
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetInsightSelectorsRequestRequestTypeDef = TypedDict(
+    "GetInsightSelectorsRequestRequestTypeDef",
+    {
+        "TrailName": str,
+    },
+)
+
+GetInsightSelectorsResponseTypeDef = TypedDict(
+    "GetInsightSelectorsResponseTypeDef",
+    {
+        "TrailARN": str,
+        "InsightSelectors": List["InsightSelectorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTrailRequestRequestTypeDef = TypedDict(
+    "GetTrailRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+GetTrailResponseTypeDef = TypedDict(
+    "GetTrailResponseTypeDef",
+    {
+        "Trail": "TrailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTrailStatusRequestRequestTypeDef = TypedDict(
+    "GetTrailStatusRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+GetTrailStatusResponseTypeDef = TypedDict(
+    "GetTrailStatusResponseTypeDef",
+    {
+        "IsLogging": bool,
+        "LatestDeliveryError": str,
+        "LatestNotificationError": str,
+        "LatestDeliveryTime": datetime,
+        "LatestNotificationTime": datetime,
+        "StartLoggingTime": datetime,
+        "StopLoggingTime": datetime,
+        "LatestCloudWatchLogsDeliveryError": str,
+        "LatestCloudWatchLogsDeliveryTime": datetime,
+        "LatestDigestDeliveryTime": datetime,
+        "LatestDigestDeliveryError": str,
+        "LatestDeliveryAttemptTime": str,
+        "LatestNotificationAttemptTime": str,
+        "LatestNotificationAttemptSucceeded": str,
+        "LatestDeliveryAttemptSucceeded": str,
+        "TimeLoggingStarted": str,
+        "TimeLoggingStopped": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 InsightSelectorTypeDef = TypedDict(
-    "InsightSelectorTypeDef", {"InsightType": Literal["ApiCallRateInsight"]}, total=False
+    "InsightSelectorTypeDef",
+    {
+        "InsightType": Literal["ApiCallRateInsight"],
+    },
+    total=False,
+)
+
+ListPublicKeysRequestRequestTypeDef = TypedDict(
+    "ListPublicKeysRequestRequestTypeDef",
+    {
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListPublicKeysResponseTypeDef = TypedDict(
+    "ListPublicKeysResponseTypeDef",
+    {
+        "PublicKeyList": List["PublicKeyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredListTagsRequestRequestTypeDef",
+    {
+        "ResourceIdList": List[str],
+    },
+)
+_OptionalListTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalListTagsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListTagsRequestRequestTypeDef(
+    _RequiredListTagsRequestRequestTypeDef, _OptionalListTagsRequestRequestTypeDef
+):
+    pass
+
+ListTagsResponseTypeDef = TypedDict(
+    "ListTagsResponseTypeDef",
+    {
+        "ResourceTagList": List["ResourceTagTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTrailsRequestRequestTypeDef = TypedDict(
+    "ListTrailsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListTrailsResponseTypeDef = TypedDict(
+    "ListTrailsResponseTypeDef",
+    {
+        "Trails": List["TrailInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+LookupAttributeTypeDef = TypedDict(
+    "LookupAttributeTypeDef",
+    {
+        "AttributeKey": LookupAttributeKeyType,
+        "AttributeValue": str,
+    },
+)
+
+LookupEventsRequestRequestTypeDef = TypedDict(
+    "LookupEventsRequestRequestTypeDef",
+    {
+        "LookupAttributes": List["LookupAttributeTypeDef"],
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "EventCategory": Literal["insight"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+LookupEventsResponseTypeDef = TypedDict(
+    "LookupEventsResponseTypeDef",
+    {
+        "Events": List["EventTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
 PublicKeyTypeDef = TypedDict(
     "PublicKeyTypeDef",
     {
-        "Value": Union[bytes, IO[bytes]],
+        "Value": bytes,
         "ValidityStartTime": datetime,
         "ValidityEndTime": datetime,
         "Fingerprint": str,
@@ -137,24 +448,140 @@ PublicKeyTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPutEventSelectorsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutEventSelectorsRequestRequestTypeDef",
+    {
+        "TrailName": str,
+    },
+)
+_OptionalPutEventSelectorsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutEventSelectorsRequestRequestTypeDef",
+    {
+        "EventSelectors": List["EventSelectorTypeDef"],
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+    },
+    total=False,
+)
+
+class PutEventSelectorsRequestRequestTypeDef(
+    _RequiredPutEventSelectorsRequestRequestTypeDef, _OptionalPutEventSelectorsRequestRequestTypeDef
+):
+    pass
+
+PutEventSelectorsResponseTypeDef = TypedDict(
+    "PutEventSelectorsResponseTypeDef",
+    {
+        "TrailARN": str,
+        "EventSelectors": List["EventSelectorTypeDef"],
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutInsightSelectorsRequestRequestTypeDef = TypedDict(
+    "PutInsightSelectorsRequestRequestTypeDef",
+    {
+        "TrailName": str,
+        "InsightSelectors": List["InsightSelectorTypeDef"],
+    },
+)
+
+PutInsightSelectorsResponseTypeDef = TypedDict(
+    "PutInsightSelectorsResponseTypeDef",
+    {
+        "TrailARN": str,
+        "InsightSelectors": List["InsightSelectorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRemoveTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredRemoveTagsRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
+)
+_OptionalRemoveTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalRemoveTagsRequestRequestTypeDef",
+    {
+        "TagsList": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class RemoveTagsRequestRequestTypeDef(
+    _RequiredRemoveTagsRequestRequestTypeDef, _OptionalRemoveTagsRequestRequestTypeDef
+):
+    pass
+
 ResourceTagTypeDef = TypedDict(
-    "ResourceTagTypeDef", {"ResourceId": str, "TagsList": List["TagTypeDef"]}, total=False
+    "ResourceTagTypeDef",
+    {
+        "ResourceId": str,
+        "TagsList": List["TagTypeDef"],
+    },
+    total=False,
 )
 
 ResourceTypeDef = TypedDict(
-    "ResourceTypeDef", {"ResourceType": str, "ResourceName": str}, total=False
+    "ResourceTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceName": str,
+    },
+    total=False,
 )
 
-_RequiredTagTypeDef = TypedDict("_RequiredTagTypeDef", {"Key": str})
-_OptionalTagTypeDef = TypedDict("_OptionalTagTypeDef", {"Value": str}, total=False)
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
+StartLoggingRequestRequestTypeDef = TypedDict(
+    "StartLoggingRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+StopLoggingRequestRequestTypeDef = TypedDict(
+    "StopLoggingRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+_RequiredTagTypeDef = TypedDict(
+    "_RequiredTagTypeDef",
+    {
+        "Key": str,
+    },
+)
+_OptionalTagTypeDef = TypedDict(
+    "_OptionalTagTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
 
 class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
     pass
 
-
 TrailInfoTypeDef = TypedDict(
-    "TrailInfoTypeDef", {"TrailARN": str, "Name": str, "HomeRegion": str}, total=False
+    "TrailInfoTypeDef",
+    {
+        "TrailARN": str,
+        "Name": str,
+        "HomeRegion": str,
+    },
+    total=False,
 )
 
 TrailTypeDef = TypedDict(
@@ -180,18 +607,21 @@ TrailTypeDef = TypedDict(
     total=False,
 )
 
-CreateTrailResponseTypeDef = TypedDict(
-    "CreateTrailResponseTypeDef",
+_RequiredUpdateTrailRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTrailRequestRequestTypeDef",
     {
         "Name": str,
+    },
+)
+_OptionalUpdateTrailRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTrailRequestRequestTypeDef",
+    {
         "S3BucketName": str,
         "S3KeyPrefix": str,
         "SnsTopicName": str,
-        "SnsTopicARN": str,
         "IncludeGlobalServiceEvents": bool,
         "IsMultiRegionTrail": bool,
-        "TrailARN": str,
-        "LogFileValidationEnabled": bool,
+        "EnableLogFileValidation": bool,
         "CloudWatchLogsLogGroupArn": str,
         "CloudWatchLogsRoleArn": str,
         "KmsKeyId": str,
@@ -200,110 +630,10 @@ CreateTrailResponseTypeDef = TypedDict(
     total=False,
 )
 
-DescribeTrailsResponseTypeDef = TypedDict(
-    "DescribeTrailsResponseTypeDef", {"trailList": List["TrailTypeDef"]}, total=False
-)
-
-GetEventSelectorsResponseTypeDef = TypedDict(
-    "GetEventSelectorsResponseTypeDef",
-    {
-        "TrailARN": str,
-        "EventSelectors": List["EventSelectorTypeDef"],
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-    },
-    total=False,
-)
-
-GetInsightSelectorsResponseTypeDef = TypedDict(
-    "GetInsightSelectorsResponseTypeDef",
-    {"TrailARN": str, "InsightSelectors": List["InsightSelectorTypeDef"]},
-    total=False,
-)
-
-GetTrailResponseTypeDef = TypedDict(
-    "GetTrailResponseTypeDef", {"Trail": "TrailTypeDef"}, total=False
-)
-
-GetTrailStatusResponseTypeDef = TypedDict(
-    "GetTrailStatusResponseTypeDef",
-    {
-        "IsLogging": bool,
-        "LatestDeliveryError": str,
-        "LatestNotificationError": str,
-        "LatestDeliveryTime": datetime,
-        "LatestNotificationTime": datetime,
-        "StartLoggingTime": datetime,
-        "StopLoggingTime": datetime,
-        "LatestCloudWatchLogsDeliveryError": str,
-        "LatestCloudWatchLogsDeliveryTime": datetime,
-        "LatestDigestDeliveryTime": datetime,
-        "LatestDigestDeliveryError": str,
-        "LatestDeliveryAttemptTime": str,
-        "LatestNotificationAttemptTime": str,
-        "LatestNotificationAttemptSucceeded": str,
-        "LatestDeliveryAttemptSucceeded": str,
-        "TimeLoggingStarted": str,
-        "TimeLoggingStopped": str,
-    },
-    total=False,
-)
-
-ListPublicKeysResponseTypeDef = TypedDict(
-    "ListPublicKeysResponseTypeDef",
-    {"PublicKeyList": List["PublicKeyTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListTagsResponseTypeDef = TypedDict(
-    "ListTagsResponseTypeDef",
-    {"ResourceTagList": List["ResourceTagTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListTrailsResponseTypeDef = TypedDict(
-    "ListTrailsResponseTypeDef", {"Trails": List["TrailInfoTypeDef"], "NextToken": str}, total=False
-)
-
-LookupAttributeTypeDef = TypedDict(
-    "LookupAttributeTypeDef",
-    {
-        "AttributeKey": Literal[
-            "EventId",
-            "EventName",
-            "ReadOnly",
-            "Username",
-            "ResourceType",
-            "ResourceName",
-            "EventSource",
-            "AccessKeyId",
-        ],
-        "AttributeValue": str,
-    },
-)
-
-LookupEventsResponseTypeDef = TypedDict(
-    "LookupEventsResponseTypeDef", {"Events": List["EventTypeDef"], "NextToken": str}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PutEventSelectorsResponseTypeDef = TypedDict(
-    "PutEventSelectorsResponseTypeDef",
-    {
-        "TrailARN": str,
-        "EventSelectors": List["EventSelectorTypeDef"],
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-    },
-    total=False,
-)
-
-PutInsightSelectorsResponseTypeDef = TypedDict(
-    "PutInsightSelectorsResponseTypeDef",
-    {"TrailARN": str, "InsightSelectors": List["InsightSelectorTypeDef"]},
-    total=False,
-)
+class UpdateTrailRequestRequestTypeDef(
+    _RequiredUpdateTrailRequestRequestTypeDef, _OptionalUpdateTrailRequestRequestTypeDef
+):
+    pass
 
 UpdateTrailResponseTypeDef = TypedDict(
     "UpdateTrailResponseTypeDef",
@@ -321,6 +651,6 @@ UpdateTrailResponseTypeDef = TypedDict(
         "CloudWatchLogsRoleArn": str,
         "KmsKeyId": str,
         "IsOrganizationTrail": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
-    total=False,
 )

@@ -1,5 +1,7 @@
 """
-Main interface for codeguru-reviewer service client paginators.
+Type annotations for codeguru-reviewer service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/paginators.html)
 
 Usage::
 
@@ -16,42 +18,31 @@ Usage::
     list_repository_associations_paginator: ListRepositoryAssociationsPaginator = client.get_paginator("list_repository_associations")
     ```
 """
-import sys
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_codeguru_reviewer.type_defs import (
-    ListRepositoryAssociationsResponseTypeDef,
-    PaginatorConfigTypeDef,
-)
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
+from .literals import ProviderTypeType, RepositoryAssociationStateType
+from .type_defs import ListRepositoryAssociationsResponseTypeDef, PaginatorConfigTypeDef
 
 __all__ = ("ListRepositoryAssociationsPaginator",)
 
-
 class ListRepositoryAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRepositoryAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/paginators.html#listrepositoryassociationspaginator)
     """
 
     def paginate(
         self,
-        ProviderTypes: List[
-            Literal["CodeCommit", "GitHub", "Bitbucket", "GitHubEnterpriseServer"]
-        ] = None,
-        States: List[
-            Literal["Associated", "Associating", "Failed", "Disassociating", "Disassociated"]
-        ] = None,
+        *,
+        ProviderTypes: List[ProviderTypeType] = None,
+        States: List[RepositoryAssociationStateType] = None,
         Names: List[str] = None,
         Owners: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRepositoryAssociationsResponseTypeDef]:
         """
-        [ListRepositoryAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/paginators.html#listrepositoryassociationspaginator)
         """

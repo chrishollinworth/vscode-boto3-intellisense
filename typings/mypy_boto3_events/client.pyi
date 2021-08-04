@@ -1,5 +1,7 @@
 """
-Main interface for events service client
+Type annotations for events service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html)
 
 Usage::
 
@@ -12,28 +14,45 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_events.paginator import (
+from .literals import (
+    ApiDestinationHttpMethodType,
+    ArchiveStateType,
+    ConnectionAuthorizationTypeType,
+    ConnectionStateType,
+    ReplayStateType,
+    RuleStateType,
+)
+from .paginator import (
     ListRuleNamesByTargetPaginator,
     ListRulesPaginator,
     ListTargetsByRulePaginator,
 )
-from mypy_boto3_events.type_defs import (
+from .type_defs import (
     CancelReplayResponseTypeDef,
     ConditionTypeDef,
+    CreateApiDestinationResponseTypeDef,
     CreateArchiveResponseTypeDef,
+    CreateConnectionAuthRequestParametersTypeDef,
+    CreateConnectionResponseTypeDef,
     CreateEventBusResponseTypeDef,
     CreatePartnerEventSourceResponseTypeDef,
+    DeauthorizeConnectionResponseTypeDef,
+    DeleteConnectionResponseTypeDef,
+    DescribeApiDestinationResponseTypeDef,
     DescribeArchiveResponseTypeDef,
+    DescribeConnectionResponseTypeDef,
     DescribeEventBusResponseTypeDef,
     DescribeEventSourceResponseTypeDef,
     DescribePartnerEventSourceResponseTypeDef,
     DescribeReplayResponseTypeDef,
     DescribeRuleResponseTypeDef,
+    ListApiDestinationsResponseTypeDef,
     ListArchivesResponseTypeDef,
+    ListConnectionsResponseTypeDef,
     ListEventBusesResponseTypeDef,
     ListEventSourcesResponseTypeDef,
     ListPartnerEventSourceAccountsResponseTypeDef,
@@ -55,7 +74,10 @@ from mypy_boto3_events.type_defs import (
     TagTypeDef,
     TargetTypeDef,
     TestEventPatternResponseTypeDef,
+    UpdateApiDestinationResponseTypeDef,
     UpdateArchiveResponseTypeDef,
+    UpdateConnectionAuthRequestParametersTypeDef,
+    UpdateConnectionResponseTypeDef,
 )
 
 if sys.version_info >= (3, 8):
@@ -63,17 +85,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("EventBridgeClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -89,121 +107,234 @@ class Exceptions:
     ResourceAlreadyExistsException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
 
-
-class EventBridgeClient:
+class EventBridgeClient(BaseClient):
     """
-    [EventBridge.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def activate_event_source(self, Name: str) -> None:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.activate_event_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.activate_event_source)
+        EventBridgeClient exceptions.
         """
+    def activate_event_source(self, *, Name: str) -> None:
+        """
+        Activates a partner event source that has been deactivated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.activate_event_source)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#activate_event_source)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def cancel_replay(self, ReplayName: str) -> CancelReplayResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#can_paginate)
         """
-        [Client.cancel_replay documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.cancel_replay)
+    def cancel_replay(self, *, ReplayName: str) -> CancelReplayResponseTypeDef:
         """
+        Cancels the specified replay.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.cancel_replay)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#cancel_replay)
+        """
+    def create_api_destination(
+        self,
+        *,
+        Name: str,
+        ConnectionArn: str,
+        InvocationEndpoint: str,
+        HttpMethod: ApiDestinationHttpMethodType,
+        Description: str = None,
+        InvocationRateLimitPerSecond: int = None
+    ) -> CreateApiDestinationResponseTypeDef:
+        """
+        Creates an API destination, which is an HTTP invocation endpoint configured as a
+        target for events.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.create_api_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#create_api_destination)
+        """
     def create_archive(
         self,
+        *,
         ArchiveName: str,
         EventSourceArn: str,
         Description: str = None,
         EventPattern: str = None,
-        RetentionDays: int = None,
+        RetentionDays: int = None
     ) -> CreateArchiveResponseTypeDef:
         """
-        [Client.create_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.create_archive)
-        """
+        Creates an archive of events with the specified settings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.create_archive)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#create_archive)
+        """
+    def create_connection(
+        self,
+        *,
+        Name: str,
+        AuthorizationType: ConnectionAuthorizationTypeType,
+        AuthParameters: "CreateConnectionAuthRequestParametersTypeDef",
+        Description: str = None
+    ) -> CreateConnectionResponseTypeDef:
+        """
+        Creates a connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.create_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#create_connection)
+        """
     def create_event_bus(
-        self, Name: str, EventSourceName: str = None, Tags: List["TagTypeDef"] = None
+        self, *, Name: str, EventSourceName: str = None, Tags: List["TagTypeDef"] = None
     ) -> CreateEventBusResponseTypeDef:
         """
-        [Client.create_event_bus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.create_event_bus)
-        """
+        Creates a new event bus within your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.create_event_bus)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#create_event_bus)
+        """
     def create_partner_event_source(
-        self, Name: str, Account: str
+        self, *, Name: str, Account: str
     ) -> CreatePartnerEventSourceResponseTypeDef:
         """
-        [Client.create_partner_event_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.create_partner_event_source)
-        """
+        Called by an SaaS partner to create a partner event source.
 
-    def deactivate_event_source(self, Name: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.create_partner_event_source)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#create_partner_event_source)
         """
-        [Client.deactivate_event_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.deactivate_event_source)
+    def deactivate_event_source(self, *, Name: str) -> None:
         """
+        You can use this operation to temporarily stop receiving events from the
+        specified partner event source.
 
-    def delete_archive(self, ArchiveName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.deactivate_event_source)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#deactivate_event_source)
         """
-        [Client.delete_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.delete_archive)
+    def deauthorize_connection(self, *, Name: str) -> DeauthorizeConnectionResponseTypeDef:
         """
+        Removes all authorization parameters from the connection.
 
-    def delete_event_bus(self, Name: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.deauthorize_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#deauthorize_connection)
         """
-        [Client.delete_event_bus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.delete_event_bus)
+    def delete_api_destination(self, *, Name: str) -> Dict[str, Any]:
         """
+        Deletes the specified API destination.
 
-    def delete_partner_event_source(self, Name: str, Account: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.delete_api_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#delete_api_destination)
         """
-        [Client.delete_partner_event_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.delete_partner_event_source)
+    def delete_archive(self, *, ArchiveName: str) -> Dict[str, Any]:
         """
+        Deletes the specified archive.
 
-    def delete_rule(self, Name: str, EventBusName: str = None, Force: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.delete_archive)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#delete_archive)
         """
-        [Client.delete_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.delete_rule)
+    def delete_connection(self, *, Name: str) -> DeleteConnectionResponseTypeDef:
         """
+        Deletes a connection.
 
-    def describe_archive(self, ArchiveName: str) -> DescribeArchiveResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.delete_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#delete_connection)
         """
-        [Client.describe_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.describe_archive)
+    def delete_event_bus(self, *, Name: str) -> None:
         """
+        Deletes the specified custom event bus or partner event bus.
 
-    def describe_event_bus(self, Name: str = None) -> DescribeEventBusResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.delete_event_bus)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#delete_event_bus)
         """
-        [Client.describe_event_bus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.describe_event_bus)
+    def delete_partner_event_source(self, *, Name: str, Account: str) -> None:
         """
+        This operation is used by SaaS partners to delete a partner event source.
 
-    def describe_event_source(self, Name: str) -> DescribeEventSourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.delete_partner_event_source)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#delete_partner_event_source)
         """
-        [Client.describe_event_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.describe_event_source)
+    def delete_rule(self, *, Name: str, EventBusName: str = None, Force: bool = None) -> None:
         """
+        Deletes the specified rule.
 
-    def describe_partner_event_source(self, Name: str) -> DescribePartnerEventSourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.delete_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#delete_rule)
         """
-        [Client.describe_partner_event_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.describe_partner_event_source)
+    def describe_api_destination(self, *, Name: str) -> DescribeApiDestinationResponseTypeDef:
         """
+        Retrieves details about an API destination.
 
-    def describe_replay(self, ReplayName: str) -> DescribeReplayResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_api_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_api_destination)
         """
-        [Client.describe_replay documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.describe_replay)
+    def describe_archive(self, *, ArchiveName: str) -> DescribeArchiveResponseTypeDef:
         """
+        Retrieves details about an archive.
 
-    def describe_rule(self, Name: str, EventBusName: str = None) -> DescribeRuleResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_archive)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_archive)
         """
-        [Client.describe_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.describe_rule)
+    def describe_connection(self, *, Name: str) -> DescribeConnectionResponseTypeDef:
         """
+        Retrieves details about a connection.
 
-    def disable_rule(self, Name: str, EventBusName: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_connection)
         """
-        [Client.disable_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.disable_rule)
+    def describe_event_bus(self, *, Name: str = None) -> DescribeEventBusResponseTypeDef:
         """
+        Displays details about an event bus in your account.
 
-    def enable_rule(self, Name: str, EventBusName: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_event_bus)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_event_bus)
         """
-        [Client.enable_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.enable_rule)
+    def describe_event_source(self, *, Name: str) -> DescribeEventSourceResponseTypeDef:
         """
+        This operation lists details about a partner event source that is shared with
+        your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_event_source)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_event_source)
+        """
+    def describe_partner_event_source(
+        self, *, Name: str
+    ) -> DescribePartnerEventSourceResponseTypeDef:
+        """
+        An SaaS partner can use this operation to list details about a partner event
+        source that they have created.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_partner_event_source)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_partner_event_source)
+        """
+    def describe_replay(self, *, ReplayName: str) -> DescribeReplayResponseTypeDef:
+        """
+        Retrieves details about a replay.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_replay)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_replay)
+        """
+    def describe_rule(self, *, Name: str, EventBusName: str = None) -> DescribeRuleResponseTypeDef:
+        """
+        Describes the specified rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.describe_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#describe_rule)
+        """
+    def disable_rule(self, *, Name: str, EventBusName: str = None) -> None:
+        """
+        Disables the specified rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.disable_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#disable_rule)
+        """
+    def enable_rule(self, *, Name: str, EventBusName: str = None) -> None:
+        """
+        Enables the specified rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.enable_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#enable_rule)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -212,213 +343,337 @@ class EventBridgeClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#generate_presigned_url)
+        """
+    def list_api_destinations(
+        self,
+        *,
+        NamePrefix: str = None,
+        ConnectionArn: str = None,
+        NextToken: str = None,
+        Limit: int = None
+    ) -> ListApiDestinationsResponseTypeDef:
+        """
+        Retrieves a list of API destination in the account in the current Region.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_api_destinations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_api_destinations)
+        """
     def list_archives(
         self,
+        *,
         NamePrefix: str = None,
         EventSourceArn: str = None,
-        State: Literal[
-            "ENABLED", "DISABLED", "CREATING", "UPDATING", "CREATE_FAILED", "UPDATE_FAILED"
-        ] = None,
+        State: ArchiveStateType = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> ListArchivesResponseTypeDef:
         """
-        [Client.list_archives documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_archives)
-        """
+        Lists your archives.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_archives)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_archives)
+        """
+    def list_connections(
+        self,
+        *,
+        NamePrefix: str = None,
+        ConnectionState: ConnectionStateType = None,
+        NextToken: str = None,
+        Limit: int = None
+    ) -> ListConnectionsResponseTypeDef:
+        """
+        Retrieves a list of connections from the account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_connections)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_connections)
+        """
     def list_event_buses(
-        self, NamePrefix: str = None, NextToken: str = None, Limit: int = None
+        self, *, NamePrefix: str = None, NextToken: str = None, Limit: int = None
     ) -> ListEventBusesResponseTypeDef:
         """
-        [Client.list_event_buses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_event_buses)
-        """
+        Lists all the event buses in your account, including the default event bus,
+        custom event buses, and partner event buses.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_event_buses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_event_buses)
+        """
     def list_event_sources(
-        self, NamePrefix: str = None, NextToken: str = None, Limit: int = None
+        self, *, NamePrefix: str = None, NextToken: str = None, Limit: int = None
     ) -> ListEventSourcesResponseTypeDef:
         """
-        [Client.list_event_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_event_sources)
-        """
+        You can use this to see all the partner event sources that have been shared with
+        your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_event_sources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_event_sources)
+        """
     def list_partner_event_source_accounts(
-        self, EventSourceName: str, NextToken: str = None, Limit: int = None
+        self, *, EventSourceName: str, NextToken: str = None, Limit: int = None
     ) -> ListPartnerEventSourceAccountsResponseTypeDef:
         """
-        [Client.list_partner_event_source_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_partner_event_source_accounts)
-        """
+        An SaaS partner can use this operation to display the AWS account ID that a
+        particular partner event source name is associated with.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_partner_event_source_accounts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_partner_event_source_accounts)
+        """
     def list_partner_event_sources(
-        self, NamePrefix: str, NextToken: str = None, Limit: int = None
+        self, *, NamePrefix: str, NextToken: str = None, Limit: int = None
     ) -> ListPartnerEventSourcesResponseTypeDef:
         """
-        [Client.list_partner_event_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_partner_event_sources)
-        """
+        An SaaS partner can use this operation to list all the partner event source
+        names that they have created.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_partner_event_sources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_partner_event_sources)
+        """
     def list_replays(
         self,
+        *,
         NamePrefix: str = None,
-        State: Literal[
-            "STARTING", "RUNNING", "CANCELLING", "COMPLETED", "CANCELLED", "FAILED"
-        ] = None,
+        State: ReplayStateType = None,
         EventSourceArn: str = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> ListReplaysResponseTypeDef:
         """
-        [Client.list_replays documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_replays)
-        """
+        Lists your replays.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_replays)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_replays)
+        """
     def list_rule_names_by_target(
-        self, TargetArn: str, EventBusName: str = None, NextToken: str = None, Limit: int = None
+        self, *, TargetArn: str, EventBusName: str = None, NextToken: str = None, Limit: int = None
     ) -> ListRuleNamesByTargetResponseTypeDef:
         """
-        [Client.list_rule_names_by_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_rule_names_by_target)
-        """
+        Lists the rules for the specified target.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_rule_names_by_target)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_rule_names_by_target)
+        """
     def list_rules(
         self,
+        *,
         NamePrefix: str = None,
         EventBusName: str = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> ListRulesResponseTypeDef:
         """
-        [Client.list_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_rules)
-        """
+        Lists your Amazon EventBridge rules.
 
-    def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_rules)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Displays the tags associated with an EventBridge resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_tags_for_resource)
+        """
     def list_targets_by_rule(
-        self, Rule: str, EventBusName: str = None, NextToken: str = None, Limit: int = None
+        self, *, Rule: str, EventBusName: str = None, NextToken: str = None, Limit: int = None
     ) -> ListTargetsByRuleResponseTypeDef:
         """
-        [Client.list_targets_by_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.list_targets_by_rule)
-        """
+        Lists the targets assigned to the specified rule.
 
-    def put_events(self, Entries: List[PutEventsRequestEntryTypeDef]) -> PutEventsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.list_targets_by_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#list_targets_by_rule)
         """
-        [Client.put_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.put_events)
+    def put_events(
+        self, *, Entries: List["PutEventsRequestEntryTypeDef"]
+    ) -> PutEventsResponseTypeDef:
         """
+        Sends custom events to Amazon EventBridge so that they can be matched to rules.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.put_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#put_events)
+        """
     def put_partner_events(
-        self, Entries: List[PutPartnerEventsRequestEntryTypeDef]
+        self, *, Entries: List["PutPartnerEventsRequestEntryTypeDef"]
     ) -> PutPartnerEventsResponseTypeDef:
         """
-        [Client.put_partner_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.put_partner_events)
-        """
+        This is used by SaaS partners to write events to a customer's partner event bus.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.put_partner_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#put_partner_events)
+        """
     def put_permission(
         self,
+        *,
         EventBusName: str = None,
         Action: str = None,
         Principal: str = None,
         StatementId: str = None,
-        Condition: ConditionTypeDef = None,
-        Policy: str = None,
+        Condition: "ConditionTypeDef" = None,
+        Policy: str = None
     ) -> None:
         """
-        [Client.put_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.put_permission)
-        """
+        Running `PutPermission` permits the specified AWS account or AWS organization to
+        put events to the specified *event bus*.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.put_permission)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#put_permission)
+        """
     def put_rule(
         self,
+        *,
         Name: str,
         ScheduleExpression: str = None,
         EventPattern: str = None,
-        State: Literal["ENABLED", "DISABLED"] = None,
+        State: RuleStateType = None,
         Description: str = None,
         RoleArn: str = None,
         Tags: List["TagTypeDef"] = None,
-        EventBusName: str = None,
+        EventBusName: str = None
     ) -> PutRuleResponseTypeDef:
         """
-        [Client.put_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.put_rule)
-        """
+        Creates or updates the specified rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.put_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#put_rule)
+        """
     def put_targets(
-        self, Rule: str, Targets: List["TargetTypeDef"], EventBusName: str = None
+        self, *, Rule: str, Targets: List["TargetTypeDef"], EventBusName: str = None
     ) -> PutTargetsResponseTypeDef:
         """
-        [Client.put_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.put_targets)
-        """
+        Adds the specified targets to the specified rule, or updates the targets if they
+        are already associated with the rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.put_targets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#put_targets)
+        """
     def remove_permission(
-        self, StatementId: str = None, RemoveAllPermissions: bool = None, EventBusName: str = None
+        self,
+        *,
+        StatementId: str = None,
+        RemoveAllPermissions: bool = None,
+        EventBusName: str = None
     ) -> None:
         """
-        [Client.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.remove_permission)
-        """
+        Revokes the permission of another AWS account to be able to put events to the
+        specified event bus.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.remove_permission)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#remove_permission)
+        """
     def remove_targets(
-        self, Rule: str, Ids: List[str], EventBusName: str = None, Force: bool = None
+        self, *, Rule: str, Ids: List[str], EventBusName: str = None, Force: bool = None
     ) -> RemoveTargetsResponseTypeDef:
         """
-        [Client.remove_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.remove_targets)
-        """
+        Removes the specified targets from the specified rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.remove_targets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#remove_targets)
+        """
     def start_replay(
         self,
+        *,
         ReplayName: str,
         EventSourceArn: str,
-        EventStartTime: datetime,
-        EventEndTime: datetime,
+        EventStartTime: Union[datetime, str],
+        EventEndTime: Union[datetime, str],
         Destination: "ReplayDestinationTypeDef",
-        Description: str = None,
+        Description: str = None
     ) -> StartReplayResponseTypeDef:
         """
-        [Client.start_replay documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.start_replay)
-        """
+        Starts the specified replay.
 
-    def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.start_replay)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#start_replay)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.tag_resource)
+    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Assigns one or more tags (key-value pairs) to the specified EventBridge
+        resource.
 
-    def test_event_pattern(self, EventPattern: str, Event: str) -> TestEventPatternResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#tag_resource)
         """
-        [Client.test_event_pattern documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.test_event_pattern)
+    def test_event_pattern(
+        self, *, EventPattern: str, Event: str
+    ) -> TestEventPatternResponseTypeDef:
         """
+        Tests whether the specified event pattern matches the provided event.
 
-    def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.test_event_pattern)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#test_event_pattern)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.untag_resource)
+    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes one or more tags from the specified EventBridge resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#untag_resource)
+        """
+    def update_api_destination(
+        self,
+        *,
+        Name: str,
+        Description: str = None,
+        ConnectionArn: str = None,
+        InvocationEndpoint: str = None,
+        HttpMethod: ApiDestinationHttpMethodType = None,
+        InvocationRateLimitPerSecond: int = None
+    ) -> UpdateApiDestinationResponseTypeDef:
+        """
+        Updates an API destination.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.update_api_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#update_api_destination)
+        """
     def update_archive(
         self,
+        *,
         ArchiveName: str,
         Description: str = None,
         EventPattern: str = None,
-        RetentionDays: int = None,
+        RetentionDays: int = None
     ) -> UpdateArchiveResponseTypeDef:
         """
-        [Client.update_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Client.update_archive)
-        """
+        Updates the specified archive.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.update_archive)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#update_archive)
+        """
+    def update_connection(
+        self,
+        *,
+        Name: str,
+        Description: str = None,
+        AuthorizationType: ConnectionAuthorizationTypeType = None,
+        AuthParameters: "UpdateConnectionAuthRequestParametersTypeDef" = None
+    ) -> UpdateConnectionResponseTypeDef:
+        """
+        Updates settings for a connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Client.update_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/client.html#update_connection)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_rule_names_by_target"]
     ) -> ListRuleNamesByTargetPaginator:
         """
-        [Paginator.ListRuleNamesByTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulenamesbytargetpaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_rules"]) -> ListRulesPaginator:
         """
-        [Paginator.ListRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Paginator.ListRules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_targets_by_rule"]
     ) -> ListTargetsByRulePaginator:
         """
-        [Paginator.ListTargetsByRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listtargetsbyrulepaginator)
         """

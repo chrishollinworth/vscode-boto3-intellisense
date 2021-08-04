@@ -27,8 +27,8 @@ Usage::
     list_pipelines_paginator: ListPipelinesPaginator = client.get_paginator("list_pipelines")
     ```
 """
-from mypy_boto3_iotanalytics.client import IoTAnalyticsClient
-from mypy_boto3_iotanalytics.paginator import (
+from .client import IoTAnalyticsClient
+from .paginator import (
     ListChannelsPaginator,
     ListDatasetContentsPaginator,
     ListDatasetsPaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_iotanalytics.paginator import (
 )
 
 Client = IoTAnalyticsClient
-
 
 __all__ = (
     "Client",

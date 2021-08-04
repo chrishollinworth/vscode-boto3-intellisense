@@ -29,8 +29,8 @@ Usage::
     list_configurations_paginator: ListConfigurationsPaginator = client.get_paginator("list_configurations")
     ```
 """
-from mypy_boto3_discovery.client import ApplicationDiscoveryServiceClient
-from mypy_boto3_discovery.paginator import (
+from .client import ApplicationDiscoveryServiceClient
+from .paginator import (
     DescribeAgentsPaginator,
     DescribeContinuousExportsPaginator,
     DescribeExportConfigurationsPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_discovery.paginator import (
 )
 
 Client = ApplicationDiscoveryServiceClient
-
 
 __all__ = (
     "ApplicationDiscoveryServiceClient",

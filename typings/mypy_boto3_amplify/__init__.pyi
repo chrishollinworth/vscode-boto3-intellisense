@@ -25,8 +25,8 @@ Usage::
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     ```
 """
-from mypy_boto3_amplify.client import AmplifyClient
-from mypy_boto3_amplify.paginator import (
+from .client import AmplifyClient
+from .paginator import (
     ListAppsPaginator,
     ListBranchesPaginator,
     ListDomainAssociationsPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_amplify.paginator import (
 )
 
 Client = AmplifyClient
-
 
 __all__ = (
     "AmplifyClient",

@@ -16,9 +16,8 @@ Usage::
     session_client: IdentityStoreClient = session.client("identitystore")
     ```
 """
-from mypy_boto3_identitystore.client import IdentityStoreClient
+from .client import IdentityStoreClient
 
 Client = IdentityStoreClient
-
 
 __all__ = ("Client", "IdentityStoreClient")

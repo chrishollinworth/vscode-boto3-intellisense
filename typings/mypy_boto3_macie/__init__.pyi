@@ -21,10 +21,9 @@ Usage::
     list_s3_resources_paginator: ListS3ResourcesPaginator = client.get_paginator("list_s3_resources")
     ```
 """
-from mypy_boto3_macie.client import MacieClient
-from mypy_boto3_macie.paginator import ListMemberAccountsPaginator, ListS3ResourcesPaginator
+from .client import MacieClient
+from .paginator import ListMemberAccountsPaginator, ListS3ResourcesPaginator
 
 Client = MacieClient
-
 
 __all__ = ("Client", "ListMemberAccountsPaginator", "ListS3ResourcesPaginator", "MacieClient")

@@ -1,5 +1,7 @@
 """
-Main interface for autoscaling service client paginators.
+Type annotations for autoscaling service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html)
 
 Usage::
 
@@ -35,11 +37,11 @@ Usage::
     ```
 """
 from datetime import datetime
-from typing import Iterator, List
+from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_autoscaling.type_defs import (
+from .type_defs import (
     ActivitiesTypeTypeDef,
     AutoScalingGroupsTypeTypeDef,
     AutoScalingInstancesTypeTypeDef,
@@ -67,150 +69,170 @@ __all__ = (
     "DescribeTagsPaginator",
 )
 
-
 class DescribeAutoScalingGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAutoScalingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeautoscalinggroupspaginator)
     """
 
     def paginate(
         self,
+        *,
         AutoScalingGroupNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[AutoScalingGroupsTypeTypeDef]:
         """
-        [DescribeAutoScalingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeautoscalinggroupspaginator)
         """
-
 
 class DescribeAutoScalingInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAutoScalingInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeautoscalinginstancespaginator)
     """
 
     def paginate(
-        self, InstanceIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, InstanceIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[AutoScalingInstancesTypeTypeDef]:
         """
-        [DescribeAutoScalingInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeautoscalinginstancespaginator)
         """
-
 
 class DescribeLaunchConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLaunchConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describelaunchconfigurationspaginator)
     """
 
     def paginate(
         self,
+        *,
         LaunchConfigurationNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[LaunchConfigurationsTypeTypeDef]:
         """
-        [DescribeLaunchConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describelaunchconfigurationspaginator)
         """
-
 
 class DescribeLoadBalancerTargetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLoadBalancerTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeloadbalancertargetgroupspaginator)
     """
 
     def paginate(
-        self, AutoScalingGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AutoScalingGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLoadBalancerTargetGroupsResponseTypeDef]:
         """
-        [DescribeLoadBalancerTargetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeloadbalancertargetgroupspaginator)
         """
-
 
 class DescribeLoadBalancersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeloadbalancerspaginator)
     """
 
     def paginate(
-        self, AutoScalingGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AutoScalingGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLoadBalancersResponseTypeDef]:
         """
-        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describeloadbalancerspaginator)
         """
-
 
 class DescribeNotificationConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNotificationConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describenotificationconfigurationspaginator)
     """
 
     def paginate(
         self,
+        *,
         AutoScalingGroupNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNotificationConfigurationsAnswerTypeDef]:
         """
-        [DescribeNotificationConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describenotificationconfigurationspaginator)
         """
-
 
 class DescribePoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describepoliciespaginator)
     """
 
     def paginate(
         self,
+        *,
         AutoScalingGroupName: str = None,
         PolicyNames: List[str] = None,
         PolicyTypes: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[PoliciesTypeTypeDef]:
         """
-        [DescribePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describepoliciespaginator)
         """
-
 
 class DescribeScalingActivitiesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalingActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describescalingactivitiespaginator)
     """
 
     def paginate(
         self,
+        *,
         ActivityIds: List[str] = None,
         AutoScalingGroupName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        IncludeDeletedGroups: bool = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ActivitiesTypeTypeDef]:
         """
-        [DescribeScalingActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describescalingactivitiespaginator)
         """
-
 
 class DescribeScheduledActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describescheduledactionspaginator)
     """
 
     def paginate(
         self,
+        *,
         AutoScalingGroupName: str = None,
         ScheduledActionNames: List[str] = None,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ScheduledActionsTypeTypeDef]:
         """
-        [DescribeScheduledActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describescheduledactionspaginator)
         """
-
 
 class DescribeTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describetagspaginator)
     """
 
     def paginate(
-        self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[TagsTypeTypeDef]:
         """
-        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/paginators.html#describetagspaginator)
         """

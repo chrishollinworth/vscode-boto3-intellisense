@@ -16,9 +16,8 @@ Usage::
     session_client: DynamoDBStreamsClient = session.client("dynamodbstreams")
     ```
 """
-from mypy_boto3_dynamodbstreams.client import DynamoDBStreamsClient
+from .client import DynamoDBStreamsClient
 
 Client = DynamoDBStreamsClient
-
 
 __all__ = ("Client", "DynamoDBStreamsClient")

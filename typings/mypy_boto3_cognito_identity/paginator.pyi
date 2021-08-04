@@ -1,5 +1,7 @@
 """
-Main interface for cognito-identity service client paginators.
+Type annotations for cognito-identity service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators.html)
 
 Usage::
 
@@ -20,22 +22,20 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_cognito_identity.type_defs import (
-    ListIdentityPoolsResponseTypeDef,
-    PaginatorConfigTypeDef,
-)
+from .type_defs import ListIdentityPoolsResponseTypeDef, PaginatorConfigTypeDef
 
 __all__ = ("ListIdentityPoolsPaginator",)
 
-
 class ListIdentityPoolsPaginator(Boto3Paginator):
     """
-    [Paginator.ListIdentityPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators.html#listidentitypoolspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIdentityPoolsResponseTypeDef]:
         """
-        [ListIdentityPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators.html#listidentitypoolspaginator)
         """

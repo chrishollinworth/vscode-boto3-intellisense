@@ -1,5 +1,7 @@
 """
-Main interface for lookoutvision service client paginators.
+Type annotations for lookoutvision service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html)
 
 Usage::
 
@@ -21,11 +23,11 @@ Usage::
     ```
 """
 from datetime import datetime
-from typing import Iterator
+from typing import Iterator, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_lookoutvision.type_defs import (
+from .type_defs import (
     ListDatasetEntriesResponseTypeDef,
     ListModelsResponseTypeDef,
     ListProjectsResponseTypeDef,
@@ -34,49 +36,53 @@ from mypy_boto3_lookoutvision.type_defs import (
 
 __all__ = ("ListDatasetEntriesPaginator", "ListModelsPaginator", "ListProjectsPaginator")
 
-
 class ListDatasetEntriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasetEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listdatasetentriespaginator)
     """
 
     def paginate(
         self,
+        *,
         ProjectName: str,
         DatasetType: str,
         Labeled: bool = None,
         AnomalyClass: str = None,
-        BeforeCreationDate: datetime = None,
-        AfterCreationDate: datetime = None,
+        BeforeCreationDate: Union[datetime, str] = None,
+        AfterCreationDate: Union[datetime, str] = None,
         SourceRefContains: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetEntriesResponseTypeDef]:
         """
-        [ListDatasetEntries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listdatasetentriespaginator)
         """
-
 
 class ListModelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listmodelspaginator)
     """
 
     def paginate(
-        self, ProjectName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ProjectName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelsResponseTypeDef]:
         """
-        [ListModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listmodelspaginator)
         """
-
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listprojectspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResponseTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/paginators.html#listprojectspaginator)
         """

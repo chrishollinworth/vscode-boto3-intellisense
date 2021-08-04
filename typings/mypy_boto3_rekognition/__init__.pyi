@@ -32,21 +32,17 @@ Usage::
     list_stream_processors_paginator: ListStreamProcessorsPaginator = client.get_paginator("list_stream_processors")
     ```
 """
-from mypy_boto3_rekognition.client import RekognitionClient
-from mypy_boto3_rekognition.paginator import (
+from .client import RekognitionClient
+from .paginator import (
     DescribeProjectsPaginator,
     DescribeProjectVersionsPaginator,
     ListCollectionsPaginator,
     ListFacesPaginator,
     ListStreamProcessorsPaginator,
 )
-from mypy_boto3_rekognition.waiter import (
-    ProjectVersionRunningWaiter,
-    ProjectVersionTrainingCompletedWaiter,
-)
+from .waiter import ProjectVersionRunningWaiter, ProjectVersionTrainingCompletedWaiter
 
 Client = RekognitionClient
-
 
 __all__ = (
     "Client",

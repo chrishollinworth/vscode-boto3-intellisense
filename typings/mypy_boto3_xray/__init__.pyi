@@ -33,8 +33,8 @@ Usage::
     get_trace_summaries_paginator: GetTraceSummariesPaginator = client.get_paginator("get_trace_summaries")
     ```
 """
-from mypy_boto3_xray.client import XRayClient
-from mypy_boto3_xray.paginator import (
+from .client import XRayClient
+from .paginator import (
     BatchGetTracesPaginator,
     GetGroupsPaginator,
     GetSamplingRulesPaginator,
@@ -46,7 +46,6 @@ from mypy_boto3_xray.paginator import (
 )
 
 Client = XRayClient
-
 
 __all__ = (
     "BatchGetTracesPaginator",

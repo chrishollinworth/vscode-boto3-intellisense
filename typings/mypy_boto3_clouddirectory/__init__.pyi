@@ -55,8 +55,8 @@ Usage::
     lookup_policy_paginator: LookupPolicyPaginator = client.get_paginator("lookup_policy")
     ```
 """
-from mypy_boto3_clouddirectory.client import CloudDirectoryClient
-from mypy_boto3_clouddirectory.paginator import (
+from .client import CloudDirectoryClient
+from .paginator import (
     ListAppliedSchemaArnsPaginator,
     ListAttachedIndicesPaginator,
     ListDevelopmentSchemaArnsPaginator,
@@ -79,7 +79,6 @@ from mypy_boto3_clouddirectory.paginator import (
 )
 
 Client = CloudDirectoryClient
-
 
 __all__ = (
     "Client",

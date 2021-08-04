@@ -25,8 +25,8 @@ Usage::
     get_tag_values_paginator: GetTagValuesPaginator = client.get_paginator("get_tag_values")
     ```
 """
-from mypy_boto3_resourcegroupstaggingapi.client import ResourceGroupsTaggingAPIClient
-from mypy_boto3_resourcegroupstaggingapi.paginator import (
+from .client import ResourceGroupsTaggingAPIClient
+from .paginator import (
     GetComplianceSummaryPaginator,
     GetResourcesPaginator,
     GetTagKeysPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_resourcegroupstaggingapi.paginator import (
 )
 
 Client = ResourceGroupsTaggingAPIClient
-
 
 __all__ = (
     "Client",

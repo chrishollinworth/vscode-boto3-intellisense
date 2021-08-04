@@ -35,8 +35,8 @@ Usage::
     list_workers_with_qualification_type_paginator: ListWorkersWithQualificationTypePaginator = client.get_paginator("list_workers_with_qualification_type")
     ```
 """
-from mypy_boto3_mturk.client import MTurkClient
-from mypy_boto3_mturk.paginator import (
+from .client import MTurkClient
+from .paginator import (
     ListAssignmentsForHITPaginator,
     ListBonusPaymentsPaginator,
     ListHITsForQualificationTypePaginator,
@@ -49,7 +49,6 @@ from mypy_boto3_mturk.paginator import (
 )
 
 Client = MTurkClient
-
 
 __all__ = (
     "Client",

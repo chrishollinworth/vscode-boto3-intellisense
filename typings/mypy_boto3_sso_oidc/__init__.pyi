@@ -16,9 +16,8 @@ Usage::
     session_client: SSOOIDCClient = session.client("sso-oidc")
     ```
 """
-from mypy_boto3_sso_oidc.client import SSOOIDCClient
+from .client import SSOOIDCClient
 
 Client = SSOOIDCClient
-
 
 __all__ = ("Client", "SSOOIDCClient")

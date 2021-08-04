@@ -1,5 +1,7 @@
 """
-Main interface for marketplace-entitlement service client
+Type annotations for marketplace-entitlement service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html)
 
 Usage::
 
@@ -13,27 +15,24 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_marketplace_entitlement.paginator import GetEntitlementsPaginator
-from mypy_boto3_marketplace_entitlement.type_defs import GetEntitlementsResultTypeDef
+from .literals import GetEntitlementFilterNameType
+from .paginator import GetEntitlementsPaginator
+from .type_defs import GetEntitlementsResultTypeDef
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("MarketplaceEntitlementServiceClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -41,20 +40,25 @@ class Exceptions:
     InvalidParameterException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
 
-
-class MarketplaceEntitlementServiceClient:
+class MarketplaceEntitlementServiceClient(BaseClient):
     """
-    [MarketplaceEntitlementService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        MarketplaceEntitlementServiceClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html#can_paginate)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -63,23 +67,29 @@ class MarketplaceEntitlementServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html#generate_presigned_url)
+        """
     def get_entitlements(
         self,
+        *,
         ProductCode: str,
-        Filter: Dict[Literal["CUSTOMER_IDENTIFIER", "DIMENSION"], List[str]] = None,
+        Filter: Dict[GetEntitlementFilterNameType, List[str]] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> GetEntitlementsResultTypeDef:
         """
-        [Client.get_entitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.get_entitlements)
-        """
+        GetEntitlements retrieves entitlement values for a given product.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.get_entitlements)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/client.html#get_entitlements)
+        """
     def get_paginator(
         self, operation_name: Literal["get_entitlements"]
     ) -> GetEntitlementsPaginator:
         """
-        [Paginator.GetEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators.html#getentitlementspaginator)
         """

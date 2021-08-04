@@ -1,5 +1,7 @@
 """
-Main interface for lex-runtime service client
+Type annotations for lex-runtime service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html)
 
 Usage::
 
@@ -12,9 +14,10 @@ Usage::
 """
 from typing import IO, Any, Dict, List, Type, Union
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_lex_runtime.type_defs import (
+from .type_defs import (
     ActiveContextTypeDef,
     DeleteSessionResponseTypeDef,
     DialogActionTypeDef,
@@ -27,14 +30,11 @@ from mypy_boto3_lex_runtime.type_defs import (
 
 __all__ = ("LexRuntimeServiceClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     BadGatewayException: Type[BotocoreClientError]
@@ -50,27 +50,34 @@ class Exceptions:
     RequestTimeoutException: Type[BotocoreClientError]
     UnsupportedMediaTypeException: Type[BotocoreClientError]
 
-
-class LexRuntimeServiceClient:
+class LexRuntimeServiceClient(BaseClient):
     """
-    [LexRuntimeService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        LexRuntimeServiceClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html#can_paginate)
+        """
     def delete_session(
-        self, botName: str, botAlias: str, userId: str
+        self, *, botName: str, botAlias: str, userId: str
     ) -> DeleteSessionResponseTypeDef:
         """
-        [Client.delete_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.delete_session)
-        """
+        Removes session information for a specified bot, alias, and user ID.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client.delete_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html#delete_session)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -79,48 +86,59 @@ class LexRuntimeServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html#generate_presigned_url)
+        """
     def get_session(
-        self, botName: str, botAlias: str, userId: str, checkpointLabelFilter: str = None
+        self, *, botName: str, botAlias: str, userId: str, checkpointLabelFilter: str = None
     ) -> GetSessionResponseTypeDef:
         """
-        [Client.get_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.get_session)
-        """
+        Returns session information for a specified bot, alias, and user ID.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client.get_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html#get_session)
+        """
     def post_content(
         self,
+        *,
         botName: str,
         botAlias: str,
         userId: str,
         contentType: str,
-        inputStream: Union[bytes, IO[bytes]],
+        inputStream: Union[bytes, IO[bytes], StreamingBody],
         sessionAttributes: str = None,
         requestAttributes: str = None,
         accept: str = None,
-        activeContexts: str = None,
+        activeContexts: str = None
     ) -> PostContentResponseTypeDef:
         """
-        [Client.post_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.post_content)
-        """
+        Sends user input (text or speech) to Amazon Lex.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client.post_content)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html#post_content)
+        """
     def post_text(
         self,
+        *,
         botName: str,
         botAlias: str,
         userId: str,
         inputText: str,
         sessionAttributes: Dict[str, str] = None,
         requestAttributes: Dict[str, str] = None,
-        activeContexts: List["ActiveContextTypeDef"] = None,
+        activeContexts: List["ActiveContextTypeDef"] = None
     ) -> PostTextResponseTypeDef:
         """
-        [Client.post_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.post_text)
-        """
+        Sends user input to Amazon Lex.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client.post_text)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html#post_text)
+        """
     def put_session(
         self,
+        *,
         botName: str,
         botAlias: str,
         userId: str,
@@ -128,8 +146,11 @@ class LexRuntimeServiceClient:
         dialogAction: "DialogActionTypeDef" = None,
         recentIntentSummaryView: List["IntentSummaryTypeDef"] = None,
         accept: str = None,
-        activeContexts: List["ActiveContextTypeDef"] = None,
+        activeContexts: List["ActiveContextTypeDef"] = None
     ) -> PutSessionResponseTypeDef:
         """
-        [Client.put_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.put_session)
+        Creates a new session or modifies an existing session with an Amazon Lex bot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lex-runtime.html#LexRuntimeService.Client.put_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/client.html#put_session)
         """

@@ -19,10 +19,9 @@ Usage::
     list_containers_paginator: ListContainersPaginator = client.get_paginator("list_containers")
     ```
 """
-from mypy_boto3_mediastore.client import MediaStoreClient
-from mypy_boto3_mediastore.paginator import ListContainersPaginator
+from .client import MediaStoreClient
+from .paginator import ListContainersPaginator
 
 Client = MediaStoreClient
-
 
 __all__ = ("Client", "ListContainersPaginator", "MediaStoreClient")

@@ -1,5 +1,7 @@
 """
-Main interface for forecast service type definitions.
+Type annotations for forecast service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/type_defs.html)
 
 Usage::
 
@@ -11,7 +13,16 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
+
+from .literals import (
+    AttributeTypeType,
+    DatasetTypeType,
+    DomainType,
+    EvaluationTypeType,
+    FilterConditionStringType,
+    ScalingTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,15 +33,50 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "CategoricalParameterRangeTypeDef",
     "ContinuousParameterRangeTypeDef",
+    "CreateDatasetGroupRequestRequestTypeDef",
+    "CreateDatasetGroupResponseTypeDef",
+    "CreateDatasetImportJobRequestRequestTypeDef",
+    "CreateDatasetImportJobResponseTypeDef",
+    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetResponseTypeDef",
+    "CreateForecastExportJobRequestRequestTypeDef",
+    "CreateForecastExportJobResponseTypeDef",
+    "CreateForecastRequestRequestTypeDef",
+    "CreateForecastResponseTypeDef",
+    "CreatePredictorBacktestExportJobRequestRequestTypeDef",
+    "CreatePredictorBacktestExportJobResponseTypeDef",
+    "CreatePredictorRequestRequestTypeDef",
+    "CreatePredictorResponseTypeDef",
     "DataDestinationTypeDef",
     "DataSourceTypeDef",
     "DatasetGroupSummaryTypeDef",
     "DatasetImportJobSummaryTypeDef",
     "DatasetSummaryTypeDef",
+    "DeleteDatasetGroupRequestRequestTypeDef",
+    "DeleteDatasetImportJobRequestRequestTypeDef",
+    "DeleteDatasetRequestRequestTypeDef",
+    "DeleteForecastExportJobRequestRequestTypeDef",
+    "DeleteForecastRequestRequestTypeDef",
+    "DeletePredictorBacktestExportJobRequestRequestTypeDef",
+    "DeletePredictorRequestRequestTypeDef",
+    "DeleteResourceTreeRequestRequestTypeDef",
+    "DescribeDatasetGroupRequestRequestTypeDef",
+    "DescribeDatasetGroupResponseTypeDef",
+    "DescribeDatasetImportJobRequestRequestTypeDef",
+    "DescribeDatasetImportJobResponseTypeDef",
+    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetResponseTypeDef",
+    "DescribeForecastExportJobRequestRequestTypeDef",
+    "DescribeForecastExportJobResponseTypeDef",
+    "DescribeForecastRequestRequestTypeDef",
+    "DescribeForecastResponseTypeDef",
+    "DescribePredictorBacktestExportJobRequestRequestTypeDef",
+    "DescribePredictorBacktestExportJobResponseTypeDef",
+    "DescribePredictorRequestRequestTypeDef",
+    "DescribePredictorResponseTypeDef",
     "EncryptionConfigTypeDef",
     "ErrorMetricTypeDef",
     "EvaluationParametersTypeDef",
@@ -38,76 +84,319 @@ __all__ = (
     "FeaturizationConfigTypeDef",
     "FeaturizationMethodTypeDef",
     "FeaturizationTypeDef",
+    "FilterTypeDef",
     "ForecastExportJobSummaryTypeDef",
     "ForecastSummaryTypeDef",
+    "GetAccuracyMetricsRequestRequestTypeDef",
+    "GetAccuracyMetricsResponseTypeDef",
     "HyperParameterTuningJobConfigTypeDef",
     "InputDataConfigTypeDef",
     "IntegerParameterRangeTypeDef",
+    "ListDatasetGroupsRequestRequestTypeDef",
+    "ListDatasetGroupsResponseTypeDef",
+    "ListDatasetImportJobsRequestRequestTypeDef",
+    "ListDatasetImportJobsResponseTypeDef",
+    "ListDatasetsRequestRequestTypeDef",
+    "ListDatasetsResponseTypeDef",
+    "ListForecastExportJobsRequestRequestTypeDef",
+    "ListForecastExportJobsResponseTypeDef",
+    "ListForecastsRequestRequestTypeDef",
+    "ListForecastsResponseTypeDef",
+    "ListPredictorBacktestExportJobsRequestRequestTypeDef",
+    "ListPredictorBacktestExportJobsResponseTypeDef",
+    "ListPredictorsRequestRequestTypeDef",
+    "ListPredictorsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MetricsTypeDef",
+    "PaginatorConfigTypeDef",
     "ParameterRangesTypeDef",
     "PredictorBacktestExportJobSummaryTypeDef",
     "PredictorExecutionDetailsTypeDef",
     "PredictorExecutionTypeDef",
     "PredictorSummaryTypeDef",
+    "ResponseMetadataTypeDef",
     "S3ConfigTypeDef",
     "SchemaAttributeTypeDef",
     "SchemaTypeDef",
     "StatisticsTypeDef",
+    "StopResourceRequestRequestTypeDef",
     "SupplementaryFeatureTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TestWindowSummaryTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateDatasetGroupRequestRequestTypeDef",
     "WeightedQuantileLossTypeDef",
     "WindowSummaryTypeDef",
-    "CreateDatasetGroupResponseTypeDef",
-    "CreateDatasetImportJobResponseTypeDef",
-    "CreateDatasetResponseTypeDef",
-    "CreateForecastExportJobResponseTypeDef",
-    "CreateForecastResponseTypeDef",
-    "CreatePredictorBacktestExportJobResponseTypeDef",
-    "CreatePredictorResponseTypeDef",
-    "DescribeDatasetGroupResponseTypeDef",
-    "DescribeDatasetImportJobResponseTypeDef",
-    "DescribeDatasetResponseTypeDef",
-    "DescribeForecastExportJobResponseTypeDef",
-    "DescribeForecastResponseTypeDef",
-    "DescribePredictorBacktestExportJobResponseTypeDef",
-    "DescribePredictorResponseTypeDef",
-    "FilterTypeDef",
-    "GetAccuracyMetricsResponseTypeDef",
-    "ListDatasetGroupsResponseTypeDef",
-    "ListDatasetImportJobsResponseTypeDef",
-    "ListDatasetsResponseTypeDef",
-    "ListForecastExportJobsResponseTypeDef",
-    "ListForecastsResponseTypeDef",
-    "ListPredictorBacktestExportJobsResponseTypeDef",
-    "ListPredictorsResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "PaginatorConfigTypeDef",
 )
 
 CategoricalParameterRangeTypeDef = TypedDict(
-    "CategoricalParameterRangeTypeDef", {"Name": str, "Values": List[str]}
+    "CategoricalParameterRangeTypeDef",
+    {
+        "Name": str,
+        "Values": List[str],
+    },
 )
 
 _RequiredContinuousParameterRangeTypeDef = TypedDict(
-    "_RequiredContinuousParameterRangeTypeDef", {"Name": str, "MaxValue": float, "MinValue": float}
+    "_RequiredContinuousParameterRangeTypeDef",
+    {
+        "Name": str,
+        "MaxValue": float,
+        "MinValue": float,
+    },
 )
 _OptionalContinuousParameterRangeTypeDef = TypedDict(
     "_OptionalContinuousParameterRangeTypeDef",
-    {"ScalingType": Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]},
+    {
+        "ScalingType": ScalingTypeType,
+    },
     total=False,
 )
-
 
 class ContinuousParameterRangeTypeDef(
     _RequiredContinuousParameterRangeTypeDef, _OptionalContinuousParameterRangeTypeDef
 ):
     pass
 
+_RequiredCreateDatasetGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDatasetGroupRequestRequestTypeDef",
+    {
+        "DatasetGroupName": str,
+        "Domain": DomainType,
+    },
+)
+_OptionalCreateDatasetGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDatasetGroupRequestRequestTypeDef",
+    {
+        "DatasetArns": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
 
-DataDestinationTypeDef = TypedDict("DataDestinationTypeDef", {"S3Config": "S3ConfigTypeDef"})
+class CreateDatasetGroupRequestRequestTypeDef(
+    _RequiredCreateDatasetGroupRequestRequestTypeDef,
+    _OptionalCreateDatasetGroupRequestRequestTypeDef,
+):
+    pass
 
-DataSourceTypeDef = TypedDict("DataSourceTypeDef", {"S3Config": "S3ConfigTypeDef"})
+CreateDatasetGroupResponseTypeDef = TypedDict(
+    "CreateDatasetGroupResponseTypeDef",
+    {
+        "DatasetGroupArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDatasetImportJobRequestRequestTypeDef",
+    {
+        "DatasetImportJobName": str,
+        "DatasetArn": str,
+        "DataSource": "DataSourceTypeDef",
+    },
+)
+_OptionalCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDatasetImportJobRequestRequestTypeDef",
+    {
+        "TimestampFormat": str,
+        "TimeZone": str,
+        "UseGeolocationForTimeZone": bool,
+        "GeolocationFormat": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDatasetImportJobRequestRequestTypeDef(
+    _RequiredCreateDatasetImportJobRequestRequestTypeDef,
+    _OptionalCreateDatasetImportJobRequestRequestTypeDef,
+):
+    pass
+
+CreateDatasetImportJobResponseTypeDef = TypedDict(
+    "CreateDatasetImportJobResponseTypeDef",
+    {
+        "DatasetImportJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDatasetRequestRequestTypeDef",
+    {
+        "DatasetName": str,
+        "Domain": DomainType,
+        "DatasetType": DatasetTypeType,
+        "Schema": "SchemaTypeDef",
+    },
+)
+_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDatasetRequestRequestTypeDef",
+    {
+        "DataFrequency": str,
+        "EncryptionConfig": "EncryptionConfigTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDatasetRequestRequestTypeDef(
+    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
+):
+    pass
+
+CreateDatasetResponseTypeDef = TypedDict(
+    "CreateDatasetResponseTypeDef",
+    {
+        "DatasetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateForecastExportJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateForecastExportJobRequestRequestTypeDef",
+    {
+        "ForecastExportJobName": str,
+        "ForecastArn": str,
+        "Destination": "DataDestinationTypeDef",
+    },
+)
+_OptionalCreateForecastExportJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateForecastExportJobRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateForecastExportJobRequestRequestTypeDef(
+    _RequiredCreateForecastExportJobRequestRequestTypeDef,
+    _OptionalCreateForecastExportJobRequestRequestTypeDef,
+):
+    pass
+
+CreateForecastExportJobResponseTypeDef = TypedDict(
+    "CreateForecastExportJobResponseTypeDef",
+    {
+        "ForecastExportJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateForecastRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateForecastRequestRequestTypeDef",
+    {
+        "ForecastName": str,
+        "PredictorArn": str,
+    },
+)
+_OptionalCreateForecastRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateForecastRequestRequestTypeDef",
+    {
+        "ForecastTypes": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateForecastRequestRequestTypeDef(
+    _RequiredCreateForecastRequestRequestTypeDef, _OptionalCreateForecastRequestRequestTypeDef
+):
+    pass
+
+CreateForecastResponseTypeDef = TypedDict(
+    "CreateForecastResponseTypeDef",
+    {
+        "ForecastArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePredictorBacktestExportJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePredictorBacktestExportJobRequestRequestTypeDef",
+    {
+        "PredictorBacktestExportJobName": str,
+        "PredictorArn": str,
+        "Destination": "DataDestinationTypeDef",
+    },
+)
+_OptionalCreatePredictorBacktestExportJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePredictorBacktestExportJobRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreatePredictorBacktestExportJobRequestRequestTypeDef(
+    _RequiredCreatePredictorBacktestExportJobRequestRequestTypeDef,
+    _OptionalCreatePredictorBacktestExportJobRequestRequestTypeDef,
+):
+    pass
+
+CreatePredictorBacktestExportJobResponseTypeDef = TypedDict(
+    "CreatePredictorBacktestExportJobResponseTypeDef",
+    {
+        "PredictorBacktestExportJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePredictorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePredictorRequestRequestTypeDef",
+    {
+        "PredictorName": str,
+        "ForecastHorizon": int,
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "FeaturizationConfig": "FeaturizationConfigTypeDef",
+    },
+)
+_OptionalCreatePredictorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePredictorRequestRequestTypeDef",
+    {
+        "AlgorithmArn": str,
+        "ForecastTypes": List[str],
+        "PerformAutoML": bool,
+        "AutoMLOverrideStrategy": Literal["LatencyOptimized"],
+        "PerformHPO": bool,
+        "TrainingParameters": Dict[str, str],
+        "EvaluationParameters": "EvaluationParametersTypeDef",
+        "HPOConfig": "HyperParameterTuningJobConfigTypeDef",
+        "EncryptionConfig": "EncryptionConfigTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreatePredictorRequestRequestTypeDef(
+    _RequiredCreatePredictorRequestRequestTypeDef, _OptionalCreatePredictorRequestRequestTypeDef
+):
+    pass
+
+CreatePredictorResponseTypeDef = TypedDict(
+    "CreatePredictorResponseTypeDef",
+    {
+        "PredictorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DataDestinationTypeDef = TypedDict(
+    "DataDestinationTypeDef",
+    {
+        "S3Config": "S3ConfigTypeDef",
+    },
+)
+
+DataSourceTypeDef = TypedDict(
+    "DataSourceTypeDef",
+    {
+        "S3Config": "S3ConfigTypeDef",
+    },
+)
 
 DatasetGroupSummaryTypeDef = TypedDict(
     "DatasetGroupSummaryTypeDef",
@@ -139,83 +428,348 @@ DatasetSummaryTypeDef = TypedDict(
     {
         "DatasetArn": str,
         "DatasetName": str,
-        "DatasetType": Literal["TARGET_TIME_SERIES", "RELATED_TIME_SERIES", "ITEM_METADATA"],
-        "Domain": Literal[
-            "RETAIL",
-            "CUSTOM",
-            "INVENTORY_PLANNING",
-            "EC2_CAPACITY",
-            "WORK_FORCE",
-            "WEB_TRAFFIC",
-            "METRICS",
-        ],
+        "DatasetType": DatasetTypeType,
+        "Domain": DomainType,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
     },
     total=False,
 )
 
-EncryptionConfigTypeDef = TypedDict("EncryptionConfigTypeDef", {"RoleArn": str, "KMSKeyArn": str})
+DeleteDatasetGroupRequestRequestTypeDef = TypedDict(
+    "DeleteDatasetGroupRequestRequestTypeDef",
+    {
+        "DatasetGroupArn": str,
+    },
+)
+
+DeleteDatasetImportJobRequestRequestTypeDef = TypedDict(
+    "DeleteDatasetImportJobRequestRequestTypeDef",
+    {
+        "DatasetImportJobArn": str,
+    },
+)
+
+DeleteDatasetRequestRequestTypeDef = TypedDict(
+    "DeleteDatasetRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
+    },
+)
+
+DeleteForecastExportJobRequestRequestTypeDef = TypedDict(
+    "DeleteForecastExportJobRequestRequestTypeDef",
+    {
+        "ForecastExportJobArn": str,
+    },
+)
+
+DeleteForecastRequestRequestTypeDef = TypedDict(
+    "DeleteForecastRequestRequestTypeDef",
+    {
+        "ForecastArn": str,
+    },
+)
+
+DeletePredictorBacktestExportJobRequestRequestTypeDef = TypedDict(
+    "DeletePredictorBacktestExportJobRequestRequestTypeDef",
+    {
+        "PredictorBacktestExportJobArn": str,
+    },
+)
+
+DeletePredictorRequestRequestTypeDef = TypedDict(
+    "DeletePredictorRequestRequestTypeDef",
+    {
+        "PredictorArn": str,
+    },
+)
+
+DeleteResourceTreeRequestRequestTypeDef = TypedDict(
+    "DeleteResourceTreeRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+DescribeDatasetGroupRequestRequestTypeDef = TypedDict(
+    "DescribeDatasetGroupRequestRequestTypeDef",
+    {
+        "DatasetGroupArn": str,
+    },
+)
+
+DescribeDatasetGroupResponseTypeDef = TypedDict(
+    "DescribeDatasetGroupResponseTypeDef",
+    {
+        "DatasetGroupName": str,
+        "DatasetGroupArn": str,
+        "DatasetArns": List[str],
+        "Domain": DomainType,
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDatasetImportJobRequestRequestTypeDef = TypedDict(
+    "DescribeDatasetImportJobRequestRequestTypeDef",
+    {
+        "DatasetImportJobArn": str,
+    },
+)
+
+DescribeDatasetImportJobResponseTypeDef = TypedDict(
+    "DescribeDatasetImportJobResponseTypeDef",
+    {
+        "DatasetImportJobName": str,
+        "DatasetImportJobArn": str,
+        "DatasetArn": str,
+        "TimestampFormat": str,
+        "TimeZone": str,
+        "UseGeolocationForTimeZone": bool,
+        "GeolocationFormat": str,
+        "DataSource": "DataSourceTypeDef",
+        "EstimatedTimeRemainingInMinutes": int,
+        "FieldStatistics": Dict[str, "StatisticsTypeDef"],
+        "DataSize": float,
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDatasetRequestRequestTypeDef = TypedDict(
+    "DescribeDatasetRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
+    },
+)
+
+DescribeDatasetResponseTypeDef = TypedDict(
+    "DescribeDatasetResponseTypeDef",
+    {
+        "DatasetArn": str,
+        "DatasetName": str,
+        "Domain": DomainType,
+        "DatasetType": DatasetTypeType,
+        "DataFrequency": str,
+        "Schema": "SchemaTypeDef",
+        "EncryptionConfig": "EncryptionConfigTypeDef",
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeForecastExportJobRequestRequestTypeDef = TypedDict(
+    "DescribeForecastExportJobRequestRequestTypeDef",
+    {
+        "ForecastExportJobArn": str,
+    },
+)
+
+DescribeForecastExportJobResponseTypeDef = TypedDict(
+    "DescribeForecastExportJobResponseTypeDef",
+    {
+        "ForecastExportJobArn": str,
+        "ForecastExportJobName": str,
+        "ForecastArn": str,
+        "Destination": "DataDestinationTypeDef",
+        "Message": str,
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeForecastRequestRequestTypeDef = TypedDict(
+    "DescribeForecastRequestRequestTypeDef",
+    {
+        "ForecastArn": str,
+    },
+)
+
+DescribeForecastResponseTypeDef = TypedDict(
+    "DescribeForecastResponseTypeDef",
+    {
+        "ForecastArn": str,
+        "ForecastName": str,
+        "ForecastTypes": List[str],
+        "PredictorArn": str,
+        "DatasetGroupArn": str,
+        "EstimatedTimeRemainingInMinutes": int,
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePredictorBacktestExportJobRequestRequestTypeDef = TypedDict(
+    "DescribePredictorBacktestExportJobRequestRequestTypeDef",
+    {
+        "PredictorBacktestExportJobArn": str,
+    },
+)
+
+DescribePredictorBacktestExportJobResponseTypeDef = TypedDict(
+    "DescribePredictorBacktestExportJobResponseTypeDef",
+    {
+        "PredictorBacktestExportJobArn": str,
+        "PredictorBacktestExportJobName": str,
+        "PredictorArn": str,
+        "Destination": "DataDestinationTypeDef",
+        "Message": str,
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePredictorRequestRequestTypeDef = TypedDict(
+    "DescribePredictorRequestRequestTypeDef",
+    {
+        "PredictorArn": str,
+    },
+)
+
+DescribePredictorResponseTypeDef = TypedDict(
+    "DescribePredictorResponseTypeDef",
+    {
+        "PredictorArn": str,
+        "PredictorName": str,
+        "AlgorithmArn": str,
+        "ForecastHorizon": int,
+        "ForecastTypes": List[str],
+        "PerformAutoML": bool,
+        "AutoMLOverrideStrategy": Literal["LatencyOptimized"],
+        "PerformHPO": bool,
+        "TrainingParameters": Dict[str, str],
+        "EvaluationParameters": "EvaluationParametersTypeDef",
+        "HPOConfig": "HyperParameterTuningJobConfigTypeDef",
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "FeaturizationConfig": "FeaturizationConfigTypeDef",
+        "EncryptionConfig": "EncryptionConfigTypeDef",
+        "PredictorExecutionDetails": "PredictorExecutionDetailsTypeDef",
+        "EstimatedTimeRemainingInMinutes": int,
+        "DatasetImportJobArns": List[str],
+        "AutoMLAlgorithmArns": List[str],
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EncryptionConfigTypeDef = TypedDict(
+    "EncryptionConfigTypeDef",
+    {
+        "RoleArn": str,
+        "KMSKeyArn": str,
+    },
+)
 
 ErrorMetricTypeDef = TypedDict(
-    "ErrorMetricTypeDef", {"ForecastType": str, "WAPE": float, "RMSE": float}, total=False
+    "ErrorMetricTypeDef",
+    {
+        "ForecastType": str,
+        "WAPE": float,
+        "RMSE": float,
+    },
+    total=False,
 )
 
 EvaluationParametersTypeDef = TypedDict(
     "EvaluationParametersTypeDef",
-    {"NumberOfBacktestWindows": int, "BackTestWindowOffset": int},
+    {
+        "NumberOfBacktestWindows": int,
+        "BackTestWindowOffset": int,
+    },
     total=False,
 )
 
 EvaluationResultTypeDef = TypedDict(
     "EvaluationResultTypeDef",
-    {"AlgorithmArn": str, "TestWindows": List["WindowSummaryTypeDef"]},
+    {
+        "AlgorithmArn": str,
+        "TestWindows": List["WindowSummaryTypeDef"],
+    },
     total=False,
 )
 
 _RequiredFeaturizationConfigTypeDef = TypedDict(
-    "_RequiredFeaturizationConfigTypeDef", {"ForecastFrequency": str}
+    "_RequiredFeaturizationConfigTypeDef",
+    {
+        "ForecastFrequency": str,
+    },
 )
 _OptionalFeaturizationConfigTypeDef = TypedDict(
     "_OptionalFeaturizationConfigTypeDef",
-    {"ForecastDimensions": List[str], "Featurizations": List["FeaturizationTypeDef"]},
+    {
+        "ForecastDimensions": List[str],
+        "Featurizations": List["FeaturizationTypeDef"],
+    },
     total=False,
 )
-
 
 class FeaturizationConfigTypeDef(
     _RequiredFeaturizationConfigTypeDef, _OptionalFeaturizationConfigTypeDef
 ):
     pass
 
-
 _RequiredFeaturizationMethodTypeDef = TypedDict(
-    "_RequiredFeaturizationMethodTypeDef", {"FeaturizationMethodName": Literal["filling"]}
+    "_RequiredFeaturizationMethodTypeDef",
+    {
+        "FeaturizationMethodName": Literal["filling"],
+    },
 )
 _OptionalFeaturizationMethodTypeDef = TypedDict(
     "_OptionalFeaturizationMethodTypeDef",
-    {"FeaturizationMethodParameters": Dict[str, str]},
+    {
+        "FeaturizationMethodParameters": Dict[str, str],
+    },
     total=False,
 )
-
 
 class FeaturizationMethodTypeDef(
     _RequiredFeaturizationMethodTypeDef, _OptionalFeaturizationMethodTypeDef
 ):
     pass
 
-
-_RequiredFeaturizationTypeDef = TypedDict("_RequiredFeaturizationTypeDef", {"AttributeName": str})
+_RequiredFeaturizationTypeDef = TypedDict(
+    "_RequiredFeaturizationTypeDef",
+    {
+        "AttributeName": str,
+    },
+)
 _OptionalFeaturizationTypeDef = TypedDict(
     "_OptionalFeaturizationTypeDef",
-    {"FeaturizationPipeline": List["FeaturizationMethodTypeDef"]},
+    {
+        "FeaturizationPipeline": List["FeaturizationMethodTypeDef"],
+    },
     total=False,
 )
-
 
 class FeaturizationTypeDef(_RequiredFeaturizationTypeDef, _OptionalFeaturizationTypeDef):
     pass
 
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+        "Condition": FilterConditionStringType,
+    },
+)
 
 ForecastExportJobSummaryTypeDef = TypedDict(
     "ForecastExportJobSummaryTypeDef",
@@ -246,41 +800,213 @@ ForecastSummaryTypeDef = TypedDict(
     total=False,
 )
 
+GetAccuracyMetricsRequestRequestTypeDef = TypedDict(
+    "GetAccuracyMetricsRequestRequestTypeDef",
+    {
+        "PredictorArn": str,
+    },
+)
+
+GetAccuracyMetricsResponseTypeDef = TypedDict(
+    "GetAccuracyMetricsResponseTypeDef",
+    {
+        "PredictorEvaluationResults": List["EvaluationResultTypeDef"],
+        "AutoMLOverrideStrategy": Literal["LatencyOptimized"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 HyperParameterTuningJobConfigTypeDef = TypedDict(
     "HyperParameterTuningJobConfigTypeDef",
-    {"ParameterRanges": "ParameterRangesTypeDef"},
+    {
+        "ParameterRanges": "ParameterRangesTypeDef",
+    },
     total=False,
 )
 
 _RequiredInputDataConfigTypeDef = TypedDict(
-    "_RequiredInputDataConfigTypeDef", {"DatasetGroupArn": str}
+    "_RequiredInputDataConfigTypeDef",
+    {
+        "DatasetGroupArn": str,
+    },
 )
 _OptionalInputDataConfigTypeDef = TypedDict(
     "_OptionalInputDataConfigTypeDef",
-    {"SupplementaryFeatures": List["SupplementaryFeatureTypeDef"]},
+    {
+        "SupplementaryFeatures": List["SupplementaryFeatureTypeDef"],
+    },
     total=False,
 )
-
 
 class InputDataConfigTypeDef(_RequiredInputDataConfigTypeDef, _OptionalInputDataConfigTypeDef):
     pass
 
-
 _RequiredIntegerParameterRangeTypeDef = TypedDict(
-    "_RequiredIntegerParameterRangeTypeDef", {"Name": str, "MaxValue": int, "MinValue": int}
+    "_RequiredIntegerParameterRangeTypeDef",
+    {
+        "Name": str,
+        "MaxValue": int,
+        "MinValue": int,
+    },
 )
 _OptionalIntegerParameterRangeTypeDef = TypedDict(
     "_OptionalIntegerParameterRangeTypeDef",
-    {"ScalingType": Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]},
+    {
+        "ScalingType": ScalingTypeType,
+    },
     total=False,
 )
-
 
 class IntegerParameterRangeTypeDef(
     _RequiredIntegerParameterRangeTypeDef, _OptionalIntegerParameterRangeTypeDef
 ):
     pass
 
+ListDatasetGroupsRequestRequestTypeDef = TypedDict(
+    "ListDatasetGroupsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDatasetGroupsResponseTypeDef = TypedDict(
+    "ListDatasetGroupsResponseTypeDef",
+    {
+        "DatasetGroups": List["DatasetGroupSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDatasetImportJobsRequestRequestTypeDef = TypedDict(
+    "ListDatasetImportJobsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListDatasetImportJobsResponseTypeDef = TypedDict(
+    "ListDatasetImportJobsResponseTypeDef",
+    {
+        "DatasetImportJobs": List["DatasetImportJobSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDatasetsRequestRequestTypeDef = TypedDict(
+    "ListDatasetsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDatasetsResponseTypeDef = TypedDict(
+    "ListDatasetsResponseTypeDef",
+    {
+        "Datasets": List["DatasetSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListForecastExportJobsRequestRequestTypeDef = TypedDict(
+    "ListForecastExportJobsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListForecastExportJobsResponseTypeDef = TypedDict(
+    "ListForecastExportJobsResponseTypeDef",
+    {
+        "ForecastExportJobs": List["ForecastExportJobSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListForecastsRequestRequestTypeDef = TypedDict(
+    "ListForecastsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListForecastsResponseTypeDef = TypedDict(
+    "ListForecastsResponseTypeDef",
+    {
+        "Forecasts": List["ForecastSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPredictorBacktestExportJobsRequestRequestTypeDef = TypedDict(
+    "ListPredictorBacktestExportJobsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListPredictorBacktestExportJobsResponseTypeDef = TypedDict(
+    "ListPredictorBacktestExportJobsResponseTypeDef",
+    {
+        "PredictorBacktestExportJobs": List["PredictorBacktestExportJobSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPredictorsRequestRequestTypeDef = TypedDict(
+    "ListPredictorsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListPredictorsResponseTypeDef = TypedDict(
+    "ListPredictorsResponseTypeDef",
+    {
+        "Predictors": List["PredictorSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 MetricsTypeDef = TypedDict(
     "MetricsTypeDef",
@@ -288,6 +1014,16 @@ MetricsTypeDef = TypedDict(
         "RMSE": float,
         "WeightedQuantileLosses": List["WeightedQuantileLossTypeDef"],
         "ErrorMetrics": List["ErrorMetricTypeDef"],
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
     },
     total=False,
 )
@@ -318,13 +1054,18 @@ PredictorBacktestExportJobSummaryTypeDef = TypedDict(
 
 PredictorExecutionDetailsTypeDef = TypedDict(
     "PredictorExecutionDetailsTypeDef",
-    {"PredictorExecutions": List["PredictorExecutionTypeDef"]},
+    {
+        "PredictorExecutions": List["PredictorExecutionTypeDef"],
+    },
     total=False,
 )
 
 PredictorExecutionTypeDef = TypedDict(
     "PredictorExecutionTypeDef",
-    {"AlgorithmArn": str, "TestWindows": List["TestWindowSummaryTypeDef"]},
+    {
+        "AlgorithmArn": str,
+        "TestWindows": List["TestWindowSummaryTypeDef"],
+    },
     total=False,
 )
 
@@ -342,25 +1083,50 @@ PredictorSummaryTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredS3ConfigTypeDef = TypedDict("_RequiredS3ConfigTypeDef", {"Path": str, "RoleArn": str})
-_OptionalS3ConfigTypeDef = TypedDict("_OptionalS3ConfigTypeDef", {"KMSKeyArn": str}, total=False)
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
+_RequiredS3ConfigTypeDef = TypedDict(
+    "_RequiredS3ConfigTypeDef",
+    {
+        "Path": str,
+        "RoleArn": str,
+    },
+)
+_OptionalS3ConfigTypeDef = TypedDict(
+    "_OptionalS3ConfigTypeDef",
+    {
+        "KMSKeyArn": str,
+    },
+    total=False,
+)
 
 class S3ConfigTypeDef(_RequiredS3ConfigTypeDef, _OptionalS3ConfigTypeDef):
     pass
-
 
 SchemaAttributeTypeDef = TypedDict(
     "SchemaAttributeTypeDef",
     {
         "AttributeName": str,
-        "AttributeType": Literal["string", "integer", "float", "timestamp", "geolocation"],
+        "AttributeType": AttributeTypeType,
     },
     total=False,
 )
 
 SchemaTypeDef = TypedDict(
-    "SchemaTypeDef", {"Attributes": List["SchemaAttributeTypeDef"]}, total=False
+    "SchemaTypeDef",
+    {
+        "Attributes": List["SchemaAttributeTypeDef"],
+    },
+    total=False,
 )
 
 StatisticsTypeDef = TypedDict(
@@ -374,22 +1140,79 @@ StatisticsTypeDef = TypedDict(
         "Max": str,
         "Avg": float,
         "Stddev": float,
+        "CountLong": int,
+        "CountDistinctLong": int,
+        "CountNullLong": int,
+        "CountNanLong": int,
     },
     total=False,
 )
 
-SupplementaryFeatureTypeDef = TypedDict("SupplementaryFeatureTypeDef", {"Name": str, "Value": str})
+StopResourceRequestRequestTypeDef = TypedDict(
+    "StopResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
+SupplementaryFeatureTypeDef = TypedDict(
+    "SupplementaryFeatureTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
 
 TestWindowSummaryTypeDef = TypedDict(
     "TestWindowSummaryTypeDef",
-    {"TestWindowStart": datetime, "TestWindowEnd": datetime, "Status": str, "Message": str},
+    {
+        "TestWindowStart": datetime,
+        "TestWindowEnd": datetime,
+        "Status": str,
+        "Message": str,
+    },
     total=False,
 )
 
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
+UpdateDatasetGroupRequestRequestTypeDef = TypedDict(
+    "UpdateDatasetGroupRequestRequestTypeDef",
+    {
+        "DatasetGroupArn": str,
+        "DatasetArns": List[str],
+    },
+)
+
 WeightedQuantileLossTypeDef = TypedDict(
-    "WeightedQuantileLossTypeDef", {"Quantile": float, "LossValue": float}, total=False
+    "WeightedQuantileLossTypeDef",
+    {
+        "Quantile": float,
+        "LossValue": float,
+    },
+    total=False,
 )
 
 WindowSummaryTypeDef = TypedDict(
@@ -398,242 +1221,8 @@ WindowSummaryTypeDef = TypedDict(
         "TestWindowStart": datetime,
         "TestWindowEnd": datetime,
         "ItemCount": int,
-        "EvaluationType": Literal["SUMMARY", "COMPUTED"],
+        "EvaluationType": EvaluationTypeType,
         "Metrics": "MetricsTypeDef",
     },
     total=False,
-)
-
-CreateDatasetGroupResponseTypeDef = TypedDict(
-    "CreateDatasetGroupResponseTypeDef", {"DatasetGroupArn": str}, total=False
-)
-
-CreateDatasetImportJobResponseTypeDef = TypedDict(
-    "CreateDatasetImportJobResponseTypeDef", {"DatasetImportJobArn": str}, total=False
-)
-
-CreateDatasetResponseTypeDef = TypedDict(
-    "CreateDatasetResponseTypeDef", {"DatasetArn": str}, total=False
-)
-
-CreateForecastExportJobResponseTypeDef = TypedDict(
-    "CreateForecastExportJobResponseTypeDef", {"ForecastExportJobArn": str}, total=False
-)
-
-CreateForecastResponseTypeDef = TypedDict(
-    "CreateForecastResponseTypeDef", {"ForecastArn": str}, total=False
-)
-
-CreatePredictorBacktestExportJobResponseTypeDef = TypedDict(
-    "CreatePredictorBacktestExportJobResponseTypeDef",
-    {"PredictorBacktestExportJobArn": str},
-    total=False,
-)
-
-CreatePredictorResponseTypeDef = TypedDict(
-    "CreatePredictorResponseTypeDef", {"PredictorArn": str}, total=False
-)
-
-DescribeDatasetGroupResponseTypeDef = TypedDict(
-    "DescribeDatasetGroupResponseTypeDef",
-    {
-        "DatasetGroupName": str,
-        "DatasetGroupArn": str,
-        "DatasetArns": List[str],
-        "Domain": Literal[
-            "RETAIL",
-            "CUSTOM",
-            "INVENTORY_PLANNING",
-            "EC2_CAPACITY",
-            "WORK_FORCE",
-            "WEB_TRAFFIC",
-            "METRICS",
-        ],
-        "Status": str,
-        "CreationTime": datetime,
-        "LastModificationTime": datetime,
-    },
-    total=False,
-)
-
-DescribeDatasetImportJobResponseTypeDef = TypedDict(
-    "DescribeDatasetImportJobResponseTypeDef",
-    {
-        "DatasetImportJobName": str,
-        "DatasetImportJobArn": str,
-        "DatasetArn": str,
-        "TimestampFormat": str,
-        "TimeZone": str,
-        "UseGeolocationForTimeZone": bool,
-        "GeolocationFormat": str,
-        "DataSource": "DataSourceTypeDef",
-        "FieldStatistics": Dict[str, "StatisticsTypeDef"],
-        "DataSize": float,
-        "Status": str,
-        "Message": str,
-        "CreationTime": datetime,
-        "LastModificationTime": datetime,
-    },
-    total=False,
-)
-
-DescribeDatasetResponseTypeDef = TypedDict(
-    "DescribeDatasetResponseTypeDef",
-    {
-        "DatasetArn": str,
-        "DatasetName": str,
-        "Domain": Literal[
-            "RETAIL",
-            "CUSTOM",
-            "INVENTORY_PLANNING",
-            "EC2_CAPACITY",
-            "WORK_FORCE",
-            "WEB_TRAFFIC",
-            "METRICS",
-        ],
-        "DatasetType": Literal["TARGET_TIME_SERIES", "RELATED_TIME_SERIES", "ITEM_METADATA"],
-        "DataFrequency": str,
-        "Schema": "SchemaTypeDef",
-        "EncryptionConfig": "EncryptionConfigTypeDef",
-        "Status": str,
-        "CreationTime": datetime,
-        "LastModificationTime": datetime,
-    },
-    total=False,
-)
-
-DescribeForecastExportJobResponseTypeDef = TypedDict(
-    "DescribeForecastExportJobResponseTypeDef",
-    {
-        "ForecastExportJobArn": str,
-        "ForecastExportJobName": str,
-        "ForecastArn": str,
-        "Destination": "DataDestinationTypeDef",
-        "Message": str,
-        "Status": str,
-        "CreationTime": datetime,
-        "LastModificationTime": datetime,
-    },
-    total=False,
-)
-
-DescribeForecastResponseTypeDef = TypedDict(
-    "DescribeForecastResponseTypeDef",
-    {
-        "ForecastArn": str,
-        "ForecastName": str,
-        "ForecastTypes": List[str],
-        "PredictorArn": str,
-        "DatasetGroupArn": str,
-        "Status": str,
-        "Message": str,
-        "CreationTime": datetime,
-        "LastModificationTime": datetime,
-    },
-    total=False,
-)
-
-DescribePredictorBacktestExportJobResponseTypeDef = TypedDict(
-    "DescribePredictorBacktestExportJobResponseTypeDef",
-    {
-        "PredictorBacktestExportJobArn": str,
-        "PredictorBacktestExportJobName": str,
-        "PredictorArn": str,
-        "Destination": "DataDestinationTypeDef",
-        "Message": str,
-        "Status": str,
-        "CreationTime": datetime,
-        "LastModificationTime": datetime,
-    },
-    total=False,
-)
-
-DescribePredictorResponseTypeDef = TypedDict(
-    "DescribePredictorResponseTypeDef",
-    {
-        "PredictorArn": str,
-        "PredictorName": str,
-        "AlgorithmArn": str,
-        "ForecastHorizon": int,
-        "ForecastTypes": List[str],
-        "PerformAutoML": bool,
-        "PerformHPO": bool,
-        "TrainingParameters": Dict[str, str],
-        "EvaluationParameters": "EvaluationParametersTypeDef",
-        "HPOConfig": "HyperParameterTuningJobConfigTypeDef",
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "FeaturizationConfig": "FeaturizationConfigTypeDef",
-        "EncryptionConfig": "EncryptionConfigTypeDef",
-        "PredictorExecutionDetails": "PredictorExecutionDetailsTypeDef",
-        "DatasetImportJobArns": List[str],
-        "AutoMLAlgorithmArns": List[str],
-        "Status": str,
-        "Message": str,
-        "CreationTime": datetime,
-        "LastModificationTime": datetime,
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef", {"Key": str, "Value": str, "Condition": Literal["IS", "IS_NOT"]}
-)
-
-GetAccuracyMetricsResponseTypeDef = TypedDict(
-    "GetAccuracyMetricsResponseTypeDef",
-    {"PredictorEvaluationResults": List["EvaluationResultTypeDef"]},
-    total=False,
-)
-
-ListDatasetGroupsResponseTypeDef = TypedDict(
-    "ListDatasetGroupsResponseTypeDef",
-    {"DatasetGroups": List["DatasetGroupSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListDatasetImportJobsResponseTypeDef = TypedDict(
-    "ListDatasetImportJobsResponseTypeDef",
-    {"DatasetImportJobs": List["DatasetImportJobSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListDatasetsResponseTypeDef = TypedDict(
-    "ListDatasetsResponseTypeDef",
-    {"Datasets": List["DatasetSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListForecastExportJobsResponseTypeDef = TypedDict(
-    "ListForecastExportJobsResponseTypeDef",
-    {"ForecastExportJobs": List["ForecastExportJobSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListForecastsResponseTypeDef = TypedDict(
-    "ListForecastsResponseTypeDef",
-    {"Forecasts": List["ForecastSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListPredictorBacktestExportJobsResponseTypeDef = TypedDict(
-    "ListPredictorBacktestExportJobsResponseTypeDef",
-    {
-        "PredictorBacktestExportJobs": List["PredictorBacktestExportJobSummaryTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPredictorsResponseTypeDef = TypedDict(
-    "ListPredictorsResponseTypeDef",
-    {"Predictors": List["PredictorSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )

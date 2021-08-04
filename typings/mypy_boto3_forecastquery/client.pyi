@@ -1,5 +1,7 @@
 """
-Main interface for forecastquery service client
+Type annotations for forecastquery service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html)
 
 Usage::
 
@@ -12,20 +14,17 @@ Usage::
 """
 from typing import Any, Dict, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_forecastquery.type_defs import QueryForecastResponseTypeDef
+from .type_defs import QueryForecastResponseTypeDef
 
 __all__ = ("ForecastQueryServiceClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -35,20 +34,25 @@ class Exceptions:
     ResourceInUseException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
 
-
-class ForecastQueryServiceClient:
+class ForecastQueryServiceClient(BaseClient):
     """
-    [ForecastQueryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecastquery.html#ForecastQueryService.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ForecastQueryServiceClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecastquery.html#ForecastQueryService.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#can_paginate)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -57,17 +61,23 @@ class ForecastQueryServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecastquery.html#ForecastQueryService.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#generate_presigned_url)
+        """
     def query_forecast(
         self,
+        *,
         ForecastArn: str,
         Filters: Dict[str, str],
         StartDate: str = None,
         EndDate: str = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> QueryForecastResponseTypeDef:
         """
-        [Client.query_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client.query_forecast)
+        Retrieves a forecast for a single item, filtered by the supplied criteria.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecastquery.html#ForecastQueryService.Client.query_forecast)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/client.html#query_forecast)
         """

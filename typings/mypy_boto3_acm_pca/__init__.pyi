@@ -30,20 +30,19 @@ Usage::
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
     ```
 """
-from mypy_boto3_acm_pca.client import ACMPCAClient
-from mypy_boto3_acm_pca.paginator import (
+from .client import ACMPCAClient
+from .paginator import (
     ListCertificateAuthoritiesPaginator,
     ListPermissionsPaginator,
     ListTagsPaginator,
 )
-from mypy_boto3_acm_pca.waiter import (
+from .waiter import (
     AuditReportCreatedWaiter,
     CertificateAuthorityCSRCreatedWaiter,
     CertificateIssuedWaiter,
 )
 
 Client = ACMPCAClient
-
 
 __all__ = (
     "ACMPCAClient",

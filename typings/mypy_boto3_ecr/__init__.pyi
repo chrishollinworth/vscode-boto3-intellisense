@@ -32,18 +32,17 @@ Usage::
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
     ```
 """
-from mypy_boto3_ecr.client import ECRClient
-from mypy_boto3_ecr.paginator import (
+from .client import ECRClient
+from .paginator import (
     DescribeImageScanFindingsPaginator,
     DescribeImagesPaginator,
     DescribeRepositoriesPaginator,
     GetLifecyclePolicyPreviewPaginator,
     ListImagesPaginator,
 )
-from mypy_boto3_ecr.waiter import ImageScanCompleteWaiter, LifecyclePolicyPreviewCompleteWaiter
+from .waiter import ImageScanCompleteWaiter, LifecyclePolicyPreviewCompleteWaiter
 
 Client = ECRClient
-
 
 __all__ = (
     "Client",

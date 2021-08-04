@@ -20,6 +20,8 @@ Usage::
         DescribeClusterVersionsPaginator,
         DescribeClustersPaginator,
         DescribeDefaultClusterParametersPaginator,
+        DescribeEndpointAccessPaginator,
+        DescribeEndpointAuthorizationPaginator,
         DescribeEventSubscriptionsPaginator,
         DescribeEventsPaginator,
         DescribeHsmClientCertificatesPaginator,
@@ -59,6 +61,8 @@ Usage::
     describe_cluster_versions_paginator: DescribeClusterVersionsPaginator = client.get_paginator("describe_cluster_versions")
     describe_clusters_paginator: DescribeClustersPaginator = client.get_paginator("describe_clusters")
     describe_default_cluster_parameters_paginator: DescribeDefaultClusterParametersPaginator = client.get_paginator("describe_default_cluster_parameters")
+    describe_endpoint_access_paginator: DescribeEndpointAccessPaginator = client.get_paginator("describe_endpoint_access")
+    describe_endpoint_authorization_paginator: DescribeEndpointAuthorizationPaginator = client.get_paginator("describe_endpoint_authorization")
     describe_event_subscriptions_paginator: DescribeEventSubscriptionsPaginator = client.get_paginator("describe_event_subscriptions")
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
     describe_hsm_client_certificates_paginator: DescribeHsmClientCertificatesPaginator = client.get_paginator("describe_hsm_client_certificates")
@@ -76,8 +80,8 @@ Usage::
     get_reserved_node_exchange_offerings_paginator: GetReservedNodeExchangeOfferingsPaginator = client.get_paginator("get_reserved_node_exchange_offerings")
     ```
 """
-from mypy_boto3_redshift.client import RedshiftClient
-from mypy_boto3_redshift.paginator import (
+from .client import RedshiftClient
+from .paginator import (
     DescribeClusterDbRevisionsPaginator,
     DescribeClusterParameterGroupsPaginator,
     DescribeClusterParametersPaginator,
@@ -88,6 +92,8 @@ from mypy_boto3_redshift.paginator import (
     DescribeClusterTracksPaginator,
     DescribeClusterVersionsPaginator,
     DescribeDefaultClusterParametersPaginator,
+    DescribeEndpointAccessPaginator,
+    DescribeEndpointAuthorizationPaginator,
     DescribeEventsPaginator,
     DescribeEventSubscriptionsPaginator,
     DescribeHsmClientCertificatesPaginator,
@@ -104,7 +110,7 @@ from mypy_boto3_redshift.paginator import (
     DescribeUsageLimitsPaginator,
     GetReservedNodeExchangeOfferingsPaginator,
 )
-from mypy_boto3_redshift.waiter import (
+from .waiter import (
     ClusterAvailableWaiter,
     ClusterDeletedWaiter,
     ClusterRestoredWaiter,
@@ -112,7 +118,6 @@ from mypy_boto3_redshift.waiter import (
 )
 
 Client = RedshiftClient
-
 
 __all__ = (
     "Client",
@@ -129,6 +134,8 @@ __all__ = (
     "DescribeClusterVersionsPaginator",
     "DescribeClustersPaginator",
     "DescribeDefaultClusterParametersPaginator",
+    "DescribeEndpointAccessPaginator",
+    "DescribeEndpointAuthorizationPaginator",
     "DescribeEventSubscriptionsPaginator",
     "DescribeEventsPaginator",
     "DescribeHsmClientCertificatesPaginator",

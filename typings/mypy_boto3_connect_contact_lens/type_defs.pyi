@@ -1,5 +1,7 @@
 """
-Main interface for connect-contact-lens service type definitions.
+Type annotations for connect-contact-lens service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/type_defs.html)
 
 Usage::
 
@@ -10,54 +12,115 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import SentimentValueType
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
-
 
 __all__ = (
     "CategoriesTypeDef",
     "CategoryDetailsTypeDef",
     "CharacterOffsetsTypeDef",
     "IssueDetectedTypeDef",
+    "ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef",
+    "ListRealtimeContactAnalysisSegmentsResponseTypeDef",
     "PointOfInterestTypeDef",
     "RealtimeContactAnalysisSegmentTypeDef",
+    "ResponseMetadataTypeDef",
     "TranscriptTypeDef",
-    "ListRealtimeContactAnalysisSegmentsResponseTypeDef",
 )
 
 CategoriesTypeDef = TypedDict(
     "CategoriesTypeDef",
-    {"MatchedCategories": List[str], "MatchedDetails": Dict[str, "CategoryDetailsTypeDef"]},
+    {
+        "MatchedCategories": List[str],
+        "MatchedDetails": Dict[str, "CategoryDetailsTypeDef"],
+    },
 )
 
 CategoryDetailsTypeDef = TypedDict(
-    "CategoryDetailsTypeDef", {"PointsOfInterest": List["PointOfInterestTypeDef"]}
+    "CategoryDetailsTypeDef",
+    {
+        "PointsOfInterest": List["PointOfInterestTypeDef"],
+    },
 )
 
 CharacterOffsetsTypeDef = TypedDict(
-    "CharacterOffsetsTypeDef", {"BeginOffsetChar": int, "EndOffsetChar": int}
+    "CharacterOffsetsTypeDef",
+    {
+        "BeginOffsetChar": int,
+        "EndOffsetChar": int,
+    },
 )
 
 IssueDetectedTypeDef = TypedDict(
-    "IssueDetectedTypeDef", {"CharacterOffsets": "CharacterOffsetsTypeDef"}
+    "IssueDetectedTypeDef",
+    {
+        "CharacterOffsets": "CharacterOffsetsTypeDef",
+    },
+)
+
+_RequiredListRealtimeContactAnalysisSegmentsRequestRequestTypeDef = TypedDict(
+    "_RequiredListRealtimeContactAnalysisSegmentsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactId": str,
+    },
+)
+_OptionalListRealtimeContactAnalysisSegmentsRequestRequestTypeDef = TypedDict(
+    "_OptionalListRealtimeContactAnalysisSegmentsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListRealtimeContactAnalysisSegmentsRequestRequestTypeDef(
+    _RequiredListRealtimeContactAnalysisSegmentsRequestRequestTypeDef,
+    _OptionalListRealtimeContactAnalysisSegmentsRequestRequestTypeDef,
+):
+    pass
+
+ListRealtimeContactAnalysisSegmentsResponseTypeDef = TypedDict(
+    "ListRealtimeContactAnalysisSegmentsResponseTypeDef",
+    {
+        "Segments": List["RealtimeContactAnalysisSegmentTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 PointOfInterestTypeDef = TypedDict(
-    "PointOfInterestTypeDef", {"BeginOffsetMillis": int, "EndOffsetMillis": int}
+    "PointOfInterestTypeDef",
+    {
+        "BeginOffsetMillis": int,
+        "EndOffsetMillis": int,
+    },
 )
 
 RealtimeContactAnalysisSegmentTypeDef = TypedDict(
     "RealtimeContactAnalysisSegmentTypeDef",
-    {"Transcript": "TranscriptTypeDef", "Categories": "CategoriesTypeDef"},
+    {
+        "Transcript": "TranscriptTypeDef",
+        "Categories": "CategoriesTypeDef",
+    },
     total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 _RequiredTranscriptTypeDef = TypedDict(
@@ -69,29 +132,16 @@ _RequiredTranscriptTypeDef = TypedDict(
         "Content": str,
         "BeginOffsetMillis": int,
         "EndOffsetMillis": int,
-        "Sentiment": Literal["POSITIVE", "NEUTRAL", "NEGATIVE"],
+        "Sentiment": SentimentValueType,
     },
 )
 _OptionalTranscriptTypeDef = TypedDict(
-    "_OptionalTranscriptTypeDef", {"IssuesDetected": List["IssueDetectedTypeDef"]}, total=False
+    "_OptionalTranscriptTypeDef",
+    {
+        "IssuesDetected": List["IssueDetectedTypeDef"],
+    },
+    total=False,
 )
-
 
 class TranscriptTypeDef(_RequiredTranscriptTypeDef, _OptionalTranscriptTypeDef):
-    pass
-
-
-_RequiredListRealtimeContactAnalysisSegmentsResponseTypeDef = TypedDict(
-    "_RequiredListRealtimeContactAnalysisSegmentsResponseTypeDef",
-    {"Segments": List["RealtimeContactAnalysisSegmentTypeDef"]},
-)
-_OptionalListRealtimeContactAnalysisSegmentsResponseTypeDef = TypedDict(
-    "_OptionalListRealtimeContactAnalysisSegmentsResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class ListRealtimeContactAnalysisSegmentsResponseTypeDef(
-    _RequiredListRealtimeContactAnalysisSegmentsResponseTypeDef,
-    _OptionalListRealtimeContactAnalysisSegmentsResponseTypeDef,
-):
     pass

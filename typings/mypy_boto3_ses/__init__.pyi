@@ -30,18 +30,17 @@ Usage::
     list_templates_paginator: ListTemplatesPaginator = client.get_paginator("list_templates")
     ```
 """
-from mypy_boto3_ses.client import SESClient
-from mypy_boto3_ses.paginator import (
+from .client import SESClient
+from .paginator import (
     ListConfigurationSetsPaginator,
     ListCustomVerificationEmailTemplatesPaginator,
     ListIdentitiesPaginator,
     ListReceiptRuleSetsPaginator,
     ListTemplatesPaginator,
 )
-from mypy_boto3_ses.waiter import IdentityExistsWaiter
+from .waiter import IdentityExistsWaiter
 
 Client = SESClient
-
 
 __all__ = (
     "Client",

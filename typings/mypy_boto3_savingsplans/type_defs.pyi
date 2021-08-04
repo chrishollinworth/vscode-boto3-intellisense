@@ -1,69 +1,301 @@
 """
-Main interface for savingsplans service type definitions.
+Type annotations for savingsplans service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_savingsplans.type_defs import ParentSavingsPlanOfferingTypeDef
+    from mypy_boto3_savingsplans.type_defs import CreateSavingsPlanRequestRequestTypeDef
 
-    data: ParentSavingsPlanOfferingTypeDef = {...}
+    data: CreateSavingsPlanRequestRequestTypeDef = {...}
     ```
 """
 import sys
-from typing import Dict, List
+from datetime import datetime
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    CurrencyCodeType,
+    SavingsPlanOfferingFilterAttributeType,
+    SavingsPlanOfferingPropertyKeyType,
+    SavingsPlanPaymentOptionType,
+    SavingsPlanProductTypeType,
+    SavingsPlanRateFilterAttributeType,
+    SavingsPlanRateFilterNameType,
+    SavingsPlanRatePropertyKeyType,
+    SavingsPlanRateServiceCodeType,
+    SavingsPlanRateUnitType,
+    SavingsPlansFilterNameType,
+    SavingsPlanStateType,
+    SavingsPlanTypeType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "CreateSavingsPlanRequestRequestTypeDef",
+    "CreateSavingsPlanResponseTypeDef",
+    "DeleteQueuedSavingsPlanRequestRequestTypeDef",
+    "DescribeSavingsPlanRatesRequestRequestTypeDef",
+    "DescribeSavingsPlanRatesResponseTypeDef",
+    "DescribeSavingsPlansOfferingRatesRequestRequestTypeDef",
+    "DescribeSavingsPlansOfferingRatesResponseTypeDef",
+    "DescribeSavingsPlansOfferingsRequestRequestTypeDef",
+    "DescribeSavingsPlansOfferingsResponseTypeDef",
+    "DescribeSavingsPlansRequestRequestTypeDef",
+    "DescribeSavingsPlansResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ParentSavingsPlanOfferingTypeDef",
+    "ResponseMetadataTypeDef",
+    "SavingsPlanFilterTypeDef",
+    "SavingsPlanOfferingFilterElementTypeDef",
     "SavingsPlanOfferingPropertyTypeDef",
+    "SavingsPlanOfferingRateFilterElementTypeDef",
     "SavingsPlanOfferingRatePropertyTypeDef",
     "SavingsPlanOfferingRateTypeDef",
     "SavingsPlanOfferingTypeDef",
+    "SavingsPlanRateFilterTypeDef",
     "SavingsPlanRatePropertyTypeDef",
     "SavingsPlanRateTypeDef",
     "SavingsPlanTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+)
+
+_RequiredCreateSavingsPlanRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSavingsPlanRequestRequestTypeDef",
+    {
+        "savingsPlanOfferingId": str,
+        "commitment": str,
+    },
+)
+_OptionalCreateSavingsPlanRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSavingsPlanRequestRequestTypeDef",
+    {
+        "upfrontPaymentAmount": str,
+        "purchaseTime": Union[datetime, str],
+        "clientToken": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateSavingsPlanRequestRequestTypeDef(
+    _RequiredCreateSavingsPlanRequestRequestTypeDef, _OptionalCreateSavingsPlanRequestRequestTypeDef
+):
+    pass
+
+CreateSavingsPlanResponseTypeDef = TypedDict(
     "CreateSavingsPlanResponseTypeDef",
+    {
+        "savingsPlanId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteQueuedSavingsPlanRequestRequestTypeDef = TypedDict(
+    "DeleteQueuedSavingsPlanRequestRequestTypeDef",
+    {
+        "savingsPlanId": str,
+    },
+)
+
+_RequiredDescribeSavingsPlanRatesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSavingsPlanRatesRequestRequestTypeDef",
+    {
+        "savingsPlanId": str,
+    },
+)
+_OptionalDescribeSavingsPlanRatesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSavingsPlanRatesRequestRequestTypeDef",
+    {
+        "filters": List["SavingsPlanRateFilterTypeDef"],
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class DescribeSavingsPlanRatesRequestRequestTypeDef(
+    _RequiredDescribeSavingsPlanRatesRequestRequestTypeDef,
+    _OptionalDescribeSavingsPlanRatesRequestRequestTypeDef,
+):
+    pass
+
+DescribeSavingsPlanRatesResponseTypeDef = TypedDict(
     "DescribeSavingsPlanRatesResponseTypeDef",
+    {
+        "savingsPlanId": str,
+        "searchResults": List["SavingsPlanRateTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSavingsPlansOfferingRatesRequestRequestTypeDef = TypedDict(
+    "DescribeSavingsPlansOfferingRatesRequestRequestTypeDef",
+    {
+        "savingsPlanOfferingIds": List[str],
+        "savingsPlanPaymentOptions": List[SavingsPlanPaymentOptionType],
+        "savingsPlanTypes": List[SavingsPlanTypeType],
+        "products": List[SavingsPlanProductTypeType],
+        "serviceCodes": List[SavingsPlanRateServiceCodeType],
+        "usageTypes": List[str],
+        "operations": List[str],
+        "filters": List["SavingsPlanOfferingRateFilterElementTypeDef"],
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+DescribeSavingsPlansOfferingRatesResponseTypeDef = TypedDict(
     "DescribeSavingsPlansOfferingRatesResponseTypeDef",
+    {
+        "searchResults": List["SavingsPlanOfferingRateTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSavingsPlansOfferingsRequestRequestTypeDef = TypedDict(
+    "DescribeSavingsPlansOfferingsRequestRequestTypeDef",
+    {
+        "offeringIds": List[str],
+        "paymentOptions": List[SavingsPlanPaymentOptionType],
+        "productType": SavingsPlanProductTypeType,
+        "planTypes": List[SavingsPlanTypeType],
+        "durations": List[int],
+        "currencies": List[CurrencyCodeType],
+        "descriptions": List[str],
+        "serviceCodes": List[str],
+        "usageTypes": List[str],
+        "operations": List[str],
+        "filters": List["SavingsPlanOfferingFilterElementTypeDef"],
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+DescribeSavingsPlansOfferingsResponseTypeDef = TypedDict(
     "DescribeSavingsPlansOfferingsResponseTypeDef",
+    {
+        "searchResults": List["SavingsPlanOfferingTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSavingsPlansRequestRequestTypeDef = TypedDict(
+    "DescribeSavingsPlansRequestRequestTypeDef",
+    {
+        "savingsPlanArns": List[str],
+        "savingsPlanIds": List[str],
+        "nextToken": str,
+        "maxResults": int,
+        "states": List[SavingsPlanStateType],
+        "filters": List["SavingsPlanFilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeSavingsPlansResponseTypeDef = TypedDict(
     "DescribeSavingsPlansResponseTypeDef",
+    {
+        "savingsPlans": List["SavingsPlanTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef",
-    "SavingsPlanFilterTypeDef",
-    "SavingsPlanOfferingFilterElementTypeDef",
-    "SavingsPlanOfferingRateFilterElementTypeDef",
-    "SavingsPlanRateFilterTypeDef",
+    {
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ParentSavingsPlanOfferingTypeDef = TypedDict(
     "ParentSavingsPlanOfferingTypeDef",
     {
         "offeringId": str,
-        "paymentOption": Literal["All Upfront", "Partial Upfront", "No Upfront"],
-        "planType": Literal["Compute", "EC2Instance"],
+        "paymentOption": SavingsPlanPaymentOptionType,
+        "planType": SavingsPlanTypeType,
         "durationSeconds": int,
-        "currency": Literal["CNY", "USD"],
+        "currency": CurrencyCodeType,
         "planDescription": str,
+    },
+    total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+SavingsPlanFilterTypeDef = TypedDict(
+    "SavingsPlanFilterTypeDef",
+    {
+        "name": SavingsPlansFilterNameType,
+        "values": List[str],
+    },
+    total=False,
+)
+
+SavingsPlanOfferingFilterElementTypeDef = TypedDict(
+    "SavingsPlanOfferingFilterElementTypeDef",
+    {
+        "name": SavingsPlanOfferingFilterAttributeType,
+        "values": List[str],
     },
     total=False,
 )
 
 SavingsPlanOfferingPropertyTypeDef = TypedDict(
     "SavingsPlanOfferingPropertyTypeDef",
-    {"name": Literal["region", "instanceFamily"], "value": str},
+    {
+        "name": SavingsPlanOfferingPropertyKeyType,
+        "value": str,
+    },
+    total=False,
+)
+
+SavingsPlanOfferingRateFilterElementTypeDef = TypedDict(
+    "SavingsPlanOfferingRateFilterElementTypeDef",
+    {
+        "name": SavingsPlanRateFilterAttributeType,
+        "values": List[str],
+    },
     total=False,
 )
 
 SavingsPlanOfferingRatePropertyTypeDef = TypedDict(
-    "SavingsPlanOfferingRatePropertyTypeDef", {"name": str, "value": str}, total=False
+    "SavingsPlanOfferingRatePropertyTypeDef",
+    {
+        "name": str,
+        "value": str,
+    },
+    total=False,
 )
 
 SavingsPlanOfferingRateTypeDef = TypedDict(
@@ -71,9 +303,9 @@ SavingsPlanOfferingRateTypeDef = TypedDict(
     {
         "savingsPlanOffering": "ParentSavingsPlanOfferingTypeDef",
         "rate": str,
-        "unit": Literal["Hrs", "Lambda-GB-Second", "Request"],
-        "productType": Literal["EC2", "Fargate", "Lambda"],
-        "serviceCode": Literal["AmazonEC2", "AmazonECS", "AWSLambda"],
+        "unit": SavingsPlanRateUnitType,
+        "productType": SavingsPlanProductTypeType,
+        "serviceCode": SavingsPlanRateServiceCodeType,
         "usageType": str,
         "operation": str,
         "properties": List["SavingsPlanOfferingRatePropertyTypeDef"],
@@ -85,12 +317,12 @@ SavingsPlanOfferingTypeDef = TypedDict(
     "SavingsPlanOfferingTypeDef",
     {
         "offeringId": str,
-        "productTypes": List[Literal["EC2", "Fargate", "Lambda"]],
-        "planType": Literal["Compute", "EC2Instance"],
+        "productTypes": List[SavingsPlanProductTypeType],
+        "planType": SavingsPlanTypeType,
         "description": str,
-        "paymentOption": Literal["All Upfront", "Partial Upfront", "No Upfront"],
+        "paymentOption": SavingsPlanPaymentOptionType,
         "durationSeconds": int,
-        "currency": Literal["CNY", "USD"],
+        "currency": CurrencyCodeType,
         "serviceCode": str,
         "usageType": str,
         "operation": str,
@@ -99,12 +331,19 @@ SavingsPlanOfferingTypeDef = TypedDict(
     total=False,
 )
 
+SavingsPlanRateFilterTypeDef = TypedDict(
+    "SavingsPlanRateFilterTypeDef",
+    {
+        "name": SavingsPlanRateFilterNameType,
+        "values": List[str],
+    },
+    total=False,
+)
+
 SavingsPlanRatePropertyTypeDef = TypedDict(
     "SavingsPlanRatePropertyTypeDef",
     {
-        "name": Literal[
-            "region", "instanceType", "instanceFamily", "productDescription", "tenancy"
-        ],
+        "name": SavingsPlanRatePropertyKeyType,
         "value": str,
     },
     total=False,
@@ -114,10 +353,10 @@ SavingsPlanRateTypeDef = TypedDict(
     "SavingsPlanRateTypeDef",
     {
         "rate": str,
-        "currency": Literal["CNY", "USD"],
-        "unit": Literal["Hrs", "Lambda-GB-Second", "Request"],
-        "productType": Literal["EC2", "Fargate", "Lambda"],
-        "serviceCode": Literal["AmazonEC2", "AmazonECS", "AWSLambda"],
+        "currency": CurrencyCodeType,
+        "unit": SavingsPlanRateUnitType,
+        "productType": SavingsPlanProductTypeType,
+        "serviceCode": SavingsPlanRateServiceCodeType,
         "usageType": str,
         "operation": str,
         "properties": List["SavingsPlanRatePropertyTypeDef"],
@@ -134,15 +373,13 @@ SavingsPlanTypeDef = TypedDict(
         "description": str,
         "start": str,
         "end": str,
-        "state": Literal[
-            "payment-pending", "payment-failed", "active", "retired", "queued", "queued-deleted"
-        ],
+        "state": SavingsPlanStateType,
         "region": str,
         "ec2InstanceFamily": str,
-        "savingsPlanType": Literal["Compute", "EC2Instance"],
-        "paymentOption": Literal["All Upfront", "Partial Upfront", "No Upfront"],
-        "productTypes": List[Literal["EC2", "Fargate", "Lambda"]],
-        "currency": Literal["CNY", "USD"],
+        "savingsPlanType": SavingsPlanTypeType,
+        "paymentOption": SavingsPlanPaymentOptionType,
+        "productTypes": List[SavingsPlanProductTypeType],
+        "currency": CurrencyCodeType,
         "commitment": str,
         "upfrontPaymentAmount": str,
         "recurringPaymentAmount": str,
@@ -152,88 +389,18 @@ SavingsPlanTypeDef = TypedDict(
     total=False,
 )
 
-CreateSavingsPlanResponseTypeDef = TypedDict(
-    "CreateSavingsPlanResponseTypeDef", {"savingsPlanId": str}, total=False
-)
-
-DescribeSavingsPlanRatesResponseTypeDef = TypedDict(
-    "DescribeSavingsPlanRatesResponseTypeDef",
-    {"savingsPlanId": str, "searchResults": List["SavingsPlanRateTypeDef"], "nextToken": str},
-    total=False,
-)
-
-DescribeSavingsPlansOfferingRatesResponseTypeDef = TypedDict(
-    "DescribeSavingsPlansOfferingRatesResponseTypeDef",
-    {"searchResults": List["SavingsPlanOfferingRateTypeDef"], "nextToken": str},
-    total=False,
-)
-
-DescribeSavingsPlansOfferingsResponseTypeDef = TypedDict(
-    "DescribeSavingsPlansOfferingsResponseTypeDef",
-    {"searchResults": List["SavingsPlanOfferingTypeDef"], "nextToken": str},
-    total=False,
-)
-
-DescribeSavingsPlansResponseTypeDef = TypedDict(
-    "DescribeSavingsPlansResponseTypeDef",
-    {"savingsPlans": List["SavingsPlanTypeDef"], "nextToken": str},
-    total=False,
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"tags": Dict[str, str]}, total=False
-)
-
-SavingsPlanFilterTypeDef = TypedDict(
-    "SavingsPlanFilterTypeDef",
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
     {
-        "name": Literal[
-            "region",
-            "ec2-instance-family",
-            "commitment",
-            "upfront",
-            "term",
-            "savings-plan-type",
-            "payment-option",
-            "start",
-            "end",
-        ],
-        "values": List[str],
+        "resourceArn": str,
+        "tags": Dict[str, str],
     },
-    total=False,
 )
 
-SavingsPlanOfferingFilterElementTypeDef = TypedDict(
-    "SavingsPlanOfferingFilterElementTypeDef",
-    {"name": Literal["region", "instanceFamily"], "values": List[str]},
-    total=False,
-)
-
-SavingsPlanOfferingRateFilterElementTypeDef = TypedDict(
-    "SavingsPlanOfferingRateFilterElementTypeDef",
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
     {
-        "name": Literal[
-            "region", "instanceFamily", "instanceType", "productDescription", "tenancy", "productId"
-        ],
-        "values": List[str],
+        "resourceArn": str,
+        "tagKeys": List[str],
     },
-    total=False,
-)
-
-SavingsPlanRateFilterTypeDef = TypedDict(
-    "SavingsPlanRateFilterTypeDef",
-    {
-        "name": Literal[
-            "region",
-            "instanceType",
-            "productDescription",
-            "tenancy",
-            "productType",
-            "serviceCode",
-            "usageType",
-            "operation",
-        ],
-        "values": List[str],
-    },
-    total=False,
 )

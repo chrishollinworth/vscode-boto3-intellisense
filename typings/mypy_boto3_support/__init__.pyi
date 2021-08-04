@@ -21,10 +21,9 @@ Usage::
     describe_communications_paginator: DescribeCommunicationsPaginator = client.get_paginator("describe_communications")
     ```
 """
-from mypy_boto3_support.client import SupportClient
-from mypy_boto3_support.paginator import DescribeCasesPaginator, DescribeCommunicationsPaginator
+from .client import SupportClient
+from .paginator import DescribeCasesPaginator, DescribeCommunicationsPaginator
 
 Client = SupportClient
-
 
 __all__ = ("Client", "DescribeCasesPaginator", "DescribeCommunicationsPaginator", "SupportClient")

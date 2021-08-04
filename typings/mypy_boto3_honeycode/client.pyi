@@ -1,5 +1,7 @@
 """
-Main interface for honeycode service client
+Type annotations for honeycode service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html)
 
 Usage::
 
@@ -13,15 +15,15 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_honeycode.paginator import (
+from .paginator import (
     ListTableColumnsPaginator,
     ListTableRowsPaginator,
     ListTablesPaginator,
     QueryTableRowsPaginator,
 )
-from mypy_boto3_honeycode.type_defs import (
+from .type_defs import (
     BatchCreateTableRowsResultTypeDef,
     BatchDeleteTableRowsResultTypeDef,
     BatchUpdateTableRowsResultTypeDef,
@@ -48,17 +50,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("HoneycodeClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -73,67 +71,89 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class HoneycodeClient:
+class HoneycodeClient(BaseClient):
     """
-    [Honeycode.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        HoneycodeClient exceptions.
+        """
     def batch_create_table_rows(
         self,
+        *,
         workbookId: str,
         tableId: str,
-        rowsToCreate: List[CreateRowDataTypeDef],
-        clientRequestToken: str = None,
+        rowsToCreate: List["CreateRowDataTypeDef"],
+        clientRequestToken: str = None
     ) -> BatchCreateTableRowsResultTypeDef:
         """
-        [Client.batch_create_table_rows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.batch_create_table_rows)
-        """
+        The BatchCreateTableRows API allows you to create one or more rows at the end of
+        a table in a workbook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.batch_create_table_rows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#batch_create_table_rows)
+        """
     def batch_delete_table_rows(
-        self, workbookId: str, tableId: str, rowIds: List[str], clientRequestToken: str = None
+        self, *, workbookId: str, tableId: str, rowIds: List[str], clientRequestToken: str = None
     ) -> BatchDeleteTableRowsResultTypeDef:
         """
-        [Client.batch_delete_table_rows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.batch_delete_table_rows)
-        """
+        The BatchDeleteTableRows API allows you to delete one or more rows from a table
+        in a workbook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.batch_delete_table_rows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#batch_delete_table_rows)
+        """
     def batch_update_table_rows(
         self,
+        *,
         workbookId: str,
         tableId: str,
-        rowsToUpdate: List[UpdateRowDataTypeDef],
-        clientRequestToken: str = None,
+        rowsToUpdate: List["UpdateRowDataTypeDef"],
+        clientRequestToken: str = None
     ) -> BatchUpdateTableRowsResultTypeDef:
         """
-        [Client.batch_update_table_rows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.batch_update_table_rows)
-        """
+        The BatchUpdateTableRows API allows you to update one or more rows in a table in
+        a workbook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.batch_update_table_rows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#batch_update_table_rows)
+        """
     def batch_upsert_table_rows(
         self,
+        *,
         workbookId: str,
         tableId: str,
-        rowsToUpsert: List[UpsertRowDataTypeDef],
-        clientRequestToken: str = None,
+        rowsToUpsert: List["UpsertRowDataTypeDef"],
+        clientRequestToken: str = None
     ) -> BatchUpsertTableRowsResultTypeDef:
         """
-        [Client.batch_upsert_table_rows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.batch_upsert_table_rows)
-        """
+        The BatchUpsertTableRows API allows you to upsert one or more rows in a table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.batch_upsert_table_rows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#batch_upsert_table_rows)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#can_paginate)
+        """
     def describe_table_data_import_job(
-        self, workbookId: str, tableId: str, jobId: str
+        self, *, workbookId: str, tableId: str, jobId: str
     ) -> DescribeTableDataImportJobResultTypeDef:
         """
-        [Client.describe_table_data_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.describe_table_data_import_job)
-        """
+        The DescribeTableDataImportJob API allows you to retrieve the status and details
+        of a table data import job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.describe_table_data_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#describe_table_data_import_job)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -142,109 +162,136 @@ class HoneycodeClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#generate_presigned_url)
+        """
     def get_screen_data(
         self,
+        *,
         workbookId: str,
         appId: str,
         screenId: str,
-        variables: Dict[str, VariableValueTypeDef] = None,
+        variables: Dict[str, "VariableValueTypeDef"] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> GetScreenDataResultTypeDef:
         """
-        [Client.get_screen_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.get_screen_data)
-        """
+        The GetScreenData API allows retrieval of data from a screen in a Honeycode app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.get_screen_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#get_screen_data)
+        """
     def invoke_screen_automation(
         self,
+        *,
         workbookId: str,
         appId: str,
         screenId: str,
         screenAutomationId: str,
-        variables: Dict[str, VariableValueTypeDef] = None,
+        variables: Dict[str, "VariableValueTypeDef"] = None,
         rowId: str = None,
-        clientRequestToken: str = None,
+        clientRequestToken: str = None
     ) -> InvokeScreenAutomationResultTypeDef:
         """
-        [Client.invoke_screen_automation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.invoke_screen_automation)
-        """
+        The InvokeScreenAutomation API allows invoking an action defined in a screen in
+        a Honeycode app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.invoke_screen_automation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#invoke_screen_automation)
+        """
     def list_table_columns(
-        self, workbookId: str, tableId: str, nextToken: str = None
+        self, *, workbookId: str, tableId: str, nextToken: str = None
     ) -> ListTableColumnsResultTypeDef:
         """
-        [Client.list_table_columns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.list_table_columns)
-        """
+        The ListTableColumns API allows you to retrieve a list of all the columns in a
+        table in a workbook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.list_table_columns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#list_table_columns)
+        """
     def list_table_rows(
         self,
+        *,
         workbookId: str,
         tableId: str,
         rowIds: List[str] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListTableRowsResultTypeDef:
         """
-        [Client.list_table_rows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.list_table_rows)
-        """
+        The ListTableRows API allows you to retrieve a list of all the rows in a table
+        in a workbook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.list_table_rows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#list_table_rows)
+        """
     def list_tables(
-        self, workbookId: str, maxResults: int = None, nextToken: str = None
+        self, *, workbookId: str, maxResults: int = None, nextToken: str = None
     ) -> ListTablesResultTypeDef:
         """
-        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.list_tables)
-        """
+        The ListTables API allows you to retrieve a list of all the tables in a
+        workbook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.list_tables)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#list_tables)
+        """
     def query_table_rows(
         self,
+        *,
         workbookId: str,
         tableId: str,
         filterFormula: "FilterTypeDef",
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> QueryTableRowsResultTypeDef:
         """
-        [Client.query_table_rows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.query_table_rows)
-        """
+        The QueryTableRows API allows you to use a filter formula to query for specific
+        rows in a table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.query_table_rows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#query_table_rows)
+        """
     def start_table_data_import_job(
         self,
+        *,
         workbookId: str,
         dataSource: "ImportDataSourceTypeDef",
         dataFormat: Literal["DELIMITED_TEXT"],
         destinationTableId: str,
         importOptions: "ImportOptionsTypeDef",
-        clientRequestToken: str,
+        clientRequestToken: str
     ) -> StartTableDataImportJobResultTypeDef:
         """
-        [Client.start_table_data_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Client.start_table_data_import_job)
-        """
+        The StartTableDataImportJob API allows you to start an import job on a table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Client.start_table_data_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/client.html#start_table_data_import_job)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_table_columns"]
     ) -> ListTableColumnsPaginator:
         """
-        [Paginator.ListTableColumns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablecolumnspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_table_rows"]) -> ListTableRowsPaginator:
         """
-        [Paginator.ListTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablerowspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_tables"]) -> ListTablesPaginator:
         """
-        [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Paginator.ListTables)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#listtablespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["query_table_rows"]) -> QueryTableRowsPaginator:
         """
-        [Paginator.QueryTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_honeycode/paginators.html#querytablerowspaginator)
         """

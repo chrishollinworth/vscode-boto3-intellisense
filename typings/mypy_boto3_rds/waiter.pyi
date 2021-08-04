@@ -1,5 +1,7 @@
 """
-Main interface for rds service client waiters.
+Type annotations for rds service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html)
 
 Usage::
 
@@ -32,7 +34,7 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_rds.type_defs import FilterTypeDef, WaiterConfigTypeDef
+from .type_defs import FilterTypeDef, WaiterConfigTypeDef
 
 __all__ = (
     "DBClusterSnapshotAvailableWaiter",
@@ -44,151 +46,165 @@ __all__ = (
     "DBSnapshotDeletedWaiter",
 )
 
-
 class DBClusterSnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBClusterSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         DBClusterIdentifier: str = None,
         DBClusterSnapshotIdentifier: str = None,
         SnapshotType: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         IncludeShared: bool = None,
         IncludePublic: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBClusterSnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotavailablewaiter)
         """
-
 
 class DBClusterSnapshotDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBClusterSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotdeletedwaiter)
     """
 
     def wait(
         self,
+        *,
         DBClusterIdentifier: str = None,
         DBClusterSnapshotIdentifier: str = None,
         SnapshotType: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         IncludeShared: bool = None,
         IncludePublic: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBClusterSnapshotDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbclustersnapshotdeletedwaiter)
         """
-
 
 class DBInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstanceavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         DBInstanceIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstanceavailablewaiter)
         """
-
 
 class DBInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstancedeletedwaiter)
     """
 
     def wait(
         self,
+        *,
         DBInstanceIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbinstancedeletedwaiter)
         """
-
 
 class DBSnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         DBInstanceIdentifier: str = None,
         DBSnapshotIdentifier: str = None,
         SnapshotType: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         IncludeShared: bool = None,
         IncludePublic: bool = None,
         DbiResourceId: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBSnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotavailablewaiter)
         """
-
 
 class DBSnapshotCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBSnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotcompletedwaiter)
     """
 
     def wait(
         self,
+        *,
         DBInstanceIdentifier: str = None,
         DBSnapshotIdentifier: str = None,
         SnapshotType: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         IncludeShared: bool = None,
         IncludePublic: bool = None,
         DbiResourceId: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBSnapshotCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotcompletedwaiter)
         """
-
 
 class DBSnapshotDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotdeletedwaiter)
     """
 
     def wait(
         self,
+        *,
         DBInstanceIdentifier: str = None,
         DBSnapshotIdentifier: str = None,
         SnapshotType: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         IncludeShared: bool = None,
         IncludePublic: bool = None,
         DbiResourceId: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBSnapshotDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds/waiters.html#dbsnapshotdeletedwaiter)
         """

@@ -43,8 +43,8 @@ Usage::
     search_users_paginator: SearchUsersPaginator = client.get_paginator("search_users")
     ```
 """
-from mypy_boto3_alexaforbusiness.client import AlexaForBusinessClient
-from mypy_boto3_alexaforbusiness.paginator import (
+from .client import AlexaForBusinessClient
+from .paginator import (
     ListBusinessReportSchedulesPaginator,
     ListConferenceProvidersPaginator,
     ListDeviceEventsPaginator,
@@ -61,7 +61,6 @@ from mypy_boto3_alexaforbusiness.paginator import (
 )
 
 Client = AlexaForBusinessClient
-
 
 __all__ = (
     "AlexaForBusinessClient",

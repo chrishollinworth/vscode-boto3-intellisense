@@ -44,8 +44,8 @@ Usage::
     list_studios_paginator: ListStudiosPaginator = client.get_paginator("list_studios")
     ```
 """
-from mypy_boto3_emr.client import EMRClient
-from mypy_boto3_emr.paginator import (
+from .client import EMRClient
+from .paginator import (
     ListBootstrapActionsPaginator,
     ListClustersPaginator,
     ListInstanceFleetsPaginator,
@@ -57,10 +57,9 @@ from mypy_boto3_emr.paginator import (
     ListStudioSessionMappingsPaginator,
     ListStudiosPaginator,
 )
-from mypy_boto3_emr.waiter import ClusterRunningWaiter, ClusterTerminatedWaiter, StepCompleteWaiter
+from .waiter import ClusterRunningWaiter, ClusterTerminatedWaiter, StepCompleteWaiter
 
 Client = EMRClient
-
 
 __all__ = (
     "Client",

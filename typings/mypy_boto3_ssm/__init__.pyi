@@ -50,6 +50,7 @@ Usage::
         ListDocumentVersionsPaginator,
         ListDocumentsPaginator,
         ListOpsItemEventsPaginator,
+        ListOpsItemRelatedItemsPaginator,
         ListOpsMetadataPaginator,
         ListResourceComplianceSummariesPaginator,
         ListResourceDataSyncPaginator,
@@ -105,13 +106,14 @@ Usage::
     list_document_versions_paginator: ListDocumentVersionsPaginator = client.get_paginator("list_document_versions")
     list_documents_paginator: ListDocumentsPaginator = client.get_paginator("list_documents")
     list_ops_item_events_paginator: ListOpsItemEventsPaginator = client.get_paginator("list_ops_item_events")
+    list_ops_item_related_items_paginator: ListOpsItemRelatedItemsPaginator = client.get_paginator("list_ops_item_related_items")
     list_ops_metadata_paginator: ListOpsMetadataPaginator = client.get_paginator("list_ops_metadata")
     list_resource_compliance_summaries_paginator: ListResourceComplianceSummariesPaginator = client.get_paginator("list_resource_compliance_summaries")
     list_resource_data_sync_paginator: ListResourceDataSyncPaginator = client.get_paginator("list_resource_data_sync")
     ```
 """
-from mypy_boto3_ssm.client import SSMClient
-from mypy_boto3_ssm.paginator import (
+from .client import SSMClient
+from .paginator import (
     DescribeActivationsPaginator,
     DescribeAssociationExecutionsPaginator,
     DescribeAssociationExecutionTargetsPaginator,
@@ -154,14 +156,14 @@ from mypy_boto3_ssm.paginator import (
     ListDocumentsPaginator,
     ListDocumentVersionsPaginator,
     ListOpsItemEventsPaginator,
+    ListOpsItemRelatedItemsPaginator,
     ListOpsMetadataPaginator,
     ListResourceComplianceSummariesPaginator,
     ListResourceDataSyncPaginator,
 )
-from mypy_boto3_ssm.waiter import CommandExecutedWaiter
+from .waiter import CommandExecutedWaiter
 
 Client = SSMClient
-
 
 __all__ = (
     "Client",
@@ -208,6 +210,7 @@ __all__ = (
     "ListDocumentVersionsPaginator",
     "ListDocumentsPaginator",
     "ListOpsItemEventsPaginator",
+    "ListOpsItemRelatedItemsPaginator",
     "ListOpsMetadataPaginator",
     "ListResourceComplianceSummariesPaginator",
     "ListResourceDataSyncPaginator",

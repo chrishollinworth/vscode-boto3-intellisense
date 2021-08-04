@@ -19,10 +19,9 @@ Usage::
     list_servers_paginator: ListServersPaginator = client.get_paginator("list_servers")
     ```
 """
-from mypy_boto3_transfer.client import TransferClient
-from mypy_boto3_transfer.paginator import ListServersPaginator
+from .client import TransferClient
+from .paginator import ListServersPaginator
 
 Client = TransferClient
-
 
 __all__ = ("Client", "ListServersPaginator", "TransferClient")

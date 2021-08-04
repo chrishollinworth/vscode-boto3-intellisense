@@ -16,9 +16,8 @@ Usage::
     session_client: ComputeOptimizerClient = session.client("compute-optimizer")
     ```
 """
-from mypy_boto3_compute_optimizer.client import ComputeOptimizerClient
+from .client import ComputeOptimizerClient
 
 Client = ComputeOptimizerClient
-
 
 __all__ = ("Client", "ComputeOptimizerClient")

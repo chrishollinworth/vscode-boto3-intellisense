@@ -39,8 +39,8 @@ Usage::
     list_worlds_paginator: ListWorldsPaginator = client.get_paginator("list_worlds")
     ```
 """
-from mypy_boto3_robomaker.client import RoboMakerClient
-from mypy_boto3_robomaker.paginator import (
+from .client import RoboMakerClient
+from .paginator import (
     ListDeploymentJobsPaginator,
     ListFleetsPaginator,
     ListRobotApplicationsPaginator,
@@ -55,7 +55,6 @@ from mypy_boto3_robomaker.paginator import (
 )
 
 Client = RoboMakerClient
-
 
 __all__ = (
     "Client",

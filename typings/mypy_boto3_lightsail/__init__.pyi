@@ -57,8 +57,8 @@ Usage::
     get_static_ips_paginator: GetStaticIpsPaginator = client.get_paginator("get_static_ips")
     ```
 """
-from mypy_boto3_lightsail.client import LightsailClient
-from mypy_boto3_lightsail.paginator import (
+from .client import LightsailClient
+from .paginator import (
     GetActiveNamesPaginator,
     GetBlueprintsPaginator,
     GetBundlesPaginator,
@@ -82,7 +82,6 @@ from mypy_boto3_lightsail.paginator import (
 )
 
 Client = LightsailClient
-
 
 __all__ = (
     "Client",

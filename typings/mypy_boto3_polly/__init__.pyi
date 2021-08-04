@@ -23,15 +23,14 @@ Usage::
     list_speech_synthesis_tasks_paginator: ListSpeechSynthesisTasksPaginator = client.get_paginator("list_speech_synthesis_tasks")
     ```
 """
-from mypy_boto3_polly.client import PollyClient
-from mypy_boto3_polly.paginator import (
+from .client import PollyClient
+from .paginator import (
     DescribeVoicesPaginator,
     ListLexiconsPaginator,
     ListSpeechSynthesisTasksPaginator,
 )
 
 Client = PollyClient
-
 
 __all__ = (
     "Client",

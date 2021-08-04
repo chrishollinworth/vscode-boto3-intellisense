@@ -52,8 +52,8 @@ Usage::
     describe_pending_maintenance_actions_paginator: DescribePendingMaintenanceActionsPaginator = client.get_paginator("describe_pending_maintenance_actions")
     ```
 """
-from mypy_boto3_neptune.client import NeptuneClient
-from mypy_boto3_neptune.paginator import (
+from .client import NeptuneClient
+from .paginator import (
     DescribeDBClusterEndpointsPaginator,
     DescribeDBClusterParameterGroupsPaginator,
     DescribeDBClusterParametersPaginator,
@@ -70,10 +70,9 @@ from mypy_boto3_neptune.paginator import (
     DescribeOrderableDBInstanceOptionsPaginator,
     DescribePendingMaintenanceActionsPaginator,
 )
-from mypy_boto3_neptune.waiter import DBInstanceAvailableWaiter, DBInstanceDeletedWaiter
+from .waiter import DBInstanceAvailableWaiter, DBInstanceDeletedWaiter
 
 Client = NeptuneClient
-
 
 __all__ = (
     "Client",

@@ -35,8 +35,8 @@ Usage::
     describe_users_paginator: DescribeUsersPaginator = client.get_paginator("describe_users")
     ```
 """
-from mypy_boto3_workdocs.client import WorkDocsClient
-from mypy_boto3_workdocs.paginator import (
+from .client import WorkDocsClient
+from .paginator import (
     DescribeActivitiesPaginator,
     DescribeCommentsPaginator,
     DescribeDocumentVersionsPaginator,
@@ -49,7 +49,6 @@ from mypy_boto3_workdocs.paginator import (
 )
 
 Client = WorkDocsClient
-
 
 __all__ = (
     "Client",

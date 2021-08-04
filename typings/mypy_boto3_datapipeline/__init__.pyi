@@ -23,15 +23,10 @@ Usage::
     query_objects_paginator: QueryObjectsPaginator = client.get_paginator("query_objects")
     ```
 """
-from mypy_boto3_datapipeline.client import DataPipelineClient
-from mypy_boto3_datapipeline.paginator import (
-    DescribeObjectsPaginator,
-    ListPipelinesPaginator,
-    QueryObjectsPaginator,
-)
+from .client import DataPipelineClient
+from .paginator import DescribeObjectsPaginator, ListPipelinesPaginator, QueryObjectsPaginator
 
 Client = DataPipelineClient
-
 
 __all__ = (
     "Client",

@@ -1,5 +1,7 @@
 """
-Main interface for amp service client
+Type annotations for amp service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html)
 
 Usage::
 
@@ -13,10 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_amp.paginator import ListWorkspacesPaginator
-from mypy_boto3_amp.type_defs import (
+from .paginator import ListWorkspacesPaginator
+from .type_defs import (
     CreateWorkspaceResponseTypeDef,
     DescribeWorkspaceResponseTypeDef,
     ListWorkspacesResponseTypeDef,
@@ -27,17 +29,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("PrometheusServiceClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -49,37 +47,48 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class PrometheusServiceClient:
+class PrometheusServiceClient(BaseClient):
     """
-    [PrometheusService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        PrometheusServiceClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#can_paginate)
+        """
     def create_workspace(
-        self, alias: str = None, clientToken: str = None
+        self, *, alias: str = None, clientToken: str = None
     ) -> CreateWorkspaceResponseTypeDef:
         """
-        [Client.create_workspace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client.create_workspace)
-        """
+        Creates a new AMP workspace.
 
-    def delete_workspace(self, workspaceId: str, clientToken: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client.create_workspace)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#create_workspace)
         """
-        [Client.delete_workspace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client.delete_workspace)
+    def delete_workspace(self, *, workspaceId: str, clientToken: str = None) -> None:
         """
+        Deletes an AMP workspace.
 
-    def describe_workspace(self, workspaceId: str) -> DescribeWorkspaceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client.delete_workspace)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#delete_workspace)
         """
-        [Client.describe_workspace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client.describe_workspace)
+    def describe_workspace(self, *, workspaceId: str) -> DescribeWorkspaceResponseTypeDef:
         """
+        Describes an existing AMP workspace.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client.describe_workspace)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#describe_workspace)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -88,24 +97,31 @@ class PrometheusServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#generate_presigned_url)
+        """
     def list_workspaces(
-        self, alias: str = None, maxResults: int = None, nextToken: str = None
+        self, *, alias: str = None, maxResults: int = None, nextToken: str = None
     ) -> ListWorkspacesResponseTypeDef:
         """
-        [Client.list_workspaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client.list_workspaces)
-        """
+        Lists all AMP workspaces, including workspaces being created or deleted.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client.list_workspaces)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#list_workspaces)
+        """
     def update_workspace_alias(
-        self, workspaceId: str, alias: str = None, clientToken: str = None
+        self, *, workspaceId: str, alias: str = None, clientToken: str = None
     ) -> None:
         """
-        [Client.update_workspace_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Client.update_workspace_alias)
-        """
+        Updates an AMP workspace alias.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Client.update_workspace_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/client.html#update_workspace_alias)
+        """
     def get_paginator(self, operation_name: Literal["list_workspaces"]) -> ListWorkspacesPaginator:
         """
-        [Paginator.ListWorkspaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amp.html#PrometheusService.Paginator.ListWorkspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amp.html#PrometheusService.Paginator.ListWorkspaces)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/paginators.html#listworkspacespaginator)
         """

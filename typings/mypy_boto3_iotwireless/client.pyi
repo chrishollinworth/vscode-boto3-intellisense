@@ -1,5 +1,7 @@
 """
-Main interface for iotwireless service client
+Type annotations for iotwireless service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html)
 
 Usage::
 
@@ -13,9 +15,17 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_iotwireless.type_defs import (
+from .literals import (
+    ExpressionTypeType,
+    LogLevelType,
+    WirelessDeviceIdTypeType,
+    WirelessDeviceTypeType,
+    WirelessGatewayIdTypeType,
+    WirelessGatewayServiceTypeType,
+)
+from .type_defs import (
     AssociateAwsAccountWithPartnerAccountResponseTypeDef,
     AssociateWirelessGatewayWithCertificateResponseTypeDef,
     CreateDestinationResponseTypeDef,
@@ -27,7 +37,9 @@ from mypy_boto3_iotwireless.type_defs import (
     CreateWirelessGatewayTaskResponseTypeDef,
     GetDestinationResponseTypeDef,
     GetDeviceProfileResponseTypeDef,
+    GetLogLevelsByResourceTypesResponseTypeDef,
     GetPartnerAccountResponseTypeDef,
+    GetResourceLogLevelResponseTypeDef,
     GetServiceEndpointResponseTypeDef,
     GetServiceProfileResponseTypeDef,
     GetWirelessDeviceResponseTypeDef,
@@ -57,6 +69,8 @@ from mypy_boto3_iotwireless.type_defs import (
     TagTypeDef,
     TestWirelessDeviceResponseTypeDef,
     UpdateWirelessGatewayTaskCreateTypeDef,
+    WirelessDeviceLogOptionTypeDef,
+    WirelessGatewayLogOptionTypeDef,
     WirelessMetadataTypeDef,
 )
 
@@ -65,17 +79,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("IoTWirelessClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -87,180 +97,241 @@ class Exceptions:
     TooManyTagsException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class IoTWirelessClient:
+class IoTWirelessClient(BaseClient):
     """
-    [IoTWireless.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        IoTWirelessClient exceptions.
+        """
     def associate_aws_account_with_partner_account(
-        self, Sidewalk: "SidewalkAccountInfoTypeDef", ClientRequestToken: str = None
+        self,
+        *,
+        Sidewalk: "SidewalkAccountInfoTypeDef",
+        ClientRequestToken: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> AssociateAwsAccountWithPartnerAccountResponseTypeDef:
         """
-        [Client.associate_aws_account_with_partner_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.associate_aws_account_with_partner_account)
-        """
+        Associates a partner account with your AWS account.
 
-    def associate_wireless_device_with_thing(self, Id: str, ThingArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.associate_aws_account_with_partner_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_aws_account_with_partner_account)
         """
-        [Client.associate_wireless_device_with_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_device_with_thing)
+    def associate_wireless_device_with_thing(self, *, Id: str, ThingArn: str) -> Dict[str, Any]:
         """
+        Associates a wireless device with a thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_device_with_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_device_with_thing)
+        """
     def associate_wireless_gateway_with_certificate(
-        self, Id: str, IotCertificateId: str
+        self, *, Id: str, IotCertificateId: str
     ) -> AssociateWirelessGatewayWithCertificateResponseTypeDef:
         """
-        [Client.associate_wireless_gateway_with_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_gateway_with_certificate)
-        """
+        Associates a wireless gateway with a certificate.
 
-    def associate_wireless_gateway_with_thing(self, Id: str, ThingArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_gateway_with_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_gateway_with_certificate)
         """
-        [Client.associate_wireless_gateway_with_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_gateway_with_thing)
+    def associate_wireless_gateway_with_thing(self, *, Id: str, ThingArn: str) -> Dict[str, Any]:
         """
+        Associates a wireless gateway with a thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_gateway_with_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_gateway_with_thing)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#can_paginate)
+        """
     def create_destination(
         self,
+        *,
         Name: str,
-        ExpressionType: Literal["RuleName", "MqttTopic"],
+        ExpressionType: ExpressionTypeType,
         Expression: str,
         RoleArn: str,
         Description: str = None,
         Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None,
+        ClientRequestToken: str = None
     ) -> CreateDestinationResponseTypeDef:
         """
-        [Client.create_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.create_destination)
-        """
+        Creates a new destination that maps a device message to an AWS IoT rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.create_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_destination)
+        """
     def create_device_profile(
         self,
+        *,
         Name: str = None,
         LoRaWAN: "LoRaWANDeviceProfileTypeDef" = None,
         Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None,
+        ClientRequestToken: str = None
     ) -> CreateDeviceProfileResponseTypeDef:
         """
-        [Client.create_device_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.create_device_profile)
-        """
+        Creates a new device profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.create_device_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_device_profile)
+        """
     def create_service_profile(
         self,
+        *,
         Name: str = None,
-        LoRaWAN: LoRaWANServiceProfileTypeDef = None,
+        LoRaWAN: "LoRaWANServiceProfileTypeDef" = None,
         Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None,
+        ClientRequestToken: str = None
     ) -> CreateServiceProfileResponseTypeDef:
         """
-        [Client.create_service_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.create_service_profile)
-        """
+        Creates a new service profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.create_service_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_service_profile)
+        """
     def create_wireless_device(
         self,
-        Type: Literal["Sidewalk", "LoRaWAN"],
+        *,
+        Type: WirelessDeviceTypeType,
         DestinationName: str,
         Name: str = None,
         Description: str = None,
         ClientRequestToken: str = None,
         LoRaWAN: "LoRaWANDeviceTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateWirelessDeviceResponseTypeDef:
         """
-        [Client.create_wireless_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_device)
-        """
+        Provisions a wireless device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_device)
+        """
     def create_wireless_gateway(
         self,
+        *,
         LoRaWAN: "LoRaWANGatewayTypeDef",
         Name: str = None,
         Description: str = None,
         Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None,
+        ClientRequestToken: str = None
     ) -> CreateWirelessGatewayResponseTypeDef:
         """
-        [Client.create_wireless_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway)
-        """
+        Provisions a wireless gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_gateway)
+        """
     def create_wireless_gateway_task(
-        self, Id: str, WirelessGatewayTaskDefinitionId: str
+        self, *, Id: str, WirelessGatewayTaskDefinitionId: str
     ) -> CreateWirelessGatewayTaskResponseTypeDef:
         """
-        [Client.create_wireless_gateway_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway_task)
-        """
+        Creates a task for a wireless gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_gateway_task)
+        """
     def create_wireless_gateway_task_definition(
         self,
+        *,
         AutoCreateTasks: bool,
         Name: str = None,
         Update: "UpdateWirelessGatewayTaskCreateTypeDef" = None,
         ClientRequestToken: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateWirelessGatewayTaskDefinitionResponseTypeDef:
         """
-        [Client.create_wireless_gateway_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway_task_definition)
-        """
+        Creates a gateway task definition.
 
-    def delete_destination(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway_task_definition)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_gateway_task_definition)
         """
-        [Client.delete_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.delete_destination)
+    def delete_destination(self, *, Name: str) -> Dict[str, Any]:
         """
+        Deletes a destination.
 
-    def delete_device_profile(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.delete_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_destination)
         """
-        [Client.delete_device_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.delete_device_profile)
+    def delete_device_profile(self, *, Id: str) -> Dict[str, Any]:
         """
+        Deletes a device profile.
 
-    def delete_service_profile(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.delete_device_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_device_profile)
         """
-        [Client.delete_service_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.delete_service_profile)
+    def delete_service_profile(self, *, Id: str) -> Dict[str, Any]:
         """
+        Deletes a service profile.
 
-    def delete_wireless_device(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.delete_service_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_service_profile)
         """
-        [Client.delete_wireless_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_device)
+    def delete_wireless_device(self, *, Id: str) -> Dict[str, Any]:
         """
+        Deletes a wireless device.
 
-    def delete_wireless_gateway(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_device)
         """
-        [Client.delete_wireless_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway)
+    def delete_wireless_gateway(self, *, Id: str) -> Dict[str, Any]:
         """
+        Deletes a wireless gateway.
 
-    def delete_wireless_gateway_task(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_gateway)
         """
-        [Client.delete_wireless_gateway_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway_task)
+    def delete_wireless_gateway_task(self, *, Id: str) -> Dict[str, Any]:
         """
+        Deletes a wireless gateway task.
 
-    def delete_wireless_gateway_task_definition(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_gateway_task)
         """
-        [Client.delete_wireless_gateway_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway_task_definition)
+    def delete_wireless_gateway_task_definition(self, *, Id: str) -> Dict[str, Any]:
         """
+        Deletes a wireless gateway task definition.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway_task_definition)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_gateway_task_definition)
+        """
     def disassociate_aws_account_from_partner_account(
-        self, PartnerAccountId: str, PartnerType: Literal["Sidewalk"]
+        self, *, PartnerAccountId: str, PartnerType: Literal["Sidewalk"]
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_aws_account_from_partner_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.disassociate_aws_account_from_partner_account)
-        """
+        Disassociates your AWS account from a partner account.
 
-    def disassociate_wireless_device_from_thing(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.disassociate_aws_account_from_partner_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_aws_account_from_partner_account)
         """
-        [Client.disassociate_wireless_device_from_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_device_from_thing)
+    def disassociate_wireless_device_from_thing(self, *, Id: str) -> Dict[str, Any]:
         """
+        Disassociates a wireless device from its currently associated thing.
 
-    def disassociate_wireless_gateway_from_certificate(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_device_from_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_device_from_thing)
         """
-        [Client.disassociate_wireless_gateway_from_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_gateway_from_certificate)
+    def disassociate_wireless_gateway_from_certificate(self, *, Id: str) -> Dict[str, Any]:
         """
+        Disassociates a wireless gateway from its currently associated certificate.
 
-    def disassociate_wireless_gateway_from_thing(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_gateway_from_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_gateway_from_certificate)
         """
-        [Client.disassociate_wireless_gateway_from_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_gateway_from_thing)
+    def disassociate_wireless_gateway_from_thing(self, *, Id: str) -> Dict[str, Any]:
         """
+        Disassociates a wireless gateway from its currently associated thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_gateway_from_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_gateway_from_thing)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -269,220 +340,350 @@ class IoTWirelessClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_destination(self, Name: str) -> GetDestinationResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#generate_presigned_url)
         """
-        [Client.get_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_destination)
+    def get_destination(self, *, Name: str) -> GetDestinationResponseTypeDef:
         """
+        Gets information about a destination.
 
-    def get_device_profile(self, Id: str) -> GetDeviceProfileResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_destination)
         """
-        [Client.get_device_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_device_profile)
+    def get_device_profile(self, *, Id: str) -> GetDeviceProfileResponseTypeDef:
         """
+        Gets information about a device profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_device_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_device_profile)
+        """
+    def get_log_levels_by_resource_types(self) -> GetLogLevelsByResourceTypesResponseTypeDef:
+        """
+        Returns current default log levels or log levels by resource types.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_log_levels_by_resource_types)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_log_levels_by_resource_types)
+        """
     def get_partner_account(
-        self, PartnerAccountId: str, PartnerType: Literal["Sidewalk"]
+        self, *, PartnerAccountId: str, PartnerType: Literal["Sidewalk"]
     ) -> GetPartnerAccountResponseTypeDef:
         """
-        [Client.get_partner_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_partner_account)
-        """
+        Gets information about a partner account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_partner_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_partner_account)
+        """
+    def get_resource_log_level(
+        self, *, ResourceIdentifier: str, ResourceType: str
+    ) -> GetResourceLogLevelResponseTypeDef:
+        """
+        Fetches the log-level override, if any, for a given resource-ID and resource-
+        type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_resource_log_level)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_resource_log_level)
+        """
     def get_service_endpoint(
-        self, ServiceType: Literal["CUPS", "LNS"] = None
+        self, *, ServiceType: WirelessGatewayServiceTypeType = None
     ) -> GetServiceEndpointResponseTypeDef:
         """
-        [Client.get_service_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_service_endpoint)
-        """
+        Gets the account-specific endpoint for Configuration and Update Server (CUPS)
+        protocol or LoRaWAN Network Server (LNS) connections.
 
-    def get_service_profile(self, Id: str) -> GetServiceProfileResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_service_endpoint)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_service_endpoint)
         """
-        [Client.get_service_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_service_profile)
+    def get_service_profile(self, *, Id: str) -> GetServiceProfileResponseTypeDef:
         """
+        Gets information about a service profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_service_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_service_profile)
+        """
     def get_wireless_device(
-        self, Identifier: str, IdentifierType: Literal["WirelessDeviceId", "DevEui", "ThingName"]
+        self, *, Identifier: str, IdentifierType: WirelessDeviceIdTypeType
     ) -> GetWirelessDeviceResponseTypeDef:
         """
-        [Client.get_wireless_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_device)
-        """
+        Gets information about a wireless device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_device)
+        """
     def get_wireless_device_statistics(
-        self, WirelessDeviceId: str
+        self, *, WirelessDeviceId: str
     ) -> GetWirelessDeviceStatisticsResponseTypeDef:
         """
-        [Client.get_wireless_device_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_device_statistics)
-        """
+        Gets operating information about a wireless device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_device_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_device_statistics)
+        """
     def get_wireless_gateway(
-        self,
-        Identifier: str,
-        IdentifierType: Literal["GatewayEui", "WirelessGatewayId", "ThingName"],
+        self, *, Identifier: str, IdentifierType: WirelessGatewayIdTypeType
     ) -> GetWirelessGatewayResponseTypeDef:
         """
-        [Client.get_wireless_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway)
-        """
+        Gets information about a wireless gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway)
+        """
     def get_wireless_gateway_certificate(
-        self, Id: str
+        self, *, Id: str
     ) -> GetWirelessGatewayCertificateResponseTypeDef:
         """
-        [Client.get_wireless_gateway_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_certificate)
-        """
+        Gets the ID of the certificate that is currently associated with a wireless
+        gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_certificate)
+        """
     def get_wireless_gateway_firmware_information(
-        self, Id: str
+        self, *, Id: str
     ) -> GetWirelessGatewayFirmwareInformationResponseTypeDef:
         """
-        [Client.get_wireless_gateway_firmware_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_firmware_information)
-        """
+        Gets the firmware version and other information about a wireless gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_firmware_information)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_firmware_information)
+        """
     def get_wireless_gateway_statistics(
-        self, WirelessGatewayId: str
+        self, *, WirelessGatewayId: str
     ) -> GetWirelessGatewayStatisticsResponseTypeDef:
         """
-        [Client.get_wireless_gateway_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_statistics)
-        """
+        Gets operating information about a wireless gateway.
 
-    def get_wireless_gateway_task(self, Id: str) -> GetWirelessGatewayTaskResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_statistics)
         """
-        [Client.get_wireless_gateway_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_task)
+    def get_wireless_gateway_task(self, *, Id: str) -> GetWirelessGatewayTaskResponseTypeDef:
         """
+        Gets information about a wireless gateway task.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_task)
+        """
     def get_wireless_gateway_task_definition(
-        self, Id: str
+        self, *, Id: str
     ) -> GetWirelessGatewayTaskDefinitionResponseTypeDef:
         """
-        [Client.get_wireless_gateway_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_task_definition)
-        """
+        Gets information about a wireless gateway task definition.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_task_definition)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_task_definition)
+        """
     def list_destinations(
-        self, MaxResults: int = None, NextToken: str = None
+        self, *, MaxResults: int = None, NextToken: str = None
     ) -> ListDestinationsResponseTypeDef:
         """
-        [Client.list_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_destinations)
-        """
+        Lists the destinations registered to your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_destinations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_destinations)
+        """
     def list_device_profiles(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListDeviceProfilesResponseTypeDef:
         """
-        [Client.list_device_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_device_profiles)
-        """
+        Lists the device profiles registered to your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_device_profiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_device_profiles)
+        """
     def list_partner_accounts(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListPartnerAccountsResponseTypeDef:
         """
-        [Client.list_partner_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_partner_accounts)
-        """
+        Lists the partner accounts associated with your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_partner_accounts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_partner_accounts)
+        """
     def list_service_profiles(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListServiceProfilesResponseTypeDef:
         """
-        [Client.list_service_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_service_profiles)
-        """
+        Lists the service profiles registered to your AWS account.
 
-    def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_service_profiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_service_profiles)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags (metadata) you have assigned to the resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_tags_for_resource)
+        """
     def list_wireless_devices(
         self,
+        *,
         MaxResults: int = None,
         NextToken: str = None,
         DestinationName: str = None,
         DeviceProfileId: str = None,
         ServiceProfileId: str = None,
-        WirelessDeviceType: Literal["Sidewalk", "LoRaWAN"] = None,
+        WirelessDeviceType: WirelessDeviceTypeType = None
     ) -> ListWirelessDevicesResponseTypeDef:
         """
-        [Client.list_wireless_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_devices)
-        """
+        Lists the wireless devices registered to your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_devices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_wireless_devices)
+        """
     def list_wireless_gateway_task_definitions(
         self,
+        *,
         MaxResults: int = None,
         NextToken: str = None,
-        TaskDefinitionType: Literal["UPDATE"] = None,
+        TaskDefinitionType: Literal["UPDATE"] = None
     ) -> ListWirelessGatewayTaskDefinitionsResponseTypeDef:
         """
-        [Client.list_wireless_gateway_task_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_gateway_task_definitions)
-        """
+        List the wireless gateway tasks definitions registered to your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_gateway_task_definitions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_wireless_gateway_task_definitions)
+        """
     def list_wireless_gateways(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListWirelessGatewaysResponseTypeDef:
         """
-        [Client.list_wireless_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_gateways)
-        """
+        Lists the wireless gateways registered to your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_gateways)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_wireless_gateways)
+        """
+    def put_resource_log_level(
+        self, *, ResourceIdentifier: str, ResourceType: str, LogLevel: LogLevelType
+    ) -> Dict[str, Any]:
+        """
+        Sets the log-level override for a resource-ID and resource-type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.put_resource_log_level)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#put_resource_log_level)
+        """
+    def reset_all_resource_log_levels(self) -> Dict[str, Any]:
+        """
+        Removes the log-level overrides for all resources; both wireless devices and
+        wireless gateways.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.reset_all_resource_log_levels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#reset_all_resource_log_levels)
+        """
+    def reset_resource_log_level(
+        self, *, ResourceIdentifier: str, ResourceType: str
+    ) -> Dict[str, Any]:
+        """
+        Removes the log-level override, if any, for a specific resource-ID and resource-
+        type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.reset_resource_log_level)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#reset_resource_log_level)
+        """
     def send_data_to_wireless_device(
         self,
+        *,
         Id: str,
         TransmitMode: int,
         PayloadData: str,
-        WirelessMetadata: WirelessMetadataTypeDef = None,
+        WirelessMetadata: "WirelessMetadataTypeDef" = None
     ) -> SendDataToWirelessDeviceResponseTypeDef:
         """
-        [Client.send_data_to_wireless_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.send_data_to_wireless_device)
-        """
+        Sends a decrypted application data frame to a device.
 
-    def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.send_data_to_wireless_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#send_data_to_wireless_device)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.tag_resource)
+    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds a tag to a resource.
 
-    def test_wireless_device(self, Id: str) -> TestWirelessDeviceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#tag_resource)
         """
-        [Client.test_wireless_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.test_wireless_device)
+    def test_wireless_device(self, *, Id: str) -> TestWirelessDeviceResponseTypeDef:
         """
+        Simulates a provisioned device by sending an uplink data payload of `Hello` .
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.test_wireless_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#test_wireless_device)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.untag_resource)
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes one or more tags from a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#untag_resource)
+        """
     def update_destination(
         self,
+        *,
         Name: str,
-        ExpressionType: Literal["RuleName", "MqttTopic"] = None,
+        ExpressionType: ExpressionTypeType = None,
         Expression: str = None,
         Description: str = None,
-        RoleArn: str = None,
+        RoleArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.update_destination)
-        """
+        Updates properties of a destination.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.update_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_destination)
+        """
+    def update_log_levels_by_resource_types(
+        self,
+        *,
+        DefaultLogLevel: LogLevelType = None,
+        WirelessDeviceLogOptions: List["WirelessDeviceLogOptionTypeDef"] = None,
+        WirelessGatewayLogOptions: List["WirelessGatewayLogOptionTypeDef"] = None
+    ) -> Dict[str, Any]:
+        """
+        Set default log level, or log levels by resource types.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.update_log_levels_by_resource_types)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_log_levels_by_resource_types)
+        """
     def update_partner_account(
         self,
-        Sidewalk: SidewalkUpdateAccountTypeDef,
+        *,
+        Sidewalk: "SidewalkUpdateAccountTypeDef",
         PartnerAccountId: str,
-        PartnerType: Literal["Sidewalk"],
+        PartnerType: Literal["Sidewalk"]
     ) -> Dict[str, Any]:
         """
-        [Client.update_partner_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.update_partner_account)
-        """
+        Updates properties of a partner account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.update_partner_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_partner_account)
+        """
     def update_wireless_device(
         self,
+        *,
         Id: str,
         DestinationName: str = None,
         Name: str = None,
         Description: str = None,
-        LoRaWAN: LoRaWANUpdateDeviceTypeDef = None,
+        LoRaWAN: "LoRaWANUpdateDeviceTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_wireless_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.update_wireless_device)
-        """
+        Updates properties of a wireless device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.update_wireless_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_wireless_device)
+        """
     def update_wireless_gateway(
-        self, Id: str, Name: str = None, Description: str = None
+        self,
+        *,
+        Id: str,
+        Name: str = None,
+        Description: str = None,
+        JoinEuiFilters: List[List[str]] = None,
+        NetIdFilters: List[str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_wireless_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotwireless.html#IoTWireless.Client.update_wireless_gateway)
+        Updates properties of a wireless gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotwireless.html#IoTWireless.Client.update_wireless_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_wireless_gateway)
         """

@@ -27,8 +27,8 @@ Usage::
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     ```
 """
-from mypy_boto3_snowball.client import SnowballClient
-from mypy_boto3_snowball.paginator import (
+from .client import SnowballClient
+from .paginator import (
     DescribeAddressesPaginator,
     ListClusterJobsPaginator,
     ListClustersPaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_snowball.paginator import (
 )
 
 Client = SnowballClient
-
 
 __all__ = (
     "Client",

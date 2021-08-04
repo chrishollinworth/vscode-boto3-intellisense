@@ -1,5 +1,7 @@
 """
-Main interface for kinesis service client paginators.
+Type annotations for kinesis service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html)
 
 Usage::
 
@@ -23,11 +25,11 @@ Usage::
     ```
 """
 from datetime import datetime
-from typing import Iterator
+from typing import Iterator, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_kinesis.type_defs import (
+from .type_defs import (
     DescribeStreamOutputTypeDef,
     ListShardsOutputTypeDef,
     ListStreamConsumersOutputTypeDef,
@@ -43,62 +45,68 @@ __all__ = (
     "ListStreamsPaginator",
 )
 
-
 class DescribeStreamPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#describestreampaginator)
     """
 
     def paginate(
-        self, StreamName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, StreamName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStreamOutputTypeDef]:
         """
-        [DescribeStream.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#describestreampaginator)
         """
-
 
 class ListShardsPaginator(Boto3Paginator):
     """
-    [Paginator.ListShards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#listshardspaginator)
     """
 
     def paginate(
         self,
+        *,
         StreamName: str = None,
         ExclusiveStartShardId: str = None,
-        StreamCreationTimestamp: datetime = None,
-        ShardFilter: ShardFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StreamCreationTimestamp: Union[datetime, str] = None,
+        ShardFilter: "ShardFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListShardsOutputTypeDef]:
         """
-        [ListShards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListShards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListShards.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#listshardspaginator)
         """
-
 
 class ListStreamConsumersPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreamConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#liststreamconsumerspaginator)
     """
 
     def paginate(
         self,
+        *,
         StreamARN: str,
-        StreamCreationTimestamp: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StreamCreationTimestamp: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamConsumersOutputTypeDef]:
         """
-        [ListStreamConsumers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#liststreamconsumerspaginator)
         """
-
 
 class ListStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#liststreamspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamsOutputTypeDef]:
         """
-        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreams.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListStreams.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#liststreamspaginator)
         """

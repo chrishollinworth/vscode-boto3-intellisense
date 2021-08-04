@@ -1,134 +1,692 @@
 """
-Main interface for neptune service type definitions.
+Type annotations for neptune service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_neptune.type_defs import AvailabilityZoneTypeDef
+    from mypy_boto3_neptune.type_defs import AddRoleToDBClusterMessageRequestTypeDef
 
-    data: AvailabilityZoneTypeDef = {...}
+    data: AddRoleToDBClusterMessageRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import ApplyMethodType, SourceTypeType
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AddRoleToDBClusterMessageRequestTypeDef",
+    "AddSourceIdentifierToSubscriptionMessageRequestTypeDef",
+    "AddSourceIdentifierToSubscriptionResultTypeDef",
+    "AddTagsToResourceMessageRequestTypeDef",
+    "ApplyPendingMaintenanceActionMessageRequestTypeDef",
+    "ApplyPendingMaintenanceActionResultTypeDef",
     "AvailabilityZoneTypeDef",
     "CharacterSetTypeDef",
+    "CloudwatchLogsExportConfigurationTypeDef",
+    "CopyDBClusterParameterGroupMessageRequestTypeDef",
+    "CopyDBClusterParameterGroupResultTypeDef",
+    "CopyDBClusterSnapshotMessageRequestTypeDef",
+    "CopyDBClusterSnapshotResultTypeDef",
+    "CopyDBParameterGroupMessageRequestTypeDef",
+    "CopyDBParameterGroupResultTypeDef",
+    "CreateDBClusterEndpointMessageRequestTypeDef",
+    "CreateDBClusterEndpointOutputTypeDef",
+    "CreateDBClusterMessageRequestTypeDef",
+    "CreateDBClusterParameterGroupMessageRequestTypeDef",
+    "CreateDBClusterParameterGroupResultTypeDef",
+    "CreateDBClusterResultTypeDef",
+    "CreateDBClusterSnapshotMessageRequestTypeDef",
+    "CreateDBClusterSnapshotResultTypeDef",
+    "CreateDBInstanceMessageRequestTypeDef",
+    "CreateDBInstanceResultTypeDef",
+    "CreateDBParameterGroupMessageRequestTypeDef",
+    "CreateDBParameterGroupResultTypeDef",
+    "CreateDBSubnetGroupMessageRequestTypeDef",
+    "CreateDBSubnetGroupResultTypeDef",
+    "CreateEventSubscriptionMessageRequestTypeDef",
+    "CreateEventSubscriptionResultTypeDef",
+    "DBClusterEndpointMessageTypeDef",
     "DBClusterEndpointTypeDef",
     "DBClusterMemberTypeDef",
+    "DBClusterMessageTypeDef",
     "DBClusterOptionGroupStatusTypeDef",
+    "DBClusterParameterGroupDetailsTypeDef",
+    "DBClusterParameterGroupNameMessageTypeDef",
     "DBClusterParameterGroupTypeDef",
+    "DBClusterParameterGroupsMessageTypeDef",
     "DBClusterRoleTypeDef",
     "DBClusterSnapshotAttributeTypeDef",
     "DBClusterSnapshotAttributesResultTypeDef",
+    "DBClusterSnapshotMessageTypeDef",
     "DBClusterSnapshotTypeDef",
     "DBClusterTypeDef",
+    "DBEngineVersionMessageTypeDef",
     "DBEngineVersionTypeDef",
+    "DBInstanceMessageTypeDef",
     "DBInstanceStatusInfoTypeDef",
     "DBInstanceTypeDef",
+    "DBParameterGroupDetailsTypeDef",
+    "DBParameterGroupNameMessageTypeDef",
     "DBParameterGroupStatusTypeDef",
     "DBParameterGroupTypeDef",
+    "DBParameterGroupsMessageTypeDef",
     "DBSecurityGroupMembershipTypeDef",
+    "DBSubnetGroupMessageTypeDef",
     "DBSubnetGroupTypeDef",
+    "DeleteDBClusterEndpointMessageRequestTypeDef",
+    "DeleteDBClusterEndpointOutputTypeDef",
+    "DeleteDBClusterMessageRequestTypeDef",
+    "DeleteDBClusterParameterGroupMessageRequestTypeDef",
+    "DeleteDBClusterResultTypeDef",
+    "DeleteDBClusterSnapshotMessageRequestTypeDef",
+    "DeleteDBClusterSnapshotResultTypeDef",
+    "DeleteDBInstanceMessageRequestTypeDef",
+    "DeleteDBInstanceResultTypeDef",
+    "DeleteDBParameterGroupMessageRequestTypeDef",
+    "DeleteDBSubnetGroupMessageRequestTypeDef",
+    "DeleteEventSubscriptionMessageRequestTypeDef",
+    "DeleteEventSubscriptionResultTypeDef",
+    "DescribeDBClusterEndpointsMessageRequestTypeDef",
+    "DescribeDBClusterParameterGroupsMessageRequestTypeDef",
+    "DescribeDBClusterParametersMessageRequestTypeDef",
+    "DescribeDBClusterSnapshotAttributesMessageRequestTypeDef",
+    "DescribeDBClusterSnapshotAttributesResultTypeDef",
+    "DescribeDBClusterSnapshotsMessageRequestTypeDef",
+    "DescribeDBClustersMessageRequestTypeDef",
+    "DescribeDBEngineVersionsMessageRequestTypeDef",
+    "DescribeDBInstancesMessageRequestTypeDef",
+    "DescribeDBParameterGroupsMessageRequestTypeDef",
+    "DescribeDBParametersMessageRequestTypeDef",
+    "DescribeDBSubnetGroupsMessageRequestTypeDef",
+    "DescribeEngineDefaultClusterParametersMessageRequestTypeDef",
+    "DescribeEngineDefaultClusterParametersResultTypeDef",
+    "DescribeEngineDefaultParametersMessageRequestTypeDef",
+    "DescribeEngineDefaultParametersResultTypeDef",
+    "DescribeEventCategoriesMessageRequestTypeDef",
+    "DescribeEventSubscriptionsMessageRequestTypeDef",
+    "DescribeEventsMessageRequestTypeDef",
+    "DescribeOrderableDBInstanceOptionsMessageRequestTypeDef",
+    "DescribePendingMaintenanceActionsMessageRequestTypeDef",
+    "DescribeValidDBInstanceModificationsMessageRequestTypeDef",
+    "DescribeValidDBInstanceModificationsResultTypeDef",
     "DomainMembershipTypeDef",
     "DoubleRangeTypeDef",
     "EndpointTypeDef",
     "EngineDefaultsTypeDef",
     "EventCategoriesMapTypeDef",
+    "EventCategoriesMessageTypeDef",
     "EventSubscriptionTypeDef",
+    "EventSubscriptionsMessageTypeDef",
     "EventTypeDef",
+    "EventsMessageTypeDef",
+    "FailoverDBClusterMessageRequestTypeDef",
+    "FailoverDBClusterResultTypeDef",
+    "FilterTypeDef",
+    "ListTagsForResourceMessageRequestTypeDef",
+    "ModifyDBClusterEndpointMessageRequestTypeDef",
+    "ModifyDBClusterEndpointOutputTypeDef",
+    "ModifyDBClusterMessageRequestTypeDef",
+    "ModifyDBClusterParameterGroupMessageRequestTypeDef",
+    "ModifyDBClusterResultTypeDef",
+    "ModifyDBClusterSnapshotAttributeMessageRequestTypeDef",
+    "ModifyDBClusterSnapshotAttributeResultTypeDef",
+    "ModifyDBInstanceMessageRequestTypeDef",
+    "ModifyDBInstanceResultTypeDef",
+    "ModifyDBParameterGroupMessageRequestTypeDef",
+    "ModifyDBSubnetGroupMessageRequestTypeDef",
+    "ModifyDBSubnetGroupResultTypeDef",
+    "ModifyEventSubscriptionMessageRequestTypeDef",
+    "ModifyEventSubscriptionResultTypeDef",
     "OptionGroupMembershipTypeDef",
     "OrderableDBInstanceOptionTypeDef",
+    "OrderableDBInstanceOptionsMessageTypeDef",
+    "PaginatorConfigTypeDef",
     "ParameterTypeDef",
     "PendingCloudwatchLogsExportsTypeDef",
     "PendingMaintenanceActionTypeDef",
+    "PendingMaintenanceActionsMessageTypeDef",
     "PendingModifiedValuesTypeDef",
+    "PromoteReadReplicaDBClusterMessageRequestTypeDef",
+    "PromoteReadReplicaDBClusterResultTypeDef",
     "RangeTypeDef",
+    "RebootDBInstanceMessageRequestTypeDef",
+    "RebootDBInstanceResultTypeDef",
+    "RemoveRoleFromDBClusterMessageRequestTypeDef",
+    "RemoveSourceIdentifierFromSubscriptionMessageRequestTypeDef",
+    "RemoveSourceIdentifierFromSubscriptionResultTypeDef",
+    "RemoveTagsFromResourceMessageRequestTypeDef",
+    "ResetDBClusterParameterGroupMessageRequestTypeDef",
+    "ResetDBParameterGroupMessageRequestTypeDef",
     "ResourcePendingMaintenanceActionsTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
+    "RestoreDBClusterFromSnapshotMessageRequestTypeDef",
+    "RestoreDBClusterFromSnapshotResultTypeDef",
+    "RestoreDBClusterToPointInTimeMessageRequestTypeDef",
+    "RestoreDBClusterToPointInTimeResultTypeDef",
+    "StartDBClusterMessageRequestTypeDef",
+    "StartDBClusterResultTypeDef",
+    "StopDBClusterMessageRequestTypeDef",
+    "StopDBClusterResultTypeDef",
     "SubnetTypeDef",
+    "TagListMessageTypeDef",
     "TagTypeDef",
     "TimezoneTypeDef",
     "UpgradeTargetTypeDef",
     "ValidDBInstanceModificationsMessageTypeDef",
     "ValidStorageOptionsTypeDef",
     "VpcSecurityGroupMembershipTypeDef",
-    "AddSourceIdentifierToSubscriptionResultTypeDef",
-    "ApplyPendingMaintenanceActionResultTypeDef",
-    "CloudwatchLogsExportConfigurationTypeDef",
-    "CopyDBClusterParameterGroupResultTypeDef",
-    "CopyDBClusterSnapshotResultTypeDef",
-    "CopyDBParameterGroupResultTypeDef",
-    "CreateDBClusterEndpointOutputTypeDef",
-    "CreateDBClusterParameterGroupResultTypeDef",
-    "CreateDBClusterResultTypeDef",
-    "CreateDBClusterSnapshotResultTypeDef",
-    "CreateDBInstanceResultTypeDef",
-    "CreateDBParameterGroupResultTypeDef",
-    "CreateDBSubnetGroupResultTypeDef",
-    "CreateEventSubscriptionResultTypeDef",
-    "DBClusterEndpointMessageTypeDef",
-    "DBClusterMessageTypeDef",
-    "DBClusterParameterGroupDetailsTypeDef",
-    "DBClusterParameterGroupNameMessageTypeDef",
-    "DBClusterParameterGroupsMessageTypeDef",
-    "DBClusterSnapshotMessageTypeDef",
-    "DBEngineVersionMessageTypeDef",
-    "DBInstanceMessageTypeDef",
-    "DBParameterGroupDetailsTypeDef",
-    "DBParameterGroupNameMessageTypeDef",
-    "DBParameterGroupsMessageTypeDef",
-    "DBSubnetGroupMessageTypeDef",
-    "DeleteDBClusterEndpointOutputTypeDef",
-    "DeleteDBClusterResultTypeDef",
-    "DeleteDBClusterSnapshotResultTypeDef",
-    "DeleteDBInstanceResultTypeDef",
-    "DeleteEventSubscriptionResultTypeDef",
-    "DescribeDBClusterSnapshotAttributesResultTypeDef",
-    "DescribeEngineDefaultClusterParametersResultTypeDef",
-    "DescribeEngineDefaultParametersResultTypeDef",
-    "DescribeValidDBInstanceModificationsResultTypeDef",
-    "EventCategoriesMessageTypeDef",
-    "EventSubscriptionsMessageTypeDef",
-    "EventsMessageTypeDef",
-    "FailoverDBClusterResultTypeDef",
-    "FilterTypeDef",
-    "ModifyDBClusterEndpointOutputTypeDef",
-    "ModifyDBClusterResultTypeDef",
-    "ModifyDBClusterSnapshotAttributeResultTypeDef",
-    "ModifyDBInstanceResultTypeDef",
-    "ModifyDBSubnetGroupResultTypeDef",
-    "ModifyEventSubscriptionResultTypeDef",
-    "OrderableDBInstanceOptionsMessageTypeDef",
-    "PaginatorConfigTypeDef",
-    "PendingMaintenanceActionsMessageTypeDef",
-    "PromoteReadReplicaDBClusterResultTypeDef",
-    "RebootDBInstanceResultTypeDef",
-    "RemoveSourceIdentifierFromSubscriptionResultTypeDef",
-    "RestoreDBClusterFromSnapshotResultTypeDef",
-    "RestoreDBClusterToPointInTimeResultTypeDef",
-    "StartDBClusterResultTypeDef",
-    "StopDBClusterResultTypeDef",
-    "TagListMessageTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AvailabilityZoneTypeDef = TypedDict("AvailabilityZoneTypeDef", {"Name": str}, total=False)
+_RequiredAddRoleToDBClusterMessageRequestTypeDef = TypedDict(
+    "_RequiredAddRoleToDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "RoleArn": str,
+    },
+)
+_OptionalAddRoleToDBClusterMessageRequestTypeDef = TypedDict(
+    "_OptionalAddRoleToDBClusterMessageRequestTypeDef",
+    {
+        "FeatureName": str,
+    },
+    total=False,
+)
+
+class AddRoleToDBClusterMessageRequestTypeDef(
+    _RequiredAddRoleToDBClusterMessageRequestTypeDef,
+    _OptionalAddRoleToDBClusterMessageRequestTypeDef,
+):
+    pass
+
+AddSourceIdentifierToSubscriptionMessageRequestTypeDef = TypedDict(
+    "AddSourceIdentifierToSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+        "SourceIdentifier": str,
+    },
+)
+
+AddSourceIdentifierToSubscriptionResultTypeDef = TypedDict(
+    "AddSourceIdentifierToSubscriptionResultTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddTagsToResourceMessageRequestTypeDef = TypedDict(
+    "AddTagsToResourceMessageRequestTypeDef",
+    {
+        "ResourceName": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+ApplyPendingMaintenanceActionMessageRequestTypeDef = TypedDict(
+    "ApplyPendingMaintenanceActionMessageRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "ApplyAction": str,
+        "OptInType": str,
+    },
+)
+
+ApplyPendingMaintenanceActionResultTypeDef = TypedDict(
+    "ApplyPendingMaintenanceActionResultTypeDef",
+    {
+        "ResourcePendingMaintenanceActions": "ResourcePendingMaintenanceActionsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AvailabilityZoneTypeDef = TypedDict(
+    "AvailabilityZoneTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
 
 CharacterSetTypeDef = TypedDict(
-    "CharacterSetTypeDef", {"CharacterSetName": str, "CharacterSetDescription": str}, total=False
+    "CharacterSetTypeDef",
+    {
+        "CharacterSetName": str,
+        "CharacterSetDescription": str,
+    },
+    total=False,
+)
+
+CloudwatchLogsExportConfigurationTypeDef = TypedDict(
+    "CloudwatchLogsExportConfigurationTypeDef",
+    {
+        "EnableLogTypes": List[str],
+        "DisableLogTypes": List[str],
+    },
+    total=False,
+)
+
+_RequiredCopyDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredCopyDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "SourceDBClusterParameterGroupIdentifier": str,
+        "TargetDBClusterParameterGroupIdentifier": str,
+        "TargetDBClusterParameterGroupDescription": str,
+    },
+)
+_OptionalCopyDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalCopyDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CopyDBClusterParameterGroupMessageRequestTypeDef(
+    _RequiredCopyDBClusterParameterGroupMessageRequestTypeDef,
+    _OptionalCopyDBClusterParameterGroupMessageRequestTypeDef,
+):
+    pass
+
+CopyDBClusterParameterGroupResultTypeDef = TypedDict(
+    "CopyDBClusterParameterGroupResultTypeDef",
+    {
+        "DBClusterParameterGroup": "DBClusterParameterGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCopyDBClusterSnapshotMessageRequestTypeDef = TypedDict(
+    "_RequiredCopyDBClusterSnapshotMessageRequestTypeDef",
+    {
+        "SourceDBClusterSnapshotIdentifier": str,
+        "TargetDBClusterSnapshotIdentifier": str,
+    },
+)
+_OptionalCopyDBClusterSnapshotMessageRequestTypeDef = TypedDict(
+    "_OptionalCopyDBClusterSnapshotMessageRequestTypeDef",
+    {
+        "KmsKeyId": str,
+        "PreSignedUrl": str,
+        "CopyTags": bool,
+        "Tags": List["TagTypeDef"],
+        "SourceRegion": str,
+    },
+    total=False,
+)
+
+class CopyDBClusterSnapshotMessageRequestTypeDef(
+    _RequiredCopyDBClusterSnapshotMessageRequestTypeDef,
+    _OptionalCopyDBClusterSnapshotMessageRequestTypeDef,
+):
+    pass
+
+CopyDBClusterSnapshotResultTypeDef = TypedDict(
+    "CopyDBClusterSnapshotResultTypeDef",
+    {
+        "DBClusterSnapshot": "DBClusterSnapshotTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCopyDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredCopyDBParameterGroupMessageRequestTypeDef",
+    {
+        "SourceDBParameterGroupIdentifier": str,
+        "TargetDBParameterGroupIdentifier": str,
+        "TargetDBParameterGroupDescription": str,
+    },
+)
+_OptionalCopyDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalCopyDBParameterGroupMessageRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CopyDBParameterGroupMessageRequestTypeDef(
+    _RequiredCopyDBParameterGroupMessageRequestTypeDef,
+    _OptionalCopyDBParameterGroupMessageRequestTypeDef,
+):
+    pass
+
+CopyDBParameterGroupResultTypeDef = TypedDict(
+    "CopyDBParameterGroupResultTypeDef",
+    {
+        "DBParameterGroup": "DBParameterGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDBClusterEndpointMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBClusterEndpointMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointIdentifier": str,
+        "EndpointType": str,
+    },
+)
+_OptionalCreateDBClusterEndpointMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBClusterEndpointMessageRequestTypeDef",
+    {
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDBClusterEndpointMessageRequestTypeDef(
+    _RequiredCreateDBClusterEndpointMessageRequestTypeDef,
+    _OptionalCreateDBClusterEndpointMessageRequestTypeDef,
+):
+    pass
+
+CreateDBClusterEndpointOutputTypeDef = TypedDict(
+    "CreateDBClusterEndpointOutputTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointResourceIdentifier": str,
+        "Endpoint": str,
+        "Status": str,
+        "EndpointType": str,
+        "CustomEndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "DBClusterEndpointArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDBClusterMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "Engine": str,
+    },
+)
+_OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBClusterMessageRequestTypeDef",
+    {
+        "AvailabilityZones": List[str],
+        "BackupRetentionPeriod": int,
+        "CharacterSetName": str,
+        "CopyTagsToSnapshot": bool,
+        "DatabaseName": str,
+        "DBClusterParameterGroupName": str,
+        "VpcSecurityGroupIds": List[str],
+        "DBSubnetGroupName": str,
+        "EngineVersion": str,
+        "Port": int,
+        "MasterUsername": str,
+        "MasterUserPassword": str,
+        "OptionGroupName": str,
+        "PreferredBackupWindow": str,
+        "PreferredMaintenanceWindow": str,
+        "ReplicationSourceIdentifier": str,
+        "Tags": List["TagTypeDef"],
+        "StorageEncrypted": bool,
+        "KmsKeyId": str,
+        "PreSignedUrl": str,
+        "EnableIAMDatabaseAuthentication": bool,
+        "EnableCloudwatchLogsExports": List[str],
+        "DeletionProtection": bool,
+        "SourceRegion": str,
+    },
+    total=False,
+)
+
+class CreateDBClusterMessageRequestTypeDef(
+    _RequiredCreateDBClusterMessageRequestTypeDef, _OptionalCreateDBClusterMessageRequestTypeDef
+):
+    pass
+
+_RequiredCreateDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "DBClusterParameterGroupName": str,
+        "DBParameterGroupFamily": str,
+        "Description": str,
+    },
+)
+_OptionalCreateDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDBClusterParameterGroupMessageRequestTypeDef(
+    _RequiredCreateDBClusterParameterGroupMessageRequestTypeDef,
+    _OptionalCreateDBClusterParameterGroupMessageRequestTypeDef,
+):
+    pass
+
+CreateDBClusterParameterGroupResultTypeDef = TypedDict(
+    "CreateDBClusterParameterGroupResultTypeDef",
+    {
+        "DBClusterParameterGroup": "DBClusterParameterGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateDBClusterResultTypeDef = TypedDict(
+    "CreateDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDBClusterSnapshotMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBClusterSnapshotMessageRequestTypeDef",
+    {
+        "DBClusterSnapshotIdentifier": str,
+        "DBClusterIdentifier": str,
+    },
+)
+_OptionalCreateDBClusterSnapshotMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBClusterSnapshotMessageRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDBClusterSnapshotMessageRequestTypeDef(
+    _RequiredCreateDBClusterSnapshotMessageRequestTypeDef,
+    _OptionalCreateDBClusterSnapshotMessageRequestTypeDef,
+):
+    pass
+
+CreateDBClusterSnapshotResultTypeDef = TypedDict(
+    "CreateDBClusterSnapshotResultTypeDef",
+    {
+        "DBClusterSnapshot": "DBClusterSnapshotTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDBInstanceMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBInstanceMessageRequestTypeDef",
+    {
+        "DBInstanceIdentifier": str,
+        "DBInstanceClass": str,
+        "Engine": str,
+    },
+)
+_OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBInstanceMessageRequestTypeDef",
+    {
+        "DBName": str,
+        "AllocatedStorage": int,
+        "MasterUsername": str,
+        "MasterUserPassword": str,
+        "DBSecurityGroups": List[str],
+        "VpcSecurityGroupIds": List[str],
+        "AvailabilityZone": str,
+        "DBSubnetGroupName": str,
+        "PreferredMaintenanceWindow": str,
+        "DBParameterGroupName": str,
+        "BackupRetentionPeriod": int,
+        "PreferredBackupWindow": str,
+        "Port": int,
+        "MultiAZ": bool,
+        "EngineVersion": str,
+        "AutoMinorVersionUpgrade": bool,
+        "LicenseModel": str,
+        "Iops": int,
+        "OptionGroupName": str,
+        "CharacterSetName": str,
+        "PubliclyAccessible": bool,
+        "Tags": List["TagTypeDef"],
+        "DBClusterIdentifier": str,
+        "StorageType": str,
+        "TdeCredentialArn": str,
+        "TdeCredentialPassword": str,
+        "StorageEncrypted": bool,
+        "KmsKeyId": str,
+        "Domain": str,
+        "CopyTagsToSnapshot": bool,
+        "MonitoringInterval": int,
+        "MonitoringRoleArn": str,
+        "DomainIAMRoleName": str,
+        "PromotionTier": int,
+        "Timezone": str,
+        "EnableIAMDatabaseAuthentication": bool,
+        "EnablePerformanceInsights": bool,
+        "PerformanceInsightsKMSKeyId": str,
+        "EnableCloudwatchLogsExports": List[str],
+        "DeletionProtection": bool,
+    },
+    total=False,
+)
+
+class CreateDBInstanceMessageRequestTypeDef(
+    _RequiredCreateDBInstanceMessageRequestTypeDef, _OptionalCreateDBInstanceMessageRequestTypeDef
+):
+    pass
+
+CreateDBInstanceResultTypeDef = TypedDict(
+    "CreateDBInstanceResultTypeDef",
+    {
+        "DBInstance": "DBInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBParameterGroupMessageRequestTypeDef",
+    {
+        "DBParameterGroupName": str,
+        "DBParameterGroupFamily": str,
+        "Description": str,
+    },
+)
+_OptionalCreateDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBParameterGroupMessageRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDBParameterGroupMessageRequestTypeDef(
+    _RequiredCreateDBParameterGroupMessageRequestTypeDef,
+    _OptionalCreateDBParameterGroupMessageRequestTypeDef,
+):
+    pass
+
+CreateDBParameterGroupResultTypeDef = TypedDict(
+    "CreateDBParameterGroupResultTypeDef",
+    {
+        "DBParameterGroup": "DBParameterGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDBSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateDBSubnetGroupMessageRequestTypeDef",
+    {
+        "DBSubnetGroupName": str,
+        "DBSubnetGroupDescription": str,
+        "SubnetIds": List[str],
+    },
+)
+_OptionalCreateDBSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateDBSubnetGroupMessageRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDBSubnetGroupMessageRequestTypeDef(
+    _RequiredCreateDBSubnetGroupMessageRequestTypeDef,
+    _OptionalCreateDBSubnetGroupMessageRequestTypeDef,
+):
+    pass
+
+CreateDBSubnetGroupResultTypeDef = TypedDict(
+    "CreateDBSubnetGroupResultTypeDef",
+    {
+        "DBSubnetGroup": "DBSubnetGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateEventSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+        "SnsTopicArn": str,
+    },
+)
+_OptionalCreateEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateEventSubscriptionMessageRequestTypeDef",
+    {
+        "SourceType": str,
+        "EventCategories": List[str],
+        "SourceIds": List[str],
+        "Enabled": bool,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateEventSubscriptionMessageRequestTypeDef(
+    _RequiredCreateEventSubscriptionMessageRequestTypeDef,
+    _OptionalCreateEventSubscriptionMessageRequestTypeDef,
+):
+    pass
+
+CreateEventSubscriptionResultTypeDef = TypedDict(
+    "CreateEventSubscriptionResultTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DBClusterEndpointMessageTypeDef = TypedDict(
+    "DBClusterEndpointMessageTypeDef",
+    {
+        "Marker": str,
+        "DBClusterEndpoints": List["DBClusterEndpointTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DBClusterEndpointTypeDef = TypedDict(
@@ -159,10 +717,39 @@ DBClusterMemberTypeDef = TypedDict(
     total=False,
 )
 
+DBClusterMessageTypeDef = TypedDict(
+    "DBClusterMessageTypeDef",
+    {
+        "Marker": str,
+        "DBClusters": List["DBClusterTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBClusterOptionGroupStatusTypeDef = TypedDict(
     "DBClusterOptionGroupStatusTypeDef",
-    {"DBClusterOptionGroupName": str, "Status": str},
+    {
+        "DBClusterOptionGroupName": str,
+        "Status": str,
+    },
     total=False,
+)
+
+DBClusterParameterGroupDetailsTypeDef = TypedDict(
+    "DBClusterParameterGroupDetailsTypeDef",
+    {
+        "Parameters": List["ParameterTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DBClusterParameterGroupNameMessageTypeDef = TypedDict(
+    "DBClusterParameterGroupNameMessageTypeDef",
+    {
+        "DBClusterParameterGroupName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DBClusterParameterGroupTypeDef = TypedDict(
@@ -176,13 +763,31 @@ DBClusterParameterGroupTypeDef = TypedDict(
     total=False,
 )
 
+DBClusterParameterGroupsMessageTypeDef = TypedDict(
+    "DBClusterParameterGroupsMessageTypeDef",
+    {
+        "Marker": str,
+        "DBClusterParameterGroups": List["DBClusterParameterGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBClusterRoleTypeDef = TypedDict(
-    "DBClusterRoleTypeDef", {"RoleArn": str, "Status": str, "FeatureName": str}, total=False
+    "DBClusterRoleTypeDef",
+    {
+        "RoleArn": str,
+        "Status": str,
+        "FeatureName": str,
+    },
+    total=False,
 )
 
 DBClusterSnapshotAttributeTypeDef = TypedDict(
     "DBClusterSnapshotAttributeTypeDef",
-    {"AttributeName": str, "AttributeValues": List[str]},
+    {
+        "AttributeName": str,
+        "AttributeValues": List[str],
+    },
     total=False,
 )
 
@@ -193,6 +798,15 @@ DBClusterSnapshotAttributesResultTypeDef = TypedDict(
         "DBClusterSnapshotAttributes": List["DBClusterSnapshotAttributeTypeDef"],
     },
     total=False,
+)
+
+DBClusterSnapshotMessageTypeDef = TypedDict(
+    "DBClusterSnapshotMessageTypeDef",
+    {
+        "Marker": str,
+        "DBClusterSnapshots": List["DBClusterSnapshotTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DBClusterSnapshotTypeDef = TypedDict(
@@ -260,10 +874,22 @@ DBClusterTypeDef = TypedDict(
         "IAMDatabaseAuthenticationEnabled": bool,
         "CloneGroupId": str,
         "ClusterCreateTime": datetime,
+        "CopyTagsToSnapshot": bool,
         "EnabledCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
+        "CrossAccountClone": bool,
+        "AutomaticRestartTime": datetime,
     },
     total=False,
+)
+
+DBEngineVersionMessageTypeDef = TypedDict(
+    "DBEngineVersionMessageTypeDef",
+    {
+        "Marker": str,
+        "DBEngineVersions": List["DBEngineVersionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DBEngineVersionTypeDef = TypedDict(
@@ -285,9 +911,23 @@ DBEngineVersionTypeDef = TypedDict(
     total=False,
 )
 
+DBInstanceMessageTypeDef = TypedDict(
+    "DBInstanceMessageTypeDef",
+    {
+        "Marker": str,
+        "DBInstances": List["DBInstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBInstanceStatusInfoTypeDef = TypedDict(
     "DBInstanceStatusInfoTypeDef",
-    {"StatusType": str, "Normal": bool, "Status": str, "Message": str},
+    {
+        "StatusType": str,
+        "Normal": bool,
+        "Status": str,
+        "Message": str,
+    },
     total=False,
 )
 
@@ -351,9 +991,29 @@ DBInstanceTypeDef = TypedDict(
     total=False,
 )
 
+DBParameterGroupDetailsTypeDef = TypedDict(
+    "DBParameterGroupDetailsTypeDef",
+    {
+        "Parameters": List["ParameterTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DBParameterGroupNameMessageTypeDef = TypedDict(
+    "DBParameterGroupNameMessageTypeDef",
+    {
+        "DBParameterGroupName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBParameterGroupStatusTypeDef = TypedDict(
     "DBParameterGroupStatusTypeDef",
-    {"DBParameterGroupName": str, "ParameterApplyStatus": str},
+    {
+        "DBParameterGroupName": str,
+        "ParameterApplyStatus": str,
+    },
     total=False,
 )
 
@@ -368,8 +1028,31 @@ DBParameterGroupTypeDef = TypedDict(
     total=False,
 )
 
+DBParameterGroupsMessageTypeDef = TypedDict(
+    "DBParameterGroupsMessageTypeDef",
+    {
+        "Marker": str,
+        "DBParameterGroups": List["DBParameterGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBSecurityGroupMembershipTypeDef = TypedDict(
-    "DBSecurityGroupMembershipTypeDef", {"DBSecurityGroupName": str, "Status": str}, total=False
+    "DBSecurityGroupMembershipTypeDef",
+    {
+        "DBSecurityGroupName": str,
+        "Status": str,
+    },
+    total=False,
+)
+
+DBSubnetGroupMessageTypeDef = TypedDict(
+    "DBSubnetGroupMessageTypeDef",
+    {
+        "Marker": str,
+        "DBSubnetGroups": List["DBSubnetGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DBSubnetGroupTypeDef = TypedDict(
@@ -385,26 +1068,499 @@ DBSubnetGroupTypeDef = TypedDict(
     total=False,
 )
 
-DomainMembershipTypeDef = TypedDict(
-    "DomainMembershipTypeDef",
-    {"Domain": str, "Status": str, "FQDN": str, "IAMRoleName": str},
+DeleteDBClusterEndpointMessageRequestTypeDef = TypedDict(
+    "DeleteDBClusterEndpointMessageRequestTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+    },
+)
+
+DeleteDBClusterEndpointOutputTypeDef = TypedDict(
+    "DeleteDBClusterEndpointOutputTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointResourceIdentifier": str,
+        "Endpoint": str,
+        "Status": str,
+        "EndpointType": str,
+        "CustomEndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "DBClusterEndpointArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteDBClusterMessageRequestTypeDef = TypedDict(
+    "_RequiredDeleteDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+    },
+)
+_OptionalDeleteDBClusterMessageRequestTypeDef = TypedDict(
+    "_OptionalDeleteDBClusterMessageRequestTypeDef",
+    {
+        "SkipFinalSnapshot": bool,
+        "FinalDBSnapshotIdentifier": str,
+    },
     total=False,
 )
 
-DoubleRangeTypeDef = TypedDict("DoubleRangeTypeDef", {"From": float, "To": float}, total=False)
+class DeleteDBClusterMessageRequestTypeDef(
+    _RequiredDeleteDBClusterMessageRequestTypeDef, _OptionalDeleteDBClusterMessageRequestTypeDef
+):
+    pass
+
+DeleteDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "DeleteDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "DBClusterParameterGroupName": str,
+    },
+)
+
+DeleteDBClusterResultTypeDef = TypedDict(
+    "DeleteDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteDBClusterSnapshotMessageRequestTypeDef = TypedDict(
+    "DeleteDBClusterSnapshotMessageRequestTypeDef",
+    {
+        "DBClusterSnapshotIdentifier": str,
+    },
+)
+
+DeleteDBClusterSnapshotResultTypeDef = TypedDict(
+    "DeleteDBClusterSnapshotResultTypeDef",
+    {
+        "DBClusterSnapshot": "DBClusterSnapshotTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteDBInstanceMessageRequestTypeDef = TypedDict(
+    "_RequiredDeleteDBInstanceMessageRequestTypeDef",
+    {
+        "DBInstanceIdentifier": str,
+    },
+)
+_OptionalDeleteDBInstanceMessageRequestTypeDef = TypedDict(
+    "_OptionalDeleteDBInstanceMessageRequestTypeDef",
+    {
+        "SkipFinalSnapshot": bool,
+        "FinalDBSnapshotIdentifier": str,
+    },
+    total=False,
+)
+
+class DeleteDBInstanceMessageRequestTypeDef(
+    _RequiredDeleteDBInstanceMessageRequestTypeDef, _OptionalDeleteDBInstanceMessageRequestTypeDef
+):
+    pass
+
+DeleteDBInstanceResultTypeDef = TypedDict(
+    "DeleteDBInstanceResultTypeDef",
+    {
+        "DBInstance": "DBInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "DeleteDBParameterGroupMessageRequestTypeDef",
+    {
+        "DBParameterGroupName": str,
+    },
+)
+
+DeleteDBSubnetGroupMessageRequestTypeDef = TypedDict(
+    "DeleteDBSubnetGroupMessageRequestTypeDef",
+    {
+        "DBSubnetGroupName": str,
+    },
+)
+
+DeleteEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "DeleteEventSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+    },
+)
+
+DeleteEventSubscriptionResultTypeDef = TypedDict(
+    "DeleteEventSubscriptionResultTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDBClusterEndpointsMessageRequestTypeDef = TypedDict(
+    "DescribeDBClusterEndpointsMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointIdentifier": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeDBClusterParameterGroupsMessageRequestTypeDef = TypedDict(
+    "DescribeDBClusterParameterGroupsMessageRequestTypeDef",
+    {
+        "DBClusterParameterGroupName": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+_RequiredDescribeDBClusterParametersMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeDBClusterParametersMessageRequestTypeDef",
+    {
+        "DBClusterParameterGroupName": str,
+    },
+)
+_OptionalDescribeDBClusterParametersMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeDBClusterParametersMessageRequestTypeDef",
+    {
+        "Source": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeDBClusterParametersMessageRequestTypeDef(
+    _RequiredDescribeDBClusterParametersMessageRequestTypeDef,
+    _OptionalDescribeDBClusterParametersMessageRequestTypeDef,
+):
+    pass
+
+DescribeDBClusterSnapshotAttributesMessageRequestTypeDef = TypedDict(
+    "DescribeDBClusterSnapshotAttributesMessageRequestTypeDef",
+    {
+        "DBClusterSnapshotIdentifier": str,
+    },
+)
+
+DescribeDBClusterSnapshotAttributesResultTypeDef = TypedDict(
+    "DescribeDBClusterSnapshotAttributesResultTypeDef",
+    {
+        "DBClusterSnapshotAttributesResult": "DBClusterSnapshotAttributesResultTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDBClusterSnapshotsMessageRequestTypeDef = TypedDict(
+    "DescribeDBClusterSnapshotsMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "DBClusterSnapshotIdentifier": str,
+        "SnapshotType": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+        "IncludeShared": bool,
+        "IncludePublic": bool,
+    },
+    total=False,
+)
+
+DescribeDBClustersMessageRequestTypeDef = TypedDict(
+    "DescribeDBClustersMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeDBEngineVersionsMessageRequestTypeDef = TypedDict(
+    "DescribeDBEngineVersionsMessageRequestTypeDef",
+    {
+        "Engine": str,
+        "EngineVersion": str,
+        "DBParameterGroupFamily": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+        "DefaultOnly": bool,
+        "ListSupportedCharacterSets": bool,
+        "ListSupportedTimezones": bool,
+    },
+    total=False,
+)
+
+DescribeDBInstancesMessageRequestTypeDef = TypedDict(
+    "DescribeDBInstancesMessageRequestTypeDef",
+    {
+        "DBInstanceIdentifier": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeDBParameterGroupsMessageRequestTypeDef = TypedDict(
+    "DescribeDBParameterGroupsMessageRequestTypeDef",
+    {
+        "DBParameterGroupName": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+_RequiredDescribeDBParametersMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeDBParametersMessageRequestTypeDef",
+    {
+        "DBParameterGroupName": str,
+    },
+)
+_OptionalDescribeDBParametersMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeDBParametersMessageRequestTypeDef",
+    {
+        "Source": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeDBParametersMessageRequestTypeDef(
+    _RequiredDescribeDBParametersMessageRequestTypeDef,
+    _OptionalDescribeDBParametersMessageRequestTypeDef,
+):
+    pass
+
+DescribeDBSubnetGroupsMessageRequestTypeDef = TypedDict(
+    "DescribeDBSubnetGroupsMessageRequestTypeDef",
+    {
+        "DBSubnetGroupName": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+_RequiredDescribeEngineDefaultClusterParametersMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeEngineDefaultClusterParametersMessageRequestTypeDef",
+    {
+        "DBParameterGroupFamily": str,
+    },
+)
+_OptionalDescribeEngineDefaultClusterParametersMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeEngineDefaultClusterParametersMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeEngineDefaultClusterParametersMessageRequestTypeDef(
+    _RequiredDescribeEngineDefaultClusterParametersMessageRequestTypeDef,
+    _OptionalDescribeEngineDefaultClusterParametersMessageRequestTypeDef,
+):
+    pass
+
+DescribeEngineDefaultClusterParametersResultTypeDef = TypedDict(
+    "DescribeEngineDefaultClusterParametersResultTypeDef",
+    {
+        "EngineDefaults": "EngineDefaultsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeEngineDefaultParametersMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeEngineDefaultParametersMessageRequestTypeDef",
+    {
+        "DBParameterGroupFamily": str,
+    },
+)
+_OptionalDescribeEngineDefaultParametersMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeEngineDefaultParametersMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeEngineDefaultParametersMessageRequestTypeDef(
+    _RequiredDescribeEngineDefaultParametersMessageRequestTypeDef,
+    _OptionalDescribeEngineDefaultParametersMessageRequestTypeDef,
+):
+    pass
+
+DescribeEngineDefaultParametersResultTypeDef = TypedDict(
+    "DescribeEngineDefaultParametersResultTypeDef",
+    {
+        "EngineDefaults": "EngineDefaultsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEventCategoriesMessageRequestTypeDef = TypedDict(
+    "DescribeEventCategoriesMessageRequestTypeDef",
+    {
+        "SourceType": str,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeEventSubscriptionsMessageRequestTypeDef = TypedDict(
+    "DescribeEventSubscriptionsMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeEventsMessageRequestTypeDef = TypedDict(
+    "DescribeEventsMessageRequestTypeDef",
+    {
+        "SourceIdentifier": str,
+        "SourceType": SourceTypeType,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "Duration": int,
+        "EventCategories": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+_RequiredDescribeOrderableDBInstanceOptionsMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeOrderableDBInstanceOptionsMessageRequestTypeDef",
+    {
+        "Engine": str,
+    },
+)
+_OptionalDescribeOrderableDBInstanceOptionsMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeOrderableDBInstanceOptionsMessageRequestTypeDef",
+    {
+        "EngineVersion": str,
+        "DBInstanceClass": str,
+        "LicenseModel": str,
+        "Vpc": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeOrderableDBInstanceOptionsMessageRequestTypeDef(
+    _RequiredDescribeOrderableDBInstanceOptionsMessageRequestTypeDef,
+    _OptionalDescribeOrderableDBInstanceOptionsMessageRequestTypeDef,
+):
+    pass
+
+DescribePendingMaintenanceActionsMessageRequestTypeDef = TypedDict(
+    "DescribePendingMaintenanceActionsMessageRequestTypeDef",
+    {
+        "ResourceIdentifier": str,
+        "Filters": List["FilterTypeDef"],
+        "Marker": str,
+        "MaxRecords": int,
+    },
+    total=False,
+)
+
+DescribeValidDBInstanceModificationsMessageRequestTypeDef = TypedDict(
+    "DescribeValidDBInstanceModificationsMessageRequestTypeDef",
+    {
+        "DBInstanceIdentifier": str,
+    },
+)
+
+DescribeValidDBInstanceModificationsResultTypeDef = TypedDict(
+    "DescribeValidDBInstanceModificationsResultTypeDef",
+    {
+        "ValidDBInstanceModificationsMessage": "ValidDBInstanceModificationsMessageTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DomainMembershipTypeDef = TypedDict(
+    "DomainMembershipTypeDef",
+    {
+        "Domain": str,
+        "Status": str,
+        "FQDN": str,
+        "IAMRoleName": str,
+    },
+    total=False,
+)
+
+DoubleRangeTypeDef = TypedDict(
+    "DoubleRangeTypeDef",
+    {
+        "From": float,
+        "To": float,
+    },
+    total=False,
+)
 
 EndpointTypeDef = TypedDict(
-    "EndpointTypeDef", {"Address": str, "Port": int, "HostedZoneId": str}, total=False
+    "EndpointTypeDef",
+    {
+        "Address": str,
+        "Port": int,
+        "HostedZoneId": str,
+    },
+    total=False,
 )
 
 EngineDefaultsTypeDef = TypedDict(
     "EngineDefaultsTypeDef",
-    {"DBParameterGroupFamily": str, "Marker": str, "Parameters": List["ParameterTypeDef"]},
+    {
+        "DBParameterGroupFamily": str,
+        "Marker": str,
+        "Parameters": List["ParameterTypeDef"],
+    },
     total=False,
 )
 
 EventCategoriesMapTypeDef = TypedDict(
-    "EventCategoriesMapTypeDef", {"SourceType": str, "EventCategories": List[str]}, total=False
+    "EventCategoriesMapTypeDef",
+    {
+        "SourceType": str,
+        "EventCategories": List[str],
+    },
+    total=False,
+)
+
+EventCategoriesMessageTypeDef = TypedDict(
+    "EventCategoriesMessageTypeDef",
+    {
+        "EventCategoriesMapList": List["EventCategoriesMapTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 EventSubscriptionTypeDef = TypedDict(
@@ -424,18 +1580,20 @@ EventSubscriptionTypeDef = TypedDict(
     total=False,
 )
 
+EventSubscriptionsMessageTypeDef = TypedDict(
+    "EventSubscriptionsMessageTypeDef",
+    {
+        "Marker": str,
+        "EventSubscriptionsList": List["EventSubscriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 EventTypeDef = TypedDict(
     "EventTypeDef",
     {
         "SourceIdentifier": str,
-        "SourceType": Literal[
-            "db-instance",
-            "db-parameter-group",
-            "db-security-group",
-            "db-snapshot",
-            "db-cluster",
-            "db-cluster-snapshot",
-        ],
+        "SourceType": SourceTypeType,
         "Message": str,
         "EventCategories": List[str],
         "Date": datetime,
@@ -444,8 +1602,315 @@ EventTypeDef = TypedDict(
     total=False,
 )
 
+EventsMessageTypeDef = TypedDict(
+    "EventsMessageTypeDef",
+    {
+        "Marker": str,
+        "Events": List["EventTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+FailoverDBClusterMessageRequestTypeDef = TypedDict(
+    "FailoverDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "TargetDBInstanceIdentifier": str,
+    },
+    total=False,
+)
+
+FailoverDBClusterResultTypeDef = TypedDict(
+    "FailoverDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "Name": str,
+        "Values": List[str],
+    },
+)
+
+_RequiredListTagsForResourceMessageRequestTypeDef = TypedDict(
+    "_RequiredListTagsForResourceMessageRequestTypeDef",
+    {
+        "ResourceName": str,
+    },
+)
+_OptionalListTagsForResourceMessageRequestTypeDef = TypedDict(
+    "_OptionalListTagsForResourceMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+class ListTagsForResourceMessageRequestTypeDef(
+    _RequiredListTagsForResourceMessageRequestTypeDef,
+    _OptionalListTagsForResourceMessageRequestTypeDef,
+):
+    pass
+
+_RequiredModifyDBClusterEndpointMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyDBClusterEndpointMessageRequestTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+    },
+)
+_OptionalModifyDBClusterEndpointMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyDBClusterEndpointMessageRequestTypeDef",
+    {
+        "EndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+    },
+    total=False,
+)
+
+class ModifyDBClusterEndpointMessageRequestTypeDef(
+    _RequiredModifyDBClusterEndpointMessageRequestTypeDef,
+    _OptionalModifyDBClusterEndpointMessageRequestTypeDef,
+):
+    pass
+
+ModifyDBClusterEndpointOutputTypeDef = TypedDict(
+    "ModifyDBClusterEndpointOutputTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointResourceIdentifier": str,
+        "Endpoint": str,
+        "Status": str,
+        "EndpointType": str,
+        "CustomEndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "DBClusterEndpointArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyDBClusterMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+    },
+)
+_OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyDBClusterMessageRequestTypeDef",
+    {
+        "NewDBClusterIdentifier": str,
+        "ApplyImmediately": bool,
+        "BackupRetentionPeriod": int,
+        "DBClusterParameterGroupName": str,
+        "VpcSecurityGroupIds": List[str],
+        "Port": int,
+        "MasterUserPassword": str,
+        "OptionGroupName": str,
+        "PreferredBackupWindow": str,
+        "PreferredMaintenanceWindow": str,
+        "EnableIAMDatabaseAuthentication": bool,
+        "CloudwatchLogsExportConfiguration": "CloudwatchLogsExportConfigurationTypeDef",
+        "EngineVersion": str,
+        "DeletionProtection": bool,
+        "CopyTagsToSnapshot": bool,
+    },
+    total=False,
+)
+
+class ModifyDBClusterMessageRequestTypeDef(
+    _RequiredModifyDBClusterMessageRequestTypeDef, _OptionalModifyDBClusterMessageRequestTypeDef
+):
+    pass
+
+ModifyDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "ModifyDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "DBClusterParameterGroupName": str,
+        "Parameters": List["ParameterTypeDef"],
+    },
+)
+
+ModifyDBClusterResultTypeDef = TypedDict(
+    "ModifyDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyDBClusterSnapshotAttributeMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyDBClusterSnapshotAttributeMessageRequestTypeDef",
+    {
+        "DBClusterSnapshotIdentifier": str,
+        "AttributeName": str,
+    },
+)
+_OptionalModifyDBClusterSnapshotAttributeMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyDBClusterSnapshotAttributeMessageRequestTypeDef",
+    {
+        "ValuesToAdd": List[str],
+        "ValuesToRemove": List[str],
+    },
+    total=False,
+)
+
+class ModifyDBClusterSnapshotAttributeMessageRequestTypeDef(
+    _RequiredModifyDBClusterSnapshotAttributeMessageRequestTypeDef,
+    _OptionalModifyDBClusterSnapshotAttributeMessageRequestTypeDef,
+):
+    pass
+
+ModifyDBClusterSnapshotAttributeResultTypeDef = TypedDict(
+    "ModifyDBClusterSnapshotAttributeResultTypeDef",
+    {
+        "DBClusterSnapshotAttributesResult": "DBClusterSnapshotAttributesResultTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyDBInstanceMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyDBInstanceMessageRequestTypeDef",
+    {
+        "DBInstanceIdentifier": str,
+    },
+)
+_OptionalModifyDBInstanceMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyDBInstanceMessageRequestTypeDef",
+    {
+        "AllocatedStorage": int,
+        "DBInstanceClass": str,
+        "DBSubnetGroupName": str,
+        "DBSecurityGroups": List[str],
+        "VpcSecurityGroupIds": List[str],
+        "ApplyImmediately": bool,
+        "MasterUserPassword": str,
+        "DBParameterGroupName": str,
+        "BackupRetentionPeriod": int,
+        "PreferredBackupWindow": str,
+        "PreferredMaintenanceWindow": str,
+        "MultiAZ": bool,
+        "EngineVersion": str,
+        "AllowMajorVersionUpgrade": bool,
+        "AutoMinorVersionUpgrade": bool,
+        "LicenseModel": str,
+        "Iops": int,
+        "OptionGroupName": str,
+        "NewDBInstanceIdentifier": str,
+        "StorageType": str,
+        "TdeCredentialArn": str,
+        "TdeCredentialPassword": str,
+        "CACertificateIdentifier": str,
+        "Domain": str,
+        "CopyTagsToSnapshot": bool,
+        "MonitoringInterval": int,
+        "DBPortNumber": int,
+        "PubliclyAccessible": bool,
+        "MonitoringRoleArn": str,
+        "DomainIAMRoleName": str,
+        "PromotionTier": int,
+        "EnableIAMDatabaseAuthentication": bool,
+        "EnablePerformanceInsights": bool,
+        "PerformanceInsightsKMSKeyId": str,
+        "CloudwatchLogsExportConfiguration": "CloudwatchLogsExportConfigurationTypeDef",
+        "DeletionProtection": bool,
+    },
+    total=False,
+)
+
+class ModifyDBInstanceMessageRequestTypeDef(
+    _RequiredModifyDBInstanceMessageRequestTypeDef, _OptionalModifyDBInstanceMessageRequestTypeDef
+):
+    pass
+
+ModifyDBInstanceResultTypeDef = TypedDict(
+    "ModifyDBInstanceResultTypeDef",
+    {
+        "DBInstance": "DBInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "ModifyDBParameterGroupMessageRequestTypeDef",
+    {
+        "DBParameterGroupName": str,
+        "Parameters": List["ParameterTypeDef"],
+    },
+)
+
+_RequiredModifyDBSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyDBSubnetGroupMessageRequestTypeDef",
+    {
+        "DBSubnetGroupName": str,
+        "SubnetIds": List[str],
+    },
+)
+_OptionalModifyDBSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyDBSubnetGroupMessageRequestTypeDef",
+    {
+        "DBSubnetGroupDescription": str,
+    },
+    total=False,
+)
+
+class ModifyDBSubnetGroupMessageRequestTypeDef(
+    _RequiredModifyDBSubnetGroupMessageRequestTypeDef,
+    _OptionalModifyDBSubnetGroupMessageRequestTypeDef,
+):
+    pass
+
+ModifyDBSubnetGroupResultTypeDef = TypedDict(
+    "ModifyDBSubnetGroupResultTypeDef",
+    {
+        "DBSubnetGroup": "DBSubnetGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyEventSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+    },
+)
+_OptionalModifyEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyEventSubscriptionMessageRequestTypeDef",
+    {
+        "SnsTopicArn": str,
+        "SourceType": str,
+        "EventCategories": List[str],
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+class ModifyEventSubscriptionMessageRequestTypeDef(
+    _RequiredModifyEventSubscriptionMessageRequestTypeDef,
+    _OptionalModifyEventSubscriptionMessageRequestTypeDef,
+):
+    pass
+
+ModifyEventSubscriptionResultTypeDef = TypedDict(
+    "ModifyEventSubscriptionResultTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 OptionGroupMembershipTypeDef = TypedDict(
-    "OptionGroupMembershipTypeDef", {"OptionGroupName": str, "Status": str}, total=False
+    "OptionGroupMembershipTypeDef",
+    {
+        "OptionGroupName": str,
+        "Status": str,
+    },
+    total=False,
 )
 
 OrderableDBInstanceOptionTypeDef = TypedDict(
@@ -475,6 +1940,25 @@ OrderableDBInstanceOptionTypeDef = TypedDict(
     total=False,
 )
 
+OrderableDBInstanceOptionsMessageTypeDef = TypedDict(
+    "OrderableDBInstanceOptionsMessageTypeDef",
+    {
+        "OrderableDBInstanceOptions": List["OrderableDBInstanceOptionTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
 ParameterTypeDef = TypedDict(
     "ParameterTypeDef",
     {
@@ -487,14 +1971,17 @@ ParameterTypeDef = TypedDict(
         "AllowedValues": str,
         "IsModifiable": bool,
         "MinimumEngineVersion": str,
-        "ApplyMethod": Literal["immediate", "pending-reboot"],
+        "ApplyMethod": ApplyMethodType,
     },
     total=False,
 )
 
 PendingCloudwatchLogsExportsTypeDef = TypedDict(
     "PendingCloudwatchLogsExportsTypeDef",
-    {"LogTypesToEnable": List[str], "LogTypesToDisable": List[str]},
+    {
+        "LogTypesToEnable": List[str],
+        "LogTypesToDisable": List[str],
+    },
     total=False,
 )
 
@@ -509,6 +1996,15 @@ PendingMaintenanceActionTypeDef = TypedDict(
         "Description": str,
     },
     total=False,
+)
+
+PendingMaintenanceActionsMessageTypeDef = TypedDict(
+    "PendingMaintenanceActionsMessageTypeDef",
+    {
+        "PendingMaintenanceActions": List["ResourcePendingMaintenanceActionsTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 PendingModifiedValuesTypeDef = TypedDict(
@@ -532,7 +2028,144 @@ PendingModifiedValuesTypeDef = TypedDict(
     total=False,
 )
 
-RangeTypeDef = TypedDict("RangeTypeDef", {"From": int, "To": int, "Step": int}, total=False)
+PromoteReadReplicaDBClusterMessageRequestTypeDef = TypedDict(
+    "PromoteReadReplicaDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+    },
+)
+
+PromoteReadReplicaDBClusterResultTypeDef = TypedDict(
+    "PromoteReadReplicaDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RangeTypeDef = TypedDict(
+    "RangeTypeDef",
+    {
+        "From": int,
+        "To": int,
+        "Step": int,
+    },
+    total=False,
+)
+
+_RequiredRebootDBInstanceMessageRequestTypeDef = TypedDict(
+    "_RequiredRebootDBInstanceMessageRequestTypeDef",
+    {
+        "DBInstanceIdentifier": str,
+    },
+)
+_OptionalRebootDBInstanceMessageRequestTypeDef = TypedDict(
+    "_OptionalRebootDBInstanceMessageRequestTypeDef",
+    {
+        "ForceFailover": bool,
+    },
+    total=False,
+)
+
+class RebootDBInstanceMessageRequestTypeDef(
+    _RequiredRebootDBInstanceMessageRequestTypeDef, _OptionalRebootDBInstanceMessageRequestTypeDef
+):
+    pass
+
+RebootDBInstanceResultTypeDef = TypedDict(
+    "RebootDBInstanceResultTypeDef",
+    {
+        "DBInstance": "DBInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRemoveRoleFromDBClusterMessageRequestTypeDef = TypedDict(
+    "_RequiredRemoveRoleFromDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "RoleArn": str,
+    },
+)
+_OptionalRemoveRoleFromDBClusterMessageRequestTypeDef = TypedDict(
+    "_OptionalRemoveRoleFromDBClusterMessageRequestTypeDef",
+    {
+        "FeatureName": str,
+    },
+    total=False,
+)
+
+class RemoveRoleFromDBClusterMessageRequestTypeDef(
+    _RequiredRemoveRoleFromDBClusterMessageRequestTypeDef,
+    _OptionalRemoveRoleFromDBClusterMessageRequestTypeDef,
+):
+    pass
+
+RemoveSourceIdentifierFromSubscriptionMessageRequestTypeDef = TypedDict(
+    "RemoveSourceIdentifierFromSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+        "SourceIdentifier": str,
+    },
+)
+
+RemoveSourceIdentifierFromSubscriptionResultTypeDef = TypedDict(
+    "RemoveSourceIdentifierFromSubscriptionResultTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RemoveTagsFromResourceMessageRequestTypeDef = TypedDict(
+    "RemoveTagsFromResourceMessageRequestTypeDef",
+    {
+        "ResourceName": str,
+        "TagKeys": List[str],
+    },
+)
+
+_RequiredResetDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredResetDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "DBClusterParameterGroupName": str,
+    },
+)
+_OptionalResetDBClusterParameterGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalResetDBClusterParameterGroupMessageRequestTypeDef",
+    {
+        "ResetAllParameters": bool,
+        "Parameters": List["ParameterTypeDef"],
+    },
+    total=False,
+)
+
+class ResetDBClusterParameterGroupMessageRequestTypeDef(
+    _RequiredResetDBClusterParameterGroupMessageRequestTypeDef,
+    _OptionalResetDBClusterParameterGroupMessageRequestTypeDef,
+):
+    pass
+
+_RequiredResetDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredResetDBParameterGroupMessageRequestTypeDef",
+    {
+        "DBParameterGroupName": str,
+    },
+)
+_OptionalResetDBParameterGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalResetDBParameterGroupMessageRequestTypeDef",
+    {
+        "ResetAllParameters": bool,
+        "Parameters": List["ParameterTypeDef"],
+    },
+    total=False,
+)
+
+class ResetDBParameterGroupMessageRequestTypeDef(
+    _RequiredResetDBParameterGroupMessageRequestTypeDef,
+    _OptionalResetDBParameterGroupMessageRequestTypeDef,
+):
+    pass
 
 ResourcePendingMaintenanceActionsTypeDef = TypedDict(
     "ResourcePendingMaintenanceActionsTypeDef",
@@ -543,14 +2176,128 @@ ResourcePendingMaintenanceActionsTypeDef = TypedDict(
     total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+_RequiredRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
+    "_RequiredRestoreDBClusterFromSnapshotMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "SnapshotIdentifier": str,
+        "Engine": str,
+    },
+)
+_OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
+    "_OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef",
+    {
+        "AvailabilityZones": List[str],
+        "EngineVersion": str,
+        "Port": int,
+        "DBSubnetGroupName": str,
+        "DatabaseName": str,
+        "OptionGroupName": str,
+        "VpcSecurityGroupIds": List[str],
+        "Tags": List["TagTypeDef"],
+        "KmsKeyId": str,
+        "EnableIAMDatabaseAuthentication": bool,
+        "EnableCloudwatchLogsExports": List[str],
+        "DBClusterParameterGroupName": str,
+        "DeletionProtection": bool,
+        "CopyTagsToSnapshot": bool,
+    },
+    total=False,
+)
+
+class RestoreDBClusterFromSnapshotMessageRequestTypeDef(
+    _RequiredRestoreDBClusterFromSnapshotMessageRequestTypeDef,
+    _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef,
+):
+    pass
+
+RestoreDBClusterFromSnapshotResultTypeDef = TypedDict(
+    "RestoreDBClusterFromSnapshotResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
+    "_RequiredRestoreDBClusterToPointInTimeMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+        "SourceDBClusterIdentifier": str,
+    },
+)
+_OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
+    "_OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef",
+    {
+        "RestoreType": str,
+        "RestoreToTime": Union[datetime, str],
+        "UseLatestRestorableTime": bool,
+        "Port": int,
+        "DBSubnetGroupName": str,
+        "OptionGroupName": str,
+        "VpcSecurityGroupIds": List[str],
+        "Tags": List["TagTypeDef"],
+        "KmsKeyId": str,
+        "EnableIAMDatabaseAuthentication": bool,
+        "EnableCloudwatchLogsExports": List[str],
+        "DBClusterParameterGroupName": str,
+        "DeletionProtection": bool,
+    },
+    total=False,
+)
+
+class RestoreDBClusterToPointInTimeMessageRequestTypeDef(
+    _RequiredRestoreDBClusterToPointInTimeMessageRequestTypeDef,
+    _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef,
+):
+    pass
+
+RestoreDBClusterToPointInTimeResultTypeDef = TypedDict(
+    "RestoreDBClusterToPointInTimeResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartDBClusterMessageRequestTypeDef = TypedDict(
+    "StartDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+    },
+)
+
+StartDBClusterResultTypeDef = TypedDict(
+    "StartDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopDBClusterMessageRequestTypeDef = TypedDict(
+    "StopDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+    },
+)
+
+StopDBClusterResultTypeDef = TypedDict(
+    "StopDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -564,9 +2311,30 @@ SubnetTypeDef = TypedDict(
     total=False,
 )
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
+TagListMessageTypeDef = TypedDict(
+    "TagListMessageTypeDef",
+    {
+        "TagList": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
-TimezoneTypeDef = TypedDict("TimezoneTypeDef", {"TimezoneName": str}, total=False)
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+TimezoneTypeDef = TypedDict(
+    "TimezoneTypeDef",
+    {
+        "TimezoneName": str,
+    },
+    total=False,
+)
 
 UpgradeTargetTypeDef = TypedDict(
     "UpgradeTargetTypeDef",
@@ -582,7 +2350,9 @@ UpgradeTargetTypeDef = TypedDict(
 
 ValidDBInstanceModificationsMessageTypeDef = TypedDict(
     "ValidDBInstanceModificationsMessageTypeDef",
-    {"Storage": List["ValidStorageOptionsTypeDef"]},
+    {
+        "Storage": List["ValidStorageOptionsTypeDef"],
+    },
     total=False,
 )
 
@@ -598,341 +2368,19 @@ ValidStorageOptionsTypeDef = TypedDict(
 )
 
 VpcSecurityGroupMembershipTypeDef = TypedDict(
-    "VpcSecurityGroupMembershipTypeDef", {"VpcSecurityGroupId": str, "Status": str}, total=False
-)
-
-AddSourceIdentifierToSubscriptionResultTypeDef = TypedDict(
-    "AddSourceIdentifierToSubscriptionResultTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-ApplyPendingMaintenanceActionResultTypeDef = TypedDict(
-    "ApplyPendingMaintenanceActionResultTypeDef",
-    {"ResourcePendingMaintenanceActions": "ResourcePendingMaintenanceActionsTypeDef"},
-    total=False,
-)
-
-CloudwatchLogsExportConfigurationTypeDef = TypedDict(
-    "CloudwatchLogsExportConfigurationTypeDef",
-    {"EnableLogTypes": List[str], "DisableLogTypes": List[str]},
-    total=False,
-)
-
-CopyDBClusterParameterGroupResultTypeDef = TypedDict(
-    "CopyDBClusterParameterGroupResultTypeDef",
-    {"DBClusterParameterGroup": "DBClusterParameterGroupTypeDef"},
-    total=False,
-)
-
-CopyDBClusterSnapshotResultTypeDef = TypedDict(
-    "CopyDBClusterSnapshotResultTypeDef",
-    {"DBClusterSnapshot": "DBClusterSnapshotTypeDef"},
-    total=False,
-)
-
-CopyDBParameterGroupResultTypeDef = TypedDict(
-    "CopyDBParameterGroupResultTypeDef",
-    {"DBParameterGroup": "DBParameterGroupTypeDef"},
-    total=False,
-)
-
-CreateDBClusterEndpointOutputTypeDef = TypedDict(
-    "CreateDBClusterEndpointOutputTypeDef",
+    "VpcSecurityGroupMembershipTypeDef",
     {
-        "DBClusterEndpointIdentifier": str,
-        "DBClusterIdentifier": str,
-        "DBClusterEndpointResourceIdentifier": str,
-        "Endpoint": str,
+        "VpcSecurityGroupId": str,
         "Status": str,
-        "EndpointType": str,
-        "CustomEndpointType": str,
-        "StaticMembers": List[str],
-        "ExcludedMembers": List[str],
-        "DBClusterEndpointArn": str,
-        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
-)
-
-CreateDBClusterParameterGroupResultTypeDef = TypedDict(
-    "CreateDBClusterParameterGroupResultTypeDef",
-    {"DBClusterParameterGroup": "DBClusterParameterGroupTypeDef"},
-    total=False,
-)
-
-CreateDBClusterResultTypeDef = TypedDict(
-    "CreateDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-CreateDBClusterSnapshotResultTypeDef = TypedDict(
-    "CreateDBClusterSnapshotResultTypeDef",
-    {"DBClusterSnapshot": "DBClusterSnapshotTypeDef"},
-    total=False,
-)
-
-CreateDBInstanceResultTypeDef = TypedDict(
-    "CreateDBInstanceResultTypeDef", {"DBInstance": "DBInstanceTypeDef"}, total=False
-)
-
-CreateDBParameterGroupResultTypeDef = TypedDict(
-    "CreateDBParameterGroupResultTypeDef",
-    {"DBParameterGroup": "DBParameterGroupTypeDef"},
-    total=False,
-)
-
-CreateDBSubnetGroupResultTypeDef = TypedDict(
-    "CreateDBSubnetGroupResultTypeDef", {"DBSubnetGroup": "DBSubnetGroupTypeDef"}, total=False
-)
-
-CreateEventSubscriptionResultTypeDef = TypedDict(
-    "CreateEventSubscriptionResultTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-DBClusterEndpointMessageTypeDef = TypedDict(
-    "DBClusterEndpointMessageTypeDef",
-    {"Marker": str, "DBClusterEndpoints": List["DBClusterEndpointTypeDef"]},
-    total=False,
-)
-
-DBClusterMessageTypeDef = TypedDict(
-    "DBClusterMessageTypeDef", {"Marker": str, "DBClusters": List["DBClusterTypeDef"]}, total=False
-)
-
-DBClusterParameterGroupDetailsTypeDef = TypedDict(
-    "DBClusterParameterGroupDetailsTypeDef",
-    {"Parameters": List["ParameterTypeDef"], "Marker": str},
-    total=False,
-)
-
-DBClusterParameterGroupNameMessageTypeDef = TypedDict(
-    "DBClusterParameterGroupNameMessageTypeDef", {"DBClusterParameterGroupName": str}, total=False
-)
-
-DBClusterParameterGroupsMessageTypeDef = TypedDict(
-    "DBClusterParameterGroupsMessageTypeDef",
-    {"Marker": str, "DBClusterParameterGroups": List["DBClusterParameterGroupTypeDef"]},
-    total=False,
-)
-
-DBClusterSnapshotMessageTypeDef = TypedDict(
-    "DBClusterSnapshotMessageTypeDef",
-    {"Marker": str, "DBClusterSnapshots": List["DBClusterSnapshotTypeDef"]},
-    total=False,
-)
-
-DBEngineVersionMessageTypeDef = TypedDict(
-    "DBEngineVersionMessageTypeDef",
-    {"Marker": str, "DBEngineVersions": List["DBEngineVersionTypeDef"]},
-    total=False,
-)
-
-DBInstanceMessageTypeDef = TypedDict(
-    "DBInstanceMessageTypeDef",
-    {"Marker": str, "DBInstances": List["DBInstanceTypeDef"]},
-    total=False,
-)
-
-DBParameterGroupDetailsTypeDef = TypedDict(
-    "DBParameterGroupDetailsTypeDef",
-    {"Parameters": List["ParameterTypeDef"], "Marker": str},
-    total=False,
-)
-
-DBParameterGroupNameMessageTypeDef = TypedDict(
-    "DBParameterGroupNameMessageTypeDef", {"DBParameterGroupName": str}, total=False
-)
-
-DBParameterGroupsMessageTypeDef = TypedDict(
-    "DBParameterGroupsMessageTypeDef",
-    {"Marker": str, "DBParameterGroups": List["DBParameterGroupTypeDef"]},
-    total=False,
-)
-
-DBSubnetGroupMessageTypeDef = TypedDict(
-    "DBSubnetGroupMessageTypeDef",
-    {"Marker": str, "DBSubnetGroups": List["DBSubnetGroupTypeDef"]},
-    total=False,
-)
-
-DeleteDBClusterEndpointOutputTypeDef = TypedDict(
-    "DeleteDBClusterEndpointOutputTypeDef",
-    {
-        "DBClusterEndpointIdentifier": str,
-        "DBClusterIdentifier": str,
-        "DBClusterEndpointResourceIdentifier": str,
-        "Endpoint": str,
-        "Status": str,
-        "EndpointType": str,
-        "CustomEndpointType": str,
-        "StaticMembers": List[str],
-        "ExcludedMembers": List[str],
-        "DBClusterEndpointArn": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DeleteDBClusterResultTypeDef = TypedDict(
-    "DeleteDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-DeleteDBClusterSnapshotResultTypeDef = TypedDict(
-    "DeleteDBClusterSnapshotResultTypeDef",
-    {"DBClusterSnapshot": "DBClusterSnapshotTypeDef"},
-    total=False,
-)
-
-DeleteDBInstanceResultTypeDef = TypedDict(
-    "DeleteDBInstanceResultTypeDef", {"DBInstance": "DBInstanceTypeDef"}, total=False
-)
-
-DeleteEventSubscriptionResultTypeDef = TypedDict(
-    "DeleteEventSubscriptionResultTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-DescribeDBClusterSnapshotAttributesResultTypeDef = TypedDict(
-    "DescribeDBClusterSnapshotAttributesResultTypeDef",
-    {"DBClusterSnapshotAttributesResult": "DBClusterSnapshotAttributesResultTypeDef"},
-    total=False,
-)
-
-DescribeEngineDefaultClusterParametersResultTypeDef = TypedDict(
-    "DescribeEngineDefaultClusterParametersResultTypeDef",
-    {"EngineDefaults": "EngineDefaultsTypeDef"},
-    total=False,
-)
-
-DescribeEngineDefaultParametersResultTypeDef = TypedDict(
-    "DescribeEngineDefaultParametersResultTypeDef",
-    {"EngineDefaults": "EngineDefaultsTypeDef"},
-    total=False,
-)
-
-DescribeValidDBInstanceModificationsResultTypeDef = TypedDict(
-    "DescribeValidDBInstanceModificationsResultTypeDef",
-    {"ValidDBInstanceModificationsMessage": "ValidDBInstanceModificationsMessageTypeDef"},
-    total=False,
-)
-
-EventCategoriesMessageTypeDef = TypedDict(
-    "EventCategoriesMessageTypeDef",
-    {"EventCategoriesMapList": List["EventCategoriesMapTypeDef"]},
-    total=False,
-)
-
-EventSubscriptionsMessageTypeDef = TypedDict(
-    "EventSubscriptionsMessageTypeDef",
-    {"Marker": str, "EventSubscriptionsList": List["EventSubscriptionTypeDef"]},
-    total=False,
-)
-
-EventsMessageTypeDef = TypedDict(
-    "EventsMessageTypeDef", {"Marker": str, "Events": List["EventTypeDef"]}, total=False
-)
-
-FailoverDBClusterResultTypeDef = TypedDict(
-    "FailoverDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-FilterTypeDef = TypedDict("FilterTypeDef", {"Name": str, "Values": List[str]})
-
-ModifyDBClusterEndpointOutputTypeDef = TypedDict(
-    "ModifyDBClusterEndpointOutputTypeDef",
-    {
-        "DBClusterEndpointIdentifier": str,
-        "DBClusterIdentifier": str,
-        "DBClusterEndpointResourceIdentifier": str,
-        "Endpoint": str,
-        "Status": str,
-        "EndpointType": str,
-        "CustomEndpointType": str,
-        "StaticMembers": List[str],
-        "ExcludedMembers": List[str],
-        "DBClusterEndpointArn": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-ModifyDBClusterResultTypeDef = TypedDict(
-    "ModifyDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-ModifyDBClusterSnapshotAttributeResultTypeDef = TypedDict(
-    "ModifyDBClusterSnapshotAttributeResultTypeDef",
-    {"DBClusterSnapshotAttributesResult": "DBClusterSnapshotAttributesResultTypeDef"},
-    total=False,
-)
-
-ModifyDBInstanceResultTypeDef = TypedDict(
-    "ModifyDBInstanceResultTypeDef", {"DBInstance": "DBInstanceTypeDef"}, total=False
-)
-
-ModifyDBSubnetGroupResultTypeDef = TypedDict(
-    "ModifyDBSubnetGroupResultTypeDef", {"DBSubnetGroup": "DBSubnetGroupTypeDef"}, total=False
-)
-
-ModifyEventSubscriptionResultTypeDef = TypedDict(
-    "ModifyEventSubscriptionResultTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-OrderableDBInstanceOptionsMessageTypeDef = TypedDict(
-    "OrderableDBInstanceOptionsMessageTypeDef",
-    {"OrderableDBInstanceOptions": List["OrderableDBInstanceOptionTypeDef"], "Marker": str},
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PendingMaintenanceActionsMessageTypeDef = TypedDict(
-    "PendingMaintenanceActionsMessageTypeDef",
-    {"PendingMaintenanceActions": List["ResourcePendingMaintenanceActionsTypeDef"], "Marker": str},
-    total=False,
-)
-
-PromoteReadReplicaDBClusterResultTypeDef = TypedDict(
-    "PromoteReadReplicaDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-RebootDBInstanceResultTypeDef = TypedDict(
-    "RebootDBInstanceResultTypeDef", {"DBInstance": "DBInstanceTypeDef"}, total=False
-)
-
-RemoveSourceIdentifierFromSubscriptionResultTypeDef = TypedDict(
-    "RemoveSourceIdentifierFromSubscriptionResultTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-RestoreDBClusterFromSnapshotResultTypeDef = TypedDict(
-    "RestoreDBClusterFromSnapshotResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-RestoreDBClusterToPointInTimeResultTypeDef = TypedDict(
-    "RestoreDBClusterToPointInTimeResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-StartDBClusterResultTypeDef = TypedDict(
-    "StartDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-StopDBClusterResultTypeDef = TypedDict(
-    "StopDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
-)
-
-TagListMessageTypeDef = TypedDict(
-    "TagListMessageTypeDef", {"TagList": List["TagTypeDef"]}, total=False
 )
 
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

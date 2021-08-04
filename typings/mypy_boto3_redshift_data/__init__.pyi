@@ -29,8 +29,8 @@ Usage::
     list_tables_paginator: ListTablesPaginator = client.get_paginator("list_tables")
     ```
 """
-from mypy_boto3_redshift_data.client import RedshiftDataAPIServiceClient
-from mypy_boto3_redshift_data.paginator import (
+from .client import RedshiftDataAPIServiceClient
+from .paginator import (
     DescribeTablePaginator,
     GetStatementResultPaginator,
     ListDatabasesPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_redshift_data.paginator import (
 )
 
 Client = RedshiftDataAPIServiceClient
-
 
 __all__ = (
     "Client",

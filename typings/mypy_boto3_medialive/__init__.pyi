@@ -60,8 +60,8 @@ Usage::
     list_reservations_paginator: ListReservationsPaginator = client.get_paginator("list_reservations")
     ```
 """
-from mypy_boto3_medialive.client import MediaLiveClient
-from mypy_boto3_medialive.paginator import (
+from .client import MediaLiveClient
+from .paginator import (
     DescribeSchedulePaginator,
     ListChannelsPaginator,
     ListInputDevicesPaginator,
@@ -73,7 +73,7 @@ from mypy_boto3_medialive.paginator import (
     ListOfferingsPaginator,
     ListReservationsPaginator,
 )
-from mypy_boto3_medialive.waiter import (
+from .waiter import (
     ChannelCreatedWaiter,
     ChannelDeletedWaiter,
     ChannelRunningWaiter,
@@ -88,7 +88,6 @@ from mypy_boto3_medialive.waiter import (
 )
 
 Client = MediaLiveClient
-
 
 __all__ = (
     "ChannelCreatedWaiter",

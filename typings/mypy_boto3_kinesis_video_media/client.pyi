@@ -1,5 +1,7 @@
 """
-Main interface for kinesis-video-media service client
+Type annotations for kinesis-video-media service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html)
 
 Usage::
 
@@ -12,20 +14,17 @@ Usage::
 """
 from typing import Any, Dict, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_kinesis_video_media.type_defs import GetMediaOutputTypeDef, StartSelectorTypeDef
+from .type_defs import GetMediaOutputTypeDef, StartSelectorTypeDef
 
 __all__ = ("KinesisVideoMediaClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -36,20 +35,25 @@ class Exceptions:
     NotAuthorizedException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
 
-
-class KinesisVideoMediaClient:
+class KinesisVideoMediaClient(BaseClient):
     """
-    [KinesisVideoMedia.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        KinesisVideoMediaClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html#can_paginate)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -58,12 +62,21 @@ class KinesisVideoMediaClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html#generate_presigned_url)
+        """
     def get_media(
-        self, StartSelector: StartSelectorTypeDef, StreamName: str = None, StreamARN: str = None
+        self,
+        *,
+        StartSelector: "StartSelectorTypeDef",
+        StreamName: str = None,
+        StreamARN: str = None
     ) -> GetMediaOutputTypeDef:
         """
-        [Client.get_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.get_media)
+        Use this API to retrieve media content from a Kinesis video stream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.get_media)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html#get_media)
         """

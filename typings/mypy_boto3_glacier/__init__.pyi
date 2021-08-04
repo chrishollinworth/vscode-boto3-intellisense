@@ -35,21 +35,19 @@ Usage::
     list_vaults_paginator: ListVaultsPaginator = client.get_paginator("list_vaults")
     ```
 """
-from mypy_boto3_glacier.client import GlacierClient
-from mypy_boto3_glacier.paginator import (
+from .client import GlacierClient
+from .paginator import (
     ListJobsPaginator,
     ListMultipartUploadsPaginator,
     ListPartsPaginator,
     ListVaultsPaginator,
 )
-from mypy_boto3_glacier.service_resource import GlacierServiceResource
-from mypy_boto3_glacier.waiter import VaultExistsWaiter, VaultNotExistsWaiter
+from .service_resource import GlacierServiceResource
+from .waiter import VaultExistsWaiter, VaultNotExistsWaiter
 
 Client = GlacierClient
 
-
 ServiceResource = GlacierServiceResource
-
 
 __all__ = (
     "Client",

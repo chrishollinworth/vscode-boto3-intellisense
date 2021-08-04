@@ -1,34 +1,37 @@
 """
-Main interface for signer service client waiters.
+Type annotations for signer service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/waiters.html)
 
 Usage::
 
     ```python
     import boto3
 
-    from mypy_boto3_signer import SignerClient
+    from mypy_boto3_signer import signerClient
     from mypy_boto3_signer.waiter import (
         SuccessfulSigningJobWaiter,
     )
 
-    client: SignerClient = boto3.client("signer")
+    client: signerClient = boto3.client("signer")
 
     successful_signing_job_waiter: SuccessfulSigningJobWaiter = client.get_waiter("successful_signing_job")
     ```
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_signer.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("SuccessfulSigningJobWaiter",)
 
-
 class SuccessfulSigningJobWaiter(Boto3Waiter):
     """
-    [Waiter.SuccessfulSigningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/signer.html#signer.Waiter.SuccessfulSigningJob)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/waiters.html#successfulsigningjobwaiter)
     """
 
-    def wait(self, jobId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, jobId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [SuccessfulSigningJob.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/signer.html#signer.Waiter.SuccessfulSigningJob.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/waiters.html#successfulsigningjobwaiter)
         """

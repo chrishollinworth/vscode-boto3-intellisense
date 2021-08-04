@@ -42,8 +42,8 @@ Usage::
     describe_target_groups_paginator: DescribeTargetGroupsPaginator = client.get_paginator("describe_target_groups")
     ```
 """
-from mypy_boto3_elbv2.client import ElasticLoadBalancingv2Client
-from mypy_boto3_elbv2.paginator import (
+from .client import ElasticLoadBalancingv2Client
+from .paginator import (
     DescribeAccountLimitsPaginator,
     DescribeListenerCertificatesPaginator,
     DescribeListenersPaginator,
@@ -52,7 +52,7 @@ from mypy_boto3_elbv2.paginator import (
     DescribeSSLPoliciesPaginator,
     DescribeTargetGroupsPaginator,
 )
-from mypy_boto3_elbv2.waiter import (
+from .waiter import (
     LoadBalancerAvailableWaiter,
     LoadBalancerExistsWaiter,
     LoadBalancersDeletedWaiter,
@@ -61,7 +61,6 @@ from mypy_boto3_elbv2.waiter import (
 )
 
 Client = ElasticLoadBalancingv2Client
-
 
 __all__ = (
     "Client",

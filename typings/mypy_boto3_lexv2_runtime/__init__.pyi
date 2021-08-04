@@ -16,9 +16,8 @@ Usage::
     session_client: LexRuntimeV2Client = session.client("lexv2-runtime")
     ```
 """
-from mypy_boto3_lexv2_runtime.client import LexRuntimeV2Client
+from .client import LexRuntimeV2Client
 
 Client = LexRuntimeV2Client
-
 
 __all__ = ("Client", "LexRuntimeV2Client")

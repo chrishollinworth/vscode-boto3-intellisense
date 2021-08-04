@@ -19,10 +19,9 @@ Usage::
     list_endpoints_paginator: ListEndpointsPaginator = client.get_paginator("list_endpoints")
     ```
 """
-from mypy_boto3_s3outposts.client import S3OutpostsClient
-from mypy_boto3_s3outposts.paginator import ListEndpointsPaginator
+from .client import S3OutpostsClient
+from .paginator import ListEndpointsPaginator
 
 Client = S3OutpostsClient
-
 
 __all__ = ("Client", "ListEndpointsPaginator", "S3OutpostsClient")

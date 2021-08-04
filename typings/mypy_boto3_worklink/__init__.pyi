@@ -16,9 +16,8 @@ Usage::
     session_client: WorkLinkClient = session.client("worklink")
     ```
 """
-from mypy_boto3_worklink.client import WorkLinkClient
+from .client import WorkLinkClient
 
 Client = WorkLinkClient
-
 
 __all__ = ("Client", "WorkLinkClient")

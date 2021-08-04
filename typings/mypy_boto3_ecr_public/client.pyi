@@ -1,5 +1,7 @@
 """
-Main interface for ecr-public service client
+Type annotations for ecr-public service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html)
 
 Usage::
 
@@ -13,15 +15,16 @@ Usage::
 import sys
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_ecr_public.paginator import (
+from .paginator import (
     DescribeImagesPaginator,
     DescribeImageTagsPaginator,
     DescribeRegistriesPaginator,
     DescribeRepositoriesPaginator,
 )
-from mypy_boto3_ecr_public.type_defs import (
+from .type_defs import (
     BatchCheckLayerAvailabilityResponseTypeDef,
     BatchDeleteImageResponseTypeDef,
     CompleteLayerUploadResponseTypeDef,
@@ -38,11 +41,13 @@ from mypy_boto3_ecr_public.type_defs import (
     GetRepositoryPolicyResponseTypeDef,
     ImageIdentifierTypeDef,
     InitiateLayerUploadResponseTypeDef,
+    ListTagsForResourceResponseTypeDef,
     PutImageResponseTypeDef,
     PutRegistryCatalogDataResponseTypeDef,
     PutRepositoryCatalogDataResponseTypeDef,
     RepositoryCatalogDataInputTypeDef,
     SetRepositoryPolicyResponseTypeDef,
+    TagTypeDef,
     UploadLayerPartResponseTypeDef,
 )
 
@@ -51,17 +56,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("ECRPublicClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -73,6 +74,7 @@ class Exceptions:
     InvalidLayerException: Type[BotocoreClientError]
     InvalidLayerPartException: Type[BotocoreClientError]
     InvalidParameterException: Type[BotocoreClientError]
+    InvalidTagParameterException: Type[BotocoreClientError]
     LayerAlreadyExistsException: Type[BotocoreClientError]
     LayerPartTooSmallException: Type[BotocoreClientError]
     LayersNotFoundException: Type[BotocoreClientError]
@@ -84,106 +86,145 @@ class Exceptions:
     RepositoryNotFoundException: Type[BotocoreClientError]
     RepositoryPolicyNotFoundException: Type[BotocoreClientError]
     ServerException: Type[BotocoreClientError]
+    TooManyTagsException: Type[BotocoreClientError]
     UnsupportedCommandException: Type[BotocoreClientError]
     UploadNotFoundException: Type[BotocoreClientError]
 
-
-class ECRPublicClient:
+class ECRPublicClient(BaseClient):
     """
-    [ECRPublic.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ECRPublicClient exceptions.
+        """
     def batch_check_layer_availability(
-        self, repositoryName: str, layerDigests: List[str], registryId: str = None
+        self, *, repositoryName: str, layerDigests: List[str], registryId: str = None
     ) -> BatchCheckLayerAvailabilityResponseTypeDef:
         """
-        [Client.batch_check_layer_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.batch_check_layer_availability)
-        """
+        Checks the availability of one or more image layers within a repository in a
+        public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.batch_check_layer_availability)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#batch_check_layer_availability)
+        """
     def batch_delete_image(
-        self, repositoryName: str, imageIds: List["ImageIdentifierTypeDef"], registryId: str = None
+        self,
+        *,
+        repositoryName: str,
+        imageIds: List["ImageIdentifierTypeDef"],
+        registryId: str = None
     ) -> BatchDeleteImageResponseTypeDef:
         """
-        [Client.batch_delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.batch_delete_image)
-        """
+        Deletes a list of specified images within a repository in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.batch_delete_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#batch_delete_image)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#can_paginate)
+        """
     def complete_layer_upload(
-        self, repositoryName: str, uploadId: str, layerDigests: List[str], registryId: str = None
+        self, *, repositoryName: str, uploadId: str, layerDigests: List[str], registryId: str = None
     ) -> CompleteLayerUploadResponseTypeDef:
         """
-        [Client.complete_layer_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.complete_layer_upload)
-        """
+        Informs Amazon ECR that the image layer upload has completed for a specified
+        public registry, repository name, and upload ID.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.complete_layer_upload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#complete_layer_upload)
+        """
     def create_repository(
-        self, repositoryName: str, catalogData: RepositoryCatalogDataInputTypeDef = None
+        self,
+        *,
+        repositoryName: str,
+        catalogData: "RepositoryCatalogDataInputTypeDef" = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateRepositoryResponseTypeDef:
         """
-        [Client.create_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.create_repository)
-        """
+        Creates a repository in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.create_repository)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#create_repository)
+        """
     def delete_repository(
-        self, repositoryName: str, registryId: str = None, force: bool = None
+        self, *, repositoryName: str, registryId: str = None, force: bool = None
     ) -> DeleteRepositoryResponseTypeDef:
         """
-        [Client.delete_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.delete_repository)
-        """
+        Deletes a repository in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.delete_repository)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#delete_repository)
+        """
     def delete_repository_policy(
-        self, repositoryName: str, registryId: str = None
+        self, *, repositoryName: str, registryId: str = None
     ) -> DeleteRepositoryPolicyResponseTypeDef:
         """
-        [Client.delete_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.delete_repository_policy)
-        """
+        Deletes the repository policy associated with the specified repository.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.delete_repository_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#delete_repository_policy)
+        """
     def describe_image_tags(
         self,
+        *,
         repositoryName: str,
         registryId: str = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> DescribeImageTagsResponseTypeDef:
         """
-        [Client.describe_image_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_image_tags)
-        """
+        Returns the image tag details for a repository in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.describe_image_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#describe_image_tags)
+        """
     def describe_images(
         self,
+        *,
         repositoryName: str,
         registryId: str = None,
         imageIds: List["ImageIdentifierTypeDef"] = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> DescribeImagesResponseTypeDef:
         """
-        [Client.describe_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_images)
-        """
+        Returns metadata about the images in a repository in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.describe_images)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#describe_images)
+        """
     def describe_registries(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> DescribeRegistriesResponseTypeDef:
         """
-        [Client.describe_registries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_registries)
-        """
+        Returns details for a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.describe_registries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#describe_registries)
+        """
     def describe_repositories(
         self,
+        *,
         registryId: str = None,
         repositoryNames: List[str] = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> DescribeRepositoriesResponseTypeDef:
         """
-        [Client.describe_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_repositories)
-        """
+        Describes repositories in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.describe_repositories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#describe_repositories)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -192,116 +233,164 @@ class ECRPublicClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#generate_presigned_url)
+        """
     def get_authorization_token(self) -> GetAuthorizationTokenResponseTypeDef:
         """
-        [Client.get_authorization_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_authorization_token)
-        """
+        Retrieves an authorization token.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.get_authorization_token)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#get_authorization_token)
+        """
     def get_registry_catalog_data(self) -> GetRegistryCatalogDataResponseTypeDef:
         """
-        [Client.get_registry_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_registry_catalog_data)
-        """
+        Retrieves catalog metadata for a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.get_registry_catalog_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#get_registry_catalog_data)
+        """
     def get_repository_catalog_data(
-        self, repositoryName: str, registryId: str = None
+        self, *, repositoryName: str, registryId: str = None
     ) -> GetRepositoryCatalogDataResponseTypeDef:
         """
-        [Client.get_repository_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_repository_catalog_data)
-        """
+        Retrieve catalog metadata for a repository in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.get_repository_catalog_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#get_repository_catalog_data)
+        """
     def get_repository_policy(
-        self, repositoryName: str, registryId: str = None
+        self, *, repositoryName: str, registryId: str = None
     ) -> GetRepositoryPolicyResponseTypeDef:
         """
-        [Client.get_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_repository_policy)
-        """
+        Retrieves the repository policy for the specified repository.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.get_repository_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#get_repository_policy)
+        """
     def initiate_layer_upload(
-        self, repositoryName: str, registryId: str = None
+        self, *, repositoryName: str, registryId: str = None
     ) -> InitiateLayerUploadResponseTypeDef:
         """
-        [Client.initiate_layer_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.initiate_layer_upload)
-        """
+        Notifies Amazon ECR that you intend to upload an image layer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.initiate_layer_upload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#initiate_layer_upload)
+        """
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        """
+        List the tags for an Amazon ECR Public resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#list_tags_for_resource)
+        """
     def put_image(
         self,
+        *,
         repositoryName: str,
         imageManifest: str,
         registryId: str = None,
         imageManifestMediaType: str = None,
         imageTag: str = None,
-        imageDigest: str = None,
+        imageDigest: str = None
     ) -> PutImageResponseTypeDef:
         """
-        [Client.put_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.put_image)
-        """
+        Creates or updates the image manifest and tags associated with an image.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.put_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#put_image)
+        """
     def put_registry_catalog_data(
-        self, displayName: str = None
+        self, *, displayName: str = None
     ) -> PutRegistryCatalogDataResponseTypeDef:
         """
-        [Client.put_registry_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.put_registry_catalog_data)
-        """
+        Create or updates the catalog data for a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.put_registry_catalog_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#put_registry_catalog_data)
+        """
     def put_repository_catalog_data(
         self,
+        *,
         repositoryName: str,
-        catalogData: RepositoryCatalogDataInputTypeDef,
-        registryId: str = None,
+        catalogData: "RepositoryCatalogDataInputTypeDef",
+        registryId: str = None
     ) -> PutRepositoryCatalogDataResponseTypeDef:
         """
-        [Client.put_repository_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.put_repository_catalog_data)
-        """
+        Creates or updates the catalog data for a repository in a public registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.put_repository_catalog_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#put_repository_catalog_data)
+        """
     def set_repository_policy(
-        self, repositoryName: str, policyText: str, registryId: str = None, force: bool = None
+        self, *, repositoryName: str, policyText: str, registryId: str = None, force: bool = None
     ) -> SetRepositoryPolicyResponseTypeDef:
         """
-        [Client.set_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.set_repository_policy)
-        """
+        Applies a repository policy to the specified public repository to control access
+        permissions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.set_repository_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#set_repository_policy)
+        """
+    def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        """
+        Associates the specified tags to a resource with the specified `resourceArn`.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#tag_resource)
+        """
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        """
+        Deletes specified tags from a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#untag_resource)
+        """
     def upload_layer_part(
         self,
+        *,
         repositoryName: str,
         uploadId: str,
         partFirstByte: int,
         partLastByte: int,
-        layerPartBlob: Union[bytes, IO[bytes]],
-        registryId: str = None,
+        layerPartBlob: Union[bytes, IO[bytes], StreamingBody],
+        registryId: str = None
     ) -> UploadLayerPartResponseTypeDef:
         """
-        [Client.upload_layer_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.upload_layer_part)
-        """
+        Uploads an image layer part to Amazon ECR.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Client.upload_layer_part)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/client.html#upload_layer_part)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_image_tags"]
     ) -> DescribeImageTagsPaginator:
         """
-        [Paginator.DescribeImageTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/paginators.html#describeimagetagspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["describe_images"]) -> DescribeImagesPaginator:
         """
-        [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/paginators.html#describeimagespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_registries"]
     ) -> DescribeRegistriesPaginator:
         """
-        [Paginator.DescribeRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/paginators.html#describeregistriespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_repositories"]
     ) -> DescribeRepositoriesPaginator:
         """
-        [Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/paginators.html#describerepositoriespaginator)
         """

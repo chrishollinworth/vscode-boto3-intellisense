@@ -1,5 +1,7 @@
 """
-Main interface for amplify service client
+Type annotations for amplify service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html)
 
 Usage::
 
@@ -12,17 +14,18 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_amplify.paginator import (
+from .literals import JobTypeType, StageType
+from .paginator import (
     ListAppsPaginator,
     ListBranchesPaginator,
     ListDomainAssociationsPaginator,
     ListJobsPaginator,
 )
-from mypy_boto3_amplify.type_defs import (
+from .type_defs import (
     AutoBranchCreationConfigTypeDef,
     CreateAppResultTypeDef,
     CreateBackendEnvironmentResultTypeDef,
@@ -68,17 +71,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("AmplifyClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     BadRequestException: Type[BotocoreClientError]
@@ -90,22 +89,28 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     UnauthorizedException: Type[BotocoreClientError]
 
-
-class AmplifyClient:
+class AmplifyClient(BaseClient):
     """
-    [Amplify.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        AmplifyClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#can_paginate)
+        """
     def create_app(
         self,
+        *,
         name: str,
         description: str = None,
         repository: str = None,
@@ -124,29 +129,35 @@ class AmplifyClient:
         customHeaders: str = None,
         enableAutoBranchCreation: bool = None,
         autoBranchCreationPatterns: List[str] = None,
-        autoBranchCreationConfig: "AutoBranchCreationConfigTypeDef" = None,
+        autoBranchCreationConfig: "AutoBranchCreationConfigTypeDef" = None
     ) -> CreateAppResultTypeDef:
         """
-        [Client.create_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.create_app)
-        """
+        Creates a new Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.create_app)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_app)
+        """
     def create_backend_environment(
         self,
+        *,
         appId: str,
         environmentName: str,
         stackName: str = None,
-        deploymentArtifacts: str = None,
+        deploymentArtifacts: str = None
     ) -> CreateBackendEnvironmentResultTypeDef:
         """
-        [Client.create_backend_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.create_backend_environment)
-        """
+        Creates a new backend environment for an Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.create_backend_environment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_backend_environment)
+        """
     def create_branch(
         self,
+        *,
         appId: str,
         branchName: str,
         description: str = None,
-        stage: Literal["PRODUCTION", "BETA", "DEVELOPMENT", "EXPERIMENTAL", "PULL_REQUEST"] = None,
+        stage: StageType = None,
         framework: str = None,
         enableNotification: bool = None,
         enableAutoBuild: bool = None,
@@ -160,80 +171,108 @@ class AmplifyClient:
         displayName: str = None,
         enablePullRequestPreview: bool = None,
         pullRequestEnvironmentName: str = None,
-        backendEnvironmentArn: str = None,
+        backendEnvironmentArn: str = None
     ) -> CreateBranchResultTypeDef:
         """
-        [Client.create_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.create_branch)
-        """
+        Creates a new branch for an Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.create_branch)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_branch)
+        """
     def create_deployment(
-        self, appId: str, branchName: str, fileMap: Dict[str, str] = None
+        self, *, appId: str, branchName: str, fileMap: Dict[str, str] = None
     ) -> CreateDeploymentResultTypeDef:
         """
-        [Client.create_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.create_deployment)
-        """
+        Creates a deployment for a manually deployed Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.create_deployment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_deployment)
+        """
     def create_domain_association(
         self,
+        *,
         appId: str,
         domainName: str,
         subDomainSettings: List["SubDomainSettingTypeDef"],
         enableAutoSubDomain: bool = None,
         autoSubDomainCreationPatterns: List[str] = None,
-        autoSubDomainIAMRole: str = None,
+        autoSubDomainIAMRole: str = None
     ) -> CreateDomainAssociationResultTypeDef:
         """
-        [Client.create_domain_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.create_domain_association)
-        """
+        Creates a new domain association for an Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.create_domain_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_domain_association)
+        """
     def create_webhook(
-        self, appId: str, branchName: str, description: str = None
+        self, *, appId: str, branchName: str, description: str = None
     ) -> CreateWebhookResultTypeDef:
         """
-        [Client.create_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.create_webhook)
-        """
+        Creates a new webhook on an Amplify app.
 
-    def delete_app(self, appId: str) -> DeleteAppResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.create_webhook)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#create_webhook)
         """
-        [Client.delete_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.delete_app)
+    def delete_app(self, *, appId: str) -> DeleteAppResultTypeDef:
         """
+        Deletes an existing Amplify app specified by an app ID.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.delete_app)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_app)
+        """
     def delete_backend_environment(
-        self, appId: str, environmentName: str
+        self, *, appId: str, environmentName: str
     ) -> DeleteBackendEnvironmentResultTypeDef:
         """
-        [Client.delete_backend_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.delete_backend_environment)
-        """
+        Deletes a backend environment for an Amplify app.
 
-    def delete_branch(self, appId: str, branchName: str) -> DeleteBranchResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.delete_backend_environment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_backend_environment)
         """
-        [Client.delete_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.delete_branch)
+    def delete_branch(self, *, appId: str, branchName: str) -> DeleteBranchResultTypeDef:
         """
+        Deletes a branch for an Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.delete_branch)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_branch)
+        """
     def delete_domain_association(
-        self, appId: str, domainName: str
+        self, *, appId: str, domainName: str
     ) -> DeleteDomainAssociationResultTypeDef:
         """
-        [Client.delete_domain_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.delete_domain_association)
-        """
+        Deletes a domain association for an Amplify app.
 
-    def delete_job(self, appId: str, branchName: str, jobId: str) -> DeleteJobResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.delete_domain_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_domain_association)
         """
-        [Client.delete_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.delete_job)
+    def delete_job(self, *, appId: str, branchName: str, jobId: str) -> DeleteJobResultTypeDef:
         """
+        Deletes a job for a branch of an Amplify app.
 
-    def delete_webhook(self, webhookId: str) -> DeleteWebhookResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.delete_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_job)
         """
-        [Client.delete_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.delete_webhook)
+    def delete_webhook(self, *, webhookId: str) -> DeleteWebhookResultTypeDef:
         """
+        Deletes a webhook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.delete_webhook)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#delete_webhook)
+        """
     def generate_access_logs(
-        self, domainName: str, appId: str, startTime: datetime = None, endTime: datetime = None
+        self,
+        *,
+        domainName: str,
+        appId: str,
+        startTime: Union[datetime, str] = None,
+        endTime: Union[datetime, str] = None
     ) -> GenerateAccessLogsResultTypeDef:
         """
-        [Client.generate_access_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.generate_access_logs)
-        """
+        Returns the website access logs for a specific time range using a presigned URL.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.generate_access_logs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#generate_access_logs)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -242,139 +281,194 @@ class AmplifyClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_app(self, appId: str) -> GetAppResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#generate_presigned_url)
         """
-        [Client.get_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.get_app)
+    def get_app(self, *, appId: str) -> GetAppResultTypeDef:
         """
+        Returns an existing Amplify app by appID.
 
-    def get_artifact_url(self, artifactId: str) -> GetArtifactUrlResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.get_app)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_app)
         """
-        [Client.get_artifact_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.get_artifact_url)
+    def get_artifact_url(self, *, artifactId: str) -> GetArtifactUrlResultTypeDef:
         """
+        Returns the artifact info that corresponds to an artifact id.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.get_artifact_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_artifact_url)
+        """
     def get_backend_environment(
-        self, appId: str, environmentName: str
+        self, *, appId: str, environmentName: str
     ) -> GetBackendEnvironmentResultTypeDef:
         """
-        [Client.get_backend_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.get_backend_environment)
-        """
+        Returns a backend environment for an Amplify app.
 
-    def get_branch(self, appId: str, branchName: str) -> GetBranchResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.get_backend_environment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_backend_environment)
         """
-        [Client.get_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.get_branch)
+    def get_branch(self, *, appId: str, branchName: str) -> GetBranchResultTypeDef:
         """
+        Returns a branch for an Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.get_branch)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_branch)
+        """
     def get_domain_association(
-        self, appId: str, domainName: str
+        self, *, appId: str, domainName: str
     ) -> GetDomainAssociationResultTypeDef:
         """
-        [Client.get_domain_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.get_domain_association)
-        """
+        Returns the domain information for an Amplify app.
 
-    def get_job(self, appId: str, branchName: str, jobId: str) -> GetJobResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.get_domain_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_domain_association)
         """
-        [Client.get_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.get_job)
+    def get_job(self, *, appId: str, branchName: str, jobId: str) -> GetJobResultTypeDef:
         """
+        Returns a job for a branch of an Amplify app.
 
-    def get_webhook(self, webhookId: str) -> GetWebhookResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.get_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_job)
         """
-        [Client.get_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.get_webhook)
+    def get_webhook(self, *, webhookId: str) -> GetWebhookResultTypeDef:
         """
+        Returns the webhook information that corresponds to a specified webhook ID.
 
-    def list_apps(self, nextToken: str = None, maxResults: int = None) -> ListAppsResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.get_webhook)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#get_webhook)
         """
-        [Client.list_apps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_apps)
+    def list_apps(self, *, nextToken: str = None, maxResults: int = None) -> ListAppsResultTypeDef:
         """
+        Returns a list of the existing Amplify apps.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_apps)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_apps)
+        """
     def list_artifacts(
-        self, appId: str, branchName: str, jobId: str, nextToken: str = None, maxResults: int = None
-    ) -> ListArtifactsResultTypeDef:
-        """
-        [Client.list_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_artifacts)
-        """
-
-    def list_backend_environments(
-        self, appId: str, environmentName: str = None, nextToken: str = None, maxResults: int = None
-    ) -> ListBackendEnvironmentsResultTypeDef:
-        """
-        [Client.list_backend_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_backend_environments)
-        """
-
-    def list_branches(
-        self, appId: str, nextToken: str = None, maxResults: int = None
-    ) -> ListBranchesResultTypeDef:
-        """
-        [Client.list_branches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_branches)
-        """
-
-    def list_domain_associations(
-        self, appId: str, nextToken: str = None, maxResults: int = None
-    ) -> ListDomainAssociationsResultTypeDef:
-        """
-        [Client.list_domain_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_domain_associations)
-        """
-
-    def list_jobs(
-        self, appId: str, branchName: str, nextToken: str = None, maxResults: int = None
-    ) -> ListJobsResultTypeDef:
-        """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_jobs)
-        """
-
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
-        """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_tags_for_resource)
-        """
-
-    def list_webhooks(
-        self, appId: str, nextToken: str = None, maxResults: int = None
-    ) -> ListWebhooksResultTypeDef:
-        """
-        [Client.list_webhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.list_webhooks)
-        """
-
-    def start_deployment(
-        self, appId: str, branchName: str, jobId: str = None, sourceUrl: str = None
-    ) -> StartDeploymentResultTypeDef:
-        """
-        [Client.start_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.start_deployment)
-        """
-
-    def start_job(
         self,
+        *,
         appId: str,
         branchName: str,
-        jobType: Literal["RELEASE", "RETRY", "MANUAL", "WEB_HOOK"],
+        jobId: str,
+        nextToken: str = None,
+        maxResults: int = None
+    ) -> ListArtifactsResultTypeDef:
+        """
+        Returns a list of artifacts for a specified app, branch, and job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_artifacts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_artifacts)
+        """
+    def list_backend_environments(
+        self,
+        *,
+        appId: str,
+        environmentName: str = None,
+        nextToken: str = None,
+        maxResults: int = None
+    ) -> ListBackendEnvironmentsResultTypeDef:
+        """
+        Lists the backend environments for an Amplify app.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_backend_environments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_backend_environments)
+        """
+    def list_branches(
+        self, *, appId: str, nextToken: str = None, maxResults: int = None
+    ) -> ListBranchesResultTypeDef:
+        """
+        Lists the branches of an Amplify app.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_branches)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_branches)
+        """
+    def list_domain_associations(
+        self, *, appId: str, nextToken: str = None, maxResults: int = None
+    ) -> ListDomainAssociationsResultTypeDef:
+        """
+        Returns the domain associations for an Amplify app.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_domain_associations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_domain_associations)
+        """
+    def list_jobs(
+        self, *, appId: str, branchName: str, nextToken: str = None, maxResults: int = None
+    ) -> ListJobsResultTypeDef:
+        """
+        Lists the jobs for a branch of an Amplify app.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_jobs)
+        """
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        """
+        Returns a list of tags for a specified Amazon Resource Name (ARN).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_tags_for_resource)
+        """
+    def list_webhooks(
+        self, *, appId: str, nextToken: str = None, maxResults: int = None
+    ) -> ListWebhooksResultTypeDef:
+        """
+        Returns a list of webhooks for an Amplify app.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.list_webhooks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#list_webhooks)
+        """
+    def start_deployment(
+        self, *, appId: str, branchName: str, jobId: str = None, sourceUrl: str = None
+    ) -> StartDeploymentResultTypeDef:
+        """
+        Starts a deployment for a manually deployed app.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.start_deployment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#start_deployment)
+        """
+    def start_job(
+        self,
+        *,
+        appId: str,
+        branchName: str,
+        jobType: JobTypeType,
         jobId: str = None,
         jobReason: str = None,
         commitId: str = None,
         commitMessage: str = None,
-        commitTime: datetime = None,
+        commitTime: Union[datetime, str] = None
     ) -> StartJobResultTypeDef:
         """
-        [Client.start_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.start_job)
-        """
+        Starts a new job for a branch of an Amplify app.
 
-    def stop_job(self, appId: str, branchName: str, jobId: str) -> StopJobResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.start_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#start_job)
         """
-        [Client.stop_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.stop_job)
+    def stop_job(self, *, appId: str, branchName: str, jobId: str) -> StopJobResultTypeDef:
         """
+        Stops a job that is in progress for a branch of an Amplify app.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.stop_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#stop_job)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Tags the resource with a tag key and value.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Untags a resource with a specified Amazon Resource Name (ARN).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#untag_resource)
+        """
     def update_app(
         self,
+        *,
         appId: str,
         name: str = None,
         description: str = None,
@@ -393,19 +487,22 @@ class AmplifyClient:
         autoBranchCreationConfig: "AutoBranchCreationConfigTypeDef" = None,
         repository: str = None,
         oauthToken: str = None,
-        accessToken: str = None,
+        accessToken: str = None
     ) -> UpdateAppResultTypeDef:
         """
-        [Client.update_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.update_app)
-        """
+        Updates an existing Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.update_app)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_app)
+        """
     def update_branch(
         self,
+        *,
         appId: str,
         branchName: str,
         description: str = None,
         framework: str = None,
-        stage: Literal["PRODUCTION", "BETA", "DEVELOPMENT", "EXPERIMENTAL", "PULL_REQUEST"] = None,
+        stage: StageType = None,
         enableNotification: bool = None,
         enableAutoBuild: bool = None,
         environmentVariables: Dict[str, str] = None,
@@ -417,54 +514,62 @@ class AmplifyClient:
         displayName: str = None,
         enablePullRequestPreview: bool = None,
         pullRequestEnvironmentName: str = None,
-        backendEnvironmentArn: str = None,
+        backendEnvironmentArn: str = None
     ) -> UpdateBranchResultTypeDef:
         """
-        [Client.update_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.update_branch)
-        """
+        Updates a branch for an Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.update_branch)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_branch)
+        """
     def update_domain_association(
         self,
+        *,
         appId: str,
         domainName: str,
         subDomainSettings: List["SubDomainSettingTypeDef"],
         enableAutoSubDomain: bool = None,
         autoSubDomainCreationPatterns: List[str] = None,
-        autoSubDomainIAMRole: str = None,
+        autoSubDomainIAMRole: str = None
     ) -> UpdateDomainAssociationResultTypeDef:
         """
-        [Client.update_domain_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.update_domain_association)
-        """
+        Creates a new domain association for an Amplify app.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.update_domain_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_domain_association)
+        """
     def update_webhook(
-        self, webhookId: str, branchName: str = None, description: str = None
+        self, *, webhookId: str, branchName: str = None, description: str = None
     ) -> UpdateWebhookResultTypeDef:
         """
-        [Client.update_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Client.update_webhook)
-        """
+        Updates a webhook.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Client.update_webhook)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/client.html#update_webhook)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["list_apps"]) -> ListAppsPaginator:
         """
-        [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListApps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Paginator.ListApps)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listappspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_branches"]) -> ListBranchesPaginator:
         """
-        [Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListBranches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Paginator.ListBranches)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listbranchespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_domain_associations"]
     ) -> ListDomainAssociationsPaginator:
         """
-        [Paginator.ListDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listdomainassociationspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/amplify.html#Amplify.Paginator.ListJobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/paginators.html#listjobspaginator)
         """

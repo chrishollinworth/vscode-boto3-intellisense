@@ -1,5 +1,7 @@
 """
-Main interface for resource-groups service client paginators.
+Type annotations for resource-groups service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html)
 
 Usage::
 
@@ -24,7 +26,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_resource_groups.type_defs import (
+from .type_defs import (
     GroupFilterTypeDef,
     ListGroupResourcesOutputTypeDef,
     ListGroupsOutputTypeDef,
@@ -36,47 +38,55 @@ from mypy_boto3_resource_groups.type_defs import (
 
 __all__ = ("ListGroupResourcesPaginator", "ListGroupsPaginator", "SearchResourcesPaginator")
 
-
 class ListGroupResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroupResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#listgroupresourcespaginator)
     """
 
     def paginate(
         self,
+        *,
         GroupName: str = None,
         Group: str = None,
-        Filters: List[ResourceFilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["ResourceFilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupResourcesOutputTypeDef]:
         """
-        [ListGroupResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#listgroupresourcespaginator)
         """
-
 
 class ListGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#listgroupspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[GroupFilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        Filters: List["GroupFilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupsOutputTypeDef]:
         """
-        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#listgroupspaginator)
         """
-
 
 class SearchResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#searchresourcespaginator)
     """
 
     def paginate(
-        self, ResourceQuery: "ResourceQueryTypeDef", PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        ResourceQuery: "ResourceQueryTypeDef",
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchResourcesOutputTypeDef]:
         """
-        [SearchResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_groups/paginators.html#searchresourcespaginator)
         """

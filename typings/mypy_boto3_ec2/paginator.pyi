@@ -1,5 +1,7 @@
 """
-Main interface for ec2 service client paginators.
+Type annotations for ec2 service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html)
 
 Usage::
 
@@ -33,6 +35,7 @@ Usage::
         DescribeImportImageTasksPaginator,
         DescribeImportSnapshotTasksPaginator,
         DescribeInstanceCreditSpecificationsPaginator,
+        DescribeInstanceEventWindowsPaginator,
         DescribeInstanceStatusPaginator,
         DescribeInstanceTypeOfferingsPaginator,
         DescribeInstanceTypesPaginator,
@@ -58,11 +61,13 @@ Usage::
         DescribePrefixListsPaginator,
         DescribePrincipalIdFormatPaginator,
         DescribePublicIpv4PoolsPaginator,
+        DescribeReplaceRootVolumeTasksPaginator,
         DescribeReservedInstancesModificationsPaginator,
         DescribeReservedInstancesOfferingsPaginator,
         DescribeRouteTablesPaginator,
         DescribeScheduledInstanceAvailabilityPaginator,
         DescribeScheduledInstancesPaginator,
+        DescribeSecurityGroupRulesPaginator,
         DescribeSecurityGroupsPaginator,
         DescribeSnapshotsPaginator,
         DescribeSpotFleetInstancesPaginator,
@@ -70,6 +75,7 @@ Usage::
         DescribeSpotInstanceRequestsPaginator,
         DescribeSpotPriceHistoryPaginator,
         DescribeStaleSecurityGroupsPaginator,
+        DescribeStoreImageTasksPaginator,
         DescribeSubnetsPaginator,
         DescribeTagsPaginator,
         DescribeTrafficMirrorFiltersPaginator,
@@ -135,6 +141,7 @@ Usage::
     describe_import_image_tasks_paginator: DescribeImportImageTasksPaginator = client.get_paginator("describe_import_image_tasks")
     describe_import_snapshot_tasks_paginator: DescribeImportSnapshotTasksPaginator = client.get_paginator("describe_import_snapshot_tasks")
     describe_instance_credit_specifications_paginator: DescribeInstanceCreditSpecificationsPaginator = client.get_paginator("describe_instance_credit_specifications")
+    describe_instance_event_windows_paginator: DescribeInstanceEventWindowsPaginator = client.get_paginator("describe_instance_event_windows")
     describe_instance_status_paginator: DescribeInstanceStatusPaginator = client.get_paginator("describe_instance_status")
     describe_instance_type_offerings_paginator: DescribeInstanceTypeOfferingsPaginator = client.get_paginator("describe_instance_type_offerings")
     describe_instance_types_paginator: DescribeInstanceTypesPaginator = client.get_paginator("describe_instance_types")
@@ -160,11 +167,13 @@ Usage::
     describe_prefix_lists_paginator: DescribePrefixListsPaginator = client.get_paginator("describe_prefix_lists")
     describe_principal_id_format_paginator: DescribePrincipalIdFormatPaginator = client.get_paginator("describe_principal_id_format")
     describe_public_ipv4_pools_paginator: DescribePublicIpv4PoolsPaginator = client.get_paginator("describe_public_ipv4_pools")
+    describe_replace_root_volume_tasks_paginator: DescribeReplaceRootVolumeTasksPaginator = client.get_paginator("describe_replace_root_volume_tasks")
     describe_reserved_instances_modifications_paginator: DescribeReservedInstancesModificationsPaginator = client.get_paginator("describe_reserved_instances_modifications")
     describe_reserved_instances_offerings_paginator: DescribeReservedInstancesOfferingsPaginator = client.get_paginator("describe_reserved_instances_offerings")
     describe_route_tables_paginator: DescribeRouteTablesPaginator = client.get_paginator("describe_route_tables")
     describe_scheduled_instance_availability_paginator: DescribeScheduledInstanceAvailabilityPaginator = client.get_paginator("describe_scheduled_instance_availability")
     describe_scheduled_instances_paginator: DescribeScheduledInstancesPaginator = client.get_paginator("describe_scheduled_instances")
+    describe_security_group_rules_paginator: DescribeSecurityGroupRulesPaginator = client.get_paginator("describe_security_group_rules")
     describe_security_groups_paginator: DescribeSecurityGroupsPaginator = client.get_paginator("describe_security_groups")
     describe_snapshots_paginator: DescribeSnapshotsPaginator = client.get_paginator("describe_snapshots")
     describe_spot_fleet_instances_paginator: DescribeSpotFleetInstancesPaginator = client.get_paginator("describe_spot_fleet_instances")
@@ -172,6 +181,7 @@ Usage::
     describe_spot_instance_requests_paginator: DescribeSpotInstanceRequestsPaginator = client.get_paginator("describe_spot_instance_requests")
     describe_spot_price_history_paginator: DescribeSpotPriceHistoryPaginator = client.get_paginator("describe_spot_price_history")
     describe_stale_security_groups_paginator: DescribeStaleSecurityGroupsPaginator = client.get_paginator("describe_stale_security_groups")
+    describe_store_image_tasks_paginator: DescribeStoreImageTasksPaginator = client.get_paginator("describe_store_image_tasks")
     describe_subnets_paginator: DescribeSubnetsPaginator = client.get_paginator("describe_subnets")
     describe_tags_paginator: DescribeTagsPaginator = client.get_paginator("describe_tags")
     describe_traffic_mirror_filters_paginator: DescribeTrafficMirrorFiltersPaginator = client.get_paginator("describe_traffic_mirror_filters")
@@ -212,11 +222,19 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Iterator, List
+from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_ec2.type_defs import (
+from .literals import (
+    InstanceTypeType,
+    LocationTypeType,
+    OfferingClassTypeType,
+    OfferingTypeValuesType,
+    RIProductDescriptionType,
+    TenancyType,
+)
+from .type_defs import (
     DescribeAddressesAttributeResultTypeDef,
     DescribeByoipCidrsResultTypeDef,
     DescribeCapacityReservationsResultTypeDef,
@@ -242,6 +260,7 @@ from mypy_boto3_ec2.type_defs import (
     DescribeImportImageTasksResultTypeDef,
     DescribeImportSnapshotTasksResultTypeDef,
     DescribeInstanceCreditSpecificationsResultTypeDef,
+    DescribeInstanceEventWindowsResultTypeDef,
     DescribeInstancesResultTypeDef,
     DescribeInstanceStatusResultTypeDef,
     DescribeInstanceTypeOfferingsResultTypeDef,
@@ -267,11 +286,13 @@ from mypy_boto3_ec2.type_defs import (
     DescribePrefixListsResultTypeDef,
     DescribePrincipalIdFormatResultTypeDef,
     DescribePublicIpv4PoolsResultTypeDef,
+    DescribeReplaceRootVolumeTasksResultTypeDef,
     DescribeReservedInstancesModificationsResultTypeDef,
     DescribeReservedInstancesOfferingsResultTypeDef,
     DescribeRouteTablesResultTypeDef,
     DescribeScheduledInstanceAvailabilityResultTypeDef,
     DescribeScheduledInstancesResultTypeDef,
+    DescribeSecurityGroupRulesResultTypeDef,
     DescribeSecurityGroupsResultTypeDef,
     DescribeSnapshotsResultTypeDef,
     DescribeSpotFleetInstancesResponseTypeDef,
@@ -279,6 +300,7 @@ from mypy_boto3_ec2.type_defs import (
     DescribeSpotInstanceRequestsResultTypeDef,
     DescribeSpotPriceHistoryResultTypeDef,
     DescribeStaleSecurityGroupsResultTypeDef,
+    DescribeStoreImageTasksResultTypeDef,
     DescribeSubnetsResultTypeDef,
     DescribeTagsResultTypeDef,
     DescribeTrafficMirrorFiltersResultTypeDef,
@@ -327,7 +349,6 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = (
     "DescribeAddressesAttributePaginator",
     "DescribeByoipCidrsPaginator",
@@ -354,6 +375,7 @@ __all__ = (
     "DescribeImportImageTasksPaginator",
     "DescribeImportSnapshotTasksPaginator",
     "DescribeInstanceCreditSpecificationsPaginator",
+    "DescribeInstanceEventWindowsPaginator",
     "DescribeInstanceStatusPaginator",
     "DescribeInstanceTypeOfferingsPaginator",
     "DescribeInstanceTypesPaginator",
@@ -379,11 +401,13 @@ __all__ = (
     "DescribePrefixListsPaginator",
     "DescribePrincipalIdFormatPaginator",
     "DescribePublicIpv4PoolsPaginator",
+    "DescribeReplaceRootVolumeTasksPaginator",
     "DescribeReservedInstancesModificationsPaginator",
     "DescribeReservedInstancesOfferingsPaginator",
     "DescribeRouteTablesPaginator",
     "DescribeScheduledInstanceAvailabilityPaginator",
     "DescribeScheduledInstancesPaginator",
+    "DescribeSecurityGroupRulesPaginator",
     "DescribeSecurityGroupsPaginator",
     "DescribeSnapshotsPaginator",
     "DescribeSpotFleetInstancesPaginator",
@@ -391,6 +415,7 @@ __all__ = (
     "DescribeSpotInstanceRequestsPaginator",
     "DescribeSpotPriceHistoryPaginator",
     "DescribeStaleSecurityGroupsPaginator",
+    "DescribeStoreImageTasksPaginator",
     "DescribeSubnetsPaginator",
     "DescribeTagsPaginator",
     "DescribeTrafficMirrorFiltersPaginator",
@@ -429,2854 +454,1939 @@ __all__ = (
     "SearchTransitGatewayMulticastGroupsPaginator",
 )
 
-
 class DescribeAddressesAttributePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAddressesAttribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeAddressesAttribute)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeAddressesAttribute)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeaddressesattributepaginator)
     """
 
     def paginate(
         self,
+        *,
         AllocationIds: List[str] = None,
         Attribute: Literal["domain-name"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAddressesAttributeResultTypeDef]:
         """
-        [DescribeAddressesAttribute.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeAddressesAttribute.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeAddressesAttribute.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeaddressesattributepaginator)
         """
-
 
 class DescribeByoipCidrsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describebyoipcidrspaginator)
     """
 
     def paginate(
-        self, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeByoipCidrsResultTypeDef]:
         """
-        [DescribeByoipCidrs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describebyoipcidrspaginator)
         """
-
 
 class DescribeCapacityReservationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCapacityReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describecapacityreservationspaginator)
     """
 
     def paginate(
         self,
+        *,
         CapacityReservationIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeCapacityReservationsResultTypeDef]:
         """
-        [DescribeCapacityReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describecapacityreservationspaginator)
         """
-
 
 class DescribeCarrierGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCarrierGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describecarriergatewayspaginator)
     """
 
     def paginate(
         self,
+        *,
         CarrierGatewayIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeCarrierGatewaysResultTypeDef]:
         """
-        [DescribeCarrierGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describecarriergatewayspaginator)
         """
-
 
 class DescribeClassicLinkInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClassicLinkInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclassiclinkinstancespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         InstanceIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClassicLinkInstancesResultTypeDef]:
         """
-        [DescribeClassicLinkInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclassiclinkinstancespaginator)
         """
-
 
 class DescribeClientVpnAuthorizationRulesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnAuthorizationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnauthorizationrulespaginator)
     """
 
     def paginate(
         self,
+        *,
         ClientVpnEndpointId: str,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClientVpnAuthorizationRulesResultTypeDef]:
         """
-        [DescribeClientVpnAuthorizationRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnauthorizationrulespaginator)
         """
-
 
 class DescribeClientVpnConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnconnectionspaginator)
     """
 
     def paginate(
         self,
+        *,
         ClientVpnEndpointId: str,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClientVpnConnectionsResultTypeDef]:
         """
-        [DescribeClientVpnConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnconnectionspaginator)
         """
-
 
 class DescribeClientVpnEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnendpointspaginator)
     """
 
     def paginate(
         self,
+        *,
         ClientVpnEndpointIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClientVpnEndpointsResultTypeDef]:
         """
-        [DescribeClientVpnEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnendpointspaginator)
         """
-
 
 class DescribeClientVpnRoutesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnroutespaginator)
     """
 
     def paginate(
         self,
+        *,
         ClientVpnEndpointId: str,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClientVpnRoutesResultTypeDef]:
         """
-        [DescribeClientVpnRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpnroutespaginator)
         """
-
 
 class DescribeClientVpnTargetNetworksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnTargetNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpntargetnetworkspaginator)
     """
 
     def paginate(
         self,
+        *,
         ClientVpnEndpointId: str,
         AssociationIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClientVpnTargetNetworksResultTypeDef]:
         """
-        [DescribeClientVpnTargetNetworks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeclientvpntargetnetworkspaginator)
         """
-
 
 class DescribeCoipPoolsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCoipPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describecoippoolspaginator)
     """
 
     def paginate(
         self,
+        *,
         PoolIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeCoipPoolsResultTypeDef]:
         """
-        [DescribeCoipPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describecoippoolspaginator)
         """
-
 
 class DescribeDhcpOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describedhcpoptionspaginator)
     """
 
     def paginate(
         self,
+        *,
         DhcpOptionsIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDhcpOptionsResultTypeDef]:
         """
-        [DescribeDhcpOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describedhcpoptionspaginator)
         """
-
 
 class DescribeEgressOnlyInternetGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEgressOnlyInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeegressonlyinternetgatewayspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         EgressOnlyInternetGatewayIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEgressOnlyInternetGatewaysResultTypeDef]:
         """
-        [DescribeEgressOnlyInternetGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeegressonlyinternetgatewayspaginator)
         """
-
 
 class DescribeExportImageTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeExportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeexportimagetaskspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         ExportImageTaskIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeExportImageTasksResultTypeDef]:
         """
-        [DescribeExportImageTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeexportimagetaskspaginator)
         """
-
 
 class DescribeFastSnapshotRestoresPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFastSnapshotRestores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describefastsnapshotrestorespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFastSnapshotRestoresResultTypeDef]:
         """
-        [DescribeFastSnapshotRestores.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describefastsnapshotrestorespaginator)
         """
-
 
 class DescribeFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFleets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describefleetspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         FleetIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFleetsResultTypeDef]:
         """
-        [DescribeFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFleets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describefleetspaginator)
         """
-
 
 class DescribeFlowLogsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFlowLogs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeflowlogspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         FlowLogIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFlowLogsResultTypeDef]:
         """
-        [DescribeFlowLogs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeflowlogspaginator)
         """
-
 
 class DescribeFpgaImagesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFpgaImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describefpgaimagespaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         FpgaImageIds: List[str] = None,
         Owners: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFpgaImagesResultTypeDef]:
         """
-        [DescribeFpgaImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describefpgaimagespaginator)
         """
-
 
 class DescribeHostReservationOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHostReservationOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describehostreservationofferingspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxDuration: int = None,
         MinDuration: int = None,
         OfferingId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeHostReservationOfferingsResultTypeDef]:
         """
-        [DescribeHostReservationOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describehostreservationofferingspaginator)
         """
-
 
 class DescribeHostReservationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHostReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describehostreservationspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         HostReservationIdSet: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeHostReservationsResultTypeDef]:
         """
-        [DescribeHostReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describehostreservationspaginator)
         """
-
 
 class DescribeHostsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHosts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeHosts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describehostspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         HostIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeHostsResultTypeDef]:
         """
-        [DescribeHosts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHosts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeHosts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describehostspaginator)
         """
-
 
 class DescribeIamInstanceProfileAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeIamInstanceProfileAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeiaminstanceprofileassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         AssociationIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeIamInstanceProfileAssociationsResultTypeDef]:
         """
-        [DescribeIamInstanceProfileAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeiaminstanceprofileassociationspaginator)
         """
-
 
 class DescribeImportImageTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeimportimagetaskspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         ImportTaskIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeImportImageTasksResultTypeDef]:
         """
-        [DescribeImportImageTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeimportimagetaskspaginator)
         """
-
 
 class DescribeImportSnapshotTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImportSnapshotTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeimportsnapshottaskspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         ImportTaskIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeImportSnapshotTasksResultTypeDef]:
         """
-        [DescribeImportSnapshotTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeimportsnapshottaskspaginator)
         """
-
 
 class DescribeInstanceCreditSpecificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceCreditSpecifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancecreditspecificationspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstanceCreditSpecificationsResultTypeDef]:
         """
-        [DescribeInstanceCreditSpecifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancecreditspecificationspaginator)
         """
 
+class DescribeInstanceEventWindowsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceEventWindows)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstanceeventwindowspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        DryRun: bool = None,
+        InstanceEventWindowIds: List[str] = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[DescribeInstanceEventWindowsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceEventWindows.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstanceeventwindowspaginator)
+        """
 
 class DescribeInstanceStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancestatuspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         IncludeAllInstances: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstanceStatusResultTypeDef]:
         """
-        [DescribeInstanceStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancestatuspaginator)
         """
-
 
 class DescribeInstanceTypeOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceTypeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancetypeofferingspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        LocationType: Literal["region", "availability-zone", "availability-zone-id"] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        LocationType: LocationTypeType = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstanceTypeOfferingsResultTypeDef]:
         """
-        [DescribeInstanceTypeOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancetypeofferingspaginator)
         """
-
 
 class DescribeInstanceTypesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancetypespaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        InstanceTypes: List[
-            Literal[
-                "t1.micro",
-                "t2.nano",
-                "t2.micro",
-                "t2.small",
-                "t2.medium",
-                "t2.large",
-                "t2.xlarge",
-                "t2.2xlarge",
-                "t3.nano",
-                "t3.micro",
-                "t3.small",
-                "t3.medium",
-                "t3.large",
-                "t3.xlarge",
-                "t3.2xlarge",
-                "t3a.nano",
-                "t3a.micro",
-                "t3a.small",
-                "t3a.medium",
-                "t3a.large",
-                "t3a.xlarge",
-                "t3a.2xlarge",
-                "t4g.nano",
-                "t4g.micro",
-                "t4g.small",
-                "t4g.medium",
-                "t4g.large",
-                "t4g.xlarge",
-                "t4g.2xlarge",
-                "m1.small",
-                "m1.medium",
-                "m1.large",
-                "m1.xlarge",
-                "m3.medium",
-                "m3.large",
-                "m3.xlarge",
-                "m3.2xlarge",
-                "m4.large",
-                "m4.xlarge",
-                "m4.2xlarge",
-                "m4.4xlarge",
-                "m4.10xlarge",
-                "m4.16xlarge",
-                "m2.xlarge",
-                "m2.2xlarge",
-                "m2.4xlarge",
-                "cr1.8xlarge",
-                "r3.large",
-                "r3.xlarge",
-                "r3.2xlarge",
-                "r3.4xlarge",
-                "r3.8xlarge",
-                "r4.large",
-                "r4.xlarge",
-                "r4.2xlarge",
-                "r4.4xlarge",
-                "r4.8xlarge",
-                "r4.16xlarge",
-                "r5.large",
-                "r5.xlarge",
-                "r5.2xlarge",
-                "r5.4xlarge",
-                "r5.8xlarge",
-                "r5.12xlarge",
-                "r5.16xlarge",
-                "r5.24xlarge",
-                "r5.metal",
-                "r5a.large",
-                "r5a.xlarge",
-                "r5a.2xlarge",
-                "r5a.4xlarge",
-                "r5a.8xlarge",
-                "r5a.12xlarge",
-                "r5a.16xlarge",
-                "r5a.24xlarge",
-                "r5b.large",
-                "r5b.xlarge",
-                "r5b.2xlarge",
-                "r5b.4xlarge",
-                "r5b.8xlarge",
-                "r5b.12xlarge",
-                "r5b.16xlarge",
-                "r5b.24xlarge",
-                "r5b.metal",
-                "r5d.large",
-                "r5d.xlarge",
-                "r5d.2xlarge",
-                "r5d.4xlarge",
-                "r5d.8xlarge",
-                "r5d.12xlarge",
-                "r5d.16xlarge",
-                "r5d.24xlarge",
-                "r5d.metal",
-                "r5ad.large",
-                "r5ad.xlarge",
-                "r5ad.2xlarge",
-                "r5ad.4xlarge",
-                "r5ad.8xlarge",
-                "r5ad.12xlarge",
-                "r5ad.16xlarge",
-                "r5ad.24xlarge",
-                "r6g.metal",
-                "r6g.medium",
-                "r6g.large",
-                "r6g.xlarge",
-                "r6g.2xlarge",
-                "r6g.4xlarge",
-                "r6g.8xlarge",
-                "r6g.12xlarge",
-                "r6g.16xlarge",
-                "r6gd.metal",
-                "r6gd.medium",
-                "r6gd.large",
-                "r6gd.xlarge",
-                "r6gd.2xlarge",
-                "r6gd.4xlarge",
-                "r6gd.8xlarge",
-                "r6gd.12xlarge",
-                "r6gd.16xlarge",
-                "x1.16xlarge",
-                "x1.32xlarge",
-                "x1e.xlarge",
-                "x1e.2xlarge",
-                "x1e.4xlarge",
-                "x1e.8xlarge",
-                "x1e.16xlarge",
-                "x1e.32xlarge",
-                "i2.xlarge",
-                "i2.2xlarge",
-                "i2.4xlarge",
-                "i2.8xlarge",
-                "i3.large",
-                "i3.xlarge",
-                "i3.2xlarge",
-                "i3.4xlarge",
-                "i3.8xlarge",
-                "i3.16xlarge",
-                "i3.metal",
-                "i3en.large",
-                "i3en.xlarge",
-                "i3en.2xlarge",
-                "i3en.3xlarge",
-                "i3en.6xlarge",
-                "i3en.12xlarge",
-                "i3en.24xlarge",
-                "i3en.metal",
-                "hi1.4xlarge",
-                "hs1.8xlarge",
-                "c1.medium",
-                "c1.xlarge",
-                "c3.large",
-                "c3.xlarge",
-                "c3.2xlarge",
-                "c3.4xlarge",
-                "c3.8xlarge",
-                "c4.large",
-                "c4.xlarge",
-                "c4.2xlarge",
-                "c4.4xlarge",
-                "c4.8xlarge",
-                "c5.large",
-                "c5.xlarge",
-                "c5.2xlarge",
-                "c5.4xlarge",
-                "c5.9xlarge",
-                "c5.12xlarge",
-                "c5.18xlarge",
-                "c5.24xlarge",
-                "c5.metal",
-                "c5a.large",
-                "c5a.xlarge",
-                "c5a.2xlarge",
-                "c5a.4xlarge",
-                "c5a.8xlarge",
-                "c5a.12xlarge",
-                "c5a.16xlarge",
-                "c5a.24xlarge",
-                "c5ad.large",
-                "c5ad.xlarge",
-                "c5ad.2xlarge",
-                "c5ad.4xlarge",
-                "c5ad.8xlarge",
-                "c5ad.12xlarge",
-                "c5ad.16xlarge",
-                "c5ad.24xlarge",
-                "c5d.large",
-                "c5d.xlarge",
-                "c5d.2xlarge",
-                "c5d.4xlarge",
-                "c5d.9xlarge",
-                "c5d.12xlarge",
-                "c5d.18xlarge",
-                "c5d.24xlarge",
-                "c5d.metal",
-                "c5n.large",
-                "c5n.xlarge",
-                "c5n.2xlarge",
-                "c5n.4xlarge",
-                "c5n.9xlarge",
-                "c5n.18xlarge",
-                "c5n.metal",
-                "c6g.metal",
-                "c6g.medium",
-                "c6g.large",
-                "c6g.xlarge",
-                "c6g.2xlarge",
-                "c6g.4xlarge",
-                "c6g.8xlarge",
-                "c6g.12xlarge",
-                "c6g.16xlarge",
-                "c6gd.metal",
-                "c6gd.medium",
-                "c6gd.large",
-                "c6gd.xlarge",
-                "c6gd.2xlarge",
-                "c6gd.4xlarge",
-                "c6gd.8xlarge",
-                "c6gd.12xlarge",
-                "c6gd.16xlarge",
-                "c6gn.medium",
-                "c6gn.large",
-                "c6gn.xlarge",
-                "c6gn.2xlarge",
-                "c6gn.4xlarge",
-                "c6gn.8xlarge",
-                "c6gn.12xlarge",
-                "c6gn.16xlarge",
-                "cc1.4xlarge",
-                "cc2.8xlarge",
-                "g2.2xlarge",
-                "g2.8xlarge",
-                "g3.4xlarge",
-                "g3.8xlarge",
-                "g3.16xlarge",
-                "g3s.xlarge",
-                "g4ad.4xlarge",
-                "g4ad.8xlarge",
-                "g4ad.16xlarge",
-                "g4dn.xlarge",
-                "g4dn.2xlarge",
-                "g4dn.4xlarge",
-                "g4dn.8xlarge",
-                "g4dn.12xlarge",
-                "g4dn.16xlarge",
-                "g4dn.metal",
-                "cg1.4xlarge",
-                "p2.xlarge",
-                "p2.8xlarge",
-                "p2.16xlarge",
-                "p3.2xlarge",
-                "p3.8xlarge",
-                "p3.16xlarge",
-                "p3dn.24xlarge",
-                "p4d.24xlarge",
-                "d2.xlarge",
-                "d2.2xlarge",
-                "d2.4xlarge",
-                "d2.8xlarge",
-                "d3.xlarge",
-                "d3.2xlarge",
-                "d3.4xlarge",
-                "d3.8xlarge",
-                "d3en.xlarge",
-                "d3en.2xlarge",
-                "d3en.4xlarge",
-                "d3en.6xlarge",
-                "d3en.8xlarge",
-                "d3en.12xlarge",
-                "f1.2xlarge",
-                "f1.4xlarge",
-                "f1.16xlarge",
-                "m5.large",
-                "m5.xlarge",
-                "m5.2xlarge",
-                "m5.4xlarge",
-                "m5.8xlarge",
-                "m5.12xlarge",
-                "m5.16xlarge",
-                "m5.24xlarge",
-                "m5.metal",
-                "m5a.large",
-                "m5a.xlarge",
-                "m5a.2xlarge",
-                "m5a.4xlarge",
-                "m5a.8xlarge",
-                "m5a.12xlarge",
-                "m5a.16xlarge",
-                "m5a.24xlarge",
-                "m5d.large",
-                "m5d.xlarge",
-                "m5d.2xlarge",
-                "m5d.4xlarge",
-                "m5d.8xlarge",
-                "m5d.12xlarge",
-                "m5d.16xlarge",
-                "m5d.24xlarge",
-                "m5d.metal",
-                "m5ad.large",
-                "m5ad.xlarge",
-                "m5ad.2xlarge",
-                "m5ad.4xlarge",
-                "m5ad.8xlarge",
-                "m5ad.12xlarge",
-                "m5ad.16xlarge",
-                "m5ad.24xlarge",
-                "m5zn.large",
-                "m5zn.xlarge",
-                "m5zn.2xlarge",
-                "m5zn.3xlarge",
-                "m5zn.6xlarge",
-                "m5zn.12xlarge",
-                "m5zn.metal",
-                "h1.2xlarge",
-                "h1.4xlarge",
-                "h1.8xlarge",
-                "h1.16xlarge",
-                "z1d.large",
-                "z1d.xlarge",
-                "z1d.2xlarge",
-                "z1d.3xlarge",
-                "z1d.6xlarge",
-                "z1d.12xlarge",
-                "z1d.metal",
-                "u-6tb1.metal",
-                "u-9tb1.metal",
-                "u-12tb1.metal",
-                "u-18tb1.metal",
-                "u-24tb1.metal",
-                "a1.medium",
-                "a1.large",
-                "a1.xlarge",
-                "a1.2xlarge",
-                "a1.4xlarge",
-                "a1.metal",
-                "m5dn.large",
-                "m5dn.xlarge",
-                "m5dn.2xlarge",
-                "m5dn.4xlarge",
-                "m5dn.8xlarge",
-                "m5dn.12xlarge",
-                "m5dn.16xlarge",
-                "m5dn.24xlarge",
-                "m5n.large",
-                "m5n.xlarge",
-                "m5n.2xlarge",
-                "m5n.4xlarge",
-                "m5n.8xlarge",
-                "m5n.12xlarge",
-                "m5n.16xlarge",
-                "m5n.24xlarge",
-                "r5dn.large",
-                "r5dn.xlarge",
-                "r5dn.2xlarge",
-                "r5dn.4xlarge",
-                "r5dn.8xlarge",
-                "r5dn.12xlarge",
-                "r5dn.16xlarge",
-                "r5dn.24xlarge",
-                "r5n.large",
-                "r5n.xlarge",
-                "r5n.2xlarge",
-                "r5n.4xlarge",
-                "r5n.8xlarge",
-                "r5n.12xlarge",
-                "r5n.16xlarge",
-                "r5n.24xlarge",
-                "inf1.xlarge",
-                "inf1.2xlarge",
-                "inf1.6xlarge",
-                "inf1.24xlarge",
-                "m6g.metal",
-                "m6g.medium",
-                "m6g.large",
-                "m6g.xlarge",
-                "m6g.2xlarge",
-                "m6g.4xlarge",
-                "m6g.8xlarge",
-                "m6g.12xlarge",
-                "m6g.16xlarge",
-                "m6gd.metal",
-                "m6gd.medium",
-                "m6gd.large",
-                "m6gd.xlarge",
-                "m6gd.2xlarge",
-                "m6gd.4xlarge",
-                "m6gd.8xlarge",
-                "m6gd.12xlarge",
-                "m6gd.16xlarge",
-                "mac1.metal",
-            ]
-        ] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        InstanceTypes: List[InstanceTypeType] = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstanceTypesResultTypeDef]:
         """
-        [DescribeInstanceTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancetypespaginator)
         """
-
 
 class DescribeInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstancesResultTypeDef]:
         """
-        [DescribeInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinstancespaginator)
         """
-
 
 class DescribeInternetGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinternetgatewayspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         InternetGatewayIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInternetGatewaysResultTypeDef]:
         """
-        [DescribeInternetGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeinternetgatewayspaginator)
         """
-
 
 class DescribeIpv6PoolsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeIpv6Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeipv6poolspaginator)
     """
 
     def paginate(
         self,
+        *,
         PoolIds: List[str] = None,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeIpv6PoolsResultTypeDef]:
         """
-        [DescribeIpv6Pools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeipv6poolspaginator)
         """
-
 
 class DescribeLaunchTemplateVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLaunchTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelaunchtemplateversionspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         LaunchTemplateId: str = None,
         LaunchTemplateName: str = None,
         Versions: List[str] = None,
         MinVersion: str = None,
         MaxVersion: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLaunchTemplateVersionsResultTypeDef]:
         """
-        [DescribeLaunchTemplateVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelaunchtemplateversionspaginator)
         """
-
 
 class DescribeLaunchTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLaunchTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelaunchtemplatespaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         LaunchTemplateIds: List[str] = None,
         LaunchTemplateNames: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLaunchTemplatesResultTypeDef]:
         """
-        [DescribeLaunchTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelaunchtemplatespaginator)
         """
-
 
 class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayroutetablevirtualinterfacegroupassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef]:
         """
-        [DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayroutetablevirtualinterfacegroupassociationspaginator)
         """
-
 
 class DescribeLocalGatewayRouteTableVpcAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayRouteTableVpcAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayroutetablevpcassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         LocalGatewayRouteTableVpcAssociationIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef]:
         """
-        [DescribeLocalGatewayRouteTableVpcAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayroutetablevpcassociationspaginator)
         """
-
 
 class DescribeLocalGatewayRouteTablesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayroutetablespaginator)
     """
 
     def paginate(
         self,
+        *,
         LocalGatewayRouteTableIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLocalGatewayRouteTablesResultTypeDef]:
         """
-        [DescribeLocalGatewayRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayroutetablespaginator)
         """
-
 
 class DescribeLocalGatewayVirtualInterfaceGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayVirtualInterfaceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayvirtualinterfacegroupspaginator)
     """
 
     def paginate(
         self,
+        *,
         LocalGatewayVirtualInterfaceGroupIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef]:
         """
-        [DescribeLocalGatewayVirtualInterfaceGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayvirtualinterfacegroupspaginator)
         """
-
 
 class DescribeLocalGatewayVirtualInterfacesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayVirtualInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayvirtualinterfacespaginator)
     """
 
     def paginate(
         self,
+        *,
         LocalGatewayVirtualInterfaceIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLocalGatewayVirtualInterfacesResultTypeDef]:
         """
-        [DescribeLocalGatewayVirtualInterfaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayvirtualinterfacespaginator)
         """
-
 
 class DescribeLocalGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayspaginator)
     """
 
     def paginate(
         self,
+        *,
         LocalGatewayIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLocalGatewaysResultTypeDef]:
         """
-        [DescribeLocalGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describelocalgatewayspaginator)
         """
-
 
 class DescribeManagedPrefixListsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeManagedPrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describemanagedprefixlistspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         PrefixListIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeManagedPrefixListsResultTypeDef]:
         """
-        [DescribeManagedPrefixLists.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describemanagedprefixlistspaginator)
         """
-
 
 class DescribeMovingAddressesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMovingAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describemovingaddressespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         PublicIps: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeMovingAddressesResultTypeDef]:
         """
-        [DescribeMovingAddresses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describemovingaddressespaginator)
         """
-
 
 class DescribeNatGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNatGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenatgatewayspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         NatGatewayIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNatGatewaysResultTypeDef]:
         """
-        [DescribeNatGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenatgatewayspaginator)
         """
-
 
 class DescribeNetworkAclsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkAcls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkaclspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkAclIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNetworkAclsResultTypeDef]:
         """
-        [DescribeNetworkAcls.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkaclspaginator)
         """
-
 
 class DescribeNetworkInsightsAnalysesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkInsightsAnalyses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsAnalyses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsAnalyses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinsightsanalysespaginator)
     """
 
     def paginate(
         self,
+        *,
         NetworkInsightsAnalysisIds: List[str] = None,
         NetworkInsightsPathId: str = None,
-        AnalysisStartTime: datetime = None,
-        AnalysisEndTime: datetime = None,
-        Filters: List[FilterTypeDef] = None,
+        AnalysisStartTime: Union[datetime, str] = None,
+        AnalysisEndTime: Union[datetime, str] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNetworkInsightsAnalysesResultTypeDef]:
         """
-        [DescribeNetworkInsightsAnalyses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsAnalyses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsAnalyses.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinsightsanalysespaginator)
         """
-
 
 class DescribeNetworkInsightsPathsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkInsightsPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsPaths)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsPaths)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinsightspathspaginator)
     """
 
     def paginate(
         self,
+        *,
         NetworkInsightsPathIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNetworkInsightsPathsResultTypeDef]:
         """
-        [DescribeNetworkInsightsPaths.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsPaths.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsPaths.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinsightspathspaginator)
         """
-
 
 class DescribeNetworkInterfacePermissionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkInterfacePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinterfacepermissionspaginator)
     """
 
     def paginate(
         self,
+        *,
         NetworkInterfacePermissionIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNetworkInterfacePermissionsResultTypeDef]:
         """
-        [DescribeNetworkInterfacePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinterfacepermissionspaginator)
         """
-
 
 class DescribeNetworkInterfacesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinterfacespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkInterfaceIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNetworkInterfacesResultTypeDef]:
         """
-        [DescribeNetworkInterfaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describenetworkinterfacespaginator)
         """
-
 
 class DescribePrefixListsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeprefixlistspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         PrefixListIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribePrefixListsResultTypeDef]:
         """
-        [DescribePrefixLists.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeprefixlistspaginator)
         """
-
 
 class DescribePrincipalIdFormatPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePrincipalIdFormat documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeprincipalidformatpaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         Resources: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribePrincipalIdFormatResultTypeDef]:
         """
-        [DescribePrincipalIdFormat.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeprincipalidformatpaginator)
         """
-
 
 class DescribePublicIpv4PoolsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePublicIpv4Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describepublicipv4poolspaginator)
     """
 
     def paginate(
         self,
+        *,
         PoolIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribePublicIpv4PoolsResultTypeDef]:
         """
-        [DescribePublicIpv4Pools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describepublicipv4poolspaginator)
         """
 
+class DescribeReplaceRootVolumeTasksPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeReplaceRootVolumeTasks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describereplacerootvolumetaskspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        ReplaceRootVolumeTaskIds: List[str] = None,
+        Filters: List["FilterTypeDef"] = None,
+        DryRun: bool = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[DescribeReplaceRootVolumeTasksResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeReplaceRootVolumeTasks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describereplacerootvolumetaskspaginator)
+        """
 
 class DescribeReservedInstancesModificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedInstancesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describereservedinstancesmodificationspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         ReservedInstancesModificationIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReservedInstancesModificationsResultTypeDef]:
         """
-        [DescribeReservedInstancesModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describereservedinstancesmodificationspaginator)
         """
-
 
 class DescribeReservedInstancesOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describereservedinstancesofferingspaginator)
     """
 
     def paginate(
         self,
+        *,
         AvailabilityZone: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         IncludeMarketplace: bool = None,
-        InstanceType: Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ] = None,
+        InstanceType: InstanceTypeType = None,
         MaxDuration: int = None,
         MaxInstanceCount: int = None,
         MinDuration: int = None,
-        OfferingClass: Literal["standard", "convertible"] = None,
-        ProductDescription: Literal[
-            "Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"
-        ] = None,
+        OfferingClass: OfferingClassTypeType = None,
+        ProductDescription: RIProductDescriptionType = None,
         ReservedInstancesOfferingIds: List[str] = None,
         DryRun: bool = None,
-        InstanceTenancy: Literal["default", "dedicated", "host"] = None,
-        OfferingType: Literal[
-            "Heavy Utilization",
-            "Medium Utilization",
-            "Light Utilization",
-            "No Upfront",
-            "Partial Upfront",
-            "All Upfront",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        InstanceTenancy: TenancyType = None,
+        OfferingType: OfferingTypeValuesType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReservedInstancesOfferingsResultTypeDef]:
         """
-        [DescribeReservedInstancesOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describereservedinstancesofferingspaginator)
         """
-
 
 class DescribeRouteTablesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeroutetablespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         RouteTableIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeRouteTablesResultTypeDef]:
         """
-        [DescribeRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describeroutetablespaginator)
         """
-
 
 class DescribeScheduledInstanceAvailabilityPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledInstanceAvailability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describescheduledinstanceavailabilitypaginator)
     """
 
     def paginate(
         self,
-        FirstSlotStartTimeRange: SlotDateTimeRangeRequestTypeDef,
-        Recurrence: ScheduledInstanceRecurrenceRequestTypeDef,
+        *,
+        FirstSlotStartTimeRange: "SlotDateTimeRangeRequestTypeDef",
+        Recurrence: "ScheduledInstanceRecurrenceRequestTypeDef",
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxSlotDurationInHours: int = None,
         MinSlotDurationInHours: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeScheduledInstanceAvailabilityResultTypeDef]:
         """
-        [DescribeScheduledInstanceAvailability.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describescheduledinstanceavailabilitypaginator)
         """
-
 
 class DescribeScheduledInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describescheduledinstancespaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         ScheduledInstanceIds: List[str] = None,
-        SlotStartTimeRange: SlotStartTimeRangeRequestTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SlotStartTimeRange: "SlotStartTimeRangeRequestTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeScheduledInstancesResultTypeDef]:
         """
-        [DescribeScheduledInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describescheduledinstancespaginator)
         """
 
+class DescribeSecurityGroupRulesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroupRules)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesecuritygrouprulespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        SecurityGroupRuleIds: List[str] = None,
+        DryRun: bool = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[DescribeSecurityGroupRulesResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroupRules.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesecuritygrouprulespaginator)
+        """
 
 class DescribeSecurityGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesecuritygroupspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         GroupIds: List[str] = None,
         GroupNames: List[str] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSecurityGroupsResultTypeDef]:
         """
-        [DescribeSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesecuritygroupspaginator)
         """
-
 
 class DescribeSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesnapshotspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         OwnerIds: List[str] = None,
         RestorableByUserIds: List[str] = None,
         SnapshotIds: List[str] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSnapshotsResultTypeDef]:
         """
-        [DescribeSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesnapshotspaginator)
         """
-
 
 class DescribeSpotFleetInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotFleetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotfleetinstancespaginator)
     """
 
     def paginate(
         self,
+        *,
         SpotFleetRequestId: str,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSpotFleetInstancesResponseTypeDef]:
         """
-        [DescribeSpotFleetInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotfleetinstancespaginator)
         """
-
 
 class DescribeSpotFleetRequestsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotFleetRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotfleetrequestspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         SpotFleetRequestIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSpotFleetRequestsResponseTypeDef]:
         """
-        [DescribeSpotFleetRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotfleetrequestspaginator)
         """
-
 
 class DescribeSpotInstanceRequestsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotInstanceRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotinstancerequestspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         SpotInstanceRequestIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSpotInstanceRequestsResultTypeDef]:
         """
-        [DescribeSpotInstanceRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotinstancerequestspaginator)
         """
-
 
 class DescribeSpotPriceHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotPriceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotpricehistorypaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         AvailabilityZone: str = None,
         DryRun: bool = None,
-        EndTime: datetime = None,
-        InstanceTypes: List[
-            Literal[
-                "t1.micro",
-                "t2.nano",
-                "t2.micro",
-                "t2.small",
-                "t2.medium",
-                "t2.large",
-                "t2.xlarge",
-                "t2.2xlarge",
-                "t3.nano",
-                "t3.micro",
-                "t3.small",
-                "t3.medium",
-                "t3.large",
-                "t3.xlarge",
-                "t3.2xlarge",
-                "t3a.nano",
-                "t3a.micro",
-                "t3a.small",
-                "t3a.medium",
-                "t3a.large",
-                "t3a.xlarge",
-                "t3a.2xlarge",
-                "t4g.nano",
-                "t4g.micro",
-                "t4g.small",
-                "t4g.medium",
-                "t4g.large",
-                "t4g.xlarge",
-                "t4g.2xlarge",
-                "m1.small",
-                "m1.medium",
-                "m1.large",
-                "m1.xlarge",
-                "m3.medium",
-                "m3.large",
-                "m3.xlarge",
-                "m3.2xlarge",
-                "m4.large",
-                "m4.xlarge",
-                "m4.2xlarge",
-                "m4.4xlarge",
-                "m4.10xlarge",
-                "m4.16xlarge",
-                "m2.xlarge",
-                "m2.2xlarge",
-                "m2.4xlarge",
-                "cr1.8xlarge",
-                "r3.large",
-                "r3.xlarge",
-                "r3.2xlarge",
-                "r3.4xlarge",
-                "r3.8xlarge",
-                "r4.large",
-                "r4.xlarge",
-                "r4.2xlarge",
-                "r4.4xlarge",
-                "r4.8xlarge",
-                "r4.16xlarge",
-                "r5.large",
-                "r5.xlarge",
-                "r5.2xlarge",
-                "r5.4xlarge",
-                "r5.8xlarge",
-                "r5.12xlarge",
-                "r5.16xlarge",
-                "r5.24xlarge",
-                "r5.metal",
-                "r5a.large",
-                "r5a.xlarge",
-                "r5a.2xlarge",
-                "r5a.4xlarge",
-                "r5a.8xlarge",
-                "r5a.12xlarge",
-                "r5a.16xlarge",
-                "r5a.24xlarge",
-                "r5b.large",
-                "r5b.xlarge",
-                "r5b.2xlarge",
-                "r5b.4xlarge",
-                "r5b.8xlarge",
-                "r5b.12xlarge",
-                "r5b.16xlarge",
-                "r5b.24xlarge",
-                "r5b.metal",
-                "r5d.large",
-                "r5d.xlarge",
-                "r5d.2xlarge",
-                "r5d.4xlarge",
-                "r5d.8xlarge",
-                "r5d.12xlarge",
-                "r5d.16xlarge",
-                "r5d.24xlarge",
-                "r5d.metal",
-                "r5ad.large",
-                "r5ad.xlarge",
-                "r5ad.2xlarge",
-                "r5ad.4xlarge",
-                "r5ad.8xlarge",
-                "r5ad.12xlarge",
-                "r5ad.16xlarge",
-                "r5ad.24xlarge",
-                "r6g.metal",
-                "r6g.medium",
-                "r6g.large",
-                "r6g.xlarge",
-                "r6g.2xlarge",
-                "r6g.4xlarge",
-                "r6g.8xlarge",
-                "r6g.12xlarge",
-                "r6g.16xlarge",
-                "r6gd.metal",
-                "r6gd.medium",
-                "r6gd.large",
-                "r6gd.xlarge",
-                "r6gd.2xlarge",
-                "r6gd.4xlarge",
-                "r6gd.8xlarge",
-                "r6gd.12xlarge",
-                "r6gd.16xlarge",
-                "x1.16xlarge",
-                "x1.32xlarge",
-                "x1e.xlarge",
-                "x1e.2xlarge",
-                "x1e.4xlarge",
-                "x1e.8xlarge",
-                "x1e.16xlarge",
-                "x1e.32xlarge",
-                "i2.xlarge",
-                "i2.2xlarge",
-                "i2.4xlarge",
-                "i2.8xlarge",
-                "i3.large",
-                "i3.xlarge",
-                "i3.2xlarge",
-                "i3.4xlarge",
-                "i3.8xlarge",
-                "i3.16xlarge",
-                "i3.metal",
-                "i3en.large",
-                "i3en.xlarge",
-                "i3en.2xlarge",
-                "i3en.3xlarge",
-                "i3en.6xlarge",
-                "i3en.12xlarge",
-                "i3en.24xlarge",
-                "i3en.metal",
-                "hi1.4xlarge",
-                "hs1.8xlarge",
-                "c1.medium",
-                "c1.xlarge",
-                "c3.large",
-                "c3.xlarge",
-                "c3.2xlarge",
-                "c3.4xlarge",
-                "c3.8xlarge",
-                "c4.large",
-                "c4.xlarge",
-                "c4.2xlarge",
-                "c4.4xlarge",
-                "c4.8xlarge",
-                "c5.large",
-                "c5.xlarge",
-                "c5.2xlarge",
-                "c5.4xlarge",
-                "c5.9xlarge",
-                "c5.12xlarge",
-                "c5.18xlarge",
-                "c5.24xlarge",
-                "c5.metal",
-                "c5a.large",
-                "c5a.xlarge",
-                "c5a.2xlarge",
-                "c5a.4xlarge",
-                "c5a.8xlarge",
-                "c5a.12xlarge",
-                "c5a.16xlarge",
-                "c5a.24xlarge",
-                "c5ad.large",
-                "c5ad.xlarge",
-                "c5ad.2xlarge",
-                "c5ad.4xlarge",
-                "c5ad.8xlarge",
-                "c5ad.12xlarge",
-                "c5ad.16xlarge",
-                "c5ad.24xlarge",
-                "c5d.large",
-                "c5d.xlarge",
-                "c5d.2xlarge",
-                "c5d.4xlarge",
-                "c5d.9xlarge",
-                "c5d.12xlarge",
-                "c5d.18xlarge",
-                "c5d.24xlarge",
-                "c5d.metal",
-                "c5n.large",
-                "c5n.xlarge",
-                "c5n.2xlarge",
-                "c5n.4xlarge",
-                "c5n.9xlarge",
-                "c5n.18xlarge",
-                "c5n.metal",
-                "c6g.metal",
-                "c6g.medium",
-                "c6g.large",
-                "c6g.xlarge",
-                "c6g.2xlarge",
-                "c6g.4xlarge",
-                "c6g.8xlarge",
-                "c6g.12xlarge",
-                "c6g.16xlarge",
-                "c6gd.metal",
-                "c6gd.medium",
-                "c6gd.large",
-                "c6gd.xlarge",
-                "c6gd.2xlarge",
-                "c6gd.4xlarge",
-                "c6gd.8xlarge",
-                "c6gd.12xlarge",
-                "c6gd.16xlarge",
-                "c6gn.medium",
-                "c6gn.large",
-                "c6gn.xlarge",
-                "c6gn.2xlarge",
-                "c6gn.4xlarge",
-                "c6gn.8xlarge",
-                "c6gn.12xlarge",
-                "c6gn.16xlarge",
-                "cc1.4xlarge",
-                "cc2.8xlarge",
-                "g2.2xlarge",
-                "g2.8xlarge",
-                "g3.4xlarge",
-                "g3.8xlarge",
-                "g3.16xlarge",
-                "g3s.xlarge",
-                "g4ad.4xlarge",
-                "g4ad.8xlarge",
-                "g4ad.16xlarge",
-                "g4dn.xlarge",
-                "g4dn.2xlarge",
-                "g4dn.4xlarge",
-                "g4dn.8xlarge",
-                "g4dn.12xlarge",
-                "g4dn.16xlarge",
-                "g4dn.metal",
-                "cg1.4xlarge",
-                "p2.xlarge",
-                "p2.8xlarge",
-                "p2.16xlarge",
-                "p3.2xlarge",
-                "p3.8xlarge",
-                "p3.16xlarge",
-                "p3dn.24xlarge",
-                "p4d.24xlarge",
-                "d2.xlarge",
-                "d2.2xlarge",
-                "d2.4xlarge",
-                "d2.8xlarge",
-                "d3.xlarge",
-                "d3.2xlarge",
-                "d3.4xlarge",
-                "d3.8xlarge",
-                "d3en.xlarge",
-                "d3en.2xlarge",
-                "d3en.4xlarge",
-                "d3en.6xlarge",
-                "d3en.8xlarge",
-                "d3en.12xlarge",
-                "f1.2xlarge",
-                "f1.4xlarge",
-                "f1.16xlarge",
-                "m5.large",
-                "m5.xlarge",
-                "m5.2xlarge",
-                "m5.4xlarge",
-                "m5.8xlarge",
-                "m5.12xlarge",
-                "m5.16xlarge",
-                "m5.24xlarge",
-                "m5.metal",
-                "m5a.large",
-                "m5a.xlarge",
-                "m5a.2xlarge",
-                "m5a.4xlarge",
-                "m5a.8xlarge",
-                "m5a.12xlarge",
-                "m5a.16xlarge",
-                "m5a.24xlarge",
-                "m5d.large",
-                "m5d.xlarge",
-                "m5d.2xlarge",
-                "m5d.4xlarge",
-                "m5d.8xlarge",
-                "m5d.12xlarge",
-                "m5d.16xlarge",
-                "m5d.24xlarge",
-                "m5d.metal",
-                "m5ad.large",
-                "m5ad.xlarge",
-                "m5ad.2xlarge",
-                "m5ad.4xlarge",
-                "m5ad.8xlarge",
-                "m5ad.12xlarge",
-                "m5ad.16xlarge",
-                "m5ad.24xlarge",
-                "m5zn.large",
-                "m5zn.xlarge",
-                "m5zn.2xlarge",
-                "m5zn.3xlarge",
-                "m5zn.6xlarge",
-                "m5zn.12xlarge",
-                "m5zn.metal",
-                "h1.2xlarge",
-                "h1.4xlarge",
-                "h1.8xlarge",
-                "h1.16xlarge",
-                "z1d.large",
-                "z1d.xlarge",
-                "z1d.2xlarge",
-                "z1d.3xlarge",
-                "z1d.6xlarge",
-                "z1d.12xlarge",
-                "z1d.metal",
-                "u-6tb1.metal",
-                "u-9tb1.metal",
-                "u-12tb1.metal",
-                "u-18tb1.metal",
-                "u-24tb1.metal",
-                "a1.medium",
-                "a1.large",
-                "a1.xlarge",
-                "a1.2xlarge",
-                "a1.4xlarge",
-                "a1.metal",
-                "m5dn.large",
-                "m5dn.xlarge",
-                "m5dn.2xlarge",
-                "m5dn.4xlarge",
-                "m5dn.8xlarge",
-                "m5dn.12xlarge",
-                "m5dn.16xlarge",
-                "m5dn.24xlarge",
-                "m5n.large",
-                "m5n.xlarge",
-                "m5n.2xlarge",
-                "m5n.4xlarge",
-                "m5n.8xlarge",
-                "m5n.12xlarge",
-                "m5n.16xlarge",
-                "m5n.24xlarge",
-                "r5dn.large",
-                "r5dn.xlarge",
-                "r5dn.2xlarge",
-                "r5dn.4xlarge",
-                "r5dn.8xlarge",
-                "r5dn.12xlarge",
-                "r5dn.16xlarge",
-                "r5dn.24xlarge",
-                "r5n.large",
-                "r5n.xlarge",
-                "r5n.2xlarge",
-                "r5n.4xlarge",
-                "r5n.8xlarge",
-                "r5n.12xlarge",
-                "r5n.16xlarge",
-                "r5n.24xlarge",
-                "inf1.xlarge",
-                "inf1.2xlarge",
-                "inf1.6xlarge",
-                "inf1.24xlarge",
-                "m6g.metal",
-                "m6g.medium",
-                "m6g.large",
-                "m6g.xlarge",
-                "m6g.2xlarge",
-                "m6g.4xlarge",
-                "m6g.8xlarge",
-                "m6g.12xlarge",
-                "m6g.16xlarge",
-                "m6gd.metal",
-                "m6gd.medium",
-                "m6gd.large",
-                "m6gd.xlarge",
-                "m6gd.2xlarge",
-                "m6gd.4xlarge",
-                "m6gd.8xlarge",
-                "m6gd.12xlarge",
-                "m6gd.16xlarge",
-                "mac1.metal",
-            ]
-        ] = None,
+        EndTime: Union[datetime, str] = None,
+        InstanceTypes: List[InstanceTypeType] = None,
         ProductDescriptions: List[str] = None,
-        StartTime: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StartTime: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSpotPriceHistoryResultTypeDef]:
         """
-        [DescribeSpotPriceHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describespotpricehistorypaginator)
         """
-
 
 class DescribeStaleSecurityGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStaleSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describestalesecuritygroupspaginator)
     """
 
     def paginate(
-        self, VpcId: str, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, VpcId: str, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStaleSecurityGroupsResultTypeDef]:
         """
-        [DescribeStaleSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describestalesecuritygroupspaginator)
         """
 
+class DescribeStoreImageTasksPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeStoreImageTasks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describestoreimagetaskspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        ImageIds: List[str] = None,
+        DryRun: bool = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[DescribeStoreImageTasksResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeStoreImageTasks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describestoreimagetaskspaginator)
+        """
 
 class DescribeSubnetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSubnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSubnets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSubnets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesubnetspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         SubnetIds: List[str] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSubnetsResultTypeDef]:
         """
-        [DescribeSubnets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSubnets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeSubnets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describesubnetspaginator)
         """
-
 
 class DescribeTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTags)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetagspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTagsResultTypeDef]:
         """
-        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTags.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetagspaginator)
         """
-
 
 class DescribeTrafficMirrorFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTrafficMirrorFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetrafficmirrorfilterspaginator)
     """
 
     def paginate(
         self,
+        *,
         TrafficMirrorFilterIds: List[str] = None,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTrafficMirrorFiltersResultTypeDef]:
         """
-        [DescribeTrafficMirrorFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetrafficmirrorfilterspaginator)
         """
-
 
 class DescribeTrafficMirrorSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTrafficMirrorSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetrafficmirrorsessionspaginator)
     """
 
     def paginate(
         self,
+        *,
         TrafficMirrorSessionIds: List[str] = None,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTrafficMirrorSessionsResultTypeDef]:
         """
-        [DescribeTrafficMirrorSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetrafficmirrorsessionspaginator)
         """
-
 
 class DescribeTrafficMirrorTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTrafficMirrorTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetrafficmirrortargetspaginator)
     """
 
     def paginate(
         self,
+        *,
         TrafficMirrorTargetIds: List[str] = None,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTrafficMirrorTargetsResultTypeDef]:
         """
-        [DescribeTrafficMirrorTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetrafficmirrortargetspaginator)
         """
-
 
 class DescribeTransitGatewayAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayattachmentspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayAttachmentIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewayAttachmentsResultTypeDef]:
         """
-        [DescribeTransitGatewayAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayattachmentspaginator)
         """
-
 
 class DescribeTransitGatewayConnectPeersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayConnectPeers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnectPeers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnectPeers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayconnectpeerspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayConnectPeerIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewayConnectPeersResultTypeDef]:
         """
-        [DescribeTransitGatewayConnectPeers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnectPeers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnectPeers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayconnectpeerspaginator)
         """
-
 
 class DescribeTransitGatewayConnectsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayConnects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnects)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayconnectspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayAttachmentIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewayConnectsResultTypeDef]:
         """
-        [DescribeTransitGatewayConnects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnects.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayconnectspaginator)
         """
-
 
 class DescribeTransitGatewayMulticastDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayMulticastDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewaymulticastdomainspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayMulticastDomainIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewayMulticastDomainsResultTypeDef]:
         """
-        [DescribeTransitGatewayMulticastDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewaymulticastdomainspaginator)
         """
-
 
 class DescribeTransitGatewayPeeringAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayPeeringAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewaypeeringattachmentspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayAttachmentIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewayPeeringAttachmentsResultTypeDef]:
         """
-        [DescribeTransitGatewayPeeringAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewaypeeringattachmentspaginator)
         """
-
 
 class DescribeTransitGatewayRouteTablesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayroutetablespaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayRouteTableIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewayRouteTablesResultTypeDef]:
         """
-        [DescribeTransitGatewayRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayroutetablespaginator)
         """
-
 
 class DescribeTransitGatewayVpcAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayVpcAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayvpcattachmentspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayAttachmentIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewayVpcAttachmentsResultTypeDef]:
         """
-        [DescribeTransitGatewayVpcAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayvpcattachmentspaginator)
         """
-
 
 class DescribeTransitGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTransitGatewaysResultTypeDef]:
         """
-        [DescribeTransitGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describetransitgatewayspaginator)
         """
-
 
 class DescribeVolumeStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVolumeStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevolumestatuspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VolumeIds: List[str] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVolumeStatusResultTypeDef]:
         """
-        [DescribeVolumeStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevolumestatuspaginator)
         """
-
 
 class DescribeVolumesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVolumes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevolumespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VolumeIds: List[str] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVolumesResultTypeDef]:
         """
-        [DescribeVolumes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVolumes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevolumespaginator)
         """
-
 
 class DescribeVolumesModificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVolumesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevolumesmodificationspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         VolumeIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVolumesModificationsResultTypeDef]:
         """
-        [DescribeVolumesModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevolumesmodificationspaginator)
         """
-
 
 class DescribeVpcClassicLinkDnsSupportPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcClassicLinkDnsSupport documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcclassiclinkdnssupportpaginator)
     """
 
     def paginate(
-        self, VpcIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, VpcIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcClassicLinkDnsSupportResultTypeDef]:
         """
-        [DescribeVpcClassicLinkDnsSupport.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcclassiclinkdnssupportpaginator)
         """
-
 
 class DescribeVpcEndpointConnectionNotificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointConnectionNotifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointconnectionnotificationspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         ConnectionNotificationId: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcEndpointConnectionNotificationsResultTypeDef]:
         """
-        [DescribeVpcEndpointConnectionNotifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointconnectionnotificationspaginator)
         """
-
 
 class DescribeVpcEndpointConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointconnectionspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcEndpointConnectionsResultTypeDef]:
         """
-        [DescribeVpcEndpointConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointconnectionspaginator)
         """
-
 
 class DescribeVpcEndpointServiceConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointServiceConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointserviceconfigurationspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         ServiceIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcEndpointServiceConfigurationsResultTypeDef]:
         """
-        [DescribeVpcEndpointServiceConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointserviceconfigurationspaginator)
         """
-
 
 class DescribeVpcEndpointServicePermissionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointServicePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointservicepermissionspaginator)
     """
 
     def paginate(
         self,
+        *,
         ServiceId: str,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcEndpointServicePermissionsResultTypeDef]:
         """
-        [DescribeVpcEndpointServicePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointservicepermissionspaginator)
         """
-
 
 class DescribeVpcEndpointServicesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointservicespaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         ServiceNames: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcEndpointServicesResultTypeDef]:
         """
-        [DescribeVpcEndpointServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointservicespaginator)
         """
-
 
 class DescribeVpcEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointspaginator)
     """
 
     def paginate(
         self,
+        *,
         DryRun: bool = None,
         VpcEndpointIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcEndpointsResultTypeDef]:
         """
-        [DescribeVpcEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcendpointspaginator)
         """
-
 
 class DescribeVpcPeeringConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcPeeringConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcpeeringconnectionspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         VpcPeeringConnectionIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcPeeringConnectionsResultTypeDef]:
         """
-        [DescribeVpcPeeringConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcpeeringconnectionspaginator)
         """
-
 
 class DescribeVpcsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VpcIds: List[str] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcsResultTypeDef]:
         """
-        [DescribeVpcs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.DescribeVpcs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#describevpcspaginator)
         """
-
 
 class GetAssociatedIpv6PoolCidrsPaginator(Boto3Paginator):
     """
-    [Paginator.GetAssociatedIpv6PoolCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getassociatedipv6poolcidrspaginator)
     """
 
     def paginate(
-        self, PoolId: str, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PoolId: str, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetAssociatedIpv6PoolCidrsResultTypeDef]:
         """
-        [GetAssociatedIpv6PoolCidrs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getassociatedipv6poolcidrspaginator)
         """
-
 
 class GetGroupsForCapacityReservationPaginator(Boto3Paginator):
     """
-    [Paginator.GetGroupsForCapacityReservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getgroupsforcapacityreservationpaginator)
     """
 
     def paginate(
         self,
+        *,
         CapacityReservationId: str,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetGroupsForCapacityReservationResultTypeDef]:
         """
-        [GetGroupsForCapacityReservation.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getgroupsforcapacityreservationpaginator)
         """
-
 
 class GetManagedPrefixListAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetManagedPrefixListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getmanagedprefixlistassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         PrefixListId: str,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetManagedPrefixListAssociationsResultTypeDef]:
         """
-        [GetManagedPrefixListAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getmanagedprefixlistassociationspaginator)
         """
-
 
 class GetManagedPrefixListEntriesPaginator(Boto3Paginator):
     """
-    [Paginator.GetManagedPrefixListEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getmanagedprefixlistentriespaginator)
     """
 
     def paginate(
         self,
+        *,
         PrefixListId: str,
         DryRun: bool = None,
         TargetVersion: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetManagedPrefixListEntriesResultTypeDef]:
         """
-        [GetManagedPrefixListEntries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#getmanagedprefixlistentriespaginator)
         """
-
 
 class GetTransitGatewayAttachmentPropagationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayAttachmentPropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayattachmentpropagationspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayAttachmentId: str,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTransitGatewayAttachmentPropagationsResultTypeDef]:
         """
-        [GetTransitGatewayAttachmentPropagations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayattachmentpropagationspaginator)
         """
-
 
 class GetTransitGatewayMulticastDomainAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayMulticastDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewaymulticastdomainassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayMulticastDomainId: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTransitGatewayMulticastDomainAssociationsResultTypeDef]:
         """
-        [GetTransitGatewayMulticastDomainAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewaymulticastdomainassociationspaginator)
         """
-
 
 class GetTransitGatewayPrefixListReferencesPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayPrefixListReferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayprefixlistreferencespaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayRouteTableId: str,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTransitGatewayPrefixListReferencesResultTypeDef]:
         """
-        [GetTransitGatewayPrefixListReferences.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayprefixlistreferencespaginator)
         """
-
 
 class GetTransitGatewayRouteTableAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayRouteTableAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayroutetableassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayRouteTableId: str,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTransitGatewayRouteTableAssociationsResultTypeDef]:
         """
-        [GetTransitGatewayRouteTableAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayroutetableassociationspaginator)
         """
-
 
 class GetTransitGatewayRouteTablePropagationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayRouteTablePropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayroutetablepropagationspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayRouteTableId: str,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTransitGatewayRouteTablePropagationsResultTypeDef]:
         """
-        [GetTransitGatewayRouteTablePropagations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#gettransitgatewayroutetablepropagationspaginator)
         """
-
 
 class SearchLocalGatewayRoutesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchLocalGatewayRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#searchlocalgatewayroutespaginator)
     """
 
     def paginate(
         self,
+        *,
         LocalGatewayRouteTableId: str,
-        Filters: List[FilterTypeDef],
+        Filters: List["FilterTypeDef"],
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchLocalGatewayRoutesResultTypeDef]:
         """
-        [SearchLocalGatewayRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#searchlocalgatewayroutespaginator)
         """
-
 
 class SearchTransitGatewayMulticastGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchTransitGatewayMulticastGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#searchtransitgatewaymulticastgroupspaginator)
     """
 
     def paginate(
         self,
+        *,
         TransitGatewayMulticastDomainId: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchTransitGatewayMulticastGroupsResultTypeDef]:
         """
-        [SearchTransitGatewayMulticastGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/paginators.html#searchtransitgatewaymulticastgroupspaginator)
         """

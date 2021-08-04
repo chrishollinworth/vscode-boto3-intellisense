@@ -1,1 +1,5 @@
 scripts/buildstubs_env/
+scripts/Python-3.9.6/
+.vscode/settings.json
+.gitignore
+scripts/Python-3.9.6.tgz

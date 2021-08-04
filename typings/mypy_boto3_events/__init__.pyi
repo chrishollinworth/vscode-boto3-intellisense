@@ -23,15 +23,14 @@ Usage::
     list_targets_by_rule_paginator: ListTargetsByRulePaginator = client.get_paginator("list_targets_by_rule")
     ```
 """
-from mypy_boto3_events.client import EventBridgeClient
-from mypy_boto3_events.paginator import (
+from .client import EventBridgeClient
+from .paginator import (
     ListRuleNamesByTargetPaginator,
     ListRulesPaginator,
     ListTargetsByRulePaginator,
 )
 
 Client = EventBridgeClient
-
 
 __all__ = (
     "Client",

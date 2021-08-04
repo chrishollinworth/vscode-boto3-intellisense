@@ -16,9 +16,8 @@ Usage::
     session_client: ApiGatewayManagementApiClient = session.client("apigatewaymanagementapi")
     ```
 """
-from mypy_boto3_apigatewaymanagementapi.client import ApiGatewayManagementApiClient
+from .client import ApiGatewayManagementApiClient
 
 Client = ApiGatewayManagementApiClient
-
 
 __all__ = ("ApiGatewayManagementApiClient", "Client")

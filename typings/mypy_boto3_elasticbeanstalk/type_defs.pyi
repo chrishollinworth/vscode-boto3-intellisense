@@ -1,54 +1,132 @@
 """
-Main interface for elasticbeanstalk service type definitions.
+Type annotations for elasticbeanstalk service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_elasticbeanstalk.type_defs import ApplicationDescriptionTypeDef
+    from mypy_boto3_elasticbeanstalk.type_defs import AbortEnvironmentUpdateMessageRequestTypeDef
 
-    data: ApplicationDescriptionTypeDef = {...}
+    data: AbortEnvironmentUpdateMessageRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    ActionHistoryStatusType,
+    ActionStatusType,
+    ActionTypeType,
+    ApplicationVersionStatusType,
+    ComputeTypeType,
+    ConfigurationDeploymentStatusType,
+    ConfigurationOptionValueTypeType,
+    EnvironmentHealthAttributeType,
+    EnvironmentHealthStatusType,
+    EnvironmentHealthType,
+    EnvironmentInfoTypeType,
+    EnvironmentStatusType,
+    EventSeverityType,
+    FailureTypeType,
+    InstancesHealthAttributeType,
+    PlatformStatusType,
+    SourceRepositoryType,
+    SourceTypeType,
+    ValidationSeverityType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AbortEnvironmentUpdateMessageRequestTypeDef",
+    "ApplicationDescriptionMessageTypeDef",
     "ApplicationDescriptionTypeDef",
+    "ApplicationDescriptionsMessageTypeDef",
     "ApplicationMetricsTypeDef",
     "ApplicationResourceLifecycleConfigTypeDef",
+    "ApplicationResourceLifecycleDescriptionMessageTypeDef",
+    "ApplicationVersionDescriptionMessageTypeDef",
     "ApplicationVersionDescriptionTypeDef",
+    "ApplicationVersionDescriptionsMessageTypeDef",
     "ApplicationVersionLifecycleConfigTypeDef",
+    "ApplyEnvironmentManagedActionRequestRequestTypeDef",
+    "ApplyEnvironmentManagedActionResultTypeDef",
+    "AssociateEnvironmentOperationsRoleMessageRequestTypeDef",
     "AutoScalingGroupTypeDef",
+    "BuildConfigurationTypeDef",
     "BuilderTypeDef",
     "CPUUtilizationTypeDef",
+    "CheckDNSAvailabilityMessageRequestTypeDef",
+    "CheckDNSAvailabilityResultMessageTypeDef",
+    "ComposeEnvironmentsMessageRequestTypeDef",
     "ConfigurationOptionDescriptionTypeDef",
     "ConfigurationOptionSettingTypeDef",
+    "ConfigurationOptionsDescriptionTypeDef",
+    "ConfigurationSettingsDescriptionResponseMetadataTypeDef",
     "ConfigurationSettingsDescriptionTypeDef",
+    "ConfigurationSettingsDescriptionsTypeDef",
+    "ConfigurationSettingsValidationMessagesTypeDef",
+    "CreateApplicationMessageRequestTypeDef",
+    "CreateApplicationVersionMessageRequestTypeDef",
+    "CreateConfigurationTemplateMessageRequestTypeDef",
+    "CreateEnvironmentMessageRequestTypeDef",
+    "CreatePlatformVersionRequestRequestTypeDef",
+    "CreatePlatformVersionResultTypeDef",
+    "CreateStorageLocationResultMessageTypeDef",
     "CustomAmiTypeDef",
+    "DeleteApplicationMessageRequestTypeDef",
+    "DeleteApplicationVersionMessageRequestTypeDef",
+    "DeleteConfigurationTemplateMessageRequestTypeDef",
+    "DeleteEnvironmentConfigurationMessageRequestTypeDef",
+    "DeletePlatformVersionRequestRequestTypeDef",
+    "DeletePlatformVersionResultTypeDef",
     "DeploymentTypeDef",
+    "DescribeAccountAttributesResultTypeDef",
+    "DescribeApplicationVersionsMessageRequestTypeDef",
+    "DescribeApplicationsMessageRequestTypeDef",
+    "DescribeConfigurationOptionsMessageRequestTypeDef",
+    "DescribeConfigurationSettingsMessageRequestTypeDef",
+    "DescribeEnvironmentHealthRequestRequestTypeDef",
+    "DescribeEnvironmentHealthResultTypeDef",
+    "DescribeEnvironmentManagedActionHistoryRequestRequestTypeDef",
+    "DescribeEnvironmentManagedActionHistoryResultTypeDef",
+    "DescribeEnvironmentManagedActionsRequestRequestTypeDef",
+    "DescribeEnvironmentManagedActionsResultTypeDef",
+    "DescribeEnvironmentResourcesMessageRequestTypeDef",
+    "DescribeEnvironmentsMessageRequestTypeDef",
+    "DescribeEventsMessageRequestTypeDef",
+    "DescribeInstancesHealthRequestRequestTypeDef",
+    "DescribeInstancesHealthResultTypeDef",
+    "DescribePlatformVersionRequestRequestTypeDef",
+    "DescribePlatformVersionResultTypeDef",
+    "DisassociateEnvironmentOperationsRoleMessageRequestTypeDef",
+    "EnvironmentDescriptionResponseMetadataTypeDef",
     "EnvironmentDescriptionTypeDef",
+    "EnvironmentDescriptionsMessageTypeDef",
     "EnvironmentInfoDescriptionTypeDef",
     "EnvironmentLinkTypeDef",
     "EnvironmentResourceDescriptionTypeDef",
+    "EnvironmentResourceDescriptionsMessageTypeDef",
     "EnvironmentResourcesDescriptionTypeDef",
     "EnvironmentTierTypeDef",
     "EventDescriptionTypeDef",
+    "EventDescriptionsMessageTypeDef",
     "InstanceHealthSummaryTypeDef",
     "InstanceTypeDef",
     "LatencyTypeDef",
     "LaunchConfigurationTypeDef",
     "LaunchTemplateTypeDef",
+    "ListAvailableSolutionStacksResultMessageTypeDef",
+    "ListPlatformBranchesRequestRequestTypeDef",
+    "ListPlatformBranchesResultTypeDef",
+    "ListPlatformVersionsRequestRequestTypeDef",
+    "ListPlatformVersionsResultTypeDef",
+    "ListTagsForResourceMessageRequestTypeDef",
     "ListenerTypeDef",
     "LoadBalancerDescriptionTypeDef",
     "LoadBalancerTypeDef",
@@ -57,57 +135,62 @@ __all__ = (
     "MaxAgeRuleTypeDef",
     "MaxCountRuleTypeDef",
     "OptionRestrictionRegexTypeDef",
+    "OptionSpecificationTypeDef",
+    "PaginatorConfigTypeDef",
     "PlatformBranchSummaryTypeDef",
     "PlatformDescriptionTypeDef",
+    "PlatformFilterTypeDef",
     "PlatformFrameworkTypeDef",
     "PlatformProgrammingLanguageTypeDef",
     "PlatformSummaryTypeDef",
     "QueueTypeDef",
+    "RebuildEnvironmentMessageRequestTypeDef",
+    "RequestEnvironmentInfoMessageRequestTypeDef",
     "ResourceQuotaTypeDef",
     "ResourceQuotasTypeDef",
+    "ResourceTagsDescriptionMessageTypeDef",
+    "ResponseMetadataTypeDef",
+    "RestartAppServerMessageRequestTypeDef",
+    "RetrieveEnvironmentInfoMessageRequestTypeDef",
+    "RetrieveEnvironmentInfoResultMessageTypeDef",
     "S3LocationTypeDef",
+    "SearchFilterTypeDef",
     "SingleInstanceHealthTypeDef",
     "SolutionStackDescriptionTypeDef",
     "SourceBuildInformationTypeDef",
+    "SourceConfigurationTypeDef",
     "StatusCodesTypeDef",
+    "SwapEnvironmentCNAMEsMessageRequestTypeDef",
     "SystemStatusTypeDef",
     "TagTypeDef",
+    "TerminateEnvironmentMessageRequestTypeDef",
     "TriggerTypeDef",
+    "UpdateApplicationMessageRequestTypeDef",
+    "UpdateApplicationResourceLifecycleMessageRequestTypeDef",
+    "UpdateApplicationVersionMessageRequestTypeDef",
+    "UpdateConfigurationTemplateMessageRequestTypeDef",
+    "UpdateEnvironmentMessageRequestTypeDef",
+    "UpdateTagsForResourceMessageRequestTypeDef",
+    "ValidateConfigurationSettingsMessageRequestTypeDef",
     "ValidationMessageTypeDef",
-    "ApplicationDescriptionMessageTypeDef",
-    "ApplicationDescriptionsMessageTypeDef",
-    "ApplicationResourceLifecycleDescriptionMessageTypeDef",
-    "ApplicationVersionDescriptionMessageTypeDef",
-    "ApplicationVersionDescriptionsMessageTypeDef",
-    "ApplyEnvironmentManagedActionResultTypeDef",
-    "BuildConfigurationTypeDef",
-    "CheckDNSAvailabilityResultMessageTypeDef",
-    "ConfigurationOptionsDescriptionTypeDef",
-    "ConfigurationSettingsDescriptionsTypeDef",
-    "ConfigurationSettingsValidationMessagesTypeDef",
-    "CreatePlatformVersionResultTypeDef",
-    "CreateStorageLocationResultMessageTypeDef",
-    "DeletePlatformVersionResultTypeDef",
-    "DescribeAccountAttributesResultTypeDef",
-    "DescribeEnvironmentHealthResultTypeDef",
-    "DescribeEnvironmentManagedActionHistoryResultTypeDef",
-    "DescribeEnvironmentManagedActionsResultTypeDef",
-    "DescribeInstancesHealthResultTypeDef",
-    "DescribePlatformVersionResultTypeDef",
-    "EnvironmentDescriptionsMessageTypeDef",
-    "EnvironmentResourceDescriptionsMessageTypeDef",
-    "EventDescriptionsMessageTypeDef",
-    "ListAvailableSolutionStacksResultMessageTypeDef",
-    "ListPlatformBranchesResultTypeDef",
-    "ListPlatformVersionsResultTypeDef",
-    "OptionSpecificationTypeDef",
-    "PaginatorConfigTypeDef",
-    "PlatformFilterTypeDef",
-    "ResourceTagsDescriptionMessageTypeDef",
-    "RetrieveEnvironmentInfoResultMessageTypeDef",
-    "SearchFilterTypeDef",
-    "SourceConfigurationTypeDef",
     "WaiterConfigTypeDef",
+)
+
+AbortEnvironmentUpdateMessageRequestTypeDef = TypedDict(
+    "AbortEnvironmentUpdateMessageRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+    },
+    total=False,
+)
+
+ApplicationDescriptionMessageTypeDef = TypedDict(
+    "ApplicationDescriptionMessageTypeDef",
+    {
+        "Application": "ApplicationDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ApplicationDescriptionTypeDef = TypedDict(
@@ -125,6 +208,14 @@ ApplicationDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+ApplicationDescriptionsMessageTypeDef = TypedDict(
+    "ApplicationDescriptionsMessageTypeDef",
+    {
+        "Applications": List["ApplicationDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ApplicationMetricsTypeDef = TypedDict(
     "ApplicationMetricsTypeDef",
     {
@@ -138,8 +229,28 @@ ApplicationMetricsTypeDef = TypedDict(
 
 ApplicationResourceLifecycleConfigTypeDef = TypedDict(
     "ApplicationResourceLifecycleConfigTypeDef",
-    {"ServiceRole": str, "VersionLifecycleConfig": "ApplicationVersionLifecycleConfigTypeDef"},
+    {
+        "ServiceRole": str,
+        "VersionLifecycleConfig": "ApplicationVersionLifecycleConfigTypeDef",
+    },
     total=False,
+)
+
+ApplicationResourceLifecycleDescriptionMessageTypeDef = TypedDict(
+    "ApplicationResourceLifecycleDescriptionMessageTypeDef",
+    {
+        "ApplicationName": str,
+        "ResourceLifecycleConfig": "ApplicationResourceLifecycleConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ApplicationVersionDescriptionMessageTypeDef = TypedDict(
+    "ApplicationVersionDescriptionMessageTypeDef",
+    {
+        "ApplicationVersion": "ApplicationVersionDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ApplicationVersionDescriptionTypeDef = TypedDict(
@@ -154,20 +265,106 @@ ApplicationVersionDescriptionTypeDef = TypedDict(
         "SourceBundle": "S3LocationTypeDef",
         "DateCreated": datetime,
         "DateUpdated": datetime,
-        "Status": Literal["Processed", "Unprocessed", "Failed", "Processing", "Building"],
+        "Status": ApplicationVersionStatusType,
     },
     total=False,
 )
 
+ApplicationVersionDescriptionsMessageTypeDef = TypedDict(
+    "ApplicationVersionDescriptionsMessageTypeDef",
+    {
+        "ApplicationVersions": List["ApplicationVersionDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ApplicationVersionLifecycleConfigTypeDef = TypedDict(
     "ApplicationVersionLifecycleConfigTypeDef",
-    {"MaxCountRule": "MaxCountRuleTypeDef", "MaxAgeRule": "MaxAgeRuleTypeDef"},
+    {
+        "MaxCountRule": "MaxCountRuleTypeDef",
+        "MaxAgeRule": "MaxAgeRuleTypeDef",
+    },
     total=False,
 )
 
-AutoScalingGroupTypeDef = TypedDict("AutoScalingGroupTypeDef", {"Name": str}, total=False)
+_RequiredApplyEnvironmentManagedActionRequestRequestTypeDef = TypedDict(
+    "_RequiredApplyEnvironmentManagedActionRequestRequestTypeDef",
+    {
+        "ActionId": str,
+    },
+)
+_OptionalApplyEnvironmentManagedActionRequestRequestTypeDef = TypedDict(
+    "_OptionalApplyEnvironmentManagedActionRequestRequestTypeDef",
+    {
+        "EnvironmentName": str,
+        "EnvironmentId": str,
+    },
+    total=False,
+)
 
-BuilderTypeDef = TypedDict("BuilderTypeDef", {"ARN": str}, total=False)
+class ApplyEnvironmentManagedActionRequestRequestTypeDef(
+    _RequiredApplyEnvironmentManagedActionRequestRequestTypeDef,
+    _OptionalApplyEnvironmentManagedActionRequestRequestTypeDef,
+):
+    pass
+
+ApplyEnvironmentManagedActionResultTypeDef = TypedDict(
+    "ApplyEnvironmentManagedActionResultTypeDef",
+    {
+        "ActionId": str,
+        "ActionDescription": str,
+        "ActionType": ActionTypeType,
+        "Status": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociateEnvironmentOperationsRoleMessageRequestTypeDef = TypedDict(
+    "AssociateEnvironmentOperationsRoleMessageRequestTypeDef",
+    {
+        "EnvironmentName": str,
+        "OperationsRole": str,
+    },
+)
+
+AutoScalingGroupTypeDef = TypedDict(
+    "AutoScalingGroupTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+_RequiredBuildConfigurationTypeDef = TypedDict(
+    "_RequiredBuildConfigurationTypeDef",
+    {
+        "CodeBuildServiceRole": str,
+        "Image": str,
+    },
+)
+_OptionalBuildConfigurationTypeDef = TypedDict(
+    "_OptionalBuildConfigurationTypeDef",
+    {
+        "ArtifactName": str,
+        "ComputeType": ComputeTypeType,
+        "TimeoutInMinutes": int,
+    },
+    total=False,
+)
+
+class BuildConfigurationTypeDef(
+    _RequiredBuildConfigurationTypeDef, _OptionalBuildConfigurationTypeDef
+):
+    pass
+
+BuilderTypeDef = TypedDict(
+    "BuilderTypeDef",
+    {
+        "ARN": str,
+    },
+    total=False,
+)
 
 CPUUtilizationTypeDef = TypedDict(
     "CPUUtilizationTypeDef",
@@ -184,6 +381,32 @@ CPUUtilizationTypeDef = TypedDict(
     total=False,
 )
 
+CheckDNSAvailabilityMessageRequestTypeDef = TypedDict(
+    "CheckDNSAvailabilityMessageRequestTypeDef",
+    {
+        "CNAMEPrefix": str,
+    },
+)
+
+CheckDNSAvailabilityResultMessageTypeDef = TypedDict(
+    "CheckDNSAvailabilityResultMessageTypeDef",
+    {
+        "Available": bool,
+        "FullyQualifiedCNAME": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ComposeEnvironmentsMessageRequestTypeDef = TypedDict(
+    "ComposeEnvironmentsMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "GroupName": str,
+        "VersionLabels": List[str],
+    },
+    total=False,
+)
+
 ConfigurationOptionDescriptionTypeDef = TypedDict(
     "ConfigurationOptionDescriptionTypeDef",
     {
@@ -192,7 +415,7 @@ ConfigurationOptionDescriptionTypeDef = TypedDict(
         "DefaultValue": str,
         "ChangeSeverity": str,
         "UserDefined": bool,
-        "ValueType": Literal["Scalar", "List"],
+        "ValueType": ConfigurationOptionValueTypeType,
         "ValueOptions": List[str],
         "MinValue": int,
         "MaxValue": int,
@@ -204,8 +427,40 @@ ConfigurationOptionDescriptionTypeDef = TypedDict(
 
 ConfigurationOptionSettingTypeDef = TypedDict(
     "ConfigurationOptionSettingTypeDef",
-    {"ResourceName": str, "Namespace": str, "OptionName": str, "Value": str},
+    {
+        "ResourceName": str,
+        "Namespace": str,
+        "OptionName": str,
+        "Value": str,
+    },
     total=False,
+)
+
+ConfigurationOptionsDescriptionTypeDef = TypedDict(
+    "ConfigurationOptionsDescriptionTypeDef",
+    {
+        "SolutionStackName": str,
+        "PlatformArn": str,
+        "Options": List["ConfigurationOptionDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ConfigurationSettingsDescriptionResponseMetadataTypeDef = TypedDict(
+    "ConfigurationSettingsDescriptionResponseMetadataTypeDef",
+    {
+        "SolutionStackName": str,
+        "PlatformArn": str,
+        "ApplicationName": str,
+        "TemplateName": str,
+        "Description": str,
+        "EnvironmentName": str,
+        "DeploymentStatus": ConfigurationDeploymentStatusType,
+        "DateCreated": datetime,
+        "DateUpdated": datetime,
+        "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ConfigurationSettingsDescriptionTypeDef = TypedDict(
@@ -217,7 +472,7 @@ ConfigurationSettingsDescriptionTypeDef = TypedDict(
         "TemplateName": str,
         "Description": str,
         "EnvironmentName": str,
-        "DeploymentStatus": Literal["deployed", "pending", "failed"],
+        "DeploymentStatus": ConfigurationDeploymentStatusType,
         "DateCreated": datetime,
         "DateUpdated": datetime,
         "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
@@ -225,14 +480,498 @@ ConfigurationSettingsDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+ConfigurationSettingsDescriptionsTypeDef = TypedDict(
+    "ConfigurationSettingsDescriptionsTypeDef",
+    {
+        "ConfigurationSettings": List["ConfigurationSettingsDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ConfigurationSettingsValidationMessagesTypeDef = TypedDict(
+    "ConfigurationSettingsValidationMessagesTypeDef",
+    {
+        "Messages": List["ValidationMessageTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateApplicationMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalCreateApplicationMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationMessageRequestTypeDef",
+    {
+        "Description": str,
+        "ResourceLifecycleConfig": "ApplicationResourceLifecycleConfigTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateApplicationMessageRequestTypeDef(
+    _RequiredCreateApplicationMessageRequestTypeDef, _OptionalCreateApplicationMessageRequestTypeDef
+):
+    pass
+
+_RequiredCreateApplicationVersionMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationVersionMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "VersionLabel": str,
+    },
+)
+_OptionalCreateApplicationVersionMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationVersionMessageRequestTypeDef",
+    {
+        "Description": str,
+        "SourceBuildInformation": "SourceBuildInformationTypeDef",
+        "SourceBundle": "S3LocationTypeDef",
+        "BuildConfiguration": "BuildConfigurationTypeDef",
+        "AutoCreateApplication": bool,
+        "Process": bool,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateApplicationVersionMessageRequestTypeDef(
+    _RequiredCreateApplicationVersionMessageRequestTypeDef,
+    _OptionalCreateApplicationVersionMessageRequestTypeDef,
+):
+    pass
+
+_RequiredCreateConfigurationTemplateMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateConfigurationTemplateMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "TemplateName": str,
+    },
+)
+_OptionalCreateConfigurationTemplateMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateConfigurationTemplateMessageRequestTypeDef",
+    {
+        "SolutionStackName": str,
+        "PlatformArn": str,
+        "SourceConfiguration": "SourceConfigurationTypeDef",
+        "EnvironmentId": str,
+        "Description": str,
+        "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateConfigurationTemplateMessageRequestTypeDef(
+    _RequiredCreateConfigurationTemplateMessageRequestTypeDef,
+    _OptionalCreateConfigurationTemplateMessageRequestTypeDef,
+):
+    pass
+
+_RequiredCreateEnvironmentMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateEnvironmentMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalCreateEnvironmentMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateEnvironmentMessageRequestTypeDef",
+    {
+        "EnvironmentName": str,
+        "GroupName": str,
+        "Description": str,
+        "CNAMEPrefix": str,
+        "Tier": "EnvironmentTierTypeDef",
+        "Tags": List["TagTypeDef"],
+        "VersionLabel": str,
+        "TemplateName": str,
+        "SolutionStackName": str,
+        "PlatformArn": str,
+        "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
+        "OptionsToRemove": List["OptionSpecificationTypeDef"],
+        "OperationsRole": str,
+    },
+    total=False,
+)
+
+class CreateEnvironmentMessageRequestTypeDef(
+    _RequiredCreateEnvironmentMessageRequestTypeDef, _OptionalCreateEnvironmentMessageRequestTypeDef
+):
+    pass
+
+_RequiredCreatePlatformVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePlatformVersionRequestRequestTypeDef",
+    {
+        "PlatformName": str,
+        "PlatformVersion": str,
+        "PlatformDefinitionBundle": "S3LocationTypeDef",
+    },
+)
+_OptionalCreatePlatformVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePlatformVersionRequestRequestTypeDef",
+    {
+        "EnvironmentName": str,
+        "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreatePlatformVersionRequestRequestTypeDef(
+    _RequiredCreatePlatformVersionRequestRequestTypeDef,
+    _OptionalCreatePlatformVersionRequestRequestTypeDef,
+):
+    pass
+
+CreatePlatformVersionResultTypeDef = TypedDict(
+    "CreatePlatformVersionResultTypeDef",
+    {
+        "PlatformSummary": "PlatformSummaryTypeDef",
+        "Builder": "BuilderTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateStorageLocationResultMessageTypeDef = TypedDict(
+    "CreateStorageLocationResultMessageTypeDef",
+    {
+        "S3Bucket": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CustomAmiTypeDef = TypedDict(
-    "CustomAmiTypeDef", {"VirtualizationType": str, "ImageId": str}, total=False
+    "CustomAmiTypeDef",
+    {
+        "VirtualizationType": str,
+        "ImageId": str,
+    },
+    total=False,
+)
+
+_RequiredDeleteApplicationMessageRequestTypeDef = TypedDict(
+    "_RequiredDeleteApplicationMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalDeleteApplicationMessageRequestTypeDef = TypedDict(
+    "_OptionalDeleteApplicationMessageRequestTypeDef",
+    {
+        "TerminateEnvByForce": bool,
+    },
+    total=False,
+)
+
+class DeleteApplicationMessageRequestTypeDef(
+    _RequiredDeleteApplicationMessageRequestTypeDef, _OptionalDeleteApplicationMessageRequestTypeDef
+):
+    pass
+
+_RequiredDeleteApplicationVersionMessageRequestTypeDef = TypedDict(
+    "_RequiredDeleteApplicationVersionMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "VersionLabel": str,
+    },
+)
+_OptionalDeleteApplicationVersionMessageRequestTypeDef = TypedDict(
+    "_OptionalDeleteApplicationVersionMessageRequestTypeDef",
+    {
+        "DeleteSourceBundle": bool,
+    },
+    total=False,
+)
+
+class DeleteApplicationVersionMessageRequestTypeDef(
+    _RequiredDeleteApplicationVersionMessageRequestTypeDef,
+    _OptionalDeleteApplicationVersionMessageRequestTypeDef,
+):
+    pass
+
+DeleteConfigurationTemplateMessageRequestTypeDef = TypedDict(
+    "DeleteConfigurationTemplateMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "TemplateName": str,
+    },
+)
+
+DeleteEnvironmentConfigurationMessageRequestTypeDef = TypedDict(
+    "DeleteEnvironmentConfigurationMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "EnvironmentName": str,
+    },
+)
+
+DeletePlatformVersionRequestRequestTypeDef = TypedDict(
+    "DeletePlatformVersionRequestRequestTypeDef",
+    {
+        "PlatformArn": str,
+    },
+    total=False,
+)
+
+DeletePlatformVersionResultTypeDef = TypedDict(
+    "DeletePlatformVersionResultTypeDef",
+    {
+        "PlatformSummary": "PlatformSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DeploymentTypeDef = TypedDict(
     "DeploymentTypeDef",
-    {"VersionLabel": str, "DeploymentId": int, "Status": str, "DeploymentTime": datetime},
+    {
+        "VersionLabel": str,
+        "DeploymentId": int,
+        "Status": str,
+        "DeploymentTime": datetime,
+    },
     total=False,
+)
+
+DescribeAccountAttributesResultTypeDef = TypedDict(
+    "DescribeAccountAttributesResultTypeDef",
+    {
+        "ResourceQuotas": "ResourceQuotasTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicationVersionsMessageRequestTypeDef = TypedDict(
+    "DescribeApplicationVersionsMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "VersionLabels": List[str],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeApplicationsMessageRequestTypeDef = TypedDict(
+    "DescribeApplicationsMessageRequestTypeDef",
+    {
+        "ApplicationNames": List[str],
+    },
+    total=False,
+)
+
+DescribeConfigurationOptionsMessageRequestTypeDef = TypedDict(
+    "DescribeConfigurationOptionsMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "TemplateName": str,
+        "EnvironmentName": str,
+        "SolutionStackName": str,
+        "PlatformArn": str,
+        "Options": List["OptionSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredDescribeConfigurationSettingsMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeConfigurationSettingsMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalDescribeConfigurationSettingsMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeConfigurationSettingsMessageRequestTypeDef",
+    {
+        "TemplateName": str,
+        "EnvironmentName": str,
+    },
+    total=False,
+)
+
+class DescribeConfigurationSettingsMessageRequestTypeDef(
+    _RequiredDescribeConfigurationSettingsMessageRequestTypeDef,
+    _OptionalDescribeConfigurationSettingsMessageRequestTypeDef,
+):
+    pass
+
+DescribeEnvironmentHealthRequestRequestTypeDef = TypedDict(
+    "DescribeEnvironmentHealthRequestRequestTypeDef",
+    {
+        "EnvironmentName": str,
+        "EnvironmentId": str,
+        "AttributeNames": List[EnvironmentHealthAttributeType],
+    },
+    total=False,
+)
+
+DescribeEnvironmentHealthResultTypeDef = TypedDict(
+    "DescribeEnvironmentHealthResultTypeDef",
+    {
+        "EnvironmentName": str,
+        "HealthStatus": str,
+        "Status": EnvironmentHealthType,
+        "Color": str,
+        "Causes": List[str],
+        "ApplicationMetrics": "ApplicationMetricsTypeDef",
+        "InstancesHealth": "InstanceHealthSummaryTypeDef",
+        "RefreshedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEnvironmentManagedActionHistoryRequestRequestTypeDef = TypedDict(
+    "DescribeEnvironmentManagedActionHistoryRequestRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+        "NextToken": str,
+        "MaxItems": int,
+    },
+    total=False,
+)
+
+DescribeEnvironmentManagedActionHistoryResultTypeDef = TypedDict(
+    "DescribeEnvironmentManagedActionHistoryResultTypeDef",
+    {
+        "ManagedActionHistoryItems": List["ManagedActionHistoryItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEnvironmentManagedActionsRequestRequestTypeDef = TypedDict(
+    "DescribeEnvironmentManagedActionsRequestRequestTypeDef",
+    {
+        "EnvironmentName": str,
+        "EnvironmentId": str,
+        "Status": ActionStatusType,
+    },
+    total=False,
+)
+
+DescribeEnvironmentManagedActionsResultTypeDef = TypedDict(
+    "DescribeEnvironmentManagedActionsResultTypeDef",
+    {
+        "ManagedActions": List["ManagedActionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEnvironmentResourcesMessageRequestTypeDef = TypedDict(
+    "DescribeEnvironmentResourcesMessageRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+    },
+    total=False,
+)
+
+DescribeEnvironmentsMessageRequestTypeDef = TypedDict(
+    "DescribeEnvironmentsMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "VersionLabel": str,
+        "EnvironmentIds": List[str],
+        "EnvironmentNames": List[str],
+        "IncludeDeleted": bool,
+        "IncludedDeletedBackTo": Union[datetime, str],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeEventsMessageRequestTypeDef = TypedDict(
+    "DescribeEventsMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "VersionLabel": str,
+        "TemplateName": str,
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+        "PlatformArn": str,
+        "RequestId": str,
+        "Severity": EventSeverityType,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstancesHealthRequestRequestTypeDef = TypedDict(
+    "DescribeInstancesHealthRequestRequestTypeDef",
+    {
+        "EnvironmentName": str,
+        "EnvironmentId": str,
+        "AttributeNames": List[InstancesHealthAttributeType],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstancesHealthResultTypeDef = TypedDict(
+    "DescribeInstancesHealthResultTypeDef",
+    {
+        "InstanceHealthList": List["SingleInstanceHealthTypeDef"],
+        "RefreshedAt": datetime,
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePlatformVersionRequestRequestTypeDef = TypedDict(
+    "DescribePlatformVersionRequestRequestTypeDef",
+    {
+        "PlatformArn": str,
+    },
+    total=False,
+)
+
+DescribePlatformVersionResultTypeDef = TypedDict(
+    "DescribePlatformVersionResultTypeDef",
+    {
+        "PlatformDescription": "PlatformDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateEnvironmentOperationsRoleMessageRequestTypeDef = TypedDict(
+    "DisassociateEnvironmentOperationsRoleMessageRequestTypeDef",
+    {
+        "EnvironmentName": str,
+    },
+)
+
+EnvironmentDescriptionResponseMetadataTypeDef = TypedDict(
+    "EnvironmentDescriptionResponseMetadataTypeDef",
+    {
+        "EnvironmentName": str,
+        "EnvironmentId": str,
+        "ApplicationName": str,
+        "VersionLabel": str,
+        "SolutionStackName": str,
+        "PlatformArn": str,
+        "TemplateName": str,
+        "Description": str,
+        "EndpointURL": str,
+        "CNAME": str,
+        "DateCreated": datetime,
+        "DateUpdated": datetime,
+        "Status": EnvironmentStatusType,
+        "AbortableOperationInProgress": bool,
+        "Health": EnvironmentHealthType,
+        "HealthStatus": EnvironmentHealthStatusType,
+        "Resources": "EnvironmentResourcesDescriptionTypeDef",
+        "Tier": "EnvironmentTierTypeDef",
+        "EnvironmentLinks": List["EnvironmentLinkTypeDef"],
+        "EnvironmentArn": str,
+        "OperationsRole": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 EnvironmentDescriptionTypeDef = TypedDict(
@@ -250,29 +989,10 @@ EnvironmentDescriptionTypeDef = TypedDict(
         "CNAME": str,
         "DateCreated": datetime,
         "DateUpdated": datetime,
-        "Status": Literal[
-            "Aborting",
-            "Launching",
-            "Updating",
-            "LinkingFrom",
-            "LinkingTo",
-            "Ready",
-            "Terminating",
-            "Terminated",
-        ],
+        "Status": EnvironmentStatusType,
         "AbortableOperationInProgress": bool,
-        "Health": Literal["Green", "Yellow", "Red", "Grey"],
-        "HealthStatus": Literal[
-            "NoData",
-            "Unknown",
-            "Pending",
-            "Ok",
-            "Info",
-            "Warning",
-            "Degraded",
-            "Severe",
-            "Suspended",
-        ],
+        "Health": EnvironmentHealthType,
+        "HealthStatus": EnvironmentHealthStatusType,
         "Resources": "EnvironmentResourcesDescriptionTypeDef",
         "Tier": "EnvironmentTierTypeDef",
         "EnvironmentLinks": List["EnvironmentLinkTypeDef"],
@@ -282,10 +1002,19 @@ EnvironmentDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+EnvironmentDescriptionsMessageTypeDef = TypedDict(
+    "EnvironmentDescriptionsMessageTypeDef",
+    {
+        "Environments": List["EnvironmentDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 EnvironmentInfoDescriptionTypeDef = TypedDict(
     "EnvironmentInfoDescriptionTypeDef",
     {
-        "InfoType": Literal["tail", "bundle"],
+        "InfoType": EnvironmentInfoTypeType,
         "Ec2InstanceId": str,
         "SampleTimestamp": datetime,
         "Message": str,
@@ -294,7 +1023,12 @@ EnvironmentInfoDescriptionTypeDef = TypedDict(
 )
 
 EnvironmentLinkTypeDef = TypedDict(
-    "EnvironmentLinkTypeDef", {"LinkName": str, "EnvironmentName": str}, total=False
+    "EnvironmentLinkTypeDef",
+    {
+        "LinkName": str,
+        "EnvironmentName": str,
+    },
+    total=False,
 )
 
 EnvironmentResourceDescriptionTypeDef = TypedDict(
@@ -312,14 +1046,30 @@ EnvironmentResourceDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+EnvironmentResourceDescriptionsMessageTypeDef = TypedDict(
+    "EnvironmentResourceDescriptionsMessageTypeDef",
+    {
+        "EnvironmentResources": "EnvironmentResourceDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 EnvironmentResourcesDescriptionTypeDef = TypedDict(
     "EnvironmentResourcesDescriptionTypeDef",
-    {"LoadBalancer": "LoadBalancerDescriptionTypeDef"},
+    {
+        "LoadBalancer": "LoadBalancerDescriptionTypeDef",
+    },
     total=False,
 )
 
 EnvironmentTierTypeDef = TypedDict(
-    "EnvironmentTierTypeDef", {"Name": str, "Type": str, "Version": str}, total=False
+    "EnvironmentTierTypeDef",
+    {
+        "Name": str,
+        "Type": str,
+        "Version": str,
+    },
+    total=False,
 )
 
 EventDescriptionTypeDef = TypedDict(
@@ -333,9 +1083,18 @@ EventDescriptionTypeDef = TypedDict(
         "EnvironmentName": str,
         "PlatformArn": str,
         "RequestId": str,
-        "Severity": Literal["TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"],
+        "Severity": EventSeverityType,
     },
     total=False,
+)
+
+EventDescriptionsMessageTypeDef = TypedDict(
+    "EventDescriptionsMessageTypeDef",
+    {
+        "Events": List["EventDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 InstanceHealthSummaryTypeDef = TypedDict(
@@ -353,7 +1112,13 @@ InstanceHealthSummaryTypeDef = TypedDict(
     total=False,
 )
 
-InstanceTypeDef = TypedDict("InstanceTypeDef", {"Id": str}, total=False)
+InstanceTypeDef = TypedDict(
+    "InstanceTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
 
 LatencyTypeDef = TypedDict(
     "LatencyTypeDef",
@@ -370,36 +1135,111 @@ LatencyTypeDef = TypedDict(
     total=False,
 )
 
-LaunchConfigurationTypeDef = TypedDict("LaunchConfigurationTypeDef", {"Name": str}, total=False)
-
-LaunchTemplateTypeDef = TypedDict("LaunchTemplateTypeDef", {"Id": str}, total=False)
-
-ListenerTypeDef = TypedDict("ListenerTypeDef", {"Protocol": str, "Port": int}, total=False)
-
-LoadBalancerDescriptionTypeDef = TypedDict(
-    "LoadBalancerDescriptionTypeDef",
-    {"LoadBalancerName": str, "Domain": str, "Listeners": List["ListenerTypeDef"]},
+LaunchConfigurationTypeDef = TypedDict(
+    "LaunchConfigurationTypeDef",
+    {
+        "Name": str,
+    },
     total=False,
 )
 
-LoadBalancerTypeDef = TypedDict("LoadBalancerTypeDef", {"Name": str}, total=False)
+LaunchTemplateTypeDef = TypedDict(
+    "LaunchTemplateTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
+
+ListAvailableSolutionStacksResultMessageTypeDef = TypedDict(
+    "ListAvailableSolutionStacksResultMessageTypeDef",
+    {
+        "SolutionStacks": List[str],
+        "SolutionStackDetails": List["SolutionStackDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPlatformBranchesRequestRequestTypeDef = TypedDict(
+    "ListPlatformBranchesRequestRequestTypeDef",
+    {
+        "Filters": List["SearchFilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListPlatformBranchesResultTypeDef = TypedDict(
+    "ListPlatformBranchesResultTypeDef",
+    {
+        "PlatformBranchSummaryList": List["PlatformBranchSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPlatformVersionsRequestRequestTypeDef = TypedDict(
+    "ListPlatformVersionsRequestRequestTypeDef",
+    {
+        "Filters": List["PlatformFilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListPlatformVersionsResultTypeDef = TypedDict(
+    "ListPlatformVersionsResultTypeDef",
+    {
+        "PlatformSummaryList": List["PlatformSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceMessageRequestTypeDef = TypedDict(
+    "ListTagsForResourceMessageRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListenerTypeDef = TypedDict(
+    "ListenerTypeDef",
+    {
+        "Protocol": str,
+        "Port": int,
+    },
+    total=False,
+)
+
+LoadBalancerDescriptionTypeDef = TypedDict(
+    "LoadBalancerDescriptionTypeDef",
+    {
+        "LoadBalancerName": str,
+        "Domain": str,
+        "Listeners": List["ListenerTypeDef"],
+    },
+    total=False,
+)
+
+LoadBalancerTypeDef = TypedDict(
+    "LoadBalancerTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
 
 ManagedActionHistoryItemTypeDef = TypedDict(
     "ManagedActionHistoryItemTypeDef",
     {
         "ActionId": str,
-        "ActionType": Literal["InstanceRefresh", "PlatformUpdate", "Unknown"],
+        "ActionType": ActionTypeType,
         "ActionDescription": str,
-        "FailureType": Literal[
-            "UpdateCancelled",
-            "CancellationFailed",
-            "RollbackFailed",
-            "RollbackSuccessful",
-            "InternalFailure",
-            "InvalidEnvironmentState",
-            "PermissionsError",
-        ],
-        "Status": Literal["Completed", "Failed", "Unknown"],
+        "FailureType": FailureTypeType,
+        "Status": ActionHistoryStatusType,
         "FailureDescription": str,
         "ExecutedTime": datetime,
         "FinishedTime": datetime,
@@ -412,35 +1252,76 @@ ManagedActionTypeDef = TypedDict(
     {
         "ActionId": str,
         "ActionDescription": str,
-        "ActionType": Literal["InstanceRefresh", "PlatformUpdate", "Unknown"],
-        "Status": Literal["Scheduled", "Pending", "Running", "Unknown"],
+        "ActionType": ActionTypeType,
+        "Status": ActionStatusType,
         "WindowStartTime": datetime,
     },
     total=False,
 )
 
-_RequiredMaxAgeRuleTypeDef = TypedDict("_RequiredMaxAgeRuleTypeDef", {"Enabled": bool})
-_OptionalMaxAgeRuleTypeDef = TypedDict(
-    "_OptionalMaxAgeRuleTypeDef", {"MaxAgeInDays": int, "DeleteSourceFromS3": bool}, total=False
+_RequiredMaxAgeRuleTypeDef = TypedDict(
+    "_RequiredMaxAgeRuleTypeDef",
+    {
+        "Enabled": bool,
+    },
 )
-
+_OptionalMaxAgeRuleTypeDef = TypedDict(
+    "_OptionalMaxAgeRuleTypeDef",
+    {
+        "MaxAgeInDays": int,
+        "DeleteSourceFromS3": bool,
+    },
+    total=False,
+)
 
 class MaxAgeRuleTypeDef(_RequiredMaxAgeRuleTypeDef, _OptionalMaxAgeRuleTypeDef):
     pass
 
-
-_RequiredMaxCountRuleTypeDef = TypedDict("_RequiredMaxCountRuleTypeDef", {"Enabled": bool})
-_OptionalMaxCountRuleTypeDef = TypedDict(
-    "_OptionalMaxCountRuleTypeDef", {"MaxCount": int, "DeleteSourceFromS3": bool}, total=False
+_RequiredMaxCountRuleTypeDef = TypedDict(
+    "_RequiredMaxCountRuleTypeDef",
+    {
+        "Enabled": bool,
+    },
 )
-
+_OptionalMaxCountRuleTypeDef = TypedDict(
+    "_OptionalMaxCountRuleTypeDef",
+    {
+        "MaxCount": int,
+        "DeleteSourceFromS3": bool,
+    },
+    total=False,
+)
 
 class MaxCountRuleTypeDef(_RequiredMaxCountRuleTypeDef, _OptionalMaxCountRuleTypeDef):
     pass
 
-
 OptionRestrictionRegexTypeDef = TypedDict(
-    "OptionRestrictionRegexTypeDef", {"Pattern": str, "Label": str}, total=False
+    "OptionRestrictionRegexTypeDef",
+    {
+        "Pattern": str,
+        "Label": str,
+    },
+    total=False,
+)
+
+OptionSpecificationTypeDef = TypedDict(
+    "OptionSpecificationTypeDef",
+    {
+        "ResourceName": str,
+        "Namespace": str,
+        "OptionName": str,
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
 PlatformBranchSummaryTypeDef = TypedDict(
@@ -463,7 +1344,7 @@ PlatformDescriptionTypeDef = TypedDict(
         "PlatformName": str,
         "PlatformVersion": str,
         "SolutionStackName": str,
-        "PlatformStatus": Literal["Creating", "Failed", "Ready", "Deleting", "Deleted"],
+        "PlatformStatus": PlatformStatusType,
         "DateCreated": datetime,
         "DateUpdated": datetime,
         "PlatformCategory": str,
@@ -483,12 +1364,32 @@ PlatformDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+PlatformFilterTypeDef = TypedDict(
+    "PlatformFilterTypeDef",
+    {
+        "Type": str,
+        "Operator": str,
+        "Values": List[str],
+    },
+    total=False,
+)
+
 PlatformFrameworkTypeDef = TypedDict(
-    "PlatformFrameworkTypeDef", {"Name": str, "Version": str}, total=False
+    "PlatformFrameworkTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+    },
+    total=False,
 )
 
 PlatformProgrammingLanguageTypeDef = TypedDict(
-    "PlatformProgrammingLanguageTypeDef", {"Name": str, "Version": str}, total=False
+    "PlatformProgrammingLanguageTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+    },
+    total=False,
 )
 
 PlatformSummaryTypeDef = TypedDict(
@@ -496,7 +1397,7 @@ PlatformSummaryTypeDef = TypedDict(
     {
         "PlatformArn": str,
         "PlatformOwner": str,
-        "PlatformStatus": Literal["Creating", "Failed", "Ready", "Deleting", "Deleted"],
+        "PlatformStatus": PlatformStatusType,
         "PlatformCategory": str,
         "OperatingSystemName": str,
         "OperatingSystemVersion": str,
@@ -510,9 +1411,52 @@ PlatformSummaryTypeDef = TypedDict(
     total=False,
 )
 
-QueueTypeDef = TypedDict("QueueTypeDef", {"Name": str, "URL": str}, total=False)
+QueueTypeDef = TypedDict(
+    "QueueTypeDef",
+    {
+        "Name": str,
+        "URL": str,
+    },
+    total=False,
+)
 
-ResourceQuotaTypeDef = TypedDict("ResourceQuotaTypeDef", {"Maximum": int}, total=False)
+RebuildEnvironmentMessageRequestTypeDef = TypedDict(
+    "RebuildEnvironmentMessageRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+    },
+    total=False,
+)
+
+_RequiredRequestEnvironmentInfoMessageRequestTypeDef = TypedDict(
+    "_RequiredRequestEnvironmentInfoMessageRequestTypeDef",
+    {
+        "InfoType": EnvironmentInfoTypeType,
+    },
+)
+_OptionalRequestEnvironmentInfoMessageRequestTypeDef = TypedDict(
+    "_OptionalRequestEnvironmentInfoMessageRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+    },
+    total=False,
+)
+
+class RequestEnvironmentInfoMessageRequestTypeDef(
+    _RequiredRequestEnvironmentInfoMessageRequestTypeDef,
+    _OptionalRequestEnvironmentInfoMessageRequestTypeDef,
+):
+    pass
+
+ResourceQuotaTypeDef = TypedDict(
+    "ResourceQuotaTypeDef",
+    {
+        "Maximum": int,
+    },
+    total=False,
+)
 
 ResourceQuotasTypeDef = TypedDict(
     "ResourceQuotasTypeDef",
@@ -526,7 +1470,82 @@ ResourceQuotasTypeDef = TypedDict(
     total=False,
 )
 
-S3LocationTypeDef = TypedDict("S3LocationTypeDef", {"S3Bucket": str, "S3Key": str}, total=False)
+ResourceTagsDescriptionMessageTypeDef = TypedDict(
+    "ResourceTagsDescriptionMessageTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourceTags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+RestartAppServerMessageRequestTypeDef = TypedDict(
+    "RestartAppServerMessageRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+    },
+    total=False,
+)
+
+_RequiredRetrieveEnvironmentInfoMessageRequestTypeDef = TypedDict(
+    "_RequiredRetrieveEnvironmentInfoMessageRequestTypeDef",
+    {
+        "InfoType": EnvironmentInfoTypeType,
+    },
+)
+_OptionalRetrieveEnvironmentInfoMessageRequestTypeDef = TypedDict(
+    "_OptionalRetrieveEnvironmentInfoMessageRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+    },
+    total=False,
+)
+
+class RetrieveEnvironmentInfoMessageRequestTypeDef(
+    _RequiredRetrieveEnvironmentInfoMessageRequestTypeDef,
+    _OptionalRetrieveEnvironmentInfoMessageRequestTypeDef,
+):
+    pass
+
+RetrieveEnvironmentInfoResultMessageTypeDef = TypedDict(
+    "RetrieveEnvironmentInfoResultMessageTypeDef",
+    {
+        "EnvironmentInfo": List["EnvironmentInfoDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+S3LocationTypeDef = TypedDict(
+    "S3LocationTypeDef",
+    {
+        "S3Bucket": str,
+        "S3Key": str,
+    },
+    total=False,
+)
+
+SearchFilterTypeDef = TypedDict(
+    "SearchFilterTypeDef",
+    {
+        "Attribute": str,
+        "Operator": str,
+        "Values": List[str],
+    },
+    total=False,
+)
 
 SingleInstanceHealthTypeDef = TypedDict(
     "SingleInstanceHealthTypeDef",
@@ -547,268 +1566,239 @@ SingleInstanceHealthTypeDef = TypedDict(
 
 SolutionStackDescriptionTypeDef = TypedDict(
     "SolutionStackDescriptionTypeDef",
-    {"SolutionStackName": str, "PermittedFileTypes": List[str]},
+    {
+        "SolutionStackName": str,
+        "PermittedFileTypes": List[str],
+    },
     total=False,
 )
 
 SourceBuildInformationTypeDef = TypedDict(
     "SourceBuildInformationTypeDef",
     {
-        "SourceType": Literal["Git", "Zip"],
-        "SourceRepository": Literal["CodeCommit", "S3"],
+        "SourceType": SourceTypeType,
+        "SourceRepository": SourceRepositoryType,
         "SourceLocation": str,
     },
 )
 
+SourceConfigurationTypeDef = TypedDict(
+    "SourceConfigurationTypeDef",
+    {
+        "ApplicationName": str,
+        "TemplateName": str,
+    },
+    total=False,
+)
+
 StatusCodesTypeDef = TypedDict(
     "StatusCodesTypeDef",
-    {"Status2xx": int, "Status3xx": int, "Status4xx": int, "Status5xx": int},
+    {
+        "Status2xx": int,
+        "Status3xx": int,
+        "Status4xx": int,
+        "Status5xx": int,
+    },
+    total=False,
+)
+
+SwapEnvironmentCNAMEsMessageRequestTypeDef = TypedDict(
+    "SwapEnvironmentCNAMEsMessageRequestTypeDef",
+    {
+        "SourceEnvironmentId": str,
+        "SourceEnvironmentName": str,
+        "DestinationEnvironmentId": str,
+        "DestinationEnvironmentName": str,
+    },
     total=False,
 )
 
 SystemStatusTypeDef = TypedDict(
     "SystemStatusTypeDef",
-    {"CPUUtilization": "CPUUtilizationTypeDef", "LoadAverage": List[float]},
+    {
+        "CPUUtilization": "CPUUtilizationTypeDef",
+        "LoadAverage": List[float],
+    },
     total=False,
 )
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
-
-TriggerTypeDef = TypedDict("TriggerTypeDef", {"Name": str}, total=False)
-
-ValidationMessageTypeDef = TypedDict(
-    "ValidationMessageTypeDef",
-    {"Message": str, "Severity": Literal["error", "warning"], "Namespace": str, "OptionName": str},
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
     total=False,
 )
 
-ApplicationDescriptionMessageTypeDef = TypedDict(
-    "ApplicationDescriptionMessageTypeDef",
-    {"Application": "ApplicationDescriptionTypeDef"},
+TerminateEnvironmentMessageRequestTypeDef = TypedDict(
+    "TerminateEnvironmentMessageRequestTypeDef",
+    {
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+        "TerminateResources": bool,
+        "ForceTerminate": bool,
+    },
     total=False,
 )
 
-ApplicationDescriptionsMessageTypeDef = TypedDict(
-    "ApplicationDescriptionsMessageTypeDef",
-    {"Applications": List["ApplicationDescriptionTypeDef"]},
+TriggerTypeDef = TypedDict(
+    "TriggerTypeDef",
+    {
+        "Name": str,
+    },
     total=False,
 )
 
-ApplicationResourceLifecycleDescriptionMessageTypeDef = TypedDict(
-    "ApplicationResourceLifecycleDescriptionMessageTypeDef",
+_RequiredUpdateApplicationMessageRequestTypeDef = TypedDict(
+    "_RequiredUpdateApplicationMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalUpdateApplicationMessageRequestTypeDef = TypedDict(
+    "_OptionalUpdateApplicationMessageRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateApplicationMessageRequestTypeDef(
+    _RequiredUpdateApplicationMessageRequestTypeDef, _OptionalUpdateApplicationMessageRequestTypeDef
+):
+    pass
+
+UpdateApplicationResourceLifecycleMessageRequestTypeDef = TypedDict(
+    "UpdateApplicationResourceLifecycleMessageRequestTypeDef",
     {
         "ApplicationName": str,
         "ResourceLifecycleConfig": "ApplicationResourceLifecycleConfigTypeDef",
     },
-    total=False,
 )
 
-ApplicationVersionDescriptionMessageTypeDef = TypedDict(
-    "ApplicationVersionDescriptionMessageTypeDef",
-    {"ApplicationVersion": "ApplicationVersionDescriptionTypeDef"},
-    total=False,
-)
-
-ApplicationVersionDescriptionsMessageTypeDef = TypedDict(
-    "ApplicationVersionDescriptionsMessageTypeDef",
-    {"ApplicationVersions": List["ApplicationVersionDescriptionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ApplyEnvironmentManagedActionResultTypeDef = TypedDict(
-    "ApplyEnvironmentManagedActionResultTypeDef",
+_RequiredUpdateApplicationVersionMessageRequestTypeDef = TypedDict(
+    "_RequiredUpdateApplicationVersionMessageRequestTypeDef",
     {
-        "ActionId": str,
-        "ActionDescription": str,
-        "ActionType": Literal["InstanceRefresh", "PlatformUpdate", "Unknown"],
-        "Status": str,
+        "ApplicationName": str,
+        "VersionLabel": str,
+    },
+)
+_OptionalUpdateApplicationVersionMessageRequestTypeDef = TypedDict(
+    "_OptionalUpdateApplicationVersionMessageRequestTypeDef",
+    {
+        "Description": str,
     },
     total=False,
 )
 
-_RequiredBuildConfigurationTypeDef = TypedDict(
-    "_RequiredBuildConfigurationTypeDef", {"CodeBuildServiceRole": str, "Image": str}
-)
-_OptionalBuildConfigurationTypeDef = TypedDict(
-    "_OptionalBuildConfigurationTypeDef",
-    {
-        "ArtifactName": str,
-        "ComputeType": Literal[
-            "BUILD_GENERAL1_SMALL", "BUILD_GENERAL1_MEDIUM", "BUILD_GENERAL1_LARGE"
-        ],
-        "TimeoutInMinutes": int,
-    },
-    total=False,
-)
-
-
-class BuildConfigurationTypeDef(
-    _RequiredBuildConfigurationTypeDef, _OptionalBuildConfigurationTypeDef
+class UpdateApplicationVersionMessageRequestTypeDef(
+    _RequiredUpdateApplicationVersionMessageRequestTypeDef,
+    _OptionalUpdateApplicationVersionMessageRequestTypeDef,
 ):
     pass
 
-
-CheckDNSAvailabilityResultMessageTypeDef = TypedDict(
-    "CheckDNSAvailabilityResultMessageTypeDef",
-    {"Available": bool, "FullyQualifiedCNAME": str},
+_RequiredUpdateConfigurationTemplateMessageRequestTypeDef = TypedDict(
+    "_RequiredUpdateConfigurationTemplateMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "TemplateName": str,
+    },
+)
+_OptionalUpdateConfigurationTemplateMessageRequestTypeDef = TypedDict(
+    "_OptionalUpdateConfigurationTemplateMessageRequestTypeDef",
+    {
+        "Description": str,
+        "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
+        "OptionsToRemove": List["OptionSpecificationTypeDef"],
+    },
     total=False,
 )
 
-ConfigurationOptionsDescriptionTypeDef = TypedDict(
-    "ConfigurationOptionsDescriptionTypeDef",
+class UpdateConfigurationTemplateMessageRequestTypeDef(
+    _RequiredUpdateConfigurationTemplateMessageRequestTypeDef,
+    _OptionalUpdateConfigurationTemplateMessageRequestTypeDef,
+):
+    pass
+
+UpdateEnvironmentMessageRequestTypeDef = TypedDict(
+    "UpdateEnvironmentMessageRequestTypeDef",
     {
+        "ApplicationName": str,
+        "EnvironmentId": str,
+        "EnvironmentName": str,
+        "GroupName": str,
+        "Description": str,
+        "Tier": "EnvironmentTierTypeDef",
+        "VersionLabel": str,
+        "TemplateName": str,
         "SolutionStackName": str,
         "PlatformArn": str,
-        "Options": List["ConfigurationOptionDescriptionTypeDef"],
+        "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
+        "OptionsToRemove": List["OptionSpecificationTypeDef"],
     },
     total=False,
 )
 
-ConfigurationSettingsDescriptionsTypeDef = TypedDict(
-    "ConfigurationSettingsDescriptionsTypeDef",
-    {"ConfigurationSettings": List["ConfigurationSettingsDescriptionTypeDef"]},
-    total=False,
-)
-
-ConfigurationSettingsValidationMessagesTypeDef = TypedDict(
-    "ConfigurationSettingsValidationMessagesTypeDef",
-    {"Messages": List["ValidationMessageTypeDef"]},
-    total=False,
-)
-
-CreatePlatformVersionResultTypeDef = TypedDict(
-    "CreatePlatformVersionResultTypeDef",
-    {"PlatformSummary": "PlatformSummaryTypeDef", "Builder": "BuilderTypeDef"},
-    total=False,
-)
-
-CreateStorageLocationResultMessageTypeDef = TypedDict(
-    "CreateStorageLocationResultMessageTypeDef", {"S3Bucket": str}, total=False
-)
-
-DeletePlatformVersionResultTypeDef = TypedDict(
-    "DeletePlatformVersionResultTypeDef", {"PlatformSummary": "PlatformSummaryTypeDef"}, total=False
-)
-
-DescribeAccountAttributesResultTypeDef = TypedDict(
-    "DescribeAccountAttributesResultTypeDef",
-    {"ResourceQuotas": "ResourceQuotasTypeDef"},
-    total=False,
-)
-
-DescribeEnvironmentHealthResultTypeDef = TypedDict(
-    "DescribeEnvironmentHealthResultTypeDef",
+_RequiredUpdateTagsForResourceMessageRequestTypeDef = TypedDict(
+    "_RequiredUpdateTagsForResourceMessageRequestTypeDef",
     {
+        "ResourceArn": str,
+    },
+)
+_OptionalUpdateTagsForResourceMessageRequestTypeDef = TypedDict(
+    "_OptionalUpdateTagsForResourceMessageRequestTypeDef",
+    {
+        "TagsToAdd": List["TagTypeDef"],
+        "TagsToRemove": List[str],
+    },
+    total=False,
+)
+
+class UpdateTagsForResourceMessageRequestTypeDef(
+    _RequiredUpdateTagsForResourceMessageRequestTypeDef,
+    _OptionalUpdateTagsForResourceMessageRequestTypeDef,
+):
+    pass
+
+_RequiredValidateConfigurationSettingsMessageRequestTypeDef = TypedDict(
+    "_RequiredValidateConfigurationSettingsMessageRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "OptionSettings": List["ConfigurationOptionSettingTypeDef"],
+    },
+)
+_OptionalValidateConfigurationSettingsMessageRequestTypeDef = TypedDict(
+    "_OptionalValidateConfigurationSettingsMessageRequestTypeDef",
+    {
+        "TemplateName": str,
         "EnvironmentName": str,
-        "HealthStatus": str,
-        "Status": Literal["Green", "Yellow", "Red", "Grey"],
-        "Color": str,
-        "Causes": List[str],
-        "ApplicationMetrics": "ApplicationMetricsTypeDef",
-        "InstancesHealth": "InstanceHealthSummaryTypeDef",
-        "RefreshedAt": datetime,
     },
     total=False,
 )
 
-DescribeEnvironmentManagedActionHistoryResultTypeDef = TypedDict(
-    "DescribeEnvironmentManagedActionHistoryResultTypeDef",
-    {"ManagedActionHistoryItems": List["ManagedActionHistoryItemTypeDef"], "NextToken": str},
-    total=False,
-)
+class ValidateConfigurationSettingsMessageRequestTypeDef(
+    _RequiredValidateConfigurationSettingsMessageRequestTypeDef,
+    _OptionalValidateConfigurationSettingsMessageRequestTypeDef,
+):
+    pass
 
-DescribeEnvironmentManagedActionsResultTypeDef = TypedDict(
-    "DescribeEnvironmentManagedActionsResultTypeDef",
-    {"ManagedActions": List["ManagedActionTypeDef"]},
-    total=False,
-)
-
-DescribeInstancesHealthResultTypeDef = TypedDict(
-    "DescribeInstancesHealthResultTypeDef",
+ValidationMessageTypeDef = TypedDict(
+    "ValidationMessageTypeDef",
     {
-        "InstanceHealthList": List["SingleInstanceHealthTypeDef"],
-        "RefreshedAt": datetime,
-        "NextToken": str,
+        "Message": str,
+        "Severity": ValidationSeverityType,
+        "Namespace": str,
+        "OptionName": str,
     },
     total=False,
-)
-
-DescribePlatformVersionResultTypeDef = TypedDict(
-    "DescribePlatformVersionResultTypeDef",
-    {"PlatformDescription": "PlatformDescriptionTypeDef"},
-    total=False,
-)
-
-EnvironmentDescriptionsMessageTypeDef = TypedDict(
-    "EnvironmentDescriptionsMessageTypeDef",
-    {"Environments": List["EnvironmentDescriptionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-EnvironmentResourceDescriptionsMessageTypeDef = TypedDict(
-    "EnvironmentResourceDescriptionsMessageTypeDef",
-    {"EnvironmentResources": "EnvironmentResourceDescriptionTypeDef"},
-    total=False,
-)
-
-EventDescriptionsMessageTypeDef = TypedDict(
-    "EventDescriptionsMessageTypeDef",
-    {"Events": List["EventDescriptionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListAvailableSolutionStacksResultMessageTypeDef = TypedDict(
-    "ListAvailableSolutionStacksResultMessageTypeDef",
-    {"SolutionStacks": List[str], "SolutionStackDetails": List["SolutionStackDescriptionTypeDef"]},
-    total=False,
-)
-
-ListPlatformBranchesResultTypeDef = TypedDict(
-    "ListPlatformBranchesResultTypeDef",
-    {"PlatformBranchSummaryList": List["PlatformBranchSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListPlatformVersionsResultTypeDef = TypedDict(
-    "ListPlatformVersionsResultTypeDef",
-    {"PlatformSummaryList": List["PlatformSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-OptionSpecificationTypeDef = TypedDict(
-    "OptionSpecificationTypeDef",
-    {"ResourceName": str, "Namespace": str, "OptionName": str},
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PlatformFilterTypeDef = TypedDict(
-    "PlatformFilterTypeDef", {"Type": str, "Operator": str, "Values": List[str]}, total=False
-)
-
-ResourceTagsDescriptionMessageTypeDef = TypedDict(
-    "ResourceTagsDescriptionMessageTypeDef",
-    {"ResourceArn": str, "ResourceTags": List["TagTypeDef"]},
-    total=False,
-)
-
-RetrieveEnvironmentInfoResultMessageTypeDef = TypedDict(
-    "RetrieveEnvironmentInfoResultMessageTypeDef",
-    {"EnvironmentInfo": List["EnvironmentInfoDescriptionTypeDef"]},
-    total=False,
-)
-
-SearchFilterTypeDef = TypedDict(
-    "SearchFilterTypeDef", {"Attribute": str, "Operator": str, "Values": List[str]}, total=False
-)
-
-SourceConfigurationTypeDef = TypedDict(
-    "SourceConfigurationTypeDef", {"ApplicationName": str, "TemplateName": str}, total=False
 )
 
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

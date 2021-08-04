@@ -19,10 +19,9 @@ Usage::
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     ```
 """
-from mypy_boto3_importexport.client import ImportExportClient
-from mypy_boto3_importexport.paginator import ListJobsPaginator
+from .client import ImportExportClient
+from .paginator import ListJobsPaginator
 
 Client = ImportExportClient
-
 
 __all__ = ("Client", "ImportExportClient", "ListJobsPaginator")

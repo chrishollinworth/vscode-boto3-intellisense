@@ -1,5 +1,7 @@
 """
-Main interface for quicksight service client paginators.
+Type annotations for quicksight service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html)
 
 Usage::
 
@@ -42,12 +44,12 @@ Usage::
     search_dashboards_paginator: SearchDashboardsPaginator = client.get_paginator("search_dashboards")
     ```
 """
-import sys
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_quicksight.type_defs import (
+from .literals import ThemeTypeType
+from .type_defs import (
     AnalysisSearchFilterTypeDef,
     DashboardSearchFilterTypeDef,
     ListAnalysesResponseTypeDef,
@@ -67,12 +69,6 @@ from mypy_boto3_quicksight.type_defs import (
     SearchDashboardsResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = (
     "ListAnalysesPaginator",
     "ListDashboardVersionsPaginator",
@@ -90,193 +86,214 @@ __all__ = (
     "SearchDashboardsPaginator",
 )
 
-
 class ListAnalysesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAnalyses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listanalysespaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAnalysesResponseTypeDef]:
         """
-        [ListAnalyses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listanalysespaginator)
         """
-
 
 class ListDashboardVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDashboardVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardversionspaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, DashboardId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        AwsAccountId: str,
+        DashboardId: str,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDashboardVersionsResponseTypeDef]:
         """
-        [ListDashboardVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardversionspaginator)
         """
-
 
 class ListDashboardsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardspaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDashboardsResponseTypeDef]:
         """
-        [ListDashboards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdashboardspaginator)
         """
-
 
 class ListDataSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasetspaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSetsResponseTypeDef]:
         """
-        [ListDataSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasetspaginator)
         """
-
 
 class ListDataSourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasourcespaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourcesResponseTypeDef]:
         """
-        [ListDataSources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listdatasourcespaginator)
         """
-
 
 class ListIngestionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListIngestions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listingestionspaginator)
     """
 
     def paginate(
-        self, DataSetId: str, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, DataSetId: str, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIngestionsResponseTypeDef]:
         """
-        [ListIngestions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listingestionspaginator)
         """
-
 
 class ListNamespacesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNamespaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listnamespacespaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNamespacesResponseTypeDef]:
         """
-        [ListNamespaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listnamespacespaginator)
         """
-
 
 class ListTemplateAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTemplateAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatealiasespaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, TemplateId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, TemplateId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplateAliasesResponseTypeDef]:
         """
-        [ListTemplateAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatealiasespaginator)
         """
-
 
 class ListTemplateVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplateversionspaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, TemplateId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, TemplateId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplateVersionsResponseTypeDef]:
         """
-        [ListTemplateVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplateversionspaginator)
         """
-
 
 class ListTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatespaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplatesResponseTypeDef]:
         """
-        [ListTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listtemplatespaginator)
         """
-
 
 class ListThemeVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListThemeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemeversionspaginator)
     """
 
     def paginate(
-        self, AwsAccountId: str, ThemeId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AwsAccountId: str, ThemeId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThemeVersionsResponseTypeDef]:
         """
-        [ListThemeVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemeversionspaginator)
         """
-
 
 class ListThemesPaginator(Boto3Paginator):
     """
-    [Paginator.ListThemes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListThemes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemespaginator)
     """
 
     def paginate(
         self,
+        *,
         AwsAccountId: str,
-        Type: Literal["QUICKSIGHT", "CUSTOM", "ALL"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Type: ThemeTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThemesResponseTypeDef]:
         """
-        [ListThemes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.ListThemes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.ListThemes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#listthemespaginator)
         """
-
 
 class SearchAnalysesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchAnalyses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchanalysespaginator)
     """
 
     def paginate(
         self,
+        *,
         AwsAccountId: str,
-        Filters: List[AnalysisSearchFilterTypeDef],
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["AnalysisSearchFilterTypeDef"],
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchAnalysesResponseTypeDef]:
         """
-        [SearchAnalyses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchanalysespaginator)
         """
-
 
 class SearchDashboardsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdashboardspaginator)
     """
 
     def paginate(
         self,
+        *,
         AwsAccountId: str,
-        Filters: List[DashboardSearchFilterTypeDef],
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["DashboardSearchFilterTypeDef"],
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchDashboardsResponseTypeDef]:
         """
-        [SearchDashboards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_quicksight/paginators.html#searchdashboardspaginator)
         """

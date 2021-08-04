@@ -16,9 +16,8 @@ Usage::
     session_client: SESV2Client = session.client("sesv2")
     ```
 """
-from mypy_boto3_sesv2.client import SESV2Client
+from .client import SESV2Client
 
 Client = SESV2Client
-
 
 __all__ = ("Client", "SESV2Client")

@@ -1,5 +1,7 @@
 """
-Main interface for codeguruprofiler service client paginators.
+Type annotations for codeguruprofiler service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/paginators.html)
 
 Usage::
 
@@ -16,40 +18,33 @@ Usage::
     list_profile_times_paginator: ListProfileTimesPaginator = client.get_paginator("list_profile_times")
     ```
 """
-import sys
 from datetime import datetime
-from typing import Iterator
+from typing import Iterator, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_codeguruprofiler.type_defs import (
-    ListProfileTimesResponseTypeDef,
-    PaginatorConfigTypeDef,
-)
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
+from .literals import AggregationPeriodType, OrderByType
+from .type_defs import ListProfileTimesResponseTypeDef, PaginatorConfigTypeDef
 
 __all__ = ("ListProfileTimesPaginator",)
 
-
 class ListProfileTimesPaginator(Boto3Paginator):
     """
-    [Paginator.ListProfileTimes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/paginators.html#listprofiletimespaginator)
     """
 
     def paginate(
         self,
-        endTime: datetime,
-        period: Literal["P1D", "PT1H", "PT5M"],
+        *,
+        endTime: Union[datetime, str],
+        period: AggregationPeriodType,
         profilingGroupName: str,
-        startTime: datetime,
-        orderBy: Literal["TimestampAscending", "TimestampDescending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        startTime: Union[datetime, str],
+        orderBy: OrderByType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProfileTimesResponseTypeDef]:
         """
-        [ListProfileTimes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/paginators.html#listprofiletimespaginator)
         """

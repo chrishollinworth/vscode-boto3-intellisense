@@ -1,5 +1,7 @@
 """
-Main interface for elasticbeanstalk service client waiters.
+Type annotations for elasticbeanstalk service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/waiters.html)
 
 Usage::
 
@@ -21,76 +23,82 @@ Usage::
     ```
 """
 from datetime import datetime
-from typing import List
+from typing import List, Union
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_elasticbeanstalk.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("EnvironmentExistsWaiter", "EnvironmentTerminatedWaiter", "EnvironmentUpdatedWaiter")
 
-
 class EnvironmentExistsWaiter(Boto3Waiter):
     """
-    [Waiter.EnvironmentExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/waiters.html#environmentexistswaiter)
     """
 
     def wait(
         self,
+        *,
         ApplicationName: str = None,
         VersionLabel: str = None,
         EnvironmentIds: List[str] = None,
         EnvironmentNames: List[str] = None,
         IncludeDeleted: bool = None,
-        IncludedDeletedBackTo: datetime = None,
+        IncludedDeletedBackTo: Union[datetime, str] = None,
         MaxRecords: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [EnvironmentExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/waiters.html#environmentexistswaiter)
         """
-
 
 class EnvironmentTerminatedWaiter(Boto3Waiter):
     """
-    [Waiter.EnvironmentTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/waiters.html#environmentterminatedwaiter)
     """
 
     def wait(
         self,
+        *,
         ApplicationName: str = None,
         VersionLabel: str = None,
         EnvironmentIds: List[str] = None,
         EnvironmentNames: List[str] = None,
         IncludeDeleted: bool = None,
-        IncludedDeletedBackTo: datetime = None,
+        IncludedDeletedBackTo: Union[datetime, str] = None,
         MaxRecords: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [EnvironmentTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/waiters.html#environmentterminatedwaiter)
         """
-
 
 class EnvironmentUpdatedWaiter(Boto3Waiter):
     """
-    [Waiter.EnvironmentUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/waiters.html#environmentupdatedwaiter)
     """
 
     def wait(
         self,
+        *,
         ApplicationName: str = None,
         VersionLabel: str = None,
         EnvironmentIds: List[str] = None,
         EnvironmentNames: List[str] = None,
         IncludeDeleted: bool = None,
-        IncludedDeletedBackTo: datetime = None,
+        IncludedDeletedBackTo: Union[datetime, str] = None,
         MaxRecords: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [EnvironmentUpdated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/waiters.html#environmentupdatedwaiter)
         """

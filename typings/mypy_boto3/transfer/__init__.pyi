@@ -1,11 +1,27 @@
-from mypy_boto3_transfer import (
-    Client,
-    ListServersPaginator,
-    TransferClient,
-)
+"""
+Main interface for transfer service.
 
-__all__ = (
-    "Client",
-    "ListServersPaginator",
-    "TransferClient",
-)
+Usage::
+
+    ```python
+    import boto3
+    from mypy_boto3_transfer import (
+        Client,
+        ListServersPaginator,
+        TransferClient,
+    )
+
+    session = boto3.Session()
+
+    client: TransferClient = boto3.client("transfer")
+    session_client: TransferClient = session.client("transfer")
+
+    list_servers_paginator: ListServersPaginator = client.get_paginator("list_servers")
+    ```
+"""
+from .client import TransferClient
+from .paginator import ListServersPaginator
+
+Client = TransferClient
+
+__all__ = ("Client", "ListServersPaginator", "TransferClient")

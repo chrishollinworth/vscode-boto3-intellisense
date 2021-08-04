@@ -19,10 +19,9 @@ Usage::
     list_items_paginator: ListItemsPaginator = client.get_paginator("list_items")
     ```
 """
-from mypy_boto3_mediastore_data.client import MediaStoreDataClient
-from mypy_boto3_mediastore_data.paginator import ListItemsPaginator
+from .client import MediaStoreDataClient
+from .paginator import ListItemsPaginator
 
 Client = MediaStoreDataClient
-
 
 __all__ = ("Client", "ListItemsPaginator", "MediaStoreDataClient")

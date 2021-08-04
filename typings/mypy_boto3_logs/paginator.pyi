@@ -1,5 +1,7 @@
 """
-Main interface for logs service client paginators.
+Type annotations for logs service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html)
 
 Usage::
 
@@ -32,12 +34,12 @@ Usage::
     filter_log_events_paginator: FilterLogEventsPaginator = client.get_paginator("filter_log_events")
     ```
 """
-import sys
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_logs.type_defs import (
+from .literals import ExportTaskStatusCodeType, OrderByType, QueryStatusType
+from .type_defs import (
     DescribeDestinationsResponseTypeDef,
     DescribeExportTasksResponseTypeDef,
     DescribeLogGroupsResponseTypeDef,
@@ -49,12 +51,6 @@ from mypy_boto3_logs.type_defs import (
     FilterLogEventsResponseTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "DescribeDestinationsPaginator",
@@ -68,139 +64,151 @@ __all__ = (
     "FilterLogEventsPaginator",
 )
 
-
 class DescribeDestinationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describedestinationspaginator)
     """
 
     def paginate(
-        self, DestinationNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, DestinationNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDestinationsResponseTypeDef]:
         """
-        [DescribeDestinations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describedestinationspaginator)
         """
-
 
 class DescribeExportTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describeexporttaskspaginator)
     """
 
     def paginate(
         self,
+        *,
         taskId: str = None,
-        statusCode: Literal[
-            "CANCELLED", "COMPLETED", "FAILED", "PENDING", "PENDING_CANCEL", "RUNNING"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        statusCode: ExportTaskStatusCodeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeExportTasksResponseTypeDef]:
         """
-        [DescribeExportTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describeexporttaskspaginator)
         """
-
 
 class DescribeLogGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLogGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describeloggroupspaginator)
     """
 
     def paginate(
-        self, logGroupNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, logGroupNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLogGroupsResponseTypeDef]:
         """
-        [DescribeLogGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describeloggroupspaginator)
         """
-
 
 class DescribeLogStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLogStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describelogstreamspaginator)
     """
 
     def paginate(
         self,
+        *,
         logGroupName: str,
         logStreamNamePrefix: str = None,
-        orderBy: Literal["LogStreamName", "LastEventTime"] = None,
+        orderBy: OrderByType = None,
         descending: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLogStreamsResponseTypeDef]:
         """
-        [DescribeLogStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describelogstreamspaginator)
         """
-
 
 class DescribeMetricFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMetricFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describemetricfilterspaginator)
     """
 
     def paginate(
         self,
+        *,
         logGroupName: str = None,
         filterNamePrefix: str = None,
         metricName: str = None,
         metricNamespace: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeMetricFiltersResponseTypeDef]:
         """
-        [DescribeMetricFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describemetricfilterspaginator)
         """
-
 
 class DescribeQueriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeQueries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describequeriespaginator)
     """
 
     def paginate(
         self,
+        *,
         logGroupName: str = None,
-        status: Literal["Scheduled", "Running", "Complete", "Failed", "Cancelled"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        status: QueryStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeQueriesResponseTypeDef]:
         """
-        [DescribeQueries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describequeriespaginator)
         """
-
 
 class DescribeResourcePoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describeresourcepoliciespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeResourcePoliciesResponseTypeDef]:
         """
-        [DescribeResourcePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describeresourcepoliciespaginator)
         """
-
 
 class DescribeSubscriptionFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSubscriptionFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describesubscriptionfilterspaginator)
     """
 
     def paginate(
         self,
+        *,
         logGroupName: str,
         filterNamePrefix: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSubscriptionFiltersResponseTypeDef]:
         """
-        [DescribeSubscriptionFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#describesubscriptionfilterspaginator)
         """
-
 
 class FilterLogEventsPaginator(Boto3Paginator):
     """
-    [Paginator.FilterLogEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#filterlogeventspaginator)
     """
 
     def paginate(
         self,
+        *,
         logGroupName: str,
         logStreamNames: List[str] = None,
         logStreamNamePrefix: str = None,
@@ -208,8 +216,9 @@ class FilterLogEventsPaginator(Boto3Paginator):
         endTime: int = None,
         filterPattern: str = None,
         interleaved: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[FilterLogEventsResponseTypeDef]:
         """
-        [FilterLogEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_logs/paginators.html#filterlogeventspaginator)
         """

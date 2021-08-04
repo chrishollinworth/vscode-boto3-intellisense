@@ -35,8 +35,8 @@ Usage::
     get_transit_gateway_registrations_paginator: GetTransitGatewayRegistrationsPaginator = client.get_paginator("get_transit_gateway_registrations")
     ```
 """
-from mypy_boto3_networkmanager.client import NetworkManagerClient
-from mypy_boto3_networkmanager.paginator import (
+from .client import NetworkManagerClient
+from .paginator import (
     DescribeGlobalNetworksPaginator,
     GetConnectionsPaginator,
     GetCustomerGatewayAssociationsPaginator,
@@ -49,7 +49,6 @@ from mypy_boto3_networkmanager.paginator import (
 )
 
 Client = NetworkManagerClient
-
 
 __all__ = (
     "Client",

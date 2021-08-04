@@ -1,5 +1,7 @@
 """
-Main interface for neptune service client paginators.
+Type annotations for neptune service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html)
 
 Usage::
 
@@ -44,13 +46,13 @@ Usage::
     describe_pending_maintenance_actions_paginator: DescribePendingMaintenanceActionsPaginator = client.get_paginator("describe_pending_maintenance_actions")
     ```
 """
-import sys
 from datetime import datetime
-from typing import Iterator, List
+from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_neptune.type_defs import (
+from .literals import SourceTypeType
+from .type_defs import (
     DBClusterEndpointMessageTypeDef,
     DBClusterMessageTypeDef,
     DBClusterParameterGroupDetailsTypeDef,
@@ -70,12 +72,6 @@ from mypy_boto3_neptune.type_defs import (
     PendingMaintenanceActionsMessageTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = (
     "DescribeDBClusterEndpointsPaginator",
     "DescribeDBClusterParameterGroupsPaginator",
@@ -94,270 +90,293 @@ __all__ = (
     "DescribePendingMaintenanceActionsPaginator",
 )
 
-
 class DescribeDBClusterEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterendpointspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBClusterIdentifier: str = None,
         DBClusterEndpointIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBClusterEndpointMessageTypeDef]:
         """
-        [DescribeDBClusterEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterendpointspaginator)
         """
-
 
 class DescribeDBClusterParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterparametergroupspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBClusterParameterGroupName: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBClusterParameterGroupsMessageTypeDef]:
         """
-        [DescribeDBClusterParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterparametergroupspaginator)
         """
-
 
 class DescribeDBClusterParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterparameterspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBClusterParameterGroupName: str,
         Source: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBClusterParameterGroupDetailsTypeDef]:
         """
-        [DescribeDBClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterparameterspaginator)
         """
-
 
 class DescribeDBClusterSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclustersnapshotspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBClusterIdentifier: str = None,
         DBClusterSnapshotIdentifier: str = None,
         SnapshotType: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         IncludeShared: bool = None,
         IncludePublic: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBClusterSnapshotMessageTypeDef]:
         """
-        [DescribeDBClusterSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclustersnapshotspaginator)
         """
-
 
 class DescribeDBClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBClusterIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBClusterMessageTypeDef]:
         """
-        [DescribeDBClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbclusterspaginator)
         """
-
 
 class DescribeDBEngineVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbengineversionspaginator)
     """
 
     def paginate(
         self,
+        *,
         Engine: str = None,
         EngineVersion: str = None,
         DBParameterGroupFamily: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DefaultOnly: bool = None,
         ListSupportedCharacterSets: bool = None,
         ListSupportedTimezones: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBEngineVersionMessageTypeDef]:
         """
-        [DescribeDBEngineVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbengineversionspaginator)
         """
-
 
 class DescribeDBInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbinstancespaginator)
     """
 
     def paginate(
         self,
+        *,
         DBInstanceIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBInstanceMessageTypeDef]:
         """
-        [DescribeDBInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbinstancespaginator)
         """
-
 
 class DescribeDBParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbparametergroupspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBParameterGroupName: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBParameterGroupsMessageTypeDef]:
         """
-        [DescribeDBParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbparametergroupspaginator)
         """
-
 
 class DescribeDBParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbparameterspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBParameterGroupName: str,
         Source: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBParameterGroupDetailsTypeDef]:
         """
-        [DescribeDBParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbparameterspaginator)
         """
-
 
 class DescribeDBSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbsubnetgroupspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBSubnetGroupName: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DBSubnetGroupMessageTypeDef]:
         """
-        [DescribeDBSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describedbsubnetgroupspaginator)
         """
-
 
 class DescribeEngineDefaultParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeenginedefaultparameterspaginator)
     """
 
     def paginate(
         self,
+        *,
         DBParameterGroupFamily: str,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEngineDefaultParametersResultTypeDef]:
         """
-        [DescribeEngineDefaultParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeenginedefaultparameterspaginator)
         """
-
 
 class DescribeEventSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeeventsubscriptionspaginator)
     """
 
     def paginate(
         self,
+        *,
         SubscriptionName: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[EventSubscriptionsMessageTypeDef]:
         """
-        [DescribeEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeeventsubscriptionspaginator)
         """
-
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeEvents)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeeventspaginator)
     """
 
     def paginate(
         self,
+        *,
         SourceIdentifier: str = None,
-        SourceType: Literal[
-            "db-instance",
-            "db-parameter-group",
-            "db-security-group",
-            "db-snapshot",
-            "db-cluster",
-            "db-cluster-snapshot",
-        ] = None,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
+        SourceType: SourceTypeType = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
         Duration: int = None,
         EventCategories: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[EventsMessageTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeEvents.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeeventspaginator)
         """
-
 
 class DescribeOrderableDBInstanceOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeorderabledbinstanceoptionspaginator)
     """
 
     def paginate(
         self,
+        *,
         Engine: str,
         EngineVersion: str = None,
         DBInstanceClass: str = None,
         LicenseModel: str = None,
         Vpc: bool = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[OrderableDBInstanceOptionsMessageTypeDef]:
         """
-        [DescribeOrderableDBInstanceOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describeorderabledbinstanceoptionspaginator)
         """
-
 
 class DescribePendingMaintenanceActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describependingmaintenanceactionspaginator)
     """
 
     def paginate(
         self,
+        *,
         ResourceIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[PendingMaintenanceActionsMessageTypeDef]:
         """
-        [DescribePendingMaintenanceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/paginators.html#describependingmaintenanceactionspaginator)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for iotanalytics service client
+Type annotations for iotanalytics service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html)
 
 Usage::
 
@@ -14,16 +16,17 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_iotanalytics.paginator import (
+from .paginator import (
     ListChannelsPaginator,
     ListDatasetContentsPaginator,
     ListDatasetsPaginator,
     ListDatastoresPaginator,
     ListPipelinesPaginator,
 )
-from mypy_boto3_iotanalytics.type_defs import (
+from .type_defs import (
     BatchPutMessageResponseTypeDef,
     ChannelMessagesTypeDef,
     ChannelStorageTypeDef,
@@ -35,6 +38,7 @@ from mypy_boto3_iotanalytics.type_defs import (
     DatasetActionTypeDef,
     DatasetContentDeliveryRuleTypeDef,
     DatasetTriggerTypeDef,
+    DatastorePartitionsTypeDef,
     DatastoreStorageTypeDef,
     DescribeChannelResponseTypeDef,
     DescribeDatasetResponseTypeDef,
@@ -66,17 +70,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("IoTAnalyticsClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -88,47 +88,60 @@ class Exceptions:
     ServiceUnavailableException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
 
-
-class IoTAnalyticsClient:
+class IoTAnalyticsClient(BaseClient):
     """
-    [IoTAnalytics.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        IoTAnalyticsClient exceptions.
+        """
     def batch_put_message(
-        self, channelName: str, messages: List[MessageTypeDef]
+        self, *, channelName: str, messages: List["MessageTypeDef"]
     ) -> BatchPutMessageResponseTypeDef:
         """
-        [Client.batch_put_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.batch_put_message)
-        """
+        Sends messages to a channel.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.batch_put_message)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#batch_put_message)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#can_paginate)
+        """
     def cancel_pipeline_reprocessing(
-        self, pipelineName: str, reprocessingId: str
+        self, *, pipelineName: str, reprocessingId: str
     ) -> Dict[str, Any]:
         """
-        [Client.cancel_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.cancel_pipeline_reprocessing)
-        """
+        Cancels the reprocessing of data through the pipeline.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.cancel_pipeline_reprocessing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#cancel_pipeline_reprocessing)
+        """
     def create_channel(
         self,
+        *,
         channelName: str,
         channelStorage: "ChannelStorageTypeDef" = None,
         retentionPeriod: "RetentionPeriodTypeDef" = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateChannelResponseTypeDef:
         """
-        [Client.create_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.create_channel)
-        """
+        Used to create a channel.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.create_channel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#create_channel)
+        """
     def create_dataset(
         self,
+        *,
         datasetName: str,
         actions: List["DatasetActionTypeDef"],
         triggers: List["DatasetTriggerTypeDef"] = None,
@@ -136,95 +149,127 @@ class IoTAnalyticsClient:
         retentionPeriod: "RetentionPeriodTypeDef" = None,
         versioningConfiguration: "VersioningConfigurationTypeDef" = None,
         tags: List["TagTypeDef"] = None,
-        lateDataRules: List["LateDataRuleTypeDef"] = None,
+        lateDataRules: List["LateDataRuleTypeDef"] = None
     ) -> CreateDatasetResponseTypeDef:
         """
-        [Client.create_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset)
-        """
+        Used to create a dataset.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#create_dataset)
+        """
     def create_dataset_content(
-        self, datasetName: str, versionId: str = None
+        self, *, datasetName: str, versionId: str = None
     ) -> CreateDatasetContentResponseTypeDef:
         """
-        [Client.create_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset_content)
-        """
+        Creates the content of a dataset by applying a `queryAction` (a SQL query) or a
+        `containerAction` (executing a containerized application).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset_content)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#create_dataset_content)
+        """
     def create_datastore(
         self,
+        *,
         datastoreName: str,
         datastoreStorage: "DatastoreStorageTypeDef" = None,
         retentionPeriod: "RetentionPeriodTypeDef" = None,
         tags: List["TagTypeDef"] = None,
         fileFormatConfiguration: "FileFormatConfigurationTypeDef" = None,
+        datastorePartitions: "DatastorePartitionsTypeDef" = None
     ) -> CreateDatastoreResponseTypeDef:
         """
-        [Client.create_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.create_datastore)
-        """
+        Creates a data store, which is a repository for messages.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.create_datastore)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#create_datastore)
+        """
     def create_pipeline(
         self,
+        *,
         pipelineName: str,
         pipelineActivities: List["PipelineActivityTypeDef"],
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreatePipelineResponseTypeDef:
         """
-        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.create_pipeline)
-        """
+        Creates a pipeline.
 
-    def delete_channel(self, channelName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.create_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#create_pipeline)
         """
-        [Client.delete_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_channel)
+    def delete_channel(self, *, channelName: str) -> None:
         """
+        Deletes the specified channel.
 
-    def delete_dataset(self, datasetName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_channel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#delete_channel)
         """
-        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset)
+    def delete_dataset(self, *, datasetName: str) -> None:
         """
+        Deletes the specified dataset.
 
-    def delete_dataset_content(self, datasetName: str, versionId: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#delete_dataset)
         """
-        [Client.delete_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset_content)
+    def delete_dataset_content(self, *, datasetName: str, versionId: str = None) -> None:
         """
+        Deletes the content of the specified dataset.
 
-    def delete_datastore(self, datastoreName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset_content)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#delete_dataset_content)
         """
-        [Client.delete_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_datastore)
+    def delete_datastore(self, *, datastoreName: str) -> None:
         """
+        Deletes the specified data store.
 
-    def delete_pipeline(self, pipelineName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_datastore)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#delete_datastore)
         """
-        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_pipeline)
+    def delete_pipeline(self, *, pipelineName: str) -> None:
         """
+        Deletes the specified pipeline.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#delete_pipeline)
+        """
     def describe_channel(
-        self, channelName: str, includeStatistics: bool = None
+        self, *, channelName: str, includeStatistics: bool = None
     ) -> DescribeChannelResponseTypeDef:
         """
-        [Client.describe_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_channel)
-        """
+        Retrieves information about a channel.
 
-    def describe_dataset(self, datasetName: str) -> DescribeDatasetResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_channel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#describe_channel)
         """
-        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_dataset)
+    def describe_dataset(self, *, datasetName: str) -> DescribeDatasetResponseTypeDef:
         """
+        Retrieves information about a dataset.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#describe_dataset)
+        """
     def describe_datastore(
-        self, datastoreName: str, includeStatistics: bool = None
+        self, *, datastoreName: str, includeStatistics: bool = None
     ) -> DescribeDatastoreResponseTypeDef:
         """
-        [Client.describe_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_datastore)
-        """
+        Retrieves information about a data store.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_datastore)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#describe_datastore)
+        """
     def describe_logging_options(self) -> DescribeLoggingOptionsResponseTypeDef:
         """
-        [Client.describe_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_logging_options)
-        """
+        Retrieves the current settings of the IoT Analytics logging options.
 
-    def describe_pipeline(self, pipelineName: str) -> DescribePipelineResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_logging_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#describe_logging_options)
         """
-        [Client.describe_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_pipeline)
+    def describe_pipeline(self, *, pipelineName: str) -> DescribePipelineResponseTypeDef:
         """
+        Retrieves information about a pipeline.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#describe_pipeline)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -233,175 +278,222 @@ class IoTAnalyticsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#generate_presigned_url)
+        """
     def get_dataset_content(
-        self, datasetName: str, versionId: str = None
+        self, *, datasetName: str, versionId: str = None
     ) -> GetDatasetContentResponseTypeDef:
         """
-        [Client.get_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.get_dataset_content)
-        """
+        Retrieves the contents of a dataset as presigned URIs.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.get_dataset_content)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#get_dataset_content)
+        """
     def list_channels(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListChannelsResponseTypeDef:
         """
-        [Client.list_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.list_channels)
-        """
+        Retrieves a list of channels.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.list_channels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#list_channels)
+        """
     def list_dataset_contents(
         self,
+        *,
         datasetName: str,
         nextToken: str = None,
         maxResults: int = None,
-        scheduledOnOrAfter: datetime = None,
-        scheduledBefore: datetime = None,
+        scheduledOnOrAfter: Union[datetime, str] = None,
+        scheduledBefore: Union[datetime, str] = None
     ) -> ListDatasetContentsResponseTypeDef:
         """
-        [Client.list_dataset_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.list_dataset_contents)
-        """
+        Lists information about dataset contents that have been created.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.list_dataset_contents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#list_dataset_contents)
+        """
     def list_datasets(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListDatasetsResponseTypeDef:
         """
-        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datasets)
-        """
+        Retrieves information about datasets.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datasets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#list_datasets)
+        """
     def list_datastores(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListDatastoresResponseTypeDef:
         """
-        [Client.list_datastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datastores)
-        """
+        Retrieves a list of data stores.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datastores)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#list_datastores)
+        """
     def list_pipelines(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListPipelinesResponseTypeDef:
         """
-        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.list_pipelines)
-        """
+        Retrieves a list of pipelines.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.list_pipelines)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#list_pipelines)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags (metadata) that you have assigned to the resource.
 
-    def put_logging_options(self, loggingOptions: "LoggingOptionsTypeDef") -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#list_tags_for_resource)
         """
-        [Client.put_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.put_logging_options)
+    def put_logging_options(self, *, loggingOptions: "LoggingOptionsTypeDef") -> None:
         """
+        Sets or updates the IoT Analytics logging options.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.put_logging_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#put_logging_options)
+        """
     def run_pipeline_activity(
-        self, pipelineActivity: "PipelineActivityTypeDef", payloads: List[Union[bytes, IO[bytes]]]
+        self,
+        *,
+        pipelineActivity: "PipelineActivityTypeDef",
+        payloads: List[Union[bytes, IO[bytes], StreamingBody]]
     ) -> RunPipelineActivityResponseTypeDef:
         """
-        [Client.run_pipeline_activity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.run_pipeline_activity)
-        """
+        Simulates the results of running a pipeline activity on a message payload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.run_pipeline_activity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#run_pipeline_activity)
+        """
     def sample_channel_data(
         self,
+        *,
         channelName: str,
         maxMessages: int = None,
-        startTime: datetime = None,
-        endTime: datetime = None,
+        startTime: Union[datetime, str] = None,
+        endTime: Union[datetime, str] = None
     ) -> SampleChannelDataResponseTypeDef:
         """
-        [Client.sample_channel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.sample_channel_data)
-        """
+        Retrieves a sample of messages from the specified channel ingested during the
+        specified timeframe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.sample_channel_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#sample_channel_data)
+        """
     def start_pipeline_reprocessing(
         self,
+        *,
         pipelineName: str,
-        startTime: datetime = None,
-        endTime: datetime = None,
-        channelMessages: ChannelMessagesTypeDef = None,
+        startTime: Union[datetime, str] = None,
+        endTime: Union[datetime, str] = None,
+        channelMessages: "ChannelMessagesTypeDef" = None
     ) -> StartPipelineReprocessingResponseTypeDef:
         """
-        [Client.start_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.start_pipeline_reprocessing)
-        """
+        Starts the reprocessing of raw message data through the pipeline.
 
-    def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.start_pipeline_reprocessing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#start_pipeline_reprocessing)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds to or modifies the tags of the given resource.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes the given tags (metadata) from the resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#untag_resource)
+        """
     def update_channel(
         self,
+        *,
         channelName: str,
         channelStorage: "ChannelStorageTypeDef" = None,
-        retentionPeriod: "RetentionPeriodTypeDef" = None,
+        retentionPeriod: "RetentionPeriodTypeDef" = None
     ) -> None:
         """
-        [Client.update_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.update_channel)
-        """
+        Used to update the settings of a channel.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.update_channel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#update_channel)
+        """
     def update_dataset(
         self,
+        *,
         datasetName: str,
         actions: List["DatasetActionTypeDef"],
         triggers: List["DatasetTriggerTypeDef"] = None,
         contentDeliveryRules: List["DatasetContentDeliveryRuleTypeDef"] = None,
         retentionPeriod: "RetentionPeriodTypeDef" = None,
         versioningConfiguration: "VersioningConfigurationTypeDef" = None,
-        lateDataRules: List["LateDataRuleTypeDef"] = None,
+        lateDataRules: List["LateDataRuleTypeDef"] = None
     ) -> None:
         """
-        [Client.update_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.update_dataset)
-        """
+        Updates the settings of a dataset.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.update_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#update_dataset)
+        """
     def update_datastore(
         self,
+        *,
         datastoreName: str,
         retentionPeriod: "RetentionPeriodTypeDef" = None,
         datastoreStorage: "DatastoreStorageTypeDef" = None,
-        fileFormatConfiguration: "FileFormatConfigurationTypeDef" = None,
+        fileFormatConfiguration: "FileFormatConfigurationTypeDef" = None
     ) -> None:
         """
-        [Client.update_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.update_datastore)
-        """
+        Used to update the settings of a data store.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.update_datastore)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#update_datastore)
+        """
     def update_pipeline(
-        self, pipelineName: str, pipelineActivities: List["PipelineActivityTypeDef"]
+        self, *, pipelineName: str, pipelineActivities: List["PipelineActivityTypeDef"]
     ) -> None:
         """
-        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Client.update_pipeline)
-        """
+        Updates the settings of a pipeline.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Client.update_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/client.html#update_pipeline)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
         """
-        [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listchannelspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_dataset_contents"]
     ) -> ListDatasetContentsPaginator:
         """
-        [Paginator.ListDatasetContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatasetcontentspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_datasets"]) -> ListDatasetsPaginator:
         """
-        [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatasetspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_datastores"]) -> ListDatastoresPaginator:
         """
-        [Paginator.ListDatastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listdatastorespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/paginators.html#listpipelinespaginator)
         """

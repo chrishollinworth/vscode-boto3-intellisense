@@ -25,8 +25,8 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
-from mypy_boto3_network_firewall.client import NetworkFirewallClient
-from mypy_boto3_network_firewall.paginator import (
+from .client import NetworkFirewallClient
+from .paginator import (
     ListFirewallPoliciesPaginator,
     ListFirewallsPaginator,
     ListRuleGroupsPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_network_firewall.paginator import (
 )
 
 Client = NetworkFirewallClient
-
 
 __all__ = (
     "Client",

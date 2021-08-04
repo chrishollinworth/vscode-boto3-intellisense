@@ -1,5 +1,7 @@
 """
-Main interface for batch service client
+Type annotations for batch service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html)
 
 Usage::
 
@@ -13,15 +15,23 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_batch.paginator import (
+from .literals import (
+    CEStateType,
+    CETypeType,
+    JobDefinitionTypeType,
+    JobStatusType,
+    JQStateType,
+    PlatformCapabilityType,
+)
+from .paginator import (
     DescribeComputeEnvironmentsPaginator,
     DescribeJobDefinitionsPaginator,
     DescribeJobQueuesPaginator,
     ListJobsPaginator,
 )
-from mypy_boto3_batch.type_defs import (
+from .type_defs import (
     ArrayPropertiesTypeDef,
     ComputeEnvironmentOrderTypeDef,
     ComputeResourceTypeDef,
@@ -36,6 +46,7 @@ from mypy_boto3_batch.type_defs import (
     DescribeJobsResponseTypeDef,
     JobDependencyTypeDef,
     JobTimeoutTypeDef,
+    KeyValuesPairTypeDef,
     ListJobsResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     NodeOverridesTypeDef,
@@ -52,113 +63,141 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("BatchClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
     ClientException: Type[BotocoreClientError]
     ServerException: Type[BotocoreClientError]
 
-
-class BatchClient:
+class BatchClient(BaseClient):
     """
-    [Batch.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        BatchClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def cancel_job(self, jobId: str, reason: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#can_paginate)
         """
-        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.cancel_job)
+    def cancel_job(self, *, jobId: str, reason: str) -> Dict[str, Any]:
         """
+        Cancels a job in an Batch job queue.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.cancel_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#cancel_job)
+        """
     def create_compute_environment(
         self,
+        *,
         computeEnvironmentName: str,
-        type: Literal["MANAGED", "UNMANAGED"],
-        serviceRole: str,
-        state: Literal["ENABLED", "DISABLED"] = None,
+        type: CETypeType,
+        state: CEStateType = None,
         computeResources: "ComputeResourceTypeDef" = None,
-        tags: Dict[str, str] = None,
+        serviceRole: str = None,
+        tags: Dict[str, str] = None
     ) -> CreateComputeEnvironmentResponseTypeDef:
         """
-        [Client.create_compute_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.create_compute_environment)
-        """
+        Creates an Batch compute environment.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.create_compute_environment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#create_compute_environment)
+        """
     def create_job_queue(
         self,
+        *,
         jobQueueName: str,
         priority: int,
         computeEnvironmentOrder: List["ComputeEnvironmentOrderTypeDef"],
-        state: Literal["ENABLED", "DISABLED"] = None,
-        tags: Dict[str, str] = None,
+        state: JQStateType = None,
+        tags: Dict[str, str] = None
     ) -> CreateJobQueueResponseTypeDef:
         """
-        [Client.create_job_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.create_job_queue)
-        """
+        Creates an Batch job queue.
 
-    def delete_compute_environment(self, computeEnvironment: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.create_job_queue)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#create_job_queue)
         """
-        [Client.delete_compute_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.delete_compute_environment)
+    def delete_compute_environment(self, *, computeEnvironment: str) -> Dict[str, Any]:
         """
+        Deletes an Batch compute environment.
 
-    def delete_job_queue(self, jobQueue: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.delete_compute_environment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#delete_compute_environment)
         """
-        [Client.delete_job_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.delete_job_queue)
+    def delete_job_queue(self, *, jobQueue: str) -> Dict[str, Any]:
         """
+        Deletes the specified job queue.
 
-    def deregister_job_definition(self, jobDefinition: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.delete_job_queue)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#delete_job_queue)
         """
-        [Client.deregister_job_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.deregister_job_definition)
+    def deregister_job_definition(self, *, jobDefinition: str) -> Dict[str, Any]:
         """
+        Deregisters an Batch job definition.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.deregister_job_definition)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#deregister_job_definition)
+        """
     def describe_compute_environments(
-        self, computeEnvironments: List[str] = None, maxResults: int = None, nextToken: str = None
+        self,
+        *,
+        computeEnvironments: List[str] = None,
+        maxResults: int = None,
+        nextToken: str = None
     ) -> DescribeComputeEnvironmentsResponseTypeDef:
         """
-        [Client.describe_compute_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.describe_compute_environments)
-        """
+        Describes one or more of your compute environments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.describe_compute_environments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_compute_environments)
+        """
     def describe_job_definitions(
         self,
+        *,
         jobDefinitions: List[str] = None,
         maxResults: int = None,
         jobDefinitionName: str = None,
         status: str = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> DescribeJobDefinitionsResponseTypeDef:
         """
-        [Client.describe_job_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.describe_job_definitions)
-        """
+        Describes a list of job definitions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.describe_job_definitions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_job_definitions)
+        """
     def describe_job_queues(
-        self, jobQueues: List[str] = None, maxResults: int = None, nextToken: str = None
+        self, *, jobQueues: List[str] = None, maxResults: int = None, nextToken: str = None
     ) -> DescribeJobQueuesResponseTypeDef:
         """
-        [Client.describe_job_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.describe_job_queues)
-        """
+        Describes one or more of your job queues.
 
-    def describe_jobs(self, jobs: List[str]) -> DescribeJobsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.describe_job_queues)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_job_queues)
         """
-        [Client.describe_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.describe_jobs)
+    def describe_jobs(self, *, jobs: List[str]) -> DescribeJobsResponseTypeDef:
         """
+        .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.describe_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#describe_jobs)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -167,33 +206,40 @@ class BatchClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#generate_presigned_url)
+        """
     def list_jobs(
         self,
+        *,
         jobQueue: str = None,
         arrayJobId: str = None,
         multiNodeJobId: str = None,
-        jobStatus: Literal[
-            "SUBMITTED", "PENDING", "RUNNABLE", "STARTING", "RUNNING", "SUCCEEDED", "FAILED"
-        ] = None,
+        jobStatus: JobStatusType = None,
         maxResults: int = None,
         nextToken: str = None,
+        filters: List["KeyValuesPairTypeDef"] = None
     ) -> ListJobsResponseTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.list_jobs)
-        """
+        Returns a list of Batch jobs.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.list_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#list_jobs)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags for an Batch resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#list_tags_for_resource)
+        """
     def register_job_definition(
         self,
+        *,
         jobDefinitionName: str,
-        type: Literal["container", "multinode"],
+        type: JobDefinitionTypeType,
         parameters: Dict[str, str] = None,
         containerProperties: "ContainerPropertiesTypeDef" = None,
         nodeProperties: "NodePropertiesTypeDef" = None,
@@ -201,94 +247,112 @@ class BatchClient:
         propagateTags: bool = None,
         timeout: "JobTimeoutTypeDef" = None,
         tags: Dict[str, str] = None,
-        platformCapabilities: List[Literal["EC2", "FARGATE"]] = None,
+        platformCapabilities: List[PlatformCapabilityType] = None
     ) -> RegisterJobDefinitionResponseTypeDef:
         """
-        [Client.register_job_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.register_job_definition)
-        """
+        Registers an Batch job definition.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.register_job_definition)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#register_job_definition)
+        """
     def submit_job(
         self,
+        *,
         jobName: str,
         jobQueue: str,
         jobDefinition: str,
-        arrayProperties: ArrayPropertiesTypeDef = None,
+        arrayProperties: "ArrayPropertiesTypeDef" = None,
         dependsOn: List["JobDependencyTypeDef"] = None,
         parameters: Dict[str, str] = None,
         containerOverrides: "ContainerOverridesTypeDef" = None,
-        nodeOverrides: NodeOverridesTypeDef = None,
+        nodeOverrides: "NodeOverridesTypeDef" = None,
         retryStrategy: "RetryStrategyTypeDef" = None,
         propagateTags: bool = None,
         timeout: "JobTimeoutTypeDef" = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> SubmitJobResponseTypeDef:
         """
-        [Client.submit_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.submit_job)
-        """
+        Submits an Batch job from a job definition.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.submit_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#submit_job)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Associates the specified tags to a resource with the specified `resourceArn`.
 
-    def terminate_job(self, jobId: str, reason: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#tag_resource)
         """
-        [Client.terminate_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.terminate_job)
+    def terminate_job(self, *, jobId: str, reason: str) -> Dict[str, Any]:
         """
+        Terminates a job in a job queue.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.terminate_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#terminate_job)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Deletes specified tags from an Batch resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#untag_resource)
+        """
     def update_compute_environment(
         self,
+        *,
         computeEnvironment: str,
-        state: Literal["ENABLED", "DISABLED"] = None,
-        computeResources: ComputeResourceUpdateTypeDef = None,
-        serviceRole: str = None,
+        state: CEStateType = None,
+        computeResources: "ComputeResourceUpdateTypeDef" = None,
+        serviceRole: str = None
     ) -> UpdateComputeEnvironmentResponseTypeDef:
         """
-        [Client.update_compute_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.update_compute_environment)
-        """
+        Updates an Batch compute environment.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.update_compute_environment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#update_compute_environment)
+        """
     def update_job_queue(
         self,
+        *,
         jobQueue: str,
-        state: Literal["ENABLED", "DISABLED"] = None,
+        state: JQStateType = None,
         priority: int = None,
-        computeEnvironmentOrder: List["ComputeEnvironmentOrderTypeDef"] = None,
+        computeEnvironmentOrder: List["ComputeEnvironmentOrderTypeDef"] = None
     ) -> UpdateJobQueueResponseTypeDef:
         """
-        [Client.update_job_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Client.update_job_queue)
-        """
+        Updates a job queue.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Client.update_job_queue)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/client.html#update_job_queue)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_compute_environments"]
     ) -> DescribeComputeEnvironmentsPaginator:
         """
-        [Paginator.DescribeComputeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describecomputeenvironmentspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_job_definitions"]
     ) -> DescribeJobDefinitionsPaginator:
         """
-        [Paginator.DescribeJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobdefinitionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_job_queues"]
     ) -> DescribeJobQueuesPaginator:
         """
-        [Paginator.DescribeJobQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobqueuespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.ListJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.ListJobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#listjobspaginator)
         """

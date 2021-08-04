@@ -33,8 +33,8 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
-from mypy_boto3_workmail.client import WorkMailClient
-from mypy_boto3_workmail.paginator import (
+from .client import WorkMailClient
+from .paginator import (
     ListAliasesPaginator,
     ListGroupMembersPaginator,
     ListGroupsPaginator,
@@ -46,7 +46,6 @@ from mypy_boto3_workmail.paginator import (
 )
 
 Client = WorkMailClient
-
 
 __all__ = (
     "Client",

@@ -22,11 +22,10 @@ Usage::
     list_certificates_paginator: ListCertificatesPaginator = client.get_paginator("list_certificates")
     ```
 """
-from mypy_boto3_acm.client import ACMClient
-from mypy_boto3_acm.paginator import ListCertificatesPaginator
-from mypy_boto3_acm.waiter import CertificateValidatedWaiter
+from .client import ACMClient
+from .paginator import ListCertificatesPaginator
+from .waiter import CertificateValidatedWaiter
 
 Client = ACMClient
-
 
 __all__ = ("ACMClient", "CertificateValidatedWaiter", "Client", "ListCertificatesPaginator")

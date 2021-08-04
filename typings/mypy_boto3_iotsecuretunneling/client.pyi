@@ -1,5 +1,7 @@
 """
-Main interface for iotsecuretunneling service client
+Type annotations for iotsecuretunneling service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html)
 
 Usage::
 
@@ -12,9 +14,9 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_iotsecuretunneling.type_defs import (
+from .type_defs import (
     DescribeTunnelResponseTypeDef,
     DestinationConfigTypeDef,
     ListTagsForResourceResponseTypeDef,
@@ -26,44 +28,50 @@ from mypy_boto3_iotsecuretunneling.type_defs import (
 
 __all__ = ("IoTSecureTunnelingClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
     LimitExceededException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
 
-
-class IoTSecureTunnelingClient:
+class IoTSecureTunnelingClient(BaseClient):
     """
-    [IoTSecureTunneling.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        IoTSecureTunnelingClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def close_tunnel(self, tunnelId: str, delete: bool = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#can_paginate)
         """
-        [Client.close_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.close_tunnel)
+    def close_tunnel(self, *, tunnelId: str, delete: bool = None) -> Dict[str, Any]:
         """
+        Closes a tunnel identified by the unique tunnel id.
 
-    def describe_tunnel(self, tunnelId: str) -> DescribeTunnelResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.close_tunnel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#close_tunnel)
         """
-        [Client.describe_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.describe_tunnel)
+    def describe_tunnel(self, *, tunnelId: str) -> DescribeTunnelResponseTypeDef:
         """
+        Gets information about a tunnel identified by the unique tunnel id.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.describe_tunnel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#describe_tunnel)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -72,38 +80,53 @@ class IoTSecureTunnelingClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#generate_presigned_url)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags for the specified resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#list_tags_for_resource)
+        """
     def list_tunnels(
-        self, thingName: str = None, maxResults: int = None, nextToken: str = None
+        self, *, thingName: str = None, maxResults: int = None, nextToken: str = None
     ) -> ListTunnelsResponseTypeDef:
         """
-        [Client.list_tunnels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tunnels)
-        """
+        List all tunnels for an AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tunnels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#list_tunnels)
+        """
     def open_tunnel(
         self,
+        *,
         description: str = None,
         tags: List["TagTypeDef"] = None,
         destinationConfig: "DestinationConfigTypeDef" = None,
-        timeoutConfig: "TimeoutConfigTypeDef" = None,
+        timeoutConfig: "TimeoutConfigTypeDef" = None
     ) -> OpenTunnelResponseTypeDef:
         """
-        [Client.open_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.open_tunnel)
-        """
+        Creates a new tunnel, and returns two client access tokens for clients to use to
+        connect to the AWS IoT Secure Tunneling proxy server.
 
-    def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.open_tunnel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#open_tunnel)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        A resource tag.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        """
+        Removes a tag from a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/client.html#untag_resource)
         """

@@ -1,35 +1,53 @@
 """
-Main interface for kinesisanalytics service type definitions.
+Type annotations for kinesisanalytics service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_kinesisanalytics.type_defs import ApplicationDetailTypeDef
+    from mypy_boto3_kinesisanalytics.type_defs import AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef
 
-    data: ApplicationDetailTypeDef = {...}
+    data: AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import ApplicationStatusType, InputStartingPositionType, RecordFormatTypeType
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    "AddApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    "AddApplicationInputRequestRequestTypeDef",
+    "AddApplicationOutputRequestRequestTypeDef",
+    "AddApplicationReferenceDataSourceRequestRequestTypeDef",
     "ApplicationDetailTypeDef",
     "ApplicationSummaryTypeDef",
+    "ApplicationUpdateTypeDef",
     "CSVMappingParametersTypeDef",
     "CloudWatchLoggingOptionDescriptionTypeDef",
+    "CloudWatchLoggingOptionTypeDef",
     "CloudWatchLoggingOptionUpdateTypeDef",
+    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationResponseTypeDef",
+    "DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    "DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    "DeleteApplicationOutputRequestRequestTypeDef",
+    "DeleteApplicationReferenceDataSourceRequestRequestTypeDef",
+    "DeleteApplicationRequestRequestTypeDef",
+    "DescribeApplicationRequestRequestTypeDef",
+    "DescribeApplicationResponseTypeDef",
     "DestinationSchemaTypeDef",
+    "DiscoverInputSchemaRequestRequestTypeDef",
+    "DiscoverInputSchemaResponseTypeDef",
+    "InputConfigurationTypeDef",
     "InputDescriptionTypeDef",
     "InputLambdaProcessorDescriptionTypeDef",
     "InputLambdaProcessorTypeDef",
@@ -41,6 +59,7 @@ __all__ = (
     "InputProcessingConfigurationUpdateTypeDef",
     "InputSchemaUpdateTypeDef",
     "InputStartingPositionConfigurationTypeDef",
+    "InputTypeDef",
     "InputUpdateTypeDef",
     "JSONMappingParametersTypeDef",
     "KinesisFirehoseInputDescriptionTypeDef",
@@ -58,31 +77,77 @@ __all__ = (
     "LambdaOutputDescriptionTypeDef",
     "LambdaOutputTypeDef",
     "LambdaOutputUpdateTypeDef",
+    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MappingParametersTypeDef",
     "OutputDescriptionTypeDef",
+    "OutputTypeDef",
     "OutputUpdateTypeDef",
     "RecordColumnTypeDef",
     "RecordFormatTypeDef",
     "ReferenceDataSourceDescriptionTypeDef",
+    "ReferenceDataSourceTypeDef",
     "ReferenceDataSourceUpdateTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
+    "S3ConfigurationTypeDef",
     "S3ReferenceDataSourceDescriptionTypeDef",
     "S3ReferenceDataSourceTypeDef",
     "S3ReferenceDataSourceUpdateTypeDef",
     "SourceSchemaTypeDef",
+    "StartApplicationRequestRequestTypeDef",
+    "StopApplicationRequestRequestTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
-    "ApplicationUpdateTypeDef",
-    "CloudWatchLoggingOptionTypeDef",
-    "CreateApplicationResponseTypeDef",
-    "DescribeApplicationResponseTypeDef",
-    "DiscoverInputSchemaResponseTypeDef",
-    "InputConfigurationTypeDef",
-    "InputTypeDef",
-    "ListApplicationsResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "OutputTypeDef",
-    "ReferenceDataSourceTypeDef",
-    "S3ConfigurationTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateApplicationRequestRequestTypeDef",
+)
+
+AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef = TypedDict(
+    "AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "CloudWatchLoggingOption": "CloudWatchLoggingOptionTypeDef",
+    },
+)
+
+AddApplicationInputProcessingConfigurationRequestRequestTypeDef = TypedDict(
+    "AddApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "InputId": str,
+        "InputProcessingConfiguration": "InputProcessingConfigurationTypeDef",
+    },
+)
+
+AddApplicationInputRequestRequestTypeDef = TypedDict(
+    "AddApplicationInputRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "Input": "InputTypeDef",
+    },
+)
+
+AddApplicationOutputRequestRequestTypeDef = TypedDict(
+    "AddApplicationOutputRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "Output": "OutputTypeDef",
+    },
+)
+
+AddApplicationReferenceDataSourceRequestRequestTypeDef = TypedDict(
+    "AddApplicationReferenceDataSourceRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "ReferenceDataSource": "ReferenceDataSourceTypeDef",
+    },
 )
 
 _RequiredApplicationDetailTypeDef = TypedDict(
@@ -90,9 +155,7 @@ _RequiredApplicationDetailTypeDef = TypedDict(
     {
         "ApplicationName": str,
         "ApplicationARN": str,
-        "ApplicationStatus": Literal[
-            "DELETING", "STARTING", "STOPPING", "READY", "RUNNING", "UPDATING"
-        ],
+        "ApplicationStatus": ApplicationStatusType,
         "ApplicationVersionId": int,
     },
 )
@@ -111,37 +174,54 @@ _OptionalApplicationDetailTypeDef = TypedDict(
     total=False,
 )
 
-
 class ApplicationDetailTypeDef(
     _RequiredApplicationDetailTypeDef, _OptionalApplicationDetailTypeDef
 ):
     pass
-
 
 ApplicationSummaryTypeDef = TypedDict(
     "ApplicationSummaryTypeDef",
     {
         "ApplicationName": str,
         "ApplicationARN": str,
-        "ApplicationStatus": Literal[
-            "DELETING", "STARTING", "STOPPING", "READY", "RUNNING", "UPDATING"
-        ],
+        "ApplicationStatus": ApplicationStatusType,
     },
 )
 
-CSVMappingParametersTypeDef = TypedDict(
-    "CSVMappingParametersTypeDef", {"RecordRowDelimiter": str, "RecordColumnDelimiter": str}
-)
-
-_RequiredCloudWatchLoggingOptionDescriptionTypeDef = TypedDict(
-    "_RequiredCloudWatchLoggingOptionDescriptionTypeDef", {"LogStreamARN": str, "RoleARN": str}
-)
-_OptionalCloudWatchLoggingOptionDescriptionTypeDef = TypedDict(
-    "_OptionalCloudWatchLoggingOptionDescriptionTypeDef",
-    {"CloudWatchLoggingOptionId": str},
+ApplicationUpdateTypeDef = TypedDict(
+    "ApplicationUpdateTypeDef",
+    {
+        "InputUpdates": List["InputUpdateTypeDef"],
+        "ApplicationCodeUpdate": str,
+        "OutputUpdates": List["OutputUpdateTypeDef"],
+        "ReferenceDataSourceUpdates": List["ReferenceDataSourceUpdateTypeDef"],
+        "CloudWatchLoggingOptionUpdates": List["CloudWatchLoggingOptionUpdateTypeDef"],
+    },
     total=False,
 )
 
+CSVMappingParametersTypeDef = TypedDict(
+    "CSVMappingParametersTypeDef",
+    {
+        "RecordRowDelimiter": str,
+        "RecordColumnDelimiter": str,
+    },
+)
+
+_RequiredCloudWatchLoggingOptionDescriptionTypeDef = TypedDict(
+    "_RequiredCloudWatchLoggingOptionDescriptionTypeDef",
+    {
+        "LogStreamARN": str,
+        "RoleARN": str,
+    },
+)
+_OptionalCloudWatchLoggingOptionDescriptionTypeDef = TypedDict(
+    "_OptionalCloudWatchLoggingOptionDescriptionTypeDef",
+    {
+        "CloudWatchLoggingOptionId": str,
+    },
+    total=False,
+)
 
 class CloudWatchLoggingOptionDescriptionTypeDef(
     _RequiredCloudWatchLoggingOptionDescriptionTypeDef,
@@ -149,25 +229,161 @@ class CloudWatchLoggingOptionDescriptionTypeDef(
 ):
     pass
 
+CloudWatchLoggingOptionTypeDef = TypedDict(
+    "CloudWatchLoggingOptionTypeDef",
+    {
+        "LogStreamARN": str,
+        "RoleARN": str,
+    },
+)
 
 _RequiredCloudWatchLoggingOptionUpdateTypeDef = TypedDict(
-    "_RequiredCloudWatchLoggingOptionUpdateTypeDef", {"CloudWatchLoggingOptionId": str}
+    "_RequiredCloudWatchLoggingOptionUpdateTypeDef",
+    {
+        "CloudWatchLoggingOptionId": str,
+    },
 )
 _OptionalCloudWatchLoggingOptionUpdateTypeDef = TypedDict(
     "_OptionalCloudWatchLoggingOptionUpdateTypeDef",
-    {"LogStreamARNUpdate": str, "RoleARNUpdate": str},
+    {
+        "LogStreamARNUpdate": str,
+        "RoleARNUpdate": str,
+    },
     total=False,
 )
-
 
 class CloudWatchLoggingOptionUpdateTypeDef(
     _RequiredCloudWatchLoggingOptionUpdateTypeDef, _OptionalCloudWatchLoggingOptionUpdateTypeDef
 ):
     pass
 
+_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationRequestRequestTypeDef",
+    {
+        "ApplicationDescription": str,
+        "Inputs": List["InputTypeDef"],
+        "Outputs": List["OutputTypeDef"],
+        "CloudWatchLoggingOptions": List["CloudWatchLoggingOptionTypeDef"],
+        "ApplicationCode": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateApplicationRequestRequestTypeDef(
+    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
+):
+    pass
+
+CreateApplicationResponseTypeDef = TypedDict(
+    "CreateApplicationResponseTypeDef",
+    {
+        "ApplicationSummary": "ApplicationSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "CloudWatchLoggingOptionId": str,
+    },
+)
+
+DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "InputId": str,
+    },
+)
+
+DeleteApplicationOutputRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationOutputRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "OutputId": str,
+    },
+)
+
+DeleteApplicationReferenceDataSourceRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationReferenceDataSourceRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "ReferenceId": str,
+    },
+)
+
+DeleteApplicationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CreateTimestamp": Union[datetime, str],
+    },
+)
+
+DescribeApplicationRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+
+DescribeApplicationResponseTypeDef = TypedDict(
+    "DescribeApplicationResponseTypeDef",
+    {
+        "ApplicationDetail": "ApplicationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DestinationSchemaTypeDef = TypedDict(
-    "DestinationSchemaTypeDef", {"RecordFormatType": Literal["JSON", "CSV"]}
+    "DestinationSchemaTypeDef",
+    {
+        "RecordFormatType": RecordFormatTypeType,
+    },
+)
+
+DiscoverInputSchemaRequestRequestTypeDef = TypedDict(
+    "DiscoverInputSchemaRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+        "InputStartingPositionConfiguration": "InputStartingPositionConfigurationTypeDef",
+        "S3Configuration": "S3ConfigurationTypeDef",
+        "InputProcessingConfiguration": "InputProcessingConfigurationTypeDef",
+    },
+    total=False,
+)
+
+DiscoverInputSchemaResponseTypeDef = TypedDict(
+    "DiscoverInputSchemaResponseTypeDef",
+    {
+        "InputSchema": "SourceSchemaTypeDef",
+        "ParsedInputRecords": List[List[str]],
+        "ProcessedInputRecords": List[str],
+        "RawInputRecords": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InputConfigurationTypeDef = TypedDict(
+    "InputConfigurationTypeDef",
+    {
+        "Id": str,
+        "InputStartingPositionConfiguration": "InputStartingPositionConfigurationTypeDef",
+    },
 )
 
 InputDescriptionTypeDef = TypedDict(
@@ -187,38 +403,67 @@ InputDescriptionTypeDef = TypedDict(
 )
 
 InputLambdaProcessorDescriptionTypeDef = TypedDict(
-    "InputLambdaProcessorDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
+    "InputLambdaProcessorDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
+    total=False,
 )
 
 InputLambdaProcessorTypeDef = TypedDict(
-    "InputLambdaProcessorTypeDef", {"ResourceARN": str, "RoleARN": str}
+    "InputLambdaProcessorTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
 )
 
 InputLambdaProcessorUpdateTypeDef = TypedDict(
     "InputLambdaProcessorUpdateTypeDef",
-    {"ResourceARNUpdate": str, "RoleARNUpdate": str},
+    {
+        "ResourceARNUpdate": str,
+        "RoleARNUpdate": str,
+    },
     total=False,
 )
 
-InputParallelismTypeDef = TypedDict("InputParallelismTypeDef", {"Count": int}, total=False)
+InputParallelismTypeDef = TypedDict(
+    "InputParallelismTypeDef",
+    {
+        "Count": int,
+    },
+    total=False,
+)
 
 InputParallelismUpdateTypeDef = TypedDict(
-    "InputParallelismUpdateTypeDef", {"CountUpdate": int}, total=False
+    "InputParallelismUpdateTypeDef",
+    {
+        "CountUpdate": int,
+    },
+    total=False,
 )
 
 InputProcessingConfigurationDescriptionTypeDef = TypedDict(
     "InputProcessingConfigurationDescriptionTypeDef",
-    {"InputLambdaProcessorDescription": "InputLambdaProcessorDescriptionTypeDef"},
+    {
+        "InputLambdaProcessorDescription": "InputLambdaProcessorDescriptionTypeDef",
+    },
     total=False,
 )
 
 InputProcessingConfigurationTypeDef = TypedDict(
-    "InputProcessingConfigurationTypeDef", {"InputLambdaProcessor": "InputLambdaProcessorTypeDef"}
+    "InputProcessingConfigurationTypeDef",
+    {
+        "InputLambdaProcessor": "InputLambdaProcessorTypeDef",
+    },
 )
 
 InputProcessingConfigurationUpdateTypeDef = TypedDict(
     "InputProcessingConfigurationUpdateTypeDef",
-    {"InputLambdaProcessorUpdate": "InputLambdaProcessorUpdateTypeDef"},
+    {
+        "InputLambdaProcessorUpdate": "InputLambdaProcessorUpdateTypeDef",
+    },
 )
 
 InputSchemaUpdateTypeDef = TypedDict(
@@ -233,11 +478,39 @@ InputSchemaUpdateTypeDef = TypedDict(
 
 InputStartingPositionConfigurationTypeDef = TypedDict(
     "InputStartingPositionConfigurationTypeDef",
-    {"InputStartingPosition": Literal["NOW", "TRIM_HORIZON", "LAST_STOPPED_POINT"]},
+    {
+        "InputStartingPosition": InputStartingPositionType,
+    },
     total=False,
 )
 
-_RequiredInputUpdateTypeDef = TypedDict("_RequiredInputUpdateTypeDef", {"InputId": str})
+_RequiredInputTypeDef = TypedDict(
+    "_RequiredInputTypeDef",
+    {
+        "NamePrefix": str,
+        "InputSchema": "SourceSchemaTypeDef",
+    },
+)
+_OptionalInputTypeDef = TypedDict(
+    "_OptionalInputTypeDef",
+    {
+        "InputProcessingConfiguration": "InputProcessingConfigurationTypeDef",
+        "KinesisStreamsInput": "KinesisStreamsInputTypeDef",
+        "KinesisFirehoseInput": "KinesisFirehoseInputTypeDef",
+        "InputParallelism": "InputParallelismTypeDef",
+    },
+    total=False,
+)
+
+class InputTypeDef(_RequiredInputTypeDef, _OptionalInputTypeDef):
+    pass
+
+_RequiredInputUpdateTypeDef = TypedDict(
+    "_RequiredInputUpdateTypeDef",
+    {
+        "InputId": str,
+    },
+)
 _OptionalInputUpdateTypeDef = TypedDict(
     "_OptionalInputUpdateTypeDef",
     {
@@ -251,107 +524,177 @@ _OptionalInputUpdateTypeDef = TypedDict(
     total=False,
 )
 
-
 class InputUpdateTypeDef(_RequiredInputUpdateTypeDef, _OptionalInputUpdateTypeDef):
     pass
 
-
-JSONMappingParametersTypeDef = TypedDict("JSONMappingParametersTypeDef", {"RecordRowPath": str})
+JSONMappingParametersTypeDef = TypedDict(
+    "JSONMappingParametersTypeDef",
+    {
+        "RecordRowPath": str,
+    },
+)
 
 KinesisFirehoseInputDescriptionTypeDef = TypedDict(
-    "KinesisFirehoseInputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
+    "KinesisFirehoseInputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
+    total=False,
 )
 
 KinesisFirehoseInputTypeDef = TypedDict(
-    "KinesisFirehoseInputTypeDef", {"ResourceARN": str, "RoleARN": str}
+    "KinesisFirehoseInputTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
 )
 
 KinesisFirehoseInputUpdateTypeDef = TypedDict(
     "KinesisFirehoseInputUpdateTypeDef",
-    {"ResourceARNUpdate": str, "RoleARNUpdate": str},
+    {
+        "ResourceARNUpdate": str,
+        "RoleARNUpdate": str,
+    },
     total=False,
 )
 
 KinesisFirehoseOutputDescriptionTypeDef = TypedDict(
-    "KinesisFirehoseOutputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
+    "KinesisFirehoseOutputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
+    total=False,
 )
 
-_RequiredKinesisFirehoseOutputTypeDef = TypedDict(
-    "_RequiredKinesisFirehoseOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
+KinesisFirehoseOutputTypeDef = TypedDict(
+    "KinesisFirehoseOutputTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
 )
-_OptionalKinesisFirehoseOutputTypeDef = TypedDict(
-    "_OptionalKinesisFirehoseOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
-)
-
-
-class KinesisFirehoseOutputTypeDef(
-    _RequiredKinesisFirehoseOutputTypeDef, _OptionalKinesisFirehoseOutputTypeDef
-):
-    pass
-
 
 KinesisFirehoseOutputUpdateTypeDef = TypedDict(
     "KinesisFirehoseOutputUpdateTypeDef",
-    {"ResourceARNUpdate": str, "RoleARNUpdate": str},
+    {
+        "ResourceARNUpdate": str,
+        "RoleARNUpdate": str,
+    },
     total=False,
 )
 
 KinesisStreamsInputDescriptionTypeDef = TypedDict(
-    "KinesisStreamsInputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
+    "KinesisStreamsInputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
+    total=False,
 )
 
 KinesisStreamsInputTypeDef = TypedDict(
-    "KinesisStreamsInputTypeDef", {"ResourceARN": str, "RoleARN": str}
+    "KinesisStreamsInputTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
 )
 
 KinesisStreamsInputUpdateTypeDef = TypedDict(
     "KinesisStreamsInputUpdateTypeDef",
-    {"ResourceARNUpdate": str, "RoleARNUpdate": str},
+    {
+        "ResourceARNUpdate": str,
+        "RoleARNUpdate": str,
+    },
     total=False,
 )
 
 KinesisStreamsOutputDescriptionTypeDef = TypedDict(
-    "KinesisStreamsOutputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
+    "KinesisStreamsOutputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
+    total=False,
 )
 
-_RequiredKinesisStreamsOutputTypeDef = TypedDict(
-    "_RequiredKinesisStreamsOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
+KinesisStreamsOutputTypeDef = TypedDict(
+    "KinesisStreamsOutputTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
 )
-_OptionalKinesisStreamsOutputTypeDef = TypedDict(
-    "_OptionalKinesisStreamsOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
-)
-
-
-class KinesisStreamsOutputTypeDef(
-    _RequiredKinesisStreamsOutputTypeDef, _OptionalKinesisStreamsOutputTypeDef
-):
-    pass
-
 
 KinesisStreamsOutputUpdateTypeDef = TypedDict(
     "KinesisStreamsOutputUpdateTypeDef",
-    {"ResourceARNUpdate": str, "RoleARNUpdate": str},
+    {
+        "ResourceARNUpdate": str,
+        "RoleARNUpdate": str,
+    },
     total=False,
 )
 
 LambdaOutputDescriptionTypeDef = TypedDict(
-    "LambdaOutputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
+    "LambdaOutputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
+    total=False,
 )
 
-_RequiredLambdaOutputTypeDef = TypedDict(
-    "_RequiredLambdaOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
+LambdaOutputTypeDef = TypedDict(
+    "LambdaOutputTypeDef",
+    {
+        "ResourceARN": str,
+        "RoleARN": str,
+    },
 )
-_OptionalLambdaOutputTypeDef = TypedDict(
-    "_OptionalLambdaOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
-)
-
-
-class LambdaOutputTypeDef(_RequiredLambdaOutputTypeDef, _OptionalLambdaOutputTypeDef):
-    pass
-
 
 LambdaOutputUpdateTypeDef = TypedDict(
-    "LambdaOutputUpdateTypeDef", {"ResourceARNUpdate": str, "RoleARNUpdate": str}, total=False
+    "LambdaOutputUpdateTypeDef",
+    {
+        "ResourceARNUpdate": str,
+        "RoleARNUpdate": str,
+    },
+    total=False,
+)
+
+ListApplicationsRequestRequestTypeDef = TypedDict(
+    "ListApplicationsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "ExclusiveStartApplicationName": str,
+    },
+    total=False,
+)
+
+ListApplicationsResponseTypeDef = TypedDict(
+    "ListApplicationsResponseTypeDef",
+    {
+        "ApplicationSummaries": List["ApplicationSummaryTypeDef"],
+        "HasMoreApplications": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 MappingParametersTypeDef = TypedDict(
@@ -376,7 +719,32 @@ OutputDescriptionTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredOutputUpdateTypeDef = TypedDict("_RequiredOutputUpdateTypeDef", {"OutputId": str})
+_RequiredOutputTypeDef = TypedDict(
+    "_RequiredOutputTypeDef",
+    {
+        "Name": str,
+        "DestinationSchema": "DestinationSchemaTypeDef",
+    },
+)
+_OptionalOutputTypeDef = TypedDict(
+    "_OptionalOutputTypeDef",
+    {
+        "KinesisStreamsOutput": "KinesisStreamsOutputTypeDef",
+        "KinesisFirehoseOutput": "KinesisFirehoseOutputTypeDef",
+        "LambdaOutput": "LambdaOutputTypeDef",
+    },
+    total=False,
+)
+
+class OutputTypeDef(_RequiredOutputTypeDef, _OptionalOutputTypeDef):
+    pass
+
+_RequiredOutputUpdateTypeDef = TypedDict(
+    "_RequiredOutputUpdateTypeDef",
+    {
+        "OutputId": str,
+    },
+)
 _OptionalOutputUpdateTypeDef = TypedDict(
     "_OptionalOutputUpdateTypeDef",
     {
@@ -389,34 +757,43 @@ _OptionalOutputUpdateTypeDef = TypedDict(
     total=False,
 )
 
-
 class OutputUpdateTypeDef(_RequiredOutputUpdateTypeDef, _OptionalOutputUpdateTypeDef):
     pass
 
-
 _RequiredRecordColumnTypeDef = TypedDict(
-    "_RequiredRecordColumnTypeDef", {"Name": str, "SqlType": str}
+    "_RequiredRecordColumnTypeDef",
+    {
+        "Name": str,
+        "SqlType": str,
+    },
 )
 _OptionalRecordColumnTypeDef = TypedDict(
-    "_OptionalRecordColumnTypeDef", {"Mapping": str}, total=False
+    "_OptionalRecordColumnTypeDef",
+    {
+        "Mapping": str,
+    },
+    total=False,
 )
-
 
 class RecordColumnTypeDef(_RequiredRecordColumnTypeDef, _OptionalRecordColumnTypeDef):
     pass
 
-
 _RequiredRecordFormatTypeDef = TypedDict(
-    "_RequiredRecordFormatTypeDef", {"RecordFormatType": Literal["JSON", "CSV"]}
+    "_RequiredRecordFormatTypeDef",
+    {
+        "RecordFormatType": RecordFormatTypeType,
+    },
 )
 _OptionalRecordFormatTypeDef = TypedDict(
-    "_OptionalRecordFormatTypeDef", {"MappingParameters": "MappingParametersTypeDef"}, total=False
+    "_OptionalRecordFormatTypeDef",
+    {
+        "MappingParameters": "MappingParametersTypeDef",
+    },
+    total=False,
 )
-
 
 class RecordFormatTypeDef(_RequiredRecordFormatTypeDef, _OptionalRecordFormatTypeDef):
     pass
-
 
 _RequiredReferenceDataSourceDescriptionTypeDef = TypedDict(
     "_RequiredReferenceDataSourceDescriptionTypeDef",
@@ -428,19 +805,42 @@ _RequiredReferenceDataSourceDescriptionTypeDef = TypedDict(
 )
 _OptionalReferenceDataSourceDescriptionTypeDef = TypedDict(
     "_OptionalReferenceDataSourceDescriptionTypeDef",
-    {"ReferenceSchema": "SourceSchemaTypeDef"},
+    {
+        "ReferenceSchema": "SourceSchemaTypeDef",
+    },
     total=False,
 )
-
 
 class ReferenceDataSourceDescriptionTypeDef(
     _RequiredReferenceDataSourceDescriptionTypeDef, _OptionalReferenceDataSourceDescriptionTypeDef
 ):
     pass
 
+_RequiredReferenceDataSourceTypeDef = TypedDict(
+    "_RequiredReferenceDataSourceTypeDef",
+    {
+        "TableName": str,
+        "ReferenceSchema": "SourceSchemaTypeDef",
+    },
+)
+_OptionalReferenceDataSourceTypeDef = TypedDict(
+    "_OptionalReferenceDataSourceTypeDef",
+    {
+        "S3ReferenceDataSource": "S3ReferenceDataSourceTypeDef",
+    },
+    total=False,
+)
+
+class ReferenceDataSourceTypeDef(
+    _RequiredReferenceDataSourceTypeDef, _OptionalReferenceDataSourceTypeDef
+):
+    pass
 
 _RequiredReferenceDataSourceUpdateTypeDef = TypedDict(
-    "_RequiredReferenceDataSourceUpdateTypeDef", {"ReferenceId": str}
+    "_RequiredReferenceDataSourceUpdateTypeDef",
+    {
+        "ReferenceId": str,
+    },
 )
 _OptionalReferenceDataSourceUpdateTypeDef = TypedDict(
     "_OptionalReferenceDataSourceUpdateTypeDef",
@@ -452,15 +852,13 @@ _OptionalReferenceDataSourceUpdateTypeDef = TypedDict(
     total=False,
 )
 
-
 class ReferenceDataSourceUpdateTypeDef(
     _RequiredReferenceDataSourceUpdateTypeDef, _OptionalReferenceDataSourceUpdateTypeDef
 ):
     pass
 
-
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -470,146 +868,114 @@ ResponseMetadata = TypedDict(
     },
 )
 
+S3ConfigurationTypeDef = TypedDict(
+    "S3ConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "FileKey": str,
+    },
+)
+
 S3ReferenceDataSourceDescriptionTypeDef = TypedDict(
     "S3ReferenceDataSourceDescriptionTypeDef",
-    {"BucketARN": str, "FileKey": str, "ReferenceRoleARN": str},
+    {
+        "BucketARN": str,
+        "FileKey": str,
+        "ReferenceRoleARN": str,
+    },
 )
 
 S3ReferenceDataSourceTypeDef = TypedDict(
-    "S3ReferenceDataSourceTypeDef", {"BucketARN": str, "FileKey": str, "ReferenceRoleARN": str}
+    "S3ReferenceDataSourceTypeDef",
+    {
+        "BucketARN": str,
+        "FileKey": str,
+        "ReferenceRoleARN": str,
+    },
 )
 
 S3ReferenceDataSourceUpdateTypeDef = TypedDict(
     "S3ReferenceDataSourceUpdateTypeDef",
-    {"BucketARNUpdate": str, "FileKeyUpdate": str, "ReferenceRoleARNUpdate": str},
+    {
+        "BucketARNUpdate": str,
+        "FileKeyUpdate": str,
+        "ReferenceRoleARNUpdate": str,
+    },
     total=False,
 )
 
 _RequiredSourceSchemaTypeDef = TypedDict(
     "_RequiredSourceSchemaTypeDef",
-    {"RecordFormat": "RecordFormatTypeDef", "RecordColumns": List["RecordColumnTypeDef"]},
+    {
+        "RecordFormat": "RecordFormatTypeDef",
+        "RecordColumns": List["RecordColumnTypeDef"],
+    },
 )
 _OptionalSourceSchemaTypeDef = TypedDict(
-    "_OptionalSourceSchemaTypeDef", {"RecordEncoding": str}, total=False
+    "_OptionalSourceSchemaTypeDef",
+    {
+        "RecordEncoding": str,
+    },
+    total=False,
 )
-
 
 class SourceSchemaTypeDef(_RequiredSourceSchemaTypeDef, _OptionalSourceSchemaTypeDef):
     pass
 
+StartApplicationRequestRequestTypeDef = TypedDict(
+    "StartApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "InputConfigurations": List["InputConfigurationTypeDef"],
+    },
+)
 
-_RequiredTagTypeDef = TypedDict("_RequiredTagTypeDef", {"Key": str})
-_OptionalTagTypeDef = TypedDict("_OptionalTagTypeDef", {"Value": str}, total=False)
+StopApplicationRequestRequestTypeDef = TypedDict(
+    "StopApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+_RequiredTagTypeDef = TypedDict(
+    "_RequiredTagTypeDef",
+    {
+        "Key": str,
+    },
+)
+_OptionalTagTypeDef = TypedDict(
+    "_OptionalTagTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
 
 class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
     pass
 
-
-ApplicationUpdateTypeDef = TypedDict(
-    "ApplicationUpdateTypeDef",
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
     {
-        "InputUpdates": List["InputUpdateTypeDef"],
-        "ApplicationCodeUpdate": str,
-        "OutputUpdates": List["OutputUpdateTypeDef"],
-        "ReferenceDataSourceUpdates": List["ReferenceDataSourceUpdateTypeDef"],
-        "CloudWatchLoggingOptionUpdates": List["CloudWatchLoggingOptionUpdateTypeDef"],
+        "ResourceARN": str,
+        "TagKeys": List[str],
     },
-    total=False,
 )
 
-CloudWatchLoggingOptionTypeDef = TypedDict(
-    "CloudWatchLoggingOptionTypeDef", {"LogStreamARN": str, "RoleARN": str}
-)
-
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef", {"ApplicationSummary": "ApplicationSummaryTypeDef"}
-)
-
-DescribeApplicationResponseTypeDef = TypedDict(
-    "DescribeApplicationResponseTypeDef", {"ApplicationDetail": "ApplicationDetailTypeDef"}
-)
-
-DiscoverInputSchemaResponseTypeDef = TypedDict(
-    "DiscoverInputSchemaResponseTypeDef",
+UpdateApplicationRequestRequestTypeDef = TypedDict(
+    "UpdateApplicationRequestRequestTypeDef",
     {
-        "InputSchema": "SourceSchemaTypeDef",
-        "ParsedInputRecords": List[List[str]],
-        "ProcessedInputRecords": List[str],
-        "RawInputRecords": List[str],
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "ApplicationUpdate": "ApplicationUpdateTypeDef",
     },
-    total=False,
-)
-
-InputConfigurationTypeDef = TypedDict(
-    "InputConfigurationTypeDef",
-    {"Id": str, "InputStartingPositionConfiguration": "InputStartingPositionConfigurationTypeDef"},
-)
-
-_RequiredInputTypeDef = TypedDict(
-    "_RequiredInputTypeDef", {"NamePrefix": str, "InputSchema": "SourceSchemaTypeDef"}
-)
-_OptionalInputTypeDef = TypedDict(
-    "_OptionalInputTypeDef",
-    {
-        "InputProcessingConfiguration": "InputProcessingConfigurationTypeDef",
-        "KinesisStreamsInput": "KinesisStreamsInputTypeDef",
-        "KinesisFirehoseInput": "KinesisFirehoseInputTypeDef",
-        "InputParallelism": "InputParallelismTypeDef",
-    },
-    total=False,
-)
-
-
-class InputTypeDef(_RequiredInputTypeDef, _OptionalInputTypeDef):
-    pass
-
-
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {"ApplicationSummaries": List["ApplicationSummaryTypeDef"], "HasMoreApplications": bool},
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
-)
-
-_RequiredOutputTypeDef = TypedDict(
-    "_RequiredOutputTypeDef", {"Name": str, "DestinationSchema": "DestinationSchemaTypeDef"}
-)
-_OptionalOutputTypeDef = TypedDict(
-    "_OptionalOutputTypeDef",
-    {
-        "KinesisStreamsOutput": "KinesisStreamsOutputTypeDef",
-        "KinesisFirehoseOutput": "KinesisFirehoseOutputTypeDef",
-        "LambdaOutput": "LambdaOutputTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-
-class OutputTypeDef(_RequiredOutputTypeDef, _OptionalOutputTypeDef):
-    pass
-
-
-_RequiredReferenceDataSourceTypeDef = TypedDict(
-    "_RequiredReferenceDataSourceTypeDef",
-    {"TableName": str, "ReferenceSchema": "SourceSchemaTypeDef"},
-)
-_OptionalReferenceDataSourceTypeDef = TypedDict(
-    "_OptionalReferenceDataSourceTypeDef",
-    {"S3ReferenceDataSource": "S3ReferenceDataSourceTypeDef"},
-    total=False,
-)
-
-
-class ReferenceDataSourceTypeDef(
-    _RequiredReferenceDataSourceTypeDef, _OptionalReferenceDataSourceTypeDef
-):
-    pass
-
-
-S3ConfigurationTypeDef = TypedDict(
-    "S3ConfigurationTypeDef", {"RoleARN": str, "BucketARN": str, "FileKey": str}
 )

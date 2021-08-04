@@ -16,9 +16,8 @@ Usage::
     session_client: RDSDataServiceClient = session.client("rds-data")
     ```
 """
-from mypy_boto3_rds_data.client import RDSDataServiceClient
+from .client import RDSDataServiceClient
 
 Client = RDSDataServiceClient
-
 
 __all__ = ("Client", "RDSDataServiceClient")

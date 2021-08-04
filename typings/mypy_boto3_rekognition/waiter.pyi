@@ -1,5 +1,7 @@
 """
-Main interface for rekognition service client waiters.
+Type annotations for rekognition service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/waiters.html)
 
 Usage::
 
@@ -22,42 +24,46 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_rekognition.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("ProjectVersionRunningWaiter", "ProjectVersionTrainingCompletedWaiter")
 
-
 class ProjectVersionRunningWaiter(Boto3Waiter):
     """
-    [Waiter.ProjectVersionRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/waiters.html#projectversionrunningwaiter)
     """
 
     def wait(
         self,
+        *,
         ProjectArn: str,
         VersionNames: List[str] = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ProjectVersionRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/waiters.html#projectversionrunningwaiter)
         """
-
 
 class ProjectVersionTrainingCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.ProjectVersionTrainingCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/waiters.html#projectversiontrainingcompletedwaiter)
     """
 
     def wait(
         self,
+        *,
         ProjectArn: str,
         VersionNames: List[str] = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ProjectVersionTrainingCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/waiters.html#projectversiontrainingcompletedwaiter)
         """

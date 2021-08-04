@@ -1,29 +1,43 @@
 """
-Main interface for shield service type definitions.
+Type annotations for shield service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_shield/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_shield.type_defs import AttackDetailTypeDef
+    from mypy_boto3_shield.type_defs import AssociateDRTLogBucketRequestRequestTypeDef
 
-    data: AttackDetailTypeDef = {...}
+    data: AssociateDRTLogBucketRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    AttackLayerType,
+    AttackPropertyIdentifierType,
+    AutoRenewType,
+    ProactiveEngagementStatusType,
+    ProtectedResourceTypeType,
+    ProtectionGroupAggregationType,
+    ProtectionGroupPatternType,
+    SubResourceTypeType,
+    SubscriptionStateType,
+    UnitType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AssociateDRTLogBucketRequestRequestTypeDef",
+    "AssociateDRTRoleRequestRequestTypeDef",
+    "AssociateHealthCheckRequestRequestTypeDef",
+    "AssociateProactiveEngagementDetailsRequestRequestTypeDef",
     "AttackDetailTypeDef",
     "AttackPropertyTypeDef",
     "AttackStatisticsDataItemTypeDef",
@@ -32,35 +46,86 @@ __all__ = (
     "AttackVolumeStatisticsTypeDef",
     "AttackVolumeTypeDef",
     "ContributorTypeDef",
+    "CreateProtectionGroupRequestRequestTypeDef",
+    "CreateProtectionRequestRequestTypeDef",
+    "CreateProtectionResponseTypeDef",
+    "DeleteProtectionGroupRequestRequestTypeDef",
+    "DeleteProtectionRequestRequestTypeDef",
+    "DescribeAttackRequestRequestTypeDef",
+    "DescribeAttackResponseTypeDef",
+    "DescribeAttackStatisticsResponseTypeDef",
+    "DescribeDRTAccessResponseTypeDef",
+    "DescribeEmergencyContactSettingsResponseTypeDef",
+    "DescribeProtectionGroupRequestRequestTypeDef",
+    "DescribeProtectionGroupResponseTypeDef",
+    "DescribeProtectionRequestRequestTypeDef",
+    "DescribeProtectionResponseTypeDef",
+    "DescribeSubscriptionResponseTypeDef",
+    "DisassociateDRTLogBucketRequestRequestTypeDef",
+    "DisassociateHealthCheckRequestRequestTypeDef",
     "EmergencyContactTypeDef",
+    "GetSubscriptionStateResponseTypeDef",
     "LimitTypeDef",
+    "ListAttacksRequestRequestTypeDef",
+    "ListAttacksResponseTypeDef",
+    "ListProtectionGroupsRequestRequestTypeDef",
+    "ListProtectionGroupsResponseTypeDef",
+    "ListProtectionsRequestRequestTypeDef",
+    "ListProtectionsResponseTypeDef",
+    "ListResourcesInProtectionGroupRequestRequestTypeDef",
+    "ListResourcesInProtectionGroupResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MitigationTypeDef",
+    "PaginatorConfigTypeDef",
     "ProtectionGroupArbitraryPatternLimitsTypeDef",
     "ProtectionGroupLimitsTypeDef",
     "ProtectionGroupPatternTypeLimitsTypeDef",
     "ProtectionGroupTypeDef",
     "ProtectionLimitsTypeDef",
     "ProtectionTypeDef",
+    "ResponseMetadataTypeDef",
     "SubResourceSummaryTypeDef",
     "SubscriptionLimitsTypeDef",
     "SubscriptionTypeDef",
     "SummarizedAttackVectorTypeDef",
     "SummarizedCounterTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
     "TimeRangeTypeDef",
-    "CreateProtectionResponseTypeDef",
-    "DescribeAttackResponseTypeDef",
-    "DescribeAttackStatisticsResponseTypeDef",
-    "DescribeDRTAccessResponseTypeDef",
-    "DescribeEmergencyContactSettingsResponseTypeDef",
-    "DescribeProtectionGroupResponseTypeDef",
-    "DescribeProtectionResponseTypeDef",
-    "DescribeSubscriptionResponseTypeDef",
-    "GetSubscriptionStateResponseTypeDef",
-    "ListAttacksResponseTypeDef",
-    "ListProtectionGroupsResponseTypeDef",
-    "ListProtectionsResponseTypeDef",
-    "ListResourcesInProtectionGroupResponseTypeDef",
-    "PaginatorConfigTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateEmergencyContactSettingsRequestRequestTypeDef",
+    "UpdateProtectionGroupRequestRequestTypeDef",
+    "UpdateSubscriptionRequestRequestTypeDef",
+)
+
+AssociateDRTLogBucketRequestRequestTypeDef = TypedDict(
+    "AssociateDRTLogBucketRequestRequestTypeDef",
+    {
+        "LogBucket": str,
+    },
+)
+
+AssociateDRTRoleRequestRequestTypeDef = TypedDict(
+    "AssociateDRTRoleRequestRequestTypeDef",
+    {
+        "RoleArn": str,
+    },
+)
+
+AssociateHealthCheckRequestRequestTypeDef = TypedDict(
+    "AssociateHealthCheckRequestRequestTypeDef",
+    {
+        "ProtectionId": str,
+        "HealthCheckArn": str,
+    },
+)
+
+AssociateProactiveEngagementDetailsRequestRequestTypeDef = TypedDict(
+    "AssociateProactiveEngagementDetailsRequestRequestTypeDef",
+    {
+        "EmergencyContactList": List["EmergencyContactTypeDef"],
+    },
 )
 
 AttackDetailTypeDef = TypedDict(
@@ -81,37 +146,33 @@ AttackDetailTypeDef = TypedDict(
 AttackPropertyTypeDef = TypedDict(
     "AttackPropertyTypeDef",
     {
-        "AttackLayer": Literal["NETWORK", "APPLICATION"],
-        "AttackPropertyIdentifier": Literal[
-            "DESTINATION_URL",
-            "REFERRER",
-            "SOURCE_ASN",
-            "SOURCE_COUNTRY",
-            "SOURCE_IP_ADDRESS",
-            "SOURCE_USER_AGENT",
-            "WORDPRESS_PINGBACK_REFLECTOR",
-            "WORDPRESS_PINGBACK_SOURCE",
-        ],
+        "AttackLayer": AttackLayerType,
+        "AttackPropertyIdentifier": AttackPropertyIdentifierType,
         "TopContributors": List["ContributorTypeDef"],
-        "Unit": Literal["BITS", "BYTES", "PACKETS", "REQUESTS"],
+        "Unit": UnitType,
         "Total": int,
     },
     total=False,
 )
 
 _RequiredAttackStatisticsDataItemTypeDef = TypedDict(
-    "_RequiredAttackStatisticsDataItemTypeDef", {"AttackCount": int}
+    "_RequiredAttackStatisticsDataItemTypeDef",
+    {
+        "AttackCount": int,
+    },
 )
 _OptionalAttackStatisticsDataItemTypeDef = TypedDict(
-    "_OptionalAttackStatisticsDataItemTypeDef", {"AttackVolume": "AttackVolumeTypeDef"}, total=False
+    "_OptionalAttackStatisticsDataItemTypeDef",
+    {
+        "AttackVolume": "AttackVolumeTypeDef",
+    },
+    total=False,
 )
-
 
 class AttackStatisticsDataItemTypeDef(
     _RequiredAttackStatisticsDataItemTypeDef, _OptionalAttackStatisticsDataItemTypeDef
 ):
     pass
-
 
 AttackSummaryTypeDef = TypedDict(
     "AttackSummaryTypeDef",
@@ -125,9 +186,19 @@ AttackSummaryTypeDef = TypedDict(
     total=False,
 )
 
-AttackVectorDescriptionTypeDef = TypedDict("AttackVectorDescriptionTypeDef", {"VectorType": str})
+AttackVectorDescriptionTypeDef = TypedDict(
+    "AttackVectorDescriptionTypeDef",
+    {
+        "VectorType": str,
+    },
+)
 
-AttackVolumeStatisticsTypeDef = TypedDict("AttackVolumeStatisticsTypeDef", {"Max": float})
+AttackVolumeStatisticsTypeDef = TypedDict(
+    "AttackVolumeStatisticsTypeDef",
+    {
+        "Max": float,
+    },
+)
 
 AttackVolumeTypeDef = TypedDict(
     "AttackVolumeTypeDef",
@@ -139,81 +210,409 @@ AttackVolumeTypeDef = TypedDict(
     total=False,
 )
 
-ContributorTypeDef = TypedDict("ContributorTypeDef", {"Name": str, "Value": int}, total=False)
+ContributorTypeDef = TypedDict(
+    "ContributorTypeDef",
+    {
+        "Name": str,
+        "Value": int,
+    },
+    total=False,
+)
+
+_RequiredCreateProtectionGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateProtectionGroupRequestRequestTypeDef",
+    {
+        "ProtectionGroupId": str,
+        "Aggregation": ProtectionGroupAggregationType,
+        "Pattern": ProtectionGroupPatternType,
+    },
+)
+_OptionalCreateProtectionGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateProtectionGroupRequestRequestTypeDef",
+    {
+        "ResourceType": ProtectedResourceTypeType,
+        "Members": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateProtectionGroupRequestRequestTypeDef(
+    _RequiredCreateProtectionGroupRequestRequestTypeDef,
+    _OptionalCreateProtectionGroupRequestRequestTypeDef,
+):
+    pass
+
+_RequiredCreateProtectionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateProtectionRequestRequestTypeDef",
+    {
+        "Name": str,
+        "ResourceArn": str,
+    },
+)
+_OptionalCreateProtectionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateProtectionRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateProtectionRequestRequestTypeDef(
+    _RequiredCreateProtectionRequestRequestTypeDef, _OptionalCreateProtectionRequestRequestTypeDef
+):
+    pass
+
+CreateProtectionResponseTypeDef = TypedDict(
+    "CreateProtectionResponseTypeDef",
+    {
+        "ProtectionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteProtectionGroupRequestRequestTypeDef = TypedDict(
+    "DeleteProtectionGroupRequestRequestTypeDef",
+    {
+        "ProtectionGroupId": str,
+    },
+)
+
+DeleteProtectionRequestRequestTypeDef = TypedDict(
+    "DeleteProtectionRequestRequestTypeDef",
+    {
+        "ProtectionId": str,
+    },
+)
+
+DescribeAttackRequestRequestTypeDef = TypedDict(
+    "DescribeAttackRequestRequestTypeDef",
+    {
+        "AttackId": str,
+    },
+)
+
+DescribeAttackResponseTypeDef = TypedDict(
+    "DescribeAttackResponseTypeDef",
+    {
+        "Attack": "AttackDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAttackStatisticsResponseTypeDef = TypedDict(
+    "DescribeAttackStatisticsResponseTypeDef",
+    {
+        "TimeRange": "TimeRangeTypeDef",
+        "DataItems": List["AttackStatisticsDataItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDRTAccessResponseTypeDef = TypedDict(
+    "DescribeDRTAccessResponseTypeDef",
+    {
+        "RoleArn": str,
+        "LogBucketList": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEmergencyContactSettingsResponseTypeDef = TypedDict(
+    "DescribeEmergencyContactSettingsResponseTypeDef",
+    {
+        "EmergencyContactList": List["EmergencyContactTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeProtectionGroupRequestRequestTypeDef = TypedDict(
+    "DescribeProtectionGroupRequestRequestTypeDef",
+    {
+        "ProtectionGroupId": str,
+    },
+)
+
+DescribeProtectionGroupResponseTypeDef = TypedDict(
+    "DescribeProtectionGroupResponseTypeDef",
+    {
+        "ProtectionGroup": "ProtectionGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeProtectionRequestRequestTypeDef = TypedDict(
+    "DescribeProtectionRequestRequestTypeDef",
+    {
+        "ProtectionId": str,
+        "ResourceArn": str,
+    },
+    total=False,
+)
+
+DescribeProtectionResponseTypeDef = TypedDict(
+    "DescribeProtectionResponseTypeDef",
+    {
+        "Protection": "ProtectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSubscriptionResponseTypeDef = TypedDict(
+    "DescribeSubscriptionResponseTypeDef",
+    {
+        "Subscription": "SubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateDRTLogBucketRequestRequestTypeDef = TypedDict(
+    "DisassociateDRTLogBucketRequestRequestTypeDef",
+    {
+        "LogBucket": str,
+    },
+)
+
+DisassociateHealthCheckRequestRequestTypeDef = TypedDict(
+    "DisassociateHealthCheckRequestRequestTypeDef",
+    {
+        "ProtectionId": str,
+        "HealthCheckArn": str,
+    },
+)
 
 _RequiredEmergencyContactTypeDef = TypedDict(
-    "_RequiredEmergencyContactTypeDef", {"EmailAddress": str}
+    "_RequiredEmergencyContactTypeDef",
+    {
+        "EmailAddress": str,
+    },
 )
 _OptionalEmergencyContactTypeDef = TypedDict(
-    "_OptionalEmergencyContactTypeDef", {"PhoneNumber": str, "ContactNotes": str}, total=False
+    "_OptionalEmergencyContactTypeDef",
+    {
+        "PhoneNumber": str,
+        "ContactNotes": str,
+    },
+    total=False,
 )
-
 
 class EmergencyContactTypeDef(_RequiredEmergencyContactTypeDef, _OptionalEmergencyContactTypeDef):
     pass
 
+GetSubscriptionStateResponseTypeDef = TypedDict(
+    "GetSubscriptionStateResponseTypeDef",
+    {
+        "SubscriptionState": SubscriptionStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
-LimitTypeDef = TypedDict("LimitTypeDef", {"Type": str, "Max": int}, total=False)
+LimitTypeDef = TypedDict(
+    "LimitTypeDef",
+    {
+        "Type": str,
+        "Max": int,
+    },
+    total=False,
+)
 
-MitigationTypeDef = TypedDict("MitigationTypeDef", {"MitigationName": str}, total=False)
+ListAttacksRequestRequestTypeDef = TypedDict(
+    "ListAttacksRequestRequestTypeDef",
+    {
+        "ResourceArns": List[str],
+        "StartTime": "TimeRangeTypeDef",
+        "EndTime": "TimeRangeTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListAttacksResponseTypeDef = TypedDict(
+    "ListAttacksResponseTypeDef",
+    {
+        "AttackSummaries": List["AttackSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListProtectionGroupsRequestRequestTypeDef = TypedDict(
+    "ListProtectionGroupsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListProtectionGroupsResponseTypeDef = TypedDict(
+    "ListProtectionGroupsResponseTypeDef",
+    {
+        "ProtectionGroups": List["ProtectionGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListProtectionsRequestRequestTypeDef = TypedDict(
+    "ListProtectionsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListProtectionsResponseTypeDef = TypedDict(
+    "ListProtectionsResponseTypeDef",
+    {
+        "Protections": List["ProtectionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListResourcesInProtectionGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredListResourcesInProtectionGroupRequestRequestTypeDef",
+    {
+        "ProtectionGroupId": str,
+    },
+)
+_OptionalListResourcesInProtectionGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalListResourcesInProtectionGroupRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListResourcesInProtectionGroupRequestRequestTypeDef(
+    _RequiredListResourcesInProtectionGroupRequestRequestTypeDef,
+    _OptionalListResourcesInProtectionGroupRequestRequestTypeDef,
+):
+    pass
+
+ListResourcesInProtectionGroupResponseTypeDef = TypedDict(
+    "ListResourcesInProtectionGroupResponseTypeDef",
+    {
+        "ResourceArns": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+MitigationTypeDef = TypedDict(
+    "MitigationTypeDef",
+    {
+        "MitigationName": str,
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
 
 ProtectionGroupArbitraryPatternLimitsTypeDef = TypedDict(
-    "ProtectionGroupArbitraryPatternLimitsTypeDef", {"MaxMembers": int}
+    "ProtectionGroupArbitraryPatternLimitsTypeDef",
+    {
+        "MaxMembers": int,
+    },
 )
 
 ProtectionGroupLimitsTypeDef = TypedDict(
     "ProtectionGroupLimitsTypeDef",
-    {"MaxProtectionGroups": int, "PatternTypeLimits": "ProtectionGroupPatternTypeLimitsTypeDef"},
+    {
+        "MaxProtectionGroups": int,
+        "PatternTypeLimits": "ProtectionGroupPatternTypeLimitsTypeDef",
+    },
 )
 
 ProtectionGroupPatternTypeLimitsTypeDef = TypedDict(
     "ProtectionGroupPatternTypeLimitsTypeDef",
-    {"ArbitraryPatternLimits": "ProtectionGroupArbitraryPatternLimitsTypeDef"},
+    {
+        "ArbitraryPatternLimits": "ProtectionGroupArbitraryPatternLimitsTypeDef",
+    },
 )
 
 _RequiredProtectionGroupTypeDef = TypedDict(
     "_RequiredProtectionGroupTypeDef",
     {
         "ProtectionGroupId": str,
-        "Aggregation": Literal["SUM", "MEAN", "MAX"],
-        "Pattern": Literal["ALL", "ARBITRARY", "BY_RESOURCE_TYPE"],
+        "Aggregation": ProtectionGroupAggregationType,
+        "Pattern": ProtectionGroupPatternType,
         "Members": List[str],
     },
 )
 _OptionalProtectionGroupTypeDef = TypedDict(
     "_OptionalProtectionGroupTypeDef",
     {
-        "ResourceType": Literal[
-            "CLOUDFRONT_DISTRIBUTION",
-            "ROUTE_53_HOSTED_ZONE",
-            "ELASTIC_IP_ALLOCATION",
-            "CLASSIC_LOAD_BALANCER",
-            "APPLICATION_LOAD_BALANCER",
-            "GLOBAL_ACCELERATOR",
-        ]
+        "ResourceType": ProtectedResourceTypeType,
+        "ProtectionGroupArn": str,
     },
     total=False,
 )
 
-
 class ProtectionGroupTypeDef(_RequiredProtectionGroupTypeDef, _OptionalProtectionGroupTypeDef):
     pass
 
-
 ProtectionLimitsTypeDef = TypedDict(
-    "ProtectionLimitsTypeDef", {"ProtectedResourceTypeLimits": List["LimitTypeDef"]}
+    "ProtectionLimitsTypeDef",
+    {
+        "ProtectedResourceTypeLimits": List["LimitTypeDef"],
+    },
 )
 
 ProtectionTypeDef = TypedDict(
     "ProtectionTypeDef",
-    {"Id": str, "Name": str, "ResourceArn": str, "HealthCheckIds": List[str]},
+    {
+        "Id": str,
+        "Name": str,
+        "ResourceArn": str,
+        "HealthCheckIds": List[str],
+        "ProtectionArn": str,
+    },
     total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 SubResourceSummaryTypeDef = TypedDict(
     "SubResourceSummaryTypeDef",
     {
-        "Type": Literal["IP", "URL"],
+        "Type": SubResourceTypeType,
         "Id": str,
         "AttackVectors": List["SummarizedAttackVectorTypeDef"],
         "Counters": List["SummarizedCounterTypeDef"],
@@ -230,7 +629,10 @@ SubscriptionLimitsTypeDef = TypedDict(
 )
 
 _RequiredSubscriptionTypeDef = TypedDict(
-    "_RequiredSubscriptionTypeDef", {"SubscriptionLimits": "SubscriptionLimitsTypeDef"}
+    "_RequiredSubscriptionTypeDef",
+    {
+        "SubscriptionLimits": "SubscriptionLimitsTypeDef",
+    },
 )
 _OptionalSubscriptionTypeDef = TypedDict(
     "_OptionalSubscriptionTypeDef",
@@ -238,125 +640,118 @@ _OptionalSubscriptionTypeDef = TypedDict(
         "StartTime": datetime,
         "EndTime": datetime,
         "TimeCommitmentInSeconds": int,
-        "AutoRenew": Literal["ENABLED", "DISABLED"],
+        "AutoRenew": AutoRenewType,
         "Limits": List["LimitTypeDef"],
-        "ProactiveEngagementStatus": Literal["ENABLED", "DISABLED", "PENDING"],
+        "ProactiveEngagementStatus": ProactiveEngagementStatusType,
+        "SubscriptionArn": str,
     },
     total=False,
 )
 
-
 class SubscriptionTypeDef(_RequiredSubscriptionTypeDef, _OptionalSubscriptionTypeDef):
     pass
 
-
 _RequiredSummarizedAttackVectorTypeDef = TypedDict(
-    "_RequiredSummarizedAttackVectorTypeDef", {"VectorType": str}
+    "_RequiredSummarizedAttackVectorTypeDef",
+    {
+        "VectorType": str,
+    },
 )
 _OptionalSummarizedAttackVectorTypeDef = TypedDict(
     "_OptionalSummarizedAttackVectorTypeDef",
-    {"VectorCounters": List["SummarizedCounterTypeDef"]},
+    {
+        "VectorCounters": List["SummarizedCounterTypeDef"],
+    },
     total=False,
 )
-
 
 class SummarizedAttackVectorTypeDef(
     _RequiredSummarizedAttackVectorTypeDef, _OptionalSummarizedAttackVectorTypeDef
 ):
     pass
 
-
 SummarizedCounterTypeDef = TypedDict(
     "SummarizedCounterTypeDef",
-    {"Name": str, "Max": float, "Average": float, "Sum": float, "N": int, "Unit": str},
+    {
+        "Name": str,
+        "Max": float,
+        "Average": float,
+        "Sum": float,
+        "N": int,
+        "Unit": str,
+    },
+    total=False,
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
     total=False,
 )
 
 TimeRangeTypeDef = TypedDict(
-    "TimeRangeTypeDef", {"FromInclusive": datetime, "ToExclusive": datetime}, total=False
-)
-
-CreateProtectionResponseTypeDef = TypedDict(
-    "CreateProtectionResponseTypeDef", {"ProtectionId": str}, total=False
-)
-
-DescribeAttackResponseTypeDef = TypedDict(
-    "DescribeAttackResponseTypeDef", {"Attack": "AttackDetailTypeDef"}, total=False
-)
-
-DescribeAttackStatisticsResponseTypeDef = TypedDict(
-    "DescribeAttackStatisticsResponseTypeDef",
-    {"TimeRange": "TimeRangeTypeDef", "DataItems": List["AttackStatisticsDataItemTypeDef"]},
-)
-
-DescribeDRTAccessResponseTypeDef = TypedDict(
-    "DescribeDRTAccessResponseTypeDef", {"RoleArn": str, "LogBucketList": List[str]}, total=False
-)
-
-DescribeEmergencyContactSettingsResponseTypeDef = TypedDict(
-    "DescribeEmergencyContactSettingsResponseTypeDef",
-    {"EmergencyContactList": List["EmergencyContactTypeDef"]},
+    "TimeRangeTypeDef",
+    {
+        "FromInclusive": datetime,
+        "ToExclusive": datetime,
+    },
     total=False,
 )
 
-DescribeProtectionGroupResponseTypeDef = TypedDict(
-    "DescribeProtectionGroupResponseTypeDef", {"ProtectionGroup": "ProtectionGroupTypeDef"}
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "TagKeys": List[str],
+    },
 )
 
-DescribeProtectionResponseTypeDef = TypedDict(
-    "DescribeProtectionResponseTypeDef", {"Protection": "ProtectionTypeDef"}, total=False
-)
-
-DescribeSubscriptionResponseTypeDef = TypedDict(
-    "DescribeSubscriptionResponseTypeDef", {"Subscription": "SubscriptionTypeDef"}, total=False
-)
-
-GetSubscriptionStateResponseTypeDef = TypedDict(
-    "GetSubscriptionStateResponseTypeDef", {"SubscriptionState": Literal["ACTIVE", "INACTIVE"]}
-)
-
-ListAttacksResponseTypeDef = TypedDict(
-    "ListAttacksResponseTypeDef",
-    {"AttackSummaries": List["AttackSummaryTypeDef"], "NextToken": str},
+UpdateEmergencyContactSettingsRequestRequestTypeDef = TypedDict(
+    "UpdateEmergencyContactSettingsRequestRequestTypeDef",
+    {
+        "EmergencyContactList": List["EmergencyContactTypeDef"],
+    },
     total=False,
 )
 
-_RequiredListProtectionGroupsResponseTypeDef = TypedDict(
-    "_RequiredListProtectionGroupsResponseTypeDef",
-    {"ProtectionGroups": List["ProtectionGroupTypeDef"]},
+_RequiredUpdateProtectionGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateProtectionGroupRequestRequestTypeDef",
+    {
+        "ProtectionGroupId": str,
+        "Aggregation": ProtectionGroupAggregationType,
+        "Pattern": ProtectionGroupPatternType,
+    },
 )
-_OptionalListProtectionGroupsResponseTypeDef = TypedDict(
-    "_OptionalListProtectionGroupsResponseTypeDef", {"NextToken": str}, total=False
+_OptionalUpdateProtectionGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateProtectionGroupRequestRequestTypeDef",
+    {
+        "ResourceType": ProtectedResourceTypeType,
+        "Members": List[str],
+    },
+    total=False,
 )
 
-
-class ListProtectionGroupsResponseTypeDef(
-    _RequiredListProtectionGroupsResponseTypeDef, _OptionalListProtectionGroupsResponseTypeDef
+class UpdateProtectionGroupRequestRequestTypeDef(
+    _RequiredUpdateProtectionGroupRequestRequestTypeDef,
+    _OptionalUpdateProtectionGroupRequestRequestTypeDef,
 ):
     pass
 
-
-ListProtectionsResponseTypeDef = TypedDict(
-    "ListProtectionsResponseTypeDef",
-    {"Protections": List["ProtectionTypeDef"], "NextToken": str},
+UpdateSubscriptionRequestRequestTypeDef = TypedDict(
+    "UpdateSubscriptionRequestRequestTypeDef",
+    {
+        "AutoRenew": AutoRenewType,
+    },
     total=False,
-)
-
-_RequiredListResourcesInProtectionGroupResponseTypeDef = TypedDict(
-    "_RequiredListResourcesInProtectionGroupResponseTypeDef", {"ResourceArns": List[str]}
-)
-_OptionalListResourcesInProtectionGroupResponseTypeDef = TypedDict(
-    "_OptionalListResourcesInProtectionGroupResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class ListResourcesInProtectionGroupResponseTypeDef(
-    _RequiredListResourcesInProtectionGroupResponseTypeDef,
-    _OptionalListResourcesInProtectionGroupResponseTypeDef,
-):
-    pass
-
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )

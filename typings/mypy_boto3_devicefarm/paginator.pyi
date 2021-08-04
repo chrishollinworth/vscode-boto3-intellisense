@@ -1,5 +1,7 @@
 """
-Main interface for devicefarm service client paginators.
+Type annotations for devicefarm service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html)
 
 Usage::
 
@@ -54,12 +56,17 @@ Usage::
     list_vpce_configurations_paginator: ListVPCEConfigurationsPaginator = client.get_paginator("list_vpce_configurations")
     ```
 """
-import sys
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_devicefarm.type_defs import (
+from .literals import (
+    ArtifactCategoryType,
+    DevicePoolTypeType,
+    NetworkProfileTypeType,
+    UploadTypeType,
+)
+from .type_defs import (
     DeviceFilterTypeDef,
     GetOfferingStatusResultTypeDef,
     ListArtifactsResultTypeDef,
@@ -84,12 +91,6 @@ from mypy_boto3_devicefarm.type_defs import (
     PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = (
     "GetOfferingStatusPaginator",
     "ListArtifactsPaginator",
@@ -113,310 +114,302 @@ __all__ = (
     "ListVPCEConfigurationsPaginator",
 )
 
-
 class GetOfferingStatusPaginator(Boto3Paginator):
     """
-    [Paginator.GetOfferingStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#getofferingstatuspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetOfferingStatusResultTypeDef]:
         """
-        [GetOfferingStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#getofferingstatuspaginator)
         """
-
 
 class ListArtifactsPaginator(Boto3Paginator):
     """
-    [Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listartifactspaginator)
     """
 
     def paginate(
         self,
+        *,
         arn: str,
-        type: Literal["SCREENSHOT", "FILE", "LOG"],
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        type: ArtifactCategoryType,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListArtifactsResultTypeDef]:
         """
-        [ListArtifacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listartifactspaginator)
         """
-
 
 class ListDeviceInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listdeviceinstancespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceInstancesResultTypeDef]:
         """
-        [ListDeviceInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listdeviceinstancespaginator)
         """
-
 
 class ListDevicePoolsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevicePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listdevicepoolspaginator)
     """
 
     def paginate(
         self,
+        *,
         arn: str,
-        type: Literal["CURATED", "PRIVATE"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        type: DevicePoolTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevicePoolsResultTypeDef]:
         """
-        [ListDevicePools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listdevicepoolspaginator)
         """
-
 
 class ListDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listdevicespaginator)
     """
 
     def paginate(
         self,
+        *,
         arn: str = None,
         filters: List["DeviceFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevicesResultTypeDef]:
         """
-        [ListDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listdevicespaginator)
         """
-
 
 class ListInstanceProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listinstanceprofilespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceProfilesResultTypeDef]:
         """
-        [ListInstanceProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listinstanceprofilespaginator)
         """
-
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listjobspaginator)
     """
 
     def paginate(
-        self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResultTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listjobspaginator)
         """
-
 
 class ListNetworkProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNetworkProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listnetworkprofilespaginator)
     """
 
     def paginate(
         self,
+        *,
         arn: str,
-        type: Literal["CURATED", "PRIVATE"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        type: NetworkProfileTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNetworkProfilesResultTypeDef]:
         """
-        [ListNetworkProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listnetworkprofilespaginator)
         """
-
 
 class ListOfferingPromotionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferingPromotions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listofferingpromotionspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingPromotionsResultTypeDef]:
         """
-        [ListOfferingPromotions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listofferingpromotionspaginator)
         """
-
 
 class ListOfferingTransactionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferingTransactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listofferingtransactionspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingTransactionsResultTypeDef]:
         """
-        [ListOfferingTransactions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listofferingtransactionspaginator)
         """
-
 
 class ListOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listofferingspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingsResultTypeDef]:
         """
-        [ListOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listofferingspaginator)
         """
-
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listprojectspaginator)
     """
 
     def paginate(
-        self, arn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResultTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listprojectspaginator)
         """
-
 
 class ListRemoteAccessSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRemoteAccessSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listremoteaccesssessionspaginator)
     """
 
     def paginate(
-        self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRemoteAccessSessionsResultTypeDef]:
         """
-        [ListRemoteAccessSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listremoteaccesssessionspaginator)
         """
-
 
 class ListRunsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listrunspaginator)
     """
 
     def paginate(
-        self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRunsResultTypeDef]:
         """
-        [ListRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listrunspaginator)
         """
-
 
 class ListSamplesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSamples documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listsamplespaginator)
     """
 
     def paginate(
-        self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSamplesResultTypeDef]:
         """
-        [ListSamples.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listsamplespaginator)
         """
-
 
 class ListSuitesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSuites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listsuitespaginator)
     """
 
     def paginate(
-        self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSuitesResultTypeDef]:
         """
-        [ListSuites.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listsuitespaginator)
         """
-
 
 class ListTestsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listtestspaginator)
     """
 
     def paginate(
-        self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTestsResultTypeDef]:
         """
-        [ListTests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listtestspaginator)
         """
-
 
 class ListUniqueProblemsPaginator(Boto3Paginator):
     """
-    [Paginator.ListUniqueProblems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listuniqueproblemspaginator)
     """
 
     def paginate(
-        self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUniqueProblemsResultTypeDef]:
         """
-        [ListUniqueProblems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listuniqueproblemspaginator)
         """
-
 
 class ListUploadsPaginator(Boto3Paginator):
     """
-    [Paginator.ListUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listuploadspaginator)
     """
 
     def paginate(
         self,
+        *,
         arn: str,
-        type: Literal[
-            "ANDROID_APP",
-            "IOS_APP",
-            "WEB_APP",
-            "EXTERNAL_DATA",
-            "APPIUM_JAVA_JUNIT_TEST_PACKAGE",
-            "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
-            "APPIUM_PYTHON_TEST_PACKAGE",
-            "APPIUM_NODE_TEST_PACKAGE",
-            "APPIUM_RUBY_TEST_PACKAGE",
-            "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE",
-            "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE",
-            "APPIUM_WEB_PYTHON_TEST_PACKAGE",
-            "APPIUM_WEB_NODE_TEST_PACKAGE",
-            "APPIUM_WEB_RUBY_TEST_PACKAGE",
-            "CALABASH_TEST_PACKAGE",
-            "INSTRUMENTATION_TEST_PACKAGE",
-            "UIAUTOMATION_TEST_PACKAGE",
-            "UIAUTOMATOR_TEST_PACKAGE",
-            "XCTEST_TEST_PACKAGE",
-            "XCTEST_UI_TEST_PACKAGE",
-            "APPIUM_JAVA_JUNIT_TEST_SPEC",
-            "APPIUM_JAVA_TESTNG_TEST_SPEC",
-            "APPIUM_PYTHON_TEST_SPEC",
-            "APPIUM_NODE_TEST_SPEC",
-            "APPIUM_RUBY_TEST_SPEC",
-            "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC",
-            "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC",
-            "APPIUM_WEB_PYTHON_TEST_SPEC",
-            "APPIUM_WEB_NODE_TEST_SPEC",
-            "APPIUM_WEB_RUBY_TEST_SPEC",
-            "INSTRUMENTATION_TEST_SPEC",
-            "XCTEST_UI_TEST_SPEC",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        type: UploadTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUploadsResultTypeDef]:
         """
-        [ListUploads.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listuploadspaginator)
         """
-
 
 class ListVPCEConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListVPCEConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listvpceconfigurationspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVPCEConfigurationsResultTypeDef]:
         """
-        [ListVPCEConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/paginators.html#listvpceconfigurationspaginator)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for sagemaker service client paginators.
+Type annotations for sagemaker service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html)
 
 Usage::
 
@@ -122,11 +124,78 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, Iterator
+from typing import Iterator, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_sagemaker.type_defs import (
+from .literals import (
+    AlgorithmSortByType,
+    AppImageConfigSortKeyType,
+    AssociationEdgeTypeType,
+    AutoMLJobStatusType,
+    AutoMLSortByType,
+    AutoMLSortOrderType,
+    CandidateSortByType,
+    CandidateStatusType,
+    CodeRepositorySortByType,
+    CodeRepositorySortOrderType,
+    CompilationJobStatusType,
+    EdgePackagingJobStatusType,
+    EndpointConfigSortKeyType,
+    EndpointSortKeyType,
+    EndpointStatusType,
+    ExecutionStatusType,
+    FeatureGroupSortByType,
+    FeatureGroupSortOrderType,
+    FeatureGroupStatusType,
+    HyperParameterTuningJobSortByOptionsType,
+    HyperParameterTuningJobStatusType,
+    ImageSortByType,
+    ImageSortOrderType,
+    ImageVersionSortByType,
+    ImageVersionSortOrderType,
+    LabelingJobStatusType,
+    ListCompilationJobsSortByType,
+    ListDeviceFleetsSortByType,
+    ListEdgePackagingJobsSortByType,
+    ListWorkforcesSortByOptionsType,
+    ListWorkteamsSortByOptionsType,
+    ModelApprovalStatusType,
+    ModelPackageGroupSortByType,
+    ModelPackageSortByType,
+    ModelPackageTypeType,
+    ModelSortKeyType,
+    MonitoringExecutionSortKeyType,
+    MonitoringJobDefinitionSortKeyType,
+    MonitoringScheduleSortKeyType,
+    MonitoringTypeType,
+    NotebookInstanceLifecycleConfigSortKeyType,
+    NotebookInstanceLifecycleConfigSortOrderType,
+    NotebookInstanceSortKeyType,
+    NotebookInstanceSortOrderType,
+    NotebookInstanceStatusType,
+    OfflineStoreStatusValueType,
+    OrderKeyType,
+    ProcessingJobStatusType,
+    ResourceTypeType,
+    ScheduleStatusType,
+    SearchSortOrderType,
+    SortActionsByType,
+    SortAssociationsByType,
+    SortByType,
+    SortContextsByType,
+    SortExperimentsByType,
+    SortOrderType,
+    SortPipelineExecutionsByType,
+    SortPipelinesByType,
+    SortTrialComponentsByType,
+    SortTrialsByType,
+    TrainingJobSortByOptionsType,
+    TrainingJobStatusType,
+    TransformJobStatusType,
+    UserProfileSortKeyType,
+)
+from .type_defs import (
     ListActionsResponseTypeDef,
     ListAlgorithmsOutputTypeDef,
     ListAppImageConfigsResponseTypeDef,
@@ -180,6 +249,7 @@ from mypy_boto3_sagemaker.type_defs import (
     ListWorkforcesResponseTypeDef,
     ListWorkteamsResponseTypeDef,
     PaginatorConfigTypeDef,
+    SearchExpressionTypeDef,
     SearchResponseTypeDef,
 )
 
@@ -187,7 +257,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 
 __all__ = (
     "ListActionsPaginator",
@@ -245,1095 +314,1149 @@ __all__ = (
     "SearchPaginator",
 )
 
-
 class ListActionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListActions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listactionspaginator)
     """
 
     def paginate(
         self,
+        *,
         SourceUri: str = None,
         ActionType: str = None,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortActionsByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListActionsResponseTypeDef]:
         """
-        [ListActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListActions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listactionspaginator)
         """
-
 
 class ListAlgorithmsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAlgorithms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listalgorithmspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortBy: AlgorithmSortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAlgorithmsOutputTypeDef]:
         """
-        [ListAlgorithms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listalgorithmspaginator)
         """
-
 
 class ListAppImageConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAppImageConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAppImageConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAppImageConfigs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listappimageconfigspaginator)
     """
 
     def paginate(
         self,
+        *,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        ModifiedTimeBefore: datetime = None,
-        ModifiedTimeAfter: datetime = None,
-        SortBy: Literal["CreationTime", "LastModifiedTime", "Name"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        ModifiedTimeBefore: Union[datetime, str] = None,
+        ModifiedTimeAfter: Union[datetime, str] = None,
+        SortBy: AppImageConfigSortKeyType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppImageConfigsResponseTypeDef]:
         """
-        [ListAppImageConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAppImageConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAppImageConfigs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listappimageconfigspaginator)
         """
-
 
 class ListAppsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListApps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListApps)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listappspaginator)
     """
 
     def paginate(
         self,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortOrder: SortOrderType = None,
         SortBy: Literal["CreationTime"] = None,
         DomainIdEquals: str = None,
         UserProfileNameEquals: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppsResponseTypeDef]:
         """
-        [ListApps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListApps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListApps.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listappspaginator)
         """
-
 
 class ListArtifactsPaginator(Boto3Paginator):
     """
-    [Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListArtifacts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListArtifacts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listartifactspaginator)
     """
 
     def paginate(
         self,
+        *,
         SourceUri: str = None,
         ArtifactType: str = None,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
         SortBy: Literal["CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListArtifactsResponseTypeDef]:
         """
-        [ListArtifacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListArtifacts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListArtifacts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listartifactspaginator)
         """
-
 
 class ListAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         SourceArn: str = None,
         DestinationArn: str = None,
         SourceType: str = None,
         DestinationType: str = None,
-        AssociationType: Literal[
-            "ContributedTo", "AssociatedWith", "DerivedFrom", "Produced"
-        ] = None,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal[
-            "SourceArn", "DestinationArn", "SourceType", "DestinationType", "CreationTime"
-        ] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        AssociationType: AssociationEdgeTypeType = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortAssociationsByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociationsResponseTypeDef]:
         """
-        [ListAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listassociationspaginator)
         """
-
 
 class ListAutoMLJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAutoMLJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listautomljobspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        StatusEquals: Literal["Completed", "InProgress", "Failed", "Stopped", "Stopping"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StatusEquals: AutoMLJobStatusType = None,
+        SortOrder: AutoMLSortOrderType = None,
+        SortBy: AutoMLSortByType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAutoMLJobsResponseTypeDef]:
         """
-        [ListAutoMLJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listautomljobspaginator)
         """
-
 
 class ListCandidatesForAutoMLJobPaginator(Boto3Paginator):
     """
-    [Paginator.ListCandidatesForAutoMLJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcandidatesforautomljobpaginator)
     """
 
     def paginate(
         self,
+        *,
         AutoMLJobName: str,
-        StatusEquals: Literal["Completed", "InProgress", "Failed", "Stopped", "Stopping"] = None,
+        StatusEquals: CandidateStatusType = None,
         CandidateNameEquals: str = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        SortBy: Literal["CreationTime", "Status", "FinalObjectiveMetricValue"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortOrder: AutoMLSortOrderType = None,
+        SortBy: CandidateSortByType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCandidatesForAutoMLJobResponseTypeDef]:
         """
-        [ListCandidatesForAutoMLJob.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcandidatesforautomljobpaginator)
         """
-
 
 class ListCodeRepositoriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCodeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcoderepositoriespaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        SortBy: Literal["Name", "CreationTime", "LastModifiedTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortBy: CodeRepositorySortByType = None,
+        SortOrder: CodeRepositorySortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCodeRepositoriesOutputTypeDef]:
         """
-        [ListCodeRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcoderepositoriespaginator)
         """
-
 
 class ListCompilationJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCompilationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcompilationjobspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        StatusEquals: Literal[
-            "INPROGRESS", "COMPLETED", "FAILED", "STARTING", "STOPPING", "STOPPED"
-        ] = None,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StatusEquals: CompilationJobStatusType = None,
+        SortBy: ListCompilationJobsSortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCompilationJobsResponseTypeDef]:
         """
-        [ListCompilationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcompilationjobspaginator)
         """
-
 
 class ListContextsPaginator(Boto3Paginator):
     """
-    [Paginator.ListContexts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListContexts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListContexts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcontextspaginator)
     """
 
     def paginate(
         self,
+        *,
         SourceUri: str = None,
         ContextType: str = None,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortContextsByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContextsResponseTypeDef]:
         """
-        [ListContexts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListContexts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListContexts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listcontextspaginator)
         """
-
 
 class ListDataQualityJobDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataQualityJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDataQualityJobDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDataQualityJobDefinitions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdataqualityjobdefinitionspaginator)
     """
 
     def paginate(
         self,
+        *,
         EndpointName: str = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        SortBy: MonitoringJobDefinitionSortKeyType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataQualityJobDefinitionsResponseTypeDef]:
         """
-        [ListDataQualityJobDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDataQualityJobDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDataQualityJobDefinitions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdataqualityjobdefinitionspaginator)
         """
-
 
 class ListDeviceFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDeviceFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDeviceFleets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdevicefleetspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        SortBy: Literal["NAME", "CREATION_TIME", "LAST_MODIFIED_TIME"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortBy: ListDeviceFleetsSortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceFleetsResponseTypeDef]:
         """
-        [ListDeviceFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDeviceFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDeviceFleets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdevicefleetspaginator)
         """
-
 
 class ListDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDevices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdevicespaginator)
     """
 
     def paginate(
         self,
-        LatestHeartbeatAfter: datetime = None,
+        *,
+        LatestHeartbeatAfter: Union[datetime, str] = None,
         ModelName: str = None,
         DeviceFleetName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevicesResponseTypeDef]:
         """
-        [ListDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDevices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdevicespaginator)
         """
-
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdomainspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResponseTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listdomainspaginator)
         """
-
 
 class ListEdgePackagingJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEdgePackagingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgePackagingJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgePackagingJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listedgepackagingjobspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
         ModelNameContains: str = None,
-        StatusEquals: Literal[
-            "STARTING", "INPROGRESS", "COMPLETED", "FAILED", "STOPPING", "STOPPED"
-        ] = None,
-        SortBy: Literal[
-            "NAME", "MODEL_NAME", "CREATION_TIME", "LAST_MODIFIED_TIME", "STATUS"
-        ] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StatusEquals: EdgePackagingJobStatusType = None,
+        SortBy: ListEdgePackagingJobsSortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEdgePackagingJobsResponseTypeDef]:
         """
-        [ListEdgePackagingJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgePackagingJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListEdgePackagingJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listedgepackagingjobspaginator)
         """
-
 
 class ListEndpointConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEndpointConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listendpointconfigspaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: EndpointConfigSortKeyType = None,
+        SortOrder: OrderKeyType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointConfigsOutputTypeDef]:
         """
-        [ListEndpointConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listendpointconfigspaginator)
         """
-
 
 class ListEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listendpointspaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: EndpointSortKeyType = None,
+        SortOrder: OrderKeyType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        StatusEquals: Literal[
-            "OutOfService",
-            "Creating",
-            "Updating",
-            "SystemUpdating",
-            "RollingBack",
-            "InService",
-            "Deleting",
-            "Failed",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        StatusEquals: EndpointStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointsOutputTypeDef]:
         """
-        [ListEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listendpointspaginator)
         """
-
 
 class ListExperimentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListExperiments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listexperimentspaginator)
     """
 
     def paginate(
         self,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortExperimentsByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExperimentsResponseTypeDef]:
         """
-        [ListExperiments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listexperimentspaginator)
         """
-
 
 class ListFeatureGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFeatureGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListFeatureGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListFeatureGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listfeaturegroupspaginator)
     """
 
     def paginate(
         self,
+        *,
         NameContains: str = None,
-        FeatureGroupStatusEquals: Literal[
-            "Creating", "Created", "CreateFailed", "Deleting", "DeleteFailed"
-        ] = None,
-        OfflineStoreStatusEquals: Literal["Active", "Blocked", "Disabled"] = None,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        SortBy: Literal["Name", "FeatureGroupStatus", "OfflineStoreStatus", "CreationTime"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        FeatureGroupStatusEquals: FeatureGroupStatusType = None,
+        OfflineStoreStatusEquals: OfflineStoreStatusValueType = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        SortOrder: FeatureGroupSortOrderType = None,
+        SortBy: FeatureGroupSortByType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFeatureGroupsResponseTypeDef]:
         """
-        [ListFeatureGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListFeatureGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListFeatureGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listfeaturegroupspaginator)
         """
-
 
 class ListFlowDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFlowDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listflowdefinitionspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFlowDefinitionsResponseTypeDef]:
         """
-        [ListFlowDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listflowdefinitionspaginator)
         """
-
 
 class ListHumanTaskUisPaginator(Boto3Paginator):
     """
-    [Paginator.ListHumanTaskUis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listhumantaskuispaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHumanTaskUisResponseTypeDef]:
         """
-        [ListHumanTaskUis.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listhumantaskuispaginator)
         """
-
 
 class ListHyperParameterTuningJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListHyperParameterTuningJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listhyperparametertuningjobspaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "Status", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: HyperParameterTuningJobSortByOptionsType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
-        StatusEquals: Literal["Completed", "InProgress", "Failed", "Stopped", "Stopping"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
+        StatusEquals: HyperParameterTuningJobStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHyperParameterTuningJobsResponseTypeDef]:
         """
-        [ListHyperParameterTuningJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listhyperparametertuningjobspaginator)
         """
-
 
 class ListImageVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListImageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listimageversionspaginator)
     """
 
     def paginate(
         self,
+        *,
         ImageName: str,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
-        SortBy: Literal["CREATION_TIME", "LAST_MODIFIED_TIME", "VERSION"] = None,
-        SortOrder: Literal["ASCENDING", "DESCENDING"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
+        SortBy: ImageVersionSortByType = None,
+        SortOrder: ImageVersionSortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListImageVersionsResponseTypeDef]:
         """
-        [ListImageVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listimageversionspaginator)
         """
-
 
 class ListImagesPaginator(Boto3Paginator):
     """
-    [Paginator.ListImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListImages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListImages)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listimagespaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        SortBy: Literal["CREATION_TIME", "LAST_MODIFIED_TIME", "IMAGE_NAME"] = None,
-        SortOrder: Literal["ASCENDING", "DESCENDING"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortBy: ImageSortByType = None,
+        SortOrder: ImageSortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListImagesResponseTypeDef]:
         """
-        [ListImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListImages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListImages.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listimagespaginator)
         """
-
 
 class ListLabelingJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLabelingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listlabelingjobspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        StatusEquals: Literal[
-            "Initializing", "InProgress", "Completed", "Failed", "Stopping", "Stopped"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortBy: SortByType = None,
+        SortOrder: SortOrderType = None,
+        StatusEquals: LabelingJobStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLabelingJobsResponseTypeDef]:
         """
-        [ListLabelingJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listlabelingjobspaginator)
         """
-
 
 class ListLabelingJobsForWorkteamPaginator(Boto3Paginator):
     """
-    [Paginator.ListLabelingJobsForWorkteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listlabelingjobsforworkteampaginator)
     """
 
     def paginate(
         self,
+        *,
         WorkteamArn: str,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
         JobReferenceCodeContains: str = None,
         SortBy: Literal["CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLabelingJobsForWorkteamResponseTypeDef]:
         """
-        [ListLabelingJobsForWorkteam.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listlabelingjobsforworkteampaginator)
         """
-
 
 class ListModelBiasJobDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListModelBiasJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelBiasJobDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelBiasJobDefinitions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelbiasjobdefinitionspaginator)
     """
 
     def paginate(
         self,
+        *,
         EndpointName: str = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        SortBy: MonitoringJobDefinitionSortKeyType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelBiasJobDefinitionsResponseTypeDef]:
         """
-        [ListModelBiasJobDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelBiasJobDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelBiasJobDefinitions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelbiasjobdefinitionspaginator)
         """
-
 
 class ListModelExplainabilityJobDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListModelExplainabilityJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelExplainabilityJobDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelExplainabilityJobDefinitions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelexplainabilityjobdefinitionspaginator)
     """
 
     def paginate(
         self,
+        *,
         EndpointName: str = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        SortBy: MonitoringJobDefinitionSortKeyType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelExplainabilityJobDefinitionsResponseTypeDef]:
         """
-        [ListModelExplainabilityJobDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelExplainabilityJobDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelExplainabilityJobDefinitions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelexplainabilityjobdefinitionspaginator)
         """
-
 
 class ListModelPackageGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListModelPackageGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackageGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackageGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelpackagegroupspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortBy: ModelPackageGroupSortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelPackageGroupsOutputTypeDef]:
         """
-        [ListModelPackageGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackageGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackageGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelpackagegroupspaginator)
         """
-
 
 class ListModelPackagesPaginator(Boto3Paginator):
     """
-    [Paginator.ListModelPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelpackagespaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        ModelApprovalStatus: Literal["Approved", "Rejected", "PendingManualApproval"] = None,
+        ModelApprovalStatus: ModelApprovalStatusType = None,
         ModelPackageGroupName: str = None,
-        ModelPackageType: Literal["Versioned", "Unversioned", "Both"] = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        ModelPackageType: ModelPackageTypeType = None,
+        SortBy: ModelPackageSortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelPackagesOutputTypeDef]:
         """
-        [ListModelPackages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelpackagespaginator)
         """
-
 
 class ListModelQualityJobDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListModelQualityJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelQualityJobDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelQualityJobDefinitions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelqualityjobdefinitionspaginator)
     """
 
     def paginate(
         self,
+        *,
         EndpointName: str = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        SortBy: MonitoringJobDefinitionSortKeyType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelQualityJobDefinitionsResponseTypeDef]:
         """
-        [ListModelQualityJobDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModelQualityJobDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModelQualityJobDefinitions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelqualityjobdefinitionspaginator)
         """
-
 
 class ListModelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModels)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelspaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: ModelSortKeyType = None,
+        SortOrder: OrderKeyType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelsOutputTypeDef]:
         """
-        [ListModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListModels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListModels.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmodelspaginator)
         """
-
 
 class ListMonitoringExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMonitoringExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringexecutionspaginator)
     """
 
     def paginate(
         self,
+        *,
         MonitoringScheduleName: str = None,
         EndpointName: str = None,
-        SortBy: Literal["CreationTime", "ScheduledTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        ScheduledTimeBefore: datetime = None,
-        ScheduledTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        StatusEquals: Literal[
-            "Pending",
-            "Completed",
-            "CompletedWithViolations",
-            "InProgress",
-            "Failed",
-            "Stopping",
-            "Stopped",
-        ] = None,
+        SortBy: MonitoringExecutionSortKeyType = None,
+        SortOrder: SortOrderType = None,
+        ScheduledTimeBefore: Union[datetime, str] = None,
+        ScheduledTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        StatusEquals: ExecutionStatusType = None,
         MonitoringJobDefinitionName: str = None,
-        MonitoringTypeEquals: Literal[
-            "DataQuality", "ModelQuality", "ModelBias", "ModelExplainability"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        MonitoringTypeEquals: MonitoringTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMonitoringExecutionsResponseTypeDef]:
         """
-        [ListMonitoringExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringexecutionspaginator)
         """
-
 
 class ListMonitoringSchedulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListMonitoringSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringschedulespaginator)
     """
 
     def paginate(
         self,
+        *,
         EndpointName: str = None,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        SortBy: MonitoringScheduleSortKeyType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        StatusEquals: Literal["Pending", "Failed", "Scheduled", "Stopped"] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        StatusEquals: ScheduleStatusType = None,
         MonitoringJobDefinitionName: str = None,
-        MonitoringTypeEquals: Literal[
-            "DataQuality", "ModelQuality", "ModelBias", "ModelExplainability"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        MonitoringTypeEquals: MonitoringTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMonitoringSchedulesResponseTypeDef]:
         """
-        [ListMonitoringSchedules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listmonitoringschedulespaginator)
         """
-
 
 class ListNotebookInstanceLifecycleConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListNotebookInstanceLifecycleConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listnotebookinstancelifecycleconfigspaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "CreationTime", "LastModifiedTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: NotebookInstanceLifecycleConfigSortKeyType = None,
+        SortOrder: NotebookInstanceLifecycleConfigSortOrderType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNotebookInstanceLifecycleConfigsOutputTypeDef]:
         """
-        [ListNotebookInstanceLifecycleConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listnotebookinstancelifecycleconfigspaginator)
         """
-
 
 class ListNotebookInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNotebookInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listnotebookinstancespaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: NotebookInstanceSortKeyType = None,
+        SortOrder: NotebookInstanceSortOrderType = None,
         NameContains: str = None,
-        CreationTimeBefore: datetime = None,
-        CreationTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        StatusEquals: Literal[
-            "Pending", "InService", "Stopping", "Stopped", "Failed", "Deleting", "Updating"
-        ] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        CreationTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        StatusEquals: NotebookInstanceStatusType = None,
         NotebookInstanceLifecycleConfigNameContains: str = None,
         DefaultCodeRepositoryContains: str = None,
         AdditionalCodeRepositoryEquals: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNotebookInstancesOutputTypeDef]:
         """
-        [ListNotebookInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listnotebookinstancespaginator)
         """
-
 
 class ListPipelineExecutionStepsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelineExecutionSteps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutionSteps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutionSteps)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineexecutionstepspaginator)
     """
 
     def paginate(
         self,
+        *,
         PipelineExecutionArn: str = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelineExecutionStepsResponseTypeDef]:
         """
-        [ListPipelineExecutionSteps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutionSteps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutionSteps.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineexecutionstepspaginator)
         """
-
 
 class ListPipelineExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineexecutionspaginator)
     """
 
     def paginate(
         self,
+        *,
         PipelineName: str,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal["CreationTime", "PipelineExecutionArn"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortPipelineExecutionsByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelineExecutionsResponseTypeDef]:
         """
-        [ListPipelineExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineexecutionspaginator)
         """
-
 
 class ListPipelineParametersForExecutionPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelineParametersForExecution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineParametersForExecution)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineParametersForExecution)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineparametersforexecutionpaginator)
     """
 
     def paginate(
-        self, PipelineExecutionArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PipelineExecutionArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelineParametersForExecutionResponseTypeDef]:
         """
-        [ListPipelineParametersForExecution.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineParametersForExecution.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineParametersForExecution.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelineparametersforexecutionpaginator)
         """
-
 
 class ListPipelinesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelines)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelines)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelinespaginator)
     """
 
     def paginate(
         self,
+        *,
         PipelineNamePrefix: str = None,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortPipelinesByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelinesResponseTypeDef]:
         """
-        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelines.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelines.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listpipelinespaginator)
         """
-
 
 class ListProcessingJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProcessingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listprocessingjobspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        StatusEquals: Literal["InProgress", "Completed", "Failed", "Stopping", "Stopped"] = None,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StatusEquals: ProcessingJobStatusType = None,
+        SortBy: SortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProcessingJobsResponseTypeDef]:
         """
-        [ListProcessingJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listprocessingjobspaginator)
         """
-
 
 class ListSubscribedWorkteamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSubscribedWorkteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listsubscribedworkteamspaginator)
     """
 
     def paginate(
-        self, NameContains: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, NameContains: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscribedWorkteamsResponseTypeDef]:
         """
-        [ListSubscribedWorkteams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listsubscribedworkteamspaginator)
         """
-
 
 class ListTagsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTags)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTags)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtagspaginator)
     """
 
     def paginate(
-        self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsOutputTypeDef]:
         """
-        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTags.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTags.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtagspaginator)
         """
-
 
 class ListTrainingJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTrainingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrainingjobspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        StatusEquals: Literal["InProgress", "Completed", "Failed", "Stopping", "Stopped"] = None,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StatusEquals: TrainingJobStatusType = None,
+        SortBy: SortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTrainingJobsResponseTypeDef]:
         """
-        [ListTrainingJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrainingjobspaginator)
         """
-
 
 class ListTrainingJobsForHyperParameterTuningJobPaginator(Boto3Paginator):
     """
-    [Paginator.ListTrainingJobsForHyperParameterTuningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrainingjobsforhyperparametertuningjobpaginator)
     """
 
     def paginate(
         self,
+        *,
         HyperParameterTuningJobName: str,
-        StatusEquals: Literal["InProgress", "Completed", "Failed", "Stopping", "Stopped"] = None,
-        SortBy: Literal["Name", "CreationTime", "Status", "FinalObjectiveMetricValue"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StatusEquals: TrainingJobStatusType = None,
+        SortBy: TrainingJobSortByOptionsType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTrainingJobsForHyperParameterTuningJobResponseTypeDef]:
         """
-        [ListTrainingJobsForHyperParameterTuningJob.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrainingjobsforhyperparametertuningjobpaginator)
         """
-
 
 class ListTransformJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTransformJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtransformjobspaginator)
     """
 
     def paginate(
         self,
-        CreationTimeAfter: datetime = None,
-        CreationTimeBefore: datetime = None,
-        LastModifiedTimeAfter: datetime = None,
-        LastModifiedTimeBefore: datetime = None,
+        *,
+        CreationTimeAfter: Union[datetime, str] = None,
+        CreationTimeBefore: Union[datetime, str] = None,
+        LastModifiedTimeAfter: Union[datetime, str] = None,
+        LastModifiedTimeBefore: Union[datetime, str] = None,
         NameContains: str = None,
-        StatusEquals: Literal["InProgress", "Completed", "Failed", "Stopping", "Stopped"] = None,
-        SortBy: Literal["Name", "CreationTime", "Status"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        StatusEquals: TransformJobStatusType = None,
+        SortBy: SortByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTransformJobsResponseTypeDef]:
         """
-        [ListTransformJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtransformjobspaginator)
         """
-
 
 class ListTrialComponentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTrialComponents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrialcomponentspaginator)
     """
 
     def paginate(
         self,
+        *,
         ExperimentName: str = None,
         TrialName: str = None,
         SourceArn: str = None,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortTrialComponentsByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTrialComponentsResponseTypeDef]:
         """
-        [ListTrialComponents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrialcomponentspaginator)
         """
-
 
 class ListTrialsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTrials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrialspaginator)
     """
 
     def paginate(
         self,
+        *,
         ExperimentName: str = None,
         TrialComponentName: str = None,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        SortBy: Literal["Name", "CreationTime"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        SortBy: SortTrialsByType = None,
+        SortOrder: SortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTrialsResponseTypeDef]:
         """
-        [ListTrials.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listtrialspaginator)
         """
-
 
 class ListUserProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listuserprofilespaginator)
     """
 
     def paginate(
         self,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        SortBy: Literal["CreationTime", "LastModifiedTime"] = None,
+        *,
+        SortOrder: SortOrderType = None,
+        SortBy: UserProfileSortKeyType = None,
         DomainIdEquals: str = None,
         UserProfileNameContains: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserProfilesResponseTypeDef]:
         """
-        [ListUserProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listuserprofilespaginator)
         """
-
 
 class ListWorkforcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorkforces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listworkforcespaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "CreateDate"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: ListWorkforcesSortByOptionsType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkforcesResponseTypeDef]:
         """
-        [ListWorkforces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listworkforcespaginator)
         """
-
 
 class ListWorkteamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorkteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listworkteamspaginator)
     """
 
     def paginate(
         self,
-        SortBy: Literal["Name", "CreateDate"] = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
+        *,
+        SortBy: ListWorkteamsSortByOptionsType = None,
+        SortOrder: SortOrderType = None,
         NameContains: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkteamsResponseTypeDef]:
         """
-        [ListWorkteams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#listworkteamspaginator)
         """
-
 
 class SearchPaginator(Boto3Paginator):
     """
-    [Paginator.Search documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.Search)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.Search)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#searchpaginator)
     """
 
     def paginate(
         self,
-        Resource: Literal[
-            "TrainingJob",
-            "Experiment",
-            "ExperimentTrial",
-            "ExperimentTrialComponent",
-            "Endpoint",
-            "ModelPackage",
-            "ModelPackageGroup",
-            "Pipeline",
-            "PipelineExecution",
-            "FeatureGroup",
-        ],
-        SearchExpression: Dict[str, Any] = None,
+        *,
+        Resource: ResourceTypeType,
+        SearchExpression: "SearchExpressionTypeDef" = None,
         SortBy: str = None,
-        SortOrder: Literal["Ascending", "Descending"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        SortOrder: SearchSortOrderType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchResponseTypeDef]:
         """
-        [Search.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker.html#SageMaker.Paginator.Search.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sagemaker.html#SageMaker.Paginator.Search.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker/paginators.html#searchpaginator)
         """

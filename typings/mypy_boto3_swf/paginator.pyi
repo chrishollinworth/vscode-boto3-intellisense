@@ -1,5 +1,7 @@
 """
-Main interface for swf service client paginators.
+Type annotations for swf service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html)
 
 Usage::
 
@@ -28,12 +30,12 @@ Usage::
     poll_for_decision_task_paginator: PollForDecisionTaskPaginator = client.get_paginator("poll_for_decision_task")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_swf.type_defs import (
+from .literals import RegistrationStatusType
+from .type_defs import (
     ActivityTypeInfosTypeDef,
     CloseStatusFilterTypeDef,
     DecisionTaskTypeDef,
@@ -50,12 +52,6 @@ from mypy_boto3_swf.type_defs import (
     WorkflowTypeInfosTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = (
     "GetWorkflowExecutionHistoryPaginator",
     "ListActivityTypesPaginator",
@@ -66,131 +62,145 @@ __all__ = (
     "PollForDecisionTaskPaginator",
 )
 
-
 class GetWorkflowExecutionHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.GetWorkflowExecutionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#getworkflowexecutionhistorypaginator)
     """
 
     def paginate(
         self,
+        *,
         domain: str,
         execution: "WorkflowExecutionTypeDef",
         reverseOrder: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[HistoryTypeDef]:
         """
-        [GetWorkflowExecutionHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#getworkflowexecutionhistorypaginator)
         """
-
 
 class ListActivityTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListActivityTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListActivityTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListActivityTypes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listactivitytypespaginator)
     """
 
     def paginate(
         self,
+        *,
         domain: str,
-        registrationStatus: Literal["REGISTERED", "DEPRECATED"],
+        registrationStatus: RegistrationStatusType,
         name: str = None,
         reverseOrder: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ActivityTypeInfosTypeDef]:
         """
-        [ListActivityTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListActivityTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListActivityTypes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listactivitytypespaginator)
         """
-
 
 class ListClosedWorkflowExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListClosedWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listclosedworkflowexecutionspaginator)
     """
 
     def paginate(
         self,
+        *,
         domain: str,
-        startTimeFilter: ExecutionTimeFilterTypeDef = None,
-        closeTimeFilter: ExecutionTimeFilterTypeDef = None,
-        executionFilter: WorkflowExecutionFilterTypeDef = None,
-        closeStatusFilter: CloseStatusFilterTypeDef = None,
-        typeFilter: WorkflowTypeFilterTypeDef = None,
-        tagFilter: TagFilterTypeDef = None,
+        startTimeFilter: "ExecutionTimeFilterTypeDef" = None,
+        closeTimeFilter: "ExecutionTimeFilterTypeDef" = None,
+        executionFilter: "WorkflowExecutionFilterTypeDef" = None,
+        closeStatusFilter: "CloseStatusFilterTypeDef" = None,
+        typeFilter: "WorkflowTypeFilterTypeDef" = None,
+        tagFilter: "TagFilterTypeDef" = None,
         reverseOrder: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[WorkflowExecutionInfosTypeDef]:
         """
-        [ListClosedWorkflowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listclosedworkflowexecutionspaginator)
         """
-
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListDomains)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listdomainspaginator)
     """
 
     def paginate(
         self,
-        registrationStatus: Literal["REGISTERED", "DEPRECATED"],
+        *,
+        registrationStatus: RegistrationStatusType,
         reverseOrder: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DomainInfosTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListDomains.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listdomainspaginator)
         """
-
 
 class ListOpenWorkflowExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOpenWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listopenworkflowexecutionspaginator)
     """
 
     def paginate(
         self,
+        *,
         domain: str,
-        startTimeFilter: ExecutionTimeFilterTypeDef,
-        typeFilter: WorkflowTypeFilterTypeDef = None,
-        tagFilter: TagFilterTypeDef = None,
+        startTimeFilter: "ExecutionTimeFilterTypeDef",
+        typeFilter: "WorkflowTypeFilterTypeDef" = None,
+        tagFilter: "TagFilterTypeDef" = None,
         reverseOrder: bool = None,
-        executionFilter: WorkflowExecutionFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        executionFilter: "WorkflowExecutionFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[WorkflowExecutionInfosTypeDef]:
         """
-        [ListOpenWorkflowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listopenworkflowexecutionspaginator)
         """
-
 
 class ListWorkflowTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorkflowTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listworkflowtypespaginator)
     """
 
     def paginate(
         self,
+        *,
         domain: str,
-        registrationStatus: Literal["REGISTERED", "DEPRECATED"],
+        registrationStatus: RegistrationStatusType,
         name: str = None,
         reverseOrder: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[WorkflowTypeInfosTypeDef]:
         """
-        [ListWorkflowTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#listworkflowtypespaginator)
         """
-
 
 class PollForDecisionTaskPaginator(Boto3Paginator):
     """
-    [Paginator.PollForDecisionTask documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.PollForDecisionTask)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.PollForDecisionTask)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#pollfordecisiontaskpaginator)
     """
 
     def paginate(
         self,
+        *,
         domain: str,
         taskList: "TaskListTypeDef",
         identity: str = None,
         reverseOrder: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DecisionTaskTypeDef]:
         """
-        [PollForDecisionTask.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/swf.html#SWF.Paginator.PollForDecisionTask.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/swf.html#SWF.Paginator.PollForDecisionTask.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/paginators.html#pollfordecisiontaskpaginator)
         """

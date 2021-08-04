@@ -1,27 +1,71 @@
 """
-Main interface for sagemaker-runtime service type definitions.
+Type annotations for sagemaker-runtime service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_runtime.type_defs import ResponseMetadata
+    from mypy_boto3_sagemaker_runtime.type_defs import InvokeEndpointInputRequestTypeDef
 
-    data: ResponseMetadata = {...}
+    data: InvokeEndpointInputRequestTypeDef = {...}
     ```
 """
 import sys
 from typing import IO, Any, Dict, Union
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
+__all__ = (
+    "InvokeEndpointInputRequestTypeDef",
+    "InvokeEndpointOutputTypeDef",
+    "ResponseMetadataTypeDef",
+)
 
-__all__ = ("ResponseMetadata", "InvokeEndpointOutputTypeDef")
+_RequiredInvokeEndpointInputRequestTypeDef = TypedDict(
+    "_RequiredInvokeEndpointInputRequestTypeDef",
+    {
+        "EndpointName": str,
+        "Body": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+_OptionalInvokeEndpointInputRequestTypeDef = TypedDict(
+    "_OptionalInvokeEndpointInputRequestTypeDef",
+    {
+        "ContentType": str,
+        "Accept": str,
+        "CustomAttributes": str,
+        "TargetModel": str,
+        "TargetVariant": str,
+        "TargetContainerHostname": str,
+        "InferenceId": str,
+    },
+    total=False,
+)
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+class InvokeEndpointInputRequestTypeDef(
+    _RequiredInvokeEndpointInputRequestTypeDef, _OptionalInvokeEndpointInputRequestTypeDef
+):
+    pass
+
+InvokeEndpointOutputTypeDef = TypedDict(
+    "InvokeEndpointOutputTypeDef",
+    {
+        "Body": bytes,
+        "ContentType": str,
+        "InvokedProductionVariant": str,
+        "CustomAttributes": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -30,23 +74,3 @@ ResponseMetadata = TypedDict(
         "RetryAttempts": int,
     },
 )
-
-_RequiredInvokeEndpointOutputTypeDef = TypedDict(
-    "_RequiredInvokeEndpointOutputTypeDef", {"Body": Union[bytes, IO[bytes]]}
-)
-_OptionalInvokeEndpointOutputTypeDef = TypedDict(
-    "_OptionalInvokeEndpointOutputTypeDef",
-    {
-        "ContentType": str,
-        "InvokedProductionVariant": str,
-        "CustomAttributes": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-
-class InvokeEndpointOutputTypeDef(
-    _RequiredInvokeEndpointOutputTypeDef, _OptionalInvokeEndpointOutputTypeDef
-):
-    pass

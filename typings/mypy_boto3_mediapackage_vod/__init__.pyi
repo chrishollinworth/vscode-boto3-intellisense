@@ -23,15 +23,14 @@ Usage::
     list_packaging_groups_paginator: ListPackagingGroupsPaginator = client.get_paginator("list_packaging_groups")
     ```
 """
-from mypy_boto3_mediapackage_vod.client import MediaPackageVodClient
-from mypy_boto3_mediapackage_vod.paginator import (
+from .client import MediaPackageVodClient
+from .paginator import (
     ListAssetsPaginator,
     ListPackagingConfigurationsPaginator,
     ListPackagingGroupsPaginator,
 )
 
 Client = MediaPackageVodClient
-
 
 __all__ = (
     "Client",

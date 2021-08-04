@@ -16,9 +16,8 @@ Usage::
     session_client: ForecastQueryServiceClient = session.client("forecastquery")
     ```
 """
-from mypy_boto3_forecastquery.client import ForecastQueryServiceClient
+from .client import ForecastQueryServiceClient
 
 Client = ForecastQueryServiceClient
-
 
 __all__ = ("Client", "ForecastQueryServiceClient")

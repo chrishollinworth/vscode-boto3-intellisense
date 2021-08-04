@@ -16,9 +16,8 @@ Usage::
     session_client: WorkMailMessageFlowClient = session.client("workmailmessageflow")
     ```
 """
-from mypy_boto3_workmailmessageflow.client import WorkMailMessageFlowClient
+from .client import WorkMailMessageFlowClient
 
 Client = WorkMailMessageFlowClient
-
 
 __all__ = ("Client", "WorkMailMessageFlowClient")

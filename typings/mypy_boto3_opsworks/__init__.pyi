@@ -37,10 +37,10 @@ Usage::
     describe_ecs_clusters_paginator: DescribeEcsClustersPaginator = client.get_paginator("describe_ecs_clusters")
     ```
 """
-from mypy_boto3_opsworks.client import OpsWorksClient
-from mypy_boto3_opsworks.paginator import DescribeEcsClustersPaginator
-from mypy_boto3_opsworks.service_resource import OpsWorksServiceResource
-from mypy_boto3_opsworks.waiter import (
+from .client import OpsWorksClient
+from .paginator import DescribeEcsClustersPaginator
+from .service_resource import OpsWorksServiceResource
+from .waiter import (
     AppExistsWaiter,
     DeploymentSuccessfulWaiter,
     InstanceOnlineWaiter,
@@ -51,9 +51,7 @@ from mypy_boto3_opsworks.waiter import (
 
 Client = OpsWorksClient
 
-
 ServiceResource = OpsWorksServiceResource
-
 
 __all__ = (
     "AppExistsWaiter",

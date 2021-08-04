@@ -35,8 +35,8 @@ Usage::
     list_users_in_group_paginator: ListUsersInGroupPaginator = client.get_paginator("list_users_in_group")
     ```
 """
-from mypy_boto3_cognito_idp.client import CognitoIdentityProviderClient
-from mypy_boto3_cognito_idp.paginator import (
+from .client import CognitoIdentityProviderClient
+from .paginator import (
     AdminListGroupsForUserPaginator,
     AdminListUserAuthEventsPaginator,
     ListGroupsPaginator,
@@ -49,7 +49,6 @@ from mypy_boto3_cognito_idp.paginator import (
 )
 
 Client = CognitoIdentityProviderClient
-
 
 __all__ = (
     "AdminListGroupsForUserPaginator",

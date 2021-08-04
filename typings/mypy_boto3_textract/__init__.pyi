@@ -16,9 +16,8 @@ Usage::
     session_client: TextractClient = session.client("textract")
     ```
 """
-from mypy_boto3_textract.client import TextractClient
+from .client import TextractClient
 
 Client = TextractClient
-
 
 __all__ = ("Client", "TextractClient")

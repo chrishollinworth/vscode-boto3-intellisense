@@ -29,8 +29,8 @@ Usage::
     list_webhooks_paginator: ListWebhooksPaginator = client.get_paginator("list_webhooks")
     ```
 """
-from mypy_boto3_codepipeline.client import CodePipelineClient
-from mypy_boto3_codepipeline.paginator import (
+from .client import CodePipelineClient
+from .paginator import (
     ListActionExecutionsPaginator,
     ListActionTypesPaginator,
     ListPipelineExecutionsPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_codepipeline.paginator import (
 )
 
 Client = CodePipelineClient
-
 
 __all__ = (
     "Client",

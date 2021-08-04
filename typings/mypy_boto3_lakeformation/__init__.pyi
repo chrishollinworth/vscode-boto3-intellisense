@@ -16,9 +16,8 @@ Usage::
     session_client: LakeFormationClient = session.client("lakeformation")
     ```
 """
-from mypy_boto3_lakeformation.client import LakeFormationClient
+from .client import LakeFormationClient
 
 Client = LakeFormationClient
-
 
 __all__ = ("Client", "LakeFormationClient")

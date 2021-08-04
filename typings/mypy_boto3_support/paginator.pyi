@@ -1,5 +1,7 @@
 """
-Main interface for support service client paginators.
+Type annotations for support service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/paginators.html)
 
 Usage::
 
@@ -22,7 +24,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_support.type_defs import (
+from .type_defs import (
     DescribeCasesResponseTypeDef,
     DescribeCommunicationsResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -30,14 +32,15 @@ from mypy_boto3_support.type_defs import (
 
 __all__ = ("DescribeCasesPaginator", "DescribeCommunicationsPaginator")
 
-
 class DescribeCasesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Paginator.DescribeCases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/support.html#Support.Paginator.DescribeCases)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/paginators.html#describecasespaginator)
     """
 
     def paginate(
         self,
+        *,
         caseIdList: List[str] = None,
         displayId: str = None,
         afterTime: str = None,
@@ -45,25 +48,28 @@ class DescribeCasesPaginator(Boto3Paginator):
         includeResolvedCases: bool = None,
         language: str = None,
         includeCommunications: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeCasesResponseTypeDef]:
         """
-        [DescribeCases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Paginator.DescribeCases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/support.html#Support.Paginator.DescribeCases.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/paginators.html#describecasespaginator)
         """
-
 
 class DescribeCommunicationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCommunications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Paginator.DescribeCommunications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/support.html#Support.Paginator.DescribeCommunications)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/paginators.html#describecommunicationspaginator)
     """
 
     def paginate(
         self,
+        *,
         caseId: str,
         beforeTime: str = None,
         afterTime: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeCommunicationsResponseTypeDef]:
         """
-        [DescribeCommunications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Paginator.DescribeCommunications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/support.html#Support.Paginator.DescribeCommunications.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/paginators.html#describecommunicationspaginator)
         """

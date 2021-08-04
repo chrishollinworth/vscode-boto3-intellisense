@@ -1,5 +1,7 @@
 """
-Main interface for cloudhsmv2 service client
+Type annotations for cloudhsmv2 service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html)
 
 Usage::
 
@@ -13,14 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_cloudhsmv2.paginator import (
-    DescribeBackupsPaginator,
-    DescribeClustersPaginator,
-    ListTagsPaginator,
-)
-from mypy_boto3_cloudhsmv2.type_defs import (
+from .paginator import DescribeBackupsPaginator, DescribeClustersPaginator, ListTagsPaginator
+from .type_defs import (
     BackupRetentionPolicyTypeDef,
     CopyBackupToRegionResponseTypeDef,
     CreateClusterResponseTypeDef,
@@ -43,17 +41,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("CloudHSMV2Client",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -64,81 +58,105 @@ class Exceptions:
     CloudHsmServiceException: Type[BotocoreClientError]
     CloudHsmTagException: Type[BotocoreClientError]
 
-
-class CloudHSMV2Client:
+class CloudHSMV2Client(BaseClient):
     """
-    [CloudHSMV2.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        CloudHSMV2Client exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#can_paginate)
+        """
     def copy_backup_to_region(
-        self, DestinationRegion: str, BackupId: str, TagList: List["TagTypeDef"] = None
+        self, *, DestinationRegion: str, BackupId: str, TagList: List["TagTypeDef"] = None
     ) -> CopyBackupToRegionResponseTypeDef:
         """
-        [Client.copy_backup_to_region documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.copy_backup_to_region)
-        """
+        Copy an AWS CloudHSM cluster backup to a different region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.copy_backup_to_region)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#copy_backup_to_region)
+        """
     def create_cluster(
         self,
+        *,
         HsmType: str,
         SubnetIds: List[str],
         BackupRetentionPolicy: "BackupRetentionPolicyTypeDef" = None,
         SourceBackupId: str = None,
-        TagList: List["TagTypeDef"] = None,
+        TagList: List["TagTypeDef"] = None
     ) -> CreateClusterResponseTypeDef:
         """
-        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.create_cluster)
-        """
+        Creates a new AWS CloudHSM cluster.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.create_cluster)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#create_cluster)
+        """
     def create_hsm(
-        self, ClusterId: str, AvailabilityZone: str, IpAddress: str = None
+        self, *, ClusterId: str, AvailabilityZone: str, IpAddress: str = None
     ) -> CreateHsmResponseTypeDef:
         """
-        [Client.create_hsm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.create_hsm)
-        """
+        Creates a new hardware security module (HSM) in the specified AWS CloudHSM
+        cluster.
 
-    def delete_backup(self, BackupId: str) -> DeleteBackupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.create_hsm)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#create_hsm)
         """
-        [Client.delete_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.delete_backup)
+    def delete_backup(self, *, BackupId: str) -> DeleteBackupResponseTypeDef:
         """
+        Deletes a specified AWS CloudHSM backup.
 
-    def delete_cluster(self, ClusterId: str) -> DeleteClusterResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.delete_backup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#delete_backup)
         """
-        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.delete_cluster)
+    def delete_cluster(self, *, ClusterId: str) -> DeleteClusterResponseTypeDef:
         """
+        Deletes the specified AWS CloudHSM cluster.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.delete_cluster)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#delete_cluster)
+        """
     def delete_hsm(
-        self, ClusterId: str, HsmId: str = None, EniId: str = None, EniIp: str = None
+        self, *, ClusterId: str, HsmId: str = None, EniId: str = None, EniIp: str = None
     ) -> DeleteHsmResponseTypeDef:
         """
-        [Client.delete_hsm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.delete_hsm)
-        """
+        Deletes the specified HSM.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.delete_hsm)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#delete_hsm)
+        """
     def describe_backups(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
         Filters: Dict[str, List[str]] = None,
-        SortAscending: bool = None,
+        SortAscending: bool = None
     ) -> DescribeBackupsResponseTypeDef:
         """
-        [Client.describe_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.describe_backups)
-        """
+        Gets information about backups of AWS CloudHSM clusters.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.describe_backups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#describe_backups)
+        """
     def describe_clusters(
-        self, Filters: Dict[str, List[str]] = None, NextToken: str = None, MaxResults: int = None
+        self, *, Filters: Dict[str, List[str]] = None, NextToken: str = None, MaxResults: int = None
     ) -> DescribeClustersResponseTypeDef:
         """
-        [Client.describe_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.describe_clusters)
-        """
+        Gets information about AWS CloudHSM clusters.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.describe_clusters)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#describe_clusters)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -147,70 +165,89 @@ class CloudHSMV2Client:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#generate_presigned_url)
+        """
     def initialize_cluster(
-        self, ClusterId: str, SignedCert: str, TrustAnchor: str
+        self, *, ClusterId: str, SignedCert: str, TrustAnchor: str
     ) -> InitializeClusterResponseTypeDef:
         """
-        [Client.initialize_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.initialize_cluster)
-        """
+        Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by
+        your issuing certificate authority (CA) and the CA's root certificate.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.initialize_cluster)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#initialize_cluster)
+        """
     def list_tags(
-        self, ResourceId: str, NextToken: str = None, MaxResults: int = None
+        self, *, ResourceId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsResponseTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.list_tags)
-        """
+        Gets a list of tags for the specified AWS CloudHSM cluster.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.list_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#list_tags)
+        """
     def modify_backup_attributes(
-        self, BackupId: str, NeverExpires: bool
+        self, *, BackupId: str, NeverExpires: bool
     ) -> ModifyBackupAttributesResponseTypeDef:
         """
-        [Client.modify_backup_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.modify_backup_attributes)
-        """
+        Modifies attributes for AWS CloudHSM backup.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.modify_backup_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#modify_backup_attributes)
+        """
     def modify_cluster(
-        self, BackupRetentionPolicy: "BackupRetentionPolicyTypeDef", ClusterId: str
+        self, *, BackupRetentionPolicy: "BackupRetentionPolicyTypeDef", ClusterId: str
     ) -> ModifyClusterResponseTypeDef:
         """
-        [Client.modify_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.modify_cluster)
-        """
+        Modifies AWS CloudHSM cluster.
 
-    def restore_backup(self, BackupId: str) -> RestoreBackupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.modify_cluster)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#modify_cluster)
         """
-        [Client.restore_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.restore_backup)
+    def restore_backup(self, *, BackupId: str) -> RestoreBackupResponseTypeDef:
         """
+        Restores a specified AWS CloudHSM backup that is in the `PENDING_DELETION`
+        state.
 
-    def tag_resource(self, ResourceId: str, TagList: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.restore_backup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#restore_backup)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.tag_resource)
+    def tag_resource(self, *, ResourceId: str, TagList: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.
 
-    def untag_resource(self, ResourceId: str, TagKeyList: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Client.untag_resource)
+    def untag_resource(self, *, ResourceId: str, TagKeyList: List[str]) -> Dict[str, Any]:
         """
+        Removes the specified tag or tags from the specified AWS CloudHSM cluster.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/client.html#untag_resource)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_backups"]
     ) -> DescribeBackupsPaginator:
         """
-        [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeBackups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeBackups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/paginators.html#describebackupspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_clusters"]
     ) -> DescribeClustersPaginator:
         """
-        [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeClusters)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/paginators.html#describeclusterspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.ListTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.ListTags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/paginators.html#listtagspaginator)
         """

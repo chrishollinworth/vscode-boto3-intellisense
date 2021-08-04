@@ -1,5 +1,7 @@
 """
-Main interface for batch service client paginators.
+Type annotations for batch service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html)
 
 Usage::
 
@@ -22,24 +24,19 @@ Usage::
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     ```
 """
-import sys
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_batch.type_defs import (
+from .literals import JobStatusType
+from .type_defs import (
     DescribeComputeEnvironmentsResponseTypeDef,
     DescribeJobDefinitionsResponseTypeDef,
     DescribeJobQueuesResponseTypeDef,
+    KeyValuesPairTypeDef,
     ListJobsResponseTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "DescribeComputeEnvironmentsPaginator",
@@ -48,65 +45,73 @@ __all__ = (
     "ListJobsPaginator",
 )
 
-
 class DescribeComputeEnvironmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeComputeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describecomputeenvironmentspaginator)
     """
 
     def paginate(
-        self, computeEnvironments: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        computeEnvironments: List[str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeComputeEnvironmentsResponseTypeDef]:
         """
-        [DescribeComputeEnvironments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describecomputeenvironmentspaginator)
         """
-
 
 class DescribeJobDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobdefinitionspaginator)
     """
 
     def paginate(
         self,
+        *,
         jobDefinitions: List[str] = None,
         jobDefinitionName: str = None,
         status: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeJobDefinitionsResponseTypeDef]:
         """
-        [DescribeJobDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobdefinitionspaginator)
         """
-
 
 class DescribeJobQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeJobQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobqueuespaginator)
     """
 
     def paginate(
-        self, jobQueues: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, jobQueues: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeJobQueuesResponseTypeDef]:
         """
-        [DescribeJobQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.DescribeJobQueues.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.DescribeJobQueues.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#describejobqueuespaginator)
         """
-
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.ListJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.ListJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#listjobspaginator)
     """
 
     def paginate(
         self,
+        *,
         jobQueue: str = None,
         arrayJobId: str = None,
         multiNodeJobId: str = None,
-        jobStatus: Literal[
-            "SUBMITTED", "PENDING", "RUNNABLE", "STARTING", "RUNNING", "SUCCEEDED", "FAILED"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        jobStatus: JobStatusType = None,
+        filters: List["KeyValuesPairTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/batch.html#Batch.Paginator.ListJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/batch.html#Batch.Paginator.ListJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_batch/paginators.html#listjobspaginator)
         """

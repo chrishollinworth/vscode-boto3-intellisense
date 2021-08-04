@@ -16,9 +16,8 @@ Usage::
     session_client: AppIntegrationsServiceClient = session.client("appintegrations")
     ```
 """
-from mypy_boto3_appintegrations.client import AppIntegrationsServiceClient
+from .client import AppIntegrationsServiceClient
 
 Client = AppIntegrationsServiceClient
-
 
 __all__ = ("AppIntegrationsServiceClient", "Client")

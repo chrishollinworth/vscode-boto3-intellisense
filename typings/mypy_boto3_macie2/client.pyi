@@ -1,5 +1,7 @@
 """
-Main interface for macie2 service client
+Type annotations for macie2 service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html)
 
 Usage::
 
@@ -13,9 +15,19 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_macie2.paginator import (
+from .literals import (
+    FindingPublishingFrequencyType,
+    FindingsFilterActionType,
+    FindingTypeType,
+    GroupByType,
+    JobStatusType,
+    JobTypeType,
+    MacieStatusType,
+    TimeRangeType,
+)
+from .paginator import (
     DescribeBucketsPaginator,
     GetUsageStatisticsPaginator,
     ListClassificationJobsPaginator,
@@ -25,8 +37,9 @@ from mypy_boto3_macie2.paginator import (
     ListInvitationsPaginator,
     ListMembersPaginator,
     ListOrganizationAdminAccountsPaginator,
+    SearchResourcesPaginator,
 )
-from mypy_boto3_macie2.type_defs import (
+from .type_defs import (
     AccountDetailTypeDef,
     BatchGetCustomDataIdentifiersResponseTypeDef,
     BucketCriteriaAdditionalPropertiesTypeDef,
@@ -44,10 +57,12 @@ from mypy_boto3_macie2.type_defs import (
     DescribeOrganizationConfigurationResponseTypeDef,
     FindingCriteriaTypeDef,
     FindingStatisticsSortCriteriaTypeDef,
+    GetAdministratorAccountResponseTypeDef,
     GetBucketStatisticsResponseTypeDef,
     GetClassificationExportConfigurationResponseTypeDef,
     GetCustomDataIdentifierResponseTypeDef,
     GetFindingsFilterResponseTypeDef,
+    GetFindingsPublicationConfigurationResponseTypeDef,
     GetFindingsResponseTypeDef,
     GetFindingStatisticsResponseTypeDef,
     GetInvitationsCountResponseTypeDef,
@@ -69,6 +84,10 @@ from mypy_boto3_macie2.type_defs import (
     ListTagsForResourceResponseTypeDef,
     PutClassificationExportConfigurationResponseTypeDef,
     S3JobDefinitionTypeDef,
+    SearchResourcesBucketCriteriaTypeDef,
+    SearchResourcesResponseTypeDef,
+    SearchResourcesSortCriteriaTypeDef,
+    SecurityHubConfigurationTypeDef,
     SortCriteriaTypeDef,
     TestCustomDataIdentifierResponseTypeDef,
     UpdateFindingsFilterResponseTypeDef,
@@ -81,17 +100,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("Macie2Client",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -103,36 +118,49 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class Macie2Client:
+class Macie2Client(BaseClient):
     """
-    [Macie2.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def accept_invitation(self, invitationId: str, masterAccount: str) -> Dict[str, Any]:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.accept_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.accept_invitation)
+        Macie2Client exceptions.
         """
+    def accept_invitation(
+        self, *, invitationId: str, administratorAccountId: str = None, masterAccount: str = None
+    ) -> Dict[str, Any]:
+        """
+        Accepts an Amazon Macie membership invitation that was received from a specific
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.accept_invitation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#accept_invitation)
+        """
     def batch_get_custom_data_identifiers(
-        self, ids: List[str] = None
+        self, *, ids: List[str] = None
     ) -> BatchGetCustomDataIdentifiersResponseTypeDef:
         """
-        [Client.batch_get_custom_data_identifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.batch_get_custom_data_identifiers)
-        """
+        Retrieves information about one or more custom data identifiers.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.batch_get_custom_data_identifiers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#batch_get_custom_data_identifiers)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#can_paginate)
+        """
     def create_classification_job(
         self,
+        *,
         clientToken: str,
-        jobType: Literal["ONE_TIME", "SCHEDULED"],
+        jobType: JobTypeType,
         name: str,
         s3JobDefinition: "S3JobDefinitionTypeDef",
         customDataIdentifierIds: List[str] = None,
@@ -140,14 +168,17 @@ class Macie2Client:
         initialRun: bool = None,
         samplingPercentage: int = None,
         scheduleFrequency: "JobScheduleFrequencyTypeDef" = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateClassificationJobResponseTypeDef:
         """
-        [Client.create_classification_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.create_classification_job)
-        """
+        Creates and defines the settings for a classification job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.create_classification_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#create_classification_job)
+        """
     def create_custom_data_identifier(
         self,
+        *,
         clientToken: str = None,
         description: str = None,
         ignoreWords: List[str] = None,
@@ -155,146 +186,192 @@ class Macie2Client:
         maximumMatchDistance: int = None,
         name: str = None,
         regex: str = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateCustomDataIdentifierResponseTypeDef:
         """
-        [Client.create_custom_data_identifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.create_custom_data_identifier)
-        """
+        Creates and defines the criteria and other settings for a custom data
+        identifier.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.create_custom_data_identifier)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#create_custom_data_identifier)
+        """
     def create_findings_filter(
         self,
-        action: Literal["ARCHIVE", "NOOP"],
+        *,
+        action: FindingsFilterActionType,
         findingCriteria: "FindingCriteriaTypeDef",
         name: str,
         clientToken: str = None,
         description: str = None,
         position: int = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateFindingsFilterResponseTypeDef:
         """
-        [Client.create_findings_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.create_findings_filter)
-        """
+        Creates and defines the criteria and other settings for a findings filter.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.create_findings_filter)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#create_findings_filter)
+        """
     def create_invitations(
-        self, accountIds: List[str], disableEmailNotification: bool = None, message: str = None
+        self, *, accountIds: List[str], disableEmailNotification: bool = None, message: str = None
     ) -> CreateInvitationsResponseTypeDef:
         """
-        [Client.create_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.create_invitations)
-        """
+        Sends an Amazon Macie membership invitation to one or more accounts.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.create_invitations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#create_invitations)
+        """
     def create_member(
-        self, account: AccountDetailTypeDef, tags: Dict[str, str] = None
+        self, *, account: "AccountDetailTypeDef", tags: Dict[str, str] = None
     ) -> CreateMemberResponseTypeDef:
         """
-        [Client.create_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.create_member)
-        """
+        Associates an account with an Amazon Macie administrator account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.create_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#create_member)
+        """
     def create_sample_findings(
-        self,
-        findingTypes: List[
-            Literal[
-                "SensitiveData:S3Object/Multiple",
-                "SensitiveData:S3Object/Financial",
-                "SensitiveData:S3Object/Personal",
-                "SensitiveData:S3Object/Credentials",
-                "SensitiveData:S3Object/CustomIdentifier",
-                "Policy:IAMUser/S3BucketPublic",
-                "Policy:IAMUser/S3BucketSharedExternally",
-                "Policy:IAMUser/S3BucketReplicatedExternally",
-                "Policy:IAMUser/S3BucketEncryptionDisabled",
-                "Policy:IAMUser/S3BlockPublicAccessDisabled",
-            ]
-        ] = None,
+        self, *, findingTypes: List[FindingTypeType] = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_sample_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.create_sample_findings)
-        """
+        Creates sample findings.
 
-    def decline_invitations(self, accountIds: List[str]) -> DeclineInvitationsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.create_sample_findings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#create_sample_findings)
         """
-        [Client.decline_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.decline_invitations)
+    def decline_invitations(self, *, accountIds: List[str]) -> DeclineInvitationsResponseTypeDef:
         """
+        Declines Amazon Macie membership invitations that were received from specific
+        accounts.
 
-    def delete_custom_data_identifier(self, id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.decline_invitations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#decline_invitations)
         """
-        [Client.delete_custom_data_identifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.delete_custom_data_identifier)
+    def delete_custom_data_identifier(self, *, id: str) -> Dict[str, Any]:
         """
+        Soft deletes a custom data identifier.
 
-    def delete_findings_filter(self, id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.delete_custom_data_identifier)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#delete_custom_data_identifier)
         """
-        [Client.delete_findings_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.delete_findings_filter)
+    def delete_findings_filter(self, *, id: str) -> Dict[str, Any]:
         """
+        Deletes a findings filter.
 
-    def delete_invitations(self, accountIds: List[str]) -> DeleteInvitationsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.delete_findings_filter)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#delete_findings_filter)
         """
-        [Client.delete_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.delete_invitations)
+    def delete_invitations(self, *, accountIds: List[str]) -> DeleteInvitationsResponseTypeDef:
         """
+        Deletes Amazon Macie membership invitations that were received from specific
+        accounts.
 
-    def delete_member(self, id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.delete_invitations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#delete_invitations)
         """
-        [Client.delete_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.delete_member)
+    def delete_member(self, *, id: str) -> Dict[str, Any]:
         """
+        Deletes the association between an Amazon Macie administrator account and an
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.delete_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#delete_member)
+        """
     def describe_buckets(
         self,
-        criteria: Dict[str, BucketCriteriaAdditionalPropertiesTypeDef] = None,
+        *,
+        criteria: Dict[str, "BucketCriteriaAdditionalPropertiesTypeDef"] = None,
         maxResults: int = None,
         nextToken: str = None,
-        sortCriteria: BucketSortCriteriaTypeDef = None,
+        sortCriteria: "BucketSortCriteriaTypeDef" = None
     ) -> DescribeBucketsResponseTypeDef:
         """
-        [Client.describe_buckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.describe_buckets)
-        """
+        Retrieves (queries) statistical data and other information about one or more S3
+        buckets that Amazon Macie monitors and analyzes.
 
-    def describe_classification_job(self, jobId: str) -> DescribeClassificationJobResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.describe_buckets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#describe_buckets)
         """
-        [Client.describe_classification_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.describe_classification_job)
+    def describe_classification_job(
+        self, *, jobId: str
+    ) -> DescribeClassificationJobResponseTypeDef:
         """
+        Retrieves the status and settings for a classification job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.describe_classification_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#describe_classification_job)
+        """
     def describe_organization_configuration(
         self,
     ) -> DescribeOrganizationConfigurationResponseTypeDef:
         """
-        [Client.describe_organization_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.describe_organization_configuration)
-        """
+        Retrieves the Amazon Macie configuration settings for an Amazon Web Services
+        organization.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.describe_organization_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#describe_organization_configuration)
+        """
     def disable_macie(self) -> Dict[str, Any]:
         """
-        [Client.disable_macie documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.disable_macie)
-        """
+        Disables an Amazon Macie account and deletes Macie resources for the account.
 
-    def disable_organization_admin_account(self, adminAccountId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.disable_macie)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#disable_macie)
         """
-        [Client.disable_organization_admin_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.disable_organization_admin_account)
+    def disable_organization_admin_account(self, *, adminAccountId: str) -> Dict[str, Any]:
         """
+        Disables an account as the delegated Amazon Macie administrator account for an
+        Amazon Web Services organization.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.disable_organization_admin_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#disable_organization_admin_account)
+        """
+    def disassociate_from_administrator_account(self) -> Dict[str, Any]:
+        """
+        Disassociates a member account from its Amazon Macie administrator account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.disassociate_from_administrator_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#disassociate_from_administrator_account)
+        """
     def disassociate_from_master_account(self) -> Dict[str, Any]:
         """
-        [Client.disassociate_from_master_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.disassociate_from_master_account)
-        """
+        (Deprecated) Disassociates a member account from its Amazon Macie administrator
+        account.
 
-    def disassociate_member(self, id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.disassociate_from_master_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#disassociate_from_master_account)
         """
-        [Client.disassociate_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.disassociate_member)
+    def disassociate_member(self, *, id: str) -> Dict[str, Any]:
         """
+        Disassociates an Amazon Macie administrator account from a member account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.disassociate_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#disassociate_member)
+        """
     def enable_macie(
         self,
+        *,
         clientToken: str = None,
-        findingPublishingFrequency: Literal["FIFTEEN_MINUTES", "ONE_HOUR", "SIX_HOURS"] = None,
-        status: Literal["PAUSED", "ENABLED"] = None,
+        findingPublishingFrequency: FindingPublishingFrequencyType = None,
+        status: MacieStatusType = None
     ) -> Dict[str, Any]:
         """
-        [Client.enable_macie documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.enable_macie)
-        """
+        Enables Amazon Macie and specifies the configuration settings for a Macie
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.enable_macie)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#enable_macie)
+        """
     def enable_organization_admin_account(
-        self, adminAccountId: str, clientToken: str = None
+        self, *, adminAccountId: str, clientToken: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.enable_organization_admin_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.enable_organization_admin_account)
-        """
+        Designates an account as the delegated Amazon Macie administrator account for an
+        Amazon Web Services organization.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.enable_organization_admin_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#enable_organization_admin_account)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -303,289 +380,414 @@ class Macie2Client:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_bucket_statistics(self, accountId: str = None) -> GetBucketStatisticsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#generate_presigned_url)
         """
-        [Client.get_bucket_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_bucket_statistics)
+    def get_administrator_account(self) -> GetAdministratorAccountResponseTypeDef:
         """
+        Retrieves information about the Amazon Macie administrator account for an
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_administrator_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_administrator_account)
+        """
+    def get_bucket_statistics(self, *, accountId: str = None) -> GetBucketStatisticsResponseTypeDef:
+        """
+        Retrieves (queries) aggregated statistical data for all the S3 buckets that
+        Amazon Macie monitors and analyzes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_bucket_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_bucket_statistics)
+        """
     def get_classification_export_configuration(
         self,
     ) -> GetClassificationExportConfigurationResponseTypeDef:
         """
-        [Client.get_classification_export_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_classification_export_configuration)
-        """
+        Retrieves the configuration settings for storing data classification results.
 
-    def get_custom_data_identifier(self, id: str) -> GetCustomDataIdentifierResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_classification_export_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_classification_export_configuration)
         """
-        [Client.get_custom_data_identifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_custom_data_identifier)
+    def get_custom_data_identifier(self, *, id: str) -> GetCustomDataIdentifierResponseTypeDef:
         """
+        Retrieves the criteria and other settings for a custom data identifier.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_custom_data_identifier)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_custom_data_identifier)
+        """
     def get_finding_statistics(
         self,
-        groupBy: Literal[
-            "resourcesAffected.s3Bucket.name",
-            "type",
-            "classificationDetails.jobId",
-            "severity.description",
-        ],
+        *,
+        groupBy: GroupByType,
         findingCriteria: "FindingCriteriaTypeDef" = None,
         size: int = None,
-        sortCriteria: FindingStatisticsSortCriteriaTypeDef = None,
+        sortCriteria: "FindingStatisticsSortCriteriaTypeDef" = None
     ) -> GetFindingStatisticsResponseTypeDef:
         """
-        [Client.get_finding_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_finding_statistics)
-        """
+        Retrieves (queries) aggregated statistical data about findings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_finding_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_finding_statistics)
+        """
     def get_findings(
-        self, findingIds: List[str], sortCriteria: SortCriteriaTypeDef = None
+        self, *, findingIds: List[str], sortCriteria: "SortCriteriaTypeDef" = None
     ) -> GetFindingsResponseTypeDef:
         """
-        [Client.get_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_findings)
-        """
+        Retrieves the details of one or more findings.
 
-    def get_findings_filter(self, id: str) -> GetFindingsFilterResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_findings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_findings)
         """
-        [Client.get_findings_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_findings_filter)
+    def get_findings_filter(self, *, id: str) -> GetFindingsFilterResponseTypeDef:
         """
+        Retrieves the criteria and other settings for a findings filter.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_findings_filter)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_findings_filter)
+        """
+    def get_findings_publication_configuration(
+        self,
+    ) -> GetFindingsPublicationConfigurationResponseTypeDef:
+        """
+        Retrieves the configuration settings for publishing findings to Security Hub.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_findings_publication_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_findings_publication_configuration)
+        """
     def get_invitations_count(self) -> GetInvitationsCountResponseTypeDef:
         """
-        [Client.get_invitations_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_invitations_count)
-        """
+        Retrieves the count of Amazon Macie membership invitations that were received by
+        an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_invitations_count)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_invitations_count)
+        """
     def get_macie_session(self) -> GetMacieSessionResponseTypeDef:
         """
-        [Client.get_macie_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_macie_session)
-        """
+        Retrieves the current status and configuration settings for an Amazon Macie
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_macie_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_macie_session)
+        """
     def get_master_account(self) -> GetMasterAccountResponseTypeDef:
         """
-        [Client.get_master_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_master_account)
-        """
+        (Deprecated) Retrieves information about the Amazon Macie administrator account
+        for an account.
 
-    def get_member(self, id: str) -> GetMemberResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_master_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_master_account)
         """
-        [Client.get_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_member)
+    def get_member(self, *, id: str) -> GetMemberResponseTypeDef:
         """
+        Retrieves information about an account that's associated with an Amazon Macie
+        administrator account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_member)
+        """
     def get_usage_statistics(
         self,
-        filterBy: List[UsageStatisticsFilterTypeDef] = None,
+        *,
+        filterBy: List["UsageStatisticsFilterTypeDef"] = None,
         maxResults: int = None,
         nextToken: str = None,
-        sortBy: UsageStatisticsSortByTypeDef = None,
-        timeRange: Literal["MONTH_TO_DATE", "PAST_30_DAYS"] = None,
+        sortBy: "UsageStatisticsSortByTypeDef" = None,
+        timeRange: TimeRangeType = None
     ) -> GetUsageStatisticsResponseTypeDef:
         """
-        [Client.get_usage_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_usage_statistics)
-        """
+        Retrieves (queries) quotas and aggregated usage data for one or more accounts.
 
-    def get_usage_totals(self, timeRange: str = None) -> GetUsageTotalsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_usage_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_usage_statistics)
         """
-        [Client.get_usage_totals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.get_usage_totals)
+    def get_usage_totals(self, *, timeRange: str = None) -> GetUsageTotalsResponseTypeDef:
         """
+        Retrieves (queries) aggregated usage data for an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.get_usage_totals)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#get_usage_totals)
+        """
     def list_classification_jobs(
         self,
-        filterCriteria: ListJobsFilterCriteriaTypeDef = None,
+        *,
+        filterCriteria: "ListJobsFilterCriteriaTypeDef" = None,
         maxResults: int = None,
         nextToken: str = None,
-        sortCriteria: ListJobsSortCriteriaTypeDef = None,
+        sortCriteria: "ListJobsSortCriteriaTypeDef" = None
     ) -> ListClassificationJobsResponseTypeDef:
         """
-        [Client.list_classification_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_classification_jobs)
-        """
+        Retrieves a subset of information about one or more classification jobs.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_classification_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_classification_jobs)
+        """
     def list_custom_data_identifiers(
-        self, maxResults: int = None, nextToken: str = None
+        self, *, maxResults: int = None, nextToken: str = None
     ) -> ListCustomDataIdentifiersResponseTypeDef:
         """
-        [Client.list_custom_data_identifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_custom_data_identifiers)
-        """
+        Retrieves a subset of information about all the custom data identifiers for an
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_custom_data_identifiers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_custom_data_identifiers)
+        """
     def list_findings(
         self,
+        *,
         findingCriteria: "FindingCriteriaTypeDef" = None,
         maxResults: int = None,
         nextToken: str = None,
-        sortCriteria: SortCriteriaTypeDef = None,
+        sortCriteria: "SortCriteriaTypeDef" = None
     ) -> ListFindingsResponseTypeDef:
         """
-        [Client.list_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_findings)
-        """
+        Retrieves a subset of information about one or more findings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_findings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_findings)
+        """
     def list_findings_filters(
-        self, maxResults: int = None, nextToken: str = None
+        self, *, maxResults: int = None, nextToken: str = None
     ) -> ListFindingsFiltersResponseTypeDef:
         """
-        [Client.list_findings_filters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_findings_filters)
-        """
+        Retrieves a subset of information about all the findings filters for an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_findings_filters)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_findings_filters)
+        """
     def list_invitations(
-        self, maxResults: int = None, nextToken: str = None
+        self, *, maxResults: int = None, nextToken: str = None
     ) -> ListInvitationsResponseTypeDef:
         """
-        [Client.list_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_invitations)
-        """
+        Retrieves information about all the Amazon Macie membership invitations that
+        were received by an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_invitations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_invitations)
+        """
     def list_members(
-        self, maxResults: int = None, nextToken: str = None, onlyAssociated: str = None
+        self, *, maxResults: int = None, nextToken: str = None, onlyAssociated: str = None
     ) -> ListMembersResponseTypeDef:
         """
-        [Client.list_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_members)
-        """
+        Retrieves information about the accounts that are associated with an Amazon
+        Macie administrator account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_members)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_members)
+        """
     def list_organization_admin_accounts(
-        self, maxResults: int = None, nextToken: str = None
+        self, *, maxResults: int = None, nextToken: str = None
     ) -> ListOrganizationAdminAccountsResponseTypeDef:
         """
-        [Client.list_organization_admin_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_organization_admin_accounts)
-        """
+        Retrieves information about the delegated Amazon Macie administrator account for
+        an Amazon Web Services organization.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_organization_admin_accounts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_organization_admin_accounts)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Retrieves the tags (keys and values) that are associated with a classification
+        job, custom data identifier, findings filter, or member account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#list_tags_for_resource)
+        """
     def put_classification_export_configuration(
-        self, configuration: "ClassificationExportConfigurationTypeDef"
+        self, *, configuration: "ClassificationExportConfigurationTypeDef"
     ) -> PutClassificationExportConfigurationResponseTypeDef:
         """
-        [Client.put_classification_export_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.put_classification_export_configuration)
-        """
+        Creates or updates the configuration settings for storing data classification
+        results.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.put_classification_export_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#put_classification_export_configuration)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.tag_resource)
+    def put_findings_publication_configuration(
+        self,
+        *,
+        clientToken: str = None,
+        securityHubConfiguration: "SecurityHubConfigurationTypeDef" = None
+    ) -> Dict[str, Any]:
         """
+        Updates the configuration settings for publishing findings to Security Hub.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.put_findings_publication_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#put_findings_publication_configuration)
+        """
+    def search_resources(
+        self,
+        *,
+        bucketCriteria: "SearchResourcesBucketCriteriaTypeDef" = None,
+        maxResults: int = None,
+        nextToken: str = None,
+        sortCriteria: "SearchResourcesSortCriteriaTypeDef" = None
+    ) -> SearchResourcesResponseTypeDef:
+        """
+        Retrieves (queries) statistical data and other information about Amazon Web
+        Services resources that Amazon Macie monitors and analyzes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.search_resources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#search_resources)
+        """
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        """
+        Adds or updates one or more tags (keys and values) that are associated with a
+        classification job, custom data identifier, findings filter, or member account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#tag_resource)
+        """
     def test_custom_data_identifier(
         self,
+        *,
         regex: str,
         sampleText: str,
         ignoreWords: List[str] = None,
         keywords: List[str] = None,
-        maximumMatchDistance: int = None,
+        maximumMatchDistance: int = None
     ) -> TestCustomDataIdentifierResponseTypeDef:
         """
-        [Client.test_custom_data_identifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.test_custom_data_identifier)
-        """
+        Tests a custom data identifier.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.test_custom_data_identifier)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#test_custom_data_identifier)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes one or more tags (keys and values) from a classification job, custom
+        data identifier, findings filter, or member account.
 
-    def update_classification_job(
-        self,
-        jobId: str,
-        jobStatus: Literal["RUNNING", "PAUSED", "CANCELLED", "COMPLETE", "IDLE", "USER_PAUSED"],
-    ) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#untag_resource)
         """
-        [Client.update_classification_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.update_classification_job)
+    def update_classification_job(self, *, jobId: str, jobStatus: JobStatusType) -> Dict[str, Any]:
         """
+        Changes the status of a classification job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.update_classification_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#update_classification_job)
+        """
     def update_findings_filter(
         self,
+        *,
         id: str,
-        action: Literal["ARCHIVE", "NOOP"] = None,
+        action: FindingsFilterActionType = None,
         description: str = None,
         findingCriteria: "FindingCriteriaTypeDef" = None,
         name: str = None,
         position: int = None,
+        clientToken: str = None
     ) -> UpdateFindingsFilterResponseTypeDef:
         """
-        [Client.update_findings_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.update_findings_filter)
-        """
+        Updates the criteria and other settings for a findings filter.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.update_findings_filter)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#update_findings_filter)
+        """
     def update_macie_session(
         self,
-        findingPublishingFrequency: Literal["FIFTEEN_MINUTES", "ONE_HOUR", "SIX_HOURS"] = None,
-        status: Literal["PAUSED", "ENABLED"] = None,
+        *,
+        findingPublishingFrequency: FindingPublishingFrequencyType = None,
+        status: MacieStatusType = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_macie_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.update_macie_session)
-        """
+        Suspends or re-enables an Amazon Macie account, or updates the configuration
+        settings for a Macie account.
 
-    def update_member_session(
-        self, id: str, status: Literal["PAUSED", "ENABLED"]
-    ) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.update_macie_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#update_macie_session)
         """
-        [Client.update_member_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.update_member_session)
+    def update_member_session(self, *, id: str, status: MacieStatusType) -> Dict[str, Any]:
         """
+        Enables an Amazon Macie administrator to suspend or re-enable a member account.
 
-    def update_organization_configuration(self, autoEnable: bool) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.update_member_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#update_member_session)
         """
-        [Client.update_organization_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Client.update_organization_configuration)
+    def update_organization_configuration(self, *, autoEnable: bool) -> Dict[str, Any]:
         """
+        Updates the Amazon Macie configuration settings for an Amazon Web Services
+        organization.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Client.update_organization_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/client.html#update_organization_configuration)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_buckets"]
     ) -> DescribeBucketsPaginator:
         """
-        [Paginator.DescribeBuckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.DescribeBuckets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.DescribeBuckets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#describebucketspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_usage_statistics"]
     ) -> GetUsageStatisticsPaginator:
         """
-        [Paginator.GetUsageStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.GetUsageStatistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.GetUsageStatistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#getusagestatisticspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_classification_jobs"]
     ) -> ListClassificationJobsPaginator:
         """
-        [Paginator.ListClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.ListClassificationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.ListClassificationJobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#listclassificationjobspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_custom_data_identifiers"]
     ) -> ListCustomDataIdentifiersPaginator:
         """
-        [Paginator.ListCustomDataIdentifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.ListCustomDataIdentifiers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.ListCustomDataIdentifiers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#listcustomdataidentifierspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_findings"]) -> ListFindingsPaginator:
         """
-        [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.ListFindings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.ListFindings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#listfindingspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_findings_filters"]
     ) -> ListFindingsFiltersPaginator:
         """
-        [Paginator.ListFindingsFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.ListFindingsFilters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.ListFindingsFilters)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#listfindingsfilterspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_invitations"]
     ) -> ListInvitationsPaginator:
         """
-        [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.ListInvitations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.ListInvitations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#listinvitationspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_members"]) -> ListMembersPaginator:
         """
-        [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.ListMembers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.ListMembers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#listmemberspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_organization_admin_accounts"]
     ) -> ListOrganizationAdminAccountsPaginator:
         """
-        [Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie2.html#Macie2.Paginator.ListOrganizationAdminAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.ListOrganizationAdminAccounts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#listorganizationadminaccountspaginator)
+        """
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["search_resources"]
+    ) -> SearchResourcesPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/macie2.html#Macie2.Paginator.SearchResources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/paginators.html#searchresourcespaginator)
         """

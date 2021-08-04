@@ -19,10 +19,9 @@ Usage::
     list_identity_pools_paginator: ListIdentityPoolsPaginator = client.get_paginator("list_identity_pools")
     ```
 """
-from mypy_boto3_cognito_identity.client import CognitoIdentityClient
-from mypy_boto3_cognito_identity.paginator import ListIdentityPoolsPaginator
+from .client import CognitoIdentityClient
+from .paginator import ListIdentityPoolsPaginator
 
 Client = CognitoIdentityClient
-
 
 __all__ = ("Client", "CognitoIdentityClient", "ListIdentityPoolsPaginator")

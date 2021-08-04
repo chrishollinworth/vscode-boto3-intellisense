@@ -1,5 +1,7 @@
 """
-Main interface for appsync service client paginators.
+Type annotations for appsync service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html)
 
 Usage::
 
@@ -28,12 +30,12 @@ Usage::
     list_types_paginator: ListTypesPaginator = client.get_paginator("list_types")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_appsync.type_defs import (
+from .literals import TypeDefinitionFormatType
+from .type_defs import (
     ListApiKeysResponseTypeDef,
     ListDataSourcesResponseTypeDef,
     ListFunctionsResponseTypeDef,
@@ -43,12 +45,6 @@ from mypy_boto3_appsync.type_defs import (
     ListTypesResponseTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "ListApiKeysPaginator",
@@ -60,96 +56,104 @@ __all__ = (
     "ListTypesPaginator",
 )
 
-
 class ListApiKeysPaginator(Boto3Paginator):
     """
-    [Paginator.ListApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listapikeyspaginator)
     """
 
     def paginate(
-        self, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApiKeysResponseTypeDef]:
         """
-        [ListApiKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListApiKeys.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListApiKeys.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listapikeyspaginator)
         """
-
 
 class ListDataSourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listdatasourcespaginator)
     """
 
     def paginate(
-        self, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourcesResponseTypeDef]:
         """
-        [ListDataSources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListDataSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListDataSources.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listdatasourcespaginator)
         """
-
 
 class ListFunctionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listfunctionspaginator)
     """
 
     def paginate(
-        self, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionsResponseTypeDef]:
         """
-        [ListFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListFunctions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListFunctions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listfunctionspaginator)
         """
-
 
 class ListGraphqlApisPaginator(Boto3Paginator):
     """
-    [Paginator.ListGraphqlApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listgraphqlapispaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGraphqlApisResponseTypeDef]:
         """
-        [ListGraphqlApis.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listgraphqlapispaginator)
         """
-
 
 class ListResolversPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listresolverspaginator)
     """
 
     def paginate(
-        self, apiId: str, typeName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, apiId: str, typeName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolversResponseTypeDef]:
         """
-        [ListResolvers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolvers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListResolvers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listresolverspaginator)
         """
-
 
 class ListResolversByFunctionPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolversByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listresolversbyfunctionpaginator)
     """
 
     def paginate(
-        self, apiId: str, functionId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, apiId: str, functionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolversByFunctionResponseTypeDef]:
         """
-        [ListResolversByFunction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listresolversbyfunctionpaginator)
         """
-
 
 class ListTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListTypes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listtypespaginator)
     """
 
     def paginate(
         self,
+        *,
         apiId: str,
-        format: Literal["SDL", "JSON"],
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        format: TypeDefinitionFormatType,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTypesResponseTypeDef]:
         """
-        [ListTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appsync.html#AppSync.Paginator.ListTypes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listtypespaginator)
         """

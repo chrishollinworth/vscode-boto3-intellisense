@@ -1,5 +1,7 @@
 """
-Main interface for chime service client paginators.
+Type annotations for chime service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/paginators.html)
 
 Usage::
 
@@ -18,54 +20,48 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_chime.type_defs import (
-    ListAccountsResponseTypeDef,
-    ListUsersResponseTypeDef,
-    PaginatorConfigTypeDef,
-)
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
+from .literals import UserTypeType
+from .type_defs import ListAccountsResponseTypeDef, ListUsersResponseTypeDef, PaginatorConfigTypeDef
 
 __all__ = ("ListAccountsPaginator", "ListUsersPaginator")
 
-
 class ListAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/chime.html#Chime.Paginator.ListAccounts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/chime.html#Chime.Paginator.ListAccounts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/paginators.html#listaccountspaginator)
     """
 
     def paginate(
         self,
+        *,
         Name: str = None,
         UserEmail: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountsResponseTypeDef]:
         """
-        [ListAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/chime.html#Chime.Paginator.ListAccounts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/chime.html#Chime.Paginator.ListAccounts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/paginators.html#listaccountspaginator)
         """
-
 
 class ListUsersPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/chime.html#Chime.Paginator.ListUsers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/chime.html#Chime.Paginator.ListUsers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/paginators.html#listuserspaginator)
     """
 
     def paginate(
         self,
+        *,
         AccountId: str,
         UserEmail: str = None,
-        UserType: Literal["PrivateUser", "SharedDevice"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        UserType: UserTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsersResponseTypeDef]:
         """
-        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/chime.html#Chime.Paginator.ListUsers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/chime.html#Chime.Paginator.ListUsers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime/paginators.html#listuserspaginator)
         """

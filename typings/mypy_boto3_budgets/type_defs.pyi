@@ -1,5 +1,7 @@
 """
-Main interface for budgets service type definitions.
+Type annotations for budgets service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/type_defs.html)
 
 Usage::
 
@@ -11,17 +13,28 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    ActionStatusType,
+    ActionSubTypeType,
+    ActionTypeType,
+    ApprovalModelType,
+    BudgetTypeType,
+    ComparisonOperatorType,
+    EventTypeType,
+    ExecutionTypeType,
+    NotificationStateType,
+    NotificationTypeType,
+    SubscriptionTypeType,
+    ThresholdTypeType,
+    TimeUnitType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
-
 
 __all__ = (
     "ActionHistoryDetailsTypeDef",
@@ -33,61 +46,78 @@ __all__ = (
     "BudgetedAndActualAmountsTypeDef",
     "CalculatedSpendTypeDef",
     "CostTypesTypeDef",
+    "CreateBudgetActionRequestRequestTypeDef",
+    "CreateBudgetActionResponseTypeDef",
+    "CreateBudgetRequestRequestTypeDef",
+    "CreateNotificationRequestRequestTypeDef",
+    "CreateSubscriberRequestRequestTypeDef",
     "DefinitionTypeDef",
+    "DeleteBudgetActionRequestRequestTypeDef",
+    "DeleteBudgetActionResponseTypeDef",
+    "DeleteBudgetRequestRequestTypeDef",
+    "DeleteNotificationRequestRequestTypeDef",
+    "DeleteSubscriberRequestRequestTypeDef",
+    "DescribeBudgetActionHistoriesRequestRequestTypeDef",
+    "DescribeBudgetActionHistoriesResponseTypeDef",
+    "DescribeBudgetActionRequestRequestTypeDef",
+    "DescribeBudgetActionResponseTypeDef",
+    "DescribeBudgetActionsForAccountRequestRequestTypeDef",
+    "DescribeBudgetActionsForAccountResponseTypeDef",
+    "DescribeBudgetActionsForBudgetRequestRequestTypeDef",
+    "DescribeBudgetActionsForBudgetResponseTypeDef",
+    "DescribeBudgetPerformanceHistoryRequestRequestTypeDef",
+    "DescribeBudgetPerformanceHistoryResponseTypeDef",
+    "DescribeBudgetRequestRequestTypeDef",
+    "DescribeBudgetResponseTypeDef",
+    "DescribeBudgetsRequestRequestTypeDef",
+    "DescribeBudgetsResponseTypeDef",
+    "DescribeNotificationsForBudgetRequestRequestTypeDef",
+    "DescribeNotificationsForBudgetResponseTypeDef",
+    "DescribeSubscribersForNotificationRequestRequestTypeDef",
+    "DescribeSubscribersForNotificationResponseTypeDef",
+    "ExecuteBudgetActionRequestRequestTypeDef",
+    "ExecuteBudgetActionResponseTypeDef",
     "IamActionDefinitionTypeDef",
     "NotificationTypeDef",
+    "NotificationWithSubscribersTypeDef",
+    "PaginatorConfigTypeDef",
+    "ResponseMetadataTypeDef",
     "ScpActionDefinitionTypeDef",
     "SpendTypeDef",
     "SsmActionDefinitionTypeDef",
     "SubscriberTypeDef",
     "TimePeriodTypeDef",
-    "CreateBudgetActionResponseTypeDef",
-    "DeleteBudgetActionResponseTypeDef",
-    "DescribeBudgetActionHistoriesResponseTypeDef",
-    "DescribeBudgetActionResponseTypeDef",
-    "DescribeBudgetActionsForAccountResponseTypeDef",
-    "DescribeBudgetActionsForBudgetResponseTypeDef",
-    "DescribeBudgetPerformanceHistoryResponseTypeDef",
-    "DescribeBudgetResponseTypeDef",
-    "DescribeBudgetsResponseTypeDef",
-    "DescribeNotificationsForBudgetResponseTypeDef",
-    "DescribeSubscribersForNotificationResponseTypeDef",
-    "ExecuteBudgetActionResponseTypeDef",
-    "NotificationWithSubscribersTypeDef",
-    "PaginatorConfigTypeDef",
+    "UpdateBudgetActionRequestRequestTypeDef",
     "UpdateBudgetActionResponseTypeDef",
+    "UpdateBudgetRequestRequestTypeDef",
+    "UpdateNotificationRequestRequestTypeDef",
+    "UpdateSubscriberRequestRequestTypeDef",
 )
 
 ActionHistoryDetailsTypeDef = TypedDict(
-    "ActionHistoryDetailsTypeDef", {"Message": str, "Action": "ActionTypeDef"}
+    "ActionHistoryDetailsTypeDef",
+    {
+        "Message": str,
+        "Action": "ActionTypeDef",
+    },
 )
 
 ActionHistoryTypeDef = TypedDict(
     "ActionHistoryTypeDef",
     {
         "Timestamp": datetime,
-        "Status": Literal[
-            "STANDBY",
-            "PENDING",
-            "EXECUTION_IN_PROGRESS",
-            "EXECUTION_SUCCESS",
-            "EXECUTION_FAILURE",
-            "REVERSE_IN_PROGRESS",
-            "REVERSE_SUCCESS",
-            "REVERSE_FAILURE",
-            "RESET_IN_PROGRESS",
-            "RESET_FAILURE",
-        ],
-        "EventType": Literal[
-            "SYSTEM", "CREATE_ACTION", "DELETE_ACTION", "UPDATE_ACTION", "EXECUTE_ACTION"
-        ],
+        "Status": ActionStatusType,
+        "EventType": EventTypeType,
         "ActionHistoryDetails": "ActionHistoryDetailsTypeDef",
     },
 )
 
 ActionThresholdTypeDef = TypedDict(
     "ActionThresholdTypeDef",
-    {"ActionThresholdValue": float, "ActionThresholdType": Literal["PERCENTAGE", "ABSOLUTE_VALUE"]},
+    {
+        "ActionThresholdValue": float,
+        "ActionThresholdType": ThresholdTypeType,
+    },
 )
 
 ActionTypeDef = TypedDict(
@@ -95,24 +125,13 @@ ActionTypeDef = TypedDict(
     {
         "ActionId": str,
         "BudgetName": str,
-        "NotificationType": Literal["ACTUAL", "FORECASTED"],
-        "ActionType": Literal["APPLY_IAM_POLICY", "APPLY_SCP_POLICY", "RUN_SSM_DOCUMENTS"],
+        "NotificationType": NotificationTypeType,
+        "ActionType": ActionTypeType,
         "ActionThreshold": "ActionThresholdTypeDef",
         "Definition": "DefinitionTypeDef",
         "ExecutionRoleArn": str,
-        "ApprovalModel": Literal["AUTOMATIC", "MANUAL"],
-        "Status": Literal[
-            "STANDBY",
-            "PENDING",
-            "EXECUTION_IN_PROGRESS",
-            "EXECUTION_SUCCESS",
-            "EXECUTION_FAILURE",
-            "REVERSE_IN_PROGRESS",
-            "REVERSE_SUCCESS",
-            "REVERSE_FAILURE",
-            "RESET_IN_PROGRESS",
-            "RESET_FAILURE",
-        ],
+        "ApprovalModel": ApprovalModelType,
+        "Status": ActionStatusType,
         "Subscribers": List["SubscriberTypeDef"],
     },
 )
@@ -121,17 +140,10 @@ BudgetPerformanceHistoryTypeDef = TypedDict(
     "BudgetPerformanceHistoryTypeDef",
     {
         "BudgetName": str,
-        "BudgetType": Literal[
-            "USAGE",
-            "COST",
-            "RI_UTILIZATION",
-            "RI_COVERAGE",
-            "SAVINGS_PLANS_UTILIZATION",
-            "SAVINGS_PLANS_COVERAGE",
-        ],
+        "BudgetType": BudgetTypeType,
         "CostFilters": Dict[str, List[str]],
         "CostTypes": "CostTypesTypeDef",
-        "TimeUnit": Literal["DAILY", "MONTHLY", "QUARTERLY", "ANNUALLY"],
+        "TimeUnit": TimeUnitType,
         "BudgetedAndActualAmountsList": List["BudgetedAndActualAmountsTypeDef"],
     },
     total=False,
@@ -141,15 +153,8 @@ _RequiredBudgetTypeDef = TypedDict(
     "_RequiredBudgetTypeDef",
     {
         "BudgetName": str,
-        "TimeUnit": Literal["DAILY", "MONTHLY", "QUARTERLY", "ANNUALLY"],
-        "BudgetType": Literal[
-            "USAGE",
-            "COST",
-            "RI_UTILIZATION",
-            "RI_COVERAGE",
-            "SAVINGS_PLANS_UTILIZATION",
-            "SAVINGS_PLANS_COVERAGE",
-        ],
+        "TimeUnit": TimeUnitType,
+        "BudgetType": BudgetTypeType,
     },
 )
 _OptionalBudgetTypeDef = TypedDict(
@@ -161,15 +166,13 @@ _OptionalBudgetTypeDef = TypedDict(
         "CostTypes": "CostTypesTypeDef",
         "TimePeriod": "TimePeriodTypeDef",
         "CalculatedSpend": "CalculatedSpendTypeDef",
-        "LastUpdatedTime": datetime,
+        "LastUpdatedTime": Union[datetime, str],
     },
     total=False,
 )
 
-
 class BudgetTypeDef(_RequiredBudgetTypeDef, _OptionalBudgetTypeDef):
     pass
-
 
 BudgetedAndActualAmountsTypeDef = TypedDict(
     "BudgetedAndActualAmountsTypeDef",
@@ -182,16 +185,21 @@ BudgetedAndActualAmountsTypeDef = TypedDict(
 )
 
 _RequiredCalculatedSpendTypeDef = TypedDict(
-    "_RequiredCalculatedSpendTypeDef", {"ActualSpend": "SpendTypeDef"}
+    "_RequiredCalculatedSpendTypeDef",
+    {
+        "ActualSpend": "SpendTypeDef",
+    },
 )
 _OptionalCalculatedSpendTypeDef = TypedDict(
-    "_OptionalCalculatedSpendTypeDef", {"ForecastedSpend": "SpendTypeDef"}, total=False
+    "_OptionalCalculatedSpendTypeDef",
+    {
+        "ForecastedSpend": "SpendTypeDef",
+    },
+    total=False,
 )
-
 
 class CalculatedSpendTypeDef(_RequiredCalculatedSpendTypeDef, _OptionalCalculatedSpendTypeDef):
     pass
-
 
 CostTypesTypeDef = TypedDict(
     "CostTypesTypeDef",
@@ -211,6 +219,71 @@ CostTypesTypeDef = TypedDict(
     total=False,
 )
 
+CreateBudgetActionRequestRequestTypeDef = TypedDict(
+    "CreateBudgetActionRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "NotificationType": NotificationTypeType,
+        "ActionType": ActionTypeType,
+        "ActionThreshold": "ActionThresholdTypeDef",
+        "Definition": "DefinitionTypeDef",
+        "ExecutionRoleArn": str,
+        "ApprovalModel": ApprovalModelType,
+        "Subscribers": List["SubscriberTypeDef"],
+    },
+)
+
+CreateBudgetActionResponseTypeDef = TypedDict(
+    "CreateBudgetActionResponseTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "ActionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateBudgetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBudgetRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Budget": "BudgetTypeDef",
+    },
+)
+_OptionalCreateBudgetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBudgetRequestRequestTypeDef",
+    {
+        "NotificationsWithSubscribers": List["NotificationWithSubscribersTypeDef"],
+    },
+    total=False,
+)
+
+class CreateBudgetRequestRequestTypeDef(
+    _RequiredCreateBudgetRequestRequestTypeDef, _OptionalCreateBudgetRequestRequestTypeDef
+):
+    pass
+
+CreateNotificationRequestRequestTypeDef = TypedDict(
+    "CreateNotificationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Notification": "NotificationTypeDef",
+        "Subscribers": List["SubscriberTypeDef"],
+    },
+)
+
+CreateSubscriberRequestRequestTypeDef = TypedDict(
+    "CreateSubscriberRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Notification": "NotificationTypeDef",
+        "Subscriber": "SubscriberTypeDef",
+    },
+)
+
 DefinitionTypeDef = TypedDict(
     "DefinitionTypeDef",
     {
@@ -221,153 +294,313 @@ DefinitionTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredIamActionDefinitionTypeDef = TypedDict(
-    "_RequiredIamActionDefinitionTypeDef", {"PolicyArn": str}
-)
-_OptionalIamActionDefinitionTypeDef = TypedDict(
-    "_OptionalIamActionDefinitionTypeDef",
-    {"Roles": List[str], "Groups": List[str], "Users": List[str]},
-    total=False,
-)
-
-
-class IamActionDefinitionTypeDef(
-    _RequiredIamActionDefinitionTypeDef, _OptionalIamActionDefinitionTypeDef
-):
-    pass
-
-
-_RequiredNotificationTypeDef = TypedDict(
-    "_RequiredNotificationTypeDef",
+DeleteBudgetActionRequestRequestTypeDef = TypedDict(
+    "DeleteBudgetActionRequestRequestTypeDef",
     {
-        "NotificationType": Literal["ACTUAL", "FORECASTED"],
-        "ComparisonOperator": Literal["GREATER_THAN", "LESS_THAN", "EQUAL_TO"],
-        "Threshold": float,
+        "AccountId": str,
+        "BudgetName": str,
+        "ActionId": str,
     },
-)
-_OptionalNotificationTypeDef = TypedDict(
-    "_OptionalNotificationTypeDef",
-    {
-        "ThresholdType": Literal["PERCENTAGE", "ABSOLUTE_VALUE"],
-        "NotificationState": Literal["OK", "ALARM"],
-    },
-    total=False,
-)
-
-
-class NotificationTypeDef(_RequiredNotificationTypeDef, _OptionalNotificationTypeDef):
-    pass
-
-
-ScpActionDefinitionTypeDef = TypedDict(
-    "ScpActionDefinitionTypeDef", {"PolicyId": str, "TargetIds": List[str]}
-)
-
-SpendTypeDef = TypedDict("SpendTypeDef", {"Amount": str, "Unit": str})
-
-SsmActionDefinitionTypeDef = TypedDict(
-    "SsmActionDefinitionTypeDef",
-    {
-        "ActionSubType": Literal["STOP_EC2_INSTANCES", "STOP_RDS_INSTANCES"],
-        "Region": str,
-        "InstanceIds": List[str],
-    },
-)
-
-SubscriberTypeDef = TypedDict(
-    "SubscriberTypeDef", {"SubscriptionType": Literal["SNS", "EMAIL"], "Address": str}
-)
-
-TimePeriodTypeDef = TypedDict(
-    "TimePeriodTypeDef", {"Start": datetime, "End": datetime}, total=False
-)
-
-CreateBudgetActionResponseTypeDef = TypedDict(
-    "CreateBudgetActionResponseTypeDef", {"AccountId": str, "BudgetName": str, "ActionId": str}
 )
 
 DeleteBudgetActionResponseTypeDef = TypedDict(
     "DeleteBudgetActionResponseTypeDef",
-    {"AccountId": str, "BudgetName": str, "Action": "ActionTypeDef"},
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Action": "ActionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
-_RequiredDescribeBudgetActionHistoriesResponseTypeDef = TypedDict(
-    "_RequiredDescribeBudgetActionHistoriesResponseTypeDef",
-    {"ActionHistories": List["ActionHistoryTypeDef"]},
-)
-_OptionalDescribeBudgetActionHistoriesResponseTypeDef = TypedDict(
-    "_OptionalDescribeBudgetActionHistoriesResponseTypeDef", {"NextToken": str}, total=False
+DeleteBudgetRequestRequestTypeDef = TypedDict(
+    "DeleteBudgetRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+    },
 )
 
+DeleteNotificationRequestRequestTypeDef = TypedDict(
+    "DeleteNotificationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Notification": "NotificationTypeDef",
+    },
+)
 
-class DescribeBudgetActionHistoriesResponseTypeDef(
-    _RequiredDescribeBudgetActionHistoriesResponseTypeDef,
-    _OptionalDescribeBudgetActionHistoriesResponseTypeDef,
+DeleteSubscriberRequestRequestTypeDef = TypedDict(
+    "DeleteSubscriberRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Notification": "NotificationTypeDef",
+        "Subscriber": "SubscriberTypeDef",
+    },
+)
+
+_RequiredDescribeBudgetActionHistoriesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeBudgetActionHistoriesRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "ActionId": str,
+    },
+)
+_OptionalDescribeBudgetActionHistoriesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeBudgetActionHistoriesRequestRequestTypeDef",
+    {
+        "TimePeriod": "TimePeriodTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeBudgetActionHistoriesRequestRequestTypeDef(
+    _RequiredDescribeBudgetActionHistoriesRequestRequestTypeDef,
+    _OptionalDescribeBudgetActionHistoriesRequestRequestTypeDef,
 ):
     pass
 
+DescribeBudgetActionHistoriesResponseTypeDef = TypedDict(
+    "DescribeBudgetActionHistoriesResponseTypeDef",
+    {
+        "ActionHistories": List["ActionHistoryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeBudgetActionRequestRequestTypeDef = TypedDict(
+    "DescribeBudgetActionRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "ActionId": str,
+    },
+)
 
 DescribeBudgetActionResponseTypeDef = TypedDict(
     "DescribeBudgetActionResponseTypeDef",
-    {"AccountId": str, "BudgetName": str, "Action": "ActionTypeDef"},
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Action": "ActionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
-_RequiredDescribeBudgetActionsForAccountResponseTypeDef = TypedDict(
-    "_RequiredDescribeBudgetActionsForAccountResponseTypeDef", {"Actions": List["ActionTypeDef"]}
+_RequiredDescribeBudgetActionsForAccountRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeBudgetActionsForAccountRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
 )
-_OptionalDescribeBudgetActionsForAccountResponseTypeDef = TypedDict(
-    "_OptionalDescribeBudgetActionsForAccountResponseTypeDef", {"NextToken": str}, total=False
+_OptionalDescribeBudgetActionsForAccountRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeBudgetActionsForAccountRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
 )
 
-
-class DescribeBudgetActionsForAccountResponseTypeDef(
-    _RequiredDescribeBudgetActionsForAccountResponseTypeDef,
-    _OptionalDescribeBudgetActionsForAccountResponseTypeDef,
+class DescribeBudgetActionsForAccountRequestRequestTypeDef(
+    _RequiredDescribeBudgetActionsForAccountRequestRequestTypeDef,
+    _OptionalDescribeBudgetActionsForAccountRequestRequestTypeDef,
 ):
     pass
 
-
-_RequiredDescribeBudgetActionsForBudgetResponseTypeDef = TypedDict(
-    "_RequiredDescribeBudgetActionsForBudgetResponseTypeDef", {"Actions": List["ActionTypeDef"]}
+DescribeBudgetActionsForAccountResponseTypeDef = TypedDict(
+    "DescribeBudgetActionsForAccountResponseTypeDef",
+    {
+        "Actions": List["ActionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
-_OptionalDescribeBudgetActionsForBudgetResponseTypeDef = TypedDict(
-    "_OptionalDescribeBudgetActionsForBudgetResponseTypeDef", {"NextToken": str}, total=False
+
+_RequiredDescribeBudgetActionsForBudgetRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeBudgetActionsForBudgetRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+    },
+)
+_OptionalDescribeBudgetActionsForBudgetRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeBudgetActionsForBudgetRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
 )
 
-
-class DescribeBudgetActionsForBudgetResponseTypeDef(
-    _RequiredDescribeBudgetActionsForBudgetResponseTypeDef,
-    _OptionalDescribeBudgetActionsForBudgetResponseTypeDef,
+class DescribeBudgetActionsForBudgetRequestRequestTypeDef(
+    _RequiredDescribeBudgetActionsForBudgetRequestRequestTypeDef,
+    _OptionalDescribeBudgetActionsForBudgetRequestRequestTypeDef,
 ):
     pass
 
+DescribeBudgetActionsForBudgetResponseTypeDef = TypedDict(
+    "DescribeBudgetActionsForBudgetResponseTypeDef",
+    {
+        "Actions": List["ActionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+    },
+)
+_OptionalDescribeBudgetPerformanceHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeBudgetPerformanceHistoryRequestRequestTypeDef",
+    {
+        "TimePeriod": "TimePeriodTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeBudgetPerformanceHistoryRequestRequestTypeDef(
+    _RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef,
+    _OptionalDescribeBudgetPerformanceHistoryRequestRequestTypeDef,
+):
+    pass
 
 DescribeBudgetPerformanceHistoryResponseTypeDef = TypedDict(
     "DescribeBudgetPerformanceHistoryResponseTypeDef",
-    {"BudgetPerformanceHistory": "BudgetPerformanceHistoryTypeDef", "NextToken": str},
-    total=False,
+    {
+        "BudgetPerformanceHistory": "BudgetPerformanceHistoryTypeDef",
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeBudgetRequestRequestTypeDef = TypedDict(
+    "DescribeBudgetRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+    },
 )
 
 DescribeBudgetResponseTypeDef = TypedDict(
-    "DescribeBudgetResponseTypeDef", {"Budget": "BudgetTypeDef"}, total=False
+    "DescribeBudgetResponseTypeDef",
+    {
+        "Budget": "BudgetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
+
+_RequiredDescribeBudgetsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeBudgetsRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalDescribeBudgetsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeBudgetsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeBudgetsRequestRequestTypeDef(
+    _RequiredDescribeBudgetsRequestRequestTypeDef, _OptionalDescribeBudgetsRequestRequestTypeDef
+):
+    pass
 
 DescribeBudgetsResponseTypeDef = TypedDict(
     "DescribeBudgetsResponseTypeDef",
-    {"Budgets": List["BudgetTypeDef"], "NextToken": str},
+    {
+        "Budgets": List["BudgetTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeNotificationsForBudgetRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeNotificationsForBudgetRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+    },
+)
+_OptionalDescribeNotificationsForBudgetRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeNotificationsForBudgetRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
     total=False,
 )
+
+class DescribeNotificationsForBudgetRequestRequestTypeDef(
+    _RequiredDescribeNotificationsForBudgetRequestRequestTypeDef,
+    _OptionalDescribeNotificationsForBudgetRequestRequestTypeDef,
+):
+    pass
 
 DescribeNotificationsForBudgetResponseTypeDef = TypedDict(
     "DescribeNotificationsForBudgetResponseTypeDef",
-    {"Notifications": List["NotificationTypeDef"], "NextToken": str},
+    {
+        "Notifications": List["NotificationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeSubscribersForNotificationRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSubscribersForNotificationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Notification": "NotificationTypeDef",
+    },
+)
+_OptionalDescribeSubscribersForNotificationRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSubscribersForNotificationRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
     total=False,
 )
 
+class DescribeSubscribersForNotificationRequestRequestTypeDef(
+    _RequiredDescribeSubscribersForNotificationRequestRequestTypeDef,
+    _OptionalDescribeSubscribersForNotificationRequestRequestTypeDef,
+):
+    pass
+
 DescribeSubscribersForNotificationResponseTypeDef = TypedDict(
     "DescribeSubscribersForNotificationResponseTypeDef",
-    {"Subscribers": List["SubscriberTypeDef"], "NextToken": str},
-    total=False,
+    {
+        "Subscribers": List["SubscriberTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ExecuteBudgetActionRequestRequestTypeDef = TypedDict(
+    "ExecuteBudgetActionRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "ActionId": str,
+        "ExecutionType": ExecutionTypeType,
+    },
 )
 
 ExecuteBudgetActionResponseTypeDef = TypedDict(
@@ -376,23 +609,149 @@ ExecuteBudgetActionResponseTypeDef = TypedDict(
         "AccountId": str,
         "BudgetName": str,
         "ActionId": str,
-        "ExecutionType": Literal[
-            "APPROVE_BUDGET_ACTION",
-            "RETRY_BUDGET_ACTION",
-            "REVERSE_BUDGET_ACTION",
-            "RESET_BUDGET_ACTION",
-        ],
+        "ExecutionType": ExecutionTypeType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
+_RequiredIamActionDefinitionTypeDef = TypedDict(
+    "_RequiredIamActionDefinitionTypeDef",
+    {
+        "PolicyArn": str,
+    },
+)
+_OptionalIamActionDefinitionTypeDef = TypedDict(
+    "_OptionalIamActionDefinitionTypeDef",
+    {
+        "Roles": List[str],
+        "Groups": List[str],
+        "Users": List[str],
+    },
+    total=False,
+)
+
+class IamActionDefinitionTypeDef(
+    _RequiredIamActionDefinitionTypeDef, _OptionalIamActionDefinitionTypeDef
+):
+    pass
+
+_RequiredNotificationTypeDef = TypedDict(
+    "_RequiredNotificationTypeDef",
+    {
+        "NotificationType": NotificationTypeType,
+        "ComparisonOperator": ComparisonOperatorType,
+        "Threshold": float,
+    },
+)
+_OptionalNotificationTypeDef = TypedDict(
+    "_OptionalNotificationTypeDef",
+    {
+        "ThresholdType": ThresholdTypeType,
+        "NotificationState": NotificationStateType,
+    },
+    total=False,
+)
+
+class NotificationTypeDef(_RequiredNotificationTypeDef, _OptionalNotificationTypeDef):
+    pass
+
 NotificationWithSubscribersTypeDef = TypedDict(
     "NotificationWithSubscribersTypeDef",
-    {"Notification": "NotificationTypeDef", "Subscribers": List["SubscriberTypeDef"]},
+    {
+        "Notification": "NotificationTypeDef",
+        "Subscribers": List["SubscriberTypeDef"],
+    },
 )
 
 PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+ScpActionDefinitionTypeDef = TypedDict(
+    "ScpActionDefinitionTypeDef",
+    {
+        "PolicyId": str,
+        "TargetIds": List[str],
+    },
+)
+
+SpendTypeDef = TypedDict(
+    "SpendTypeDef",
+    {
+        "Amount": str,
+        "Unit": str,
+    },
+)
+
+SsmActionDefinitionTypeDef = TypedDict(
+    "SsmActionDefinitionTypeDef",
+    {
+        "ActionSubType": ActionSubTypeType,
+        "Region": str,
+        "InstanceIds": List[str],
+    },
+)
+
+SubscriberTypeDef = TypedDict(
+    "SubscriberTypeDef",
+    {
+        "SubscriptionType": SubscriptionTypeType,
+        "Address": str,
+    },
+)
+
+TimePeriodTypeDef = TypedDict(
+    "TimePeriodTypeDef",
+    {
+        "Start": Union[datetime, str],
+        "End": Union[datetime, str],
+    },
+    total=False,
+)
+
+_RequiredUpdateBudgetActionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateBudgetActionRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "ActionId": str,
+    },
+)
+_OptionalUpdateBudgetActionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateBudgetActionRequestRequestTypeDef",
+    {
+        "NotificationType": NotificationTypeType,
+        "ActionThreshold": "ActionThresholdTypeDef",
+        "Definition": "DefinitionTypeDef",
+        "ExecutionRoleArn": str,
+        "ApprovalModel": ApprovalModelType,
+        "Subscribers": List["SubscriberTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateBudgetActionRequestRequestTypeDef(
+    _RequiredUpdateBudgetActionRequestRequestTypeDef,
+    _OptionalUpdateBudgetActionRequestRequestTypeDef,
+):
+    pass
 
 UpdateBudgetActionResponseTypeDef = TypedDict(
     "UpdateBudgetActionResponseTypeDef",
@@ -401,5 +760,35 @@ UpdateBudgetActionResponseTypeDef = TypedDict(
         "BudgetName": str,
         "OldAction": "ActionTypeDef",
         "NewAction": "ActionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateBudgetRequestRequestTypeDef = TypedDict(
+    "UpdateBudgetRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "NewBudget": "BudgetTypeDef",
+    },
+)
+
+UpdateNotificationRequestRequestTypeDef = TypedDict(
+    "UpdateNotificationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "OldNotification": "NotificationTypeDef",
+        "NewNotification": "NotificationTypeDef",
+    },
+)
+
+UpdateSubscriberRequestRequestTypeDef = TypedDict(
+    "UpdateSubscriberRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "BudgetName": str,
+        "Notification": "NotificationTypeDef",
+        "OldSubscriber": "SubscriberTypeDef",
+        "NewSubscriber": "SubscriberTypeDef",
     },
 )

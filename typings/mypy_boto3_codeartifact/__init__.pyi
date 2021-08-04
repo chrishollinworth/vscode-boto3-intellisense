@@ -29,8 +29,8 @@ Usage::
     list_repositories_in_domain_paginator: ListRepositoriesInDomainPaginator = client.get_paginator("list_repositories_in_domain")
     ```
 """
-from mypy_boto3_codeartifact.client import CodeArtifactClient
-from mypy_boto3_codeartifact.paginator import (
+from .client import CodeArtifactClient
+from .paginator import (
     ListDomainsPaginator,
     ListPackagesPaginator,
     ListPackageVersionAssetsPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_codeartifact.paginator import (
 )
 
 Client = CodeArtifactClient
-
 
 __all__ = (
     "Client",

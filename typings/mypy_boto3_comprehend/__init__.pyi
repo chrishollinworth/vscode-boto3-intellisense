@@ -33,8 +33,8 @@ Usage::
     list_topics_detection_jobs_paginator: ListTopicsDetectionJobsPaginator = client.get_paginator("list_topics_detection_jobs")
     ```
 """
-from mypy_boto3_comprehend.client import ComprehendClient
-from mypy_boto3_comprehend.paginator import (
+from .client import ComprehendClient
+from .paginator import (
     ListDocumentClassificationJobsPaginator,
     ListDocumentClassifiersPaginator,
     ListDominantLanguageDetectionJobsPaginator,
@@ -46,7 +46,6 @@ from mypy_boto3_comprehend.paginator import (
 )
 
 Client = ComprehendClient
-
 
 __all__ = (
     "Client",

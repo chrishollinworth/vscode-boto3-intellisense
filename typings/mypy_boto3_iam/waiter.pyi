@@ -1,5 +1,7 @@
 """
-Main interface for iam service client waiters.
+Type annotations for iam service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html)
 
 Usage::
 
@@ -24,7 +26,7 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_iam.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = (
     "InstanceProfileExistsWaiter",
@@ -33,46 +35,50 @@ __all__ = (
     "UserExistsWaiter",
 )
 
-
 class InstanceProfileExistsWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceProfileExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.InstanceProfileExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.InstanceProfileExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#instanceprofileexistswaiter)
     """
 
-    def wait(self, InstanceProfileName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, InstanceProfileName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [InstanceProfileExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.InstanceProfileExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.InstanceProfileExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#instanceprofileexistswaiter)
         """
-
 
 class PolicyExistsWaiter(Boto3Waiter):
     """
-    [Waiter.PolicyExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.PolicyExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.PolicyExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#policyexistswaiter)
     """
 
-    def wait(self, PolicyArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, PolicyArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [PolicyExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.PolicyExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.PolicyExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#policyexistswaiter)
         """
-
 
 class RoleExistsWaiter(Boto3Waiter):
     """
-    [Waiter.RoleExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.RoleExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.RoleExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#roleexistswaiter)
     """
 
-    def wait(self, RoleName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, RoleName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [RoleExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.RoleExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.RoleExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#roleexistswaiter)
         """
-
 
 class UserExistsWaiter(Boto3Waiter):
     """
-    [Waiter.UserExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.UserExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.UserExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#userexistswaiter)
     """
 
-    def wait(self, UserName: str = None, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, UserName: str = None, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [UserExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.UserExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iam.html#IAM.Waiter.UserExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#userexistswaiter)
         """

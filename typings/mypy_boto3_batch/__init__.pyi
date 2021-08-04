@@ -25,8 +25,8 @@ Usage::
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     ```
 """
-from mypy_boto3_batch.client import BatchClient
-from mypy_boto3_batch.paginator import (
+from .client import BatchClient
+from .paginator import (
     DescribeComputeEnvironmentsPaginator,
     DescribeJobDefinitionsPaginator,
     DescribeJobQueuesPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_batch.paginator import (
 )
 
 Client = BatchClient
-
 
 __all__ = (
     "BatchClient",

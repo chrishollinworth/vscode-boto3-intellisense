@@ -27,8 +27,8 @@ Usage::
     list_elasticsearch_versions_paginator: ListElasticsearchVersionsPaginator = client.get_paginator("list_elasticsearch_versions")
     ```
 """
-from mypy_boto3_es.client import ElasticsearchServiceClient
-from mypy_boto3_es.paginator import (
+from .client import ElasticsearchServiceClient
+from .paginator import (
     DescribeReservedElasticsearchInstanceOfferingsPaginator,
     DescribeReservedElasticsearchInstancesPaginator,
     GetUpgradeHistoryPaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_es.paginator import (
 )
 
 Client = ElasticsearchServiceClient
-
 
 __all__ = (
     "Client",

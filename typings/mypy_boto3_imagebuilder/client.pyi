@@ -1,21 +1,25 @@
 """
-Main interface for imagebuilder service client
+Type annotations for imagebuilder service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html)
 
 Usage::
 
     ```python
     import boto3
-    from mypy_boto3_imagebuilder import ImagebuilderClient
+    from mypy_boto3_imagebuilder import imagebuilderClient
 
-    client: ImagebuilderClient = boto3.client("imagebuilder")
+    client: imagebuilderClient = boto3.client("imagebuilder")
     ```
 """
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_imagebuilder.type_defs import (
+from .literals import ComponentTypeType, OwnershipType, PipelineStatusType, PlatformType
+from .type_defs import (
+    AdditionalInstanceConfigurationTypeDef,
     CancelImageCreationResponseTypeDef,
     ComponentConfigurationTypeDef,
     CreateComponentResponseTypeDef,
@@ -48,11 +52,13 @@ from mypy_boto3_imagebuilder.type_defs import (
     ImageTestsConfigurationTypeDef,
     ImportComponentResponseTypeDef,
     InstanceBlockDeviceMappingTypeDef,
+    InstanceConfigurationTypeDef,
     ListComponentBuildVersionsResponseTypeDef,
     ListComponentsResponseTypeDef,
     ListContainerRecipesResponseTypeDef,
     ListDistributionConfigurationsResponseTypeDef,
     ListImageBuildVersionsResponseTypeDef,
+    ListImagePackagesResponseTypeDef,
     ListImagePipelineImagesResponseTypeDef,
     ListImagePipelinesResponseTypeDef,
     ListImageRecipesResponseTypeDef,
@@ -77,17 +83,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
-__all__ = ("ImagebuilderClient",)
-
+__all__ = ("imagebuilderClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     CallRateLimitExceededException: Type[BotocoreClientError]
@@ -109,32 +111,40 @@ class Exceptions:
     ServiceQuotaExceededException: Type[BotocoreClientError]
     ServiceUnavailableException: Type[BotocoreClientError]
 
-
-class ImagebuilderClient:
+class imagebuilderClient(BaseClient):
     """
-    [Imagebuilder.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        imagebuilderClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#can_paginate)
+        """
     def cancel_image_creation(
-        self, imageBuildVersionArn: str, clientToken: str
+        self, *, imageBuildVersionArn: str, clientToken: str
     ) -> CancelImageCreationResponseTypeDef:
         """
-        [Client.cancel_image_creation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.cancel_image_creation)
-        """
+        CancelImageCreation cancels the creation of Image.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.cancel_image_creation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#cancel_image_creation)
+        """
     def create_component(
         self,
+        *,
         name: str,
         semanticVersion: str,
-        platform: Literal["Windows", "Linux"],
+        platform: PlatformType,
         clientToken: str,
         description: str = None,
         changeDescription: str = None,
@@ -142,48 +152,59 @@ class ImagebuilderClient:
         data: str = None,
         uri: str = None,
         kmsKeyId: str = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateComponentResponseTypeDef:
         """
-        [Client.create_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.create_component)
-        """
+        Creates a new component that can be used to build, validate, test, and assess
+        your image.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.create_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_component)
+        """
     def create_container_recipe(
         self,
+        *,
         containerType: Literal["DOCKER"],
         name: str,
         semanticVersion: str,
         components: List["ComponentConfigurationTypeDef"],
-        dockerfileTemplateData: str,
         parentImage: str,
         targetRepository: "TargetContainerRepositoryTypeDef",
         clientToken: str,
         description: str = None,
+        instanceConfiguration: "InstanceConfigurationTypeDef" = None,
+        dockerfileTemplateData: str = None,
         dockerfileTemplateUri: str = None,
-        platformOverride: Literal["Windows", "Linux"] = None,
+        platformOverride: PlatformType = None,
         imageOsVersionOverride: str = None,
         tags: Dict[str, str] = None,
         workingDirectory: str = None,
-        kmsKeyId: str = None,
+        kmsKeyId: str = None
     ) -> CreateContainerRecipeResponseTypeDef:
         """
-        [Client.create_container_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.create_container_recipe)
-        """
+        Creates a new container recipe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.create_container_recipe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_container_recipe)
+        """
     def create_distribution_configuration(
         self,
+        *,
         name: str,
         distributions: List["DistributionTypeDef"],
         clientToken: str,
         description: str = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateDistributionConfigurationResponseTypeDef:
         """
-        [Client.create_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.create_distribution_configuration)
-        """
+        Creates a new distribution configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.create_distribution_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_distribution_configuration)
+        """
     def create_image(
         self,
+        *,
         infrastructureConfigurationArn: str,
         clientToken: str,
         imageRecipeArn: str = None,
@@ -191,14 +212,17 @@ class ImagebuilderClient:
         distributionConfigurationArn: str = None,
         imageTestsConfiguration: "ImageTestsConfigurationTypeDef" = None,
         enhancedImageMetadataEnabled: bool = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateImageResponseTypeDef:
         """
-        [Client.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.create_image)
-        """
+        Creates a new image.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.create_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_image)
+        """
     def create_image_pipeline(
         self,
+        *,
         name: str,
         infrastructureConfigurationArn: str,
         clientToken: str,
@@ -209,15 +233,18 @@ class ImagebuilderClient:
         imageTestsConfiguration: "ImageTestsConfigurationTypeDef" = None,
         enhancedImageMetadataEnabled: bool = None,
         schedule: "ScheduleTypeDef" = None,
-        status: Literal["DISABLED", "ENABLED"] = None,
-        tags: Dict[str, str] = None,
+        status: PipelineStatusType = None,
+        tags: Dict[str, str] = None
     ) -> CreateImagePipelineResponseTypeDef:
         """
-        [Client.create_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.create_image_pipeline)
-        """
+        Creates a new image pipeline.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.create_image_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_image_pipeline)
+        """
     def create_image_recipe(
         self,
+        *,
         name: str,
         semanticVersion: str,
         components: List["ComponentConfigurationTypeDef"],
@@ -227,13 +254,17 @@ class ImagebuilderClient:
         blockDeviceMappings: List["InstanceBlockDeviceMappingTypeDef"] = None,
         tags: Dict[str, str] = None,
         workingDirectory: str = None,
+        additionalInstanceConfiguration: "AdditionalInstanceConfigurationTypeDef" = None
     ) -> CreateImageRecipeResponseTypeDef:
         """
-        [Client.create_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.create_image_recipe)
-        """
+        Creates a new image recipe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.create_image_recipe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_image_recipe)
+        """
     def create_infrastructure_configuration(
         self,
+        *,
         name: str,
         instanceProfileName: str,
         clientToken: str,
@@ -246,53 +277,69 @@ class ImagebuilderClient:
         terminateInstanceOnFailure: bool = None,
         snsTopicArn: str = None,
         resourceTags: Dict[str, str] = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.create_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.create_infrastructure_configuration)
-        """
+        Creates a new infrastructure configuration.
 
-    def delete_component(self, componentBuildVersionArn: str) -> DeleteComponentResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.create_infrastructure_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#create_infrastructure_configuration)
         """
-        [Client.delete_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.delete_component)
+    def delete_component(self, *, componentBuildVersionArn: str) -> DeleteComponentResponseTypeDef:
         """
+        Deletes a component build version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.delete_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_component)
+        """
     def delete_container_recipe(
-        self, containerRecipeArn: str
+        self, *, containerRecipeArn: str
     ) -> DeleteContainerRecipeResponseTypeDef:
         """
-        [Client.delete_container_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.delete_container_recipe)
-        """
+        Deletes a container recipe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.delete_container_recipe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_container_recipe)
+        """
     def delete_distribution_configuration(
-        self, distributionConfigurationArn: str
+        self, *, distributionConfigurationArn: str
     ) -> DeleteDistributionConfigurationResponseTypeDef:
         """
-        [Client.delete_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.delete_distribution_configuration)
-        """
+        Deletes a distribution configuration.
 
-    def delete_image(self, imageBuildVersionArn: str) -> DeleteImageResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.delete_distribution_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_distribution_configuration)
         """
-        [Client.delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image)
+    def delete_image(self, *, imageBuildVersionArn: str) -> DeleteImageResponseTypeDef:
         """
+        Deletes an image.
 
-    def delete_image_pipeline(self, imagePipelineArn: str) -> DeleteImagePipelineResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.delete_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_image)
         """
-        [Client.delete_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image_pipeline)
+    def delete_image_pipeline(self, *, imagePipelineArn: str) -> DeleteImagePipelineResponseTypeDef:
         """
+        Deletes an image pipeline.
 
-    def delete_image_recipe(self, imageRecipeArn: str) -> DeleteImageRecipeResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.delete_image_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_image_pipeline)
         """
-        [Client.delete_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image_recipe)
+    def delete_image_recipe(self, *, imageRecipeArn: str) -> DeleteImageRecipeResponseTypeDef:
         """
+        Deletes an image recipe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.delete_image_recipe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_image_recipe)
+        """
     def delete_infrastructure_configuration(
-        self, infrastructureConfigurationArn: str
+        self, *, infrastructureConfigurationArn: str
     ) -> DeleteInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.delete_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.delete_infrastructure_configuration)
-        """
+        Deletes an infrastructure configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.delete_infrastructure_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#delete_infrastructure_configuration)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -301,247 +348,344 @@ class ImagebuilderClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_component(self, componentBuildVersionArn: str) -> GetComponentResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#generate_presigned_url)
         """
-        [Client.get_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_component)
+    def get_component(self, *, componentBuildVersionArn: str) -> GetComponentResponseTypeDef:
         """
+        Gets a component object.
 
-    def get_component_policy(self, componentArn: str) -> GetComponentPolicyResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_component)
         """
-        [Client.get_component_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_component_policy)
+    def get_component_policy(self, *, componentArn: str) -> GetComponentPolicyResponseTypeDef:
         """
+        Gets a component policy.
 
-    def get_container_recipe(self, containerRecipeArn: str) -> GetContainerRecipeResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_component_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_component_policy)
         """
-        [Client.get_container_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_container_recipe)
+    def get_container_recipe(self, *, containerRecipeArn: str) -> GetContainerRecipeResponseTypeDef:
         """
+        Retrieves a container recipe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_container_recipe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_container_recipe)
+        """
     def get_container_recipe_policy(
-        self, containerRecipeArn: str
+        self, *, containerRecipeArn: str
     ) -> GetContainerRecipePolicyResponseTypeDef:
         """
-        [Client.get_container_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_container_recipe_policy)
-        """
+        Retrieves the policy for a container recipe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_container_recipe_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_container_recipe_policy)
+        """
     def get_distribution_configuration(
-        self, distributionConfigurationArn: str
+        self, *, distributionConfigurationArn: str
     ) -> GetDistributionConfigurationResponseTypeDef:
         """
-        [Client.get_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_distribution_configuration)
-        """
+        Gets a distribution configuration.
 
-    def get_image(self, imageBuildVersionArn: str) -> GetImageResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_distribution_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_distribution_configuration)
         """
-        [Client.get_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_image)
+    def get_image(self, *, imageBuildVersionArn: str) -> GetImageResponseTypeDef:
         """
+        Gets an image.
 
-    def get_image_pipeline(self, imagePipelineArn: str) -> GetImagePipelineResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image)
         """
-        [Client.get_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_pipeline)
+    def get_image_pipeline(self, *, imagePipelineArn: str) -> GetImagePipelineResponseTypeDef:
         """
+        Gets an image pipeline.
 
-    def get_image_policy(self, imageArn: str) -> GetImagePolicyResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_image_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_pipeline)
         """
-        [Client.get_image_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_policy)
+    def get_image_policy(self, *, imageArn: str) -> GetImagePolicyResponseTypeDef:
         """
+        Gets an image policy.
 
-    def get_image_recipe(self, imageRecipeArn: str) -> GetImageRecipeResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_image_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_policy)
         """
-        [Client.get_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_recipe)
+    def get_image_recipe(self, *, imageRecipeArn: str) -> GetImageRecipeResponseTypeDef:
         """
+        Gets an image recipe.
 
-    def get_image_recipe_policy(self, imageRecipeArn: str) -> GetImageRecipePolicyResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_image_recipe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_recipe)
         """
-        [Client.get_image_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_recipe_policy)
+    def get_image_recipe_policy(
+        self, *, imageRecipeArn: str
+    ) -> GetImageRecipePolicyResponseTypeDef:
         """
+        Gets an image recipe policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_image_recipe_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_image_recipe_policy)
+        """
     def get_infrastructure_configuration(
-        self, infrastructureConfigurationArn: str
+        self, *, infrastructureConfigurationArn: str
     ) -> GetInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.get_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.get_infrastructure_configuration)
-        """
+        Gets an infrastructure configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.get_infrastructure_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#get_infrastructure_configuration)
+        """
     def import_component(
         self,
+        *,
         name: str,
         semanticVersion: str,
-        type: Literal["BUILD", "TEST"],
+        type: ComponentTypeType,
         format: Literal["SHELL"],
-        platform: Literal["Windows", "Linux"],
+        platform: PlatformType,
         clientToken: str,
         description: str = None,
         changeDescription: str = None,
         data: str = None,
         uri: str = None,
         kmsKeyId: str = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> ImportComponentResponseTypeDef:
         """
-        [Client.import_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.import_component)
-        """
+        Imports a component and transforms its data into a component document.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.import_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#import_component)
+        """
     def list_component_build_versions(
-        self, componentVersionArn: str, maxResults: int = None, nextToken: str = None
+        self, *, componentVersionArn: str, maxResults: int = None, nextToken: str = None
     ) -> ListComponentBuildVersionsResponseTypeDef:
         """
-        [Client.list_component_build_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_component_build_versions)
-        """
+        Returns the list of component build versions for the specified semantic version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_component_build_versions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_component_build_versions)
+        """
     def list_components(
         self,
-        owner: Literal["Self", "Shared", "Amazon"] = None,
-        filters: List[FilterTypeDef] = None,
+        *,
+        owner: OwnershipType = None,
+        filters: List["FilterTypeDef"] = None,
         byName: bool = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListComponentsResponseTypeDef:
         """
-        [Client.list_components documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_components)
-        """
+        Returns the list of component build versions for the specified semantic version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_components)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_components)
+        """
     def list_container_recipes(
         self,
-        owner: Literal["Self", "Shared", "Amazon"] = None,
-        filters: List[FilterTypeDef] = None,
+        *,
+        owner: OwnershipType = None,
+        filters: List["FilterTypeDef"] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListContainerRecipesResponseTypeDef:
         """
-        [Client.list_container_recipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_container_recipes)
-        """
+        Returns a list of container recipes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_container_recipes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_container_recipes)
+        """
     def list_distribution_configurations(
-        self, filters: List[FilterTypeDef] = None, maxResults: int = None, nextToken: str = None
+        self,
+        *,
+        filters: List["FilterTypeDef"] = None,
+        maxResults: int = None,
+        nextToken: str = None
     ) -> ListDistributionConfigurationsResponseTypeDef:
         """
-        [Client.list_distribution_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_distribution_configurations)
-        """
+        Returns a list of distribution configurations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_distribution_configurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_distribution_configurations)
+        """
     def list_image_build_versions(
         self,
+        *,
         imageVersionArn: str,
-        filters: List[FilterTypeDef] = None,
+        filters: List["FilterTypeDef"] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListImageBuildVersionsResponseTypeDef:
         """
-        [Client.list_image_build_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_build_versions)
-        """
+        Returns a list of image build versions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_image_build_versions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_build_versions)
+        """
+    def list_image_packages(
+        self, *, imageBuildVersionArn: str, maxResults: int = None, nextToken: str = None
+    ) -> ListImagePackagesResponseTypeDef:
+        """
+        List the Packages that are associated with an Image Build Version, as determined
+        by Amazon EC2 Systems Manager Inventory at build time.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_image_packages)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_packages)
+        """
     def list_image_pipeline_images(
         self,
+        *,
         imagePipelineArn: str,
-        filters: List[FilterTypeDef] = None,
+        filters: List["FilterTypeDef"] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListImagePipelineImagesResponseTypeDef:
         """
-        [Client.list_image_pipeline_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_pipeline_images)
-        """
+        Returns a list of images created by the specified pipeline.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_image_pipeline_images)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_pipeline_images)
+        """
     def list_image_pipelines(
-        self, filters: List[FilterTypeDef] = None, maxResults: int = None, nextToken: str = None
+        self,
+        *,
+        filters: List["FilterTypeDef"] = None,
+        maxResults: int = None,
+        nextToken: str = None
     ) -> ListImagePipelinesResponseTypeDef:
         """
-        [Client.list_image_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_pipelines)
-        """
+        Returns a list of image pipelines.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_image_pipelines)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_pipelines)
+        """
     def list_image_recipes(
         self,
-        owner: Literal["Self", "Shared", "Amazon"] = None,
-        filters: List[FilterTypeDef] = None,
+        *,
+        owner: OwnershipType = None,
+        filters: List["FilterTypeDef"] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListImageRecipesResponseTypeDef:
         """
-        [Client.list_image_recipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_recipes)
-        """
+        Returns a list of image recipes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_image_recipes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_image_recipes)
+        """
     def list_images(
         self,
-        owner: Literal["Self", "Shared", "Amazon"] = None,
-        filters: List[FilterTypeDef] = None,
+        *,
+        owner: OwnershipType = None,
+        filters: List["FilterTypeDef"] = None,
         byName: bool = None,
         maxResults: int = None,
         nextToken: str = None,
-        includeDeprecated: bool = None,
+        includeDeprecated: bool = None
     ) -> ListImagesResponseTypeDef:
         """
-        [Client.list_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_images)
-        """
+        Returns the list of images that you have access to.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_images)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_images)
+        """
     def list_infrastructure_configurations(
-        self, filters: List[FilterTypeDef] = None, maxResults: int = None, nextToken: str = None
+        self,
+        *,
+        filters: List["FilterTypeDef"] = None,
+        maxResults: int = None,
+        nextToken: str = None
     ) -> ListInfrastructureConfigurationsResponseTypeDef:
         """
-        [Client.list_infrastructure_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_infrastructure_configurations)
-        """
+        Returns a list of infrastructure configurations.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_infrastructure_configurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_infrastructure_configurations)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Returns the list of tags for the specified resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#list_tags_for_resource)
+        """
     def put_component_policy(
-        self, componentArn: str, policy: str
+        self, *, componentArn: str, policy: str
     ) -> PutComponentPolicyResponseTypeDef:
         """
-        [Client.put_component_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.put_component_policy)
-        """
+        Applies a policy to a component.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.put_component_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_component_policy)
+        """
     def put_container_recipe_policy(
-        self, containerRecipeArn: str, policy: str
+        self, *, containerRecipeArn: str, policy: str
     ) -> PutContainerRecipePolicyResponseTypeDef:
         """
-        [Client.put_container_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.put_container_recipe_policy)
-        """
+        Applies a policy to a container image.
 
-    def put_image_policy(self, imageArn: str, policy: str) -> PutImagePolicyResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.put_container_recipe_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_container_recipe_policy)
         """
-        [Client.put_image_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.put_image_policy)
+    def put_image_policy(self, *, imageArn: str, policy: str) -> PutImagePolicyResponseTypeDef:
         """
+        Applies a policy to an image.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.put_image_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_image_policy)
+        """
     def put_image_recipe_policy(
-        self, imageRecipeArn: str, policy: str
+        self, *, imageRecipeArn: str, policy: str
     ) -> PutImageRecipePolicyResponseTypeDef:
         """
-        [Client.put_image_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.put_image_recipe_policy)
-        """
+        Applies a policy to an image recipe.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.put_image_recipe_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#put_image_recipe_policy)
+        """
     def start_image_pipeline_execution(
-        self, imagePipelineArn: str, clientToken: str
+        self, *, imagePipelineArn: str, clientToken: str
     ) -> StartImagePipelineExecutionResponseTypeDef:
         """
-        [Client.start_image_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.start_image_pipeline_execution)
-        """
+        Manually triggers a pipeline to create an image.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.start_image_pipeline_execution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#start_image_pipeline_execution)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Adds a tag to a resource.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes a tag from a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#untag_resource)
+        """
     def update_distribution_configuration(
         self,
+        *,
         distributionConfigurationArn: str,
         distributions: List["DistributionTypeDef"],
         clientToken: str,
-        description: str = None,
+        description: str = None
     ) -> UpdateDistributionConfigurationResponseTypeDef:
         """
-        [Client.update_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.update_distribution_configuration)
-        """
+        Updates a new distribution configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.update_distribution_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#update_distribution_configuration)
+        """
     def update_image_pipeline(
         self,
+        *,
         imagePipelineArn: str,
         infrastructureConfigurationArn: str,
         clientToken: str,
@@ -552,14 +696,17 @@ class ImagebuilderClient:
         imageTestsConfiguration: "ImageTestsConfigurationTypeDef" = None,
         enhancedImageMetadataEnabled: bool = None,
         schedule: "ScheduleTypeDef" = None,
-        status: Literal["DISABLED", "ENABLED"] = None,
+        status: PipelineStatusType = None
     ) -> UpdateImagePipelineResponseTypeDef:
         """
-        [Client.update_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.update_image_pipeline)
-        """
+        Updates an image pipeline.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.update_image_pipeline)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#update_image_pipeline)
+        """
     def update_infrastructure_configuration(
         self,
+        *,
         infrastructureConfigurationArn: str,
         instanceProfileName: str,
         clientToken: str,
@@ -571,8 +718,11 @@ class ImagebuilderClient:
         keyPair: str = None,
         terminateInstanceOnFailure: bool = None,
         snsTopicArn: str = None,
-        resourceTags: Dict[str, str] = None,
+        resourceTags: Dict[str, str] = None
     ) -> UpdateInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.update_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/imagebuilder.html#Imagebuilder.Client.update_infrastructure_configuration)
+        Updates a new infrastructure configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/imagebuilder.html#imagebuilder.Client.update_infrastructure_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_imagebuilder/client.html#update_infrastructure_configuration)
         """

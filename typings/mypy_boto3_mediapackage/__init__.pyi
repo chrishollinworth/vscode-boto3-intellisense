@@ -23,15 +23,10 @@ Usage::
     list_origin_endpoints_paginator: ListOriginEndpointsPaginator = client.get_paginator("list_origin_endpoints")
     ```
 """
-from mypy_boto3_mediapackage.client import MediaPackageClient
-from mypy_boto3_mediapackage.paginator import (
-    ListChannelsPaginator,
-    ListHarvestJobsPaginator,
-    ListOriginEndpointsPaginator,
-)
+from .client import MediaPackageClient
+from .paginator import ListChannelsPaginator, ListHarvestJobsPaginator, ListOriginEndpointsPaginator
 
 Client = MediaPackageClient
-
 
 __all__ = (
     "Client",

@@ -23,15 +23,14 @@ Usage::
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     ```
 """
-from mypy_boto3_serverlessrepo.client import ServerlessApplicationRepositoryClient
-from mypy_boto3_serverlessrepo.paginator import (
+from .client import ServerlessApplicationRepositoryClient
+from .paginator import (
     ListApplicationDependenciesPaginator,
     ListApplicationsPaginator,
     ListApplicationVersionsPaginator,
 )
 
 Client = ServerlessApplicationRepositoryClient
-
 
 __all__ = (
     "Client",

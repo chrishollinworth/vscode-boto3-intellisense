@@ -16,9 +16,8 @@ Usage::
     session_client: HealthLakeClient = session.client("healthlake")
     ```
 """
-from mypy_boto3_healthlake.client import HealthLakeClient
+from .client import HealthLakeClient
 
 Client = HealthLakeClient
-
 
 __all__ = ("Client", "HealthLakeClient")

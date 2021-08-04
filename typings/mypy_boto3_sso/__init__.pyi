@@ -21,10 +21,9 @@ Usage::
     list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")
     ```
 """
-from mypy_boto3_sso.client import SSOClient
-from mypy_boto3_sso.paginator import ListAccountRolesPaginator, ListAccountsPaginator
+from .client import SSOClient
+from .paginator import ListAccountRolesPaginator, ListAccountsPaginator
 
 Client = SSOClient
-
 
 __all__ = ("Client", "ListAccountRolesPaginator", "ListAccountsPaginator", "SSOClient")

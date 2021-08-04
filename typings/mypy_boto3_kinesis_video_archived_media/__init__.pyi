@@ -19,10 +19,9 @@ Usage::
     list_fragments_paginator: ListFragmentsPaginator = client.get_paginator("list_fragments")
     ```
 """
-from mypy_boto3_kinesis_video_archived_media.client import KinesisVideoArchivedMediaClient
-from mypy_boto3_kinesis_video_archived_media.paginator import ListFragmentsPaginator
+from .client import KinesisVideoArchivedMediaClient
+from .paginator import ListFragmentsPaginator
 
 Client = KinesisVideoArchivedMediaClient
-
 
 __all__ = ("Client", "KinesisVideoArchivedMediaClient", "ListFragmentsPaginator")

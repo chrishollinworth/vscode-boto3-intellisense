@@ -1,5 +1,7 @@
 """
-Main interface for sso-admin service client paginators.
+Type annotations for sso-admin service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html)
 
 Usage::
 
@@ -34,12 +36,12 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_sso_admin.type_defs import (
+from .literals import ProvisioningStatusType
+from .type_defs import (
     ListAccountAssignmentCreationStatusResponseTypeDef,
     ListAccountAssignmentDeletionStatusResponseTypeDef,
     ListAccountAssignmentsResponseTypeDef,
@@ -54,12 +56,6 @@ from mypy_boto3_sso_admin.type_defs import (
     PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = (
     "ListAccountAssignmentCreationStatusPaginator",
     "ListAccountAssignmentDeletionStatusPaginator",
@@ -73,160 +69,173 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-
 class ListAccountAssignmentCreationStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountAssignmentCreationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentcreationstatuspaginator)
     """
 
     def paginate(
         self,
+        *,
         InstanceArn: str,
-        Filter: OperationStatusFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filter: "OperationStatusFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountAssignmentCreationStatusResponseTypeDef]:
         """
-        [ListAccountAssignmentCreationStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentcreationstatuspaginator)
         """
-
 
 class ListAccountAssignmentDeletionStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountAssignmentDeletionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentdeletionstatuspaginator)
     """
 
     def paginate(
         self,
+        *,
         InstanceArn: str,
-        Filter: OperationStatusFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filter: "OperationStatusFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountAssignmentDeletionStatusResponseTypeDef]:
         """
-        [ListAccountAssignmentDeletionStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentdeletionstatuspaginator)
         """
-
 
 class ListAccountAssignmentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountAssignments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentspaginator)
     """
 
     def paginate(
         self,
+        *,
         InstanceArn: str,
         AccountId: str,
         PermissionSetArn: str,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountAssignmentsResponseTypeDef]:
         """
-        [ListAccountAssignments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountassignmentspaginator)
         """
-
 
 class ListAccountsForProvisionedPermissionSetPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountsForProvisionedPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountsforprovisionedpermissionsetpaginator)
     """
 
     def paginate(
         self,
+        *,
         InstanceArn: str,
         PermissionSetArn: str,
-        ProvisioningStatus: Literal[
-            "LATEST_PERMISSION_SET_PROVISIONED", "LATEST_PERMISSION_SET_NOT_PROVISIONED"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        ProvisioningStatus: ProvisioningStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountsForProvisionedPermissionSetResponseTypeDef]:
         """
-        [ListAccountsForProvisionedPermissionSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listaccountsforprovisionedpermissionsetpaginator)
         """
-
 
 class ListInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listinstancespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstancesResponseTypeDef]:
         """
-        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listinstancespaginator)
         """
-
 
 class ListManagedPoliciesInPermissionSetPaginator(Boto3Paginator):
     """
-    [Paginator.ListManagedPoliciesInPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listmanagedpoliciesinpermissionsetpaginator)
     """
 
     def paginate(
         self,
+        *,
         InstanceArn: str,
         PermissionSetArn: str,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListManagedPoliciesInPermissionSetResponseTypeDef]:
         """
-        [ListManagedPoliciesInPermissionSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listmanagedpoliciesinpermissionsetpaginator)
         """
-
 
 class ListPermissionSetProvisioningStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListPermissionSetProvisioningStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetprovisioningstatuspaginator)
     """
 
     def paginate(
         self,
+        *,
         InstanceArn: str,
-        Filter: OperationStatusFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filter: "OperationStatusFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPermissionSetProvisioningStatusResponseTypeDef]:
         """
-        [ListPermissionSetProvisioningStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetprovisioningstatuspaginator)
         """
-
 
 class ListPermissionSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPermissionSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetspaginator)
     """
 
     def paginate(
-        self, InstanceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, InstanceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPermissionSetsResponseTypeDef]:
         """
-        [ListPermissionSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetspaginator)
         """
-
 
 class ListPermissionSetsProvisionedToAccountPaginator(Boto3Paginator):
     """
-    [Paginator.ListPermissionSetsProvisionedToAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetsprovisionedtoaccountpaginator)
     """
 
     def paginate(
         self,
+        *,
         InstanceArn: str,
         AccountId: str,
-        ProvisioningStatus: Literal[
-            "LATEST_PERMISSION_SET_PROVISIONED", "LATEST_PERMISSION_SET_NOT_PROVISIONED"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        ProvisioningStatus: ProvisioningStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPermissionSetsProvisionedToAccountResponseTypeDef]:
         """
-        [ListPermissionSetsProvisionedToAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listpermissionsetsprovisionedtoaccountpaginator)
         """
-
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listtagsforresourcepaginator)
     """
 
     def paginate(
-        self, InstanceArn: str, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, InstanceArn: str, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_admin/paginators.html#listtagsforresourcepaginator)
         """

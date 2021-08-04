@@ -41,8 +41,8 @@ Usage::
     list_shared_report_groups_paginator: ListSharedReportGroupsPaginator = client.get_paginator("list_shared_report_groups")
     ```
 """
-from mypy_boto3_codebuild.client import CodeBuildClient
-from mypy_boto3_codebuild.paginator import (
+from .client import CodeBuildClient
+from .paginator import (
     DescribeCodeCoveragesPaginator,
     DescribeTestCasesPaginator,
     ListBuildBatchesForProjectPaginator,
@@ -58,7 +58,6 @@ from mypy_boto3_codebuild.paginator import (
 )
 
 Client = CodeBuildClient
-
 
 __all__ = (
     "Client",

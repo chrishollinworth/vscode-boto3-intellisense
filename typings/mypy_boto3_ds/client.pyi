@@ -1,5 +1,7 @@
 """
-Main interface for ds service client
+Type annotations for ds service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html)
 
 Usage::
 
@@ -13,9 +15,18 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_ds.paginator import (
+from .literals import (
+    CertificateTypeType,
+    DirectoryEditionType,
+    DirectorySizeType,
+    SelectiveAuthType,
+    ShareMethodType,
+    TrustDirectionType,
+    TrustTypeType,
+)
+from .paginator import (
     DescribeDirectoriesPaginator,
     DescribeDomainControllersPaginator,
     DescribeSharedDirectoriesPaginator,
@@ -26,7 +37,7 @@ from mypy_boto3_ds.paginator import (
     ListSchemaExtensionsPaginator,
     ListTagsForResourcePaginator,
 )
-from mypy_boto3_ds.type_defs import (
+from .type_defs import (
     AcceptSharedDirectoryResultTypeDef,
     AttributeTypeDef,
     ClientCertAuthSettingsTypeDef,
@@ -78,17 +89,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("DirectoryServiceClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -127,321 +134,431 @@ class Exceptions:
     UnsupportedOperationException: Type[BotocoreClientError]
     UserDoesNotExistException: Type[BotocoreClientError]
 
-
-class DirectoryServiceClient:
+class DirectoryServiceClient(BaseClient):
     """
-    [DirectoryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def accept_shared_directory(self, SharedDirectoryId: str) -> AcceptSharedDirectoryResultTypeDef:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.accept_shared_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.accept_shared_directory)
+        DirectoryServiceClient exceptions.
         """
+    def accept_shared_directory(
+        self, *, SharedDirectoryId: str
+    ) -> AcceptSharedDirectoryResultTypeDef:
+        """
+        Accepts a directory sharing request that was sent from the directory owner
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.accept_shared_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#accept_shared_directory)
+        """
     def add_ip_routes(
         self,
+        *,
         DirectoryId: str,
-        IpRoutes: List[IpRouteTypeDef],
-        UpdateSecurityGroupForDirectoryControllers: bool = None,
+        IpRoutes: List["IpRouteTypeDef"],
+        UpdateSecurityGroupForDirectoryControllers: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.add_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.add_ip_routes)
-        """
+        If the DNS server for your on-premises domain uses a publicly addressable IP
+        address, you must add a CIDR address block to correctly route traffic to and
+        from your Microsoft AD on Amazon Web Services.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.add_ip_routes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#add_ip_routes)
+        """
     def add_region(
-        self, DirectoryId: str, RegionName: str, VPCSettings: "DirectoryVpcSettingsTypeDef"
+        self, *, DirectoryId: str, RegionName: str, VPCSettings: "DirectoryVpcSettingsTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.add_region documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.add_region)
-        """
+        Adds two domain controllers in the specified Region for the specified directory.
 
-    def add_tags_to_resource(self, ResourceId: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.add_region)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#add_region)
         """
-        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.add_tags_to_resource)
+    def add_tags_to_resource(self, *, ResourceId: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds or overwrites one or more tags for the specified directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.add_tags_to_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#add_tags_to_resource)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def cancel_schema_extension(self, DirectoryId: str, SchemaExtensionId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#can_paginate)
         """
-        [Client.cancel_schema_extension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.cancel_schema_extension)
+    def cancel_schema_extension(
+        self, *, DirectoryId: str, SchemaExtensionId: str
+    ) -> Dict[str, Any]:
         """
+        Cancels an in-progress schema extension to a Microsoft AD directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.cancel_schema_extension)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#cancel_schema_extension)
+        """
     def connect_directory(
         self,
+        *,
         Name: str,
         Password: str,
-        Size: Literal["Small", "Large"],
-        ConnectSettings: DirectoryConnectSettingsTypeDef,
+        Size: DirectorySizeType,
+        ConnectSettings: "DirectoryConnectSettingsTypeDef",
         ShortName: str = None,
         Description: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> ConnectDirectoryResultTypeDef:
         """
-        [Client.connect_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.connect_directory)
-        """
+        Creates an AD Connector to connect to an on-premises directory.
 
-    def create_alias(self, DirectoryId: str, Alias: str) -> CreateAliasResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.connect_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#connect_directory)
         """
-        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_alias)
+    def create_alias(self, *, DirectoryId: str, Alias: str) -> CreateAliasResultTypeDef:
         """
+        Creates an alias for a directory and assigns the alias to the directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_alias)
+        """
     def create_computer(
         self,
+        *,
         DirectoryId: str,
         ComputerName: str,
         Password: str,
         OrganizationalUnitDistinguishedName: str = None,
-        ComputerAttributes: List["AttributeTypeDef"] = None,
+        ComputerAttributes: List["AttributeTypeDef"] = None
     ) -> CreateComputerResultTypeDef:
         """
-        [Client.create_computer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_computer)
-        """
+        Creates an Active Directory computer object in the specified directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_computer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_computer)
+        """
     def create_conditional_forwarder(
-        self, DirectoryId: str, RemoteDomainName: str, DnsIpAddrs: List[str]
+        self, *, DirectoryId: str, RemoteDomainName: str, DnsIpAddrs: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.create_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_conditional_forwarder)
-        """
+        Creates a conditional forwarder associated with your AWS directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_conditional_forwarder)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_conditional_forwarder)
+        """
     def create_directory(
         self,
+        *,
         Name: str,
         Password: str,
-        Size: Literal["Small", "Large"],
+        Size: DirectorySizeType,
         ShortName: str = None,
         Description: str = None,
         VpcSettings: "DirectoryVpcSettingsTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateDirectoryResultTypeDef:
         """
-        [Client.create_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_directory)
-        """
+        Creates a Simple AD directory.
 
-    def create_log_subscription(self, DirectoryId: str, LogGroupName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_directory)
         """
-        [Client.create_log_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_log_subscription)
+    def create_log_subscription(self, *, DirectoryId: str, LogGroupName: str) -> Dict[str, Any]:
         """
+        Creates a subscription to forward real-time Directory Service domain controller
+        security logs to the specified Amazon CloudWatch log group in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_log_subscription)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_log_subscription)
+        """
     def create_microsoft_ad(
         self,
+        *,
         Name: str,
         Password: str,
         VpcSettings: "DirectoryVpcSettingsTypeDef",
         ShortName: str = None,
         Description: str = None,
-        Edition: Literal["Enterprise", "Standard"] = None,
-        Tags: List["TagTypeDef"] = None,
+        Edition: DirectoryEditionType = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateMicrosoftADResultTypeDef:
         """
-        [Client.create_microsoft_ad documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_microsoft_ad)
-        """
+        Creates a Microsoft AD directory in the AWS Cloud.
 
-    def create_snapshot(self, DirectoryId: str, Name: str = None) -> CreateSnapshotResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_microsoft_ad)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_microsoft_ad)
         """
-        [Client.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_snapshot)
+    def create_snapshot(self, *, DirectoryId: str, Name: str = None) -> CreateSnapshotResultTypeDef:
         """
+        Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_snapshot)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_snapshot)
+        """
     def create_trust(
         self,
+        *,
         DirectoryId: str,
         RemoteDomainName: str,
         TrustPassword: str,
-        TrustDirection: Literal["One-Way: Outgoing", "One-Way: Incoming", "Two-Way"],
-        TrustType: Literal["Forest", "External"] = None,
+        TrustDirection: TrustDirectionType,
+        TrustType: TrustTypeType = None,
         ConditionalForwarderIpAddrs: List[str] = None,
-        SelectiveAuth: Literal["Enabled", "Disabled"] = None,
+        SelectiveAuth: SelectiveAuthType = None
     ) -> CreateTrustResultTypeDef:
         """
-        [Client.create_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.create_trust)
-        """
+        AWS Directory Service for Microsoft Active Directory allows you to configure
+        trust relationships.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.create_trust)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#create_trust)
+        """
     def delete_conditional_forwarder(
-        self, DirectoryId: str, RemoteDomainName: str
+        self, *, DirectoryId: str, RemoteDomainName: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.delete_conditional_forwarder)
-        """
+        Deletes a conditional forwarder that has been set up for your AWS directory.
 
-    def delete_directory(self, DirectoryId: str) -> DeleteDirectoryResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.delete_conditional_forwarder)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#delete_conditional_forwarder)
         """
-        [Client.delete_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.delete_directory)
+    def delete_directory(self, *, DirectoryId: str) -> DeleteDirectoryResultTypeDef:
         """
+        Deletes an AWS Directory Service directory.
 
-    def delete_log_subscription(self, DirectoryId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.delete_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#delete_directory)
         """
-        [Client.delete_log_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.delete_log_subscription)
+    def delete_log_subscription(self, *, DirectoryId: str) -> Dict[str, Any]:
         """
+        Deletes the specified log subscription.
 
-    def delete_snapshot(self, SnapshotId: str) -> DeleteSnapshotResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.delete_log_subscription)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#delete_log_subscription)
         """
-        [Client.delete_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.delete_snapshot)
+    def delete_snapshot(self, *, SnapshotId: str) -> DeleteSnapshotResultTypeDef:
         """
+        Deletes a directory snapshot.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.delete_snapshot)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#delete_snapshot)
+        """
     def delete_trust(
-        self, TrustId: str, DeleteAssociatedConditionalForwarder: bool = None
+        self, *, TrustId: str, DeleteAssociatedConditionalForwarder: bool = None
     ) -> DeleteTrustResultTypeDef:
         """
-        [Client.delete_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.delete_trust)
-        """
+        Deletes an existing trust relationship between your AWS Managed Microsoft AD
+        directory and an external domain.
 
-    def deregister_certificate(self, DirectoryId: str, CertificateId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.delete_trust)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#delete_trust)
         """
-        [Client.deregister_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.deregister_certificate)
+    def deregister_certificate(self, *, DirectoryId: str, CertificateId: str) -> Dict[str, Any]:
         """
+        Deletes from the system the certificate that was registered for secure LDAP or
+        client certificate authentication.
 
-    def deregister_event_topic(self, DirectoryId: str, TopicName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.deregister_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#deregister_certificate)
         """
-        [Client.deregister_event_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.deregister_event_topic)
+    def deregister_event_topic(self, *, DirectoryId: str, TopicName: str) -> Dict[str, Any]:
         """
+        Removes the specified directory as a publisher to the specified SNS topic.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.deregister_event_topic)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#deregister_event_topic)
+        """
     def describe_certificate(
-        self, DirectoryId: str, CertificateId: str
+        self, *, DirectoryId: str, CertificateId: str
     ) -> DescribeCertificateResultTypeDef:
         """
-        [Client.describe_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_certificate)
-        """
+        Displays information about the certificate registered for secure LDAP or client
+        certificate authentication.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_certificate)
+        """
     def describe_conditional_forwarders(
-        self, DirectoryId: str, RemoteDomainNames: List[str] = None
+        self, *, DirectoryId: str, RemoteDomainNames: List[str] = None
     ) -> DescribeConditionalForwardersResultTypeDef:
         """
-        [Client.describe_conditional_forwarders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_conditional_forwarders)
-        """
+        Obtains information about the conditional forwarders for this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_conditional_forwarders)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_conditional_forwarders)
+        """
     def describe_directories(
-        self, DirectoryIds: List[str] = None, NextToken: str = None, Limit: int = None
+        self, *, DirectoryIds: List[str] = None, NextToken: str = None, Limit: int = None
     ) -> DescribeDirectoriesResultTypeDef:
         """
-        [Client.describe_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_directories)
-        """
+        Obtains information about the directories that belong to this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_directories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_directories)
+        """
     def describe_domain_controllers(
         self,
+        *,
         DirectoryId: str,
         DomainControllerIds: List[str] = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> DescribeDomainControllersResultTypeDef:
         """
-        [Client.describe_domain_controllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_domain_controllers)
-        """
+        Provides information about any domain controllers in your directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_domain_controllers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_domain_controllers)
+        """
     def describe_event_topics(
-        self, DirectoryId: str = None, TopicNames: List[str] = None
+        self, *, DirectoryId: str = None, TopicNames: List[str] = None
     ) -> DescribeEventTopicsResultTypeDef:
         """
-        [Client.describe_event_topics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_event_topics)
-        """
+        Obtains information about which SNS topics receive status messages from the
+        specified directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_event_topics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_event_topics)
+        """
     def describe_ldaps_settings(
         self,
+        *,
         DirectoryId: str,
         Type: Literal["Client"] = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> DescribeLDAPSSettingsResultTypeDef:
         """
-        [Client.describe_ldaps_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_ldaps_settings)
-        """
+        Describes the status of LDAP security for the specified directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_ldaps_settings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_ldaps_settings)
+        """
     def describe_regions(
-        self, DirectoryId: str, RegionName: str = None, NextToken: str = None
+        self, *, DirectoryId: str, RegionName: str = None, NextToken: str = None
     ) -> DescribeRegionsResultTypeDef:
         """
-        [Client.describe_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_regions)
-        """
+        Provides information about the Regions that are configured for multi-Region
+        replication.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_regions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_regions)
+        """
     def describe_shared_directories(
         self,
+        *,
         OwnerDirectoryId: str,
         SharedDirectoryIds: List[str] = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> DescribeSharedDirectoriesResultTypeDef:
         """
-        [Client.describe_shared_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_shared_directories)
-        """
+        Returns the shared directories in your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_shared_directories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_shared_directories)
+        """
     def describe_snapshots(
         self,
+        *,
         DirectoryId: str = None,
         SnapshotIds: List[str] = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> DescribeSnapshotsResultTypeDef:
         """
-        [Client.describe_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_snapshots)
-        """
+        Obtains information about the directory snapshots that belong to this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_snapshots)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_snapshots)
+        """
     def describe_trusts(
         self,
+        *,
         DirectoryId: str = None,
         TrustIds: List[str] = None,
         NextToken: str = None,
-        Limit: int = None,
+        Limit: int = None
     ) -> DescribeTrustsResultTypeDef:
         """
-        [Client.describe_trusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.describe_trusts)
-        """
+        Obtains information about the trust relationships for this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.describe_trusts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#describe_trusts)
+        """
     def disable_client_authentication(
-        self, DirectoryId: str, Type: Literal["SmartCard"]
+        self, *, DirectoryId: str, Type: Literal["SmartCard"]
     ) -> Dict[str, Any]:
         """
-        [Client.disable_client_authentication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.disable_client_authentication)
-        """
+        Disables alternative client authentication methods for the specified directory.
 
-    def disable_ldaps(self, DirectoryId: str, Type: Literal["Client"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.disable_client_authentication)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#disable_client_authentication)
         """
-        [Client.disable_ldaps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.disable_ldaps)
+    def disable_ldaps(self, *, DirectoryId: str, Type: Literal["Client"]) -> Dict[str, Any]:
         """
+        Deactivates LDAP secure calls for the specified directory.
 
-    def disable_radius(self, DirectoryId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.disable_ldaps)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#disable_ldaps)
         """
-        [Client.disable_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.disable_radius)
+    def disable_radius(self, *, DirectoryId: str) -> Dict[str, Any]:
         """
+        Disables multi-factor authentication (MFA) with the Remote Authentication Dial
+        In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.disable_radius)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#disable_radius)
+        """
     def disable_sso(
-        self, DirectoryId: str, UserName: str = None, Password: str = None
+        self, *, DirectoryId: str, UserName: str = None, Password: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.disable_sso documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.disable_sso)
-        """
+        Disables single-sign on for a directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.disable_sso)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#disable_sso)
+        """
     def enable_client_authentication(
-        self, DirectoryId: str, Type: Literal["SmartCard"]
+        self, *, DirectoryId: str, Type: Literal["SmartCard"]
     ) -> Dict[str, Any]:
         """
-        [Client.enable_client_authentication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.enable_client_authentication)
-        """
+        Enables alternative client authentication methods for the specified directory.
 
-    def enable_ldaps(self, DirectoryId: str, Type: Literal["Client"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.enable_client_authentication)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#enable_client_authentication)
         """
-        [Client.enable_ldaps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.enable_ldaps)
+    def enable_ldaps(self, *, DirectoryId: str, Type: Literal["Client"]) -> Dict[str, Any]:
         """
+        Activates the switch for the specific directory to always use LDAP secure calls.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.enable_ldaps)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#enable_ldaps)
+        """
     def enable_radius(
-        self, DirectoryId: str, RadiusSettings: "RadiusSettingsTypeDef"
+        self, *, DirectoryId: str, RadiusSettings: "RadiusSettingsTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.enable_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.enable_radius)
-        """
+        Enables multi-factor authentication (MFA) with the Remote Authentication Dial In
+        User Service (RADIUS) server for an AD Connector or Microsoft AD directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.enable_radius)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#enable_radius)
+        """
     def enable_sso(
-        self, DirectoryId: str, UserName: str = None, Password: str = None
+        self, *, DirectoryId: str, UserName: str = None, Password: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.enable_sso documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.enable_sso)
-        """
+        Enables single sign-on for a directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.enable_sso)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#enable_sso)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -450,228 +567,290 @@ class DirectoryServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#generate_presigned_url)
+        """
     def get_directory_limits(self) -> GetDirectoryLimitsResultTypeDef:
         """
-        [Client.get_directory_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.get_directory_limits)
-        """
+        Obtains directory limit information for the current Region.
 
-    def get_snapshot_limits(self, DirectoryId: str) -> GetSnapshotLimitsResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.get_directory_limits)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#get_directory_limits)
         """
-        [Client.get_snapshot_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.get_snapshot_limits)
+    def get_snapshot_limits(self, *, DirectoryId: str) -> GetSnapshotLimitsResultTypeDef:
         """
+        Obtains the manual snapshot limits for a directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.get_snapshot_limits)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#get_snapshot_limits)
+        """
     def list_certificates(
-        self, DirectoryId: str, NextToken: str = None, Limit: int = None
+        self, *, DirectoryId: str, NextToken: str = None, Limit: int = None
     ) -> ListCertificatesResultTypeDef:
         """
-        [Client.list_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.list_certificates)
-        """
+        For the specified directory, lists all the certificates registered for a secure
+        LDAP or client certificate authentication.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.list_certificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#list_certificates)
+        """
     def list_ip_routes(
-        self, DirectoryId: str, NextToken: str = None, Limit: int = None
+        self, *, DirectoryId: str, NextToken: str = None, Limit: int = None
     ) -> ListIpRoutesResultTypeDef:
         """
-        [Client.list_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.list_ip_routes)
-        """
+        Lists the address blocks that you have added to a directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.list_ip_routes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#list_ip_routes)
+        """
     def list_log_subscriptions(
-        self, DirectoryId: str = None, NextToken: str = None, Limit: int = None
+        self, *, DirectoryId: str = None, NextToken: str = None, Limit: int = None
     ) -> ListLogSubscriptionsResultTypeDef:
         """
-        [Client.list_log_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.list_log_subscriptions)
-        """
+        Lists the active log subscriptions for the AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.list_log_subscriptions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#list_log_subscriptions)
+        """
     def list_schema_extensions(
-        self, DirectoryId: str, NextToken: str = None, Limit: int = None
+        self, *, DirectoryId: str, NextToken: str = None, Limit: int = None
     ) -> ListSchemaExtensionsResultTypeDef:
         """
-        [Client.list_schema_extensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.list_schema_extensions)
-        """
+        Lists all schema extensions applied to a Microsoft AD Directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.list_schema_extensions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#list_schema_extensions)
+        """
     def list_tags_for_resource(
-        self, ResourceId: str, NextToken: str = None, Limit: int = None
+        self, *, ResourceId: str, NextToken: str = None, Limit: int = None
     ) -> ListTagsForResourceResultTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.list_tags_for_resource)
-        """
+        Lists all tags on a directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#list_tags_for_resource)
+        """
     def register_certificate(
         self,
+        *,
         DirectoryId: str,
         CertificateData: str,
-        Type: Literal["ClientCertAuth", "ClientLDAPS"] = None,
-        ClientCertAuthSettings: "ClientCertAuthSettingsTypeDef" = None,
+        Type: CertificateTypeType = None,
+        ClientCertAuthSettings: "ClientCertAuthSettingsTypeDef" = None
     ) -> RegisterCertificateResultTypeDef:
         """
-        [Client.register_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.register_certificate)
-        """
+        Registers a certificate for a secure LDAP or client certificate authentication.
 
-    def register_event_topic(self, DirectoryId: str, TopicName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.register_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#register_certificate)
         """
-        [Client.register_event_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.register_event_topic)
+    def register_event_topic(self, *, DirectoryId: str, TopicName: str) -> Dict[str, Any]:
         """
+        Associates a directory with an SNS topic.
 
-    def reject_shared_directory(self, SharedDirectoryId: str) -> RejectSharedDirectoryResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.register_event_topic)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#register_event_topic)
         """
-        [Client.reject_shared_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.reject_shared_directory)
+    def reject_shared_directory(
+        self, *, SharedDirectoryId: str
+    ) -> RejectSharedDirectoryResultTypeDef:
         """
+        Rejects a directory sharing request that was sent from the directory owner
+        account.
 
-    def remove_ip_routes(self, DirectoryId: str, CidrIps: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.reject_shared_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#reject_shared_directory)
         """
-        [Client.remove_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.remove_ip_routes)
+    def remove_ip_routes(self, *, DirectoryId: str, CidrIps: List[str]) -> Dict[str, Any]:
         """
+        Removes IP address blocks from a directory.
 
-    def remove_region(self, DirectoryId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.remove_ip_routes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#remove_ip_routes)
         """
-        [Client.remove_region documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.remove_region)
+    def remove_region(self, *, DirectoryId: str) -> Dict[str, Any]:
         """
+        Stops all replication and removes the domain controllers from the specified
+        Region.
 
-    def remove_tags_from_resource(self, ResourceId: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.remove_region)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#remove_region)
         """
-        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.remove_tags_from_resource)
+    def remove_tags_from_resource(self, *, ResourceId: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes tags from a directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.remove_tags_from_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#remove_tags_from_resource)
+        """
     def reset_user_password(
-        self, DirectoryId: str, UserName: str, NewPassword: str
+        self, *, DirectoryId: str, UserName: str, NewPassword: str
     ) -> Dict[str, Any]:
         """
-        [Client.reset_user_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.reset_user_password)
-        """
+        Resets the password for any user in your AWS Managed Microsoft AD or Simple AD
+        directory.
 
-    def restore_from_snapshot(self, SnapshotId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.reset_user_password)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#reset_user_password)
         """
-        [Client.restore_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.restore_from_snapshot)
+    def restore_from_snapshot(self, *, SnapshotId: str) -> Dict[str, Any]:
         """
+        Restores a directory using an existing directory snapshot.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.restore_from_snapshot)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#restore_from_snapshot)
+        """
     def share_directory(
         self,
+        *,
         DirectoryId: str,
-        ShareTarget: ShareTargetTypeDef,
-        ShareMethod: Literal["ORGANIZATIONS", "HANDSHAKE"],
-        ShareNotes: str = None,
+        ShareTarget: "ShareTargetTypeDef",
+        ShareMethod: ShareMethodType,
+        ShareNotes: str = None
     ) -> ShareDirectoryResultTypeDef:
         """
-        [Client.share_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.share_directory)
-        """
+        Shares a specified directory (`DirectoryId` ) in your AWS account (directory
+        owner) with another AWS account (directory consumer).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.share_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#share_directory)
+        """
     def start_schema_extension(
         self,
+        *,
         DirectoryId: str,
         CreateSnapshotBeforeSchemaExtension: bool,
         LdifContent: str,
-        Description: str,
+        Description: str
     ) -> StartSchemaExtensionResultTypeDef:
         """
-        [Client.start_schema_extension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.start_schema_extension)
-        """
+        Applies a schema extension to a Microsoft AD directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.start_schema_extension)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#start_schema_extension)
+        """
     def unshare_directory(
-        self, DirectoryId: str, UnshareTarget: UnshareTargetTypeDef
+        self, *, DirectoryId: str, UnshareTarget: "UnshareTargetTypeDef"
     ) -> UnshareDirectoryResultTypeDef:
         """
-        [Client.unshare_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.unshare_directory)
-        """
+        Stops the directory sharing between the directory owner and consumer accounts.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.unshare_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#unshare_directory)
+        """
     def update_conditional_forwarder(
-        self, DirectoryId: str, RemoteDomainName: str, DnsIpAddrs: List[str]
+        self, *, DirectoryId: str, RemoteDomainName: str, DnsIpAddrs: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.update_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.update_conditional_forwarder)
-        """
+        Updates a conditional forwarder that has been set up for your AWS directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.update_conditional_forwarder)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#update_conditional_forwarder)
+        """
     def update_number_of_domain_controllers(
-        self, DirectoryId: str, DesiredNumber: int
+        self, *, DirectoryId: str, DesiredNumber: int
     ) -> Dict[str, Any]:
         """
-        [Client.update_number_of_domain_controllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.update_number_of_domain_controllers)
-        """
+        Adds or removes domain controllers to or from the directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.update_number_of_domain_controllers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#update_number_of_domain_controllers)
+        """
     def update_radius(
-        self, DirectoryId: str, RadiusSettings: "RadiusSettingsTypeDef"
+        self, *, DirectoryId: str, RadiusSettings: "RadiusSettingsTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.update_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.update_radius)
-        """
+        Updates the Remote Authentication Dial In User Service (RADIUS) server
+        information for an AD Connector or Microsoft AD directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.update_radius)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#update_radius)
+        """
     def update_trust(
-        self, TrustId: str, SelectiveAuth: Literal["Enabled", "Disabled"] = None
+        self, *, TrustId: str, SelectiveAuth: SelectiveAuthType = None
     ) -> UpdateTrustResultTypeDef:
         """
-        [Client.update_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.update_trust)
-        """
+        Updates the trust that has been set up between your AWS Managed Microsoft AD
+        directory and an on-premises Active Directory.
 
-    def verify_trust(self, TrustId: str) -> VerifyTrustResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.update_trust)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#update_trust)
         """
-        [Client.verify_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Client.verify_trust)
+    def verify_trust(self, *, TrustId: str) -> VerifyTrustResultTypeDef:
         """
+        AWS Directory Service for Microsoft Active Directory allows you to configure and
+        verify trust relationships.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Client.verify_trust)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/client.html#verify_trust)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_directories"]
     ) -> DescribeDirectoriesPaginator:
         """
-        [Paginator.DescribeDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describedirectoriespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_domain_controllers"]
     ) -> DescribeDomainControllersPaginator:
         """
-        [Paginator.DescribeDomainControllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describedomaincontrollerspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_shared_directories"]
     ) -> DescribeSharedDirectoriesPaginator:
         """
-        [Paginator.DescribeSharedDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeshareddirectoriespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_snapshots"]
     ) -> DescribeSnapshotsPaginator:
         """
-        [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describesnapshotspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["describe_trusts"]) -> DescribeTrustsPaginator:
         """
-        [Paginator.DescribeTrusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describetrustspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_ip_routes"]) -> ListIpRoutesPaginator:
         """
-        [Paginator.ListIpRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listiproutespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_log_subscriptions"]
     ) -> ListLogSubscriptionsPaginator:
         """
-        [Paginator.ListLogSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listlogsubscriptionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_schema_extensions"]
     ) -> ListSchemaExtensionsPaginator:
         """
-        [Paginator.ListSchemaExtensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listschemaextensionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listtagsforresourcepaginator)
         """

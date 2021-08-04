@@ -1,5 +1,7 @@
 """
-Main interface for codepipeline service client paginators.
+Type annotations for codepipeline service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html)
 
 Usage::
 
@@ -26,12 +28,12 @@ Usage::
     list_webhooks_paginator: ListWebhooksPaginator = client.get_paginator("list_webhooks")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_codepipeline.type_defs import (
+from .literals import ActionOwnerType
+from .type_defs import (
     ActionExecutionFilterTypeDef,
     ListActionExecutionsOutputTypeDef,
     ListActionTypesOutputTypeDef,
@@ -42,12 +44,6 @@ from mypy_boto3_codepipeline.type_defs import (
     PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = (
     "ListActionExecutionsPaginator",
     "ListActionTypesPaginator",
@@ -57,85 +53,94 @@ __all__ = (
     "ListWebhooksPaginator",
 )
 
-
 class ListActionExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListActionExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listactionexecutionspaginator)
     """
 
     def paginate(
         self,
+        *,
         pipelineName: str,
-        filter: ActionExecutionFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        filter: "ActionExecutionFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListActionExecutionsOutputTypeDef]:
         """
-        [ListActionExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listactionexecutionspaginator)
         """
-
 
 class ListActionTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListActionTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listactiontypespaginator)
     """
 
     def paginate(
         self,
-        actionOwnerFilter: Literal["AWS", "ThirdParty", "Custom"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        actionOwnerFilter: ActionOwnerType = None,
+        regionFilter: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListActionTypesOutputTypeDef]:
         """
-        [ListActionTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listactiontypespaginator)
         """
-
 
 class ListPipelineExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listpipelineexecutionspaginator)
     """
 
     def paginate(
-        self, pipelineName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, pipelineName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelineExecutionsOutputTypeDef]:
         """
-        [ListPipelineExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listpipelineexecutionspaginator)
         """
-
 
 class ListPipelinesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listpipelinespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelinesOutputTypeDef]:
         """
-        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listpipelinespaginator)
         """
-
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listtagsforresourcepaginator)
     """
 
     def paginate(
-        self, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceOutputTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listtagsforresourcepaginator)
         """
-
 
 class ListWebhooksPaginator(Boto3Paginator):
     """
-    [Paginator.ListWebhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listwebhookspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWebhooksOutputTypeDef]:
         """
-        [ListWebhooks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/paginators.html#listwebhookspaginator)
         """

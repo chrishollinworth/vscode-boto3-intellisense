@@ -23,15 +23,10 @@ Usage::
     get_products_paginator: GetProductsPaginator = client.get_paginator("get_products")
     ```
 """
-from mypy_boto3_pricing.client import PricingClient
-from mypy_boto3_pricing.paginator import (
-    DescribeServicesPaginator,
-    GetAttributeValuesPaginator,
-    GetProductsPaginator,
-)
+from .client import PricingClient
+from .paginator import DescribeServicesPaginator, GetAttributeValuesPaginator, GetProductsPaginator
 
 Client = PricingClient
-
 
 __all__ = (
     "Client",

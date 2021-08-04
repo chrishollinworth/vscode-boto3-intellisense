@@ -16,9 +16,8 @@ Usage::
     session_client: STSClient = session.client("sts")
     ```
 """
-from mypy_boto3_sts.client import STSClient
+from .client import STSClient
 
 Client = STSClient
-
 
 __all__ = ("Client", "STSClient")

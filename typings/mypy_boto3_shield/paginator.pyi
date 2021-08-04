@@ -1,5 +1,7 @@
 """
-Main interface for shield service client paginators.
+Type annotations for shield service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_shield/paginators.html)
 
 Usage::
 
@@ -22,7 +24,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_shield.type_defs import (
+from .type_defs import (
     ListAttacksResponseTypeDef,
     ListProtectionsResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -31,32 +33,35 @@ from mypy_boto3_shield.type_defs import (
 
 __all__ = ("ListAttacksPaginator", "ListProtectionsPaginator")
 
-
 class ListAttacksPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListAttacks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/shield.html#Shield.Paginator.ListAttacks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_shield/paginators.html#listattackspaginator)
     """
 
     def paginate(
         self,
+        *,
         ResourceArns: List[str] = None,
         StartTime: "TimeRangeTypeDef" = None,
         EndTime: "TimeRangeTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttacksResponseTypeDef]:
         """
-        [ListAttacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListAttacks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/shield.html#Shield.Paginator.ListAttacks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_shield/paginators.html#listattackspaginator)
         """
-
 
 class ListProtectionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProtections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListProtections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/shield.html#Shield.Paginator.ListProtections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_shield/paginators.html#listprotectionspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProtectionsResponseTypeDef]:
         """
-        [ListProtections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListProtections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/shield.html#Shield.Paginator.ListProtections.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_shield/paginators.html#listprotectionspaginator)
         """

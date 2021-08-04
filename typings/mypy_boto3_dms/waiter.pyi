@@ -1,5 +1,7 @@
 """
-Main interface for dms service client waiters.
+Type annotations for dms service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html)
 
 Usage::
 
@@ -34,7 +36,7 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_dms.type_defs import FilterTypeDef, WaiterConfigTypeDef
+from .type_defs import FilterTypeDef, WaiterConfigTypeDef
 
 __all__ = (
     "EndpointDeletedWaiter",
@@ -47,142 +49,158 @@ __all__ = (
     "TestConnectionSucceedsWaiter",
 )
 
-
 class EndpointDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#endpointdeletedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [EndpointDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#endpointdeletedwaiter)
         """
-
 
 class ReplicationInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationinstanceavailablewaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ReplicationInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationinstanceavailablewaiter)
         """
-
 
 class ReplicationInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationinstancedeletedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ReplicationInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationinstancedeletedwaiter)
         """
-
 
 class ReplicationTaskDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskdeletedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         WithoutSettings: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ReplicationTaskDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskdeletedwaiter)
         """
-
 
 class ReplicationTaskReadyWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskReady documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskreadywaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         WithoutSettings: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ReplicationTaskReady.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskreadywaiter)
         """
-
 
 class ReplicationTaskRunningWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskrunningwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         WithoutSettings: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ReplicationTaskRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskrunningwaiter)
         """
-
 
 class ReplicationTaskStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskstoppedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
         WithoutSettings: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ReplicationTaskStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#replicationtaskstoppedwaiter)
         """
-
 
 class TestConnectionSucceedsWaiter(Boto3Waiter):
     """
-    [Waiter.TestConnectionSucceeds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#testconnectionsucceedswaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [TestConnectionSucceeds.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/waiters.html#testconnectionsucceedswaiter)
         """

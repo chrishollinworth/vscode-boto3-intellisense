@@ -1,5 +1,7 @@
 """
-Main interface for cloudsearch service type definitions.
+Type annotations for cloudsearch service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudsearch/type_defs.html)
 
 Usage::
 
@@ -11,17 +13,22 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    AlgorithmicStemmingType,
+    AnalysisSchemeLanguageType,
+    IndexFieldTypeType,
+    OptionStateType,
+    PartitionInstanceTypeType,
+    SuggesterFuzzyMatchingType,
+    TLSSecurityPolicyType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
-
 
 __all__ = (
     "AccessPoliciesStatusTypeDef",
@@ -29,8 +36,48 @@ __all__ = (
     "AnalysisSchemeStatusTypeDef",
     "AnalysisSchemeTypeDef",
     "AvailabilityOptionsStatusTypeDef",
+    "BuildSuggestersRequestRequestTypeDef",
+    "BuildSuggestersResponseTypeDef",
+    "CreateDomainRequestRequestTypeDef",
+    "CreateDomainResponseTypeDef",
     "DateArrayOptionsTypeDef",
     "DateOptionsTypeDef",
+    "DefineAnalysisSchemeRequestRequestTypeDef",
+    "DefineAnalysisSchemeResponseTypeDef",
+    "DefineExpressionRequestRequestTypeDef",
+    "DefineExpressionResponseTypeDef",
+    "DefineIndexFieldRequestRequestTypeDef",
+    "DefineIndexFieldResponseTypeDef",
+    "DefineSuggesterRequestRequestTypeDef",
+    "DefineSuggesterResponseTypeDef",
+    "DeleteAnalysisSchemeRequestRequestTypeDef",
+    "DeleteAnalysisSchemeResponseTypeDef",
+    "DeleteDomainRequestRequestTypeDef",
+    "DeleteDomainResponseTypeDef",
+    "DeleteExpressionRequestRequestTypeDef",
+    "DeleteExpressionResponseTypeDef",
+    "DeleteIndexFieldRequestRequestTypeDef",
+    "DeleteIndexFieldResponseTypeDef",
+    "DeleteSuggesterRequestRequestTypeDef",
+    "DeleteSuggesterResponseTypeDef",
+    "DescribeAnalysisSchemesRequestRequestTypeDef",
+    "DescribeAnalysisSchemesResponseTypeDef",
+    "DescribeAvailabilityOptionsRequestRequestTypeDef",
+    "DescribeAvailabilityOptionsResponseTypeDef",
+    "DescribeDomainEndpointOptionsRequestRequestTypeDef",
+    "DescribeDomainEndpointOptionsResponseTypeDef",
+    "DescribeDomainsRequestRequestTypeDef",
+    "DescribeDomainsResponseTypeDef",
+    "DescribeExpressionsRequestRequestTypeDef",
+    "DescribeExpressionsResponseTypeDef",
+    "DescribeIndexFieldsRequestRequestTypeDef",
+    "DescribeIndexFieldsResponseTypeDef",
+    "DescribeScalingParametersRequestRequestTypeDef",
+    "DescribeScalingParametersResponseTypeDef",
+    "DescribeServiceAccessPoliciesRequestRequestTypeDef",
+    "DescribeServiceAccessPoliciesResponseTypeDef",
+    "DescribeSuggestersRequestRequestTypeDef",
+    "DescribeSuggestersResponseTypeDef",
     "DocumentSuggesterOptionsTypeDef",
     "DomainEndpointOptionsStatusTypeDef",
     "DomainEndpointOptionsTypeDef",
@@ -39,15 +86,19 @@ __all__ = (
     "DoubleOptionsTypeDef",
     "ExpressionStatusTypeDef",
     "ExpressionTypeDef",
+    "IndexDocumentsRequestRequestTypeDef",
+    "IndexDocumentsResponseTypeDef",
     "IndexFieldStatusTypeDef",
     "IndexFieldTypeDef",
     "IntArrayOptionsTypeDef",
     "IntOptionsTypeDef",
     "LatLonOptionsTypeDef",
     "LimitsTypeDef",
+    "ListDomainNamesResponseTypeDef",
     "LiteralArrayOptionsTypeDef",
     "LiteralOptionsTypeDef",
     "OptionStatusTypeDef",
+    "ResponseMetadataTypeDef",
     "ScalingParametersStatusTypeDef",
     "ScalingParametersTypeDef",
     "ServiceEndpointTypeDef",
@@ -55,36 +106,22 @@ __all__ = (
     "SuggesterTypeDef",
     "TextArrayOptionsTypeDef",
     "TextOptionsTypeDef",
-    "BuildSuggestersResponseTypeDef",
-    "CreateDomainResponseTypeDef",
-    "DefineAnalysisSchemeResponseTypeDef",
-    "DefineExpressionResponseTypeDef",
-    "DefineIndexFieldResponseTypeDef",
-    "DefineSuggesterResponseTypeDef",
-    "DeleteAnalysisSchemeResponseTypeDef",
-    "DeleteDomainResponseTypeDef",
-    "DeleteExpressionResponseTypeDef",
-    "DeleteIndexFieldResponseTypeDef",
-    "DeleteSuggesterResponseTypeDef",
-    "DescribeAnalysisSchemesResponseTypeDef",
-    "DescribeAvailabilityOptionsResponseTypeDef",
-    "DescribeDomainEndpointOptionsResponseTypeDef",
-    "DescribeDomainsResponseTypeDef",
-    "DescribeExpressionsResponseTypeDef",
-    "DescribeIndexFieldsResponseTypeDef",
-    "DescribeScalingParametersResponseTypeDef",
-    "DescribeServiceAccessPoliciesResponseTypeDef",
-    "DescribeSuggestersResponseTypeDef",
-    "IndexDocumentsResponseTypeDef",
-    "ListDomainNamesResponseTypeDef",
+    "UpdateAvailabilityOptionsRequestRequestTypeDef",
     "UpdateAvailabilityOptionsResponseTypeDef",
+    "UpdateDomainEndpointOptionsRequestRequestTypeDef",
     "UpdateDomainEndpointOptionsResponseTypeDef",
+    "UpdateScalingParametersRequestRequestTypeDef",
     "UpdateScalingParametersResponseTypeDef",
+    "UpdateServiceAccessPoliciesRequestRequestTypeDef",
     "UpdateServiceAccessPoliciesResponseTypeDef",
 )
 
 AccessPoliciesStatusTypeDef = TypedDict(
-    "AccessPoliciesStatusTypeDef", {"Options": str, "Status": "OptionStatusTypeDef"}
+    "AccessPoliciesStatusTypeDef",
+    {
+        "Options": str,
+        "Status": "OptionStatusTypeDef",
+    },
 )
 
 AnalysisOptionsTypeDef = TypedDict(
@@ -94,70 +131,73 @@ AnalysisOptionsTypeDef = TypedDict(
         "Stopwords": str,
         "StemmingDictionary": str,
         "JapaneseTokenizationDictionary": str,
-        "AlgorithmicStemming": Literal["none", "minimal", "light", "full"],
+        "AlgorithmicStemming": AlgorithmicStemmingType,
     },
     total=False,
 )
 
 AnalysisSchemeStatusTypeDef = TypedDict(
     "AnalysisSchemeStatusTypeDef",
-    {"Options": "AnalysisSchemeTypeDef", "Status": "OptionStatusTypeDef"},
+    {
+        "Options": "AnalysisSchemeTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
 )
 
 _RequiredAnalysisSchemeTypeDef = TypedDict(
     "_RequiredAnalysisSchemeTypeDef",
     {
         "AnalysisSchemeName": str,
-        "AnalysisSchemeLanguage": Literal[
-            "ar",
-            "bg",
-            "ca",
-            "cs",
-            "da",
-            "de",
-            "el",
-            "en",
-            "es",
-            "eu",
-            "fa",
-            "fi",
-            "fr",
-            "ga",
-            "gl",
-            "he",
-            "hi",
-            "hu",
-            "hy",
-            "id",
-            "it",
-            "ja",
-            "ko",
-            "lv",
-            "mul",
-            "nl",
-            "no",
-            "pt",
-            "ro",
-            "ru",
-            "sv",
-            "th",
-            "tr",
-            "zh-Hans",
-            "zh-Hant",
-        ],
+        "AnalysisSchemeLanguage": AnalysisSchemeLanguageType,
     },
 )
 _OptionalAnalysisSchemeTypeDef = TypedDict(
-    "_OptionalAnalysisSchemeTypeDef", {"AnalysisOptions": "AnalysisOptionsTypeDef"}, total=False
+    "_OptionalAnalysisSchemeTypeDef",
+    {
+        "AnalysisOptions": "AnalysisOptionsTypeDef",
+    },
+    total=False,
 )
-
 
 class AnalysisSchemeTypeDef(_RequiredAnalysisSchemeTypeDef, _OptionalAnalysisSchemeTypeDef):
     pass
 
-
 AvailabilityOptionsStatusTypeDef = TypedDict(
-    "AvailabilityOptionsStatusTypeDef", {"Options": bool, "Status": "OptionStatusTypeDef"}
+    "AvailabilityOptionsStatusTypeDef",
+    {
+        "Options": bool,
+        "Status": "OptionStatusTypeDef",
+    },
+)
+
+BuildSuggestersRequestRequestTypeDef = TypedDict(
+    "BuildSuggestersRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+BuildSuggestersResponseTypeDef = TypedDict(
+    "BuildSuggestersResponseTypeDef",
+    {
+        "FieldNames": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateDomainRequestRequestTypeDef = TypedDict(
+    "CreateDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+CreateDomainResponseTypeDef = TypedDict(
+    "CreateDomainResponseTypeDef",
+    {
+        "DomainStatus": "DomainStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DateArrayOptionsTypeDef = TypedDict(
@@ -185,39 +225,424 @@ DateOptionsTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredDocumentSuggesterOptionsTypeDef = TypedDict(
-    "_RequiredDocumentSuggesterOptionsTypeDef", {"SourceField": str}
+DefineAnalysisSchemeRequestRequestTypeDef = TypedDict(
+    "DefineAnalysisSchemeRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "AnalysisScheme": "AnalysisSchemeTypeDef",
+    },
 )
-_OptionalDocumentSuggesterOptionsTypeDef = TypedDict(
-    "_OptionalDocumentSuggesterOptionsTypeDef",
-    {"FuzzyMatching": Literal["none", "low", "high"], "SortExpression": str},
+
+DefineAnalysisSchemeResponseTypeDef = TypedDict(
+    "DefineAnalysisSchemeResponseTypeDef",
+    {
+        "AnalysisScheme": "AnalysisSchemeStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DefineExpressionRequestRequestTypeDef = TypedDict(
+    "DefineExpressionRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Expression": "ExpressionTypeDef",
+    },
+)
+
+DefineExpressionResponseTypeDef = TypedDict(
+    "DefineExpressionResponseTypeDef",
+    {
+        "Expression": "ExpressionStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DefineIndexFieldRequestRequestTypeDef = TypedDict(
+    "DefineIndexFieldRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "IndexField": "IndexFieldTypeDef",
+    },
+)
+
+DefineIndexFieldResponseTypeDef = TypedDict(
+    "DefineIndexFieldResponseTypeDef",
+    {
+        "IndexField": "IndexFieldStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DefineSuggesterRequestRequestTypeDef = TypedDict(
+    "DefineSuggesterRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Suggester": "SuggesterTypeDef",
+    },
+)
+
+DefineSuggesterResponseTypeDef = TypedDict(
+    "DefineSuggesterResponseTypeDef",
+    {
+        "Suggester": "SuggesterStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteAnalysisSchemeRequestRequestTypeDef = TypedDict(
+    "DeleteAnalysisSchemeRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "AnalysisSchemeName": str,
+    },
+)
+
+DeleteAnalysisSchemeResponseTypeDef = TypedDict(
+    "DeleteAnalysisSchemeResponseTypeDef",
+    {
+        "AnalysisScheme": "AnalysisSchemeStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteDomainRequestRequestTypeDef = TypedDict(
+    "DeleteDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+DeleteDomainResponseTypeDef = TypedDict(
+    "DeleteDomainResponseTypeDef",
+    {
+        "DomainStatus": "DomainStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteExpressionRequestRequestTypeDef = TypedDict(
+    "DeleteExpressionRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "ExpressionName": str,
+    },
+)
+
+DeleteExpressionResponseTypeDef = TypedDict(
+    "DeleteExpressionResponseTypeDef",
+    {
+        "Expression": "ExpressionStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteIndexFieldRequestRequestTypeDef = TypedDict(
+    "DeleteIndexFieldRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "IndexFieldName": str,
+    },
+)
+
+DeleteIndexFieldResponseTypeDef = TypedDict(
+    "DeleteIndexFieldResponseTypeDef",
+    {
+        "IndexField": "IndexFieldStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteSuggesterRequestRequestTypeDef = TypedDict(
+    "DeleteSuggesterRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "SuggesterName": str,
+    },
+)
+
+DeleteSuggesterResponseTypeDef = TypedDict(
+    "DeleteSuggesterResponseTypeDef",
+    {
+        "Suggester": "SuggesterStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeAnalysisSchemesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAnalysisSchemesRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeAnalysisSchemesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAnalysisSchemesRequestRequestTypeDef",
+    {
+        "AnalysisSchemeNames": List[str],
+        "Deployed": bool,
+    },
     total=False,
 )
 
+class DescribeAnalysisSchemesRequestRequestTypeDef(
+    _RequiredDescribeAnalysisSchemesRequestRequestTypeDef,
+    _OptionalDescribeAnalysisSchemesRequestRequestTypeDef,
+):
+    pass
+
+DescribeAnalysisSchemesResponseTypeDef = TypedDict(
+    "DescribeAnalysisSchemesResponseTypeDef",
+    {
+        "AnalysisSchemes": List["AnalysisSchemeStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeAvailabilityOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAvailabilityOptionsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeAvailabilityOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAvailabilityOptionsRequestRequestTypeDef",
+    {
+        "Deployed": bool,
+    },
+    total=False,
+)
+
+class DescribeAvailabilityOptionsRequestRequestTypeDef(
+    _RequiredDescribeAvailabilityOptionsRequestRequestTypeDef,
+    _OptionalDescribeAvailabilityOptionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeAvailabilityOptionsResponseTypeDef = TypedDict(
+    "DescribeAvailabilityOptionsResponseTypeDef",
+    {
+        "AvailabilityOptions": "AvailabilityOptionsStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeDomainEndpointOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeDomainEndpointOptionsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeDomainEndpointOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeDomainEndpointOptionsRequestRequestTypeDef",
+    {
+        "Deployed": bool,
+    },
+    total=False,
+)
+
+class DescribeDomainEndpointOptionsRequestRequestTypeDef(
+    _RequiredDescribeDomainEndpointOptionsRequestRequestTypeDef,
+    _OptionalDescribeDomainEndpointOptionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeDomainEndpointOptionsResponseTypeDef = TypedDict(
+    "DescribeDomainEndpointOptionsResponseTypeDef",
+    {
+        "DomainEndpointOptions": "DomainEndpointOptionsStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDomainsRequestRequestTypeDef = TypedDict(
+    "DescribeDomainsRequestRequestTypeDef",
+    {
+        "DomainNames": List[str],
+    },
+    total=False,
+)
+
+DescribeDomainsResponseTypeDef = TypedDict(
+    "DescribeDomainsResponseTypeDef",
+    {
+        "DomainStatusList": List["DomainStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeExpressionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeExpressionsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeExpressionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeExpressionsRequestRequestTypeDef",
+    {
+        "ExpressionNames": List[str],
+        "Deployed": bool,
+    },
+    total=False,
+)
+
+class DescribeExpressionsRequestRequestTypeDef(
+    _RequiredDescribeExpressionsRequestRequestTypeDef,
+    _OptionalDescribeExpressionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeExpressionsResponseTypeDef = TypedDict(
+    "DescribeExpressionsResponseTypeDef",
+    {
+        "Expressions": List["ExpressionStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeIndexFieldsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeIndexFieldsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeIndexFieldsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeIndexFieldsRequestRequestTypeDef",
+    {
+        "FieldNames": List[str],
+        "Deployed": bool,
+    },
+    total=False,
+)
+
+class DescribeIndexFieldsRequestRequestTypeDef(
+    _RequiredDescribeIndexFieldsRequestRequestTypeDef,
+    _OptionalDescribeIndexFieldsRequestRequestTypeDef,
+):
+    pass
+
+DescribeIndexFieldsResponseTypeDef = TypedDict(
+    "DescribeIndexFieldsResponseTypeDef",
+    {
+        "IndexFields": List["IndexFieldStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeScalingParametersRequestRequestTypeDef = TypedDict(
+    "DescribeScalingParametersRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+DescribeScalingParametersResponseTypeDef = TypedDict(
+    "DescribeScalingParametersResponseTypeDef",
+    {
+        "ScalingParameters": "ScalingParametersStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeServiceAccessPoliciesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeServiceAccessPoliciesRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeServiceAccessPoliciesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeServiceAccessPoliciesRequestRequestTypeDef",
+    {
+        "Deployed": bool,
+    },
+    total=False,
+)
+
+class DescribeServiceAccessPoliciesRequestRequestTypeDef(
+    _RequiredDescribeServiceAccessPoliciesRequestRequestTypeDef,
+    _OptionalDescribeServiceAccessPoliciesRequestRequestTypeDef,
+):
+    pass
+
+DescribeServiceAccessPoliciesResponseTypeDef = TypedDict(
+    "DescribeServiceAccessPoliciesResponseTypeDef",
+    {
+        "AccessPolicies": "AccessPoliciesStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeSuggestersRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSuggestersRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeSuggestersRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSuggestersRequestRequestTypeDef",
+    {
+        "SuggesterNames": List[str],
+        "Deployed": bool,
+    },
+    total=False,
+)
+
+class DescribeSuggestersRequestRequestTypeDef(
+    _RequiredDescribeSuggestersRequestRequestTypeDef,
+    _OptionalDescribeSuggestersRequestRequestTypeDef,
+):
+    pass
+
+DescribeSuggestersResponseTypeDef = TypedDict(
+    "DescribeSuggestersResponseTypeDef",
+    {
+        "Suggesters": List["SuggesterStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDocumentSuggesterOptionsTypeDef = TypedDict(
+    "_RequiredDocumentSuggesterOptionsTypeDef",
+    {
+        "SourceField": str,
+    },
+)
+_OptionalDocumentSuggesterOptionsTypeDef = TypedDict(
+    "_OptionalDocumentSuggesterOptionsTypeDef",
+    {
+        "FuzzyMatching": SuggesterFuzzyMatchingType,
+        "SortExpression": str,
+    },
+    total=False,
+)
 
 class DocumentSuggesterOptionsTypeDef(
     _RequiredDocumentSuggesterOptionsTypeDef, _OptionalDocumentSuggesterOptionsTypeDef
 ):
     pass
 
-
 DomainEndpointOptionsStatusTypeDef = TypedDict(
     "DomainEndpointOptionsStatusTypeDef",
-    {"Options": "DomainEndpointOptionsTypeDef", "Status": "OptionStatusTypeDef"},
+    {
+        "Options": "DomainEndpointOptionsTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
 )
 
 DomainEndpointOptionsTypeDef = TypedDict(
     "DomainEndpointOptionsTypeDef",
     {
         "EnforceHTTPS": bool,
-        "TLSSecurityPolicy": Literal["Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07"],
+        "TLSSecurityPolicy": TLSSecurityPolicyType,
     },
     total=False,
 )
 
 _RequiredDomainStatusTypeDef = TypedDict(
     "_RequiredDomainStatusTypeDef",
-    {"DomainId": str, "DomainName": str, "RequiresIndexDocuments": bool},
+    {
+        "DomainId": str,
+        "DomainName": str,
+        "RequiresIndexDocuments": bool,
+    },
 )
 _OptionalDomainStatusTypeDef = TypedDict(
     "_OptionalDomainStatusTypeDef",
@@ -236,10 +661,8 @@ _OptionalDomainStatusTypeDef = TypedDict(
     total=False,
 )
 
-
 class DomainStatusTypeDef(_RequiredDomainStatusTypeDef, _OptionalDomainStatusTypeDef):
     pass
-
 
 DoubleArrayOptionsTypeDef = TypedDict(
     "DoubleArrayOptionsTypeDef",
@@ -267,32 +690,49 @@ DoubleOptionsTypeDef = TypedDict(
 )
 
 ExpressionStatusTypeDef = TypedDict(
-    "ExpressionStatusTypeDef", {"Options": "ExpressionTypeDef", "Status": "OptionStatusTypeDef"}
+    "ExpressionStatusTypeDef",
+    {
+        "Options": "ExpressionTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
 )
 
-ExpressionTypeDef = TypedDict("ExpressionTypeDef", {"ExpressionName": str, "ExpressionValue": str})
+ExpressionTypeDef = TypedDict(
+    "ExpressionTypeDef",
+    {
+        "ExpressionName": str,
+        "ExpressionValue": str,
+    },
+)
+
+IndexDocumentsRequestRequestTypeDef = TypedDict(
+    "IndexDocumentsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+IndexDocumentsResponseTypeDef = TypedDict(
+    "IndexDocumentsResponseTypeDef",
+    {
+        "FieldNames": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 IndexFieldStatusTypeDef = TypedDict(
-    "IndexFieldStatusTypeDef", {"Options": "IndexFieldTypeDef", "Status": "OptionStatusTypeDef"}
+    "IndexFieldStatusTypeDef",
+    {
+        "Options": "IndexFieldTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
 )
 
 _RequiredIndexFieldTypeDef = TypedDict(
     "_RequiredIndexFieldTypeDef",
     {
         "IndexFieldName": str,
-        "IndexFieldType": Literal[
-            "int",
-            "double",
-            "literal",
-            "text",
-            "date",
-            "latlon",
-            "int-array",
-            "double-array",
-            "literal-array",
-            "text-array",
-            "date-array",
-        ],
+        "IndexFieldType": IndexFieldTypeType,
     },
 )
 _OptionalIndexFieldTypeDef = TypedDict(
@@ -313,10 +753,8 @@ _OptionalIndexFieldTypeDef = TypedDict(
     total=False,
 )
 
-
 class IndexFieldTypeDef(_RequiredIndexFieldTypeDef, _OptionalIndexFieldTypeDef):
     pass
-
 
 IntArrayOptionsTypeDef = TypedDict(
     "IntArrayOptionsTypeDef",
@@ -357,7 +795,19 @@ LatLonOptionsTypeDef = TypedDict(
 )
 
 LimitsTypeDef = TypedDict(
-    "LimitsTypeDef", {"MaximumReplicationCount": int, "MaximumPartitionCount": int}
+    "LimitsTypeDef",
+    {
+        "MaximumReplicationCount": int,
+        "MaximumPartitionCount": int,
+    },
+)
+
+ListDomainNamesResponseTypeDef = TypedDict(
+    "ListDomainNamesResponseTypeDef",
+    {
+        "DomainNames": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 LiteralArrayOptionsTypeDef = TypedDict(
@@ -390,56 +840,72 @@ _RequiredOptionStatusTypeDef = TypedDict(
     {
         "CreationDate": datetime,
         "UpdateDate": datetime,
-        "State": Literal["RequiresIndexDocuments", "Processing", "Active", "FailedToValidate"],
+        "State": OptionStateType,
     },
 )
 _OptionalOptionStatusTypeDef = TypedDict(
-    "_OptionalOptionStatusTypeDef", {"UpdateVersion": int, "PendingDeletion": bool}, total=False
+    "_OptionalOptionStatusTypeDef",
+    {
+        "UpdateVersion": int,
+        "PendingDeletion": bool,
+    },
+    total=False,
 )
-
 
 class OptionStatusTypeDef(_RequiredOptionStatusTypeDef, _OptionalOptionStatusTypeDef):
     pass
 
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 ScalingParametersStatusTypeDef = TypedDict(
     "ScalingParametersStatusTypeDef",
-    {"Options": "ScalingParametersTypeDef", "Status": "OptionStatusTypeDef"},
+    {
+        "Options": "ScalingParametersTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
 )
 
 ScalingParametersTypeDef = TypedDict(
     "ScalingParametersTypeDef",
     {
-        "DesiredInstanceType": Literal[
-            "search.m1.small",
-            "search.m1.large",
-            "search.m2.xlarge",
-            "search.m2.2xlarge",
-            "search.m3.medium",
-            "search.m3.large",
-            "search.m3.xlarge",
-            "search.m3.2xlarge",
-            "search.small",
-            "search.medium",
-            "search.large",
-            "search.xlarge",
-            "search.2xlarge",
-        ],
+        "DesiredInstanceType": PartitionInstanceTypeType,
         "DesiredReplicationCount": int,
         "DesiredPartitionCount": int,
     },
     total=False,
 )
 
-ServiceEndpointTypeDef = TypedDict("ServiceEndpointTypeDef", {"Endpoint": str}, total=False)
+ServiceEndpointTypeDef = TypedDict(
+    "ServiceEndpointTypeDef",
+    {
+        "Endpoint": str,
+    },
+    total=False,
+)
 
 SuggesterStatusTypeDef = TypedDict(
-    "SuggesterStatusTypeDef", {"Options": "SuggesterTypeDef", "Status": "OptionStatusTypeDef"}
+    "SuggesterStatusTypeDef",
+    {
+        "Options": "SuggesterTypeDef",
+        "Status": "OptionStatusTypeDef",
+    },
 )
 
 SuggesterTypeDef = TypedDict(
     "SuggesterTypeDef",
-    {"SuggesterName": str, "DocumentSuggesterOptions": "DocumentSuggesterOptionsTypeDef"},
+    {
+        "SuggesterName": str,
+        "DocumentSuggesterOptions": "DocumentSuggesterOptionsTypeDef",
+    },
 )
 
 TextArrayOptionsTypeDef = TypedDict(
@@ -467,118 +933,66 @@ TextOptionsTypeDef = TypedDict(
     total=False,
 )
 
-BuildSuggestersResponseTypeDef = TypedDict(
-    "BuildSuggestersResponseTypeDef", {"FieldNames": List[str]}, total=False
-)
-
-CreateDomainResponseTypeDef = TypedDict(
-    "CreateDomainResponseTypeDef", {"DomainStatus": "DomainStatusTypeDef"}, total=False
-)
-
-DefineAnalysisSchemeResponseTypeDef = TypedDict(
-    "DefineAnalysisSchemeResponseTypeDef", {"AnalysisScheme": "AnalysisSchemeStatusTypeDef"}
-)
-
-DefineExpressionResponseTypeDef = TypedDict(
-    "DefineExpressionResponseTypeDef", {"Expression": "ExpressionStatusTypeDef"}
-)
-
-DefineIndexFieldResponseTypeDef = TypedDict(
-    "DefineIndexFieldResponseTypeDef", {"IndexField": "IndexFieldStatusTypeDef"}
-)
-
-DefineSuggesterResponseTypeDef = TypedDict(
-    "DefineSuggesterResponseTypeDef", {"Suggester": "SuggesterStatusTypeDef"}
-)
-
-DeleteAnalysisSchemeResponseTypeDef = TypedDict(
-    "DeleteAnalysisSchemeResponseTypeDef", {"AnalysisScheme": "AnalysisSchemeStatusTypeDef"}
-)
-
-DeleteDomainResponseTypeDef = TypedDict(
-    "DeleteDomainResponseTypeDef", {"DomainStatus": "DomainStatusTypeDef"}, total=False
-)
-
-DeleteExpressionResponseTypeDef = TypedDict(
-    "DeleteExpressionResponseTypeDef", {"Expression": "ExpressionStatusTypeDef"}
-)
-
-DeleteIndexFieldResponseTypeDef = TypedDict(
-    "DeleteIndexFieldResponseTypeDef", {"IndexField": "IndexFieldStatusTypeDef"}
-)
-
-DeleteSuggesterResponseTypeDef = TypedDict(
-    "DeleteSuggesterResponseTypeDef", {"Suggester": "SuggesterStatusTypeDef"}
-)
-
-DescribeAnalysisSchemesResponseTypeDef = TypedDict(
-    "DescribeAnalysisSchemesResponseTypeDef",
-    {"AnalysisSchemes": List["AnalysisSchemeStatusTypeDef"]},
-)
-
-DescribeAvailabilityOptionsResponseTypeDef = TypedDict(
-    "DescribeAvailabilityOptionsResponseTypeDef",
-    {"AvailabilityOptions": "AvailabilityOptionsStatusTypeDef"},
-    total=False,
-)
-
-DescribeDomainEndpointOptionsResponseTypeDef = TypedDict(
-    "DescribeDomainEndpointOptionsResponseTypeDef",
-    {"DomainEndpointOptions": "DomainEndpointOptionsStatusTypeDef"},
-    total=False,
-)
-
-DescribeDomainsResponseTypeDef = TypedDict(
-    "DescribeDomainsResponseTypeDef", {"DomainStatusList": List["DomainStatusTypeDef"]}
-)
-
-DescribeExpressionsResponseTypeDef = TypedDict(
-    "DescribeExpressionsResponseTypeDef", {"Expressions": List["ExpressionStatusTypeDef"]}
-)
-
-DescribeIndexFieldsResponseTypeDef = TypedDict(
-    "DescribeIndexFieldsResponseTypeDef", {"IndexFields": List["IndexFieldStatusTypeDef"]}
-)
-
-DescribeScalingParametersResponseTypeDef = TypedDict(
-    "DescribeScalingParametersResponseTypeDef",
-    {"ScalingParameters": "ScalingParametersStatusTypeDef"},
-)
-
-DescribeServiceAccessPoliciesResponseTypeDef = TypedDict(
-    "DescribeServiceAccessPoliciesResponseTypeDef",
-    {"AccessPolicies": "AccessPoliciesStatusTypeDef"},
-)
-
-DescribeSuggestersResponseTypeDef = TypedDict(
-    "DescribeSuggestersResponseTypeDef", {"Suggesters": List["SuggesterStatusTypeDef"]}
-)
-
-IndexDocumentsResponseTypeDef = TypedDict(
-    "IndexDocumentsResponseTypeDef", {"FieldNames": List[str]}, total=False
-)
-
-ListDomainNamesResponseTypeDef = TypedDict(
-    "ListDomainNamesResponseTypeDef", {"DomainNames": Dict[str, str]}, total=False
+UpdateAvailabilityOptionsRequestRequestTypeDef = TypedDict(
+    "UpdateAvailabilityOptionsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "MultiAZ": bool,
+    },
 )
 
 UpdateAvailabilityOptionsResponseTypeDef = TypedDict(
     "UpdateAvailabilityOptionsResponseTypeDef",
-    {"AvailabilityOptions": "AvailabilityOptionsStatusTypeDef"},
-    total=False,
+    {
+        "AvailabilityOptions": "AvailabilityOptionsStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateDomainEndpointOptionsRequestRequestTypeDef = TypedDict(
+    "UpdateDomainEndpointOptionsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "DomainEndpointOptions": "DomainEndpointOptionsTypeDef",
+    },
 )
 
 UpdateDomainEndpointOptionsResponseTypeDef = TypedDict(
     "UpdateDomainEndpointOptionsResponseTypeDef",
-    {"DomainEndpointOptions": "DomainEndpointOptionsStatusTypeDef"},
-    total=False,
+    {
+        "DomainEndpointOptions": "DomainEndpointOptionsStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateScalingParametersRequestRequestTypeDef = TypedDict(
+    "UpdateScalingParametersRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "ScalingParameters": "ScalingParametersTypeDef",
+    },
 )
 
 UpdateScalingParametersResponseTypeDef = TypedDict(
     "UpdateScalingParametersResponseTypeDef",
-    {"ScalingParameters": "ScalingParametersStatusTypeDef"},
+    {
+        "ScalingParameters": "ScalingParametersStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateServiceAccessPoliciesRequestRequestTypeDef = TypedDict(
+    "UpdateServiceAccessPoliciesRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "AccessPolicies": str,
+    },
 )
 
 UpdateServiceAccessPoliciesResponseTypeDef = TypedDict(
-    "UpdateServiceAccessPoliciesResponseTypeDef", {"AccessPolicies": "AccessPoliciesStatusTypeDef"}
+    "UpdateServiceAccessPoliciesResponseTypeDef",
+    {
+        "AccessPolicies": "AccessPoliciesStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )

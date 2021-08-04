@@ -19,10 +19,9 @@ Usage::
     list_environments_paginator: ListEnvironmentsPaginator = client.get_paginator("list_environments")
     ```
 """
-from mypy_boto3_mwaa.client import MWAAClient
-from mypy_boto3_mwaa.paginator import ListEnvironmentsPaginator
+from .client import MWAAClient
+from .paginator import ListEnvironmentsPaginator
 
 Client = MWAAClient
-
 
 __all__ = ("Client", "ListEnvironmentsPaginator", "MWAAClient")

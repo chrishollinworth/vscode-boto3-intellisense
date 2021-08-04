@@ -1,5 +1,7 @@
 """
-Main interface for rekognition service client paginators.
+Type annotations for rekognition service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html)
 
 Usage::
 
@@ -28,7 +30,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_rekognition.type_defs import (
+from .type_defs import (
     DescribeProjectsResponseTypeDef,
     DescribeProjectVersionsResponseTypeDef,
     ListCollectionsResponseTypeDef,
@@ -45,70 +47,76 @@ __all__ = (
     "ListStreamProcessorsPaginator",
 )
 
-
 class DescribeProjectVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeProjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#describeprojectversionspaginator)
     """
 
     def paginate(
         self,
+        *,
         ProjectArn: str,
         VersionNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeProjectVersionsResponseTypeDef]:
         """
-        [DescribeProjectVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#describeprojectversionspaginator)
         """
-
 
 class DescribeProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#describeprojectspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeProjectsResponseTypeDef]:
         """
-        [DescribeProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#describeprojectspaginator)
         """
-
 
 class ListCollectionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCollections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.ListCollections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.ListCollections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listcollectionspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCollectionsResponseTypeDef]:
         """
-        [ListCollections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.ListCollections.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.ListCollections.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listcollectionspaginator)
         """
-
 
 class ListFacesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.ListFaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.ListFaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listfacespaginator)
     """
 
     def paginate(
-        self, CollectionId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, CollectionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFacesResponseTypeDef]:
         """
-        [ListFaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.ListFaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.ListFaces.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#listfacespaginator)
         """
-
 
 class ListStreamProcessorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreamProcessors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#liststreamprocessorspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamProcessorsResponseTypeDef]:
         """
-        [ListStreamProcessors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/paginators.html#liststreamprocessorspaginator)
         """

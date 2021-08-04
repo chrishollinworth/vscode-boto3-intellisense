@@ -16,9 +16,8 @@ Usage::
     session_client: KinesisVideoMediaClient = session.client("kinesis-video-media")
     ```
 """
-from mypy_boto3_kinesis_video_media.client import KinesisVideoMediaClient
+from .client import KinesisVideoMediaClient
 
 Client = KinesisVideoMediaClient
-
 
 __all__ = ("Client", "KinesisVideoMediaClient")

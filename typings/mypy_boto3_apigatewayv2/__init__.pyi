@@ -37,8 +37,8 @@ Usage::
     get_stages_paginator: GetStagesPaginator = client.get_paginator("get_stages")
     ```
 """
-from mypy_boto3_apigatewayv2.client import ApiGatewayV2Client
-from mypy_boto3_apigatewayv2.paginator import (
+from .client import ApiGatewayV2Client
+from .paginator import (
     GetApisPaginator,
     GetAuthorizersPaginator,
     GetDeploymentsPaginator,
@@ -52,7 +52,6 @@ from mypy_boto3_apigatewayv2.paginator import (
 )
 
 Client = ApiGatewayV2Client
-
 
 __all__ = (
     "ApiGatewayV2Client",

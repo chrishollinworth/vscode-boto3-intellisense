@@ -1,5 +1,7 @@
 """
-Main interface for docdb service client waiters.
+Type annotations for docdb service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb/waiters.html)
 
 Usage::
 
@@ -22,42 +24,46 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_docdb.type_defs import FilterTypeDef, WaiterConfigTypeDef
+from .type_defs import FilterTypeDef, WaiterConfigTypeDef
 
 __all__ = ("DBInstanceAvailableWaiter", "DBInstanceDeletedWaiter")
 
-
 class DBInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb/waiters.html#dbinstanceavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         DBInstanceIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb/waiters.html#dbinstanceavailablewaiter)
         """
-
 
 class DBInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb/waiters.html#dbinstancedeletedwaiter)
     """
 
     def wait(
         self,
+        *,
         DBInstanceIdentifier: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxRecords: int = None,
         Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb/waiters.html#dbinstancedeletedwaiter)
         """

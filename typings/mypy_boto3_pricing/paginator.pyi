@@ -1,5 +1,7 @@
 """
-Main interface for pricing service client paginators.
+Type annotations for pricing service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html)
 
 Usage::
 
@@ -24,7 +26,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_pricing.type_defs import (
+from .type_defs import (
     DescribeServicesResponseTypeDef,
     FilterTypeDef,
     GetAttributeValuesResponseTypeDef,
@@ -34,48 +36,57 @@ from mypy_boto3_pricing.type_defs import (
 
 __all__ = ("DescribeServicesPaginator", "GetAttributeValuesPaginator", "GetProductsPaginator")
 
-
 class DescribeServicesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#describeservicespaginator)
     """
 
     def paginate(
         self,
+        *,
         ServiceCode: str = None,
         FormatVersion: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeServicesResponseTypeDef]:
         """
-        [DescribeServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.DescribeServices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pricing.html#Pricing.Paginator.DescribeServices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#describeservicespaginator)
         """
-
 
 class GetAttributeValuesPaginator(Boto3Paginator):
     """
-    [Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
-    """
-
-    def paginate(
-        self, ServiceCode: str, AttributeName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetAttributeValuesResponseTypeDef]:
-        """
-        [GetAttributeValues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues.paginate)
-        """
-
-
-class GetProductsPaginator(Boto3Paginator):
-    """
-    [Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.GetProducts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#getattributevaluespaginator)
     """
 
     def paginate(
         self,
+        *,
+        ServiceCode: str,
+        AttributeName: str,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[GetAttributeValuesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#getattributevaluespaginator)
+        """
+
+class GetProductsPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pricing.html#Pricing.Paginator.GetProducts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#getproductspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
         ServiceCode: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         FormatVersion: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetProductsResponseTypeDef]:
         """
-        [GetProducts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.GetProducts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pricing.html#Pricing.Paginator.GetProducts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#getproductspaginator)
         """

@@ -32,21 +32,20 @@ Usage::
     list_streaming_distributions_paginator: ListStreamingDistributionsPaginator = client.get_paginator("list_streaming_distributions")
     ```
 """
-from mypy_boto3_cloudfront.client import CloudFrontClient
-from mypy_boto3_cloudfront.paginator import (
+from .client import CloudFrontClient
+from .paginator import (
     ListCloudFrontOriginAccessIdentitiesPaginator,
     ListDistributionsPaginator,
     ListInvalidationsPaginator,
     ListStreamingDistributionsPaginator,
 )
-from mypy_boto3_cloudfront.waiter import (
+from .waiter import (
     DistributionDeployedWaiter,
     InvalidationCompletedWaiter,
     StreamingDistributionDeployedWaiter,
 )
 
 Client = CloudFrontClient
-
 
 __all__ = (
     "Client",

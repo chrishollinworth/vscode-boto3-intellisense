@@ -23,15 +23,10 @@ Usage::
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     ```
 """
-from mypy_boto3_lookoutvision.client import LookoutforVisionClient
-from mypy_boto3_lookoutvision.paginator import (
-    ListDatasetEntriesPaginator,
-    ListModelsPaginator,
-    ListProjectsPaginator,
-)
+from .client import LookoutforVisionClient
+from .paginator import ListDatasetEntriesPaginator, ListModelsPaginator, ListProjectsPaginator
 
 Client = LookoutforVisionClient
-
 
 __all__ = (
     "Client",

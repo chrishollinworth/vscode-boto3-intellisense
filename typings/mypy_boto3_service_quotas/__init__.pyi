@@ -29,8 +29,8 @@ Usage::
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     ```
 """
-from mypy_boto3_service_quotas.client import ServiceQuotasClient
-from mypy_boto3_service_quotas.paginator import (
+from .client import ServiceQuotasClient
+from .paginator import (
     ListAWSDefaultServiceQuotasPaginator,
     ListRequestedServiceQuotaChangeHistoryByQuotaPaginator,
     ListRequestedServiceQuotaChangeHistoryPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_service_quotas.paginator import (
 )
 
 Client = ServiceQuotasClient
-
 
 __all__ = (
     "Client",

@@ -16,9 +16,8 @@ Usage::
     session_client: EC2InstanceConnectClient = session.client("ec2-instance-connect")
     ```
 """
-from mypy_boto3_ec2_instance_connect.client import EC2InstanceConnectClient
+from .client import EC2InstanceConnectClient
 
 Client = EC2InstanceConnectClient
-
 
 __all__ = ("Client", "EC2InstanceConnectClient")

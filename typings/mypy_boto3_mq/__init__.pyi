@@ -19,10 +19,9 @@ Usage::
     list_brokers_paginator: ListBrokersPaginator = client.get_paginator("list_brokers")
     ```
 """
-from mypy_boto3_mq.client import MQClient
-from mypy_boto3_mq.paginator import ListBrokersPaginator
+from .client import MQClient
+from .paginator import ListBrokersPaginator
 
 Client = MQClient
-
 
 __all__ = ("Client", "ListBrokersPaginator", "MQClient")

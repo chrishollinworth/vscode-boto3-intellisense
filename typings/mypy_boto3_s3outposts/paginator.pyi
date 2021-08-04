@@ -1,5 +1,7 @@
 """
-Main interface for s3outposts service client paginators.
+Type annotations for s3outposts service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html)
 
 Usage::
 
@@ -20,19 +22,20 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_s3outposts.type_defs import ListEndpointsResultTypeDef, PaginatorConfigTypeDef
+from .type_defs import ListEndpointsResultTypeDef, PaginatorConfigTypeDef
 
 __all__ = ("ListEndpointsPaginator",)
 
-
 class ListEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listendpointspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointsResultTypeDef]:
         """
-        [ListEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listendpointspaginator)
         """

@@ -35,8 +35,8 @@ Usage::
     preview_agents_paginator: PreviewAgentsPaginator = client.get_paginator("preview_agents")
     ```
 """
-from mypy_boto3_inspector.client import InspectorClient
-from mypy_boto3_inspector.paginator import (
+from .client import InspectorClient
+from .paginator import (
     ListAssessmentRunAgentsPaginator,
     ListAssessmentRunsPaginator,
     ListAssessmentTargetsPaginator,
@@ -49,7 +49,6 @@ from mypy_boto3_inspector.paginator import (
 )
 
 Client = InspectorClient
-
 
 __all__ = (
     "Client",

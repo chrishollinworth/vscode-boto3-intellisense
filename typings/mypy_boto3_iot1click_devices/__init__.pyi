@@ -21,11 +21,10 @@ Usage::
     list_devices_paginator: ListDevicesPaginator = client.get_paginator("list_devices")
     ```
 """
-from mypy_boto3_iot1click_devices.client import IoT1ClickDevicesServiceClient
-from mypy_boto3_iot1click_devices.paginator import ListDeviceEventsPaginator, ListDevicesPaginator
+from .client import IoT1ClickDevicesServiceClient
+from .paginator import ListDeviceEventsPaginator, ListDevicesPaginator
 
 Client = IoT1ClickDevicesServiceClient
-
 
 __all__ = (
     "Client",

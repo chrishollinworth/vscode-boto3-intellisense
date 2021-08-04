@@ -121,8 +121,8 @@ Usage::
     list_violation_events_paginator: ListViolationEventsPaginator = client.get_paginator("list_violation_events")
     ```
 """
-from mypy_boto3_iot.client import IoTClient
-from mypy_boto3_iot.paginator import (
+from .client import IoTClient
+from .paginator import (
     GetBehaviorModelTrainingSummariesPaginator,
     ListActiveViolationsPaginator,
     ListAttachedPoliciesPaginator,
@@ -178,7 +178,6 @@ from mypy_boto3_iot.paginator import (
 )
 
 Client = IoTClient
-
 
 __all__ = (
     "Client",

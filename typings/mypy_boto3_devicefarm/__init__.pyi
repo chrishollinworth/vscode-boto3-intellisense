@@ -57,8 +57,8 @@ Usage::
     list_vpce_configurations_paginator: ListVPCEConfigurationsPaginator = client.get_paginator("list_vpce_configurations")
     ```
 """
-from mypy_boto3_devicefarm.client import DeviceFarmClient
-from mypy_boto3_devicefarm.paginator import (
+from .client import DeviceFarmClient
+from .paginator import (
     GetOfferingStatusPaginator,
     ListArtifactsPaginator,
     ListDeviceInstancesPaginator,
@@ -82,7 +82,6 @@ from mypy_boto3_devicefarm.paginator import (
 )
 
 Client = DeviceFarmClient
-
 
 __all__ = (
     "Client",

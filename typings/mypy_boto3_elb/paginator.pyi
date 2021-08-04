@@ -1,5 +1,7 @@
 """
-Main interface for elb service client paginators.
+Type annotations for elb service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/paginators.html)
 
 Usage::
 
@@ -22,7 +24,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_elb.type_defs import (
+from .type_defs import (
     DescribeAccessPointsOutputTypeDef,
     DescribeAccountLimitsOutputTypeDef,
     PaginatorConfigTypeDef,
@@ -30,28 +32,33 @@ from mypy_boto3_elb.type_defs import (
 
 __all__ = ("DescribeAccountLimitsPaginator", "DescribeLoadBalancersPaginator")
 
-
 class DescribeAccountLimitsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/paginators.html#describeaccountlimitspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccountLimitsOutputTypeDef]:
         """
-        [DescribeAccountLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/paginators.html#describeaccountlimitspaginator)
         """
-
 
 class DescribeLoadBalancersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/paginators.html#describeloadbalancerspaginator)
     """
 
     def paginate(
-        self, LoadBalancerNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        LoadBalancerNames: List[str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccessPointsOutputTypeDef]:
         """
-        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/paginators.html#describeloadbalancerspaginator)
         """

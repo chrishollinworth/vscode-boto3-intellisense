@@ -29,8 +29,8 @@ Usage::
     list_satellites_paginator: ListSatellitesPaginator = client.get_paginator("list_satellites")
     ```
 """
-from mypy_boto3_groundstation.client import GroundStationClient
-from mypy_boto3_groundstation.paginator import (
+from .client import GroundStationClient
+from .paginator import (
     ListConfigsPaginator,
     ListContactsPaginator,
     ListDataflowEndpointGroupsPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_groundstation.paginator import (
 )
 
 Client = GroundStationClient
-
 
 __all__ = (
     "Client",

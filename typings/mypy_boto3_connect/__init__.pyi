@@ -10,6 +10,7 @@ Usage::
         ConnectClient,
         GetMetricDataPaginator,
         ListApprovedOriginsPaginator,
+        ListBotsPaginator,
         ListContactFlowsPaginator,
         ListHoursOfOperationsPaginator,
         ListInstanceAttributesPaginator,
@@ -39,6 +40,7 @@ Usage::
 
     get_metric_data_paginator: GetMetricDataPaginator = client.get_paginator("get_metric_data")
     list_approved_origins_paginator: ListApprovedOriginsPaginator = client.get_paginator("list_approved_origins")
+    list_bots_paginator: ListBotsPaginator = client.get_paginator("list_bots")
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
@@ -61,10 +63,11 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
-from mypy_boto3_connect.client import ConnectClient
-from mypy_boto3_connect.paginator import (
+from .client import ConnectClient
+from .paginator import (
     GetMetricDataPaginator,
     ListApprovedOriginsPaginator,
+    ListBotsPaginator,
     ListContactFlowsPaginator,
     ListHoursOfOperationsPaginator,
     ListInstanceAttributesPaginator,
@@ -89,12 +92,12 @@ from mypy_boto3_connect.paginator import (
 
 Client = ConnectClient
 
-
 __all__ = (
     "Client",
     "ConnectClient",
     "GetMetricDataPaginator",
     "ListApprovedOriginsPaginator",
+    "ListBotsPaginator",
     "ListContactFlowsPaginator",
     "ListHoursOfOperationsPaginator",
     "ListInstanceAttributesPaginator",

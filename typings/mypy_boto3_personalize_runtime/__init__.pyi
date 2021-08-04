@@ -16,9 +16,8 @@ Usage::
     session_client: PersonalizeRuntimeClient = session.client("personalize-runtime")
     ```
 """
-from mypy_boto3_personalize_runtime.client import PersonalizeRuntimeClient
+from .client import PersonalizeRuntimeClient
 
 Client = PersonalizeRuntimeClient
-
 
 __all__ = ("Client", "PersonalizeRuntimeClient")

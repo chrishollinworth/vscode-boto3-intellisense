@@ -1,5 +1,7 @@
 """
-Main interface for ecr service client waiters.
+Type annotations for ecr service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html)
 
 Usage::
 
@@ -22,7 +24,7 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_ecr.type_defs import (
+from .type_defs import (
     ImageIdentifierTypeDef,
     LifecyclePolicyPreviewFilterTypeDef,
     WaiterConfigTypeDef,
@@ -30,41 +32,45 @@ from mypy_boto3_ecr.type_defs import (
 
 __all__ = ("ImageScanCompleteWaiter", "LifecyclePolicyPreviewCompleteWaiter")
 
-
 class ImageScanCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.ImageScanComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.ImageScanComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr.html#ECR.Waiter.ImageScanComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#imagescancompletewaiter)
     """
 
     def wait(
         self,
+        *,
         repositoryName: str,
         imageId: "ImageIdentifierTypeDef",
         registryId: str = None,
         nextToken: str = None,
         maxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ImageScanComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.ImageScanComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr.html#ECR.Waiter.ImageScanComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#imagescancompletewaiter)
         """
-
 
 class LifecyclePolicyPreviewCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.LifecyclePolicyPreviewComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#lifecyclepolicypreviewcompletewaiter)
     """
 
     def wait(
         self,
+        *,
         repositoryName: str,
         registryId: str = None,
         imageIds: List["ImageIdentifierTypeDef"] = None,
         nextToken: str = None,
         maxResults: int = None,
-        filter: LifecyclePolicyPreviewFilterTypeDef = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        filter: "LifecyclePolicyPreviewFilterTypeDef" = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [LifecyclePolicyPreviewComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr/waiters.html#lifecyclepolicypreviewcompletewaiter)
         """

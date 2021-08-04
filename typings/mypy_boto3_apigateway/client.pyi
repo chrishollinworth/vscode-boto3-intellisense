@@ -1,5 +1,7 @@
 """
-Main interface for apigateway service client
+Type annotations for apigateway service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html)
 
 Usage::
 
@@ -13,9 +15,23 @@ Usage::
 import sys
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_apigateway.paginator import (
+from .literals import (
+    ApiKeySourceTypeType,
+    AuthorizerTypeType,
+    CacheClusterSizeType,
+    ConnectionTypeType,
+    ContentHandlingStrategyType,
+    DocumentationPartTypeType,
+    GatewayResponseTypeType,
+    IntegrationTypeType,
+    LocationStatusTypeType,
+    PutModeType,
+    SecurityPolicyType,
+)
+from .paginator import (
     GetApiKeysPaginator,
     GetAuthorizersPaginator,
     GetBasePathMappingsPaginator,
@@ -35,68 +51,68 @@ from mypy_boto3_apigateway.paginator import (
     GetUsagePlansPaginator,
     GetVpcLinksPaginator,
 )
-from mypy_boto3_apigateway.type_defs import (
+from .type_defs import (
     AccountTypeDef,
     ApiKeyIdsTypeDef,
+    ApiKeyResponseMetadataTypeDef,
     ApiKeysTypeDef,
-    ApiKeyTypeDef,
     ApiStageTypeDef,
+    AuthorizerResponseMetadataTypeDef,
     AuthorizersTypeDef,
-    AuthorizerTypeDef,
+    BasePathMappingResponseMetadataTypeDef,
     BasePathMappingsTypeDef,
-    BasePathMappingTypeDef,
     CanarySettingsTypeDef,
+    ClientCertificateResponseMetadataTypeDef,
     ClientCertificatesTypeDef,
-    ClientCertificateTypeDef,
     DeploymentCanarySettingsTypeDef,
+    DeploymentResponseMetadataTypeDef,
     DeploymentsTypeDef,
-    DeploymentTypeDef,
     DocumentationPartIdsTypeDef,
     DocumentationPartLocationTypeDef,
+    DocumentationPartResponseMetadataTypeDef,
     DocumentationPartsTypeDef,
-    DocumentationPartTypeDef,
+    DocumentationVersionResponseMetadataTypeDef,
     DocumentationVersionsTypeDef,
-    DocumentationVersionTypeDef,
+    DomainNameResponseMetadataTypeDef,
     DomainNamesTypeDef,
-    DomainNameTypeDef,
     EndpointConfigurationTypeDef,
     ExportResponseTypeDef,
+    GatewayResponseResponseMetadataTypeDef,
     GatewayResponsesTypeDef,
-    GatewayResponseTypeDef,
-    IntegrationResponseTypeDef,
-    IntegrationTypeDef,
-    MethodResponseTypeDef,
-    MethodTypeDef,
+    IntegrationResponseMetadataTypeDef,
+    IntegrationResponseResponseMetadataTypeDef,
+    MethodResponseMetadataTypeDef,
+    MethodResponseResponseMetadataTypeDef,
+    ModelResponseMetadataTypeDef,
     ModelsTypeDef,
-    ModelTypeDef,
     MutualTlsAuthenticationInputTypeDef,
     PatchOperationTypeDef,
     QuotaSettingsTypeDef,
+    RequestValidatorResponseMetadataTypeDef,
     RequestValidatorsTypeDef,
-    RequestValidatorTypeDef,
+    ResourceResponseMetadataTypeDef,
     ResourcesTypeDef,
-    ResourceTypeDef,
+    RestApiResponseMetadataTypeDef,
     RestApisTypeDef,
-    RestApiTypeDef,
     SdkResponseTypeDef,
+    SdkTypeResponseMetadataTypeDef,
     SdkTypesTypeDef,
-    SdkTypeTypeDef,
     StageKeyTypeDef,
+    StageResponseMetadataTypeDef,
     StagesTypeDef,
-    StageTypeDef,
     TagsTypeDef,
     TemplateTypeDef,
     TestInvokeAuthorizerResponseTypeDef,
     TestInvokeMethodResponseTypeDef,
     ThrottleSettingsTypeDef,
     TlsConfigTypeDef,
+    UsagePlanKeyResponseMetadataTypeDef,
     UsagePlanKeysTypeDef,
-    UsagePlanKeyTypeDef,
+    UsagePlanResponseMetadataTypeDef,
     UsagePlansTypeDef,
-    UsagePlanTypeDef,
     UsageTypeDef,
+    VpcLinkResponseMetadataTypeDef,
     VpcLinksTypeDef,
-    VpcLinkTypeDef,
 )
 
 if sys.version_info >= (3, 8):
@@ -104,17 +120,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("APIGatewayClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     BadRequestException: Type[BotocoreClientError]
@@ -126,95 +138,124 @@ class Exceptions:
     TooManyRequestsException: Type[BotocoreClientError]
     UnauthorizedException: Type[BotocoreClientError]
 
-
-class APIGatewayClient:
+class APIGatewayClient(BaseClient):
     """
-    [APIGateway.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        APIGatewayClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#can_paginate)
+        """
     def create_api_key(
         self,
+        *,
         name: str = None,
         description: str = None,
         enabled: bool = None,
         generateDistinctId: bool = None,
         value: str = None,
-        stageKeys: List[StageKeyTypeDef] = None,
+        stageKeys: List["StageKeyTypeDef"] = None,
         customerId: str = None,
-        tags: Dict[str, str] = None,
-    ) -> "ApiKeyTypeDef":
+        tags: Dict[str, str] = None
+    ) -> ApiKeyResponseMetadataTypeDef:
         """
-        [Client.create_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_api_key)
-        """
+        Create an  ApiKey resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_api_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_api_key)
+        """
     def create_authorizer(
         self,
+        *,
         restApiId: str,
         name: str,
-        type: Literal["TOKEN", "REQUEST", "COGNITO_USER_POOLS"],
+        type: AuthorizerTypeType,
         providerARNs: List[str] = None,
         authType: str = None,
         authorizerUri: str = None,
         authorizerCredentials: str = None,
         identitySource: str = None,
         identityValidationExpression: str = None,
-        authorizerResultTtlInSeconds: int = None,
-    ) -> "AuthorizerTypeDef":
+        authorizerResultTtlInSeconds: int = None
+    ) -> AuthorizerResponseMetadataTypeDef:
         """
-        [Client.create_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_authorizer)
-        """
+        Adds a new  Authorizer resource to an existing  RestApi resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_authorizer)
+        """
     def create_base_path_mapping(
-        self, domainName: str, restApiId: str, basePath: str = None, stage: str = None
-    ) -> "BasePathMappingTypeDef":
+        self, *, domainName: str, restApiId: str, basePath: str = None, stage: str = None
+    ) -> BasePathMappingResponseMetadataTypeDef:
         """
-        [Client.create_base_path_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_base_path_mapping)
-        """
+        Creates a new  BasePathMapping resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_base_path_mapping)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_base_path_mapping)
+        """
     def create_deployment(
         self,
+        *,
         restApiId: str,
         stageName: str = None,
         stageDescription: str = None,
         description: str = None,
         cacheClusterEnabled: bool = None,
-        cacheClusterSize: Literal["0.5", "1.6", "6.1", "13.5", "28.4", "58.2", "118", "237"] = None,
+        cacheClusterSize: CacheClusterSizeType = None,
         variables: Dict[str, str] = None,
-        canarySettings: DeploymentCanarySettingsTypeDef = None,
-        tracingEnabled: bool = None,
-    ) -> "DeploymentTypeDef":
+        canarySettings: "DeploymentCanarySettingsTypeDef" = None,
+        tracingEnabled: bool = None
+    ) -> DeploymentResponseMetadataTypeDef:
         """
-        [Client.create_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_deployment)
-        """
+        Creates a  Deployment resource, which makes a specified  RestApi callable over
+        the internet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_deployment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_deployment)
+        """
     def create_documentation_part(
-        self, restApiId: str, location: "DocumentationPartLocationTypeDef", properties: str
-    ) -> "DocumentationPartTypeDef":
+        self, *, restApiId: str, location: "DocumentationPartLocationTypeDef", properties: str
+    ) -> DocumentationPartResponseMetadataTypeDef:
         """
-        [Client.create_documentation_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_documentation_part)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/CreateDocumentationPart>`_ **Request Syntax** response =
+        client.create_documentation_part( restApiId='string', location={ 'type':
+        'API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'M...
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_documentation_part)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_documentation_part)
+        """
     def create_documentation_version(
         self,
+        *,
         restApiId: str,
         documentationVersion: str,
         stageName: str = None,
-        description: str = None,
-    ) -> "DocumentationVersionTypeDef":
+        description: str = None
+    ) -> DocumentationVersionResponseMetadataTypeDef:
         """
-        [Client.create_documentation_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_documentation_version)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/CreateDocumentationVersion>`_ **Request Syntax** response =
+        client.create_documentation_version( restApiId='string',
+        documentationVersion='string', stageName='string', ...
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_documentation_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_documentation_version)
+        """
     def create_domain_name(
         self,
+        *,
         domainName: str,
         certificateName: str = None,
         certificateBody: str = None,
@@ -225,255 +266,322 @@ class APIGatewayClient:
         regionalCertificateArn: str = None,
         endpointConfiguration: "EndpointConfigurationTypeDef" = None,
         tags: Dict[str, str] = None,
-        securityPolicy: Literal["TLS_1_0", "TLS_1_2"] = None,
-        mutualTlsAuthentication: MutualTlsAuthenticationInputTypeDef = None,
-    ) -> "DomainNameTypeDef":
+        securityPolicy: SecurityPolicyType = None,
+        mutualTlsAuthentication: "MutualTlsAuthenticationInputTypeDef" = None
+    ) -> DomainNameResponseMetadataTypeDef:
         """
-        [Client.create_domain_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_domain_name)
-        """
+        Creates a new domain name.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_domain_name)
+        """
     def create_model(
         self,
+        *,
         restApiId: str,
         name: str,
         contentType: str,
         description: str = None,
-        schema: str = None,
-    ) -> "ModelTypeDef":
+        schema: str = None
+    ) -> ModelResponseMetadataTypeDef:
         """
-        [Client.create_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_model)
-        """
+        Adds a new  Model resource to an existing  RestApi resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_model)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_model)
+        """
     def create_request_validator(
         self,
+        *,
         restApiId: str,
         name: str = None,
         validateRequestBody: bool = None,
-        validateRequestParameters: bool = None,
-    ) -> "RequestValidatorTypeDef":
+        validateRequestParameters: bool = None
+    ) -> RequestValidatorResponseMetadataTypeDef:
         """
-        [Client.create_request_validator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_request_validator)
-        """
+        Creates a  ReqeustValidator of a given  RestApi .
 
-    def create_resource(self, restApiId: str, parentId: str, pathPart: str) -> "ResourceTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_request_validator)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_request_validator)
         """
-        [Client.create_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_resource)
+    def create_resource(
+        self, *, restApiId: str, parentId: str, pathPart: str
+    ) -> ResourceResponseMetadataTypeDef:
         """
+        Creates a  Resource resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_resource)
+        """
     def create_rest_api(
         self,
+        *,
         name: str,
         description: str = None,
         version: str = None,
         cloneFrom: str = None,
         binaryMediaTypes: List[str] = None,
         minimumCompressionSize: int = None,
-        apiKeySource: Literal["HEADER", "AUTHORIZER"] = None,
+        apiKeySource: ApiKeySourceTypeType = None,
         endpointConfiguration: "EndpointConfigurationTypeDef" = None,
         policy: str = None,
         tags: Dict[str, str] = None,
-        disableExecuteApiEndpoint: bool = None,
-    ) -> "RestApiTypeDef":
+        disableExecuteApiEndpoint: bool = None
+    ) -> RestApiResponseMetadataTypeDef:
         """
-        [Client.create_rest_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_rest_api)
-        """
+        Creates a new  RestApi resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_rest_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_rest_api)
+        """
     def create_stage(
         self,
+        *,
         restApiId: str,
         stageName: str,
         deploymentId: str,
         description: str = None,
         cacheClusterEnabled: bool = None,
-        cacheClusterSize: Literal["0.5", "1.6", "6.1", "13.5", "28.4", "58.2", "118", "237"] = None,
+        cacheClusterSize: CacheClusterSizeType = None,
         variables: Dict[str, str] = None,
         documentationVersion: str = None,
         canarySettings: "CanarySettingsTypeDef" = None,
         tracingEnabled: bool = None,
-        tags: Dict[str, str] = None,
-    ) -> "StageTypeDef":
+        tags: Dict[str, str] = None
+    ) -> StageResponseMetadataTypeDef:
         """
-        [Client.create_stage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_stage)
-        """
+        Creates a new  Stage resource that references a pre-existing  Deployment for the
+        API.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_stage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_stage)
+        """
     def create_usage_plan(
         self,
+        *,
         name: str,
         description: str = None,
         apiStages: List["ApiStageTypeDef"] = None,
         throttle: "ThrottleSettingsTypeDef" = None,
         quota: "QuotaSettingsTypeDef" = None,
-        tags: Dict[str, str] = None,
-    ) -> "UsagePlanTypeDef":
+        tags: Dict[str, str] = None
+    ) -> UsagePlanResponseMetadataTypeDef:
         """
-        [Client.create_usage_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_usage_plan)
-        """
+        Creates a usage plan with the throttle and quota limits, as well as the
+        associated API stages, specified in the payload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_usage_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_usage_plan)
+        """
     def create_usage_plan_key(
-        self, usagePlanId: str, keyId: str, keyType: str
-    ) -> "UsagePlanKeyTypeDef":
+        self, *, usagePlanId: str, keyId: str, keyType: str
+    ) -> UsagePlanKeyResponseMetadataTypeDef:
         """
-        [Client.create_usage_plan_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_usage_plan_key)
-        """
+        Creates a usage plan key for adding an existing API key to a usage plan.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_usage_plan_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_usage_plan_key)
+        """
     def create_vpc_link(
-        self, name: str, targetArns: List[str], description: str = None, tags: Dict[str, str] = None
-    ) -> "VpcLinkTypeDef":
-        """
-        [Client.create_vpc_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.create_vpc_link)
-        """
-
-    def delete_api_key(self, apiKey: str) -> None:
-        """
-        [Client.delete_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_api_key)
-        """
-
-    def delete_authorizer(self, restApiId: str, authorizerId: str) -> None:
-        """
-        [Client.delete_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_authorizer)
-        """
-
-    def delete_base_path_mapping(self, domainName: str, basePath: str) -> None:
-        """
-        [Client.delete_base_path_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_base_path_mapping)
-        """
-
-    def delete_client_certificate(self, clientCertificateId: str) -> None:
-        """
-        [Client.delete_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_client_certificate)
-        """
-
-    def delete_deployment(self, restApiId: str, deploymentId: str) -> None:
-        """
-        [Client.delete_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_deployment)
-        """
-
-    def delete_documentation_part(self, restApiId: str, documentationPartId: str) -> None:
-        """
-        [Client.delete_documentation_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_documentation_part)
-        """
-
-    def delete_documentation_version(self, restApiId: str, documentationVersion: str) -> None:
-        """
-        [Client.delete_documentation_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_documentation_version)
-        """
-
-    def delete_domain_name(self, domainName: str) -> None:
-        """
-        [Client.delete_domain_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_domain_name)
-        """
-
-    def delete_gateway_response(
         self,
-        restApiId: str,
-        responseType: Literal[
-            "DEFAULT_4XX",
-            "DEFAULT_5XX",
-            "RESOURCE_NOT_FOUND",
-            "UNAUTHORIZED",
-            "INVALID_API_KEY",
-            "ACCESS_DENIED",
-            "AUTHORIZER_FAILURE",
-            "AUTHORIZER_CONFIGURATION_ERROR",
-            "INVALID_SIGNATURE",
-            "EXPIRED_TOKEN",
-            "MISSING_AUTHENTICATION_TOKEN",
-            "INTEGRATION_FAILURE",
-            "INTEGRATION_TIMEOUT",
-            "API_CONFIGURATION_ERROR",
-            "UNSUPPORTED_MEDIA_TYPE",
-            "BAD_REQUEST_PARAMETERS",
-            "BAD_REQUEST_BODY",
-            "REQUEST_TOO_LARGE",
-            "THROTTLED",
-            "QUOTA_EXCEEDED",
-        ],
+        *,
+        name: str,
+        targetArns: List[str],
+        description: str = None,
+        tags: Dict[str, str] = None
+    ) -> VpcLinkResponseMetadataTypeDef:
+        """
+        Creates a VPC link, under the caller's account in a selected region, in an
+        asynchronous operation that typically takes 2-4 minutes to complete and become
+        operational.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.create_vpc_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#create_vpc_link)
+        """
+    def delete_api_key(self, *, apiKey: str) -> None:
+        """
+        Deletes the  ApiKey resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_api_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_api_key)
+        """
+    def delete_authorizer(self, *, restApiId: str, authorizerId: str) -> None:
+        """
+        Deletes an existing  Authorizer resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_authorizer)
+        """
+    def delete_base_path_mapping(self, *, domainName: str, basePath: str) -> None:
+        """
+        Deletes the  BasePathMapping resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_base_path_mapping)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_base_path_mapping)
+        """
+    def delete_client_certificate(self, *, clientCertificateId: str) -> None:
+        """
+        Deletes the  ClientCertificate resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_client_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_client_certificate)
+        """
+    def delete_deployment(self, *, restApiId: str, deploymentId: str) -> None:
+        """
+        Deletes a  Deployment resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_deployment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_deployment)
+        """
+    def delete_documentation_part(self, *, restApiId: str, documentationPartId: str) -> None:
+        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/DeleteDocumentationPart>`_ **Request Syntax** response =
+        client.delete_documentation_part( restApiId='string',
+        documentationPartId='string' ).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_documentation_part)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_documentation_part)
+        """
+    def delete_documentation_version(self, *, restApiId: str, documentationVersion: str) -> None:
+        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/DeleteDocumentationVersion>`_ **Request Syntax** response =
+        client.delete_documentation_version( restApiId='string',
+        documentationVersion='string' ).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_documentation_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_documentation_version)
+        """
+    def delete_domain_name(self, *, domainName: str) -> None:
+        """
+        Deletes the  DomainName resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_domain_name)
+        """
+    def delete_gateway_response(
+        self, *, restApiId: str, responseType: GatewayResponseTypeType
     ) -> None:
         """
-        [Client.delete_gateway_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_gateway_response)
-        """
+        Clears any customization of a  GatewayResponse of a specified response type on
+        the given  RestApi and resets it with the default settings.
 
-    def delete_integration(self, restApiId: str, resourceId: str, httpMethod: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_gateway_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_gateway_response)
         """
-        [Client.delete_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_integration)
+    def delete_integration(self, *, restApiId: str, resourceId: str, httpMethod: str) -> None:
         """
+        Represents a delete integration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_integration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_integration)
+        """
     def delete_integration_response(
-        self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
+        self, *, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
     ) -> None:
         """
-        [Client.delete_integration_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_integration_response)
-        """
+        Represents a delete integration response.
 
-    def delete_method(self, restApiId: str, resourceId: str, httpMethod: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_integration_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_integration_response)
         """
-        [Client.delete_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_method)
+    def delete_method(self, *, restApiId: str, resourceId: str, httpMethod: str) -> None:
         """
+        Deletes an existing  Method resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_method)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_method)
+        """
     def delete_method_response(
-        self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
+        self, *, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
     ) -> None:
         """
-        [Client.delete_method_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_method_response)
-        """
+        Deletes an existing  MethodResponse resource.
 
-    def delete_model(self, restApiId: str, modelName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_method_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_method_response)
         """
-        [Client.delete_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_model)
+    def delete_model(self, *, restApiId: str, modelName: str) -> None:
         """
+        Deletes a model.
 
-    def delete_request_validator(self, restApiId: str, requestValidatorId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_model)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_model)
         """
-        [Client.delete_request_validator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_request_validator)
+    def delete_request_validator(self, *, restApiId: str, requestValidatorId: str) -> None:
         """
+        Deletes a  RequestValidator of a given  RestApi .
 
-    def delete_resource(self, restApiId: str, resourceId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_request_validator)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_request_validator)
         """
-        [Client.delete_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_resource)
+    def delete_resource(self, *, restApiId: str, resourceId: str) -> None:
         """
+        Deletes a  Resource resource.
 
-    def delete_rest_api(self, restApiId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_resource)
         """
-        [Client.delete_rest_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_rest_api)
+    def delete_rest_api(self, *, restApiId: str) -> None:
         """
+        Deletes the specified API.
 
-    def delete_stage(self, restApiId: str, stageName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_rest_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_rest_api)
         """
-        [Client.delete_stage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_stage)
+    def delete_stage(self, *, restApiId: str, stageName: str) -> None:
         """
+        Deletes a  Stage resource.
 
-    def delete_usage_plan(self, usagePlanId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_stage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_stage)
         """
-        [Client.delete_usage_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan)
+    def delete_usage_plan(self, *, usagePlanId: str) -> None:
         """
+        Deletes a usage plan of a given plan Id.
 
-    def delete_usage_plan_key(self, usagePlanId: str, keyId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_usage_plan)
         """
-        [Client.delete_usage_plan_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan_key)
+    def delete_usage_plan_key(self, *, usagePlanId: str, keyId: str) -> None:
         """
+        Deletes a usage plan key and remove the underlying API key from the associated
+        usage plan.
 
-    def delete_vpc_link(self, vpcLinkId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_usage_plan_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_usage_plan_key)
         """
-        [Client.delete_vpc_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.delete_vpc_link)
+    def delete_vpc_link(self, *, vpcLinkId: str) -> None:
         """
+        Deletes an existing  VpcLink of a specified identifier.
 
-    def flush_stage_authorizers_cache(self, restApiId: str, stageName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.delete_vpc_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#delete_vpc_link)
         """
-        [Client.flush_stage_authorizers_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.flush_stage_authorizers_cache)
+    def flush_stage_authorizers_cache(self, *, restApiId: str, stageName: str) -> None:
         """
+        Flushes all authorizer cache entries on a stage.
 
-    def flush_stage_cache(self, restApiId: str, stageName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.flush_stage_authorizers_cache)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#flush_stage_authorizers_cache)
         """
-        [Client.flush_stage_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.flush_stage_cache)
+    def flush_stage_cache(self, *, restApiId: str, stageName: str) -> None:
         """
+        Flushes a stage's cache.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.flush_stage_cache)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#flush_stage_cache)
+        """
     def generate_client_certificate(
-        self, description: str = None, tags: Dict[str, str] = None
-    ) -> "ClientCertificateTypeDef":
+        self, *, description: str = None, tags: Dict[str, str] = None
+    ) -> ClientCertificateResponseMetadataTypeDef:
         """
-        [Client.generate_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.generate_client_certificate)
-        """
+        Generates a  ClientCertificate resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.generate_client_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#generate_client_certificate)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -482,416 +590,514 @@ class APIGatewayClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#generate_presigned_url)
+        """
     def get_account(self) -> AccountTypeDef:
         """
-        [Client.get_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_account)
-        """
+        Gets information about the current  Account resource.
 
-    def get_api_key(self, apiKey: str, includeValue: bool = None) -> "ApiKeyTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_account)
         """
-        [Client.get_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_api_key)
+    def get_api_key(
+        self, *, apiKey: str, includeValue: bool = None
+    ) -> ApiKeyResponseMetadataTypeDef:
         """
+        Gets information about the current  ApiKey resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_api_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_api_key)
+        """
     def get_api_keys(
         self,
+        *,
         position: str = None,
         limit: int = None,
         nameQuery: str = None,
         customerId: str = None,
-        includeValues: bool = None,
+        includeValues: bool = None
     ) -> ApiKeysTypeDef:
         """
-        [Client.get_api_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_api_keys)
-        """
+        Gets information about the current  ApiKeys resource.
 
-    def get_authorizer(self, restApiId: str, authorizerId: str) -> "AuthorizerTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_api_keys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_api_keys)
         """
-        [Client.get_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_authorizer)
+    def get_authorizer(
+        self, *, restApiId: str, authorizerId: str
+    ) -> AuthorizerResponseMetadataTypeDef:
         """
+        Describe an existing  Authorizer resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_authorizer)
+        """
     def get_authorizers(
-        self, restApiId: str, position: str = None, limit: int = None
+        self, *, restApiId: str, position: str = None, limit: int = None
     ) -> AuthorizersTypeDef:
         """
-        [Client.get_authorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_authorizers)
-        """
+        Describe an existing  Authorizers resource.
 
-    def get_base_path_mapping(self, domainName: str, basePath: str) -> "BasePathMappingTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_authorizers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_authorizers)
         """
-        [Client.get_base_path_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_base_path_mapping)
+    def get_base_path_mapping(
+        self, *, domainName: str, basePath: str
+    ) -> BasePathMappingResponseMetadataTypeDef:
         """
+        Describe a  BasePathMapping resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_base_path_mapping)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_base_path_mapping)
+        """
     def get_base_path_mappings(
-        self, domainName: str, position: str = None, limit: int = None
+        self, *, domainName: str, position: str = None, limit: int = None
     ) -> BasePathMappingsTypeDef:
         """
-        [Client.get_base_path_mappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_base_path_mappings)
-        """
+        Represents a collection of  BasePathMapping resources.
 
-    def get_client_certificate(self, clientCertificateId: str) -> "ClientCertificateTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_base_path_mappings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_base_path_mappings)
         """
-        [Client.get_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_client_certificate)
+    def get_client_certificate(
+        self, *, clientCertificateId: str
+    ) -> ClientCertificateResponseMetadataTypeDef:
         """
+        Gets information about the current  ClientCertificate resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_client_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_client_certificate)
+        """
     def get_client_certificates(
-        self, position: str = None, limit: int = None
+        self, *, position: str = None, limit: int = None
     ) -> ClientCertificatesTypeDef:
         """
-        [Client.get_client_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_client_certificates)
-        """
+        Gets a collection of  ClientCertificate resources.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_client_certificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_client_certificates)
+        """
     def get_deployment(
-        self, restApiId: str, deploymentId: str, embed: List[str] = None
-    ) -> "DeploymentTypeDef":
+        self, *, restApiId: str, deploymentId: str, embed: List[str] = None
+    ) -> DeploymentResponseMetadataTypeDef:
         """
-        [Client.get_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_deployment)
-        """
+        Gets information about a  Deployment resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_deployment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_deployment)
+        """
     def get_deployments(
-        self, restApiId: str, position: str = None, limit: int = None
+        self, *, restApiId: str, position: str = None, limit: int = None
     ) -> DeploymentsTypeDef:
         """
-        [Client.get_deployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_deployments)
-        """
+        Gets information about a  Deployments collection.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_deployments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_deployments)
+        """
     def get_documentation_part(
-        self, restApiId: str, documentationPartId: str
-    ) -> "DocumentationPartTypeDef":
+        self, *, restApiId: str, documentationPartId: str
+    ) -> DocumentationPartResponseMetadataTypeDef:
         """
-        [Client.get_documentation_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_documentation_part)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/GetDocumentationPart>`_ **Request Syntax** response =
+        client.get_documentation_part( restApiId='string', documentationPartId='string'
+        ).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_documentation_part)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_part)
+        """
     def get_documentation_parts(
         self,
+        *,
         restApiId: str,
-        type: Literal[
-            "API",
-            "AUTHORIZER",
-            "MODEL",
-            "RESOURCE",
-            "METHOD",
-            "PATH_PARAMETER",
-            "QUERY_PARAMETER",
-            "REQUEST_HEADER",
-            "REQUEST_BODY",
-            "RESPONSE",
-            "RESPONSE_HEADER",
-            "RESPONSE_BODY",
-        ] = None,
+        type: DocumentationPartTypeType = None,
         nameQuery: str = None,
         path: str = None,
         position: str = None,
         limit: int = None,
-        locationStatus: Literal["DOCUMENTED", "UNDOCUMENTED"] = None,
+        locationStatus: LocationStatusTypeType = None
     ) -> DocumentationPartsTypeDef:
         """
-        [Client.get_documentation_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_documentation_parts)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/GetDocumentationParts>`_ **Request Syntax** response =
+        client.get_documentation_parts( restApiId='string',
+        type='API'|'AUTHORIZER'|'MODEL'|'RESOURCE'|'METHOD'|'PATH_PARAMETER'|'QUE...
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_documentation_parts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_parts)
+        """
     def get_documentation_version(
-        self, restApiId: str, documentationVersion: str
-    ) -> "DocumentationVersionTypeDef":
+        self, *, restApiId: str, documentationVersion: str
+    ) -> DocumentationVersionResponseMetadataTypeDef:
         """
-        [Client.get_documentation_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_documentation_version)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/GetDocumentationVersion>`_ **Request Syntax** response =
+        client.get_documentation_version( restApiId='string',
+        documentationVersion='string' ).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_documentation_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_version)
+        """
     def get_documentation_versions(
-        self, restApiId: str, position: str = None, limit: int = None
+        self, *, restApiId: str, position: str = None, limit: int = None
     ) -> DocumentationVersionsTypeDef:
         """
-        [Client.get_documentation_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_documentation_versions)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/GetDocumentationVersions>`_ **Request Syntax** response =
+        client.get_documentation_versions( restApiId='string', position='string',
+        limit=123 ).
 
-    def get_domain_name(self, domainName: str) -> "DomainNameTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_documentation_versions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_documentation_versions)
         """
-        [Client.get_domain_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_domain_name)
+    def get_domain_name(self, *, domainName: str) -> DomainNameResponseMetadataTypeDef:
         """
+        Represents a domain name that is contained in a simpler, more intuitive URL that
+        can be called.
 
-    def get_domain_names(self, position: str = None, limit: int = None) -> DomainNamesTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_domain_name)
         """
-        [Client.get_domain_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_domain_names)
+    def get_domain_names(self, *, position: str = None, limit: int = None) -> DomainNamesTypeDef:
         """
+        Represents a collection of  DomainName resources.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_domain_names)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_domain_names)
+        """
     def get_export(
         self,
+        *,
         restApiId: str,
         stageName: str,
         exportType: str,
         parameters: Dict[str, str] = None,
-        accepts: str = None,
+        accepts: str = None
     ) -> ExportResponseTypeDef:
         """
-        [Client.get_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_export)
-        """
+        Exports a deployed version of a  RestApi in a specified format.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_export)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_export)
+        """
     def get_gateway_response(
-        self,
-        restApiId: str,
-        responseType: Literal[
-            "DEFAULT_4XX",
-            "DEFAULT_5XX",
-            "RESOURCE_NOT_FOUND",
-            "UNAUTHORIZED",
-            "INVALID_API_KEY",
-            "ACCESS_DENIED",
-            "AUTHORIZER_FAILURE",
-            "AUTHORIZER_CONFIGURATION_ERROR",
-            "INVALID_SIGNATURE",
-            "EXPIRED_TOKEN",
-            "MISSING_AUTHENTICATION_TOKEN",
-            "INTEGRATION_FAILURE",
-            "INTEGRATION_TIMEOUT",
-            "API_CONFIGURATION_ERROR",
-            "UNSUPPORTED_MEDIA_TYPE",
-            "BAD_REQUEST_PARAMETERS",
-            "BAD_REQUEST_BODY",
-            "REQUEST_TOO_LARGE",
-            "THROTTLED",
-            "QUOTA_EXCEEDED",
-        ],
-    ) -> "GatewayResponseTypeDef":
+        self, *, restApiId: str, responseType: GatewayResponseTypeType
+    ) -> GatewayResponseResponseMetadataTypeDef:
         """
-        [Client.get_gateway_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_gateway_response)
-        """
+        Gets a  GatewayResponse of a specified response type on the given  RestApi .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_gateway_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_gateway_response)
+        """
     def get_gateway_responses(
-        self, restApiId: str, position: str = None, limit: int = None
+        self, *, restApiId: str, position: str = None, limit: int = None
     ) -> GatewayResponsesTypeDef:
         """
-        [Client.get_gateway_responses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_gateway_responses)
-        """
+        Gets the  GatewayResponses collection on the given  RestApi.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_gateway_responses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_gateway_responses)
+        """
     def get_integration(
-        self, restApiId: str, resourceId: str, httpMethod: str
-    ) -> "IntegrationTypeDef":
+        self, *, restApiId: str, resourceId: str, httpMethod: str
+    ) -> IntegrationResponseMetadataTypeDef:
         """
-        [Client.get_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_integration)
-        """
+        Get the integration settings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_integration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_integration)
+        """
     def get_integration_response(
-        self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
-    ) -> "IntegrationResponseTypeDef":
+        self, *, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
+    ) -> IntegrationResponseResponseMetadataTypeDef:
         """
-        [Client.get_integration_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_integration_response)
-        """
+        Represents a get integration response.
 
-    def get_method(self, restApiId: str, resourceId: str, httpMethod: str) -> "MethodTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_integration_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_integration_response)
         """
-        [Client.get_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_method)
+    def get_method(
+        self, *, restApiId: str, resourceId: str, httpMethod: str
+    ) -> MethodResponseMetadataTypeDef:
         """
+        Describe an existing  Method resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_method)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_method)
+        """
     def get_method_response(
-        self, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
-    ) -> "MethodResponseTypeDef":
+        self, *, restApiId: str, resourceId: str, httpMethod: str, statusCode: str
+    ) -> MethodResponseResponseMetadataTypeDef:
         """
-        [Client.get_method_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_method_response)
-        """
+        Describes a  MethodResponse resource.
 
-    def get_model(self, restApiId: str, modelName: str, flatten: bool = None) -> "ModelTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_method_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_method_response)
         """
-        [Client.get_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_model)
+    def get_model(
+        self, *, restApiId: str, modelName: str, flatten: bool = None
+    ) -> ModelResponseMetadataTypeDef:
         """
+        Describes an existing model defined for a  RestApi resource.
 
-    def get_model_template(self, restApiId: str, modelName: str) -> TemplateTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_model)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_model)
         """
-        [Client.get_model_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_model_template)
+    def get_model_template(self, *, restApiId: str, modelName: str) -> TemplateTypeDef:
         """
+        Generates a sample mapping template that can be used to transform a payload into
+        the structure of a model.
 
-    def get_models(self, restApiId: str, position: str = None, limit: int = None) -> ModelsTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_model_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_model_template)
         """
-        [Client.get_models documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_models)
+    def get_models(
+        self, *, restApiId: str, position: str = None, limit: int = None
+    ) -> ModelsTypeDef:
         """
+        Describes existing  Models defined for a  RestApi resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_models)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_models)
+        """
     def get_request_validator(
-        self, restApiId: str, requestValidatorId: str
-    ) -> "RequestValidatorTypeDef":
+        self, *, restApiId: str, requestValidatorId: str
+    ) -> RequestValidatorResponseMetadataTypeDef:
         """
-        [Client.get_request_validator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_request_validator)
-        """
+        Gets a  RequestValidator of a given  RestApi .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_request_validator)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_request_validator)
+        """
     def get_request_validators(
-        self, restApiId: str, position: str = None, limit: int = None
+        self, *, restApiId: str, position: str = None, limit: int = None
     ) -> RequestValidatorsTypeDef:
         """
-        [Client.get_request_validators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_request_validators)
-        """
+        Gets the  RequestValidators collection of a given  RestApi .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_request_validators)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_request_validators)
+        """
     def get_resource(
-        self, restApiId: str, resourceId: str, embed: List[str] = None
-    ) -> "ResourceTypeDef":
+        self, *, restApiId: str, resourceId: str, embed: List[str] = None
+    ) -> ResourceResponseMetadataTypeDef:
         """
-        [Client.get_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_resource)
-        """
+        Lists information about a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_resource)
+        """
     def get_resources(
-        self, restApiId: str, position: str = None, limit: int = None, embed: List[str] = None
+        self, *, restApiId: str, position: str = None, limit: int = None, embed: List[str] = None
     ) -> ResourcesTypeDef:
         """
-        [Client.get_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_resources)
-        """
+        Lists information about a collection of  Resource resources.
 
-    def get_rest_api(self, restApiId: str) -> "RestApiTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_resources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_resources)
         """
-        [Client.get_rest_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_rest_api)
+    def get_rest_api(self, *, restApiId: str) -> RestApiResponseMetadataTypeDef:
         """
+        Lists the  RestApi resource in the collection.
 
-    def get_rest_apis(self, position: str = None, limit: int = None) -> RestApisTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_rest_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_rest_api)
         """
-        [Client.get_rest_apis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_rest_apis)
+    def get_rest_apis(self, *, position: str = None, limit: int = None) -> RestApisTypeDef:
         """
+        Lists the  RestApis resources for your collection.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_rest_apis)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_rest_apis)
+        """
     def get_sdk(
-        self, restApiId: str, stageName: str, sdkType: str, parameters: Dict[str, str] = None
+        self, *, restApiId: str, stageName: str, sdkType: str, parameters: Dict[str, str] = None
     ) -> SdkResponseTypeDef:
         """
-        [Client.get_sdk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_sdk)
-        """
+        Generates a client SDK for a  RestApi and  Stage .
 
-    def get_sdk_type(self, id: str) -> "SdkTypeTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_sdk)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_sdk)
         """
-        [Client.get_sdk_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_sdk_type)
+    def get_sdk_type(self, *, id: str) -> SdkTypeResponseMetadataTypeDef:
         """
+        See also: `AWS API Documentation
+        <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/GetSdkType>`_
+        **Request Syntax** response = client.get_sdk_type( id='string' ).
 
-    def get_sdk_types(self, position: str = None, limit: int = None) -> SdkTypesTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_sdk_type)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_sdk_type)
         """
-        [Client.get_sdk_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_sdk_types)
+    def get_sdk_types(self, *, position: str = None, limit: int = None) -> SdkTypesTypeDef:
         """
+        See also: `AWS API Documentation
+        <https://docs.aws.amazon.com/goto/WebAPI/apigateway-2015-07-09/GetSdkTypes>`_
+        **Request Syntax** response = client.get_sdk_types( position='string', limit=123
+        ).
 
-    def get_stage(self, restApiId: str, stageName: str) -> "StageTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_sdk_types)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_sdk_types)
         """
-        [Client.get_stage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_stage)
+    def get_stage(self, *, restApiId: str, stageName: str) -> StageResponseMetadataTypeDef:
         """
+        Gets information about a  Stage resource.
 
-    def get_stages(self, restApiId: str, deploymentId: str = None) -> StagesTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_stage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_stage)
         """
-        [Client.get_stages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_stages)
+    def get_stages(self, *, restApiId: str, deploymentId: str = None) -> StagesTypeDef:
         """
+        Gets information about one or more  Stage resources.
 
-    def get_tags(self, resourceArn: str, position: str = None, limit: int = None) -> TagsTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_stages)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_stages)
         """
-        [Client.get_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_tags)
+    def get_tags(self, *, resourceArn: str, position: str = None, limit: int = None) -> TagsTypeDef:
         """
+        Gets the  Tags collection for a given resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_tags)
+        """
     def get_usage(
         self,
+        *,
         usagePlanId: str,
         startDate: str,
         endDate: str,
         keyId: str = None,
         position: str = None,
-        limit: int = None,
+        limit: int = None
     ) -> UsageTypeDef:
         """
-        [Client.get_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_usage)
-        """
+        Gets the usage data of a usage plan in a specified time interval.
 
-    def get_usage_plan(self, usagePlanId: str) -> "UsagePlanTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_usage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage)
         """
-        [Client.get_usage_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_usage_plan)
+    def get_usage_plan(self, *, usagePlanId: str) -> UsagePlanResponseMetadataTypeDef:
         """
+        Gets a usage plan of a given plan identifier.
 
-    def get_usage_plan_key(self, usagePlanId: str, keyId: str) -> "UsagePlanKeyTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_usage_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plan)
         """
-        [Client.get_usage_plan_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_key)
+    def get_usage_plan_key(
+        self, *, usagePlanId: str, keyId: str
+    ) -> UsagePlanKeyResponseMetadataTypeDef:
         """
+        Gets a usage plan key of a given key identifier.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plan_key)
+        """
     def get_usage_plan_keys(
-        self, usagePlanId: str, position: str = None, limit: int = None, nameQuery: str = None
+        self, *, usagePlanId: str, position: str = None, limit: int = None, nameQuery: str = None
     ) -> UsagePlanKeysTypeDef:
         """
-        [Client.get_usage_plan_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_keys)
-        """
+        Gets all the usage plan keys representing the API keys added to a specified
+        usage plan.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_usage_plan_keys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plan_keys)
+        """
     def get_usage_plans(
-        self, position: str = None, keyId: str = None, limit: int = None
+        self, *, position: str = None, keyId: str = None, limit: int = None
     ) -> UsagePlansTypeDef:
         """
-        [Client.get_usage_plans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_usage_plans)
-        """
+        Gets all the usage plans of the caller's account.
 
-    def get_vpc_link(self, vpcLinkId: str) -> "VpcLinkTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_usage_plans)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_usage_plans)
         """
-        [Client.get_vpc_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_vpc_link)
+    def get_vpc_link(self, *, vpcLinkId: str) -> VpcLinkResponseMetadataTypeDef:
         """
+        Gets a specified VPC link under the caller's account in a region.
 
-    def get_vpc_links(self, position: str = None, limit: int = None) -> VpcLinksTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_vpc_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_vpc_link)
         """
-        [Client.get_vpc_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.get_vpc_links)
+    def get_vpc_links(self, *, position: str = None, limit: int = None) -> VpcLinksTypeDef:
         """
+        Gets the  VpcLinks collection under the caller's account in a selected region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.get_vpc_links)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#get_vpc_links)
+        """
     def import_api_keys(
-        self, body: Union[bytes, IO[bytes]], format: Literal["csv"], failOnWarnings: bool = None
+        self,
+        *,
+        body: Union[bytes, IO[bytes], StreamingBody],
+        format: Literal["csv"],
+        failOnWarnings: bool = None
     ) -> ApiKeyIdsTypeDef:
         """
-        [Client.import_api_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.import_api_keys)
-        """
+        Import API keys from an external source, such as a CSV-formatted file.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.import_api_keys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#import_api_keys)
+        """
     def import_documentation_parts(
         self,
+        *,
         restApiId: str,
-        body: Union[bytes, IO[bytes]],
-        mode: Literal["merge", "overwrite"] = None,
-        failOnWarnings: bool = None,
+        body: Union[bytes, IO[bytes], StreamingBody],
+        mode: PutModeType = None,
+        failOnWarnings: bool = None
     ) -> DocumentationPartIdsTypeDef:
         """
-        [Client.import_documentation_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.import_documentation_parts)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/ImportDocumentationParts>`_ **Request Syntax** response =
+        client.import_documentation_parts( restApiId='string', mode='merge'|'overwrite',
+        failOnWarnings=True|False, bo...
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.import_documentation_parts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#import_documentation_parts)
+        """
     def import_rest_api(
         self,
-        body: Union[bytes, IO[bytes]],
+        *,
+        body: Union[bytes, IO[bytes], StreamingBody],
         failOnWarnings: bool = None,
-        parameters: Dict[str, str] = None,
-    ) -> "RestApiTypeDef":
+        parameters: Dict[str, str] = None
+    ) -> RestApiResponseMetadataTypeDef:
         """
-        [Client.import_rest_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.import_rest_api)
-        """
+        A feature of the API Gateway control service for creating a new API from an
+        external API definition file.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.import_rest_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#import_rest_api)
+        """
     def put_gateway_response(
         self,
+        *,
         restApiId: str,
-        responseType: Literal[
-            "DEFAULT_4XX",
-            "DEFAULT_5XX",
-            "RESOURCE_NOT_FOUND",
-            "UNAUTHORIZED",
-            "INVALID_API_KEY",
-            "ACCESS_DENIED",
-            "AUTHORIZER_FAILURE",
-            "AUTHORIZER_CONFIGURATION_ERROR",
-            "INVALID_SIGNATURE",
-            "EXPIRED_TOKEN",
-            "MISSING_AUTHENTICATION_TOKEN",
-            "INTEGRATION_FAILURE",
-            "INTEGRATION_TIMEOUT",
-            "API_CONFIGURATION_ERROR",
-            "UNSUPPORTED_MEDIA_TYPE",
-            "BAD_REQUEST_PARAMETERS",
-            "BAD_REQUEST_BODY",
-            "REQUEST_TOO_LARGE",
-            "THROTTLED",
-            "QUOTA_EXCEEDED",
-        ],
+        responseType: GatewayResponseTypeType,
         statusCode: str = None,
         responseParameters: Dict[str, str] = None,
-        responseTemplates: Dict[str, str] = None,
-    ) -> "GatewayResponseTypeDef":
+        responseTemplates: Dict[str, str] = None
+    ) -> GatewayResponseResponseMetadataTypeDef:
         """
-        [Client.put_gateway_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.put_gateway_response)
-        """
+        Creates a customization of a  GatewayResponse of a specified response type and
+        status code on the given  RestApi .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.put_gateway_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_gateway_response)
+        """
     def put_integration(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
-        type: Literal["HTTP", "AWS", "MOCK", "HTTP_PROXY", "AWS_PROXY"],
+        type: IntegrationTypeType,
         integrationHttpMethod: str = None,
         uri: str = None,
-        connectionType: Literal["INTERNET", "VPC_LINK"] = None,
+        connectionType: ConnectionTypeType = None,
         connectionId: str = None,
         credentials: str = None,
         requestParameters: Dict[str, str] = None,
@@ -899,16 +1105,19 @@ class APIGatewayClient:
         passthroughBehavior: str = None,
         cacheNamespace: str = None,
         cacheKeyParameters: List[str] = None,
-        contentHandling: Literal["CONVERT_TO_BINARY", "CONVERT_TO_TEXT"] = None,
+        contentHandling: ContentHandlingStrategyType = None,
         timeoutInMillis: int = None,
-        tlsConfig: "TlsConfigTypeDef" = None,
-    ) -> "IntegrationTypeDef":
+        tlsConfig: "TlsConfigTypeDef" = None
+    ) -> IntegrationResponseMetadataTypeDef:
         """
-        [Client.put_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.put_integration)
-        """
+        Sets up a method's integration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.put_integration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_integration)
+        """
     def put_integration_response(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
@@ -916,14 +1125,17 @@ class APIGatewayClient:
         selectionPattern: str = None,
         responseParameters: Dict[str, str] = None,
         responseTemplates: Dict[str, str] = None,
-        contentHandling: Literal["CONVERT_TO_BINARY", "CONVERT_TO_TEXT"] = None,
-    ) -> "IntegrationResponseTypeDef":
+        contentHandling: ContentHandlingStrategyType = None
+    ) -> IntegrationResponseResponseMetadataTypeDef:
         """
-        [Client.put_integration_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.put_integration_response)
-        """
+        Represents a put integration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.put_integration_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_integration_response)
+        """
     def put_method(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
@@ -934,44 +1146,56 @@ class APIGatewayClient:
         requestParameters: Dict[str, bool] = None,
         requestModels: Dict[str, str] = None,
         requestValidatorId: str = None,
-        authorizationScopes: List[str] = None,
-    ) -> "MethodTypeDef":
+        authorizationScopes: List[str] = None
+    ) -> MethodResponseMetadataTypeDef:
         """
-        [Client.put_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.put_method)
-        """
+        Add a method to an existing  Resource resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.put_method)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_method)
+        """
     def put_method_response(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
         statusCode: str,
         responseParameters: Dict[str, bool] = None,
-        responseModels: Dict[str, str] = None,
-    ) -> "MethodResponseTypeDef":
+        responseModels: Dict[str, str] = None
+    ) -> MethodResponseResponseMetadataTypeDef:
         """
-        [Client.put_method_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.put_method_response)
-        """
+        Adds a  MethodResponse to an existing  Method resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.put_method_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_method_response)
+        """
     def put_rest_api(
         self,
+        *,
         restApiId: str,
-        body: Union[bytes, IO[bytes]],
-        mode: Literal["merge", "overwrite"] = None,
+        body: Union[bytes, IO[bytes], StreamingBody],
+        mode: PutModeType = None,
         failOnWarnings: bool = None,
-        parameters: Dict[str, str] = None,
-    ) -> "RestApiTypeDef":
+        parameters: Dict[str, str] = None
+    ) -> RestApiResponseMetadataTypeDef:
         """
-        [Client.put_rest_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.put_rest_api)
-        """
+        A feature of the API Gateway control service for updating an existing API with
+        an input of external API definitions.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.put_rest_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#put_rest_api)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> None:
         """
+        Adds or updates a tag on a given resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#tag_resource)
+        """
     def test_invoke_authorizer(
         self,
+        *,
         restApiId: str,
         authorizerId: str,
         headers: Dict[str, str] = None,
@@ -979,14 +1203,18 @@ class APIGatewayClient:
         pathWithQueryString: str = None,
         body: str = None,
         stageVariables: Dict[str, str] = None,
-        additionalContext: Dict[str, str] = None,
+        additionalContext: Dict[str, str] = None
     ) -> TestInvokeAuthorizerResponseTypeDef:
         """
-        [Client.test_invoke_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.test_invoke_authorizer)
-        """
+        Simulate the execution of an  Authorizer in your  RestApi with headers,
+        parameters, and an incoming request body.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.test_invoke_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#test_invoke_authorizer)
+        """
     def test_invoke_method(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
@@ -995,338 +1223,408 @@ class APIGatewayClient:
         headers: Dict[str, str] = None,
         multiValueHeaders: Dict[str, List[str]] = None,
         clientCertificateId: str = None,
-        stageVariables: Dict[str, str] = None,
+        stageVariables: Dict[str, str] = None
     ) -> TestInvokeMethodResponseTypeDef:
         """
-        [Client.test_invoke_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.test_invoke_method)
-        """
+        Simulate the execution of a  Method in your  RestApi with headers, parameters,
+        and an incoming request body.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.test_invoke_method)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#test_invoke_method)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> None:
         """
+        Removes a tag from a given resource.
 
-    def update_account(self, patchOperations: List[PatchOperationTypeDef] = None) -> AccountTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#untag_resource)
         """
-        [Client.update_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_account)
+    def update_account(
+        self, *, patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> AccountTypeDef:
         """
+        Changes information about the current  Account resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_account)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_account)
+        """
     def update_api_key(
-        self, apiKey: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "ApiKeyTypeDef":
+        self, *, apiKey: str, patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> ApiKeyResponseMetadataTypeDef:
         """
-        [Client.update_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_api_key)
-        """
+        Changes information about an  ApiKey resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_api_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_api_key)
+        """
     def update_authorizer(
-        self, restApiId: str, authorizerId: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "AuthorizerTypeDef":
+        self,
+        *,
+        restApiId: str,
+        authorizerId: str,
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> AuthorizerResponseMetadataTypeDef:
         """
-        [Client.update_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_authorizer)
-        """
+        Updates an existing  Authorizer resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_authorizer)
+        """
     def update_base_path_mapping(
-        self, domainName: str, basePath: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "BasePathMappingTypeDef":
+        self,
+        *,
+        domainName: str,
+        basePath: str,
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> BasePathMappingResponseMetadataTypeDef:
         """
-        [Client.update_base_path_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_base_path_mapping)
-        """
+        Changes information about the  BasePathMapping resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_base_path_mapping)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_base_path_mapping)
+        """
     def update_client_certificate(
-        self, clientCertificateId: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "ClientCertificateTypeDef":
+        self, *, clientCertificateId: str, patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> ClientCertificateResponseMetadataTypeDef:
         """
-        [Client.update_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_client_certificate)
-        """
+        Changes information about an  ClientCertificate resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_client_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_client_certificate)
+        """
     def update_deployment(
-        self, restApiId: str, deploymentId: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "DeploymentTypeDef":
+        self,
+        *,
+        restApiId: str,
+        deploymentId: str,
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> DeploymentResponseMetadataTypeDef:
         """
-        [Client.update_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_deployment)
-        """
+        Changes information about a  Deployment resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_deployment)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_deployment)
+        """
     def update_documentation_part(
         self,
+        *,
         restApiId: str,
         documentationPartId: str,
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "DocumentationPartTypeDef":
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> DocumentationPartResponseMetadataTypeDef:
         """
-        [Client.update_documentation_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_documentation_part)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/UpdateDocumentationPart>`_ **Request Syntax** response =
+        client.update_documentation_part( restApiId='string',
+        documentationPartId='string', patchOperations=[ { ...
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_documentation_part)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_documentation_part)
+        """
     def update_documentation_version(
         self,
+        *,
         restApiId: str,
         documentationVersion: str,
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "DocumentationVersionTypeDef":
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> DocumentationVersionResponseMetadataTypeDef:
         """
-        [Client.update_documentation_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_documentation_version)
-        """
+        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/apigat
+        eway-2015-07-09/UpdateDocumentationVersion>`_ **Request Syntax** response =
+        client.update_documentation_version( restApiId='string',
+        documentationVersion='string', patchOperations=[ ...
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_documentation_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_documentation_version)
+        """
     def update_domain_name(
-        self, domainName: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "DomainNameTypeDef":
+        self, *, domainName: str, patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> DomainNameResponseMetadataTypeDef:
         """
-        [Client.update_domain_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_domain_name)
-        """
+        Changes information about the  DomainName resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_domain_name)
+        """
     def update_gateway_response(
         self,
+        *,
         restApiId: str,
-        responseType: Literal[
-            "DEFAULT_4XX",
-            "DEFAULT_5XX",
-            "RESOURCE_NOT_FOUND",
-            "UNAUTHORIZED",
-            "INVALID_API_KEY",
-            "ACCESS_DENIED",
-            "AUTHORIZER_FAILURE",
-            "AUTHORIZER_CONFIGURATION_ERROR",
-            "INVALID_SIGNATURE",
-            "EXPIRED_TOKEN",
-            "MISSING_AUTHENTICATION_TOKEN",
-            "INTEGRATION_FAILURE",
-            "INTEGRATION_TIMEOUT",
-            "API_CONFIGURATION_ERROR",
-            "UNSUPPORTED_MEDIA_TYPE",
-            "BAD_REQUEST_PARAMETERS",
-            "BAD_REQUEST_BODY",
-            "REQUEST_TOO_LARGE",
-            "THROTTLED",
-            "QUOTA_EXCEEDED",
-        ],
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "GatewayResponseTypeDef":
+        responseType: GatewayResponseTypeType,
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> GatewayResponseResponseMetadataTypeDef:
         """
-        [Client.update_gateway_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_gateway_response)
-        """
+        Updates a  GatewayResponse of a specified response type on the given  RestApi .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_gateway_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_gateway_response)
+        """
     def update_integration(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "IntegrationTypeDef":
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> IntegrationResponseMetadataTypeDef:
         """
-        [Client.update_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_integration)
-        """
+        Represents an update integration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_integration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_integration)
+        """
     def update_integration_response(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
         statusCode: str,
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "IntegrationResponseTypeDef":
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> IntegrationResponseResponseMetadataTypeDef:
         """
-        [Client.update_integration_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_integration_response)
-        """
+        Represents an update integration response.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_integration_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_integration_response)
+        """
     def update_method(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "MethodTypeDef":
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> MethodResponseMetadataTypeDef:
         """
-        [Client.update_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_method)
-        """
+        Updates an existing  Method resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_method)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_method)
+        """
     def update_method_response(
         self,
+        *,
         restApiId: str,
         resourceId: str,
         httpMethod: str,
         statusCode: str,
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "MethodResponseTypeDef":
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> MethodResponseResponseMetadataTypeDef:
         """
-        [Client.update_method_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_method_response)
-        """
+        Updates an existing  MethodResponse resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_method_response)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_method_response)
+        """
     def update_model(
-        self, restApiId: str, modelName: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "ModelTypeDef":
+        self,
+        *,
+        restApiId: str,
+        modelName: str,
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> ModelResponseMetadataTypeDef:
         """
-        [Client.update_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_model)
-        """
+        Changes information about a model.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_model)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_model)
+        """
     def update_request_validator(
         self,
+        *,
         restApiId: str,
         requestValidatorId: str,
-        patchOperations: List[PatchOperationTypeDef] = None,
-    ) -> "RequestValidatorTypeDef":
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> RequestValidatorResponseMetadataTypeDef:
         """
-        [Client.update_request_validator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_request_validator)
-        """
+        Updates a  RequestValidator of a given  RestApi .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_request_validator)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_request_validator)
+        """
     def update_resource(
-        self, restApiId: str, resourceId: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "ResourceTypeDef":
+        self,
+        *,
+        restApiId: str,
+        resourceId: str,
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> ResourceResponseMetadataTypeDef:
         """
-        [Client.update_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_resource)
-        """
+        Changes information about a  Resource resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_resource)
+        """
     def update_rest_api(
-        self, restApiId: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "RestApiTypeDef":
+        self, *, restApiId: str, patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> RestApiResponseMetadataTypeDef:
         """
-        [Client.update_rest_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_rest_api)
-        """
+        Changes information about the specified API.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_rest_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_rest_api)
+        """
     def update_stage(
-        self, restApiId: str, stageName: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "StageTypeDef":
+        self,
+        *,
+        restApiId: str,
+        stageName: str,
+        patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> StageResponseMetadataTypeDef:
         """
-        [Client.update_stage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_stage)
-        """
+        Changes information about a  Stage resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_stage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_stage)
+        """
     def update_usage(
-        self, usagePlanId: str, keyId: str, patchOperations: List[PatchOperationTypeDef] = None
+        self, *, usagePlanId: str, keyId: str, patchOperations: List["PatchOperationTypeDef"] = None
     ) -> UsageTypeDef:
         """
-        [Client.update_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_usage)
-        """
+        Grants a temporary extension to the remaining quota of a usage plan associated
+        with a specified API key.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_usage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_usage)
+        """
     def update_usage_plan(
-        self, usagePlanId: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "UsagePlanTypeDef":
+        self, *, usagePlanId: str, patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> UsagePlanResponseMetadataTypeDef:
         """
-        [Client.update_usage_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_usage_plan)
-        """
+        Updates a usage plan of a given plan Id.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_usage_plan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_usage_plan)
+        """
     def update_vpc_link(
-        self, vpcLinkId: str, patchOperations: List[PatchOperationTypeDef] = None
-    ) -> "VpcLinkTypeDef":
+        self, *, vpcLinkId: str, patchOperations: List["PatchOperationTypeDef"] = None
+    ) -> VpcLinkResponseMetadataTypeDef:
         """
-        [Client.update_vpc_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Client.update_vpc_link)
-        """
+        Updates an existing  VpcLink of a specified identifier.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Client.update_vpc_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/client.html#update_vpc_link)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["get_api_keys"]) -> GetApiKeysPaginator:
         """
-        [Paginator.GetApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getapikeyspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_authorizers"]) -> GetAuthorizersPaginator:
         """
-        [Paginator.GetAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getauthorizerspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_base_path_mappings"]
     ) -> GetBasePathMappingsPaginator:
         """
-        [Paginator.GetBasePathMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getbasepathmappingspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_client_certificates"]
     ) -> GetClientCertificatesPaginator:
         """
-        [Paginator.GetClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getclientcertificatespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_deployments"]) -> GetDeploymentsPaginator:
         """
-        [Paginator.GetDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdeploymentspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_documentation_parts"]
     ) -> GetDocumentationPartsPaginator:
         """
-        [Paginator.GetDocumentationParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdocumentationpartspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_documentation_versions"]
     ) -> GetDocumentationVersionsPaginator:
         """
-        [Paginator.GetDocumentationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdocumentationversionspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_domain_names"]) -> GetDomainNamesPaginator:
         """
-        [Paginator.GetDomainNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getdomainnamespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_gateway_responses"]
     ) -> GetGatewayResponsesPaginator:
         """
-        [Paginator.GetGatewayResponses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getgatewayresponsespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_models"]) -> GetModelsPaginator:
         """
-        [Paginator.GetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetModels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetModels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getmodelspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_request_validators"]
     ) -> GetRequestValidatorsPaginator:
         """
-        [Paginator.GetRequestValidators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getrequestvalidatorspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_resources"]) -> GetResourcesPaginator:
         """
-        [Paginator.GetResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetResources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getresourcespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_rest_apis"]) -> GetRestApisPaginator:
         """
-        [Paginator.GetRestApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getrestapispaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_sdk_types"]) -> GetSdkTypesPaginator:
         """
-        [Paginator.GetSdkTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getsdktypespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_usage"]) -> GetUsagePaginator:
         """
-        [Paginator.GetUsage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetUsage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetUsage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getusagepaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_usage_plan_keys"]
     ) -> GetUsagePlanKeysPaginator:
         """
-        [Paginator.GetUsagePlanKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getusageplankeyspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_usage_plans"]) -> GetUsagePlansPaginator:
         """
-        [Paginator.GetUsagePlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getusageplanspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_vpc_links"]) -> GetVpcLinksPaginator:
         """
-        [Paginator.GetVpcLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/paginators.html#getvpclinkspaginator)
         """

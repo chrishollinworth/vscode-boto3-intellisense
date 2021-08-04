@@ -1,5 +1,7 @@
 """
-Main interface for cognito-idp service client
+Type annotations for cognito-idp service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html)
 
 Usage::
 
@@ -13,9 +15,26 @@ Usage::
 import sys
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_cognito_idp.paginator import (
+from .literals import (
+    AliasAttributeTypeType,
+    AuthFlowTypeType,
+    ChallengeNameTypeType,
+    DeliveryMediumTypeType,
+    DeviceRememberedStatusTypeType,
+    ExplicitAuthFlowsTypeType,
+    FeedbackValueTypeType,
+    IdentityProviderTypeTypeType,
+    MessageActionTypeType,
+    OAuthFlowTypeType,
+    PreventUserExistenceErrorTypesType,
+    UsernameAttributeTypeType,
+    UserPoolMfaTypeType,
+    VerifiedAttributeTypeType,
+)
+from .paginator import (
     AdminListGroupsForUserPaginator,
     AdminListUserAuthEventsPaginator,
     ListGroupsPaginator,
@@ -26,7 +45,7 @@ from mypy_boto3_cognito_idp.paginator import (
     ListUsersInGroupPaginator,
     ListUsersPaginator,
 )
-from mypy_boto3_cognito_idp.type_defs import (
+from .type_defs import (
     AccountRecoverySettingTypeTypeDef,
     AccountTakeoverRiskConfigurationTypeTypeDef,
     AdminCreateUserConfigTypeTypeDef,
@@ -123,17 +142,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("CognitoIdentityProviderClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AliasExistsException: Type[BotocoreClientError]
@@ -164,8 +179,11 @@ class Exceptions:
     SoftwareTokenMFANotFoundException: Type[BotocoreClientError]
     TooManyFailedAttemptsException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
+    UnauthorizedException: Type[BotocoreClientError]
     UnexpectedLambdaException: Type[BotocoreClientError]
     UnsupportedIdentityProviderException: Type[BotocoreClientError]
+    UnsupportedOperationException: Type[BotocoreClientError]
+    UnsupportedTokenTypeException: Type[BotocoreClientError]
     UnsupportedUserStateException: Type[BotocoreClientError]
     UserImportInProgressException: Type[BotocoreClientError]
     UserLambdaValidationException: Type[BotocoreClientError]
@@ -175,369 +193,445 @@ class Exceptions:
     UserPoolTaggingException: Type[BotocoreClientError]
     UsernameExistsException: Type[BotocoreClientError]
 
-
-class CognitoIdentityProviderClient:
+class CognitoIdentityProviderClient(BaseClient):
     """
-    [CognitoIdentityProvider.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        CognitoIdentityProviderClient exceptions.
+        """
     def add_custom_attributes(
-        self, UserPoolId: str, CustomAttributes: List["SchemaAttributeTypeTypeDef"]
+        self, *, UserPoolId: str, CustomAttributes: List["SchemaAttributeTypeTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.add_custom_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.add_custom_attributes)
-        """
+        Adds additional user attributes to the user pool schema.
 
-    def admin_add_user_to_group(self, UserPoolId: str, Username: str, GroupName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.add_custom_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#add_custom_attributes)
         """
-        [Client.admin_add_user_to_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_add_user_to_group)
+    def admin_add_user_to_group(self, *, UserPoolId: str, Username: str, GroupName: str) -> None:
         """
+        Adds the specified user to the specified group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_add_user_to_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_add_user_to_group)
+        """
     def admin_confirm_sign_up(
-        self, UserPoolId: str, Username: str, ClientMetadata: Dict[str, str] = None
+        self, *, UserPoolId: str, Username: str, ClientMetadata: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.admin_confirm_sign_up documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_confirm_sign_up)
-        """
+        Confirms user registration as an admin without using a confirmation code.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_confirm_sign_up)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_confirm_sign_up)
+        """
     def admin_create_user(
         self,
+        *,
         UserPoolId: str,
         Username: str,
         UserAttributes: List["AttributeTypeTypeDef"] = None,
         ValidationData: List["AttributeTypeTypeDef"] = None,
         TemporaryPassword: str = None,
         ForceAliasCreation: bool = None,
-        MessageAction: Literal["RESEND", "SUPPRESS"] = None,
-        DesiredDeliveryMediums: List[Literal["SMS", "EMAIL"]] = None,
-        ClientMetadata: Dict[str, str] = None,
+        MessageAction: MessageActionTypeType = None,
+        DesiredDeliveryMediums: List[DeliveryMediumTypeType] = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> AdminCreateUserResponseTypeDef:
         """
-        [Client.admin_create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_create_user)
-        """
+        Creates a new user in the specified user pool.
 
-    def admin_delete_user(self, UserPoolId: str, Username: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_create_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_create_user)
         """
-        [Client.admin_delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user)
+    def admin_delete_user(self, *, UserPoolId: str, Username: str) -> None:
         """
+        Deletes a user as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_delete_user)
+        """
     def admin_delete_user_attributes(
-        self, UserPoolId: str, Username: str, UserAttributeNames: List[str]
+        self, *, UserPoolId: str, Username: str, UserAttributeNames: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.admin_delete_user_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user_attributes)
-        """
+        Deletes the user attributes in a user pool as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_delete_user_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_delete_user_attributes)
+        """
     def admin_disable_provider_for_user(
-        self, UserPoolId: str, User: ProviderUserIdentifierTypeTypeDef
+        self, *, UserPoolId: str, User: "ProviderUserIdentifierTypeTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.admin_disable_provider_for_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_provider_for_user)
-        """
+        Disables the user from signing in with the specified external (SAML or social)
+        identity provider.
 
-    def admin_disable_user(self, UserPoolId: str, Username: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_provider_for_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_disable_provider_for_user)
         """
-        [Client.admin_disable_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_user)
+    def admin_disable_user(self, *, UserPoolId: str, Username: str) -> Dict[str, Any]:
         """
+        Disables the specified user.
 
-    def admin_enable_user(self, UserPoolId: str, Username: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_disable_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_disable_user)
         """
-        [Client.admin_enable_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_enable_user)
+    def admin_enable_user(self, *, UserPoolId: str, Username: str) -> Dict[str, Any]:
         """
+        Enables the specified user as an administrator.
 
-    def admin_forget_device(self, UserPoolId: str, Username: str, DeviceKey: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_enable_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_enable_user)
         """
-        [Client.admin_forget_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_forget_device)
+    def admin_forget_device(self, *, UserPoolId: str, Username: str, DeviceKey: str) -> None:
         """
+        Forgets the device, as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_forget_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_forget_device)
+        """
     def admin_get_device(
-        self, DeviceKey: str, UserPoolId: str, Username: str
+        self, *, DeviceKey: str, UserPoolId: str, Username: str
     ) -> AdminGetDeviceResponseTypeDef:
         """
-        [Client.admin_get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_device)
-        """
+        Gets the device, as an administrator.
 
-    def admin_get_user(self, UserPoolId: str, Username: str) -> AdminGetUserResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_get_device)
         """
-        [Client.admin_get_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_user)
+    def admin_get_user(self, *, UserPoolId: str, Username: str) -> AdminGetUserResponseTypeDef:
         """
+        Gets the specified user by user name in a user pool as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_get_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_get_user)
+        """
     def admin_initiate_auth(
         self,
+        *,
         UserPoolId: str,
         ClientId: str,
-        AuthFlow: Literal[
-            "USER_SRP_AUTH",
-            "REFRESH_TOKEN_AUTH",
-            "REFRESH_TOKEN",
-            "CUSTOM_AUTH",
-            "ADMIN_NO_SRP_AUTH",
-            "USER_PASSWORD_AUTH",
-            "ADMIN_USER_PASSWORD_AUTH",
-        ],
+        AuthFlow: AuthFlowTypeType,
         AuthParameters: Dict[str, str] = None,
         ClientMetadata: Dict[str, str] = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        ContextData: ContextDataTypeTypeDef = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        ContextData: "ContextDataTypeTypeDef" = None
     ) -> AdminInitiateAuthResponseTypeDef:
         """
-        [Client.admin_initiate_auth documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_initiate_auth)
-        """
+        Initiates the authentication flow, as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_initiate_auth)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_initiate_auth)
+        """
     def admin_link_provider_for_user(
         self,
+        *,
         UserPoolId: str,
-        DestinationUser: ProviderUserIdentifierTypeTypeDef,
-        SourceUser: ProviderUserIdentifierTypeTypeDef,
+        DestinationUser: "ProviderUserIdentifierTypeTypeDef",
+        SourceUser: "ProviderUserIdentifierTypeTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.admin_link_provider_for_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_link_provider_for_user)
-        """
+        Links an existing user account in a user pool (`DestinationUser` ) to an
+        identity from an external identity provider (`SourceUser` ) based on a specified
+        attribute name and value from the external identity provider.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_link_provider_for_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_link_provider_for_user)
+        """
     def admin_list_devices(
-        self, UserPoolId: str, Username: str, Limit: int = None, PaginationToken: str = None
+        self, *, UserPoolId: str, Username: str, Limit: int = None, PaginationToken: str = None
     ) -> AdminListDevicesResponseTypeDef:
         """
-        [Client.admin_list_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_devices)
-        """
+        Lists devices, as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_devices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_list_devices)
+        """
     def admin_list_groups_for_user(
-        self, Username: str, UserPoolId: str, Limit: int = None, NextToken: str = None
+        self, *, Username: str, UserPoolId: str, Limit: int = None, NextToken: str = None
     ) -> AdminListGroupsForUserResponseTypeDef:
         """
-        [Client.admin_list_groups_for_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_groups_for_user)
-        """
+        Lists the groups that the user belongs to.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_groups_for_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_list_groups_for_user)
+        """
     def admin_list_user_auth_events(
-        self, UserPoolId: str, Username: str, MaxResults: int = None, NextToken: str = None
+        self, *, UserPoolId: str, Username: str, MaxResults: int = None, NextToken: str = None
     ) -> AdminListUserAuthEventsResponseTypeDef:
         """
-        [Client.admin_list_user_auth_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_user_auth_events)
-        """
+        Lists a history of user activity and any risks detected as part of Amazon
+        Cognito advanced security.
 
-    def admin_remove_user_from_group(self, UserPoolId: str, Username: str, GroupName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_list_user_auth_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_list_user_auth_events)
         """
-        [Client.admin_remove_user_from_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_remove_user_from_group)
+    def admin_remove_user_from_group(
+        self, *, UserPoolId: str, Username: str, GroupName: str
+    ) -> None:
         """
+        Removes the specified user from the specified group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_remove_user_from_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_remove_user_from_group)
+        """
     def admin_reset_user_password(
-        self, UserPoolId: str, Username: str, ClientMetadata: Dict[str, str] = None
+        self, *, UserPoolId: str, Username: str, ClientMetadata: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.admin_reset_user_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_reset_user_password)
-        """
+        Resets the specified user's password in a user pool as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_reset_user_password)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_reset_user_password)
+        """
     def admin_respond_to_auth_challenge(
         self,
+        *,
         UserPoolId: str,
         ClientId: str,
-        ChallengeName: Literal[
-            "SMS_MFA",
-            "SOFTWARE_TOKEN_MFA",
-            "SELECT_MFA_TYPE",
-            "MFA_SETUP",
-            "PASSWORD_VERIFIER",
-            "CUSTOM_CHALLENGE",
-            "DEVICE_SRP_AUTH",
-            "DEVICE_PASSWORD_VERIFIER",
-            "ADMIN_NO_SRP_AUTH",
-            "NEW_PASSWORD_REQUIRED",
-        ],
+        ChallengeName: ChallengeNameTypeType,
         ChallengeResponses: Dict[str, str] = None,
         Session: str = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        ContextData: ContextDataTypeTypeDef = None,
-        ClientMetadata: Dict[str, str] = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        ContextData: "ContextDataTypeTypeDef" = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> AdminRespondToAuthChallengeResponseTypeDef:
         """
-        [Client.admin_respond_to_auth_challenge documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_respond_to_auth_challenge)
-        """
+        Responds to an authentication challenge, as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_respond_to_auth_challenge)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_respond_to_auth_challenge)
+        """
     def admin_set_user_mfa_preference(
         self,
+        *,
         Username: str,
         UserPoolId: str,
-        SMSMfaSettings: SMSMfaSettingsTypeTypeDef = None,
-        SoftwareTokenMfaSettings: SoftwareTokenMfaSettingsTypeTypeDef = None,
+        SMSMfaSettings: "SMSMfaSettingsTypeTypeDef" = None,
+        SoftwareTokenMfaSettings: "SoftwareTokenMfaSettingsTypeTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.admin_set_user_mfa_preference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_mfa_preference)
-        """
+        Sets the user's multi-factor authentication (MFA) preference, including which
+        MFA options are enabled and if any are preferred.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_mfa_preference)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_set_user_mfa_preference)
+        """
     def admin_set_user_password(
-        self, UserPoolId: str, Username: str, Password: str, Permanent: bool = None
+        self, *, UserPoolId: str, Username: str, Password: str, Permanent: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.admin_set_user_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_password)
-        """
+        Sets the specified user's password in a user pool as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_password)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_set_user_password)
+        """
     def admin_set_user_settings(
-        self, UserPoolId: str, Username: str, MFAOptions: List["MFAOptionTypeTypeDef"]
+        self, *, UserPoolId: str, Username: str, MFAOptions: List["MFAOptionTypeTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.admin_set_user_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_settings)
-        """
+        *This action is no longer supported.* You can use it to configure only SMS MFA.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_set_user_settings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_set_user_settings)
+        """
     def admin_update_auth_event_feedback(
-        self,
-        UserPoolId: str,
-        Username: str,
-        EventId: str,
-        FeedbackValue: Literal["Valid", "Invalid"],
+        self, *, UserPoolId: str, Username: str, EventId: str, FeedbackValue: FeedbackValueTypeType
     ) -> Dict[str, Any]:
         """
-        [Client.admin_update_auth_event_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_auth_event_feedback)
-        """
+        Provides feedback for an authentication event as to whether it was from a valid
+        user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_auth_event_feedback)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_update_auth_event_feedback)
+        """
     def admin_update_device_status(
         self,
+        *,
         UserPoolId: str,
         Username: str,
         DeviceKey: str,
-        DeviceRememberedStatus: Literal["remembered", "not_remembered"] = None,
+        DeviceRememberedStatus: DeviceRememberedStatusTypeType = None
     ) -> Dict[str, Any]:
         """
-        [Client.admin_update_device_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_device_status)
-        """
+        Updates the device status as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_device_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_update_device_status)
+        """
     def admin_update_user_attributes(
         self,
+        *,
         UserPoolId: str,
         Username: str,
         UserAttributes: List["AttributeTypeTypeDef"],
-        ClientMetadata: Dict[str, str] = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.admin_update_user_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_user_attributes)
-        """
+        Updates the specified user's attributes, including developer attributes, as an
+        administrator.
 
-    def admin_user_global_sign_out(self, UserPoolId: str, Username: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_update_user_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_update_user_attributes)
         """
-        [Client.admin_user_global_sign_out documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_user_global_sign_out)
+    def admin_user_global_sign_out(self, *, UserPoolId: str, Username: str) -> Dict[str, Any]:
         """
+        Signs out users from all devices, as an administrator.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.admin_user_global_sign_out)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#admin_user_global_sign_out)
+        """
     def associate_software_token(
-        self, AccessToken: str = None, Session: str = None
+        self, *, AccessToken: str = None, Session: str = None
     ) -> AssociateSoftwareTokenResponseTypeDef:
         """
-        [Client.associate_software_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.associate_software_token)
-        """
+        Returns a unique generated shared secret key code for the user account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.associate_software_token)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#associate_software_token)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#can_paginate)
+        """
     def change_password(
-        self, PreviousPassword: str, ProposedPassword: str, AccessToken: str
+        self, *, PreviousPassword: str, ProposedPassword: str, AccessToken: str
     ) -> Dict[str, Any]:
         """
-        [Client.change_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.change_password)
-        """
+        Changes the password for a specified user in a user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.change_password)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#change_password)
+        """
     def confirm_device(
         self,
+        *,
         AccessToken: str,
         DeviceKey: str,
-        DeviceSecretVerifierConfig: DeviceSecretVerifierConfigTypeTypeDef = None,
-        DeviceName: str = None,
+        DeviceSecretVerifierConfig: "DeviceSecretVerifierConfigTypeTypeDef" = None,
+        DeviceName: str = None
     ) -> ConfirmDeviceResponseTypeDef:
         """
-        [Client.confirm_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_device)
-        """
+        Confirms tracking of the device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#confirm_device)
+        """
     def confirm_forgot_password(
         self,
+        *,
         ClientId: str,
         Username: str,
         ConfirmationCode: str,
         Password: str,
         SecretHash: str = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        UserContextData: UserContextDataTypeTypeDef = None,
-        ClientMetadata: Dict[str, str] = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        UserContextData: "UserContextDataTypeTypeDef" = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.confirm_forgot_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_forgot_password)
-        """
+        Allows a user to enter a confirmation code to reset a forgotten password.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_forgot_password)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#confirm_forgot_password)
+        """
     def confirm_sign_up(
         self,
+        *,
         ClientId: str,
         Username: str,
         ConfirmationCode: str,
         SecretHash: str = None,
         ForceAliasCreation: bool = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        UserContextData: UserContextDataTypeTypeDef = None,
-        ClientMetadata: Dict[str, str] = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        UserContextData: "UserContextDataTypeTypeDef" = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.confirm_sign_up documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_sign_up)
-        """
+        Confirms registration of a user and handles the existing alias from a previous
+        user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.confirm_sign_up)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#confirm_sign_up)
+        """
     def create_group(
         self,
+        *,
         GroupName: str,
         UserPoolId: str,
         Description: str = None,
         RoleArn: str = None,
-        Precedence: int = None,
+        Precedence: int = None
     ) -> CreateGroupResponseTypeDef:
         """
-        [Client.create_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_group)
-        """
+        Creates a new group in the specified user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_group)
+        """
     def create_identity_provider(
         self,
+        *,
         UserPoolId: str,
         ProviderName: str,
-        ProviderType: Literal[
-            "SAML", "Facebook", "Google", "LoginWithAmazon", "SignInWithApple", "OIDC"
-        ],
+        ProviderType: IdentityProviderTypeTypeType,
         ProviderDetails: Dict[str, str],
         AttributeMapping: Dict[str, str] = None,
-        IdpIdentifiers: List[str] = None,
+        IdpIdentifiers: List[str] = None
     ) -> CreateIdentityProviderResponseTypeDef:
         """
-        [Client.create_identity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_identity_provider)
-        """
+        Creates an identity provider for a user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_identity_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_identity_provider)
+        """
     def create_resource_server(
         self,
+        *,
         UserPoolId: str,
         Identifier: str,
         Name: str,
-        Scopes: List["ResourceServerScopeTypeTypeDef"] = None,
+        Scopes: List["ResourceServerScopeTypeTypeDef"] = None
     ) -> CreateResourceServerResponseTypeDef:
         """
-        [Client.create_resource_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_resource_server)
-        """
+        Creates a new OAuth2.0 resource server and defines custom scopes in it.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_resource_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_resource_server)
+        """
     def create_user_import_job(
-        self, JobName: str, UserPoolId: str, CloudWatchLogsRoleArn: str
+        self, *, JobName: str, UserPoolId: str, CloudWatchLogsRoleArn: str
     ) -> CreateUserImportJobResponseTypeDef:
         """
-        [Client.create_user_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_import_job)
-        """
+        Creates the user import job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_import_job)
+        """
     def create_user_pool(
         self,
+        *,
         PoolName: str,
         Policies: "UserPoolPolicyTypeTypeDef" = None,
         LambdaConfig: "LambdaConfigTypeTypeDef" = None,
-        AutoVerifiedAttributes: List[Literal["phone_number", "email"]] = None,
-        AliasAttributes: List[Literal["phone_number", "email", "preferred_username"]] = None,
-        UsernameAttributes: List[Literal["phone_number", "email"]] = None,
+        AutoVerifiedAttributes: List[VerifiedAttributeTypeType] = None,
+        AliasAttributes: List[AliasAttributeTypeType] = None,
+        UsernameAttributes: List[UsernameAttributeTypeType] = None,
         SmsVerificationMessage: str = None,
         EmailVerificationMessage: str = None,
         EmailVerificationSubject: str = None,
         VerificationMessageTemplate: "VerificationMessageTemplateTypeTypeDef" = None,
         SmsAuthenticationMessage: str = None,
-        MfaConfiguration: Literal["OFF", "ON", "OPTIONAL"] = None,
+        MfaConfiguration: UserPoolMfaTypeType = None,
         DeviceConfiguration: "DeviceConfigurationTypeTypeDef" = None,
         EmailConfiguration: "EmailConfigurationTypeTypeDef" = None,
         SmsConfiguration: "SmsConfigurationTypeTypeDef" = None,
@@ -546,14 +640,18 @@ class CognitoIdentityProviderClient:
         Schema: List["SchemaAttributeTypeTypeDef"] = None,
         UserPoolAddOns: "UserPoolAddOnsTypeTypeDef" = None,
         UsernameConfiguration: "UsernameConfigurationTypeTypeDef" = None,
-        AccountRecoverySetting: "AccountRecoverySettingTypeTypeDef" = None,
+        AccountRecoverySetting: "AccountRecoverySettingTypeTypeDef" = None
     ) -> CreateUserPoolResponseTypeDef:
         """
-        [Client.create_user_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool)
-        """
+        Creates a new Amazon Cognito user pool and sets the password policy for the
+        pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_pool)
+        """
     def create_user_pool_client(
         self,
+        *,
         UserPoolId: str,
         ClientName: str,
         GenerateSecret: bool = None,
@@ -563,147 +661,179 @@ class CognitoIdentityProviderClient:
         TokenValidityUnits: "TokenValidityUnitsTypeTypeDef" = None,
         ReadAttributes: List[str] = None,
         WriteAttributes: List[str] = None,
-        ExplicitAuthFlows: List[
-            Literal[
-                "ADMIN_NO_SRP_AUTH",
-                "CUSTOM_AUTH_FLOW_ONLY",
-                "USER_PASSWORD_AUTH",
-                "ALLOW_ADMIN_USER_PASSWORD_AUTH",
-                "ALLOW_CUSTOM_AUTH",
-                "ALLOW_USER_PASSWORD_AUTH",
-                "ALLOW_USER_SRP_AUTH",
-                "ALLOW_REFRESH_TOKEN_AUTH",
-            ]
-        ] = None,
+        ExplicitAuthFlows: List[ExplicitAuthFlowsTypeType] = None,
         SupportedIdentityProviders: List[str] = None,
         CallbackURLs: List[str] = None,
         LogoutURLs: List[str] = None,
         DefaultRedirectURI: str = None,
-        AllowedOAuthFlows: List[Literal["code", "implicit", "client_credentials"]] = None,
+        AllowedOAuthFlows: List[OAuthFlowTypeType] = None,
         AllowedOAuthScopes: List[str] = None,
         AllowedOAuthFlowsUserPoolClient: bool = None,
         AnalyticsConfiguration: "AnalyticsConfigurationTypeTypeDef" = None,
-        PreventUserExistenceErrors: Literal["LEGACY", "ENABLED"] = None,
+        PreventUserExistenceErrors: PreventUserExistenceErrorTypesType = None,
+        EnableTokenRevocation: bool = None
     ) -> CreateUserPoolClientResponseTypeDef:
         """
-        [Client.create_user_pool_client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_client)
-        """
+        Creates the user pool client.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_client)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_pool_client)
+        """
     def create_user_pool_domain(
         self,
+        *,
         Domain: str,
         UserPoolId: str,
-        CustomDomainConfig: "CustomDomainConfigTypeTypeDef" = None,
+        CustomDomainConfig: "CustomDomainConfigTypeTypeDef" = None
     ) -> CreateUserPoolDomainResponseTypeDef:
         """
-        [Client.create_user_pool_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_domain)
-        """
+        Creates a new domain for a user pool.
 
-    def delete_group(self, GroupName: str, UserPoolId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.create_user_pool_domain)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#create_user_pool_domain)
         """
-        [Client.delete_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_group)
+    def delete_group(self, *, GroupName: str, UserPoolId: str) -> None:
         """
+        Deletes a group.
 
-    def delete_identity_provider(self, UserPoolId: str, ProviderName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_group)
         """
-        [Client.delete_identity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_identity_provider)
+    def delete_identity_provider(self, *, UserPoolId: str, ProviderName: str) -> None:
         """
+        Deletes an identity provider for a user pool.
 
-    def delete_resource_server(self, UserPoolId: str, Identifier: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_identity_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_identity_provider)
         """
-        [Client.delete_resource_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_resource_server)
+    def delete_resource_server(self, *, UserPoolId: str, Identifier: str) -> None:
         """
+        Deletes a resource server.
 
-    def delete_user(self, AccessToken: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_resource_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_resource_server)
         """
-        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user)
+    def delete_user(self, *, AccessToken: str) -> None:
         """
+        Allows a user to delete himself or herself.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user)
+        """
     def delete_user_attributes(
-        self, UserAttributeNames: List[str], AccessToken: str
+        self, *, UserAttributeNames: List[str], AccessToken: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_user_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_attributes)
-        """
+        Deletes the attributes for a user.
 
-    def delete_user_pool(self, UserPoolId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_attributes)
         """
-        [Client.delete_user_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool)
+    def delete_user_pool(self, *, UserPoolId: str) -> None:
         """
+        Deletes the specified Amazon Cognito user pool.
 
-    def delete_user_pool_client(self, UserPoolId: str, ClientId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_pool)
         """
-        [Client.delete_user_pool_client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_client)
+    def delete_user_pool_client(self, *, UserPoolId: str, ClientId: str) -> None:
         """
+        Allows the developer to delete the user pool client.
 
-    def delete_user_pool_domain(self, Domain: str, UserPoolId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_client)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_pool_client)
         """
-        [Client.delete_user_pool_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_domain)
+    def delete_user_pool_domain(self, *, Domain: str, UserPoolId: str) -> Dict[str, Any]:
         """
+        Deletes a domain for a user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.delete_user_pool_domain)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#delete_user_pool_domain)
+        """
     def describe_identity_provider(
-        self, UserPoolId: str, ProviderName: str
+        self, *, UserPoolId: str, ProviderName: str
     ) -> DescribeIdentityProviderResponseTypeDef:
         """
-        [Client.describe_identity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_identity_provider)
-        """
+        Gets information about a specific identity provider.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_identity_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_identity_provider)
+        """
     def describe_resource_server(
-        self, UserPoolId: str, Identifier: str
+        self, *, UserPoolId: str, Identifier: str
     ) -> DescribeResourceServerResponseTypeDef:
         """
-        [Client.describe_resource_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_resource_server)
-        """
+        Describes a resource server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_resource_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_resource_server)
+        """
     def describe_risk_configuration(
-        self, UserPoolId: str, ClientId: str = None
+        self, *, UserPoolId: str, ClientId: str = None
     ) -> DescribeRiskConfigurationResponseTypeDef:
         """
-        [Client.describe_risk_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_risk_configuration)
-        """
+        Describes the risk configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_risk_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_risk_configuration)
+        """
     def describe_user_import_job(
-        self, UserPoolId: str, JobId: str
+        self, *, UserPoolId: str, JobId: str
     ) -> DescribeUserImportJobResponseTypeDef:
         """
-        [Client.describe_user_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_import_job)
-        """
+        Describes the user import job.
 
-    def describe_user_pool(self, UserPoolId: str) -> DescribeUserPoolResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_import_job)
         """
-        [Client.describe_user_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool)
+    def describe_user_pool(self, *, UserPoolId: str) -> DescribeUserPoolResponseTypeDef:
         """
+        Returns the configuration information and metadata of the specified user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_pool)
+        """
     def describe_user_pool_client(
-        self, UserPoolId: str, ClientId: str
+        self, *, UserPoolId: str, ClientId: str
     ) -> DescribeUserPoolClientResponseTypeDef:
         """
-        [Client.describe_user_pool_client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_client)
-        """
+        Client method for returning the configuration information and metadata of the
+        specified user pool app client.
 
-    def describe_user_pool_domain(self, Domain: str) -> DescribeUserPoolDomainResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_client)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_pool_client)
         """
-        [Client.describe_user_pool_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_domain)
+    def describe_user_pool_domain(self, *, Domain: str) -> DescribeUserPoolDomainResponseTypeDef:
         """
+        Gets information about a domain.
 
-    def forget_device(self, DeviceKey: str, AccessToken: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.describe_user_pool_domain)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#describe_user_pool_domain)
         """
-        [Client.forget_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forget_device)
+    def forget_device(self, *, DeviceKey: str, AccessToken: str = None) -> None:
         """
+        Forgets the specified device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forget_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#forget_device)
+        """
     def forgot_password(
         self,
+        *,
         ClientId: str,
         Username: str,
         SecretHash: str = None,
-        UserContextData: UserContextDataTypeTypeDef = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        ClientMetadata: Dict[str, str] = None,
+        UserContextData: "UserContextDataTypeTypeDef" = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> ForgotPasswordResponseTypeDef:
         """
-        [Client.forgot_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forgot_password)
-        """
+        Calling this API causes a message to be sent to the end user with a confirmation
+        code that is required to change the user's password.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.forgot_password)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#forgot_password)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -712,379 +842,476 @@ class CognitoIdentityProviderClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_csv_header(self, UserPoolId: str) -> GetCSVHeaderResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#generate_presigned_url)
         """
-        [Client.get_csv_header documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_csv_header)
+    def get_csv_header(self, *, UserPoolId: str) -> GetCSVHeaderResponseTypeDef:
         """
+        Gets the header information for the .csv file to be used as input for the user
+        import job.
 
-    def get_device(self, DeviceKey: str, AccessToken: str = None) -> GetDeviceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_csv_header)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_csv_header)
         """
-        [Client.get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_device)
+    def get_device(self, *, DeviceKey: str, AccessToken: str = None) -> GetDeviceResponseTypeDef:
         """
+        Gets the device.
 
-    def get_group(self, GroupName: str, UserPoolId: str) -> GetGroupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_device)
         """
-        [Client.get_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_group)
+    def get_group(self, *, GroupName: str, UserPoolId: str) -> GetGroupResponseTypeDef:
         """
+        Gets a group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_group)
+        """
     def get_identity_provider_by_identifier(
-        self, UserPoolId: str, IdpIdentifier: str
+        self, *, UserPoolId: str, IdpIdentifier: str
     ) -> GetIdentityProviderByIdentifierResponseTypeDef:
         """
-        [Client.get_identity_provider_by_identifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_identity_provider_by_identifier)
-        """
+        Gets the specified identity provider.
 
-    def get_signing_certificate(self, UserPoolId: str) -> GetSigningCertificateResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_identity_provider_by_identifier)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_identity_provider_by_identifier)
         """
-        [Client.get_signing_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_signing_certificate)
+    def get_signing_certificate(self, *, UserPoolId: str) -> GetSigningCertificateResponseTypeDef:
         """
+        This method takes a user pool ID, and returns the signing certificate.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_signing_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_signing_certificate)
+        """
     def get_ui_customization(
-        self, UserPoolId: str, ClientId: str = None
+        self, *, UserPoolId: str, ClientId: str = None
     ) -> GetUICustomizationResponseTypeDef:
         """
-        [Client.get_ui_customization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_ui_customization)
-        """
+        Gets the UI Customization information for a particular app client's app UI, if
+        there is something set.
 
-    def get_user(self, AccessToken: str) -> GetUserResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_ui_customization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_ui_customization)
         """
-        [Client.get_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user)
+    def get_user(self, *, AccessToken: str) -> GetUserResponseTypeDef:
         """
+        Gets the user attributes and metadata for a user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_user)
+        """
     def get_user_attribute_verification_code(
-        self, AccessToken: str, AttributeName: str, ClientMetadata: Dict[str, str] = None
+        self, *, AccessToken: str, AttributeName: str, ClientMetadata: Dict[str, str] = None
     ) -> GetUserAttributeVerificationCodeResponseTypeDef:
         """
-        [Client.get_user_attribute_verification_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_attribute_verification_code)
-        """
+        Gets the user attribute verification code for the specified attribute name.
 
-    def get_user_pool_mfa_config(self, UserPoolId: str) -> GetUserPoolMfaConfigResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_attribute_verification_code)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_user_attribute_verification_code)
         """
-        [Client.get_user_pool_mfa_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_pool_mfa_config)
+    def get_user_pool_mfa_config(self, *, UserPoolId: str) -> GetUserPoolMfaConfigResponseTypeDef:
         """
+        Gets the user pool multi-factor authentication (MFA) configuration.
 
-    def global_sign_out(self, AccessToken: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.get_user_pool_mfa_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#get_user_pool_mfa_config)
         """
-        [Client.global_sign_out documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.global_sign_out)
+    def global_sign_out(self, *, AccessToken: str) -> Dict[str, Any]:
         """
+        Signs out users from all devices.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.global_sign_out)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#global_sign_out)
+        """
     def initiate_auth(
         self,
-        AuthFlow: Literal[
-            "USER_SRP_AUTH",
-            "REFRESH_TOKEN_AUTH",
-            "REFRESH_TOKEN",
-            "CUSTOM_AUTH",
-            "ADMIN_NO_SRP_AUTH",
-            "USER_PASSWORD_AUTH",
-            "ADMIN_USER_PASSWORD_AUTH",
-        ],
+        *,
+        AuthFlow: AuthFlowTypeType,
         ClientId: str,
         AuthParameters: Dict[str, str] = None,
         ClientMetadata: Dict[str, str] = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        UserContextData: UserContextDataTypeTypeDef = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        UserContextData: "UserContextDataTypeTypeDef" = None
     ) -> InitiateAuthResponseTypeDef:
         """
-        [Client.initiate_auth documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.initiate_auth)
-        """
+        Initiates the authentication flow.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.initiate_auth)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#initiate_auth)
+        """
     def list_devices(
-        self, AccessToken: str, Limit: int = None, PaginationToken: str = None
+        self, *, AccessToken: str, Limit: int = None, PaginationToken: str = None
     ) -> ListDevicesResponseTypeDef:
         """
-        [Client.list_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_devices)
-        """
+        Lists the devices.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_devices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_devices)
+        """
     def list_groups(
-        self, UserPoolId: str, Limit: int = None, NextToken: str = None
+        self, *, UserPoolId: str, Limit: int = None, NextToken: str = None
     ) -> ListGroupsResponseTypeDef:
         """
-        [Client.list_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_groups)
-        """
+        Lists the groups associated with a user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_groups)
+        """
     def list_identity_providers(
-        self, UserPoolId: str, MaxResults: int = None, NextToken: str = None
+        self, *, UserPoolId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListIdentityProvidersResponseTypeDef:
         """
-        [Client.list_identity_providers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_identity_providers)
-        """
+        Lists information about all identity providers for a user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_identity_providers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_identity_providers)
+        """
     def list_resource_servers(
-        self, UserPoolId: str, MaxResults: int = None, NextToken: str = None
+        self, *, UserPoolId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListResourceServersResponseTypeDef:
         """
-        [Client.list_resource_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_resource_servers)
-        """
+        Lists the resource servers for a user pool.
 
-    def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_resource_servers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_resource_servers)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags that are assigned to an Amazon Cognito user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_tags_for_resource)
+        """
     def list_user_import_jobs(
-        self, UserPoolId: str, MaxResults: int, PaginationToken: str = None
+        self, *, UserPoolId: str, MaxResults: int, PaginationToken: str = None
     ) -> ListUserImportJobsResponseTypeDef:
         """
-        [Client.list_user_import_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_import_jobs)
-        """
+        Lists the user import jobs.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_import_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_user_import_jobs)
+        """
     def list_user_pool_clients(
-        self, UserPoolId: str, MaxResults: int = None, NextToken: str = None
+        self, *, UserPoolId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListUserPoolClientsResponseTypeDef:
         """
-        [Client.list_user_pool_clients documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pool_clients)
-        """
+        Lists the clients that have been created for the specified user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pool_clients)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_user_pool_clients)
+        """
     def list_user_pools(
-        self, MaxResults: int, NextToken: str = None
+        self, *, MaxResults: int, NextToken: str = None
     ) -> ListUserPoolsResponseTypeDef:
         """
-        [Client.list_user_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pools)
-        """
+        Lists the user pools associated with an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_user_pools)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_user_pools)
+        """
     def list_users(
         self,
+        *,
         UserPoolId: str,
         AttributesToGet: List[str] = None,
         Limit: int = None,
         PaginationToken: str = None,
-        Filter: str = None,
+        Filter: str = None
     ) -> ListUsersResponseTypeDef:
         """
-        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users)
-        """
+        Lists the users in the Amazon Cognito user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_users)
+        """
     def list_users_in_group(
-        self, UserPoolId: str, GroupName: str, Limit: int = None, NextToken: str = None
+        self, *, UserPoolId: str, GroupName: str, Limit: int = None, NextToken: str = None
     ) -> ListUsersInGroupResponseTypeDef:
         """
-        [Client.list_users_in_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users_in_group)
-        """
+        Lists the users in the specified group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.list_users_in_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#list_users_in_group)
+        """
     def resend_confirmation_code(
         self,
+        *,
         ClientId: str,
         Username: str,
         SecretHash: str = None,
-        UserContextData: UserContextDataTypeTypeDef = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        ClientMetadata: Dict[str, str] = None,
+        UserContextData: "UserContextDataTypeTypeDef" = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> ResendConfirmationCodeResponseTypeDef:
         """
-        [Client.resend_confirmation_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.resend_confirmation_code)
-        """
+        Resends the confirmation (for confirmation of registration) to a specific user
+        in the user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.resend_confirmation_code)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#resend_confirmation_code)
+        """
     def respond_to_auth_challenge(
         self,
+        *,
         ClientId: str,
-        ChallengeName: Literal[
-            "SMS_MFA",
-            "SOFTWARE_TOKEN_MFA",
-            "SELECT_MFA_TYPE",
-            "MFA_SETUP",
-            "PASSWORD_VERIFIER",
-            "CUSTOM_CHALLENGE",
-            "DEVICE_SRP_AUTH",
-            "DEVICE_PASSWORD_VERIFIER",
-            "ADMIN_NO_SRP_AUTH",
-            "NEW_PASSWORD_REQUIRED",
-        ],
+        ChallengeName: ChallengeNameTypeType,
         Session: str = None,
         ChallengeResponses: Dict[str, str] = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        UserContextData: UserContextDataTypeTypeDef = None,
-        ClientMetadata: Dict[str, str] = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        UserContextData: "UserContextDataTypeTypeDef" = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> RespondToAuthChallengeResponseTypeDef:
         """
-        [Client.respond_to_auth_challenge documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.respond_to_auth_challenge)
-        """
+        Responds to the authentication challenge.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.respond_to_auth_challenge)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#respond_to_auth_challenge)
+        """
+    def revoke_token(
+        self, *, Token: str, ClientId: str, ClientSecret: str = None
+    ) -> Dict[str, Any]:
+        """
+        Revokes all of the access tokens generated by the specified refresh token.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.revoke_token)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#revoke_token)
+        """
     def set_risk_configuration(
         self,
+        *,
         UserPoolId: str,
         ClientId: str = None,
         CompromisedCredentialsRiskConfiguration: "CompromisedCredentialsRiskConfigurationTypeTypeDef" = None,
         AccountTakeoverRiskConfiguration: "AccountTakeoverRiskConfigurationTypeTypeDef" = None,
-        RiskExceptionConfiguration: "RiskExceptionConfigurationTypeTypeDef" = None,
+        RiskExceptionConfiguration: "RiskExceptionConfigurationTypeTypeDef" = None
     ) -> SetRiskConfigurationResponseTypeDef:
         """
-        [Client.set_risk_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_risk_configuration)
-        """
+        Configures actions on detected risks.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_risk_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_risk_configuration)
+        """
     def set_ui_customization(
         self,
+        *,
         UserPoolId: str,
         ClientId: str = None,
         CSS: str = None,
-        ImageFile: Union[bytes, IO[bytes]] = None,
+        ImageFile: Union[bytes, IO[bytes], StreamingBody] = None
     ) -> SetUICustomizationResponseTypeDef:
         """
-        [Client.set_ui_customization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_ui_customization)
-        """
+        Sets the UI customization information for a user pool's built-in app UI.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_ui_customization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_ui_customization)
+        """
     def set_user_mfa_preference(
         self,
+        *,
         AccessToken: str,
-        SMSMfaSettings: SMSMfaSettingsTypeTypeDef = None,
-        SoftwareTokenMfaSettings: SoftwareTokenMfaSettingsTypeTypeDef = None,
+        SMSMfaSettings: "SMSMfaSettingsTypeTypeDef" = None,
+        SoftwareTokenMfaSettings: "SoftwareTokenMfaSettingsTypeTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.set_user_mfa_preference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_mfa_preference)
-        """
+        Set the user's multi-factor authentication (MFA) method preference, including
+        which MFA factors are enabled and if any are preferred.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_mfa_preference)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_user_mfa_preference)
+        """
     def set_user_pool_mfa_config(
         self,
+        *,
         UserPoolId: str,
         SmsMfaConfiguration: "SmsMfaConfigTypeTypeDef" = None,
         SoftwareTokenMfaConfiguration: "SoftwareTokenMfaConfigTypeTypeDef" = None,
-        MfaConfiguration: Literal["OFF", "ON", "OPTIONAL"] = None,
+        MfaConfiguration: UserPoolMfaTypeType = None
     ) -> SetUserPoolMfaConfigResponseTypeDef:
         """
-        [Client.set_user_pool_mfa_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_pool_mfa_config)
-        """
+        Set the user pool multi-factor authentication (MFA) configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_pool_mfa_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_user_pool_mfa_config)
+        """
     def set_user_settings(
-        self, AccessToken: str, MFAOptions: List["MFAOptionTypeTypeDef"]
+        self, *, AccessToken: str, MFAOptions: List["MFAOptionTypeTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.set_user_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_settings)
-        """
+        *This action is no longer supported.* You can use it to configure only SMS MFA.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.set_user_settings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#set_user_settings)
+        """
     def sign_up(
         self,
+        *,
         ClientId: str,
         Username: str,
         Password: str,
         SecretHash: str = None,
         UserAttributes: List["AttributeTypeTypeDef"] = None,
         ValidationData: List["AttributeTypeTypeDef"] = None,
-        AnalyticsMetadata: AnalyticsMetadataTypeTypeDef = None,
-        UserContextData: UserContextDataTypeTypeDef = None,
-        ClientMetadata: Dict[str, str] = None,
+        AnalyticsMetadata: "AnalyticsMetadataTypeTypeDef" = None,
+        UserContextData: "UserContextDataTypeTypeDef" = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> SignUpResponseTypeDef:
         """
-        [Client.sign_up documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.sign_up)
-        """
+        Registers the user in the specified user pool and creates a user name, password,
+        and user attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.sign_up)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#sign_up)
+        """
     def start_user_import_job(
-        self, UserPoolId: str, JobId: str
+        self, *, UserPoolId: str, JobId: str
     ) -> StartUserImportJobResponseTypeDef:
         """
-        [Client.start_user_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.start_user_import_job)
-        """
+        Starts the user import.
 
-    def stop_user_import_job(self, UserPoolId: str, JobId: str) -> StopUserImportJobResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.start_user_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#start_user_import_job)
         """
-        [Client.stop_user_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.stop_user_import_job)
+    def stop_user_import_job(
+        self, *, UserPoolId: str, JobId: str
+    ) -> StopUserImportJobResponseTypeDef:
         """
+        Stops the user import job.
 
-    def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.stop_user_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#stop_user_import_job)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.tag_resource)
+    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Assigns a set of tags to an Amazon Cognito user pool.
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.untag_resource)
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes the specified tags from an Amazon Cognito user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#untag_resource)
+        """
     def update_auth_event_feedback(
         self,
+        *,
         UserPoolId: str,
         Username: str,
         EventId: str,
         FeedbackToken: str,
-        FeedbackValue: Literal["Valid", "Invalid"],
+        FeedbackValue: FeedbackValueTypeType
     ) -> Dict[str, Any]:
         """
-        [Client.update_auth_event_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_auth_event_feedback)
-        """
+        Provides the feedback for an authentication event whether it was from a valid
+        user or not.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_auth_event_feedback)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_auth_event_feedback)
+        """
     def update_device_status(
         self,
+        *,
         AccessToken: str,
         DeviceKey: str,
-        DeviceRememberedStatus: Literal["remembered", "not_remembered"] = None,
+        DeviceRememberedStatus: DeviceRememberedStatusTypeType = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_device_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_device_status)
-        """
+        Updates the device status.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_device_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_device_status)
+        """
     def update_group(
         self,
+        *,
         GroupName: str,
         UserPoolId: str,
         Description: str = None,
         RoleArn: str = None,
-        Precedence: int = None,
+        Precedence: int = None
     ) -> UpdateGroupResponseTypeDef:
         """
-        [Client.update_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_group)
-        """
+        Updates the specified group with the specified attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_group)
+        """
     def update_identity_provider(
         self,
+        *,
         UserPoolId: str,
         ProviderName: str,
         ProviderDetails: Dict[str, str] = None,
         AttributeMapping: Dict[str, str] = None,
-        IdpIdentifiers: List[str] = None,
+        IdpIdentifiers: List[str] = None
     ) -> UpdateIdentityProviderResponseTypeDef:
         """
-        [Client.update_identity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_identity_provider)
-        """
+        Updates identity provider information for a user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_identity_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_identity_provider)
+        """
     def update_resource_server(
         self,
+        *,
         UserPoolId: str,
         Identifier: str,
         Name: str,
-        Scopes: List["ResourceServerScopeTypeTypeDef"] = None,
+        Scopes: List["ResourceServerScopeTypeTypeDef"] = None
     ) -> UpdateResourceServerResponseTypeDef:
         """
-        [Client.update_resource_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_resource_server)
-        """
+        Updates the name and scopes of resource server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_resource_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_resource_server)
+        """
     def update_user_attributes(
         self,
+        *,
         UserAttributes: List["AttributeTypeTypeDef"],
         AccessToken: str,
-        ClientMetadata: Dict[str, str] = None,
+        ClientMetadata: Dict[str, str] = None
     ) -> UpdateUserAttributesResponseTypeDef:
         """
-        [Client.update_user_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_attributes)
-        """
+        Allows a user to update a specific attribute (one at a time).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_attributes)
+        """
     def update_user_pool(
         self,
+        *,
         UserPoolId: str,
         Policies: "UserPoolPolicyTypeTypeDef" = None,
         LambdaConfig: "LambdaConfigTypeTypeDef" = None,
-        AutoVerifiedAttributes: List[Literal["phone_number", "email"]] = None,
+        AutoVerifiedAttributes: List[VerifiedAttributeTypeType] = None,
         SmsVerificationMessage: str = None,
         EmailVerificationMessage: str = None,
         EmailVerificationSubject: str = None,
         VerificationMessageTemplate: "VerificationMessageTemplateTypeTypeDef" = None,
         SmsAuthenticationMessage: str = None,
-        MfaConfiguration: Literal["OFF", "ON", "OPTIONAL"] = None,
+        MfaConfiguration: UserPoolMfaTypeType = None,
         DeviceConfiguration: "DeviceConfigurationTypeTypeDef" = None,
         EmailConfiguration: "EmailConfigurationTypeTypeDef" = None,
         SmsConfiguration: "SmsConfigurationTypeTypeDef" = None,
         UserPoolTags: Dict[str, str] = None,
         AdminCreateUserConfig: "AdminCreateUserConfigTypeTypeDef" = None,
         UserPoolAddOns: "UserPoolAddOnsTypeTypeDef" = None,
-        AccountRecoverySetting: "AccountRecoverySettingTypeTypeDef" = None,
+        AccountRecoverySetting: "AccountRecoverySettingTypeTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_user_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool)
-        """
+        Updates the specified user pool with the specified attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_pool)
+        """
     def update_user_pool_client(
         self,
+        *,
         UserPoolId: str,
         ClientId: str,
         ClientName: str = None,
@@ -1094,119 +1321,121 @@ class CognitoIdentityProviderClient:
         TokenValidityUnits: "TokenValidityUnitsTypeTypeDef" = None,
         ReadAttributes: List[str] = None,
         WriteAttributes: List[str] = None,
-        ExplicitAuthFlows: List[
-            Literal[
-                "ADMIN_NO_SRP_AUTH",
-                "CUSTOM_AUTH_FLOW_ONLY",
-                "USER_PASSWORD_AUTH",
-                "ALLOW_ADMIN_USER_PASSWORD_AUTH",
-                "ALLOW_CUSTOM_AUTH",
-                "ALLOW_USER_PASSWORD_AUTH",
-                "ALLOW_USER_SRP_AUTH",
-                "ALLOW_REFRESH_TOKEN_AUTH",
-            ]
-        ] = None,
+        ExplicitAuthFlows: List[ExplicitAuthFlowsTypeType] = None,
         SupportedIdentityProviders: List[str] = None,
         CallbackURLs: List[str] = None,
         LogoutURLs: List[str] = None,
         DefaultRedirectURI: str = None,
-        AllowedOAuthFlows: List[Literal["code", "implicit", "client_credentials"]] = None,
+        AllowedOAuthFlows: List[OAuthFlowTypeType] = None,
         AllowedOAuthScopes: List[str] = None,
         AllowedOAuthFlowsUserPoolClient: bool = None,
         AnalyticsConfiguration: "AnalyticsConfigurationTypeTypeDef" = None,
-        PreventUserExistenceErrors: Literal["LEGACY", "ENABLED"] = None,
+        PreventUserExistenceErrors: PreventUserExistenceErrorTypesType = None,
+        EnableTokenRevocation: bool = None
     ) -> UpdateUserPoolClientResponseTypeDef:
         """
-        [Client.update_user_pool_client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_client)
-        """
+        Updates the specified user pool app client with the specified attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_client)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_pool_client)
+        """
     def update_user_pool_domain(
-        self, Domain: str, UserPoolId: str, CustomDomainConfig: "CustomDomainConfigTypeTypeDef"
+        self, *, Domain: str, UserPoolId: str, CustomDomainConfig: "CustomDomainConfigTypeTypeDef"
     ) -> UpdateUserPoolDomainResponseTypeDef:
         """
-        [Client.update_user_pool_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_domain)
-        """
+        Updates the Secure Sockets Layer (SSL) certificate for the custom domain for
+        your user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.update_user_pool_domain)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#update_user_pool_domain)
+        """
     def verify_software_token(
         self,
+        *,
         UserCode: str,
         AccessToken: str = None,
         Session: str = None,
-        FriendlyDeviceName: str = None,
+        FriendlyDeviceName: str = None
     ) -> VerifySoftwareTokenResponseTypeDef:
         """
-        [Client.verify_software_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_software_token)
-        """
+        Use this API to register a user's entered TOTP code and mark the user's software
+        token MFA status as "verified" if successful.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_software_token)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#verify_software_token)
+        """
     def verify_user_attribute(
-        self, AccessToken: str, AttributeName: str, Code: str
+        self, *, AccessToken: str, AttributeName: str, Code: str
     ) -> Dict[str, Any]:
         """
-        [Client.verify_user_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_user_attribute)
-        """
+        Verifies the specified user attributes in the user pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Client.verify_user_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/client.html#verify_user_attribute)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["admin_list_groups_for_user"]
     ) -> AdminListGroupsForUserPaginator:
         """
-        [Paginator.AdminListGroupsForUser documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#adminlistgroupsforuserpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["admin_list_user_auth_events"]
     ) -> AdminListUserAuthEventsPaginator:
         """
-        [Paginator.AdminListUserAuthEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#adminlistuserautheventspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_groups"]) -> ListGroupsPaginator:
         """
-        [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listgroupspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_identity_providers"]
     ) -> ListIdentityProvidersPaginator:
         """
-        [Paginator.ListIdentityProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listidentityproviderspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_resource_servers"]
     ) -> ListResourceServersPaginator:
         """
-        [Paginator.ListResourceServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listresourceserverspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_user_pool_clients"]
     ) -> ListUserPoolClientsPaginator:
         """
-        [Paginator.ListUserPoolClients documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listuserpoolclientspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_user_pools"]) -> ListUserPoolsPaginator:
         """
-        [Paginator.ListUserPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listuserpoolspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
         """
-        [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listuserspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_users_in_group"]
     ) -> ListUsersInGroupPaginator:
         """
-        [Paginator.ListUsersInGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_idp/paginators.html#listusersingrouppaginator)
         """

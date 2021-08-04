@@ -1,5 +1,7 @@
 """
-Main interface for iotsitewise service client waiters.
+Type annotations for iotsitewise service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html)
 
 Usage::
 
@@ -28,7 +30,7 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_iotsitewise.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = (
     "AssetActiveWaiter",
@@ -39,68 +41,74 @@ __all__ = (
     "PortalNotExistsWaiter",
 )
 
-
 class AssetActiveWaiter(Boto3Waiter):
     """
-    [Waiter.AssetActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetactivewaiter)
     """
 
-    def wait(self, assetId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, assetId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetactivewaiter)
         """
-
 
 class AssetModelActiveWaiter(Boto3Waiter):
     """
-    [Waiter.AssetModelActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetmodelactivewaiter)
     """
 
-    def wait(self, assetModelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, assetModelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetModelActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetmodelactivewaiter)
         """
-
 
 class AssetModelNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.AssetModelNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetmodelnotexistswaiter)
     """
 
-    def wait(self, assetModelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, assetModelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetModelNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetmodelnotexistswaiter)
         """
-
 
 class AssetNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.AssetNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetnotexistswaiter)
     """
 
-    def wait(self, assetId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, assetId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetnotexistswaiter)
         """
-
 
 class PortalActiveWaiter(Boto3Waiter):
     """
-    [Waiter.PortalActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#portalactivewaiter)
     """
 
-    def wait(self, portalId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, portalId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [PortalActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#portalactivewaiter)
         """
-
 
 class PortalNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.PortalNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#portalnotexistswaiter)
     """
 
-    def wait(self, portalId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, portalId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [PortalNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#portalnotexistswaiter)
         """

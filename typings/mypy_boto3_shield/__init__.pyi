@@ -21,10 +21,9 @@ Usage::
     list_protections_paginator: ListProtectionsPaginator = client.get_paginator("list_protections")
     ```
 """
-from mypy_boto3_shield.client import ShieldClient
-from mypy_boto3_shield.paginator import ListAttacksPaginator, ListProtectionsPaginator
+from .client import ShieldClient
+from .paginator import ListAttacksPaginator, ListProtectionsPaginator
 
 Client = ShieldClient
-
 
 __all__ = ("Client", "ListAttacksPaginator", "ListProtectionsPaginator", "ShieldClient")

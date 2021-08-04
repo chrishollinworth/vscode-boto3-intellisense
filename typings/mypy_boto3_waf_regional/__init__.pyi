@@ -16,9 +16,8 @@ Usage::
     session_client: WAFRegionalClient = session.client("waf-regional")
     ```
 """
-from mypy_boto3_waf_regional.client import WAFRegionalClient
+from .client import WAFRegionalClient
 
 Client = WAFRegionalClient
-
 
 __all__ = ("Client", "WAFRegionalClient")

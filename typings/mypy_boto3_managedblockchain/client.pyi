@@ -1,5 +1,7 @@
 """
-Main interface for managedblockchain service client
+Type annotations for managedblockchain service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html)
 
 Usage::
 
@@ -10,12 +12,18 @@ Usage::
     client: ManagedBlockchainClient = boto3.client("managedblockchain")
     ```
 """
-import sys
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_managedblockchain.type_defs import (
+from .literals import (
+    FrameworkType,
+    MemberStatusType,
+    NetworkStatusType,
+    NodeStatusType,
+    VoteValueType,
+)
+from .type_defs import (
     CreateMemberOutputTypeDef,
     CreateNetworkOutputTypeDef,
     CreateNodeOutputTypeDef,
@@ -40,22 +48,13 @@ from mypy_boto3_managedblockchain.type_defs import (
     VotingPolicyTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = ("ManagedBlockchainClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -70,82 +69,104 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
 
-
-class ManagedBlockchainClient:
+class ManagedBlockchainClient(BaseClient):
     """
-    [ManagedBlockchain.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ManagedBlockchainClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#can_paginate)
+        """
     def create_member(
         self,
+        *,
         ClientRequestToken: str,
         InvitationId: str,
         NetworkId: str,
-        MemberConfiguration: MemberConfigurationTypeDef,
+        MemberConfiguration: "MemberConfigurationTypeDef"
     ) -> CreateMemberOutputTypeDef:
         """
-        [Client.create_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_member)
-        """
+        Creates a member within a Managed Blockchain network.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_member)
+        """
     def create_network(
         self,
+        *,
         ClientRequestToken: str,
         Name: str,
-        Framework: Literal["HYPERLEDGER_FABRIC", "ETHEREUM"],
+        Framework: FrameworkType,
         FrameworkVersion: str,
         VotingPolicy: "VotingPolicyTypeDef",
-        MemberConfiguration: MemberConfigurationTypeDef,
+        MemberConfiguration: "MemberConfigurationTypeDef",
         Description: str = None,
-        FrameworkConfiguration: NetworkFrameworkConfigurationTypeDef = None,
-        Tags: Dict[str, str] = None,
+        FrameworkConfiguration: "NetworkFrameworkConfigurationTypeDef" = None,
+        Tags: Dict[str, str] = None
     ) -> CreateNetworkOutputTypeDef:
         """
-        [Client.create_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_network)
-        """
+        Creates a new blockchain network using Amazon Managed Blockchain.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_network)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_network)
+        """
     def create_node(
         self,
+        *,
         ClientRequestToken: str,
         NetworkId: str,
-        NodeConfiguration: NodeConfigurationTypeDef,
+        NodeConfiguration: "NodeConfigurationTypeDef",
         MemberId: str = None,
-        Tags: Dict[str, str] = None,
+        Tags: Dict[str, str] = None
     ) -> CreateNodeOutputTypeDef:
         """
-        [Client.create_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_node)
-        """
+        Creates a node on the specified blockchain network.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_node)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_node)
+        """
     def create_proposal(
         self,
+        *,
         ClientRequestToken: str,
         NetworkId: str,
         MemberId: str,
         Actions: "ProposalActionsTypeDef",
         Description: str = None,
-        Tags: Dict[str, str] = None,
+        Tags: Dict[str, str] = None
     ) -> CreateProposalOutputTypeDef:
         """
-        [Client.create_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_proposal)
-        """
+        Creates a proposal for a change to the network that other members of the network
+        can vote on, for example, a proposal to add a new member to the network.
 
-    def delete_member(self, NetworkId: str, MemberId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_proposal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#create_proposal)
         """
-        [Client.delete_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_member)
+    def delete_member(self, *, NetworkId: str, MemberId: str) -> Dict[str, Any]:
         """
+        Deletes a member.
 
-    def delete_node(self, NetworkId: str, NodeId: str, MemberId: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#delete_member)
         """
-        [Client.delete_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_node)
+    def delete_node(self, *, NetworkId: str, NodeId: str, MemberId: str = None) -> Dict[str, Any]:
         """
+        Deletes a node that your AWS account owns.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_node)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#delete_node)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -154,142 +175,179 @@ class ManagedBlockchainClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_member(self, NetworkId: str, MemberId: str) -> GetMemberOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#generate_presigned_url)
         """
-        [Client.get_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_member)
+    def get_member(self, *, NetworkId: str, MemberId: str) -> GetMemberOutputTypeDef:
         """
+        Returns detailed information about a member.
 
-    def get_network(self, NetworkId: str) -> GetNetworkOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_member)
         """
-        [Client.get_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_network)
+    def get_network(self, *, NetworkId: str) -> GetNetworkOutputTypeDef:
         """
+        Returns detailed information about a network.
 
-    def get_node(self, NetworkId: str, NodeId: str, MemberId: str = None) -> GetNodeOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_network)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_network)
         """
-        [Client.get_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_node)
+    def get_node(
+        self, *, NetworkId: str, NodeId: str, MemberId: str = None
+    ) -> GetNodeOutputTypeDef:
         """
+        Returns detailed information about a node.
 
-    def get_proposal(self, NetworkId: str, ProposalId: str) -> GetProposalOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_node)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_node)
         """
-        [Client.get_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_proposal)
+    def get_proposal(self, *, NetworkId: str, ProposalId: str) -> GetProposalOutputTypeDef:
         """
+        Returns detailed information about a proposal.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_proposal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#get_proposal)
+        """
     def list_invitations(
-        self, MaxResults: int = None, NextToken: str = None
+        self, *, MaxResults: int = None, NextToken: str = None
     ) -> ListInvitationsOutputTypeDef:
         """
-        [Client.list_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_invitations)
-        """
+        Returns a list of all invitations for the current AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_invitations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_invitations)
+        """
     def list_members(
         self,
+        *,
         NetworkId: str,
         Name: str = None,
-        Status: Literal[
-            "CREATING", "AVAILABLE", "CREATE_FAILED", "UPDATING", "DELETING", "DELETED"
-        ] = None,
+        Status: MemberStatusType = None,
         IsOwned: bool = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListMembersOutputTypeDef:
         """
-        [Client.list_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_members)
-        """
+        Returns a list of the members in a network and properties of their
+        configurations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_members)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_members)
+        """
     def list_networks(
         self,
+        *,
         Name: str = None,
-        Framework: Literal["HYPERLEDGER_FABRIC", "ETHEREUM"] = None,
-        Status: Literal["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED"] = None,
+        Framework: FrameworkType = None,
+        Status: NetworkStatusType = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListNetworksOutputTypeDef:
         """
-        [Client.list_networks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_networks)
-        """
+        Returns information about the networks in which the current AWS account
+        participates.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_networks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_networks)
+        """
     def list_nodes(
         self,
+        *,
         NetworkId: str,
         MemberId: str = None,
-        Status: Literal[
-            "CREATING",
-            "AVAILABLE",
-            "UNHEALTHY",
-            "CREATE_FAILED",
-            "UPDATING",
-            "DELETING",
-            "DELETED",
-            "FAILED",
-        ] = None,
+        Status: NodeStatusType = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListNodesOutputTypeDef:
         """
-        [Client.list_nodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_nodes)
-        """
+        Returns information about the nodes within a network.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_nodes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_nodes)
+        """
     def list_proposal_votes(
-        self, NetworkId: str, ProposalId: str, MaxResults: int = None, NextToken: str = None
+        self, *, NetworkId: str, ProposalId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListProposalVotesOutputTypeDef:
         """
-        [Client.list_proposal_votes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposal_votes)
-        """
+        Returns the list of votes for a specified proposal, including the value of each
+        vote and the unique identifier of the member that cast the vote.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposal_votes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_proposal_votes)
+        """
     def list_proposals(
-        self, NetworkId: str, MaxResults: int = None, NextToken: str = None
+        self, *, NetworkId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListProposalsOutputTypeDef:
         """
-        [Client.list_proposals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposals)
-        """
+        Returns a list of proposals for the network.
 
-    def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposals)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_proposals)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Returns a list of tags for the specified resource.
 
-    def reject_invitation(self, InvitationId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#list_tags_for_resource)
         """
-        [Client.reject_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.reject_invitation)
+    def reject_invitation(self, *, InvitationId: str) -> Dict[str, Any]:
         """
+        Rejects an invitation to join a network.
 
-    def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.reject_invitation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#reject_invitation)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.tag_resource)
+    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Adds or overwrites the specified tags for the specified Amazon Managed
+        Blockchain resource.
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.untag_resource)
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes the specified tags from the Amazon Managed Blockchain resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#untag_resource)
+        """
     def update_member(
         self,
+        *,
         NetworkId: str,
         MemberId: str,
-        LogPublishingConfiguration: "MemberLogPublishingConfigurationTypeDef" = None,
+        LogPublishingConfiguration: "MemberLogPublishingConfigurationTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_member)
-        """
+        Updates a member configuration with new parameters.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_member)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#update_member)
+        """
     def update_node(
         self,
+        *,
         NetworkId: str,
         NodeId: str,
         MemberId: str = None,
-        LogPublishingConfiguration: "NodeLogPublishingConfigurationTypeDef" = None,
+        LogPublishingConfiguration: "NodeLogPublishingConfigurationTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_node)
-        """
+        Updates a node configuration with new parameters.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_node)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#update_node)
+        """
     def vote_on_proposal(
-        self, NetworkId: str, ProposalId: str, VoterMemberId: str, Vote: Literal["YES", "NO"]
+        self, *, NetworkId: str, ProposalId: str, VoterMemberId: str, Vote: VoteValueType
     ) -> Dict[str, Any]:
         """
-        [Client.vote_on_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/managedblockchain.html#ManagedBlockchain.Client.vote_on_proposal)
+        Casts a vote for a specified `ProposalId` on behalf of a member.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/managedblockchain.html#ManagedBlockchain.Client.vote_on_proposal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/client.html#vote_on_proposal)
         """

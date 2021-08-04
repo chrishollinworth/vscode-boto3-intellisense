@@ -1,5 +1,7 @@
 """
-Main interface for emr-containers service client
+Type annotations for emr-containers service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html)
 
 Usage::
 
@@ -12,16 +14,17 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_emr_containers.paginator import (
+from .literals import EndpointStateType, JobRunStateType, VirtualClusterStateType
+from .paginator import (
     ListJobRunsPaginator,
     ListManagedEndpointsPaginator,
     ListVirtualClustersPaginator,
 )
-from mypy_boto3_emr_containers.type_defs import (
+from .type_defs import (
     CancelJobRunResponseTypeDef,
     ConfigurationOverridesTypeDef,
     ContainerProviderTypeDef,
@@ -45,17 +48,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("EMRContainersClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -63,27 +62,35 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class EMRContainersClient:
+class EMRContainersClient(BaseClient):
     """
-    [EMRContainers.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        EMRContainersClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def cancel_job_run(self, id: str, virtualClusterId: str) -> CancelJobRunResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#can_paginate)
         """
-        [Client.cancel_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.cancel_job_run)
+    def cancel_job_run(self, *, id: str, virtualClusterId: str) -> CancelJobRunResponseTypeDef:
         """
+        Cancels a job run.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.cancel_job_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#cancel_job_run)
+        """
     def create_managed_endpoint(
         self,
+        *,
         name: str,
         virtualClusterId: str,
         type: str,
@@ -92,52 +99,67 @@ class EMRContainersClient:
         certificateArn: str,
         clientToken: str,
         configurationOverrides: "ConfigurationOverridesTypeDef" = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateManagedEndpointResponseTypeDef:
         """
-        [Client.create_managed_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.create_managed_endpoint)
-        """
+        Creates a managed endpoint.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.create_managed_endpoint)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_managed_endpoint)
+        """
     def create_virtual_cluster(
         self,
+        *,
         name: str,
         containerProvider: "ContainerProviderTypeDef",
         clientToken: str,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateVirtualClusterResponseTypeDef:
         """
-        [Client.create_virtual_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.create_virtual_cluster)
-        """
+        Creates a virtual cluster.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.create_virtual_cluster)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_virtual_cluster)
+        """
     def delete_managed_endpoint(
-        self, id: str, virtualClusterId: str
+        self, *, id: str, virtualClusterId: str
     ) -> DeleteManagedEndpointResponseTypeDef:
         """
-        [Client.delete_managed_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.delete_managed_endpoint)
-        """
+        Deletes a managed endpoint.
 
-    def delete_virtual_cluster(self, id: str) -> DeleteVirtualClusterResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.delete_managed_endpoint)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_managed_endpoint)
         """
-        [Client.delete_virtual_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.delete_virtual_cluster)
+    def delete_virtual_cluster(self, *, id: str) -> DeleteVirtualClusterResponseTypeDef:
         """
+        Deletes a virtual cluster.
 
-    def describe_job_run(self, id: str, virtualClusterId: str) -> DescribeJobRunResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.delete_virtual_cluster)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_virtual_cluster)
         """
-        [Client.describe_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.describe_job_run)
+    def describe_job_run(self, *, id: str, virtualClusterId: str) -> DescribeJobRunResponseTypeDef:
         """
+        Displays detailed information about a job run.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.describe_job_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_job_run)
+        """
     def describe_managed_endpoint(
-        self, id: str, virtualClusterId: str
+        self, *, id: str, virtualClusterId: str
     ) -> DescribeManagedEndpointResponseTypeDef:
         """
-        [Client.describe_managed_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.describe_managed_endpoint)
-        """
+        Displays detailed information about a managed endpoint.
 
-    def describe_virtual_cluster(self, id: str) -> DescribeVirtualClusterResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.describe_managed_endpoint)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_managed_endpoint)
         """
-        [Client.describe_virtual_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.describe_virtual_cluster)
+    def describe_virtual_cluster(self, *, id: str) -> DescribeVirtualClusterResponseTypeDef:
         """
+        Displays detailed information about a specified virtual cluster.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.describe_virtual_cluster)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_virtual_cluster)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -146,70 +168,72 @@ class EMRContainersClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#generate_presigned_url)
+        """
     def list_job_runs(
         self,
+        *,
         virtualClusterId: str,
-        createdBefore: datetime = None,
-        createdAfter: datetime = None,
+        createdBefore: Union[datetime, str] = None,
+        createdAfter: Union[datetime, str] = None,
         name: str = None,
-        states: List[
-            Literal[
-                "PENDING",
-                "SUBMITTED",
-                "RUNNING",
-                "FAILED",
-                "CANCELLED",
-                "CANCEL_PENDING",
-                "COMPLETED",
-            ]
-        ] = None,
+        states: List[JobRunStateType] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListJobRunsResponseTypeDef:
         """
-        [Client.list_job_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.list_job_runs)
-        """
+        Lists job runs based on a set of parameters.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.list_job_runs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_job_runs)
+        """
     def list_managed_endpoints(
         self,
+        *,
         virtualClusterId: str,
-        createdBefore: datetime = None,
-        createdAfter: datetime = None,
+        createdBefore: Union[datetime, str] = None,
+        createdAfter: Union[datetime, str] = None,
         types: List[str] = None,
-        states: List[
-            Literal["CREATING", "ACTIVE", "TERMINATING", "TERMINATED", "TERMINATED_WITH_ERRORS"]
-        ] = None,
+        states: List[EndpointStateType] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListManagedEndpointsResponseTypeDef:
         """
-        [Client.list_managed_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.list_managed_endpoints)
-        """
+        Lists managed endpoints based on a set of parameters.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.list_managed_endpoints)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_managed_endpoints)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags assigned to the resources.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_tags_for_resource)
+        """
     def list_virtual_clusters(
         self,
+        *,
         containerProviderId: str = None,
         containerProviderType: Literal["EKS"] = None,
-        createdAfter: datetime = None,
-        createdBefore: datetime = None,
-        states: List[Literal["RUNNING", "TERMINATING", "TERMINATED", "ARRESTED"]] = None,
+        createdAfter: Union[datetime, str] = None,
+        createdBefore: Union[datetime, str] = None,
+        states: List[VirtualClusterStateType] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListVirtualClustersResponseTypeDef:
         """
-        [Client.list_virtual_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.list_virtual_clusters)
-        """
+        Lists information about the specified virtual cluster.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.list_virtual_clusters)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_virtual_clusters)
+        """
     def start_job_run(
         self,
+        *,
         virtualClusterId: str,
         clientToken: str,
         executionRoleArn: str,
@@ -217,40 +241,47 @@ class EMRContainersClient:
         jobDriver: "JobDriverTypeDef",
         name: str = None,
         configurationOverrides: "ConfigurationOverridesTypeDef" = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> StartJobRunResponseTypeDef:
         """
-        [Client.start_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.start_job_run)
-        """
+        Starts a job run.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.start_job_run)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#start_job_run)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Assigns tags to resources.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes tags from resources.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#untag_resource)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["list_job_runs"]) -> ListJobRunsPaginator:
         """
-        [Paginator.ListJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobrunspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_managed_endpoints"]
     ) -> ListManagedEndpointsPaginator:
         """
-        [Paginator.ListManagedEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listmanagedendpointspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_virtual_clusters"]
     ) -> ListVirtualClustersPaginator:
         """
-        [Paginator.ListVirtualClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listvirtualclusterspaginator)
         """

@@ -1,55 +1,99 @@
 """
-Main interface for sagemaker-a2i-runtime service type definitions.
+Type annotations for sagemaker-a2i-runtime service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_a2i_runtime/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_a2i_runtime.type_defs import HumanLoopOutputTypeDef
+    from mypy_boto3_sagemaker_a2i_runtime.type_defs import DeleteHumanLoopRequestRequestTypeDef
 
-    data: HumanLoopOutputTypeDef = {...}
+    data: DeleteHumanLoopRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import ContentClassifierType, HumanLoopStatusType, SortOrderType
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
-    "HumanLoopOutputTypeDef",
-    "HumanLoopSummaryTypeDef",
-    "ResponseMetadata",
+    "DeleteHumanLoopRequestRequestTypeDef",
+    "DescribeHumanLoopRequestRequestTypeDef",
     "DescribeHumanLoopResponseTypeDef",
     "HumanLoopDataAttributesTypeDef",
     "HumanLoopInputTypeDef",
+    "HumanLoopOutputTypeDef",
+    "HumanLoopSummaryTypeDef",
+    "ListHumanLoopsRequestRequestTypeDef",
     "ListHumanLoopsResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "ResponseMetadataTypeDef",
+    "StartHumanLoopRequestRequestTypeDef",
     "StartHumanLoopResponseTypeDef",
+    "StopHumanLoopRequestRequestTypeDef",
 )
 
-_RequiredHumanLoopOutputTypeDef = TypedDict("_RequiredHumanLoopOutputTypeDef", {"OutputS3Uri": str})
-_OptionalHumanLoopOutputTypeDef = TypedDict(
-    "_OptionalHumanLoopOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+DeleteHumanLoopRequestRequestTypeDef = TypedDict(
+    "DeleteHumanLoopRequestRequestTypeDef",
+    {
+        "HumanLoopName": str,
+    },
 )
 
+DescribeHumanLoopRequestRequestTypeDef = TypedDict(
+    "DescribeHumanLoopRequestRequestTypeDef",
+    {
+        "HumanLoopName": str,
+    },
+)
 
-class HumanLoopOutputTypeDef(_RequiredHumanLoopOutputTypeDef, _OptionalHumanLoopOutputTypeDef):
-    pass
+DescribeHumanLoopResponseTypeDef = TypedDict(
+    "DescribeHumanLoopResponseTypeDef",
+    {
+        "CreationTime": datetime,
+        "FailureReason": str,
+        "FailureCode": str,
+        "HumanLoopStatus": HumanLoopStatusType,
+        "HumanLoopName": str,
+        "HumanLoopArn": str,
+        "FlowDefinitionArn": str,
+        "HumanLoopOutput": "HumanLoopOutputTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
+HumanLoopDataAttributesTypeDef = TypedDict(
+    "HumanLoopDataAttributesTypeDef",
+    {
+        "ContentClassifiers": List[ContentClassifierType],
+    },
+)
+
+HumanLoopInputTypeDef = TypedDict(
+    "HumanLoopInputTypeDef",
+    {
+        "InputContent": str,
+    },
+)
+
+HumanLoopOutputTypeDef = TypedDict(
+    "HumanLoopOutputTypeDef",
+    {
+        "OutputS3Uri": str,
+    },
+)
 
 HumanLoopSummaryTypeDef = TypedDict(
     "HumanLoopSummaryTypeDef",
     {
         "HumanLoopName": str,
-        "HumanLoopStatus": Literal["InProgress", "Failed", "Completed", "Stopped", "Stopping"],
+        "HumanLoopStatus": HumanLoopStatusType,
         "CreationTime": datetime,
         "FailureReason": str,
         "FlowDefinitionArn": str,
@@ -57,8 +101,50 @@ HumanLoopSummaryTypeDef = TypedDict(
     total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+_RequiredListHumanLoopsRequestRequestTypeDef = TypedDict(
+    "_RequiredListHumanLoopsRequestRequestTypeDef",
+    {
+        "FlowDefinitionArn": str,
+    },
+)
+_OptionalListHumanLoopsRequestRequestTypeDef = TypedDict(
+    "_OptionalListHumanLoopsRequestRequestTypeDef",
+    {
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+        "SortOrder": SortOrderType,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListHumanLoopsRequestRequestTypeDef(
+    _RequiredListHumanLoopsRequestRequestTypeDef, _OptionalListHumanLoopsRequestRequestTypeDef
+):
+    pass
+
+ListHumanLoopsResponseTypeDef = TypedDict(
+    "ListHumanLoopsResponseTypeDef",
+    {
+        "HumanLoopSummaries": List["HumanLoopSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -68,59 +154,38 @@ ResponseMetadata = TypedDict(
     },
 )
 
-_RequiredDescribeHumanLoopResponseTypeDef = TypedDict(
-    "_RequiredDescribeHumanLoopResponseTypeDef",
+_RequiredStartHumanLoopRequestRequestTypeDef = TypedDict(
+    "_RequiredStartHumanLoopRequestRequestTypeDef",
     {
-        "CreationTime": datetime,
-        "HumanLoopStatus": Literal["InProgress", "Failed", "Completed", "Stopped", "Stopping"],
         "HumanLoopName": str,
-        "HumanLoopArn": str,
         "FlowDefinitionArn": str,
+        "HumanLoopInput": "HumanLoopInputTypeDef",
     },
 )
-_OptionalDescribeHumanLoopResponseTypeDef = TypedDict(
-    "_OptionalDescribeHumanLoopResponseTypeDef",
-    {"FailureReason": str, "FailureCode": str, "HumanLoopOutput": "HumanLoopOutputTypeDef"},
+_OptionalStartHumanLoopRequestRequestTypeDef = TypedDict(
+    "_OptionalStartHumanLoopRequestRequestTypeDef",
+    {
+        "DataAttributes": "HumanLoopDataAttributesTypeDef",
+    },
     total=False,
 )
 
-
-class DescribeHumanLoopResponseTypeDef(
-    _RequiredDescribeHumanLoopResponseTypeDef, _OptionalDescribeHumanLoopResponseTypeDef
+class StartHumanLoopRequestRequestTypeDef(
+    _RequiredStartHumanLoopRequestRequestTypeDef, _OptionalStartHumanLoopRequestRequestTypeDef
 ):
     pass
 
-
-HumanLoopDataAttributesTypeDef = TypedDict(
-    "HumanLoopDataAttributesTypeDef",
+StartHumanLoopResponseTypeDef = TypedDict(
+    "StartHumanLoopResponseTypeDef",
     {
-        "ContentClassifiers": List[
-            Literal["FreeOfPersonallyIdentifiableInformation", "FreeOfAdultContent"]
-        ]
+        "HumanLoopArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-HumanLoopInputTypeDef = TypedDict("HumanLoopInputTypeDef", {"InputContent": str})
-
-_RequiredListHumanLoopsResponseTypeDef = TypedDict(
-    "_RequiredListHumanLoopsResponseTypeDef",
-    {"HumanLoopSummaries": List["HumanLoopSummaryTypeDef"]},
-)
-_OptionalListHumanLoopsResponseTypeDef = TypedDict(
-    "_OptionalListHumanLoopsResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class ListHumanLoopsResponseTypeDef(
-    _RequiredListHumanLoopsResponseTypeDef, _OptionalListHumanLoopsResponseTypeDef
-):
-    pass
-
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-StartHumanLoopResponseTypeDef = TypedDict(
-    "StartHumanLoopResponseTypeDef", {"HumanLoopArn": str}, total=False
+StopHumanLoopRequestRequestTypeDef = TypedDict(
+    "StopHumanLoopRequestRequestTypeDef",
+    {
+        "HumanLoopName": str,
+    },
 )

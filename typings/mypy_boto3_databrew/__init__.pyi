@@ -31,8 +31,8 @@ Usage::
     list_schedules_paginator: ListSchedulesPaginator = client.get_paginator("list_schedules")
     ```
 """
-from mypy_boto3_databrew.client import GlueDataBrewClient
-from mypy_boto3_databrew.paginator import (
+from .client import GlueDataBrewClient
+from .paginator import (
     ListDatasetsPaginator,
     ListJobRunsPaginator,
     ListJobsPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_databrew.paginator import (
 )
 
 Client = GlueDataBrewClient
-
 
 __all__ = (
     "Client",

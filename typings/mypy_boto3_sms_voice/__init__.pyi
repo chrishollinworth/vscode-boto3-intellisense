@@ -7,18 +7,17 @@ Usage::
     import boto3
     from mypy_boto3_sms_voice import (
         Client,
-        SMSVoiceClient,
+        PinpointSMSVoiceClient,
     )
 
     session = boto3.Session()
 
-    client: SMSVoiceClient = boto3.client("sms-voice")
-    session_client: SMSVoiceClient = session.client("sms-voice")
+    client: PinpointSMSVoiceClient = boto3.client("sms-voice")
+    session_client: PinpointSMSVoiceClient = session.client("sms-voice")
     ```
 """
-from mypy_boto3_sms_voice.client import SMSVoiceClient
+from .client import PinpointSMSVoiceClient
 
-Client = SMSVoiceClient
+Client = PinpointSMSVoiceClient
 
-
-__all__ = ("Client", "SMSVoiceClient")
+__all__ = ("Client", "PinpointSMSVoiceClient")

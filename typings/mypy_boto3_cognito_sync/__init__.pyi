@@ -16,9 +16,8 @@ Usage::
     session_client: CognitoSyncClient = session.client("cognito-sync")
     ```
 """
-from mypy_boto3_cognito_sync.client import CognitoSyncClient
+from .client import CognitoSyncClient
 
 Client = CognitoSyncClient
-
 
 __all__ = ("Client", "CognitoSyncClient")

@@ -1,5 +1,7 @@
 """
-Main interface for redshift-data service client paginators.
+Type annotations for redshift-data service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html)
 
 Usage::
 
@@ -26,12 +28,12 @@ Usage::
     list_tables_paginator: ListTablesPaginator = client.get_paginator("list_tables")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_redshift_data.type_defs import (
+from .literals import StatusStringType
+from .type_defs import (
     DescribeTableResponseTypeDef,
     GetStatementResultResponseTypeDef,
     ListDatabasesResponseTypeDef,
@@ -40,12 +42,6 @@ from mypy_boto3_redshift_data.type_defs import (
     ListTablesResponseTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "DescribeTablePaginator",
@@ -56,110 +52,123 @@ __all__ = (
     "ListTablesPaginator",
 )
 
-
 class DescribeTablePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#describetablepaginator)
     """
 
     def paginate(
         self,
+        *,
         ClusterIdentifier: str,
-        Database: str = None,
+        Database: str,
+        ConnectedDatabase: str = None,
         DbUser: str = None,
         Schema: str = None,
         SecretArn: str = None,
         Table: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTableResponseTypeDef]:
         """
-        [DescribeTable.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#describetablepaginator)
         """
-
 
 class GetStatementResultPaginator(Boto3Paginator):
     """
-    [Paginator.GetStatementResult documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#getstatementresultpaginator)
     """
 
     def paginate(
-        self, Id: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, Id: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetStatementResultResponseTypeDef]:
         """
-        [GetStatementResult.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#getstatementresultpaginator)
         """
-
 
 class ListDatabasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listdatabasespaginator)
     """
 
     def paginate(
         self,
+        *,
         ClusterIdentifier: str,
-        Database: str = None,
+        Database: str,
         DbUser: str = None,
         SecretArn: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatabasesResponseTypeDef]:
         """
-        [ListDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listdatabasespaginator)
         """
-
 
 class ListSchemasPaginator(Boto3Paginator):
     """
-    [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listschemaspaginator)
     """
 
     def paginate(
         self,
+        *,
         ClusterIdentifier: str,
         Database: str,
+        ConnectedDatabase: str = None,
         DbUser: str = None,
         SchemaPattern: str = None,
         SecretArn: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSchemasResponseTypeDef]:
         """
-        [ListSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listschemaspaginator)
         """
-
 
 class ListStatementsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStatements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#liststatementspaginator)
     """
 
     def paginate(
         self,
+        *,
+        RoleLevel: bool = None,
         StatementName: str = None,
-        Status: Literal[
-            "ABORTED", "ALL", "FAILED", "FINISHED", "PICKED", "STARTED", "SUBMITTED"
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Status: StatusStringType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStatementsResponseTypeDef]:
         """
-        [ListStatements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#liststatementspaginator)
         """
-
 
 class ListTablesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listtablespaginator)
     """
 
     def paginate(
         self,
+        *,
         ClusterIdentifier: str,
         Database: str,
+        ConnectedDatabase: str = None,
         DbUser: str = None,
         SchemaPattern: str = None,
         SecretArn: str = None,
         TablePattern: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTablesResponseTypeDef]:
         """
-        [ListTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listtablespaginator)
         """

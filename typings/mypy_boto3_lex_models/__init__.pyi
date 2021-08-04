@@ -37,8 +37,8 @@ Usage::
     get_slot_types_paginator: GetSlotTypesPaginator = client.get_paginator("get_slot_types")
     ```
 """
-from mypy_boto3_lex_models.client import LexModelBuildingServiceClient
-from mypy_boto3_lex_models.paginator import (
+from .client import LexModelBuildingServiceClient
+from .paginator import (
     GetBotAliasesPaginator,
     GetBotChannelAssociationsPaginator,
     GetBotsPaginator,
@@ -52,7 +52,6 @@ from mypy_boto3_lex_models.paginator import (
 )
 
 Client = LexModelBuildingServiceClient
-
 
 __all__ = (
     "Client",

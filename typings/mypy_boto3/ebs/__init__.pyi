@@ -1,9 +1,23 @@
-from mypy_boto3_ebs import (
-    Client,
-    EBSClient,
-)
+"""
+Main interface for ebs service.
 
-__all__ = (
-    "Client",
-    "EBSClient",
-)
+Usage::
+
+    ```python
+    import boto3
+    from mypy_boto3_ebs import (
+        Client,
+        EBSClient,
+    )
+
+    session = boto3.Session()
+
+    client: EBSClient = boto3.client("ebs")
+    session_client: EBSClient = session.client("ebs")
+    ```
+"""
+from .client import EBSClient
+
+Client = EBSClient
+
+__all__ = ("Client", "EBSClient")

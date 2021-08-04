@@ -60,8 +60,8 @@ Usage::
     describe_table_statistics_paginator: DescribeTableStatisticsPaginator = client.get_paginator("describe_table_statistics")
     ```
 """
-from mypy_boto3_dms.client import DatabaseMigrationServiceClient
-from mypy_boto3_dms.paginator import (
+from .client import DatabaseMigrationServiceClient
+from .paginator import (
     DescribeCertificatesPaginator,
     DescribeConnectionsPaginator,
     DescribeEndpointsPaginator,
@@ -76,7 +76,7 @@ from mypy_boto3_dms.paginator import (
     DescribeSchemasPaginator,
     DescribeTableStatisticsPaginator,
 )
-from mypy_boto3_dms.waiter import (
+from .waiter import (
     EndpointDeletedWaiter,
     ReplicationInstanceAvailableWaiter,
     ReplicationInstanceDeletedWaiter,
@@ -88,7 +88,6 @@ from mypy_boto3_dms.waiter import (
 )
 
 Client = DatabaseMigrationServiceClient
-
 
 __all__ = (
     "Client",

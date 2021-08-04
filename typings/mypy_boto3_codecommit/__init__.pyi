@@ -31,8 +31,8 @@ Usage::
     list_repositories_paginator: ListRepositoriesPaginator = client.get_paginator("list_repositories")
     ```
 """
-from mypy_boto3_codecommit.client import CodeCommitClient
-from mypy_boto3_codecommit.paginator import (
+from .client import CodeCommitClient
+from .paginator import (
     DescribePullRequestEventsPaginator,
     GetCommentsForComparedCommitPaginator,
     GetCommentsForPullRequestPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_codecommit.paginator import (
 )
 
 Client = CodeCommitClient
-
 
 __all__ = (
     "Client",

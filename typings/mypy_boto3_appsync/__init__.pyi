@@ -31,8 +31,8 @@ Usage::
     list_types_paginator: ListTypesPaginator = client.get_paginator("list_types")
     ```
 """
-from mypy_boto3_appsync.client import AppSyncClient
-from mypy_boto3_appsync.paginator import (
+from .client import AppSyncClient
+from .paginator import (
     ListApiKeysPaginator,
     ListDataSourcesPaginator,
     ListFunctionsPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_appsync.paginator import (
 )
 
 Client = AppSyncClient
-
 
 __all__ = (
     "AppSyncClient",

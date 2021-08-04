@@ -16,9 +16,8 @@ Usage::
     session_client: MarketplaceCatalogClient = session.client("marketplace-catalog")
     ```
 """
-from mypy_boto3_marketplace_catalog.client import MarketplaceCatalogClient
+from .client import MarketplaceCatalogClient
 
 Client = MarketplaceCatalogClient
-
 
 __all__ = ("Client", "MarketplaceCatalogClient")

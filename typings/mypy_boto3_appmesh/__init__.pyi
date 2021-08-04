@@ -33,8 +33,8 @@ Usage::
     list_virtual_services_paginator: ListVirtualServicesPaginator = client.get_paginator("list_virtual_services")
     ```
 """
-from mypy_boto3_appmesh.client import AppMeshClient
-from mypy_boto3_appmesh.paginator import (
+from .client import AppMeshClient
+from .paginator import (
     ListGatewayRoutesPaginator,
     ListMeshesPaginator,
     ListRoutesPaginator,
@@ -46,7 +46,6 @@ from mypy_boto3_appmesh.paginator import (
 )
 
 Client = AppMeshClient
-
 
 __all__ = (
     "AppMeshClient",

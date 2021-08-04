@@ -55,8 +55,8 @@ Usage::
     list_subscription_definitions_paginator: ListSubscriptionDefinitionsPaginator = client.get_paginator("list_subscription_definitions")
     ```
 """
-from mypy_boto3_greengrass.client import GreengrassClient
-from mypy_boto3_greengrass.paginator import (
+from .client import GreengrassClient
+from .paginator import (
     ListBulkDeploymentDetailedReportsPaginator,
     ListBulkDeploymentsPaginator,
     ListConnectorDefinitionsPaginator,
@@ -79,7 +79,6 @@ from mypy_boto3_greengrass.paginator import (
 )
 
 Client = GreengrassClient
-
 
 __all__ = (
     "Client",

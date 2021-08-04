@@ -1,9 +1,23 @@
-from mypy_boto3_dlm import (
-    Client,
-    DLMClient,
-)
+"""
+Main interface for dlm service.
 
-__all__ = (
-    "Client",
-    "DLMClient",
-)
+Usage::
+
+    ```python
+    import boto3
+    from mypy_boto3_dlm import (
+        Client,
+        DLMClient,
+    )
+
+    session = boto3.Session()
+
+    client: DLMClient = boto3.client("dlm")
+    session_client: DLMClient = session.client("dlm")
+    ```
+"""
+from .client import DLMClient
+
+Client = DLMClient
+
+__all__ = ("Client", "DLMClient")

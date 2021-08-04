@@ -1,5 +1,7 @@
 """
-Main interface for codestar-notifications service client
+Type annotations for codestar-notifications service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html)
 
 Usage::
 
@@ -13,14 +15,11 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_codestar_notifications.paginator import (
-    ListEventTypesPaginator,
-    ListNotificationRulesPaginator,
-    ListTargetsPaginator,
-)
-from mypy_boto3_codestar_notifications.type_defs import (
+from .literals import DetailTypeType, NotificationRuleStatusType
+from .paginator import ListEventTypesPaginator, ListNotificationRulesPaginator, ListTargetsPaginator
+from .type_defs import (
     CreateNotificationRuleResultTypeDef,
     DeleteNotificationRuleResultTypeDef,
     DescribeNotificationRuleResultTypeDef,
@@ -42,17 +41,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("CodeStarNotificationsClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -65,50 +60,66 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class CodeStarNotificationsClient:
+class CodeStarNotificationsClient(BaseClient):
     """
-    [CodeStarNotifications.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        CodeStarNotificationsClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#can_paginate)
+        """
     def create_notification_rule(
         self,
+        *,
         Name: str,
         EventTypeIds: List[str],
         Resource: str,
-        Targets: List[TargetTypeDef],
-        DetailType: Literal["BASIC", "FULL"],
+        Targets: List["TargetTypeDef"],
+        DetailType: DetailTypeType,
         ClientRequestToken: str = None,
         Tags: Dict[str, str] = None,
-        Status: Literal["ENABLED", "DISABLED"] = None,
+        Status: NotificationRuleStatusType = None
     ) -> CreateNotificationRuleResultTypeDef:
         """
-        [Client.create_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.create_notification_rule)
-        """
+        Creates a notification rule for a resource.
 
-    def delete_notification_rule(self, Arn: str) -> DeleteNotificationRuleResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.create_notification_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#create_notification_rule)
         """
-        [Client.delete_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_notification_rule)
+    def delete_notification_rule(self, *, Arn: str) -> DeleteNotificationRuleResultTypeDef:
         """
+        Deletes a notification rule for a resource.
 
-    def delete_target(self, TargetAddress: str, ForceUnsubscribeAll: bool = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_notification_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#delete_notification_rule)
         """
-        [Client.delete_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_target)
+    def delete_target(
+        self, *, TargetAddress: str, ForceUnsubscribeAll: bool = None
+    ) -> Dict[str, Any]:
         """
+        Deletes a specified target for notifications.
 
-    def describe_notification_rule(self, Arn: str) -> DescribeNotificationRuleResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_target)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#delete_target)
         """
-        [Client.describe_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.describe_notification_rule)
+    def describe_notification_rule(self, *, Arn: str) -> DescribeNotificationRuleResultTypeDef:
         """
+        Returns information about a specified notification rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.describe_notification_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#describe_notification_rule)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -117,95 +128,126 @@ class CodeStarNotificationsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#generate_presigned_url)
+        """
     def list_event_types(
         self,
-        Filters: List[ListEventTypesFilterTypeDef] = None,
+        *,
+        Filters: List["ListEventTypesFilterTypeDef"] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListEventTypesResultTypeDef:
         """
-        [Client.list_event_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_event_types)
-        """
+        Returns information about the event types available for configuring
+        notifications.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_event_types)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#list_event_types)
+        """
     def list_notification_rules(
         self,
-        Filters: List[ListNotificationRulesFilterTypeDef] = None,
+        *,
+        Filters: List["ListNotificationRulesFilterTypeDef"] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListNotificationRulesResultTypeDef:
         """
-        [Client.list_notification_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_notification_rules)
-        """
+        Returns a list of the notification rules for an AWS account.
 
-    def list_tags_for_resource(self, Arn: str) -> ListTagsForResourceResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_notification_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#list_notification_rules)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, Arn: str) -> ListTagsForResourceResultTypeDef:
         """
+        Returns a list of the tags associated with a notification rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#list_tags_for_resource)
+        """
     def list_targets(
         self,
-        Filters: List[ListTargetsFilterTypeDef] = None,
+        *,
+        Filters: List["ListTargetsFilterTypeDef"] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListTargetsResultTypeDef:
         """
-        [Client.list_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_targets)
-        """
+        Returns a list of the notification rule targets for an AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_targets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#list_targets)
+        """
     def subscribe(
-        self, Arn: str, Target: TargetTypeDef, ClientRequestToken: str = None
+        self, *, Arn: str, Target: "TargetTypeDef", ClientRequestToken: str = None
     ) -> SubscribeResultTypeDef:
         """
-        [Client.subscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.subscribe)
-        """
+        Creates an association between a notification rule and an SNS topic so that the
+        associated target can receive notifications when the events described in the
+        rule are triggered.
 
-    def tag_resource(self, Arn: str, Tags: Dict[str, str]) -> TagResourceResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.subscribe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#subscribe)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.tag_resource)
+    def tag_resource(self, *, Arn: str, Tags: Dict[str, str]) -> TagResourceResultTypeDef:
         """
+        Associates a set of provided tags with a notification rule.
 
-    def unsubscribe(self, Arn: str, TargetAddress: str) -> UnsubscribeResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#tag_resource)
         """
-        [Client.unsubscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.unsubscribe)
+    def unsubscribe(self, *, Arn: str, TargetAddress: str) -> UnsubscribeResultTypeDef:
         """
+        Removes an association between a notification rule and an Amazon SNS topic so
+        that subscribers to that topic stop receiving notifications when the events
+        described in the rule are triggered.
 
-    def untag_resource(self, Arn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.unsubscribe)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#unsubscribe)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.untag_resource)
+    def untag_resource(self, *, Arn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes the association between one or more provided tags and a notification
+        rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#untag_resource)
+        """
     def update_notification_rule(
         self,
+        *,
         Arn: str,
         Name: str = None,
-        Status: Literal["ENABLED", "DISABLED"] = None,
+        Status: NotificationRuleStatusType = None,
         EventTypeIds: List[str] = None,
-        Targets: List[TargetTypeDef] = None,
-        DetailType: Literal["BASIC", "FULL"] = None,
+        Targets: List["TargetTypeDef"] = None,
+        DetailType: DetailTypeType = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Client.update_notification_rule)
-        """
+        Updates a notification rule for a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Client.update_notification_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/client.html#update_notification_rule)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["list_event_types"]) -> ListEventTypesPaginator:
         """
-        [Paginator.ListEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/paginators.html#listeventtypespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_notification_rules"]
     ) -> ListNotificationRulesPaginator:
         """
-        [Paginator.ListNotificationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/paginators.html#listnotificationrulespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_targets"]) -> ListTargetsPaginator:
         """
-        [Paginator.ListTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/paginators.html#listtargetspaginator)
         """

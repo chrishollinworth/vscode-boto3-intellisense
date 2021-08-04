@@ -1,17 +1,36 @@
 """
-Main interface for acm service type definitions.
+Type annotations for acm service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_acm.type_defs import CertificateDetailTypeDef
+    from mypy_boto3_acm.type_defs import AddTagsToCertificateRequestRequestTypeDef
 
-    data: CertificateDetailTypeDef = {...}
+    data: AddTagsToCertificateRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
+
+from .literals import (
+    CertificateStatusType,
+    CertificateTransparencyLoggingPreferenceType,
+    CertificateTypeType,
+    DomainStatusType,
+    ExtendedKeyUsageNameType,
+    FailureReasonType,
+    KeyAlgorithmType,
+    KeyUsageNameType,
+    RenewalEligibilityType,
+    RenewalStatusType,
+    RevocationReasonType,
+    ValidationMethodType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,28 +41,52 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AddTagsToCertificateRequestRequestTypeDef",
     "CertificateDetailTypeDef",
     "CertificateOptionsTypeDef",
     "CertificateSummaryTypeDef",
-    "DomainValidationTypeDef",
-    "ExtendedKeyUsageTypeDef",
-    "KeyUsageTypeDef",
-    "RenewalSummaryTypeDef",
-    "ResourceRecordTypeDef",
-    "TagTypeDef",
+    "DeleteCertificateRequestRequestTypeDef",
+    "DescribeCertificateRequestRequestTypeDef",
     "DescribeCertificateResponseTypeDef",
     "DomainValidationOptionTypeDef",
+    "DomainValidationTypeDef",
+    "ExpiryEventsConfigurationTypeDef",
+    "ExportCertificateRequestRequestTypeDef",
     "ExportCertificateResponseTypeDef",
+    "ExtendedKeyUsageTypeDef",
     "FiltersTypeDef",
+    "GetAccountConfigurationResponseTypeDef",
+    "GetCertificateRequestRequestTypeDef",
     "GetCertificateResponseTypeDef",
+    "ImportCertificateRequestRequestTypeDef",
     "ImportCertificateResponseTypeDef",
+    "KeyUsageTypeDef",
+    "ListCertificatesRequestRequestTypeDef",
     "ListCertificatesResponseTypeDef",
+    "ListTagsForCertificateRequestRequestTypeDef",
     "ListTagsForCertificateResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PutAccountConfigurationRequestRequestTypeDef",
+    "RemoveTagsFromCertificateRequestRequestTypeDef",
+    "RenewCertificateRequestRequestTypeDef",
+    "RenewalSummaryTypeDef",
+    "RequestCertificateRequestRequestTypeDef",
     "RequestCertificateResponseTypeDef",
+    "ResendValidationEmailRequestRequestTypeDef",
+    "ResourceRecordTypeDef",
+    "ResponseMetadataTypeDef",
+    "TagTypeDef",
+    "UpdateCertificateOptionsRequestRequestTypeDef",
     "WaiterConfigTypeDef",
+)
+
+AddTagsToCertificateRequestRequestTypeDef = TypedDict(
+    "AddTagsToCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "Tags": List["TagTypeDef"],
+    },
 )
 
 CertificateDetailTypeDef = TypedDict(
@@ -59,60 +102,21 @@ CertificateDetailTypeDef = TypedDict(
         "CreatedAt": datetime,
         "IssuedAt": datetime,
         "ImportedAt": datetime,
-        "Status": Literal[
-            "PENDING_VALIDATION",
-            "ISSUED",
-            "INACTIVE",
-            "EXPIRED",
-            "VALIDATION_TIMED_OUT",
-            "REVOKED",
-            "FAILED",
-        ],
+        "Status": CertificateStatusType,
         "RevokedAt": datetime,
-        "RevocationReason": Literal[
-            "UNSPECIFIED",
-            "KEY_COMPROMISE",
-            "CA_COMPROMISE",
-            "AFFILIATION_CHANGED",
-            "SUPERCEDED",
-            "CESSATION_OF_OPERATION",
-            "CERTIFICATE_HOLD",
-            "REMOVE_FROM_CRL",
-            "PRIVILEGE_WITHDRAWN",
-            "A_A_COMPROMISE",
-        ],
+        "RevocationReason": RevocationReasonType,
         "NotBefore": datetime,
         "NotAfter": datetime,
-        "KeyAlgorithm": Literal[
-            "RSA_2048", "RSA_1024", "RSA_4096", "EC_prime256v1", "EC_secp384r1", "EC_secp521r1"
-        ],
+        "KeyAlgorithm": KeyAlgorithmType,
         "SignatureAlgorithm": str,
         "InUseBy": List[str],
-        "FailureReason": Literal[
-            "NO_AVAILABLE_CONTACTS",
-            "ADDITIONAL_VERIFICATION_REQUIRED",
-            "DOMAIN_NOT_ALLOWED",
-            "INVALID_PUBLIC_DOMAIN",
-            "DOMAIN_VALIDATION_DENIED",
-            "CAA_ERROR",
-            "PCA_LIMIT_EXCEEDED",
-            "PCA_INVALID_ARN",
-            "PCA_INVALID_STATE",
-            "PCA_REQUEST_FAILED",
-            "PCA_NAME_CONSTRAINTS_VALIDATION",
-            "PCA_RESOURCE_NOT_FOUND",
-            "PCA_INVALID_ARGS",
-            "PCA_INVALID_DURATION",
-            "PCA_ACCESS_DENIED",
-            "SLR_NOT_FOUND",
-            "OTHER",
-        ],
-        "Type": Literal["IMPORTED", "AMAZON_ISSUED", "PRIVATE"],
+        "FailureReason": FailureReasonType,
+        "Type": CertificateTypeType,
         "RenewalSummary": "RenewalSummaryTypeDef",
         "KeyUsages": List["KeyUsageTypeDef"],
         "ExtendedKeyUsages": List["ExtendedKeyUsageTypeDef"],
         "CertificateAuthorityArn": str,
-        "RenewalEligibility": Literal["ELIGIBLE", "INELIGIBLE"],
+        "RenewalEligibility": RenewalEligibilityType,
         "Options": "CertificateOptionsTypeDef",
     },
     total=False,
@@ -120,80 +124,263 @@ CertificateDetailTypeDef = TypedDict(
 
 CertificateOptionsTypeDef = TypedDict(
     "CertificateOptionsTypeDef",
-    {"CertificateTransparencyLoggingPreference": Literal["ENABLED", "DISABLED"]},
+    {
+        "CertificateTransparencyLoggingPreference": CertificateTransparencyLoggingPreferenceType,
+    },
     total=False,
 )
 
 CertificateSummaryTypeDef = TypedDict(
-    "CertificateSummaryTypeDef", {"CertificateArn": str, "DomainName": str}, total=False
+    "CertificateSummaryTypeDef",
+    {
+        "CertificateArn": str,
+        "DomainName": str,
+    },
+    total=False,
+)
+
+DeleteCertificateRequestRequestTypeDef = TypedDict(
+    "DeleteCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+    },
+)
+
+DescribeCertificateRequestRequestTypeDef = TypedDict(
+    "DescribeCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+    },
+)
+
+DescribeCertificateResponseTypeDef = TypedDict(
+    "DescribeCertificateResponseTypeDef",
+    {
+        "Certificate": "CertificateDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DomainValidationOptionTypeDef = TypedDict(
+    "DomainValidationOptionTypeDef",
+    {
+        "DomainName": str,
+        "ValidationDomain": str,
+    },
 )
 
 _RequiredDomainValidationTypeDef = TypedDict(
-    "_RequiredDomainValidationTypeDef", {"DomainName": str}
+    "_RequiredDomainValidationTypeDef",
+    {
+        "DomainName": str,
+    },
 )
 _OptionalDomainValidationTypeDef = TypedDict(
     "_OptionalDomainValidationTypeDef",
     {
         "ValidationEmails": List[str],
         "ValidationDomain": str,
-        "ValidationStatus": Literal["PENDING_VALIDATION", "SUCCESS", "FAILED"],
+        "ValidationStatus": DomainStatusType,
         "ResourceRecord": "ResourceRecordTypeDef",
-        "ValidationMethod": Literal["EMAIL", "DNS"],
+        "ValidationMethod": ValidationMethodType,
     },
     total=False,
 )
 
-
 class DomainValidationTypeDef(_RequiredDomainValidationTypeDef, _OptionalDomainValidationTypeDef):
     pass
 
+ExpiryEventsConfigurationTypeDef = TypedDict(
+    "ExpiryEventsConfigurationTypeDef",
+    {
+        "DaysBeforeExpiry": int,
+    },
+    total=False,
+)
+
+ExportCertificateRequestRequestTypeDef = TypedDict(
+    "ExportCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "Passphrase": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+
+ExportCertificateResponseTypeDef = TypedDict(
+    "ExportCertificateResponseTypeDef",
+    {
+        "Certificate": str,
+        "CertificateChain": str,
+        "PrivateKey": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 ExtendedKeyUsageTypeDef = TypedDict(
     "ExtendedKeyUsageTypeDef",
     {
-        "Name": Literal[
-            "TLS_WEB_SERVER_AUTHENTICATION",
-            "TLS_WEB_CLIENT_AUTHENTICATION",
-            "CODE_SIGNING",
-            "EMAIL_PROTECTION",
-            "TIME_STAMPING",
-            "OCSP_SIGNING",
-            "IPSEC_END_SYSTEM",
-            "IPSEC_TUNNEL",
-            "IPSEC_USER",
-            "ANY",
-            "NONE",
-            "CUSTOM",
-        ],
+        "Name": ExtendedKeyUsageNameType,
         "OID": str,
     },
     total=False,
 )
 
+FiltersTypeDef = TypedDict(
+    "FiltersTypeDef",
+    {
+        "extendedKeyUsage": List[ExtendedKeyUsageNameType],
+        "keyUsage": List[KeyUsageNameType],
+        "keyTypes": List[KeyAlgorithmType],
+    },
+    total=False,
+)
+
+GetAccountConfigurationResponseTypeDef = TypedDict(
+    "GetAccountConfigurationResponseTypeDef",
+    {
+        "ExpiryEvents": "ExpiryEventsConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetCertificateRequestRequestTypeDef = TypedDict(
+    "GetCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+    },
+)
+
+GetCertificateResponseTypeDef = TypedDict(
+    "GetCertificateResponseTypeDef",
+    {
+        "Certificate": str,
+        "CertificateChain": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredImportCertificateRequestRequestTypeDef = TypedDict(
+    "_RequiredImportCertificateRequestRequestTypeDef",
+    {
+        "Certificate": Union[bytes, IO[bytes], StreamingBody],
+        "PrivateKey": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+_OptionalImportCertificateRequestRequestTypeDef = TypedDict(
+    "_OptionalImportCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "CertificateChain": Union[bytes, IO[bytes], StreamingBody],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class ImportCertificateRequestRequestTypeDef(
+    _RequiredImportCertificateRequestRequestTypeDef, _OptionalImportCertificateRequestRequestTypeDef
+):
+    pass
+
+ImportCertificateResponseTypeDef = TypedDict(
+    "ImportCertificateResponseTypeDef",
+    {
+        "CertificateArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 KeyUsageTypeDef = TypedDict(
     "KeyUsageTypeDef",
     {
-        "Name": Literal[
-            "DIGITAL_SIGNATURE",
-            "NON_REPUDIATION",
-            "KEY_ENCIPHERMENT",
-            "DATA_ENCIPHERMENT",
-            "KEY_AGREEMENT",
-            "CERTIFICATE_SIGNING",
-            "CRL_SIGNING",
-            "ENCIPHER_ONLY",
-            "DECIPHER_ONLY",
-            "ANY",
-            "CUSTOM",
-        ]
+        "Name": KeyUsageNameType,
     },
     total=False,
+)
+
+ListCertificatesRequestRequestTypeDef = TypedDict(
+    "ListCertificatesRequestRequestTypeDef",
+    {
+        "CertificateStatuses": List[CertificateStatusType],
+        "Includes": "FiltersTypeDef",
+        "NextToken": str,
+        "MaxItems": int,
+    },
+    total=False,
+)
+
+ListCertificatesResponseTypeDef = TypedDict(
+    "ListCertificatesResponseTypeDef",
+    {
+        "NextToken": str,
+        "CertificateSummaryList": List["CertificateSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForCertificateRequestRequestTypeDef = TypedDict(
+    "ListTagsForCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+    },
+)
+
+ListTagsForCertificateResponseTypeDef = TypedDict(
+    "ListTagsForCertificateResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+_RequiredPutAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutAccountConfigurationRequestRequestTypeDef",
+    {
+        "IdempotencyToken": str,
+    },
+)
+_OptionalPutAccountConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutAccountConfigurationRequestRequestTypeDef",
+    {
+        "ExpiryEvents": "ExpiryEventsConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class PutAccountConfigurationRequestRequestTypeDef(
+    _RequiredPutAccountConfigurationRequestRequestTypeDef,
+    _OptionalPutAccountConfigurationRequestRequestTypeDef,
+):
+    pass
+
+RemoveTagsFromCertificateRequestRequestTypeDef = TypedDict(
+    "RemoveTagsFromCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+RenewCertificateRequestRequestTypeDef = TypedDict(
+    "RenewCertificateRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+    },
 )
 
 _RequiredRenewalSummaryTypeDef = TypedDict(
     "_RequiredRenewalSummaryTypeDef",
     {
-        "RenewalStatus": Literal["PENDING_AUTO_RENEWAL", "PENDING_VALIDATION", "SUCCESS", "FAILED"],
+        "RenewalStatus": RenewalStatusType,
         "DomainValidationOptions": List["DomainValidationTypeDef"],
         "UpdatedAt": datetime,
     },
@@ -201,129 +388,107 @@ _RequiredRenewalSummaryTypeDef = TypedDict(
 _OptionalRenewalSummaryTypeDef = TypedDict(
     "_OptionalRenewalSummaryTypeDef",
     {
-        "RenewalStatusReason": Literal[
-            "NO_AVAILABLE_CONTACTS",
-            "ADDITIONAL_VERIFICATION_REQUIRED",
-            "DOMAIN_NOT_ALLOWED",
-            "INVALID_PUBLIC_DOMAIN",
-            "DOMAIN_VALIDATION_DENIED",
-            "CAA_ERROR",
-            "PCA_LIMIT_EXCEEDED",
-            "PCA_INVALID_ARN",
-            "PCA_INVALID_STATE",
-            "PCA_REQUEST_FAILED",
-            "PCA_NAME_CONSTRAINTS_VALIDATION",
-            "PCA_RESOURCE_NOT_FOUND",
-            "PCA_INVALID_ARGS",
-            "PCA_INVALID_DURATION",
-            "PCA_ACCESS_DENIED",
-            "SLR_NOT_FOUND",
-            "OTHER",
-        ]
+        "RenewalStatusReason": FailureReasonType,
     },
     total=False,
 )
-
 
 class RenewalSummaryTypeDef(_RequiredRenewalSummaryTypeDef, _OptionalRenewalSummaryTypeDef):
     pass
 
-
-ResourceRecordTypeDef = TypedDict(
-    "ResourceRecordTypeDef", {"Name": str, "Type": Literal["CNAME"], "Value": str}
-)
-
-_RequiredTagTypeDef = TypedDict("_RequiredTagTypeDef", {"Key": str})
-_OptionalTagTypeDef = TypedDict("_OptionalTagTypeDef", {"Value": str}, total=False)
-
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-
-DescribeCertificateResponseTypeDef = TypedDict(
-    "DescribeCertificateResponseTypeDef", {"Certificate": "CertificateDetailTypeDef"}, total=False
-)
-
-DomainValidationOptionTypeDef = TypedDict(
-    "DomainValidationOptionTypeDef", {"DomainName": str, "ValidationDomain": str}
-)
-
-ExportCertificateResponseTypeDef = TypedDict(
-    "ExportCertificateResponseTypeDef",
-    {"Certificate": str, "CertificateChain": str, "PrivateKey": str},
-    total=False,
-)
-
-FiltersTypeDef = TypedDict(
-    "FiltersTypeDef",
+_RequiredRequestCertificateRequestRequestTypeDef = TypedDict(
+    "_RequiredRequestCertificateRequestRequestTypeDef",
     {
-        "extendedKeyUsage": List[
-            Literal[
-                "TLS_WEB_SERVER_AUTHENTICATION",
-                "TLS_WEB_CLIENT_AUTHENTICATION",
-                "CODE_SIGNING",
-                "EMAIL_PROTECTION",
-                "TIME_STAMPING",
-                "OCSP_SIGNING",
-                "IPSEC_END_SYSTEM",
-                "IPSEC_TUNNEL",
-                "IPSEC_USER",
-                "ANY",
-                "NONE",
-                "CUSTOM",
-            ]
-        ],
-        "keyUsage": List[
-            Literal[
-                "DIGITAL_SIGNATURE",
-                "NON_REPUDIATION",
-                "KEY_ENCIPHERMENT",
-                "DATA_ENCIPHERMENT",
-                "KEY_AGREEMENT",
-                "CERTIFICATE_SIGNING",
-                "CRL_SIGNING",
-                "ENCIPHER_ONLY",
-                "DECIPHER_ONLY",
-                "ANY",
-                "CUSTOM",
-            ]
-        ],
-        "keyTypes": List[
-            Literal[
-                "RSA_2048", "RSA_1024", "RSA_4096", "EC_prime256v1", "EC_secp384r1", "EC_secp521r1"
-            ]
-        ],
+        "DomainName": str,
+    },
+)
+_OptionalRequestCertificateRequestRequestTypeDef = TypedDict(
+    "_OptionalRequestCertificateRequestRequestTypeDef",
+    {
+        "ValidationMethod": ValidationMethodType,
+        "SubjectAlternativeNames": List[str],
+        "IdempotencyToken": str,
+        "DomainValidationOptions": List["DomainValidationOptionTypeDef"],
+        "Options": "CertificateOptionsTypeDef",
+        "CertificateAuthorityArn": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
 
-GetCertificateResponseTypeDef = TypedDict(
-    "GetCertificateResponseTypeDef", {"Certificate": str, "CertificateChain": str}, total=False
+class RequestCertificateRequestRequestTypeDef(
+    _RequiredRequestCertificateRequestRequestTypeDef,
+    _OptionalRequestCertificateRequestRequestTypeDef,
+):
+    pass
+
+RequestCertificateResponseTypeDef = TypedDict(
+    "RequestCertificateResponseTypeDef",
+    {
+        "CertificateArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
-ImportCertificateResponseTypeDef = TypedDict(
-    "ImportCertificateResponseTypeDef", {"CertificateArn": str}, total=False
+ResendValidationEmailRequestRequestTypeDef = TypedDict(
+    "ResendValidationEmailRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "Domain": str,
+        "ValidationDomain": str,
+    },
 )
 
-ListCertificatesResponseTypeDef = TypedDict(
-    "ListCertificatesResponseTypeDef",
-    {"NextToken": str, "CertificateSummaryList": List["CertificateSummaryTypeDef"]},
+ResourceRecordTypeDef = TypedDict(
+    "ResourceRecordTypeDef",
+    {
+        "Name": str,
+        "Type": Literal["CNAME"],
+        "Value": str,
+    },
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+_RequiredTagTypeDef = TypedDict(
+    "_RequiredTagTypeDef",
+    {
+        "Key": str,
+    },
+)
+_OptionalTagTypeDef = TypedDict(
+    "_OptionalTagTypeDef",
+    {
+        "Value": str,
+    },
     total=False,
 )
 
-ListTagsForCertificateResponseTypeDef = TypedDict(
-    "ListTagsForCertificateResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
-)
+class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
+    pass
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-RequestCertificateResponseTypeDef = TypedDict(
-    "RequestCertificateResponseTypeDef", {"CertificateArn": str}, total=False
+UpdateCertificateOptionsRequestRequestTypeDef = TypedDict(
+    "UpdateCertificateOptionsRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "Options": "CertificateOptionsTypeDef",
+    },
 )
 
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

@@ -1,12 +1,14 @@
 """
-Main interface for polly service type definitions.
+Type annotations for polly service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_polly.type_defs import LexiconAttributesTypeDef
+    from mypy_boto3_polly.type_defs import DeleteLexiconInputRequestTypeDef
 
-    data: LexiconAttributesTypeDef = {...}
+    data: DeleteLexiconInputRequestTypeDef = {...}
     ```
 """
 import sys
@@ -15,68 +17,111 @@ from typing import Any, Dict, List
 
 from botocore.response import StreamingBody
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    EngineType,
+    GenderType,
+    LanguageCodeType,
+    OutputFormatType,
+    SpeechMarkTypeType,
+    TaskStatusType,
+    TextTypeType,
+    VoiceIdType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "DeleteLexiconInputRequestTypeDef",
+    "DescribeVoicesInputRequestTypeDef",
+    "DescribeVoicesOutputTypeDef",
+    "GetLexiconInputRequestTypeDef",
+    "GetLexiconOutputTypeDef",
+    "GetSpeechSynthesisTaskInputRequestTypeDef",
+    "GetSpeechSynthesisTaskOutputTypeDef",
     "LexiconAttributesTypeDef",
     "LexiconDescriptionTypeDef",
     "LexiconTypeDef",
-    "ResponseMetadata",
-    "SynthesisTaskTypeDef",
-    "VoiceTypeDef",
-    "DescribeVoicesOutputTypeDef",
-    "GetLexiconOutputTypeDef",
-    "GetSpeechSynthesisTaskOutputTypeDef",
+    "ListLexiconsInputRequestTypeDef",
     "ListLexiconsOutputTypeDef",
+    "ListSpeechSynthesisTasksInputRequestTypeDef",
     "ListSpeechSynthesisTasksOutputTypeDef",
     "PaginatorConfigTypeDef",
+    "PutLexiconInputRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "StartSpeechSynthesisTaskInputRequestTypeDef",
     "StartSpeechSynthesisTaskOutputTypeDef",
+    "SynthesisTaskTypeDef",
+    "SynthesizeSpeechInputRequestTypeDef",
     "SynthesizeSpeechOutputTypeDef",
+    "VoiceTypeDef",
+)
+
+DeleteLexiconInputRequestTypeDef = TypedDict(
+    "DeleteLexiconInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DescribeVoicesInputRequestTypeDef = TypedDict(
+    "DescribeVoicesInputRequestTypeDef",
+    {
+        "Engine": EngineType,
+        "LanguageCode": LanguageCodeType,
+        "IncludeAdditionalLanguageCodes": bool,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVoicesOutputTypeDef = TypedDict(
+    "DescribeVoicesOutputTypeDef",
+    {
+        "Voices": List["VoiceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetLexiconInputRequestTypeDef = TypedDict(
+    "GetLexiconInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+GetLexiconOutputTypeDef = TypedDict(
+    "GetLexiconOutputTypeDef",
+    {
+        "Lexicon": "LexiconTypeDef",
+        "LexiconAttributes": "LexiconAttributesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetSpeechSynthesisTaskInputRequestTypeDef = TypedDict(
+    "GetSpeechSynthesisTaskInputRequestTypeDef",
+    {
+        "TaskId": str,
+    },
+)
+
+GetSpeechSynthesisTaskOutputTypeDef = TypedDict(
+    "GetSpeechSynthesisTaskOutputTypeDef",
+    {
+        "SynthesisTask": "SynthesisTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 LexiconAttributesTypeDef = TypedDict(
     "LexiconAttributesTypeDef",
     {
         "Alphabet": str,
-        "LanguageCode": Literal[
-            "arb",
-            "cmn-CN",
-            "cy-GB",
-            "da-DK",
-            "de-DE",
-            "en-AU",
-            "en-GB",
-            "en-GB-WLS",
-            "en-IN",
-            "en-US",
-            "es-ES",
-            "es-MX",
-            "es-US",
-            "fr-CA",
-            "fr-FR",
-            "is-IS",
-            "it-IT",
-            "ja-JP",
-            "hi-IN",
-            "ko-KR",
-            "nb-NO",
-            "nl-NL",
-            "pl-PL",
-            "pt-BR",
-            "pt-PT",
-            "ro-RO",
-            "ru-RU",
-            "sv-SE",
-            "tr-TR",
-        ],
+        "LanguageCode": LanguageCodeType,
         "LastModified": datetime,
         "LexiconArn": str,
         "LexemesCount": int,
@@ -87,296 +132,27 @@ LexiconAttributesTypeDef = TypedDict(
 
 LexiconDescriptionTypeDef = TypedDict(
     "LexiconDescriptionTypeDef",
-    {"Name": str, "Attributes": "LexiconAttributesTypeDef"},
-    total=False,
-)
-
-LexiconTypeDef = TypedDict("LexiconTypeDef", {"Content": str, "Name": str}, total=False)
-
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
     {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SynthesisTaskTypeDef = TypedDict(
-    "SynthesisTaskTypeDef",
-    {
-        "Engine": Literal["standard", "neural"],
-        "TaskId": str,
-        "TaskStatus": Literal["scheduled", "inProgress", "completed", "failed"],
-        "TaskStatusReason": str,
-        "OutputUri": str,
-        "CreationTime": datetime,
-        "RequestCharacters": int,
-        "SnsTopicArn": str,
-        "LexiconNames": List[str],
-        "OutputFormat": Literal["json", "mp3", "ogg_vorbis", "pcm"],
-        "SampleRate": str,
-        "SpeechMarkTypes": List[Literal["sentence", "ssml", "viseme", "word"]],
-        "TextType": Literal["ssml", "text"],
-        "VoiceId": Literal[
-            "Aditi",
-            "Amy",
-            "Astrid",
-            "Bianca",
-            "Brian",
-            "Camila",
-            "Carla",
-            "Carmen",
-            "Celine",
-            "Chantal",
-            "Conchita",
-            "Cristiano",
-            "Dora",
-            "Emma",
-            "Enrique",
-            "Ewa",
-            "Filiz",
-            "Geraint",
-            "Giorgio",
-            "Gwyneth",
-            "Hans",
-            "Ines",
-            "Ivy",
-            "Jacek",
-            "Jan",
-            "Joanna",
-            "Joey",
-            "Justin",
-            "Karl",
-            "Kendra",
-            "Kevin",
-            "Kimberly",
-            "Lea",
-            "Liv",
-            "Lotte",
-            "Lucia",
-            "Lupe",
-            "Mads",
-            "Maja",
-            "Marlene",
-            "Mathieu",
-            "Matthew",
-            "Maxim",
-            "Mia",
-            "Miguel",
-            "Mizuki",
-            "Naja",
-            "Nicole",
-            "Olivia",
-            "Penelope",
-            "Raveena",
-            "Ricardo",
-            "Ruben",
-            "Russell",
-            "Salli",
-            "Seoyeon",
-            "Takumi",
-            "Tatyana",
-            "Vicki",
-            "Vitoria",
-            "Zeina",
-            "Zhiyu",
-        ],
-        "LanguageCode": Literal[
-            "arb",
-            "cmn-CN",
-            "cy-GB",
-            "da-DK",
-            "de-DE",
-            "en-AU",
-            "en-GB",
-            "en-GB-WLS",
-            "en-IN",
-            "en-US",
-            "es-ES",
-            "es-MX",
-            "es-US",
-            "fr-CA",
-            "fr-FR",
-            "is-IS",
-            "it-IT",
-            "ja-JP",
-            "hi-IN",
-            "ko-KR",
-            "nb-NO",
-            "nl-NL",
-            "pl-PL",
-            "pt-BR",
-            "pt-PT",
-            "ro-RO",
-            "ru-RU",
-            "sv-SE",
-            "tr-TR",
-        ],
-    },
-    total=False,
-)
-
-VoiceTypeDef = TypedDict(
-    "VoiceTypeDef",
-    {
-        "Gender": Literal["Female", "Male"],
-        "Id": Literal[
-            "Aditi",
-            "Amy",
-            "Astrid",
-            "Bianca",
-            "Brian",
-            "Camila",
-            "Carla",
-            "Carmen",
-            "Celine",
-            "Chantal",
-            "Conchita",
-            "Cristiano",
-            "Dora",
-            "Emma",
-            "Enrique",
-            "Ewa",
-            "Filiz",
-            "Geraint",
-            "Giorgio",
-            "Gwyneth",
-            "Hans",
-            "Ines",
-            "Ivy",
-            "Jacek",
-            "Jan",
-            "Joanna",
-            "Joey",
-            "Justin",
-            "Karl",
-            "Kendra",
-            "Kevin",
-            "Kimberly",
-            "Lea",
-            "Liv",
-            "Lotte",
-            "Lucia",
-            "Lupe",
-            "Mads",
-            "Maja",
-            "Marlene",
-            "Mathieu",
-            "Matthew",
-            "Maxim",
-            "Mia",
-            "Miguel",
-            "Mizuki",
-            "Naja",
-            "Nicole",
-            "Olivia",
-            "Penelope",
-            "Raveena",
-            "Ricardo",
-            "Ruben",
-            "Russell",
-            "Salli",
-            "Seoyeon",
-            "Takumi",
-            "Tatyana",
-            "Vicki",
-            "Vitoria",
-            "Zeina",
-            "Zhiyu",
-        ],
-        "LanguageCode": Literal[
-            "arb",
-            "cmn-CN",
-            "cy-GB",
-            "da-DK",
-            "de-DE",
-            "en-AU",
-            "en-GB",
-            "en-GB-WLS",
-            "en-IN",
-            "en-US",
-            "es-ES",
-            "es-MX",
-            "es-US",
-            "fr-CA",
-            "fr-FR",
-            "is-IS",
-            "it-IT",
-            "ja-JP",
-            "hi-IN",
-            "ko-KR",
-            "nb-NO",
-            "nl-NL",
-            "pl-PL",
-            "pt-BR",
-            "pt-PT",
-            "ro-RO",
-            "ru-RU",
-            "sv-SE",
-            "tr-TR",
-        ],
-        "LanguageName": str,
         "Name": str,
-        "AdditionalLanguageCodes": List[
-            Literal[
-                "arb",
-                "cmn-CN",
-                "cy-GB",
-                "da-DK",
-                "de-DE",
-                "en-AU",
-                "en-GB",
-                "en-GB-WLS",
-                "en-IN",
-                "en-US",
-                "es-ES",
-                "es-MX",
-                "es-US",
-                "fr-CA",
-                "fr-FR",
-                "is-IS",
-                "it-IT",
-                "ja-JP",
-                "hi-IN",
-                "ko-KR",
-                "nb-NO",
-                "nl-NL",
-                "pl-PL",
-                "pt-BR",
-                "pt-PT",
-                "ro-RO",
-                "ru-RU",
-                "sv-SE",
-                "tr-TR",
-            ]
-        ],
-        "SupportedEngines": List[Literal["standard", "neural"]],
+        "Attributes": "LexiconAttributesTypeDef",
     },
     total=False,
 )
 
-DescribeVoicesOutputTypeDef = TypedDict(
-    "DescribeVoicesOutputTypeDef",
-    {"Voices": List["VoiceTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetLexiconOutputTypeDef = TypedDict(
-    "GetLexiconOutputTypeDef",
+LexiconTypeDef = TypedDict(
+    "LexiconTypeDef",
     {
-        "Lexicon": "LexiconTypeDef",
-        "LexiconAttributes": "LexiconAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
+        "Content": str,
+        "Name": str,
     },
     total=False,
 )
 
-GetSpeechSynthesisTaskOutputTypeDef = TypedDict(
-    "GetSpeechSynthesisTaskOutputTypeDef",
-    {"SynthesisTask": "SynthesisTaskTypeDef", "ResponseMetadata": "ResponseMetadata"},
+ListLexiconsInputRequestTypeDef = TypedDict(
+    "ListLexiconsInputRequestTypeDef",
+    {
+        "NextToken": str,
+    },
     total=False,
 )
 
@@ -385,7 +161,16 @@ ListLexiconsOutputTypeDef = TypedDict(
     {
         "Lexicons": List["LexiconDescriptionTypeDef"],
         "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSpeechSynthesisTasksInputRequestTypeDef = TypedDict(
+    "ListSpeechSynthesisTasksInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "Status": TaskStatusType,
     },
     total=False,
 )
@@ -395,20 +180,124 @@ ListSpeechSynthesisTasksOutputTypeDef = TypedDict(
     {
         "NextToken": str,
         "SynthesisTasks": List["SynthesisTaskTypeDef"],
-        "ResponseMetadata": "ResponseMetadata",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
     },
     total=False,
 )
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+PutLexiconInputRequestTypeDef = TypedDict(
+    "PutLexiconInputRequestTypeDef",
+    {
+        "Name": str,
+        "Content": str,
+    },
 )
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+_RequiredStartSpeechSynthesisTaskInputRequestTypeDef = TypedDict(
+    "_RequiredStartSpeechSynthesisTaskInputRequestTypeDef",
+    {
+        "OutputFormat": OutputFormatType,
+        "OutputS3BucketName": str,
+        "Text": str,
+        "VoiceId": VoiceIdType,
+    },
+)
+_OptionalStartSpeechSynthesisTaskInputRequestTypeDef = TypedDict(
+    "_OptionalStartSpeechSynthesisTaskInputRequestTypeDef",
+    {
+        "Engine": EngineType,
+        "LanguageCode": LanguageCodeType,
+        "LexiconNames": List[str],
+        "OutputS3KeyPrefix": str,
+        "SampleRate": str,
+        "SnsTopicArn": str,
+        "SpeechMarkTypes": List[SpeechMarkTypeType],
+        "TextType": TextTypeType,
+    },
+    total=False,
+)
+
+class StartSpeechSynthesisTaskInputRequestTypeDef(
+    _RequiredStartSpeechSynthesisTaskInputRequestTypeDef,
+    _OptionalStartSpeechSynthesisTaskInputRequestTypeDef,
+):
+    pass
 
 StartSpeechSynthesisTaskOutputTypeDef = TypedDict(
     "StartSpeechSynthesisTaskOutputTypeDef",
-    {"SynthesisTask": "SynthesisTaskTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    {
+        "SynthesisTask": "SynthesisTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SynthesisTaskTypeDef = TypedDict(
+    "SynthesisTaskTypeDef",
+    {
+        "Engine": EngineType,
+        "TaskId": str,
+        "TaskStatus": TaskStatusType,
+        "TaskStatusReason": str,
+        "OutputUri": str,
+        "CreationTime": datetime,
+        "RequestCharacters": int,
+        "SnsTopicArn": str,
+        "LexiconNames": List[str],
+        "OutputFormat": OutputFormatType,
+        "SampleRate": str,
+        "SpeechMarkTypes": List[SpeechMarkTypeType],
+        "TextType": TextTypeType,
+        "VoiceId": VoiceIdType,
+        "LanguageCode": LanguageCodeType,
+    },
     total=False,
 )
+
+_RequiredSynthesizeSpeechInputRequestTypeDef = TypedDict(
+    "_RequiredSynthesizeSpeechInputRequestTypeDef",
+    {
+        "OutputFormat": OutputFormatType,
+        "Text": str,
+        "VoiceId": VoiceIdType,
+    },
+)
+_OptionalSynthesizeSpeechInputRequestTypeDef = TypedDict(
+    "_OptionalSynthesizeSpeechInputRequestTypeDef",
+    {
+        "Engine": EngineType,
+        "LanguageCode": LanguageCodeType,
+        "LexiconNames": List[str],
+        "SampleRate": str,
+        "SpeechMarkTypes": List[SpeechMarkTypeType],
+        "TextType": TextTypeType,
+    },
+    total=False,
+)
+
+class SynthesizeSpeechInputRequestTypeDef(
+    _RequiredSynthesizeSpeechInputRequestTypeDef, _OptionalSynthesizeSpeechInputRequestTypeDef
+):
+    pass
 
 SynthesizeSpeechOutputTypeDef = TypedDict(
     "SynthesizeSpeechOutputTypeDef",
@@ -416,7 +305,20 @@ SynthesizeSpeechOutputTypeDef = TypedDict(
         "AudioStream": StreamingBody,
         "ContentType": str,
         "RequestCharacters": int,
-        "ResponseMetadata": "ResponseMetadata",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VoiceTypeDef = TypedDict(
+    "VoiceTypeDef",
+    {
+        "Gender": GenderType,
+        "Id": VoiceIdType,
+        "LanguageCode": LanguageCodeType,
+        "LanguageName": str,
+        "Name": str,
+        "AdditionalLanguageCodes": List[LanguageCodeType],
+        "SupportedEngines": List[EngineType],
     },
     total=False,
 )

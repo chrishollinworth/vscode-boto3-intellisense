@@ -1,5 +1,7 @@
 """
-Main interface for clouddirectory service client
+Type annotations for clouddirectory service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html)
 
 Usage::
 
@@ -13,9 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_clouddirectory.paginator import (
+from .literals import ConsistencyLevelType, DirectoryStateType, FacetStyleType, ObjectTypeType
+from .paginator import (
     ListAppliedSchemaArnsPaginator,
     ListAttachedIndicesPaginator,
     ListDevelopmentSchemaArnsPaginator,
@@ -36,7 +39,7 @@ from mypy_boto3_clouddirectory.paginator import (
     ListTypedLinkFacetNamesPaginator,
     LookupPolicyPaginator,
 )
-from mypy_boto3_clouddirectory.type_defs import (
+from .type_defs import (
     ApplySchemaResponseTypeDef,
     AttachObjectResponseTypeDef,
     AttachToIndexResponseTypeDef,
@@ -113,17 +116,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("CloudDirectoryClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -163,222 +162,289 @@ class Exceptions:
     UnsupportedIndexTypeException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class CloudDirectoryClient:
+class CloudDirectoryClient(BaseClient):
     """
-    [CloudDirectory.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        CloudDirectoryClient exceptions.
+        """
     def add_facet_to_object(
         self,
+        *,
         DirectoryArn: str,
         SchemaFacet: "SchemaFacetTypeDef",
         ObjectReference: "ObjectReferenceTypeDef",
-        ObjectAttributeList: List["AttributeKeyAndValueTypeDef"] = None,
+        ObjectAttributeList: List["AttributeKeyAndValueTypeDef"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.add_facet_to_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.add_facet_to_object)
-        """
+        Adds a new  Facet to an object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.add_facet_to_object)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#add_facet_to_object)
+        """
     def apply_schema(
-        self, PublishedSchemaArn: str, DirectoryArn: str
+        self, *, PublishedSchemaArn: str, DirectoryArn: str
     ) -> ApplySchemaResponseTypeDef:
         """
-        [Client.apply_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.apply_schema)
-        """
+        Copies the input published schema, at the specified version, into the  Directory
+        with the same name and version as that of the published schema.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.apply_schema)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#apply_schema)
+        """
     def attach_object(
         self,
+        *,
         DirectoryArn: str,
         ParentReference: "ObjectReferenceTypeDef",
         ChildReference: "ObjectReferenceTypeDef",
-        LinkName: str,
+        LinkName: str
     ) -> AttachObjectResponseTypeDef:
         """
-        [Client.attach_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_object)
-        """
+        Attaches an existing object to another object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.attach_object)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#attach_object)
+        """
     def attach_policy(
         self,
+        *,
         DirectoryArn: str,
         PolicyReference: "ObjectReferenceTypeDef",
-        ObjectReference: "ObjectReferenceTypeDef",
+        ObjectReference: "ObjectReferenceTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.attach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_policy)
-        """
+        Attaches a policy object to a regular object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.attach_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#attach_policy)
+        """
     def attach_to_index(
         self,
+        *,
         DirectoryArn: str,
         IndexReference: "ObjectReferenceTypeDef",
-        TargetReference: "ObjectReferenceTypeDef",
+        TargetReference: "ObjectReferenceTypeDef"
     ) -> AttachToIndexResponseTypeDef:
         """
-        [Client.attach_to_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_to_index)
-        """
+        Attaches the specified object to the specified index.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.attach_to_index)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#attach_to_index)
+        """
     def attach_typed_link(
         self,
+        *,
         DirectoryArn: str,
         SourceObjectReference: "ObjectReferenceTypeDef",
         TargetObjectReference: "ObjectReferenceTypeDef",
         TypedLinkFacet: "TypedLinkSchemaAndFacetNameTypeDef",
-        Attributes: List["AttributeNameAndValueTypeDef"],
+        Attributes: List["AttributeNameAndValueTypeDef"]
     ) -> AttachTypedLinkResponseTypeDef:
         """
-        [Client.attach_typed_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_typed_link)
-        """
+        Attaches a typed link to a specified source and target object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.attach_typed_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#attach_typed_link)
+        """
     def batch_read(
         self,
+        *,
         DirectoryArn: str,
-        Operations: List[BatchReadOperationTypeDef],
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        Operations: List["BatchReadOperationTypeDef"],
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> BatchReadResponseTypeDef:
         """
-        [Client.batch_read documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.batch_read)
-        """
+        Performs all the read operations in a batch.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.batch_read)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#batch_read)
+        """
     def batch_write(
-        self, DirectoryArn: str, Operations: List[BatchWriteOperationTypeDef]
+        self, *, DirectoryArn: str, Operations: List["BatchWriteOperationTypeDef"]
     ) -> BatchWriteResponseTypeDef:
         """
-        [Client.batch_write documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.batch_write)
-        """
+        Performs all the write operations in a batch.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.batch_write)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#batch_write)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def create_directory(self, Name: str, SchemaArn: str) -> CreateDirectoryResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#can_paginate)
         """
-        [Client.create_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_directory)
+    def create_directory(self, *, Name: str, SchemaArn: str) -> CreateDirectoryResponseTypeDef:
         """
+        Creates a  Directory by copying the published schema into the directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.create_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#create_directory)
+        """
     def create_facet(
         self,
+        *,
         SchemaArn: str,
         Name: str,
         Attributes: List["FacetAttributeTypeDef"] = None,
-        ObjectType: Literal["NODE", "LEAF_NODE", "POLICY", "INDEX"] = None,
-        FacetStyle: Literal["STATIC", "DYNAMIC"] = None,
+        ObjectType: ObjectTypeType = None,
+        FacetStyle: FacetStyleType = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_facet)
-        """
+        Creates a new  Facet in a schema.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.create_facet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#create_facet)
+        """
     def create_index(
         self,
+        *,
         DirectoryArn: str,
         OrderedIndexedAttributeList: List["AttributeKeyTypeDef"],
         IsUnique: bool,
         ParentReference: "ObjectReferenceTypeDef" = None,
-        LinkName: str = None,
+        LinkName: str = None
     ) -> CreateIndexResponseTypeDef:
         """
-        [Client.create_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_index)
-        """
+        Creates an index object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.create_index)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#create_index)
+        """
     def create_object(
         self,
+        *,
         DirectoryArn: str,
         SchemaFacets: List["SchemaFacetTypeDef"],
         ObjectAttributeList: List["AttributeKeyAndValueTypeDef"] = None,
         ParentReference: "ObjectReferenceTypeDef" = None,
-        LinkName: str = None,
+        LinkName: str = None
     ) -> CreateObjectResponseTypeDef:
         """
-        [Client.create_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_object)
-        """
+        Creates an object in a  Directory.
 
-    def create_schema(self, Name: str) -> CreateSchemaResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.create_object)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#create_object)
         """
-        [Client.create_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_schema)
+    def create_schema(self, *, Name: str) -> CreateSchemaResponseTypeDef:
         """
+        Creates a new schema in a development state.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.create_schema)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#create_schema)
+        """
     def create_typed_link_facet(
-        self, SchemaArn: str, Facet: TypedLinkFacetTypeDef
+        self, *, SchemaArn: str, Facet: "TypedLinkFacetTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.create_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_typed_link_facet)
-        """
+        Creates a  TypedLinkFacet.
 
-    def delete_directory(self, DirectoryArn: str) -> DeleteDirectoryResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.create_typed_link_facet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#create_typed_link_facet)
         """
-        [Client.delete_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_directory)
+    def delete_directory(self, *, DirectoryArn: str) -> DeleteDirectoryResponseTypeDef:
         """
+        Deletes a directory.
 
-    def delete_facet(self, SchemaArn: str, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.delete_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#delete_directory)
         """
-        [Client.delete_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_facet)
+    def delete_facet(self, *, SchemaArn: str, Name: str) -> Dict[str, Any]:
         """
+        Deletes a given  Facet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.delete_facet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#delete_facet)
+        """
     def delete_object(
-        self, DirectoryArn: str, ObjectReference: "ObjectReferenceTypeDef"
+        self, *, DirectoryArn: str, ObjectReference: "ObjectReferenceTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_object)
-        """
+        Deletes an object and its associated attributes.
 
-    def delete_schema(self, SchemaArn: str) -> DeleteSchemaResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.delete_object)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#delete_object)
         """
-        [Client.delete_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_schema)
+    def delete_schema(self, *, SchemaArn: str) -> DeleteSchemaResponseTypeDef:
         """
+        Deletes a given schema.
 
-    def delete_typed_link_facet(self, SchemaArn: str, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.delete_schema)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#delete_schema)
         """
-        [Client.delete_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_typed_link_facet)
+    def delete_typed_link_facet(self, *, SchemaArn: str, Name: str) -> Dict[str, Any]:
         """
+        Deletes a  TypedLinkFacet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.delete_typed_link_facet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#delete_typed_link_facet)
+        """
     def detach_from_index(
         self,
+        *,
         DirectoryArn: str,
         IndexReference: "ObjectReferenceTypeDef",
-        TargetReference: "ObjectReferenceTypeDef",
+        TargetReference: "ObjectReferenceTypeDef"
     ) -> DetachFromIndexResponseTypeDef:
         """
-        [Client.detach_from_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_from_index)
-        """
+        Detaches the specified object from the specified index.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.detach_from_index)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#detach_from_index)
+        """
     def detach_object(
-        self, DirectoryArn: str, ParentReference: "ObjectReferenceTypeDef", LinkName: str
+        self, *, DirectoryArn: str, ParentReference: "ObjectReferenceTypeDef", LinkName: str
     ) -> DetachObjectResponseTypeDef:
         """
-        [Client.detach_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_object)
-        """
+        Detaches a given object from the parent object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.detach_object)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#detach_object)
+        """
     def detach_policy(
         self,
+        *,
         DirectoryArn: str,
         PolicyReference: "ObjectReferenceTypeDef",
-        ObjectReference: "ObjectReferenceTypeDef",
+        ObjectReference: "ObjectReferenceTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.detach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_policy)
-        """
+        Detaches a policy from an object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.detach_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#detach_policy)
+        """
     def detach_typed_link(
-        self, DirectoryArn: str, TypedLinkSpecifier: "TypedLinkSpecifierTypeDef"
+        self, *, DirectoryArn: str, TypedLinkSpecifier: "TypedLinkSpecifierTypeDef"
     ) -> None:
         """
-        [Client.detach_typed_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_typed_link)
-        """
+        Detaches a typed link from a specified source and target object.
 
-    def disable_directory(self, DirectoryArn: str) -> DisableDirectoryResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.detach_typed_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#detach_typed_link)
         """
-        [Client.disable_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.disable_directory)
+    def disable_directory(self, *, DirectoryArn: str) -> DisableDirectoryResponseTypeDef:
         """
+        Disables the specified directory.
 
-    def enable_directory(self, DirectoryArn: str) -> EnableDirectoryResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.disable_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#disable_directory)
         """
-        [Client.enable_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.enable_directory)
+    def enable_directory(self, *, DirectoryArn: str) -> EnableDirectoryResponseTypeDef:
         """
+        Enables the specified directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.enable_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#enable_directory)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -387,524 +453,639 @@ class CloudDirectoryClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_applied_schema_version(self, SchemaArn: str) -> GetAppliedSchemaVersionResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#generate_presigned_url)
         """
-        [Client.get_applied_schema_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_applied_schema_version)
+    def get_applied_schema_version(
+        self, *, SchemaArn: str
+    ) -> GetAppliedSchemaVersionResponseTypeDef:
         """
+        Returns current applied schema version ARN, including the minor version in use.
 
-    def get_directory(self, DirectoryArn: str) -> GetDirectoryResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_applied_schema_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_applied_schema_version)
         """
-        [Client.get_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_directory)
+    def get_directory(self, *, DirectoryArn: str) -> GetDirectoryResponseTypeDef:
         """
+        Retrieves metadata about a directory.
 
-    def get_facet(self, SchemaArn: str, Name: str) -> GetFacetResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_directory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_directory)
         """
-        [Client.get_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_facet)
+    def get_facet(self, *, SchemaArn: str, Name: str) -> GetFacetResponseTypeDef:
         """
+        Gets details of the  Facet , such as facet name, attributes,  Rule s, or
+        `ObjectType`.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_facet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_facet)
+        """
     def get_link_attributes(
         self,
+        *,
         DirectoryArn: str,
         TypedLinkSpecifier: "TypedLinkSpecifierTypeDef",
         AttributeNames: List[str],
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> GetLinkAttributesResponseTypeDef:
         """
-        [Client.get_link_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_link_attributes)
-        """
+        Retrieves attributes that are associated with a typed link.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_link_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_link_attributes)
+        """
     def get_object_attributes(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         SchemaFacet: "SchemaFacetTypeDef",
         AttributeNames: List[str],
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> GetObjectAttributesResponseTypeDef:
         """
-        [Client.get_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_attributes)
-        """
+        Retrieves attributes within a facet that are associated with an object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_object_attributes)
+        """
     def get_object_information(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> GetObjectInformationResponseTypeDef:
         """
-        [Client.get_object_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_information)
-        """
+        Retrieves metadata about an object.
 
-    def get_schema_as_json(self, SchemaArn: str) -> GetSchemaAsJsonResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_information)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_object_information)
         """
-        [Client.get_schema_as_json documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_schema_as_json)
+    def get_schema_as_json(self, *, SchemaArn: str) -> GetSchemaAsJsonResponseTypeDef:
         """
+        Retrieves a JSON representation of the schema.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_schema_as_json)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_schema_as_json)
+        """
     def get_typed_link_facet_information(
-        self, SchemaArn: str, Name: str
+        self, *, SchemaArn: str, Name: str
     ) -> GetTypedLinkFacetInformationResponseTypeDef:
         """
-        [Client.get_typed_link_facet_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_typed_link_facet_information)
-        """
+        Returns the identity attribute order for a specific  TypedLinkFacet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.get_typed_link_facet_information)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#get_typed_link_facet_information)
+        """
     def list_applied_schema_arns(
         self,
+        *,
         DirectoryArn: str,
         SchemaArn: str = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListAppliedSchemaArnsResponseTypeDef:
         """
-        [Client.list_applied_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_applied_schema_arns)
-        """
+        Lists schema major versions applied to a directory.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_applied_schema_arns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_applied_schema_arns)
+        """
     def list_attached_indices(
         self,
+        *,
         DirectoryArn: str,
         TargetReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> ListAttachedIndicesResponseTypeDef:
         """
-        [Client.list_attached_indices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_attached_indices)
-        """
+        Lists indices attached to the specified object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_attached_indices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_attached_indices)
+        """
     def list_development_schema_arns(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListDevelopmentSchemaArnsResponseTypeDef:
         """
-        [Client.list_development_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_development_schema_arns)
-        """
+        Retrieves each Amazon Resource Name (ARN) of schemas in the development state.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_development_schema_arns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_development_schema_arns)
+        """
     def list_directories(
-        self,
-        NextToken: str = None,
-        MaxResults: int = None,
-        state: Literal["ENABLED", "DISABLED", "DELETED"] = None,
+        self, *, NextToken: str = None, MaxResults: int = None, state: DirectoryStateType = None
     ) -> ListDirectoriesResponseTypeDef:
         """
-        [Client.list_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_directories)
-        """
+        Lists directories created within an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_directories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_directories)
+        """
     def list_facet_attributes(
-        self, SchemaArn: str, Name: str, NextToken: str = None, MaxResults: int = None
+        self, *, SchemaArn: str, Name: str, NextToken: str = None, MaxResults: int = None
     ) -> ListFacetAttributesResponseTypeDef:
         """
-        [Client.list_facet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_attributes)
-        """
+        Retrieves attributes attached to the facet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_facet_attributes)
+        """
     def list_facet_names(
-        self, SchemaArn: str, NextToken: str = None, MaxResults: int = None
+        self, *, SchemaArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListFacetNamesResponseTypeDef:
         """
-        [Client.list_facet_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_names)
-        """
+        Retrieves the names of facets that exist in a schema.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_names)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_facet_names)
+        """
     def list_incoming_typed_links(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         FilterAttributeRanges: List["TypedLinkAttributeRangeTypeDef"] = None,
         FilterTypedLink: "TypedLinkSchemaAndFacetNameTypeDef" = None,
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> ListIncomingTypedLinksResponseTypeDef:
         """
-        [Client.list_incoming_typed_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_incoming_typed_links)
-        """
+        Returns a paginated list of all the incoming  TypedLinkSpecifier information for
+        an object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_incoming_typed_links)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_incoming_typed_links)
+        """
     def list_index(
         self,
+        *,
         DirectoryArn: str,
         IndexReference: "ObjectReferenceTypeDef",
         RangesOnIndexedValues: List["ObjectAttributeRangeTypeDef"] = None,
         MaxResults: int = None,
         NextToken: str = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> ListIndexResponseTypeDef:
         """
-        [Client.list_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_index)
-        """
+        Lists objects attached to the specified index.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_index)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_index)
+        """
     def list_managed_schema_arns(
-        self, SchemaArn: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, SchemaArn: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListManagedSchemaArnsResponseTypeDef:
         """
-        [Client.list_managed_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_managed_schema_arns)
-        """
+        Lists the major version families of each managed schema.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_managed_schema_arns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_managed_schema_arns)
+        """
     def list_object_attributes(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
-        FacetFilter: "SchemaFacetTypeDef" = None,
+        ConsistencyLevel: ConsistencyLevelType = None,
+        FacetFilter: "SchemaFacetTypeDef" = None
     ) -> ListObjectAttributesResponseTypeDef:
         """
-        [Client.list_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_attributes)
-        """
+        Lists all attributes that are associated with an object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_object_attributes)
+        """
     def list_object_children(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> ListObjectChildrenResponseTypeDef:
         """
-        [Client.list_object_children documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_children)
-        """
+        Returns a paginated list of child objects that are associated with a given
+        object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_children)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_object_children)
+        """
     def list_object_parent_paths(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListObjectParentPathsResponseTypeDef:
         """
-        [Client.list_object_parent_paths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parent_paths)
-        """
+        Retrieves all available parent paths for any object type such as node, leaf
+        node, policy node, and index node objects.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parent_paths)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_object_parent_paths)
+        """
     def list_object_parents(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
-        IncludeAllLinksToEachParent: bool = None,
+        ConsistencyLevel: ConsistencyLevelType = None,
+        IncludeAllLinksToEachParent: bool = None
     ) -> ListObjectParentsResponseTypeDef:
         """
-        [Client.list_object_parents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parents)
-        """
+        Lists parent objects that are associated with a given object in pagination
+        fashion.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_object_parents)
+        """
     def list_object_policies(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> ListObjectPoliciesResponseTypeDef:
         """
-        [Client.list_object_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_policies)
-        """
+        Returns policies attached to an object in pagination fashion.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_object_policies)
+        """
     def list_outgoing_typed_links(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         FilterAttributeRanges: List["TypedLinkAttributeRangeTypeDef"] = None,
         FilterTypedLink: "TypedLinkSchemaAndFacetNameTypeDef" = None,
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> ListOutgoingTypedLinksResponseTypeDef:
         """
-        [Client.list_outgoing_typed_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_outgoing_typed_links)
-        """
+        Returns a paginated list of all the outgoing  TypedLinkSpecifier information for
+        an object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_outgoing_typed_links)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_outgoing_typed_links)
+        """
     def list_policy_attachments(
         self,
+        *,
         DirectoryArn: str,
         PolicyReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
         MaxResults: int = None,
-        ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
+        ConsistencyLevel: ConsistencyLevelType = None
     ) -> ListPolicyAttachmentsResponseTypeDef:
         """
-        [Client.list_policy_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_policy_attachments)
-        """
+        Returns all of the `ObjectIdentifiers` to which a given policy is attached.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_policy_attachments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_policy_attachments)
+        """
     def list_published_schema_arns(
-        self, SchemaArn: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, SchemaArn: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListPublishedSchemaArnsResponseTypeDef:
         """
-        [Client.list_published_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_published_schema_arns)
-        """
+        Lists the major version families of each published schema.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_published_schema_arns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_published_schema_arns)
+        """
     def list_tags_for_resource(
-        self, ResourceArn: str, NextToken: str = None, MaxResults: int = None
+        self, *, ResourceArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_tags_for_resource)
-        """
+        Returns tags for a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_tags_for_resource)
+        """
     def list_typed_link_facet_attributes(
-        self, SchemaArn: str, Name: str, NextToken: str = None, MaxResults: int = None
+        self, *, SchemaArn: str, Name: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTypedLinkFacetAttributesResponseTypeDef:
         """
-        [Client.list_typed_link_facet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_attributes)
-        """
+        Returns a paginated list of all attribute definitions for a particular
+        TypedLinkFacet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_typed_link_facet_attributes)
+        """
     def list_typed_link_facet_names(
-        self, SchemaArn: str, NextToken: str = None, MaxResults: int = None
+        self, *, SchemaArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTypedLinkFacetNamesResponseTypeDef:
         """
-        [Client.list_typed_link_facet_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_names)
-        """
+        Returns a paginated list of `TypedLink` facet names for a particular schema.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_names)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#list_typed_link_facet_names)
+        """
     def lookup_policy(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> LookupPolicyResponseTypeDef:
         """
-        [Client.lookup_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.lookup_policy)
-        """
+        Lists all policies from the root of the  Directory to the object specified.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.lookup_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#lookup_policy)
+        """
     def publish_schema(
-        self, DevelopmentSchemaArn: str, Version: str, MinorVersion: str = None, Name: str = None
+        self, *, DevelopmentSchemaArn: str, Version: str, MinorVersion: str = None, Name: str = None
     ) -> PublishSchemaResponseTypeDef:
         """
-        [Client.publish_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.publish_schema)
-        """
+        Publishes a development schema with a major version and a recommended minor
+        version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.publish_schema)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#publish_schema)
+        """
     def put_schema_from_json(
-        self, SchemaArn: str, Document: str
+        self, *, SchemaArn: str, Document: str
     ) -> PutSchemaFromJsonResponseTypeDef:
         """
-        [Client.put_schema_from_json documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.put_schema_from_json)
-        """
+        Allows a schema to be updated using JSON upload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.put_schema_from_json)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#put_schema_from_json)
+        """
     def remove_facet_from_object(
         self,
+        *,
         DirectoryArn: str,
         SchemaFacet: "SchemaFacetTypeDef",
-        ObjectReference: "ObjectReferenceTypeDef",
+        ObjectReference: "ObjectReferenceTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.remove_facet_from_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.remove_facet_from_object)
-        """
+        Removes the specified facet from the specified object.
 
-    def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.remove_facet_from_object)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#remove_facet_from_object)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.tag_resource)
+    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        An API operation for adding tags to a resource.
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.untag_resource)
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        An API operation for removing tags from a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#untag_resource)
+        """
     def update_facet(
         self,
+        *,
         SchemaArn: str,
         Name: str,
-        AttributeUpdates: List[FacetAttributeUpdateTypeDef] = None,
-        ObjectType: Literal["NODE", "LEAF_NODE", "POLICY", "INDEX"] = None,
+        AttributeUpdates: List["FacetAttributeUpdateTypeDef"] = None,
+        ObjectType: ObjectTypeType = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_facet)
-        """
+        Does the following * Adds new `Attributes` , `Rules` , or `ObjectTypes` .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.update_facet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#update_facet)
+        """
     def update_link_attributes(
         self,
+        *,
         DirectoryArn: str,
         TypedLinkSpecifier: "TypedLinkSpecifierTypeDef",
-        AttributeUpdates: List["LinkAttributeUpdateTypeDef"],
+        AttributeUpdates: List["LinkAttributeUpdateTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.update_link_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_link_attributes)
-        """
+        Updates a given typed link’s attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.update_link_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#update_link_attributes)
+        """
     def update_object_attributes(
         self,
+        *,
         DirectoryArn: str,
         ObjectReference: "ObjectReferenceTypeDef",
-        AttributeUpdates: List["ObjectAttributeUpdateTypeDef"],
+        AttributeUpdates: List["ObjectAttributeUpdateTypeDef"]
     ) -> UpdateObjectAttributesResponseTypeDef:
         """
-        [Client.update_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_object_attributes)
-        """
+        Updates a given object's attributes.
 
-    def update_schema(self, SchemaArn: str, Name: str) -> UpdateSchemaResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.update_object_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#update_object_attributes)
         """
-        [Client.update_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_schema)
+    def update_schema(self, *, SchemaArn: str, Name: str) -> UpdateSchemaResponseTypeDef:
         """
+        Updates the schema name with a new name.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.update_schema)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#update_schema)
+        """
     def update_typed_link_facet(
         self,
+        *,
         SchemaArn: str,
         Name: str,
-        AttributeUpdates: List[TypedLinkFacetAttributeUpdateTypeDef],
-        IdentityAttributeOrder: List[str],
+        AttributeUpdates: List["TypedLinkFacetAttributeUpdateTypeDef"],
+        IdentityAttributeOrder: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.update_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_typed_link_facet)
-        """
+        Updates a  TypedLinkFacet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.update_typed_link_facet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#update_typed_link_facet)
+        """
     def upgrade_applied_schema(
-        self, PublishedSchemaArn: str, DirectoryArn: str, DryRun: bool = None
+        self, *, PublishedSchemaArn: str, DirectoryArn: str, DryRun: bool = None
     ) -> UpgradeAppliedSchemaResponseTypeDef:
         """
-        [Client.upgrade_applied_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_applied_schema)
-        """
+        Upgrades a single directory in-place using the `PublishedSchemaArn` with schema
+        updates found in `MinorVersion`.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_applied_schema)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#upgrade_applied_schema)
+        """
     def upgrade_published_schema(
         self,
+        *,
         DevelopmentSchemaArn: str,
         PublishedSchemaArn: str,
         MinorVersion: str,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> UpgradePublishedSchemaResponseTypeDef:
         """
-        [Client.upgrade_published_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_published_schema)
-        """
+        Upgrades a published schema under a new minor version revision using the current
+        contents of `DevelopmentSchemaArn` .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_published_schema)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/client.html#upgrade_published_schema)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_applied_schema_arns"]
     ) -> ListAppliedSchemaArnsPaginator:
         """
-        [Paginator.ListAppliedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listappliedschemaarnspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_attached_indices"]
     ) -> ListAttachedIndicesPaginator:
         """
-        [Paginator.ListAttachedIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listattachedindicespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_development_schema_arns"]
     ) -> ListDevelopmentSchemaArnsPaginator:
         """
-        [Paginator.ListDevelopmentSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listdevelopmentschemaarnspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_directories"]
     ) -> ListDirectoriesPaginator:
         """
-        [Paginator.ListDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listdirectoriespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_facet_attributes"]
     ) -> ListFacetAttributesPaginator:
         """
-        [Paginator.ListFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listfacetattributespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_facet_names"]) -> ListFacetNamesPaginator:
         """
-        [Paginator.ListFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listfacetnamespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_incoming_typed_links"]
     ) -> ListIncomingTypedLinksPaginator:
         """
-        [Paginator.ListIncomingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listincomingtypedlinkspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_index"]) -> ListIndexPaginator:
         """
-        [Paginator.ListIndex documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listindexpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_managed_schema_arns"]
     ) -> ListManagedSchemaArnsPaginator:
         """
-        [Paginator.ListManagedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listmanagedschemaarnspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_object_attributes"]
     ) -> ListObjectAttributesPaginator:
         """
-        [Paginator.ListObjectAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectattributespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_object_parent_paths"]
     ) -> ListObjectParentPathsPaginator:
         """
-        [Paginator.ListObjectParentPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectparentpathspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_object_policies"]
     ) -> ListObjectPoliciesPaginator:
         """
-        [Paginator.ListObjectPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectpoliciespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_outgoing_typed_links"]
     ) -> ListOutgoingTypedLinksPaginator:
         """
-        [Paginator.ListOutgoingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listoutgoingtypedlinkspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_policy_attachments"]
     ) -> ListPolicyAttachmentsPaginator:
         """
-        [Paginator.ListPolicyAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listpolicyattachmentspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_published_schema_arns"]
     ) -> ListPublishedSchemaArnsPaginator:
         """
-        [Paginator.ListPublishedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listpublishedschemaarnspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtagsforresourcepaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_typed_link_facet_attributes"]
     ) -> ListTypedLinkFacetAttributesPaginator:
         """
-        [Paginator.ListTypedLinkFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtypedlinkfacetattributespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_typed_link_facet_names"]
     ) -> ListTypedLinkFacetNamesPaginator:
         """
-        [Paginator.ListTypedLinkFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtypedlinkfacetnamespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["lookup_policy"]) -> LookupPolicyPaginator:
         """
-        [Paginator.LookupPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#lookuppolicypaginator)
         """

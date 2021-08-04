@@ -17,7 +17,9 @@ Usage::
         DescribeDBEngineVersionsPaginator,
         DescribeDBInstancesPaginator,
         DescribeDBSubnetGroupsPaginator,
+        DescribeEventSubscriptionsPaginator,
         DescribeEventsPaginator,
+        DescribeGlobalClustersPaginator,
         DescribeOrderableDBInstanceOptionsPaginator,
         DescribePendingMaintenanceActionsPaginator,
         DocDBClient,
@@ -39,13 +41,15 @@ Usage::
     describe_db_engine_versions_paginator: DescribeDBEngineVersionsPaginator = client.get_paginator("describe_db_engine_versions")
     describe_db_instances_paginator: DescribeDBInstancesPaginator = client.get_paginator("describe_db_instances")
     describe_db_subnet_groups_paginator: DescribeDBSubnetGroupsPaginator = client.get_paginator("describe_db_subnet_groups")
+    describe_event_subscriptions_paginator: DescribeEventSubscriptionsPaginator = client.get_paginator("describe_event_subscriptions")
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
+    describe_global_clusters_paginator: DescribeGlobalClustersPaginator = client.get_paginator("describe_global_clusters")
     describe_orderable_db_instance_options_paginator: DescribeOrderableDBInstanceOptionsPaginator = client.get_paginator("describe_orderable_db_instance_options")
     describe_pending_maintenance_actions_paginator: DescribePendingMaintenanceActionsPaginator = client.get_paginator("describe_pending_maintenance_actions")
     ```
 """
-from mypy_boto3_docdb.client import DocDBClient
-from mypy_boto3_docdb.paginator import (
+from .client import DocDBClient
+from .paginator import (
     DescribeCertificatesPaginator,
     DescribeDBClusterParameterGroupsPaginator,
     DescribeDBClusterParametersPaginator,
@@ -55,13 +59,14 @@ from mypy_boto3_docdb.paginator import (
     DescribeDBInstancesPaginator,
     DescribeDBSubnetGroupsPaginator,
     DescribeEventsPaginator,
+    DescribeEventSubscriptionsPaginator,
+    DescribeGlobalClustersPaginator,
     DescribeOrderableDBInstanceOptionsPaginator,
     DescribePendingMaintenanceActionsPaginator,
 )
-from mypy_boto3_docdb.waiter import DBInstanceAvailableWaiter, DBInstanceDeletedWaiter
+from .waiter import DBInstanceAvailableWaiter, DBInstanceDeletedWaiter
 
 Client = DocDBClient
-
 
 __all__ = (
     "Client",
@@ -75,7 +80,9 @@ __all__ = (
     "DescribeDBEngineVersionsPaginator",
     "DescribeDBInstancesPaginator",
     "DescribeDBSubnetGroupsPaginator",
+    "DescribeEventSubscriptionsPaginator",
     "DescribeEventsPaginator",
+    "DescribeGlobalClustersPaginator",
     "DescribeOrderableDBInstanceOptionsPaginator",
     "DescribePendingMaintenanceActionsPaginator",
     "DocDBClient",

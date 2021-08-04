@@ -1,5 +1,7 @@
 """
-Main interface for route53 service client waiters.
+Type annotations for route53 service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/waiters.html)
 
 Usage::
 
@@ -18,17 +20,18 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_route53.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("ResourceRecordSetsChangedWaiter",)
 
-
 class ResourceRecordSetsChangedWaiter(Boto3Waiter):
     """
-    [Waiter.ResourceRecordSetsChanged documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/waiters.html#resourcerecordsetschangedwaiter)
     """
 
-    def wait(self, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ResourceRecordSetsChanged.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/waiters.html#resourcerecordsetschangedwaiter)
         """

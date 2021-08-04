@@ -16,9 +16,8 @@ Usage::
     session_client: MigrationHubConfigClient = session.client("migrationhub-config")
     ```
 """
-from mypy_boto3_migrationhub_config.client import MigrationHubConfigClient
+from .client import MigrationHubConfigClient
 
 Client = MigrationHubConfigClient
-
 
 __all__ = ("Client", "MigrationHubConfigClient")

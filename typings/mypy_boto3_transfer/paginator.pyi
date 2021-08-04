@@ -1,5 +1,7 @@
 """
-Main interface for transfer service client paginators.
+Type annotations for transfer service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/paginators.html)
 
 Usage::
 
@@ -20,19 +22,20 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_transfer.type_defs import ListServersResponseTypeDef, PaginatorConfigTypeDef
+from .type_defs import ListServersResponseTypeDef, PaginatorConfigTypeDef
 
 __all__ = ("ListServersPaginator",)
 
-
 class ListServersPaginator(Boto3Paginator):
     """
-    [Paginator.ListServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Paginator.ListServers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Paginator.ListServers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/paginators.html#listserverspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServersResponseTypeDef]:
         """
-        [ListServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Paginator.ListServers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Paginator.ListServers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/paginators.html#listserverspaginator)
         """

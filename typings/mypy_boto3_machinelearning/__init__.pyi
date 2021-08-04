@@ -34,14 +34,14 @@ Usage::
     describe_ml_models_paginator: DescribeMLModelsPaginator = client.get_paginator("describe_ml_models")
     ```
 """
-from mypy_boto3_machinelearning.client import MachineLearningClient
-from mypy_boto3_machinelearning.paginator import (
+from .client import MachineLearningClient
+from .paginator import (
     DescribeBatchPredictionsPaginator,
     DescribeDataSourcesPaginator,
     DescribeEvaluationsPaginator,
     DescribeMLModelsPaginator,
 )
-from mypy_boto3_machinelearning.waiter import (
+from .waiter import (
     BatchPredictionAvailableWaiter,
     DataSourceAvailableWaiter,
     EvaluationAvailableWaiter,
@@ -49,7 +49,6 @@ from mypy_boto3_machinelearning.waiter import (
 )
 
 Client = MachineLearningClient
-
 
 __all__ = (
     "BatchPredictionAvailableWaiter",

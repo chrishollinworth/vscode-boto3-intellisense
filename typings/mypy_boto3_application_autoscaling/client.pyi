@@ -1,5 +1,7 @@
 """
-Main interface for application-autoscaling service client
+Type annotations for application-autoscaling service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html)
 
 Usage::
 
@@ -12,17 +14,18 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_application_autoscaling.paginator import (
+from .literals import PolicyTypeType, ScalableDimensionType, ServiceNamespaceType
+from .paginator import (
     DescribeScalableTargetsPaginator,
     DescribeScalingActivitiesPaginator,
     DescribeScalingPoliciesPaginator,
     DescribeScheduledActionsPaginator,
 )
-from mypy_boto3_application_autoscaling.type_defs import (
+from .type_defs import (
     DescribeScalableTargetsResponseTypeDef,
     DescribeScalingActivitiesResponseTypeDef,
     DescribeScalingPoliciesResponseTypeDef,
@@ -39,17 +42,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("ApplicationAutoScalingClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -61,319 +60,134 @@ class Exceptions:
     ObjectNotFoundException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class ApplicationAutoScalingClient:
+class ApplicationAutoScalingClient(BaseClient):
     """
-    [ApplicationAutoScaling.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ApplicationAutoScalingClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#can_paginate)
+        """
     def delete_scaling_policy(
         self,
+        *,
         PolicyName: str,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        ServiceNamespace: ServiceNamespaceType,
         ResourceId: str,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ],
+        ScalableDimension: ScalableDimensionType
     ) -> Dict[str, Any]:
         """
-        [Client.delete_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scaling_policy)
-        """
+        Deletes the specified scaling policy for an Application Auto Scaling scalable
+        target.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scaling_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#delete_scaling_policy)
+        """
     def delete_scheduled_action(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ScheduledActionName: str,
         ResourceId: str,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ],
+        ScalableDimension: ScalableDimensionType
     ) -> Dict[str, Any]:
         """
-        [Client.delete_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scheduled_action)
-        """
+        Deletes the specified scheduled action for an Application Auto Scaling scalable
+        target.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.delete_scheduled_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#delete_scheduled_action)
+        """
     def deregister_scalable_target(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ResourceId: str,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ],
+        ScalableDimension: ScalableDimensionType
     ) -> Dict[str, Any]:
         """
-        [Client.deregister_scalable_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.deregister_scalable_target)
-        """
+        Deregisters an Application Auto Scaling scalable target when you have finished
+        using it.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.deregister_scalable_target)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#deregister_scalable_target)
+        """
     def describe_scalable_targets(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ResourceIds: List[str] = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
+        ScalableDimension: ScalableDimensionType = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeScalableTargetsResponseTypeDef:
         """
-        [Client.describe_scalable_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scalable_targets)
-        """
+        Gets information about the scalable targets in the specified namespace.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scalable_targets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scalable_targets)
+        """
     def describe_scaling_activities(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ResourceId: str = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
+        ScalableDimension: ScalableDimensionType = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeScalingActivitiesResponseTypeDef:
         """
-        [Client.describe_scaling_activities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_activities)
-        """
+        Provides descriptive information about the scaling activities in the specified
+        namespace from the previous six weeks.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_activities)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scaling_activities)
+        """
     def describe_scaling_policies(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         PolicyNames: List[str] = None,
         ResourceId: str = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
+        ScalableDimension: ScalableDimensionType = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeScalingPoliciesResponseTypeDef:
         """
-        [Client.describe_scaling_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_policies)
-        """
+        Describes the Application Auto Scaling scaling policies for the specified
+        service namespace.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scaling_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scaling_policies)
+        """
     def describe_scheduled_actions(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ScheduledActionNames: List[str] = None,
         ResourceId: str = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
+        ScalableDimension: ScalableDimensionType = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeScheduledActionsResponseTypeDef:
         """
-        [Client.describe_scheduled_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scheduled_actions)
-        """
+        Describes the Application Auto Scaling scheduled actions for the specified
+        service namespace.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.describe_scheduled_actions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#describe_scheduled_actions)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -382,174 +196,95 @@ class ApplicationAutoScalingClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#generate_presigned_url)
+        """
     def put_scaling_policy(
         self,
+        *,
         PolicyName: str,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        ServiceNamespace: ServiceNamespaceType,
         ResourceId: str,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ],
-        PolicyType: Literal["StepScaling", "TargetTrackingScaling"] = None,
+        ScalableDimension: ScalableDimensionType,
+        PolicyType: PolicyTypeType = None,
         StepScalingPolicyConfiguration: "StepScalingPolicyConfigurationTypeDef" = None,
-        TargetTrackingScalingPolicyConfiguration: "TargetTrackingScalingPolicyConfigurationTypeDef" = None,
+        TargetTrackingScalingPolicyConfiguration: "TargetTrackingScalingPolicyConfigurationTypeDef" = None
     ) -> PutScalingPolicyResponseTypeDef:
         """
-        [Client.put_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scaling_policy)
-        """
+        Creates or updates a scaling policy for an Application Auto Scaling scalable
+        target.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scaling_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#put_scaling_policy)
+        """
     def put_scheduled_action(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ScheduledActionName: str,
         ResourceId: str,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ],
+        ScalableDimension: ScalableDimensionType,
         Schedule: str = None,
         Timezone: str = None,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
-        ScalableTargetAction: "ScalableTargetActionTypeDef" = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
+        ScalableTargetAction: "ScalableTargetActionTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.put_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scheduled_action)
-        """
+        Creates or updates a scheduled action for an Application Auto Scaling scalable
+        target.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.put_scheduled_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#put_scheduled_action)
+        """
     def register_scalable_target(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ResourceId: str,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ],
+        ScalableDimension: ScalableDimensionType,
         MinCapacity: int = None,
         MaxCapacity: int = None,
         RoleARN: str = None,
-        SuspendedState: "SuspendedStateTypeDef" = None,
+        SuspendedState: "SuspendedStateTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.register_scalable_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.register_scalable_target)
-        """
+        Registers or updates a scalable target.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Client.register_scalable_target)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/client.html#register_scalable_target)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_scalable_targets"]
     ) -> DescribeScalableTargetsPaginator:
         """
-        [Paginator.DescribeScalableTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalabletargetspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_scaling_activities"]
     ) -> DescribeScalingActivitiesPaginator:
         """
-        [Paginator.DescribeScalingActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingactivitiespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_scaling_policies"]
     ) -> DescribeScalingPoliciesPaginator:
         """
-        [Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingpoliciespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_scheduled_actions"]
     ) -> DescribeScheduledActionsPaginator:
         """
-        [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescheduledactionspaginator)
         """

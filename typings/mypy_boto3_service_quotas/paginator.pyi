@@ -1,5 +1,7 @@
 """
-Main interface for service-quotas service client paginators.
+Type annotations for service-quotas service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html)
 
 Usage::
 
@@ -26,12 +28,12 @@ Usage::
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_service_quotas.type_defs import (
+from .literals import RequestStatusType
+from .type_defs import (
     ListAWSDefaultServiceQuotasResponseTypeDef,
     ListRequestedServiceQuotaChangeHistoryByQuotaResponseTypeDef,
     ListRequestedServiceQuotaChangeHistoryResponseTypeDef,
@@ -40,12 +42,6 @@ from mypy_boto3_service_quotas.type_defs import (
     ListServicesResponseTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "ListAWSDefaultServiceQuotasPaginator",
@@ -56,90 +52,99 @@ __all__ = (
     "ListServicesPaginator",
 )
 
-
 class ListAWSDefaultServiceQuotasPaginator(Boto3Paginator):
     """
-    [Paginator.ListAWSDefaultServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listawsdefaultservicequotaspaginator)
     """
 
     def paginate(
-        self, ServiceCode: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ServiceCode: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAWSDefaultServiceQuotasResponseTypeDef]:
         """
-        [ListAWSDefaultServiceQuotas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listawsdefaultservicequotaspaginator)
         """
-
 
 class ListRequestedServiceQuotaChangeHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.ListRequestedServiceQuotaChangeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listrequestedservicequotachangehistorypaginator)
     """
 
     def paginate(
         self,
+        *,
         ServiceCode: str = None,
-        Status: Literal["PENDING", "CASE_OPENED", "APPROVED", "DENIED", "CASE_CLOSED"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Status: RequestStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRequestedServiceQuotaChangeHistoryResponseTypeDef]:
         """
-        [ListRequestedServiceQuotaChangeHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listrequestedservicequotachangehistorypaginator)
         """
-
 
 class ListRequestedServiceQuotaChangeHistoryByQuotaPaginator(Boto3Paginator):
     """
-    [Paginator.ListRequestedServiceQuotaChangeHistoryByQuota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listrequestedservicequotachangehistorybyquotapaginator)
     """
 
     def paginate(
         self,
+        *,
         ServiceCode: str,
         QuotaCode: str,
-        Status: Literal["PENDING", "CASE_OPENED", "APPROVED", "DENIED", "CASE_CLOSED"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Status: RequestStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRequestedServiceQuotaChangeHistoryByQuotaResponseTypeDef]:
         """
-        [ListRequestedServiceQuotaChangeHistoryByQuota.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listrequestedservicequotachangehistorybyquotapaginator)
         """
-
 
 class ListServiceQuotaIncreaseRequestsInTemplatePaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceQuotaIncreaseRequestsInTemplate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicequotaincreaserequestsintemplatepaginator)
     """
 
     def paginate(
         self,
+        *,
         ServiceCode: str = None,
         AwsRegion: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceQuotaIncreaseRequestsInTemplateResponseTypeDef]:
         """
-        [ListServiceQuotaIncreaseRequestsInTemplate.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicequotaincreaserequestsintemplatepaginator)
         """
-
 
 class ListServiceQuotasPaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicequotaspaginator)
     """
 
     def paginate(
-        self, ServiceCode: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ServiceCode: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceQuotasResponseTypeDef]:
         """
-        [ListServiceQuotas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicequotaspaginator)
         """
-
 
 class ListServicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServicesResponseTypeDef]:
         """
-        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicespaginator)
         """

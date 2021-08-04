@@ -16,9 +16,8 @@ Usage::
     session_client: WAFV2Client = session.client("wafv2")
     ```
 """
-from mypy_boto3_wafv2.client import WAFV2Client
+from .client import WAFV2Client
 
 Client = WAFV2Client
-
 
 __all__ = ("Client", "WAFV2Client")

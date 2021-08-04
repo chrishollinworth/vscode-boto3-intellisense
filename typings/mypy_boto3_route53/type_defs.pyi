@@ -1,5 +1,7 @@
 """
-Main interface for route53 service type definitions.
+Type annotations for route53 service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/type_defs.html)
 
 Usage::
 
@@ -11,7 +13,26 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
+
+from .literals import (
+    AccountLimitTypeType,
+    ChangeActionType,
+    ChangeStatusType,
+    CloudWatchRegionType,
+    ComparisonOperatorType,
+    HealthCheckRegionType,
+    HealthCheckTypeType,
+    HostedZoneLimitTypeType,
+    InsufficientDataHealthStatusType,
+    ResettableElementNameType,
+    ResourceRecordSetFailoverType,
+    ResourceRecordSetRegionType,
+    RRTypeType,
+    StatisticType,
+    TagResourceTypeType,
+    VPCRegionType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,19 +43,94 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AccountLimitTypeDef",
+    "ActivateKeySigningKeyRequestRequestTypeDef",
+    "ActivateKeySigningKeyResponseTypeDef",
     "AlarmIdentifierTypeDef",
     "AliasTargetTypeDef",
+    "AssociateVPCWithHostedZoneRequestRequestTypeDef",
+    "AssociateVPCWithHostedZoneResponseTypeDef",
+    "ChangeBatchTypeDef",
     "ChangeInfoTypeDef",
+    "ChangeResourceRecordSetsRequestRequestTypeDef",
+    "ChangeResourceRecordSetsResponseTypeDef",
+    "ChangeTagsForResourceRequestRequestTypeDef",
     "ChangeTypeDef",
     "CloudWatchAlarmConfigurationTypeDef",
+    "CreateHealthCheckRequestRequestTypeDef",
+    "CreateHealthCheckResponseTypeDef",
+    "CreateHostedZoneRequestRequestTypeDef",
+    "CreateHostedZoneResponseTypeDef",
+    "CreateKeySigningKeyRequestRequestTypeDef",
+    "CreateKeySigningKeyResponseTypeDef",
+    "CreateQueryLoggingConfigRequestRequestTypeDef",
+    "CreateQueryLoggingConfigResponseTypeDef",
+    "CreateReusableDelegationSetRequestRequestTypeDef",
+    "CreateReusableDelegationSetResponseTypeDef",
+    "CreateTrafficPolicyInstanceRequestRequestTypeDef",
+    "CreateTrafficPolicyInstanceResponseTypeDef",
+    "CreateTrafficPolicyRequestRequestTypeDef",
+    "CreateTrafficPolicyResponseTypeDef",
+    "CreateTrafficPolicyVersionRequestRequestTypeDef",
+    "CreateTrafficPolicyVersionResponseTypeDef",
+    "CreateVPCAssociationAuthorizationRequestRequestTypeDef",
+    "CreateVPCAssociationAuthorizationResponseTypeDef",
     "DNSSECStatusTypeDef",
+    "DeactivateKeySigningKeyRequestRequestTypeDef",
+    "DeactivateKeySigningKeyResponseTypeDef",
     "DelegationSetTypeDef",
+    "DeleteHealthCheckRequestRequestTypeDef",
+    "DeleteHostedZoneRequestRequestTypeDef",
+    "DeleteHostedZoneResponseTypeDef",
+    "DeleteKeySigningKeyRequestRequestTypeDef",
+    "DeleteKeySigningKeyResponseTypeDef",
+    "DeleteQueryLoggingConfigRequestRequestTypeDef",
+    "DeleteReusableDelegationSetRequestRequestTypeDef",
+    "DeleteTrafficPolicyInstanceRequestRequestTypeDef",
+    "DeleteTrafficPolicyRequestRequestTypeDef",
+    "DeleteVPCAssociationAuthorizationRequestRequestTypeDef",
     "DimensionTypeDef",
+    "DisableHostedZoneDNSSECRequestRequestTypeDef",
+    "DisableHostedZoneDNSSECResponseTypeDef",
+    "DisassociateVPCFromHostedZoneRequestRequestTypeDef",
+    "DisassociateVPCFromHostedZoneResponseTypeDef",
+    "EnableHostedZoneDNSSECRequestRequestTypeDef",
+    "EnableHostedZoneDNSSECResponseTypeDef",
     "GeoLocationDetailsTypeDef",
     "GeoLocationTypeDef",
+    "GetAccountLimitRequestRequestTypeDef",
+    "GetAccountLimitResponseTypeDef",
+    "GetChangeRequestRequestTypeDef",
+    "GetChangeResponseTypeDef",
+    "GetCheckerIpRangesResponseTypeDef",
+    "GetDNSSECRequestRequestTypeDef",
+    "GetDNSSECResponseTypeDef",
+    "GetGeoLocationRequestRequestTypeDef",
+    "GetGeoLocationResponseTypeDef",
+    "GetHealthCheckCountResponseTypeDef",
+    "GetHealthCheckLastFailureReasonRequestRequestTypeDef",
+    "GetHealthCheckLastFailureReasonResponseTypeDef",
+    "GetHealthCheckRequestRequestTypeDef",
+    "GetHealthCheckResponseTypeDef",
+    "GetHealthCheckStatusRequestRequestTypeDef",
+    "GetHealthCheckStatusResponseTypeDef",
+    "GetHostedZoneCountResponseTypeDef",
+    "GetHostedZoneLimitRequestRequestTypeDef",
+    "GetHostedZoneLimitResponseTypeDef",
+    "GetHostedZoneRequestRequestTypeDef",
+    "GetHostedZoneResponseTypeDef",
+    "GetQueryLoggingConfigRequestRequestTypeDef",
+    "GetQueryLoggingConfigResponseTypeDef",
+    "GetReusableDelegationSetLimitRequestRequestTypeDef",
+    "GetReusableDelegationSetLimitResponseTypeDef",
+    "GetReusableDelegationSetRequestRequestTypeDef",
+    "GetReusableDelegationSetResponseTypeDef",
+    "GetTrafficPolicyInstanceCountResponseTypeDef",
+    "GetTrafficPolicyInstanceRequestRequestTypeDef",
+    "GetTrafficPolicyInstanceResponseTypeDef",
+    "GetTrafficPolicyRequestRequestTypeDef",
+    "GetTrafficPolicyResponseTypeDef",
     "HealthCheckConfigTypeDef",
     "HealthCheckObservationTypeDef",
     "HealthCheckTypeDef",
@@ -45,148 +141,212 @@ __all__ = (
     "HostedZoneTypeDef",
     "KeySigningKeyTypeDef",
     "LinkedServiceTypeDef",
+    "ListGeoLocationsRequestRequestTypeDef",
+    "ListGeoLocationsResponseTypeDef",
+    "ListHealthChecksRequestRequestTypeDef",
+    "ListHealthChecksResponseTypeDef",
+    "ListHostedZonesByNameRequestRequestTypeDef",
+    "ListHostedZonesByNameResponseTypeDef",
+    "ListHostedZonesByVPCRequestRequestTypeDef",
+    "ListHostedZonesByVPCResponseTypeDef",
+    "ListHostedZonesRequestRequestTypeDef",
+    "ListHostedZonesResponseTypeDef",
+    "ListQueryLoggingConfigsRequestRequestTypeDef",
+    "ListQueryLoggingConfigsResponseTypeDef",
+    "ListResourceRecordSetsRequestRequestTypeDef",
+    "ListResourceRecordSetsResponseTypeDef",
+    "ListReusableDelegationSetsRequestRequestTypeDef",
+    "ListReusableDelegationSetsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "ListTagsForResourcesRequestRequestTypeDef",
+    "ListTagsForResourcesResponseTypeDef",
+    "ListTrafficPoliciesRequestRequestTypeDef",
+    "ListTrafficPoliciesResponseTypeDef",
+    "ListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef",
+    "ListTrafficPolicyInstancesByHostedZoneResponseTypeDef",
+    "ListTrafficPolicyInstancesByPolicyRequestRequestTypeDef",
+    "ListTrafficPolicyInstancesByPolicyResponseTypeDef",
+    "ListTrafficPolicyInstancesRequestRequestTypeDef",
+    "ListTrafficPolicyInstancesResponseTypeDef",
+    "ListTrafficPolicyVersionsRequestRequestTypeDef",
+    "ListTrafficPolicyVersionsResponseTypeDef",
+    "ListVPCAssociationAuthorizationsRequestRequestTypeDef",
+    "ListVPCAssociationAuthorizationsResponseTypeDef",
+    "PaginatorConfigTypeDef",
     "QueryLoggingConfigTypeDef",
     "ResourceRecordSetTypeDef",
     "ResourceRecordTypeDef",
     "ResourceTagSetTypeDef",
+    "ResponseMetadataTypeDef",
     "ReusableDelegationSetLimitTypeDef",
     "StatusReportTypeDef",
     "TagTypeDef",
+    "TestDNSAnswerRequestRequestTypeDef",
+    "TestDNSAnswerResponseTypeDef",
     "TrafficPolicyInstanceTypeDef",
     "TrafficPolicySummaryTypeDef",
     "TrafficPolicyTypeDef",
-    "VPCTypeDef",
-    "ActivateKeySigningKeyResponseTypeDef",
-    "AssociateVPCWithHostedZoneResponseTypeDef",
-    "ChangeBatchTypeDef",
-    "ChangeResourceRecordSetsResponseTypeDef",
-    "CreateHealthCheckResponseTypeDef",
-    "CreateHostedZoneResponseTypeDef",
-    "CreateKeySigningKeyResponseTypeDef",
-    "CreateQueryLoggingConfigResponseTypeDef",
-    "CreateReusableDelegationSetResponseTypeDef",
-    "CreateTrafficPolicyInstanceResponseTypeDef",
-    "CreateTrafficPolicyResponseTypeDef",
-    "CreateTrafficPolicyVersionResponseTypeDef",
-    "CreateVPCAssociationAuthorizationResponseTypeDef",
-    "DeactivateKeySigningKeyResponseTypeDef",
-    "DeleteHostedZoneResponseTypeDef",
-    "DeleteKeySigningKeyResponseTypeDef",
-    "DisableHostedZoneDNSSECResponseTypeDef",
-    "DisassociateVPCFromHostedZoneResponseTypeDef",
-    "EnableHostedZoneDNSSECResponseTypeDef",
-    "GetAccountLimitResponseTypeDef",
-    "GetChangeResponseTypeDef",
-    "GetCheckerIpRangesResponseTypeDef",
-    "GetDNSSECResponseTypeDef",
-    "GetGeoLocationResponseTypeDef",
-    "GetHealthCheckCountResponseTypeDef",
-    "GetHealthCheckLastFailureReasonResponseTypeDef",
-    "GetHealthCheckResponseTypeDef",
-    "GetHealthCheckStatusResponseTypeDef",
-    "GetHostedZoneCountResponseTypeDef",
-    "GetHostedZoneLimitResponseTypeDef",
-    "GetHostedZoneResponseTypeDef",
-    "GetQueryLoggingConfigResponseTypeDef",
-    "GetReusableDelegationSetLimitResponseTypeDef",
-    "GetReusableDelegationSetResponseTypeDef",
-    "GetTrafficPolicyInstanceCountResponseTypeDef",
-    "GetTrafficPolicyInstanceResponseTypeDef",
-    "GetTrafficPolicyResponseTypeDef",
-    "ListGeoLocationsResponseTypeDef",
-    "ListHealthChecksResponseTypeDef",
-    "ListHostedZonesByNameResponseTypeDef",
-    "ListHostedZonesByVPCResponseTypeDef",
-    "ListHostedZonesResponseTypeDef",
-    "ListQueryLoggingConfigsResponseTypeDef",
-    "ListResourceRecordSetsResponseTypeDef",
-    "ListReusableDelegationSetsResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "ListTagsForResourcesResponseTypeDef",
-    "ListTrafficPoliciesResponseTypeDef",
-    "ListTrafficPolicyInstancesByHostedZoneResponseTypeDef",
-    "ListTrafficPolicyInstancesByPolicyResponseTypeDef",
-    "ListTrafficPolicyInstancesResponseTypeDef",
-    "ListTrafficPolicyVersionsResponseTypeDef",
-    "ListVPCAssociationAuthorizationsResponseTypeDef",
-    "PaginatorConfigTypeDef",
-    "TestDNSAnswerResponseTypeDef",
+    "UpdateHealthCheckRequestRequestTypeDef",
     "UpdateHealthCheckResponseTypeDef",
+    "UpdateHostedZoneCommentRequestRequestTypeDef",
     "UpdateHostedZoneCommentResponseTypeDef",
+    "UpdateTrafficPolicyCommentRequestRequestTypeDef",
     "UpdateTrafficPolicyCommentResponseTypeDef",
+    "UpdateTrafficPolicyInstanceRequestRequestTypeDef",
     "UpdateTrafficPolicyInstanceResponseTypeDef",
+    "VPCTypeDef",
     "WaiterConfigTypeDef",
 )
 
 AccountLimitTypeDef = TypedDict(
     "AccountLimitTypeDef",
     {
-        "Type": Literal[
-            "MAX_HEALTH_CHECKS_BY_OWNER",
-            "MAX_HOSTED_ZONES_BY_OWNER",
-            "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
-            "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
-            "MAX_TRAFFIC_POLICIES_BY_OWNER",
-        ],
+        "Type": AccountLimitTypeType,
         "Value": int,
+    },
+)
+
+ActivateKeySigningKeyRequestRequestTypeDef = TypedDict(
+    "ActivateKeySigningKeyRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "Name": str,
+    },
+)
+
+ActivateKeySigningKeyResponseTypeDef = TypedDict(
+    "ActivateKeySigningKeyResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
 AlarmIdentifierTypeDef = TypedDict(
     "AlarmIdentifierTypeDef",
     {
-        "Region": Literal[
-            "us-east-1",
-            "us-east-2",
-            "us-west-1",
-            "us-west-2",
-            "ca-central-1",
-            "eu-central-1",
-            "eu-west-1",
-            "eu-west-2",
-            "eu-west-3",
-            "ap-east-1",
-            "me-south-1",
-            "ap-south-1",
-            "ap-southeast-1",
-            "ap-southeast-2",
-            "ap-northeast-1",
-            "ap-northeast-2",
-            "ap-northeast-3",
-            "eu-north-1",
-            "sa-east-1",
-            "cn-northwest-1",
-            "cn-north-1",
-            "af-south-1",
-            "eu-south-1",
-            "us-gov-west-1",
-            "us-gov-east-1",
-            "us-iso-east-1",
-            "us-isob-east-1",
-        ],
+        "Region": CloudWatchRegionType,
         "Name": str,
     },
 )
 
 AliasTargetTypeDef = TypedDict(
-    "AliasTargetTypeDef", {"HostedZoneId": str, "DNSName": str, "EvaluateTargetHealth": bool}
+    "AliasTargetTypeDef",
+    {
+        "HostedZoneId": str,
+        "DNSName": str,
+        "EvaluateTargetHealth": bool,
+    },
 )
+
+_RequiredAssociateVPCWithHostedZoneRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateVPCWithHostedZoneRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "VPC": "VPCTypeDef",
+    },
+)
+_OptionalAssociateVPCWithHostedZoneRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateVPCWithHostedZoneRequestRequestTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
+)
+
+class AssociateVPCWithHostedZoneRequestRequestTypeDef(
+    _RequiredAssociateVPCWithHostedZoneRequestRequestTypeDef,
+    _OptionalAssociateVPCWithHostedZoneRequestRequestTypeDef,
+):
+    pass
+
+AssociateVPCWithHostedZoneResponseTypeDef = TypedDict(
+    "AssociateVPCWithHostedZoneResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredChangeBatchTypeDef = TypedDict(
+    "_RequiredChangeBatchTypeDef",
+    {
+        "Changes": List["ChangeTypeDef"],
+    },
+)
+_OptionalChangeBatchTypeDef = TypedDict(
+    "_OptionalChangeBatchTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
+)
+
+class ChangeBatchTypeDef(_RequiredChangeBatchTypeDef, _OptionalChangeBatchTypeDef):
+    pass
 
 _RequiredChangeInfoTypeDef = TypedDict(
     "_RequiredChangeInfoTypeDef",
-    {"Id": str, "Status": Literal["PENDING", "INSYNC"], "SubmittedAt": datetime},
+    {
+        "Id": str,
+        "Status": ChangeStatusType,
+        "SubmittedAt": datetime,
+    },
 )
-_OptionalChangeInfoTypeDef = TypedDict("_OptionalChangeInfoTypeDef", {"Comment": str}, total=False)
-
+_OptionalChangeInfoTypeDef = TypedDict(
+    "_OptionalChangeInfoTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
+)
 
 class ChangeInfoTypeDef(_RequiredChangeInfoTypeDef, _OptionalChangeInfoTypeDef):
     pass
 
+ChangeResourceRecordSetsRequestRequestTypeDef = TypedDict(
+    "ChangeResourceRecordSetsRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "ChangeBatch": "ChangeBatchTypeDef",
+    },
+)
+
+ChangeResourceRecordSetsResponseTypeDef = TypedDict(
+    "ChangeResourceRecordSetsResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredChangeTagsForResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredChangeTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceType": TagResourceTypeType,
+        "ResourceId": str,
+    },
+)
+_OptionalChangeTagsForResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalChangeTagsForResourceRequestRequestTypeDef",
+    {
+        "AddTags": List["TagTypeDef"],
+        "RemoveTagKeys": List[str],
+    },
+    total=False,
+)
+
+class ChangeTagsForResourceRequestRequestTypeDef(
+    _RequiredChangeTagsForResourceRequestRequestTypeDef,
+    _OptionalChangeTagsForResourceRequestRequestTypeDef,
+):
+    pass
 
 ChangeTypeDef = TypedDict(
     "ChangeTypeDef",
     {
-        "Action": Literal["CREATE", "DELETE", "UPSERT"],
+        "Action": ChangeActionType,
         "ResourceRecordSet": "ResourceRecordSetTypeDef",
     },
 )
@@ -196,48 +356,425 @@ _RequiredCloudWatchAlarmConfigurationTypeDef = TypedDict(
     {
         "EvaluationPeriods": int,
         "Threshold": float,
-        "ComparisonOperator": Literal[
-            "GreaterThanOrEqualToThreshold",
-            "GreaterThanThreshold",
-            "LessThanThreshold",
-            "LessThanOrEqualToThreshold",
-        ],
+        "ComparisonOperator": ComparisonOperatorType,
         "Period": int,
         "MetricName": str,
         "Namespace": str,
-        "Statistic": Literal["Average", "Sum", "SampleCount", "Maximum", "Minimum"],
+        "Statistic": StatisticType,
     },
 )
 _OptionalCloudWatchAlarmConfigurationTypeDef = TypedDict(
     "_OptionalCloudWatchAlarmConfigurationTypeDef",
-    {"Dimensions": List["DimensionTypeDef"]},
+    {
+        "Dimensions": List["DimensionTypeDef"],
+    },
     total=False,
 )
-
 
 class CloudWatchAlarmConfigurationTypeDef(
     _RequiredCloudWatchAlarmConfigurationTypeDef, _OptionalCloudWatchAlarmConfigurationTypeDef
 ):
     pass
 
+CreateHealthCheckRequestRequestTypeDef = TypedDict(
+    "CreateHealthCheckRequestRequestTypeDef",
+    {
+        "CallerReference": str,
+        "HealthCheckConfig": "HealthCheckConfigTypeDef",
+    },
+)
+
+CreateHealthCheckResponseTypeDef = TypedDict(
+    "CreateHealthCheckResponseTypeDef",
+    {
+        "HealthCheck": "HealthCheckTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateHostedZoneRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateHostedZoneRequestRequestTypeDef",
+    {
+        "Name": str,
+        "CallerReference": str,
+    },
+)
+_OptionalCreateHostedZoneRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateHostedZoneRequestRequestTypeDef",
+    {
+        "VPC": "VPCTypeDef",
+        "HostedZoneConfig": "HostedZoneConfigTypeDef",
+        "DelegationSetId": str,
+    },
+    total=False,
+)
+
+class CreateHostedZoneRequestRequestTypeDef(
+    _RequiredCreateHostedZoneRequestRequestTypeDef, _OptionalCreateHostedZoneRequestRequestTypeDef
+):
+    pass
+
+CreateHostedZoneResponseTypeDef = TypedDict(
+    "CreateHostedZoneResponseTypeDef",
+    {
+        "HostedZone": "HostedZoneTypeDef",
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "DelegationSet": "DelegationSetTypeDef",
+        "VPC": "VPCTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateKeySigningKeyRequestRequestTypeDef = TypedDict(
+    "CreateKeySigningKeyRequestRequestTypeDef",
+    {
+        "CallerReference": str,
+        "HostedZoneId": str,
+        "KeyManagementServiceArn": str,
+        "Name": str,
+        "Status": str,
+    },
+)
+
+CreateKeySigningKeyResponseTypeDef = TypedDict(
+    "CreateKeySigningKeyResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "KeySigningKey": "KeySigningKeyTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateQueryLoggingConfigRequestRequestTypeDef = TypedDict(
+    "CreateQueryLoggingConfigRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "CloudWatchLogsLogGroupArn": str,
+    },
+)
+
+CreateQueryLoggingConfigResponseTypeDef = TypedDict(
+    "CreateQueryLoggingConfigResponseTypeDef",
+    {
+        "QueryLoggingConfig": "QueryLoggingConfigTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateReusableDelegationSetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateReusableDelegationSetRequestRequestTypeDef",
+    {
+        "CallerReference": str,
+    },
+)
+_OptionalCreateReusableDelegationSetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateReusableDelegationSetRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+    },
+    total=False,
+)
+
+class CreateReusableDelegationSetRequestRequestTypeDef(
+    _RequiredCreateReusableDelegationSetRequestRequestTypeDef,
+    _OptionalCreateReusableDelegationSetRequestRequestTypeDef,
+):
+    pass
+
+CreateReusableDelegationSetResponseTypeDef = TypedDict(
+    "CreateReusableDelegationSetResponseTypeDef",
+    {
+        "DelegationSet": "DelegationSetTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTrafficPolicyInstanceRequestRequestTypeDef = TypedDict(
+    "CreateTrafficPolicyInstanceRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "Name": str,
+        "TTL": int,
+        "TrafficPolicyId": str,
+        "TrafficPolicyVersion": int,
+    },
+)
+
+CreateTrafficPolicyInstanceResponseTypeDef = TypedDict(
+    "CreateTrafficPolicyInstanceResponseTypeDef",
+    {
+        "TrafficPolicyInstance": "TrafficPolicyInstanceTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTrafficPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTrafficPolicyRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Document": str,
+    },
+)
+_OptionalCreateTrafficPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTrafficPolicyRequestRequestTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
+)
+
+class CreateTrafficPolicyRequestRequestTypeDef(
+    _RequiredCreateTrafficPolicyRequestRequestTypeDef,
+    _OptionalCreateTrafficPolicyRequestRequestTypeDef,
+):
+    pass
+
+CreateTrafficPolicyResponseTypeDef = TypedDict(
+    "CreateTrafficPolicyResponseTypeDef",
+    {
+        "TrafficPolicy": "TrafficPolicyTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTrafficPolicyVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTrafficPolicyVersionRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Document": str,
+    },
+)
+_OptionalCreateTrafficPolicyVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTrafficPolicyVersionRequestRequestTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
+)
+
+class CreateTrafficPolicyVersionRequestRequestTypeDef(
+    _RequiredCreateTrafficPolicyVersionRequestRequestTypeDef,
+    _OptionalCreateTrafficPolicyVersionRequestRequestTypeDef,
+):
+    pass
+
+CreateTrafficPolicyVersionResponseTypeDef = TypedDict(
+    "CreateTrafficPolicyVersionResponseTypeDef",
+    {
+        "TrafficPolicy": "TrafficPolicyTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVPCAssociationAuthorizationRequestRequestTypeDef = TypedDict(
+    "CreateVPCAssociationAuthorizationRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "VPC": "VPCTypeDef",
+    },
+)
+
+CreateVPCAssociationAuthorizationResponseTypeDef = TypedDict(
+    "CreateVPCAssociationAuthorizationResponseTypeDef",
+    {
+        "HostedZoneId": str,
+        "VPC": "VPCTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DNSSECStatusTypeDef = TypedDict(
-    "DNSSECStatusTypeDef", {"ServeSignature": str, "StatusMessage": str}, total=False
+    "DNSSECStatusTypeDef",
+    {
+        "ServeSignature": str,
+        "StatusMessage": str,
+    },
+    total=False,
+)
+
+DeactivateKeySigningKeyRequestRequestTypeDef = TypedDict(
+    "DeactivateKeySigningKeyRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "Name": str,
+    },
+)
+
+DeactivateKeySigningKeyResponseTypeDef = TypedDict(
+    "DeactivateKeySigningKeyResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredDelegationSetTypeDef = TypedDict(
-    "_RequiredDelegationSetTypeDef", {"NameServers": List[str]}
+    "_RequiredDelegationSetTypeDef",
+    {
+        "NameServers": List[str],
+    },
 )
 _OptionalDelegationSetTypeDef = TypedDict(
-    "_OptionalDelegationSetTypeDef", {"Id": str, "CallerReference": str}, total=False
+    "_OptionalDelegationSetTypeDef",
+    {
+        "Id": str,
+        "CallerReference": str,
+    },
+    total=False,
 )
-
 
 class DelegationSetTypeDef(_RequiredDelegationSetTypeDef, _OptionalDelegationSetTypeDef):
     pass
 
+DeleteHealthCheckRequestRequestTypeDef = TypedDict(
+    "DeleteHealthCheckRequestRequestTypeDef",
+    {
+        "HealthCheckId": str,
+    },
+)
 
-DimensionTypeDef = TypedDict("DimensionTypeDef", {"Name": str, "Value": str})
+DeleteHostedZoneRequestRequestTypeDef = TypedDict(
+    "DeleteHostedZoneRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DeleteHostedZoneResponseTypeDef = TypedDict(
+    "DeleteHostedZoneResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteKeySigningKeyRequestRequestTypeDef = TypedDict(
+    "DeleteKeySigningKeyRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "Name": str,
+    },
+)
+
+DeleteKeySigningKeyResponseTypeDef = TypedDict(
+    "DeleteKeySigningKeyResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteQueryLoggingConfigRequestRequestTypeDef = TypedDict(
+    "DeleteQueryLoggingConfigRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DeleteReusableDelegationSetRequestRequestTypeDef = TypedDict(
+    "DeleteReusableDelegationSetRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DeleteTrafficPolicyInstanceRequestRequestTypeDef = TypedDict(
+    "DeleteTrafficPolicyInstanceRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DeleteTrafficPolicyRequestRequestTypeDef = TypedDict(
+    "DeleteTrafficPolicyRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Version": int,
+    },
+)
+
+DeleteVPCAssociationAuthorizationRequestRequestTypeDef = TypedDict(
+    "DeleteVPCAssociationAuthorizationRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "VPC": "VPCTypeDef",
+    },
+)
+
+DimensionTypeDef = TypedDict(
+    "DimensionTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+)
+
+DisableHostedZoneDNSSECRequestRequestTypeDef = TypedDict(
+    "DisableHostedZoneDNSSECRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+    },
+)
+
+DisableHostedZoneDNSSECResponseTypeDef = TypedDict(
+    "DisableHostedZoneDNSSECResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateVPCFromHostedZoneRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateVPCFromHostedZoneRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "VPC": "VPCTypeDef",
+    },
+)
+_OptionalDisassociateVPCFromHostedZoneRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateVPCFromHostedZoneRequestRequestTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
+)
+
+class DisassociateVPCFromHostedZoneRequestRequestTypeDef(
+    _RequiredDisassociateVPCFromHostedZoneRequestRequestTypeDef,
+    _OptionalDisassociateVPCFromHostedZoneRequestRequestTypeDef,
+):
+    pass
+
+DisassociateVPCFromHostedZoneResponseTypeDef = TypedDict(
+    "DisassociateVPCFromHostedZoneResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EnableHostedZoneDNSSECRequestRequestTypeDef = TypedDict(
+    "EnableHostedZoneDNSSECRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+    },
+)
+
+EnableHostedZoneDNSSECResponseTypeDef = TypedDict(
+    "EnableHostedZoneDNSSECResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 GeoLocationDetailsTypeDef = TypedDict(
     "GeoLocationDetailsTypeDef",
@@ -254,22 +791,272 @@ GeoLocationDetailsTypeDef = TypedDict(
 
 GeoLocationTypeDef = TypedDict(
     "GeoLocationTypeDef",
-    {"ContinentCode": str, "CountryCode": str, "SubdivisionCode": str},
+    {
+        "ContinentCode": str,
+        "CountryCode": str,
+        "SubdivisionCode": str,
+    },
     total=False,
+)
+
+GetAccountLimitRequestRequestTypeDef = TypedDict(
+    "GetAccountLimitRequestRequestTypeDef",
+    {
+        "Type": AccountLimitTypeType,
+    },
+)
+
+GetAccountLimitResponseTypeDef = TypedDict(
+    "GetAccountLimitResponseTypeDef",
+    {
+        "Limit": "AccountLimitTypeDef",
+        "Count": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetChangeRequestRequestTypeDef = TypedDict(
+    "GetChangeRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetChangeResponseTypeDef = TypedDict(
+    "GetChangeResponseTypeDef",
+    {
+        "ChangeInfo": "ChangeInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetCheckerIpRangesResponseTypeDef = TypedDict(
+    "GetCheckerIpRangesResponseTypeDef",
+    {
+        "CheckerIpRanges": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDNSSECRequestRequestTypeDef = TypedDict(
+    "GetDNSSECRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+    },
+)
+
+GetDNSSECResponseTypeDef = TypedDict(
+    "GetDNSSECResponseTypeDef",
+    {
+        "Status": "DNSSECStatusTypeDef",
+        "KeySigningKeys": List["KeySigningKeyTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetGeoLocationRequestRequestTypeDef = TypedDict(
+    "GetGeoLocationRequestRequestTypeDef",
+    {
+        "ContinentCode": str,
+        "CountryCode": str,
+        "SubdivisionCode": str,
+    },
+    total=False,
+)
+
+GetGeoLocationResponseTypeDef = TypedDict(
+    "GetGeoLocationResponseTypeDef",
+    {
+        "GeoLocationDetails": "GeoLocationDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHealthCheckCountResponseTypeDef = TypedDict(
+    "GetHealthCheckCountResponseTypeDef",
+    {
+        "HealthCheckCount": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHealthCheckLastFailureReasonRequestRequestTypeDef = TypedDict(
+    "GetHealthCheckLastFailureReasonRequestRequestTypeDef",
+    {
+        "HealthCheckId": str,
+    },
+)
+
+GetHealthCheckLastFailureReasonResponseTypeDef = TypedDict(
+    "GetHealthCheckLastFailureReasonResponseTypeDef",
+    {
+        "HealthCheckObservations": List["HealthCheckObservationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHealthCheckRequestRequestTypeDef = TypedDict(
+    "GetHealthCheckRequestRequestTypeDef",
+    {
+        "HealthCheckId": str,
+    },
+)
+
+GetHealthCheckResponseTypeDef = TypedDict(
+    "GetHealthCheckResponseTypeDef",
+    {
+        "HealthCheck": "HealthCheckTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHealthCheckStatusRequestRequestTypeDef = TypedDict(
+    "GetHealthCheckStatusRequestRequestTypeDef",
+    {
+        "HealthCheckId": str,
+    },
+)
+
+GetHealthCheckStatusResponseTypeDef = TypedDict(
+    "GetHealthCheckStatusResponseTypeDef",
+    {
+        "HealthCheckObservations": List["HealthCheckObservationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHostedZoneCountResponseTypeDef = TypedDict(
+    "GetHostedZoneCountResponseTypeDef",
+    {
+        "HostedZoneCount": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHostedZoneLimitRequestRequestTypeDef = TypedDict(
+    "GetHostedZoneLimitRequestRequestTypeDef",
+    {
+        "Type": HostedZoneLimitTypeType,
+        "HostedZoneId": str,
+    },
+)
+
+GetHostedZoneLimitResponseTypeDef = TypedDict(
+    "GetHostedZoneLimitResponseTypeDef",
+    {
+        "Limit": "HostedZoneLimitTypeDef",
+        "Count": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHostedZoneRequestRequestTypeDef = TypedDict(
+    "GetHostedZoneRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetHostedZoneResponseTypeDef = TypedDict(
+    "GetHostedZoneResponseTypeDef",
+    {
+        "HostedZone": "HostedZoneTypeDef",
+        "DelegationSet": "DelegationSetTypeDef",
+        "VPCs": List["VPCTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetQueryLoggingConfigRequestRequestTypeDef = TypedDict(
+    "GetQueryLoggingConfigRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetQueryLoggingConfigResponseTypeDef = TypedDict(
+    "GetQueryLoggingConfigResponseTypeDef",
+    {
+        "QueryLoggingConfig": "QueryLoggingConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetReusableDelegationSetLimitRequestRequestTypeDef = TypedDict(
+    "GetReusableDelegationSetLimitRequestRequestTypeDef",
+    {
+        "Type": Literal["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"],
+        "DelegationSetId": str,
+    },
+)
+
+GetReusableDelegationSetLimitResponseTypeDef = TypedDict(
+    "GetReusableDelegationSetLimitResponseTypeDef",
+    {
+        "Limit": "ReusableDelegationSetLimitTypeDef",
+        "Count": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetReusableDelegationSetRequestRequestTypeDef = TypedDict(
+    "GetReusableDelegationSetRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetReusableDelegationSetResponseTypeDef = TypedDict(
+    "GetReusableDelegationSetResponseTypeDef",
+    {
+        "DelegationSet": "DelegationSetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTrafficPolicyInstanceCountResponseTypeDef = TypedDict(
+    "GetTrafficPolicyInstanceCountResponseTypeDef",
+    {
+        "TrafficPolicyInstanceCount": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTrafficPolicyInstanceRequestRequestTypeDef = TypedDict(
+    "GetTrafficPolicyInstanceRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetTrafficPolicyInstanceResponseTypeDef = TypedDict(
+    "GetTrafficPolicyInstanceResponseTypeDef",
+    {
+        "TrafficPolicyInstance": "TrafficPolicyInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTrafficPolicyRequestRequestTypeDef = TypedDict(
+    "GetTrafficPolicyRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Version": int,
+    },
+)
+
+GetTrafficPolicyResponseTypeDef = TypedDict(
+    "GetTrafficPolicyResponseTypeDef",
+    {
+        "TrafficPolicy": "TrafficPolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredHealthCheckConfigTypeDef = TypedDict(
     "_RequiredHealthCheckConfigTypeDef",
     {
-        "Type": Literal[
-            "HTTP",
-            "HTTPS",
-            "HTTP_STR_MATCH",
-            "HTTPS_STR_MATCH",
-            "TCP",
-            "CALCULATED",
-            "CLOUDWATCH_METRIC",
-        ]
+        "Type": HealthCheckTypeType,
     },
 )
 _OptionalHealthCheckConfigTypeDef = TypedDict(
@@ -288,44 +1075,23 @@ _OptionalHealthCheckConfigTypeDef = TypedDict(
         "HealthThreshold": int,
         "ChildHealthChecks": List[str],
         "EnableSNI": bool,
-        "Regions": List[
-            Literal[
-                "us-east-1",
-                "us-west-1",
-                "us-west-2",
-                "eu-west-1",
-                "ap-southeast-1",
-                "ap-southeast-2",
-                "ap-northeast-1",
-                "sa-east-1",
-            ]
-        ],
+        "Regions": List[HealthCheckRegionType],
         "AlarmIdentifier": "AlarmIdentifierTypeDef",
-        "InsufficientDataHealthStatus": Literal["Healthy", "Unhealthy", "LastKnownStatus"],
+        "InsufficientDataHealthStatus": InsufficientDataHealthStatusType,
+        "RoutingControlArn": str,
     },
     total=False,
 )
-
 
 class HealthCheckConfigTypeDef(
     _RequiredHealthCheckConfigTypeDef, _OptionalHealthCheckConfigTypeDef
 ):
     pass
 
-
 HealthCheckObservationTypeDef = TypedDict(
     "HealthCheckObservationTypeDef",
     {
-        "Region": Literal[
-            "us-east-1",
-            "us-west-1",
-            "us-west-2",
-            "eu-west-1",
-            "ap-southeast-1",
-            "ap-southeast-2",
-            "ap-northeast-1",
-            "sa-east-1",
-        ],
+        "Region": HealthCheckRegionType,
         "IPAddress": str,
         "StatusReport": "StatusReportTypeDef",
     },
@@ -350,31 +1116,51 @@ _OptionalHealthCheckTypeDef = TypedDict(
     total=False,
 )
 
-
 class HealthCheckTypeDef(_RequiredHealthCheckTypeDef, _OptionalHealthCheckTypeDef):
     pass
 
-
 HostedZoneConfigTypeDef = TypedDict(
-    "HostedZoneConfigTypeDef", {"Comment": str, "PrivateZone": bool}, total=False
+    "HostedZoneConfigTypeDef",
+    {
+        "Comment": str,
+        "PrivateZone": bool,
+    },
+    total=False,
 )
 
 HostedZoneLimitTypeDef = TypedDict(
     "HostedZoneLimitTypeDef",
-    {"Type": Literal["MAX_RRSETS_BY_ZONE", "MAX_VPCS_ASSOCIATED_BY_ZONE"], "Value": int},
+    {
+        "Type": HostedZoneLimitTypeType,
+        "Value": int,
+    },
 )
 
 HostedZoneOwnerTypeDef = TypedDict(
-    "HostedZoneOwnerTypeDef", {"OwningAccount": str, "OwningService": str}, total=False
+    "HostedZoneOwnerTypeDef",
+    {
+        "OwningAccount": str,
+        "OwningService": str,
+    },
+    total=False,
 )
 
 HostedZoneSummaryTypeDef = TypedDict(
     "HostedZoneSummaryTypeDef",
-    {"HostedZoneId": str, "Name": str, "Owner": "HostedZoneOwnerTypeDef"},
+    {
+        "HostedZoneId": str,
+        "Name": str,
+        "Owner": "HostedZoneOwnerTypeDef",
+    },
 )
 
 _RequiredHostedZoneTypeDef = TypedDict(
-    "_RequiredHostedZoneTypeDef", {"Id": str, "Name": str, "CallerReference": str}
+    "_RequiredHostedZoneTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "CallerReference": str,
+    },
 )
 _OptionalHostedZoneTypeDef = TypedDict(
     "_OptionalHostedZoneTypeDef",
@@ -386,10 +1172,8 @@ _OptionalHostedZoneTypeDef = TypedDict(
     total=False,
 )
 
-
 class HostedZoneTypeDef(_RequiredHostedZoneTypeDef, _OptionalHostedZoneTypeDef):
     pass
-
 
 KeySigningKeyTypeDef = TypedDict(
     "KeySigningKeyTypeDef",
@@ -415,32 +1199,447 @@ KeySigningKeyTypeDef = TypedDict(
 )
 
 LinkedServiceTypeDef = TypedDict(
-    "LinkedServiceTypeDef", {"ServicePrincipal": str, "Description": str}, total=False
+    "LinkedServiceTypeDef",
+    {
+        "ServicePrincipal": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+ListGeoLocationsRequestRequestTypeDef = TypedDict(
+    "ListGeoLocationsRequestRequestTypeDef",
+    {
+        "StartContinentCode": str,
+        "StartCountryCode": str,
+        "StartSubdivisionCode": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListGeoLocationsResponseTypeDef = TypedDict(
+    "ListGeoLocationsResponseTypeDef",
+    {
+        "GeoLocationDetailsList": List["GeoLocationDetailsTypeDef"],
+        "IsTruncated": bool,
+        "NextContinentCode": str,
+        "NextCountryCode": str,
+        "NextSubdivisionCode": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListHealthChecksRequestRequestTypeDef = TypedDict(
+    "ListHealthChecksRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListHealthChecksResponseTypeDef = TypedDict(
+    "ListHealthChecksResponseTypeDef",
+    {
+        "HealthChecks": List["HealthCheckTypeDef"],
+        "Marker": str,
+        "IsTruncated": bool,
+        "NextMarker": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListHostedZonesByNameRequestRequestTypeDef = TypedDict(
+    "ListHostedZonesByNameRequestRequestTypeDef",
+    {
+        "DNSName": str,
+        "HostedZoneId": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListHostedZonesByNameResponseTypeDef = TypedDict(
+    "ListHostedZonesByNameResponseTypeDef",
+    {
+        "HostedZones": List["HostedZoneTypeDef"],
+        "DNSName": str,
+        "HostedZoneId": str,
+        "IsTruncated": bool,
+        "NextDNSName": str,
+        "NextHostedZoneId": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListHostedZonesByVPCRequestRequestTypeDef = TypedDict(
+    "_RequiredListHostedZonesByVPCRequestRequestTypeDef",
+    {
+        "VPCId": str,
+        "VPCRegion": VPCRegionType,
+    },
+)
+_OptionalListHostedZonesByVPCRequestRequestTypeDef = TypedDict(
+    "_OptionalListHostedZonesByVPCRequestRequestTypeDef",
+    {
+        "MaxItems": str,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListHostedZonesByVPCRequestRequestTypeDef(
+    _RequiredListHostedZonesByVPCRequestRequestTypeDef,
+    _OptionalListHostedZonesByVPCRequestRequestTypeDef,
+):
+    pass
+
+ListHostedZonesByVPCResponseTypeDef = TypedDict(
+    "ListHostedZonesByVPCResponseTypeDef",
+    {
+        "HostedZoneSummaries": List["HostedZoneSummaryTypeDef"],
+        "MaxItems": str,
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListHostedZonesRequestRequestTypeDef = TypedDict(
+    "ListHostedZonesRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": str,
+        "DelegationSetId": str,
+    },
+    total=False,
+)
+
+ListHostedZonesResponseTypeDef = TypedDict(
+    "ListHostedZonesResponseTypeDef",
+    {
+        "HostedZones": List["HostedZoneTypeDef"],
+        "Marker": str,
+        "IsTruncated": bool,
+        "NextMarker": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListQueryLoggingConfigsRequestRequestTypeDef = TypedDict(
+    "ListQueryLoggingConfigsRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "NextToken": str,
+        "MaxResults": str,
+    },
+    total=False,
+)
+
+ListQueryLoggingConfigsResponseTypeDef = TypedDict(
+    "ListQueryLoggingConfigsResponseTypeDef",
+    {
+        "QueryLoggingConfigs": List["QueryLoggingConfigTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListResourceRecordSetsRequestRequestTypeDef = TypedDict(
+    "_RequiredListResourceRecordSetsRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+    },
+)
+_OptionalListResourceRecordSetsRequestRequestTypeDef = TypedDict(
+    "_OptionalListResourceRecordSetsRequestRequestTypeDef",
+    {
+        "StartRecordName": str,
+        "StartRecordType": RRTypeType,
+        "StartRecordIdentifier": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+class ListResourceRecordSetsRequestRequestTypeDef(
+    _RequiredListResourceRecordSetsRequestRequestTypeDef,
+    _OptionalListResourceRecordSetsRequestRequestTypeDef,
+):
+    pass
+
+ListResourceRecordSetsResponseTypeDef = TypedDict(
+    "ListResourceRecordSetsResponseTypeDef",
+    {
+        "ResourceRecordSets": List["ResourceRecordSetTypeDef"],
+        "IsTruncated": bool,
+        "NextRecordName": str,
+        "NextRecordType": RRTypeType,
+        "NextRecordIdentifier": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListReusableDelegationSetsRequestRequestTypeDef = TypedDict(
+    "ListReusableDelegationSetsRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListReusableDelegationSetsResponseTypeDef = TypedDict(
+    "ListReusableDelegationSetsResponseTypeDef",
+    {
+        "DelegationSets": List["DelegationSetTypeDef"],
+        "Marker": str,
+        "IsTruncated": bool,
+        "NextMarker": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceType": TagResourceTypeType,
+        "ResourceId": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "ResourceTagSet": "ResourceTagSetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourcesRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourcesRequestRequestTypeDef",
+    {
+        "ResourceType": TagResourceTypeType,
+        "ResourceIds": List[str],
+    },
+)
+
+ListTagsForResourcesResponseTypeDef = TypedDict(
+    "ListTagsForResourcesResponseTypeDef",
+    {
+        "ResourceTagSets": List["ResourceTagSetTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTrafficPoliciesRequestRequestTypeDef = TypedDict(
+    "ListTrafficPoliciesRequestRequestTypeDef",
+    {
+        "TrafficPolicyIdMarker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListTrafficPoliciesResponseTypeDef = TypedDict(
+    "ListTrafficPoliciesResponseTypeDef",
+    {
+        "TrafficPolicySummaries": List["TrafficPolicySummaryTypeDef"],
+        "IsTruncated": bool,
+        "TrafficPolicyIdMarker": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef = TypedDict(
+    "_RequiredListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+    },
+)
+_OptionalListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef = TypedDict(
+    "_OptionalListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef",
+    {
+        "TrafficPolicyInstanceNameMarker": str,
+        "TrafficPolicyInstanceTypeMarker": RRTypeType,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+class ListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef(
+    _RequiredListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef,
+    _OptionalListTrafficPolicyInstancesByHostedZoneRequestRequestTypeDef,
+):
+    pass
+
+ListTrafficPolicyInstancesByHostedZoneResponseTypeDef = TypedDict(
+    "ListTrafficPolicyInstancesByHostedZoneResponseTypeDef",
+    {
+        "TrafficPolicyInstances": List["TrafficPolicyInstanceTypeDef"],
+        "TrafficPolicyInstanceNameMarker": str,
+        "TrafficPolicyInstanceTypeMarker": RRTypeType,
+        "IsTruncated": bool,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTrafficPolicyInstancesByPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredListTrafficPolicyInstancesByPolicyRequestRequestTypeDef",
+    {
+        "TrafficPolicyId": str,
+        "TrafficPolicyVersion": int,
+    },
+)
+_OptionalListTrafficPolicyInstancesByPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalListTrafficPolicyInstancesByPolicyRequestRequestTypeDef",
+    {
+        "HostedZoneIdMarker": str,
+        "TrafficPolicyInstanceNameMarker": str,
+        "TrafficPolicyInstanceTypeMarker": RRTypeType,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+class ListTrafficPolicyInstancesByPolicyRequestRequestTypeDef(
+    _RequiredListTrafficPolicyInstancesByPolicyRequestRequestTypeDef,
+    _OptionalListTrafficPolicyInstancesByPolicyRequestRequestTypeDef,
+):
+    pass
+
+ListTrafficPolicyInstancesByPolicyResponseTypeDef = TypedDict(
+    "ListTrafficPolicyInstancesByPolicyResponseTypeDef",
+    {
+        "TrafficPolicyInstances": List["TrafficPolicyInstanceTypeDef"],
+        "HostedZoneIdMarker": str,
+        "TrafficPolicyInstanceNameMarker": str,
+        "TrafficPolicyInstanceTypeMarker": RRTypeType,
+        "IsTruncated": bool,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTrafficPolicyInstancesRequestRequestTypeDef = TypedDict(
+    "ListTrafficPolicyInstancesRequestRequestTypeDef",
+    {
+        "HostedZoneIdMarker": str,
+        "TrafficPolicyInstanceNameMarker": str,
+        "TrafficPolicyInstanceTypeMarker": RRTypeType,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListTrafficPolicyInstancesResponseTypeDef = TypedDict(
+    "ListTrafficPolicyInstancesResponseTypeDef",
+    {
+        "TrafficPolicyInstances": List["TrafficPolicyInstanceTypeDef"],
+        "HostedZoneIdMarker": str,
+        "TrafficPolicyInstanceNameMarker": str,
+        "TrafficPolicyInstanceTypeMarker": RRTypeType,
+        "IsTruncated": bool,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTrafficPolicyVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListTrafficPolicyVersionsRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalListTrafficPolicyVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListTrafficPolicyVersionsRequestRequestTypeDef",
+    {
+        "TrafficPolicyVersionMarker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+class ListTrafficPolicyVersionsRequestRequestTypeDef(
+    _RequiredListTrafficPolicyVersionsRequestRequestTypeDef,
+    _OptionalListTrafficPolicyVersionsRequestRequestTypeDef,
+):
+    pass
+
+ListTrafficPolicyVersionsResponseTypeDef = TypedDict(
+    "ListTrafficPolicyVersionsResponseTypeDef",
+    {
+        "TrafficPolicies": List["TrafficPolicyTypeDef"],
+        "IsTruncated": bool,
+        "TrafficPolicyVersionMarker": str,
+        "MaxItems": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListVPCAssociationAuthorizationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListVPCAssociationAuthorizationsRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+    },
+)
+_OptionalListVPCAssociationAuthorizationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListVPCAssociationAuthorizationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": str,
+    },
+    total=False,
+)
+
+class ListVPCAssociationAuthorizationsRequestRequestTypeDef(
+    _RequiredListVPCAssociationAuthorizationsRequestRequestTypeDef,
+    _OptionalListVPCAssociationAuthorizationsRequestRequestTypeDef,
+):
+    pass
+
+ListVPCAssociationAuthorizationsResponseTypeDef = TypedDict(
+    "ListVPCAssociationAuthorizationsResponseTypeDef",
+    {
+        "HostedZoneId": str,
+        "NextToken": str,
+        "VPCs": List["VPCTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
 QueryLoggingConfigTypeDef = TypedDict(
-    "QueryLoggingConfigTypeDef", {"Id": str, "HostedZoneId": str, "CloudWatchLogsLogGroupArn": str}
+    "QueryLoggingConfigTypeDef",
+    {
+        "Id": str,
+        "HostedZoneId": str,
+        "CloudWatchLogsLogGroupArn": str,
+    },
 )
 
 _RequiredResourceRecordSetTypeDef = TypedDict(
     "_RequiredResourceRecordSetTypeDef",
     {
         "Name": str,
-        "Type": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
+        "Type": RRTypeType,
     },
 )
 _OptionalResourceRecordSetTypeDef = TypedDict(
@@ -448,33 +1647,9 @@ _OptionalResourceRecordSetTypeDef = TypedDict(
     {
         "SetIdentifier": str,
         "Weight": int,
-        "Region": Literal[
-            "us-east-1",
-            "us-east-2",
-            "us-west-1",
-            "us-west-2",
-            "ca-central-1",
-            "eu-west-1",
-            "eu-west-2",
-            "eu-west-3",
-            "eu-central-1",
-            "ap-southeast-1",
-            "ap-southeast-2",
-            "ap-northeast-1",
-            "ap-northeast-2",
-            "ap-northeast-3",
-            "eu-north-1",
-            "sa-east-1",
-            "cn-north-1",
-            "cn-northwest-1",
-            "ap-east-1",
-            "me-south-1",
-            "ap-south-1",
-            "af-south-1",
-            "eu-south-1",
-        ],
+        "Region": ResourceRecordSetRegionType,
         "GeoLocation": "GeoLocationTypeDef",
-        "Failover": Literal["PRIMARY", "SECONDARY"],
+        "Failover": ResourceRecordSetFailoverType,
         "MultiValueAnswer": bool,
         "TTL": int,
         "ResourceRecords": List["ResourceRecordTypeDef"],
@@ -485,35 +1660,100 @@ _OptionalResourceRecordSetTypeDef = TypedDict(
     total=False,
 )
 
-
 class ResourceRecordSetTypeDef(
     _RequiredResourceRecordSetTypeDef, _OptionalResourceRecordSetTypeDef
 ):
     pass
 
-
-ResourceRecordTypeDef = TypedDict("ResourceRecordTypeDef", {"Value": str})
+ResourceRecordTypeDef = TypedDict(
+    "ResourceRecordTypeDef",
+    {
+        "Value": str,
+    },
+)
 
 ResourceTagSetTypeDef = TypedDict(
     "ResourceTagSetTypeDef",
     {
-        "ResourceType": Literal["healthcheck", "hostedzone"],
+        "ResourceType": TagResourceTypeType,
         "ResourceId": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
 )
 
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 ReusableDelegationSetLimitTypeDef = TypedDict(
     "ReusableDelegationSetLimitTypeDef",
-    {"Type": Literal["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"], "Value": int},
+    {
+        "Type": Literal["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"],
+        "Value": int,
+    },
 )
 
 StatusReportTypeDef = TypedDict(
-    "StatusReportTypeDef", {"Status": str, "CheckedTime": datetime}, total=False
+    "StatusReportTypeDef",
+    {
+        "Status": str,
+        "CheckedTime": datetime,
+    },
+    total=False,
 )
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+_RequiredTestDNSAnswerRequestRequestTypeDef = TypedDict(
+    "_RequiredTestDNSAnswerRequestRequestTypeDef",
+    {
+        "HostedZoneId": str,
+        "RecordName": str,
+        "RecordType": RRTypeType,
+    },
+)
+_OptionalTestDNSAnswerRequestRequestTypeDef = TypedDict(
+    "_OptionalTestDNSAnswerRequestRequestTypeDef",
+    {
+        "ResolverIP": str,
+        "EDNS0ClientSubnetIP": str,
+        "EDNS0ClientSubnetMask": str,
+    },
+    total=False,
+)
+
+class TestDNSAnswerRequestRequestTypeDef(
+    _RequiredTestDNSAnswerRequestRequestTypeDef, _OptionalTestDNSAnswerRequestRequestTypeDef
+):
+    pass
+
+TestDNSAnswerResponseTypeDef = TypedDict(
+    "TestDNSAnswerResponseTypeDef",
+    {
+        "Nameserver": str,
+        "RecordName": str,
+        "RecordType": RRTypeType,
+        "RecordData": List[str],
+        "ResponseCode": str,
+        "Protocol": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 TrafficPolicyInstanceTypeDef = TypedDict(
     "TrafficPolicyInstanceTypeDef",
@@ -526,21 +1766,7 @@ TrafficPolicyInstanceTypeDef = TypedDict(
         "Message": str,
         "TrafficPolicyId": str,
         "TrafficPolicyVersion": int,
-        "TrafficPolicyType": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
+        "TrafficPolicyType": RRTypeType,
     },
 )
 
@@ -549,21 +1775,7 @@ TrafficPolicySummaryTypeDef = TypedDict(
     {
         "Id": str,
         "Name": str,
-        "Type": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
+        "Type": RRTypeType,
         "LatestVersion": int,
         "TrafficPolicyCount": int,
     },
@@ -575,632 +1787,140 @@ _RequiredTrafficPolicyTypeDef = TypedDict(
         "Id": str,
         "Version": int,
         "Name": str,
-        "Type": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
+        "Type": RRTypeType,
         "Document": str,
     },
 )
 _OptionalTrafficPolicyTypeDef = TypedDict(
-    "_OptionalTrafficPolicyTypeDef", {"Comment": str}, total=False
+    "_OptionalTrafficPolicyTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
 )
-
 
 class TrafficPolicyTypeDef(_RequiredTrafficPolicyTypeDef, _OptionalTrafficPolicyTypeDef):
     pass
 
+_RequiredUpdateHealthCheckRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateHealthCheckRequestRequestTypeDef",
+    {
+        "HealthCheckId": str,
+    },
+)
+_OptionalUpdateHealthCheckRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateHealthCheckRequestRequestTypeDef",
+    {
+        "HealthCheckVersion": int,
+        "IPAddress": str,
+        "Port": int,
+        "ResourcePath": str,
+        "FullyQualifiedDomainName": str,
+        "SearchString": str,
+        "FailureThreshold": int,
+        "Inverted": bool,
+        "Disabled": bool,
+        "HealthThreshold": int,
+        "ChildHealthChecks": List[str],
+        "EnableSNI": bool,
+        "Regions": List[HealthCheckRegionType],
+        "AlarmIdentifier": "AlarmIdentifierTypeDef",
+        "InsufficientDataHealthStatus": InsufficientDataHealthStatusType,
+        "ResetElements": List[ResettableElementNameType],
+    },
+    total=False,
+)
+
+class UpdateHealthCheckRequestRequestTypeDef(
+    _RequiredUpdateHealthCheckRequestRequestTypeDef, _OptionalUpdateHealthCheckRequestRequestTypeDef
+):
+    pass
+
+UpdateHealthCheckResponseTypeDef = TypedDict(
+    "UpdateHealthCheckResponseTypeDef",
+    {
+        "HealthCheck": "HealthCheckTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateHostedZoneCommentRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateHostedZoneCommentRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalUpdateHostedZoneCommentRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateHostedZoneCommentRequestRequestTypeDef",
+    {
+        "Comment": str,
+    },
+    total=False,
+)
+
+class UpdateHostedZoneCommentRequestRequestTypeDef(
+    _RequiredUpdateHostedZoneCommentRequestRequestTypeDef,
+    _OptionalUpdateHostedZoneCommentRequestRequestTypeDef,
+):
+    pass
+
+UpdateHostedZoneCommentResponseTypeDef = TypedDict(
+    "UpdateHostedZoneCommentResponseTypeDef",
+    {
+        "HostedZone": "HostedZoneTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateTrafficPolicyCommentRequestRequestTypeDef = TypedDict(
+    "UpdateTrafficPolicyCommentRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Version": int,
+        "Comment": str,
+    },
+)
+
+UpdateTrafficPolicyCommentResponseTypeDef = TypedDict(
+    "UpdateTrafficPolicyCommentResponseTypeDef",
+    {
+        "TrafficPolicy": "TrafficPolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateTrafficPolicyInstanceRequestRequestTypeDef = TypedDict(
+    "UpdateTrafficPolicyInstanceRequestRequestTypeDef",
+    {
+        "Id": str,
+        "TTL": int,
+        "TrafficPolicyId": str,
+        "TrafficPolicyVersion": int,
+    },
+)
+
+UpdateTrafficPolicyInstanceResponseTypeDef = TypedDict(
+    "UpdateTrafficPolicyInstanceResponseTypeDef",
+    {
+        "TrafficPolicyInstance": "TrafficPolicyInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 VPCTypeDef = TypedDict(
     "VPCTypeDef",
     {
-        "VPCRegion": Literal[
-            "us-east-1",
-            "us-east-2",
-            "us-west-1",
-            "us-west-2",
-            "eu-west-1",
-            "eu-west-2",
-            "eu-west-3",
-            "eu-central-1",
-            "ap-east-1",
-            "me-south-1",
-            "us-gov-west-1",
-            "us-gov-east-1",
-            "us-iso-east-1",
-            "us-isob-east-1",
-            "ap-southeast-1",
-            "ap-southeast-2",
-            "ap-south-1",
-            "ap-northeast-1",
-            "ap-northeast-2",
-            "ap-northeast-3",
-            "eu-north-1",
-            "sa-east-1",
-            "ca-central-1",
-            "cn-north-1",
-            "af-south-1",
-            "eu-south-1",
-        ],
+        "VPCRegion": VPCRegionType,
         "VPCId": str,
     },
     total=False,
 )
 
-ActivateKeySigningKeyResponseTypeDef = TypedDict(
-    "ActivateKeySigningKeyResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-AssociateVPCWithHostedZoneResponseTypeDef = TypedDict(
-    "AssociateVPCWithHostedZoneResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-_RequiredChangeBatchTypeDef = TypedDict(
-    "_RequiredChangeBatchTypeDef", {"Changes": List["ChangeTypeDef"]}
-)
-_OptionalChangeBatchTypeDef = TypedDict(
-    "_OptionalChangeBatchTypeDef", {"Comment": str}, total=False
-)
-
-
-class ChangeBatchTypeDef(_RequiredChangeBatchTypeDef, _OptionalChangeBatchTypeDef):
-    pass
-
-
-ChangeResourceRecordSetsResponseTypeDef = TypedDict(
-    "ChangeResourceRecordSetsResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-CreateHealthCheckResponseTypeDef = TypedDict(
-    "CreateHealthCheckResponseTypeDef", {"HealthCheck": "HealthCheckTypeDef", "Location": str}
-)
-
-_RequiredCreateHostedZoneResponseTypeDef = TypedDict(
-    "_RequiredCreateHostedZoneResponseTypeDef",
-    {
-        "HostedZone": "HostedZoneTypeDef",
-        "ChangeInfo": "ChangeInfoTypeDef",
-        "DelegationSet": "DelegationSetTypeDef",
-        "Location": str,
-    },
-)
-_OptionalCreateHostedZoneResponseTypeDef = TypedDict(
-    "_OptionalCreateHostedZoneResponseTypeDef", {"VPC": "VPCTypeDef"}, total=False
-)
-
-
-class CreateHostedZoneResponseTypeDef(
-    _RequiredCreateHostedZoneResponseTypeDef, _OptionalCreateHostedZoneResponseTypeDef
-):
-    pass
-
-
-CreateKeySigningKeyResponseTypeDef = TypedDict(
-    "CreateKeySigningKeyResponseTypeDef",
-    {"ChangeInfo": "ChangeInfoTypeDef", "KeySigningKey": "KeySigningKeyTypeDef", "Location": str},
-)
-
-CreateQueryLoggingConfigResponseTypeDef = TypedDict(
-    "CreateQueryLoggingConfigResponseTypeDef",
-    {"QueryLoggingConfig": "QueryLoggingConfigTypeDef", "Location": str},
-)
-
-CreateReusableDelegationSetResponseTypeDef = TypedDict(
-    "CreateReusableDelegationSetResponseTypeDef",
-    {"DelegationSet": "DelegationSetTypeDef", "Location": str},
-)
-
-CreateTrafficPolicyInstanceResponseTypeDef = TypedDict(
-    "CreateTrafficPolicyInstanceResponseTypeDef",
-    {"TrafficPolicyInstance": "TrafficPolicyInstanceTypeDef", "Location": str},
-)
-
-CreateTrafficPolicyResponseTypeDef = TypedDict(
-    "CreateTrafficPolicyResponseTypeDef", {"TrafficPolicy": "TrafficPolicyTypeDef", "Location": str}
-)
-
-CreateTrafficPolicyVersionResponseTypeDef = TypedDict(
-    "CreateTrafficPolicyVersionResponseTypeDef",
-    {"TrafficPolicy": "TrafficPolicyTypeDef", "Location": str},
-)
-
-CreateVPCAssociationAuthorizationResponseTypeDef = TypedDict(
-    "CreateVPCAssociationAuthorizationResponseTypeDef", {"HostedZoneId": str, "VPC": "VPCTypeDef"}
-)
-
-DeactivateKeySigningKeyResponseTypeDef = TypedDict(
-    "DeactivateKeySigningKeyResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-DeleteHostedZoneResponseTypeDef = TypedDict(
-    "DeleteHostedZoneResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-DeleteKeySigningKeyResponseTypeDef = TypedDict(
-    "DeleteKeySigningKeyResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-DisableHostedZoneDNSSECResponseTypeDef = TypedDict(
-    "DisableHostedZoneDNSSECResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-DisassociateVPCFromHostedZoneResponseTypeDef = TypedDict(
-    "DisassociateVPCFromHostedZoneResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-EnableHostedZoneDNSSECResponseTypeDef = TypedDict(
-    "EnableHostedZoneDNSSECResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-GetAccountLimitResponseTypeDef = TypedDict(
-    "GetAccountLimitResponseTypeDef", {"Limit": "AccountLimitTypeDef", "Count": int}
-)
-
-GetChangeResponseTypeDef = TypedDict(
-    "GetChangeResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
-)
-
-GetCheckerIpRangesResponseTypeDef = TypedDict(
-    "GetCheckerIpRangesResponseTypeDef", {"CheckerIpRanges": List[str]}
-)
-
-GetDNSSECResponseTypeDef = TypedDict(
-    "GetDNSSECResponseTypeDef",
-    {"Status": "DNSSECStatusTypeDef", "KeySigningKeys": List["KeySigningKeyTypeDef"]},
-)
-
-GetGeoLocationResponseTypeDef = TypedDict(
-    "GetGeoLocationResponseTypeDef", {"GeoLocationDetails": "GeoLocationDetailsTypeDef"}
-)
-
-GetHealthCheckCountResponseTypeDef = TypedDict(
-    "GetHealthCheckCountResponseTypeDef", {"HealthCheckCount": int}
-)
-
-GetHealthCheckLastFailureReasonResponseTypeDef = TypedDict(
-    "GetHealthCheckLastFailureReasonResponseTypeDef",
-    {"HealthCheckObservations": List["HealthCheckObservationTypeDef"]},
-)
-
-GetHealthCheckResponseTypeDef = TypedDict(
-    "GetHealthCheckResponseTypeDef", {"HealthCheck": "HealthCheckTypeDef"}
-)
-
-GetHealthCheckStatusResponseTypeDef = TypedDict(
-    "GetHealthCheckStatusResponseTypeDef",
-    {"HealthCheckObservations": List["HealthCheckObservationTypeDef"]},
-)
-
-GetHostedZoneCountResponseTypeDef = TypedDict(
-    "GetHostedZoneCountResponseTypeDef", {"HostedZoneCount": int}
-)
-
-GetHostedZoneLimitResponseTypeDef = TypedDict(
-    "GetHostedZoneLimitResponseTypeDef", {"Limit": "HostedZoneLimitTypeDef", "Count": int}
-)
-
-_RequiredGetHostedZoneResponseTypeDef = TypedDict(
-    "_RequiredGetHostedZoneResponseTypeDef", {"HostedZone": "HostedZoneTypeDef"}
-)
-_OptionalGetHostedZoneResponseTypeDef = TypedDict(
-    "_OptionalGetHostedZoneResponseTypeDef",
-    {"DelegationSet": "DelegationSetTypeDef", "VPCs": List["VPCTypeDef"]},
-    total=False,
-)
-
-
-class GetHostedZoneResponseTypeDef(
-    _RequiredGetHostedZoneResponseTypeDef, _OptionalGetHostedZoneResponseTypeDef
-):
-    pass
-
-
-GetQueryLoggingConfigResponseTypeDef = TypedDict(
-    "GetQueryLoggingConfigResponseTypeDef", {"QueryLoggingConfig": "QueryLoggingConfigTypeDef"}
-)
-
-GetReusableDelegationSetLimitResponseTypeDef = TypedDict(
-    "GetReusableDelegationSetLimitResponseTypeDef",
-    {"Limit": "ReusableDelegationSetLimitTypeDef", "Count": int},
-)
-
-GetReusableDelegationSetResponseTypeDef = TypedDict(
-    "GetReusableDelegationSetResponseTypeDef", {"DelegationSet": "DelegationSetTypeDef"}
-)
-
-GetTrafficPolicyInstanceCountResponseTypeDef = TypedDict(
-    "GetTrafficPolicyInstanceCountResponseTypeDef", {"TrafficPolicyInstanceCount": int}
-)
-
-GetTrafficPolicyInstanceResponseTypeDef = TypedDict(
-    "GetTrafficPolicyInstanceResponseTypeDef",
-    {"TrafficPolicyInstance": "TrafficPolicyInstanceTypeDef"},
-)
-
-GetTrafficPolicyResponseTypeDef = TypedDict(
-    "GetTrafficPolicyResponseTypeDef", {"TrafficPolicy": "TrafficPolicyTypeDef"}
-)
-
-_RequiredListGeoLocationsResponseTypeDef = TypedDict(
-    "_RequiredListGeoLocationsResponseTypeDef",
-    {
-        "GeoLocationDetailsList": List["GeoLocationDetailsTypeDef"],
-        "IsTruncated": bool,
-        "MaxItems": str,
-    },
-)
-_OptionalListGeoLocationsResponseTypeDef = TypedDict(
-    "_OptionalListGeoLocationsResponseTypeDef",
-    {"NextContinentCode": str, "NextCountryCode": str, "NextSubdivisionCode": str},
-    total=False,
-)
-
-
-class ListGeoLocationsResponseTypeDef(
-    _RequiredListGeoLocationsResponseTypeDef, _OptionalListGeoLocationsResponseTypeDef
-):
-    pass
-
-
-_RequiredListHealthChecksResponseTypeDef = TypedDict(
-    "_RequiredListHealthChecksResponseTypeDef",
-    {
-        "HealthChecks": List["HealthCheckTypeDef"],
-        "Marker": str,
-        "IsTruncated": bool,
-        "MaxItems": str,
-    },
-)
-_OptionalListHealthChecksResponseTypeDef = TypedDict(
-    "_OptionalListHealthChecksResponseTypeDef", {"NextMarker": str}, total=False
-)
-
-
-class ListHealthChecksResponseTypeDef(
-    _RequiredListHealthChecksResponseTypeDef, _OptionalListHealthChecksResponseTypeDef
-):
-    pass
-
-
-_RequiredListHostedZonesByNameResponseTypeDef = TypedDict(
-    "_RequiredListHostedZonesByNameResponseTypeDef",
-    {"HostedZones": List["HostedZoneTypeDef"], "IsTruncated": bool, "MaxItems": str},
-)
-_OptionalListHostedZonesByNameResponseTypeDef = TypedDict(
-    "_OptionalListHostedZonesByNameResponseTypeDef",
-    {"DNSName": str, "HostedZoneId": str, "NextDNSName": str, "NextHostedZoneId": str},
-    total=False,
-)
-
-
-class ListHostedZonesByNameResponseTypeDef(
-    _RequiredListHostedZonesByNameResponseTypeDef, _OptionalListHostedZonesByNameResponseTypeDef
-):
-    pass
-
-
-_RequiredListHostedZonesByVPCResponseTypeDef = TypedDict(
-    "_RequiredListHostedZonesByVPCResponseTypeDef",
-    {"HostedZoneSummaries": List["HostedZoneSummaryTypeDef"], "MaxItems": str},
-)
-_OptionalListHostedZonesByVPCResponseTypeDef = TypedDict(
-    "_OptionalListHostedZonesByVPCResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class ListHostedZonesByVPCResponseTypeDef(
-    _RequiredListHostedZonesByVPCResponseTypeDef, _OptionalListHostedZonesByVPCResponseTypeDef
-):
-    pass
-
-
-_RequiredListHostedZonesResponseTypeDef = TypedDict(
-    "_RequiredListHostedZonesResponseTypeDef",
-    {"HostedZones": List["HostedZoneTypeDef"], "Marker": str, "IsTruncated": bool, "MaxItems": str},
-)
-_OptionalListHostedZonesResponseTypeDef = TypedDict(
-    "_OptionalListHostedZonesResponseTypeDef", {"NextMarker": str}, total=False
-)
-
-
-class ListHostedZonesResponseTypeDef(
-    _RequiredListHostedZonesResponseTypeDef, _OptionalListHostedZonesResponseTypeDef
-):
-    pass
-
-
-_RequiredListQueryLoggingConfigsResponseTypeDef = TypedDict(
-    "_RequiredListQueryLoggingConfigsResponseTypeDef",
-    {"QueryLoggingConfigs": List["QueryLoggingConfigTypeDef"]},
-)
-_OptionalListQueryLoggingConfigsResponseTypeDef = TypedDict(
-    "_OptionalListQueryLoggingConfigsResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class ListQueryLoggingConfigsResponseTypeDef(
-    _RequiredListQueryLoggingConfigsResponseTypeDef, _OptionalListQueryLoggingConfigsResponseTypeDef
-):
-    pass
-
-
-_RequiredListResourceRecordSetsResponseTypeDef = TypedDict(
-    "_RequiredListResourceRecordSetsResponseTypeDef",
-    {"ResourceRecordSets": List["ResourceRecordSetTypeDef"], "IsTruncated": bool, "MaxItems": str},
-)
-_OptionalListResourceRecordSetsResponseTypeDef = TypedDict(
-    "_OptionalListResourceRecordSetsResponseTypeDef",
-    {
-        "NextRecordName": str,
-        "NextRecordType": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
-        "NextRecordIdentifier": str,
-    },
-    total=False,
-)
-
-
-class ListResourceRecordSetsResponseTypeDef(
-    _RequiredListResourceRecordSetsResponseTypeDef, _OptionalListResourceRecordSetsResponseTypeDef
-):
-    pass
-
-
-_RequiredListReusableDelegationSetsResponseTypeDef = TypedDict(
-    "_RequiredListReusableDelegationSetsResponseTypeDef",
-    {
-        "DelegationSets": List["DelegationSetTypeDef"],
-        "Marker": str,
-        "IsTruncated": bool,
-        "MaxItems": str,
-    },
-)
-_OptionalListReusableDelegationSetsResponseTypeDef = TypedDict(
-    "_OptionalListReusableDelegationSetsResponseTypeDef", {"NextMarker": str}, total=False
-)
-
-
-class ListReusableDelegationSetsResponseTypeDef(
-    _RequiredListReusableDelegationSetsResponseTypeDef,
-    _OptionalListReusableDelegationSetsResponseTypeDef,
-):
-    pass
-
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"ResourceTagSet": "ResourceTagSetTypeDef"}
-)
-
-ListTagsForResourcesResponseTypeDef = TypedDict(
-    "ListTagsForResourcesResponseTypeDef", {"ResourceTagSets": List["ResourceTagSetTypeDef"]}
-)
-
-ListTrafficPoliciesResponseTypeDef = TypedDict(
-    "ListTrafficPoliciesResponseTypeDef",
-    {
-        "TrafficPolicySummaries": List["TrafficPolicySummaryTypeDef"],
-        "IsTruncated": bool,
-        "TrafficPolicyIdMarker": str,
-        "MaxItems": str,
-    },
-)
-
-_RequiredListTrafficPolicyInstancesByHostedZoneResponseTypeDef = TypedDict(
-    "_RequiredListTrafficPolicyInstancesByHostedZoneResponseTypeDef",
-    {
-        "TrafficPolicyInstances": List["TrafficPolicyInstanceTypeDef"],
-        "IsTruncated": bool,
-        "MaxItems": str,
-    },
-)
-_OptionalListTrafficPolicyInstancesByHostedZoneResponseTypeDef = TypedDict(
-    "_OptionalListTrafficPolicyInstancesByHostedZoneResponseTypeDef",
-    {
-        "TrafficPolicyInstanceNameMarker": str,
-        "TrafficPolicyInstanceTypeMarker": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
-    },
-    total=False,
-)
-
-
-class ListTrafficPolicyInstancesByHostedZoneResponseTypeDef(
-    _RequiredListTrafficPolicyInstancesByHostedZoneResponseTypeDef,
-    _OptionalListTrafficPolicyInstancesByHostedZoneResponseTypeDef,
-):
-    pass
-
-
-_RequiredListTrafficPolicyInstancesByPolicyResponseTypeDef = TypedDict(
-    "_RequiredListTrafficPolicyInstancesByPolicyResponseTypeDef",
-    {
-        "TrafficPolicyInstances": List["TrafficPolicyInstanceTypeDef"],
-        "IsTruncated": bool,
-        "MaxItems": str,
-    },
-)
-_OptionalListTrafficPolicyInstancesByPolicyResponseTypeDef = TypedDict(
-    "_OptionalListTrafficPolicyInstancesByPolicyResponseTypeDef",
-    {
-        "HostedZoneIdMarker": str,
-        "TrafficPolicyInstanceNameMarker": str,
-        "TrafficPolicyInstanceTypeMarker": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
-    },
-    total=False,
-)
-
-
-class ListTrafficPolicyInstancesByPolicyResponseTypeDef(
-    _RequiredListTrafficPolicyInstancesByPolicyResponseTypeDef,
-    _OptionalListTrafficPolicyInstancesByPolicyResponseTypeDef,
-):
-    pass
-
-
-_RequiredListTrafficPolicyInstancesResponseTypeDef = TypedDict(
-    "_RequiredListTrafficPolicyInstancesResponseTypeDef",
-    {
-        "TrafficPolicyInstances": List["TrafficPolicyInstanceTypeDef"],
-        "IsTruncated": bool,
-        "MaxItems": str,
-    },
-)
-_OptionalListTrafficPolicyInstancesResponseTypeDef = TypedDict(
-    "_OptionalListTrafficPolicyInstancesResponseTypeDef",
-    {
-        "HostedZoneIdMarker": str,
-        "TrafficPolicyInstanceNameMarker": str,
-        "TrafficPolicyInstanceTypeMarker": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
-    },
-    total=False,
-)
-
-
-class ListTrafficPolicyInstancesResponseTypeDef(
-    _RequiredListTrafficPolicyInstancesResponseTypeDef,
-    _OptionalListTrafficPolicyInstancesResponseTypeDef,
-):
-    pass
-
-
-ListTrafficPolicyVersionsResponseTypeDef = TypedDict(
-    "ListTrafficPolicyVersionsResponseTypeDef",
-    {
-        "TrafficPolicies": List["TrafficPolicyTypeDef"],
-        "IsTruncated": bool,
-        "TrafficPolicyVersionMarker": str,
-        "MaxItems": str,
-    },
-)
-
-_RequiredListVPCAssociationAuthorizationsResponseTypeDef = TypedDict(
-    "_RequiredListVPCAssociationAuthorizationsResponseTypeDef",
-    {"HostedZoneId": str, "VPCs": List["VPCTypeDef"]},
-)
-_OptionalListVPCAssociationAuthorizationsResponseTypeDef = TypedDict(
-    "_OptionalListVPCAssociationAuthorizationsResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class ListVPCAssociationAuthorizationsResponseTypeDef(
-    _RequiredListVPCAssociationAuthorizationsResponseTypeDef,
-    _OptionalListVPCAssociationAuthorizationsResponseTypeDef,
-):
-    pass
-
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-TestDNSAnswerResponseTypeDef = TypedDict(
-    "TestDNSAnswerResponseTypeDef",
-    {
-        "Nameserver": str,
-        "RecordName": str,
-        "RecordType": Literal[
-            "SOA",
-            "A",
-            "TXT",
-            "NS",
-            "CNAME",
-            "MX",
-            "NAPTR",
-            "PTR",
-            "SRV",
-            "SPF",
-            "AAAA",
-            "CAA",
-            "DS",
-        ],
-        "RecordData": List[str],
-        "ResponseCode": str,
-        "Protocol": str,
-    },
-)
-
-UpdateHealthCheckResponseTypeDef = TypedDict(
-    "UpdateHealthCheckResponseTypeDef", {"HealthCheck": "HealthCheckTypeDef"}
-)
-
-UpdateHostedZoneCommentResponseTypeDef = TypedDict(
-    "UpdateHostedZoneCommentResponseTypeDef", {"HostedZone": "HostedZoneTypeDef"}
-)
-
-UpdateTrafficPolicyCommentResponseTypeDef = TypedDict(
-    "UpdateTrafficPolicyCommentResponseTypeDef", {"TrafficPolicy": "TrafficPolicyTypeDef"}
-)
-
-UpdateTrafficPolicyInstanceResponseTypeDef = TypedDict(
-    "UpdateTrafficPolicyInstanceResponseTypeDef",
-    {"TrafficPolicyInstance": "TrafficPolicyInstanceTypeDef"},
-)
-
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

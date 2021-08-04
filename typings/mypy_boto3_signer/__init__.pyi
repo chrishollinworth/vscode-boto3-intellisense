@@ -10,14 +10,14 @@ Usage::
         ListSigningJobsPaginator,
         ListSigningPlatformsPaginator,
         ListSigningProfilesPaginator,
-        SignerClient,
         SuccessfulSigningJobWaiter,
+        signerClient,
     )
 
     session = boto3.Session()
 
-    client: SignerClient = boto3.client("signer")
-    session_client: SignerClient = session.client("signer")
+    client: signerClient = boto3.client("signer")
+    session_client: signerClient = session.client("signer")
 
     successful_signing_job_waiter: SuccessfulSigningJobWaiter = client.get_waiter("successful_signing_job")
 
@@ -26,22 +26,21 @@ Usage::
     list_signing_profiles_paginator: ListSigningProfilesPaginator = client.get_paginator("list_signing_profiles")
     ```
 """
-from mypy_boto3_signer.client import SignerClient
-from mypy_boto3_signer.paginator import (
+from .client import signerClient
+from .paginator import (
     ListSigningJobsPaginator,
     ListSigningPlatformsPaginator,
     ListSigningProfilesPaginator,
 )
-from mypy_boto3_signer.waiter import SuccessfulSigningJobWaiter
+from .waiter import SuccessfulSigningJobWaiter
 
-Client = SignerClient
-
+Client = signerClient
 
 __all__ = (
     "Client",
     "ListSigningJobsPaginator",
     "ListSigningPlatformsPaginator",
     "ListSigningProfilesPaginator",
-    "SignerClient",
     "SuccessfulSigningJobWaiter",
+    "signerClient",
 )

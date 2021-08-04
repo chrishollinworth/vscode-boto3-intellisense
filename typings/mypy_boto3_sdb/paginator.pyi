@@ -1,5 +1,7 @@
 """
-Main interface for sdb service client paginators.
+Type annotations for sdb service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html)
 
 Usage::
 
@@ -22,39 +24,38 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_sdb.type_defs import (
-    ListDomainsResultTypeDef,
-    PaginatorConfigTypeDef,
-    SelectResultTypeDef,
-)
+from .type_defs import ListDomainsResultTypeDef, PaginatorConfigTypeDef, SelectResultTypeDef
 
 __all__ = ("ListDomainsPaginator", "SelectPaginator")
 
-
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#listdomainspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResultTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.ListDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sdb.html#SimpleDB.Paginator.ListDomains.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#listdomainspaginator)
         """
-
 
 class SelectPaginator(Boto3Paginator):
     """
-    [Paginator.Select documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.Select)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sdb.html#SimpleDB.Paginator.Select)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#selectpaginator)
     """
 
     def paginate(
         self,
+        *,
         SelectExpression: str,
         ConsistentRead: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SelectResultTypeDef]:
         """
-        [Select.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.Select.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sdb.html#SimpleDB.Paginator.Select.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#selectpaginator)
         """

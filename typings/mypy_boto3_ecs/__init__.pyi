@@ -42,8 +42,8 @@ Usage::
     list_tasks_paginator: ListTasksPaginator = client.get_paginator("list_tasks")
     ```
 """
-from mypy_boto3_ecs.client import ECSClient
-from mypy_boto3_ecs.paginator import (
+from .client import ECSClient
+from .paginator import (
     ListAccountSettingsPaginator,
     ListAttributesPaginator,
     ListClustersPaginator,
@@ -53,7 +53,7 @@ from mypy_boto3_ecs.paginator import (
     ListTaskDefinitionsPaginator,
     ListTasksPaginator,
 )
-from mypy_boto3_ecs.waiter import (
+from .waiter import (
     ServicesInactiveWaiter,
     ServicesStableWaiter,
     TasksRunningWaiter,
@@ -61,7 +61,6 @@ from mypy_boto3_ecs.waiter import (
 )
 
 Client = ECSClient
-
 
 __all__ = (
     "Client",

@@ -1,5 +1,7 @@
 """
-Main interface for kinesis service client
+Type annotations for kinesis service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html)
 
 Usage::
 
@@ -14,15 +16,17 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_kinesis.paginator import (
+from .literals import EncryptionTypeType, MetricsNameType, ShardIteratorTypeType
+from .paginator import (
     DescribeStreamPaginator,
     ListShardsPaginator,
     ListStreamConsumersPaginator,
     ListStreamsPaginator,
 )
-from mypy_boto3_kinesis.type_defs import (
+from .type_defs import (
     DescribeLimitsOutputTypeDef,
     DescribeStreamConsumerOutputTypeDef,
     DescribeStreamOutputTypeDef,
@@ -43,24 +47,20 @@ from mypy_boto3_kinesis.type_defs import (
     SubscribeToShardOutputTypeDef,
     UpdateShardCountOutputTypeDef,
 )
-from mypy_boto3_kinesis.waiter import StreamExistsWaiter, StreamNotExistsWaiter
+from .waiter import StreamExistsWaiter, StreamNotExistsWaiter
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("KinesisClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -79,111 +79,117 @@ class Exceptions:
     ResourceInUseException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
 
-
-class KinesisClient:
+class KinesisClient(BaseClient):
     """
-    [Kinesis.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def add_tags_to_stream(self, StreamName: str, Tags: Dict[str, str]) -> None:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.add_tags_to_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.add_tags_to_stream)
+        KinesisClient exceptions.
         """
+    def add_tags_to_stream(self, *, StreamName: str, Tags: Dict[str, str]) -> None:
+        """
+        Adds or updates tags for the specified Kinesis data stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.add_tags_to_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#add_tags_to_stream)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def create_stream(self, StreamName: str, ShardCount: int) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#can_paginate)
         """
-        [Client.create_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.create_stream)
+    def create_stream(self, *, StreamName: str, ShardCount: int) -> None:
         """
+        Creates a Kinesis data stream.
 
-    def decrease_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.create_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#create_stream)
         """
-        [Client.decrease_stream_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.decrease_stream_retention_period)
-        """
-
-    def delete_stream(self, StreamName: str, EnforceConsumerDeletion: bool = None) -> None:
-        """
-        [Client.delete_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.delete_stream)
-        """
-
-    def deregister_stream_consumer(
-        self, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None
+    def decrease_stream_retention_period(
+        self, *, StreamName: str, RetentionPeriodHours: int
     ) -> None:
         """
-        [Client.deregister_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.deregister_stream_consumer)
-        """
+        Decreases the Kinesis data stream's retention period, which is the length of
+        time data records are accessible after they are added to the stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.decrease_stream_retention_period)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#decrease_stream_retention_period)
+        """
+    def delete_stream(self, *, StreamName: str, EnforceConsumerDeletion: bool = None) -> None:
+        """
+        Deletes a Kinesis data stream and all its shards and data.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.delete_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#delete_stream)
+        """
+    def deregister_stream_consumer(
+        self, *, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None
+    ) -> None:
+        """
+        To deregister a consumer, provide its ARN.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.deregister_stream_consumer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#deregister_stream_consumer)
+        """
     def describe_limits(self) -> DescribeLimitsOutputTypeDef:
         """
-        [Client.describe_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_limits)
-        """
+        Describes the shard limits and usage for the account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.describe_limits)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#describe_limits)
+        """
     def describe_stream(
-        self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None
+        self, *, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None
     ) -> DescribeStreamOutputTypeDef:
         """
-        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_stream)
-        """
+        Describes the specified Kinesis data stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.describe_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#describe_stream)
+        """
     def describe_stream_consumer(
-        self, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None
+        self, *, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None
     ) -> DescribeStreamConsumerOutputTypeDef:
         """
-        [Client.describe_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_stream_consumer)
-        """
+        To get the description of a registered consumer, provide the ARN of the
+        consumer.
 
-    def describe_stream_summary(self, StreamName: str) -> DescribeStreamSummaryOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.describe_stream_consumer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#describe_stream_consumer)
         """
-        [Client.describe_stream_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_stream_summary)
+    def describe_stream_summary(self, *, StreamName: str) -> DescribeStreamSummaryOutputTypeDef:
         """
+        Provides a summarized description of the specified Kinesis data stream without
+        the shard list.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.describe_stream_summary)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#describe_stream_summary)
+        """
     def disable_enhanced_monitoring(
-        self,
-        StreamName: str,
-        ShardLevelMetrics: List[
-            Literal[
-                "IncomingBytes",
-                "IncomingRecords",
-                "OutgoingBytes",
-                "OutgoingRecords",
-                "WriteProvisionedThroughputExceeded",
-                "ReadProvisionedThroughputExceeded",
-                "IteratorAgeMilliseconds",
-                "ALL",
-            ]
-        ],
+        self, *, StreamName: str, ShardLevelMetrics: List[MetricsNameType]
     ) -> EnhancedMonitoringOutputTypeDef:
         """
-        [Client.disable_enhanced_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.disable_enhanced_monitoring)
-        """
+        Disables enhanced monitoring.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.disable_enhanced_monitoring)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#disable_enhanced_monitoring)
+        """
     def enable_enhanced_monitoring(
-        self,
-        StreamName: str,
-        ShardLevelMetrics: List[
-            Literal[
-                "IncomingBytes",
-                "IncomingRecords",
-                "OutgoingBytes",
-                "OutgoingRecords",
-                "WriteProvisionedThroughputExceeded",
-                "ReadProvisionedThroughputExceeded",
-                "IteratorAgeMilliseconds",
-                "ALL",
-            ]
-        ],
+        self, *, StreamName: str, ShardLevelMetrics: List[MetricsNameType]
     ) -> EnhancedMonitoringOutputTypeDef:
         """
-        [Client.enable_enhanced_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.enable_enhanced_monitoring)
-        """
+        Enables enhanced Kinesis data stream monitoring for shard-level metrics.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.enable_enhanced_monitoring)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#enable_enhanced_monitoring)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -192,174 +198,226 @@ class KinesisClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_records(self, ShardIterator: str, Limit: int = None) -> GetRecordsOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#generate_presigned_url)
         """
-        [Client.get_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.get_records)
+    def get_records(self, *, ShardIterator: str, Limit: int = None) -> GetRecordsOutputTypeDef:
         """
+        Gets data records from a Kinesis data stream's shard.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.get_records)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#get_records)
+        """
     def get_shard_iterator(
         self,
+        *,
         StreamName: str,
         ShardId: str,
-        ShardIteratorType: Literal[
-            "AT_SEQUENCE_NUMBER", "AFTER_SEQUENCE_NUMBER", "TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"
-        ],
+        ShardIteratorType: ShardIteratorTypeType,
         StartingSequenceNumber: str = None,
-        Timestamp: datetime = None,
+        Timestamp: Union[datetime, str] = None
     ) -> GetShardIteratorOutputTypeDef:
         """
-        [Client.get_shard_iterator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.get_shard_iterator)
-        """
+        Gets an Amazon Kinesis shard iterator.
 
-    def increase_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.get_shard_iterator)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#get_shard_iterator)
         """
-        [Client.increase_stream_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.increase_stream_retention_period)
+    def increase_stream_retention_period(
+        self, *, StreamName: str, RetentionPeriodHours: int
+    ) -> None:
         """
+        Increases the Kinesis data stream's retention period, which is the length of
+        time data records are accessible after they are added to the stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.increase_stream_retention_period)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#increase_stream_retention_period)
+        """
     def list_shards(
         self,
+        *,
         StreamName: str = None,
         NextToken: str = None,
         ExclusiveStartShardId: str = None,
         MaxResults: int = None,
-        StreamCreationTimestamp: datetime = None,
-        ShardFilter: ShardFilterTypeDef = None,
+        StreamCreationTimestamp: Union[datetime, str] = None,
+        ShardFilter: "ShardFilterTypeDef" = None
     ) -> ListShardsOutputTypeDef:
         """
-        [Client.list_shards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_shards)
-        """
+        Lists the shards in a stream and provides information about each shard.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.list_shards)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#list_shards)
+        """
     def list_stream_consumers(
         self,
+        *,
         StreamARN: str,
         NextToken: str = None,
         MaxResults: int = None,
-        StreamCreationTimestamp: datetime = None,
+        StreamCreationTimestamp: Union[datetime, str] = None
     ) -> ListStreamConsumersOutputTypeDef:
         """
-        [Client.list_stream_consumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_stream_consumers)
-        """
+        Lists the consumers registered to receive data from a stream using enhanced fan-
+        out, and provides information about each consumer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.list_stream_consumers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#list_stream_consumers)
+        """
     def list_streams(
-        self, Limit: int = None, ExclusiveStartStreamName: str = None
+        self, *, Limit: int = None, ExclusiveStartStreamName: str = None
     ) -> ListStreamsOutputTypeDef:
         """
-        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_streams)
-        """
+        Lists your Kinesis data streams.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.list_streams)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#list_streams)
+        """
     def list_tags_for_stream(
-        self, StreamName: str, ExclusiveStartTagKey: str = None, Limit: int = None
+        self, *, StreamName: str, ExclusiveStartTagKey: str = None, Limit: int = None
     ) -> ListTagsForStreamOutputTypeDef:
         """
-        [Client.list_tags_for_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_tags_for_stream)
-        """
+        Lists the tags for the specified Kinesis data stream.
 
-    def merge_shards(self, StreamName: str, ShardToMerge: str, AdjacentShardToMerge: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.list_tags_for_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#list_tags_for_stream)
         """
-        [Client.merge_shards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.merge_shards)
+    def merge_shards(
+        self, *, StreamName: str, ShardToMerge: str, AdjacentShardToMerge: str
+    ) -> None:
         """
+        Merges two adjacent shards in a Kinesis data stream and combines them into a
+        single shard to reduce the stream's capacity to ingest and transport data.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.merge_shards)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#merge_shards)
+        """
     def put_record(
         self,
+        *,
         StreamName: str,
-        Data: Union[bytes, IO[bytes]],
+        Data: Union[bytes, IO[bytes], StreamingBody],
         PartitionKey: str,
         ExplicitHashKey: str = None,
-        SequenceNumberForOrdering: str = None,
+        SequenceNumberForOrdering: str = None
     ) -> PutRecordOutputTypeDef:
         """
-        [Client.put_record documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.put_record)
-        """
+        Writes a single data record into an Amazon Kinesis data stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.put_record)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#put_record)
+        """
     def put_records(
-        self, Records: List[PutRecordsRequestEntryTypeDef], StreamName: str
+        self, *, Records: List["PutRecordsRequestEntryTypeDef"], StreamName: str
     ) -> PutRecordsOutputTypeDef:
         """
-        [Client.put_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.put_records)
-        """
+        Writes multiple data records into a Kinesis data stream in a single call (also
+        referred to as a `PutRecords` request).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.put_records)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#put_records)
+        """
     def register_stream_consumer(
-        self, StreamARN: str, ConsumerName: str
+        self, *, StreamARN: str, ConsumerName: str
     ) -> RegisterStreamConsumerOutputTypeDef:
         """
-        [Client.register_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.register_stream_consumer)
-        """
+        Registers a consumer with a Kinesis data stream.
 
-    def remove_tags_from_stream(self, StreamName: str, TagKeys: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.register_stream_consumer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#register_stream_consumer)
         """
-        [Client.remove_tags_from_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.remove_tags_from_stream)
+    def remove_tags_from_stream(self, *, StreamName: str, TagKeys: List[str]) -> None:
         """
+        Removes tags from the specified Kinesis data stream.
 
-    def split_shard(self, StreamName: str, ShardToSplit: str, NewStartingHashKey: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.remove_tags_from_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#remove_tags_from_stream)
         """
-        [Client.split_shard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.split_shard)
+    def split_shard(self, *, StreamName: str, ShardToSplit: str, NewStartingHashKey: str) -> None:
         """
+        Splits a shard into two new shards in the Kinesis data stream, to increase the
+        stream's capacity to ingest and transport data.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.split_shard)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#split_shard)
+        """
     def start_stream_encryption(
-        self, StreamName: str, EncryptionType: Literal["NONE", "KMS"], KeyId: str
+        self, *, StreamName: str, EncryptionType: EncryptionTypeType, KeyId: str
     ) -> None:
         """
-        [Client.start_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.start_stream_encryption)
-        """
+        Enables or updates server-side encryption using an AWS KMS key for a specified
+        stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.start_stream_encryption)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#start_stream_encryption)
+        """
     def stop_stream_encryption(
-        self, StreamName: str, EncryptionType: Literal["NONE", "KMS"], KeyId: str
+        self, *, StreamName: str, EncryptionType: EncryptionTypeType, KeyId: str
     ) -> None:
         """
-        [Client.stop_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.stop_stream_encryption)
-        """
+        Disables server-side encryption for a specified stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.stop_stream_encryption)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#stop_stream_encryption)
+        """
     def subscribe_to_shard(
-        self, ConsumerARN: str, ShardId: str, StartingPosition: StartingPositionTypeDef
+        self, *, ConsumerARN: str, ShardId: str, StartingPosition: "StartingPositionTypeDef"
     ) -> SubscribeToShardOutputTypeDef:
         """
-        [Client.subscribe_to_shard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.subscribe_to_shard)
-        """
+        This operation establishes an HTTP/2 connection between the consumer you specify
+        in the `ConsumerARN` parameter and the shard you specify in the `ShardId`
+        parameter.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.subscribe_to_shard)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#subscribe_to_shard)
+        """
     def update_shard_count(
-        self, StreamName: str, TargetShardCount: int, ScalingType: Literal["UNIFORM_SCALING"]
+        self, *, StreamName: str, TargetShardCount: int, ScalingType: Literal["UNIFORM_SCALING"]
     ) -> UpdateShardCountOutputTypeDef:
         """
-        [Client.update_shard_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.update_shard_count)
-        """
+        Updates the shard count of the specified stream to the specified number of
+        shards.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Client.update_shard_count)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/client.html#update_shard_count)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["describe_stream"]) -> DescribeStreamPaginator:
         """
-        [Paginator.DescribeStream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#describestreampaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_shards"]) -> ListShardsPaginator:
         """
-        [Paginator.ListShards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#listshardspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_stream_consumers"]
     ) -> ListStreamConsumersPaginator:
         """
-        [Paginator.ListStreamConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#liststreamconsumerspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_streams"]) -> ListStreamsPaginator:
         """
-        [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/paginators.html#liststreamspaginator)
         """
-
     @overload
     def get_waiter(self, waiter_name: Literal["stream_exists"]) -> StreamExistsWaiter:
         """
-        [Waiter.StreamExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Waiter.StreamExists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/waiters.html#streamexistswaiter)
         """
-
     @overload
     def get_waiter(self, waiter_name: Literal["stream_not_exists"]) -> StreamNotExistsWaiter:
         """
-        [Waiter.StreamNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis/waiters.html#streamnotexistswaiter)
         """

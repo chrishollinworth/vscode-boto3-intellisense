@@ -1,5 +1,7 @@
 """
-Main interface for qldb-session service client
+Type annotations for qldb-session service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb_session/client.html)
 
 Usage::
 
@@ -12,9 +14,9 @@ Usage::
 """
 from typing import Any, Dict, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_qldb_session.type_defs import (
+from .type_defs import (
     CommitTransactionRequestTypeDef,
     ExecuteStatementRequestTypeDef,
     FetchPageRequestTypeDef,
@@ -24,14 +26,11 @@ from mypy_boto3_qldb_session.type_defs import (
 
 __all__ = ("QLDBSessionClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     BadRequestException: Type[BotocoreClientError]
@@ -42,20 +41,25 @@ class Exceptions:
     OccConflictException: Type[BotocoreClientError]
     RateExceededException: Type[BotocoreClientError]
 
-
-class QLDBSessionClient:
+class QLDBSessionClient(BaseClient):
     """
-    [QLDBSession.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb-session.html#QLDBSession.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb-session.html#QLDBSession.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb_session/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        QLDBSessionClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb-session.html#QLDBSession.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb-session.html#QLDBSession.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb_session/client.html#can_paginate)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -64,20 +68,26 @@ class QLDBSessionClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb-session.html#QLDBSession.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb-session.html#QLDBSession.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb_session/client.html#generate_presigned_url)
+        """
     def send_command(
         self,
+        *,
         SessionToken: str = None,
-        StartSession: StartSessionRequestTypeDef = None,
+        StartSession: "StartSessionRequestTypeDef" = None,
         StartTransaction: Dict[str, Any] = None,
         EndSession: Dict[str, Any] = None,
-        CommitTransaction: CommitTransactionRequestTypeDef = None,
+        CommitTransaction: "CommitTransactionRequestTypeDef" = None,
         AbortTransaction: Dict[str, Any] = None,
-        ExecuteStatement: ExecuteStatementRequestTypeDef = None,
-        FetchPage: FetchPageRequestTypeDef = None,
+        ExecuteStatement: "ExecuteStatementRequestTypeDef" = None,
+        FetchPage: "FetchPageRequestTypeDef" = None
     ) -> SendCommandResultTypeDef:
         """
-        [Client.send_command documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb-session.html#QLDBSession.Client.send_command)
+        Sends a command to an Amazon QLDB ledger.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb-session.html#QLDBSession.Client.send_command)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb_session/client.html#send_command)
         """

@@ -33,8 +33,8 @@ Usage::
     list_available_management_cidr_ranges_paginator: ListAvailableManagementCidrRangesPaginator = client.get_paginator("list_available_management_cidr_ranges")
     ```
 """
-from mypy_boto3_workspaces.client import WorkSpacesClient
-from mypy_boto3_workspaces.paginator import (
+from .client import WorkSpacesClient
+from .paginator import (
     DescribeAccountModificationsPaginator,
     DescribeIpGroupsPaginator,
     DescribeWorkspaceBundlesPaginator,
@@ -46,7 +46,6 @@ from mypy_boto3_workspaces.paginator import (
 )
 
 Client = WorkSpacesClient
-
 
 __all__ = (
     "Client",

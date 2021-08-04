@@ -21,10 +21,9 @@ Usage::
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     ```
 """
-from mypy_boto3_mobile.client import MobileClient
-from mypy_boto3_mobile.paginator import ListBundlesPaginator, ListProjectsPaginator
+from .client import MobileClient
+from .paginator import ListBundlesPaginator, ListProjectsPaginator
 
 Client = MobileClient
-
 
 __all__ = ("Client", "ListBundlesPaginator", "ListProjectsPaginator", "MobileClient")

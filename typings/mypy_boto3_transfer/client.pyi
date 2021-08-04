@@ -1,5 +1,7 @@
 """
-Main interface for transfer service client
+Type annotations for transfer service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html)
 
 Usage::
 
@@ -13,12 +15,21 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_transfer.paginator import ListServersPaginator
-from mypy_boto3_transfer.type_defs import (
+from .literals import (
+    DomainType,
+    EndpointTypeType,
+    HomeDirectoryTypeType,
+    IdentityProviderTypeType,
+    ProtocolType,
+)
+from .paginator import ListServersPaginator
+from .type_defs import (
+    CreateAccessResponseTypeDef,
     CreateServerResponseTypeDef,
     CreateUserResponseTypeDef,
+    DescribeAccessResponseTypeDef,
     DescribeSecurityPolicyResponseTypeDef,
     DescribeServerResponseTypeDef,
     DescribeUserResponseTypeDef,
@@ -26,13 +37,16 @@ from mypy_boto3_transfer.type_defs import (
     HomeDirectoryMapEntryTypeDef,
     IdentityProviderDetailsTypeDef,
     ImportSshPublicKeyResponseTypeDef,
+    ListAccessesResponseTypeDef,
     ListSecurityPoliciesResponseTypeDef,
     ListServersResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     ListUsersResponseTypeDef,
     PosixProfileTypeDef,
+    ProtocolDetailsTypeDef,
     TagTypeDef,
     TestIdentityProviderResponseTypeDef,
+    UpdateAccessResponseTypeDef,
     UpdateServerResponseTypeDef,
     UpdateUserResponseTypeDef,
 )
@@ -42,17 +56,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("TransferClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -66,87 +76,152 @@ class Exceptions:
     ServiceUnavailableException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
 
-
-class TransferClient:
+class TransferClient(BaseClient):
     """
-    [Transfer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        TransferClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#can_paginate)
+        """
+    def create_access(
+        self,
+        *,
+        Role: str,
+        ServerId: str,
+        ExternalId: str,
+        HomeDirectory: str = None,
+        HomeDirectoryType: HomeDirectoryTypeType = None,
+        HomeDirectoryMappings: List["HomeDirectoryMapEntryTypeDef"] = None,
+        Policy: str = None,
+        PosixProfile: "PosixProfileTypeDef" = None
+    ) -> CreateAccessResponseTypeDef:
+        """
+        Used by administrators to choose which groups in the directory should have
+        access to upload and download files over the enabled protocols using Amazon Web
+        Services Transfer Family.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.create_access)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#create_access)
+        """
     def create_server(
         self,
+        *,
         Certificate: str = None,
-        Domain: Literal["S3", "EFS"] = None,
+        Domain: DomainType = None,
         EndpointDetails: "EndpointDetailsTypeDef" = None,
-        EndpointType: Literal["PUBLIC", "VPC", "VPC_ENDPOINT"] = None,
+        EndpointType: EndpointTypeType = None,
         HostKey: str = None,
         IdentityProviderDetails: "IdentityProviderDetailsTypeDef" = None,
-        IdentityProviderType: Literal["SERVICE_MANAGED", "API_GATEWAY"] = None,
+        IdentityProviderType: IdentityProviderTypeType = None,
         LoggingRole: str = None,
-        Protocols: List[Literal["SFTP", "FTP", "FTPS"]] = None,
+        Protocols: List[ProtocolType] = None,
         SecurityPolicyName: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateServerResponseTypeDef:
         """
-        [Client.create_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.create_server)
-        """
+        Instantiates an auto-scaling virtual server based on the selected file transfer
+        protocol in Amazon Web Services.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.create_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#create_server)
+        """
     def create_user(
         self,
+        *,
         Role: str,
         ServerId: str,
         UserName: str,
         HomeDirectory: str = None,
-        HomeDirectoryType: Literal["PATH", "LOGICAL"] = None,
+        HomeDirectoryType: HomeDirectoryTypeType = None,
         HomeDirectoryMappings: List["HomeDirectoryMapEntryTypeDef"] = None,
         Policy: str = None,
         PosixProfile: "PosixProfileTypeDef" = None,
         SshPublicKeyBody: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateUserResponseTypeDef:
         """
-        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.create_user)
-        """
+        Creates a user and associates them with an existing file transfer protocol-
+        enabled server.
 
-    def delete_server(self, ServerId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.create_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#create_user)
         """
-        [Client.delete_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.delete_server)
+    def delete_access(self, *, ServerId: str, ExternalId: str) -> None:
         """
+        Allows you to delete the access specified in the `ServerID` and `ExternalID`
+        parameters.
 
-    def delete_ssh_public_key(self, ServerId: str, SshPublicKeyId: str, UserName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.delete_access)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#delete_access)
         """
-        [Client.delete_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.delete_ssh_public_key)
+    def delete_server(self, *, ServerId: str) -> None:
         """
+        Deletes the file transfer protocol-enabled server that you specify.
 
-    def delete_user(self, ServerId: str, UserName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.delete_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#delete_server)
         """
-        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.delete_user)
+    def delete_ssh_public_key(self, *, ServerId: str, SshPublicKeyId: str, UserName: str) -> None:
         """
+        Deletes a user's Secure Shell (SSH) public key.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.delete_ssh_public_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#delete_ssh_public_key)
+        """
+    def delete_user(self, *, ServerId: str, UserName: str) -> None:
+        """
+        Deletes the user belonging to a file transfer protocol-enabled server you
+        specify.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.delete_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#delete_user)
+        """
+    def describe_access(self, *, ServerId: str, ExternalId: str) -> DescribeAccessResponseTypeDef:
+        """
+        Describes the access that is assigned to the specific file transfer protocol-
+        enabled server, as identified by its `ServerId` property and its `ExternalID` .
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.describe_access)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#describe_access)
+        """
     def describe_security_policy(
-        self, SecurityPolicyName: str
+        self, *, SecurityPolicyName: str
     ) -> DescribeSecurityPolicyResponseTypeDef:
         """
-        [Client.describe_security_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.describe_security_policy)
-        """
+        Describes the security policy that is attached to your file transfer protocol-
+        enabled server.
 
-    def describe_server(self, ServerId: str) -> DescribeServerResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.describe_security_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#describe_security_policy)
         """
-        [Client.describe_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.describe_server)
+    def describe_server(self, *, ServerId: str) -> DescribeServerResponseTypeDef:
         """
+        Describes a file transfer protocol-enabled server that you specify by passing
+        the `ServerId` parameter.
 
-    def describe_user(self, ServerId: str, UserName: str) -> DescribeUserResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.describe_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#describe_server)
         """
-        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.describe_user)
+    def describe_user(self, *, ServerId: str, UserName: str) -> DescribeUserResponseTypeDef:
         """
+        Describes the user assigned to the specific file transfer protocol-enabled
+        server, as identified by its `ServerId` property.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.describe_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#describe_user)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -155,108 +230,180 @@ class TransferClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#generate_presigned_url)
+        """
     def import_ssh_public_key(
-        self, ServerId: str, SshPublicKeyBody: str, UserName: str
+        self, *, ServerId: str, SshPublicKeyBody: str, UserName: str
     ) -> ImportSshPublicKeyResponseTypeDef:
         """
-        [Client.import_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.import_ssh_public_key)
-        """
+        Adds a Secure Shell (SSH) public key to a user account identified by a
+        `UserName` value assigned to the specific file transfer protocol-enabled server,
+        identified by `ServerId` .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.import_ssh_public_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#import_ssh_public_key)
+        """
+    def list_accesses(
+        self, *, ServerId: str, MaxResults: int = None, NextToken: str = None
+    ) -> ListAccessesResponseTypeDef:
+        """
+        Lists the details for all the accesses you have on your server.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.list_accesses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#list_accesses)
+        """
     def list_security_policies(
-        self, MaxResults: int = None, NextToken: str = None
+        self, *, MaxResults: int = None, NextToken: str = None
     ) -> ListSecurityPoliciesResponseTypeDef:
         """
-        [Client.list_security_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.list_security_policies)
-        """
+        Lists the security policies that are attached to your file transfer protocol-
+        enabled servers.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.list_security_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#list_security_policies)
+        """
     def list_servers(
-        self, MaxResults: int = None, NextToken: str = None
+        self, *, MaxResults: int = None, NextToken: str = None
     ) -> ListServersResponseTypeDef:
         """
-        [Client.list_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.list_servers)
-        """
+        Lists the file transfer protocol-enabled servers that are associated with your
+        Amazon Web Services account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.list_servers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#list_servers)
+        """
     def list_tags_for_resource(
-        self, Arn: str, MaxResults: int = None, NextToken: str = None
+        self, *, Arn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.list_tags_for_resource)
-        """
+        Lists all of the tags associated with the Amazon Resource Name (ARN) that you
+        specify.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#list_tags_for_resource)
+        """
     def list_users(
-        self, ServerId: str, MaxResults: int = None, NextToken: str = None
+        self, *, ServerId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListUsersResponseTypeDef:
         """
-        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.list_users)
-        """
+        Lists the users for a file transfer protocol-enabled server that you specify by
+        passing the `ServerId` parameter.
 
-    def start_server(self, ServerId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.list_users)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#list_users)
         """
-        [Client.start_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.start_server)
+    def start_server(self, *, ServerId: str) -> None:
         """
+        Changes the state of a file transfer protocol-enabled server from `OFFLINE` to
+        `ONLINE`.
 
-    def stop_server(self, ServerId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.start_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#start_server)
         """
-        [Client.stop_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.stop_server)
+    def stop_server(self, *, ServerId: str) -> None:
         """
+        Changes the state of a file transfer protocol-enabled server from `ONLINE` to
+        `OFFLINE`.
 
-    def tag_resource(self, Arn: str, Tags: List["TagTypeDef"]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.stop_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#stop_server)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.tag_resource)
+    def tag_resource(self, *, Arn: str, Tags: List["TagTypeDef"]) -> None:
         """
+        Attaches a key-value pair to a resource, as identified by its Amazon Resource
+        Name (ARN).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#tag_resource)
+        """
     def test_identity_provider(
         self,
+        *,
         ServerId: str,
         UserName: str,
-        ServerProtocol: Literal["SFTP", "FTP", "FTPS"] = None,
+        ServerProtocol: ProtocolType = None,
         SourceIp: str = None,
-        UserPassword: str = None,
+        UserPassword: str = None
     ) -> TestIdentityProviderResponseTypeDef:
         """
-        [Client.test_identity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.test_identity_provider)
-        """
+        If the `IdentityProviderType` of a file transfer protocol-enabled server is
+        `AWS_DIRECTORY_SERVICE` or `API_Gateway` , tests whether your identity provider
+        is set up successfully.
 
-    def untag_resource(self, Arn: str, TagKeys: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.test_identity_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#test_identity_provider)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.untag_resource)
+    def untag_resource(self, *, Arn: str, TagKeys: List[str]) -> None:
         """
+        Detaches a key-value pair from a resource, as identified by its Amazon Resource
+        Name (ARN).
 
-    def update_server(
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#untag_resource)
+        """
+    def update_access(
         self,
+        *,
         ServerId: str,
-        Certificate: str = None,
-        EndpointDetails: "EndpointDetailsTypeDef" = None,
-        EndpointType: Literal["PUBLIC", "VPC", "VPC_ENDPOINT"] = None,
-        HostKey: str = None,
-        IdentityProviderDetails: "IdentityProviderDetailsTypeDef" = None,
-        LoggingRole: str = None,
-        Protocols: List[Literal["SFTP", "FTP", "FTPS"]] = None,
-        SecurityPolicyName: str = None,
-    ) -> UpdateServerResponseTypeDef:
-        """
-        [Client.update_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.update_server)
-        """
-
-    def update_user(
-        self,
-        ServerId: str,
-        UserName: str,
+        ExternalId: str,
         HomeDirectory: str = None,
-        HomeDirectoryType: Literal["PATH", "LOGICAL"] = None,
+        HomeDirectoryType: HomeDirectoryTypeType = None,
         HomeDirectoryMappings: List["HomeDirectoryMapEntryTypeDef"] = None,
         Policy: str = None,
         PosixProfile: "PosixProfileTypeDef" = None,
-        Role: str = None,
+        Role: str = None
+    ) -> UpdateAccessResponseTypeDef:
+        """
+        Allows you to update parameters for the access specified in the `ServerID` and
+        `ExternalID` parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.update_access)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#update_access)
+        """
+    def update_server(
+        self,
+        *,
+        ServerId: str,
+        Certificate: str = None,
+        ProtocolDetails: "ProtocolDetailsTypeDef" = None,
+        EndpointDetails: "EndpointDetailsTypeDef" = None,
+        EndpointType: EndpointTypeType = None,
+        HostKey: str = None,
+        IdentityProviderDetails: "IdentityProviderDetailsTypeDef" = None,
+        LoggingRole: str = None,
+        Protocols: List[ProtocolType] = None,
+        SecurityPolicyName: str = None
+    ) -> UpdateServerResponseTypeDef:
+        """
+        Updates the file transfer protocol-enabled server's properties after that server
+        has been created.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.update_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#update_server)
+        """
+    def update_user(
+        self,
+        *,
+        ServerId: str,
+        UserName: str,
+        HomeDirectory: str = None,
+        HomeDirectoryType: HomeDirectoryTypeType = None,
+        HomeDirectoryMappings: List["HomeDirectoryMapEntryTypeDef"] = None,
+        Policy: str = None,
+        PosixProfile: "PosixProfileTypeDef" = None,
+        Role: str = None
     ) -> UpdateUserResponseTypeDef:
         """
-        [Client.update_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Client.update_user)
-        """
+        Assigns new properties to a user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Client.update_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/client.html#update_user)
+        """
     def get_paginator(self, operation_name: Literal["list_servers"]) -> ListServersPaginator:
         """
-        [Paginator.ListServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/transfer.html#Transfer.Paginator.ListServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/transfer.html#Transfer.Paginator.ListServers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/paginators.html#listserverspaginator)
         """

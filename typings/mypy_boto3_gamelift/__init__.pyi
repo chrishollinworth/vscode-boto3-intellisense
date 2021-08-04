@@ -57,8 +57,8 @@ Usage::
     search_game_sessions_paginator: SearchGameSessionsPaginator = client.get_paginator("search_game_sessions")
     ```
 """
-from mypy_boto3_gamelift.client import GameLiftClient
-from mypy_boto3_gamelift.paginator import (
+from .client import GameLiftClient
+from .paginator import (
     DescribeFleetAttributesPaginator,
     DescribeFleetCapacityPaginator,
     DescribeFleetEventsPaginator,
@@ -82,7 +82,6 @@ from mypy_boto3_gamelift.paginator import (
 )
 
 Client = GameLiftClient
-
 
 __all__ = (
     "Client",

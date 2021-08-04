@@ -1,5 +1,7 @@
 """
-Main interface for timestream-write service client
+Type annotations for timestream-write service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html)
 
 Usage::
 
@@ -12,9 +14,9 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_timestream_write.type_defs import (
+from .type_defs import (
     CreateDatabaseResponseTypeDef,
     CreateTableResponseTypeDef,
     DescribeDatabaseResponseTypeDef,
@@ -32,14 +34,11 @@ from mypy_boto3_timestream_write.type_defs import (
 
 __all__ = ("TimestreamWriteClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -53,63 +52,88 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class TimestreamWriteClient:
+class TimestreamWriteClient(BaseClient):
     """
-    [TimestreamWrite.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        TimestreamWriteClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#can_paginate)
+        """
     def create_database(
-        self, DatabaseName: str, KmsKeyId: str = None, Tags: List["TagTypeDef"] = None
+        self, *, DatabaseName: str, KmsKeyId: str = None, Tags: List["TagTypeDef"] = None
     ) -> CreateDatabaseResponseTypeDef:
         """
-        [Client.create_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.create_database)
-        """
+        Creates a new Timestream database.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.create_database)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#create_database)
+        """
     def create_table(
         self,
+        *,
         DatabaseName: str,
         TableName: str,
         RetentionProperties: "RetentionPropertiesTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateTableResponseTypeDef:
         """
-        [Client.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.create_table)
-        """
+        The CreateTable operation adds a new table to an existing database in your
+        account.
 
-    def delete_database(self, DatabaseName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.create_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#create_table)
         """
-        [Client.delete_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.delete_database)
+    def delete_database(self, *, DatabaseName: str) -> None:
         """
+        Deletes a given Timestream database.
 
-    def delete_table(self, DatabaseName: str, TableName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.delete_database)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#delete_database)
         """
-        [Client.delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.delete_table)
+    def delete_table(self, *, DatabaseName: str, TableName: str) -> None:
         """
+        Deletes a given Timestream table.
 
-    def describe_database(self, DatabaseName: str) -> DescribeDatabaseResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.delete_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#delete_table)
         """
-        [Client.describe_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.describe_database)
+    def describe_database(self, *, DatabaseName: str) -> DescribeDatabaseResponseTypeDef:
         """
+        Returns information about the database, including the database name, time that
+        the database was created, and the total number of tables found within the
+        database.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.describe_database)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#describe_database)
+        """
     def describe_endpoints(self) -> DescribeEndpointsResponseTypeDef:
         """
-        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.describe_endpoints)
-        """
+        DescribeEndpoints returns a list of available endpoints to make Timestream API
+        calls against.
 
-    def describe_table(self, DatabaseName: str, TableName: str) -> DescribeTableResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.describe_endpoints)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#describe_endpoints)
         """
-        [Client.describe_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.describe_table)
+    def describe_table(self, *, DatabaseName: str, TableName: str) -> DescribeTableResponseTypeDef:
         """
+        Returns information about the table, including the table name, database name,
+        retention duration of the memory store and the magnetic store.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.describe_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#describe_table)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -118,57 +142,84 @@ class TimestreamWriteClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#generate_presigned_url)
+        """
     def list_databases(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListDatabasesResponseTypeDef:
         """
-        [Client.list_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.list_databases)
-        """
+        Returns a list of your Timestream databases.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.list_databases)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#list_databases)
+        """
     def list_tables(
-        self, DatabaseName: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, DatabaseName: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListTablesResponseTypeDef:
         """
-        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.list_tables)
-        """
+        A list of tables, along with the name, status and retention properties of each
+        table.
 
-    def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.list_tables)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#list_tables)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
+        List all tags on a Timestream resource.
 
-    def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#list_tags_for_resource)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.tag_resource)
+    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Associate a set of tags with a Timestream resource.
 
-    def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.untag_resource)
+    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes the association of tags from a Timestream resource.
 
-    def update_database(self, DatabaseName: str, KmsKeyId: str) -> UpdateDatabaseResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#untag_resource)
         """
-        [Client.update_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.update_database)
+    def update_database(self, *, DatabaseName: str, KmsKeyId: str) -> UpdateDatabaseResponseTypeDef:
         """
+        Modifies the KMS key for an existing database.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.update_database)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#update_database)
+        """
     def update_table(
-        self, DatabaseName: str, TableName: str, RetentionProperties: "RetentionPropertiesTypeDef"
-    ) -> UpdateTableResponseTypeDef:
-        """
-        [Client.update_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.update_table)
-        """
-
-    def write_records(
         self,
+        *,
         DatabaseName: str,
         TableName: str,
-        Records: List[RecordTypeDef],
-        CommonAttributes: RecordTypeDef = None,
+        RetentionProperties: "RetentionPropertiesTypeDef"
+    ) -> UpdateTableResponseTypeDef:
+        """
+        Modifies the retention duration of the memory store and magnetic store for your
+        Timestream table.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.update_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#update_table)
+        """
+    def write_records(
+        self,
+        *,
+        DatabaseName: str,
+        TableName: str,
+        Records: List["RecordTypeDef"],
+        CommonAttributes: "RecordTypeDef" = None
     ) -> None:
         """
-        [Client.write_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.write_records)
+        The WriteRecords operation enables you to write your time series data into
+        Timestream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-write.html#TimestreamWrite.Client.write_records)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_write/client.html#write_records)
         """

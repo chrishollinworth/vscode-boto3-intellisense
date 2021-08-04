@@ -25,8 +25,8 @@ Usage::
     list_state_machines_paginator: ListStateMachinesPaginator = client.get_paginator("list_state_machines")
     ```
 """
-from mypy_boto3_stepfunctions.client import SFNClient
-from mypy_boto3_stepfunctions.paginator import (
+from .client import SFNClient
+from .paginator import (
     GetExecutionHistoryPaginator,
     ListActivitiesPaginator,
     ListExecutionsPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_stepfunctions.paginator import (
 )
 
 Client = SFNClient
-
 
 __all__ = (
     "Client",

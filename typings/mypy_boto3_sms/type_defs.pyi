@@ -1,5 +1,7 @@
 """
-Main interface for sms service type definitions.
+Type annotations for sms service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/type_defs.html)
 
 Usage::
 
@@ -11,7 +13,26 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
+
+from .literals import (
+    AppLaunchConfigurationStatusType,
+    AppLaunchStatusType,
+    AppReplicationConfigurationStatusType,
+    AppReplicationStatusType,
+    AppStatusType,
+    ConnectorCapabilityType,
+    ConnectorStatusType,
+    LicenseTypeType,
+    OutputFormatType,
+    ReplicationJobStateType,
+    ReplicationRunStateType,
+    ReplicationRunTypeType,
+    ScriptTypeType,
+    ServerCatalogStatusType,
+    ValidationStatusType,
+    VmManagerTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,17 +43,58 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AppSummaryTypeDef",
     "AppValidationConfigurationTypeDef",
     "AppValidationOutputTypeDef",
     "ConnectorTypeDef",
+    "CreateAppRequestRequestTypeDef",
+    "CreateAppResponseTypeDef",
+    "CreateReplicationJobRequestRequestTypeDef",
+    "CreateReplicationJobResponseTypeDef",
+    "DeleteAppLaunchConfigurationRequestRequestTypeDef",
+    "DeleteAppReplicationConfigurationRequestRequestTypeDef",
+    "DeleteAppRequestRequestTypeDef",
+    "DeleteAppValidationConfigurationRequestRequestTypeDef",
+    "DeleteReplicationJobRequestRequestTypeDef",
+    "DisassociateConnectorRequestRequestTypeDef",
+    "GenerateChangeSetRequestRequestTypeDef",
+    "GenerateChangeSetResponseTypeDef",
+    "GenerateTemplateRequestRequestTypeDef",
+    "GenerateTemplateResponseTypeDef",
+    "GetAppLaunchConfigurationRequestRequestTypeDef",
+    "GetAppLaunchConfigurationResponseTypeDef",
+    "GetAppReplicationConfigurationRequestRequestTypeDef",
+    "GetAppReplicationConfigurationResponseTypeDef",
+    "GetAppRequestRequestTypeDef",
+    "GetAppResponseTypeDef",
+    "GetAppValidationConfigurationRequestRequestTypeDef",
+    "GetAppValidationConfigurationResponseTypeDef",
+    "GetAppValidationOutputRequestRequestTypeDef",
+    "GetAppValidationOutputResponseTypeDef",
+    "GetConnectorsRequestRequestTypeDef",
+    "GetConnectorsResponseTypeDef",
+    "GetReplicationJobsRequestRequestTypeDef",
+    "GetReplicationJobsResponseTypeDef",
+    "GetReplicationRunsRequestRequestTypeDef",
+    "GetReplicationRunsResponseTypeDef",
+    "GetServersRequestRequestTypeDef",
+    "GetServersResponseTypeDef",
+    "ImportAppCatalogRequestRequestTypeDef",
+    "LaunchAppRequestRequestTypeDef",
     "LaunchDetailsTypeDef",
+    "ListAppsRequestRequestTypeDef",
+    "ListAppsResponseTypeDef",
+    "NotificationContextTypeDef",
+    "NotifyAppValidationOutputRequestRequestTypeDef",
+    "PaginatorConfigTypeDef",
+    "PutAppLaunchConfigurationRequestRequestTypeDef",
+    "PutAppReplicationConfigurationRequestRequestTypeDef",
+    "PutAppValidationConfigurationRequestRequestTypeDef",
     "ReplicationJobTypeDef",
     "ReplicationRunStageDetailsTypeDef",
     "ReplicationRunTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
     "SSMOutputTypeDef",
     "SSMValidationParametersTypeDef",
@@ -47,30 +109,21 @@ __all__ = (
     "ServerValidationConfigurationTypeDef",
     "ServerValidationOutputTypeDef",
     "SourceTypeDef",
+    "StartAppReplicationRequestRequestTypeDef",
+    "StartOnDemandAppReplicationRequestRequestTypeDef",
+    "StartOnDemandReplicationRunRequestRequestTypeDef",
+    "StartOnDemandReplicationRunResponseTypeDef",
+    "StopAppReplicationRequestRequestTypeDef",
     "TagTypeDef",
+    "TerminateAppRequestRequestTypeDef",
+    "UpdateAppRequestRequestTypeDef",
+    "UpdateAppResponseTypeDef",
+    "UpdateReplicationJobRequestRequestTypeDef",
     "UserDataTypeDef",
     "UserDataValidationParametersTypeDef",
     "ValidationOutputTypeDef",
     "VmServerAddressTypeDef",
     "VmServerTypeDef",
-    "CreateAppResponseTypeDef",
-    "CreateReplicationJobResponseTypeDef",
-    "GenerateChangeSetResponseTypeDef",
-    "GenerateTemplateResponseTypeDef",
-    "GetAppLaunchConfigurationResponseTypeDef",
-    "GetAppReplicationConfigurationResponseTypeDef",
-    "GetAppResponseTypeDef",
-    "GetAppValidationConfigurationResponseTypeDef",
-    "GetAppValidationOutputResponseTypeDef",
-    "GetConnectorsResponseTypeDef",
-    "GetReplicationJobsResponseTypeDef",
-    "GetReplicationRunsResponseTypeDef",
-    "GetServersResponseTypeDef",
-    "ListAppsResponseTypeDef",
-    "NotificationContextTypeDef",
-    "PaginatorConfigTypeDef",
-    "StartOnDemandReplicationRunResponseTypeDef",
-    "UpdateAppResponseTypeDef",
 )
 
 AppSummaryTypeDef = TypedDict(
@@ -80,47 +133,14 @@ AppSummaryTypeDef = TypedDict(
         "importedAppId": str,
         "name": str,
         "description": str,
-        "status": Literal["CREATING", "ACTIVE", "UPDATING", "DELETING", "DELETED", "DELETE_FAILED"],
+        "status": AppStatusType,
         "statusMessage": str,
-        "replicationConfigurationStatus": Literal["NOT_CONFIGURED", "CONFIGURED"],
-        "replicationStatus": Literal[
-            "READY_FOR_CONFIGURATION",
-            "CONFIGURATION_IN_PROGRESS",
-            "CONFIGURATION_INVALID",
-            "READY_FOR_REPLICATION",
-            "VALIDATION_IN_PROGRESS",
-            "REPLICATION_PENDING",
-            "REPLICATION_IN_PROGRESS",
-            "REPLICATED",
-            "PARTIALLY_REPLICATED",
-            "DELTA_REPLICATION_IN_PROGRESS",
-            "DELTA_REPLICATED",
-            "DELTA_REPLICATION_FAILED",
-            "REPLICATION_FAILED",
-            "REPLICATION_STOPPING",
-            "REPLICATION_STOP_FAILED",
-            "REPLICATION_STOPPED",
-        ],
+        "replicationConfigurationStatus": AppReplicationConfigurationStatusType,
+        "replicationStatus": AppReplicationStatusType,
         "replicationStatusMessage": str,
         "latestReplicationTime": datetime,
-        "launchConfigurationStatus": Literal["NOT_CONFIGURED", "CONFIGURED"],
-        "launchStatus": Literal[
-            "READY_FOR_CONFIGURATION",
-            "CONFIGURATION_IN_PROGRESS",
-            "CONFIGURATION_INVALID",
-            "READY_FOR_LAUNCH",
-            "VALIDATION_IN_PROGRESS",
-            "LAUNCH_PENDING",
-            "LAUNCH_IN_PROGRESS",
-            "LAUNCHED",
-            "PARTIALLY_LAUNCHED",
-            "DELTA_LAUNCH_IN_PROGRESS",
-            "DELTA_LAUNCH_FAILED",
-            "LAUNCH_FAILED",
-            "TERMINATE_IN_PROGRESS",
-            "TERMINATE_FAILED",
-            "TERMINATED",
-        ],
+        "launchConfigurationStatus": AppLaunchConfigurationStatusType,
+        "launchStatus": AppLaunchStatusType,
         "launchStatusMessage": str,
         "launchDetails": "LaunchDetailsTypeDef",
         "creationTime": datetime,
@@ -145,7 +165,9 @@ AppValidationConfigurationTypeDef = TypedDict(
 
 AppValidationOutputTypeDef = TypedDict(
     "AppValidationOutputTypeDef",
-    {"ssmOutput": "SSMOutputTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    {
+        "ssmOutput": "SSMOutputTypeDef",
+    },
     total=False,
 )
 
@@ -154,12 +176,10 @@ ConnectorTypeDef = TypedDict(
     {
         "connectorId": str,
         "version": str,
-        "status": Literal["HEALTHY", "UNHEALTHY"],
-        "capabilityList": List[
-            Literal["VSPHERE", "SCVMM", "HYPERV-MANAGER", "SNAPSHOT_BATCHING", "SMS_OPTIMIZED"]
-        ],
+        "status": ConnectorStatusType,
+        "capabilityList": List[ConnectorCapabilityType],
         "vmManagerName": str,
-        "vmManagerType": Literal["VSPHERE", "SCVMM", "HYPERV-MANAGER"],
+        "vmManagerType": VmManagerTypeType,
         "vmManagerId": str,
         "ipAddress": str,
         "macAddress": str,
@@ -168,11 +188,444 @@ ConnectorTypeDef = TypedDict(
     total=False,
 )
 
-LaunchDetailsTypeDef = TypedDict(
-    "LaunchDetailsTypeDef",
-    {"latestLaunchTime": datetime, "stackName": str, "stackId": str},
+CreateAppRequestRequestTypeDef = TypedDict(
+    "CreateAppRequestRequestTypeDef",
+    {
+        "name": str,
+        "description": str,
+        "roleName": str,
+        "clientToken": str,
+        "serverGroups": List["ServerGroupTypeDef"],
+        "tags": List["TagTypeDef"],
+    },
     total=False,
 )
+
+CreateAppResponseTypeDef = TypedDict(
+    "CreateAppResponseTypeDef",
+    {
+        "appSummary": "AppSummaryTypeDef",
+        "serverGroups": List["ServerGroupTypeDef"],
+        "tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateReplicationJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateReplicationJobRequestRequestTypeDef",
+    {
+        "serverId": str,
+        "seedReplicationTime": Union[datetime, str],
+    },
+)
+_OptionalCreateReplicationJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateReplicationJobRequestRequestTypeDef",
+    {
+        "frequency": int,
+        "runOnce": bool,
+        "licenseType": LicenseTypeType,
+        "roleName": str,
+        "description": str,
+        "numberOfRecentAmisToKeep": int,
+        "encrypted": bool,
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
+class CreateReplicationJobRequestRequestTypeDef(
+    _RequiredCreateReplicationJobRequestRequestTypeDef,
+    _OptionalCreateReplicationJobRequestRequestTypeDef,
+):
+    pass
+
+CreateReplicationJobResponseTypeDef = TypedDict(
+    "CreateReplicationJobResponseTypeDef",
+    {
+        "replicationJobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteAppLaunchConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteAppLaunchConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+DeleteAppReplicationConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteAppReplicationConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+DeleteAppRequestRequestTypeDef = TypedDict(
+    "DeleteAppRequestRequestTypeDef",
+    {
+        "appId": str,
+        "forceStopAppReplication": bool,
+        "forceTerminateApp": bool,
+    },
+    total=False,
+)
+
+DeleteAppValidationConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteAppValidationConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+
+DeleteReplicationJobRequestRequestTypeDef = TypedDict(
+    "DeleteReplicationJobRequestRequestTypeDef",
+    {
+        "replicationJobId": str,
+    },
+)
+
+DisassociateConnectorRequestRequestTypeDef = TypedDict(
+    "DisassociateConnectorRequestRequestTypeDef",
+    {
+        "connectorId": str,
+    },
+)
+
+GenerateChangeSetRequestRequestTypeDef = TypedDict(
+    "GenerateChangeSetRequestRequestTypeDef",
+    {
+        "appId": str,
+        "changesetFormat": OutputFormatType,
+    },
+    total=False,
+)
+
+GenerateChangeSetResponseTypeDef = TypedDict(
+    "GenerateChangeSetResponseTypeDef",
+    {
+        "s3Location": "S3LocationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GenerateTemplateRequestRequestTypeDef = TypedDict(
+    "GenerateTemplateRequestRequestTypeDef",
+    {
+        "appId": str,
+        "templateFormat": OutputFormatType,
+    },
+    total=False,
+)
+
+GenerateTemplateResponseTypeDef = TypedDict(
+    "GenerateTemplateResponseTypeDef",
+    {
+        "s3Location": "S3LocationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAppLaunchConfigurationRequestRequestTypeDef = TypedDict(
+    "GetAppLaunchConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+GetAppLaunchConfigurationResponseTypeDef = TypedDict(
+    "GetAppLaunchConfigurationResponseTypeDef",
+    {
+        "appId": str,
+        "roleName": str,
+        "autoLaunch": bool,
+        "serverGroupLaunchConfigurations": List["ServerGroupLaunchConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAppReplicationConfigurationRequestRequestTypeDef = TypedDict(
+    "GetAppReplicationConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+GetAppReplicationConfigurationResponseTypeDef = TypedDict(
+    "GetAppReplicationConfigurationResponseTypeDef",
+    {
+        "serverGroupReplicationConfigurations": List["ServerGroupReplicationConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAppRequestRequestTypeDef = TypedDict(
+    "GetAppRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+GetAppResponseTypeDef = TypedDict(
+    "GetAppResponseTypeDef",
+    {
+        "appSummary": "AppSummaryTypeDef",
+        "serverGroups": List["ServerGroupTypeDef"],
+        "tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAppValidationConfigurationRequestRequestTypeDef = TypedDict(
+    "GetAppValidationConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+
+GetAppValidationConfigurationResponseTypeDef = TypedDict(
+    "GetAppValidationConfigurationResponseTypeDef",
+    {
+        "appValidationConfigurations": List["AppValidationConfigurationTypeDef"],
+        "serverGroupValidationConfigurations": List["ServerGroupValidationConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAppValidationOutputRequestRequestTypeDef = TypedDict(
+    "GetAppValidationOutputRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+
+GetAppValidationOutputResponseTypeDef = TypedDict(
+    "GetAppValidationOutputResponseTypeDef",
+    {
+        "validationOutputList": List["ValidationOutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetConnectorsRequestRequestTypeDef = TypedDict(
+    "GetConnectorsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+GetConnectorsResponseTypeDef = TypedDict(
+    "GetConnectorsResponseTypeDef",
+    {
+        "connectorList": List["ConnectorTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetReplicationJobsRequestRequestTypeDef = TypedDict(
+    "GetReplicationJobsRequestRequestTypeDef",
+    {
+        "replicationJobId": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+GetReplicationJobsResponseTypeDef = TypedDict(
+    "GetReplicationJobsResponseTypeDef",
+    {
+        "replicationJobList": List["ReplicationJobTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetReplicationRunsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetReplicationRunsRequestRequestTypeDef",
+    {
+        "replicationJobId": str,
+    },
+)
+_OptionalGetReplicationRunsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetReplicationRunsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class GetReplicationRunsRequestRequestTypeDef(
+    _RequiredGetReplicationRunsRequestRequestTypeDef,
+    _OptionalGetReplicationRunsRequestRequestTypeDef,
+):
+    pass
+
+GetReplicationRunsResponseTypeDef = TypedDict(
+    "GetReplicationRunsResponseTypeDef",
+    {
+        "replicationJob": "ReplicationJobTypeDef",
+        "replicationRunList": List["ReplicationRunTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetServersRequestRequestTypeDef = TypedDict(
+    "GetServersRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+        "vmServerAddressList": List["VmServerAddressTypeDef"],
+    },
+    total=False,
+)
+
+GetServersResponseTypeDef = TypedDict(
+    "GetServersResponseTypeDef",
+    {
+        "lastModifiedOn": datetime,
+        "serverCatalogStatus": ServerCatalogStatusType,
+        "serverList": List["ServerTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ImportAppCatalogRequestRequestTypeDef = TypedDict(
+    "ImportAppCatalogRequestRequestTypeDef",
+    {
+        "roleName": str,
+    },
+    total=False,
+)
+
+LaunchAppRequestRequestTypeDef = TypedDict(
+    "LaunchAppRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+LaunchDetailsTypeDef = TypedDict(
+    "LaunchDetailsTypeDef",
+    {
+        "latestLaunchTime": datetime,
+        "stackName": str,
+        "stackId": str,
+    },
+    total=False,
+)
+
+ListAppsRequestRequestTypeDef = TypedDict(
+    "ListAppsRequestRequestTypeDef",
+    {
+        "appIds": List[str],
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListAppsResponseTypeDef = TypedDict(
+    "ListAppsResponseTypeDef",
+    {
+        "apps": List["AppSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+NotificationContextTypeDef = TypedDict(
+    "NotificationContextTypeDef",
+    {
+        "validationId": str,
+        "status": ValidationStatusType,
+        "statusMessage": str,
+    },
+    total=False,
+)
+
+_RequiredNotifyAppValidationOutputRequestRequestTypeDef = TypedDict(
+    "_RequiredNotifyAppValidationOutputRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalNotifyAppValidationOutputRequestRequestTypeDef = TypedDict(
+    "_OptionalNotifyAppValidationOutputRequestRequestTypeDef",
+    {
+        "notificationContext": "NotificationContextTypeDef",
+    },
+    total=False,
+)
+
+class NotifyAppValidationOutputRequestRequestTypeDef(
+    _RequiredNotifyAppValidationOutputRequestRequestTypeDef,
+    _OptionalNotifyAppValidationOutputRequestRequestTypeDef,
+):
+    pass
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+PutAppLaunchConfigurationRequestRequestTypeDef = TypedDict(
+    "PutAppLaunchConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+        "roleName": str,
+        "autoLaunch": bool,
+        "serverGroupLaunchConfigurations": List["ServerGroupLaunchConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+PutAppReplicationConfigurationRequestRequestTypeDef = TypedDict(
+    "PutAppReplicationConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+        "serverGroupReplicationConfigurations": List["ServerGroupReplicationConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredPutAppValidationConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutAppValidationConfigurationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalPutAppValidationConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutAppValidationConfigurationRequestRequestTypeDef",
+    {
+        "appValidationConfigurations": List["AppValidationConfigurationTypeDef"],
+        "serverGroupValidationConfigurations": List["ServerGroupValidationConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+class PutAppValidationConfigurationRequestRequestTypeDef(
+    _RequiredPutAppValidationConfigurationRequestRequestTypeDef,
+    _OptionalPutAppValidationConfigurationRequestRequestTypeDef,
+):
+    pass
 
 ReplicationJobTypeDef = TypedDict(
     "ReplicationJobTypeDef",
@@ -185,19 +638,10 @@ ReplicationJobTypeDef = TypedDict(
         "frequency": int,
         "runOnce": bool,
         "nextReplicationRunStartTime": datetime,
-        "licenseType": Literal["AWS", "BYOL"],
+        "licenseType": LicenseTypeType,
         "roleName": str,
         "latestAmiId": str,
-        "state": Literal[
-            "PENDING",
-            "ACTIVE",
-            "FAILED",
-            "DELETING",
-            "DELETED",
-            "COMPLETED",
-            "PAUSED_ON_FAILURE",
-            "FAILING",
-        ],
+        "state": ReplicationJobStateType,
         "statusMessage": str,
         "description": str,
         "numberOfRecentAmisToKeep": int,
@@ -209,17 +653,20 @@ ReplicationJobTypeDef = TypedDict(
 )
 
 ReplicationRunStageDetailsTypeDef = TypedDict(
-    "ReplicationRunStageDetailsTypeDef", {"stage": str, "stageProgress": str}, total=False
+    "ReplicationRunStageDetailsTypeDef",
+    {
+        "stage": str,
+        "stageProgress": str,
+    },
+    total=False,
 )
 
 ReplicationRunTypeDef = TypedDict(
     "ReplicationRunTypeDef",
     {
         "replicationRunId": str,
-        "state": Literal[
-            "PENDING", "MISSED", "ACTIVE", "FAILED", "COMPLETED", "DELETING", "DELETED"
-        ],
-        "type": Literal["ON_DEMAND", "AUTOMATIC"],
+        "state": ReplicationRunStateType,
+        "type": ReplicationRunTypeType,
         "stageDetails": "ReplicationRunStageDetailsTypeDef",
         "statusMessage": str,
         "amiId": str,
@@ -232,8 +679,8 @@ ReplicationRunTypeDef = TypedDict(
     total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -243,11 +690,20 @@ ResponseMetadata = TypedDict(
     },
 )
 
-S3LocationTypeDef = TypedDict("S3LocationTypeDef", {"bucket": str, "key": str}, total=False)
+S3LocationTypeDef = TypedDict(
+    "S3LocationTypeDef",
+    {
+        "bucket": str,
+        "key": str,
+    },
+    total=False,
+)
 
 SSMOutputTypeDef = TypedDict(
     "SSMOutputTypeDef",
-    {"s3Location": "S3LocationTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    {
+        "s3Location": "S3LocationTypeDef",
+    },
     total=False,
 )
 
@@ -256,7 +712,7 @@ SSMValidationParametersTypeDef = TypedDict(
     {
         "source": "SourceTypeDef",
         "instanceId": str,
-        "scriptType": Literal["SHELL_SCRIPT", "POWERSHELL_SCRIPT"],
+        "scriptType": ScriptTypeType,
         "command": str,
         "executionTimeoutSeconds": int,
         "outputS3BucketName": str,
@@ -285,7 +741,11 @@ ServerGroupReplicationConfigurationTypeDef = TypedDict(
 
 ServerGroupTypeDef = TypedDict(
     "ServerGroupTypeDef",
-    {"serverGroupId": str, "name": str, "serverList": List["ServerTypeDef"]},
+    {
+        "serverGroupId": str,
+        "name": str,
+        "serverList": List["ServerTypeDef"],
+    },
     total=False,
 )
 
@@ -312,7 +772,7 @@ ServerLaunchConfigurationTypeDef = TypedDict(
         "associatePublicIpAddress": bool,
         "iamInstanceProfileName": str,
         "configureScript": "S3LocationTypeDef",
-        "configureScriptType": Literal["SHELL_SCRIPT", "POWERSHELL_SCRIPT"],
+        "configureScriptType": ScriptTypeType,
     },
     total=False,
 )
@@ -332,7 +792,7 @@ ServerReplicationParametersTypeDef = TypedDict(
         "seedTime": datetime,
         "frequency": int,
         "runOnce": bool,
-        "licenseType": Literal["AWS", "BYOL"],
+        "licenseType": LicenseTypeType,
         "numberOfRecentAmisToKeep": int,
         "encrypted": bool,
         "kmsKeyId": str,
@@ -366,172 +826,112 @@ ServerValidationConfigurationTypeDef = TypedDict(
 
 ServerValidationOutputTypeDef = TypedDict(
     "ServerValidationOutputTypeDef",
-    {"server": "ServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-SourceTypeDef = TypedDict("SourceTypeDef", {"s3Location": "S3LocationTypeDef"}, total=False)
-
-TagTypeDef = TypedDict("TagTypeDef", {"key": str, "value": str}, total=False)
-
-UserDataTypeDef = TypedDict("UserDataTypeDef", {"s3Location": "S3LocationTypeDef"}, total=False)
-
-UserDataValidationParametersTypeDef = TypedDict(
-    "UserDataValidationParametersTypeDef",
-    {"source": "SourceTypeDef", "scriptType": Literal["SHELL_SCRIPT", "POWERSHELL_SCRIPT"]},
-    total=False,
-)
-
-ValidationOutputTypeDef = TypedDict(
-    "ValidationOutputTypeDef",
     {
-        "validationId": str,
-        "name": str,
-        "status": Literal["READY_FOR_VALIDATION", "PENDING", "IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "statusMessage": str,
-        "latestValidationTime": datetime,
-        "appValidationOutput": "AppValidationOutputTypeDef",
-        "serverValidationOutput": "ServerValidationOutputTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
+        "server": "ServerTypeDef",
     },
     total=False,
 )
 
-VmServerAddressTypeDef = TypedDict(
-    "VmServerAddressTypeDef", {"vmManagerId": str, "vmId": str}, total=False
-)
-
-VmServerTypeDef = TypedDict(
-    "VmServerTypeDef",
+SourceTypeDef = TypedDict(
+    "SourceTypeDef",
     {
-        "vmServerAddress": "VmServerAddressTypeDef",
-        "vmName": str,
-        "vmManagerName": str,
-        "vmManagerType": Literal["VSPHERE", "SCVMM", "HYPERV-MANAGER"],
-        "vmPath": str,
+        "s3Location": "S3LocationTypeDef",
     },
     total=False,
 )
 
-CreateAppResponseTypeDef = TypedDict(
-    "CreateAppResponseTypeDef",
-    {
-        "appSummary": "AppSummaryTypeDef",
-        "serverGroups": List["ServerGroupTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-CreateReplicationJobResponseTypeDef = TypedDict(
-    "CreateReplicationJobResponseTypeDef", {"replicationJobId": str}, total=False
-)
-
-GenerateChangeSetResponseTypeDef = TypedDict(
-    "GenerateChangeSetResponseTypeDef", {"s3Location": "S3LocationTypeDef"}, total=False
-)
-
-GenerateTemplateResponseTypeDef = TypedDict(
-    "GenerateTemplateResponseTypeDef", {"s3Location": "S3LocationTypeDef"}, total=False
-)
-
-GetAppLaunchConfigurationResponseTypeDef = TypedDict(
-    "GetAppLaunchConfigurationResponseTypeDef",
+StartAppReplicationRequestRequestTypeDef = TypedDict(
+    "StartAppReplicationRequestRequestTypeDef",
     {
         "appId": str,
-        "roleName": str,
-        "autoLaunch": bool,
-        "serverGroupLaunchConfigurations": List["ServerGroupLaunchConfigurationTypeDef"],
     },
     total=False,
 )
 
-GetAppReplicationConfigurationResponseTypeDef = TypedDict(
-    "GetAppReplicationConfigurationResponseTypeDef",
-    {"serverGroupReplicationConfigurations": List["ServerGroupReplicationConfigurationTypeDef"]},
+_RequiredStartOnDemandAppReplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartOnDemandAppReplicationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalStartOnDemandAppReplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartOnDemandAppReplicationRequestRequestTypeDef",
+    {
+        "description": str,
+    },
     total=False,
 )
 
-GetAppResponseTypeDef = TypedDict(
-    "GetAppResponseTypeDef",
+class StartOnDemandAppReplicationRequestRequestTypeDef(
+    _RequiredStartOnDemandAppReplicationRequestRequestTypeDef,
+    _OptionalStartOnDemandAppReplicationRequestRequestTypeDef,
+):
+    pass
+
+_RequiredStartOnDemandReplicationRunRequestRequestTypeDef = TypedDict(
+    "_RequiredStartOnDemandReplicationRunRequestRequestTypeDef",
     {
-        "appSummary": "AppSummaryTypeDef",
+        "replicationJobId": str,
+    },
+)
+_OptionalStartOnDemandReplicationRunRequestRequestTypeDef = TypedDict(
+    "_OptionalStartOnDemandReplicationRunRequestRequestTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class StartOnDemandReplicationRunRequestRequestTypeDef(
+    _RequiredStartOnDemandReplicationRunRequestRequestTypeDef,
+    _OptionalStartOnDemandReplicationRunRequestRequestTypeDef,
+):
+    pass
+
+StartOnDemandReplicationRunResponseTypeDef = TypedDict(
+    "StartOnDemandReplicationRunResponseTypeDef",
+    {
+        "replicationRunId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopAppReplicationRequestRequestTypeDef = TypedDict(
+    "StopAppReplicationRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "key": str,
+        "value": str,
+    },
+    total=False,
+)
+
+TerminateAppRequestRequestTypeDef = TypedDict(
+    "TerminateAppRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+    total=False,
+)
+
+UpdateAppRequestRequestTypeDef = TypedDict(
+    "UpdateAppRequestRequestTypeDef",
+    {
+        "appId": str,
+        "name": str,
+        "description": str,
+        "roleName": str,
         "serverGroups": List["ServerGroupTypeDef"],
         "tags": List["TagTypeDef"],
     },
     total=False,
-)
-
-GetAppValidationConfigurationResponseTypeDef = TypedDict(
-    "GetAppValidationConfigurationResponseTypeDef",
-    {
-        "appValidationConfigurations": List["AppValidationConfigurationTypeDef"],
-        "serverGroupValidationConfigurations": List["ServerGroupValidationConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-GetAppValidationOutputResponseTypeDef = TypedDict(
-    "GetAppValidationOutputResponseTypeDef",
-    {"validationOutputList": List["ValidationOutputTypeDef"]},
-    total=False,
-)
-
-GetConnectorsResponseTypeDef = TypedDict(
-    "GetConnectorsResponseTypeDef",
-    {"connectorList": List["ConnectorTypeDef"], "nextToken": str},
-    total=False,
-)
-
-GetReplicationJobsResponseTypeDef = TypedDict(
-    "GetReplicationJobsResponseTypeDef",
-    {"replicationJobList": List["ReplicationJobTypeDef"], "nextToken": str},
-    total=False,
-)
-
-GetReplicationRunsResponseTypeDef = TypedDict(
-    "GetReplicationRunsResponseTypeDef",
-    {
-        "replicationJob": "ReplicationJobTypeDef",
-        "replicationRunList": List["ReplicationRunTypeDef"],
-        "nextToken": str,
-    },
-    total=False,
-)
-
-GetServersResponseTypeDef = TypedDict(
-    "GetServersResponseTypeDef",
-    {
-        "lastModifiedOn": datetime,
-        "serverCatalogStatus": Literal[
-            "NOT_IMPORTED", "IMPORTING", "AVAILABLE", "DELETED", "EXPIRED"
-        ],
-        "serverList": List["ServerTypeDef"],
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListAppsResponseTypeDef = TypedDict(
-    "ListAppsResponseTypeDef", {"apps": List["AppSummaryTypeDef"], "nextToken": str}, total=False
-)
-
-NotificationContextTypeDef = TypedDict(
-    "NotificationContextTypeDef",
-    {
-        "validationId": str,
-        "status": Literal["READY_FOR_VALIDATION", "PENDING", "IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-StartOnDemandReplicationRunResponseTypeDef = TypedDict(
-    "StartOnDemandReplicationRunResponseTypeDef", {"replicationRunId": str}, total=False
 )
 
 UpdateAppResponseTypeDef = TypedDict(
@@ -540,6 +940,85 @@ UpdateAppResponseTypeDef = TypedDict(
         "appSummary": "AppSummaryTypeDef",
         "serverGroups": List["ServerGroupTypeDef"],
         "tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateReplicationJobRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateReplicationJobRequestRequestTypeDef",
+    {
+        "replicationJobId": str,
+    },
+)
+_OptionalUpdateReplicationJobRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateReplicationJobRequestRequestTypeDef",
+    {
+        "frequency": int,
+        "nextReplicationRunStartTime": Union[datetime, str],
+        "licenseType": LicenseTypeType,
+        "roleName": str,
+        "description": str,
+        "numberOfRecentAmisToKeep": int,
+        "encrypted": bool,
+        "kmsKeyId": str,
+    },
+    total=False,
+)
+
+class UpdateReplicationJobRequestRequestTypeDef(
+    _RequiredUpdateReplicationJobRequestRequestTypeDef,
+    _OptionalUpdateReplicationJobRequestRequestTypeDef,
+):
+    pass
+
+UserDataTypeDef = TypedDict(
+    "UserDataTypeDef",
+    {
+        "s3Location": "S3LocationTypeDef",
+    },
+    total=False,
+)
+
+UserDataValidationParametersTypeDef = TypedDict(
+    "UserDataValidationParametersTypeDef",
+    {
+        "source": "SourceTypeDef",
+        "scriptType": ScriptTypeType,
+    },
+    total=False,
+)
+
+ValidationOutputTypeDef = TypedDict(
+    "ValidationOutputTypeDef",
+    {
+        "validationId": str,
+        "name": str,
+        "status": ValidationStatusType,
+        "statusMessage": str,
+        "latestValidationTime": datetime,
+        "appValidationOutput": "AppValidationOutputTypeDef",
+        "serverValidationOutput": "ServerValidationOutputTypeDef",
+    },
+    total=False,
+)
+
+VmServerAddressTypeDef = TypedDict(
+    "VmServerAddressTypeDef",
+    {
+        "vmManagerId": str,
+        "vmId": str,
+    },
+    total=False,
+)
+
+VmServerTypeDef = TypedDict(
+    "VmServerTypeDef",
+    {
+        "vmServerAddress": "VmServerAddressTypeDef",
+        "vmName": str,
+        "vmManagerName": str,
+        "vmManagerType": VmManagerTypeType,
+        "vmPath": str,
     },
     total=False,
 )

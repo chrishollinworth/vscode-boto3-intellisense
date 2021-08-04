@@ -1,5 +1,7 @@
 """
-Main interface for braket service client
+Type annotations for braket service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html)
 
 Usage::
 
@@ -13,10 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_braket.paginator import SearchDevicesPaginator, SearchQuantumTasksPaginator
-from mypy_boto3_braket.type_defs import (
+from .paginator import SearchDevicesPaginator, SearchQuantumTasksPaginator
+from .type_defs import (
     CancelQuantumTaskResponseTypeDef,
     CreateQuantumTaskResponseTypeDef,
     GetDeviceResponseTypeDef,
@@ -33,52 +35,57 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("BraketClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     DeviceOfflineException: Type[BotocoreClientError]
+    DeviceRetiredException: Type[BotocoreClientError]
     InternalServiceException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class BraketClient:
+class BraketClient(BaseClient):
     """
-    [Braket.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        BraketClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#can_paginate)
+        """
     def cancel_quantum_task(
-        self, clientToken: str, quantumTaskArn: str
+        self, *, clientToken: str, quantumTaskArn: str
     ) -> CancelQuantumTaskResponseTypeDef:
         """
-        [Client.cancel_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.cancel_quantum_task)
-        """
+        Cancels the specified task.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.cancel_quantum_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#cancel_quantum_task)
+        """
     def create_quantum_task(
         self,
+        *,
         action: str,
         clientToken: str,
         deviceArn: str,
@@ -86,12 +93,14 @@ class BraketClient:
         outputS3KeyPrefix: str,
         shots: int,
         deviceParameters: str = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> CreateQuantumTaskResponseTypeDef:
         """
-        [Client.create_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.create_quantum_task)
-        """
+        Creates a quantum task.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.create_quantum_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#create_quantum_task)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -100,64 +109,83 @@ class BraketClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_device(self, deviceArn: str) -> GetDeviceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#generate_presigned_url)
         """
-        [Client.get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.get_device)
+    def get_device(self, *, deviceArn: str) -> GetDeviceResponseTypeDef:
         """
+        Retrieves the devices available in Amazon Braket.
 
-    def get_quantum_task(self, quantumTaskArn: str) -> GetQuantumTaskResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.get_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#get_device)
         """
-        [Client.get_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.get_quantum_task)
+    def get_quantum_task(self, *, quantumTaskArn: str) -> GetQuantumTaskResponseTypeDef:
         """
+        Retrieves the specified quantum task.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.get_quantum_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#get_quantum_task)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Shows the tags associated with this resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#list_tags_for_resource)
+        """
     def search_devices(
         self,
-        filters: List[SearchDevicesFilterTypeDef],
+        *,
+        filters: List["SearchDevicesFilterTypeDef"],
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> SearchDevicesResponseTypeDef:
         """
-        [Client.search_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.search_devices)
-        """
+        Searches for devices using the specified filters.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.search_devices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#search_devices)
+        """
     def search_quantum_tasks(
         self,
-        filters: List[SearchQuantumTasksFilterTypeDef],
+        *,
+        filters: List["SearchQuantumTasksFilterTypeDef"],
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> SearchQuantumTasksResponseTypeDef:
         """
-        [Client.search_quantum_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.search_quantum_tasks)
-        """
+        Searches for tasks that match the specified filter values.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.search_quantum_tasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#search_quantum_tasks)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Add a tag to the specified resource.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Remove tags from a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/client.html#untag_resource)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["search_devices"]) -> SearchDevicesPaginator:
         """
-        [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Paginator.SearchDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Paginator.SearchDevices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/paginators.html#searchdevicespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["search_quantum_tasks"]
     ) -> SearchQuantumTasksPaginator:
         """
-        [Paginator.SearchQuantumTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/paginators.html#searchquantumtaskspaginator)
         """

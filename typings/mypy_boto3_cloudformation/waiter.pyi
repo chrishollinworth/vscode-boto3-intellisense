@@ -1,5 +1,7 @@
 """
-Main interface for cloudformation service client waiters.
+Type annotations for cloudformation service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html)
 
 Usage::
 
@@ -32,7 +34,7 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_cloudformation.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = (
     "ChangeSetCreateCompleteWaiter",
@@ -45,108 +47,141 @@ __all__ = (
     "TypeRegistrationCompleteWaiter",
 )
 
-
 class ChangeSetCreateCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.ChangeSetCreateComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.ChangeSetCreateComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.ChangeSetCreateComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#changesetcreatecompletewaiter)
     """
 
     def wait(
         self,
+        *,
         ChangeSetName: str,
         StackName: str = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ChangeSetCreateComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.ChangeSetCreateComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.ChangeSetCreateComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#changesetcreatecompletewaiter)
         """
-
 
 class StackCreateCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.StackCreateComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackcreatecompletewaiter)
     """
 
     def wait(
-        self, StackName: str = None, NextToken: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        StackName: str = None,
+        NextToken: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [StackCreateComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackcreatecompletewaiter)
         """
-
 
 class StackDeleteCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.StackDeleteComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackDeleteComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackDeleteComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackdeletecompletewaiter)
     """
 
     def wait(
-        self, StackName: str = None, NextToken: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        StackName: str = None,
+        NextToken: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [StackDeleteComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackDeleteComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackDeleteComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackdeletecompletewaiter)
         """
-
 
 class StackExistsWaiter(Boto3Waiter):
     """
-    [Waiter.StackExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackexistswaiter)
     """
 
     def wait(
-        self, StackName: str = None, NextToken: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        StackName: str = None,
+        NextToken: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [StackExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackexistswaiter)
         """
-
 
 class StackImportCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.StackImportComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackImportComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackImportComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackimportcompletewaiter)
     """
 
     def wait(
-        self, StackName: str = None, NextToken: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        StackName: str = None,
+        NextToken: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [StackImportComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackImportComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackImportComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackimportcompletewaiter)
         """
-
 
 class StackRollbackCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.StackRollbackComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackRollbackComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackRollbackComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackrollbackcompletewaiter)
     """
 
     def wait(
-        self, StackName: str = None, NextToken: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        StackName: str = None,
+        NextToken: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [StackRollbackComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackRollbackComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackRollbackComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackrollbackcompletewaiter)
         """
-
 
 class StackUpdateCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.StackUpdateComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackUpdateComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackUpdateComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackupdatecompletewaiter)
     """
 
     def wait(
-        self, StackName: str = None, NextToken: str = None, WaiterConfig: WaiterConfigTypeDef = None
+        self,
+        *,
+        StackName: str = None,
+        NextToken: str = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [StackUpdateComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.StackUpdateComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.StackUpdateComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#stackupdatecompletewaiter)
         """
-
 
 class TypeRegistrationCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.TypeRegistrationComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.TypeRegistrationComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.TypeRegistrationComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#typeregistrationcompletewaiter)
     """
 
-    def wait(self, RegistrationToken: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, RegistrationToken: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TypeRegistrationComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudformation.html#CloudFormation.Waiter.TypeRegistrationComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudformation.html#CloudFormation.Waiter.TypeRegistrationComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/waiters.html#typeregistrationcompletewaiter)
         """

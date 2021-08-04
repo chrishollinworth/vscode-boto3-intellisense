@@ -16,9 +16,8 @@ Usage::
     session_client: AppConfigClient = session.client("appconfig")
     ```
 """
-from mypy_boto3_appconfig.client import AppConfigClient
+from .client import AppConfigClient
 
 Client = AppConfigClient
-
 
 __all__ = ("AppConfigClient", "Client")

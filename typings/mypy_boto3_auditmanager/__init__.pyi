@@ -16,9 +16,8 @@ Usage::
     session_client: AuditManagerClient = session.client("auditmanager")
     ```
 """
-from mypy_boto3_auditmanager.client import AuditManagerClient
+from .client import AuditManagerClient
 
 Client = AuditManagerClient
-
 
 __all__ = ("AuditManagerClient", "Client")

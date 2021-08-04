@@ -1,5 +1,7 @@
 """
-Main interface for schemas service client waiters.
+Type annotations for schemas service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/waiters.html)
 
 Usage::
 
@@ -18,24 +20,26 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_schemas.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("CodeBindingExistsWaiter",)
 
-
 class CodeBindingExistsWaiter(Boto3Waiter):
     """
-    [Waiter.CodeBindingExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/waiters.html#codebindingexistswaiter)
     """
 
     def wait(
         self,
+        *,
         Language: str,
         RegistryName: str,
         SchemaName: str,
         SchemaVersion: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [CodeBindingExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/waiters.html#codebindingexistswaiter)
         """

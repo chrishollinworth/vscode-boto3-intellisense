@@ -31,8 +31,8 @@ Usage::
     list_scram_secrets_paginator: ListScramSecretsPaginator = client.get_paginator("list_scram_secrets")
     ```
 """
-from mypy_boto3_kafka.client import KafkaClient
-from mypy_boto3_kafka.paginator import (
+from .client import KafkaClient
+from .paginator import (
     ListClusterOperationsPaginator,
     ListClustersPaginator,
     ListConfigurationRevisionsPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_kafka.paginator import (
 )
 
 Client = KafkaClient
-
 
 __all__ = (
     "Client",

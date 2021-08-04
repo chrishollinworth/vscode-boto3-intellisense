@@ -34,22 +34,17 @@ Usage::
     list_platform_versions_paginator: ListPlatformVersionsPaginator = client.get_paginator("list_platform_versions")
     ```
 """
-from mypy_boto3_elasticbeanstalk.client import ElasticBeanstalkClient
-from mypy_boto3_elasticbeanstalk.paginator import (
+from .client import ElasticBeanstalkClient
+from .paginator import (
     DescribeApplicationVersionsPaginator,
     DescribeEnvironmentManagedActionHistoryPaginator,
     DescribeEnvironmentsPaginator,
     DescribeEventsPaginator,
     ListPlatformVersionsPaginator,
 )
-from mypy_boto3_elasticbeanstalk.waiter import (
-    EnvironmentExistsWaiter,
-    EnvironmentTerminatedWaiter,
-    EnvironmentUpdatedWaiter,
-)
+from .waiter import EnvironmentExistsWaiter, EnvironmentTerminatedWaiter, EnvironmentUpdatedWaiter
 
 Client = ElasticBeanstalkClient
-
 
 __all__ = (
     "Client",

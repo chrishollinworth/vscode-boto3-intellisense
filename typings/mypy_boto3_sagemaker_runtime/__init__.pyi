@@ -16,9 +16,8 @@ Usage::
     session_client: SageMakerRuntimeClient = session.client("sagemaker-runtime")
     ```
 """
-from mypy_boto3_sagemaker_runtime.client import SageMakerRuntimeClient
+from .client import SageMakerRuntimeClient
 
 Client = SageMakerRuntimeClient
-
 
 __all__ = ("Client", "SageMakerRuntimeClient")

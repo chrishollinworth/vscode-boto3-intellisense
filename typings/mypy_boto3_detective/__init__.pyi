@@ -16,9 +16,8 @@ Usage::
     session_client: DetectiveClient = session.client("detective")
     ```
 """
-from mypy_boto3_detective.client import DetectiveClient
+from .client import DetectiveClient
 
 Client = DetectiveClient
-
 
 __all__ = ("Client", "DetectiveClient")

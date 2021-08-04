@@ -25,8 +25,8 @@ Usage::
     list_keys_paginator: ListKeysPaginator = client.get_paginator("list_keys")
     ```
 """
-from mypy_boto3_kms.client import KMSClient
-from mypy_boto3_kms.paginator import (
+from .client import KMSClient
+from .paginator import (
     ListAliasesPaginator,
     ListGrantsPaginator,
     ListKeyPoliciesPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_kms.paginator import (
 )
 
 Client = KMSClient
-
 
 __all__ = (
     "Client",

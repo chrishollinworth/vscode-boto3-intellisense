@@ -25,8 +25,8 @@ Usage::
     query_table_rows_paginator: QueryTableRowsPaginator = client.get_paginator("query_table_rows")
     ```
 """
-from mypy_boto3_honeycode.client import HoneycodeClient
-from mypy_boto3_honeycode.paginator import (
+from .client import HoneycodeClient
+from .paginator import (
     ListTableColumnsPaginator,
     ListTableRowsPaginator,
     ListTablesPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_honeycode.paginator import (
 )
 
 Client = HoneycodeClient
-
 
 __all__ = (
     "Client",

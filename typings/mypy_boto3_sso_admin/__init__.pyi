@@ -37,8 +37,8 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
-from mypy_boto3_sso_admin.client import SSOAdminClient
-from mypy_boto3_sso_admin.paginator import (
+from .client import SSOAdminClient
+from .paginator import (
     ListAccountAssignmentCreationStatusPaginator,
     ListAccountAssignmentDeletionStatusPaginator,
     ListAccountAssignmentsPaginator,
@@ -52,7 +52,6 @@ from mypy_boto3_sso_admin.paginator import (
 )
 
 Client = SSOAdminClient
-
 
 __all__ = (
     "Client",

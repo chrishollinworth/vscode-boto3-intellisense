@@ -1,5 +1,7 @@
 """
-Main interface for cloudfront service client
+Type annotations for cloudfront service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html)
 
 Usage::
 
@@ -11,17 +13,19 @@ Usage::
     ```
 """
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_cloudfront.paginator import (
+from .literals import CachePolicyTypeType, FunctionStageType, OriginRequestPolicyTypeType
+from .paginator import (
     ListCloudFrontOriginAccessIdentitiesPaginator,
     ListDistributionsPaginator,
     ListInvalidationsPaginator,
     ListStreamingDistributionsPaginator,
 )
-from mypy_boto3_cloudfront.type_defs import (
+from .type_defs import (
     CachePolicyConfigTypeDef,
     CloudFrontOriginAccessIdentityConfigTypeDef,
     CreateCachePolicyResultTypeDef,
@@ -30,6 +34,7 @@ from mypy_boto3_cloudfront.type_defs import (
     CreateDistributionWithTagsResultTypeDef,
     CreateFieldLevelEncryptionConfigResultTypeDef,
     CreateFieldLevelEncryptionProfileResultTypeDef,
+    CreateFunctionResultTypeDef,
     CreateInvalidationResultTypeDef,
     CreateKeyGroupResultTypeDef,
     CreateMonitoringSubscriptionResultTypeDef,
@@ -38,11 +43,13 @@ from mypy_boto3_cloudfront.type_defs import (
     CreateRealtimeLogConfigResultTypeDef,
     CreateStreamingDistributionResultTypeDef,
     CreateStreamingDistributionWithTagsResultTypeDef,
+    DescribeFunctionResultTypeDef,
     DistributionConfigTypeDef,
     DistributionConfigWithTagsTypeDef,
     EndPointTypeDef,
     FieldLevelEncryptionConfigTypeDef,
     FieldLevelEncryptionProfileConfigTypeDef,
+    FunctionConfigTypeDef,
     GetCachePolicyConfigResultTypeDef,
     GetCachePolicyResultTypeDef,
     GetCloudFrontOriginAccessIdentityConfigResultTypeDef,
@@ -53,6 +60,7 @@ from mypy_boto3_cloudfront.type_defs import (
     GetFieldLevelEncryptionProfileConfigResultTypeDef,
     GetFieldLevelEncryptionProfileResultTypeDef,
     GetFieldLevelEncryptionResultTypeDef,
+    GetFunctionResultTypeDef,
     GetInvalidationResultTypeDef,
     GetKeyGroupConfigResultTypeDef,
     GetKeyGroupResultTypeDef,
@@ -68,6 +76,7 @@ from mypy_boto3_cloudfront.type_defs import (
     KeyGroupConfigTypeDef,
     ListCachePoliciesResultTypeDef,
     ListCloudFrontOriginAccessIdentitiesResultTypeDef,
+    ListConflictingAliasesResultTypeDef,
     ListDistributionsByCachePolicyIdResultTypeDef,
     ListDistributionsByKeyGroupResultTypeDef,
     ListDistributionsByOriginRequestPolicyIdResultTypeDef,
@@ -76,6 +85,7 @@ from mypy_boto3_cloudfront.type_defs import (
     ListDistributionsResultTypeDef,
     ListFieldLevelEncryptionConfigsResultTypeDef,
     ListFieldLevelEncryptionProfilesResultTypeDef,
+    ListFunctionsResultTypeDef,
     ListInvalidationsResultTypeDef,
     ListKeyGroupsResultTypeDef,
     ListOriginRequestPoliciesResultTypeDef,
@@ -86,22 +96,25 @@ from mypy_boto3_cloudfront.type_defs import (
     MonitoringSubscriptionTypeDef,
     OriginRequestPolicyConfigTypeDef,
     PublicKeyConfigTypeDef,
+    PublishFunctionResultTypeDef,
     StreamingDistributionConfigTypeDef,
     StreamingDistributionConfigWithTagsTypeDef,
     TagKeysTypeDef,
     TagsTypeDef,
+    TestFunctionResultTypeDef,
     UpdateCachePolicyResultTypeDef,
     UpdateCloudFrontOriginAccessIdentityResultTypeDef,
     UpdateDistributionResultTypeDef,
     UpdateFieldLevelEncryptionConfigResultTypeDef,
     UpdateFieldLevelEncryptionProfileResultTypeDef,
+    UpdateFunctionResultTypeDef,
     UpdateKeyGroupResultTypeDef,
     UpdateOriginRequestPolicyResultTypeDef,
     UpdatePublicKeyResultTypeDef,
     UpdateRealtimeLogConfigResultTypeDef,
     UpdateStreamingDistributionResultTypeDef,
 )
-from mypy_boto3_cloudfront.waiter import (
+from .waiter import (
     DistributionDeployedWaiter,
     InvalidationCompletedWaiter,
     StreamingDistributionDeployedWaiter,
@@ -112,17 +125,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("CloudFrontClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDenied: Type[BotocoreClientError]
@@ -141,6 +150,9 @@ class Exceptions:
     FieldLevelEncryptionProfileAlreadyExists: Type[BotocoreClientError]
     FieldLevelEncryptionProfileInUse: Type[BotocoreClientError]
     FieldLevelEncryptionProfileSizeExceeded: Type[BotocoreClientError]
+    FunctionAlreadyExists: Type[BotocoreClientError]
+    FunctionInUse: Type[BotocoreClientError]
+    FunctionSizeLimitExceeded: Type[BotocoreClientError]
     IllegalDelete: Type[BotocoreClientError]
     IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: Type[BotocoreClientError]
     IllegalUpdate: Type[BotocoreClientError]
@@ -149,6 +161,7 @@ class Exceptions:
     InvalidDefaultRootObject: Type[BotocoreClientError]
     InvalidErrorCode: Type[BotocoreClientError]
     InvalidForwardCookies: Type[BotocoreClientError]
+    InvalidFunctionAssociation: Type[BotocoreClientError]
     InvalidGeoRestrictionParameter: Type[BotocoreClientError]
     InvalidHeadersForS3Origin: Type[BotocoreClientError]
     InvalidIfMatchVersion: Type[BotocoreClientError]
@@ -175,6 +188,7 @@ class Exceptions:
     NoSuchDistribution: Type[BotocoreClientError]
     NoSuchFieldLevelEncryptionConfig: Type[BotocoreClientError]
     NoSuchFieldLevelEncryptionProfile: Type[BotocoreClientError]
+    NoSuchFunctionExists: Type[BotocoreClientError]
     NoSuchInvalidation: Type[BotocoreClientError]
     NoSuchOrigin: Type[BotocoreClientError]
     NoSuchOriginRequestPolicy: Type[BotocoreClientError]
@@ -190,9 +204,11 @@ class Exceptions:
     QueryArgProfileEmpty: Type[BotocoreClientError]
     RealtimeLogConfigAlreadyExists: Type[BotocoreClientError]
     RealtimeLogConfigInUse: Type[BotocoreClientError]
+    RealtimeLogConfigOwnerMismatch: Type[BotocoreClientError]
     ResourceInUse: Type[BotocoreClientError]
     StreamingDistributionAlreadyExists: Type[BotocoreClientError]
     StreamingDistributionNotDisabled: Type[BotocoreClientError]
+    TestFunctionFailed: Type[BotocoreClientError]
     TooManyCacheBehaviors: Type[BotocoreClientError]
     TooManyCachePolicies: Type[BotocoreClientError]
     TooManyCertificates: Type[BotocoreClientError]
@@ -206,6 +222,7 @@ class Exceptions:
     TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: Type[BotocoreClientError]
     TooManyDistributionsAssociatedToKeyGroup: Type[BotocoreClientError]
     TooManyDistributionsAssociatedToOriginRequestPolicy: Type[BotocoreClientError]
+    TooManyDistributionsWithFunctionAssociations: Type[BotocoreClientError]
     TooManyDistributionsWithLambdaAssociations: Type[BotocoreClientError]
     TooManyDistributionsWithSingleFunctionARN: Type[BotocoreClientError]
     TooManyFieldLevelEncryptionConfigs: Type[BotocoreClientError]
@@ -214,6 +231,8 @@ class Exceptions:
     TooManyFieldLevelEncryptionFieldPatterns: Type[BotocoreClientError]
     TooManyFieldLevelEncryptionProfiles: Type[BotocoreClientError]
     TooManyFieldLevelEncryptionQueryArgProfiles: Type[BotocoreClientError]
+    TooManyFunctionAssociations: Type[BotocoreClientError]
+    TooManyFunctions: Type[BotocoreClientError]
     TooManyHeadersInCachePolicy: Type[BotocoreClientError]
     TooManyHeadersInForwardedValues: Type[BotocoreClientError]
     TooManyHeadersInOriginRequestPolicy: Type[BotocoreClientError]
@@ -236,174 +255,275 @@ class Exceptions:
     TooManyTrustedSigners: Type[BotocoreClientError]
     TrustedKeyGroupDoesNotExist: Type[BotocoreClientError]
     TrustedSignerDoesNotExist: Type[BotocoreClientError]
+    UnsupportedOperation: Type[BotocoreClientError]
 
-
-class CloudFrontClient:
+class CloudFrontClient(BaseClient):
     """
-    [CloudFront.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        CloudFrontClient exceptions.
+        """
+    def associate_alias(self, *, TargetDistributionId: str, Alias: str) -> None:
+        """
+        Associates an alias (also known as a CNAME or an alternate domain name) with a
+        CloudFront distribution.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.associate_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#associate_alias)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#can_paginate)
+        """
     def create_cache_policy(
-        self, CachePolicyConfig: "CachePolicyConfigTypeDef"
+        self, *, CachePolicyConfig: "CachePolicyConfigTypeDef"
     ) -> CreateCachePolicyResultTypeDef:
         """
-        [Client.create_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_cache_policy)
-        """
+        Creates a cache policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_cache_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_cache_policy)
+        """
     def create_cloud_front_origin_access_identity(
-        self, CloudFrontOriginAccessIdentityConfig: "CloudFrontOriginAccessIdentityConfigTypeDef"
+        self, *, CloudFrontOriginAccessIdentityConfig: "CloudFrontOriginAccessIdentityConfigTypeDef"
     ) -> CreateCloudFrontOriginAccessIdentityResultTypeDef:
         """
-        [Client.create_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_cloud_front_origin_access_identity)
-        """
+        Creates a new origin access identity.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_cloud_front_origin_access_identity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_cloud_front_origin_access_identity)
+        """
     def create_distribution(
-        self, DistributionConfig: "DistributionConfigTypeDef"
+        self, *, DistributionConfig: "DistributionConfigTypeDef"
     ) -> CreateDistributionResultTypeDef:
         """
-        [Client.create_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_distribution)
-        """
+        Creates a new web distribution.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_distribution)
+        """
     def create_distribution_with_tags(
-        self, DistributionConfigWithTags: DistributionConfigWithTagsTypeDef
+        self, *, DistributionConfigWithTags: "DistributionConfigWithTagsTypeDef"
     ) -> CreateDistributionWithTagsResultTypeDef:
         """
-        [Client.create_distribution_with_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_distribution_with_tags)
-        """
+        Create a new distribution with tags.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_distribution_with_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_distribution_with_tags)
+        """
     def create_field_level_encryption_config(
-        self, FieldLevelEncryptionConfig: "FieldLevelEncryptionConfigTypeDef"
+        self, *, FieldLevelEncryptionConfig: "FieldLevelEncryptionConfigTypeDef"
     ) -> CreateFieldLevelEncryptionConfigResultTypeDef:
         """
-        [Client.create_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_config)
-        """
+        Create a new field-level encryption configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_field_level_encryption_config)
+        """
     def create_field_level_encryption_profile(
-        self, FieldLevelEncryptionProfileConfig: "FieldLevelEncryptionProfileConfigTypeDef"
+        self, *, FieldLevelEncryptionProfileConfig: "FieldLevelEncryptionProfileConfigTypeDef"
     ) -> CreateFieldLevelEncryptionProfileResultTypeDef:
         """
-        [Client.create_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_profile)
-        """
+        Create a field-level encryption profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_field_level_encryption_profile)
+        """
+    def create_function(
+        self,
+        *,
+        Name: str,
+        FunctionConfig: "FunctionConfigTypeDef",
+        FunctionCode: Union[bytes, IO[bytes], StreamingBody]
+    ) -> CreateFunctionResultTypeDef:
+        """
+        Creates a CloudFront function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_function)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_function)
+        """
     def create_invalidation(
-        self, DistributionId: str, InvalidationBatch: "InvalidationBatchTypeDef"
+        self, *, DistributionId: str, InvalidationBatch: "InvalidationBatchTypeDef"
     ) -> CreateInvalidationResultTypeDef:
         """
-        [Client.create_invalidation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_invalidation)
-        """
+        Create a new invalidation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_invalidation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_invalidation)
+        """
     def create_key_group(
-        self, KeyGroupConfig: "KeyGroupConfigTypeDef"
+        self, *, KeyGroupConfig: "KeyGroupConfigTypeDef"
     ) -> CreateKeyGroupResultTypeDef:
         """
-        [Client.create_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_key_group)
-        """
+        Creates a key group that you can use with `CloudFront signed URLs and signed
+        cookies <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Priv
+        ateContent.html>`__ .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_key_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_key_group)
+        """
     def create_monitoring_subscription(
-        self, DistributionId: str, MonitoringSubscription: "MonitoringSubscriptionTypeDef"
+        self, *, DistributionId: str, MonitoringSubscription: "MonitoringSubscriptionTypeDef"
     ) -> CreateMonitoringSubscriptionResultTypeDef:
         """
-        [Client.create_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_monitoring_subscription)
-        """
+        Enables additional CloudWatch metrics for the specified CloudFront distribution.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_monitoring_subscription)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_monitoring_subscription)
+        """
     def create_origin_request_policy(
-        self, OriginRequestPolicyConfig: "OriginRequestPolicyConfigTypeDef"
+        self, *, OriginRequestPolicyConfig: "OriginRequestPolicyConfigTypeDef"
     ) -> CreateOriginRequestPolicyResultTypeDef:
         """
-        [Client.create_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_origin_request_policy)
-        """
+        Creates an origin request policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_origin_request_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_origin_request_policy)
+        """
     def create_public_key(
-        self, PublicKeyConfig: "PublicKeyConfigTypeDef"
+        self, *, PublicKeyConfig: "PublicKeyConfigTypeDef"
     ) -> CreatePublicKeyResultTypeDef:
         """
-        [Client.create_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_public_key)
-        """
+        Uploads a public key to CloudFront that you can use with `signed URLs and signed
+        cookies <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Priv
+        ateContent.html>`__ , or with `field-level encryption
+        <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-
+        en...`.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_public_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_public_key)
+        """
     def create_realtime_log_config(
-        self, EndPoints: List["EndPointTypeDef"], Fields: List[str], Name: str, SamplingRate: int
+        self, *, EndPoints: List["EndPointTypeDef"], Fields: List[str], Name: str, SamplingRate: int
     ) -> CreateRealtimeLogConfigResultTypeDef:
         """
-        [Client.create_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_realtime_log_config)
-        """
+        Creates a real-time log configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_realtime_log_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_realtime_log_config)
+        """
     def create_streaming_distribution(
-        self, StreamingDistributionConfig: "StreamingDistributionConfigTypeDef"
+        self, *, StreamingDistributionConfig: "StreamingDistributionConfigTypeDef"
     ) -> CreateStreamingDistributionResultTypeDef:
         """
-        [Client.create_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution)
-        """
+        This API is deprecated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_streaming_distribution)
+        """
     def create_streaming_distribution_with_tags(
-        self, StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTagsTypeDef
+        self, *, StreamingDistributionConfigWithTags: "StreamingDistributionConfigWithTagsTypeDef"
     ) -> CreateStreamingDistributionWithTagsResultTypeDef:
         """
-        [Client.create_streaming_distribution_with_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution_with_tags)
-        """
+        This API is deprecated.
 
-    def delete_cache_policy(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution_with_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#create_streaming_distribution_with_tags)
         """
-        [Client.delete_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_cache_policy)
+    def delete_cache_policy(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Deletes a cache policy.
 
-    def delete_cloud_front_origin_access_identity(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_cache_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_cache_policy)
         """
-        [Client.delete_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_cloud_front_origin_access_identity)
+    def delete_cloud_front_origin_access_identity(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Delete an origin access identity.
 
-    def delete_distribution(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_cloud_front_origin_access_identity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_cloud_front_origin_access_identity)
         """
-        [Client.delete_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_distribution)
+    def delete_distribution(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Delete a distribution.
 
-    def delete_field_level_encryption_config(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_distribution)
         """
-        [Client.delete_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_config)
+    def delete_field_level_encryption_config(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Remove a field-level encryption configuration.
 
-    def delete_field_level_encryption_profile(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_field_level_encryption_config)
         """
-        [Client.delete_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_profile)
+    def delete_field_level_encryption_profile(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Remove a field-level encryption profile.
 
-    def delete_key_group(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_field_level_encryption_profile)
         """
-        [Client.delete_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_key_group)
+    def delete_function(self, *, Name: str, IfMatch: str) -> None:
         """
+        Deletes a CloudFront function.
 
-    def delete_monitoring_subscription(self, DistributionId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_function)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_function)
         """
-        [Client.delete_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_monitoring_subscription)
+    def delete_key_group(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Deletes a key group.
 
-    def delete_origin_request_policy(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_key_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_key_group)
         """
-        [Client.delete_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_origin_request_policy)
+    def delete_monitoring_subscription(self, *, DistributionId: str) -> Dict[str, Any]:
         """
+        Disables additional CloudWatch metrics for the specified CloudFront
+        distribution.
 
-    def delete_public_key(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_monitoring_subscription)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_monitoring_subscription)
         """
-        [Client.delete_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_public_key)
+    def delete_origin_request_policy(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Deletes an origin request policy.
 
-    def delete_realtime_log_config(self, Name: str = None, ARN: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_origin_request_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_origin_request_policy)
         """
-        [Client.delete_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_realtime_log_config)
+    def delete_public_key(self, *, Id: str, IfMatch: str = None) -> None:
         """
+        Remove a public key you previously added to CloudFront.
 
-    def delete_streaming_distribution(self, Id: str, IfMatch: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_public_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_public_key)
         """
-        [Client.delete_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_streaming_distribution)
+    def delete_realtime_log_config(self, *, Name: str = None, ARN: str = None) -> None:
         """
+        Deletes a real-time log configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_realtime_log_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_realtime_log_config)
+        """
+    def delete_streaming_distribution(self, *, Id: str, IfMatch: str = None) -> None:
+        """
+        Delete a streaming distribution.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.delete_streaming_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#delete_streaming_distribution)
+        """
+    def describe_function(
+        self, *, Name: str, Stage: FunctionStageType = None
+    ) -> DescribeFunctionResultTypeDef:
+        """
+        Gets configuration information and metadata about a CloudFront function, but not
+        the function’s code.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.describe_function)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#describe_function)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -412,405 +532,590 @@ class CloudFrontClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_cache_policy(self, Id: str) -> GetCachePolicyResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#generate_presigned_url)
         """
-        [Client.get_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy)
+    def get_cache_policy(self, *, Id: str) -> GetCachePolicyResultTypeDef:
         """
+        Gets a cache policy, including the following metadata * The policy’s identifier.
 
-    def get_cache_policy_config(self, Id: str) -> GetCachePolicyConfigResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cache_policy)
         """
-        [Client.get_cache_policy_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy_config)
+    def get_cache_policy_config(self, *, Id: str) -> GetCachePolicyConfigResultTypeDef:
         """
+        Gets a cache policy configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cache_policy_config)
+        """
     def get_cloud_front_origin_access_identity(
-        self, Id: str
+        self, *, Id: str
     ) -> GetCloudFrontOriginAccessIdentityResultTypeDef:
         """
-        [Client.get_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity)
-        """
+        Get the information about an origin access identity.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cloud_front_origin_access_identity)
+        """
     def get_cloud_front_origin_access_identity_config(
-        self, Id: str
+        self, *, Id: str
     ) -> GetCloudFrontOriginAccessIdentityConfigResultTypeDef:
         """
-        [Client.get_cloud_front_origin_access_identity_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity_config)
-        """
+        Get the configuration information about an origin access identity.
 
-    def get_distribution(self, Id: str) -> GetDistributionResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_cloud_front_origin_access_identity_config)
         """
-        [Client.get_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_distribution)
+    def get_distribution(self, *, Id: str) -> GetDistributionResultTypeDef:
         """
+        Get the information about a distribution.
 
-    def get_distribution_config(self, Id: str) -> GetDistributionConfigResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_distribution)
         """
-        [Client.get_distribution_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_distribution_config)
+    def get_distribution_config(self, *, Id: str) -> GetDistributionConfigResultTypeDef:
         """
+        Get the configuration information about a distribution.
 
-    def get_field_level_encryption(self, Id: str) -> GetFieldLevelEncryptionResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_distribution_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_distribution_config)
         """
-        [Client.get_field_level_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption)
+    def get_field_level_encryption(self, *, Id: str) -> GetFieldLevelEncryptionResultTypeDef:
         """
+        Get the field-level encryption configuration information.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption)
+        """
     def get_field_level_encryption_config(
-        self, Id: str
+        self, *, Id: str
     ) -> GetFieldLevelEncryptionConfigResultTypeDef:
         """
-        [Client.get_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_config)
-        """
+        Get the field-level encryption configuration information.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption_config)
+        """
     def get_field_level_encryption_profile(
-        self, Id: str
+        self, *, Id: str
     ) -> GetFieldLevelEncryptionProfileResultTypeDef:
         """
-        [Client.get_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile)
-        """
+        Get the field-level encryption profile information.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption_profile)
+        """
     def get_field_level_encryption_profile_config(
-        self, Id: str
+        self, *, Id: str
     ) -> GetFieldLevelEncryptionProfileConfigResultTypeDef:
         """
-        [Client.get_field_level_encryption_profile_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile_config)
-        """
+        Get the field-level encryption profile configuration information.
 
-    def get_invalidation(self, DistributionId: str, Id: str) -> GetInvalidationResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_field_level_encryption_profile_config)
         """
-        [Client.get_invalidation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_invalidation)
+    def get_function(
+        self, *, Name: str, Stage: FunctionStageType = None
+    ) -> GetFunctionResultTypeDef:
         """
+        Gets the code of a CloudFront function.
 
-    def get_key_group(self, Id: str) -> GetKeyGroupResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_function)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_function)
         """
-        [Client.get_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_key_group)
+    def get_invalidation(self, *, DistributionId: str, Id: str) -> GetInvalidationResultTypeDef:
         """
+        Get the information about an invalidation.
 
-    def get_key_group_config(self, Id: str) -> GetKeyGroupConfigResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_invalidation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_invalidation)
         """
-        [Client.get_key_group_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_key_group_config)
+    def get_key_group(self, *, Id: str) -> GetKeyGroupResultTypeDef:
         """
+        Gets a key group, including the date and time when the key group was last
+        modified.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_key_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_key_group)
+        """
+    def get_key_group_config(self, *, Id: str) -> GetKeyGroupConfigResultTypeDef:
+        """
+        Gets a key group configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_key_group_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_key_group_config)
+        """
     def get_monitoring_subscription(
-        self, DistributionId: str
+        self, *, DistributionId: str
     ) -> GetMonitoringSubscriptionResultTypeDef:
         """
-        [Client.get_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_monitoring_subscription)
-        """
+        Gets information about whether additional CloudWatch metrics are enabled for the
+        specified CloudFront distribution.
 
-    def get_origin_request_policy(self, Id: str) -> GetOriginRequestPolicyResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_monitoring_subscription)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_monitoring_subscription)
         """
-        [Client.get_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy)
+    def get_origin_request_policy(self, *, Id: str) -> GetOriginRequestPolicyResultTypeDef:
         """
+        Gets an origin request policy, including the following metadata * The policy’s
+        identifier.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_origin_request_policy)
+        """
     def get_origin_request_policy_config(
-        self, Id: str
+        self, *, Id: str
     ) -> GetOriginRequestPolicyConfigResultTypeDef:
         """
-        [Client.get_origin_request_policy_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy_config)
-        """
+        Gets an origin request policy configuration.
 
-    def get_public_key(self, Id: str) -> GetPublicKeyResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_origin_request_policy_config)
         """
-        [Client.get_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_public_key)
+    def get_public_key(self, *, Id: str) -> GetPublicKeyResultTypeDef:
         """
+        Gets a public key.
 
-    def get_public_key_config(self, Id: str) -> GetPublicKeyConfigResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_public_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_public_key)
         """
-        [Client.get_public_key_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_public_key_config)
+    def get_public_key_config(self, *, Id: str) -> GetPublicKeyConfigResultTypeDef:
         """
+        Gets a public key configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_public_key_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_public_key_config)
+        """
     def get_realtime_log_config(
-        self, Name: str = None, ARN: str = None
+        self, *, Name: str = None, ARN: str = None
     ) -> GetRealtimeLogConfigResultTypeDef:
         """
-        [Client.get_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_realtime_log_config)
-        """
+        Gets a real-time log configuration.
 
-    def get_streaming_distribution(self, Id: str) -> GetStreamingDistributionResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_realtime_log_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_realtime_log_config)
         """
-        [Client.get_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution)
+    def get_streaming_distribution(self, *, Id: str) -> GetStreamingDistributionResultTypeDef:
         """
+        Gets information about a specified RTMP distribution, including the distribution
+        configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_streaming_distribution)
+        """
     def get_streaming_distribution_config(
-        self, Id: str
+        self, *, Id: str
     ) -> GetStreamingDistributionConfigResultTypeDef:
         """
-        [Client.get_streaming_distribution_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution_config)
-        """
+        Get the configuration information about a streaming distribution.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#get_streaming_distribution_config)
+        """
     def list_cache_policies(
-        self, Type: Literal["managed", "custom"] = None, Marker: str = None, MaxItems: str = None
+        self, *, Type: CachePolicyTypeType = None, Marker: str = None, MaxItems: str = None
     ) -> ListCachePoliciesResultTypeDef:
         """
-        [Client.list_cache_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_cache_policies)
-        """
+        Gets a list of cache policies.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_cache_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_cache_policies)
+        """
     def list_cloud_front_origin_access_identities(
-        self, Marker: str = None, MaxItems: str = None
+        self, *, Marker: str = None, MaxItems: str = None
     ) -> ListCloudFrontOriginAccessIdentitiesResultTypeDef:
         """
-        [Client.list_cloud_front_origin_access_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_cloud_front_origin_access_identities)
-        """
+        Lists origin access identities.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_cloud_front_origin_access_identities)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_cloud_front_origin_access_identities)
+        """
+    def list_conflicting_aliases(
+        self, *, DistributionId: str, Alias: str, Marker: str = None, MaxItems: int = None
+    ) -> ListConflictingAliasesResultTypeDef:
+        """
+        Gets a list of aliases (also called CNAMEs or alternate domain names) that
+        conflict or overlap with the provided alias, and the associated CloudFront
+        distributions and Amazon Web Services accounts for each conflicting alias.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_conflicting_aliases)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_conflicting_aliases)
+        """
     def list_distributions(
-        self, Marker: str = None, MaxItems: str = None
+        self, *, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsResultTypeDef:
         """
-        [Client.list_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions)
-        """
+        List CloudFront distributions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_distributions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions)
+        """
     def list_distributions_by_cache_policy_id(
-        self, CachePolicyId: str, Marker: str = None, MaxItems: str = None
+        self, *, CachePolicyId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByCachePolicyIdResultTypeDef:
         """
-        [Client.list_distributions_by_cache_policy_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_cache_policy_id)
-        """
+        Gets a list of distribution IDs for distributions that have a cache behavior
+        that’s associated with the specified cache policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_cache_policy_id)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_cache_policy_id)
+        """
     def list_distributions_by_key_group(
-        self, KeyGroupId: str, Marker: str = None, MaxItems: str = None
+        self, *, KeyGroupId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByKeyGroupResultTypeDef:
         """
-        [Client.list_distributions_by_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_key_group)
-        """
+        Gets a list of distribution IDs for distributions that have a cache behavior
+        that references the specified key group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_key_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_key_group)
+        """
     def list_distributions_by_origin_request_policy_id(
-        self, OriginRequestPolicyId: str, Marker: str = None, MaxItems: str = None
+        self, *, OriginRequestPolicyId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByOriginRequestPolicyIdResultTypeDef:
         """
-        [Client.list_distributions_by_origin_request_policy_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_origin_request_policy_id)
-        """
+        Gets a list of distribution IDs for distributions that have a cache behavior
+        that’s associated with the specified origin request policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_origin_request_policy_id)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_origin_request_policy_id)
+        """
     def list_distributions_by_realtime_log_config(
         self,
+        *,
         Marker: str = None,
         MaxItems: str = None,
         RealtimeLogConfigName: str = None,
-        RealtimeLogConfigArn: str = None,
+        RealtimeLogConfigArn: str = None
     ) -> ListDistributionsByRealtimeLogConfigResultTypeDef:
         """
-        [Client.list_distributions_by_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_realtime_log_config)
-        """
+        Gets a list of distributions that have a cache behavior that’s associated with
+        the specified real-time log configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_realtime_log_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_realtime_log_config)
+        """
     def list_distributions_by_web_acl_id(
-        self, WebACLId: str, Marker: str = None, MaxItems: str = None
+        self, *, WebACLId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByWebACLIdResultTypeDef:
         """
-        [Client.list_distributions_by_web_acl_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_web_acl_id)
-        """
+        List the distributions that are associated with a specified WAF web ACL.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_web_acl_id)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_distributions_by_web_acl_id)
+        """
     def list_field_level_encryption_configs(
-        self, Marker: str = None, MaxItems: str = None
+        self, *, Marker: str = None, MaxItems: str = None
     ) -> ListFieldLevelEncryptionConfigsResultTypeDef:
         """
-        [Client.list_field_level_encryption_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_configs)
-        """
+        List all field-level encryption configurations that have been created in
+        CloudFront for this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_configs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_field_level_encryption_configs)
+        """
     def list_field_level_encryption_profiles(
-        self, Marker: str = None, MaxItems: str = None
+        self, *, Marker: str = None, MaxItems: str = None
     ) -> ListFieldLevelEncryptionProfilesResultTypeDef:
         """
-        [Client.list_field_level_encryption_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_profiles)
-        """
+        Request a list of field-level encryption profiles that have been created in
+        CloudFront for this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_profiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_field_level_encryption_profiles)
+        """
+    def list_functions(
+        self, *, Marker: str = None, MaxItems: str = None, Stage: FunctionStageType = None
+    ) -> ListFunctionsResultTypeDef:
+        """
+        Gets a list of all CloudFront functions in your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_functions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_functions)
+        """
     def list_invalidations(
-        self, DistributionId: str, Marker: str = None, MaxItems: str = None
+        self, *, DistributionId: str, Marker: str = None, MaxItems: str = None
     ) -> ListInvalidationsResultTypeDef:
         """
-        [Client.list_invalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_invalidations)
-        """
+        Lists invalidation batches.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_invalidations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_invalidations)
+        """
     def list_key_groups(
-        self, Marker: str = None, MaxItems: str = None
+        self, *, Marker: str = None, MaxItems: str = None
     ) -> ListKeyGroupsResultTypeDef:
         """
-        [Client.list_key_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_key_groups)
-        """
+        Gets a list of key groups.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_key_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_key_groups)
+        """
     def list_origin_request_policies(
-        self, Type: Literal["managed", "custom"] = None, Marker: str = None, MaxItems: str = None
+        self, *, Type: OriginRequestPolicyTypeType = None, Marker: str = None, MaxItems: str = None
     ) -> ListOriginRequestPoliciesResultTypeDef:
         """
-        [Client.list_origin_request_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_origin_request_policies)
-        """
+        Gets a list of origin request policies.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_origin_request_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_origin_request_policies)
+        """
     def list_public_keys(
-        self, Marker: str = None, MaxItems: str = None
+        self, *, Marker: str = None, MaxItems: str = None
     ) -> ListPublicKeysResultTypeDef:
         """
-        [Client.list_public_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_public_keys)
-        """
+        List all public keys that have been added to CloudFront for this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_public_keys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_public_keys)
+        """
     def list_realtime_log_configs(
-        self, MaxItems: str = None, Marker: str = None
+        self, *, MaxItems: str = None, Marker: str = None
     ) -> ListRealtimeLogConfigsResultTypeDef:
         """
-        [Client.list_realtime_log_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_realtime_log_configs)
-        """
+        Gets a list of real-time log configurations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_realtime_log_configs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_realtime_log_configs)
+        """
     def list_streaming_distributions(
-        self, Marker: str = None, MaxItems: str = None
+        self, *, Marker: str = None, MaxItems: str = None
     ) -> ListStreamingDistributionsResultTypeDef:
         """
-        [Client.list_streaming_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_streaming_distributions)
-        """
+        List streaming distributions.
 
-    def list_tags_for_resource(self, Resource: str) -> ListTagsForResourceResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_streaming_distributions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_streaming_distributions)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, Resource: str) -> ListTagsForResourceResultTypeDef:
         """
+        List tags for a CloudFront resource.
 
-    def tag_resource(self, Resource: str, Tags: "TagsTypeDef") -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#list_tags_for_resource)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.tag_resource)
+    def publish_function(self, *, Name: str, IfMatch: str) -> PublishFunctionResultTypeDef:
         """
+        Publishes a CloudFront function by copying the function code from the
+        `DEVELOPMENT` stage to `LIVE`.
 
-    def untag_resource(self, Resource: str, TagKeys: TagKeysTypeDef) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.publish_function)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#publish_function)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.untag_resource)
+    def tag_resource(self, *, Resource: str, Tags: "TagsTypeDef") -> None:
         """
+        Add tags to a CloudFront resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#tag_resource)
+        """
+    def test_function(
+        self,
+        *,
+        Name: str,
+        IfMatch: str,
+        EventObject: Union[bytes, IO[bytes], StreamingBody],
+        Stage: FunctionStageType = None
+    ) -> TestFunctionResultTypeDef:
+        """
+        Tests a CloudFront function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.test_function)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#test_function)
+        """
+    def untag_resource(self, *, Resource: str, TagKeys: "TagKeysTypeDef") -> None:
+        """
+        Remove tags from a CloudFront resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#untag_resource)
+        """
     def update_cache_policy(
-        self, CachePolicyConfig: "CachePolicyConfigTypeDef", Id: str, IfMatch: str = None
+        self, *, CachePolicyConfig: "CachePolicyConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdateCachePolicyResultTypeDef:
         """
-        [Client.update_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_cache_policy)
-        """
+        Updates a cache policy configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_cache_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_cache_policy)
+        """
     def update_cloud_front_origin_access_identity(
         self,
+        *,
         CloudFrontOriginAccessIdentityConfig: "CloudFrontOriginAccessIdentityConfigTypeDef",
         Id: str,
-        IfMatch: str = None,
+        IfMatch: str = None
     ) -> UpdateCloudFrontOriginAccessIdentityResultTypeDef:
         """
-        [Client.update_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_cloud_front_origin_access_identity)
-        """
+        Update an origin access identity.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_cloud_front_origin_access_identity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_cloud_front_origin_access_identity)
+        """
     def update_distribution(
-        self, DistributionConfig: "DistributionConfigTypeDef", Id: str, IfMatch: str = None
+        self, *, DistributionConfig: "DistributionConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdateDistributionResultTypeDef:
         """
-        [Client.update_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_distribution)
-        """
+        Updates the configuration for a web distribution.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_distribution)
+        """
     def update_field_level_encryption_config(
         self,
+        *,
         FieldLevelEncryptionConfig: "FieldLevelEncryptionConfigTypeDef",
         Id: str,
-        IfMatch: str = None,
+        IfMatch: str = None
     ) -> UpdateFieldLevelEncryptionConfigResultTypeDef:
         """
-        [Client.update_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_config)
-        """
+        Update a field-level encryption configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_field_level_encryption_config)
+        """
     def update_field_level_encryption_profile(
         self,
+        *,
         FieldLevelEncryptionProfileConfig: "FieldLevelEncryptionProfileConfigTypeDef",
         Id: str,
-        IfMatch: str = None,
+        IfMatch: str = None
     ) -> UpdateFieldLevelEncryptionProfileResultTypeDef:
         """
-        [Client.update_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_profile)
-        """
+        Update a field-level encryption profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_field_level_encryption_profile)
+        """
+    def update_function(
+        self,
+        *,
+        Name: str,
+        IfMatch: str,
+        FunctionConfig: "FunctionConfigTypeDef",
+        FunctionCode: Union[bytes, IO[bytes], StreamingBody]
+    ) -> UpdateFunctionResultTypeDef:
+        """
+        Updates a CloudFront function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_function)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_function)
+        """
     def update_key_group(
-        self, KeyGroupConfig: "KeyGroupConfigTypeDef", Id: str, IfMatch: str = None
+        self, *, KeyGroupConfig: "KeyGroupConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdateKeyGroupResultTypeDef:
         """
-        [Client.update_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_key_group)
-        """
+        Updates a key group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_key_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_key_group)
+        """
     def update_origin_request_policy(
         self,
+        *,
         OriginRequestPolicyConfig: "OriginRequestPolicyConfigTypeDef",
         Id: str,
-        IfMatch: str = None,
+        IfMatch: str = None
     ) -> UpdateOriginRequestPolicyResultTypeDef:
         """
-        [Client.update_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_origin_request_policy)
-        """
+        Updates an origin request policy configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_origin_request_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_origin_request_policy)
+        """
     def update_public_key(
-        self, PublicKeyConfig: "PublicKeyConfigTypeDef", Id: str, IfMatch: str = None
+        self, *, PublicKeyConfig: "PublicKeyConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdatePublicKeyResultTypeDef:
         """
-        [Client.update_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_public_key)
-        """
+        Update public key information.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_public_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_public_key)
+        """
     def update_realtime_log_config(
         self,
+        *,
         EndPoints: List["EndPointTypeDef"] = None,
         Fields: List[str] = None,
         Name: str = None,
         ARN: str = None,
-        SamplingRate: int = None,
+        SamplingRate: int = None
     ) -> UpdateRealtimeLogConfigResultTypeDef:
         """
-        [Client.update_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_realtime_log_config)
-        """
+        Updates a real-time log configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_realtime_log_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_realtime_log_config)
+        """
     def update_streaming_distribution(
         self,
+        *,
         StreamingDistributionConfig: "StreamingDistributionConfigTypeDef",
         Id: str,
-        IfMatch: str = None,
+        IfMatch: str = None
     ) -> UpdateStreamingDistributionResultTypeDef:
         """
-        [Client.update_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_streaming_distribution)
-        """
+        Update a streaming distribution.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Client.update_streaming_distribution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/client.html#update_streaming_distribution)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_cloud_front_origin_access_identities"]
     ) -> ListCloudFrontOriginAccessIdentitiesPaginator:
         """
-        [Paginator.ListCloudFrontOriginAccessIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listcloudfrontoriginaccessidentitiespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_distributions"]
     ) -> ListDistributionsPaginator:
         """
-        [Paginator.ListDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listdistributionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_invalidations"]
     ) -> ListInvalidationsPaginator:
         """
-        [Paginator.ListInvalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listinvalidationspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_streaming_distributions"]
     ) -> ListStreamingDistributionsPaginator:
         """
-        [Paginator.ListStreamingDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#liststreamingdistributionspaginator)
         """
-
     @overload
     def get_waiter(
         self, waiter_name: Literal["distribution_deployed"]
     ) -> DistributionDeployedWaiter:
         """
-        [Waiter.DistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#distributiondeployedwaiter)
         """
-
     @overload
     def get_waiter(
         self, waiter_name: Literal["invalidation_completed"]
     ) -> InvalidationCompletedWaiter:
         """
-        [Waiter.InvalidationCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#invalidationcompletedwaiter)
         """
-
     @overload
     def get_waiter(
         self, waiter_name: Literal["streaming_distribution_deployed"]
     ) -> StreamingDistributionDeployedWaiter:
         """
-        [Waiter.StreamingDistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#streamingdistributiondeployedwaiter)
         """

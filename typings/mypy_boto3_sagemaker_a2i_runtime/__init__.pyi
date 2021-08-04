@@ -19,10 +19,9 @@ Usage::
     list_human_loops_paginator: ListHumanLoopsPaginator = client.get_paginator("list_human_loops")
     ```
 """
-from mypy_boto3_sagemaker_a2i_runtime.client import AugmentedAIRuntimeClient
-from mypy_boto3_sagemaker_a2i_runtime.paginator import ListHumanLoopsPaginator
+from .client import AugmentedAIRuntimeClient
+from .paginator import ListHumanLoopsPaginator
 
 Client = AugmentedAIRuntimeClient
-
 
 __all__ = ("AugmentedAIRuntimeClient", "Client", "ListHumanLoopsPaginator")

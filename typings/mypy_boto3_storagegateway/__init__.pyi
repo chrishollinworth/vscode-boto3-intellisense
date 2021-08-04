@@ -12,6 +12,7 @@ Usage::
         DescribeTapesPaginator,
         DescribeVTLDevicesPaginator,
         ListFileSharesPaginator,
+        ListFileSystemAssociationsPaginator,
         ListGatewaysPaginator,
         ListTagsForResourcePaginator,
         ListTapePoolsPaginator,
@@ -30,6 +31,7 @@ Usage::
     describe_tapes_paginator: DescribeTapesPaginator = client.get_paginator("describe_tapes")
     describe_vtl_devices_paginator: DescribeVTLDevicesPaginator = client.get_paginator("describe_vtl_devices")
     list_file_shares_paginator: ListFileSharesPaginator = client.get_paginator("list_file_shares")
+    list_file_system_associations_paginator: ListFileSystemAssociationsPaginator = client.get_paginator("list_file_system_associations")
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     list_tape_pools_paginator: ListTapePoolsPaginator = client.get_paginator("list_tape_pools")
@@ -37,13 +39,14 @@ Usage::
     list_volumes_paginator: ListVolumesPaginator = client.get_paginator("list_volumes")
     ```
 """
-from mypy_boto3_storagegateway.client import StorageGatewayClient
-from mypy_boto3_storagegateway.paginator import (
+from .client import StorageGatewayClient
+from .paginator import (
     DescribeTapeArchivesPaginator,
     DescribeTapeRecoveryPointsPaginator,
     DescribeTapesPaginator,
     DescribeVTLDevicesPaginator,
     ListFileSharesPaginator,
+    ListFileSystemAssociationsPaginator,
     ListGatewaysPaginator,
     ListTagsForResourcePaginator,
     ListTapePoolsPaginator,
@@ -53,7 +56,6 @@ from mypy_boto3_storagegateway.paginator import (
 
 Client = StorageGatewayClient
 
-
 __all__ = (
     "Client",
     "DescribeTapeArchivesPaginator",
@@ -61,6 +63,7 @@ __all__ = (
     "DescribeTapesPaginator",
     "DescribeVTLDevicesPaginator",
     "ListFileSharesPaginator",
+    "ListFileSystemAssociationsPaginator",
     "ListGatewaysPaginator",
     "ListTagsForResourcePaginator",
     "ListTapePoolsPaginator",

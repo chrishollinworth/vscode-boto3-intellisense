@@ -16,9 +16,8 @@ Usage::
     session_client: IoTDataPlaneClient = session.client("iot-data")
     ```
 """
-from mypy_boto3_iot_data.client import IoTDataPlaneClient
+from .client import IoTDataPlaneClient
 
 Client = IoTDataPlaneClient
-
 
 __all__ = ("Client", "IoTDataPlaneClient")

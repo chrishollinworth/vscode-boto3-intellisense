@@ -16,9 +16,8 @@ Usage::
     session_client: CustomerProfilesClient = session.client("customer-profiles")
     ```
 """
-from mypy_boto3_customer_profiles.client import CustomerProfilesClient
+from .client import CustomerProfilesClient
 
 Client = CustomerProfilesClient
-
 
 __all__ = ("Client", "CustomerProfilesClient")

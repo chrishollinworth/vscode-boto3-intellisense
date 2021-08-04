@@ -1,5 +1,7 @@
 """
-Main interface for acm service client waiters.
+Type annotations for acm service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm/waiters.html)
 
 Usage::
 
@@ -18,17 +20,18 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_acm.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("CertificateValidatedWaiter",)
 
-
 class CertificateValidatedWaiter(Boto3Waiter):
     """
-    [Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm.html#ACM.Waiter.CertificateValidated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm.html#ACM.Waiter.CertificateValidated)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm/waiters.html#certificatevalidatedwaiter)
     """
 
-    def wait(self, CertificateArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, CertificateArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [CertificateValidated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm/waiters.html#certificatevalidatedwaiter)
         """

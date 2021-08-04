@@ -21,14 +21,10 @@ Usage::
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     ```
 """
-from mypy_boto3_kinesisanalyticsv2.client import KinesisAnalyticsV2Client
-from mypy_boto3_kinesisanalyticsv2.paginator import (
-    ListApplicationSnapshotsPaginator,
-    ListApplicationsPaginator,
-)
+from .client import KinesisAnalyticsV2Client
+from .paginator import ListApplicationSnapshotsPaginator, ListApplicationsPaginator
 
 Client = KinesisAnalyticsV2Client
-
 
 __all__ = (
     "Client",

@@ -1,5 +1,7 @@
 """
-Main interface for timestream-query service client
+Type annotations for timestream-query service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html)
 
 Usage::
 
@@ -13,10 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_timestream_query.paginator import QueryPaginator
-from mypy_boto3_timestream_query.type_defs import (
+from .paginator import QueryPaginator
+from .type_defs import (
     CancelQueryResponseTypeDef,
     DescribeEndpointsResponseTypeDef,
     QueryResponseTypeDef,
@@ -27,17 +29,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("TimestreamQueryClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -49,30 +47,40 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class TimestreamQueryClient:
+class TimestreamQueryClient(BaseClient):
     """
-    [TimestreamQuery.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-query.html#TimestreamQuery.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        TimestreamQueryClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def cancel_query(self, QueryId: str) -> CancelQueryResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-query.html#TimestreamQuery.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#can_paginate)
         """
-        [Client.cancel_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.cancel_query)
+    def cancel_query(self, *, QueryId: str) -> CancelQueryResponseTypeDef:
         """
+        Cancels a query that has been issued.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-query.html#TimestreamQuery.Client.cancel_query)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#cancel_query)
+        """
     def describe_endpoints(self) -> DescribeEndpointsResponseTypeDef:
         """
-        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.describe_endpoints)
-        """
+        DescribeEndpoints returns a list of available endpoints to make Timestream API
+        calls against.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-query.html#TimestreamQuery.Client.describe_endpoints)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#describe_endpoints)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -81,17 +89,27 @@ class TimestreamQueryClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-query.html#TimestreamQuery.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#generate_presigned_url)
+        """
     def query(
-        self, QueryString: str, ClientToken: str = None, NextToken: str = None, MaxRows: int = None
+        self,
+        *,
+        QueryString: str,
+        ClientToken: str = None,
+        NextToken: str = None,
+        MaxRows: int = None
     ) -> QueryResponseTypeDef:
         """
-        [Client.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.query)
-        """
+        Query is a synchronous operation that enables you to execute a query.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-query.html#TimestreamQuery.Client.query)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#query)
+        """
     def get_paginator(self, operation_name: Literal["query"]) -> QueryPaginator:
         """
-        [Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Paginator.Query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/timestream-query.html#TimestreamQuery.Paginator.Query)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/paginators.html#querypaginator)
         """

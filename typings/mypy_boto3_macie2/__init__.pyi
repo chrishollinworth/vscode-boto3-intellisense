@@ -17,6 +17,7 @@ Usage::
         ListMembersPaginator,
         ListOrganizationAdminAccountsPaginator,
         Macie2Client,
+        SearchResourcesPaginator,
     )
 
     session = boto3.Session()
@@ -33,10 +34,11 @@ Usage::
     list_invitations_paginator: ListInvitationsPaginator = client.get_paginator("list_invitations")
     list_members_paginator: ListMembersPaginator = client.get_paginator("list_members")
     list_organization_admin_accounts_paginator: ListOrganizationAdminAccountsPaginator = client.get_paginator("list_organization_admin_accounts")
+    search_resources_paginator: SearchResourcesPaginator = client.get_paginator("search_resources")
     ```
 """
-from mypy_boto3_macie2.client import Macie2Client
-from mypy_boto3_macie2.paginator import (
+from .client import Macie2Client
+from .paginator import (
     DescribeBucketsPaginator,
     GetUsageStatisticsPaginator,
     ListClassificationJobsPaginator,
@@ -46,10 +48,10 @@ from mypy_boto3_macie2.paginator import (
     ListInvitationsPaginator,
     ListMembersPaginator,
     ListOrganizationAdminAccountsPaginator,
+    SearchResourcesPaginator,
 )
 
 Client = Macie2Client
-
 
 __all__ = (
     "Client",
@@ -63,4 +65,5 @@ __all__ = (
     "ListMembersPaginator",
     "ListOrganizationAdminAccountsPaginator",
     "Macie2Client",
+    "SearchResourcesPaginator",
 )

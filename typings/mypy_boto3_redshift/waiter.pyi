@@ -1,5 +1,7 @@
 """
-Main interface for redshift service client waiters.
+Type annotations for redshift service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html)
 
 Usage::
 
@@ -23,11 +25,11 @@ Usage::
     ```
 """
 from datetime import datetime
-from typing import List
+from typing import List, Union
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_redshift.type_defs import SnapshotSortingEntityTypeDef, WaiterConfigTypeDef
+from .type_defs import SnapshotSortingEntityTypeDef, WaiterConfigTypeDef
 
 __all__ = (
     "ClusterAvailableWaiter",
@@ -36,85 +38,93 @@ __all__ = (
     "SnapshotAvailableWaiter",
 )
 
-
 class ClusterAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusteravailablewaiter)
     """
 
     def wait(
         self,
+        *,
         ClusterIdentifier: str = None,
         MaxRecords: int = None,
         Marker: str = None,
         TagKeys: List[str] = None,
         TagValues: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ClusterAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusteravailablewaiter)
         """
-
 
 class ClusterDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterdeletedwaiter)
     """
 
     def wait(
         self,
+        *,
         ClusterIdentifier: str = None,
         MaxRecords: int = None,
         Marker: str = None,
         TagKeys: List[str] = None,
         TagValues: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ClusterDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterdeletedwaiter)
         """
-
 
 class ClusterRestoredWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterRestored documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterrestoredwaiter)
     """
 
     def wait(
         self,
+        *,
         ClusterIdentifier: str = None,
         MaxRecords: int = None,
         Marker: str = None,
         TagKeys: List[str] = None,
         TagValues: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ClusterRestored.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterRestored.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.ClusterRestored.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterrestoredwaiter)
         """
-
 
 class SnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.SnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#snapshotavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         ClusterIdentifier: str = None,
         SnapshotIdentifier: str = None,
         SnapshotType: str = None,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
         MaxRecords: int = None,
         Marker: str = None,
         OwnerAccount: str = None,
         TagKeys: List[str] = None,
         TagValues: List[str] = None,
         ClusterExists: bool = None,
-        SortingEntities: List[SnapshotSortingEntityTypeDef] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        SortingEntities: List["SnapshotSortingEntityTypeDef"] = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [SnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#snapshotavailablewaiter)
         """

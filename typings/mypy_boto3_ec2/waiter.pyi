@@ -1,5 +1,7 @@
 """
-Main interface for ec2 service client waiters.
+Type annotations for ec2 service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html)
 
 Usage::
 
@@ -82,7 +84,7 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_ec2.type_defs import FilterTypeDef, WaiterConfigTypeDef
+from .type_defs import FilterTypeDef, WaiterConfigTypeDef
 
 __all__ = (
     "BundleTaskCompleteWaiter",
@@ -119,585 +121,650 @@ __all__ = (
     "VpnConnectionDeletedWaiter",
 )
 
-
 class BundleTaskCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.BundleTaskComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#bundletaskcompletewaiter)
     """
 
     def wait(
         self,
+        *,
         BundleIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [BundleTaskComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#bundletaskcompletewaiter)
         """
-
 
 class ConversionTaskCancelledWaiter(Boto3Waiter):
     """
-    [Waiter.ConversionTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#conversiontaskcancelledwaiter)
     """
 
     def wait(
         self,
+        *,
         ConversionTaskIds: List[str] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ConversionTaskCancelled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#conversiontaskcancelledwaiter)
         """
-
 
 class ConversionTaskCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.ConversionTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#conversiontaskcompletedwaiter)
     """
 
     def wait(
         self,
+        *,
         ConversionTaskIds: List[str] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ConversionTaskCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#conversiontaskcompletedwaiter)
         """
-
 
 class ConversionTaskDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ConversionTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#conversiontaskdeletedwaiter)
     """
 
     def wait(
         self,
+        *,
         ConversionTaskIds: List[str] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ConversionTaskDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#conversiontaskdeletedwaiter)
         """
-
 
 class CustomerGatewayAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.CustomerGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#customergatewayavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         CustomerGatewayIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [CustomerGatewayAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#customergatewayavailablewaiter)
         """
-
 
 class ExportTaskCancelledWaiter(Boto3Waiter):
     """
-    [Waiter.ExportTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#exporttaskcancelledwaiter)
     """
 
     def wait(
         self,
+        *,
         ExportTaskIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ExportTaskCancelled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#exporttaskcancelledwaiter)
         """
-
 
 class ExportTaskCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.ExportTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#exporttaskcompletedwaiter)
     """
 
     def wait(
         self,
+        *,
         ExportTaskIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ExportTaskCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#exporttaskcompletedwaiter)
         """
-
 
 class ImageAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.ImageAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ImageAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#imageavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         ExecutableUsers: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         ImageIds: List[str] = None,
         Owners: List[str] = None,
+        IncludeDeprecated: bool = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ImageAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ImageAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#imageavailablewaiter)
         """
-
 
 class ImageExistsWaiter(Boto3Waiter):
     """
-    [Waiter.ImageExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ImageExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#imageexistswaiter)
     """
 
     def wait(
         self,
+        *,
         ExecutableUsers: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         ImageIds: List[str] = None,
         Owners: List[str] = None,
+        IncludeDeprecated: bool = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [ImageExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.ImageExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#imageexistswaiter)
         """
-
 
 class InstanceExistsWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instanceexistswaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [InstanceExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instanceexistswaiter)
         """
-
 
 class InstanceRunningWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceRunning)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instancerunningwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [InstanceRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceRunning.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instancerunningwaiter)
         """
-
 
 class InstanceStatusOkWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instancestatusokwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         MaxResults: int = None,
         NextToken: str = None,
         DryRun: bool = None,
         IncludeAllInstances: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [InstanceStatusOk.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instancestatusokwaiter)
         """
-
 
 class InstanceStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStopped)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceStopped)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instancestoppedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [InstanceStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStopped.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceStopped.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instancestoppedwaiter)
         """
-
 
 class InstanceTerminatedWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceTerminated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceTerminated)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instanceterminatedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [InstanceTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceTerminated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.InstanceTerminated.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#instanceterminatedwaiter)
         """
-
 
 class KeyPairExistsWaiter(Boto3Waiter):
     """
-    [Waiter.KeyPairExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.KeyPairExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.KeyPairExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#keypairexistswaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         KeyNames: List[str] = None,
         KeyPairIds: List[str] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [KeyPairExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.KeyPairExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.KeyPairExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#keypairexistswaiter)
         """
-
 
 class NatGatewayAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.NatGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#natgatewayavailablewaiter)
     """
 
     def wait(
         self,
+        *,
         DryRun: bool = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         MaxResults: int = None,
         NatGatewayIds: List[str] = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [NatGatewayAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#natgatewayavailablewaiter)
         """
-
 
 class NetworkInterfaceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.NetworkInterfaceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#networkinterfaceavailablewaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkInterfaceIds: List[str] = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [NetworkInterfaceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#networkinterfaceavailablewaiter)
         """
-
 
 class PasswordDataAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.PasswordDataAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#passworddataavailablewaiter)
     """
 
     def wait(
-        self, InstanceId: str, DryRun: bool = None, WaiterConfig: WaiterConfigTypeDef = None
+        self, *, InstanceId: str, DryRun: bool = None, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [PasswordDataAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#passworddataavailablewaiter)
         """
-
 
 class SecurityGroupExistsWaiter(Boto3Waiter):
     """
-    [Waiter.SecurityGroupExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#securitygroupexistswaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         GroupIds: List[str] = None,
         GroupNames: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [SecurityGroupExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#securitygroupexistswaiter)
         """
-
 
 class SnapshotCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.SnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#snapshotcompletedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxResults: int = None,
         NextToken: str = None,
         OwnerIds: List[str] = None,
         RestorableByUserIds: List[str] = None,
         SnapshotIds: List[str] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [SnapshotCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#snapshotcompletedwaiter)
         """
-
 
 class SpotInstanceRequestFulfilledWaiter(Boto3Waiter):
     """
-    [Waiter.SpotInstanceRequestFulfilled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#spotinstancerequestfulfilledwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         SpotInstanceRequestIds: List[str] = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [SpotInstanceRequestFulfilled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#spotinstancerequestfulfilledwaiter)
         """
-
 
 class SubnetAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.SubnetAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SubnetAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SubnetAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#subnetavailablewaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         SubnetIds: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [SubnetAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SubnetAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SubnetAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#subnetavailablewaiter)
         """
-
 
 class SystemStatusOkWaiter(Boto3Waiter):
     """
-    [Waiter.SystemStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SystemStatusOk)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SystemStatusOk)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#systemstatusokwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         MaxResults: int = None,
         NextToken: str = None,
         DryRun: bool = None,
         IncludeAllInstances: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [SystemStatusOk.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SystemStatusOk.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.SystemStatusOk.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#systemstatusokwaiter)
         """
-
 
 class VolumeAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.VolumeAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VolumeAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#volumeavailablewaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VolumeIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VolumeAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VolumeAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#volumeavailablewaiter)
         """
-
 
 class VolumeDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.VolumeDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VolumeDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#volumedeletedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VolumeIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VolumeDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VolumeDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#volumedeletedwaiter)
         """
-
 
 class VolumeInUseWaiter(Boto3Waiter):
     """
-    [Waiter.VolumeInUse documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeInUse)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VolumeInUse)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#volumeinusewaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VolumeIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VolumeInUse.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeInUse.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VolumeInUse.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#volumeinusewaiter)
         """
-
 
 class VpcAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.VpcAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcavailablewaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VpcIds: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VpcAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcavailablewaiter)
         """
-
 
 class VpcExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VpcExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcexistswaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VpcIds: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VpcExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcexistswaiter)
         """
-
 
 class VpcPeeringConnectionDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.VpcPeeringConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcpeeringconnectiondeletedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         VpcPeeringConnectionIds: List[str] = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VpcPeeringConnectionDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcpeeringconnectiondeletedwaiter)
         """
-
 
 class VpcPeeringConnectionExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VpcPeeringConnectionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcpeeringconnectionexistswaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         VpcPeeringConnectionIds: List[str] = None,
         NextToken: str = None,
         MaxResults: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VpcPeeringConnectionExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpcpeeringconnectionexistswaiter)
         """
-
 
 class VpnConnectionAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.VpnConnectionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpnconnectionavailablewaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VpnConnectionIds: List[str] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VpnConnectionAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpnconnectionavailablewaiter)
         """
-
 
 class VpnConnectionDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.VpnConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpnconnectiondeletedwaiter)
     """
 
     def wait(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VpnConnectionIds: List[str] = None,
         DryRun: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VpnConnectionDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/waiters.html#vpnconnectiondeletedwaiter)
         """

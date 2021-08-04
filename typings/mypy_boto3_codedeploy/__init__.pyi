@@ -38,8 +38,8 @@ Usage::
     list_on_premises_instances_paginator: ListOnPremisesInstancesPaginator = client.get_paginator("list_on_premises_instances")
     ```
 """
-from mypy_boto3_codedeploy.client import CodeDeployClient
-from mypy_boto3_codedeploy.paginator import (
+from .client import CodeDeployClient
+from .paginator import (
     ListApplicationRevisionsPaginator,
     ListApplicationsPaginator,
     ListDeploymentConfigsPaginator,
@@ -50,10 +50,9 @@ from mypy_boto3_codedeploy.paginator import (
     ListGitHubAccountTokenNamesPaginator,
     ListOnPremisesInstancesPaginator,
 )
-from mypy_boto3_codedeploy.waiter import DeploymentSuccessfulWaiter
+from .waiter import DeploymentSuccessfulWaiter
 
 Client = CodeDeployClient
-
 
 __all__ = (
     "Client",

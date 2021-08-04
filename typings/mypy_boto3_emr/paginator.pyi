@@ -1,5 +1,7 @@
 """
-Main interface for emr service client paginators.
+Type annotations for emr service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html)
 
 Usage::
 
@@ -34,13 +36,21 @@ Usage::
     list_studios_paginator: ListStudiosPaginator = client.get_paginator("list_studios")
     ```
 """
-import sys
 from datetime import datetime
-from typing import Iterator, List
+from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_emr.type_defs import (
+from .literals import (
+    ClusterStateType,
+    IdentityTypeType,
+    InstanceFleetTypeType,
+    InstanceGroupTypeType,
+    InstanceStateType,
+    NotebookExecutionStatusType,
+    StepStateType,
+)
+from .type_defs import (
     ListBootstrapActionsOutputTypeDef,
     ListClustersOutputTypeDef,
     ListInstanceFleetsOutputTypeDef,
@@ -53,12 +63,6 @@ from mypy_boto3_emr.type_defs import (
     ListStudiosOutputTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "ListBootstrapActionsPaginator",
@@ -73,190 +77,170 @@ __all__ = (
     "ListStudiosPaginator",
 )
 
-
 class ListBootstrapActionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBootstrapActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListBootstrapActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListBootstrapActions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listbootstrapactionspaginator)
     """
 
     def paginate(
-        self, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBootstrapActionsOutputTypeDef]:
         """
-        [ListBootstrapActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListBootstrapActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListBootstrapActions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listbootstrapactionspaginator)
         """
-
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListClusters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listclusterspaginator)
     """
 
     def paginate(
         self,
-        CreatedAfter: datetime = None,
-        CreatedBefore: datetime = None,
-        ClusterStates: List[
-            Literal[
-                "STARTING",
-                "BOOTSTRAPPING",
-                "RUNNING",
-                "WAITING",
-                "TERMINATING",
-                "TERMINATED",
-                "TERMINATED_WITH_ERRORS",
-            ]
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        CreatedAfter: Union[datetime, str] = None,
+        CreatedBefore: Union[datetime, str] = None,
+        ClusterStates: List[ClusterStateType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersOutputTypeDef]:
         """
-        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListClusters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listclusterspaginator)
         """
-
 
 class ListInstanceFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListInstanceFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListInstanceFleets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancefleetspaginator)
     """
 
     def paginate(
-        self, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceFleetsOutputTypeDef]:
         """
-        [ListInstanceFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListInstanceFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListInstanceFleets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancefleetspaginator)
         """
-
 
 class ListInstanceGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListInstanceGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListInstanceGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancegroupspaginator)
     """
 
     def paginate(
-        self, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceGroupsOutputTypeDef]:
         """
-        [ListInstanceGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListInstanceGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListInstanceGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancegroupspaginator)
         """
-
 
 class ListInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancespaginator)
     """
 
     def paginate(
         self,
+        *,
         ClusterId: str,
         InstanceGroupId: str = None,
-        InstanceGroupTypes: List[Literal["MASTER", "CORE", "TASK"]] = None,
+        InstanceGroupTypes: List[InstanceGroupTypeType] = None,
         InstanceFleetId: str = None,
-        InstanceFleetType: Literal["MASTER", "CORE", "TASK"] = None,
-        InstanceStates: List[
-            Literal[
-                "AWAITING_FULFILLMENT", "PROVISIONING", "BOOTSTRAPPING", "RUNNING", "TERMINATED"
-            ]
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        InstanceFleetType: InstanceFleetTypeType = None,
+        InstanceStates: List[InstanceStateType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstancesOutputTypeDef]:
         """
-        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listinstancespaginator)
         """
-
 
 class ListNotebookExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListNotebookExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listnotebookexecutionspaginator)
     """
 
     def paginate(
         self,
+        *,
         EditorId: str = None,
-        Status: Literal[
-            "START_PENDING",
-            "STARTING",
-            "RUNNING",
-            "FINISHING",
-            "FINISHED",
-            "FAILING",
-            "FAILED",
-            "STOP_PENDING",
-            "STOPPING",
-            "STOPPED",
-        ] = None,
-        From: datetime = None,
-        To: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Status: NotebookExecutionStatusType = None,
+        From: Union[datetime, str] = None,
+        To: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNotebookExecutionsOutputTypeDef]:
         """
-        [ListNotebookExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listnotebookexecutionspaginator)
         """
-
 
 class ListSecurityConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listsecurityconfigurationspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityConfigurationsOutputTypeDef]:
         """
-        [ListSecurityConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#listsecurityconfigurationspaginator)
         """
-
 
 class ListStepsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSteps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListSteps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListSteps)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststepspaginator)
     """
 
     def paginate(
         self,
+        *,
         ClusterId: str,
-        StepStates: List[
-            Literal[
-                "PENDING",
-                "CANCEL_PENDING",
-                "RUNNING",
-                "COMPLETED",
-                "CANCELLED",
-                "FAILED",
-                "INTERRUPTED",
-            ]
-        ] = None,
+        StepStates: List[StepStateType] = None,
         StepIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStepsOutputTypeDef]:
         """
-        [ListSteps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListSteps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListSteps.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststepspaginator)
         """
-
 
 class ListStudioSessionMappingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStudioSessionMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListStudioSessionMappings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListStudioSessionMappings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststudiosessionmappingspaginator)
     """
 
     def paginate(
         self,
+        *,
         StudioId: str = None,
-        IdentityType: Literal["USER", "GROUP"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        IdentityType: IdentityTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStudioSessionMappingsOutputTypeDef]:
         """
-        [ListStudioSessionMappings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListStudioSessionMappings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListStudioSessionMappings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststudiosessionmappingspaginator)
         """
-
 
 class ListStudiosPaginator(Boto3Paginator):
     """
-    [Paginator.ListStudios documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListStudios)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListStudios)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststudiospaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStudiosOutputTypeDef]:
         """
-        [ListStudios.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr.html#EMR.Paginator.ListStudios.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr.html#EMR.Paginator.ListStudios.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr/paginators.html#liststudiospaginator)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for apigatewayv2 service client paginators.
+Type annotations for apigatewayv2 service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html)
 
 Usage::
 
@@ -38,7 +40,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_apigatewayv2.type_defs import (
+from .type_defs import (
     GetApisResponseTypeDef,
     GetAuthorizersResponseTypeDef,
     GetDeploymentsResponseTypeDef,
@@ -65,132 +67,142 @@ __all__ = (
     "GetStagesPaginator",
 )
 
-
 class GetApisPaginator(Boto3Paginator):
     """
-    [Paginator.GetApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetApis)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetApis)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getapispaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetApisResponseTypeDef]:
         """
-        [GetApis.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetApis.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetApis.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getapispaginator)
         """
-
 
 class GetAuthorizersPaginator(Boto3Paginator):
     """
-    [Paginator.GetAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetAuthorizers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetAuthorizers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getauthorizerspaginator)
     """
 
     def paginate(
-        self, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetAuthorizersResponseTypeDef]:
         """
-        [GetAuthorizers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetAuthorizers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetAuthorizers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getauthorizerspaginator)
         """
-
 
 class GetDeploymentsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDeployments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDeployments)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getdeploymentspaginator)
     """
 
     def paginate(
-        self, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDeploymentsResponseTypeDef]:
         """
-        [GetDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDeployments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDeployments.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getdeploymentspaginator)
         """
-
 
 class GetDomainNamesPaginator(Boto3Paginator):
     """
-    [Paginator.GetDomainNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDomainNames)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDomainNames)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getdomainnamespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDomainNamesResponseTypeDef]:
         """
-        [GetDomainNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDomainNames.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetDomainNames.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getdomainnamespaginator)
         """
-
 
 class GetIntegrationResponsesPaginator(Boto3Paginator):
     """
-    [Paginator.GetIntegrationResponses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrationResponses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrationResponses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getintegrationresponsespaginator)
     """
 
     def paginate(
-        self, ApiId: str, IntegrationId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, IntegrationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetIntegrationResponsesResponseTypeDef]:
         """
-        [GetIntegrationResponses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrationResponses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrationResponses.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getintegrationresponsespaginator)
         """
-
 
 class GetIntegrationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetIntegrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getintegrationspaginator)
     """
 
     def paginate(
-        self, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetIntegrationsResponseTypeDef]:
         """
-        [GetIntegrations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetIntegrations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getintegrationspaginator)
         """
-
 
 class GetModelsPaginator(Boto3Paginator):
     """
-    [Paginator.GetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetModels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetModels)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getmodelspaginator)
     """
 
     def paginate(
-        self, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetModelsResponseTypeDef]:
         """
-        [GetModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetModels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetModels.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getmodelspaginator)
         """
-
 
 class GetRouteResponsesPaginator(Boto3Paginator):
     """
-    [Paginator.GetRouteResponses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRouteResponses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRouteResponses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getrouteresponsespaginator)
     """
 
     def paginate(
-        self, ApiId: str, RouteId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, RouteId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRouteResponsesResponseTypeDef]:
         """
-        [GetRouteResponses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRouteResponses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRouteResponses.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getrouteresponsespaginator)
         """
-
 
 class GetRoutesPaginator(Boto3Paginator):
     """
-    [Paginator.GetRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRoutes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRoutes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getroutespaginator)
     """
 
     def paginate(
-        self, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRoutesResponseTypeDef]:
         """
-        [GetRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRoutes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetRoutes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getroutespaginator)
         """
-
 
 class GetStagesPaginator(Boto3Paginator):
     """
-    [Paginator.GetStages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetStages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetStages)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getstagespaginator)
     """
 
     def paginate(
-        self, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetStagesResponseTypeDef]:
         """
-        [GetStages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetStages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/apigatewayv2.html#ApiGatewayV2.Paginator.GetStages.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/paginators.html#getstagespaginator)
         """

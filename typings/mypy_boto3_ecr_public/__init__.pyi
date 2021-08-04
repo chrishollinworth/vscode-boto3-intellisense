@@ -25,8 +25,8 @@ Usage::
     describe_repositories_paginator: DescribeRepositoriesPaginator = client.get_paginator("describe_repositories")
     ```
 """
-from mypy_boto3_ecr_public.client import ECRPublicClient
-from mypy_boto3_ecr_public.paginator import (
+from .client import ECRPublicClient
+from .paginator import (
     DescribeImagesPaginator,
     DescribeImageTagsPaginator,
     DescribeRegistriesPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_ecr_public.paginator import (
 )
 
 Client = ECRPublicClient
-
 
 __all__ = (
     "Client",

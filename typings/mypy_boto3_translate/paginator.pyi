@@ -1,5 +1,7 @@
 """
-Main interface for translate service client paginators.
+Type annotations for translate service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/paginators.html)
 
 Usage::
 
@@ -20,19 +22,20 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_translate.type_defs import ListTerminologiesResponseTypeDef, PaginatorConfigTypeDef
+from .type_defs import ListTerminologiesResponseTypeDef, PaginatorConfigTypeDef
 
 __all__ = ("ListTerminologiesPaginator",)
 
-
 class ListTerminologiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/paginators.html#listterminologiespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTerminologiesResponseTypeDef]:
         """
-        [ListTerminologies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/translate.html#Translate.Paginator.ListTerminologies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/translate.html#Translate.Paginator.ListTerminologies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/paginators.html#listterminologiespaginator)
         """

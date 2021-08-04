@@ -16,9 +16,8 @@ Usage::
     session_client: CodeStarconnectionsClient = session.client("codestar-connections")
     ```
 """
-from mypy_boto3_codestar_connections.client import CodeStarconnectionsClient
+from .client import CodeStarconnectionsClient
 
 Client = CodeStarconnectionsClient
-
 
 __all__ = ("Client", "CodeStarconnectionsClient")

@@ -1,5 +1,7 @@
 """
-Main interface for dms service type definitions.
+Type annotations for dms service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dms/type_defs.html)
 
 Usage::
 
@@ -11,7 +13,35 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, List, Union
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
+
+from .literals import (
+    AuthMechanismValueType,
+    AuthTypeValueType,
+    CharLengthSemanticsType,
+    CompressionTypeValueType,
+    DataFormatValueType,
+    DatePartitionDelimiterValueType,
+    DatePartitionSequenceValueType,
+    DmsSslModeValueType,
+    EncodingTypeValueType,
+    EncryptionModeValueType,
+    EndpointSettingTypeValueType,
+    KafkaSecurityProtocolType,
+    MessageFormatValueType,
+    MigrationTypeValueType,
+    NestingLevelValueType,
+    ParquetVersionValueType,
+    PluginNameValueType,
+    RefreshSchemasStatusTypeValueType,
+    ReloadOptionValueType,
+    ReplicationEndpointTypeValueType,
+    SafeguardPolicyType,
+    StartReplicationTaskTypeValueType,
+    TargetDbTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,33 +52,131 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AccountQuotaTypeDef",
+    "AddTagsToResourceMessageRequestTypeDef",
+    "ApplyPendingMaintenanceActionMessageRequestTypeDef",
+    "ApplyPendingMaintenanceActionResponseTypeDef",
     "AvailabilityZoneTypeDef",
+    "CancelReplicationTaskAssessmentRunMessageRequestTypeDef",
+    "CancelReplicationTaskAssessmentRunResponseTypeDef",
     "CertificateTypeDef",
     "ConnectionTypeDef",
+    "CreateEndpointMessageRequestTypeDef",
+    "CreateEndpointResponseTypeDef",
+    "CreateEventSubscriptionMessageRequestTypeDef",
+    "CreateEventSubscriptionResponseTypeDef",
+    "CreateReplicationInstanceMessageRequestTypeDef",
+    "CreateReplicationInstanceResponseTypeDef",
+    "CreateReplicationSubnetGroupMessageRequestTypeDef",
+    "CreateReplicationSubnetGroupResponseTypeDef",
+    "CreateReplicationTaskMessageRequestTypeDef",
+    "CreateReplicationTaskResponseTypeDef",
+    "DeleteCertificateMessageRequestTypeDef",
+    "DeleteCertificateResponseTypeDef",
+    "DeleteConnectionMessageRequestTypeDef",
+    "DeleteConnectionResponseTypeDef",
+    "DeleteEndpointMessageRequestTypeDef",
+    "DeleteEndpointResponseTypeDef",
+    "DeleteEventSubscriptionMessageRequestTypeDef",
+    "DeleteEventSubscriptionResponseTypeDef",
+    "DeleteReplicationInstanceMessageRequestTypeDef",
+    "DeleteReplicationInstanceResponseTypeDef",
+    "DeleteReplicationSubnetGroupMessageRequestTypeDef",
+    "DeleteReplicationTaskAssessmentRunMessageRequestTypeDef",
+    "DeleteReplicationTaskAssessmentRunResponseTypeDef",
+    "DeleteReplicationTaskMessageRequestTypeDef",
+    "DeleteReplicationTaskResponseTypeDef",
+    "DescribeAccountAttributesResponseTypeDef",
+    "DescribeApplicableIndividualAssessmentsMessageRequestTypeDef",
+    "DescribeApplicableIndividualAssessmentsResponseTypeDef",
+    "DescribeCertificatesMessageRequestTypeDef",
+    "DescribeCertificatesResponseTypeDef",
+    "DescribeConnectionsMessageRequestTypeDef",
+    "DescribeConnectionsResponseTypeDef",
+    "DescribeEndpointSettingsMessageRequestTypeDef",
+    "DescribeEndpointSettingsResponseTypeDef",
+    "DescribeEndpointTypesMessageRequestTypeDef",
+    "DescribeEndpointTypesResponseTypeDef",
+    "DescribeEndpointsMessageRequestTypeDef",
+    "DescribeEndpointsResponseTypeDef",
+    "DescribeEventCategoriesMessageRequestTypeDef",
+    "DescribeEventCategoriesResponseTypeDef",
+    "DescribeEventSubscriptionsMessageRequestTypeDef",
+    "DescribeEventSubscriptionsResponseTypeDef",
+    "DescribeEventsMessageRequestTypeDef",
+    "DescribeEventsResponseTypeDef",
+    "DescribeOrderableReplicationInstancesMessageRequestTypeDef",
+    "DescribeOrderableReplicationInstancesResponseTypeDef",
+    "DescribePendingMaintenanceActionsMessageRequestTypeDef",
+    "DescribePendingMaintenanceActionsResponseTypeDef",
+    "DescribeRefreshSchemasStatusMessageRequestTypeDef",
+    "DescribeRefreshSchemasStatusResponseTypeDef",
+    "DescribeReplicationInstanceTaskLogsMessageRequestTypeDef",
+    "DescribeReplicationInstanceTaskLogsResponseTypeDef",
+    "DescribeReplicationInstancesMessageRequestTypeDef",
+    "DescribeReplicationInstancesResponseTypeDef",
+    "DescribeReplicationSubnetGroupsMessageRequestTypeDef",
+    "DescribeReplicationSubnetGroupsResponseTypeDef",
+    "DescribeReplicationTaskAssessmentResultsMessageRequestTypeDef",
+    "DescribeReplicationTaskAssessmentResultsResponseTypeDef",
+    "DescribeReplicationTaskAssessmentRunsMessageRequestTypeDef",
+    "DescribeReplicationTaskAssessmentRunsResponseTypeDef",
+    "DescribeReplicationTaskIndividualAssessmentsMessageRequestTypeDef",
+    "DescribeReplicationTaskIndividualAssessmentsResponseTypeDef",
+    "DescribeReplicationTasksMessageRequestTypeDef",
+    "DescribeReplicationTasksResponseTypeDef",
+    "DescribeSchemasMessageRequestTypeDef",
+    "DescribeSchemasResponseTypeDef",
+    "DescribeTableStatisticsMessageRequestTypeDef",
+    "DescribeTableStatisticsResponseTypeDef",
     "DmsTransferSettingsTypeDef",
     "DocDbSettingsTypeDef",
     "DynamoDbSettingsTypeDef",
     "ElasticsearchSettingsTypeDef",
+    "EndpointSettingTypeDef",
     "EndpointTypeDef",
     "EventCategoryGroupTypeDef",
     "EventSubscriptionTypeDef",
     "EventTypeDef",
+    "FilterTypeDef",
     "IBMDb2SettingsTypeDef",
+    "ImportCertificateMessageRequestTypeDef",
+    "ImportCertificateResponseTypeDef",
     "KafkaSettingsTypeDef",
     "KinesisSettingsTypeDef",
+    "ListTagsForResourceMessageRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MicrosoftSQLServerSettingsTypeDef",
+    "ModifyEndpointMessageRequestTypeDef",
+    "ModifyEndpointResponseTypeDef",
+    "ModifyEventSubscriptionMessageRequestTypeDef",
+    "ModifyEventSubscriptionResponseTypeDef",
+    "ModifyReplicationInstanceMessageRequestTypeDef",
+    "ModifyReplicationInstanceResponseTypeDef",
+    "ModifyReplicationSubnetGroupMessageRequestTypeDef",
+    "ModifyReplicationSubnetGroupResponseTypeDef",
+    "ModifyReplicationTaskMessageRequestTypeDef",
+    "ModifyReplicationTaskResponseTypeDef",
     "MongoDbSettingsTypeDef",
+    "MoveReplicationTaskMessageRequestTypeDef",
+    "MoveReplicationTaskResponseTypeDef",
     "MySQLSettingsTypeDef",
     "NeptuneSettingsTypeDef",
     "OracleSettingsTypeDef",
     "OrderableReplicationInstanceTypeDef",
+    "PaginatorConfigTypeDef",
     "PendingMaintenanceActionTypeDef",
     "PostgreSQLSettingsTypeDef",
+    "RebootReplicationInstanceMessageRequestTypeDef",
+    "RebootReplicationInstanceResponseTypeDef",
     "RedshiftSettingsTypeDef",
+    "RefreshSchemasMessageRequestTypeDef",
+    "RefreshSchemasResponseTypeDef",
     "RefreshSchemasStatusTypeDef",
+    "ReloadTablesMessageRequestTypeDef",
+    "ReloadTablesResponseTypeDef",
+    "RemoveTagsFromResourceMessageRequestTypeDef",
     "ReplicationInstanceTaskLogTypeDef",
     "ReplicationInstanceTypeDef",
     "ReplicationPendingModifiedValuesTypeDef",
@@ -60,75 +188,85 @@ __all__ = (
     "ReplicationTaskStatsTypeDef",
     "ReplicationTaskTypeDef",
     "ResourcePendingMaintenanceActionsTypeDef",
+    "ResponseMetadataTypeDef",
     "S3SettingsTypeDef",
+    "StartReplicationTaskAssessmentMessageRequestTypeDef",
+    "StartReplicationTaskAssessmentResponseTypeDef",
+    "StartReplicationTaskAssessmentRunMessageRequestTypeDef",
+    "StartReplicationTaskAssessmentRunResponseTypeDef",
+    "StartReplicationTaskMessageRequestTypeDef",
+    "StartReplicationTaskResponseTypeDef",
+    "StopReplicationTaskMessageRequestTypeDef",
+    "StopReplicationTaskResponseTypeDef",
     "SubnetTypeDef",
     "SupportedEndpointTypeTypeDef",
     "SybaseSettingsTypeDef",
     "TableStatisticsTypeDef",
-    "TagTypeDef",
-    "VpcSecurityGroupMembershipTypeDef",
-    "ApplyPendingMaintenanceActionResponseTypeDef",
-    "CancelReplicationTaskAssessmentRunResponseTypeDef",
-    "CreateEndpointResponseTypeDef",
-    "CreateEventSubscriptionResponseTypeDef",
-    "CreateReplicationInstanceResponseTypeDef",
-    "CreateReplicationSubnetGroupResponseTypeDef",
-    "CreateReplicationTaskResponseTypeDef",
-    "DeleteCertificateResponseTypeDef",
-    "DeleteConnectionResponseTypeDef",
-    "DeleteEndpointResponseTypeDef",
-    "DeleteEventSubscriptionResponseTypeDef",
-    "DeleteReplicationInstanceResponseTypeDef",
-    "DeleteReplicationTaskAssessmentRunResponseTypeDef",
-    "DeleteReplicationTaskResponseTypeDef",
-    "DescribeAccountAttributesResponseTypeDef",
-    "DescribeApplicableIndividualAssessmentsResponseTypeDef",
-    "DescribeCertificatesResponseTypeDef",
-    "DescribeConnectionsResponseTypeDef",
-    "DescribeEndpointTypesResponseTypeDef",
-    "DescribeEndpointsResponseTypeDef",
-    "DescribeEventCategoriesResponseTypeDef",
-    "DescribeEventSubscriptionsResponseTypeDef",
-    "DescribeEventsResponseTypeDef",
-    "DescribeOrderableReplicationInstancesResponseTypeDef",
-    "DescribePendingMaintenanceActionsResponseTypeDef",
-    "DescribeRefreshSchemasStatusResponseTypeDef",
-    "DescribeReplicationInstanceTaskLogsResponseTypeDef",
-    "DescribeReplicationInstancesResponseTypeDef",
-    "DescribeReplicationSubnetGroupsResponseTypeDef",
-    "DescribeReplicationTaskAssessmentResultsResponseTypeDef",
-    "DescribeReplicationTaskAssessmentRunsResponseTypeDef",
-    "DescribeReplicationTaskIndividualAssessmentsResponseTypeDef",
-    "DescribeReplicationTasksResponseTypeDef",
-    "DescribeSchemasResponseTypeDef",
-    "DescribeTableStatisticsResponseTypeDef",
-    "FilterTypeDef",
-    "ImportCertificateResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "ModifyEndpointResponseTypeDef",
-    "ModifyEventSubscriptionResponseTypeDef",
-    "ModifyReplicationInstanceResponseTypeDef",
-    "ModifyReplicationSubnetGroupResponseTypeDef",
-    "ModifyReplicationTaskResponseTypeDef",
-    "MoveReplicationTaskResponseTypeDef",
-    "PaginatorConfigTypeDef",
-    "RebootReplicationInstanceResponseTypeDef",
-    "RefreshSchemasResponseTypeDef",
-    "ReloadTablesResponseTypeDef",
-    "StartReplicationTaskAssessmentResponseTypeDef",
-    "StartReplicationTaskAssessmentRunResponseTypeDef",
-    "StartReplicationTaskResponseTypeDef",
-    "StopReplicationTaskResponseTypeDef",
     "TableToReloadTypeDef",
+    "TagTypeDef",
+    "TestConnectionMessageRequestTypeDef",
     "TestConnectionResponseTypeDef",
+    "VpcSecurityGroupMembershipTypeDef",
     "WaiterConfigTypeDef",
 )
 
 AccountQuotaTypeDef = TypedDict(
-    "AccountQuotaTypeDef", {"AccountQuotaName": str, "Used": int, "Max": int}, total=False
+    "AccountQuotaTypeDef",
+    {
+        "AccountQuotaName": str,
+        "Used": int,
+        "Max": int,
+    },
+    total=False,
 )
 
-AvailabilityZoneTypeDef = TypedDict("AvailabilityZoneTypeDef", {"Name": str}, total=False)
+AddTagsToResourceMessageRequestTypeDef = TypedDict(
+    "AddTagsToResourceMessageRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+ApplyPendingMaintenanceActionMessageRequestTypeDef = TypedDict(
+    "ApplyPendingMaintenanceActionMessageRequestTypeDef",
+    {
+        "ReplicationInstanceArn": str,
+        "ApplyAction": str,
+        "OptInType": str,
+    },
+)
+
+ApplyPendingMaintenanceActionResponseTypeDef = TypedDict(
+    "ApplyPendingMaintenanceActionResponseTypeDef",
+    {
+        "ResourcePendingMaintenanceActions": "ResourcePendingMaintenanceActionsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AvailabilityZoneTypeDef = TypedDict(
+    "AvailabilityZoneTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+CancelReplicationTaskAssessmentRunMessageRequestTypeDef = TypedDict(
+    "CancelReplicationTaskAssessmentRunMessageRequestTypeDef",
+    {
+        "ReplicationTaskAssessmentRunArn": str,
+    },
+)
+
+CancelReplicationTaskAssessmentRunResponseTypeDef = TypedDict(
+    "CancelReplicationTaskAssessmentRunResponseTypeDef",
+    {
+        "ReplicationTaskAssessmentRun": "ReplicationTaskAssessmentRunTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 CertificateTypeDef = TypedDict(
     "CertificateTypeDef",
@@ -136,7 +274,7 @@ CertificateTypeDef = TypedDict(
         "CertificateIdentifier": str,
         "CertificateCreationDate": datetime,
         "CertificatePem": str,
-        "CertificateWallet": Union[bytes, IO[bytes]],
+        "CertificateWallet": bytes,
         "CertificateArn": str,
         "CertificateOwner": str,
         "ValidFromDate": datetime,
@@ -160,8 +298,787 @@ ConnectionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateEndpointMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateEndpointMessageRequestTypeDef",
+    {
+        "EndpointIdentifier": str,
+        "EndpointType": ReplicationEndpointTypeValueType,
+        "EngineName": str,
+    },
+)
+_OptionalCreateEndpointMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateEndpointMessageRequestTypeDef",
+    {
+        "Username": str,
+        "Password": str,
+        "ServerName": str,
+        "Port": int,
+        "DatabaseName": str,
+        "ExtraConnectionAttributes": str,
+        "KmsKeyId": str,
+        "Tags": List["TagTypeDef"],
+        "CertificateArn": str,
+        "SslMode": DmsSslModeValueType,
+        "ServiceAccessRoleArn": str,
+        "ExternalTableDefinition": str,
+        "DynamoDbSettings": "DynamoDbSettingsTypeDef",
+        "S3Settings": "S3SettingsTypeDef",
+        "DmsTransferSettings": "DmsTransferSettingsTypeDef",
+        "MongoDbSettings": "MongoDbSettingsTypeDef",
+        "KinesisSettings": "KinesisSettingsTypeDef",
+        "KafkaSettings": "KafkaSettingsTypeDef",
+        "ElasticsearchSettings": "ElasticsearchSettingsTypeDef",
+        "NeptuneSettings": "NeptuneSettingsTypeDef",
+        "RedshiftSettings": "RedshiftSettingsTypeDef",
+        "PostgreSQLSettings": "PostgreSQLSettingsTypeDef",
+        "MySQLSettings": "MySQLSettingsTypeDef",
+        "OracleSettings": "OracleSettingsTypeDef",
+        "SybaseSettings": "SybaseSettingsTypeDef",
+        "MicrosoftSQLServerSettings": "MicrosoftSQLServerSettingsTypeDef",
+        "IBMDb2Settings": "IBMDb2SettingsTypeDef",
+        "ResourceIdentifier": str,
+        "DocDbSettings": "DocDbSettingsTypeDef",
+    },
+    total=False,
+)
+
+class CreateEndpointMessageRequestTypeDef(
+    _RequiredCreateEndpointMessageRequestTypeDef, _OptionalCreateEndpointMessageRequestTypeDef
+):
+    pass
+
+CreateEndpointResponseTypeDef = TypedDict(
+    "CreateEndpointResponseTypeDef",
+    {
+        "Endpoint": "EndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateEventSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+        "SnsTopicArn": str,
+    },
+)
+_OptionalCreateEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateEventSubscriptionMessageRequestTypeDef",
+    {
+        "SourceType": str,
+        "EventCategories": List[str],
+        "SourceIds": List[str],
+        "Enabled": bool,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateEventSubscriptionMessageRequestTypeDef(
+    _RequiredCreateEventSubscriptionMessageRequestTypeDef,
+    _OptionalCreateEventSubscriptionMessageRequestTypeDef,
+):
+    pass
+
+CreateEventSubscriptionResponseTypeDef = TypedDict(
+    "CreateEventSubscriptionResponseTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateReplicationInstanceMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateReplicationInstanceMessageRequestTypeDef",
+    {
+        "ReplicationInstanceIdentifier": str,
+        "ReplicationInstanceClass": str,
+    },
+)
+_OptionalCreateReplicationInstanceMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateReplicationInstanceMessageRequestTypeDef",
+    {
+        "AllocatedStorage": int,
+        "VpcSecurityGroupIds": List[str],
+        "AvailabilityZone": str,
+        "ReplicationSubnetGroupIdentifier": str,
+        "PreferredMaintenanceWindow": str,
+        "MultiAZ": bool,
+        "EngineVersion": str,
+        "AutoMinorVersionUpgrade": bool,
+        "Tags": List["TagTypeDef"],
+        "KmsKeyId": str,
+        "PubliclyAccessible": bool,
+        "DnsNameServers": str,
+        "ResourceIdentifier": str,
+    },
+    total=False,
+)
+
+class CreateReplicationInstanceMessageRequestTypeDef(
+    _RequiredCreateReplicationInstanceMessageRequestTypeDef,
+    _OptionalCreateReplicationInstanceMessageRequestTypeDef,
+):
+    pass
+
+CreateReplicationInstanceResponseTypeDef = TypedDict(
+    "CreateReplicationInstanceResponseTypeDef",
+    {
+        "ReplicationInstance": "ReplicationInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateReplicationSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateReplicationSubnetGroupMessageRequestTypeDef",
+    {
+        "ReplicationSubnetGroupIdentifier": str,
+        "ReplicationSubnetGroupDescription": str,
+        "SubnetIds": List[str],
+    },
+)
+_OptionalCreateReplicationSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateReplicationSubnetGroupMessageRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateReplicationSubnetGroupMessageRequestTypeDef(
+    _RequiredCreateReplicationSubnetGroupMessageRequestTypeDef,
+    _OptionalCreateReplicationSubnetGroupMessageRequestTypeDef,
+):
+    pass
+
+CreateReplicationSubnetGroupResponseTypeDef = TypedDict(
+    "CreateReplicationSubnetGroupResponseTypeDef",
+    {
+        "ReplicationSubnetGroup": "ReplicationSubnetGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateReplicationTaskMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskIdentifier": str,
+        "SourceEndpointArn": str,
+        "TargetEndpointArn": str,
+        "ReplicationInstanceArn": str,
+        "MigrationType": MigrationTypeValueType,
+        "TableMappings": str,
+    },
+)
+_OptionalCreateReplicationTaskMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskSettings": str,
+        "CdcStartTime": Union[datetime, str],
+        "CdcStartPosition": str,
+        "CdcStopPosition": str,
+        "Tags": List["TagTypeDef"],
+        "TaskData": str,
+        "ResourceIdentifier": str,
+    },
+    total=False,
+)
+
+class CreateReplicationTaskMessageRequestTypeDef(
+    _RequiredCreateReplicationTaskMessageRequestTypeDef,
+    _OptionalCreateReplicationTaskMessageRequestTypeDef,
+):
+    pass
+
+CreateReplicationTaskResponseTypeDef = TypedDict(
+    "CreateReplicationTaskResponseTypeDef",
+    {
+        "ReplicationTask": "ReplicationTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteCertificateMessageRequestTypeDef = TypedDict(
+    "DeleteCertificateMessageRequestTypeDef",
+    {
+        "CertificateArn": str,
+    },
+)
+
+DeleteCertificateResponseTypeDef = TypedDict(
+    "DeleteCertificateResponseTypeDef",
+    {
+        "Certificate": "CertificateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteConnectionMessageRequestTypeDef = TypedDict(
+    "DeleteConnectionMessageRequestTypeDef",
+    {
+        "EndpointArn": str,
+        "ReplicationInstanceArn": str,
+    },
+)
+
+DeleteConnectionResponseTypeDef = TypedDict(
+    "DeleteConnectionResponseTypeDef",
+    {
+        "Connection": "ConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteEndpointMessageRequestTypeDef = TypedDict(
+    "DeleteEndpointMessageRequestTypeDef",
+    {
+        "EndpointArn": str,
+    },
+)
+
+DeleteEndpointResponseTypeDef = TypedDict(
+    "DeleteEndpointResponseTypeDef",
+    {
+        "Endpoint": "EndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "DeleteEventSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+    },
+)
+
+DeleteEventSubscriptionResponseTypeDef = TypedDict(
+    "DeleteEventSubscriptionResponseTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteReplicationInstanceMessageRequestTypeDef = TypedDict(
+    "DeleteReplicationInstanceMessageRequestTypeDef",
+    {
+        "ReplicationInstanceArn": str,
+    },
+)
+
+DeleteReplicationInstanceResponseTypeDef = TypedDict(
+    "DeleteReplicationInstanceResponseTypeDef",
+    {
+        "ReplicationInstance": "ReplicationInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteReplicationSubnetGroupMessageRequestTypeDef = TypedDict(
+    "DeleteReplicationSubnetGroupMessageRequestTypeDef",
+    {
+        "ReplicationSubnetGroupIdentifier": str,
+    },
+)
+
+DeleteReplicationTaskAssessmentRunMessageRequestTypeDef = TypedDict(
+    "DeleteReplicationTaskAssessmentRunMessageRequestTypeDef",
+    {
+        "ReplicationTaskAssessmentRunArn": str,
+    },
+)
+
+DeleteReplicationTaskAssessmentRunResponseTypeDef = TypedDict(
+    "DeleteReplicationTaskAssessmentRunResponseTypeDef",
+    {
+        "ReplicationTaskAssessmentRun": "ReplicationTaskAssessmentRunTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteReplicationTaskMessageRequestTypeDef = TypedDict(
+    "DeleteReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+    },
+)
+
+DeleteReplicationTaskResponseTypeDef = TypedDict(
+    "DeleteReplicationTaskResponseTypeDef",
+    {
+        "ReplicationTask": "ReplicationTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAccountAttributesResponseTypeDef = TypedDict(
+    "DescribeAccountAttributesResponseTypeDef",
+    {
+        "AccountQuotas": List["AccountQuotaTypeDef"],
+        "UniqueAccountIdentifier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicableIndividualAssessmentsMessageRequestTypeDef = TypedDict(
+    "DescribeApplicableIndividualAssessmentsMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "ReplicationInstanceArn": str,
+        "SourceEngineName": str,
+        "TargetEngineName": str,
+        "MigrationType": MigrationTypeValueType,
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeApplicableIndividualAssessmentsResponseTypeDef = TypedDict(
+    "DescribeApplicableIndividualAssessmentsResponseTypeDef",
+    {
+        "IndividualAssessmentNames": List[str],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeCertificatesMessageRequestTypeDef = TypedDict(
+    "DescribeCertificatesMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeCertificatesResponseTypeDef = TypedDict(
+    "DescribeCertificatesResponseTypeDef",
+    {
+        "Marker": str,
+        "Certificates": List["CertificateTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConnectionsMessageRequestTypeDef = TypedDict(
+    "DescribeConnectionsMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeConnectionsResponseTypeDef = TypedDict(
+    "DescribeConnectionsResponseTypeDef",
+    {
+        "Marker": str,
+        "Connections": List["ConnectionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeEndpointSettingsMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeEndpointSettingsMessageRequestTypeDef",
+    {
+        "EngineName": str,
+    },
+)
+_OptionalDescribeEndpointSettingsMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeEndpointSettingsMessageRequestTypeDef",
+    {
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeEndpointSettingsMessageRequestTypeDef(
+    _RequiredDescribeEndpointSettingsMessageRequestTypeDef,
+    _OptionalDescribeEndpointSettingsMessageRequestTypeDef,
+):
+    pass
+
+DescribeEndpointSettingsResponseTypeDef = TypedDict(
+    "DescribeEndpointSettingsResponseTypeDef",
+    {
+        "Marker": str,
+        "EndpointSettings": List["EndpointSettingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEndpointTypesMessageRequestTypeDef = TypedDict(
+    "DescribeEndpointTypesMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeEndpointTypesResponseTypeDef = TypedDict(
+    "DescribeEndpointTypesResponseTypeDef",
+    {
+        "Marker": str,
+        "SupportedEndpointTypes": List["SupportedEndpointTypeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEndpointsMessageRequestTypeDef = TypedDict(
+    "DescribeEndpointsMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeEndpointsResponseTypeDef = TypedDict(
+    "DescribeEndpointsResponseTypeDef",
+    {
+        "Marker": str,
+        "Endpoints": List["EndpointTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEventCategoriesMessageRequestTypeDef = TypedDict(
+    "DescribeEventCategoriesMessageRequestTypeDef",
+    {
+        "SourceType": str,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeEventCategoriesResponseTypeDef = TypedDict(
+    "DescribeEventCategoriesResponseTypeDef",
+    {
+        "EventCategoryGroupList": List["EventCategoryGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEventSubscriptionsMessageRequestTypeDef = TypedDict(
+    "DescribeEventSubscriptionsMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeEventSubscriptionsResponseTypeDef = TypedDict(
+    "DescribeEventSubscriptionsResponseTypeDef",
+    {
+        "Marker": str,
+        "EventSubscriptionsList": List["EventSubscriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEventsMessageRequestTypeDef = TypedDict(
+    "DescribeEventsMessageRequestTypeDef",
+    {
+        "SourceIdentifier": str,
+        "SourceType": Literal["replication-instance"],
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "Duration": int,
+        "EventCategories": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeEventsResponseTypeDef = TypedDict(
+    "DescribeEventsResponseTypeDef",
+    {
+        "Marker": str,
+        "Events": List["EventTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOrderableReplicationInstancesMessageRequestTypeDef = TypedDict(
+    "DescribeOrderableReplicationInstancesMessageRequestTypeDef",
+    {
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeOrderableReplicationInstancesResponseTypeDef = TypedDict(
+    "DescribeOrderableReplicationInstancesResponseTypeDef",
+    {
+        "OrderableReplicationInstances": List["OrderableReplicationInstanceTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePendingMaintenanceActionsMessageRequestTypeDef = TypedDict(
+    "DescribePendingMaintenanceActionsMessageRequestTypeDef",
+    {
+        "ReplicationInstanceArn": str,
+        "Filters": List["FilterTypeDef"],
+        "Marker": str,
+        "MaxRecords": int,
+    },
+    total=False,
+)
+
+DescribePendingMaintenanceActionsResponseTypeDef = TypedDict(
+    "DescribePendingMaintenanceActionsResponseTypeDef",
+    {
+        "PendingMaintenanceActions": List["ResourcePendingMaintenanceActionsTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRefreshSchemasStatusMessageRequestTypeDef = TypedDict(
+    "DescribeRefreshSchemasStatusMessageRequestTypeDef",
+    {
+        "EndpointArn": str,
+    },
+)
+
+DescribeRefreshSchemasStatusResponseTypeDef = TypedDict(
+    "DescribeRefreshSchemasStatusResponseTypeDef",
+    {
+        "RefreshSchemasStatus": "RefreshSchemasStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeReplicationInstanceTaskLogsMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeReplicationInstanceTaskLogsMessageRequestTypeDef",
+    {
+        "ReplicationInstanceArn": str,
+    },
+)
+_OptionalDescribeReplicationInstanceTaskLogsMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeReplicationInstanceTaskLogsMessageRequestTypeDef",
+    {
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeReplicationInstanceTaskLogsMessageRequestTypeDef(
+    _RequiredDescribeReplicationInstanceTaskLogsMessageRequestTypeDef,
+    _OptionalDescribeReplicationInstanceTaskLogsMessageRequestTypeDef,
+):
+    pass
+
+DescribeReplicationInstanceTaskLogsResponseTypeDef = TypedDict(
+    "DescribeReplicationInstanceTaskLogsResponseTypeDef",
+    {
+        "ReplicationInstanceArn": str,
+        "ReplicationInstanceTaskLogs": List["ReplicationInstanceTaskLogTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReplicationInstancesMessageRequestTypeDef = TypedDict(
+    "DescribeReplicationInstancesMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeReplicationInstancesResponseTypeDef = TypedDict(
+    "DescribeReplicationInstancesResponseTypeDef",
+    {
+        "Marker": str,
+        "ReplicationInstances": List["ReplicationInstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReplicationSubnetGroupsMessageRequestTypeDef = TypedDict(
+    "DescribeReplicationSubnetGroupsMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeReplicationSubnetGroupsResponseTypeDef = TypedDict(
+    "DescribeReplicationSubnetGroupsResponseTypeDef",
+    {
+        "Marker": str,
+        "ReplicationSubnetGroups": List["ReplicationSubnetGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReplicationTaskAssessmentResultsMessageRequestTypeDef = TypedDict(
+    "DescribeReplicationTaskAssessmentResultsMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeReplicationTaskAssessmentResultsResponseTypeDef = TypedDict(
+    "DescribeReplicationTaskAssessmentResultsResponseTypeDef",
+    {
+        "Marker": str,
+        "BucketName": str,
+        "ReplicationTaskAssessmentResults": List["ReplicationTaskAssessmentResultTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReplicationTaskAssessmentRunsMessageRequestTypeDef = TypedDict(
+    "DescribeReplicationTaskAssessmentRunsMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeReplicationTaskAssessmentRunsResponseTypeDef = TypedDict(
+    "DescribeReplicationTaskAssessmentRunsResponseTypeDef",
+    {
+        "Marker": str,
+        "ReplicationTaskAssessmentRuns": List["ReplicationTaskAssessmentRunTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReplicationTaskIndividualAssessmentsMessageRequestTypeDef = TypedDict(
+    "DescribeReplicationTaskIndividualAssessmentsMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeReplicationTaskIndividualAssessmentsResponseTypeDef = TypedDict(
+    "DescribeReplicationTaskIndividualAssessmentsResponseTypeDef",
+    {
+        "Marker": str,
+        "ReplicationTaskIndividualAssessments": List["ReplicationTaskIndividualAssessmentTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReplicationTasksMessageRequestTypeDef = TypedDict(
+    "DescribeReplicationTasksMessageRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "Marker": str,
+        "WithoutSettings": bool,
+    },
+    total=False,
+)
+
+DescribeReplicationTasksResponseTypeDef = TypedDict(
+    "DescribeReplicationTasksResponseTypeDef",
+    {
+        "Marker": str,
+        "ReplicationTasks": List["ReplicationTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeSchemasMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeSchemasMessageRequestTypeDef",
+    {
+        "EndpointArn": str,
+    },
+)
+_OptionalDescribeSchemasMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeSchemasMessageRequestTypeDef",
+    {
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class DescribeSchemasMessageRequestTypeDef(
+    _RequiredDescribeSchemasMessageRequestTypeDef, _OptionalDescribeSchemasMessageRequestTypeDef
+):
+    pass
+
+DescribeSchemasResponseTypeDef = TypedDict(
+    "DescribeSchemasResponseTypeDef",
+    {
+        "Marker": str,
+        "Schemas": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeTableStatisticsMessageRequestTypeDef = TypedDict(
+    "_RequiredDescribeTableStatisticsMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+    },
+)
+_OptionalDescribeTableStatisticsMessageRequestTypeDef = TypedDict(
+    "_OptionalDescribeTableStatisticsMessageRequestTypeDef",
+    {
+        "MaxRecords": int,
+        "Marker": str,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+class DescribeTableStatisticsMessageRequestTypeDef(
+    _RequiredDescribeTableStatisticsMessageRequestTypeDef,
+    _OptionalDescribeTableStatisticsMessageRequestTypeDef,
+):
+    pass
+
+DescribeTableStatisticsResponseTypeDef = TypedDict(
+    "DescribeTableStatisticsResponseTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "TableStatistics": List["TableStatisticsTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DmsTransferSettingsTypeDef = TypedDict(
-    "DmsTransferSettingsTypeDef", {"ServiceAccessRoleArn": str, "BucketName": str}, total=False
+    "DmsTransferSettingsTypeDef",
+    {
+        "ServiceAccessRoleArn": str,
+        "BucketName": str,
+    },
+    total=False,
 )
 
 DocDbSettingsTypeDef = TypedDict(
@@ -172,7 +1089,7 @@ DocDbSettingsTypeDef = TypedDict(
         "ServerName": str,
         "Port": int,
         "DatabaseName": str,
-        "NestingLevel": Literal["none", "one"],
+        "NestingLevel": NestingLevelValueType,
         "ExtractDocId": bool,
         "DocsToInvestigate": int,
         "KmsKeyId": str,
@@ -182,29 +1099,55 @@ DocDbSettingsTypeDef = TypedDict(
     total=False,
 )
 
-DynamoDbSettingsTypeDef = TypedDict("DynamoDbSettingsTypeDef", {"ServiceAccessRoleArn": str})
+DynamoDbSettingsTypeDef = TypedDict(
+    "DynamoDbSettingsTypeDef",
+    {
+        "ServiceAccessRoleArn": str,
+    },
+)
 
 _RequiredElasticsearchSettingsTypeDef = TypedDict(
-    "_RequiredElasticsearchSettingsTypeDef", {"ServiceAccessRoleArn": str, "EndpointUri": str}
+    "_RequiredElasticsearchSettingsTypeDef",
+    {
+        "ServiceAccessRoleArn": str,
+        "EndpointUri": str,
+    },
 )
 _OptionalElasticsearchSettingsTypeDef = TypedDict(
     "_OptionalElasticsearchSettingsTypeDef",
-    {"FullLoadErrorPercentage": int, "ErrorRetryDuration": int},
+    {
+        "FullLoadErrorPercentage": int,
+        "ErrorRetryDuration": int,
+    },
     total=False,
 )
-
 
 class ElasticsearchSettingsTypeDef(
     _RequiredElasticsearchSettingsTypeDef, _OptionalElasticsearchSettingsTypeDef
 ):
     pass
 
+EndpointSettingTypeDef = TypedDict(
+    "EndpointSettingTypeDef",
+    {
+        "Name": str,
+        "Type": EndpointSettingTypeValueType,
+        "EnumValues": List[str],
+        "Sensitive": bool,
+        "Units": str,
+        "Applicability": str,
+        "IntValueMin": int,
+        "IntValueMax": int,
+        "DefaultValue": str,
+    },
+    total=False,
+)
 
 EndpointTypeDef = TypedDict(
     "EndpointTypeDef",
     {
         "EndpointIdentifier": str,
-        "EndpointType": Literal["source", "target"],
+        "EndpointType": ReplicationEndpointTypeValueType,
         "EngineName": str,
         "EngineDisplayName": str,
         "Username": str,
@@ -216,7 +1159,7 @@ EndpointTypeDef = TypedDict(
         "KmsKeyId": str,
         "EndpointArn": str,
         "CertificateArn": str,
-        "SslMode": Literal["none", "require", "verify-ca", "verify-full"],
+        "SslMode": DmsSslModeValueType,
         "ServiceAccessRoleArn": str,
         "ExternalTableDefinition": str,
         "ExternalId": str,
@@ -241,7 +1184,12 @@ EndpointTypeDef = TypedDict(
 )
 
 EventCategoryGroupTypeDef = TypedDict(
-    "EventCategoryGroupTypeDef", {"SourceType": str, "EventCategories": List[str]}, total=False
+    "EventCategoryGroupTypeDef",
+    {
+        "SourceType": str,
+        "EventCategories": List[str],
+    },
+    total=False,
 )
 
 EventSubscriptionTypeDef = TypedDict(
@@ -272,6 +1220,14 @@ EventTypeDef = TypedDict(
     total=False,
 )
 
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "Name": str,
+        "Values": List[str],
+    },
+)
+
 IBMDb2SettingsTypeDef = TypedDict(
     "IBMDb2SettingsTypeDef",
     {
@@ -289,12 +1245,41 @@ IBMDb2SettingsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredImportCertificateMessageRequestTypeDef = TypedDict(
+    "_RequiredImportCertificateMessageRequestTypeDef",
+    {
+        "CertificateIdentifier": str,
+    },
+)
+_OptionalImportCertificateMessageRequestTypeDef = TypedDict(
+    "_OptionalImportCertificateMessageRequestTypeDef",
+    {
+        "CertificatePem": str,
+        "CertificateWallet": Union[bytes, IO[bytes], StreamingBody],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class ImportCertificateMessageRequestTypeDef(
+    _RequiredImportCertificateMessageRequestTypeDef, _OptionalImportCertificateMessageRequestTypeDef
+):
+    pass
+
+ImportCertificateResponseTypeDef = TypedDict(
+    "ImportCertificateResponseTypeDef",
+    {
+        "Certificate": "CertificateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 KafkaSettingsTypeDef = TypedDict(
     "KafkaSettingsTypeDef",
     {
         "Broker": str,
         "Topic": str,
-        "MessageFormat": Literal["json", "json-unformatted"],
+        "MessageFormat": MessageFormatValueType,
         "IncludeTransactionDetails": bool,
         "IncludePartitionValue": bool,
         "PartitionIncludeSchemaTable": bool,
@@ -302,6 +1287,14 @@ KafkaSettingsTypeDef = TypedDict(
         "IncludeControlDetails": bool,
         "MessageMaxBytes": int,
         "IncludeNullAndEmpty": bool,
+        "SecurityProtocol": KafkaSecurityProtocolType,
+        "SslClientCertificateArn": str,
+        "SslClientKeyArn": str,
+        "SslClientKeyPassword": str,
+        "SslCaCertificateArn": str,
+        "SaslUsername": str,
+        "SaslPassword": str,
+        "NoHexPrefix": bool,
     },
     total=False,
 )
@@ -310,7 +1303,7 @@ KinesisSettingsTypeDef = TypedDict(
     "KinesisSettingsTypeDef",
     {
         "StreamArn": str,
-        "MessageFormat": Literal["json", "json-unformatted"],
+        "MessageFormat": MessageFormatValueType,
         "ServiceAccessRoleArn": str,
         "IncludeTransactionDetails": bool,
         "IncludePartitionValue": bool,
@@ -318,8 +1311,24 @@ KinesisSettingsTypeDef = TypedDict(
         "IncludeTableAlterOperations": bool,
         "IncludeControlDetails": bool,
         "IncludeNullAndEmpty": bool,
+        "NoHexPrefix": bool,
     },
     total=False,
+)
+
+ListTagsForResourceMessageRequestTypeDef = TypedDict(
+    "ListTagsForResourceMessageRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "TagList": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 MicrosoftSQLServerSettingsTypeDef = TypedDict(
@@ -330,19 +1339,205 @@ MicrosoftSQLServerSettingsTypeDef = TypedDict(
         "DatabaseName": str,
         "ControlTablesFileGroup": str,
         "Password": str,
+        "QuerySingleAlwaysOnNode": bool,
         "ReadBackupOnly": bool,
-        "SafeguardPolicy": Literal[
-            "rely-on-sql-server-replication-agent",
-            "exclusive-automatic-truncation",
-            "shared-automatic-truncation",
-        ],
+        "SafeguardPolicy": SafeguardPolicyType,
         "ServerName": str,
         "Username": str,
         "UseBcpFullLoad": bool,
+        "UseThirdPartyBackupDevice": bool,
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
     },
     total=False,
+)
+
+_RequiredModifyEndpointMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyEndpointMessageRequestTypeDef",
+    {
+        "EndpointArn": str,
+    },
+)
+_OptionalModifyEndpointMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyEndpointMessageRequestTypeDef",
+    {
+        "EndpointIdentifier": str,
+        "EndpointType": ReplicationEndpointTypeValueType,
+        "EngineName": str,
+        "Username": str,
+        "Password": str,
+        "ServerName": str,
+        "Port": int,
+        "DatabaseName": str,
+        "ExtraConnectionAttributes": str,
+        "CertificateArn": str,
+        "SslMode": DmsSslModeValueType,
+        "ServiceAccessRoleArn": str,
+        "ExternalTableDefinition": str,
+        "DynamoDbSettings": "DynamoDbSettingsTypeDef",
+        "S3Settings": "S3SettingsTypeDef",
+        "DmsTransferSettings": "DmsTransferSettingsTypeDef",
+        "MongoDbSettings": "MongoDbSettingsTypeDef",
+        "KinesisSettings": "KinesisSettingsTypeDef",
+        "KafkaSettings": "KafkaSettingsTypeDef",
+        "ElasticsearchSettings": "ElasticsearchSettingsTypeDef",
+        "NeptuneSettings": "NeptuneSettingsTypeDef",
+        "RedshiftSettings": "RedshiftSettingsTypeDef",
+        "PostgreSQLSettings": "PostgreSQLSettingsTypeDef",
+        "MySQLSettings": "MySQLSettingsTypeDef",
+        "OracleSettings": "OracleSettingsTypeDef",
+        "SybaseSettings": "SybaseSettingsTypeDef",
+        "MicrosoftSQLServerSettings": "MicrosoftSQLServerSettingsTypeDef",
+        "IBMDb2Settings": "IBMDb2SettingsTypeDef",
+        "DocDbSettings": "DocDbSettingsTypeDef",
+        "ExactSettings": bool,
+    },
+    total=False,
+)
+
+class ModifyEndpointMessageRequestTypeDef(
+    _RequiredModifyEndpointMessageRequestTypeDef, _OptionalModifyEndpointMessageRequestTypeDef
+):
+    pass
+
+ModifyEndpointResponseTypeDef = TypedDict(
+    "ModifyEndpointResponseTypeDef",
+    {
+        "Endpoint": "EndpointTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyEventSubscriptionMessageRequestTypeDef",
+    {
+        "SubscriptionName": str,
+    },
+)
+_OptionalModifyEventSubscriptionMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyEventSubscriptionMessageRequestTypeDef",
+    {
+        "SnsTopicArn": str,
+        "SourceType": str,
+        "EventCategories": List[str],
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+class ModifyEventSubscriptionMessageRequestTypeDef(
+    _RequiredModifyEventSubscriptionMessageRequestTypeDef,
+    _OptionalModifyEventSubscriptionMessageRequestTypeDef,
+):
+    pass
+
+ModifyEventSubscriptionResponseTypeDef = TypedDict(
+    "ModifyEventSubscriptionResponseTypeDef",
+    {
+        "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyReplicationInstanceMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyReplicationInstanceMessageRequestTypeDef",
+    {
+        "ReplicationInstanceArn": str,
+    },
+)
+_OptionalModifyReplicationInstanceMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyReplicationInstanceMessageRequestTypeDef",
+    {
+        "AllocatedStorage": int,
+        "ApplyImmediately": bool,
+        "ReplicationInstanceClass": str,
+        "VpcSecurityGroupIds": List[str],
+        "PreferredMaintenanceWindow": str,
+        "MultiAZ": bool,
+        "EngineVersion": str,
+        "AllowMajorVersionUpgrade": bool,
+        "AutoMinorVersionUpgrade": bool,
+        "ReplicationInstanceIdentifier": str,
+    },
+    total=False,
+)
+
+class ModifyReplicationInstanceMessageRequestTypeDef(
+    _RequiredModifyReplicationInstanceMessageRequestTypeDef,
+    _OptionalModifyReplicationInstanceMessageRequestTypeDef,
+):
+    pass
+
+ModifyReplicationInstanceResponseTypeDef = TypedDict(
+    "ModifyReplicationInstanceResponseTypeDef",
+    {
+        "ReplicationInstance": "ReplicationInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyReplicationSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyReplicationSubnetGroupMessageRequestTypeDef",
+    {
+        "ReplicationSubnetGroupIdentifier": str,
+        "SubnetIds": List[str],
+    },
+)
+_OptionalModifyReplicationSubnetGroupMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyReplicationSubnetGroupMessageRequestTypeDef",
+    {
+        "ReplicationSubnetGroupDescription": str,
+    },
+    total=False,
+)
+
+class ModifyReplicationSubnetGroupMessageRequestTypeDef(
+    _RequiredModifyReplicationSubnetGroupMessageRequestTypeDef,
+    _OptionalModifyReplicationSubnetGroupMessageRequestTypeDef,
+):
+    pass
+
+ModifyReplicationSubnetGroupResponseTypeDef = TypedDict(
+    "ModifyReplicationSubnetGroupResponseTypeDef",
+    {
+        "ReplicationSubnetGroup": "ReplicationSubnetGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyReplicationTaskMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+    },
+)
+_OptionalModifyReplicationTaskMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskIdentifier": str,
+        "MigrationType": MigrationTypeValueType,
+        "TableMappings": str,
+        "ReplicationTaskSettings": str,
+        "CdcStartTime": Union[datetime, str],
+        "CdcStartPosition": str,
+        "CdcStopPosition": str,
+        "TaskData": str,
+    },
+    total=False,
+)
+
+class ModifyReplicationTaskMessageRequestTypeDef(
+    _RequiredModifyReplicationTaskMessageRequestTypeDef,
+    _OptionalModifyReplicationTaskMessageRequestTypeDef,
+):
+    pass
+
+ModifyReplicationTaskResponseTypeDef = TypedDict(
+    "ModifyReplicationTaskResponseTypeDef",
+    {
+        "ReplicationTask": "ReplicationTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 MongoDbSettingsTypeDef = TypedDict(
@@ -353,9 +1548,9 @@ MongoDbSettingsTypeDef = TypedDict(
         "ServerName": str,
         "Port": int,
         "DatabaseName": str,
-        "AuthType": Literal["no", "password"],
-        "AuthMechanism": Literal["default", "mongodb_cr", "scram_sha_1"],
-        "NestingLevel": Literal["none", "one"],
+        "AuthType": AuthTypeValueType,
+        "AuthMechanism": AuthMechanismValueType,
+        "NestingLevel": NestingLevelValueType,
         "ExtractDocId": str,
         "DocsToInvestigate": str,
         "AuthSource": str,
@@ -366,13 +1561,30 @@ MongoDbSettingsTypeDef = TypedDict(
     total=False,
 )
 
+MoveReplicationTaskMessageRequestTypeDef = TypedDict(
+    "MoveReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "TargetReplicationInstanceArn": str,
+    },
+)
+
+MoveReplicationTaskResponseTypeDef = TypedDict(
+    "MoveReplicationTaskResponseTypeDef",
+    {
+        "ReplicationTask": "ReplicationTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 MySQLSettingsTypeDef = TypedDict(
     "MySQLSettingsTypeDef",
     {
         "AfterConnectScript": str,
+        "CleanSourceMetadataOnMismatch": bool,
         "DatabaseName": str,
         "EventsPollInterval": int,
-        "TargetDbType": Literal["specific-database", "multiple-databases"],
+        "TargetDbType": TargetDbTypeType,
         "MaxFileSize": int,
         "ParallelLoadThreads": int,
         "Password": str,
@@ -387,7 +1599,11 @@ MySQLSettingsTypeDef = TypedDict(
 )
 
 _RequiredNeptuneSettingsTypeDef = TypedDict(
-    "_RequiredNeptuneSettingsTypeDef", {"S3BucketName": str, "S3BucketFolder": str}
+    "_RequiredNeptuneSettingsTypeDef",
+    {
+        "S3BucketName": str,
+        "S3BucketFolder": str,
+    },
 )
 _OptionalNeptuneSettingsTypeDef = TypedDict(
     "_OptionalNeptuneSettingsTypeDef",
@@ -401,10 +1617,8 @@ _OptionalNeptuneSettingsTypeDef = TypedDict(
     total=False,
 )
 
-
 class NeptuneSettingsTypeDef(_RequiredNeptuneSettingsTypeDef, _OptionalNeptuneSettingsTypeDef):
     pass
-
 
 OracleSettingsTypeDef = TypedDict(
     "OracleSettingsTypeDef",
@@ -426,7 +1640,7 @@ OracleSettingsTypeDef = TypedDict(
         "AsmPassword": str,
         "AsmServer": str,
         "AsmUser": str,
-        "CharLengthSemantics": Literal["default", "char", "byte"],
+        "CharLengthSemantics": CharLengthSemanticsType,
         "DatabaseName": str,
         "DirectPathParallelLoad": bool,
         "FailTasksOnLobTruncation": bool,
@@ -438,7 +1652,12 @@ OracleSettingsTypeDef = TypedDict(
         "SecurityDbEncryption": str,
         "SecurityDbEncryptionName": str,
         "ServerName": str,
+        "SpatialDataOptionToGeoJsonFunctionName": str,
+        "StandbyDelayTime": int,
         "Username": str,
+        "UseBFile": bool,
+        "UseDirectPathFullLoad": bool,
+        "UseLogminerReader": bool,
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
         "SecretsManagerOracleAsmAccessRoleArn": str,
@@ -459,6 +1678,16 @@ OrderableReplicationInstanceTypeDef = TypedDict(
         "IncludedAllocatedStorage": int,
         "AvailabilityZones": List[str],
         "ReleaseStatus": Literal["beta"],
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
     },
     total=False,
 )
@@ -486,15 +1715,47 @@ PostgreSQLSettingsTypeDef = TypedDict(
         "DdlArtifactsSchema": str,
         "ExecuteTimeout": int,
         "FailTasksOnLobTruncation": bool,
+        "HeartbeatEnable": bool,
+        "HeartbeatSchema": str,
+        "HeartbeatFrequency": int,
         "Password": str,
         "Port": int,
         "ServerName": str,
         "Username": str,
         "SlotName": str,
+        "PluginName": PluginNameValueType,
         "SecretsManagerAccessRoleArn": str,
         "SecretsManagerSecretId": str,
     },
     total=False,
+)
+
+_RequiredRebootReplicationInstanceMessageRequestTypeDef = TypedDict(
+    "_RequiredRebootReplicationInstanceMessageRequestTypeDef",
+    {
+        "ReplicationInstanceArn": str,
+    },
+)
+_OptionalRebootReplicationInstanceMessageRequestTypeDef = TypedDict(
+    "_OptionalRebootReplicationInstanceMessageRequestTypeDef",
+    {
+        "ForceFailover": bool,
+    },
+    total=False,
+)
+
+class RebootReplicationInstanceMessageRequestTypeDef(
+    _RequiredRebootReplicationInstanceMessageRequestTypeDef,
+    _OptionalRebootReplicationInstanceMessageRequestTypeDef,
+):
+    pass
+
+RebootReplicationInstanceResponseTypeDef = TypedDict(
+    "RebootReplicationInstanceResponseTypeDef",
+    {
+        "ReplicationInstance": "ReplicationInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 RedshiftSettingsTypeDef = TypedDict(
@@ -510,7 +1771,7 @@ RedshiftSettingsTypeDef = TypedDict(
         "DatabaseName": str,
         "DateFormat": str,
         "EmptyAsNull": bool,
-        "EncryptionMode": Literal["sse-s3", "sse-kms"],
+        "EncryptionMode": EncryptionModeValueType,
         "ExplicitIds": bool,
         "FileTransferUploadStreams": int,
         "LoadTimeout": int,
@@ -534,21 +1795,77 @@ RedshiftSettingsTypeDef = TypedDict(
     total=False,
 )
 
+RefreshSchemasMessageRequestTypeDef = TypedDict(
+    "RefreshSchemasMessageRequestTypeDef",
+    {
+        "EndpointArn": str,
+        "ReplicationInstanceArn": str,
+    },
+)
+
+RefreshSchemasResponseTypeDef = TypedDict(
+    "RefreshSchemasResponseTypeDef",
+    {
+        "RefreshSchemasStatus": "RefreshSchemasStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 RefreshSchemasStatusTypeDef = TypedDict(
     "RefreshSchemasStatusTypeDef",
     {
         "EndpointArn": str,
         "ReplicationInstanceArn": str,
-        "Status": Literal["successful", "failed", "refreshing"],
+        "Status": RefreshSchemasStatusTypeValueType,
         "LastRefreshDate": datetime,
         "LastFailureMessage": str,
     },
     total=False,
 )
 
+_RequiredReloadTablesMessageRequestTypeDef = TypedDict(
+    "_RequiredReloadTablesMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "TablesToReload": List["TableToReloadTypeDef"],
+    },
+)
+_OptionalReloadTablesMessageRequestTypeDef = TypedDict(
+    "_OptionalReloadTablesMessageRequestTypeDef",
+    {
+        "ReloadOption": ReloadOptionValueType,
+    },
+    total=False,
+)
+
+class ReloadTablesMessageRequestTypeDef(
+    _RequiredReloadTablesMessageRequestTypeDef, _OptionalReloadTablesMessageRequestTypeDef
+):
+    pass
+
+ReloadTablesResponseTypeDef = TypedDict(
+    "ReloadTablesResponseTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RemoveTagsFromResourceMessageRequestTypeDef = TypedDict(
+    "RemoveTagsFromResourceMessageRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
 ReplicationInstanceTaskLogTypeDef = TypedDict(
     "ReplicationInstanceTaskLogTypeDef",
-    {"ReplicationTaskName": str, "ReplicationTaskArn": str, "ReplicationInstanceTaskLogSize": int},
+    {
+        "ReplicationTaskName": str,
+        "ReplicationTaskArn": str,
+        "ReplicationInstanceTaskLogSize": int,
+    },
     total=False,
 )
 
@@ -621,7 +1938,10 @@ ReplicationTaskAssessmentResultTypeDef = TypedDict(
 
 ReplicationTaskAssessmentRunProgressTypeDef = TypedDict(
     "ReplicationTaskAssessmentRunProgressTypeDef",
-    {"IndividualAssessmentCount": int, "IndividualAssessmentCompletedCount": int},
+    {
+        "IndividualAssessmentCount": int,
+        "IndividualAssessmentCompletedCount": int,
+    },
     total=False,
 )
 
@@ -681,7 +2001,7 @@ ReplicationTaskTypeDef = TypedDict(
         "SourceEndpointArn": str,
         "TargetEndpointArn": str,
         "ReplicationInstanceArn": str,
-        "MigrationType": Literal["full-load", "cdc", "full-load-and-cdc"],
+        "MigrationType": MigrationTypeValueType,
         "TableMappings": str,
         "ReplicationTaskSettings": str,
         "Status": str,
@@ -709,6 +2029,17 @@ ResourcePendingMaintenanceActionsTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 S3SettingsTypeDef = TypedDict(
     "S3SettingsTypeDef",
     {
@@ -718,15 +2049,15 @@ S3SettingsTypeDef = TypedDict(
         "CsvDelimiter": str,
         "BucketFolder": str,
         "BucketName": str,
-        "CompressionType": Literal["none", "gzip"],
-        "EncryptionMode": Literal["sse-s3", "sse-kms"],
+        "CompressionType": CompressionTypeValueType,
+        "EncryptionMode": EncryptionModeValueType,
         "ServerSideEncryptionKmsKeyId": str,
-        "DataFormat": Literal["csv", "parquet"],
-        "EncodingType": Literal["plain", "plain-dictionary", "rle-dictionary"],
+        "DataFormat": DataFormatValueType,
+        "EncodingType": EncodingTypeValueType,
         "DictPageSizeLimit": int,
         "RowGroupLength": int,
         "DataPageSize": int,
-        "ParquetVersion": Literal["parquet-1-0", "parquet-2-0"],
+        "ParquetVersion": ParquetVersionValueType,
         "EnableStatistics": bool,
         "IncludeOpForFullLoad": bool,
         "CdcInsertsOnly": bool,
@@ -734,16 +2065,110 @@ S3SettingsTypeDef = TypedDict(
         "ParquetTimestampInMillisecond": bool,
         "CdcInsertsAndUpdates": bool,
         "DatePartitionEnabled": bool,
-        "DatePartitionSequence": Literal[
-            "YYYYMMDD", "YYYYMMDDHH", "YYYYMM", "MMYYYYDD", "DDMMYYYY"
-        ],
-        "DatePartitionDelimiter": Literal["SLASH", "UNDERSCORE", "DASH", "NONE"],
+        "DatePartitionSequence": DatePartitionSequenceValueType,
+        "DatePartitionDelimiter": DatePartitionDelimiterValueType,
         "UseCsvNoSupValue": bool,
         "CsvNoSupValue": str,
         "PreserveTransactions": bool,
         "CdcPath": str,
     },
     total=False,
+)
+
+StartReplicationTaskAssessmentMessageRequestTypeDef = TypedDict(
+    "StartReplicationTaskAssessmentMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+    },
+)
+
+StartReplicationTaskAssessmentResponseTypeDef = TypedDict(
+    "StartReplicationTaskAssessmentResponseTypeDef",
+    {
+        "ReplicationTask": "ReplicationTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartReplicationTaskAssessmentRunMessageRequestTypeDef = TypedDict(
+    "_RequiredStartReplicationTaskAssessmentRunMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "ServiceAccessRoleArn": str,
+        "ResultLocationBucket": str,
+        "AssessmentRunName": str,
+    },
+)
+_OptionalStartReplicationTaskAssessmentRunMessageRequestTypeDef = TypedDict(
+    "_OptionalStartReplicationTaskAssessmentRunMessageRequestTypeDef",
+    {
+        "ResultLocationFolder": str,
+        "ResultEncryptionMode": str,
+        "ResultKmsKeyArn": str,
+        "IncludeOnly": List[str],
+        "Exclude": List[str],
+    },
+    total=False,
+)
+
+class StartReplicationTaskAssessmentRunMessageRequestTypeDef(
+    _RequiredStartReplicationTaskAssessmentRunMessageRequestTypeDef,
+    _OptionalStartReplicationTaskAssessmentRunMessageRequestTypeDef,
+):
+    pass
+
+StartReplicationTaskAssessmentRunResponseTypeDef = TypedDict(
+    "StartReplicationTaskAssessmentRunResponseTypeDef",
+    {
+        "ReplicationTaskAssessmentRun": "ReplicationTaskAssessmentRunTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartReplicationTaskMessageRequestTypeDef = TypedDict(
+    "_RequiredStartReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+        "StartReplicationTaskType": StartReplicationTaskTypeValueType,
+    },
+)
+_OptionalStartReplicationTaskMessageRequestTypeDef = TypedDict(
+    "_OptionalStartReplicationTaskMessageRequestTypeDef",
+    {
+        "CdcStartTime": Union[datetime, str],
+        "CdcStartPosition": str,
+        "CdcStopPosition": str,
+    },
+    total=False,
+)
+
+class StartReplicationTaskMessageRequestTypeDef(
+    _RequiredStartReplicationTaskMessageRequestTypeDef,
+    _OptionalStartReplicationTaskMessageRequestTypeDef,
+):
+    pass
+
+StartReplicationTaskResponseTypeDef = TypedDict(
+    "StartReplicationTaskResponseTypeDef",
+    {
+        "ReplicationTask": "ReplicationTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopReplicationTaskMessageRequestTypeDef = TypedDict(
+    "StopReplicationTaskMessageRequestTypeDef",
+    {
+        "ReplicationTaskArn": str,
+    },
+)
+
+StopReplicationTaskResponseTypeDef = TypedDict(
+    "StopReplicationTaskResponseTypeDef",
+    {
+        "ReplicationTask": "ReplicationTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 SubnetTypeDef = TypedDict(
@@ -761,7 +2186,7 @@ SupportedEndpointTypeTypeDef = TypedDict(
     {
         "EngineName": str,
         "SupportsCDC": bool,
-        "EndpointType": Literal["source", "target"],
+        "EndpointType": ReplicationEndpointTypeValueType,
         "ReplicationInstanceEngineMinimumVersion": str,
         "EngineDisplayName": str,
     },
@@ -808,311 +2233,53 @@ TableStatisticsTypeDef = TypedDict(
     total=False,
 )
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
-
-VpcSecurityGroupMembershipTypeDef = TypedDict(
-    "VpcSecurityGroupMembershipTypeDef", {"VpcSecurityGroupId": str, "Status": str}, total=False
+TableToReloadTypeDef = TypedDict(
+    "TableToReloadTypeDef",
+    {
+        "SchemaName": str,
+        "TableName": str,
+    },
 )
 
-ApplyPendingMaintenanceActionResponseTypeDef = TypedDict(
-    "ApplyPendingMaintenanceActionResponseTypeDef",
-    {"ResourcePendingMaintenanceActions": "ResourcePendingMaintenanceActionsTypeDef"},
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
     total=False,
 )
 
-CancelReplicationTaskAssessmentRunResponseTypeDef = TypedDict(
-    "CancelReplicationTaskAssessmentRunResponseTypeDef",
-    {"ReplicationTaskAssessmentRun": "ReplicationTaskAssessmentRunTypeDef"},
-    total=False,
-)
-
-CreateEndpointResponseTypeDef = TypedDict(
-    "CreateEndpointResponseTypeDef", {"Endpoint": "EndpointTypeDef"}, total=False
-)
-
-CreateEventSubscriptionResponseTypeDef = TypedDict(
-    "CreateEventSubscriptionResponseTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-CreateReplicationInstanceResponseTypeDef = TypedDict(
-    "CreateReplicationInstanceResponseTypeDef",
-    {"ReplicationInstance": "ReplicationInstanceTypeDef"},
-    total=False,
-)
-
-CreateReplicationSubnetGroupResponseTypeDef = TypedDict(
-    "CreateReplicationSubnetGroupResponseTypeDef",
-    {"ReplicationSubnetGroup": "ReplicationSubnetGroupTypeDef"},
-    total=False,
-)
-
-CreateReplicationTaskResponseTypeDef = TypedDict(
-    "CreateReplicationTaskResponseTypeDef",
-    {"ReplicationTask": "ReplicationTaskTypeDef"},
-    total=False,
-)
-
-DeleteCertificateResponseTypeDef = TypedDict(
-    "DeleteCertificateResponseTypeDef", {"Certificate": "CertificateTypeDef"}, total=False
-)
-
-DeleteConnectionResponseTypeDef = TypedDict(
-    "DeleteConnectionResponseTypeDef", {"Connection": "ConnectionTypeDef"}, total=False
-)
-
-DeleteEndpointResponseTypeDef = TypedDict(
-    "DeleteEndpointResponseTypeDef", {"Endpoint": "EndpointTypeDef"}, total=False
-)
-
-DeleteEventSubscriptionResponseTypeDef = TypedDict(
-    "DeleteEventSubscriptionResponseTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-DeleteReplicationInstanceResponseTypeDef = TypedDict(
-    "DeleteReplicationInstanceResponseTypeDef",
-    {"ReplicationInstance": "ReplicationInstanceTypeDef"},
-    total=False,
-)
-
-DeleteReplicationTaskAssessmentRunResponseTypeDef = TypedDict(
-    "DeleteReplicationTaskAssessmentRunResponseTypeDef",
-    {"ReplicationTaskAssessmentRun": "ReplicationTaskAssessmentRunTypeDef"},
-    total=False,
-)
-
-DeleteReplicationTaskResponseTypeDef = TypedDict(
-    "DeleteReplicationTaskResponseTypeDef",
-    {"ReplicationTask": "ReplicationTaskTypeDef"},
-    total=False,
-)
-
-DescribeAccountAttributesResponseTypeDef = TypedDict(
-    "DescribeAccountAttributesResponseTypeDef",
-    {"AccountQuotas": List["AccountQuotaTypeDef"], "UniqueAccountIdentifier": str},
-    total=False,
-)
-
-DescribeApplicableIndividualAssessmentsResponseTypeDef = TypedDict(
-    "DescribeApplicableIndividualAssessmentsResponseTypeDef",
-    {"IndividualAssessmentNames": List[str], "Marker": str},
-    total=False,
-)
-
-DescribeCertificatesResponseTypeDef = TypedDict(
-    "DescribeCertificatesResponseTypeDef",
-    {"Marker": str, "Certificates": List["CertificateTypeDef"]},
-    total=False,
-)
-
-DescribeConnectionsResponseTypeDef = TypedDict(
-    "DescribeConnectionsResponseTypeDef",
-    {"Marker": str, "Connections": List["ConnectionTypeDef"]},
-    total=False,
-)
-
-DescribeEndpointTypesResponseTypeDef = TypedDict(
-    "DescribeEndpointTypesResponseTypeDef",
-    {"Marker": str, "SupportedEndpointTypes": List["SupportedEndpointTypeTypeDef"]},
-    total=False,
-)
-
-DescribeEndpointsResponseTypeDef = TypedDict(
-    "DescribeEndpointsResponseTypeDef",
-    {"Marker": str, "Endpoints": List["EndpointTypeDef"]},
-    total=False,
-)
-
-DescribeEventCategoriesResponseTypeDef = TypedDict(
-    "DescribeEventCategoriesResponseTypeDef",
-    {"EventCategoryGroupList": List["EventCategoryGroupTypeDef"]},
-    total=False,
-)
-
-DescribeEventSubscriptionsResponseTypeDef = TypedDict(
-    "DescribeEventSubscriptionsResponseTypeDef",
-    {"Marker": str, "EventSubscriptionsList": List["EventSubscriptionTypeDef"]},
-    total=False,
-)
-
-DescribeEventsResponseTypeDef = TypedDict(
-    "DescribeEventsResponseTypeDef", {"Marker": str, "Events": List["EventTypeDef"]}, total=False
-)
-
-DescribeOrderableReplicationInstancesResponseTypeDef = TypedDict(
-    "DescribeOrderableReplicationInstancesResponseTypeDef",
-    {"OrderableReplicationInstances": List["OrderableReplicationInstanceTypeDef"], "Marker": str},
-    total=False,
-)
-
-DescribePendingMaintenanceActionsResponseTypeDef = TypedDict(
-    "DescribePendingMaintenanceActionsResponseTypeDef",
-    {"PendingMaintenanceActions": List["ResourcePendingMaintenanceActionsTypeDef"], "Marker": str},
-    total=False,
-)
-
-DescribeRefreshSchemasStatusResponseTypeDef = TypedDict(
-    "DescribeRefreshSchemasStatusResponseTypeDef",
-    {"RefreshSchemasStatus": "RefreshSchemasStatusTypeDef"},
-    total=False,
-)
-
-DescribeReplicationInstanceTaskLogsResponseTypeDef = TypedDict(
-    "DescribeReplicationInstanceTaskLogsResponseTypeDef",
+TestConnectionMessageRequestTypeDef = TypedDict(
+    "TestConnectionMessageRequestTypeDef",
     {
         "ReplicationInstanceArn": str,
-        "ReplicationInstanceTaskLogs": List["ReplicationInstanceTaskLogTypeDef"],
-        "Marker": str,
+        "EndpointArn": str,
     },
-    total=False,
 )
-
-DescribeReplicationInstancesResponseTypeDef = TypedDict(
-    "DescribeReplicationInstancesResponseTypeDef",
-    {"Marker": str, "ReplicationInstances": List["ReplicationInstanceTypeDef"]},
-    total=False,
-)
-
-DescribeReplicationSubnetGroupsResponseTypeDef = TypedDict(
-    "DescribeReplicationSubnetGroupsResponseTypeDef",
-    {"Marker": str, "ReplicationSubnetGroups": List["ReplicationSubnetGroupTypeDef"]},
-    total=False,
-)
-
-DescribeReplicationTaskAssessmentResultsResponseTypeDef = TypedDict(
-    "DescribeReplicationTaskAssessmentResultsResponseTypeDef",
-    {
-        "Marker": str,
-        "BucketName": str,
-        "ReplicationTaskAssessmentResults": List["ReplicationTaskAssessmentResultTypeDef"],
-    },
-    total=False,
-)
-
-DescribeReplicationTaskAssessmentRunsResponseTypeDef = TypedDict(
-    "DescribeReplicationTaskAssessmentRunsResponseTypeDef",
-    {"Marker": str, "ReplicationTaskAssessmentRuns": List["ReplicationTaskAssessmentRunTypeDef"]},
-    total=False,
-)
-
-DescribeReplicationTaskIndividualAssessmentsResponseTypeDef = TypedDict(
-    "DescribeReplicationTaskIndividualAssessmentsResponseTypeDef",
-    {
-        "Marker": str,
-        "ReplicationTaskIndividualAssessments": List["ReplicationTaskIndividualAssessmentTypeDef"],
-    },
-    total=False,
-)
-
-DescribeReplicationTasksResponseTypeDef = TypedDict(
-    "DescribeReplicationTasksResponseTypeDef",
-    {"Marker": str, "ReplicationTasks": List["ReplicationTaskTypeDef"]},
-    total=False,
-)
-
-DescribeSchemasResponseTypeDef = TypedDict(
-    "DescribeSchemasResponseTypeDef", {"Marker": str, "Schemas": List[str]}, total=False
-)
-
-DescribeTableStatisticsResponseTypeDef = TypedDict(
-    "DescribeTableStatisticsResponseTypeDef",
-    {"ReplicationTaskArn": str, "TableStatistics": List["TableStatisticsTypeDef"], "Marker": str},
-    total=False,
-)
-
-FilterTypeDef = TypedDict("FilterTypeDef", {"Name": str, "Values": List[str]})
-
-ImportCertificateResponseTypeDef = TypedDict(
-    "ImportCertificateResponseTypeDef", {"Certificate": "CertificateTypeDef"}, total=False
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"TagList": List["TagTypeDef"]}, total=False
-)
-
-ModifyEndpointResponseTypeDef = TypedDict(
-    "ModifyEndpointResponseTypeDef", {"Endpoint": "EndpointTypeDef"}, total=False
-)
-
-ModifyEventSubscriptionResponseTypeDef = TypedDict(
-    "ModifyEventSubscriptionResponseTypeDef",
-    {"EventSubscription": "EventSubscriptionTypeDef"},
-    total=False,
-)
-
-ModifyReplicationInstanceResponseTypeDef = TypedDict(
-    "ModifyReplicationInstanceResponseTypeDef",
-    {"ReplicationInstance": "ReplicationInstanceTypeDef"},
-    total=False,
-)
-
-ModifyReplicationSubnetGroupResponseTypeDef = TypedDict(
-    "ModifyReplicationSubnetGroupResponseTypeDef",
-    {"ReplicationSubnetGroup": "ReplicationSubnetGroupTypeDef"},
-    total=False,
-)
-
-ModifyReplicationTaskResponseTypeDef = TypedDict(
-    "ModifyReplicationTaskResponseTypeDef",
-    {"ReplicationTask": "ReplicationTaskTypeDef"},
-    total=False,
-)
-
-MoveReplicationTaskResponseTypeDef = TypedDict(
-    "MoveReplicationTaskResponseTypeDef", {"ReplicationTask": "ReplicationTaskTypeDef"}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-RebootReplicationInstanceResponseTypeDef = TypedDict(
-    "RebootReplicationInstanceResponseTypeDef",
-    {"ReplicationInstance": "ReplicationInstanceTypeDef"},
-    total=False,
-)
-
-RefreshSchemasResponseTypeDef = TypedDict(
-    "RefreshSchemasResponseTypeDef",
-    {"RefreshSchemasStatus": "RefreshSchemasStatusTypeDef"},
-    total=False,
-)
-
-ReloadTablesResponseTypeDef = TypedDict(
-    "ReloadTablesResponseTypeDef", {"ReplicationTaskArn": str}, total=False
-)
-
-StartReplicationTaskAssessmentResponseTypeDef = TypedDict(
-    "StartReplicationTaskAssessmentResponseTypeDef",
-    {"ReplicationTask": "ReplicationTaskTypeDef"},
-    total=False,
-)
-
-StartReplicationTaskAssessmentRunResponseTypeDef = TypedDict(
-    "StartReplicationTaskAssessmentRunResponseTypeDef",
-    {"ReplicationTaskAssessmentRun": "ReplicationTaskAssessmentRunTypeDef"},
-    total=False,
-)
-
-StartReplicationTaskResponseTypeDef = TypedDict(
-    "StartReplicationTaskResponseTypeDef",
-    {"ReplicationTask": "ReplicationTaskTypeDef"},
-    total=False,
-)
-
-StopReplicationTaskResponseTypeDef = TypedDict(
-    "StopReplicationTaskResponseTypeDef", {"ReplicationTask": "ReplicationTaskTypeDef"}, total=False
-)
-
-TableToReloadTypeDef = TypedDict("TableToReloadTypeDef", {"SchemaName": str, "TableName": str})
 
 TestConnectionResponseTypeDef = TypedDict(
-    "TestConnectionResponseTypeDef", {"Connection": "ConnectionTypeDef"}, total=False
+    "TestConnectionResponseTypeDef",
+    {
+        "Connection": "ConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VpcSecurityGroupMembershipTypeDef = TypedDict(
+    "VpcSecurityGroupMembershipTypeDef",
+    {
+        "VpcSecurityGroupId": str,
+        "Status": str,
+    },
+    total=False,
 )
 
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

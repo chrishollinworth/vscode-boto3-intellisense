@@ -1,5 +1,7 @@
 """
-Main interface for cloudfront service client paginators.
+Type annotations for cloudfront service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html)
 
 Usage::
 
@@ -26,7 +28,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_cloudfront.type_defs import (
+from .type_defs import (
     ListCloudFrontOriginAccessIdentitiesResultTypeDef,
     ListDistributionsResultTypeDef,
     ListInvalidationsResultTypeDef,
@@ -41,54 +43,58 @@ __all__ = (
     "ListStreamingDistributionsPaginator",
 )
 
-
 class ListCloudFrontOriginAccessIdentitiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCloudFrontOriginAccessIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listcloudfrontoriginaccessidentitiespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCloudFrontOriginAccessIdentitiesResultTypeDef]:
         """
-        [ListCloudFrontOriginAccessIdentities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listcloudfrontoriginaccessidentitiespaginator)
         """
-
 
 class ListDistributionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listdistributionspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDistributionsResultTypeDef]:
         """
-        [ListDistributions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listdistributionspaginator)
         """
-
 
 class ListInvalidationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInvalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listinvalidationspaginator)
     """
 
     def paginate(
-        self, DistributionId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, DistributionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInvalidationsResultTypeDef]:
         """
-        [ListInvalidations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#listinvalidationspaginator)
         """
-
 
 class ListStreamingDistributionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreamingDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#liststreamingdistributionspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamingDistributionsResultTypeDef]:
         """
-        [ListStreamingDistributions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/paginators.html#liststreamingdistributionspaginator)
         """

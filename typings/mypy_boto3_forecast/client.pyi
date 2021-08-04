@@ -1,5 +1,7 @@
 """
-Main interface for forecast service client
+Type annotations for forecast service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html)
 
 Usage::
 
@@ -13,9 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_forecast.paginator import (
+from .literals import DatasetTypeType, DomainType
+from .paginator import (
     ListDatasetGroupsPaginator,
     ListDatasetImportJobsPaginator,
     ListDatasetsPaginator,
@@ -24,7 +27,7 @@ from mypy_boto3_forecast.paginator import (
     ListPredictorBacktestExportJobsPaginator,
     ListPredictorsPaginator,
 )
-from mypy_boto3_forecast.type_defs import (
+from .type_defs import (
     CreateDatasetGroupResponseTypeDef,
     CreateDatasetImportJobResponseTypeDef,
     CreateDatasetResponseTypeDef,
@@ -65,17 +68,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("ForecastServiceClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -86,63 +85,59 @@ class Exceptions:
     ResourceInUseException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
 
-
-class ForecastServiceClient:
+class ForecastServiceClient(BaseClient):
     """
-    [ForecastService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ForecastServiceClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#can_paginate)
+        """
     def create_dataset(
         self,
+        *,
         DatasetName: str,
-        Domain: Literal[
-            "RETAIL",
-            "CUSTOM",
-            "INVENTORY_PLANNING",
-            "EC2_CAPACITY",
-            "WORK_FORCE",
-            "WEB_TRAFFIC",
-            "METRICS",
-        ],
-        DatasetType: Literal["TARGET_TIME_SERIES", "RELATED_TIME_SERIES", "ITEM_METADATA"],
+        Domain: DomainType,
+        DatasetType: DatasetTypeType,
         Schema: "SchemaTypeDef",
         DataFrequency: str = None,
         EncryptionConfig: "EncryptionConfigTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateDatasetResponseTypeDef:
         """
-        [Client.create_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.create_dataset)
-        """
+        Creates an Amazon Forecast dataset.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.create_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#create_dataset)
+        """
     def create_dataset_group(
         self,
+        *,
         DatasetGroupName: str,
-        Domain: Literal[
-            "RETAIL",
-            "CUSTOM",
-            "INVENTORY_PLANNING",
-            "EC2_CAPACITY",
-            "WORK_FORCE",
-            "WEB_TRAFFIC",
-            "METRICS",
-        ],
+        Domain: DomainType,
         DatasetArns: List[str] = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateDatasetGroupResponseTypeDef:
         """
-        [Client.create_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.create_dataset_group)
-        """
+        Creates a dataset group, which holds a collection of related datasets.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.create_dataset_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#create_dataset_group)
+        """
     def create_dataset_import_job(
         self,
+        *,
         DatasetImportJobName: str,
         DatasetArn: str,
         DataSource: "DataSourceTypeDef",
@@ -150,36 +145,47 @@ class ForecastServiceClient:
         TimeZone: str = None,
         UseGeolocationForTimeZone: bool = None,
         GeolocationFormat: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateDatasetImportJobResponseTypeDef:
         """
-        [Client.create_dataset_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.create_dataset_import_job)
-        """
+        Imports your training data to an Amazon Forecast dataset.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.create_dataset_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#create_dataset_import_job)
+        """
     def create_forecast(
         self,
+        *,
         ForecastName: str,
         PredictorArn: str,
         ForecastTypes: List[str] = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateForecastResponseTypeDef:
         """
-        [Client.create_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.create_forecast)
-        """
+        Creates a forecast for each item in the `TARGET_TIME_SERIES` dataset that was
+        used to train the predictor.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.create_forecast)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#create_forecast)
+        """
     def create_forecast_export_job(
         self,
+        *,
         ForecastExportJobName: str,
         ForecastArn: str,
         Destination: "DataDestinationTypeDef",
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateForecastExportJobResponseTypeDef:
         """
-        [Client.create_forecast_export_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.create_forecast_export_job)
-        """
+        Exports a forecast created by the  CreateForecast operation to your Amazon
+        Simple Storage Service (Amazon S3) bucket.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.create_forecast_export_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#create_forecast_export_job)
+        """
     def create_predictor(
         self,
+        *,
         PredictorName: str,
         ForecastHorizon: int,
         InputDataConfig: "InputDataConfigTypeDef",
@@ -187,104 +193,154 @@ class ForecastServiceClient:
         AlgorithmArn: str = None,
         ForecastTypes: List[str] = None,
         PerformAutoML: bool = None,
+        AutoMLOverrideStrategy: Literal["LatencyOptimized"] = None,
         PerformHPO: bool = None,
         TrainingParameters: Dict[str, str] = None,
         EvaluationParameters: "EvaluationParametersTypeDef" = None,
         HPOConfig: "HyperParameterTuningJobConfigTypeDef" = None,
         EncryptionConfig: "EncryptionConfigTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreatePredictorResponseTypeDef:
         """
-        [Client.create_predictor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.create_predictor)
-        """
+        Creates an Amazon Forecast predictor.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.create_predictor)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#create_predictor)
+        """
     def create_predictor_backtest_export_job(
         self,
+        *,
         PredictorBacktestExportJobName: str,
         PredictorArn: str,
         Destination: "DataDestinationTypeDef",
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreatePredictorBacktestExportJobResponseTypeDef:
         """
-        [Client.create_predictor_backtest_export_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.create_predictor_backtest_export_job)
-        """
+        Exports backtest forecasts and accuracy metrics generated by the
+        CreatePredictor operation.
 
-    def delete_dataset(self, DatasetArn: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.create_predictor_backtest_export_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#create_predictor_backtest_export_job)
         """
-        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.delete_dataset)
+    def delete_dataset(self, *, DatasetArn: str) -> None:
         """
+        Deletes an Amazon Forecast dataset that was created using the  CreateDataset
+        operation.
 
-    def delete_dataset_group(self, DatasetGroupArn: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_dataset)
         """
-        [Client.delete_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.delete_dataset_group)
+    def delete_dataset_group(self, *, DatasetGroupArn: str) -> None:
         """
+        Deletes a dataset group created using the  CreateDatasetGroup operation.
 
-    def delete_dataset_import_job(self, DatasetImportJobArn: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_dataset_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_dataset_group)
         """
-        [Client.delete_dataset_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.delete_dataset_import_job)
+    def delete_dataset_import_job(self, *, DatasetImportJobArn: str) -> None:
         """
+        Deletes a dataset import job created using the  CreateDatasetImportJob
+        operation.
 
-    def delete_forecast(self, ForecastArn: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_dataset_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_dataset_import_job)
         """
-        [Client.delete_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.delete_forecast)
+    def delete_forecast(self, *, ForecastArn: str) -> None:
         """
+        Deletes a forecast created using the  CreateForecast operation.
 
-    def delete_forecast_export_job(self, ForecastExportJobArn: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_forecast)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_forecast)
         """
-        [Client.delete_forecast_export_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.delete_forecast_export_job)
+    def delete_forecast_export_job(self, *, ForecastExportJobArn: str) -> None:
         """
+        Deletes a forecast export job created using the  CreateForecastExportJob
+        operation.
 
-    def delete_predictor(self, PredictorArn: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_forecast_export_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_forecast_export_job)
         """
-        [Client.delete_predictor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.delete_predictor)
+    def delete_predictor(self, *, PredictorArn: str) -> None:
         """
+        Deletes a predictor created using the  CreatePredictor operation.
 
-    def delete_predictor_backtest_export_job(self, PredictorBacktestExportJobArn: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_predictor)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_predictor)
         """
-        [Client.delete_predictor_backtest_export_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.delete_predictor_backtest_export_job)
+    def delete_predictor_backtest_export_job(self, *, PredictorBacktestExportJobArn: str) -> None:
         """
+        Deletes a predictor backtest export job.
 
-    def describe_dataset(self, DatasetArn: str) -> DescribeDatasetResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_predictor_backtest_export_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_predictor_backtest_export_job)
         """
-        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.describe_dataset)
+    def delete_resource_tree(self, *, ResourceArn: str) -> None:
         """
+        Deletes an entire resource tree.
 
-    def describe_dataset_group(self, DatasetGroupArn: str) -> DescribeDatasetGroupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.delete_resource_tree)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#delete_resource_tree)
         """
-        [Client.describe_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.describe_dataset_group)
+    def describe_dataset(self, *, DatasetArn: str) -> DescribeDatasetResponseTypeDef:
         """
+        Describes an Amazon Forecast dataset created using the  CreateDataset operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.describe_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#describe_dataset)
+        """
+    def describe_dataset_group(
+        self, *, DatasetGroupArn: str
+    ) -> DescribeDatasetGroupResponseTypeDef:
+        """
+        Describes a dataset group created using the  CreateDatasetGroup operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.describe_dataset_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#describe_dataset_group)
+        """
     def describe_dataset_import_job(
-        self, DatasetImportJobArn: str
+        self, *, DatasetImportJobArn: str
     ) -> DescribeDatasetImportJobResponseTypeDef:
         """
-        [Client.describe_dataset_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.describe_dataset_import_job)
-        """
+        Describes a dataset import job created using the  CreateDatasetImportJob
+        operation.
 
-    def describe_forecast(self, ForecastArn: str) -> DescribeForecastResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.describe_dataset_import_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#describe_dataset_import_job)
         """
-        [Client.describe_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.describe_forecast)
+    def describe_forecast(self, *, ForecastArn: str) -> DescribeForecastResponseTypeDef:
         """
+        Describes a forecast created using the  CreateForecast operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.describe_forecast)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#describe_forecast)
+        """
     def describe_forecast_export_job(
-        self, ForecastExportJobArn: str
+        self, *, ForecastExportJobArn: str
     ) -> DescribeForecastExportJobResponseTypeDef:
         """
-        [Client.describe_forecast_export_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.describe_forecast_export_job)
-        """
+        Describes a forecast export job created using the  CreateForecastExportJob
+        operation.
 
-    def describe_predictor(self, PredictorArn: str) -> DescribePredictorResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.describe_forecast_export_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#describe_forecast_export_job)
         """
-        [Client.describe_predictor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.describe_predictor)
+    def describe_predictor(self, *, PredictorArn: str) -> DescribePredictorResponseTypeDef:
         """
+        Describes a predictor created using the  CreatePredictor operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.describe_predictor)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#describe_predictor)
+        """
     def describe_predictor_backtest_export_job(
-        self, PredictorBacktestExportJobArn: str
+        self, *, PredictorBacktestExportJobArn: str
     ) -> DescribePredictorBacktestExportJobResponseTypeDef:
         """
-        [Client.describe_predictor_backtest_export_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.describe_predictor_backtest_export_job)
-        """
+        Describes a predictor backtest export job created using the
+        CreatePredictorBacktestExportJob operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.describe_predictor_backtest_export_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#describe_predictor_backtest_export_job)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -293,129 +349,190 @@ class ForecastServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_accuracy_metrics(self, PredictorArn: str) -> GetAccuracyMetricsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#generate_presigned_url)
         """
-        [Client.get_accuracy_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.get_accuracy_metrics)
+    def get_accuracy_metrics(self, *, PredictorArn: str) -> GetAccuracyMetricsResponseTypeDef:
         """
+        Provides metrics on the accuracy of the models that were trained by the
+        CreatePredictor operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.get_accuracy_metrics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#get_accuracy_metrics)
+        """
     def list_dataset_groups(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListDatasetGroupsResponseTypeDef:
         """
-        [Client.list_dataset_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_dataset_groups)
-        """
+        Returns a list of dataset groups created using the  CreateDatasetGroup
+        operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_dataset_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_dataset_groups)
+        """
     def list_dataset_import_jobs(
-        self, NextToken: str = None, MaxResults: int = None, Filters: List[FilterTypeDef] = None
+        self,
+        *,
+        NextToken: str = None,
+        MaxResults: int = None,
+        Filters: List["FilterTypeDef"] = None
     ) -> ListDatasetImportJobsResponseTypeDef:
         """
-        [Client.list_dataset_import_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_dataset_import_jobs)
-        """
+        Returns a list of dataset import jobs created using the  CreateDatasetImportJob
+        operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_dataset_import_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_dataset_import_jobs)
+        """
     def list_datasets(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListDatasetsResponseTypeDef:
         """
-        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_datasets)
-        """
+        Returns a list of datasets created using the  CreateDataset operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_datasets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_datasets)
+        """
     def list_forecast_export_jobs(
-        self, NextToken: str = None, MaxResults: int = None, Filters: List[FilterTypeDef] = None
+        self,
+        *,
+        NextToken: str = None,
+        MaxResults: int = None,
+        Filters: List["FilterTypeDef"] = None
     ) -> ListForecastExportJobsResponseTypeDef:
         """
-        [Client.list_forecast_export_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_forecast_export_jobs)
-        """
+        Returns a list of forecast export jobs created using the
+        CreateForecastExportJob operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_forecast_export_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_forecast_export_jobs)
+        """
     def list_forecasts(
-        self, NextToken: str = None, MaxResults: int = None, Filters: List[FilterTypeDef] = None
+        self,
+        *,
+        NextToken: str = None,
+        MaxResults: int = None,
+        Filters: List["FilterTypeDef"] = None
     ) -> ListForecastsResponseTypeDef:
         """
-        [Client.list_forecasts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_forecasts)
-        """
+        Returns a list of forecasts created using the  CreateForecast operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_forecasts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_forecasts)
+        """
     def list_predictor_backtest_export_jobs(
-        self, NextToken: str = None, MaxResults: int = None, Filters: List[FilterTypeDef] = None
+        self,
+        *,
+        NextToken: str = None,
+        MaxResults: int = None,
+        Filters: List["FilterTypeDef"] = None
     ) -> ListPredictorBacktestExportJobsResponseTypeDef:
         """
-        [Client.list_predictor_backtest_export_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_predictor_backtest_export_jobs)
-        """
+        Returns a list of predictor backtest export jobs created using the
+        CreatePredictorBacktestExportJob operation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_predictor_backtest_export_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_predictor_backtest_export_jobs)
+        """
     def list_predictors(
-        self, NextToken: str = None, MaxResults: int = None, Filters: List[FilterTypeDef] = None
+        self,
+        *,
+        NextToken: str = None,
+        MaxResults: int = None,
+        Filters: List["FilterTypeDef"] = None
     ) -> ListPredictorsResponseTypeDef:
         """
-        [Client.list_predictors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_predictors)
-        """
+        Returns a list of predictors created using the  CreatePredictor operation.
 
-    def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_predictors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_predictors)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags for an Amazon Forecast resource.
 
-    def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#list_tags_for_resource)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.tag_resource)
+    def stop_resource(self, *, ResourceArn: str) -> None:
         """
+        Stops a resource.
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.stop_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#stop_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.untag_resource)
+    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Associates the specified tags to a resource with the specified `resourceArn`.
 
-    def update_dataset_group(self, DatasetGroupArn: str, DatasetArns: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#tag_resource)
         """
-        [Client.update_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Client.update_dataset_group)
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Deletes the specified tags from a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#untag_resource)
+        """
+    def update_dataset_group(
+        self, *, DatasetGroupArn: str, DatasetArns: List[str]
+    ) -> Dict[str, Any]:
+        """
+        Replaces the datasets in a dataset group with the specified datasets.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Client.update_dataset_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/client.html#update_dataset_group)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_dataset_groups"]
     ) -> ListDatasetGroupsPaginator:
         """
-        [Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetgroupspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_dataset_import_jobs"]
     ) -> ListDatasetImportJobsPaginator:
         """
-        [Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetimportjobspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_datasets"]) -> ListDatasetsPaginator:
         """
-        [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Paginator.ListDatasets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listdatasetspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_forecast_export_jobs"]
     ) -> ListForecastExportJobsPaginator:
         """
-        [Paginator.ListForecastExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listforecastexportjobspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_forecasts"]) -> ListForecastsPaginator:
         """
-        [Paginator.ListForecasts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListForecasts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Paginator.ListForecasts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listforecastspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_predictor_backtest_export_jobs"]
     ) -> ListPredictorBacktestExportJobsPaginator:
         """
-        [Paginator.ListPredictorBacktestExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listpredictorbacktestexportjobspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_predictors"]) -> ListPredictorsPaginator:
         """
-        [Paginator.ListPredictors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/forecast.html#ForecastService.Paginator.ListPredictors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecast/paginators.html#listpredictorspaginator)
         """

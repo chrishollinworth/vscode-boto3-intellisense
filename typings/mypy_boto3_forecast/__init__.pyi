@@ -31,8 +31,8 @@ Usage::
     list_predictors_paginator: ListPredictorsPaginator = client.get_paginator("list_predictors")
     ```
 """
-from mypy_boto3_forecast.client import ForecastServiceClient
-from mypy_boto3_forecast.paginator import (
+from .client import ForecastServiceClient
+from .paginator import (
     ListDatasetGroupsPaginator,
     ListDatasetImportJobsPaginator,
     ListDatasetsPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_forecast.paginator import (
 )
 
 Client = ForecastServiceClient
-
 
 __all__ = (
     "Client",

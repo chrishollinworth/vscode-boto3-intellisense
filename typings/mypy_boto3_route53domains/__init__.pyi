@@ -23,15 +23,10 @@ Usage::
     view_billing_paginator: ViewBillingPaginator = client.get_paginator("view_billing")
     ```
 """
-from mypy_boto3_route53domains.client import Route53DomainsClient
-from mypy_boto3_route53domains.paginator import (
-    ListDomainsPaginator,
-    ListOperationsPaginator,
-    ViewBillingPaginator,
-)
+from .client import Route53DomainsClient
+from .paginator import ListDomainsPaginator, ListOperationsPaginator, ViewBillingPaginator
 
 Client = Route53DomainsClient
-
 
 __all__ = (
     "Client",

@@ -1,5 +1,7 @@
 """
-Main interface for cloudtrail service client
+Type annotations for cloudtrail service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html)
 
 Usage::
 
@@ -12,17 +14,17 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_cloudtrail.paginator import (
+from .paginator import (
     ListPublicKeysPaginator,
     ListTagsPaginator,
     ListTrailsPaginator,
     LookupEventsPaginator,
 )
-from mypy_boto3_cloudtrail.type_defs import (
+from .type_defs import (
     AdvancedEventSelectorTypeDef,
     CreateTrailResponseTypeDef,
     DescribeTrailsResponseTypeDef,
@@ -48,17 +50,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("CloudTrailClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -107,27 +105,35 @@ class Exceptions:
     TrailNotProvidedException: Type[BotocoreClientError]
     UnsupportedOperationException: Type[BotocoreClientError]
 
-
-class CloudTrailClient:
+class CloudTrailClient(BaseClient):
     """
-    [CloudTrail.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def add_tags(self, ResourceId: str, TagsList: List["TagTypeDef"] = None) -> Dict[str, Any]:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.add_tags)
+        CloudTrailClient exceptions.
         """
+    def add_tags(self, *, ResourceId: str, TagsList: List["TagTypeDef"] = None) -> Dict[str, Any]:
+        """
+        Adds one or more tags to a trail, up to a limit of 50.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.add_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#add_tags)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#can_paginate)
+        """
     def create_trail(
         self,
+        *,
         Name: str,
         S3BucketName: str,
         S3KeyPrefix: str = None,
@@ -139,24 +145,32 @@ class CloudTrailClient:
         CloudWatchLogsRoleArn: str = None,
         KmsKeyId: str = None,
         IsOrganizationTrail: bool = None,
-        TagsList: List["TagTypeDef"] = None,
+        TagsList: List["TagTypeDef"] = None
     ) -> CreateTrailResponseTypeDef:
         """
-        [Client.create_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.create_trail)
-        """
+        Creates a trail that specifies the settings for delivery of log data to an
+        Amazon S3 bucket.
 
-    def delete_trail(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.create_trail)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#create_trail)
         """
-        [Client.delete_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.delete_trail)
+    def delete_trail(self, *, Name: str) -> Dict[str, Any]:
         """
+        Deletes a trail.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.delete_trail)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#delete_trail)
+        """
     def describe_trails(
-        self, trailNameList: List[str] = None, includeShadowTrails: bool = None
+        self, *, trailNameList: List[str] = None, includeShadowTrails: bool = None
     ) -> DescribeTrailsResponseTypeDef:
         """
-        [Client.describe_trails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.describe_trails)
-        """
+        Retrieves settings for one or more trails associated with the current region for
+        your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.describe_trails)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#describe_trails)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -165,95 +179,141 @@ class CloudTrailClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_event_selectors(self, TrailName: str) -> GetEventSelectorsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#generate_presigned_url)
         """
-        [Client.get_event_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_event_selectors)
+    def get_event_selectors(self, *, TrailName: str) -> GetEventSelectorsResponseTypeDef:
         """
+        Describes the settings for the event selectors that you configured for your
+        trail.
 
-    def get_insight_selectors(self, TrailName: str) -> GetInsightSelectorsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.get_event_selectors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_event_selectors)
         """
-        [Client.get_insight_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_insight_selectors)
+    def get_insight_selectors(self, *, TrailName: str) -> GetInsightSelectorsResponseTypeDef:
         """
+        Describes the settings for the Insights event selectors that you configured for
+        your trail.
 
-    def get_trail(self, Name: str) -> GetTrailResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.get_insight_selectors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_insight_selectors)
         """
-        [Client.get_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_trail)
+    def get_trail(self, *, Name: str) -> GetTrailResponseTypeDef:
         """
+        Returns settings information for a specified trail.
 
-    def get_trail_status(self, Name: str) -> GetTrailStatusResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.get_trail)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_trail)
         """
-        [Client.get_trail_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_trail_status)
+    def get_trail_status(self, *, Name: str) -> GetTrailStatusResponseTypeDef:
         """
+        Returns a JSON-formatted list of information about the specified trail.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.get_trail_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#get_trail_status)
+        """
     def list_public_keys(
-        self, StartTime: datetime = None, EndTime: datetime = None, NextToken: str = None
+        self,
+        *,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
+        NextToken: str = None
     ) -> ListPublicKeysResponseTypeDef:
         """
-        [Client.list_public_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.list_public_keys)
-        """
+        Returns all public keys whose private keys were used to sign the digest files
+        within the specified time range.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.list_public_keys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_public_keys)
+        """
     def list_tags(
-        self, ResourceIdList: List[str], NextToken: str = None
+        self, *, ResourceIdList: List[str], NextToken: str = None
     ) -> ListTagsResponseTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.list_tags)
-        """
+        Lists the tags for the trail in the current region.
 
-    def list_trails(self, NextToken: str = None) -> ListTrailsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.list_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_tags)
         """
-        [Client.list_trails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.list_trails)
+    def list_trails(self, *, NextToken: str = None) -> ListTrailsResponseTypeDef:
         """
+        Lists trails that are in the current account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.list_trails)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#list_trails)
+        """
     def lookup_events(
         self,
-        LookupAttributes: List[LookupAttributeTypeDef] = None,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
+        *,
+        LookupAttributes: List["LookupAttributeTypeDef"] = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
         EventCategory: Literal["insight"] = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> LookupEventsResponseTypeDef:
         """
-        [Client.lookup_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.lookup_events)
-        """
+        Looks up `management events
+        <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-
+        concepts.html#cloudtrail-concepts-management-events>`__ or `CloudTrail Insights
+        events <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-
+        concepts.html#cloudtrail-concepts-insigh...`.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.lookup_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#lookup_events)
+        """
     def put_event_selectors(
         self,
+        *,
         TrailName: str,
         EventSelectors: List["EventSelectorTypeDef"] = None,
-        AdvancedEventSelectors: List["AdvancedEventSelectorTypeDef"] = None,
+        AdvancedEventSelectors: List["AdvancedEventSelectorTypeDef"] = None
     ) -> PutEventSelectorsResponseTypeDef:
         """
-        [Client.put_event_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.put_event_selectors)
-        """
+        Configures an event selector or advanced event selectors for your trail.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.put_event_selectors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#put_event_selectors)
+        """
     def put_insight_selectors(
-        self, TrailName: str, InsightSelectors: List["InsightSelectorTypeDef"]
+        self, *, TrailName: str, InsightSelectors: List["InsightSelectorTypeDef"]
     ) -> PutInsightSelectorsResponseTypeDef:
         """
-        [Client.put_insight_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.put_insight_selectors)
-        """
+        Lets you enable Insights event logging by specifying the Insights selectors that
+        you want to enable on an existing trail.
 
-    def remove_tags(self, ResourceId: str, TagsList: List["TagTypeDef"] = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.put_insight_selectors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#put_insight_selectors)
         """
-        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.remove_tags)
+    def remove_tags(
+        self, *, ResourceId: str, TagsList: List["TagTypeDef"] = None
+    ) -> Dict[str, Any]:
         """
+        Removes the specified tags from a trail.
 
-    def start_logging(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.remove_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#remove_tags)
         """
-        [Client.start_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.start_logging)
+    def start_logging(self, *, Name: str) -> Dict[str, Any]:
         """
+        Starts the recording of AWS API calls and log file delivery for a trail.
 
-    def stop_logging(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.start_logging)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#start_logging)
         """
-        [Client.stop_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.stop_logging)
+    def stop_logging(self, *, Name: str) -> Dict[str, Any]:
         """
+        Suspends the recording of AWS API calls and log file delivery for the specified
+        trail.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.stop_logging)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#stop_logging)
+        """
     def update_trail(
         self,
+        *,
         Name: str,
         S3BucketName: str = None,
         S3KeyPrefix: str = None,
@@ -264,32 +324,35 @@ class CloudTrailClient:
         CloudWatchLogsLogGroupArn: str = None,
         CloudWatchLogsRoleArn: str = None,
         KmsKeyId: str = None,
-        IsOrganizationTrail: bool = None,
+        IsOrganizationTrail: bool = None
     ) -> UpdateTrailResponseTypeDef:
         """
-        [Client.update_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.update_trail)
-        """
+        Updates the settings that specify delivery of log files.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Client.update_trail)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/client.html#update_trail)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["list_public_keys"]) -> ListPublicKeysPaginator:
         """
-        [Paginator.ListPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listpublickeyspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtagspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_trails"]) -> ListTrailsPaginator:
         """
-        [Paginator.ListTrails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtrailspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["lookup_events"]) -> LookupEventsPaginator:
         """
-        [Paginator.LookupEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#lookupeventspaginator)
         """

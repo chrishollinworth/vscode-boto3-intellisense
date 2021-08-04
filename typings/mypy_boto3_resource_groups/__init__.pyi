@@ -23,15 +23,10 @@ Usage::
     search_resources_paginator: SearchResourcesPaginator = client.get_paginator("search_resources")
     ```
 """
-from mypy_boto3_resource_groups.client import ResourceGroupsClient
-from mypy_boto3_resource_groups.paginator import (
-    ListGroupResourcesPaginator,
-    ListGroupsPaginator,
-    SearchResourcesPaginator,
-)
+from .client import ResourceGroupsClient
+from .paginator import ListGroupResourcesPaginator, ListGroupsPaginator, SearchResourcesPaginator
 
 Client = ResourceGroupsClient
-
 
 __all__ = (
     "Client",

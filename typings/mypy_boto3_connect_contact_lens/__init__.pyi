@@ -16,9 +16,8 @@ Usage::
     session_client: ConnectContactLensClient = session.client("connect-contact-lens")
     ```
 """
-from mypy_boto3_connect_contact_lens.client import ConnectContactLensClient
+from .client import ConnectContactLensClient
 
 Client = ConnectContactLensClient
-
 
 __all__ = ("Client", "ConnectContactLensClient")

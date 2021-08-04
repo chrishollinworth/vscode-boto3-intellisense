@@ -25,8 +25,8 @@ Usage::
     lookup_events_paginator: LookupEventsPaginator = client.get_paginator("lookup_events")
     ```
 """
-from mypy_boto3_cloudtrail.client import CloudTrailClient
-from mypy_boto3_cloudtrail.paginator import (
+from .client import CloudTrailClient
+from .paginator import (
     ListPublicKeysPaginator,
     ListTagsPaginator,
     ListTrailsPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_cloudtrail.paginator import (
 )
 
 Client = CloudTrailClient
-
 
 __all__ = (
     "Client",

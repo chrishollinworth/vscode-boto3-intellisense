@@ -21,10 +21,9 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
-from mypy_boto3_chime.client import ChimeClient
-from mypy_boto3_chime.paginator import ListAccountsPaginator, ListUsersPaginator
+from .client import ChimeClient
+from .paginator import ListAccountsPaginator, ListUsersPaginator
 
 Client = ChimeClient
-
 
 __all__ = ("ChimeClient", "Client", "ListAccountsPaginator", "ListUsersPaginator")

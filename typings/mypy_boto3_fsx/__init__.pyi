@@ -23,15 +23,14 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
-from mypy_boto3_fsx.client import FSxClient
-from mypy_boto3_fsx.paginator import (
+from .client import FSxClient
+from .paginator import (
     DescribeBackupsPaginator,
     DescribeFileSystemsPaginator,
     ListTagsForResourcePaginator,
 )
 
 Client = FSxClient
-
 
 __all__ = (
     "Client",

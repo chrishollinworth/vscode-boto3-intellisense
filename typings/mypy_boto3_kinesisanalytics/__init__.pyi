@@ -16,9 +16,8 @@ Usage::
     session_client: KinesisAnalyticsClient = session.client("kinesisanalytics")
     ```
 """
-from mypy_boto3_kinesisanalytics.client import KinesisAnalyticsClient
+from .client import KinesisAnalyticsClient
 
 Client = KinesisAnalyticsClient
-
 
 __all__ = ("Client", "KinesisAnalyticsClient")

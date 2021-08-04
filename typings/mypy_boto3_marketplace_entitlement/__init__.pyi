@@ -19,10 +19,9 @@ Usage::
     get_entitlements_paginator: GetEntitlementsPaginator = client.get_paginator("get_entitlements")
     ```
 """
-from mypy_boto3_marketplace_entitlement.client import MarketplaceEntitlementServiceClient
-from mypy_boto3_marketplace_entitlement.paginator import GetEntitlementsPaginator
+from .client import MarketplaceEntitlementServiceClient
+from .paginator import GetEntitlementsPaginator
 
 Client = MarketplaceEntitlementServiceClient
-
 
 __all__ = ("Client", "GetEntitlementsPaginator", "MarketplaceEntitlementServiceClient")

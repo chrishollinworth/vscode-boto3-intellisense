@@ -37,8 +37,8 @@ Usage::
     search_things_paginator: SearchThingsPaginator = client.get_paginator("search_things")
     ```
 """
-from mypy_boto3_iotthingsgraph.client import IoTThingsGraphClient
-from mypy_boto3_iotthingsgraph.paginator import (
+from .client import IoTThingsGraphClient
+from .paginator import (
     GetFlowTemplateRevisionsPaginator,
     GetSystemTemplateRevisionsPaginator,
     ListFlowExecutionMessagesPaginator,
@@ -52,7 +52,6 @@ from mypy_boto3_iotthingsgraph.paginator import (
 )
 
 Client = IoTThingsGraphClient
-
 
 __all__ = (
     "Client",

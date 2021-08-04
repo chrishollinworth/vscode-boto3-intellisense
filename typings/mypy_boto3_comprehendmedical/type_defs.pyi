@@ -1,5 +1,7 @@
 """
-Main interface for comprehendmedical service type definitions.
+Type annotations for comprehendmedical service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/type_defs.html)
 
 Usage::
 
@@ -11,7 +13,21 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List, Union
+
+from .literals import (
+    AttributeNameType,
+    EntitySubTypeType,
+    EntityTypeType,
+    ICD10CMAttributeTypeType,
+    ICD10CMEntityTypeType,
+    ICD10CMRelationshipTypeType,
+    ICD10CMTraitNameType,
+    JobStatusType,
+    RelationshipTypeType,
+    RxNormAttributeTypeType,
+    RxNormEntityTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,121 +38,92 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AttributeTypeDef",
+    "ComprehendMedicalAsyncJobFilterTypeDef",
     "ComprehendMedicalAsyncJobPropertiesTypeDef",
+    "DescribeEntitiesDetectionV2JobRequestRequestTypeDef",
+    "DescribeEntitiesDetectionV2JobResponseTypeDef",
+    "DescribeICD10CMInferenceJobRequestRequestTypeDef",
+    "DescribeICD10CMInferenceJobResponseTypeDef",
+    "DescribePHIDetectionJobRequestRequestTypeDef",
+    "DescribePHIDetectionJobResponseTypeDef",
+    "DescribeRxNormInferenceJobRequestRequestTypeDef",
+    "DescribeRxNormInferenceJobResponseTypeDef",
+    "DetectEntitiesRequestRequestTypeDef",
+    "DetectEntitiesResponseTypeDef",
+    "DetectEntitiesV2RequestRequestTypeDef",
+    "DetectEntitiesV2ResponseTypeDef",
+    "DetectPHIRequestRequestTypeDef",
+    "DetectPHIResponseTypeDef",
     "EntityTypeDef",
     "ICD10CMAttributeTypeDef",
     "ICD10CMConceptTypeDef",
     "ICD10CMEntityTypeDef",
     "ICD10CMTraitTypeDef",
+    "InferICD10CMRequestRequestTypeDef",
+    "InferICD10CMResponseTypeDef",
+    "InferRxNormRequestRequestTypeDef",
+    "InferRxNormResponseTypeDef",
     "InputDataConfigTypeDef",
+    "ListEntitiesDetectionV2JobsRequestRequestTypeDef",
+    "ListEntitiesDetectionV2JobsResponseTypeDef",
+    "ListICD10CMInferenceJobsRequestRequestTypeDef",
+    "ListICD10CMInferenceJobsResponseTypeDef",
+    "ListPHIDetectionJobsRequestRequestTypeDef",
+    "ListPHIDetectionJobsResponseTypeDef",
+    "ListRxNormInferenceJobsRequestRequestTypeDef",
+    "ListRxNormInferenceJobsResponseTypeDef",
     "OutputDataConfigTypeDef",
+    "ResponseMetadataTypeDef",
     "RxNormAttributeTypeDef",
     "RxNormConceptTypeDef",
     "RxNormEntityTypeDef",
     "RxNormTraitTypeDef",
+    "StartEntitiesDetectionV2JobRequestRequestTypeDef",
+    "StartEntitiesDetectionV2JobResponseTypeDef",
+    "StartICD10CMInferenceJobRequestRequestTypeDef",
+    "StartICD10CMInferenceJobResponseTypeDef",
+    "StartPHIDetectionJobRequestRequestTypeDef",
+    "StartPHIDetectionJobResponseTypeDef",
+    "StartRxNormInferenceJobRequestRequestTypeDef",
+    "StartRxNormInferenceJobResponseTypeDef",
+    "StopEntitiesDetectionV2JobRequestRequestTypeDef",
+    "StopEntitiesDetectionV2JobResponseTypeDef",
+    "StopICD10CMInferenceJobRequestRequestTypeDef",
+    "StopICD10CMInferenceJobResponseTypeDef",
+    "StopPHIDetectionJobRequestRequestTypeDef",
+    "StopPHIDetectionJobResponseTypeDef",
+    "StopRxNormInferenceJobRequestRequestTypeDef",
+    "StopRxNormInferenceJobResponseTypeDef",
     "TraitTypeDef",
     "UnmappedAttributeTypeDef",
-    "ComprehendMedicalAsyncJobFilterTypeDef",
-    "DescribeEntitiesDetectionV2JobResponseTypeDef",
-    "DescribeICD10CMInferenceJobResponseTypeDef",
-    "DescribePHIDetectionJobResponseTypeDef",
-    "DescribeRxNormInferenceJobResponseTypeDef",
-    "DetectEntitiesResponseTypeDef",
-    "DetectEntitiesV2ResponseTypeDef",
-    "DetectPHIResponseTypeDef",
-    "InferICD10CMResponseTypeDef",
-    "InferRxNormResponseTypeDef",
-    "ListEntitiesDetectionV2JobsResponseTypeDef",
-    "ListICD10CMInferenceJobsResponseTypeDef",
-    "ListPHIDetectionJobsResponseTypeDef",
-    "ListRxNormInferenceJobsResponseTypeDef",
-    "StartEntitiesDetectionV2JobResponseTypeDef",
-    "StartICD10CMInferenceJobResponseTypeDef",
-    "StartPHIDetectionJobResponseTypeDef",
-    "StartRxNormInferenceJobResponseTypeDef",
-    "StopEntitiesDetectionV2JobResponseTypeDef",
-    "StopICD10CMInferenceJobResponseTypeDef",
-    "StopPHIDetectionJobResponseTypeDef",
-    "StopRxNormInferenceJobResponseTypeDef",
 )
 
 AttributeTypeDef = TypedDict(
     "AttributeTypeDef",
     {
-        "Type": Literal[
-            "NAME",
-            "DOSAGE",
-            "ROUTE_OR_MODE",
-            "FORM",
-            "FREQUENCY",
-            "DURATION",
-            "GENERIC_NAME",
-            "BRAND_NAME",
-            "STRENGTH",
-            "RATE",
-            "ACUITY",
-            "TEST_NAME",
-            "TEST_VALUE",
-            "TEST_UNITS",
-            "PROCEDURE_NAME",
-            "TREATMENT_NAME",
-            "DATE",
-            "AGE",
-            "CONTACT_POINT",
-            "EMAIL",
-            "IDENTIFIER",
-            "URL",
-            "ADDRESS",
-            "PROFESSION",
-            "SYSTEM_ORGAN_SITE",
-            "DIRECTION",
-            "QUALITY",
-            "QUANTITY",
-            "TIME_EXPRESSION",
-            "TIME_TO_MEDICATION_NAME",
-            "TIME_TO_DX_NAME",
-            "TIME_TO_TEST_NAME",
-            "TIME_TO_PROCEDURE_NAME",
-            "TIME_TO_TREATMENT_NAME",
-        ],
+        "Type": EntitySubTypeType,
         "Score": float,
         "RelationshipScore": float,
-        "RelationshipType": Literal[
-            "EVERY",
-            "WITH_DOSAGE",
-            "ADMINISTERED_VIA",
-            "FOR",
-            "NEGATIVE",
-            "OVERLAP",
-            "DOSAGE",
-            "ROUTE_OR_MODE",
-            "FORM",
-            "FREQUENCY",
-            "DURATION",
-            "STRENGTH",
-            "RATE",
-            "ACUITY",
-            "TEST_VALUE",
-            "TEST_UNITS",
-            "DIRECTION",
-            "SYSTEM_ORGAN_SITE",
-        ],
+        "RelationshipType": RelationshipTypeType,
         "Id": int,
         "BeginOffset": int,
         "EndOffset": int,
         "Text": str,
-        "Category": Literal[
-            "MEDICATION",
-            "MEDICAL_CONDITION",
-            "PROTECTED_HEALTH_INFORMATION",
-            "TEST_TREATMENT_PROCEDURE",
-            "ANATOMY",
-            "TIME_EXPRESSION",
-        ],
+        "Category": EntityTypeType,
         "Traits": List["TraitTypeDef"],
+    },
+    total=False,
+)
+
+ComprehendMedicalAsyncJobFilterTypeDef = TypedDict(
+    "ComprehendMedicalAsyncJobFilterTypeDef",
+    {
+        "JobName": str,
+        "JobStatus": JobStatusType,
+        "SubmitTimeBefore": Union[datetime, str],
+        "SubmitTimeAfter": Union[datetime, str],
     },
     total=False,
 )
@@ -146,15 +133,7 @@ ComprehendMedicalAsyncJobPropertiesTypeDef = TypedDict(
     {
         "JobId": str,
         "JobName": str,
-        "JobStatus": Literal[
-            "SUBMITTED",
-            "IN_PROGRESS",
-            "COMPLETED",
-            "PARTIAL_SUCCESS",
-            "FAILED",
-            "STOP_REQUESTED",
-            "STOPPED",
-        ],
+        "JobStatus": JobStatusType,
         "Message": str,
         "SubmitTime": datetime,
         "EndTime": datetime,
@@ -170,6 +149,119 @@ ComprehendMedicalAsyncJobPropertiesTypeDef = TypedDict(
     total=False,
 )
 
+DescribeEntitiesDetectionV2JobRequestRequestTypeDef = TypedDict(
+    "DescribeEntitiesDetectionV2JobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+DescribeEntitiesDetectionV2JobResponseTypeDef = TypedDict(
+    "DescribeEntitiesDetectionV2JobResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeICD10CMInferenceJobRequestRequestTypeDef = TypedDict(
+    "DescribeICD10CMInferenceJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+DescribeICD10CMInferenceJobResponseTypeDef = TypedDict(
+    "DescribeICD10CMInferenceJobResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePHIDetectionJobRequestRequestTypeDef = TypedDict(
+    "DescribePHIDetectionJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+DescribePHIDetectionJobResponseTypeDef = TypedDict(
+    "DescribePHIDetectionJobResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRxNormInferenceJobRequestRequestTypeDef = TypedDict(
+    "DescribeRxNormInferenceJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+DescribeRxNormInferenceJobResponseTypeDef = TypedDict(
+    "DescribeRxNormInferenceJobResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetectEntitiesRequestRequestTypeDef = TypedDict(
+    "DetectEntitiesRequestRequestTypeDef",
+    {
+        "Text": str,
+    },
+)
+
+DetectEntitiesResponseTypeDef = TypedDict(
+    "DetectEntitiesResponseTypeDef",
+    {
+        "Entities": List["EntityTypeDef"],
+        "UnmappedAttributes": List["UnmappedAttributeTypeDef"],
+        "PaginationToken": str,
+        "ModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetectEntitiesV2RequestRequestTypeDef = TypedDict(
+    "DetectEntitiesV2RequestRequestTypeDef",
+    {
+        "Text": str,
+    },
+)
+
+DetectEntitiesV2ResponseTypeDef = TypedDict(
+    "DetectEntitiesV2ResponseTypeDef",
+    {
+        "Entities": List["EntityTypeDef"],
+        "UnmappedAttributes": List["UnmappedAttributeTypeDef"],
+        "PaginationToken": str,
+        "ModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetectPHIRequestRequestTypeDef = TypedDict(
+    "DetectPHIRequestRequestTypeDef",
+    {
+        "Text": str,
+    },
+)
+
+DetectPHIResponseTypeDef = TypedDict(
+    "DetectPHIResponseTypeDef",
+    {
+        "Entities": List["EntityTypeDef"],
+        "PaginationToken": str,
+        "ModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 EntityTypeDef = TypedDict(
     "EntityTypeDef",
     {
@@ -178,50 +270,8 @@ EntityTypeDef = TypedDict(
         "EndOffset": int,
         "Score": float,
         "Text": str,
-        "Category": Literal[
-            "MEDICATION",
-            "MEDICAL_CONDITION",
-            "PROTECTED_HEALTH_INFORMATION",
-            "TEST_TREATMENT_PROCEDURE",
-            "ANATOMY",
-            "TIME_EXPRESSION",
-        ],
-        "Type": Literal[
-            "NAME",
-            "DOSAGE",
-            "ROUTE_OR_MODE",
-            "FORM",
-            "FREQUENCY",
-            "DURATION",
-            "GENERIC_NAME",
-            "BRAND_NAME",
-            "STRENGTH",
-            "RATE",
-            "ACUITY",
-            "TEST_NAME",
-            "TEST_VALUE",
-            "TEST_UNITS",
-            "PROCEDURE_NAME",
-            "TREATMENT_NAME",
-            "DATE",
-            "AGE",
-            "CONTACT_POINT",
-            "EMAIL",
-            "IDENTIFIER",
-            "URL",
-            "ADDRESS",
-            "PROFESSION",
-            "SYSTEM_ORGAN_SITE",
-            "DIRECTION",
-            "QUALITY",
-            "QUANTITY",
-            "TIME_EXPRESSION",
-            "TIME_TO_MEDICATION_NAME",
-            "TIME_TO_DX_NAME",
-            "TIME_TO_TEST_NAME",
-            "TIME_TO_PROCEDURE_NAME",
-            "TIME_TO_TREATMENT_NAME",
-        ],
+        "Category": EntityTypeType,
+        "Type": EntitySubTypeType,
         "Traits": List["TraitTypeDef"],
         "Attributes": List["AttributeTypeDef"],
     },
@@ -231,7 +281,7 @@ EntityTypeDef = TypedDict(
 ICD10CMAttributeTypeDef = TypedDict(
     "ICD10CMAttributeTypeDef",
     {
-        "Type": Literal["ACUITY", "DIRECTION", "SYSTEM_ORGAN_SITE", "QUALITY", "QUANTITY"],
+        "Type": ICD10CMAttributeTypeType,
         "Score": float,
         "RelationshipScore": float,
         "Id": int,
@@ -239,12 +289,20 @@ ICD10CMAttributeTypeDef = TypedDict(
         "EndOffset": int,
         "Text": str,
         "Traits": List["ICD10CMTraitTypeDef"],
+        "Category": ICD10CMEntityTypeType,
+        "RelationshipType": ICD10CMRelationshipTypeType,
     },
     total=False,
 )
 
 ICD10CMConceptTypeDef = TypedDict(
-    "ICD10CMConceptTypeDef", {"Description": str, "Code": str, "Score": float}, total=False
+    "ICD10CMConceptTypeDef",
+    {
+        "Description": str,
+        "Code": str,
+        "Score": float,
+    },
+    total=False,
 )
 
 ICD10CMEntityTypeDef = TypedDict(
@@ -253,7 +311,7 @@ ICD10CMEntityTypeDef = TypedDict(
         "Id": int,
         "Text": str,
         "Category": Literal["MEDICAL_CONDITION"],
-        "Type": Literal["DX_NAME"],
+        "Type": ICD10CMEntityTypeType,
         "Score": float,
         "BeginOffset": int,
         "EndOffset": int,
@@ -266,36 +324,180 @@ ICD10CMEntityTypeDef = TypedDict(
 
 ICD10CMTraitTypeDef = TypedDict(
     "ICD10CMTraitTypeDef",
-    {"Name": Literal["NEGATION", "DIAGNOSIS", "SIGN", "SYMPTOM"], "Score": float},
+    {
+        "Name": ICD10CMTraitNameType,
+        "Score": float,
+    },
     total=False,
 )
 
-_RequiredInputDataConfigTypeDef = TypedDict("_RequiredInputDataConfigTypeDef", {"S3Bucket": str})
-_OptionalInputDataConfigTypeDef = TypedDict(
-    "_OptionalInputDataConfigTypeDef", {"S3Key": str}, total=False
+InferICD10CMRequestRequestTypeDef = TypedDict(
+    "InferICD10CMRequestRequestTypeDef",
+    {
+        "Text": str,
+    },
 )
 
+InferICD10CMResponseTypeDef = TypedDict(
+    "InferICD10CMResponseTypeDef",
+    {
+        "Entities": List["ICD10CMEntityTypeDef"],
+        "PaginationToken": str,
+        "ModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InferRxNormRequestRequestTypeDef = TypedDict(
+    "InferRxNormRequestRequestTypeDef",
+    {
+        "Text": str,
+    },
+)
+
+InferRxNormResponseTypeDef = TypedDict(
+    "InferRxNormResponseTypeDef",
+    {
+        "Entities": List["RxNormEntityTypeDef"],
+        "PaginationToken": str,
+        "ModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredInputDataConfigTypeDef = TypedDict(
+    "_RequiredInputDataConfigTypeDef",
+    {
+        "S3Bucket": str,
+    },
+)
+_OptionalInputDataConfigTypeDef = TypedDict(
+    "_OptionalInputDataConfigTypeDef",
+    {
+        "S3Key": str,
+    },
+    total=False,
+)
 
 class InputDataConfigTypeDef(_RequiredInputDataConfigTypeDef, _OptionalInputDataConfigTypeDef):
     pass
 
-
-_RequiredOutputDataConfigTypeDef = TypedDict("_RequiredOutputDataConfigTypeDef", {"S3Bucket": str})
-_OptionalOutputDataConfigTypeDef = TypedDict(
-    "_OptionalOutputDataConfigTypeDef", {"S3Key": str}, total=False
+ListEntitiesDetectionV2JobsRequestRequestTypeDef = TypedDict(
+    "ListEntitiesDetectionV2JobsRequestRequestTypeDef",
+    {
+        "Filter": "ComprehendMedicalAsyncJobFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
 )
 
+ListEntitiesDetectionV2JobsResponseTypeDef = TypedDict(
+    "ListEntitiesDetectionV2JobsResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobPropertiesList": List[
+            "ComprehendMedicalAsyncJobPropertiesTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListICD10CMInferenceJobsRequestRequestTypeDef = TypedDict(
+    "ListICD10CMInferenceJobsRequestRequestTypeDef",
+    {
+        "Filter": "ComprehendMedicalAsyncJobFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListICD10CMInferenceJobsResponseTypeDef = TypedDict(
+    "ListICD10CMInferenceJobsResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobPropertiesList": List[
+            "ComprehendMedicalAsyncJobPropertiesTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPHIDetectionJobsRequestRequestTypeDef = TypedDict(
+    "ListPHIDetectionJobsRequestRequestTypeDef",
+    {
+        "Filter": "ComprehendMedicalAsyncJobFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListPHIDetectionJobsResponseTypeDef = TypedDict(
+    "ListPHIDetectionJobsResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobPropertiesList": List[
+            "ComprehendMedicalAsyncJobPropertiesTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListRxNormInferenceJobsRequestRequestTypeDef = TypedDict(
+    "ListRxNormInferenceJobsRequestRequestTypeDef",
+    {
+        "Filter": "ComprehendMedicalAsyncJobFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListRxNormInferenceJobsResponseTypeDef = TypedDict(
+    "ListRxNormInferenceJobsResponseTypeDef",
+    {
+        "ComprehendMedicalAsyncJobPropertiesList": List[
+            "ComprehendMedicalAsyncJobPropertiesTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredOutputDataConfigTypeDef = TypedDict(
+    "_RequiredOutputDataConfigTypeDef",
+    {
+        "S3Bucket": str,
+    },
+)
+_OptionalOutputDataConfigTypeDef = TypedDict(
+    "_OptionalOutputDataConfigTypeDef",
+    {
+        "S3Key": str,
+    },
+    total=False,
+)
 
 class OutputDataConfigTypeDef(_RequiredOutputDataConfigTypeDef, _OptionalOutputDataConfigTypeDef):
     pass
 
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 RxNormAttributeTypeDef = TypedDict(
     "RxNormAttributeTypeDef",
     {
-        "Type": Literal[
-            "DOSAGE", "DURATION", "FORM", "FREQUENCY", "RATE", "ROUTE_OR_MODE", "STRENGTH"
-        ],
+        "Type": RxNormAttributeTypeType,
         "Score": float,
         "RelationshipScore": float,
         "Id": int,
@@ -308,7 +510,13 @@ RxNormAttributeTypeDef = TypedDict(
 )
 
 RxNormConceptTypeDef = TypedDict(
-    "RxNormConceptTypeDef", {"Description": str, "Code": str, "Score": float}, total=False
+    "RxNormConceptTypeDef",
+    {
+        "Description": str,
+        "Code": str,
+        "Score": float,
+    },
+    total=False,
 )
 
 RxNormEntityTypeDef = TypedDict(
@@ -317,7 +525,7 @@ RxNormEntityTypeDef = TypedDict(
         "Id": int,
         "Text": str,
         "Category": Literal["MEDICATION"],
-        "Type": Literal["BRAND_NAME", "GENERIC_NAME"],
+        "Type": RxNormEntityTypeType,
         "Score": float,
         "BeginOffset": int,
         "EndOffset": int,
@@ -329,226 +537,220 @@ RxNormEntityTypeDef = TypedDict(
 )
 
 RxNormTraitTypeDef = TypedDict(
-    "RxNormTraitTypeDef", {"Name": Literal["NEGATION"], "Score": float}, total=False
+    "RxNormTraitTypeDef",
+    {
+        "Name": Literal["NEGATION"],
+        "Score": float,
+    },
+    total=False,
+)
+
+_RequiredStartEntitiesDetectionV2JobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartEntitiesDetectionV2JobRequestRequestTypeDef",
+    {
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "OutputDataConfigTypeDef",
+        "DataAccessRoleArn": str,
+        "LanguageCode": Literal["en"],
+    },
+)
+_OptionalStartEntitiesDetectionV2JobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartEntitiesDetectionV2JobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "ClientRequestToken": str,
+        "KMSKey": str,
+    },
+    total=False,
+)
+
+class StartEntitiesDetectionV2JobRequestRequestTypeDef(
+    _RequiredStartEntitiesDetectionV2JobRequestRequestTypeDef,
+    _OptionalStartEntitiesDetectionV2JobRequestRequestTypeDef,
+):
+    pass
+
+StartEntitiesDetectionV2JobResponseTypeDef = TypedDict(
+    "StartEntitiesDetectionV2JobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartICD10CMInferenceJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartICD10CMInferenceJobRequestRequestTypeDef",
+    {
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "OutputDataConfigTypeDef",
+        "DataAccessRoleArn": str,
+        "LanguageCode": Literal["en"],
+    },
+)
+_OptionalStartICD10CMInferenceJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartICD10CMInferenceJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "ClientRequestToken": str,
+        "KMSKey": str,
+    },
+    total=False,
+)
+
+class StartICD10CMInferenceJobRequestRequestTypeDef(
+    _RequiredStartICD10CMInferenceJobRequestRequestTypeDef,
+    _OptionalStartICD10CMInferenceJobRequestRequestTypeDef,
+):
+    pass
+
+StartICD10CMInferenceJobResponseTypeDef = TypedDict(
+    "StartICD10CMInferenceJobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartPHIDetectionJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartPHIDetectionJobRequestRequestTypeDef",
+    {
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "OutputDataConfigTypeDef",
+        "DataAccessRoleArn": str,
+        "LanguageCode": Literal["en"],
+    },
+)
+_OptionalStartPHIDetectionJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartPHIDetectionJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "ClientRequestToken": str,
+        "KMSKey": str,
+    },
+    total=False,
+)
+
+class StartPHIDetectionJobRequestRequestTypeDef(
+    _RequiredStartPHIDetectionJobRequestRequestTypeDef,
+    _OptionalStartPHIDetectionJobRequestRequestTypeDef,
+):
+    pass
+
+StartPHIDetectionJobResponseTypeDef = TypedDict(
+    "StartPHIDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartRxNormInferenceJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartRxNormInferenceJobRequestRequestTypeDef",
+    {
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "OutputDataConfigTypeDef",
+        "DataAccessRoleArn": str,
+        "LanguageCode": Literal["en"],
+    },
+)
+_OptionalStartRxNormInferenceJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartRxNormInferenceJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "ClientRequestToken": str,
+        "KMSKey": str,
+    },
+    total=False,
+)
+
+class StartRxNormInferenceJobRequestRequestTypeDef(
+    _RequiredStartRxNormInferenceJobRequestRequestTypeDef,
+    _OptionalStartRxNormInferenceJobRequestRequestTypeDef,
+):
+    pass
+
+StartRxNormInferenceJobResponseTypeDef = TypedDict(
+    "StartRxNormInferenceJobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopEntitiesDetectionV2JobRequestRequestTypeDef = TypedDict(
+    "StopEntitiesDetectionV2JobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+StopEntitiesDetectionV2JobResponseTypeDef = TypedDict(
+    "StopEntitiesDetectionV2JobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopICD10CMInferenceJobRequestRequestTypeDef = TypedDict(
+    "StopICD10CMInferenceJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+StopICD10CMInferenceJobResponseTypeDef = TypedDict(
+    "StopICD10CMInferenceJobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopPHIDetectionJobRequestRequestTypeDef = TypedDict(
+    "StopPHIDetectionJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+StopPHIDetectionJobResponseTypeDef = TypedDict(
+    "StopPHIDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopRxNormInferenceJobRequestRequestTypeDef = TypedDict(
+    "StopRxNormInferenceJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+StopRxNormInferenceJobResponseTypeDef = TypedDict(
+    "StopRxNormInferenceJobResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 TraitTypeDef = TypedDict(
     "TraitTypeDef",
-    {"Name": Literal["SIGN", "SYMPTOM", "DIAGNOSIS", "NEGATION"], "Score": float},
+    {
+        "Name": AttributeNameType,
+        "Score": float,
+    },
     total=False,
 )
 
 UnmappedAttributeTypeDef = TypedDict(
     "UnmappedAttributeTypeDef",
     {
-        "Type": Literal[
-            "MEDICATION",
-            "MEDICAL_CONDITION",
-            "PROTECTED_HEALTH_INFORMATION",
-            "TEST_TREATMENT_PROCEDURE",
-            "ANATOMY",
-            "TIME_EXPRESSION",
-        ],
+        "Type": EntityTypeType,
         "Attribute": "AttributeTypeDef",
     },
     total=False,
-)
-
-ComprehendMedicalAsyncJobFilterTypeDef = TypedDict(
-    "ComprehendMedicalAsyncJobFilterTypeDef",
-    {
-        "JobName": str,
-        "JobStatus": Literal[
-            "SUBMITTED",
-            "IN_PROGRESS",
-            "COMPLETED",
-            "PARTIAL_SUCCESS",
-            "FAILED",
-            "STOP_REQUESTED",
-            "STOPPED",
-        ],
-        "SubmitTimeBefore": datetime,
-        "SubmitTimeAfter": datetime,
-    },
-    total=False,
-)
-
-DescribeEntitiesDetectionV2JobResponseTypeDef = TypedDict(
-    "DescribeEntitiesDetectionV2JobResponseTypeDef",
-    {"ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef"},
-    total=False,
-)
-
-DescribeICD10CMInferenceJobResponseTypeDef = TypedDict(
-    "DescribeICD10CMInferenceJobResponseTypeDef",
-    {"ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef"},
-    total=False,
-)
-
-DescribePHIDetectionJobResponseTypeDef = TypedDict(
-    "DescribePHIDetectionJobResponseTypeDef",
-    {"ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef"},
-    total=False,
-)
-
-DescribeRxNormInferenceJobResponseTypeDef = TypedDict(
-    "DescribeRxNormInferenceJobResponseTypeDef",
-    {"ComprehendMedicalAsyncJobProperties": "ComprehendMedicalAsyncJobPropertiesTypeDef"},
-    total=False,
-)
-
-_RequiredDetectEntitiesResponseTypeDef = TypedDict(
-    "_RequiredDetectEntitiesResponseTypeDef",
-    {"Entities": List["EntityTypeDef"], "ModelVersion": str},
-)
-_OptionalDetectEntitiesResponseTypeDef = TypedDict(
-    "_OptionalDetectEntitiesResponseTypeDef",
-    {"UnmappedAttributes": List["UnmappedAttributeTypeDef"], "PaginationToken": str},
-    total=False,
-)
-
-
-class DetectEntitiesResponseTypeDef(
-    _RequiredDetectEntitiesResponseTypeDef, _OptionalDetectEntitiesResponseTypeDef
-):
-    pass
-
-
-_RequiredDetectEntitiesV2ResponseTypeDef = TypedDict(
-    "_RequiredDetectEntitiesV2ResponseTypeDef",
-    {"Entities": List["EntityTypeDef"], "ModelVersion": str},
-)
-_OptionalDetectEntitiesV2ResponseTypeDef = TypedDict(
-    "_OptionalDetectEntitiesV2ResponseTypeDef",
-    {"UnmappedAttributes": List["UnmappedAttributeTypeDef"], "PaginationToken": str},
-    total=False,
-)
-
-
-class DetectEntitiesV2ResponseTypeDef(
-    _RequiredDetectEntitiesV2ResponseTypeDef, _OptionalDetectEntitiesV2ResponseTypeDef
-):
-    pass
-
-
-_RequiredDetectPHIResponseTypeDef = TypedDict(
-    "_RequiredDetectPHIResponseTypeDef", {"Entities": List["EntityTypeDef"], "ModelVersion": str}
-)
-_OptionalDetectPHIResponseTypeDef = TypedDict(
-    "_OptionalDetectPHIResponseTypeDef", {"PaginationToken": str}, total=False
-)
-
-
-class DetectPHIResponseTypeDef(
-    _RequiredDetectPHIResponseTypeDef, _OptionalDetectPHIResponseTypeDef
-):
-    pass
-
-
-_RequiredInferICD10CMResponseTypeDef = TypedDict(
-    "_RequiredInferICD10CMResponseTypeDef", {"Entities": List["ICD10CMEntityTypeDef"]}
-)
-_OptionalInferICD10CMResponseTypeDef = TypedDict(
-    "_OptionalInferICD10CMResponseTypeDef",
-    {"PaginationToken": str, "ModelVersion": str},
-    total=False,
-)
-
-
-class InferICD10CMResponseTypeDef(
-    _RequiredInferICD10CMResponseTypeDef, _OptionalInferICD10CMResponseTypeDef
-):
-    pass
-
-
-_RequiredInferRxNormResponseTypeDef = TypedDict(
-    "_RequiredInferRxNormResponseTypeDef", {"Entities": List["RxNormEntityTypeDef"]}
-)
-_OptionalInferRxNormResponseTypeDef = TypedDict(
-    "_OptionalInferRxNormResponseTypeDef",
-    {"PaginationToken": str, "ModelVersion": str},
-    total=False,
-)
-
-
-class InferRxNormResponseTypeDef(
-    _RequiredInferRxNormResponseTypeDef, _OptionalInferRxNormResponseTypeDef
-):
-    pass
-
-
-ListEntitiesDetectionV2JobsResponseTypeDef = TypedDict(
-    "ListEntitiesDetectionV2JobsResponseTypeDef",
-    {
-        "ComprehendMedicalAsyncJobPropertiesList": List[
-            "ComprehendMedicalAsyncJobPropertiesTypeDef"
-        ],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListICD10CMInferenceJobsResponseTypeDef = TypedDict(
-    "ListICD10CMInferenceJobsResponseTypeDef",
-    {
-        "ComprehendMedicalAsyncJobPropertiesList": List[
-            "ComprehendMedicalAsyncJobPropertiesTypeDef"
-        ],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPHIDetectionJobsResponseTypeDef = TypedDict(
-    "ListPHIDetectionJobsResponseTypeDef",
-    {
-        "ComprehendMedicalAsyncJobPropertiesList": List[
-            "ComprehendMedicalAsyncJobPropertiesTypeDef"
-        ],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListRxNormInferenceJobsResponseTypeDef = TypedDict(
-    "ListRxNormInferenceJobsResponseTypeDef",
-    {
-        "ComprehendMedicalAsyncJobPropertiesList": List[
-            "ComprehendMedicalAsyncJobPropertiesTypeDef"
-        ],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-StartEntitiesDetectionV2JobResponseTypeDef = TypedDict(
-    "StartEntitiesDetectionV2JobResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartICD10CMInferenceJobResponseTypeDef = TypedDict(
-    "StartICD10CMInferenceJobResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartPHIDetectionJobResponseTypeDef = TypedDict(
-    "StartPHIDetectionJobResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartRxNormInferenceJobResponseTypeDef = TypedDict(
-    "StartRxNormInferenceJobResponseTypeDef", {"JobId": str}, total=False
-)
-
-StopEntitiesDetectionV2JobResponseTypeDef = TypedDict(
-    "StopEntitiesDetectionV2JobResponseTypeDef", {"JobId": str}, total=False
-)
-
-StopICD10CMInferenceJobResponseTypeDef = TypedDict(
-    "StopICD10CMInferenceJobResponseTypeDef", {"JobId": str}, total=False
-)
-
-StopPHIDetectionJobResponseTypeDef = TypedDict(
-    "StopPHIDetectionJobResponseTypeDef", {"JobId": str}, total=False
-)
-
-StopRxNormInferenceJobResponseTypeDef = TypedDict(
-    "StopRxNormInferenceJobResponseTypeDef", {"JobId": str}, total=False
 )

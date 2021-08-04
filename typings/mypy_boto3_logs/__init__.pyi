@@ -35,8 +35,8 @@ Usage::
     filter_log_events_paginator: FilterLogEventsPaginator = client.get_paginator("filter_log_events")
     ```
 """
-from mypy_boto3_logs.client import CloudWatchLogsClient
-from mypy_boto3_logs.paginator import (
+from .client import CloudWatchLogsClient
+from .paginator import (
     DescribeDestinationsPaginator,
     DescribeExportTasksPaginator,
     DescribeLogGroupsPaginator,
@@ -49,7 +49,6 @@ from mypy_boto3_logs.paginator import (
 )
 
 Client = CloudWatchLogsClient
-
 
 __all__ = (
     "Client",

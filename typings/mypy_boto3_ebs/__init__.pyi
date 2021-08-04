@@ -16,9 +16,8 @@ Usage::
     session_client: EBSClient = session.client("ebs")
     ```
 """
-from mypy_boto3_ebs.client import EBSClient
+from .client import EBSClient
 
 Client = EBSClient
-
 
 __all__ = ("Client", "EBSClient")

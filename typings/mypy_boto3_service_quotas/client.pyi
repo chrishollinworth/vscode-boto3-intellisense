@@ -1,5 +1,7 @@
 """
-Main interface for service-quotas service client
+Type annotations for service-quotas service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html)
 
 Usage::
 
@@ -13,9 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_service_quotas.paginator import (
+from .literals import RequestStatusType
+from .paginator import (
     ListAWSDefaultServiceQuotasPaginator,
     ListRequestedServiceQuotaChangeHistoryByQuotaPaginator,
     ListRequestedServiceQuotaChangeHistoryPaginator,
@@ -23,7 +26,7 @@ from mypy_boto3_service_quotas.paginator import (
     ListServiceQuotasPaginator,
     ListServicesPaginator,
 )
-from mypy_boto3_service_quotas.type_defs import (
+from .type_defs import (
     GetAssociationForServiceQuotaTemplateResponseTypeDef,
     GetAWSDefaultServiceQuotaResponseTypeDef,
     GetRequestedServiceQuotaChangeResponseTypeDef,
@@ -46,17 +49,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("ServiceQuotasClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AWSServiceAccessNotEnabledException: Type[BotocoreClientError]
@@ -78,37 +77,49 @@ class Exceptions:
     TooManyRequestsException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
 
-
-class ServiceQuotasClient:
+class ServiceQuotasClient(BaseClient):
     """
-    [ServiceQuotas.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ServiceQuotasClient exceptions.
+        """
     def associate_service_quota_template(self) -> Dict[str, Any]:
         """
-        [Client.associate_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.associate_service_quota_template)
-        """
+        Associates your quota request template with your organization.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.associate_service_quota_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#associate_service_quota_template)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#can_paginate)
+        """
     def delete_service_quota_increase_request_from_template(
-        self, ServiceCode: str, QuotaCode: str, AwsRegion: str
+        self, *, ServiceCode: str, QuotaCode: str, AwsRegion: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_service_quota_increase_request_from_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.delete_service_quota_increase_request_from_template)
-        """
+        Deletes the quota increase request for the specified quota from your quota
+        request template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.delete_service_quota_increase_request_from_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#delete_service_quota_increase_request_from_template)
+        """
     def disassociate_service_quota_template(self) -> Dict[str, Any]:
         """
-        [Client.disassociate_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.disassociate_service_quota_template)
-        """
+        Disables your quota request template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.disassociate_service_quota_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#disassociate_service_quota_template)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -117,168 +128,209 @@ class ServiceQuotasClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#generate_presigned_url)
+        """
     def get_association_for_service_quota_template(
         self,
     ) -> GetAssociationForServiceQuotaTemplateResponseTypeDef:
         """
-        [Client.get_association_for_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.get_association_for_service_quota_template)
-        """
+        Retrieves the status of the association for the quota request template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.get_association_for_service_quota_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#get_association_for_service_quota_template)
+        """
     def get_aws_default_service_quota(
-        self, ServiceCode: str, QuotaCode: str
+        self, *, ServiceCode: str, QuotaCode: str
     ) -> GetAWSDefaultServiceQuotaResponseTypeDef:
         """
-        [Client.get_aws_default_service_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.get_aws_default_service_quota)
-        """
+        Retrieves the default value for the specified quota.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.get_aws_default_service_quota)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#get_aws_default_service_quota)
+        """
     def get_requested_service_quota_change(
-        self, RequestId: str
+        self, *, RequestId: str
     ) -> GetRequestedServiceQuotaChangeResponseTypeDef:
         """
-        [Client.get_requested_service_quota_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.get_requested_service_quota_change)
-        """
+        Retrieves information about the specified quota increase request.
 
-    def get_service_quota(self, ServiceCode: str, QuotaCode: str) -> GetServiceQuotaResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.get_requested_service_quota_change)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#get_requested_service_quota_change)
         """
-        [Client.get_service_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota)
+    def get_service_quota(
+        self, *, ServiceCode: str, QuotaCode: str
+    ) -> GetServiceQuotaResponseTypeDef:
         """
+        Retrieves the applied quota value for the specified quota.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#get_service_quota)
+        """
     def get_service_quota_increase_request_from_template(
-        self, ServiceCode: str, QuotaCode: str, AwsRegion: str
+        self, *, ServiceCode: str, QuotaCode: str, AwsRegion: str
     ) -> GetServiceQuotaIncreaseRequestFromTemplateResponseTypeDef:
         """
-        [Client.get_service_quota_increase_request_from_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota_increase_request_from_template)
-        """
+        Retrieves information about the specified quota increase request in your quota
+        request template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota_increase_request_from_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#get_service_quota_increase_request_from_template)
+        """
     def list_aws_default_service_quotas(
-        self, ServiceCode: str, NextToken: str = None, MaxResults: int = None
+        self, *, ServiceCode: str, NextToken: str = None, MaxResults: int = None
     ) -> ListAWSDefaultServiceQuotasResponseTypeDef:
         """
-        [Client.list_aws_default_service_quotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.list_aws_default_service_quotas)
-        """
+        Lists the default values for the quotas for the specified AWS service.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.list_aws_default_service_quotas)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#list_aws_default_service_quotas)
+        """
     def list_requested_service_quota_change_history(
         self,
+        *,
         ServiceCode: str = None,
-        Status: Literal["PENDING", "CASE_OPENED", "APPROVED", "DENIED", "CASE_CLOSED"] = None,
+        Status: RequestStatusType = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListRequestedServiceQuotaChangeHistoryResponseTypeDef:
         """
-        [Client.list_requested_service_quota_change_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history)
-        """
+        Retrieves the quota increase requests for the specified service.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#list_requested_service_quota_change_history)
+        """
     def list_requested_service_quota_change_history_by_quota(
         self,
+        *,
         ServiceCode: str,
         QuotaCode: str,
-        Status: Literal["PENDING", "CASE_OPENED", "APPROVED", "DENIED", "CASE_CLOSED"] = None,
+        Status: RequestStatusType = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListRequestedServiceQuotaChangeHistoryByQuotaResponseTypeDef:
         """
-        [Client.list_requested_service_quota_change_history_by_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history_by_quota)
-        """
+        Retrieves the quota increase requests for the specified quota.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history_by_quota)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#list_requested_service_quota_change_history_by_quota)
+        """
     def list_service_quota_increase_requests_in_template(
         self,
+        *,
         ServiceCode: str = None,
         AwsRegion: str = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListServiceQuotaIncreaseRequestsInTemplateResponseTypeDef:
         """
-        [Client.list_service_quota_increase_requests_in_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quota_increase_requests_in_template)
-        """
+        Lists the quota increase requests in the specified quota request template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quota_increase_requests_in_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#list_service_quota_increase_requests_in_template)
+        """
     def list_service_quotas(
-        self, ServiceCode: str, NextToken: str = None, MaxResults: int = None
+        self, *, ServiceCode: str, NextToken: str = None, MaxResults: int = None
     ) -> ListServiceQuotasResponseTypeDef:
         """
-        [Client.list_service_quotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quotas)
-        """
+        Lists the applied quota values for the specified AWS service.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quotas)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#list_service_quotas)
+        """
     def list_services(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListServicesResponseTypeDef:
         """
-        [Client.list_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.list_services)
-        """
+        Lists the names and codes for the services integrated with Service Quotas.
 
-    def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.list_services)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#list_services)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Returns a list of the tags assigned to the specified applied quota.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#list_tags_for_resource)
+        """
     def put_service_quota_increase_request_into_template(
-        self, QuotaCode: str, ServiceCode: str, AwsRegion: str, DesiredValue: float
+        self, *, QuotaCode: str, ServiceCode: str, AwsRegion: str, DesiredValue: float
     ) -> PutServiceQuotaIncreaseRequestIntoTemplateResponseTypeDef:
         """
-        [Client.put_service_quota_increase_request_into_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.put_service_quota_increase_request_into_template)
-        """
+        Adds a quota increase request to your quota request template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.put_service_quota_increase_request_into_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#put_service_quota_increase_request_into_template)
+        """
     def request_service_quota_increase(
-        self, ServiceCode: str, QuotaCode: str, DesiredValue: float
+        self, *, ServiceCode: str, QuotaCode: str, DesiredValue: float
     ) -> RequestServiceQuotaIncreaseResponseTypeDef:
         """
-        [Client.request_service_quota_increase documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.request_service_quota_increase)
-        """
+        Submits a quota increase request for the specified quota.
 
-    def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.request_service_quota_increase)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#request_service_quota_increase)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.tag_resource)
+    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds tags to the specified applied quota.
 
-    def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Client.untag_resource)
+    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes tags from the specified applied quota.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/client.html#untag_resource)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_aws_default_service_quotas"]
     ) -> ListAWSDefaultServiceQuotasPaginator:
         """
-        [Paginator.ListAWSDefaultServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listawsdefaultservicequotaspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_requested_service_quota_change_history"]
     ) -> ListRequestedServiceQuotaChangeHistoryPaginator:
         """
-        [Paginator.ListRequestedServiceQuotaChangeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listrequestedservicequotachangehistorypaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_requested_service_quota_change_history_by_quota"]
     ) -> ListRequestedServiceQuotaChangeHistoryByQuotaPaginator:
         """
-        [Paginator.ListRequestedServiceQuotaChangeHistoryByQuota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listrequestedservicequotachangehistorybyquotapaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_service_quota_increase_requests_in_template"]
     ) -> ListServiceQuotaIncreaseRequestsInTemplatePaginator:
         """
-        [Paginator.ListServiceQuotaIncreaseRequestsInTemplate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicequotaincreaserequestsintemplatepaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_service_quotas"]
     ) -> ListServiceQuotasPaginator:
         """
-        [Paginator.ListServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicequotaspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_services"]) -> ListServicesPaginator:
         """
-        [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/paginators.html#listservicespaginator)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for dynamodb service client waiters.
+Type annotations for dynamodb service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/waiters.html)
 
 Usage::
 
@@ -20,28 +22,30 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_dynamodb.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("TableExistsWaiter", "TableNotExistsWaiter")
 
-
 class TableExistsWaiter(Boto3Waiter):
     """
-    [Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/waiters.html#tableexistswaiter)
     """
 
-    def wait(self, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TableExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/waiters.html#tableexistswaiter)
         """
-
 
 class TableNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/waiters.html#tablenotexistswaiter)
     """
 
-    def wait(self, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(self, *, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TableNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/waiters.html#tablenotexistswaiter)
         """

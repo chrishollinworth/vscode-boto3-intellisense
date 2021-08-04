@@ -1,5 +1,7 @@
 """
-Main interface for config service type definitions.
+Type annotations for config service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/type_defs.html)
 
 Usage::
 
@@ -11,7 +13,34 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List, Union
+
+from .literals import (
+    AggregateConformancePackComplianceSummaryGroupKeyType,
+    AggregatedSourceStatusTypeType,
+    AggregatedSourceTypeType,
+    ChronologicalOrderType,
+    ComplianceTypeType,
+    ConfigRuleComplianceSummaryGroupKeyType,
+    ConfigRuleStateType,
+    ConfigurationItemStatusType,
+    ConformancePackComplianceTypeType,
+    ConformancePackStateType,
+    DeliveryStatusType,
+    MaximumExecutionFrequencyType,
+    MemberAccountRuleStatusType,
+    MessageTypeType,
+    OrganizationConfigRuleTriggerTypeType,
+    OrganizationResourceDetailedStatusType,
+    OrganizationResourceStatusType,
+    OrganizationRuleStatusType,
+    OwnerType,
+    RecorderStatusType,
+    RemediationExecutionStateType,
+    RemediationExecutionStepStateType,
+    ResourceCountGroupKeyType,
+    ResourceTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,16 +51,25 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AccountAggregationSourceTypeDef",
     "AggregateComplianceByConfigRuleTypeDef",
+    "AggregateComplianceByConformancePackTypeDef",
     "AggregateComplianceCountTypeDef",
+    "AggregateConformancePackComplianceCountTypeDef",
+    "AggregateConformancePackComplianceFiltersTypeDef",
+    "AggregateConformancePackComplianceSummaryFiltersTypeDef",
+    "AggregateConformancePackComplianceSummaryTypeDef",
+    "AggregateConformancePackComplianceTypeDef",
     "AggregateEvaluationResultTypeDef",
     "AggregateResourceIdentifierTypeDef",
     "AggregatedSourceStatusTypeDef",
     "AggregationAuthorizationTypeDef",
     "BaseConfigurationItemTypeDef",
+    "BatchGetAggregateResourceConfigRequestRequestTypeDef",
+    "BatchGetAggregateResourceConfigResponseTypeDef",
+    "BatchGetResourceConfigRequestRequestTypeDef",
+    "BatchGetResourceConfigResponseTypeDef",
     "ComplianceByConfigRuleTypeDef",
     "ComplianceByResourceTypeDef",
     "ComplianceContributorCountTypeDef",
@@ -39,6 +77,8 @@ __all__ = (
     "ComplianceSummaryTypeDef",
     "ComplianceTypeDef",
     "ConfigExportDeliveryInfoTypeDef",
+    "ConfigRuleComplianceFiltersTypeDef",
+    "ConfigRuleComplianceSummaryFiltersTypeDef",
     "ConfigRuleEvaluationStatusTypeDef",
     "ConfigRuleTypeDef",
     "ConfigSnapshotDeliveryPropertiesTypeDef",
@@ -47,24 +87,134 @@ __all__ = (
     "ConfigurationItemTypeDef",
     "ConfigurationRecorderStatusTypeDef",
     "ConfigurationRecorderTypeDef",
+    "ConformancePackComplianceFiltersTypeDef",
     "ConformancePackComplianceSummaryTypeDef",
     "ConformancePackDetailTypeDef",
+    "ConformancePackEvaluationFiltersTypeDef",
     "ConformancePackEvaluationResultTypeDef",
     "ConformancePackInputParameterTypeDef",
     "ConformancePackRuleComplianceTypeDef",
     "ConformancePackStatusDetailTypeDef",
+    "DeleteAggregationAuthorizationRequestRequestTypeDef",
+    "DeleteConfigRuleRequestRequestTypeDef",
+    "DeleteConfigurationAggregatorRequestRequestTypeDef",
+    "DeleteConfigurationRecorderRequestRequestTypeDef",
+    "DeleteConformancePackRequestRequestTypeDef",
+    "DeleteDeliveryChannelRequestRequestTypeDef",
+    "DeleteEvaluationResultsRequestRequestTypeDef",
+    "DeleteOrganizationConfigRuleRequestRequestTypeDef",
+    "DeleteOrganizationConformancePackRequestRequestTypeDef",
+    "DeletePendingAggregationRequestRequestRequestTypeDef",
+    "DeleteRemediationConfigurationRequestRequestTypeDef",
+    "DeleteRemediationExceptionsRequestRequestTypeDef",
+    "DeleteRemediationExceptionsResponseTypeDef",
+    "DeleteResourceConfigRequestRequestTypeDef",
+    "DeleteRetentionConfigurationRequestRequestTypeDef",
+    "DeleteStoredQueryRequestRequestTypeDef",
+    "DeliverConfigSnapshotRequestRequestTypeDef",
+    "DeliverConfigSnapshotResponseTypeDef",
     "DeliveryChannelStatusTypeDef",
     "DeliveryChannelTypeDef",
+    "DescribeAggregateComplianceByConfigRulesRequestRequestTypeDef",
+    "DescribeAggregateComplianceByConfigRulesResponseTypeDef",
+    "DescribeAggregateComplianceByConformancePacksRequestRequestTypeDef",
+    "DescribeAggregateComplianceByConformancePacksResponseTypeDef",
+    "DescribeAggregationAuthorizationsRequestRequestTypeDef",
+    "DescribeAggregationAuthorizationsResponseTypeDef",
+    "DescribeComplianceByConfigRuleRequestRequestTypeDef",
+    "DescribeComplianceByConfigRuleResponseTypeDef",
+    "DescribeComplianceByResourceRequestRequestTypeDef",
+    "DescribeComplianceByResourceResponseTypeDef",
+    "DescribeConfigRuleEvaluationStatusRequestRequestTypeDef",
+    "DescribeConfigRuleEvaluationStatusResponseTypeDef",
+    "DescribeConfigRulesRequestRequestTypeDef",
+    "DescribeConfigRulesResponseTypeDef",
+    "DescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef",
+    "DescribeConfigurationAggregatorSourcesStatusResponseTypeDef",
+    "DescribeConfigurationAggregatorsRequestRequestTypeDef",
+    "DescribeConfigurationAggregatorsResponseTypeDef",
+    "DescribeConfigurationRecorderStatusRequestRequestTypeDef",
+    "DescribeConfigurationRecorderStatusResponseTypeDef",
+    "DescribeConfigurationRecordersRequestRequestTypeDef",
+    "DescribeConfigurationRecordersResponseTypeDef",
+    "DescribeConformancePackComplianceRequestRequestTypeDef",
+    "DescribeConformancePackComplianceResponseTypeDef",
+    "DescribeConformancePackStatusRequestRequestTypeDef",
+    "DescribeConformancePackStatusResponseTypeDef",
+    "DescribeConformancePacksRequestRequestTypeDef",
+    "DescribeConformancePacksResponseTypeDef",
+    "DescribeDeliveryChannelStatusRequestRequestTypeDef",
+    "DescribeDeliveryChannelStatusResponseTypeDef",
+    "DescribeDeliveryChannelsRequestRequestTypeDef",
+    "DescribeDeliveryChannelsResponseTypeDef",
+    "DescribeOrganizationConfigRuleStatusesRequestRequestTypeDef",
+    "DescribeOrganizationConfigRuleStatusesResponseTypeDef",
+    "DescribeOrganizationConfigRulesRequestRequestTypeDef",
+    "DescribeOrganizationConfigRulesResponseTypeDef",
+    "DescribeOrganizationConformancePackStatusesRequestRequestTypeDef",
+    "DescribeOrganizationConformancePackStatusesResponseTypeDef",
+    "DescribeOrganizationConformancePacksRequestRequestTypeDef",
+    "DescribeOrganizationConformancePacksResponseTypeDef",
+    "DescribePendingAggregationRequestsRequestRequestTypeDef",
+    "DescribePendingAggregationRequestsResponseTypeDef",
+    "DescribeRemediationConfigurationsRequestRequestTypeDef",
+    "DescribeRemediationConfigurationsResponseTypeDef",
+    "DescribeRemediationExceptionsRequestRequestTypeDef",
+    "DescribeRemediationExceptionsResponseTypeDef",
+    "DescribeRemediationExecutionStatusRequestRequestTypeDef",
+    "DescribeRemediationExecutionStatusResponseTypeDef",
+    "DescribeRetentionConfigurationsRequestRequestTypeDef",
+    "DescribeRetentionConfigurationsResponseTypeDef",
     "EvaluationResultIdentifierTypeDef",
     "EvaluationResultQualifierTypeDef",
     "EvaluationResultTypeDef",
     "EvaluationTypeDef",
     "ExecutionControlsTypeDef",
+    "ExternalEvaluationTypeDef",
     "FailedDeleteRemediationExceptionsBatchTypeDef",
     "FailedRemediationBatchTypeDef",
     "FailedRemediationExceptionBatchTypeDef",
     "FieldInfoTypeDef",
+    "GetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef",
+    "GetAggregateComplianceDetailsByConfigRuleResponseTypeDef",
+    "GetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef",
+    "GetAggregateConfigRuleComplianceSummaryResponseTypeDef",
+    "GetAggregateConformancePackComplianceSummaryRequestRequestTypeDef",
+    "GetAggregateConformancePackComplianceSummaryResponseTypeDef",
+    "GetAggregateDiscoveredResourceCountsRequestRequestTypeDef",
+    "GetAggregateDiscoveredResourceCountsResponseTypeDef",
+    "GetAggregateResourceConfigRequestRequestTypeDef",
+    "GetAggregateResourceConfigResponseTypeDef",
+    "GetComplianceDetailsByConfigRuleRequestRequestTypeDef",
+    "GetComplianceDetailsByConfigRuleResponseTypeDef",
+    "GetComplianceDetailsByResourceRequestRequestTypeDef",
+    "GetComplianceDetailsByResourceResponseTypeDef",
+    "GetComplianceSummaryByConfigRuleResponseTypeDef",
+    "GetComplianceSummaryByResourceTypeRequestRequestTypeDef",
+    "GetComplianceSummaryByResourceTypeResponseTypeDef",
+    "GetConformancePackComplianceDetailsRequestRequestTypeDef",
+    "GetConformancePackComplianceDetailsResponseTypeDef",
+    "GetConformancePackComplianceSummaryRequestRequestTypeDef",
+    "GetConformancePackComplianceSummaryResponseTypeDef",
+    "GetDiscoveredResourceCountsRequestRequestTypeDef",
+    "GetDiscoveredResourceCountsResponseTypeDef",
+    "GetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef",
+    "GetOrganizationConfigRuleDetailedStatusResponseTypeDef",
+    "GetOrganizationConformancePackDetailedStatusRequestRequestTypeDef",
+    "GetOrganizationConformancePackDetailedStatusResponseTypeDef",
+    "GetResourceConfigHistoryRequestRequestTypeDef",
+    "GetResourceConfigHistoryResponseTypeDef",
+    "GetStoredQueryRequestRequestTypeDef",
+    "GetStoredQueryResponseTypeDef",
     "GroupedResourceCountTypeDef",
+    "ListAggregateDiscoveredResourcesRequestRequestTypeDef",
+    "ListAggregateDiscoveredResourcesResponseTypeDef",
+    "ListDiscoveredResourcesRequestRequestTypeDef",
+    "ListDiscoveredResourcesResponseTypeDef",
+    "ListStoredQueriesRequestRequestTypeDef",
+    "ListStoredQueriesResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MemberAccountStatusTypeDef",
     "OrganizationAggregationSourceTypeDef",
     "OrganizationConfigRuleStatusTypeDef",
@@ -74,7 +224,34 @@ __all__ = (
     "OrganizationConformancePackTypeDef",
     "OrganizationCustomRuleMetadataTypeDef",
     "OrganizationManagedRuleMetadataTypeDef",
+    "OrganizationResourceDetailedStatusFiltersTypeDef",
+    "PaginatorConfigTypeDef",
     "PendingAggregationRequestTypeDef",
+    "PutAggregationAuthorizationRequestRequestTypeDef",
+    "PutAggregationAuthorizationResponseTypeDef",
+    "PutConfigRuleRequestRequestTypeDef",
+    "PutConfigurationAggregatorRequestRequestTypeDef",
+    "PutConfigurationAggregatorResponseTypeDef",
+    "PutConfigurationRecorderRequestRequestTypeDef",
+    "PutConformancePackRequestRequestTypeDef",
+    "PutConformancePackResponseTypeDef",
+    "PutDeliveryChannelRequestRequestTypeDef",
+    "PutEvaluationsRequestRequestTypeDef",
+    "PutEvaluationsResponseTypeDef",
+    "PutExternalEvaluationRequestRequestTypeDef",
+    "PutOrganizationConfigRuleRequestRequestTypeDef",
+    "PutOrganizationConfigRuleResponseTypeDef",
+    "PutOrganizationConformancePackRequestRequestTypeDef",
+    "PutOrganizationConformancePackResponseTypeDef",
+    "PutRemediationConfigurationsRequestRequestTypeDef",
+    "PutRemediationConfigurationsResponseTypeDef",
+    "PutRemediationExceptionsRequestRequestTypeDef",
+    "PutRemediationExceptionsResponseTypeDef",
+    "PutResourceConfigRequestRequestTypeDef",
+    "PutRetentionConfigurationRequestRequestTypeDef",
+    "PutRetentionConfigurationResponseTypeDef",
+    "PutStoredQueryRequestRequestTypeDef",
+    "PutStoredQueryResponseTypeDef",
     "QueryInfoTypeDef",
     "RecordingGroupTypeDef",
     "RelationshipTypeDef",
@@ -84,116 +261,133 @@ __all__ = (
     "RemediationExecutionStatusTypeDef",
     "RemediationExecutionStepTypeDef",
     "RemediationParameterValueTypeDef",
+    "ResourceCountFiltersTypeDef",
     "ResourceCountTypeDef",
+    "ResourceFiltersTypeDef",
     "ResourceIdentifierTypeDef",
     "ResourceKeyTypeDef",
     "ResourceValueTypeDef",
+    "ResponseMetadataTypeDef",
     "RetentionConfigurationTypeDef",
     "ScopeTypeDef",
+    "SelectAggregateResourceConfigRequestRequestTypeDef",
+    "SelectAggregateResourceConfigResponseTypeDef",
+    "SelectResourceConfigRequestRequestTypeDef",
+    "SelectResourceConfigResponseTypeDef",
     "SourceDetailTypeDef",
     "SourceTypeDef",
     "SsmControlsTypeDef",
+    "StartConfigRulesEvaluationRequestRequestTypeDef",
+    "StartConfigurationRecorderRequestRequestTypeDef",
+    "StartRemediationExecutionRequestRequestTypeDef",
+    "StartRemediationExecutionResponseTypeDef",
     "StaticValueTypeDef",
+    "StatusDetailFiltersTypeDef",
+    "StopConfigurationRecorderRequestRequestTypeDef",
     "StoredQueryMetadataTypeDef",
     "StoredQueryTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
-    "BatchGetAggregateResourceConfigResponseTypeDef",
-    "BatchGetResourceConfigResponseTypeDef",
-    "ConfigRuleComplianceFiltersTypeDef",
-    "ConfigRuleComplianceSummaryFiltersTypeDef",
-    "ConformancePackComplianceFiltersTypeDef",
-    "ConformancePackEvaluationFiltersTypeDef",
-    "DeleteRemediationExceptionsResponseTypeDef",
-    "DeliverConfigSnapshotResponseTypeDef",
-    "DescribeAggregateComplianceByConfigRulesResponseTypeDef",
-    "DescribeAggregationAuthorizationsResponseTypeDef",
-    "DescribeComplianceByConfigRuleResponseTypeDef",
-    "DescribeComplianceByResourceResponseTypeDef",
-    "DescribeConfigRuleEvaluationStatusResponseTypeDef",
-    "DescribeConfigRulesResponseTypeDef",
-    "DescribeConfigurationAggregatorSourcesStatusResponseTypeDef",
-    "DescribeConfigurationAggregatorsResponseTypeDef",
-    "DescribeConfigurationRecorderStatusResponseTypeDef",
-    "DescribeConfigurationRecordersResponseTypeDef",
-    "DescribeConformancePackComplianceResponseTypeDef",
-    "DescribeConformancePackStatusResponseTypeDef",
-    "DescribeConformancePacksResponseTypeDef",
-    "DescribeDeliveryChannelStatusResponseTypeDef",
-    "DescribeDeliveryChannelsResponseTypeDef",
-    "DescribeOrganizationConfigRuleStatusesResponseTypeDef",
-    "DescribeOrganizationConfigRulesResponseTypeDef",
-    "DescribeOrganizationConformancePackStatusesResponseTypeDef",
-    "DescribeOrganizationConformancePacksResponseTypeDef",
-    "DescribePendingAggregationRequestsResponseTypeDef",
-    "DescribeRemediationConfigurationsResponseTypeDef",
-    "DescribeRemediationExceptionsResponseTypeDef",
-    "DescribeRemediationExecutionStatusResponseTypeDef",
-    "DescribeRetentionConfigurationsResponseTypeDef",
-    "ExternalEvaluationTypeDef",
-    "GetAggregateComplianceDetailsByConfigRuleResponseTypeDef",
-    "GetAggregateConfigRuleComplianceSummaryResponseTypeDef",
-    "GetAggregateDiscoveredResourceCountsResponseTypeDef",
-    "GetAggregateResourceConfigResponseTypeDef",
-    "GetComplianceDetailsByConfigRuleResponseTypeDef",
-    "GetComplianceDetailsByResourceResponseTypeDef",
-    "GetComplianceSummaryByConfigRuleResponseTypeDef",
-    "GetComplianceSummaryByResourceTypeResponseTypeDef",
-    "GetConformancePackComplianceDetailsResponseTypeDef",
-    "GetConformancePackComplianceSummaryResponseTypeDef",
-    "GetDiscoveredResourceCountsResponseTypeDef",
-    "GetOrganizationConfigRuleDetailedStatusResponseTypeDef",
-    "GetOrganizationConformancePackDetailedStatusResponseTypeDef",
-    "GetResourceConfigHistoryResponseTypeDef",
-    "GetStoredQueryResponseTypeDef",
-    "ListAggregateDiscoveredResourcesResponseTypeDef",
-    "ListDiscoveredResourcesResponseTypeDef",
-    "ListStoredQueriesResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "OrganizationResourceDetailedStatusFiltersTypeDef",
-    "PaginatorConfigTypeDef",
-    "PutAggregationAuthorizationResponseTypeDef",
-    "PutConfigurationAggregatorResponseTypeDef",
-    "PutConformancePackResponseTypeDef",
-    "PutEvaluationsResponseTypeDef",
-    "PutOrganizationConfigRuleResponseTypeDef",
-    "PutOrganizationConformancePackResponseTypeDef",
-    "PutRemediationConfigurationsResponseTypeDef",
-    "PutRemediationExceptionsResponseTypeDef",
-    "PutRetentionConfigurationResponseTypeDef",
-    "PutStoredQueryResponseTypeDef",
-    "ResourceCountFiltersTypeDef",
-    "ResourceFiltersTypeDef",
-    "SelectAggregateResourceConfigResponseTypeDef",
-    "SelectResourceConfigResponseTypeDef",
-    "StartRemediationExecutionResponseTypeDef",
-    "StatusDetailFiltersTypeDef",
+    "UntagResourceRequestRequestTypeDef",
 )
 
 _RequiredAccountAggregationSourceTypeDef = TypedDict(
-    "_RequiredAccountAggregationSourceTypeDef", {"AccountIds": List[str]}
+    "_RequiredAccountAggregationSourceTypeDef",
+    {
+        "AccountIds": List[str],
+    },
 )
 _OptionalAccountAggregationSourceTypeDef = TypedDict(
     "_OptionalAccountAggregationSourceTypeDef",
-    {"AllAwsRegions": bool, "AwsRegions": List[str]},
+    {
+        "AllAwsRegions": bool,
+        "AwsRegions": List[str],
+    },
     total=False,
 )
-
 
 class AccountAggregationSourceTypeDef(
     _RequiredAccountAggregationSourceTypeDef, _OptionalAccountAggregationSourceTypeDef
 ):
     pass
 
-
 AggregateComplianceByConfigRuleTypeDef = TypedDict(
     "AggregateComplianceByConfigRuleTypeDef",
-    {"ConfigRuleName": str, "Compliance": "ComplianceTypeDef", "AccountId": str, "AwsRegion": str},
+    {
+        "ConfigRuleName": str,
+        "Compliance": "ComplianceTypeDef",
+        "AccountId": str,
+        "AwsRegion": str,
+    },
+    total=False,
+)
+
+AggregateComplianceByConformancePackTypeDef = TypedDict(
+    "AggregateComplianceByConformancePackTypeDef",
+    {
+        "ConformancePackName": str,
+        "Compliance": "AggregateConformancePackComplianceTypeDef",
+        "AccountId": str,
+        "AwsRegion": str,
+    },
     total=False,
 )
 
 AggregateComplianceCountTypeDef = TypedDict(
     "AggregateComplianceCountTypeDef",
-    {"GroupName": str, "ComplianceSummary": "ComplianceSummaryTypeDef"},
+    {
+        "GroupName": str,
+        "ComplianceSummary": "ComplianceSummaryTypeDef",
+    },
+    total=False,
+)
+
+AggregateConformancePackComplianceCountTypeDef = TypedDict(
+    "AggregateConformancePackComplianceCountTypeDef",
+    {
+        "CompliantConformancePackCount": int,
+        "NonCompliantConformancePackCount": int,
+    },
+    total=False,
+)
+
+AggregateConformancePackComplianceFiltersTypeDef = TypedDict(
+    "AggregateConformancePackComplianceFiltersTypeDef",
+    {
+        "ConformancePackName": str,
+        "ComplianceType": ConformancePackComplianceTypeType,
+        "AccountId": str,
+        "AwsRegion": str,
+    },
+    total=False,
+)
+
+AggregateConformancePackComplianceSummaryFiltersTypeDef = TypedDict(
+    "AggregateConformancePackComplianceSummaryFiltersTypeDef",
+    {
+        "AccountId": str,
+        "AwsRegion": str,
+    },
+    total=False,
+)
+
+AggregateConformancePackComplianceSummaryTypeDef = TypedDict(
+    "AggregateConformancePackComplianceSummaryTypeDef",
+    {
+        "ComplianceSummary": "AggregateConformancePackComplianceCountTypeDef",
+        "GroupName": str,
+    },
+    total=False,
+)
+
+AggregateConformancePackComplianceTypeDef = TypedDict(
+    "AggregateConformancePackComplianceTypeDef",
+    {
+        "ComplianceType": ConformancePackComplianceTypeType,
+        "CompliantRuleCount": int,
+        "NonCompliantRuleCount": int,
+        "TotalRuleCount": int,
+    },
     total=False,
 )
 
@@ -201,9 +395,7 @@ AggregateEvaluationResultTypeDef = TypedDict(
     "AggregateEvaluationResultTypeDef",
     {
         "EvaluationResultIdentifier": "EvaluationResultIdentifierTypeDef",
-        "ComplianceType": Literal[
-            "COMPLIANT", "NON_COMPLIANT", "NOT_APPLICABLE", "INSUFFICIENT_DATA"
-        ],
+        "ComplianceType": ComplianceTypeType,
         "ResultRecordedTime": datetime,
         "ConfigRuleInvokedTime": datetime,
         "Annotation": str,
@@ -219,124 +411,29 @@ _RequiredAggregateResourceIdentifierTypeDef = TypedDict(
         "SourceAccountId": str,
         "SourceRegion": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
+        "ResourceType": ResourceTypeType,
     },
 )
 _OptionalAggregateResourceIdentifierTypeDef = TypedDict(
-    "_OptionalAggregateResourceIdentifierTypeDef", {"ResourceName": str}, total=False
+    "_OptionalAggregateResourceIdentifierTypeDef",
+    {
+        "ResourceName": str,
+    },
+    total=False,
 )
-
 
 class AggregateResourceIdentifierTypeDef(
     _RequiredAggregateResourceIdentifierTypeDef, _OptionalAggregateResourceIdentifierTypeDef
 ):
     pass
 
-
 AggregatedSourceStatusTypeDef = TypedDict(
     "AggregatedSourceStatusTypeDef",
     {
         "SourceId": str,
-        "SourceType": Literal["ACCOUNT", "ORGANIZATION"],
+        "SourceType": AggregatedSourceTypeType,
         "AwsRegion": str,
-        "LastUpdateStatus": Literal["FAILED", "SUCCEEDED", "OUTDATED"],
+        "LastUpdateStatus": AggregatedSourceStatusTypeType,
         "LastUpdateTime": datetime,
         "LastErrorCode": str,
         "LastErrorMessage": str,
@@ -361,113 +458,10 @@ BaseConfigurationItemTypeDef = TypedDict(
         "version": str,
         "accountId": str,
         "configurationItemCaptureTime": datetime,
-        "configurationItemStatus": Literal[
-            "OK",
-            "ResourceDiscovered",
-            "ResourceNotRecorded",
-            "ResourceDeleted",
-            "ResourceDeletedNotRecorded",
-        ],
+        "configurationItemStatus": ConfigurationItemStatusType,
         "configurationStateId": str,
         "arn": str,
-        "resourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
+        "resourceType": ResourceTypeType,
         "resourceId": str,
         "resourceName": str,
         "awsRegion": str,
@@ -479,25 +473,73 @@ BaseConfigurationItemTypeDef = TypedDict(
     total=False,
 )
 
+BatchGetAggregateResourceConfigRequestRequestTypeDef = TypedDict(
+    "BatchGetAggregateResourceConfigRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+        "ResourceIdentifiers": List["AggregateResourceIdentifierTypeDef"],
+    },
+)
+
+BatchGetAggregateResourceConfigResponseTypeDef = TypedDict(
+    "BatchGetAggregateResourceConfigResponseTypeDef",
+    {
+        "BaseConfigurationItems": List["BaseConfigurationItemTypeDef"],
+        "UnprocessedResourceIdentifiers": List["AggregateResourceIdentifierTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetResourceConfigRequestRequestTypeDef = TypedDict(
+    "BatchGetResourceConfigRequestRequestTypeDef",
+    {
+        "resourceKeys": List["ResourceKeyTypeDef"],
+    },
+)
+
+BatchGetResourceConfigResponseTypeDef = TypedDict(
+    "BatchGetResourceConfigResponseTypeDef",
+    {
+        "baseConfigurationItems": List["BaseConfigurationItemTypeDef"],
+        "unprocessedResourceKeys": List["ResourceKeyTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ComplianceByConfigRuleTypeDef = TypedDict(
     "ComplianceByConfigRuleTypeDef",
-    {"ConfigRuleName": str, "Compliance": "ComplianceTypeDef"},
+    {
+        "ConfigRuleName": str,
+        "Compliance": "ComplianceTypeDef",
+    },
     total=False,
 )
 
 ComplianceByResourceTypeDef = TypedDict(
     "ComplianceByResourceTypeDef",
-    {"ResourceType": str, "ResourceId": str, "Compliance": "ComplianceTypeDef"},
+    {
+        "ResourceType": str,
+        "ResourceId": str,
+        "Compliance": "ComplianceTypeDef",
+    },
     total=False,
 )
 
 ComplianceContributorCountTypeDef = TypedDict(
-    "ComplianceContributorCountTypeDef", {"CappedCount": int, "CapExceeded": bool}, total=False
+    "ComplianceContributorCountTypeDef",
+    {
+        "CappedCount": int,
+        "CapExceeded": bool,
+    },
+    total=False,
 )
 
 ComplianceSummaryByResourceTypeTypeDef = TypedDict(
     "ComplianceSummaryByResourceTypeTypeDef",
-    {"ResourceType": str, "ComplianceSummary": "ComplianceSummaryTypeDef"},
+    {
+        "ResourceType": str,
+        "ComplianceSummary": "ComplianceSummaryTypeDef",
+    },
     total=False,
 )
 
@@ -514,9 +556,7 @@ ComplianceSummaryTypeDef = TypedDict(
 ComplianceTypeDef = TypedDict(
     "ComplianceTypeDef",
     {
-        "ComplianceType": Literal[
-            "COMPLIANT", "NON_COMPLIANT", "NOT_APPLICABLE", "INSUFFICIENT_DATA"
-        ],
+        "ComplianceType": ComplianceTypeType,
         "ComplianceContributorCount": "ComplianceContributorCountTypeDef",
     },
     total=False,
@@ -525,12 +565,32 @@ ComplianceTypeDef = TypedDict(
 ConfigExportDeliveryInfoTypeDef = TypedDict(
     "ConfigExportDeliveryInfoTypeDef",
     {
-        "lastStatus": Literal["Success", "Failure", "Not_Applicable"],
+        "lastStatus": DeliveryStatusType,
         "lastErrorCode": str,
         "lastErrorMessage": str,
         "lastAttemptTime": datetime,
         "lastSuccessfulTime": datetime,
         "nextDeliveryTime": datetime,
+    },
+    total=False,
+)
+
+ConfigRuleComplianceFiltersTypeDef = TypedDict(
+    "ConfigRuleComplianceFiltersTypeDef",
+    {
+        "ConfigRuleName": str,
+        "ComplianceType": ComplianceTypeType,
+        "AccountId": str,
+        "AwsRegion": str,
+    },
+    total=False,
+)
+
+ConfigRuleComplianceSummaryFiltersTypeDef = TypedDict(
+    "ConfigRuleComplianceSummaryFiltersTypeDef",
+    {
+        "AccountId": str,
+        "AwsRegion": str,
     },
     total=False,
 )
@@ -554,7 +614,12 @@ ConfigRuleEvaluationStatusTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredConfigRuleTypeDef = TypedDict("_RequiredConfigRuleTypeDef", {"Source": "SourceTypeDef"})
+_RequiredConfigRuleTypeDef = TypedDict(
+    "_RequiredConfigRuleTypeDef",
+    {
+        "Source": "SourceTypeDef",
+    },
+)
 _OptionalConfigRuleTypeDef = TypedDict(
     "_OptionalConfigRuleTypeDef",
     {
@@ -564,26 +629,20 @@ _OptionalConfigRuleTypeDef = TypedDict(
         "Description": str,
         "Scope": "ScopeTypeDef",
         "InputParameters": str,
-        "MaximumExecutionFrequency": Literal[
-            "One_Hour", "Three_Hours", "Six_Hours", "Twelve_Hours", "TwentyFour_Hours"
-        ],
-        "ConfigRuleState": Literal["ACTIVE", "DELETING", "DELETING_RESULTS", "EVALUATING"],
+        "MaximumExecutionFrequency": MaximumExecutionFrequencyType,
+        "ConfigRuleState": ConfigRuleStateType,
         "CreatedBy": str,
     },
     total=False,
 )
 
-
 class ConfigRuleTypeDef(_RequiredConfigRuleTypeDef, _OptionalConfigRuleTypeDef):
     pass
-
 
 ConfigSnapshotDeliveryPropertiesTypeDef = TypedDict(
     "ConfigSnapshotDeliveryPropertiesTypeDef",
     {
-        "deliveryFrequency": Literal[
-            "One_Hour", "Three_Hours", "Six_Hours", "Twelve_Hours", "TwentyFour_Hours"
-        ]
+        "deliveryFrequency": MaximumExecutionFrequencyType,
     },
     total=False,
 )
@@ -591,7 +650,7 @@ ConfigSnapshotDeliveryPropertiesTypeDef = TypedDict(
 ConfigStreamDeliveryInfoTypeDef = TypedDict(
     "ConfigStreamDeliveryInfoTypeDef",
     {
-        "lastStatus": Literal["Success", "Failure", "Not_Applicable"],
+        "lastStatus": DeliveryStatusType,
         "lastErrorCode": str,
         "lastErrorMessage": str,
         "lastStatusChangeTime": datetime,
@@ -619,114 +678,11 @@ ConfigurationItemTypeDef = TypedDict(
         "version": str,
         "accountId": str,
         "configurationItemCaptureTime": datetime,
-        "configurationItemStatus": Literal[
-            "OK",
-            "ResourceDiscovered",
-            "ResourceNotRecorded",
-            "ResourceDeleted",
-            "ResourceDeletedNotRecorded",
-        ],
+        "configurationItemStatus": ConfigurationItemStatusType,
         "configurationStateId": str,
         "configurationItemMD5Hash": str,
         "arn": str,
-        "resourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
+        "resourceType": ResourceTypeType,
         "resourceId": str,
         "resourceName": str,
         "awsRegion": str,
@@ -748,7 +704,7 @@ ConfigurationRecorderStatusTypeDef = TypedDict(
         "lastStartTime": datetime,
         "lastStopTime": datetime,
         "recording": bool,
-        "lastStatus": Literal["Pending", "Success", "Failure"],
+        "lastStatus": RecorderStatusType,
         "lastErrorCode": str,
         "lastErrorMessage": str,
         "lastStatusChangeTime": datetime,
@@ -758,7 +714,20 @@ ConfigurationRecorderStatusTypeDef = TypedDict(
 
 ConfigurationRecorderTypeDef = TypedDict(
     "ConfigurationRecorderTypeDef",
-    {"name": str, "roleARN": str, "recordingGroup": "RecordingGroupTypeDef"},
+    {
+        "name": str,
+        "roleARN": str,
+        "recordingGroup": "RecordingGroupTypeDef",
+    },
+    total=False,
+)
+
+ConformancePackComplianceFiltersTypeDef = TypedDict(
+    "ConformancePackComplianceFiltersTypeDef",
+    {
+        "ConfigRuleNames": List[str],
+        "ComplianceType": ConformancePackComplianceTypeType,
+    },
     total=False,
 )
 
@@ -766,13 +735,17 @@ ConformancePackComplianceSummaryTypeDef = TypedDict(
     "ConformancePackComplianceSummaryTypeDef",
     {
         "ConformancePackName": str,
-        "ConformancePackComplianceStatus": Literal["COMPLIANT", "NON_COMPLIANT"],
+        "ConformancePackComplianceStatus": ConformancePackComplianceTypeType,
     },
 )
 
 _RequiredConformancePackDetailTypeDef = TypedDict(
     "_RequiredConformancePackDetailTypeDef",
-    {"ConformancePackName": str, "ConformancePackArn": str, "ConformancePackId": str},
+    {
+        "ConformancePackName": str,
+        "ConformancePackArn": str,
+        "ConformancePackId": str,
+    },
 )
 _OptionalConformancePackDetailTypeDef = TypedDict(
     "_OptionalConformancePackDetailTypeDef",
@@ -786,40 +759,59 @@ _OptionalConformancePackDetailTypeDef = TypedDict(
     total=False,
 )
 
-
 class ConformancePackDetailTypeDef(
     _RequiredConformancePackDetailTypeDef, _OptionalConformancePackDetailTypeDef
 ):
     pass
 
+ConformancePackEvaluationFiltersTypeDef = TypedDict(
+    "ConformancePackEvaluationFiltersTypeDef",
+    {
+        "ConfigRuleNames": List[str],
+        "ComplianceType": ConformancePackComplianceTypeType,
+        "ResourceType": str,
+        "ResourceIds": List[str],
+    },
+    total=False,
+)
 
 _RequiredConformancePackEvaluationResultTypeDef = TypedDict(
     "_RequiredConformancePackEvaluationResultTypeDef",
     {
-        "ComplianceType": Literal["COMPLIANT", "NON_COMPLIANT"],
+        "ComplianceType": ConformancePackComplianceTypeType,
         "EvaluationResultIdentifier": "EvaluationResultIdentifierTypeDef",
         "ConfigRuleInvokedTime": datetime,
         "ResultRecordedTime": datetime,
     },
 )
 _OptionalConformancePackEvaluationResultTypeDef = TypedDict(
-    "_OptionalConformancePackEvaluationResultTypeDef", {"Annotation": str}, total=False
+    "_OptionalConformancePackEvaluationResultTypeDef",
+    {
+        "Annotation": str,
+    },
+    total=False,
 )
-
 
 class ConformancePackEvaluationResultTypeDef(
     _RequiredConformancePackEvaluationResultTypeDef, _OptionalConformancePackEvaluationResultTypeDef
 ):
     pass
 
-
 ConformancePackInputParameterTypeDef = TypedDict(
-    "ConformancePackInputParameterTypeDef", {"ParameterName": str, "ParameterValue": str}
+    "ConformancePackInputParameterTypeDef",
+    {
+        "ParameterName": str,
+        "ParameterValue": str,
+    },
 )
 
 ConformancePackRuleComplianceTypeDef = TypedDict(
     "ConformancePackRuleComplianceTypeDef",
-    {"ConfigRuleName": str, "ComplianceType": Literal["COMPLIANT", "NON_COMPLIANT"]},
+    {
+        "ConfigRuleName": str,
+        "ComplianceType": ConformancePackComplianceTypeType,
+        "Controls": List[str],
+    },
     total=False,
 )
 
@@ -829,29 +821,169 @@ _RequiredConformancePackStatusDetailTypeDef = TypedDict(
         "ConformancePackName": str,
         "ConformancePackId": str,
         "ConformancePackArn": str,
-        "ConformancePackState": Literal[
-            "CREATE_IN_PROGRESS",
-            "CREATE_COMPLETE",
-            "CREATE_FAILED",
-            "DELETE_IN_PROGRESS",
-            "DELETE_FAILED",
-        ],
+        "ConformancePackState": ConformancePackStateType,
         "StackArn": str,
         "LastUpdateRequestedTime": datetime,
     },
 )
 _OptionalConformancePackStatusDetailTypeDef = TypedDict(
     "_OptionalConformancePackStatusDetailTypeDef",
-    {"ConformancePackStatusReason": str, "LastUpdateCompletedTime": datetime},
+    {
+        "ConformancePackStatusReason": str,
+        "LastUpdateCompletedTime": datetime,
+    },
     total=False,
 )
-
 
 class ConformancePackStatusDetailTypeDef(
     _RequiredConformancePackStatusDetailTypeDef, _OptionalConformancePackStatusDetailTypeDef
 ):
     pass
 
+DeleteAggregationAuthorizationRequestRequestTypeDef = TypedDict(
+    "DeleteAggregationAuthorizationRequestRequestTypeDef",
+    {
+        "AuthorizedAccountId": str,
+        "AuthorizedAwsRegion": str,
+    },
+)
+
+DeleteConfigRuleRequestRequestTypeDef = TypedDict(
+    "DeleteConfigRuleRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+    },
+)
+
+DeleteConfigurationAggregatorRequestRequestTypeDef = TypedDict(
+    "DeleteConfigurationAggregatorRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+
+DeleteConfigurationRecorderRequestRequestTypeDef = TypedDict(
+    "DeleteConfigurationRecorderRequestRequestTypeDef",
+    {
+        "ConfigurationRecorderName": str,
+    },
+)
+
+DeleteConformancePackRequestRequestTypeDef = TypedDict(
+    "DeleteConformancePackRequestRequestTypeDef",
+    {
+        "ConformancePackName": str,
+    },
+)
+
+DeleteDeliveryChannelRequestRequestTypeDef = TypedDict(
+    "DeleteDeliveryChannelRequestRequestTypeDef",
+    {
+        "DeliveryChannelName": str,
+    },
+)
+
+DeleteEvaluationResultsRequestRequestTypeDef = TypedDict(
+    "DeleteEvaluationResultsRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+    },
+)
+
+DeleteOrganizationConfigRuleRequestRequestTypeDef = TypedDict(
+    "DeleteOrganizationConfigRuleRequestRequestTypeDef",
+    {
+        "OrganizationConfigRuleName": str,
+    },
+)
+
+DeleteOrganizationConformancePackRequestRequestTypeDef = TypedDict(
+    "DeleteOrganizationConformancePackRequestRequestTypeDef",
+    {
+        "OrganizationConformancePackName": str,
+    },
+)
+
+DeletePendingAggregationRequestRequestRequestTypeDef = TypedDict(
+    "DeletePendingAggregationRequestRequestRequestTypeDef",
+    {
+        "RequesterAccountId": str,
+        "RequesterAwsRegion": str,
+    },
+)
+
+_RequiredDeleteRemediationConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteRemediationConfigurationRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+    },
+)
+_OptionalDeleteRemediationConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteRemediationConfigurationRequestRequestTypeDef",
+    {
+        "ResourceType": str,
+    },
+    total=False,
+)
+
+class DeleteRemediationConfigurationRequestRequestTypeDef(
+    _RequiredDeleteRemediationConfigurationRequestRequestTypeDef,
+    _OptionalDeleteRemediationConfigurationRequestRequestTypeDef,
+):
+    pass
+
+DeleteRemediationExceptionsRequestRequestTypeDef = TypedDict(
+    "DeleteRemediationExceptionsRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+        "ResourceKeys": List["RemediationExceptionResourceKeyTypeDef"],
+    },
+)
+
+DeleteRemediationExceptionsResponseTypeDef = TypedDict(
+    "DeleteRemediationExceptionsResponseTypeDef",
+    {
+        "FailedBatches": List["FailedDeleteRemediationExceptionsBatchTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteResourceConfigRequestRequestTypeDef = TypedDict(
+    "DeleteResourceConfigRequestRequestTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceId": str,
+    },
+)
+
+DeleteRetentionConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteRetentionConfigurationRequestRequestTypeDef",
+    {
+        "RetentionConfigurationName": str,
+    },
+)
+
+DeleteStoredQueryRequestRequestTypeDef = TypedDict(
+    "DeleteStoredQueryRequestRequestTypeDef",
+    {
+        "QueryName": str,
+    },
+)
+
+DeliverConfigSnapshotRequestRequestTypeDef = TypedDict(
+    "DeliverConfigSnapshotRequestRequestTypeDef",
+    {
+        "deliveryChannelName": str,
+    },
+)
+
+DeliverConfigSnapshotResponseTypeDef = TypedDict(
+    "DeliverConfigSnapshotResponseTypeDef",
+    {
+        "configSnapshotId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DeliveryChannelStatusTypeDef = TypedDict(
     "DeliveryChannelStatusTypeDef",
@@ -870,10 +1002,543 @@ DeliveryChannelTypeDef = TypedDict(
         "name": str,
         "s3BucketName": str,
         "s3KeyPrefix": str,
+        "s3KmsKeyArn": str,
         "snsTopicARN": str,
         "configSnapshotDeliveryProperties": "ConfigSnapshotDeliveryPropertiesTypeDef",
     },
     total=False,
+)
+
+_RequiredDescribeAggregateComplianceByConfigRulesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAggregateComplianceByConfigRulesRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalDescribeAggregateComplianceByConfigRulesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAggregateComplianceByConfigRulesRequestRequestTypeDef",
+    {
+        "Filters": "ConfigRuleComplianceFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeAggregateComplianceByConfigRulesRequestRequestTypeDef(
+    _RequiredDescribeAggregateComplianceByConfigRulesRequestRequestTypeDef,
+    _OptionalDescribeAggregateComplianceByConfigRulesRequestRequestTypeDef,
+):
+    pass
+
+DescribeAggregateComplianceByConfigRulesResponseTypeDef = TypedDict(
+    "DescribeAggregateComplianceByConfigRulesResponseTypeDef",
+    {
+        "AggregateComplianceByConfigRules": List["AggregateComplianceByConfigRuleTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeAggregateComplianceByConformancePacksRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAggregateComplianceByConformancePacksRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalDescribeAggregateComplianceByConformancePacksRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAggregateComplianceByConformancePacksRequestRequestTypeDef",
+    {
+        "Filters": "AggregateConformancePackComplianceFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeAggregateComplianceByConformancePacksRequestRequestTypeDef(
+    _RequiredDescribeAggregateComplianceByConformancePacksRequestRequestTypeDef,
+    _OptionalDescribeAggregateComplianceByConformancePacksRequestRequestTypeDef,
+):
+    pass
+
+DescribeAggregateComplianceByConformancePacksResponseTypeDef = TypedDict(
+    "DescribeAggregateComplianceByConformancePacksResponseTypeDef",
+    {
+        "AggregateComplianceByConformancePacks": List[
+            "AggregateComplianceByConformancePackTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAggregationAuthorizationsRequestRequestTypeDef = TypedDict(
+    "DescribeAggregationAuthorizationsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeAggregationAuthorizationsResponseTypeDef = TypedDict(
+    "DescribeAggregationAuthorizationsResponseTypeDef",
+    {
+        "AggregationAuthorizations": List["AggregationAuthorizationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeComplianceByConfigRuleRequestRequestTypeDef = TypedDict(
+    "DescribeComplianceByConfigRuleRequestRequestTypeDef",
+    {
+        "ConfigRuleNames": List[str],
+        "ComplianceTypes": List[ComplianceTypeType],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeComplianceByConfigRuleResponseTypeDef = TypedDict(
+    "DescribeComplianceByConfigRuleResponseTypeDef",
+    {
+        "ComplianceByConfigRules": List["ComplianceByConfigRuleTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeComplianceByResourceRequestRequestTypeDef = TypedDict(
+    "DescribeComplianceByResourceRequestRequestTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceId": str,
+        "ComplianceTypes": List[ComplianceTypeType],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeComplianceByResourceResponseTypeDef = TypedDict(
+    "DescribeComplianceByResourceResponseTypeDef",
+    {
+        "ComplianceByResources": List["ComplianceByResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConfigRuleEvaluationStatusRequestRequestTypeDef = TypedDict(
+    "DescribeConfigRuleEvaluationStatusRequestRequestTypeDef",
+    {
+        "ConfigRuleNames": List[str],
+        "NextToken": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+DescribeConfigRuleEvaluationStatusResponseTypeDef = TypedDict(
+    "DescribeConfigRuleEvaluationStatusResponseTypeDef",
+    {
+        "ConfigRulesEvaluationStatus": List["ConfigRuleEvaluationStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConfigRulesRequestRequestTypeDef = TypedDict(
+    "DescribeConfigRulesRequestRequestTypeDef",
+    {
+        "ConfigRuleNames": List[str],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeConfigRulesResponseTypeDef = TypedDict(
+    "DescribeConfigRulesResponseTypeDef",
+    {
+        "ConfigRules": List["ConfigRuleTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalDescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef",
+    {
+        "UpdateStatus": List[AggregatedSourceStatusTypeType],
+        "NextToken": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+class DescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef(
+    _RequiredDescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef,
+    _OptionalDescribeConfigurationAggregatorSourcesStatusRequestRequestTypeDef,
+):
+    pass
+
+DescribeConfigurationAggregatorSourcesStatusResponseTypeDef = TypedDict(
+    "DescribeConfigurationAggregatorSourcesStatusResponseTypeDef",
+    {
+        "AggregatedSourceStatusList": List["AggregatedSourceStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConfigurationAggregatorsRequestRequestTypeDef = TypedDict(
+    "DescribeConfigurationAggregatorsRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorNames": List[str],
+        "NextToken": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+DescribeConfigurationAggregatorsResponseTypeDef = TypedDict(
+    "DescribeConfigurationAggregatorsResponseTypeDef",
+    {
+        "ConfigurationAggregators": List["ConfigurationAggregatorTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConfigurationRecorderStatusRequestRequestTypeDef = TypedDict(
+    "DescribeConfigurationRecorderStatusRequestRequestTypeDef",
+    {
+        "ConfigurationRecorderNames": List[str],
+    },
+    total=False,
+)
+
+DescribeConfigurationRecorderStatusResponseTypeDef = TypedDict(
+    "DescribeConfigurationRecorderStatusResponseTypeDef",
+    {
+        "ConfigurationRecordersStatus": List["ConfigurationRecorderStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConfigurationRecordersRequestRequestTypeDef = TypedDict(
+    "DescribeConfigurationRecordersRequestRequestTypeDef",
+    {
+        "ConfigurationRecorderNames": List[str],
+    },
+    total=False,
+)
+
+DescribeConfigurationRecordersResponseTypeDef = TypedDict(
+    "DescribeConfigurationRecordersResponseTypeDef",
+    {
+        "ConfigurationRecorders": List["ConfigurationRecorderTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeConformancePackComplianceRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeConformancePackComplianceRequestRequestTypeDef",
+    {
+        "ConformancePackName": str,
+    },
+)
+_OptionalDescribeConformancePackComplianceRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeConformancePackComplianceRequestRequestTypeDef",
+    {
+        "Filters": "ConformancePackComplianceFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeConformancePackComplianceRequestRequestTypeDef(
+    _RequiredDescribeConformancePackComplianceRequestRequestTypeDef,
+    _OptionalDescribeConformancePackComplianceRequestRequestTypeDef,
+):
+    pass
+
+DescribeConformancePackComplianceResponseTypeDef = TypedDict(
+    "DescribeConformancePackComplianceResponseTypeDef",
+    {
+        "ConformancePackName": str,
+        "ConformancePackRuleComplianceList": List["ConformancePackRuleComplianceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConformancePackStatusRequestRequestTypeDef = TypedDict(
+    "DescribeConformancePackStatusRequestRequestTypeDef",
+    {
+        "ConformancePackNames": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeConformancePackStatusResponseTypeDef = TypedDict(
+    "DescribeConformancePackStatusResponseTypeDef",
+    {
+        "ConformancePackStatusDetails": List["ConformancePackStatusDetailTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConformancePacksRequestRequestTypeDef = TypedDict(
+    "DescribeConformancePacksRequestRequestTypeDef",
+    {
+        "ConformancePackNames": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeConformancePacksResponseTypeDef = TypedDict(
+    "DescribeConformancePacksResponseTypeDef",
+    {
+        "ConformancePackDetails": List["ConformancePackDetailTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDeliveryChannelStatusRequestRequestTypeDef = TypedDict(
+    "DescribeDeliveryChannelStatusRequestRequestTypeDef",
+    {
+        "DeliveryChannelNames": List[str],
+    },
+    total=False,
+)
+
+DescribeDeliveryChannelStatusResponseTypeDef = TypedDict(
+    "DescribeDeliveryChannelStatusResponseTypeDef",
+    {
+        "DeliveryChannelsStatus": List["DeliveryChannelStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDeliveryChannelsRequestRequestTypeDef = TypedDict(
+    "DescribeDeliveryChannelsRequestRequestTypeDef",
+    {
+        "DeliveryChannelNames": List[str],
+    },
+    total=False,
+)
+
+DescribeDeliveryChannelsResponseTypeDef = TypedDict(
+    "DescribeDeliveryChannelsResponseTypeDef",
+    {
+        "DeliveryChannels": List["DeliveryChannelTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOrganizationConfigRuleStatusesRequestRequestTypeDef = TypedDict(
+    "DescribeOrganizationConfigRuleStatusesRequestRequestTypeDef",
+    {
+        "OrganizationConfigRuleNames": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeOrganizationConfigRuleStatusesResponseTypeDef = TypedDict(
+    "DescribeOrganizationConfigRuleStatusesResponseTypeDef",
+    {
+        "OrganizationConfigRuleStatuses": List["OrganizationConfigRuleStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOrganizationConfigRulesRequestRequestTypeDef = TypedDict(
+    "DescribeOrganizationConfigRulesRequestRequestTypeDef",
+    {
+        "OrganizationConfigRuleNames": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeOrganizationConfigRulesResponseTypeDef = TypedDict(
+    "DescribeOrganizationConfigRulesResponseTypeDef",
+    {
+        "OrganizationConfigRules": List["OrganizationConfigRuleTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOrganizationConformancePackStatusesRequestRequestTypeDef = TypedDict(
+    "DescribeOrganizationConformancePackStatusesRequestRequestTypeDef",
+    {
+        "OrganizationConformancePackNames": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeOrganizationConformancePackStatusesResponseTypeDef = TypedDict(
+    "DescribeOrganizationConformancePackStatusesResponseTypeDef",
+    {
+        "OrganizationConformancePackStatuses": List["OrganizationConformancePackStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOrganizationConformancePacksRequestRequestTypeDef = TypedDict(
+    "DescribeOrganizationConformancePacksRequestRequestTypeDef",
+    {
+        "OrganizationConformancePackNames": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeOrganizationConformancePacksResponseTypeDef = TypedDict(
+    "DescribeOrganizationConformancePacksResponseTypeDef",
+    {
+        "OrganizationConformancePacks": List["OrganizationConformancePackTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePendingAggregationRequestsRequestRequestTypeDef = TypedDict(
+    "DescribePendingAggregationRequestsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribePendingAggregationRequestsResponseTypeDef = TypedDict(
+    "DescribePendingAggregationRequestsResponseTypeDef",
+    {
+        "PendingAggregationRequests": List["PendingAggregationRequestTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRemediationConfigurationsRequestRequestTypeDef = TypedDict(
+    "DescribeRemediationConfigurationsRequestRequestTypeDef",
+    {
+        "ConfigRuleNames": List[str],
+    },
+)
+
+DescribeRemediationConfigurationsResponseTypeDef = TypedDict(
+    "DescribeRemediationConfigurationsResponseTypeDef",
+    {
+        "RemediationConfigurations": List["RemediationConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeRemediationExceptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRemediationExceptionsRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+    },
+)
+_OptionalDescribeRemediationExceptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRemediationExceptionsRequestRequestTypeDef",
+    {
+        "ResourceKeys": List["RemediationExceptionResourceKeyTypeDef"],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeRemediationExceptionsRequestRequestTypeDef(
+    _RequiredDescribeRemediationExceptionsRequestRequestTypeDef,
+    _OptionalDescribeRemediationExceptionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeRemediationExceptionsResponseTypeDef = TypedDict(
+    "DescribeRemediationExceptionsResponseTypeDef",
+    {
+        "RemediationExceptions": List["RemediationExceptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeRemediationExecutionStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRemediationExecutionStatusRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+    },
+)
+_OptionalDescribeRemediationExecutionStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRemediationExecutionStatusRequestRequestTypeDef",
+    {
+        "ResourceKeys": List["ResourceKeyTypeDef"],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeRemediationExecutionStatusRequestRequestTypeDef(
+    _RequiredDescribeRemediationExecutionStatusRequestRequestTypeDef,
+    _OptionalDescribeRemediationExecutionStatusRequestRequestTypeDef,
+):
+    pass
+
+DescribeRemediationExecutionStatusResponseTypeDef = TypedDict(
+    "DescribeRemediationExecutionStatusResponseTypeDef",
+    {
+        "RemediationExecutionStatuses": List["RemediationExecutionStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRetentionConfigurationsRequestRequestTypeDef = TypedDict(
+    "DescribeRetentionConfigurationsRequestRequestTypeDef",
+    {
+        "RetentionConfigurationNames": List[str],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeRetentionConfigurationsResponseTypeDef = TypedDict(
+    "DescribeRetentionConfigurationsResponseTypeDef",
+    {
+        "RetentionConfigurations": List["RetentionConfigurationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 EvaluationResultIdentifierTypeDef = TypedDict(
@@ -887,7 +1552,11 @@ EvaluationResultIdentifierTypeDef = TypedDict(
 
 EvaluationResultQualifierTypeDef = TypedDict(
     "EvaluationResultQualifierTypeDef",
-    {"ConfigRuleName": str, "ResourceType": str, "ResourceId": str},
+    {
+        "ConfigRuleName": str,
+        "ResourceType": str,
+        "ResourceId": str,
+    },
     total=False,
 )
 
@@ -895,9 +1564,7 @@ EvaluationResultTypeDef = TypedDict(
     "EvaluationResultTypeDef",
     {
         "EvaluationResultIdentifier": "EvaluationResultIdentifierTypeDef",
-        "ComplianceType": Literal[
-            "COMPLIANT", "NON_COMPLIANT", "NOT_APPLICABLE", "INSUFFICIENT_DATA"
-        ],
+        "ComplianceType": ComplianceTypeType,
         "ResultRecordedTime": datetime,
         "ConfigRuleInvokedTime": datetime,
         "Annotation": str,
@@ -911,47 +1578,638 @@ _RequiredEvaluationTypeDef = TypedDict(
     {
         "ComplianceResourceType": str,
         "ComplianceResourceId": str,
-        "ComplianceType": Literal[
-            "COMPLIANT", "NON_COMPLIANT", "NOT_APPLICABLE", "INSUFFICIENT_DATA"
-        ],
-        "OrderingTimestamp": datetime,
+        "ComplianceType": ComplianceTypeType,
+        "OrderingTimestamp": Union[datetime, str],
     },
 )
 _OptionalEvaluationTypeDef = TypedDict(
-    "_OptionalEvaluationTypeDef", {"Annotation": str}, total=False
+    "_OptionalEvaluationTypeDef",
+    {
+        "Annotation": str,
+    },
+    total=False,
 )
-
 
 class EvaluationTypeDef(_RequiredEvaluationTypeDef, _OptionalEvaluationTypeDef):
     pass
 
-
 ExecutionControlsTypeDef = TypedDict(
-    "ExecutionControlsTypeDef", {"SsmControls": "SsmControlsTypeDef"}, total=False
+    "ExecutionControlsTypeDef",
+    {
+        "SsmControls": "SsmControlsTypeDef",
+    },
+    total=False,
 )
+
+_RequiredExternalEvaluationTypeDef = TypedDict(
+    "_RequiredExternalEvaluationTypeDef",
+    {
+        "ComplianceResourceType": str,
+        "ComplianceResourceId": str,
+        "ComplianceType": ComplianceTypeType,
+        "OrderingTimestamp": Union[datetime, str],
+    },
+)
+_OptionalExternalEvaluationTypeDef = TypedDict(
+    "_OptionalExternalEvaluationTypeDef",
+    {
+        "Annotation": str,
+    },
+    total=False,
+)
+
+class ExternalEvaluationTypeDef(
+    _RequiredExternalEvaluationTypeDef, _OptionalExternalEvaluationTypeDef
+):
+    pass
 
 FailedDeleteRemediationExceptionsBatchTypeDef = TypedDict(
     "FailedDeleteRemediationExceptionsBatchTypeDef",
-    {"FailureMessage": str, "FailedItems": List["RemediationExceptionResourceKeyTypeDef"]},
+    {
+        "FailureMessage": str,
+        "FailedItems": List["RemediationExceptionResourceKeyTypeDef"],
+    },
     total=False,
 )
 
 FailedRemediationBatchTypeDef = TypedDict(
     "FailedRemediationBatchTypeDef",
-    {"FailureMessage": str, "FailedItems": List["RemediationConfigurationTypeDef"]},
+    {
+        "FailureMessage": str,
+        "FailedItems": List["RemediationConfigurationTypeDef"],
+    },
     total=False,
 )
 
 FailedRemediationExceptionBatchTypeDef = TypedDict(
     "FailedRemediationExceptionBatchTypeDef",
-    {"FailureMessage": str, "FailedItems": List["RemediationExceptionTypeDef"]},
+    {
+        "FailureMessage": str,
+        "FailedItems": List["RemediationExceptionTypeDef"],
+    },
     total=False,
 )
 
-FieldInfoTypeDef = TypedDict("FieldInfoTypeDef", {"Name": str}, total=False)
+FieldInfoTypeDef = TypedDict(
+    "FieldInfoTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+_RequiredGetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+        "ConfigRuleName": str,
+        "AccountId": str,
+        "AwsRegion": str,
+    },
+)
+_OptionalGetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef",
+    {
+        "ComplianceType": ComplianceTypeType,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef(
+    _RequiredGetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef,
+    _OptionalGetAggregateComplianceDetailsByConfigRuleRequestRequestTypeDef,
+):
+    pass
+
+GetAggregateComplianceDetailsByConfigRuleResponseTypeDef = TypedDict(
+    "GetAggregateComplianceDetailsByConfigRuleResponseTypeDef",
+    {
+        "AggregateEvaluationResults": List["AggregateEvaluationResultTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalGetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef",
+    {
+        "Filters": "ConfigRuleComplianceSummaryFiltersTypeDef",
+        "GroupByKey": ConfigRuleComplianceSummaryGroupKeyType,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef(
+    _RequiredGetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef,
+    _OptionalGetAggregateConfigRuleComplianceSummaryRequestRequestTypeDef,
+):
+    pass
+
+GetAggregateConfigRuleComplianceSummaryResponseTypeDef = TypedDict(
+    "GetAggregateConfigRuleComplianceSummaryResponseTypeDef",
+    {
+        "GroupByKey": str,
+        "AggregateComplianceCounts": List["AggregateComplianceCountTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetAggregateConformancePackComplianceSummaryRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAggregateConformancePackComplianceSummaryRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalGetAggregateConformancePackComplianceSummaryRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAggregateConformancePackComplianceSummaryRequestRequestTypeDef",
+    {
+        "Filters": "AggregateConformancePackComplianceSummaryFiltersTypeDef",
+        "GroupByKey": AggregateConformancePackComplianceSummaryGroupKeyType,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetAggregateConformancePackComplianceSummaryRequestRequestTypeDef(
+    _RequiredGetAggregateConformancePackComplianceSummaryRequestRequestTypeDef,
+    _OptionalGetAggregateConformancePackComplianceSummaryRequestRequestTypeDef,
+):
+    pass
+
+GetAggregateConformancePackComplianceSummaryResponseTypeDef = TypedDict(
+    "GetAggregateConformancePackComplianceSummaryResponseTypeDef",
+    {
+        "AggregateConformancePackComplianceSummaries": List[
+            "AggregateConformancePackComplianceSummaryTypeDef"
+        ],
+        "GroupByKey": str,
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetAggregateDiscoveredResourceCountsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAggregateDiscoveredResourceCountsRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalGetAggregateDiscoveredResourceCountsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAggregateDiscoveredResourceCountsRequestRequestTypeDef",
+    {
+        "Filters": "ResourceCountFiltersTypeDef",
+        "GroupByKey": ResourceCountGroupKeyType,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetAggregateDiscoveredResourceCountsRequestRequestTypeDef(
+    _RequiredGetAggregateDiscoveredResourceCountsRequestRequestTypeDef,
+    _OptionalGetAggregateDiscoveredResourceCountsRequestRequestTypeDef,
+):
+    pass
+
+GetAggregateDiscoveredResourceCountsResponseTypeDef = TypedDict(
+    "GetAggregateDiscoveredResourceCountsResponseTypeDef",
+    {
+        "TotalDiscoveredResources": int,
+        "GroupByKey": str,
+        "GroupedResourceCounts": List["GroupedResourceCountTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAggregateResourceConfigRequestRequestTypeDef = TypedDict(
+    "GetAggregateResourceConfigRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+        "ResourceIdentifier": "AggregateResourceIdentifierTypeDef",
+    },
+)
+
+GetAggregateResourceConfigResponseTypeDef = TypedDict(
+    "GetAggregateResourceConfigResponseTypeDef",
+    {
+        "ConfigurationItem": "ConfigurationItemTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetComplianceDetailsByConfigRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredGetComplianceDetailsByConfigRuleRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+    },
+)
+_OptionalGetComplianceDetailsByConfigRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalGetComplianceDetailsByConfigRuleRequestRequestTypeDef",
+    {
+        "ComplianceTypes": List[ComplianceTypeType],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetComplianceDetailsByConfigRuleRequestRequestTypeDef(
+    _RequiredGetComplianceDetailsByConfigRuleRequestRequestTypeDef,
+    _OptionalGetComplianceDetailsByConfigRuleRequestRequestTypeDef,
+):
+    pass
+
+GetComplianceDetailsByConfigRuleResponseTypeDef = TypedDict(
+    "GetComplianceDetailsByConfigRuleResponseTypeDef",
+    {
+        "EvaluationResults": List["EvaluationResultTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetComplianceDetailsByResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredGetComplianceDetailsByResourceRequestRequestTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceId": str,
+    },
+)
+_OptionalGetComplianceDetailsByResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalGetComplianceDetailsByResourceRequestRequestTypeDef",
+    {
+        "ComplianceTypes": List[ComplianceTypeType],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetComplianceDetailsByResourceRequestRequestTypeDef(
+    _RequiredGetComplianceDetailsByResourceRequestRequestTypeDef,
+    _OptionalGetComplianceDetailsByResourceRequestRequestTypeDef,
+):
+    pass
+
+GetComplianceDetailsByResourceResponseTypeDef = TypedDict(
+    "GetComplianceDetailsByResourceResponseTypeDef",
+    {
+        "EvaluationResults": List["EvaluationResultTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetComplianceSummaryByConfigRuleResponseTypeDef = TypedDict(
+    "GetComplianceSummaryByConfigRuleResponseTypeDef",
+    {
+        "ComplianceSummary": "ComplianceSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetComplianceSummaryByResourceTypeRequestRequestTypeDef = TypedDict(
+    "GetComplianceSummaryByResourceTypeRequestRequestTypeDef",
+    {
+        "ResourceTypes": List[str],
+    },
+    total=False,
+)
+
+GetComplianceSummaryByResourceTypeResponseTypeDef = TypedDict(
+    "GetComplianceSummaryByResourceTypeResponseTypeDef",
+    {
+        "ComplianceSummariesByResourceType": List["ComplianceSummaryByResourceTypeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetConformancePackComplianceDetailsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetConformancePackComplianceDetailsRequestRequestTypeDef",
+    {
+        "ConformancePackName": str,
+    },
+)
+_OptionalGetConformancePackComplianceDetailsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetConformancePackComplianceDetailsRequestRequestTypeDef",
+    {
+        "Filters": "ConformancePackEvaluationFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetConformancePackComplianceDetailsRequestRequestTypeDef(
+    _RequiredGetConformancePackComplianceDetailsRequestRequestTypeDef,
+    _OptionalGetConformancePackComplianceDetailsRequestRequestTypeDef,
+):
+    pass
+
+GetConformancePackComplianceDetailsResponseTypeDef = TypedDict(
+    "GetConformancePackComplianceDetailsResponseTypeDef",
+    {
+        "ConformancePackName": str,
+        "ConformancePackRuleEvaluationResults": List["ConformancePackEvaluationResultTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetConformancePackComplianceSummaryRequestRequestTypeDef = TypedDict(
+    "_RequiredGetConformancePackComplianceSummaryRequestRequestTypeDef",
+    {
+        "ConformancePackNames": List[str],
+    },
+)
+_OptionalGetConformancePackComplianceSummaryRequestRequestTypeDef = TypedDict(
+    "_OptionalGetConformancePackComplianceSummaryRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetConformancePackComplianceSummaryRequestRequestTypeDef(
+    _RequiredGetConformancePackComplianceSummaryRequestRequestTypeDef,
+    _OptionalGetConformancePackComplianceSummaryRequestRequestTypeDef,
+):
+    pass
+
+GetConformancePackComplianceSummaryResponseTypeDef = TypedDict(
+    "GetConformancePackComplianceSummaryResponseTypeDef",
+    {
+        "ConformancePackComplianceSummaryList": List["ConformancePackComplianceSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDiscoveredResourceCountsRequestRequestTypeDef = TypedDict(
+    "GetDiscoveredResourceCountsRequestRequestTypeDef",
+    {
+        "resourceTypes": List[str],
+        "limit": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+GetDiscoveredResourceCountsResponseTypeDef = TypedDict(
+    "GetDiscoveredResourceCountsResponseTypeDef",
+    {
+        "totalDiscoveredResources": int,
+        "resourceCounts": List["ResourceCountTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredGetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef",
+    {
+        "OrganizationConfigRuleName": str,
+    },
+)
+_OptionalGetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalGetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef",
+    {
+        "Filters": "StatusDetailFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef(
+    _RequiredGetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef,
+    _OptionalGetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef,
+):
+    pass
+
+GetOrganizationConfigRuleDetailedStatusResponseTypeDef = TypedDict(
+    "GetOrganizationConfigRuleDetailedStatusResponseTypeDef",
+    {
+        "OrganizationConfigRuleDetailedStatus": List["MemberAccountStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetOrganizationConformancePackDetailedStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredGetOrganizationConformancePackDetailedStatusRequestRequestTypeDef",
+    {
+        "OrganizationConformancePackName": str,
+    },
+)
+_OptionalGetOrganizationConformancePackDetailedStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalGetOrganizationConformancePackDetailedStatusRequestRequestTypeDef",
+    {
+        "Filters": "OrganizationResourceDetailedStatusFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetOrganizationConformancePackDetailedStatusRequestRequestTypeDef(
+    _RequiredGetOrganizationConformancePackDetailedStatusRequestRequestTypeDef,
+    _OptionalGetOrganizationConformancePackDetailedStatusRequestRequestTypeDef,
+):
+    pass
+
+GetOrganizationConformancePackDetailedStatusResponseTypeDef = TypedDict(
+    "GetOrganizationConformancePackDetailedStatusResponseTypeDef",
+    {
+        "OrganizationConformancePackDetailedStatuses": List[
+            "OrganizationConformancePackDetailedStatusTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetResourceConfigHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredGetResourceConfigHistoryRequestRequestTypeDef",
+    {
+        "resourceType": ResourceTypeType,
+        "resourceId": str,
+    },
+)
+_OptionalGetResourceConfigHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalGetResourceConfigHistoryRequestRequestTypeDef",
+    {
+        "laterTime": Union[datetime, str],
+        "earlierTime": Union[datetime, str],
+        "chronologicalOrder": ChronologicalOrderType,
+        "limit": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class GetResourceConfigHistoryRequestRequestTypeDef(
+    _RequiredGetResourceConfigHistoryRequestRequestTypeDef,
+    _OptionalGetResourceConfigHistoryRequestRequestTypeDef,
+):
+    pass
+
+GetResourceConfigHistoryResponseTypeDef = TypedDict(
+    "GetResourceConfigHistoryResponseTypeDef",
+    {
+        "configurationItems": List["ConfigurationItemTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetStoredQueryRequestRequestTypeDef = TypedDict(
+    "GetStoredQueryRequestRequestTypeDef",
+    {
+        "QueryName": str,
+    },
+)
+
+GetStoredQueryResponseTypeDef = TypedDict(
+    "GetStoredQueryResponseTypeDef",
+    {
+        "StoredQuery": "StoredQueryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 GroupedResourceCountTypeDef = TypedDict(
-    "GroupedResourceCountTypeDef", {"GroupName": str, "ResourceCount": int}
+    "GroupedResourceCountTypeDef",
+    {
+        "GroupName": str,
+        "ResourceCount": int,
+    },
+)
+
+_RequiredListAggregateDiscoveredResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAggregateDiscoveredResourcesRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+        "ResourceType": ResourceTypeType,
+    },
+)
+_OptionalListAggregateDiscoveredResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAggregateDiscoveredResourcesRequestRequestTypeDef",
+    {
+        "Filters": "ResourceFiltersTypeDef",
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAggregateDiscoveredResourcesRequestRequestTypeDef(
+    _RequiredListAggregateDiscoveredResourcesRequestRequestTypeDef,
+    _OptionalListAggregateDiscoveredResourcesRequestRequestTypeDef,
+):
+    pass
+
+ListAggregateDiscoveredResourcesResponseTypeDef = TypedDict(
+    "ListAggregateDiscoveredResourcesResponseTypeDef",
+    {
+        "ResourceIdentifiers": List["AggregateResourceIdentifierTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDiscoveredResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListDiscoveredResourcesRequestRequestTypeDef",
+    {
+        "resourceType": ResourceTypeType,
+    },
+)
+_OptionalListDiscoveredResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListDiscoveredResourcesRequestRequestTypeDef",
+    {
+        "resourceIds": List[str],
+        "resourceName": str,
+        "limit": int,
+        "includeDeletedResources": bool,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListDiscoveredResourcesRequestRequestTypeDef(
+    _RequiredListDiscoveredResourcesRequestRequestTypeDef,
+    _OptionalListDiscoveredResourcesRequestRequestTypeDef,
+):
+    pass
+
+ListDiscoveredResourcesResponseTypeDef = TypedDict(
+    "ListDiscoveredResourcesResponseTypeDef",
+    {
+        "resourceIdentifiers": List["ResourceIdentifierTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListStoredQueriesRequestRequestTypeDef = TypedDict(
+    "ListStoredQueriesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListStoredQueriesResponseTypeDef = TypedDict(
+    "ListStoredQueriesResponseTypeDef",
+    {
+        "StoredQueryMetadata": List["StoredQueryMetadataTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "_RequiredListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "_OptionalListTagsForResourceRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListTagsForResourceRequestRequestTypeDef(
+    _RequiredListTagsForResourceRequestRequestTypeDef,
+    _OptionalListTagsForResourceRequestRequestTypeDef,
+):
+    pass
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredMemberAccountStatusTypeDef = TypedDict(
@@ -959,81 +2217,72 @@ _RequiredMemberAccountStatusTypeDef = TypedDict(
     {
         "AccountId": str,
         "ConfigRuleName": str,
-        "MemberAccountRuleStatus": Literal[
-            "CREATE_SUCCESSFUL",
-            "CREATE_IN_PROGRESS",
-            "CREATE_FAILED",
-            "DELETE_SUCCESSFUL",
-            "DELETE_FAILED",
-            "DELETE_IN_PROGRESS",
-            "UPDATE_SUCCESSFUL",
-            "UPDATE_IN_PROGRESS",
-            "UPDATE_FAILED",
-        ],
+        "MemberAccountRuleStatus": MemberAccountRuleStatusType,
     },
 )
 _OptionalMemberAccountStatusTypeDef = TypedDict(
     "_OptionalMemberAccountStatusTypeDef",
-    {"ErrorCode": str, "ErrorMessage": str, "LastUpdateTime": datetime},
+    {
+        "ErrorCode": str,
+        "ErrorMessage": str,
+        "LastUpdateTime": datetime,
+    },
     total=False,
 )
-
 
 class MemberAccountStatusTypeDef(
     _RequiredMemberAccountStatusTypeDef, _OptionalMemberAccountStatusTypeDef
 ):
     pass
 
-
 _RequiredOrganizationAggregationSourceTypeDef = TypedDict(
-    "_RequiredOrganizationAggregationSourceTypeDef", {"RoleArn": str}
+    "_RequiredOrganizationAggregationSourceTypeDef",
+    {
+        "RoleArn": str,
+    },
 )
 _OptionalOrganizationAggregationSourceTypeDef = TypedDict(
     "_OptionalOrganizationAggregationSourceTypeDef",
-    {"AwsRegions": List[str], "AllAwsRegions": bool},
+    {
+        "AwsRegions": List[str],
+        "AllAwsRegions": bool,
+    },
     total=False,
 )
-
 
 class OrganizationAggregationSourceTypeDef(
     _RequiredOrganizationAggregationSourceTypeDef, _OptionalOrganizationAggregationSourceTypeDef
 ):
     pass
 
-
 _RequiredOrganizationConfigRuleStatusTypeDef = TypedDict(
     "_RequiredOrganizationConfigRuleStatusTypeDef",
     {
         "OrganizationConfigRuleName": str,
-        "OrganizationRuleStatus": Literal[
-            "CREATE_SUCCESSFUL",
-            "CREATE_IN_PROGRESS",
-            "CREATE_FAILED",
-            "DELETE_SUCCESSFUL",
-            "DELETE_FAILED",
-            "DELETE_IN_PROGRESS",
-            "UPDATE_SUCCESSFUL",
-            "UPDATE_IN_PROGRESS",
-            "UPDATE_FAILED",
-        ],
+        "OrganizationRuleStatus": OrganizationRuleStatusType,
     },
 )
 _OptionalOrganizationConfigRuleStatusTypeDef = TypedDict(
     "_OptionalOrganizationConfigRuleStatusTypeDef",
-    {"ErrorCode": str, "ErrorMessage": str, "LastUpdateTime": datetime},
+    {
+        "ErrorCode": str,
+        "ErrorMessage": str,
+        "LastUpdateTime": datetime,
+    },
     total=False,
 )
-
 
 class OrganizationConfigRuleStatusTypeDef(
     _RequiredOrganizationConfigRuleStatusTypeDef, _OptionalOrganizationConfigRuleStatusTypeDef
 ):
     pass
 
-
 _RequiredOrganizationConfigRuleTypeDef = TypedDict(
     "_RequiredOrganizationConfigRuleTypeDef",
-    {"OrganizationConfigRuleName": str, "OrganizationConfigRuleArn": str},
+    {
+        "OrganizationConfigRuleName": str,
+        "OrganizationConfigRuleArn": str,
+    },
 )
 _OptionalOrganizationConfigRuleTypeDef = TypedDict(
     "_OptionalOrganizationConfigRuleTypeDef",
@@ -1046,37 +2295,28 @@ _OptionalOrganizationConfigRuleTypeDef = TypedDict(
     total=False,
 )
 
-
 class OrganizationConfigRuleTypeDef(
     _RequiredOrganizationConfigRuleTypeDef, _OptionalOrganizationConfigRuleTypeDef
 ):
     pass
-
 
 _RequiredOrganizationConformancePackDetailedStatusTypeDef = TypedDict(
     "_RequiredOrganizationConformancePackDetailedStatusTypeDef",
     {
         "AccountId": str,
         "ConformancePackName": str,
-        "Status": Literal[
-            "CREATE_SUCCESSFUL",
-            "CREATE_IN_PROGRESS",
-            "CREATE_FAILED",
-            "DELETE_SUCCESSFUL",
-            "DELETE_FAILED",
-            "DELETE_IN_PROGRESS",
-            "UPDATE_SUCCESSFUL",
-            "UPDATE_IN_PROGRESS",
-            "UPDATE_FAILED",
-        ],
+        "Status": OrganizationResourceDetailedStatusType,
     },
 )
 _OptionalOrganizationConformancePackDetailedStatusTypeDef = TypedDict(
     "_OptionalOrganizationConformancePackDetailedStatusTypeDef",
-    {"ErrorCode": str, "ErrorMessage": str, "LastUpdateTime": datetime},
+    {
+        "ErrorCode": str,
+        "ErrorMessage": str,
+        "LastUpdateTime": datetime,
+    },
     total=False,
 )
-
 
 class OrganizationConformancePackDetailedStatusTypeDef(
     _RequiredOrganizationConformancePackDetailedStatusTypeDef,
@@ -1084,37 +2324,28 @@ class OrganizationConformancePackDetailedStatusTypeDef(
 ):
     pass
 
-
 _RequiredOrganizationConformancePackStatusTypeDef = TypedDict(
     "_RequiredOrganizationConformancePackStatusTypeDef",
     {
         "OrganizationConformancePackName": str,
-        "Status": Literal[
-            "CREATE_SUCCESSFUL",
-            "CREATE_IN_PROGRESS",
-            "CREATE_FAILED",
-            "DELETE_SUCCESSFUL",
-            "DELETE_FAILED",
-            "DELETE_IN_PROGRESS",
-            "UPDATE_SUCCESSFUL",
-            "UPDATE_IN_PROGRESS",
-            "UPDATE_FAILED",
-        ],
+        "Status": OrganizationResourceStatusType,
     },
 )
 _OptionalOrganizationConformancePackStatusTypeDef = TypedDict(
     "_OptionalOrganizationConformancePackStatusTypeDef",
-    {"ErrorCode": str, "ErrorMessage": str, "LastUpdateTime": datetime},
+    {
+        "ErrorCode": str,
+        "ErrorMessage": str,
+        "LastUpdateTime": datetime,
+    },
     total=False,
 )
-
 
 class OrganizationConformancePackStatusTypeDef(
     _RequiredOrganizationConformancePackStatusTypeDef,
     _OptionalOrganizationConformancePackStatusTypeDef,
 ):
     pass
-
 
 _RequiredOrganizationConformancePackTypeDef = TypedDict(
     "_RequiredOrganizationConformancePackTypeDef",
@@ -1135,24 +2366,16 @@ _OptionalOrganizationConformancePackTypeDef = TypedDict(
     total=False,
 )
 
-
 class OrganizationConformancePackTypeDef(
     _RequiredOrganizationConformancePackTypeDef, _OptionalOrganizationConformancePackTypeDef
 ):
     pass
 
-
 _RequiredOrganizationCustomRuleMetadataTypeDef = TypedDict(
     "_RequiredOrganizationCustomRuleMetadataTypeDef",
     {
         "LambdaFunctionArn": str,
-        "OrganizationConfigRuleTriggerTypes": List[
-            Literal[
-                "ConfigurationItemChangeNotification",
-                "OversizedConfigurationItemChangeNotification",
-                "ScheduledNotification",
-            ]
-        ],
+        "OrganizationConfigRuleTriggerTypes": List[OrganizationConfigRuleTriggerTypeType],
     },
 )
 _OptionalOrganizationCustomRuleMetadataTypeDef = TypedDict(
@@ -1160,9 +2383,7 @@ _OptionalOrganizationCustomRuleMetadataTypeDef = TypedDict(
     {
         "Description": str,
         "InputParameters": str,
-        "MaximumExecutionFrequency": Literal[
-            "One_Hour", "Three_Hours", "Six_Hours", "Twelve_Hours", "TwentyFour_Hours"
-        ],
+        "MaximumExecutionFrequency": MaximumExecutionFrequencyType,
         "ResourceTypesScope": List[str],
         "ResourceIdScope": str,
         "TagKeyScope": str,
@@ -1170,25 +2391,24 @@ _OptionalOrganizationCustomRuleMetadataTypeDef = TypedDict(
     },
     total=False,
 )
-
 
 class OrganizationCustomRuleMetadataTypeDef(
     _RequiredOrganizationCustomRuleMetadataTypeDef, _OptionalOrganizationCustomRuleMetadataTypeDef
 ):
     pass
 
-
 _RequiredOrganizationManagedRuleMetadataTypeDef = TypedDict(
-    "_RequiredOrganizationManagedRuleMetadataTypeDef", {"RuleIdentifier": str}
+    "_RequiredOrganizationManagedRuleMetadataTypeDef",
+    {
+        "RuleIdentifier": str,
+    },
 )
 _OptionalOrganizationManagedRuleMetadataTypeDef = TypedDict(
     "_OptionalOrganizationManagedRuleMetadataTypeDef",
     {
         "Description": str,
         "InputParameters": str,
-        "MaximumExecutionFrequency": Literal[
-            "One_Hour", "Three_Hours", "Six_Hours", "Twelve_Hours", "TwentyFour_Hours"
-        ],
+        "MaximumExecutionFrequency": MaximumExecutionFrequencyType,
         "ResourceTypesScope": List[str],
         "ResourceIdScope": str,
         "TagKeyScope": str,
@@ -1197,21 +2417,378 @@ _OptionalOrganizationManagedRuleMetadataTypeDef = TypedDict(
     total=False,
 )
 
-
 class OrganizationManagedRuleMetadataTypeDef(
     _RequiredOrganizationManagedRuleMetadataTypeDef, _OptionalOrganizationManagedRuleMetadataTypeDef
 ):
     pass
 
-
-PendingAggregationRequestTypeDef = TypedDict(
-    "PendingAggregationRequestTypeDef",
-    {"RequesterAccountId": str, "RequesterAwsRegion": str},
+OrganizationResourceDetailedStatusFiltersTypeDef = TypedDict(
+    "OrganizationResourceDetailedStatusFiltersTypeDef",
+    {
+        "AccountId": str,
+        "Status": OrganizationResourceDetailedStatusType,
+    },
     total=False,
 )
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+PendingAggregationRequestTypeDef = TypedDict(
+    "PendingAggregationRequestTypeDef",
+    {
+        "RequesterAccountId": str,
+        "RequesterAwsRegion": str,
+    },
+    total=False,
+)
+
+_RequiredPutAggregationAuthorizationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutAggregationAuthorizationRequestRequestTypeDef",
+    {
+        "AuthorizedAccountId": str,
+        "AuthorizedAwsRegion": str,
+    },
+)
+_OptionalPutAggregationAuthorizationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutAggregationAuthorizationRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class PutAggregationAuthorizationRequestRequestTypeDef(
+    _RequiredPutAggregationAuthorizationRequestRequestTypeDef,
+    _OptionalPutAggregationAuthorizationRequestRequestTypeDef,
+):
+    pass
+
+PutAggregationAuthorizationResponseTypeDef = TypedDict(
+    "PutAggregationAuthorizationResponseTypeDef",
+    {
+        "AggregationAuthorization": "AggregationAuthorizationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutConfigRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredPutConfigRuleRequestRequestTypeDef",
+    {
+        "ConfigRule": "ConfigRuleTypeDef",
+    },
+)
+_OptionalPutConfigRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalPutConfigRuleRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class PutConfigRuleRequestRequestTypeDef(
+    _RequiredPutConfigRuleRequestRequestTypeDef, _OptionalPutConfigRuleRequestRequestTypeDef
+):
+    pass
+
+_RequiredPutConfigurationAggregatorRequestRequestTypeDef = TypedDict(
+    "_RequiredPutConfigurationAggregatorRequestRequestTypeDef",
+    {
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalPutConfigurationAggregatorRequestRequestTypeDef = TypedDict(
+    "_OptionalPutConfigurationAggregatorRequestRequestTypeDef",
+    {
+        "AccountAggregationSources": List["AccountAggregationSourceTypeDef"],
+        "OrganizationAggregationSource": "OrganizationAggregationSourceTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class PutConfigurationAggregatorRequestRequestTypeDef(
+    _RequiredPutConfigurationAggregatorRequestRequestTypeDef,
+    _OptionalPutConfigurationAggregatorRequestRequestTypeDef,
+):
+    pass
+
+PutConfigurationAggregatorResponseTypeDef = TypedDict(
+    "PutConfigurationAggregatorResponseTypeDef",
+    {
+        "ConfigurationAggregator": "ConfigurationAggregatorTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutConfigurationRecorderRequestRequestTypeDef = TypedDict(
+    "PutConfigurationRecorderRequestRequestTypeDef",
+    {
+        "ConfigurationRecorder": "ConfigurationRecorderTypeDef",
+    },
+)
+
+_RequiredPutConformancePackRequestRequestTypeDef = TypedDict(
+    "_RequiredPutConformancePackRequestRequestTypeDef",
+    {
+        "ConformancePackName": str,
+    },
+)
+_OptionalPutConformancePackRequestRequestTypeDef = TypedDict(
+    "_OptionalPutConformancePackRequestRequestTypeDef",
+    {
+        "TemplateS3Uri": str,
+        "TemplateBody": str,
+        "DeliveryS3Bucket": str,
+        "DeliveryS3KeyPrefix": str,
+        "ConformancePackInputParameters": List["ConformancePackInputParameterTypeDef"],
+    },
+    total=False,
+)
+
+class PutConformancePackRequestRequestTypeDef(
+    _RequiredPutConformancePackRequestRequestTypeDef,
+    _OptionalPutConformancePackRequestRequestTypeDef,
+):
+    pass
+
+PutConformancePackResponseTypeDef = TypedDict(
+    "PutConformancePackResponseTypeDef",
+    {
+        "ConformancePackArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutDeliveryChannelRequestRequestTypeDef = TypedDict(
+    "PutDeliveryChannelRequestRequestTypeDef",
+    {
+        "DeliveryChannel": "DeliveryChannelTypeDef",
+    },
+)
+
+_RequiredPutEvaluationsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutEvaluationsRequestRequestTypeDef",
+    {
+        "ResultToken": str,
+    },
+)
+_OptionalPutEvaluationsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutEvaluationsRequestRequestTypeDef",
+    {
+        "Evaluations": List["EvaluationTypeDef"],
+        "TestMode": bool,
+    },
+    total=False,
+)
+
+class PutEvaluationsRequestRequestTypeDef(
+    _RequiredPutEvaluationsRequestRequestTypeDef, _OptionalPutEvaluationsRequestRequestTypeDef
+):
+    pass
+
+PutEvaluationsResponseTypeDef = TypedDict(
+    "PutEvaluationsResponseTypeDef",
+    {
+        "FailedEvaluations": List["EvaluationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutExternalEvaluationRequestRequestTypeDef = TypedDict(
+    "PutExternalEvaluationRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+        "ExternalEvaluation": "ExternalEvaluationTypeDef",
+    },
+)
+
+_RequiredPutOrganizationConfigRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredPutOrganizationConfigRuleRequestRequestTypeDef",
+    {
+        "OrganizationConfigRuleName": str,
+    },
+)
+_OptionalPutOrganizationConfigRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalPutOrganizationConfigRuleRequestRequestTypeDef",
+    {
+        "OrganizationManagedRuleMetadata": "OrganizationManagedRuleMetadataTypeDef",
+        "OrganizationCustomRuleMetadata": "OrganizationCustomRuleMetadataTypeDef",
+        "ExcludedAccounts": List[str],
+    },
+    total=False,
+)
+
+class PutOrganizationConfigRuleRequestRequestTypeDef(
+    _RequiredPutOrganizationConfigRuleRequestRequestTypeDef,
+    _OptionalPutOrganizationConfigRuleRequestRequestTypeDef,
+):
+    pass
+
+PutOrganizationConfigRuleResponseTypeDef = TypedDict(
+    "PutOrganizationConfigRuleResponseTypeDef",
+    {
+        "OrganizationConfigRuleArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutOrganizationConformancePackRequestRequestTypeDef = TypedDict(
+    "_RequiredPutOrganizationConformancePackRequestRequestTypeDef",
+    {
+        "OrganizationConformancePackName": str,
+    },
+)
+_OptionalPutOrganizationConformancePackRequestRequestTypeDef = TypedDict(
+    "_OptionalPutOrganizationConformancePackRequestRequestTypeDef",
+    {
+        "TemplateS3Uri": str,
+        "TemplateBody": str,
+        "DeliveryS3Bucket": str,
+        "DeliveryS3KeyPrefix": str,
+        "ConformancePackInputParameters": List["ConformancePackInputParameterTypeDef"],
+        "ExcludedAccounts": List[str],
+    },
+    total=False,
+)
+
+class PutOrganizationConformancePackRequestRequestTypeDef(
+    _RequiredPutOrganizationConformancePackRequestRequestTypeDef,
+    _OptionalPutOrganizationConformancePackRequestRequestTypeDef,
+):
+    pass
+
+PutOrganizationConformancePackResponseTypeDef = TypedDict(
+    "PutOrganizationConformancePackResponseTypeDef",
+    {
+        "OrganizationConformancePackArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PutRemediationConfigurationsRequestRequestTypeDef = TypedDict(
+    "PutRemediationConfigurationsRequestRequestTypeDef",
+    {
+        "RemediationConfigurations": List["RemediationConfigurationTypeDef"],
+    },
+)
+
+PutRemediationConfigurationsResponseTypeDef = TypedDict(
+    "PutRemediationConfigurationsResponseTypeDef",
+    {
+        "FailedBatches": List["FailedRemediationBatchTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutRemediationExceptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutRemediationExceptionsRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+        "ResourceKeys": List["RemediationExceptionResourceKeyTypeDef"],
+    },
+)
+_OptionalPutRemediationExceptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutRemediationExceptionsRequestRequestTypeDef",
+    {
+        "Message": str,
+        "ExpirationTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class PutRemediationExceptionsRequestRequestTypeDef(
+    _RequiredPutRemediationExceptionsRequestRequestTypeDef,
+    _OptionalPutRemediationExceptionsRequestRequestTypeDef,
+):
+    pass
+
+PutRemediationExceptionsResponseTypeDef = TypedDict(
+    "PutRemediationExceptionsResponseTypeDef",
+    {
+        "FailedBatches": List["FailedRemediationExceptionBatchTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutResourceConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredPutResourceConfigRequestRequestTypeDef",
+    {
+        "ResourceType": str,
+        "SchemaVersionId": str,
+        "ResourceId": str,
+        "Configuration": str,
+    },
+)
+_OptionalPutResourceConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalPutResourceConfigRequestRequestTypeDef",
+    {
+        "ResourceName": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class PutResourceConfigRequestRequestTypeDef(
+    _RequiredPutResourceConfigRequestRequestTypeDef, _OptionalPutResourceConfigRequestRequestTypeDef
+):
+    pass
+
+PutRetentionConfigurationRequestRequestTypeDef = TypedDict(
+    "PutRetentionConfigurationRequestRequestTypeDef",
+    {
+        "RetentionPeriodInDays": int,
+    },
+)
+
+PutRetentionConfigurationResponseTypeDef = TypedDict(
+    "PutRetentionConfigurationResponseTypeDef",
+    {
+        "RetentionConfiguration": "RetentionConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutStoredQueryRequestRequestTypeDef = TypedDict(
+    "_RequiredPutStoredQueryRequestRequestTypeDef",
+    {
+        "StoredQuery": "StoredQueryTypeDef",
+    },
+)
+_OptionalPutStoredQueryRequestRequestTypeDef = TypedDict(
+    "_OptionalPutStoredQueryRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class PutStoredQueryRequestRequestTypeDef(
+    _RequiredPutStoredQueryRequestRequestTypeDef, _OptionalPutStoredQueryRequestRequestTypeDef
+):
+    pass
+
+PutStoredQueryResponseTypeDef = TypedDict(
+    "PutStoredQueryResponseTypeDef",
+    {
+        "QueryArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 QueryInfoTypeDef = TypedDict(
-    "QueryInfoTypeDef", {"SelectFields": List["FieldInfoTypeDef"]}, total=False
+    "QueryInfoTypeDef",
+    {
+        "SelectFields": List["FieldInfoTypeDef"],
+    },
+    total=False,
 )
 
 RecordingGroupTypeDef = TypedDict(
@@ -1219,106 +2796,7 @@ RecordingGroupTypeDef = TypedDict(
     {
         "allSupported": bool,
         "includeGlobalResourceTypes": bool,
-        "resourceTypes": List[
-            Literal[
-                "AWS::EC2::CustomerGateway",
-                "AWS::EC2::EIP",
-                "AWS::EC2::Host",
-                "AWS::EC2::Instance",
-                "AWS::EC2::InternetGateway",
-                "AWS::EC2::NetworkAcl",
-                "AWS::EC2::NetworkInterface",
-                "AWS::EC2::RouteTable",
-                "AWS::EC2::SecurityGroup",
-                "AWS::EC2::Subnet",
-                "AWS::CloudTrail::Trail",
-                "AWS::EC2::Volume",
-                "AWS::EC2::VPC",
-                "AWS::EC2::VPNConnection",
-                "AWS::EC2::VPNGateway",
-                "AWS::EC2::RegisteredHAInstance",
-                "AWS::EC2::NatGateway",
-                "AWS::EC2::EgressOnlyInternetGateway",
-                "AWS::EC2::VPCEndpoint",
-                "AWS::EC2::VPCEndpointService",
-                "AWS::EC2::FlowLog",
-                "AWS::EC2::VPCPeeringConnection",
-                "AWS::Elasticsearch::Domain",
-                "AWS::IAM::Group",
-                "AWS::IAM::Policy",
-                "AWS::IAM::Role",
-                "AWS::IAM::User",
-                "AWS::ElasticLoadBalancingV2::LoadBalancer",
-                "AWS::ACM::Certificate",
-                "AWS::RDS::DBInstance",
-                "AWS::RDS::DBSubnetGroup",
-                "AWS::RDS::DBSecurityGroup",
-                "AWS::RDS::DBSnapshot",
-                "AWS::RDS::DBCluster",
-                "AWS::RDS::DBClusterSnapshot",
-                "AWS::RDS::EventSubscription",
-                "AWS::S3::Bucket",
-                "AWS::S3::AccountPublicAccessBlock",
-                "AWS::Redshift::Cluster",
-                "AWS::Redshift::ClusterSnapshot",
-                "AWS::Redshift::ClusterParameterGroup",
-                "AWS::Redshift::ClusterSecurityGroup",
-                "AWS::Redshift::ClusterSubnetGroup",
-                "AWS::Redshift::EventSubscription",
-                "AWS::SSM::ManagedInstanceInventory",
-                "AWS::CloudWatch::Alarm",
-                "AWS::CloudFormation::Stack",
-                "AWS::ElasticLoadBalancing::LoadBalancer",
-                "AWS::AutoScaling::AutoScalingGroup",
-                "AWS::AutoScaling::LaunchConfiguration",
-                "AWS::AutoScaling::ScalingPolicy",
-                "AWS::AutoScaling::ScheduledAction",
-                "AWS::DynamoDB::Table",
-                "AWS::CodeBuild::Project",
-                "AWS::WAF::RateBasedRule",
-                "AWS::WAF::Rule",
-                "AWS::WAF::RuleGroup",
-                "AWS::WAF::WebACL",
-                "AWS::WAFRegional::RateBasedRule",
-                "AWS::WAFRegional::Rule",
-                "AWS::WAFRegional::RuleGroup",
-                "AWS::WAFRegional::WebACL",
-                "AWS::CloudFront::Distribution",
-                "AWS::CloudFront::StreamingDistribution",
-                "AWS::Lambda::Function",
-                "AWS::NetworkFirewall::Firewall",
-                "AWS::NetworkFirewall::FirewallPolicy",
-                "AWS::NetworkFirewall::RuleGroup",
-                "AWS::ElasticBeanstalk::Application",
-                "AWS::ElasticBeanstalk::ApplicationVersion",
-                "AWS::ElasticBeanstalk::Environment",
-                "AWS::WAFv2::WebACL",
-                "AWS::WAFv2::RuleGroup",
-                "AWS::WAFv2::IPSet",
-                "AWS::WAFv2::RegexPatternSet",
-                "AWS::WAFv2::ManagedRuleSet",
-                "AWS::XRay::EncryptionConfig",
-                "AWS::SSM::AssociationCompliance",
-                "AWS::SSM::PatchCompliance",
-                "AWS::Shield::Protection",
-                "AWS::ShieldRegional::Protection",
-                "AWS::Config::ResourceCompliance",
-                "AWS::ApiGateway::Stage",
-                "AWS::ApiGateway::RestApi",
-                "AWS::ApiGatewayV2::Stage",
-                "AWS::ApiGatewayV2::Api",
-                "AWS::CodePipeline::Pipeline",
-                "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-                "AWS::ServiceCatalog::CloudFormationProduct",
-                "AWS::ServiceCatalog::Portfolio",
-                "AWS::SQS::Queue",
-                "AWS::KMS::Key",
-                "AWS::QLDB::Ledger",
-                "AWS::SecretsManager::Secret",
-                "AWS::SNS::Topic",
-                "AWS::SSM::FileData",
-            ]
-        ],
+        "resourceTypes": List[ResourceTypeType],
     },
     total=False,
 )
@@ -1326,104 +2804,7 @@ RecordingGroupTypeDef = TypedDict(
 RelationshipTypeDef = TypedDict(
     "RelationshipTypeDef",
     {
-        "resourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
+        "resourceType": ResourceTypeType,
         "resourceId": str,
         "resourceName": str,
         "relationshipName": str,
@@ -1433,7 +2814,11 @@ RelationshipTypeDef = TypedDict(
 
 _RequiredRemediationConfigurationTypeDef = TypedDict(
     "_RequiredRemediationConfigurationTypeDef",
-    {"ConfigRuleName": str, "TargetType": Literal["SSM_DOCUMENT"], "TargetId": str},
+    {
+        "ConfigRuleName": str,
+        "TargetType": Literal["SSM_DOCUMENT"],
+        "TargetId": str,
+    },
 )
 _OptionalRemediationConfigurationTypeDef = TypedDict(
     "_OptionalRemediationConfigurationTypeDef",
@@ -1451,39 +2836,47 @@ _OptionalRemediationConfigurationTypeDef = TypedDict(
     total=False,
 )
 
-
 class RemediationConfigurationTypeDef(
     _RequiredRemediationConfigurationTypeDef, _OptionalRemediationConfigurationTypeDef
 ):
     pass
 
-
 RemediationExceptionResourceKeyTypeDef = TypedDict(
-    "RemediationExceptionResourceKeyTypeDef", {"ResourceType": str, "ResourceId": str}, total=False
+    "RemediationExceptionResourceKeyTypeDef",
+    {
+        "ResourceType": str,
+        "ResourceId": str,
+    },
+    total=False,
 )
 
 _RequiredRemediationExceptionTypeDef = TypedDict(
     "_RequiredRemediationExceptionTypeDef",
-    {"ConfigRuleName": str, "ResourceType": str, "ResourceId": str},
+    {
+        "ConfigRuleName": str,
+        "ResourceType": str,
+        "ResourceId": str,
+    },
 )
 _OptionalRemediationExceptionTypeDef = TypedDict(
     "_OptionalRemediationExceptionTypeDef",
-    {"Message": str, "ExpirationTime": datetime},
+    {
+        "Message": str,
+        "ExpirationTime": datetime,
+    },
     total=False,
 )
-
 
 class RemediationExceptionTypeDef(
     _RequiredRemediationExceptionTypeDef, _OptionalRemediationExceptionTypeDef
 ):
     pass
 
-
 RemediationExecutionStatusTypeDef = TypedDict(
     "RemediationExecutionStatusTypeDef",
     {
         "ResourceKey": "ResourceKeyTypeDef",
-        "State": Literal["QUEUED", "IN_PROGRESS", "SUCCEEDED", "FAILED"],
+        "State": RemediationExecutionStateType,
         "StepDetails": List["RemediationExecutionStepTypeDef"],
         "InvocationTime": datetime,
         "LastUpdatedTime": datetime,
@@ -1495,7 +2888,7 @@ RemediationExecutionStepTypeDef = TypedDict(
     "RemediationExecutionStepTypeDef",
     {
         "Name": str,
-        "State": Literal["SUCCEEDED", "PENDING", "FAILED"],
+        "State": RemediationExecutionStepStateType,
         "ErrorMessage": str,
         "StartTime": datetime,
         "StopTime": datetime,
@@ -1505,112 +2898,39 @@ RemediationExecutionStepTypeDef = TypedDict(
 
 RemediationParameterValueTypeDef = TypedDict(
     "RemediationParameterValueTypeDef",
-    {"ResourceValue": "ResourceValueTypeDef", "StaticValue": "StaticValueTypeDef"},
+    {
+        "ResourceValue": "ResourceValueTypeDef",
+        "StaticValue": "StaticValueTypeDef",
+    },
+    total=False,
+)
+
+ResourceCountFiltersTypeDef = TypedDict(
+    "ResourceCountFiltersTypeDef",
+    {
+        "ResourceType": ResourceTypeType,
+        "AccountId": str,
+        "Region": str,
+    },
     total=False,
 )
 
 ResourceCountTypeDef = TypedDict(
     "ResourceCountTypeDef",
     {
-        "resourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
+        "resourceType": ResourceTypeType,
         "count": int,
+    },
+    total=False,
+)
+
+ResourceFiltersTypeDef = TypedDict(
+    "ResourceFiltersTypeDef",
+    {
+        "AccountId": str,
+        "ResourceId": str,
+        "ResourceName": str,
+        "Region": str,
     },
     total=False,
 )
@@ -1618,104 +2938,7 @@ ResourceCountTypeDef = TypedDict(
 ResourceIdentifierTypeDef = TypedDict(
     "ResourceIdentifierTypeDef",
     {
-        "resourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
+        "resourceType": ResourceTypeType,
         "resourceId": str,
         "resourceName": str,
         "resourceDeletionTime": datetime,
@@ -1726,112 +2949,35 @@ ResourceIdentifierTypeDef = TypedDict(
 ResourceKeyTypeDef = TypedDict(
     "ResourceKeyTypeDef",
     {
-        "resourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
+        "resourceType": ResourceTypeType,
         "resourceId": str,
     },
 )
 
-ResourceValueTypeDef = TypedDict("ResourceValueTypeDef", {"Value": Literal["RESOURCE_ID"]})
+ResourceValueTypeDef = TypedDict(
+    "ResourceValueTypeDef",
+    {
+        "Value": Literal["RESOURCE_ID"],
+    },
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 RetentionConfigurationTypeDef = TypedDict(
-    "RetentionConfigurationTypeDef", {"Name": str, "RetentionPeriodInDays": int}
+    "RetentionConfigurationTypeDef",
+    {
+        "Name": str,
+        "RetentionPeriodInDays": int,
+    },
 )
 
 ScopeTypeDef = TypedDict(
@@ -1845,700 +2991,224 @@ ScopeTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSelectAggregateResourceConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredSelectAggregateResourceConfigRequestRequestTypeDef",
+    {
+        "Expression": str,
+        "ConfigurationAggregatorName": str,
+    },
+)
+_OptionalSelectAggregateResourceConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalSelectAggregateResourceConfigRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class SelectAggregateResourceConfigRequestRequestTypeDef(
+    _RequiredSelectAggregateResourceConfigRequestRequestTypeDef,
+    _OptionalSelectAggregateResourceConfigRequestRequestTypeDef,
+):
+    pass
+
+SelectAggregateResourceConfigResponseTypeDef = TypedDict(
+    "SelectAggregateResourceConfigResponseTypeDef",
+    {
+        "Results": List[str],
+        "QueryInfo": "QueryInfoTypeDef",
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSelectResourceConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredSelectResourceConfigRequestRequestTypeDef",
+    {
+        "Expression": str,
+    },
+)
+_OptionalSelectResourceConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalSelectResourceConfigRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class SelectResourceConfigRequestRequestTypeDef(
+    _RequiredSelectResourceConfigRequestRequestTypeDef,
+    _OptionalSelectResourceConfigRequestRequestTypeDef,
+):
+    pass
+
+SelectResourceConfigResponseTypeDef = TypedDict(
+    "SelectResourceConfigResponseTypeDef",
+    {
+        "Results": List[str],
+        "QueryInfo": "QueryInfoTypeDef",
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SourceDetailTypeDef = TypedDict(
     "SourceDetailTypeDef",
     {
         "EventSource": Literal["aws.config"],
-        "MessageType": Literal[
-            "ConfigurationItemChangeNotification",
-            "ConfigurationSnapshotDeliveryCompleted",
-            "ScheduledNotification",
-            "OversizedConfigurationItemChangeNotification",
-        ],
-        "MaximumExecutionFrequency": Literal[
-            "One_Hour", "Three_Hours", "Six_Hours", "Twelve_Hours", "TwentyFour_Hours"
-        ],
+        "MessageType": MessageTypeType,
+        "MaximumExecutionFrequency": MaximumExecutionFrequencyType,
     },
     total=False,
 )
 
 _RequiredSourceTypeDef = TypedDict(
-    "_RequiredSourceTypeDef", {"Owner": Literal["CUSTOM_LAMBDA", "AWS"], "SourceIdentifier": str}
+    "_RequiredSourceTypeDef",
+    {
+        "Owner": OwnerType,
+        "SourceIdentifier": str,
+    },
 )
 _OptionalSourceTypeDef = TypedDict(
-    "_OptionalSourceTypeDef", {"SourceDetails": List["SourceDetailTypeDef"]}, total=False
+    "_OptionalSourceTypeDef",
+    {
+        "SourceDetails": List["SourceDetailTypeDef"],
+    },
+    total=False,
 )
-
 
 class SourceTypeDef(_RequiredSourceTypeDef, _OptionalSourceTypeDef):
     pass
 
-
 SsmControlsTypeDef = TypedDict(
     "SsmControlsTypeDef",
-    {"ConcurrentExecutionRatePercentage": int, "ErrorPercentage": int},
-    total=False,
-)
-
-StaticValueTypeDef = TypedDict("StaticValueTypeDef", {"Values": List[str]})
-
-_RequiredStoredQueryMetadataTypeDef = TypedDict(
-    "_RequiredStoredQueryMetadataTypeDef", {"QueryId": str, "QueryArn": str, "QueryName": str}
-)
-_OptionalStoredQueryMetadataTypeDef = TypedDict(
-    "_OptionalStoredQueryMetadataTypeDef", {"Description": str}, total=False
-)
-
-
-class StoredQueryMetadataTypeDef(
-    _RequiredStoredQueryMetadataTypeDef, _OptionalStoredQueryMetadataTypeDef
-):
-    pass
-
-
-_RequiredStoredQueryTypeDef = TypedDict("_RequiredStoredQueryTypeDef", {"QueryName": str})
-_OptionalStoredQueryTypeDef = TypedDict(
-    "_OptionalStoredQueryTypeDef",
-    {"QueryId": str, "QueryArn": str, "Description": str, "Expression": str},
-    total=False,
-)
-
-
-class StoredQueryTypeDef(_RequiredStoredQueryTypeDef, _OptionalStoredQueryTypeDef):
-    pass
-
-
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
-
-BatchGetAggregateResourceConfigResponseTypeDef = TypedDict(
-    "BatchGetAggregateResourceConfigResponseTypeDef",
     {
-        "BaseConfigurationItems": List["BaseConfigurationItemTypeDef"],
-        "UnprocessedResourceIdentifiers": List["AggregateResourceIdentifierTypeDef"],
+        "ConcurrentExecutionRatePercentage": int,
+        "ErrorPercentage": int,
     },
     total=False,
 )
 
-BatchGetResourceConfigResponseTypeDef = TypedDict(
-    "BatchGetResourceConfigResponseTypeDef",
-    {
-        "baseConfigurationItems": List["BaseConfigurationItemTypeDef"],
-        "unprocessedResourceKeys": List["ResourceKeyTypeDef"],
-    },
-    total=False,
-)
-
-ConfigRuleComplianceFiltersTypeDef = TypedDict(
-    "ConfigRuleComplianceFiltersTypeDef",
-    {
-        "ConfigRuleName": str,
-        "ComplianceType": Literal[
-            "COMPLIANT", "NON_COMPLIANT", "NOT_APPLICABLE", "INSUFFICIENT_DATA"
-        ],
-        "AccountId": str,
-        "AwsRegion": str,
-    },
-    total=False,
-)
-
-ConfigRuleComplianceSummaryFiltersTypeDef = TypedDict(
-    "ConfigRuleComplianceSummaryFiltersTypeDef", {"AccountId": str, "AwsRegion": str}, total=False
-)
-
-ConformancePackComplianceFiltersTypeDef = TypedDict(
-    "ConformancePackComplianceFiltersTypeDef",
-    {"ConfigRuleNames": List[str], "ComplianceType": Literal["COMPLIANT", "NON_COMPLIANT"]},
-    total=False,
-)
-
-ConformancePackEvaluationFiltersTypeDef = TypedDict(
-    "ConformancePackEvaluationFiltersTypeDef",
+StartConfigRulesEvaluationRequestRequestTypeDef = TypedDict(
+    "StartConfigRulesEvaluationRequestRequestTypeDef",
     {
         "ConfigRuleNames": List[str],
-        "ComplianceType": Literal["COMPLIANT", "NON_COMPLIANT"],
-        "ResourceType": str,
-        "ResourceIds": List[str],
     },
     total=False,
 )
 
-DeleteRemediationExceptionsResponseTypeDef = TypedDict(
-    "DeleteRemediationExceptionsResponseTypeDef",
-    {"FailedBatches": List["FailedDeleteRemediationExceptionsBatchTypeDef"]},
-    total=False,
-)
-
-DeliverConfigSnapshotResponseTypeDef = TypedDict(
-    "DeliverConfigSnapshotResponseTypeDef", {"configSnapshotId": str}, total=False
-)
-
-DescribeAggregateComplianceByConfigRulesResponseTypeDef = TypedDict(
-    "DescribeAggregateComplianceByConfigRulesResponseTypeDef",
+StartConfigurationRecorderRequestRequestTypeDef = TypedDict(
+    "StartConfigurationRecorderRequestRequestTypeDef",
     {
-        "AggregateComplianceByConfigRules": List["AggregateComplianceByConfigRuleTypeDef"],
-        "NextToken": str,
+        "ConfigurationRecorderName": str,
     },
-    total=False,
 )
 
-DescribeAggregationAuthorizationsResponseTypeDef = TypedDict(
-    "DescribeAggregationAuthorizationsResponseTypeDef",
-    {"AggregationAuthorizations": List["AggregationAuthorizationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeComplianceByConfigRuleResponseTypeDef = TypedDict(
-    "DescribeComplianceByConfigRuleResponseTypeDef",
-    {"ComplianceByConfigRules": List["ComplianceByConfigRuleTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeComplianceByResourceResponseTypeDef = TypedDict(
-    "DescribeComplianceByResourceResponseTypeDef",
-    {"ComplianceByResources": List["ComplianceByResourceTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeConfigRuleEvaluationStatusResponseTypeDef = TypedDict(
-    "DescribeConfigRuleEvaluationStatusResponseTypeDef",
-    {"ConfigRulesEvaluationStatus": List["ConfigRuleEvaluationStatusTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeConfigRulesResponseTypeDef = TypedDict(
-    "DescribeConfigRulesResponseTypeDef",
-    {"ConfigRules": List["ConfigRuleTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeConfigurationAggregatorSourcesStatusResponseTypeDef = TypedDict(
-    "DescribeConfigurationAggregatorSourcesStatusResponseTypeDef",
-    {"AggregatedSourceStatusList": List["AggregatedSourceStatusTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeConfigurationAggregatorsResponseTypeDef = TypedDict(
-    "DescribeConfigurationAggregatorsResponseTypeDef",
-    {"ConfigurationAggregators": List["ConfigurationAggregatorTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeConfigurationRecorderStatusResponseTypeDef = TypedDict(
-    "DescribeConfigurationRecorderStatusResponseTypeDef",
-    {"ConfigurationRecordersStatus": List["ConfigurationRecorderStatusTypeDef"]},
-    total=False,
-)
-
-DescribeConfigurationRecordersResponseTypeDef = TypedDict(
-    "DescribeConfigurationRecordersResponseTypeDef",
-    {"ConfigurationRecorders": List["ConfigurationRecorderTypeDef"]},
-    total=False,
-)
-
-_RequiredDescribeConformancePackComplianceResponseTypeDef = TypedDict(
-    "_RequiredDescribeConformancePackComplianceResponseTypeDef",
+StartRemediationExecutionRequestRequestTypeDef = TypedDict(
+    "StartRemediationExecutionRequestRequestTypeDef",
     {
-        "ConformancePackName": str,
-        "ConformancePackRuleComplianceList": List["ConformancePackRuleComplianceTypeDef"],
+        "ConfigRuleName": str,
+        "ResourceKeys": List["ResourceKeyTypeDef"],
     },
-)
-_OptionalDescribeConformancePackComplianceResponseTypeDef = TypedDict(
-    "_OptionalDescribeConformancePackComplianceResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class DescribeConformancePackComplianceResponseTypeDef(
-    _RequiredDescribeConformancePackComplianceResponseTypeDef,
-    _OptionalDescribeConformancePackComplianceResponseTypeDef,
-):
-    pass
-
-
-DescribeConformancePackStatusResponseTypeDef = TypedDict(
-    "DescribeConformancePackStatusResponseTypeDef",
-    {"ConformancePackStatusDetails": List["ConformancePackStatusDetailTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeConformancePacksResponseTypeDef = TypedDict(
-    "DescribeConformancePacksResponseTypeDef",
-    {"ConformancePackDetails": List["ConformancePackDetailTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeDeliveryChannelStatusResponseTypeDef = TypedDict(
-    "DescribeDeliveryChannelStatusResponseTypeDef",
-    {"DeliveryChannelsStatus": List["DeliveryChannelStatusTypeDef"]},
-    total=False,
-)
-
-DescribeDeliveryChannelsResponseTypeDef = TypedDict(
-    "DescribeDeliveryChannelsResponseTypeDef",
-    {"DeliveryChannels": List["DeliveryChannelTypeDef"]},
-    total=False,
-)
-
-DescribeOrganizationConfigRuleStatusesResponseTypeDef = TypedDict(
-    "DescribeOrganizationConfigRuleStatusesResponseTypeDef",
-    {
-        "OrganizationConfigRuleStatuses": List["OrganizationConfigRuleStatusTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeOrganizationConfigRulesResponseTypeDef = TypedDict(
-    "DescribeOrganizationConfigRulesResponseTypeDef",
-    {"OrganizationConfigRules": List["OrganizationConfigRuleTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeOrganizationConformancePackStatusesResponseTypeDef = TypedDict(
-    "DescribeOrganizationConformancePackStatusesResponseTypeDef",
-    {
-        "OrganizationConformancePackStatuses": List["OrganizationConformancePackStatusTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeOrganizationConformancePacksResponseTypeDef = TypedDict(
-    "DescribeOrganizationConformancePacksResponseTypeDef",
-    {"OrganizationConformancePacks": List["OrganizationConformancePackTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribePendingAggregationRequestsResponseTypeDef = TypedDict(
-    "DescribePendingAggregationRequestsResponseTypeDef",
-    {"PendingAggregationRequests": List["PendingAggregationRequestTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeRemediationConfigurationsResponseTypeDef = TypedDict(
-    "DescribeRemediationConfigurationsResponseTypeDef",
-    {"RemediationConfigurations": List["RemediationConfigurationTypeDef"]},
-    total=False,
-)
-
-DescribeRemediationExceptionsResponseTypeDef = TypedDict(
-    "DescribeRemediationExceptionsResponseTypeDef",
-    {"RemediationExceptions": List["RemediationExceptionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeRemediationExecutionStatusResponseTypeDef = TypedDict(
-    "DescribeRemediationExecutionStatusResponseTypeDef",
-    {"RemediationExecutionStatuses": List["RemediationExecutionStatusTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeRetentionConfigurationsResponseTypeDef = TypedDict(
-    "DescribeRetentionConfigurationsResponseTypeDef",
-    {"RetentionConfigurations": List["RetentionConfigurationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-_RequiredExternalEvaluationTypeDef = TypedDict(
-    "_RequiredExternalEvaluationTypeDef",
-    {
-        "ComplianceResourceType": str,
-        "ComplianceResourceId": str,
-        "ComplianceType": Literal[
-            "COMPLIANT", "NON_COMPLIANT", "NOT_APPLICABLE", "INSUFFICIENT_DATA"
-        ],
-        "OrderingTimestamp": datetime,
-    },
-)
-_OptionalExternalEvaluationTypeDef = TypedDict(
-    "_OptionalExternalEvaluationTypeDef", {"Annotation": str}, total=False
-)
-
-
-class ExternalEvaluationTypeDef(
-    _RequiredExternalEvaluationTypeDef, _OptionalExternalEvaluationTypeDef
-):
-    pass
-
-
-GetAggregateComplianceDetailsByConfigRuleResponseTypeDef = TypedDict(
-    "GetAggregateComplianceDetailsByConfigRuleResponseTypeDef",
-    {"AggregateEvaluationResults": List["AggregateEvaluationResultTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetAggregateConfigRuleComplianceSummaryResponseTypeDef = TypedDict(
-    "GetAggregateConfigRuleComplianceSummaryResponseTypeDef",
-    {
-        "GroupByKey": str,
-        "AggregateComplianceCounts": List["AggregateComplianceCountTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredGetAggregateDiscoveredResourceCountsResponseTypeDef = TypedDict(
-    "_RequiredGetAggregateDiscoveredResourceCountsResponseTypeDef",
-    {"TotalDiscoveredResources": int},
-)
-_OptionalGetAggregateDiscoveredResourceCountsResponseTypeDef = TypedDict(
-    "_OptionalGetAggregateDiscoveredResourceCountsResponseTypeDef",
-    {
-        "GroupByKey": str,
-        "GroupedResourceCounts": List["GroupedResourceCountTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-
-class GetAggregateDiscoveredResourceCountsResponseTypeDef(
-    _RequiredGetAggregateDiscoveredResourceCountsResponseTypeDef,
-    _OptionalGetAggregateDiscoveredResourceCountsResponseTypeDef,
-):
-    pass
-
-
-GetAggregateResourceConfigResponseTypeDef = TypedDict(
-    "GetAggregateResourceConfigResponseTypeDef",
-    {"ConfigurationItem": "ConfigurationItemTypeDef"},
-    total=False,
-)
-
-GetComplianceDetailsByConfigRuleResponseTypeDef = TypedDict(
-    "GetComplianceDetailsByConfigRuleResponseTypeDef",
-    {"EvaluationResults": List["EvaluationResultTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetComplianceDetailsByResourceResponseTypeDef = TypedDict(
-    "GetComplianceDetailsByResourceResponseTypeDef",
-    {"EvaluationResults": List["EvaluationResultTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetComplianceSummaryByConfigRuleResponseTypeDef = TypedDict(
-    "GetComplianceSummaryByConfigRuleResponseTypeDef",
-    {"ComplianceSummary": "ComplianceSummaryTypeDef"},
-    total=False,
-)
-
-GetComplianceSummaryByResourceTypeResponseTypeDef = TypedDict(
-    "GetComplianceSummaryByResourceTypeResponseTypeDef",
-    {"ComplianceSummariesByResourceType": List["ComplianceSummaryByResourceTypeTypeDef"]},
-    total=False,
-)
-
-_RequiredGetConformancePackComplianceDetailsResponseTypeDef = TypedDict(
-    "_RequiredGetConformancePackComplianceDetailsResponseTypeDef", {"ConformancePackName": str}
-)
-_OptionalGetConformancePackComplianceDetailsResponseTypeDef = TypedDict(
-    "_OptionalGetConformancePackComplianceDetailsResponseTypeDef",
-    {
-        "ConformancePackRuleEvaluationResults": List["ConformancePackEvaluationResultTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-
-class GetConformancePackComplianceDetailsResponseTypeDef(
-    _RequiredGetConformancePackComplianceDetailsResponseTypeDef,
-    _OptionalGetConformancePackComplianceDetailsResponseTypeDef,
-):
-    pass
-
-
-GetConformancePackComplianceSummaryResponseTypeDef = TypedDict(
-    "GetConformancePackComplianceSummaryResponseTypeDef",
-    {
-        "ConformancePackComplianceSummaryList": List["ConformancePackComplianceSummaryTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetDiscoveredResourceCountsResponseTypeDef = TypedDict(
-    "GetDiscoveredResourceCountsResponseTypeDef",
-    {
-        "totalDiscoveredResources": int,
-        "resourceCounts": List["ResourceCountTypeDef"],
-        "nextToken": str,
-    },
-    total=False,
-)
-
-GetOrganizationConfigRuleDetailedStatusResponseTypeDef = TypedDict(
-    "GetOrganizationConfigRuleDetailedStatusResponseTypeDef",
-    {"OrganizationConfigRuleDetailedStatus": List["MemberAccountStatusTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetOrganizationConformancePackDetailedStatusResponseTypeDef = TypedDict(
-    "GetOrganizationConformancePackDetailedStatusResponseTypeDef",
-    {
-        "OrganizationConformancePackDetailedStatuses": List[
-            "OrganizationConformancePackDetailedStatusTypeDef"
-        ],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetResourceConfigHistoryResponseTypeDef = TypedDict(
-    "GetResourceConfigHistoryResponseTypeDef",
-    {"configurationItems": List["ConfigurationItemTypeDef"], "nextToken": str},
-    total=False,
-)
-
-GetStoredQueryResponseTypeDef = TypedDict(
-    "GetStoredQueryResponseTypeDef", {"StoredQuery": "StoredQueryTypeDef"}, total=False
-)
-
-ListAggregateDiscoveredResourcesResponseTypeDef = TypedDict(
-    "ListAggregateDiscoveredResourcesResponseTypeDef",
-    {"ResourceIdentifiers": List["AggregateResourceIdentifierTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListDiscoveredResourcesResponseTypeDef = TypedDict(
-    "ListDiscoveredResourcesResponseTypeDef",
-    {"resourceIdentifiers": List["ResourceIdentifierTypeDef"], "nextToken": str},
-    total=False,
-)
-
-ListStoredQueriesResponseTypeDef = TypedDict(
-    "ListStoredQueriesResponseTypeDef",
-    {"StoredQueryMetadata": List["StoredQueryMetadataTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {"Tags": List["TagTypeDef"], "NextToken": str},
-    total=False,
-)
-
-OrganizationResourceDetailedStatusFiltersTypeDef = TypedDict(
-    "OrganizationResourceDetailedStatusFiltersTypeDef",
-    {
-        "AccountId": str,
-        "Status": Literal[
-            "CREATE_SUCCESSFUL",
-            "CREATE_IN_PROGRESS",
-            "CREATE_FAILED",
-            "DELETE_SUCCESSFUL",
-            "DELETE_FAILED",
-            "DELETE_IN_PROGRESS",
-            "UPDATE_SUCCESSFUL",
-            "UPDATE_IN_PROGRESS",
-            "UPDATE_FAILED",
-        ],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PutAggregationAuthorizationResponseTypeDef = TypedDict(
-    "PutAggregationAuthorizationResponseTypeDef",
-    {"AggregationAuthorization": "AggregationAuthorizationTypeDef"},
-    total=False,
-)
-
-PutConfigurationAggregatorResponseTypeDef = TypedDict(
-    "PutConfigurationAggregatorResponseTypeDef",
-    {"ConfigurationAggregator": "ConfigurationAggregatorTypeDef"},
-    total=False,
-)
-
-PutConformancePackResponseTypeDef = TypedDict(
-    "PutConformancePackResponseTypeDef", {"ConformancePackArn": str}, total=False
-)
-
-PutEvaluationsResponseTypeDef = TypedDict(
-    "PutEvaluationsResponseTypeDef", {"FailedEvaluations": List["EvaluationTypeDef"]}, total=False
-)
-
-PutOrganizationConfigRuleResponseTypeDef = TypedDict(
-    "PutOrganizationConfigRuleResponseTypeDef", {"OrganizationConfigRuleArn": str}, total=False
-)
-
-PutOrganizationConformancePackResponseTypeDef = TypedDict(
-    "PutOrganizationConformancePackResponseTypeDef",
-    {"OrganizationConformancePackArn": str},
-    total=False,
-)
-
-PutRemediationConfigurationsResponseTypeDef = TypedDict(
-    "PutRemediationConfigurationsResponseTypeDef",
-    {"FailedBatches": List["FailedRemediationBatchTypeDef"]},
-    total=False,
-)
-
-PutRemediationExceptionsResponseTypeDef = TypedDict(
-    "PutRemediationExceptionsResponseTypeDef",
-    {"FailedBatches": List["FailedRemediationExceptionBatchTypeDef"]},
-    total=False,
-)
-
-PutRetentionConfigurationResponseTypeDef = TypedDict(
-    "PutRetentionConfigurationResponseTypeDef",
-    {"RetentionConfiguration": "RetentionConfigurationTypeDef"},
-    total=False,
-)
-
-PutStoredQueryResponseTypeDef = TypedDict(
-    "PutStoredQueryResponseTypeDef", {"QueryArn": str}, total=False
-)
-
-ResourceCountFiltersTypeDef = TypedDict(
-    "ResourceCountFiltersTypeDef",
-    {
-        "ResourceType": Literal[
-            "AWS::EC2::CustomerGateway",
-            "AWS::EC2::EIP",
-            "AWS::EC2::Host",
-            "AWS::EC2::Instance",
-            "AWS::EC2::InternetGateway",
-            "AWS::EC2::NetworkAcl",
-            "AWS::EC2::NetworkInterface",
-            "AWS::EC2::RouteTable",
-            "AWS::EC2::SecurityGroup",
-            "AWS::EC2::Subnet",
-            "AWS::CloudTrail::Trail",
-            "AWS::EC2::Volume",
-            "AWS::EC2::VPC",
-            "AWS::EC2::VPNConnection",
-            "AWS::EC2::VPNGateway",
-            "AWS::EC2::RegisteredHAInstance",
-            "AWS::EC2::NatGateway",
-            "AWS::EC2::EgressOnlyInternetGateway",
-            "AWS::EC2::VPCEndpoint",
-            "AWS::EC2::VPCEndpointService",
-            "AWS::EC2::FlowLog",
-            "AWS::EC2::VPCPeeringConnection",
-            "AWS::Elasticsearch::Domain",
-            "AWS::IAM::Group",
-            "AWS::IAM::Policy",
-            "AWS::IAM::Role",
-            "AWS::IAM::User",
-            "AWS::ElasticLoadBalancingV2::LoadBalancer",
-            "AWS::ACM::Certificate",
-            "AWS::RDS::DBInstance",
-            "AWS::RDS::DBSubnetGroup",
-            "AWS::RDS::DBSecurityGroup",
-            "AWS::RDS::DBSnapshot",
-            "AWS::RDS::DBCluster",
-            "AWS::RDS::DBClusterSnapshot",
-            "AWS::RDS::EventSubscription",
-            "AWS::S3::Bucket",
-            "AWS::S3::AccountPublicAccessBlock",
-            "AWS::Redshift::Cluster",
-            "AWS::Redshift::ClusterSnapshot",
-            "AWS::Redshift::ClusterParameterGroup",
-            "AWS::Redshift::ClusterSecurityGroup",
-            "AWS::Redshift::ClusterSubnetGroup",
-            "AWS::Redshift::EventSubscription",
-            "AWS::SSM::ManagedInstanceInventory",
-            "AWS::CloudWatch::Alarm",
-            "AWS::CloudFormation::Stack",
-            "AWS::ElasticLoadBalancing::LoadBalancer",
-            "AWS::AutoScaling::AutoScalingGroup",
-            "AWS::AutoScaling::LaunchConfiguration",
-            "AWS::AutoScaling::ScalingPolicy",
-            "AWS::AutoScaling::ScheduledAction",
-            "AWS::DynamoDB::Table",
-            "AWS::CodeBuild::Project",
-            "AWS::WAF::RateBasedRule",
-            "AWS::WAF::Rule",
-            "AWS::WAF::RuleGroup",
-            "AWS::WAF::WebACL",
-            "AWS::WAFRegional::RateBasedRule",
-            "AWS::WAFRegional::Rule",
-            "AWS::WAFRegional::RuleGroup",
-            "AWS::WAFRegional::WebACL",
-            "AWS::CloudFront::Distribution",
-            "AWS::CloudFront::StreamingDistribution",
-            "AWS::Lambda::Function",
-            "AWS::NetworkFirewall::Firewall",
-            "AWS::NetworkFirewall::FirewallPolicy",
-            "AWS::NetworkFirewall::RuleGroup",
-            "AWS::ElasticBeanstalk::Application",
-            "AWS::ElasticBeanstalk::ApplicationVersion",
-            "AWS::ElasticBeanstalk::Environment",
-            "AWS::WAFv2::WebACL",
-            "AWS::WAFv2::RuleGroup",
-            "AWS::WAFv2::IPSet",
-            "AWS::WAFv2::RegexPatternSet",
-            "AWS::WAFv2::ManagedRuleSet",
-            "AWS::XRay::EncryptionConfig",
-            "AWS::SSM::AssociationCompliance",
-            "AWS::SSM::PatchCompliance",
-            "AWS::Shield::Protection",
-            "AWS::ShieldRegional::Protection",
-            "AWS::Config::ResourceCompliance",
-            "AWS::ApiGateway::Stage",
-            "AWS::ApiGateway::RestApi",
-            "AWS::ApiGatewayV2::Stage",
-            "AWS::ApiGatewayV2::Api",
-            "AWS::CodePipeline::Pipeline",
-            "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-            "AWS::ServiceCatalog::CloudFormationProduct",
-            "AWS::ServiceCatalog::Portfolio",
-            "AWS::SQS::Queue",
-            "AWS::KMS::Key",
-            "AWS::QLDB::Ledger",
-            "AWS::SecretsManager::Secret",
-            "AWS::SNS::Topic",
-            "AWS::SSM::FileData",
-        ],
-        "AccountId": str,
-        "Region": str,
-    },
-    total=False,
-)
-
-ResourceFiltersTypeDef = TypedDict(
-    "ResourceFiltersTypeDef",
-    {"AccountId": str, "ResourceId": str, "ResourceName": str, "Region": str},
-    total=False,
-)
-
-SelectAggregateResourceConfigResponseTypeDef = TypedDict(
-    "SelectAggregateResourceConfigResponseTypeDef",
-    {"Results": List[str], "QueryInfo": "QueryInfoTypeDef", "NextToken": str},
-    total=False,
-)
-
-SelectResourceConfigResponseTypeDef = TypedDict(
-    "SelectResourceConfigResponseTypeDef",
-    {"Results": List[str], "QueryInfo": "QueryInfoTypeDef", "NextToken": str},
-    total=False,
 )
 
 StartRemediationExecutionResponseTypeDef = TypedDict(
     "StartRemediationExecutionResponseTypeDef",
-    {"FailureMessage": str, "FailedItems": List["ResourceKeyTypeDef"]},
-    total=False,
+    {
+        "FailureMessage": str,
+        "FailedItems": List["ResourceKeyTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StaticValueTypeDef = TypedDict(
+    "StaticValueTypeDef",
+    {
+        "Values": List[str],
+    },
 )
 
 StatusDetailFiltersTypeDef = TypedDict(
     "StatusDetailFiltersTypeDef",
     {
         "AccountId": str,
-        "MemberAccountRuleStatus": Literal[
-            "CREATE_SUCCESSFUL",
-            "CREATE_IN_PROGRESS",
-            "CREATE_FAILED",
-            "DELETE_SUCCESSFUL",
-            "DELETE_FAILED",
-            "DELETE_IN_PROGRESS",
-            "UPDATE_SUCCESSFUL",
-            "UPDATE_IN_PROGRESS",
-            "UPDATE_FAILED",
-        ],
+        "MemberAccountRuleStatus": MemberAccountRuleStatusType,
     },
     total=False,
+)
+
+StopConfigurationRecorderRequestRequestTypeDef = TypedDict(
+    "StopConfigurationRecorderRequestRequestTypeDef",
+    {
+        "ConfigurationRecorderName": str,
+    },
+)
+
+_RequiredStoredQueryMetadataTypeDef = TypedDict(
+    "_RequiredStoredQueryMetadataTypeDef",
+    {
+        "QueryId": str,
+        "QueryArn": str,
+        "QueryName": str,
+    },
+)
+_OptionalStoredQueryMetadataTypeDef = TypedDict(
+    "_OptionalStoredQueryMetadataTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class StoredQueryMetadataTypeDef(
+    _RequiredStoredQueryMetadataTypeDef, _OptionalStoredQueryMetadataTypeDef
+):
+    pass
+
+_RequiredStoredQueryTypeDef = TypedDict(
+    "_RequiredStoredQueryTypeDef",
+    {
+        "QueryName": str,
+    },
+)
+_OptionalStoredQueryTypeDef = TypedDict(
+    "_OptionalStoredQueryTypeDef",
+    {
+        "QueryId": str,
+        "QueryArn": str,
+        "Description": str,
+        "Expression": str,
+    },
+    total=False,
+)
+
+class StoredQueryTypeDef(_RequiredStoredQueryTypeDef, _OptionalStoredQueryTypeDef):
+    pass
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
 )

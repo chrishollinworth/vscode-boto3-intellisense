@@ -29,8 +29,8 @@ Usage::
     list_members_paginator: ListMembersPaginator = client.get_paginator("list_members")
     ```
 """
-from mypy_boto3_securityhub.client import SecurityHubClient
-from mypy_boto3_securityhub.paginator import (
+from .client import SecurityHubClient
+from .paginator import (
     GetEnabledStandardsPaginator,
     GetFindingsPaginator,
     GetInsightsPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_securityhub.paginator import (
 )
 
 Client = SecurityHubClient
-
 
 __all__ = (
     "Client",

@@ -45,8 +45,8 @@ Usage::
     search_dashboards_paginator: SearchDashboardsPaginator = client.get_paginator("search_dashboards")
     ```
 """
-from mypy_boto3_quicksight.client import QuickSightClient
-from mypy_boto3_quicksight.paginator import (
+from .client import QuickSightClient
+from .paginator import (
     ListAnalysesPaginator,
     ListDashboardsPaginator,
     ListDashboardVersionsPaginator,
@@ -64,7 +64,6 @@ from mypy_boto3_quicksight.paginator import (
 )
 
 Client = QuickSightClient
-
 
 __all__ = (
     "Client",

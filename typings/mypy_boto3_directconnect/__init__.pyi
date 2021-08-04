@@ -23,15 +23,14 @@ Usage::
     describe_direct_connect_gateways_paginator: DescribeDirectConnectGatewaysPaginator = client.get_paginator("describe_direct_connect_gateways")
     ```
 """
-from mypy_boto3_directconnect.client import DirectConnectClient
-from mypy_boto3_directconnect.paginator import (
+from .client import DirectConnectClient
+from .paginator import (
     DescribeDirectConnectGatewayAssociationsPaginator,
     DescribeDirectConnectGatewayAttachmentsPaginator,
     DescribeDirectConnectGatewaysPaginator,
 )
 
 Client = DirectConnectClient
-
 
 __all__ = (
     "Client",

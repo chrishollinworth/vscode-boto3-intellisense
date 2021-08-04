@@ -28,17 +28,16 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
-from mypy_boto3_opsworkscm.client import OpsWorksCMClient
-from mypy_boto3_opsworkscm.paginator import (
+from .client import OpsWorksCMClient
+from .paginator import (
     DescribeBackupsPaginator,
     DescribeEventsPaginator,
     DescribeServersPaginator,
     ListTagsForResourcePaginator,
 )
-from mypy_boto3_opsworkscm.waiter import NodeAssociatedWaiter
+from .waiter import NodeAssociatedWaiter
 
 Client = OpsWorksCMClient
-
 
 __all__ = (
     "Client",

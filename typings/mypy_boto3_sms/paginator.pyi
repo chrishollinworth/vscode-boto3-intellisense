@@ -1,5 +1,7 @@
 """
-Main interface for sms service client paginators.
+Type annotations for sms service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html)
 
 Usage::
 
@@ -28,7 +30,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_sms.type_defs import (
+from .type_defs import (
     GetConnectorsResponseTypeDef,
     GetReplicationJobsResponseTypeDef,
     GetReplicationRunsResponseTypeDef,
@@ -46,69 +48,75 @@ __all__ = (
     "ListAppsPaginator",
 )
 
-
 class GetConnectorsPaginator(Boto3Paginator):
     """
-    [Paginator.GetConnectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetConnectors)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetConnectors)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getconnectorspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetConnectorsResponseTypeDef]:
         """
-        [GetConnectors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetConnectors.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetConnectors.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getconnectorspaginator)
         """
-
 
 class GetReplicationJobsPaginator(Boto3Paginator):
     """
-    [Paginator.GetReplicationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationjobspaginator)
     """
 
     def paginate(
-        self, replicationJobId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, replicationJobId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetReplicationJobsResponseTypeDef]:
         """
-        [GetReplicationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetReplicationJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetReplicationJobs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationjobspaginator)
         """
-
 
 class GetReplicationRunsPaginator(Boto3Paginator):
     """
-    [Paginator.GetReplicationRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationrunspaginator)
     """
 
     def paginate(
-        self, replicationJobId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, replicationJobId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetReplicationRunsResponseTypeDef]:
         """
-        [GetReplicationRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetReplicationRuns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetReplicationRuns.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationrunspaginator)
         """
-
 
 class GetServersPaginator(Boto3Paginator):
     """
-    [Paginator.GetServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetServers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetServers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getserverspaginator)
     """
 
     def paginate(
         self,
+        *,
         vmServerAddressList: List["VmServerAddressTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetServersResponseTypeDef]:
         """
-        [GetServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.GetServers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.GetServers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getserverspaginator)
         """
-
 
 class ListAppsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.ListApps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.ListApps)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#listappspaginator)
     """
 
     def paginate(
-        self, appIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, appIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppsResponseTypeDef]:
         """
-        [ListApps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms.html#SMS.Paginator.ListApps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sms.html#SMS.Paginator.ListApps.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#listappspaginator)
         """

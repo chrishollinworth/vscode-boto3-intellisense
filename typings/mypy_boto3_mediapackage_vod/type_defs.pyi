@@ -1,5 +1,7 @@
 """
-Main interface for mediapackage-vod service type definitions.
+Type annotations for mediapackage-vod service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/type_defs.html)
 
 Usage::
 
@@ -10,7 +12,16 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
+
+from .literals import (
+    AdMarkersType,
+    EncryptionMethodType,
+    ManifestLayoutType,
+    ProfileType,
+    SegmentTemplateFormatType,
+    StreamOrderType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -21,37 +32,56 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AssetShallowTypeDef",
     "AuthorizationTypeDef",
     "CmafEncryptionTypeDef",
     "CmafPackageTypeDef",
+    "ConfigureLogsRequestRequestTypeDef",
+    "ConfigureLogsResponseTypeDef",
+    "CreateAssetRequestRequestTypeDef",
+    "CreateAssetResponseTypeDef",
+    "CreatePackagingConfigurationRequestRequestTypeDef",
+    "CreatePackagingConfigurationResponseTypeDef",
+    "CreatePackagingGroupRequestRequestTypeDef",
+    "CreatePackagingGroupResponseTypeDef",
     "DashEncryptionTypeDef",
     "DashManifestTypeDef",
     "DashPackageTypeDef",
+    "DeleteAssetRequestRequestTypeDef",
+    "DeletePackagingConfigurationRequestRequestTypeDef",
+    "DeletePackagingGroupRequestRequestTypeDef",
+    "DescribeAssetRequestRequestTypeDef",
+    "DescribeAssetResponseTypeDef",
+    "DescribePackagingConfigurationRequestRequestTypeDef",
+    "DescribePackagingConfigurationResponseTypeDef",
+    "DescribePackagingGroupRequestRequestTypeDef",
+    "DescribePackagingGroupResponseTypeDef",
+    "EgressAccessLogsTypeDef",
     "EgressEndpointTypeDef",
     "HlsEncryptionTypeDef",
     "HlsManifestTypeDef",
     "HlsPackageTypeDef",
+    "ListAssetsRequestRequestTypeDef",
+    "ListAssetsResponseTypeDef",
+    "ListPackagingConfigurationsRequestRequestTypeDef",
+    "ListPackagingConfigurationsResponseTypeDef",
+    "ListPackagingGroupsRequestRequestTypeDef",
+    "ListPackagingGroupsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MssEncryptionTypeDef",
     "MssManifestTypeDef",
     "MssPackageTypeDef",
     "PackagingConfigurationTypeDef",
     "PackagingGroupTypeDef",
+    "PaginatorConfigTypeDef",
+    "ResponseMetadataTypeDef",
     "SpekeKeyProviderTypeDef",
     "StreamSelectionTypeDef",
-    "CreateAssetResponseTypeDef",
-    "CreatePackagingConfigurationResponseTypeDef",
-    "CreatePackagingGroupResponseTypeDef",
-    "DescribeAssetResponseTypeDef",
-    "DescribePackagingConfigurationResponseTypeDef",
-    "DescribePackagingGroupResponseTypeDef",
-    "ListAssetsResponseTypeDef",
-    "ListPackagingConfigurationsResponseTypeDef",
-    "ListPackagingGroupsResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "PaginatorConfigTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdatePackagingGroupRequestRequestTypeDef",
     "UpdatePackagingGroupResponseTypeDef",
 )
 
@@ -71,86 +101,360 @@ AssetShallowTypeDef = TypedDict(
 )
 
 AuthorizationTypeDef = TypedDict(
-    "AuthorizationTypeDef", {"CdnIdentifierSecret": str, "SecretsRoleArn": str}
+    "AuthorizationTypeDef",
+    {
+        "CdnIdentifierSecret": str,
+        "SecretsRoleArn": str,
+    },
 )
 
-CmafEncryptionTypeDef = TypedDict(
-    "CmafEncryptionTypeDef", {"SpekeKeyProvider": "SpekeKeyProviderTypeDef"}
+_RequiredCmafEncryptionTypeDef = TypedDict(
+    "_RequiredCmafEncryptionTypeDef",
+    {
+        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
+    },
 )
-
-_RequiredCmafPackageTypeDef = TypedDict(
-    "_RequiredCmafPackageTypeDef", {"HlsManifests": List["HlsManifestTypeDef"]}
-)
-_OptionalCmafPackageTypeDef = TypedDict(
-    "_OptionalCmafPackageTypeDef",
-    {"Encryption": "CmafEncryptionTypeDef", "SegmentDurationSeconds": int},
+_OptionalCmafEncryptionTypeDef = TypedDict(
+    "_OptionalCmafEncryptionTypeDef",
+    {
+        "ConstantInitializationVector": str,
+    },
     total=False,
 )
 
+class CmafEncryptionTypeDef(_RequiredCmafEncryptionTypeDef, _OptionalCmafEncryptionTypeDef):
+    pass
+
+_RequiredCmafPackageTypeDef = TypedDict(
+    "_RequiredCmafPackageTypeDef",
+    {
+        "HlsManifests": List["HlsManifestTypeDef"],
+    },
+)
+_OptionalCmafPackageTypeDef = TypedDict(
+    "_OptionalCmafPackageTypeDef",
+    {
+        "Encryption": "CmafEncryptionTypeDef",
+        "IncludeEncoderConfigurationInSegments": bool,
+        "SegmentDurationSeconds": int,
+    },
+    total=False,
+)
 
 class CmafPackageTypeDef(_RequiredCmafPackageTypeDef, _OptionalCmafPackageTypeDef):
     pass
 
+_RequiredConfigureLogsRequestRequestTypeDef = TypedDict(
+    "_RequiredConfigureLogsRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalConfigureLogsRequestRequestTypeDef = TypedDict(
+    "_OptionalConfigureLogsRequestRequestTypeDef",
+    {
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
+    },
+    total=False,
+)
+
+class ConfigureLogsRequestRequestTypeDef(
+    _RequiredConfigureLogsRequestRequestTypeDef, _OptionalConfigureLogsRequestRequestTypeDef
+):
+    pass
+
+ConfigureLogsResponseTypeDef = TypedDict(
+    "ConfigureLogsResponseTypeDef",
+    {
+        "Arn": str,
+        "Authorization": "AuthorizationTypeDef",
+        "DomainName": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
+        "Id": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAssetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAssetRequestRequestTypeDef",
+    {
+        "Id": str,
+        "PackagingGroupId": str,
+        "SourceArn": str,
+        "SourceRoleArn": str,
+    },
+)
+_OptionalCreateAssetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAssetRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateAssetRequestRequestTypeDef(
+    _RequiredCreateAssetRequestRequestTypeDef, _OptionalCreateAssetRequestRequestTypeDef
+):
+    pass
+
+CreateAssetResponseTypeDef = TypedDict(
+    "CreateAssetResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": str,
+        "EgressEndpoints": List["EgressEndpointTypeDef"],
+        "Id": str,
+        "PackagingGroupId": str,
+        "ResourceId": str,
+        "SourceArn": str,
+        "SourceRoleArn": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePackagingConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePackagingConfigurationRequestRequestTypeDef",
+    {
+        "Id": str,
+        "PackagingGroupId": str,
+    },
+)
+_OptionalCreatePackagingConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePackagingConfigurationRequestRequestTypeDef",
+    {
+        "CmafPackage": "CmafPackageTypeDef",
+        "DashPackage": "DashPackageTypeDef",
+        "HlsPackage": "HlsPackageTypeDef",
+        "MssPackage": "MssPackageTypeDef",
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreatePackagingConfigurationRequestRequestTypeDef(
+    _RequiredCreatePackagingConfigurationRequestRequestTypeDef,
+    _OptionalCreatePackagingConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreatePackagingConfigurationResponseTypeDef = TypedDict(
+    "CreatePackagingConfigurationResponseTypeDef",
+    {
+        "Arn": str,
+        "CmafPackage": "CmafPackageTypeDef",
+        "DashPackage": "DashPackageTypeDef",
+        "HlsPackage": "HlsPackageTypeDef",
+        "Id": str,
+        "MssPackage": "MssPackageTypeDef",
+        "PackagingGroupId": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePackagingGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePackagingGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalCreatePackagingGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePackagingGroupRequestRequestTypeDef",
+    {
+        "Authorization": "AuthorizationTypeDef",
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreatePackagingGroupRequestRequestTypeDef(
+    _RequiredCreatePackagingGroupRequestRequestTypeDef,
+    _OptionalCreatePackagingGroupRequestRequestTypeDef,
+):
+    pass
+
+CreatePackagingGroupResponseTypeDef = TypedDict(
+    "CreatePackagingGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "Authorization": "AuthorizationTypeDef",
+        "DomainName": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
+        "Id": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DashEncryptionTypeDef = TypedDict(
-    "DashEncryptionTypeDef", {"SpekeKeyProvider": "SpekeKeyProviderTypeDef"}
+    "DashEncryptionTypeDef",
+    {
+        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
+    },
 )
 
 DashManifestTypeDef = TypedDict(
     "DashManifestTypeDef",
     {
-        "ManifestLayout": Literal["FULL", "COMPACT"],
+        "ManifestLayout": ManifestLayoutType,
         "ManifestName": str,
         "MinBufferTimeSeconds": int,
-        "Profile": Literal["NONE", "HBBTV_1_5"],
+        "Profile": ProfileType,
         "StreamSelection": "StreamSelectionTypeDef",
     },
     total=False,
 )
 
 _RequiredDashPackageTypeDef = TypedDict(
-    "_RequiredDashPackageTypeDef", {"DashManifests": List["DashManifestTypeDef"]}
+    "_RequiredDashPackageTypeDef",
+    {
+        "DashManifests": List["DashManifestTypeDef"],
+    },
 )
 _OptionalDashPackageTypeDef = TypedDict(
     "_OptionalDashPackageTypeDef",
     {
         "Encryption": "DashEncryptionTypeDef",
+        "IncludeEncoderConfigurationInSegments": bool,
         "PeriodTriggers": List[Literal["ADS"]],
         "SegmentDurationSeconds": int,
-        "SegmentTemplateFormat": Literal[
-            "NUMBER_WITH_TIMELINE", "TIME_WITH_TIMELINE", "NUMBER_WITH_DURATION"
-        ],
+        "SegmentTemplateFormat": SegmentTemplateFormatType,
     },
     total=False,
 )
 
-
 class DashPackageTypeDef(_RequiredDashPackageTypeDef, _OptionalDashPackageTypeDef):
     pass
 
-
-EgressEndpointTypeDef = TypedDict(
-    "EgressEndpointTypeDef", {"PackagingConfigurationId": str, "Url": str}, total=False
+DeleteAssetRequestRequestTypeDef = TypedDict(
+    "DeleteAssetRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
 )
 
-_RequiredHlsEncryptionTypeDef = TypedDict(
-    "_RequiredHlsEncryptionTypeDef", {"SpekeKeyProvider": "SpekeKeyProviderTypeDef"}
+DeletePackagingConfigurationRequestRequestTypeDef = TypedDict(
+    "DeletePackagingConfigurationRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
 )
-_OptionalHlsEncryptionTypeDef = TypedDict(
-    "_OptionalHlsEncryptionTypeDef",
-    {"ConstantInitializationVector": str, "EncryptionMethod": Literal["AES_128", "SAMPLE_AES"]},
+
+DeletePackagingGroupRequestRequestTypeDef = TypedDict(
+    "DeletePackagingGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DescribeAssetRequestRequestTypeDef = TypedDict(
+    "DescribeAssetRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DescribeAssetResponseTypeDef = TypedDict(
+    "DescribeAssetResponseTypeDef",
+    {
+        "Arn": str,
+        "CreatedAt": str,
+        "EgressEndpoints": List["EgressEndpointTypeDef"],
+        "Id": str,
+        "PackagingGroupId": str,
+        "ResourceId": str,
+        "SourceArn": str,
+        "SourceRoleArn": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePackagingConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribePackagingConfigurationRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DescribePackagingConfigurationResponseTypeDef = TypedDict(
+    "DescribePackagingConfigurationResponseTypeDef",
+    {
+        "Arn": str,
+        "CmafPackage": "CmafPackageTypeDef",
+        "DashPackage": "DashPackageTypeDef",
+        "HlsPackage": "HlsPackageTypeDef",
+        "Id": str,
+        "MssPackage": "MssPackageTypeDef",
+        "PackagingGroupId": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePackagingGroupRequestRequestTypeDef = TypedDict(
+    "DescribePackagingGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DescribePackagingGroupResponseTypeDef = TypedDict(
+    "DescribePackagingGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "Authorization": "AuthorizationTypeDef",
+        "DomainName": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
+        "Id": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EgressAccessLogsTypeDef = TypedDict(
+    "EgressAccessLogsTypeDef",
+    {
+        "LogGroupName": str,
+    },
     total=False,
 )
 
+EgressEndpointTypeDef = TypedDict(
+    "EgressEndpointTypeDef",
+    {
+        "PackagingConfigurationId": str,
+        "Url": str,
+    },
+    total=False,
+)
+
+_RequiredHlsEncryptionTypeDef = TypedDict(
+    "_RequiredHlsEncryptionTypeDef",
+    {
+        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
+    },
+)
+_OptionalHlsEncryptionTypeDef = TypedDict(
+    "_OptionalHlsEncryptionTypeDef",
+    {
+        "ConstantInitializationVector": str,
+        "EncryptionMethod": EncryptionMethodType,
+    },
+    total=False,
+)
 
 class HlsEncryptionTypeDef(_RequiredHlsEncryptionTypeDef, _OptionalHlsEncryptionTypeDef):
     pass
 
-
 HlsManifestTypeDef = TypedDict(
     "HlsManifestTypeDef",
     {
-        "AdMarkers": Literal["NONE", "SCTE35_ENHANCED", "PASSTHROUGH"],
+        "AdMarkers": AdMarkersType,
         "IncludeIframeOnlyStream": bool,
         "ManifestName": str,
         "ProgramDateTimeIntervalSeconds": int,
@@ -161,7 +465,10 @@ HlsManifestTypeDef = TypedDict(
 )
 
 _RequiredHlsPackageTypeDef = TypedDict(
-    "_RequiredHlsPackageTypeDef", {"HlsManifests": List["HlsManifestTypeDef"]}
+    "_RequiredHlsPackageTypeDef",
+    {
+        "HlsManifests": List["HlsManifestTypeDef"],
+    },
 )
 _OptionalHlsPackageTypeDef = TypedDict(
     "_OptionalHlsPackageTypeDef",
@@ -173,34 +480,113 @@ _OptionalHlsPackageTypeDef = TypedDict(
     total=False,
 )
 
-
 class HlsPackageTypeDef(_RequiredHlsPackageTypeDef, _OptionalHlsPackageTypeDef):
     pass
 
+ListAssetsRequestRequestTypeDef = TypedDict(
+    "ListAssetsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "PackagingGroupId": str,
+    },
+    total=False,
+)
+
+ListAssetsResponseTypeDef = TypedDict(
+    "ListAssetsResponseTypeDef",
+    {
+        "Assets": List["AssetShallowTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPackagingConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListPackagingConfigurationsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "PackagingGroupId": str,
+    },
+    total=False,
+)
+
+ListPackagingConfigurationsResponseTypeDef = TypedDict(
+    "ListPackagingConfigurationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "PackagingConfigurations": List["PackagingConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPackagingGroupsRequestRequestTypeDef = TypedDict(
+    "ListPackagingGroupsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListPackagingGroupsResponseTypeDef = TypedDict(
+    "ListPackagingGroupsResponseTypeDef",
+    {
+        "NextToken": str,
+        "PackagingGroups": List["PackagingGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 MssEncryptionTypeDef = TypedDict(
-    "MssEncryptionTypeDef", {"SpekeKeyProvider": "SpekeKeyProviderTypeDef"}
+    "MssEncryptionTypeDef",
+    {
+        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
+    },
 )
 
 MssManifestTypeDef = TypedDict(
     "MssManifestTypeDef",
-    {"ManifestName": str, "StreamSelection": "StreamSelectionTypeDef"},
+    {
+        "ManifestName": str,
+        "StreamSelection": "StreamSelectionTypeDef",
+    },
     total=False,
 )
 
 _RequiredMssPackageTypeDef = TypedDict(
-    "_RequiredMssPackageTypeDef", {"MssManifests": List["MssManifestTypeDef"]}
+    "_RequiredMssPackageTypeDef",
+    {
+        "MssManifests": List["MssManifestTypeDef"],
+    },
 )
 _OptionalMssPackageTypeDef = TypedDict(
     "_OptionalMssPackageTypeDef",
-    {"Encryption": "MssEncryptionTypeDef", "SegmentDurationSeconds": int},
+    {
+        "Encryption": "MssEncryptionTypeDef",
+        "SegmentDurationSeconds": int,
+    },
     total=False,
 )
 
-
 class MssPackageTypeDef(_RequiredMssPackageTypeDef, _OptionalMssPackageTypeDef):
     pass
-
 
 PackagingConfigurationTypeDef = TypedDict(
     "PackagingConfigurationTypeDef",
@@ -223,14 +609,41 @@ PackagingGroupTypeDef = TypedDict(
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
         "DomainName": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "Id": str,
         "Tags": Dict[str, str],
     },
     total=False,
 )
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SpekeKeyProviderTypeDef = TypedDict(
-    "SpekeKeyProviderTypeDef", {"RoleArn": str, "SystemIds": List[str], "Url": str}
+    "SpekeKeyProviderTypeDef",
+    {
+        "RoleArn": str,
+        "SystemIds": List[str],
+        "Url": str,
+    },
 )
 
 StreamSelectionTypeDef = TypedDict(
@@ -238,122 +651,46 @@ StreamSelectionTypeDef = TypedDict(
     {
         "MaxVideoBitsPerSecond": int,
         "MinVideoBitsPerSecond": int,
-        "StreamOrder": Literal["ORIGINAL", "VIDEO_BITRATE_ASCENDING", "VIDEO_BITRATE_DESCENDING"],
+        "StreamOrder": StreamOrderType,
     },
     total=False,
 )
 
-CreateAssetResponseTypeDef = TypedDict(
-    "CreateAssetResponseTypeDef",
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
     {
-        "Arn": str,
-        "CreatedAt": str,
-        "EgressEndpoints": List["EgressEndpointTypeDef"],
-        "Id": str,
-        "PackagingGroupId": str,
-        "ResourceId": str,
-        "SourceArn": str,
-        "SourceRoleArn": str,
+        "ResourceArn": str,
         "Tags": Dict[str, str],
     },
-    total=False,
 )
 
-CreatePackagingConfigurationResponseTypeDef = TypedDict(
-    "CreatePackagingConfigurationResponseTypeDef",
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
     {
-        "Arn": str,
-        "CmafPackage": "CmafPackageTypeDef",
-        "DashPackage": "DashPackageTypeDef",
-        "HlsPackage": "HlsPackageTypeDef",
-        "Id": str,
-        "MssPackage": "MssPackageTypeDef",
-        "PackagingGroupId": str,
-        "Tags": Dict[str, str],
+        "ResourceArn": str,
+        "TagKeys": List[str],
     },
-    total=False,
 )
 
-CreatePackagingGroupResponseTypeDef = TypedDict(
-    "CreatePackagingGroupResponseTypeDef",
+_RequiredUpdatePackagingGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdatePackagingGroupRequestRequestTypeDef",
     {
-        "Arn": str,
+        "Id": str,
+    },
+)
+_OptionalUpdatePackagingGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdatePackagingGroupRequestRequestTypeDef",
+    {
         "Authorization": "AuthorizationTypeDef",
-        "DomainName": str,
-        "Id": str,
-        "Tags": Dict[str, str],
     },
     total=False,
 )
 
-DescribeAssetResponseTypeDef = TypedDict(
-    "DescribeAssetResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "EgressEndpoints": List["EgressEndpointTypeDef"],
-        "Id": str,
-        "PackagingGroupId": str,
-        "ResourceId": str,
-        "SourceArn": str,
-        "SourceRoleArn": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-DescribePackagingConfigurationResponseTypeDef = TypedDict(
-    "DescribePackagingConfigurationResponseTypeDef",
-    {
-        "Arn": str,
-        "CmafPackage": "CmafPackageTypeDef",
-        "DashPackage": "DashPackageTypeDef",
-        "HlsPackage": "HlsPackageTypeDef",
-        "Id": str,
-        "MssPackage": "MssPackageTypeDef",
-        "PackagingGroupId": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-DescribePackagingGroupResponseTypeDef = TypedDict(
-    "DescribePackagingGroupResponseTypeDef",
-    {
-        "Arn": str,
-        "Authorization": "AuthorizationTypeDef",
-        "DomainName": str,
-        "Id": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-ListAssetsResponseTypeDef = TypedDict(
-    "ListAssetsResponseTypeDef",
-    {"Assets": List["AssetShallowTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListPackagingConfigurationsResponseTypeDef = TypedDict(
-    "ListPackagingConfigurationsResponseTypeDef",
-    {"NextToken": str, "PackagingConfigurations": List["PackagingConfigurationTypeDef"]},
-    total=False,
-)
-
-ListPackagingGroupsResponseTypeDef = TypedDict(
-    "ListPackagingGroupsResponseTypeDef",
-    {"NextToken": str, "PackagingGroups": List["PackagingGroupTypeDef"]},
-    total=False,
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
+class UpdatePackagingGroupRequestRequestTypeDef(
+    _RequiredUpdatePackagingGroupRequestRequestTypeDef,
+    _OptionalUpdatePackagingGroupRequestRequestTypeDef,
+):
+    pass
 
 UpdatePackagingGroupResponseTypeDef = TypedDict(
     "UpdatePackagingGroupResponseTypeDef",
@@ -361,8 +698,9 @@ UpdatePackagingGroupResponseTypeDef = TypedDict(
         "Arn": str,
         "Authorization": "AuthorizationTypeDef",
         "DomainName": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "Id": str,
         "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
-    total=False,
 )

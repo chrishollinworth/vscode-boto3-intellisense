@@ -1,5 +1,4 @@
 import boto3
-from mypy_boto3_network_firewall.type_defs import FirewallPolicyTypeDef
 
 subnet1a = 'subnet-0fc4d2543f3dcc255'
 subnet1b = 'subnet-09b9d0dbca4bae8a5'
@@ -56,11 +55,7 @@ Description='string',
     DryRun=False,
 )
 
-networkfirewall_client.create_firewall(
-  FirewallName="",
-  FirewallPolicyChangeProtection=False,
-  FirewallPolicyArn=
-
+networkfirewall_client.
 )
  
 lambda_client.create_function()

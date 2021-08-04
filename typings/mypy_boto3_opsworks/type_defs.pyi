@@ -1,5 +1,7 @@
 """
-Main interface for opsworks service type definitions.
+Type annotations for opsworks service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/type_defs.html)
 
 Usage::
 
@@ -10,7 +12,24 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
+
+from .literals import (
+    AppAttributesKeysType,
+    AppTypeType,
+    ArchitectureType,
+    AutoScalingTypeType,
+    CloudWatchLogsEncodingType,
+    CloudWatchLogsInitialPositionType,
+    CloudWatchLogsTimeZoneType,
+    DeploymentCommandNameType,
+    LayerAttributesKeysType,
+    LayerTypeType,
+    RootDeviceTypeType,
+    SourceTypeType,
+    VirtualizationTypeType,
+    VolumeTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -21,94 +40,174 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AgentVersionTypeDef",
     "AppTypeDef",
+    "AssignInstanceRequestRequestTypeDef",
+    "AssignVolumeRequestRequestTypeDef",
+    "AssociateElasticIpRequestRequestTypeDef",
+    "AttachElasticLoadBalancerRequestRequestTypeDef",
     "AutoScalingThresholdsTypeDef",
     "BlockDeviceMappingTypeDef",
     "ChefConfigurationTypeDef",
+    "CloneStackRequestRequestTypeDef",
+    "CloneStackResultTypeDef",
     "CloudWatchLogsConfigurationTypeDef",
     "CloudWatchLogsLogStreamTypeDef",
     "CommandTypeDef",
+    "CreateAppRequestRequestTypeDef",
+    "CreateAppResultTypeDef",
+    "CreateDeploymentRequestRequestTypeDef",
+    "CreateDeploymentResultTypeDef",
+    "CreateInstanceRequestRequestTypeDef",
+    "CreateInstanceResultTypeDef",
+    "CreateLayerRequestRequestTypeDef",
+    "CreateLayerRequestStackTypeDef",
+    "CreateLayerResultTypeDef",
+    "CreateStackRequestRequestTypeDef",
+    "CreateStackRequestServiceResourceTypeDef",
+    "CreateStackResultTypeDef",
+    "CreateUserProfileRequestRequestTypeDef",
+    "CreateUserProfileResultTypeDef",
     "DataSourceTypeDef",
+    "DeleteAppRequestRequestTypeDef",
+    "DeleteInstanceRequestRequestTypeDef",
+    "DeleteLayerRequestRequestTypeDef",
+    "DeleteStackRequestRequestTypeDef",
+    "DeleteUserProfileRequestRequestTypeDef",
     "DeploymentCommandTypeDef",
     "DeploymentTypeDef",
+    "DeregisterEcsClusterRequestRequestTypeDef",
+    "DeregisterElasticIpRequestRequestTypeDef",
+    "DeregisterInstanceRequestRequestTypeDef",
+    "DeregisterRdsDbInstanceRequestRequestTypeDef",
+    "DeregisterVolumeRequestRequestTypeDef",
+    "DescribeAgentVersionsRequestRequestTypeDef",
+    "DescribeAgentVersionsResultTypeDef",
+    "DescribeAppsRequestRequestTypeDef",
+    "DescribeAppsResultTypeDef",
+    "DescribeCommandsRequestRequestTypeDef",
+    "DescribeCommandsResultTypeDef",
+    "DescribeDeploymentsRequestRequestTypeDef",
+    "DescribeDeploymentsResultTypeDef",
+    "DescribeEcsClustersRequestRequestTypeDef",
+    "DescribeEcsClustersResultTypeDef",
+    "DescribeElasticIpsRequestRequestTypeDef",
+    "DescribeElasticIpsResultTypeDef",
+    "DescribeElasticLoadBalancersRequestRequestTypeDef",
+    "DescribeElasticLoadBalancersResultTypeDef",
+    "DescribeInstancesRequestRequestTypeDef",
+    "DescribeInstancesResultTypeDef",
+    "DescribeLayersRequestRequestTypeDef",
+    "DescribeLayersResultTypeDef",
+    "DescribeLoadBasedAutoScalingRequestRequestTypeDef",
+    "DescribeLoadBasedAutoScalingResultTypeDef",
+    "DescribeMyUserProfileResultTypeDef",
+    "DescribeOperatingSystemsResponseTypeDef",
+    "DescribePermissionsRequestRequestTypeDef",
+    "DescribePermissionsResultTypeDef",
+    "DescribeRaidArraysRequestRequestTypeDef",
+    "DescribeRaidArraysResultTypeDef",
+    "DescribeRdsDbInstancesRequestRequestTypeDef",
+    "DescribeRdsDbInstancesResultTypeDef",
+    "DescribeServiceErrorsRequestRequestTypeDef",
+    "DescribeServiceErrorsResultTypeDef",
+    "DescribeStackProvisioningParametersRequestRequestTypeDef",
+    "DescribeStackProvisioningParametersResultTypeDef",
+    "DescribeStackSummaryRequestRequestTypeDef",
+    "DescribeStackSummaryResultTypeDef",
+    "DescribeStacksRequestRequestTypeDef",
+    "DescribeStacksResultTypeDef",
+    "DescribeTimeBasedAutoScalingRequestRequestTypeDef",
+    "DescribeTimeBasedAutoScalingResultTypeDef",
+    "DescribeUserProfilesRequestRequestTypeDef",
+    "DescribeUserProfilesResultTypeDef",
+    "DescribeVolumesRequestRequestTypeDef",
+    "DescribeVolumesResultTypeDef",
+    "DetachElasticLoadBalancerRequestRequestTypeDef",
+    "DisassociateElasticIpRequestRequestTypeDef",
     "EbsBlockDeviceTypeDef",
     "EcsClusterTypeDef",
     "ElasticIpTypeDef",
     "ElasticLoadBalancerTypeDef",
     "EnvironmentVariableTypeDef",
+    "GetHostnameSuggestionRequestRequestTypeDef",
+    "GetHostnameSuggestionResultTypeDef",
+    "GrantAccessRequestRequestTypeDef",
+    "GrantAccessResultTypeDef",
+    "InstanceIdentityTypeDef",
     "InstanceTypeDef",
     "InstancesCountTypeDef",
     "LayerTypeDef",
     "LifecycleEventConfigurationTypeDef",
+    "ListTagsRequestRequestTypeDef",
+    "ListTagsResultTypeDef",
     "LoadBasedAutoScalingConfigurationTypeDef",
     "OperatingSystemConfigurationManagerTypeDef",
     "OperatingSystemTypeDef",
+    "PaginatorConfigTypeDef",
     "PermissionTypeDef",
     "RaidArrayTypeDef",
     "RdsDbInstanceTypeDef",
+    "RebootInstanceRequestRequestTypeDef",
     "RecipesTypeDef",
+    "RegisterEcsClusterRequestRequestTypeDef",
+    "RegisterEcsClusterResultTypeDef",
+    "RegisterElasticIpRequestRequestTypeDef",
+    "RegisterElasticIpResultTypeDef",
+    "RegisterInstanceRequestRequestTypeDef",
+    "RegisterInstanceResultTypeDef",
+    "RegisterRdsDbInstanceRequestRequestTypeDef",
+    "RegisterVolumeRequestRequestTypeDef",
+    "RegisterVolumeResultTypeDef",
     "ReportedOsTypeDef",
+    "ResponseMetadataTypeDef",
     "SelfUserProfileTypeDef",
     "ServiceErrorTypeDef",
+    "ServiceResourceLayerRequestTypeDef",
+    "ServiceResourceStackRequestTypeDef",
+    "ServiceResourceStackSummaryRequestTypeDef",
+    "SetLoadBasedAutoScalingRequestRequestTypeDef",
+    "SetPermissionRequestRequestTypeDef",
+    "SetTimeBasedAutoScalingRequestRequestTypeDef",
     "ShutdownEventConfigurationTypeDef",
     "SourceTypeDef",
     "SslConfigurationTypeDef",
     "StackConfigurationManagerTypeDef",
     "StackSummaryTypeDef",
     "StackTypeDef",
+    "StartInstanceRequestRequestTypeDef",
+    "StartStackRequestRequestTypeDef",
+    "StopInstanceRequestRequestTypeDef",
+    "StopStackRequestRequestTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TemporaryCredentialTypeDef",
     "TimeBasedAutoScalingConfigurationTypeDef",
+    "UnassignInstanceRequestRequestTypeDef",
+    "UnassignVolumeRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateAppRequestRequestTypeDef",
+    "UpdateElasticIpRequestRequestTypeDef",
+    "UpdateInstanceRequestRequestTypeDef",
+    "UpdateLayerRequestRequestTypeDef",
+    "UpdateMyUserProfileRequestRequestTypeDef",
+    "UpdateRdsDbInstanceRequestRequestTypeDef",
+    "UpdateStackRequestRequestTypeDef",
+    "UpdateUserProfileRequestRequestTypeDef",
+    "UpdateVolumeRequestRequestTypeDef",
     "UserProfileTypeDef",
     "VolumeConfigurationTypeDef",
     "VolumeTypeDef",
-    "WeeklyAutoScalingScheduleTypeDef",
-    "CloneStackResultTypeDef",
-    "CreateAppResultTypeDef",
-    "CreateDeploymentResultTypeDef",
-    "CreateInstanceResultTypeDef",
-    "CreateLayerResultTypeDef",
-    "CreateStackResultTypeDef",
-    "CreateUserProfileResultTypeDef",
-    "DescribeAgentVersionsResultTypeDef",
-    "DescribeAppsResultTypeDef",
-    "DescribeCommandsResultTypeDef",
-    "DescribeDeploymentsResultTypeDef",
-    "DescribeEcsClustersResultTypeDef",
-    "DescribeElasticIpsResultTypeDef",
-    "DescribeElasticLoadBalancersResultTypeDef",
-    "DescribeInstancesResultTypeDef",
-    "DescribeLayersResultTypeDef",
-    "DescribeLoadBasedAutoScalingResultTypeDef",
-    "DescribeMyUserProfileResultTypeDef",
-    "DescribeOperatingSystemsResponseTypeDef",
-    "DescribePermissionsResultTypeDef",
-    "DescribeRaidArraysResultTypeDef",
-    "DescribeRdsDbInstancesResultTypeDef",
-    "DescribeServiceErrorsResultTypeDef",
-    "DescribeStackProvisioningParametersResultTypeDef",
-    "DescribeStackSummaryResultTypeDef",
-    "DescribeStacksResultTypeDef",
-    "DescribeTimeBasedAutoScalingResultTypeDef",
-    "DescribeUserProfilesResultTypeDef",
-    "DescribeVolumesResultTypeDef",
-    "GetHostnameSuggestionResultTypeDef",
-    "GrantAccessResultTypeDef",
-    "InstanceIdentityTypeDef",
-    "ListTagsResultTypeDef",
-    "PaginatorConfigTypeDef",
-    "RegisterEcsClusterResultTypeDef",
-    "RegisterElasticIpResultTypeDef",
-    "RegisterInstanceResultTypeDef",
-    "RegisterVolumeResultTypeDef",
     "WaiterConfigTypeDef",
+    "WeeklyAutoScalingScheduleTypeDef",
 )
 
 AgentVersionTypeDef = TypedDict(
     "AgentVersionTypeDef",
-    {"Version": str, "ConfigurationManager": "StackConfigurationManagerTypeDef"},
+    {
+        "Version": str,
+        "ConfigurationManager": "StackConfigurationManagerTypeDef",
+    },
     total=False,
 )
 
@@ -121,18 +220,71 @@ AppTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "DataSources": List["DataSourceTypeDef"],
-        "Type": Literal["aws-flow-ruby", "java", "rails", "php", "nodejs", "static", "other"],
+        "Type": AppTypeType,
         "AppSource": "SourceTypeDef",
         "Domains": List[str],
         "EnableSsl": bool,
         "SslConfiguration": "SslConfigurationTypeDef",
-        "Attributes": Dict[
-            Literal["DocumentRoot", "RailsEnv", "AutoBundleOnDeploy", "AwsFlowRubySettings"], str
-        ],
+        "Attributes": Dict[AppAttributesKeysType, str],
         "CreatedAt": str,
         "Environment": List["EnvironmentVariableTypeDef"],
     },
     total=False,
+)
+
+AssignInstanceRequestRequestTypeDef = TypedDict(
+    "AssignInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "LayerIds": List[str],
+    },
+)
+
+_RequiredAssignVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredAssignVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalAssignVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalAssignVolumeRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+    total=False,
+)
+
+class AssignVolumeRequestRequestTypeDef(
+    _RequiredAssignVolumeRequestRequestTypeDef, _OptionalAssignVolumeRequestRequestTypeDef
+):
+    pass
+
+_RequiredAssociateElasticIpRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateElasticIpRequestRequestTypeDef",
+    {
+        "ElasticIp": str,
+    },
+)
+_OptionalAssociateElasticIpRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateElasticIpRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+    total=False,
+)
+
+class AssociateElasticIpRequestRequestTypeDef(
+    _RequiredAssociateElasticIpRequestRequestTypeDef,
+    _OptionalAssociateElasticIpRequestRequestTypeDef,
+):
+    pass
+
+AttachElasticLoadBalancerRequestRequestTypeDef = TypedDict(
+    "AttachElasticLoadBalancerRequestRequestTypeDef",
+    {
+        "ElasticLoadBalancerName": str,
+        "LayerId": str,
+    },
 )
 
 AutoScalingThresholdsTypeDef = TypedDict(
@@ -151,17 +303,77 @@ AutoScalingThresholdsTypeDef = TypedDict(
 
 BlockDeviceMappingTypeDef = TypedDict(
     "BlockDeviceMappingTypeDef",
-    {"DeviceName": str, "NoDevice": str, "VirtualName": str, "Ebs": "EbsBlockDeviceTypeDef"},
+    {
+        "DeviceName": str,
+        "NoDevice": str,
+        "VirtualName": str,
+        "Ebs": "EbsBlockDeviceTypeDef",
+    },
     total=False,
 )
 
 ChefConfigurationTypeDef = TypedDict(
-    "ChefConfigurationTypeDef", {"ManageBerkshelf": bool, "BerkshelfVersion": str}, total=False
+    "ChefConfigurationTypeDef",
+    {
+        "ManageBerkshelf": bool,
+        "BerkshelfVersion": str,
+    },
+    total=False,
+)
+
+_RequiredCloneStackRequestRequestTypeDef = TypedDict(
+    "_RequiredCloneStackRequestRequestTypeDef",
+    {
+        "SourceStackId": str,
+        "ServiceRoleArn": str,
+    },
+)
+_OptionalCloneStackRequestRequestTypeDef = TypedDict(
+    "_OptionalCloneStackRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Region": str,
+        "VpcId": str,
+        "Attributes": Dict[Literal["Color"], str],
+        "DefaultInstanceProfileArn": str,
+        "DefaultOs": str,
+        "HostnameTheme": str,
+        "DefaultAvailabilityZone": str,
+        "DefaultSubnetId": str,
+        "CustomJson": str,
+        "ConfigurationManager": "StackConfigurationManagerTypeDef",
+        "ChefConfiguration": "ChefConfigurationTypeDef",
+        "UseCustomCookbooks": bool,
+        "UseOpsworksSecurityGroups": bool,
+        "CustomCookbooksSource": "SourceTypeDef",
+        "DefaultSshKeyName": str,
+        "ClonePermissions": bool,
+        "CloneAppIds": List[str],
+        "DefaultRootDeviceType": RootDeviceTypeType,
+        "AgentVersion": str,
+    },
+    total=False,
+)
+
+class CloneStackRequestRequestTypeDef(
+    _RequiredCloneStackRequestRequestTypeDef, _OptionalCloneStackRequestRequestTypeDef
+):
+    pass
+
+CloneStackResultTypeDef = TypedDict(
+    "CloneStackResultTypeDef",
+    {
+        "StackId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CloudWatchLogsConfigurationTypeDef = TypedDict(
     "CloudWatchLogsConfigurationTypeDef",
-    {"Enabled": bool, "LogStreams": List["CloudWatchLogsLogStreamTypeDef"]},
+    {
+        "Enabled": bool,
+        "LogStreams": List["CloudWatchLogsLogStreamTypeDef"],
+    },
     total=False,
 )
 
@@ -170,105 +382,12 @@ CloudWatchLogsLogStreamTypeDef = TypedDict(
     {
         "LogGroupName": str,
         "DatetimeFormat": str,
-        "TimeZone": Literal["LOCAL", "UTC"],
+        "TimeZone": CloudWatchLogsTimeZoneType,
         "File": str,
         "FileFingerprintLines": str,
         "MultiLineStartPattern": str,
-        "InitialPosition": Literal["start_of_file", "end_of_file"],
-        "Encoding": Literal[
-            "ascii",
-            "big5",
-            "big5hkscs",
-            "cp037",
-            "cp424",
-            "cp437",
-            "cp500",
-            "cp720",
-            "cp737",
-            "cp775",
-            "cp850",
-            "cp852",
-            "cp855",
-            "cp856",
-            "cp857",
-            "cp858",
-            "cp860",
-            "cp861",
-            "cp862",
-            "cp863",
-            "cp864",
-            "cp865",
-            "cp866",
-            "cp869",
-            "cp874",
-            "cp875",
-            "cp932",
-            "cp949",
-            "cp950",
-            "cp1006",
-            "cp1026",
-            "cp1140",
-            "cp1250",
-            "cp1251",
-            "cp1252",
-            "cp1253",
-            "cp1254",
-            "cp1255",
-            "cp1256",
-            "cp1257",
-            "cp1258",
-            "euc_jp",
-            "euc_jis_2004",
-            "euc_jisx0213",
-            "euc_kr",
-            "gb2312",
-            "gbk",
-            "gb18030",
-            "hz",
-            "iso2022_jp",
-            "iso2022_jp_1",
-            "iso2022_jp_2",
-            "iso2022_jp_2004",
-            "iso2022_jp_3",
-            "iso2022_jp_ext",
-            "iso2022_kr",
-            "latin_1",
-            "iso8859_2",
-            "iso8859_3",
-            "iso8859_4",
-            "iso8859_5",
-            "iso8859_6",
-            "iso8859_7",
-            "iso8859_8",
-            "iso8859_9",
-            "iso8859_10",
-            "iso8859_13",
-            "iso8859_14",
-            "iso8859_15",
-            "iso8859_16",
-            "johab",
-            "koi8_r",
-            "koi8_u",
-            "mac_cyrillic",
-            "mac_greek",
-            "mac_iceland",
-            "mac_latin2",
-            "mac_roman",
-            "mac_turkish",
-            "ptcp154",
-            "shift_jis",
-            "shift_jis_2004",
-            "shift_jisx0213",
-            "utf_32",
-            "utf_32_be",
-            "utf_32_le",
-            "utf_16",
-            "utf_16_be",
-            "utf_16_le",
-            "utf_7",
-            "utf_8",
-            "utf_8_sig",
-        ],
+        "InitialPosition": CloudWatchLogsInitialPositionType,
+        "Encoding": CloudWatchLogsEncodingType,
         "BufferDuration": int,
         "BatchCount": int,
         "BatchSize": int,
@@ -293,39 +412,381 @@ CommandTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateAppRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAppRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "Name": str,
+        "Type": AppTypeType,
+    },
+)
+_OptionalCreateAppRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAppRequestRequestTypeDef",
+    {
+        "Shortname": str,
+        "Description": str,
+        "DataSources": List["DataSourceTypeDef"],
+        "AppSource": "SourceTypeDef",
+        "Domains": List[str],
+        "EnableSsl": bool,
+        "SslConfiguration": "SslConfigurationTypeDef",
+        "Attributes": Dict[AppAttributesKeysType, str],
+        "Environment": List["EnvironmentVariableTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAppRequestRequestTypeDef(
+    _RequiredCreateAppRequestRequestTypeDef, _OptionalCreateAppRequestRequestTypeDef
+):
+    pass
+
+CreateAppResultTypeDef = TypedDict(
+    "CreateAppResultTypeDef",
+    {
+        "AppId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDeploymentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDeploymentRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "Command": "DeploymentCommandTypeDef",
+    },
+)
+_OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDeploymentRequestRequestTypeDef",
+    {
+        "AppId": str,
+        "InstanceIds": List[str],
+        "LayerIds": List[str],
+        "Comment": str,
+        "CustomJson": str,
+    },
+    total=False,
+)
+
+class CreateDeploymentRequestRequestTypeDef(
+    _RequiredCreateDeploymentRequestRequestTypeDef, _OptionalCreateDeploymentRequestRequestTypeDef
+):
+    pass
+
+CreateDeploymentResultTypeDef = TypedDict(
+    "CreateDeploymentResultTypeDef",
+    {
+        "DeploymentId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateInstanceRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "LayerIds": List[str],
+        "InstanceType": str,
+    },
+)
+_OptionalCreateInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateInstanceRequestRequestTypeDef",
+    {
+        "AutoScalingType": AutoScalingTypeType,
+        "Hostname": str,
+        "Os": str,
+        "AmiId": str,
+        "SshKeyName": str,
+        "AvailabilityZone": str,
+        "VirtualizationType": str,
+        "SubnetId": str,
+        "Architecture": ArchitectureType,
+        "RootDeviceType": RootDeviceTypeType,
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "InstallUpdatesOnBoot": bool,
+        "EbsOptimized": bool,
+        "AgentVersion": str,
+        "Tenancy": str,
+    },
+    total=False,
+)
+
+class CreateInstanceRequestRequestTypeDef(
+    _RequiredCreateInstanceRequestRequestTypeDef, _OptionalCreateInstanceRequestRequestTypeDef
+):
+    pass
+
+CreateInstanceResultTypeDef = TypedDict(
+    "CreateInstanceResultTypeDef",
+    {
+        "InstanceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLayerRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLayerRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "Type": LayerTypeType,
+        "Name": str,
+        "Shortname": str,
+    },
+)
+_OptionalCreateLayerRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLayerRequestRequestTypeDef",
+    {
+        "Attributes": Dict[LayerAttributesKeysType, str],
+        "CloudWatchLogsConfiguration": "CloudWatchLogsConfigurationTypeDef",
+        "CustomInstanceProfileArn": str,
+        "CustomJson": str,
+        "CustomSecurityGroupIds": List[str],
+        "Packages": List[str],
+        "VolumeConfigurations": List["VolumeConfigurationTypeDef"],
+        "EnableAutoHealing": bool,
+        "AutoAssignElasticIps": bool,
+        "AutoAssignPublicIps": bool,
+        "CustomRecipes": "RecipesTypeDef",
+        "InstallUpdatesOnBoot": bool,
+        "UseEbsOptimizedInstances": bool,
+        "LifecycleEventConfiguration": "LifecycleEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CreateLayerRequestRequestTypeDef(
+    _RequiredCreateLayerRequestRequestTypeDef, _OptionalCreateLayerRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateLayerRequestStackTypeDef = TypedDict(
+    "_RequiredCreateLayerRequestStackTypeDef",
+    {
+        "Type": LayerTypeType,
+        "Name": str,
+        "Shortname": str,
+    },
+)
+_OptionalCreateLayerRequestStackTypeDef = TypedDict(
+    "_OptionalCreateLayerRequestStackTypeDef",
+    {
+        "Attributes": Dict[LayerAttributesKeysType, str],
+        "CloudWatchLogsConfiguration": "CloudWatchLogsConfigurationTypeDef",
+        "CustomInstanceProfileArn": str,
+        "CustomJson": str,
+        "CustomSecurityGroupIds": List[str],
+        "Packages": List[str],
+        "VolumeConfigurations": List["VolumeConfigurationTypeDef"],
+        "EnableAutoHealing": bool,
+        "AutoAssignElasticIps": bool,
+        "AutoAssignPublicIps": bool,
+        "CustomRecipes": "RecipesTypeDef",
+        "InstallUpdatesOnBoot": bool,
+        "UseEbsOptimizedInstances": bool,
+        "LifecycleEventConfiguration": "LifecycleEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CreateLayerRequestStackTypeDef(
+    _RequiredCreateLayerRequestStackTypeDef, _OptionalCreateLayerRequestStackTypeDef
+):
+    pass
+
+CreateLayerResultTypeDef = TypedDict(
+    "CreateLayerResultTypeDef",
+    {
+        "LayerId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateStackRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateStackRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Region": str,
+        "ServiceRoleArn": str,
+        "DefaultInstanceProfileArn": str,
+    },
+)
+_OptionalCreateStackRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateStackRequestRequestTypeDef",
+    {
+        "VpcId": str,
+        "Attributes": Dict[Literal["Color"], str],
+        "DefaultOs": str,
+        "HostnameTheme": str,
+        "DefaultAvailabilityZone": str,
+        "DefaultSubnetId": str,
+        "CustomJson": str,
+        "ConfigurationManager": "StackConfigurationManagerTypeDef",
+        "ChefConfiguration": "ChefConfigurationTypeDef",
+        "UseCustomCookbooks": bool,
+        "UseOpsworksSecurityGroups": bool,
+        "CustomCookbooksSource": "SourceTypeDef",
+        "DefaultSshKeyName": str,
+        "DefaultRootDeviceType": RootDeviceTypeType,
+        "AgentVersion": str,
+    },
+    total=False,
+)
+
+class CreateStackRequestRequestTypeDef(
+    _RequiredCreateStackRequestRequestTypeDef, _OptionalCreateStackRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateStackRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateStackRequestServiceResourceTypeDef",
+    {
+        "Name": str,
+        "Region": str,
+        "ServiceRoleArn": str,
+        "DefaultInstanceProfileArn": str,
+    },
+)
+_OptionalCreateStackRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateStackRequestServiceResourceTypeDef",
+    {
+        "VpcId": str,
+        "Attributes": Dict[Literal["Color"], str],
+        "DefaultOs": str,
+        "HostnameTheme": str,
+        "DefaultAvailabilityZone": str,
+        "DefaultSubnetId": str,
+        "CustomJson": str,
+        "ConfigurationManager": "StackConfigurationManagerTypeDef",
+        "ChefConfiguration": "ChefConfigurationTypeDef",
+        "UseCustomCookbooks": bool,
+        "UseOpsworksSecurityGroups": bool,
+        "CustomCookbooksSource": "SourceTypeDef",
+        "DefaultSshKeyName": str,
+        "DefaultRootDeviceType": RootDeviceTypeType,
+        "AgentVersion": str,
+    },
+    total=False,
+)
+
+class CreateStackRequestServiceResourceTypeDef(
+    _RequiredCreateStackRequestServiceResourceTypeDef,
+    _OptionalCreateStackRequestServiceResourceTypeDef,
+):
+    pass
+
+CreateStackResultTypeDef = TypedDict(
+    "CreateStackResultTypeDef",
+    {
+        "StackId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateUserProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateUserProfileRequestRequestTypeDef",
+    {
+        "IamUserArn": str,
+    },
+)
+_OptionalCreateUserProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateUserProfileRequestRequestTypeDef",
+    {
+        "SshUsername": str,
+        "SshPublicKey": str,
+        "AllowSelfManagement": bool,
+    },
+    total=False,
+)
+
+class CreateUserProfileRequestRequestTypeDef(
+    _RequiredCreateUserProfileRequestRequestTypeDef, _OptionalCreateUserProfileRequestRequestTypeDef
+):
+    pass
+
+CreateUserProfileResultTypeDef = TypedDict(
+    "CreateUserProfileResultTypeDef",
+    {
+        "IamUserArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DataSourceTypeDef = TypedDict(
-    "DataSourceTypeDef", {"Type": str, "Arn": str, "DatabaseName": str}, total=False
+    "DataSourceTypeDef",
+    {
+        "Type": str,
+        "Arn": str,
+        "DatabaseName": str,
+    },
+    total=False,
+)
+
+DeleteAppRequestRequestTypeDef = TypedDict(
+    "DeleteAppRequestRequestTypeDef",
+    {
+        "AppId": str,
+    },
+)
+
+_RequiredDeleteInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalDeleteInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteInstanceRequestRequestTypeDef",
+    {
+        "DeleteElasticIp": bool,
+        "DeleteVolumes": bool,
+    },
+    total=False,
+)
+
+class DeleteInstanceRequestRequestTypeDef(
+    _RequiredDeleteInstanceRequestRequestTypeDef, _OptionalDeleteInstanceRequestRequestTypeDef
+):
+    pass
+
+DeleteLayerRequestRequestTypeDef = TypedDict(
+    "DeleteLayerRequestRequestTypeDef",
+    {
+        "LayerId": str,
+    },
+)
+
+DeleteStackRequestRequestTypeDef = TypedDict(
+    "DeleteStackRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+
+DeleteUserProfileRequestRequestTypeDef = TypedDict(
+    "DeleteUserProfileRequestRequestTypeDef",
+    {
+        "IamUserArn": str,
+    },
 )
 
 _RequiredDeploymentCommandTypeDef = TypedDict(
     "_RequiredDeploymentCommandTypeDef",
     {
-        "Name": Literal[
-            "install_dependencies",
-            "update_dependencies",
-            "update_custom_cookbooks",
-            "execute_recipes",
-            "configure",
-            "setup",
-            "deploy",
-            "rollback",
-            "start",
-            "stop",
-            "restart",
-            "undeploy",
-        ]
+        "Name": DeploymentCommandNameType,
     },
 )
 _OptionalDeploymentCommandTypeDef = TypedDict(
-    "_OptionalDeploymentCommandTypeDef", {"Args": Dict[str, List[str]]}, total=False
+    "_OptionalDeploymentCommandTypeDef",
+    {
+        "Args": Dict[str, List[str]],
+    },
+    total=False,
 )
-
 
 class DeploymentCommandTypeDef(
     _RequiredDeploymentCommandTypeDef, _OptionalDeploymentCommandTypeDef
 ):
     pass
-
 
 DeploymentTypeDef = TypedDict(
     "DeploymentTypeDef",
@@ -346,13 +807,432 @@ DeploymentTypeDef = TypedDict(
     total=False,
 )
 
+DeregisterEcsClusterRequestRequestTypeDef = TypedDict(
+    "DeregisterEcsClusterRequestRequestTypeDef",
+    {
+        "EcsClusterArn": str,
+    },
+)
+
+DeregisterElasticIpRequestRequestTypeDef = TypedDict(
+    "DeregisterElasticIpRequestRequestTypeDef",
+    {
+        "ElasticIp": str,
+    },
+)
+
+DeregisterInstanceRequestRequestTypeDef = TypedDict(
+    "DeregisterInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+
+DeregisterRdsDbInstanceRequestRequestTypeDef = TypedDict(
+    "DeregisterRdsDbInstanceRequestRequestTypeDef",
+    {
+        "RdsDbInstanceArn": str,
+    },
+)
+
+DeregisterVolumeRequestRequestTypeDef = TypedDict(
+    "DeregisterVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+
+DescribeAgentVersionsRequestRequestTypeDef = TypedDict(
+    "DescribeAgentVersionsRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "ConfigurationManager": "StackConfigurationManagerTypeDef",
+    },
+    total=False,
+)
+
+DescribeAgentVersionsResultTypeDef = TypedDict(
+    "DescribeAgentVersionsResultTypeDef",
+    {
+        "AgentVersions": List["AgentVersionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAppsRequestRequestTypeDef = TypedDict(
+    "DescribeAppsRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "AppIds": List[str],
+    },
+    total=False,
+)
+
+DescribeAppsResultTypeDef = TypedDict(
+    "DescribeAppsResultTypeDef",
+    {
+        "Apps": List["AppTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeCommandsRequestRequestTypeDef = TypedDict(
+    "DescribeCommandsRequestRequestTypeDef",
+    {
+        "DeploymentId": str,
+        "InstanceId": str,
+        "CommandIds": List[str],
+    },
+    total=False,
+)
+
+DescribeCommandsResultTypeDef = TypedDict(
+    "DescribeCommandsResultTypeDef",
+    {
+        "Commands": List["CommandTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDeploymentsRequestRequestTypeDef = TypedDict(
+    "DescribeDeploymentsRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "AppId": str,
+        "DeploymentIds": List[str],
+    },
+    total=False,
+)
+
+DescribeDeploymentsResultTypeDef = TypedDict(
+    "DescribeDeploymentsResultTypeDef",
+    {
+        "Deployments": List["DeploymentTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEcsClustersRequestRequestTypeDef = TypedDict(
+    "DescribeEcsClustersRequestRequestTypeDef",
+    {
+        "EcsClusterArns": List[str],
+        "StackId": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeEcsClustersResultTypeDef = TypedDict(
+    "DescribeEcsClustersResultTypeDef",
+    {
+        "EcsClusters": List["EcsClusterTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeElasticIpsRequestRequestTypeDef = TypedDict(
+    "DescribeElasticIpsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "StackId": str,
+        "Ips": List[str],
+    },
+    total=False,
+)
+
+DescribeElasticIpsResultTypeDef = TypedDict(
+    "DescribeElasticIpsResultTypeDef",
+    {
+        "ElasticIps": List["ElasticIpTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeElasticLoadBalancersRequestRequestTypeDef = TypedDict(
+    "DescribeElasticLoadBalancersRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "LayerIds": List[str],
+    },
+    total=False,
+)
+
+DescribeElasticLoadBalancersResultTypeDef = TypedDict(
+    "DescribeElasticLoadBalancersResultTypeDef",
+    {
+        "ElasticLoadBalancers": List["ElasticLoadBalancerTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstancesRequestRequestTypeDef = TypedDict(
+    "DescribeInstancesRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "LayerId": str,
+        "InstanceIds": List[str],
+    },
+    total=False,
+)
+
+DescribeInstancesResultTypeDef = TypedDict(
+    "DescribeInstancesResultTypeDef",
+    {
+        "Instances": List["InstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLayersRequestRequestTypeDef = TypedDict(
+    "DescribeLayersRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "LayerIds": List[str],
+    },
+    total=False,
+)
+
+DescribeLayersResultTypeDef = TypedDict(
+    "DescribeLayersResultTypeDef",
+    {
+        "Layers": List["LayerTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLoadBasedAutoScalingRequestRequestTypeDef = TypedDict(
+    "DescribeLoadBasedAutoScalingRequestRequestTypeDef",
+    {
+        "LayerIds": List[str],
+    },
+)
+
+DescribeLoadBasedAutoScalingResultTypeDef = TypedDict(
+    "DescribeLoadBasedAutoScalingResultTypeDef",
+    {
+        "LoadBasedAutoScalingConfigurations": List["LoadBasedAutoScalingConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMyUserProfileResultTypeDef = TypedDict(
+    "DescribeMyUserProfileResultTypeDef",
+    {
+        "UserProfile": "SelfUserProfileTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOperatingSystemsResponseTypeDef = TypedDict(
+    "DescribeOperatingSystemsResponseTypeDef",
+    {
+        "OperatingSystems": List["OperatingSystemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePermissionsRequestRequestTypeDef = TypedDict(
+    "DescribePermissionsRequestRequestTypeDef",
+    {
+        "IamUserArn": str,
+        "StackId": str,
+    },
+    total=False,
+)
+
+DescribePermissionsResultTypeDef = TypedDict(
+    "DescribePermissionsResultTypeDef",
+    {
+        "Permissions": List["PermissionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRaidArraysRequestRequestTypeDef = TypedDict(
+    "DescribeRaidArraysRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "StackId": str,
+        "RaidArrayIds": List[str],
+    },
+    total=False,
+)
+
+DescribeRaidArraysResultTypeDef = TypedDict(
+    "DescribeRaidArraysResultTypeDef",
+    {
+        "RaidArrays": List["RaidArrayTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeRdsDbInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRdsDbInstancesRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+_OptionalDescribeRdsDbInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRdsDbInstancesRequestRequestTypeDef",
+    {
+        "RdsDbInstanceArns": List[str],
+    },
+    total=False,
+)
+
+class DescribeRdsDbInstancesRequestRequestTypeDef(
+    _RequiredDescribeRdsDbInstancesRequestRequestTypeDef,
+    _OptionalDescribeRdsDbInstancesRequestRequestTypeDef,
+):
+    pass
+
+DescribeRdsDbInstancesResultTypeDef = TypedDict(
+    "DescribeRdsDbInstancesResultTypeDef",
+    {
+        "RdsDbInstances": List["RdsDbInstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeServiceErrorsRequestRequestTypeDef = TypedDict(
+    "DescribeServiceErrorsRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "InstanceId": str,
+        "ServiceErrorIds": List[str],
+    },
+    total=False,
+)
+
+DescribeServiceErrorsResultTypeDef = TypedDict(
+    "DescribeServiceErrorsResultTypeDef",
+    {
+        "ServiceErrors": List["ServiceErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeStackProvisioningParametersRequestRequestTypeDef = TypedDict(
+    "DescribeStackProvisioningParametersRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+
+DescribeStackProvisioningParametersResultTypeDef = TypedDict(
+    "DescribeStackProvisioningParametersResultTypeDef",
+    {
+        "AgentInstallerUrl": str,
+        "Parameters": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeStackSummaryRequestRequestTypeDef = TypedDict(
+    "DescribeStackSummaryRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+
+DescribeStackSummaryResultTypeDef = TypedDict(
+    "DescribeStackSummaryResultTypeDef",
+    {
+        "StackSummary": "StackSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeStacksRequestRequestTypeDef = TypedDict(
+    "DescribeStacksRequestRequestTypeDef",
+    {
+        "StackIds": List[str],
+    },
+    total=False,
+)
+
+DescribeStacksResultTypeDef = TypedDict(
+    "DescribeStacksResultTypeDef",
+    {
+        "Stacks": List["StackTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTimeBasedAutoScalingRequestRequestTypeDef = TypedDict(
+    "DescribeTimeBasedAutoScalingRequestRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+    },
+)
+
+DescribeTimeBasedAutoScalingResultTypeDef = TypedDict(
+    "DescribeTimeBasedAutoScalingResultTypeDef",
+    {
+        "TimeBasedAutoScalingConfigurations": List["TimeBasedAutoScalingConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeUserProfilesRequestRequestTypeDef = TypedDict(
+    "DescribeUserProfilesRequestRequestTypeDef",
+    {
+        "IamUserArns": List[str],
+    },
+    total=False,
+)
+
+DescribeUserProfilesResultTypeDef = TypedDict(
+    "DescribeUserProfilesResultTypeDef",
+    {
+        "UserProfiles": List["UserProfileTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVolumesRequestRequestTypeDef = TypedDict(
+    "DescribeVolumesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "StackId": str,
+        "RaidArrayId": str,
+        "VolumeIds": List[str],
+    },
+    total=False,
+)
+
+DescribeVolumesResultTypeDef = TypedDict(
+    "DescribeVolumesResultTypeDef",
+    {
+        "Volumes": List["VolumeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetachElasticLoadBalancerRequestRequestTypeDef = TypedDict(
+    "DetachElasticLoadBalancerRequestRequestTypeDef",
+    {
+        "ElasticLoadBalancerName": str,
+        "LayerId": str,
+    },
+)
+
+DisassociateElasticIpRequestRequestTypeDef = TypedDict(
+    "DisassociateElasticIpRequestRequestTypeDef",
+    {
+        "ElasticIp": str,
+    },
+)
+
 EbsBlockDeviceTypeDef = TypedDict(
     "EbsBlockDeviceTypeDef",
     {
         "SnapshotId": str,
         "Iops": int,
         "VolumeSize": int,
-        "VolumeType": Literal["gp2", "io1", "standard"],
+        "VolumeType": VolumeTypeType,
         "DeleteOnTermination": bool,
     },
     total=False,
@@ -360,13 +1240,24 @@ EbsBlockDeviceTypeDef = TypedDict(
 
 EcsClusterTypeDef = TypedDict(
     "EcsClusterTypeDef",
-    {"EcsClusterArn": str, "EcsClusterName": str, "StackId": str, "RegisteredAt": str},
+    {
+        "EcsClusterArn": str,
+        "EcsClusterName": str,
+        "StackId": str,
+        "RegisteredAt": str,
+    },
     total=False,
 )
 
 ElasticIpTypeDef = TypedDict(
     "ElasticIpTypeDef",
-    {"Ip": str, "Name": str, "Domain": str, "Region": str, "InstanceId": str},
+    {
+        "Ip": str,
+        "Name": str,
+        "Domain": str,
+        "Region": str,
+        "InstanceId": str,
+    },
     total=False,
 )
 
@@ -387,27 +1278,85 @@ ElasticLoadBalancerTypeDef = TypedDict(
 )
 
 _RequiredEnvironmentVariableTypeDef = TypedDict(
-    "_RequiredEnvironmentVariableTypeDef", {"Key": str, "Value": str}
+    "_RequiredEnvironmentVariableTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
 )
 _OptionalEnvironmentVariableTypeDef = TypedDict(
-    "_OptionalEnvironmentVariableTypeDef", {"Secure": bool}, total=False
+    "_OptionalEnvironmentVariableTypeDef",
+    {
+        "Secure": bool,
+    },
+    total=False,
 )
-
 
 class EnvironmentVariableTypeDef(
     _RequiredEnvironmentVariableTypeDef, _OptionalEnvironmentVariableTypeDef
 ):
     pass
 
+GetHostnameSuggestionRequestRequestTypeDef = TypedDict(
+    "GetHostnameSuggestionRequestRequestTypeDef",
+    {
+        "LayerId": str,
+    },
+)
+
+GetHostnameSuggestionResultTypeDef = TypedDict(
+    "GetHostnameSuggestionResultTypeDef",
+    {
+        "LayerId": str,
+        "Hostname": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGrantAccessRequestRequestTypeDef = TypedDict(
+    "_RequiredGrantAccessRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalGrantAccessRequestRequestTypeDef = TypedDict(
+    "_OptionalGrantAccessRequestRequestTypeDef",
+    {
+        "ValidForInMinutes": int,
+    },
+    total=False,
+)
+
+class GrantAccessRequestRequestTypeDef(
+    _RequiredGrantAccessRequestRequestTypeDef, _OptionalGrantAccessRequestRequestTypeDef
+):
+    pass
+
+GrantAccessResultTypeDef = TypedDict(
+    "GrantAccessResultTypeDef",
+    {
+        "TemporaryCredential": "TemporaryCredentialTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InstanceIdentityTypeDef = TypedDict(
+    "InstanceIdentityTypeDef",
+    {
+        "Document": str,
+        "Signature": str,
+    },
+    total=False,
+)
 
 InstanceTypeDef = TypedDict(
     "InstanceTypeDef",
     {
         "AgentVersion": str,
         "AmiId": str,
-        "Architecture": Literal["x86_64", "i386"],
+        "Architecture": ArchitectureType,
         "Arn": str,
-        "AutoScalingType": Literal["load", "timer"],
+        "AutoScalingType": AutoScalingTypeType,
         "AvailabilityZone": str,
         "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
         "CreatedAt": str,
@@ -433,7 +1382,7 @@ InstanceTypeDef = TypedDict(
         "RegisteredBy": str,
         "ReportedAgentVersion": str,
         "ReportedOs": "ReportedOsTypeDef",
-        "RootDeviceType": Literal["ebs", "instance-store"],
+        "RootDeviceType": RootDeviceTypeType,
         "RootDeviceVolumeId": str,
         "SecurityGroupIds": List[str],
         "SshHostDsaKeyFingerprint": str,
@@ -443,7 +1392,7 @@ InstanceTypeDef = TypedDict(
         "Status": str,
         "SubnetId": str,
         "Tenancy": str,
-        "VirtualizationType": Literal["paravirtual", "hvm"],
+        "VirtualizationType": VirtualizationTypeType,
     },
     total=False,
 )
@@ -481,52 +1430,10 @@ LayerTypeDef = TypedDict(
         "Arn": str,
         "StackId": str,
         "LayerId": str,
-        "Type": Literal[
-            "aws-flow-ruby",
-            "ecs-cluster",
-            "java-app",
-            "lb",
-            "web",
-            "php-app",
-            "rails-app",
-            "nodejs-app",
-            "memcached",
-            "db-master",
-            "monitoring-master",
-            "custom",
-        ],
+        "Type": LayerTypeType,
         "Name": str,
         "Shortname": str,
-        "Attributes": Dict[
-            Literal[
-                "EcsClusterArn",
-                "EnableHaproxyStats",
-                "HaproxyStatsUrl",
-                "HaproxyStatsUser",
-                "HaproxyStatsPassword",
-                "HaproxyHealthCheckUrl",
-                "HaproxyHealthCheckMethod",
-                "MysqlRootPassword",
-                "MysqlRootPasswordUbiquitous",
-                "GangliaUrl",
-                "GangliaUser",
-                "GangliaPassword",
-                "MemcachedMemory",
-                "NodejsVersion",
-                "RubyVersion",
-                "RubygemsVersion",
-                "ManageBundler",
-                "BundlerVersion",
-                "RailsStack",
-                "PassengerVersion",
-                "Jvm",
-                "JvmVersion",
-                "JvmOptions",
-                "JavaAppServer",
-                "JavaAppServerVersion",
-            ],
-            str,
-        ],
+        "Attributes": Dict[LayerAttributesKeysType, str],
         "CloudWatchLogsConfiguration": "CloudWatchLogsConfigurationTypeDef",
         "CustomInstanceProfileArn": str,
         "CustomJson": str,
@@ -549,8 +1456,39 @@ LayerTypeDef = TypedDict(
 
 LifecycleEventConfigurationTypeDef = TypedDict(
     "LifecycleEventConfigurationTypeDef",
-    {"Shutdown": "ShutdownEventConfigurationTypeDef"},
+    {
+        "Shutdown": "ShutdownEventConfigurationTypeDef",
+    },
     total=False,
+)
+
+_RequiredListTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredListTagsRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalListTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalListTagsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListTagsRequestRequestTypeDef(
+    _RequiredListTagsRequestRequestTypeDef, _OptionalListTagsRequestRequestTypeDef
+):
+    pass
+
+ListTagsResultTypeDef = TypedDict(
+    "ListTagsResultTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 LoadBasedAutoScalingConfigurationTypeDef = TypedDict(
@@ -565,7 +1503,12 @@ LoadBasedAutoScalingConfigurationTypeDef = TypedDict(
 )
 
 OperatingSystemConfigurationManagerTypeDef = TypedDict(
-    "OperatingSystemConfigurationManagerTypeDef", {"Name": str, "Version": str}, total=False
+    "OperatingSystemConfigurationManagerTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+    },
+    total=False,
 )
 
 OperatingSystemTypeDef = TypedDict(
@@ -582,9 +1525,25 @@ OperatingSystemTypeDef = TypedDict(
     total=False,
 )
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
 PermissionTypeDef = TypedDict(
     "PermissionTypeDef",
-    {"StackId": str, "IamUserArn": str, "AllowSsh": bool, "AllowSudo": bool, "Level": str},
+    {
+        "StackId": str,
+        "IamUserArn": str,
+        "AllowSsh": bool,
+        "AllowSudo": bool,
+        "Level": str,
+    },
     total=False,
 )
 
@@ -624,6 +1583,13 @@ RdsDbInstanceTypeDef = TypedDict(
     total=False,
 )
 
+RebootInstanceRequestRequestTypeDef = TypedDict(
+    "RebootInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+
 RecipesTypeDef = TypedDict(
     "RecipesTypeDef",
     {
@@ -636,13 +1602,136 @@ RecipesTypeDef = TypedDict(
     total=False,
 )
 
+RegisterEcsClusterRequestRequestTypeDef = TypedDict(
+    "RegisterEcsClusterRequestRequestTypeDef",
+    {
+        "EcsClusterArn": str,
+        "StackId": str,
+    },
+)
+
+RegisterEcsClusterResultTypeDef = TypedDict(
+    "RegisterEcsClusterResultTypeDef",
+    {
+        "EcsClusterArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegisterElasticIpRequestRequestTypeDef = TypedDict(
+    "RegisterElasticIpRequestRequestTypeDef",
+    {
+        "ElasticIp": str,
+        "StackId": str,
+    },
+)
+
+RegisterElasticIpResultTypeDef = TypedDict(
+    "RegisterElasticIpResultTypeDef",
+    {
+        "ElasticIp": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRegisterInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterInstanceRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+_OptionalRegisterInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterInstanceRequestRequestTypeDef",
+    {
+        "Hostname": str,
+        "PublicIp": str,
+        "PrivateIp": str,
+        "RsaPublicKey": str,
+        "RsaPublicKeyFingerprint": str,
+        "InstanceIdentity": "InstanceIdentityTypeDef",
+    },
+    total=False,
+)
+
+class RegisterInstanceRequestRequestTypeDef(
+    _RequiredRegisterInstanceRequestRequestTypeDef, _OptionalRegisterInstanceRequestRequestTypeDef
+):
+    pass
+
+RegisterInstanceResultTypeDef = TypedDict(
+    "RegisterInstanceResultTypeDef",
+    {
+        "InstanceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegisterRdsDbInstanceRequestRequestTypeDef = TypedDict(
+    "RegisterRdsDbInstanceRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "RdsDbInstanceArn": str,
+        "DbUser": str,
+        "DbPassword": str,
+    },
+)
+
+_RequiredRegisterVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterVolumeRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+_OptionalRegisterVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterVolumeRequestRequestTypeDef",
+    {
+        "Ec2VolumeId": str,
+    },
+    total=False,
+)
+
+class RegisterVolumeRequestRequestTypeDef(
+    _RequiredRegisterVolumeRequestRequestTypeDef, _OptionalRegisterVolumeRequestRequestTypeDef
+):
+    pass
+
+RegisterVolumeResultTypeDef = TypedDict(
+    "RegisterVolumeResultTypeDef",
+    {
+        "VolumeId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ReportedOsTypeDef = TypedDict(
-    "ReportedOsTypeDef", {"Family": str, "Name": str, "Version": str}, total=False
+    "ReportedOsTypeDef",
+    {
+        "Family": str,
+        "Name": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 SelfUserProfileTypeDef = TypedDict(
     "SelfUserProfileTypeDef",
-    {"IamUserArn": str, "Name": str, "SshUsername": str, "SshPublicKey": str},
+    {
+        "IamUserArn": str,
+        "Name": str,
+        "SshUsername": str,
+        "SshPublicKey": str,
+    },
     total=False,
 )
 
@@ -659,16 +1748,104 @@ ServiceErrorTypeDef = TypedDict(
     total=False,
 )
 
+ServiceResourceLayerRequestTypeDef = TypedDict(
+    "ServiceResourceLayerRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceStackRequestTypeDef = TypedDict(
+    "ServiceResourceStackRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceStackSummaryRequestTypeDef = TypedDict(
+    "ServiceResourceStackSummaryRequestTypeDef",
+    {
+        "stack_id": str,
+    },
+)
+
+_RequiredSetLoadBasedAutoScalingRequestRequestTypeDef = TypedDict(
+    "_RequiredSetLoadBasedAutoScalingRequestRequestTypeDef",
+    {
+        "LayerId": str,
+    },
+)
+_OptionalSetLoadBasedAutoScalingRequestRequestTypeDef = TypedDict(
+    "_OptionalSetLoadBasedAutoScalingRequestRequestTypeDef",
+    {
+        "Enable": bool,
+        "UpScaling": "AutoScalingThresholdsTypeDef",
+        "DownScaling": "AutoScalingThresholdsTypeDef",
+    },
+    total=False,
+)
+
+class SetLoadBasedAutoScalingRequestRequestTypeDef(
+    _RequiredSetLoadBasedAutoScalingRequestRequestTypeDef,
+    _OptionalSetLoadBasedAutoScalingRequestRequestTypeDef,
+):
+    pass
+
+_RequiredSetPermissionRequestRequestTypeDef = TypedDict(
+    "_RequiredSetPermissionRequestRequestTypeDef",
+    {
+        "StackId": str,
+        "IamUserArn": str,
+    },
+)
+_OptionalSetPermissionRequestRequestTypeDef = TypedDict(
+    "_OptionalSetPermissionRequestRequestTypeDef",
+    {
+        "AllowSsh": bool,
+        "AllowSudo": bool,
+        "Level": str,
+    },
+    total=False,
+)
+
+class SetPermissionRequestRequestTypeDef(
+    _RequiredSetPermissionRequestRequestTypeDef, _OptionalSetPermissionRequestRequestTypeDef
+):
+    pass
+
+_RequiredSetTimeBasedAutoScalingRequestRequestTypeDef = TypedDict(
+    "_RequiredSetTimeBasedAutoScalingRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalSetTimeBasedAutoScalingRequestRequestTypeDef = TypedDict(
+    "_OptionalSetTimeBasedAutoScalingRequestRequestTypeDef",
+    {
+        "AutoScalingSchedule": "WeeklyAutoScalingScheduleTypeDef",
+    },
+    total=False,
+)
+
+class SetTimeBasedAutoScalingRequestRequestTypeDef(
+    _RequiredSetTimeBasedAutoScalingRequestRequestTypeDef,
+    _OptionalSetTimeBasedAutoScalingRequestRequestTypeDef,
+):
+    pass
+
 ShutdownEventConfigurationTypeDef = TypedDict(
     "ShutdownEventConfigurationTypeDef",
-    {"ExecutionTimeout": int, "DelayUntilElbConnectionsDrained": bool},
+    {
+        "ExecutionTimeout": int,
+        "DelayUntilElbConnectionsDrained": bool,
+    },
     total=False,
 )
 
 SourceTypeDef = TypedDict(
     "SourceTypeDef",
     {
-        "Type": Literal["git", "svn", "archive", "s3"],
+        "Type": SourceTypeType,
         "Url": str,
         "Username": str,
         "Password": str,
@@ -679,19 +1856,30 @@ SourceTypeDef = TypedDict(
 )
 
 _RequiredSslConfigurationTypeDef = TypedDict(
-    "_RequiredSslConfigurationTypeDef", {"Certificate": str, "PrivateKey": str}
+    "_RequiredSslConfigurationTypeDef",
+    {
+        "Certificate": str,
+        "PrivateKey": str,
+    },
 )
 _OptionalSslConfigurationTypeDef = TypedDict(
-    "_OptionalSslConfigurationTypeDef", {"Chain": str}, total=False
+    "_OptionalSslConfigurationTypeDef",
+    {
+        "Chain": str,
+    },
+    total=False,
 )
-
 
 class SslConfigurationTypeDef(_RequiredSslConfigurationTypeDef, _OptionalSslConfigurationTypeDef):
     pass
 
-
 StackConfigurationManagerTypeDef = TypedDict(
-    "StackConfigurationManagerTypeDef", {"Name": str, "Version": str}, total=False
+    "StackConfigurationManagerTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+    },
+    total=False,
 )
 
 StackSummaryTypeDef = TypedDict(
@@ -730,23 +1918,316 @@ StackTypeDef = TypedDict(
         "CustomCookbooksSource": "SourceTypeDef",
         "DefaultSshKeyName": str,
         "CreatedAt": str,
-        "DefaultRootDeviceType": Literal["ebs", "instance-store"],
+        "DefaultRootDeviceType": RootDeviceTypeType,
         "AgentVersion": str,
     },
     total=False,
 )
 
+StartInstanceRequestRequestTypeDef = TypedDict(
+    "StartInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+
+StartStackRequestRequestTypeDef = TypedDict(
+    "StartStackRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+
+_RequiredStopInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredStopInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalStopInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalStopInstanceRequestRequestTypeDef",
+    {
+        "Force": bool,
+    },
+    total=False,
+)
+
+class StopInstanceRequestRequestTypeDef(
+    _RequiredStopInstanceRequestRequestTypeDef, _OptionalStopInstanceRequestRequestTypeDef
+):
+    pass
+
+StopStackRequestRequestTypeDef = TypedDict(
+    "StopStackRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": Dict[str, str],
+    },
+)
+
 TemporaryCredentialTypeDef = TypedDict(
     "TemporaryCredentialTypeDef",
-    {"Username": str, "Password": str, "ValidForInMinutes": int, "InstanceId": str},
+    {
+        "Username": str,
+        "Password": str,
+        "ValidForInMinutes": int,
+        "InstanceId": str,
+    },
     total=False,
 )
 
 TimeBasedAutoScalingConfigurationTypeDef = TypedDict(
     "TimeBasedAutoScalingConfigurationTypeDef",
-    {"InstanceId": str, "AutoScalingSchedule": "WeeklyAutoScalingScheduleTypeDef"},
+    {
+        "InstanceId": str,
+        "AutoScalingSchedule": "WeeklyAutoScalingScheduleTypeDef",
+    },
     total=False,
 )
+
+UnassignInstanceRequestRequestTypeDef = TypedDict(
+    "UnassignInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+
+UnassignVolumeRequestRequestTypeDef = TypedDict(
+    "UnassignVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
+_RequiredUpdateAppRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAppRequestRequestTypeDef",
+    {
+        "AppId": str,
+    },
+)
+_OptionalUpdateAppRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAppRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "DataSources": List["DataSourceTypeDef"],
+        "Type": AppTypeType,
+        "AppSource": "SourceTypeDef",
+        "Domains": List[str],
+        "EnableSsl": bool,
+        "SslConfiguration": "SslConfigurationTypeDef",
+        "Attributes": Dict[AppAttributesKeysType, str],
+        "Environment": List["EnvironmentVariableTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateAppRequestRequestTypeDef(
+    _RequiredUpdateAppRequestRequestTypeDef, _OptionalUpdateAppRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateElasticIpRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateElasticIpRequestRequestTypeDef",
+    {
+        "ElasticIp": str,
+    },
+)
+_OptionalUpdateElasticIpRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateElasticIpRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+class UpdateElasticIpRequestRequestTypeDef(
+    _RequiredUpdateElasticIpRequestRequestTypeDef, _OptionalUpdateElasticIpRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalUpdateInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateInstanceRequestRequestTypeDef",
+    {
+        "LayerIds": List[str],
+        "InstanceType": str,
+        "AutoScalingType": AutoScalingTypeType,
+        "Hostname": str,
+        "Os": str,
+        "AmiId": str,
+        "SshKeyName": str,
+        "Architecture": ArchitectureType,
+        "InstallUpdatesOnBoot": bool,
+        "EbsOptimized": bool,
+        "AgentVersion": str,
+    },
+    total=False,
+)
+
+class UpdateInstanceRequestRequestTypeDef(
+    _RequiredUpdateInstanceRequestRequestTypeDef, _OptionalUpdateInstanceRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateLayerRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLayerRequestRequestTypeDef",
+    {
+        "LayerId": str,
+    },
+)
+_OptionalUpdateLayerRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLayerRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Shortname": str,
+        "Attributes": Dict[LayerAttributesKeysType, str],
+        "CloudWatchLogsConfiguration": "CloudWatchLogsConfigurationTypeDef",
+        "CustomInstanceProfileArn": str,
+        "CustomJson": str,
+        "CustomSecurityGroupIds": List[str],
+        "Packages": List[str],
+        "VolumeConfigurations": List["VolumeConfigurationTypeDef"],
+        "EnableAutoHealing": bool,
+        "AutoAssignElasticIps": bool,
+        "AutoAssignPublicIps": bool,
+        "CustomRecipes": "RecipesTypeDef",
+        "InstallUpdatesOnBoot": bool,
+        "UseEbsOptimizedInstances": bool,
+        "LifecycleEventConfiguration": "LifecycleEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateLayerRequestRequestTypeDef(
+    _RequiredUpdateLayerRequestRequestTypeDef, _OptionalUpdateLayerRequestRequestTypeDef
+):
+    pass
+
+UpdateMyUserProfileRequestRequestTypeDef = TypedDict(
+    "UpdateMyUserProfileRequestRequestTypeDef",
+    {
+        "SshPublicKey": str,
+    },
+    total=False,
+)
+
+_RequiredUpdateRdsDbInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateRdsDbInstanceRequestRequestTypeDef",
+    {
+        "RdsDbInstanceArn": str,
+    },
+)
+_OptionalUpdateRdsDbInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateRdsDbInstanceRequestRequestTypeDef",
+    {
+        "DbUser": str,
+        "DbPassword": str,
+    },
+    total=False,
+)
+
+class UpdateRdsDbInstanceRequestRequestTypeDef(
+    _RequiredUpdateRdsDbInstanceRequestRequestTypeDef,
+    _OptionalUpdateRdsDbInstanceRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateStackRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateStackRequestRequestTypeDef",
+    {
+        "StackId": str,
+    },
+)
+_OptionalUpdateStackRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateStackRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Attributes": Dict[Literal["Color"], str],
+        "ServiceRoleArn": str,
+        "DefaultInstanceProfileArn": str,
+        "DefaultOs": str,
+        "HostnameTheme": str,
+        "DefaultAvailabilityZone": str,
+        "DefaultSubnetId": str,
+        "CustomJson": str,
+        "ConfigurationManager": "StackConfigurationManagerTypeDef",
+        "ChefConfiguration": "ChefConfigurationTypeDef",
+        "UseCustomCookbooks": bool,
+        "CustomCookbooksSource": "SourceTypeDef",
+        "DefaultSshKeyName": str,
+        "DefaultRootDeviceType": RootDeviceTypeType,
+        "UseOpsworksSecurityGroups": bool,
+        "AgentVersion": str,
+    },
+    total=False,
+)
+
+class UpdateStackRequestRequestTypeDef(
+    _RequiredUpdateStackRequestRequestTypeDef, _OptionalUpdateStackRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateUserProfileRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateUserProfileRequestRequestTypeDef",
+    {
+        "IamUserArn": str,
+    },
+)
+_OptionalUpdateUserProfileRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateUserProfileRequestRequestTypeDef",
+    {
+        "SshUsername": str,
+        "SshPublicKey": str,
+        "AllowSelfManagement": bool,
+    },
+    total=False,
+)
+
+class UpdateUserProfileRequestRequestTypeDef(
+    _RequiredUpdateUserProfileRequestRequestTypeDef, _OptionalUpdateUserProfileRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalUpdateVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateVolumeRequestRequestTypeDef",
+    {
+        "Name": str,
+        "MountPoint": str,
+    },
+    total=False,
+)
+
+class UpdateVolumeRequestRequestTypeDef(
+    _RequiredUpdateVolumeRequestRequestTypeDef, _OptionalUpdateVolumeRequestRequestTypeDef
+):
+    pass
 
 UserProfileTypeDef = TypedDict(
     "UserProfileTypeDef",
@@ -761,20 +2242,28 @@ UserProfileTypeDef = TypedDict(
 )
 
 _RequiredVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredVolumeConfigurationTypeDef", {"MountPoint": str, "NumberOfDisks": int, "Size": int}
+    "_RequiredVolumeConfigurationTypeDef",
+    {
+        "MountPoint": str,
+        "NumberOfDisks": int,
+        "Size": int,
+    },
 )
 _OptionalVolumeConfigurationTypeDef = TypedDict(
     "_OptionalVolumeConfigurationTypeDef",
-    {"RaidLevel": int, "VolumeType": str, "Iops": int, "Encrypted": bool},
+    {
+        "RaidLevel": int,
+        "VolumeType": str,
+        "Iops": int,
+        "Encrypted": bool,
+    },
     total=False,
 )
-
 
 class VolumeConfigurationTypeDef(
     _RequiredVolumeConfigurationTypeDef, _OptionalVolumeConfigurationTypeDef
 ):
     pass
-
 
 VolumeTypeDef = TypedDict(
     "VolumeTypeDef",
@@ -797,6 +2286,15 @@ VolumeTypeDef = TypedDict(
     total=False,
 )
 
+WaiterConfigTypeDef = TypedDict(
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
+)
+
 WeeklyAutoScalingScheduleTypeDef = TypedDict(
     "WeeklyAutoScalingScheduleTypeDef",
     {
@@ -809,170 +2307,4 @@ WeeklyAutoScalingScheduleTypeDef = TypedDict(
         "Sunday": Dict[str, str],
     },
     total=False,
-)
-
-CloneStackResultTypeDef = TypedDict("CloneStackResultTypeDef", {"StackId": str}, total=False)
-
-CreateAppResultTypeDef = TypedDict("CreateAppResultTypeDef", {"AppId": str}, total=False)
-
-CreateDeploymentResultTypeDef = TypedDict(
-    "CreateDeploymentResultTypeDef", {"DeploymentId": str}, total=False
-)
-
-CreateInstanceResultTypeDef = TypedDict(
-    "CreateInstanceResultTypeDef", {"InstanceId": str}, total=False
-)
-
-CreateLayerResultTypeDef = TypedDict("CreateLayerResultTypeDef", {"LayerId": str}, total=False)
-
-CreateStackResultTypeDef = TypedDict("CreateStackResultTypeDef", {"StackId": str}, total=False)
-
-CreateUserProfileResultTypeDef = TypedDict(
-    "CreateUserProfileResultTypeDef", {"IamUserArn": str}, total=False
-)
-
-DescribeAgentVersionsResultTypeDef = TypedDict(
-    "DescribeAgentVersionsResultTypeDef",
-    {"AgentVersions": List["AgentVersionTypeDef"]},
-    total=False,
-)
-
-DescribeAppsResultTypeDef = TypedDict(
-    "DescribeAppsResultTypeDef", {"Apps": List["AppTypeDef"]}, total=False
-)
-
-DescribeCommandsResultTypeDef = TypedDict(
-    "DescribeCommandsResultTypeDef", {"Commands": List["CommandTypeDef"]}, total=False
-)
-
-DescribeDeploymentsResultTypeDef = TypedDict(
-    "DescribeDeploymentsResultTypeDef", {"Deployments": List["DeploymentTypeDef"]}, total=False
-)
-
-DescribeEcsClustersResultTypeDef = TypedDict(
-    "DescribeEcsClustersResultTypeDef",
-    {"EcsClusters": List["EcsClusterTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeElasticIpsResultTypeDef = TypedDict(
-    "DescribeElasticIpsResultTypeDef", {"ElasticIps": List["ElasticIpTypeDef"]}, total=False
-)
-
-DescribeElasticLoadBalancersResultTypeDef = TypedDict(
-    "DescribeElasticLoadBalancersResultTypeDef",
-    {"ElasticLoadBalancers": List["ElasticLoadBalancerTypeDef"]},
-    total=False,
-)
-
-DescribeInstancesResultTypeDef = TypedDict(
-    "DescribeInstancesResultTypeDef", {"Instances": List["InstanceTypeDef"]}, total=False
-)
-
-DescribeLayersResultTypeDef = TypedDict(
-    "DescribeLayersResultTypeDef", {"Layers": List["LayerTypeDef"]}, total=False
-)
-
-DescribeLoadBasedAutoScalingResultTypeDef = TypedDict(
-    "DescribeLoadBasedAutoScalingResultTypeDef",
-    {"LoadBasedAutoScalingConfigurations": List["LoadBasedAutoScalingConfigurationTypeDef"]},
-    total=False,
-)
-
-DescribeMyUserProfileResultTypeDef = TypedDict(
-    "DescribeMyUserProfileResultTypeDef", {"UserProfile": "SelfUserProfileTypeDef"}, total=False
-)
-
-DescribeOperatingSystemsResponseTypeDef = TypedDict(
-    "DescribeOperatingSystemsResponseTypeDef",
-    {"OperatingSystems": List["OperatingSystemTypeDef"]},
-    total=False,
-)
-
-DescribePermissionsResultTypeDef = TypedDict(
-    "DescribePermissionsResultTypeDef", {"Permissions": List["PermissionTypeDef"]}, total=False
-)
-
-DescribeRaidArraysResultTypeDef = TypedDict(
-    "DescribeRaidArraysResultTypeDef", {"RaidArrays": List["RaidArrayTypeDef"]}, total=False
-)
-
-DescribeRdsDbInstancesResultTypeDef = TypedDict(
-    "DescribeRdsDbInstancesResultTypeDef",
-    {"RdsDbInstances": List["RdsDbInstanceTypeDef"]},
-    total=False,
-)
-
-DescribeServiceErrorsResultTypeDef = TypedDict(
-    "DescribeServiceErrorsResultTypeDef",
-    {"ServiceErrors": List["ServiceErrorTypeDef"]},
-    total=False,
-)
-
-DescribeStackProvisioningParametersResultTypeDef = TypedDict(
-    "DescribeStackProvisioningParametersResultTypeDef",
-    {"AgentInstallerUrl": str, "Parameters": Dict[str, str]},
-    total=False,
-)
-
-DescribeStackSummaryResultTypeDef = TypedDict(
-    "DescribeStackSummaryResultTypeDef", {"StackSummary": "StackSummaryTypeDef"}, total=False
-)
-
-DescribeStacksResultTypeDef = TypedDict(
-    "DescribeStacksResultTypeDef", {"Stacks": List["StackTypeDef"]}, total=False
-)
-
-DescribeTimeBasedAutoScalingResultTypeDef = TypedDict(
-    "DescribeTimeBasedAutoScalingResultTypeDef",
-    {"TimeBasedAutoScalingConfigurations": List["TimeBasedAutoScalingConfigurationTypeDef"]},
-    total=False,
-)
-
-DescribeUserProfilesResultTypeDef = TypedDict(
-    "DescribeUserProfilesResultTypeDef", {"UserProfiles": List["UserProfileTypeDef"]}, total=False
-)
-
-DescribeVolumesResultTypeDef = TypedDict(
-    "DescribeVolumesResultTypeDef", {"Volumes": List["VolumeTypeDef"]}, total=False
-)
-
-GetHostnameSuggestionResultTypeDef = TypedDict(
-    "GetHostnameSuggestionResultTypeDef", {"LayerId": str, "Hostname": str}, total=False
-)
-
-GrantAccessResultTypeDef = TypedDict(
-    "GrantAccessResultTypeDef", {"TemporaryCredential": "TemporaryCredentialTypeDef"}, total=False
-)
-
-InstanceIdentityTypeDef = TypedDict(
-    "InstanceIdentityTypeDef", {"Document": str, "Signature": str}, total=False
-)
-
-ListTagsResultTypeDef = TypedDict(
-    "ListTagsResultTypeDef", {"Tags": Dict[str, str], "NextToken": str}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-RegisterEcsClusterResultTypeDef = TypedDict(
-    "RegisterEcsClusterResultTypeDef", {"EcsClusterArn": str}, total=False
-)
-
-RegisterElasticIpResultTypeDef = TypedDict(
-    "RegisterElasticIpResultTypeDef", {"ElasticIp": str}, total=False
-)
-
-RegisterInstanceResultTypeDef = TypedDict(
-    "RegisterInstanceResultTypeDef", {"InstanceId": str}, total=False
-)
-
-RegisterVolumeResultTypeDef = TypedDict(
-    "RegisterVolumeResultTypeDef", {"VolumeId": str}, total=False
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
 )

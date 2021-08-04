@@ -27,8 +27,8 @@ Usage::
     list_email_identities_paginator: ListEmailIdentitiesPaginator = client.get_paginator("list_email_identities")
     ```
 """
-from mypy_boto3_pinpoint_email.client import PinpointEmailClient
-from mypy_boto3_pinpoint_email.paginator import (
+from .client import PinpointEmailClient
+from .paginator import (
     GetDedicatedIpsPaginator,
     ListConfigurationSetsPaginator,
     ListDedicatedIpPoolsPaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_pinpoint_email.paginator import (
 )
 
 Client = PinpointEmailClient
-
 
 __all__ = (
     "Client",

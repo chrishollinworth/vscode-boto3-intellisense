@@ -42,8 +42,8 @@ Usage::
     list_associated_stacks_paginator: ListAssociatedStacksPaginator = client.get_paginator("list_associated_stacks")
     ```
 """
-from mypy_boto3_appstream.client import AppStreamClient
-from mypy_boto3_appstream.paginator import (
+from .client import AppStreamClient
+from .paginator import (
     DescribeDirectoryConfigsPaginator,
     DescribeFleetsPaginator,
     DescribeImageBuildersPaginator,
@@ -55,10 +55,9 @@ from mypy_boto3_appstream.paginator import (
     ListAssociatedFleetsPaginator,
     ListAssociatedStacksPaginator,
 )
-from mypy_boto3_appstream.waiter import FleetStartedWaiter, FleetStoppedWaiter
+from .waiter import FleetStartedWaiter, FleetStoppedWaiter
 
 Client = AppStreamClient
-
 
 __all__ = (
     "AppStreamClient",

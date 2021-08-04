@@ -19,10 +19,9 @@ Usage::
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     ```
 """
-from mypy_boto3_iotfleethub.client import IoTFleetHubClient
-from mypy_boto3_iotfleethub.paginator import ListApplicationsPaginator
+from .client import IoTFleetHubClient
+from .paginator import ListApplicationsPaginator
 
 Client = IoTFleetHubClient
-
 
 __all__ = ("Client", "IoTFleetHubClient", "ListApplicationsPaginator")

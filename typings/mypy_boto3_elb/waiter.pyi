@@ -1,5 +1,7 @@
 """
-Main interface for elb service client waiters.
+Type annotations for elb service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html)
 
 Usage::
 
@@ -24,54 +26,60 @@ from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_elb.type_defs import InstanceTypeDef, WaiterConfigTypeDef
+from .type_defs import InstanceTypeDef, WaiterConfigTypeDef
 
 __all__ = ("AnyInstanceInServiceWaiter", "InstanceDeregisteredWaiter", "InstanceInServiceWaiter")
 
-
 class AnyInstanceInServiceWaiter(Boto3Waiter):
     """
-    [Waiter.AnyInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#anyinstanceinservicewaiter)
     """
 
     def wait(
         self,
+        *,
         LoadBalancerName: str,
         Instances: List["InstanceTypeDef"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [AnyInstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#anyinstanceinservicewaiter)
         """
-
 
 class InstanceDeregisteredWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instancederegisteredwaiter)
     """
 
     def wait(
         self,
+        *,
         LoadBalancerName: str,
         Instances: List["InstanceTypeDef"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [InstanceDeregistered.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instancederegisteredwaiter)
         """
-
 
 class InstanceInServiceWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instanceinservicewaiter)
     """
 
     def wait(
         self,
+        *,
         LoadBalancerName: str,
         Instances: List["InstanceTypeDef"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [InstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instanceinservicewaiter)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for glacier service client waiters.
+Type annotations for glacier service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/waiters.html)
 
 Usage::
 
@@ -20,32 +22,34 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_glacier.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("VaultExistsWaiter", "VaultNotExistsWaiter")
 
-
 class VaultExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VaultExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/glacier.html#Glacier.Waiter.VaultExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/waiters.html#vaultexistswaiter)
     """
 
     def wait(
-        self, accountId: str, vaultName: str, WaiterConfig: WaiterConfigTypeDef = None
+        self, *, accountId: str, vaultName: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VaultExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/glacier.html#Glacier.Waiter.VaultExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/waiters.html#vaultexistswaiter)
         """
-
 
 class VaultNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VaultNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultNotExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/glacier.html#Glacier.Waiter.VaultNotExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/waiters.html#vaultnotexistswaiter)
     """
 
     def wait(
-        self, accountId: str, vaultName: str, WaiterConfig: WaiterConfigTypeDef = None
+        self, *, accountId: str, vaultName: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VaultNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultNotExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/glacier.html#Glacier.Waiter.VaultNotExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/waiters.html#vaultnotexistswaiter)
         """

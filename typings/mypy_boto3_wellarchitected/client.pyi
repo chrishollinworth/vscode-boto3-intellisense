@@ -1,5 +1,7 @@
 """
-Main interface for wellarchitected service client
+Type annotations for wellarchitected service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html)
 
 Usage::
 
@@ -10,12 +12,19 @@ Usage::
     client: WellArchitectedClient = boto3.client("wellarchitected")
     ```
 """
-import sys
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_wellarchitected.type_defs import (
+from .literals import (
+    AnswerReasonType,
+    PermissionTypeType,
+    ShareInvitationActionType,
+    WorkloadEnvironmentType,
+    WorkloadImprovementStatusType,
+)
+from .type_defs import (
+    ChoiceUpdateTypeDef,
     CreateMilestoneOutputTypeDef,
     CreateWorkloadOutputTypeDef,
     CreateWorkloadShareOutputTypeDef,
@@ -32,6 +41,7 @@ from mypy_boto3_wellarchitected.type_defs import (
     ListMilestonesOutputTypeDef,
     ListNotificationsOutputTypeDef,
     ListShareInvitationsOutputTypeDef,
+    ListTagsForResourceOutputTypeDef,
     ListWorkloadSharesOutputTypeDef,
     ListWorkloadsOutputTypeDef,
     UpdateAnswerOutputTypeDef,
@@ -41,22 +51,13 @@ from mypy_boto3_wellarchitected.type_defs import (
     UpdateWorkloadShareOutputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = ("WellArchitectedClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -68,37 +69,47 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class WellArchitectedClient:
+class WellArchitectedClient(BaseClient):
     """
-    [WellArchitected.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def associate_lenses(self, WorkloadId: str, LensAliases: List[str]) -> None:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.associate_lenses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.associate_lenses)
+        WellArchitectedClient exceptions.
         """
+    def associate_lenses(self, *, WorkloadId: str, LensAliases: List[str]) -> None:
+        """
+        Associate a lens to a workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.associate_lenses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#associate_lenses)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#can_paginate)
+        """
     def create_milestone(
-        self, WorkloadId: str, MilestoneName: str, ClientRequestToken: str
+        self, *, WorkloadId: str, MilestoneName: str, ClientRequestToken: str
     ) -> CreateMilestoneOutputTypeDef:
         """
-        [Client.create_milestone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.create_milestone)
-        """
+        Create a milestone for an existing workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.create_milestone)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_milestone)
+        """
     def create_workload(
         self,
+        *,
         WorkloadName: str,
         Description: str,
-        Environment: Literal["PRODUCTION", "PREPRODUCTION"],
+        Environment: WorkloadEnvironmentType,
         ReviewOwner: str,
         Lenses: List[str],
         ClientRequestToken: str,
@@ -110,37 +121,51 @@ class WellArchitectedClient:
         IndustryType: str = None,
         Industry: str = None,
         Notes: str = None,
+        Tags: Dict[str, str] = None
     ) -> CreateWorkloadOutputTypeDef:
         """
-        [Client.create_workload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.create_workload)
-        """
+        Create a new workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.create_workload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_workload)
+        """
     def create_workload_share(
         self,
+        *,
         WorkloadId: str,
         SharedWith: str,
-        PermissionType: Literal["READONLY", "CONTRIBUTOR"],
-        ClientRequestToken: str,
+        PermissionType: PermissionTypeType,
+        ClientRequestToken: str
     ) -> CreateWorkloadShareOutputTypeDef:
         """
-        [Client.create_workload_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.create_workload_share)
-        """
+        Create a workload share.
 
-    def delete_workload(self, WorkloadId: str, ClientRequestToken: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.create_workload_share)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#create_workload_share)
         """
-        [Client.delete_workload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload)
+    def delete_workload(self, *, WorkloadId: str, ClientRequestToken: str) -> None:
         """
+        Delete an existing workload.
 
-    def delete_workload_share(self, ShareId: str, WorkloadId: str, ClientRequestToken: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_workload)
         """
-        [Client.delete_workload_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload_share)
+    def delete_workload_share(
+        self, *, ShareId: str, WorkloadId: str, ClientRequestToken: str
+    ) -> None:
         """
+        Delete a workload share.
 
-    def disassociate_lenses(self, WorkloadId: str, LensAliases: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.delete_workload_share)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#delete_workload_share)
         """
-        [Client.disassociate_lenses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.disassociate_lenses)
+    def disassociate_lenses(self, *, WorkloadId: str, LensAliases: List[str]) -> None:
         """
+        Disassociate a lens from a workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.disassociate_lenses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#disassociate_lenses)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -149,165 +174,235 @@ class WellArchitectedClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#generate_presigned_url)
+        """
     def get_answer(
-        self, WorkloadId: str, LensAlias: str, QuestionId: str, MilestoneNumber: int = None
+        self, *, WorkloadId: str, LensAlias: str, QuestionId: str, MilestoneNumber: int = None
     ) -> GetAnswerOutputTypeDef:
         """
-        [Client.get_answer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.get_answer)
-        """
+        Get the answer to a specific question in a workload review.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.get_answer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_answer)
+        """
     def get_lens_review(
-        self, WorkloadId: str, LensAlias: str, MilestoneNumber: int = None
+        self, *, WorkloadId: str, LensAlias: str, MilestoneNumber: int = None
     ) -> GetLensReviewOutputTypeDef:
         """
-        [Client.get_lens_review documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review)
-        """
+        Get lens review.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_lens_review)
+        """
     def get_lens_review_report(
-        self, WorkloadId: str, LensAlias: str, MilestoneNumber: int = None
+        self, *, WorkloadId: str, LensAlias: str, MilestoneNumber: int = None
     ) -> GetLensReviewReportOutputTypeDef:
         """
-        [Client.get_lens_review_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review_report)
-        """
+        Get lens review report.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_review_report)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_lens_review_report)
+        """
     def get_lens_version_difference(
-        self, LensAlias: str, BaseLensVersion: str
+        self, *, LensAlias: str, BaseLensVersion: str
     ) -> GetLensVersionDifferenceOutputTypeDef:
         """
-        [Client.get_lens_version_difference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_version_difference)
-        """
+        Get lens version differences.
 
-    def get_milestone(self, WorkloadId: str, MilestoneNumber: int) -> GetMilestoneOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.get_lens_version_difference)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_lens_version_difference)
         """
-        [Client.get_milestone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.get_milestone)
+    def get_milestone(self, *, WorkloadId: str, MilestoneNumber: int) -> GetMilestoneOutputTypeDef:
         """
+        Get a milestone for an existing workload.
 
-    def get_workload(self, WorkloadId: str) -> GetWorkloadOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.get_milestone)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_milestone)
         """
-        [Client.get_workload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.get_workload)
+    def get_workload(self, *, WorkloadId: str) -> GetWorkloadOutputTypeDef:
         """
+        Get an existing workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.get_workload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#get_workload)
+        """
     def list_answers(
         self,
+        *,
         WorkloadId: str,
         LensAlias: str,
         PillarId: str = None,
         MilestoneNumber: int = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListAnswersOutputTypeDef:
         """
-        [Client.list_answers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_answers)
-        """
+        List of answers.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_answers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_answers)
+        """
     def list_lens_review_improvements(
         self,
+        *,
         WorkloadId: str,
         LensAlias: str,
         PillarId: str = None,
         MilestoneNumber: int = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListLensReviewImprovementsOutputTypeDef:
         """
-        [Client.list_lens_review_improvements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_review_improvements)
-        """
+        List lens review improvements.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_review_improvements)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_lens_review_improvements)
+        """
     def list_lens_reviews(
         self,
+        *,
         WorkloadId: str,
         MilestoneNumber: int = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListLensReviewsOutputTypeDef:
         """
-        [Client.list_lens_reviews documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_reviews)
-        """
+        List lens reviews.
 
-    def list_lenses(self, NextToken: str = None, MaxResults: int = None) -> ListLensesOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_lens_reviews)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_lens_reviews)
         """
-        [Client.list_lenses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_lenses)
+    def list_lenses(
+        self, *, NextToken: str = None, MaxResults: int = None
+    ) -> ListLensesOutputTypeDef:
         """
+        List the available lenses.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_lenses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_lenses)
+        """
     def list_milestones(
-        self, WorkloadId: str, NextToken: str = None, MaxResults: int = None
+        self, *, WorkloadId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListMilestonesOutputTypeDef:
         """
-        [Client.list_milestones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_milestones)
-        """
+        List all milestones for an existing workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_milestones)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_milestones)
+        """
     def list_notifications(
-        self, WorkloadId: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, WorkloadId: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListNotificationsOutputTypeDef:
         """
-        [Client.list_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_notifications)
-        """
+        List lens notifications.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_notifications)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_notifications)
+        """
     def list_share_invitations(
-        self, WorkloadNamePrefix: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, WorkloadNamePrefix: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListShareInvitationsOutputTypeDef:
         """
-        [Client.list_share_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_share_invitations)
-        """
+        List the workload invitations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_share_invitations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_share_invitations)
+        """
+    def list_tags_for_resource(self, *, WorkloadArn: str) -> ListTagsForResourceOutputTypeDef:
+        """
+        List the tags for a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_tags_for_resource)
+        """
     def list_workload_shares(
         self,
+        *,
         WorkloadId: str,
         SharedWithPrefix: str = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListWorkloadSharesOutputTypeDef:
         """
-        [Client.list_workload_shares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_workload_shares)
-        """
+        List the workload shares associated with the workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_workload_shares)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_workload_shares)
+        """
     def list_workloads(
-        self, WorkloadNamePrefix: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, WorkloadNamePrefix: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListWorkloadsOutputTypeDef:
         """
-        [Client.list_workloads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.list_workloads)
-        """
+        List workloads.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.list_workloads)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#list_workloads)
+        """
+    def tag_resource(self, *, WorkloadArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+        """
+        Adds one or more tags to the specified resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#tag_resource)
+        """
+    def untag_resource(self, *, WorkloadArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        """
+        Deletes specified tags from a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#untag_resource)
+        """
     def update_answer(
         self,
+        *,
         WorkloadId: str,
         LensAlias: str,
         QuestionId: str,
         SelectedChoices: List[str] = None,
+        ChoiceUpdates: Dict[str, "ChoiceUpdateTypeDef"] = None,
         Notes: str = None,
         IsApplicable: bool = None,
+        Reason: AnswerReasonType = None
     ) -> UpdateAnswerOutputTypeDef:
         """
-        [Client.update_answer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.update_answer)
-        """
+        Update the answer to a specific question in a workload review.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.update_answer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_answer)
+        """
     def update_lens_review(
         self,
+        *,
         WorkloadId: str,
         LensAlias: str,
         LensNotes: str = None,
-        PillarNotes: Dict[str, str] = None,
+        PillarNotes: Dict[str, str] = None
     ) -> UpdateLensReviewOutputTypeDef:
         """
-        [Client.update_lens_review documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.update_lens_review)
-        """
+        Update lens review.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.update_lens_review)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_lens_review)
+        """
     def update_share_invitation(
-        self, ShareInvitationId: str, ShareInvitationAction: Literal["ACCEPT", "REJECT"]
+        self, *, ShareInvitationId: str, ShareInvitationAction: ShareInvitationActionType
     ) -> UpdateShareInvitationOutputTypeDef:
         """
-        [Client.update_share_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.update_share_invitation)
-        """
+        Update a workload invitation.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.update_share_invitation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_share_invitation)
+        """
     def update_workload(
         self,
+        *,
         WorkloadId: str,
         WorkloadName: str = None,
         Description: str = None,
-        Environment: Literal["PRODUCTION", "PREPRODUCTION"] = None,
+        Environment: WorkloadEnvironmentType = None,
         AccountIds: List[str] = None,
         AwsRegions: List[str] = None,
         NonAwsRegions: List[str] = None,
@@ -318,24 +413,29 @@ class WellArchitectedClient:
         IndustryType: str = None,
         Industry: str = None,
         Notes: str = None,
-        ImprovementStatus: Literal[
-            "NOT_APPLICABLE", "NOT_STARTED", "IN_PROGRESS", "COMPLETE", "RISK_ACKNOWLEDGED"
-        ] = None,
+        ImprovementStatus: WorkloadImprovementStatusType = None
     ) -> UpdateWorkloadOutputTypeDef:
         """
-        [Client.update_workload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.update_workload)
-        """
+        Update an existing workload.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.update_workload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_workload)
+        """
     def update_workload_share(
-        self, ShareId: str, WorkloadId: str, PermissionType: Literal["READONLY", "CONTRIBUTOR"]
+        self, *, ShareId: str, WorkloadId: str, PermissionType: PermissionTypeType
     ) -> UpdateWorkloadShareOutputTypeDef:
         """
-        [Client.update_workload_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.update_workload_share)
-        """
+        Update a workload share.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.update_workload_share)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#update_workload_share)
+        """
     def upgrade_lens_review(
-        self, WorkloadId: str, LensAlias: str, MilestoneName: str, ClientRequestToken: str = None
+        self, *, WorkloadId: str, LensAlias: str, MilestoneName: str, ClientRequestToken: str = None
     ) -> None:
         """
-        [Client.upgrade_lens_review documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_lens_review)
+        Upgrade lens review.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/wellarchitected.html#WellArchitected.Client.upgrade_lens_review)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_wellarchitected/client.html#upgrade_lens_review)
         """

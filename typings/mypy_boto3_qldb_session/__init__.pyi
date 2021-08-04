@@ -16,9 +16,8 @@ Usage::
     session_client: QLDBSessionClient = session.client("qldb-session")
     ```
 """
-from mypy_boto3_qldb_session.client import QLDBSessionClient
+from .client import QLDBSessionClient
 
 Client = QLDBSessionClient
-
 
 __all__ = ("Client", "QLDBSessionClient")

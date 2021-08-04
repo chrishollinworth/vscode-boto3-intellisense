@@ -33,8 +33,8 @@ Usage::
     list_listeners_paginator: ListListenersPaginator = client.get_paginator("list_listeners")
     ```
 """
-from mypy_boto3_globalaccelerator.client import GlobalAcceleratorClient
-from mypy_boto3_globalaccelerator.paginator import (
+from .client import GlobalAcceleratorClient
+from .paginator import (
     ListAcceleratorsPaginator,
     ListByoipCidrsPaginator,
     ListCustomRoutingAcceleratorsPaginator,
@@ -46,7 +46,6 @@ from mypy_boto3_globalaccelerator.paginator import (
 )
 
 Client = GlobalAcceleratorClient
-
 
 __all__ = (
     "Client",

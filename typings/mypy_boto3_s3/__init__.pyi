@@ -41,16 +41,16 @@ Usage::
     list_parts_paginator: ListPartsPaginator = client.get_paginator("list_parts")
     ```
 """
-from mypy_boto3_s3.client import S3Client
-from mypy_boto3_s3.paginator import (
+from .client import S3Client
+from .paginator import (
     ListMultipartUploadsPaginator,
     ListObjectsPaginator,
     ListObjectsV2Paginator,
     ListObjectVersionsPaginator,
     ListPartsPaginator,
 )
-from mypy_boto3_s3.service_resource import S3ServiceResource
-from mypy_boto3_s3.waiter import (
+from .service_resource import S3ServiceResource
+from .waiter import (
     BucketExistsWaiter,
     BucketNotExistsWaiter,
     ObjectExistsWaiter,
@@ -59,9 +59,7 @@ from mypy_boto3_s3.waiter import (
 
 Client = S3Client
 
-
 ServiceResource = S3ServiceResource
-
 
 __all__ = (
     "BucketExistsWaiter",

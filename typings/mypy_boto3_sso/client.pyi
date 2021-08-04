@@ -1,5 +1,7 @@
 """
-Main interface for sso service client
+Type annotations for sso service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html)
 
 Usage::
 
@@ -13,10 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_sso.paginator import ListAccountRolesPaginator, ListAccountsPaginator
-from mypy_boto3_sso.type_defs import (
+from .paginator import ListAccountRolesPaginator, ListAccountsPaginator
+from .type_defs import (
     GetRoleCredentialsResponseTypeDef,
     ListAccountRolesResponseTypeDef,
     ListAccountsResponseTypeDef,
@@ -27,17 +29,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("SSOClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -46,20 +44,25 @@ class Exceptions:
     TooManyRequestsException: Type[BotocoreClientError]
     UnauthorizedException: Type[BotocoreClientError]
 
-
-class SSOClient:
+class SSOClient(BaseClient):
     """
-    [SSO.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        SSOClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html#can_paginate)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -68,45 +71,57 @@ class SSOClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html#generate_presigned_url)
+        """
     def get_role_credentials(
-        self, roleName: str, accountId: str, accessToken: str
+        self, *, roleName: str, accountId: str, accessToken: str
     ) -> GetRoleCredentialsResponseTypeDef:
         """
-        [Client.get_role_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Client.get_role_credentials)
-        """
+        Returns the STS short-term credentials for a given role name that is assigned to
+        the user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Client.get_role_credentials)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html#get_role_credentials)
+        """
     def list_account_roles(
-        self, accessToken: str, accountId: str, nextToken: str = None, maxResults: int = None
+        self, *, accessToken: str, accountId: str, nextToken: str = None, maxResults: int = None
     ) -> ListAccountRolesResponseTypeDef:
         """
-        [Client.list_account_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Client.list_account_roles)
-        """
+        Lists all roles that are assigned to the user for a given AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Client.list_account_roles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html#list_account_roles)
+        """
     def list_accounts(
-        self, accessToken: str, nextToken: str = None, maxResults: int = None
+        self, *, accessToken: str, nextToken: str = None, maxResults: int = None
     ) -> ListAccountsResponseTypeDef:
         """
-        [Client.list_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Client.list_accounts)
-        """
+        Lists all AWS accounts assigned to the user.
 
-    def logout(self, accessToken: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Client.list_accounts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html#list_accounts)
         """
-        [Client.logout documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Client.logout)
+    def logout(self, *, accessToken: str) -> None:
         """
+        Removes the client- and server-side session that is associated with the user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Client.logout)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/client.html#logout)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_account_roles"]
     ) -> ListAccountRolesPaginator:
         """
-        [Paginator.ListAccountRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Paginator.ListAccountRoles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Paginator.ListAccountRoles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/paginators.html#listaccountrolespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_accounts"]) -> ListAccountsPaginator:
         """
-        [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso.html#SSO.Paginator.ListAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso.html#SSO.Paginator.ListAccounts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/paginators.html#listaccountspaginator)
         """

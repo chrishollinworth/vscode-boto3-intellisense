@@ -1,38 +1,102 @@
 """
-Main interface for codedeploy service type definitions.
+Type annotations for codedeploy service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_codedeploy.type_defs import AlarmConfigurationTypeDef
+    from mypy_boto3_codedeploy.type_defs import AddTagsToOnPremisesInstancesInputRequestTypeDef
 
-    data: AlarmConfigurationTypeDef = {...}
+    data: AddTagsToOnPremisesInstancesInputRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    ApplicationRevisionSortByType,
+    AutoRollbackEventType,
+    BundleTypeType,
+    ComputePlatformType,
+    DeploymentCreatorType,
+    DeploymentOptionType,
+    DeploymentReadyActionType,
+    DeploymentStatusType,
+    DeploymentTargetTypeType,
+    DeploymentTypeType,
+    DeploymentWaitTypeType,
+    EC2TagFilterTypeType,
+    ErrorCodeType,
+    FileExistsBehaviorType,
+    GreenFleetProvisioningActionType,
+    InstanceActionType,
+    InstanceStatusType,
+    InstanceTypeType,
+    LifecycleErrorCodeType,
+    LifecycleEventStatusType,
+    ListStateFilterActionType,
+    MinimumHealthyHostsTypeType,
+    OutdatedInstancesStrategyType,
+    RegistrationStatusType,
+    RevisionLocationTypeType,
+    SortOrderType,
+    StopStatusType,
+    TagFilterTypeType,
+    TargetFilterNameType,
+    TargetLabelType,
+    TargetStatusType,
+    TrafficRoutingTypeType,
+    TriggerEventTypeType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AddTagsToOnPremisesInstancesInputRequestTypeDef",
     "AlarmConfigurationTypeDef",
     "AlarmTypeDef",
     "AppSpecContentTypeDef",
     "ApplicationInfoTypeDef",
     "AutoRollbackConfigurationTypeDef",
     "AutoScalingGroupTypeDef",
+    "BatchGetApplicationRevisionsInputRequestTypeDef",
+    "BatchGetApplicationRevisionsOutputTypeDef",
+    "BatchGetApplicationsInputRequestTypeDef",
+    "BatchGetApplicationsOutputTypeDef",
+    "BatchGetDeploymentGroupsInputRequestTypeDef",
+    "BatchGetDeploymentGroupsOutputTypeDef",
+    "BatchGetDeploymentInstancesInputRequestTypeDef",
+    "BatchGetDeploymentInstancesOutputTypeDef",
+    "BatchGetDeploymentTargetsInputRequestTypeDef",
+    "BatchGetDeploymentTargetsOutputTypeDef",
+    "BatchGetDeploymentsInputRequestTypeDef",
+    "BatchGetDeploymentsOutputTypeDef",
+    "BatchGetOnPremisesInstancesInputRequestTypeDef",
+    "BatchGetOnPremisesInstancesOutputTypeDef",
     "BlueGreenDeploymentConfigurationTypeDef",
     "BlueInstanceTerminationOptionTypeDef",
     "CloudFormationTargetTypeDef",
+    "ContinueDeploymentInputRequestTypeDef",
+    "CreateApplicationInputRequestTypeDef",
+    "CreateApplicationOutputTypeDef",
+    "CreateDeploymentConfigInputRequestTypeDef",
+    "CreateDeploymentConfigOutputTypeDef",
+    "CreateDeploymentGroupInputRequestTypeDef",
+    "CreateDeploymentGroupOutputTypeDef",
+    "CreateDeploymentInputRequestTypeDef",
+    "CreateDeploymentOutputTypeDef",
+    "DeleteApplicationInputRequestTypeDef",
+    "DeleteDeploymentConfigInputRequestTypeDef",
+    "DeleteDeploymentGroupInputRequestTypeDef",
+    "DeleteDeploymentGroupOutputTypeDef",
+    "DeleteGitHubAccountTokenInputRequestTypeDef",
+    "DeleteGitHubAccountTokenOutputTypeDef",
+    "DeleteResourcesByExternalIdInputRequestTypeDef",
     "DeploymentConfigInfoTypeDef",
     "DeploymentGroupInfoTypeDef",
     "DeploymentInfoTypeDef",
@@ -40,6 +104,7 @@ __all__ = (
     "DeploymentReadyOptionTypeDef",
     "DeploymentStyleTypeDef",
     "DeploymentTargetTypeDef",
+    "DeregisterOnPremisesInstanceInputRequestTypeDef",
     "DiagnosticsTypeDef",
     "EC2TagFilterTypeDef",
     "EC2TagSetTypeDef",
@@ -49,6 +114,22 @@ __all__ = (
     "ELBInfoTypeDef",
     "ErrorInformationTypeDef",
     "GenericRevisionInfoTypeDef",
+    "GetApplicationInputRequestTypeDef",
+    "GetApplicationOutputTypeDef",
+    "GetApplicationRevisionInputRequestTypeDef",
+    "GetApplicationRevisionOutputTypeDef",
+    "GetDeploymentConfigInputRequestTypeDef",
+    "GetDeploymentConfigOutputTypeDef",
+    "GetDeploymentGroupInputRequestTypeDef",
+    "GetDeploymentGroupOutputTypeDef",
+    "GetDeploymentInputRequestTypeDef",
+    "GetDeploymentInstanceInputRequestTypeDef",
+    "GetDeploymentInstanceOutputTypeDef",
+    "GetDeploymentOutputTypeDef",
+    "GetDeploymentTargetInputRequestTypeDef",
+    "GetDeploymentTargetOutputTypeDef",
+    "GetOnPremisesInstanceInputRequestTypeDef",
+    "GetOnPremisesInstanceOutputTypeDef",
     "GitHubLocationTypeDef",
     "GreenFleetProvisioningOptionTypeDef",
     "InstanceInfoTypeDef",
@@ -58,74 +139,97 @@ __all__ = (
     "LambdaTargetTypeDef",
     "LastDeploymentInfoTypeDef",
     "LifecycleEventTypeDef",
+    "ListApplicationRevisionsInputRequestTypeDef",
+    "ListApplicationRevisionsOutputTypeDef",
+    "ListApplicationsInputRequestTypeDef",
+    "ListApplicationsOutputTypeDef",
+    "ListDeploymentConfigsInputRequestTypeDef",
+    "ListDeploymentConfigsOutputTypeDef",
+    "ListDeploymentGroupsInputRequestTypeDef",
+    "ListDeploymentGroupsOutputTypeDef",
+    "ListDeploymentInstancesInputRequestTypeDef",
+    "ListDeploymentInstancesOutputTypeDef",
+    "ListDeploymentTargetsInputRequestTypeDef",
+    "ListDeploymentTargetsOutputTypeDef",
+    "ListDeploymentsInputRequestTypeDef",
+    "ListDeploymentsOutputTypeDef",
+    "ListGitHubAccountTokenNamesInputRequestTypeDef",
+    "ListGitHubAccountTokenNamesOutputTypeDef",
+    "ListOnPremisesInstancesInputRequestTypeDef",
+    "ListOnPremisesInstancesOutputTypeDef",
+    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceOutputTypeDef",
     "LoadBalancerInfoTypeDef",
     "MinimumHealthyHostsTypeDef",
     "OnPremisesTagSetTypeDef",
+    "PaginatorConfigTypeDef",
+    "PutLifecycleEventHookExecutionStatusInputRequestTypeDef",
+    "PutLifecycleEventHookExecutionStatusOutputTypeDef",
     "RawStringTypeDef",
-    "ResponseMetadata",
+    "RegisterApplicationRevisionInputRequestTypeDef",
+    "RegisterOnPremisesInstanceInputRequestTypeDef",
+    "RelatedDeploymentsTypeDef",
+    "RemoveTagsFromOnPremisesInstancesInputRequestTypeDef",
+    "ResponseMetadataTypeDef",
     "RevisionInfoTypeDef",
     "RevisionLocationTypeDef",
     "RollbackInfoTypeDef",
     "S3LocationTypeDef",
+    "SkipWaitTimeForInstanceTerminationInputRequestTypeDef",
+    "StopDeploymentInputRequestTypeDef",
+    "StopDeploymentOutputTypeDef",
     "TagFilterTypeDef",
+    "TagResourceInputRequestTypeDef",
     "TagTypeDef",
     "TargetGroupInfoTypeDef",
     "TargetGroupPairInfoTypeDef",
     "TargetInstancesTypeDef",
     "TimeBasedCanaryTypeDef",
     "TimeBasedLinearTypeDef",
+    "TimeRangeTypeDef",
     "TrafficRouteTypeDef",
     "TrafficRoutingConfigTypeDef",
     "TriggerConfigTypeDef",
-    "BatchGetApplicationRevisionsOutputTypeDef",
-    "BatchGetApplicationsOutputTypeDef",
-    "BatchGetDeploymentGroupsOutputTypeDef",
-    "BatchGetDeploymentInstancesOutputTypeDef",
-    "BatchGetDeploymentTargetsOutputTypeDef",
-    "BatchGetDeploymentsOutputTypeDef",
-    "BatchGetOnPremisesInstancesOutputTypeDef",
-    "CreateApplicationOutputTypeDef",
-    "CreateDeploymentConfigOutputTypeDef",
-    "CreateDeploymentGroupOutputTypeDef",
-    "CreateDeploymentOutputTypeDef",
-    "DeleteDeploymentGroupOutputTypeDef",
-    "DeleteGitHubAccountTokenOutputTypeDef",
-    "GetApplicationOutputTypeDef",
-    "GetApplicationRevisionOutputTypeDef",
-    "GetDeploymentConfigOutputTypeDef",
-    "GetDeploymentGroupOutputTypeDef",
-    "GetDeploymentInstanceOutputTypeDef",
-    "GetDeploymentOutputTypeDef",
-    "GetDeploymentTargetOutputTypeDef",
-    "GetOnPremisesInstanceOutputTypeDef",
-    "ListApplicationRevisionsOutputTypeDef",
-    "ListApplicationsOutputTypeDef",
-    "ListDeploymentConfigsOutputTypeDef",
-    "ListDeploymentGroupsOutputTypeDef",
-    "ListDeploymentInstancesOutputTypeDef",
-    "ListDeploymentTargetsOutputTypeDef",
-    "ListDeploymentsOutputTypeDef",
-    "ListGitHubAccountTokenNamesOutputTypeDef",
-    "ListOnPremisesInstancesOutputTypeDef",
-    "ListTagsForResourceOutputTypeDef",
-    "PaginatorConfigTypeDef",
-    "PutLifecycleEventHookExecutionStatusOutputTypeDef",
-    "StopDeploymentOutputTypeDef",
-    "TimeRangeTypeDef",
+    "UntagResourceInputRequestTypeDef",
+    "UpdateApplicationInputRequestTypeDef",
+    "UpdateDeploymentGroupInputRequestTypeDef",
     "UpdateDeploymentGroupOutputTypeDef",
     "WaiterConfigTypeDef",
 )
 
+AddTagsToOnPremisesInstancesInputRequestTypeDef = TypedDict(
+    "AddTagsToOnPremisesInstancesInputRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+        "instanceNames": List[str],
+    },
+)
+
 AlarmConfigurationTypeDef = TypedDict(
     "AlarmConfigurationTypeDef",
-    {"enabled": bool, "ignorePollAlarmFailure": bool, "alarms": List["AlarmTypeDef"]},
+    {
+        "enabled": bool,
+        "ignorePollAlarmFailure": bool,
+        "alarms": List["AlarmTypeDef"],
+    },
     total=False,
 )
 
-AlarmTypeDef = TypedDict("AlarmTypeDef", {"name": str}, total=False)
+AlarmTypeDef = TypedDict(
+    "AlarmTypeDef",
+    {
+        "name": str,
+    },
+    total=False,
+)
 
 AppSpecContentTypeDef = TypedDict(
-    "AppSpecContentTypeDef", {"content": str, "sha256": str}, total=False
+    "AppSpecContentTypeDef",
+    {
+        "content": str,
+        "sha256": str,
+    },
+    total=False,
 )
 
 ApplicationInfoTypeDef = TypedDict(
@@ -136,7 +240,7 @@ ApplicationInfoTypeDef = TypedDict(
         "createTime": datetime,
         "linkedToGitHub": bool,
         "gitHubAccountName": str,
-        "computePlatform": Literal["Server", "Lambda", "ECS"],
+        "computePlatform": ComputePlatformType,
     },
     total=False,
 )
@@ -145,15 +249,132 @@ AutoRollbackConfigurationTypeDef = TypedDict(
     "AutoRollbackConfigurationTypeDef",
     {
         "enabled": bool,
-        "events": List[
-            Literal["DEPLOYMENT_FAILURE", "DEPLOYMENT_STOP_ON_ALARM", "DEPLOYMENT_STOP_ON_REQUEST"]
-        ],
+        "events": List[AutoRollbackEventType],
     },
     total=False,
 )
 
 AutoScalingGroupTypeDef = TypedDict(
-    "AutoScalingGroupTypeDef", {"name": str, "hook": str}, total=False
+    "AutoScalingGroupTypeDef",
+    {
+        "name": str,
+        "hook": str,
+    },
+    total=False,
+)
+
+BatchGetApplicationRevisionsInputRequestTypeDef = TypedDict(
+    "BatchGetApplicationRevisionsInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "revisions": List["RevisionLocationTypeDef"],
+    },
+)
+
+BatchGetApplicationRevisionsOutputTypeDef = TypedDict(
+    "BatchGetApplicationRevisionsOutputTypeDef",
+    {
+        "applicationName": str,
+        "errorMessage": str,
+        "revisions": List["RevisionInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetApplicationsInputRequestTypeDef = TypedDict(
+    "BatchGetApplicationsInputRequestTypeDef",
+    {
+        "applicationNames": List[str],
+    },
+)
+
+BatchGetApplicationsOutputTypeDef = TypedDict(
+    "BatchGetApplicationsOutputTypeDef",
+    {
+        "applicationsInfo": List["ApplicationInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetDeploymentGroupsInputRequestTypeDef = TypedDict(
+    "BatchGetDeploymentGroupsInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "deploymentGroupNames": List[str],
+    },
+)
+
+BatchGetDeploymentGroupsOutputTypeDef = TypedDict(
+    "BatchGetDeploymentGroupsOutputTypeDef",
+    {
+        "deploymentGroupsInfo": List["DeploymentGroupInfoTypeDef"],
+        "errorMessage": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetDeploymentInstancesInputRequestTypeDef = TypedDict(
+    "BatchGetDeploymentInstancesInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "instanceIds": List[str],
+    },
+)
+
+BatchGetDeploymentInstancesOutputTypeDef = TypedDict(
+    "BatchGetDeploymentInstancesOutputTypeDef",
+    {
+        "instancesSummary": List["InstanceSummaryTypeDef"],
+        "errorMessage": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetDeploymentTargetsInputRequestTypeDef = TypedDict(
+    "BatchGetDeploymentTargetsInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "targetIds": List[str],
+    },
+    total=False,
+)
+
+BatchGetDeploymentTargetsOutputTypeDef = TypedDict(
+    "BatchGetDeploymentTargetsOutputTypeDef",
+    {
+        "deploymentTargets": List["DeploymentTargetTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetDeploymentsInputRequestTypeDef = TypedDict(
+    "BatchGetDeploymentsInputRequestTypeDef",
+    {
+        "deploymentIds": List[str],
+    },
+)
+
+BatchGetDeploymentsOutputTypeDef = TypedDict(
+    "BatchGetDeploymentsOutputTypeDef",
+    {
+        "deploymentsInfo": List["DeploymentInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetOnPremisesInstancesInputRequestTypeDef = TypedDict(
+    "BatchGetOnPremisesInstancesInputRequestTypeDef",
+    {
+        "instanceNames": List[str],
+    },
+)
+
+BatchGetOnPremisesInstancesOutputTypeDef = TypedDict(
+    "BatchGetOnPremisesInstancesOutputTypeDef",
+    {
+        "instanceInfos": List["InstanceInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 BlueGreenDeploymentConfigurationTypeDef = TypedDict(
@@ -168,7 +389,10 @@ BlueGreenDeploymentConfigurationTypeDef = TypedDict(
 
 BlueInstanceTerminationOptionTypeDef = TypedDict(
     "BlueInstanceTerminationOptionTypeDef",
-    {"action": Literal["TERMINATE", "KEEP_ALIVE"], "terminationWaitTimeInMinutes": int},
+    {
+        "action": InstanceActionType,
+        "terminationWaitTimeInMinutes": int,
+    },
     total=False,
 )
 
@@ -179,11 +403,209 @@ CloudFormationTargetTypeDef = TypedDict(
         "targetId": str,
         "lastUpdatedAt": datetime,
         "lifecycleEvents": List["LifecycleEventTypeDef"],
-        "status": Literal[
-            "Pending", "InProgress", "Succeeded", "Failed", "Skipped", "Unknown", "Ready"
-        ],
+        "status": TargetStatusType,
         "resourceType": str,
         "targetVersionWeight": float,
+    },
+    total=False,
+)
+
+ContinueDeploymentInputRequestTypeDef = TypedDict(
+    "ContinueDeploymentInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "deploymentWaitType": DeploymentWaitTypeType,
+    },
+    total=False,
+)
+
+_RequiredCreateApplicationInputRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationInputRequestTypeDef",
+    {
+        "applicationName": str,
+    },
+)
+_OptionalCreateApplicationInputRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationInputRequestTypeDef",
+    {
+        "computePlatform": ComputePlatformType,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateApplicationInputRequestTypeDef(
+    _RequiredCreateApplicationInputRequestTypeDef, _OptionalCreateApplicationInputRequestTypeDef
+):
+    pass
+
+CreateApplicationOutputTypeDef = TypedDict(
+    "CreateApplicationOutputTypeDef",
+    {
+        "applicationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDeploymentConfigInputRequestTypeDef = TypedDict(
+    "_RequiredCreateDeploymentConfigInputRequestTypeDef",
+    {
+        "deploymentConfigName": str,
+    },
+)
+_OptionalCreateDeploymentConfigInputRequestTypeDef = TypedDict(
+    "_OptionalCreateDeploymentConfigInputRequestTypeDef",
+    {
+        "minimumHealthyHosts": "MinimumHealthyHostsTypeDef",
+        "trafficRoutingConfig": "TrafficRoutingConfigTypeDef",
+        "computePlatform": ComputePlatformType,
+    },
+    total=False,
+)
+
+class CreateDeploymentConfigInputRequestTypeDef(
+    _RequiredCreateDeploymentConfigInputRequestTypeDef,
+    _OptionalCreateDeploymentConfigInputRequestTypeDef,
+):
+    pass
+
+CreateDeploymentConfigOutputTypeDef = TypedDict(
+    "CreateDeploymentConfigOutputTypeDef",
+    {
+        "deploymentConfigId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDeploymentGroupInputRequestTypeDef = TypedDict(
+    "_RequiredCreateDeploymentGroupInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "deploymentGroupName": str,
+        "serviceRoleArn": str,
+    },
+)
+_OptionalCreateDeploymentGroupInputRequestTypeDef = TypedDict(
+    "_OptionalCreateDeploymentGroupInputRequestTypeDef",
+    {
+        "deploymentConfigName": str,
+        "ec2TagFilters": List["EC2TagFilterTypeDef"],
+        "onPremisesInstanceTagFilters": List["TagFilterTypeDef"],
+        "autoScalingGroups": List[str],
+        "triggerConfigurations": List["TriggerConfigTypeDef"],
+        "alarmConfiguration": "AlarmConfigurationTypeDef",
+        "autoRollbackConfiguration": "AutoRollbackConfigurationTypeDef",
+        "outdatedInstancesStrategy": OutdatedInstancesStrategyType,
+        "deploymentStyle": "DeploymentStyleTypeDef",
+        "blueGreenDeploymentConfiguration": "BlueGreenDeploymentConfigurationTypeDef",
+        "loadBalancerInfo": "LoadBalancerInfoTypeDef",
+        "ec2TagSet": "EC2TagSetTypeDef",
+        "ecsServices": List["ECSServiceTypeDef"],
+        "onPremisesTagSet": "OnPremisesTagSetTypeDef",
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDeploymentGroupInputRequestTypeDef(
+    _RequiredCreateDeploymentGroupInputRequestTypeDef,
+    _OptionalCreateDeploymentGroupInputRequestTypeDef,
+):
+    pass
+
+CreateDeploymentGroupOutputTypeDef = TypedDict(
+    "CreateDeploymentGroupOutputTypeDef",
+    {
+        "deploymentGroupId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDeploymentInputRequestTypeDef = TypedDict(
+    "_RequiredCreateDeploymentInputRequestTypeDef",
+    {
+        "applicationName": str,
+    },
+)
+_OptionalCreateDeploymentInputRequestTypeDef = TypedDict(
+    "_OptionalCreateDeploymentInputRequestTypeDef",
+    {
+        "deploymentGroupName": str,
+        "revision": "RevisionLocationTypeDef",
+        "deploymentConfigName": str,
+        "description": str,
+        "ignoreApplicationStopFailures": bool,
+        "targetInstances": "TargetInstancesTypeDef",
+        "autoRollbackConfiguration": "AutoRollbackConfigurationTypeDef",
+        "updateOutdatedInstancesOnly": bool,
+        "fileExistsBehavior": FileExistsBehaviorType,
+    },
+    total=False,
+)
+
+class CreateDeploymentInputRequestTypeDef(
+    _RequiredCreateDeploymentInputRequestTypeDef, _OptionalCreateDeploymentInputRequestTypeDef
+):
+    pass
+
+CreateDeploymentOutputTypeDef = TypedDict(
+    "CreateDeploymentOutputTypeDef",
+    {
+        "deploymentId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteApplicationInputRequestTypeDef = TypedDict(
+    "DeleteApplicationInputRequestTypeDef",
+    {
+        "applicationName": str,
+    },
+)
+
+DeleteDeploymentConfigInputRequestTypeDef = TypedDict(
+    "DeleteDeploymentConfigInputRequestTypeDef",
+    {
+        "deploymentConfigName": str,
+    },
+)
+
+DeleteDeploymentGroupInputRequestTypeDef = TypedDict(
+    "DeleteDeploymentGroupInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "deploymentGroupName": str,
+    },
+)
+
+DeleteDeploymentGroupOutputTypeDef = TypedDict(
+    "DeleteDeploymentGroupOutputTypeDef",
+    {
+        "hooksNotCleanedUp": List["AutoScalingGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteGitHubAccountTokenInputRequestTypeDef = TypedDict(
+    "DeleteGitHubAccountTokenInputRequestTypeDef",
+    {
+        "tokenName": str,
+    },
+    total=False,
+)
+
+DeleteGitHubAccountTokenOutputTypeDef = TypedDict(
+    "DeleteGitHubAccountTokenOutputTypeDef",
+    {
+        "tokenName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteResourcesByExternalIdInputRequestTypeDef = TypedDict(
+    "DeleteResourcesByExternalIdInputRequestTypeDef",
+    {
+        "externalId": str,
     },
     total=False,
 )
@@ -195,7 +617,7 @@ DeploymentConfigInfoTypeDef = TypedDict(
         "deploymentConfigName": str,
         "minimumHealthyHosts": "MinimumHealthyHostsTypeDef",
         "createTime": datetime,
-        "computePlatform": Literal["Server", "Lambda", "ECS"],
+        "computePlatform": ComputePlatformType,
         "trafficRoutingConfig": "TrafficRoutingConfigTypeDef",
     },
     total=False,
@@ -217,13 +639,14 @@ DeploymentGroupInfoTypeDef = TypedDict(
         "alarmConfiguration": "AlarmConfigurationTypeDef",
         "autoRollbackConfiguration": "AutoRollbackConfigurationTypeDef",
         "deploymentStyle": "DeploymentStyleTypeDef",
+        "outdatedInstancesStrategy": OutdatedInstancesStrategyType,
         "blueGreenDeploymentConfiguration": "BlueGreenDeploymentConfigurationTypeDef",
         "loadBalancerInfo": "LoadBalancerInfoTypeDef",
         "lastSuccessfulDeployment": "LastDeploymentInfoTypeDef",
         "lastAttemptedDeployment": "LastDeploymentInfoTypeDef",
         "ec2TagSet": "EC2TagSetTypeDef",
         "onPremisesTagSet": "OnPremisesTagSetTypeDef",
-        "computePlatform": Literal["Server", "Lambda", "ECS"],
+        "computePlatform": ComputePlatformType,
         "ecsServices": List["ECSServiceTypeDef"],
     },
     total=False,
@@ -238,23 +661,14 @@ DeploymentInfoTypeDef = TypedDict(
         "deploymentId": str,
         "previousRevision": "RevisionLocationTypeDef",
         "revision": "RevisionLocationTypeDef",
-        "status": Literal[
-            "Created", "Queued", "InProgress", "Baking", "Succeeded", "Failed", "Stopped", "Ready"
-        ],
+        "status": DeploymentStatusType,
         "errorInformation": "ErrorInformationTypeDef",
         "createTime": datetime,
         "startTime": datetime,
         "completeTime": datetime,
         "deploymentOverview": "DeploymentOverviewTypeDef",
         "description": str,
-        "creator": Literal[
-            "user",
-            "autoscaling",
-            "codeDeployRollback",
-            "CodeDeploy",
-            "CloudFormation",
-            "CloudFormationRollback",
-        ],
+        "creator": DeploymentCreatorType,
         "ignoreApplicationStopFailures": bool,
         "autoRollbackConfiguration": "AutoRollbackConfigurationTypeDef",
         "updateOutdatedInstancesOnly": bool,
@@ -265,10 +679,11 @@ DeploymentInfoTypeDef = TypedDict(
         "blueGreenDeploymentConfiguration": "BlueGreenDeploymentConfigurationTypeDef",
         "loadBalancerInfo": "LoadBalancerInfoTypeDef",
         "additionalDeploymentStatusInfo": str,
-        "fileExistsBehavior": Literal["DISALLOW", "OVERWRITE", "RETAIN"],
+        "fileExistsBehavior": FileExistsBehaviorType,
         "deploymentStatusMessages": List[str],
-        "computePlatform": Literal["Server", "Lambda", "ECS"],
+        "computePlatform": ComputePlatformType,
         "externalId": str,
+        "relatedDeployments": "RelatedDeploymentsTypeDef",
     },
     total=False,
 )
@@ -289,7 +704,7 @@ DeploymentOverviewTypeDef = TypedDict(
 DeploymentReadyOptionTypeDef = TypedDict(
     "DeploymentReadyOptionTypeDef",
     {
-        "actionOnTimeout": Literal["CONTINUE_DEPLOYMENT", "STOP_DEPLOYMENT"],
+        "actionOnTimeout": DeploymentReadyActionType,
         "waitTimeInMinutes": int,
     },
     total=False,
@@ -298,8 +713,8 @@ DeploymentReadyOptionTypeDef = TypedDict(
 DeploymentStyleTypeDef = TypedDict(
     "DeploymentStyleTypeDef",
     {
-        "deploymentType": Literal["IN_PLACE", "BLUE_GREEN"],
-        "deploymentOption": Literal["WITH_TRAFFIC_CONTROL", "WITHOUT_TRAFFIC_CONTROL"],
+        "deploymentType": DeploymentTypeType,
+        "deploymentOption": DeploymentOptionType,
     },
     total=False,
 )
@@ -307,9 +722,7 @@ DeploymentStyleTypeDef = TypedDict(
 DeploymentTargetTypeDef = TypedDict(
     "DeploymentTargetTypeDef",
     {
-        "deploymentTargetType": Literal[
-            "InstanceTarget", "LambdaTarget", "ECSTarget", "CloudFormationTarget"
-        ],
+        "deploymentTargetType": DeploymentTargetTypeType,
         "instanceTarget": "InstanceTargetTypeDef",
         "lambdaTarget": "LambdaTargetTypeDef",
         "ecsTarget": "ECSTargetTypeDef",
@@ -318,17 +731,17 @@ DeploymentTargetTypeDef = TypedDict(
     total=False,
 )
 
+DeregisterOnPremisesInstanceInputRequestTypeDef = TypedDict(
+    "DeregisterOnPremisesInstanceInputRequestTypeDef",
+    {
+        "instanceName": str,
+    },
+)
+
 DiagnosticsTypeDef = TypedDict(
     "DiagnosticsTypeDef",
     {
-        "errorCode": Literal[
-            "Success",
-            "ScriptMissing",
-            "ScriptNotExecutable",
-            "ScriptTimedOut",
-            "ScriptFailed",
-            "UnknownError",
-        ],
+        "errorCode": LifecycleErrorCodeType,
         "scriptName": str,
         "message": str,
         "logTail": str,
@@ -338,16 +751,29 @@ DiagnosticsTypeDef = TypedDict(
 
 EC2TagFilterTypeDef = TypedDict(
     "EC2TagFilterTypeDef",
-    {"Key": str, "Value": str, "Type": Literal["KEY_ONLY", "VALUE_ONLY", "KEY_AND_VALUE"]},
+    {
+        "Key": str,
+        "Value": str,
+        "Type": EC2TagFilterTypeType,
+    },
     total=False,
 )
 
 EC2TagSetTypeDef = TypedDict(
-    "EC2TagSetTypeDef", {"ec2TagSetList": List[List["EC2TagFilterTypeDef"]]}, total=False
+    "EC2TagSetTypeDef",
+    {
+        "ec2TagSetList": List[List["EC2TagFilterTypeDef"]],
+    },
+    total=False,
 )
 
 ECSServiceTypeDef = TypedDict(
-    "ECSServiceTypeDef", {"serviceName": str, "clusterName": str}, total=False
+    "ECSServiceTypeDef",
+    {
+        "serviceName": str,
+        "clusterName": str,
+    },
+    total=False,
 )
 
 ECSTargetTypeDef = TypedDict(
@@ -358,9 +784,7 @@ ECSTargetTypeDef = TypedDict(
         "targetArn": str,
         "lastUpdatedAt": datetime,
         "lifecycleEvents": List["LifecycleEventTypeDef"],
-        "status": Literal[
-            "Pending", "InProgress", "Succeeded", "Failed", "Skipped", "Unknown", "Ready"
-        ],
+        "status": TargetStatusType,
         "taskSetsInfo": List["ECSTaskSetTypeDef"],
     },
     total=False,
@@ -376,52 +800,23 @@ ECSTaskSetTypeDef = TypedDict(
         "status": str,
         "trafficWeight": float,
         "targetGroup": "TargetGroupInfoTypeDef",
-        "taskSetLabel": Literal["Blue", "Green"],
+        "taskSetLabel": TargetLabelType,
     },
     total=False,
 )
 
-ELBInfoTypeDef = TypedDict("ELBInfoTypeDef", {"name": str}, total=False)
+ELBInfoTypeDef = TypedDict(
+    "ELBInfoTypeDef",
+    {
+        "name": str,
+    },
+    total=False,
+)
 
 ErrorInformationTypeDef = TypedDict(
     "ErrorInformationTypeDef",
     {
-        "code": Literal[
-            "AGENT_ISSUE",
-            "ALARM_ACTIVE",
-            "APPLICATION_MISSING",
-            "AUTOSCALING_VALIDATION_ERROR",
-            "AUTO_SCALING_CONFIGURATION",
-            "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
-            "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
-            "CUSTOMER_APPLICATION_UNHEALTHY",
-            "DEPLOYMENT_GROUP_MISSING",
-            "ECS_UPDATE_ERROR",
-            "ELASTIC_LOAD_BALANCING_INVALID",
-            "ELB_INVALID_INSTANCE",
-            "HEALTH_CONSTRAINTS",
-            "HEALTH_CONSTRAINTS_INVALID",
-            "HOOK_EXECUTION_FAILURE",
-            "IAM_ROLE_MISSING",
-            "IAM_ROLE_PERMISSIONS",
-            "INTERNAL_ERROR",
-            "INVALID_ECS_SERVICE",
-            "INVALID_LAMBDA_CONFIGURATION",
-            "INVALID_LAMBDA_FUNCTION",
-            "INVALID_REVISION",
-            "MANUAL_STOP",
-            "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
-            "MISSING_ELB_INFORMATION",
-            "MISSING_GITHUB_TOKEN",
-            "NO_EC2_SUBSCRIPTION",
-            "NO_INSTANCES",
-            "OVER_MAX_INSTANCES",
-            "RESOURCE_LIMIT_EXCEEDED",
-            "REVISION_MISSING",
-            "THROTTLED",
-            "TIMEOUT",
-            "CLOUDFORMATION_STACK_FAILURE",
-        ],
+        "code": ErrorCodeType,
         "message": str,
     },
     total=False,
@@ -439,13 +834,147 @@ GenericRevisionInfoTypeDef = TypedDict(
     total=False,
 )
 
+GetApplicationInputRequestTypeDef = TypedDict(
+    "GetApplicationInputRequestTypeDef",
+    {
+        "applicationName": str,
+    },
+)
+
+GetApplicationOutputTypeDef = TypedDict(
+    "GetApplicationOutputTypeDef",
+    {
+        "application": "ApplicationInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetApplicationRevisionInputRequestTypeDef = TypedDict(
+    "GetApplicationRevisionInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "revision": "RevisionLocationTypeDef",
+    },
+)
+
+GetApplicationRevisionOutputTypeDef = TypedDict(
+    "GetApplicationRevisionOutputTypeDef",
+    {
+        "applicationName": str,
+        "revision": "RevisionLocationTypeDef",
+        "revisionInfo": "GenericRevisionInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDeploymentConfigInputRequestTypeDef = TypedDict(
+    "GetDeploymentConfigInputRequestTypeDef",
+    {
+        "deploymentConfigName": str,
+    },
+)
+
+GetDeploymentConfigOutputTypeDef = TypedDict(
+    "GetDeploymentConfigOutputTypeDef",
+    {
+        "deploymentConfigInfo": "DeploymentConfigInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDeploymentGroupInputRequestTypeDef = TypedDict(
+    "GetDeploymentGroupInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "deploymentGroupName": str,
+    },
+)
+
+GetDeploymentGroupOutputTypeDef = TypedDict(
+    "GetDeploymentGroupOutputTypeDef",
+    {
+        "deploymentGroupInfo": "DeploymentGroupInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDeploymentInputRequestTypeDef = TypedDict(
+    "GetDeploymentInputRequestTypeDef",
+    {
+        "deploymentId": str,
+    },
+)
+
+GetDeploymentInstanceInputRequestTypeDef = TypedDict(
+    "GetDeploymentInstanceInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "instanceId": str,
+    },
+)
+
+GetDeploymentInstanceOutputTypeDef = TypedDict(
+    "GetDeploymentInstanceOutputTypeDef",
+    {
+        "instanceSummary": "InstanceSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDeploymentOutputTypeDef = TypedDict(
+    "GetDeploymentOutputTypeDef",
+    {
+        "deploymentInfo": "DeploymentInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDeploymentTargetInputRequestTypeDef = TypedDict(
+    "GetDeploymentTargetInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "targetId": str,
+    },
+    total=False,
+)
+
+GetDeploymentTargetOutputTypeDef = TypedDict(
+    "GetDeploymentTargetOutputTypeDef",
+    {
+        "deploymentTarget": "DeploymentTargetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetOnPremisesInstanceInputRequestTypeDef = TypedDict(
+    "GetOnPremisesInstanceInputRequestTypeDef",
+    {
+        "instanceName": str,
+    },
+)
+
+GetOnPremisesInstanceOutputTypeDef = TypedDict(
+    "GetOnPremisesInstanceOutputTypeDef",
+    {
+        "instanceInfo": "InstanceInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GitHubLocationTypeDef = TypedDict(
-    "GitHubLocationTypeDef", {"repository": str, "commitId": str}, total=False
+    "GitHubLocationTypeDef",
+    {
+        "repository": str,
+        "commitId": str,
+    },
+    total=False,
 )
 
 GreenFleetProvisioningOptionTypeDef = TypedDict(
     "GreenFleetProvisioningOptionTypeDef",
-    {"action": Literal["DISCOVER_EXISTING", "COPY_AUTO_SCALING_GROUP"]},
+    {
+        "action": GreenFleetProvisioningActionType,
+    },
     total=False,
 )
 
@@ -468,12 +997,10 @@ InstanceSummaryTypeDef = TypedDict(
     {
         "deploymentId": str,
         "instanceId": str,
-        "status": Literal[
-            "Pending", "InProgress", "Succeeded", "Failed", "Skipped", "Unknown", "Ready"
-        ],
+        "status": InstanceStatusType,
         "lastUpdatedAt": datetime,
         "lifecycleEvents": List["LifecycleEventTypeDef"],
-        "instanceType": Literal["Blue", "Green"],
+        "instanceType": InstanceTypeType,
     },
     total=False,
 )
@@ -484,12 +1011,10 @@ InstanceTargetTypeDef = TypedDict(
         "deploymentId": str,
         "targetId": str,
         "targetArn": str,
-        "status": Literal[
-            "Pending", "InProgress", "Succeeded", "Failed", "Skipped", "Unknown", "Ready"
-        ],
+        "status": TargetStatusType,
         "lastUpdatedAt": datetime,
         "lifecycleEvents": List["LifecycleEventTypeDef"],
-        "instanceLabel": Literal["Blue", "Green"],
+        "instanceLabel": TargetLabelType,
     },
     total=False,
 )
@@ -512,9 +1037,7 @@ LambdaTargetTypeDef = TypedDict(
         "deploymentId": str,
         "targetId": str,
         "targetArn": str,
-        "status": Literal[
-            "Pending", "InProgress", "Succeeded", "Failed", "Skipped", "Unknown", "Ready"
-        ],
+        "status": TargetStatusType,
         "lastUpdatedAt": datetime,
         "lifecycleEvents": List["LifecycleEventTypeDef"],
         "lambdaFunctionInfo": "LambdaFunctionInfoTypeDef",
@@ -526,9 +1049,7 @@ LastDeploymentInfoTypeDef = TypedDict(
     "LastDeploymentInfoTypeDef",
     {
         "deploymentId": str,
-        "status": Literal[
-            "Created", "Queued", "InProgress", "Baking", "Succeeded", "Failed", "Stopped", "Ready"
-        ],
+        "status": DeploymentStatusType,
         "endTime": datetime,
         "createTime": datetime,
     },
@@ -542,9 +1063,243 @@ LifecycleEventTypeDef = TypedDict(
         "diagnostics": "DiagnosticsTypeDef",
         "startTime": datetime,
         "endTime": datetime,
-        "status": Literal["Pending", "InProgress", "Succeeded", "Failed", "Skipped", "Unknown"],
+        "status": LifecycleEventStatusType,
     },
     total=False,
+)
+
+_RequiredListApplicationRevisionsInputRequestTypeDef = TypedDict(
+    "_RequiredListApplicationRevisionsInputRequestTypeDef",
+    {
+        "applicationName": str,
+    },
+)
+_OptionalListApplicationRevisionsInputRequestTypeDef = TypedDict(
+    "_OptionalListApplicationRevisionsInputRequestTypeDef",
+    {
+        "sortBy": ApplicationRevisionSortByType,
+        "sortOrder": SortOrderType,
+        "s3Bucket": str,
+        "s3KeyPrefix": str,
+        "deployed": ListStateFilterActionType,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationRevisionsInputRequestTypeDef(
+    _RequiredListApplicationRevisionsInputRequestTypeDef,
+    _OptionalListApplicationRevisionsInputRequestTypeDef,
+):
+    pass
+
+ListApplicationRevisionsOutputTypeDef = TypedDict(
+    "ListApplicationRevisionsOutputTypeDef",
+    {
+        "revisions": List["RevisionLocationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListApplicationsInputRequestTypeDef = TypedDict(
+    "ListApplicationsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListApplicationsOutputTypeDef = TypedDict(
+    "ListApplicationsOutputTypeDef",
+    {
+        "applications": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDeploymentConfigsInputRequestTypeDef = TypedDict(
+    "ListDeploymentConfigsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListDeploymentConfigsOutputTypeDef = TypedDict(
+    "ListDeploymentConfigsOutputTypeDef",
+    {
+        "deploymentConfigsList": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDeploymentGroupsInputRequestTypeDef = TypedDict(
+    "_RequiredListDeploymentGroupsInputRequestTypeDef",
+    {
+        "applicationName": str,
+    },
+)
+_OptionalListDeploymentGroupsInputRequestTypeDef = TypedDict(
+    "_OptionalListDeploymentGroupsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListDeploymentGroupsInputRequestTypeDef(
+    _RequiredListDeploymentGroupsInputRequestTypeDef,
+    _OptionalListDeploymentGroupsInputRequestTypeDef,
+):
+    pass
+
+ListDeploymentGroupsOutputTypeDef = TypedDict(
+    "ListDeploymentGroupsOutputTypeDef",
+    {
+        "applicationName": str,
+        "deploymentGroups": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDeploymentInstancesInputRequestTypeDef = TypedDict(
+    "_RequiredListDeploymentInstancesInputRequestTypeDef",
+    {
+        "deploymentId": str,
+    },
+)
+_OptionalListDeploymentInstancesInputRequestTypeDef = TypedDict(
+    "_OptionalListDeploymentInstancesInputRequestTypeDef",
+    {
+        "nextToken": str,
+        "instanceStatusFilter": List[InstanceStatusType],
+        "instanceTypeFilter": List[InstanceTypeType],
+    },
+    total=False,
+)
+
+class ListDeploymentInstancesInputRequestTypeDef(
+    _RequiredListDeploymentInstancesInputRequestTypeDef,
+    _OptionalListDeploymentInstancesInputRequestTypeDef,
+):
+    pass
+
+ListDeploymentInstancesOutputTypeDef = TypedDict(
+    "ListDeploymentInstancesOutputTypeDef",
+    {
+        "instancesList": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDeploymentTargetsInputRequestTypeDef = TypedDict(
+    "ListDeploymentTargetsInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "nextToken": str,
+        "targetFilters": Dict[TargetFilterNameType, List[str]],
+    },
+    total=False,
+)
+
+ListDeploymentTargetsOutputTypeDef = TypedDict(
+    "ListDeploymentTargetsOutputTypeDef",
+    {
+        "targetIds": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDeploymentsInputRequestTypeDef = TypedDict(
+    "ListDeploymentsInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "deploymentGroupName": str,
+        "externalId": str,
+        "includeOnlyStatuses": List[DeploymentStatusType],
+        "createTimeRange": "TimeRangeTypeDef",
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListDeploymentsOutputTypeDef = TypedDict(
+    "ListDeploymentsOutputTypeDef",
+    {
+        "deployments": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListGitHubAccountTokenNamesInputRequestTypeDef = TypedDict(
+    "ListGitHubAccountTokenNamesInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListGitHubAccountTokenNamesOutputTypeDef = TypedDict(
+    "ListGitHubAccountTokenNamesOutputTypeDef",
+    {
+        "tokenNameList": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListOnPremisesInstancesInputRequestTypeDef = TypedDict(
+    "ListOnPremisesInstancesInputRequestTypeDef",
+    {
+        "registrationStatus": RegistrationStatusType,
+        "tagFilters": List["TagFilterTypeDef"],
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListOnPremisesInstancesOutputTypeDef = TypedDict(
+    "ListOnPremisesInstancesOutputTypeDef",
+    {
+        "instanceNames": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTagsForResourceInputRequestTypeDef = TypedDict(
+    "_RequiredListTagsForResourceInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalListTagsForResourceInputRequestTypeDef = TypedDict(
+    "_OptionalListTagsForResourceInputRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListTagsForResourceInputRequestTypeDef(
+    _RequiredListTagsForResourceInputRequestTypeDef, _OptionalListTagsForResourceInputRequestTypeDef
+):
+    pass
+
+ListTagsForResourceOutputTypeDef = TypedDict(
+    "ListTagsForResourceOutputTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 LoadBalancerInfoTypeDef = TypedDict(
@@ -559,18 +1314,119 @@ LoadBalancerInfoTypeDef = TypedDict(
 
 MinimumHealthyHostsTypeDef = TypedDict(
     "MinimumHealthyHostsTypeDef",
-    {"value": int, "type": Literal["HOST_COUNT", "FLEET_PERCENT"]},
+    {
+        "type": MinimumHealthyHostsTypeType,
+        "value": int,
+    },
     total=False,
 )
 
 OnPremisesTagSetTypeDef = TypedDict(
-    "OnPremisesTagSetTypeDef", {"onPremisesTagSetList": List[List["TagFilterTypeDef"]]}, total=False
+    "OnPremisesTagSetTypeDef",
+    {
+        "onPremisesTagSetList": List[List["TagFilterTypeDef"]],
+    },
+    total=False,
 )
 
-RawStringTypeDef = TypedDict("RawStringTypeDef", {"content": str, "sha256": str}, total=False)
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+PutLifecycleEventHookExecutionStatusInputRequestTypeDef = TypedDict(
+    "PutLifecycleEventHookExecutionStatusInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "lifecycleEventHookExecutionId": str,
+        "status": LifecycleEventStatusType,
+    },
+    total=False,
+)
+
+PutLifecycleEventHookExecutionStatusOutputTypeDef = TypedDict(
+    "PutLifecycleEventHookExecutionStatusOutputTypeDef",
+    {
+        "lifecycleEventHookExecutionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RawStringTypeDef = TypedDict(
+    "RawStringTypeDef",
+    {
+        "content": str,
+        "sha256": str,
+    },
+    total=False,
+)
+
+_RequiredRegisterApplicationRevisionInputRequestTypeDef = TypedDict(
+    "_RequiredRegisterApplicationRevisionInputRequestTypeDef",
+    {
+        "applicationName": str,
+        "revision": "RevisionLocationTypeDef",
+    },
+)
+_OptionalRegisterApplicationRevisionInputRequestTypeDef = TypedDict(
+    "_OptionalRegisterApplicationRevisionInputRequestTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class RegisterApplicationRevisionInputRequestTypeDef(
+    _RequiredRegisterApplicationRevisionInputRequestTypeDef,
+    _OptionalRegisterApplicationRevisionInputRequestTypeDef,
+):
+    pass
+
+_RequiredRegisterOnPremisesInstanceInputRequestTypeDef = TypedDict(
+    "_RequiredRegisterOnPremisesInstanceInputRequestTypeDef",
+    {
+        "instanceName": str,
+    },
+)
+_OptionalRegisterOnPremisesInstanceInputRequestTypeDef = TypedDict(
+    "_OptionalRegisterOnPremisesInstanceInputRequestTypeDef",
+    {
+        "iamSessionArn": str,
+        "iamUserArn": str,
+    },
+    total=False,
+)
+
+class RegisterOnPremisesInstanceInputRequestTypeDef(
+    _RequiredRegisterOnPremisesInstanceInputRequestTypeDef,
+    _OptionalRegisterOnPremisesInstanceInputRequestTypeDef,
+):
+    pass
+
+RelatedDeploymentsTypeDef = TypedDict(
+    "RelatedDeploymentsTypeDef",
+    {
+        "autoUpdateOutdatedInstancesRootDeploymentId": str,
+        "autoUpdateOutdatedInstancesDeploymentIds": List[str],
+    },
+    total=False,
+)
+
+RemoveTagsFromOnPremisesInstancesInputRequestTypeDef = TypedDict(
+    "RemoveTagsFromOnPremisesInstancesInputRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+        "instanceNames": List[str],
+    },
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -592,7 +1448,7 @@ RevisionInfoTypeDef = TypedDict(
 RevisionLocationTypeDef = TypedDict(
     "RevisionLocationTypeDef",
     {
-        "revisionType": Literal["S3", "GitHub", "String", "AppSpecContent"],
+        "revisionType": RevisionLocationTypeType,
         "s3Location": "S3LocationTypeDef",
         "gitHubLocation": "GitHubLocationTypeDef",
         "string": "RawStringTypeDef",
@@ -603,7 +1459,11 @@ RevisionLocationTypeDef = TypedDict(
 
 RollbackInfoTypeDef = TypedDict(
     "RollbackInfoTypeDef",
-    {"rollbackDeploymentId": str, "rollbackTriggeringDeploymentId": str, "rollbackMessage": str},
+    {
+        "rollbackDeploymentId": str,
+        "rollbackTriggeringDeploymentId": str,
+        "rollbackMessage": str,
+    },
     total=False,
 )
 
@@ -612,22 +1472,83 @@ S3LocationTypeDef = TypedDict(
     {
         "bucket": str,
         "key": str,
-        "bundleType": Literal["tar", "tgz", "zip", "YAML", "JSON"],
+        "bundleType": BundleTypeType,
         "version": str,
         "eTag": str,
     },
     total=False,
 )
 
-TagFilterTypeDef = TypedDict(
-    "TagFilterTypeDef",
-    {"Key": str, "Value": str, "Type": Literal["KEY_ONLY", "VALUE_ONLY", "KEY_AND_VALUE"]},
+SkipWaitTimeForInstanceTerminationInputRequestTypeDef = TypedDict(
+    "SkipWaitTimeForInstanceTerminationInputRequestTypeDef",
+    {
+        "deploymentId": str,
+    },
     total=False,
 )
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
+_RequiredStopDeploymentInputRequestTypeDef = TypedDict(
+    "_RequiredStopDeploymentInputRequestTypeDef",
+    {
+        "deploymentId": str,
+    },
+)
+_OptionalStopDeploymentInputRequestTypeDef = TypedDict(
+    "_OptionalStopDeploymentInputRequestTypeDef",
+    {
+        "autoRollbackEnabled": bool,
+    },
+    total=False,
+)
 
-TargetGroupInfoTypeDef = TypedDict("TargetGroupInfoTypeDef", {"name": str}, total=False)
+class StopDeploymentInputRequestTypeDef(
+    _RequiredStopDeploymentInputRequestTypeDef, _OptionalStopDeploymentInputRequestTypeDef
+):
+    pass
+
+StopDeploymentOutputTypeDef = TypedDict(
+    "StopDeploymentOutputTypeDef",
+    {
+        "status": StopStatusType,
+        "statusMessage": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+TagFilterTypeDef = TypedDict(
+    "TagFilterTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+        "Type": TagFilterTypeType,
+    },
+    total=False,
+)
+
+TagResourceInputRequestTypeDef = TypedDict(
+    "TagResourceInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+TargetGroupInfoTypeDef = TypedDict(
+    "TargetGroupInfoTypeDef",
+    {
+        "name": str,
+    },
+    total=False,
+)
 
 TargetGroupPairInfoTypeDef = TypedDict(
     "TargetGroupPairInfoTypeDef",
@@ -650,19 +1571,44 @@ TargetInstancesTypeDef = TypedDict(
 )
 
 TimeBasedCanaryTypeDef = TypedDict(
-    "TimeBasedCanaryTypeDef", {"canaryPercentage": int, "canaryInterval": int}, total=False
+    "TimeBasedCanaryTypeDef",
+    {
+        "canaryPercentage": int,
+        "canaryInterval": int,
+    },
+    total=False,
 )
 
 TimeBasedLinearTypeDef = TypedDict(
-    "TimeBasedLinearTypeDef", {"linearPercentage": int, "linearInterval": int}, total=False
+    "TimeBasedLinearTypeDef",
+    {
+        "linearPercentage": int,
+        "linearInterval": int,
+    },
+    total=False,
 )
 
-TrafficRouteTypeDef = TypedDict("TrafficRouteTypeDef", {"listenerArns": List[str]}, total=False)
+TimeRangeTypeDef = TypedDict(
+    "TimeRangeTypeDef",
+    {
+        "start": Union[datetime, str],
+        "end": Union[datetime, str],
+    },
+    total=False,
+)
+
+TrafficRouteTypeDef = TypedDict(
+    "TrafficRouteTypeDef",
+    {
+        "listenerArns": List[str],
+    },
+    total=False,
+)
 
 TrafficRoutingConfigTypeDef = TypedDict(
     "TrafficRoutingConfigTypeDef",
     {
-        "type": Literal["TimeBasedCanary", "TimeBasedLinear", "AllAtOnce"],
+        "type": TrafficRoutingTypeType,
         "timeBasedCanary": "TimeBasedCanaryTypeDef",
         "timeBasedLinear": "TimeBasedLinearTypeDef",
     },
@@ -674,265 +1620,77 @@ TriggerConfigTypeDef = TypedDict(
     {
         "triggerName": str,
         "triggerTargetArn": str,
-        "triggerEvents": List[
-            Literal[
-                "DeploymentStart",
-                "DeploymentSuccess",
-                "DeploymentFailure",
-                "DeploymentStop",
-                "DeploymentRollback",
-                "DeploymentReady",
-                "InstanceStart",
-                "InstanceSuccess",
-                "InstanceFailure",
-                "InstanceReady",
-            ]
-        ],
+        "triggerEvents": List[TriggerEventTypeType],
     },
     total=False,
 )
 
-BatchGetApplicationRevisionsOutputTypeDef = TypedDict(
-    "BatchGetApplicationRevisionsOutputTypeDef",
+UntagResourceInputRequestTypeDef = TypedDict(
+    "UntagResourceInputRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
+UpdateApplicationInputRequestTypeDef = TypedDict(
+    "UpdateApplicationInputRequestTypeDef",
     {
         "applicationName": str,
-        "errorMessage": str,
-        "revisions": List["RevisionInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadata",
+        "newApplicationName": str,
     },
     total=False,
 )
 
-BatchGetApplicationsOutputTypeDef = TypedDict(
-    "BatchGetApplicationsOutputTypeDef",
-    {"applicationsInfo": List["ApplicationInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-BatchGetDeploymentGroupsOutputTypeDef = TypedDict(
-    "BatchGetDeploymentGroupsOutputTypeDef",
-    {
-        "deploymentGroupsInfo": List["DeploymentGroupInfoTypeDef"],
-        "errorMessage": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-BatchGetDeploymentInstancesOutputTypeDef = TypedDict(
-    "BatchGetDeploymentInstancesOutputTypeDef",
-    {
-        "instancesSummary": List["InstanceSummaryTypeDef"],
-        "errorMessage": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-BatchGetDeploymentTargetsOutputTypeDef = TypedDict(
-    "BatchGetDeploymentTargetsOutputTypeDef",
-    {"deploymentTargets": List["DeploymentTargetTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-BatchGetDeploymentsOutputTypeDef = TypedDict(
-    "BatchGetDeploymentsOutputTypeDef",
-    {"deploymentsInfo": List["DeploymentInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-BatchGetOnPremisesInstancesOutputTypeDef = TypedDict(
-    "BatchGetOnPremisesInstancesOutputTypeDef",
-    {"instanceInfos": List["InstanceInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateApplicationOutputTypeDef = TypedDict(
-    "CreateApplicationOutputTypeDef",
-    {"applicationId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateDeploymentConfigOutputTypeDef = TypedDict(
-    "CreateDeploymentConfigOutputTypeDef",
-    {"deploymentConfigId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateDeploymentGroupOutputTypeDef = TypedDict(
-    "CreateDeploymentGroupOutputTypeDef",
-    {"deploymentGroupId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateDeploymentOutputTypeDef = TypedDict(
-    "CreateDeploymentOutputTypeDef",
-    {"deploymentId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DeleteDeploymentGroupOutputTypeDef = TypedDict(
-    "DeleteDeploymentGroupOutputTypeDef",
-    {"hooksNotCleanedUp": List["AutoScalingGroupTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DeleteGitHubAccountTokenOutputTypeDef = TypedDict(
-    "DeleteGitHubAccountTokenOutputTypeDef",
-    {"tokenName": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetApplicationOutputTypeDef = TypedDict(
-    "GetApplicationOutputTypeDef",
-    {"application": "ApplicationInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetApplicationRevisionOutputTypeDef = TypedDict(
-    "GetApplicationRevisionOutputTypeDef",
+_RequiredUpdateDeploymentGroupInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateDeploymentGroupInputRequestTypeDef",
     {
         "applicationName": str,
-        "revision": "RevisionLocationTypeDef",
-        "revisionInfo": "GenericRevisionInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
+        "currentDeploymentGroupName": str,
     },
-    total=False,
 )
-
-GetDeploymentConfigOutputTypeDef = TypedDict(
-    "GetDeploymentConfigOutputTypeDef",
-    {"deploymentConfigInfo": "DeploymentConfigInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetDeploymentGroupOutputTypeDef = TypedDict(
-    "GetDeploymentGroupOutputTypeDef",
-    {"deploymentGroupInfo": "DeploymentGroupInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetDeploymentInstanceOutputTypeDef = TypedDict(
-    "GetDeploymentInstanceOutputTypeDef",
-    {"instanceSummary": "InstanceSummaryTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetDeploymentOutputTypeDef = TypedDict(
-    "GetDeploymentOutputTypeDef",
-    {"deploymentInfo": "DeploymentInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetDeploymentTargetOutputTypeDef = TypedDict(
-    "GetDeploymentTargetOutputTypeDef",
-    {"deploymentTarget": "DeploymentTargetTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetOnPremisesInstanceOutputTypeDef = TypedDict(
-    "GetOnPremisesInstanceOutputTypeDef",
-    {"instanceInfo": "InstanceInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListApplicationRevisionsOutputTypeDef = TypedDict(
-    "ListApplicationRevisionsOutputTypeDef",
+_OptionalUpdateDeploymentGroupInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateDeploymentGroupInputRequestTypeDef",
     {
-        "revisions": List["RevisionLocationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
+        "newDeploymentGroupName": str,
+        "deploymentConfigName": str,
+        "ec2TagFilters": List["EC2TagFilterTypeDef"],
+        "onPremisesInstanceTagFilters": List["TagFilterTypeDef"],
+        "autoScalingGroups": List[str],
+        "serviceRoleArn": str,
+        "triggerConfigurations": List["TriggerConfigTypeDef"],
+        "alarmConfiguration": "AlarmConfigurationTypeDef",
+        "autoRollbackConfiguration": "AutoRollbackConfigurationTypeDef",
+        "outdatedInstancesStrategy": OutdatedInstancesStrategyType,
+        "deploymentStyle": "DeploymentStyleTypeDef",
+        "blueGreenDeploymentConfiguration": "BlueGreenDeploymentConfigurationTypeDef",
+        "loadBalancerInfo": "LoadBalancerInfoTypeDef",
+        "ec2TagSet": "EC2TagSetTypeDef",
+        "ecsServices": List["ECSServiceTypeDef"],
+        "onPremisesTagSet": "OnPremisesTagSetTypeDef",
     },
     total=False,
 )
 
-ListApplicationsOutputTypeDef = TypedDict(
-    "ListApplicationsOutputTypeDef",
-    {"applications": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListDeploymentConfigsOutputTypeDef = TypedDict(
-    "ListDeploymentConfigsOutputTypeDef",
-    {"deploymentConfigsList": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListDeploymentGroupsOutputTypeDef = TypedDict(
-    "ListDeploymentGroupsOutputTypeDef",
-    {
-        "applicationName": str,
-        "deploymentGroups": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-ListDeploymentInstancesOutputTypeDef = TypedDict(
-    "ListDeploymentInstancesOutputTypeDef",
-    {"instancesList": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListDeploymentTargetsOutputTypeDef = TypedDict(
-    "ListDeploymentTargetsOutputTypeDef",
-    {"targetIds": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListDeploymentsOutputTypeDef = TypedDict(
-    "ListDeploymentsOutputTypeDef",
-    {"deployments": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListGitHubAccountTokenNamesOutputTypeDef = TypedDict(
-    "ListGitHubAccountTokenNamesOutputTypeDef",
-    {"tokenNameList": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListOnPremisesInstancesOutputTypeDef = TypedDict(
-    "ListOnPremisesInstancesOutputTypeDef",
-    {"instanceNames": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {"Tags": List["TagTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PutLifecycleEventHookExecutionStatusOutputTypeDef = TypedDict(
-    "PutLifecycleEventHookExecutionStatusOutputTypeDef",
-    {"lifecycleEventHookExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-StopDeploymentOutputTypeDef = TypedDict(
-    "StopDeploymentOutputTypeDef",
-    {
-        "status": Literal["Pending", "Succeeded"],
-        "statusMessage": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-TimeRangeTypeDef = TypedDict("TimeRangeTypeDef", {"start": datetime, "end": datetime}, total=False)
+class UpdateDeploymentGroupInputRequestTypeDef(
+    _RequiredUpdateDeploymentGroupInputRequestTypeDef,
+    _OptionalUpdateDeploymentGroupInputRequestTypeDef,
+):
+    pass
 
 UpdateDeploymentGroupOutputTypeDef = TypedDict(
     "UpdateDeploymentGroupOutputTypeDef",
-    {"hooksNotCleanedUp": List["AutoScalingGroupTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
+    {
+        "hooksNotCleanedUp": List["AutoScalingGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

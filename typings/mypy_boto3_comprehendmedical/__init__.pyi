@@ -16,9 +16,8 @@ Usage::
     session_client: ComprehendMedicalClient = session.client("comprehendmedical")
     ```
 """
-from mypy_boto3_comprehendmedical.client import ComprehendMedicalClient
+from .client import ComprehendMedicalClient
 
 Client = ComprehendMedicalClient
-
 
 __all__ = ("Client", "ComprehendMedicalClient")

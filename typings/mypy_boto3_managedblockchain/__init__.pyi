@@ -16,9 +16,8 @@ Usage::
     session_client: ManagedBlockchainClient = session.client("managedblockchain")
     ```
 """
-from mypy_boto3_managedblockchain.client import ManagedBlockchainClient
+from .client import ManagedBlockchainClient
 
 Client = ManagedBlockchainClient
-
 
 __all__ = ("Client", "ManagedBlockchainClient")

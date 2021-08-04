@@ -1,5 +1,7 @@
 """
-Main interface for marketplace-catalog service client
+Type annotations for marketplace-catalog service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html)
 
 Usage::
 
@@ -12,9 +14,9 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_marketplace_catalog.type_defs import (
+from .type_defs import (
     CancelChangeSetResponseTypeDef,
     ChangeTypeDef,
     DescribeChangeSetResponseTypeDef,
@@ -28,14 +30,11 @@ from mypy_boto3_marketplace_catalog.type_defs import (
 
 __all__ = ("MarketplaceCatalogClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -48,37 +47,50 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class MarketplaceCatalogClient:
+class MarketplaceCatalogClient(BaseClient):
     """
-    [MarketplaceCatalog.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        MarketplaceCatalogClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def cancel_change_set(self, Catalog: str, ChangeSetId: str) -> CancelChangeSetResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#can_paginate)
         """
-        [Client.cancel_change_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.cancel_change_set)
+    def cancel_change_set(
+        self, *, Catalog: str, ChangeSetId: str
+    ) -> CancelChangeSetResponseTypeDef:
         """
+        Used to cancel an open change request.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.cancel_change_set)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#cancel_change_set)
+        """
     def describe_change_set(
-        self, Catalog: str, ChangeSetId: str
+        self, *, Catalog: str, ChangeSetId: str
     ) -> DescribeChangeSetResponseTypeDef:
         """
-        [Client.describe_change_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_change_set)
-        """
+        Provides information about a given change set.
 
-    def describe_entity(self, Catalog: str, EntityId: str) -> DescribeEntityResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_change_set)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#describe_change_set)
         """
-        [Client.describe_entity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_entity)
+    def describe_entity(self, *, Catalog: str, EntityId: str) -> DescribeEntityResponseTypeDef:
         """
+        Returns the metadata and content of the entity.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.describe_entity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#describe_entity)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -87,41 +99,54 @@ class MarketplaceCatalogClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#generate_presigned_url)
+        """
     def list_change_sets(
         self,
+        *,
         Catalog: str,
-        FilterList: List[FilterTypeDef] = None,
-        Sort: SortTypeDef = None,
+        FilterList: List["FilterTypeDef"] = None,
+        Sort: "SortTypeDef" = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListChangeSetsResponseTypeDef:
         """
-        [Client.list_change_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_change_sets)
-        """
+        Returns the list of change sets owned by the account being used to make the
+        call.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_change_sets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#list_change_sets)
+        """
     def list_entities(
         self,
+        *,
         Catalog: str,
         EntityType: str,
-        FilterList: List[FilterTypeDef] = None,
-        Sort: SortTypeDef = None,
+        FilterList: List["FilterTypeDef"] = None,
+        Sort: "SortTypeDef" = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListEntitiesResponseTypeDef:
         """
-        [Client.list_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_entities)
-        """
+        Provides the list of entities of a given type.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.list_entities)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#list_entities)
+        """
     def start_change_set(
         self,
+        *,
         Catalog: str,
-        ChangeSet: List[ChangeTypeDef],
+        ChangeSet: List["ChangeTypeDef"],
         ChangeSetName: str = None,
-        ClientRequestToken: str = None,
+        ClientRequestToken: str = None
     ) -> StartChangeSetResponseTypeDef:
         """
-        [Client.start_change_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.start_change_set)
+        This operation allows you to request changes for your entities.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/marketplace-catalog.html#MarketplaceCatalog.Client.start_change_set)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/client.html#start_change_set)
         """

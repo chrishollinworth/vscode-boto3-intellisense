@@ -31,8 +31,8 @@ Usage::
     describe_subscribers_for_notification_paginator: DescribeSubscribersForNotificationPaginator = client.get_paginator("describe_subscribers_for_notification")
     ```
 """
-from mypy_boto3_budgets.client import BudgetsClient
-from mypy_boto3_budgets.paginator import (
+from .client import BudgetsClient
+from .paginator import (
     DescribeBudgetActionHistoriesPaginator,
     DescribeBudgetActionsForAccountPaginator,
     DescribeBudgetActionsForBudgetPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_budgets.paginator import (
 )
 
 Client = BudgetsClient
-
 
 __all__ = (
     "BudgetsClient",

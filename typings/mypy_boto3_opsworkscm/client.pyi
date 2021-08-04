@@ -1,5 +1,7 @@
 """
-Main interface for opsworkscm service client
+Type annotations for opsworkscm service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html)
 
 Usage::
 
@@ -13,15 +15,15 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_opsworkscm.paginator import (
+from .paginator import (
     DescribeBackupsPaginator,
     DescribeEventsPaginator,
     DescribeServersPaginator,
     ListTagsForResourcePaginator,
 )
-from mypy_boto3_opsworkscm.type_defs import (
+from .type_defs import (
     AssociateNodeResponseTypeDef,
     CreateBackupResponseTypeDef,
     CreateServerResponseTypeDef,
@@ -34,29 +36,26 @@ from mypy_boto3_opsworkscm.type_defs import (
     EngineAttributeTypeDef,
     ExportServerEngineAttributeResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
+    RestoreServerResponseTypeDef,
     StartMaintenanceResponseTypeDef,
     TagTypeDef,
     UpdateServerEngineAttributesResponseTypeDef,
     UpdateServerResponseTypeDef,
 )
-from mypy_boto3_opsworkscm.waiter import NodeAssociatedWaiter
+from .waiter import NodeAssociatedWaiter
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("OpsWorksCMClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -67,36 +66,46 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class OpsWorksCMClient:
+class OpsWorksCMClient(BaseClient):
     """
-    [OpsWorksCM.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        OpsWorksCMClient exceptions.
+        """
     def associate_node(
-        self, ServerName: str, NodeName: str, EngineAttributes: List["EngineAttributeTypeDef"]
+        self, *, ServerName: str, NodeName: str, EngineAttributes: List["EngineAttributeTypeDef"]
     ) -> AssociateNodeResponseTypeDef:
         """
-        [Client.associate_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.associate_node)
-        """
+        Associates a new node with the server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.associate_node)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#associate_node)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#can_paginate)
+        """
     def create_backup(
-        self, ServerName: str, Description: str = None, Tags: List["TagTypeDef"] = None
+        self, *, ServerName: str, Description: str = None, Tags: List["TagTypeDef"] = None
     ) -> CreateBackupResponseTypeDef:
         """
-        [Client.create_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.create_backup)
-        """
+        Creates an application-level backup of a server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.create_backup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#create_backup)
+        """
     def create_server(
         self,
+        *,
         Engine: str,
         ServerName: str,
         InstanceProfileArn: str,
@@ -117,79 +126,105 @@ class OpsWorksCMClient:
         SecurityGroupIds: List[str] = None,
         SubnetIds: List[str] = None,
         Tags: List["TagTypeDef"] = None,
-        BackupId: str = None,
+        BackupId: str = None
     ) -> CreateServerResponseTypeDef:
         """
-        [Client.create_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.create_server)
-        """
+        Creates and immedately starts a new server.
 
-    def delete_backup(self, BackupId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.create_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#create_server)
         """
-        [Client.delete_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_backup)
+    def delete_backup(self, *, BackupId: str) -> Dict[str, Any]:
         """
+        Deletes a backup.
 
-    def delete_server(self, ServerName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_backup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#delete_backup)
         """
-        [Client.delete_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_server)
+    def delete_server(self, *, ServerName: str) -> Dict[str, Any]:
         """
+        Deletes the server and the underlying AWS CloudFormation stacks (including the
+        server's EC2 instance).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.delete_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#delete_server)
+        """
     def describe_account_attributes(self) -> DescribeAccountAttributesResponseTypeDef:
         """
-        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_account_attributes)
-        """
+        Describes your OpsWorks-CM account attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_account_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_account_attributes)
+        """
     def describe_backups(
         self,
+        *,
         BackupId: str = None,
         ServerName: str = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> DescribeBackupsResponseTypeDef:
         """
-        [Client.describe_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_backups)
-        """
+        Describes backups.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_backups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_backups)
+        """
     def describe_events(
-        self, ServerName: str, NextToken: str = None, MaxResults: int = None
+        self, *, ServerName: str, NextToken: str = None, MaxResults: int = None
     ) -> DescribeEventsResponseTypeDef:
         """
-        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_events)
-        """
+        Describes events for a specified server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_events)
+        """
     def describe_node_association_status(
-        self, NodeAssociationStatusToken: str, ServerName: str
+        self, *, NodeAssociationStatusToken: str, ServerName: str
     ) -> DescribeNodeAssociationStatusResponseTypeDef:
         """
-        [Client.describe_node_association_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_node_association_status)
-        """
+        Returns the current status of an existing association or disassociation request.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_node_association_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_node_association_status)
+        """
     def describe_servers(
-        self, ServerName: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, ServerName: str = None, NextToken: str = None, MaxResults: int = None
     ) -> DescribeServersResponseTypeDef:
         """
-        [Client.describe_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_servers)
-        """
+        Lists all configuration management servers that are identified with your
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.describe_servers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#describe_servers)
+        """
     def disassociate_node(
         self,
+        *,
         ServerName: str,
         NodeName: str,
-        EngineAttributes: List["EngineAttributeTypeDef"] = None,
+        EngineAttributes: List["EngineAttributeTypeDef"] = None
     ) -> DisassociateNodeResponseTypeDef:
         """
-        [Client.disassociate_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.disassociate_node)
-        """
+        Disassociates a node from an AWS OpsWorks CM server, and removes the node from
+        the server's managed nodes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.disassociate_node)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#disassociate_node)
+        """
     def export_server_engine_attribute(
         self,
+        *,
         ExportAttributeName: str,
         ServerName: str,
-        InputAttributes: List["EngineAttributeTypeDef"] = None,
+        InputAttributes: List["EngineAttributeTypeDef"] = None
     ) -> ExportServerEngineAttributeResponseTypeDef:
         """
-        [Client.export_server_engine_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.export_server_engine_attribute)
-        """
+        Exports a specified server engine attribute as a base64-encoded string.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.export_server_engine_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#export_server_engine_attribute)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -198,90 +233,111 @@ class OpsWorksCMClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#generate_presigned_url)
+        """
     def list_tags_for_resource(
-        self, ResourceArn: str, NextToken: str = None, MaxResults: int = None
+        self, *, ResourceArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.list_tags_for_resource)
-        """
+        Returns a list of tags that are applied to the specified AWS OpsWorks for Chef
+        Automate or AWS OpsWorks for Puppet Enterprise servers or backups.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#list_tags_for_resource)
+        """
     def restore_server(
-        self, BackupId: str, ServerName: str, InstanceType: str = None, KeyPair: str = None
-    ) -> Dict[str, Any]:
+        self, *, BackupId: str, ServerName: str, InstanceType: str = None, KeyPair: str = None
+    ) -> RestoreServerResponseTypeDef:
         """
-        [Client.restore_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.restore_server)
-        """
+        Restores a backup to a server that is in a `CONNECTION_LOST` , `HEALTHY` ,
+        `RUNNING` , `UNHEALTHY` , or `TERMINATED` state.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.restore_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#restore_server)
+        """
     def start_maintenance(
-        self, ServerName: str, EngineAttributes: List["EngineAttributeTypeDef"] = None
+        self, *, ServerName: str, EngineAttributes: List["EngineAttributeTypeDef"] = None
     ) -> StartMaintenanceResponseTypeDef:
         """
-        [Client.start_maintenance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.start_maintenance)
-        """
+        Manually starts server maintenance.
 
-    def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.start_maintenance)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#start_maintenance)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.tag_resource)
+    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet
+        Enterprise server, or to server backups.
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.untag_resource)
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes specified tags from an AWS OpsWorks-CM server or backup.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#untag_resource)
+        """
     def update_server(
         self,
+        *,
         ServerName: str,
         DisableAutomatedBackup: bool = None,
         BackupRetentionCount: int = None,
         PreferredMaintenanceWindow: str = None,
-        PreferredBackupWindow: str = None,
+        PreferredBackupWindow: str = None
     ) -> UpdateServerResponseTypeDef:
         """
-        [Client.update_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server)
-        """
+        Updates settings for a server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#update_server)
+        """
     def update_server_engine_attributes(
-        self, ServerName: str, AttributeName: str, AttributeValue: str = None
+        self, *, ServerName: str, AttributeName: str, AttributeValue: str = None
     ) -> UpdateServerEngineAttributesResponseTypeDef:
         """
-        [Client.update_server_engine_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server_engine_attributes)
-        """
+        Updates engine-specific attributes on a specified server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Client.update_server_engine_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/client.html#update_server_engine_attributes)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_backups"]
     ) -> DescribeBackupsPaginator:
         """
-        [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describebackupspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeeventspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_servers"]
     ) -> DescribeServersPaginator:
         """
-        [Paginator.DescribeServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeserverspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#listtagsforresourcepaginator)
         """
-
     def get_waiter(self, waiter_name: Literal["node_associated"]) -> NodeAssociatedWaiter:
         """
-        [Waiter.NodeAssociated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/waiters.html#nodeassociatedwaiter)
         """

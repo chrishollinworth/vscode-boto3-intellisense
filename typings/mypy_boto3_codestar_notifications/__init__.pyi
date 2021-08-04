@@ -23,15 +23,10 @@ Usage::
     list_targets_paginator: ListTargetsPaginator = client.get_paginator("list_targets")
     ```
 """
-from mypy_boto3_codestar_notifications.client import CodeStarNotificationsClient
-from mypy_boto3_codestar_notifications.paginator import (
-    ListEventTypesPaginator,
-    ListNotificationRulesPaginator,
-    ListTargetsPaginator,
-)
+from .client import CodeStarNotificationsClient
+from .paginator import ListEventTypesPaginator, ListNotificationRulesPaginator, ListTargetsPaginator
 
 Client = CodeStarNotificationsClient
-
 
 __all__ = (
     "Client",

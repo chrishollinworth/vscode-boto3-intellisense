@@ -1,5 +1,7 @@
 """
-Main interface for elastictranscoder service type definitions.
+Type annotations for elastictranscoder service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/type_defs.html)
 
 Usage::
 
@@ -17,15 +19,25 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "ArtworkTypeDef",
     "AudioCodecOptionsTypeDef",
     "AudioParametersTypeDef",
+    "CancelJobRequestRequestTypeDef",
     "CaptionFormatTypeDef",
     "CaptionSourceTypeDef",
     "CaptionsTypeDef",
     "ClipTypeDef",
+    "CreateJobOutputTypeDef",
+    "CreateJobPlaylistTypeDef",
+    "CreateJobRequestRequestTypeDef",
+    "CreateJobResponseTypeDef",
+    "CreatePipelineRequestRequestTypeDef",
+    "CreatePipelineResponseTypeDef",
+    "CreatePresetRequestRequestTypeDef",
+    "CreatePresetResponseTypeDef",
+    "DeletePipelineRequestRequestTypeDef",
+    "DeletePresetRequestRequestTypeDef",
     "DetectedPropertiesTypeDef",
     "EncryptionTypeDef",
     "HlsContentProtectionTypeDef",
@@ -35,7 +47,16 @@ __all__ = (
     "JobOutputTypeDef",
     "JobTypeDef",
     "JobWatermarkTypeDef",
+    "ListJobsByPipelineRequestRequestTypeDef",
+    "ListJobsByPipelineResponseTypeDef",
+    "ListJobsByStatusRequestRequestTypeDef",
+    "ListJobsByStatusResponseTypeDef",
+    "ListPipelinesRequestRequestTypeDef",
+    "ListPipelinesResponseTypeDef",
+    "ListPresetsRequestRequestTypeDef",
+    "ListPresetsResponseTypeDef",
     "NotificationsTypeDef",
+    "PaginatorConfigTypeDef",
     "PermissionTypeDef",
     "PipelineOutputConfigTypeDef",
     "PipelineTypeDef",
@@ -43,30 +64,27 @@ __all__ = (
     "PlaylistTypeDef",
     "PresetTypeDef",
     "PresetWatermarkTypeDef",
-    "ResponseMetadata",
+    "ReadJobRequestRequestTypeDef",
+    "ReadJobResponseTypeDef",
+    "ReadPipelineRequestRequestTypeDef",
+    "ReadPipelineResponseTypeDef",
+    "ReadPresetRequestRequestTypeDef",
+    "ReadPresetResponseTypeDef",
+    "ResponseMetadataTypeDef",
+    "TestRoleRequestRequestTypeDef",
+    "TestRoleResponseTypeDef",
     "ThumbnailsTypeDef",
     "TimeSpanTypeDef",
     "TimingTypeDef",
-    "VideoParametersTypeDef",
-    "WarningTypeDef",
-    "CreateJobOutputTypeDef",
-    "CreateJobPlaylistTypeDef",
-    "CreateJobResponseTypeDef",
-    "CreatePipelineResponseTypeDef",
-    "CreatePresetResponseTypeDef",
-    "ListJobsByPipelineResponseTypeDef",
-    "ListJobsByStatusResponseTypeDef",
-    "ListPipelinesResponseTypeDef",
-    "ListPresetsResponseTypeDef",
-    "PaginatorConfigTypeDef",
-    "ReadJobResponseTypeDef",
-    "ReadPipelineResponseTypeDef",
-    "ReadPresetResponseTypeDef",
-    "TestRoleResponseTypeDef",
+    "UpdatePipelineNotificationsRequestRequestTypeDef",
     "UpdatePipelineNotificationsResponseTypeDef",
+    "UpdatePipelineRequestRequestTypeDef",
     "UpdatePipelineResponseTypeDef",
+    "UpdatePipelineStatusRequestRequestTypeDef",
     "UpdatePipelineStatusResponseTypeDef",
+    "VideoParametersTypeDef",
     "WaiterConfigTypeDef",
+    "WarningTypeDef",
 )
 
 ArtworkTypeDef = TypedDict(
@@ -85,7 +103,12 @@ ArtworkTypeDef = TypedDict(
 
 AudioCodecOptionsTypeDef = TypedDict(
     "AudioCodecOptionsTypeDef",
-    {"Profile": str, "BitDepth": str, "BitOrder": str, "Signed": str},
+    {
+        "Profile": str,
+        "BitDepth": str,
+        "BitOrder": str,
+        "Signed": str,
+    },
     total=False,
 )
 
@@ -102,9 +125,20 @@ AudioParametersTypeDef = TypedDict(
     total=False,
 )
 
+CancelJobRequestRequestTypeDef = TypedDict(
+    "CancelJobRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
 CaptionFormatTypeDef = TypedDict(
     "CaptionFormatTypeDef",
-    {"Format": str, "Pattern": str, "Encryption": "EncryptionTypeDef"},
+    {
+        "Format": str,
+        "Pattern": str,
+        "Encryption": "EncryptionTypeDef",
+    },
     total=False,
 )
 
@@ -130,17 +164,177 @@ CaptionsTypeDef = TypedDict(
     total=False,
 )
 
-ClipTypeDef = TypedDict("ClipTypeDef", {"TimeSpan": "TimeSpanTypeDef"}, total=False)
+ClipTypeDef = TypedDict(
+    "ClipTypeDef",
+    {
+        "TimeSpan": "TimeSpanTypeDef",
+    },
+    total=False,
+)
+
+CreateJobOutputTypeDef = TypedDict(
+    "CreateJobOutputTypeDef",
+    {
+        "Key": str,
+        "ThumbnailPattern": str,
+        "ThumbnailEncryption": "EncryptionTypeDef",
+        "Rotate": str,
+        "PresetId": str,
+        "SegmentDuration": str,
+        "Watermarks": List["JobWatermarkTypeDef"],
+        "AlbumArt": "JobAlbumArtTypeDef",
+        "Composition": List["ClipTypeDef"],
+        "Captions": "CaptionsTypeDef",
+        "Encryption": "EncryptionTypeDef",
+    },
+    total=False,
+)
+
+CreateJobPlaylistTypeDef = TypedDict(
+    "CreateJobPlaylistTypeDef",
+    {
+        "Name": str,
+        "Format": str,
+        "OutputKeys": List[str],
+        "HlsContentProtection": "HlsContentProtectionTypeDef",
+        "PlayReadyDrm": "PlayReadyDrmTypeDef",
+    },
+    total=False,
+)
+
+_RequiredCreateJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateJobRequestRequestTypeDef",
+    {
+        "PipelineId": str,
+    },
+)
+_OptionalCreateJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateJobRequestRequestTypeDef",
+    {
+        "Input": "JobInputTypeDef",
+        "Inputs": List["JobInputTypeDef"],
+        "Output": "CreateJobOutputTypeDef",
+        "Outputs": List["CreateJobOutputTypeDef"],
+        "OutputKeyPrefix": str,
+        "Playlists": List["CreateJobPlaylistTypeDef"],
+        "UserMetadata": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateJobRequestRequestTypeDef(
+    _RequiredCreateJobRequestRequestTypeDef, _OptionalCreateJobRequestRequestTypeDef
+):
+    pass
+
+CreateJobResponseTypeDef = TypedDict(
+    "CreateJobResponseTypeDef",
+    {
+        "Job": "JobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePipelineRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePipelineRequestRequestTypeDef",
+    {
+        "Name": str,
+        "InputBucket": str,
+        "Role": str,
+    },
+)
+_OptionalCreatePipelineRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePipelineRequestRequestTypeDef",
+    {
+        "OutputBucket": str,
+        "AwsKmsKeyArn": str,
+        "Notifications": "NotificationsTypeDef",
+        "ContentConfig": "PipelineOutputConfigTypeDef",
+        "ThumbnailConfig": "PipelineOutputConfigTypeDef",
+    },
+    total=False,
+)
+
+class CreatePipelineRequestRequestTypeDef(
+    _RequiredCreatePipelineRequestRequestTypeDef, _OptionalCreatePipelineRequestRequestTypeDef
+):
+    pass
+
+CreatePipelineResponseTypeDef = TypedDict(
+    "CreatePipelineResponseTypeDef",
+    {
+        "Pipeline": "PipelineTypeDef",
+        "Warnings": List["WarningTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePresetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePresetRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Container": str,
+    },
+)
+_OptionalCreatePresetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePresetRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Video": "VideoParametersTypeDef",
+        "Audio": "AudioParametersTypeDef",
+        "Thumbnails": "ThumbnailsTypeDef",
+    },
+    total=False,
+)
+
+class CreatePresetRequestRequestTypeDef(
+    _RequiredCreatePresetRequestRequestTypeDef, _OptionalCreatePresetRequestRequestTypeDef
+):
+    pass
+
+CreatePresetResponseTypeDef = TypedDict(
+    "CreatePresetResponseTypeDef",
+    {
+        "Preset": "PresetTypeDef",
+        "Warning": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeletePipelineRequestRequestTypeDef = TypedDict(
+    "DeletePipelineRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DeletePresetRequestRequestTypeDef = TypedDict(
+    "DeletePresetRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
 
 DetectedPropertiesTypeDef = TypedDict(
     "DetectedPropertiesTypeDef",
-    {"Width": int, "Height": int, "FrameRate": str, "FileSize": int, "DurationMillis": int},
+    {
+        "Width": int,
+        "Height": int,
+        "FrameRate": str,
+        "FileSize": int,
+        "DurationMillis": int,
+    },
     total=False,
 )
 
 EncryptionTypeDef = TypedDict(
     "EncryptionTypeDef",
-    {"Mode": str, "Key": str, "KeyMd5": str, "InitializationVector": str},
+    {
+        "Mode": str,
+        "Key": str,
+        "KeyMd5": str,
+        "InitializationVector": str,
+    },
     total=False,
 )
 
@@ -159,12 +353,20 @@ HlsContentProtectionTypeDef = TypedDict(
 
 InputCaptionsTypeDef = TypedDict(
     "InputCaptionsTypeDef",
-    {"MergePolicy": str, "CaptionSources": List["CaptionSourceTypeDef"]},
+    {
+        "MergePolicy": str,
+        "CaptionSources": List["CaptionSourceTypeDef"],
+    },
     total=False,
 )
 
 JobAlbumArtTypeDef = TypedDict(
-    "JobAlbumArtTypeDef", {"MergePolicy": str, "Artwork": List["ArtworkTypeDef"]}, total=False
+    "JobAlbumArtTypeDef",
+    {
+        "MergePolicy": str,
+        "Artwork": List["ArtworkTypeDef"],
+    },
+    total=False,
 )
 
 JobInputTypeDef = TypedDict(
@@ -208,7 +410,6 @@ JobOutputTypeDef = TypedDict(
         "Captions": "CaptionsTypeDef",
         "Encryption": "EncryptionTypeDef",
         "AppliedColorSpaceConversion": str,
-        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -234,23 +435,147 @@ JobTypeDef = TypedDict(
 
 JobWatermarkTypeDef = TypedDict(
     "JobWatermarkTypeDef",
-    {"PresetWatermarkId": str, "InputKey": str, "Encryption": "EncryptionTypeDef"},
+    {
+        "PresetWatermarkId": str,
+        "InputKey": str,
+        "Encryption": "EncryptionTypeDef",
+    },
     total=False,
+)
+
+_RequiredListJobsByPipelineRequestRequestTypeDef = TypedDict(
+    "_RequiredListJobsByPipelineRequestRequestTypeDef",
+    {
+        "PipelineId": str,
+    },
+)
+_OptionalListJobsByPipelineRequestRequestTypeDef = TypedDict(
+    "_OptionalListJobsByPipelineRequestRequestTypeDef",
+    {
+        "Ascending": str,
+        "PageToken": str,
+    },
+    total=False,
+)
+
+class ListJobsByPipelineRequestRequestTypeDef(
+    _RequiredListJobsByPipelineRequestRequestTypeDef,
+    _OptionalListJobsByPipelineRequestRequestTypeDef,
+):
+    pass
+
+ListJobsByPipelineResponseTypeDef = TypedDict(
+    "ListJobsByPipelineResponseTypeDef",
+    {
+        "Jobs": List["JobTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListJobsByStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredListJobsByStatusRequestRequestTypeDef",
+    {
+        "Status": str,
+    },
+)
+_OptionalListJobsByStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalListJobsByStatusRequestRequestTypeDef",
+    {
+        "Ascending": str,
+        "PageToken": str,
+    },
+    total=False,
+)
+
+class ListJobsByStatusRequestRequestTypeDef(
+    _RequiredListJobsByStatusRequestRequestTypeDef, _OptionalListJobsByStatusRequestRequestTypeDef
+):
+    pass
+
+ListJobsByStatusResponseTypeDef = TypedDict(
+    "ListJobsByStatusResponseTypeDef",
+    {
+        "Jobs": List["JobTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPipelinesRequestRequestTypeDef = TypedDict(
+    "ListPipelinesRequestRequestTypeDef",
+    {
+        "Ascending": str,
+        "PageToken": str,
+    },
+    total=False,
+)
+
+ListPipelinesResponseTypeDef = TypedDict(
+    "ListPipelinesResponseTypeDef",
+    {
+        "Pipelines": List["PipelineTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPresetsRequestRequestTypeDef = TypedDict(
+    "ListPresetsRequestRequestTypeDef",
+    {
+        "Ascending": str,
+        "PageToken": str,
+    },
+    total=False,
+)
+
+ListPresetsResponseTypeDef = TypedDict(
+    "ListPresetsResponseTypeDef",
+    {
+        "Presets": List["PresetTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 NotificationsTypeDef = TypedDict(
     "NotificationsTypeDef",
-    {"Progressing": str, "Completed": str, "Warning": str, "Error": str},
+    {
+        "Progressing": str,
+        "Completed": str,
+        "Warning": str,
+        "Error": str,
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
     total=False,
 )
 
 PermissionTypeDef = TypedDict(
-    "PermissionTypeDef", {"GranteeType": str, "Grantee": str, "Access": List[str]}, total=False
+    "PermissionTypeDef",
+    {
+        "GranteeType": str,
+        "Grantee": str,
+        "Access": List[str],
+    },
+    total=False,
 )
 
 PipelineOutputConfigTypeDef = TypedDict(
     "PipelineOutputConfigTypeDef",
-    {"Bucket": str, "StorageClass": str, "Permissions": List["PermissionTypeDef"]},
+    {
+        "Bucket": str,
+        "StorageClass": str,
+        "Permissions": List["PermissionTypeDef"],
+    },
     total=False,
 )
 
@@ -332,14 +657,79 @@ PresetWatermarkTypeDef = TypedDict(
     total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+ReadJobRequestRequestTypeDef = TypedDict(
+    "ReadJobRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+ReadJobResponseTypeDef = TypedDict(
+    "ReadJobResponseTypeDef",
+    {
+        "Job": "JobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ReadPipelineRequestRequestTypeDef = TypedDict(
+    "ReadPipelineRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+ReadPipelineResponseTypeDef = TypedDict(
+    "ReadPipelineResponseTypeDef",
+    {
+        "Pipeline": "PipelineTypeDef",
+        "Warnings": List["WarningTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ReadPresetRequestRequestTypeDef = TypedDict(
+    "ReadPresetRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+ReadPresetResponseTypeDef = TypedDict(
+    "ReadPresetResponseTypeDef",
+    {
+        "Preset": "PresetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+TestRoleRequestRequestTypeDef = TypedDict(
+    "TestRoleRequestRequestTypeDef",
+    {
+        "Role": str,
+        "InputBucket": str,
+        "OutputBucket": str,
+        "Topics": List[str],
+    },
+)
+
+TestRoleResponseTypeDef = TypedDict(
+    "TestRoleResponseTypeDef",
+    {
+        "Success": str,
+        "Messages": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -358,12 +748,89 @@ ThumbnailsTypeDef = TypedDict(
     total=False,
 )
 
-TimeSpanTypeDef = TypedDict("TimeSpanTypeDef", {"StartTime": str, "Duration": str}, total=False)
+TimeSpanTypeDef = TypedDict(
+    "TimeSpanTypeDef",
+    {
+        "StartTime": str,
+        "Duration": str,
+    },
+    total=False,
+)
 
 TimingTypeDef = TypedDict(
     "TimingTypeDef",
-    {"SubmitTimeMillis": int, "StartTimeMillis": int, "FinishTimeMillis": int},
+    {
+        "SubmitTimeMillis": int,
+        "StartTimeMillis": int,
+        "FinishTimeMillis": int,
+    },
     total=False,
+)
+
+UpdatePipelineNotificationsRequestRequestTypeDef = TypedDict(
+    "UpdatePipelineNotificationsRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Notifications": "NotificationsTypeDef",
+    },
+)
+
+UpdatePipelineNotificationsResponseTypeDef = TypedDict(
+    "UpdatePipelineNotificationsResponseTypeDef",
+    {
+        "Pipeline": "PipelineTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdatePipelineRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdatePipelineRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalUpdatePipelineRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdatePipelineRequestRequestTypeDef",
+    {
+        "Name": str,
+        "InputBucket": str,
+        "Role": str,
+        "AwsKmsKeyArn": str,
+        "Notifications": "NotificationsTypeDef",
+        "ContentConfig": "PipelineOutputConfigTypeDef",
+        "ThumbnailConfig": "PipelineOutputConfigTypeDef",
+    },
+    total=False,
+)
+
+class UpdatePipelineRequestRequestTypeDef(
+    _RequiredUpdatePipelineRequestRequestTypeDef, _OptionalUpdatePipelineRequestRequestTypeDef
+):
+    pass
+
+UpdatePipelineResponseTypeDef = TypedDict(
+    "UpdatePipelineResponseTypeDef",
+    {
+        "Pipeline": "PipelineTypeDef",
+        "Warnings": List["WarningTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdatePipelineStatusRequestRequestTypeDef = TypedDict(
+    "UpdatePipelineStatusRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Status": str,
+    },
+)
+
+UpdatePipelineStatusResponseTypeDef = TypedDict(
+    "UpdatePipelineStatusResponseTypeDef",
+    {
+        "Pipeline": "PipelineTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 VideoParametersTypeDef = TypedDict(
@@ -388,109 +855,20 @@ VideoParametersTypeDef = TypedDict(
     total=False,
 )
 
-WarningTypeDef = TypedDict("WarningTypeDef", {"Code": str, "Message": str}, total=False)
-
-CreateJobOutputTypeDef = TypedDict(
-    "CreateJobOutputTypeDef",
-    {
-        "Key": str,
-        "ThumbnailPattern": str,
-        "ThumbnailEncryption": "EncryptionTypeDef",
-        "Rotate": str,
-        "PresetId": str,
-        "SegmentDuration": str,
-        "Watermarks": List["JobWatermarkTypeDef"],
-        "AlbumArt": "JobAlbumArtTypeDef",
-        "Composition": List["ClipTypeDef"],
-        "Captions": "CaptionsTypeDef",
-        "Encryption": "EncryptionTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-CreateJobPlaylistTypeDef = TypedDict(
-    "CreateJobPlaylistTypeDef",
-    {
-        "Name": str,
-        "Format": str,
-        "OutputKeys": List[str],
-        "HlsContentProtection": "HlsContentProtectionTypeDef",
-        "PlayReadyDrm": "PlayReadyDrmTypeDef",
-    },
-    total=False,
-)
-
-CreateJobResponseTypeDef = TypedDict("CreateJobResponseTypeDef", {"Job": "JobTypeDef"}, total=False)
-
-CreatePipelineResponseTypeDef = TypedDict(
-    "CreatePipelineResponseTypeDef",
-    {"Pipeline": "PipelineTypeDef", "Warnings": List["WarningTypeDef"]},
-    total=False,
-)
-
-CreatePresetResponseTypeDef = TypedDict(
-    "CreatePresetResponseTypeDef", {"Preset": "PresetTypeDef", "Warning": str}, total=False
-)
-
-ListJobsByPipelineResponseTypeDef = TypedDict(
-    "ListJobsByPipelineResponseTypeDef",
-    {"Jobs": List["JobTypeDef"], "NextPageToken": str},
-    total=False,
-)
-
-ListJobsByStatusResponseTypeDef = TypedDict(
-    "ListJobsByStatusResponseTypeDef",
-    {"Jobs": List["JobTypeDef"], "NextPageToken": str},
-    total=False,
-)
-
-ListPipelinesResponseTypeDef = TypedDict(
-    "ListPipelinesResponseTypeDef",
-    {"Pipelines": List["PipelineTypeDef"], "NextPageToken": str},
-    total=False,
-)
-
-ListPresetsResponseTypeDef = TypedDict(
-    "ListPresetsResponseTypeDef",
-    {"Presets": List["PresetTypeDef"], "NextPageToken": str},
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-ReadJobResponseTypeDef = TypedDict("ReadJobResponseTypeDef", {"Job": "JobTypeDef"}, total=False)
-
-ReadPipelineResponseTypeDef = TypedDict(
-    "ReadPipelineResponseTypeDef",
-    {"Pipeline": "PipelineTypeDef", "Warnings": List["WarningTypeDef"]},
-    total=False,
-)
-
-ReadPresetResponseTypeDef = TypedDict(
-    "ReadPresetResponseTypeDef", {"Preset": "PresetTypeDef"}, total=False
-)
-
-TestRoleResponseTypeDef = TypedDict(
-    "TestRoleResponseTypeDef", {"Success": str, "Messages": List[str]}, total=False
-)
-
-UpdatePipelineNotificationsResponseTypeDef = TypedDict(
-    "UpdatePipelineNotificationsResponseTypeDef", {"Pipeline": "PipelineTypeDef"}, total=False
-)
-
-UpdatePipelineResponseTypeDef = TypedDict(
-    "UpdatePipelineResponseTypeDef",
-    {"Pipeline": "PipelineTypeDef", "Warnings": List["WarningTypeDef"]},
-    total=False,
-)
-
-UpdatePipelineStatusResponseTypeDef = TypedDict(
-    "UpdatePipelineStatusResponseTypeDef", {"Pipeline": "PipelineTypeDef"}, total=False
-)
-
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
+)
+
+WarningTypeDef = TypedDict(
+    "WarningTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )

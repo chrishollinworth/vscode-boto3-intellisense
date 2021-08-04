@@ -1,17 +1,228 @@
 """
-Main interface for ec2 service type definitions.
+Type annotations for ec2 service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_ec2.type_defs import AccountAttributeTypeDef
+    from mypy_boto3_ec2.type_defs import AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef
 
-    data: AccountAttributeTypeDef = {...}
+    data: AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import IO, List, Union
+from typing import IO, Any, Dict, List, Optional, Union
+
+from botocore.response import StreamingBody
+
+from .literals import (
+    AccountAttributeNameType,
+    ActivityStatusType,
+    AffinityType,
+    AllocationStateType,
+    AllocationStrategyType,
+    AllowsMultipleInstanceTypesType,
+    AnalysisStatusType,
+    ApplianceModeSupportValueType,
+    ArchitectureTypeType,
+    ArchitectureValuesType,
+    AssociationStatusCodeType,
+    AttachmentStatusType,
+    AutoAcceptSharedAssociationsValueType,
+    AutoAcceptSharedAttachmentsValueType,
+    AutoPlacementType,
+    AvailabilityZoneOptInStatusType,
+    AvailabilityZoneStateType,
+    BatchStateType,
+    BgpStatusType,
+    BootModeTypeType,
+    BootModeValuesType,
+    BundleTaskStateType,
+    ByoipCidrStateType,
+    CancelBatchErrorCodeType,
+    CancelSpotInstanceRequestStateType,
+    CapacityReservationInstancePlatformType,
+    CapacityReservationPreferenceType,
+    CapacityReservationStateType,
+    CapacityReservationTenancyType,
+    CarrierGatewayStateType,
+    ClientCertificateRevocationListStatusCodeType,
+    ClientVpnAuthenticationTypeType,
+    ClientVpnAuthorizationRuleStatusCodeType,
+    ClientVpnConnectionStatusCodeType,
+    ClientVpnEndpointAttributeStatusCodeType,
+    ClientVpnEndpointStatusCodeType,
+    ClientVpnRouteStatusCodeType,
+    ConnectionNotificationStateType,
+    ConnectivityTypeType,
+    ConversionTaskStateType,
+    DatafeedSubscriptionStateType,
+    DefaultRouteTableAssociationValueType,
+    DefaultRouteTablePropagationValueType,
+    DefaultTargetCapacityTypeType,
+    DeleteFleetErrorCodeType,
+    DeleteQueuedReservedInstancesErrorCodeType,
+    DeviceTypeType,
+    DiskImageFormatType,
+    DiskTypeType,
+    DnsNameStateType,
+    DnsSupportValueType,
+    DomainTypeType,
+    EbsEncryptionSupportType,
+    EbsNvmeSupportType,
+    EbsOptimizedSupportType,
+    ElasticGpuStatusType,
+    EnaSupportType,
+    EndDateTypeType,
+    EphemeralNvmeSupportType,
+    EventCodeType,
+    EventTypeType,
+    ExcessCapacityTerminationPolicyType,
+    ExportEnvironmentType,
+    ExportTaskStateType,
+    FastSnapshotRestoreStateCodeType,
+    FleetActivityStatusType,
+    FleetEventTypeType,
+    FleetExcessCapacityTerminationPolicyType,
+    FleetOnDemandAllocationStrategyType,
+    FleetStateCodeType,
+    FleetTypeType,
+    FlowLogsResourceTypeType,
+    FpgaImageAttributeNameType,
+    FpgaImageStateCodeType,
+    HostRecoveryType,
+    HostTenancyType,
+    HttpTokensStateType,
+    HypervisorTypeType,
+    IamInstanceProfileAssociationStateType,
+    Igmpv2SupportValueType,
+    ImageAttributeNameType,
+    ImageStateType,
+    ImageTypeValuesType,
+    InstanceAttributeNameType,
+    InstanceEventWindowStateType,
+    InstanceHealthStatusType,
+    InstanceInterruptionBehaviorType,
+    InstanceLifecycleType,
+    InstanceLifecycleTypeType,
+    InstanceMatchCriteriaType,
+    InstanceMetadataEndpointStateType,
+    InstanceMetadataOptionsStateType,
+    InstanceStateNameType,
+    InstanceTypeHypervisorType,
+    InstanceTypeType,
+    InterfacePermissionTypeType,
+    InterfaceProtocolTypeType,
+    Ipv6SupportValueType,
+    LaunchTemplateErrorCodeType,
+    LaunchTemplateHttpTokensStateType,
+    LaunchTemplateInstanceMetadataEndpointStateType,
+    LaunchTemplateInstanceMetadataOptionsStateType,
+    ListingStateType,
+    ListingStatusType,
+    LocalGatewayRouteStateType,
+    LocalGatewayRouteTypeType,
+    LocationTypeType,
+    LogDestinationTypeType,
+    MembershipTypeType,
+    ModifyAvailabilityZoneOptInStatusType,
+    MonitoringStateType,
+    MoveStatusType,
+    MulticastSupportValueType,
+    NatGatewayStateType,
+    NetworkInterfaceAttributeType,
+    NetworkInterfaceCreationTypeType,
+    NetworkInterfacePermissionStateCodeType,
+    NetworkInterfaceStatusType,
+    NetworkInterfaceTypeType,
+    OfferingClassTypeType,
+    OfferingTypeValuesType,
+    OnDemandAllocationStrategyType,
+    OperationTypeType,
+    PartitionLoadFrequencyType,
+    PaymentOptionType,
+    PlacementGroupStateType,
+    PlacementGroupStrategyType,
+    PlacementStrategyType,
+    PrefixListStateType,
+    PrincipalTypeType,
+    ProductCodeValuesType,
+    ProtocolType,
+    ReplaceRootVolumeTaskStateType,
+    ReportInstanceReasonCodesType,
+    ReportStatusTypeType,
+    ReservationStateType,
+    ReservedInstanceStateType,
+    ResourceTypeType,
+    RIProductDescriptionType,
+    RootDeviceTypeType,
+    RouteOriginType,
+    RouteStateType,
+    RouteTableAssociationStateCodeType,
+    RuleActionType,
+    SelfServicePortalType,
+    ServiceStateType,
+    ServiceTypeType,
+    ShutdownBehaviorType,
+    SnapshotAttributeNameType,
+    SnapshotStateType,
+    SpotAllocationStrategyType,
+    SpotInstanceInterruptionBehaviorType,
+    SpotInstanceStateType,
+    SpotInstanceTypeType,
+    StateType,
+    StaticSourcesSupportValueType,
+    StatusType,
+    StatusTypeType,
+    SubnetCidrBlockStateCodeType,
+    SubnetCidrReservationTypeType,
+    SubnetStateType,
+    SummaryStatusType,
+    TelemetryStatusType,
+    TenancyType,
+    TrafficDirectionType,
+    TrafficMirrorFilterRuleFieldType,
+    TrafficMirrorRuleActionType,
+    TrafficMirrorSessionFieldType,
+    TrafficMirrorTargetTypeType,
+    TrafficTypeType,
+    TransitGatewayAssociationStateType,
+    TransitGatewayAttachmentResourceTypeType,
+    TransitGatewayAttachmentStateType,
+    TransitGatewayConnectPeerStateType,
+    TransitGatewayMulitcastDomainAssociationStateType,
+    TransitGatewayMulticastDomainStateType,
+    TransitGatewayPrefixListReferenceStateType,
+    TransitGatewayPropagationStateType,
+    TransitGatewayRouteStateType,
+    TransitGatewayRouteTableStateType,
+    TransitGatewayRouteTypeType,
+    TransitGatewayStateType,
+    TransportProtocolType,
+    TunnelInsideIpVersionType,
+    UnlimitedSupportedInstanceFamilyType,
+    UnsuccessfulInstanceCreditSpecificationErrorCodeType,
+    UsageClassTypeType,
+    VirtualizationTypeType,
+    VolumeAttachmentStateType,
+    VolumeAttributeNameType,
+    VolumeModificationStateType,
+    VolumeStateType,
+    VolumeStatusInfoStatusType,
+    VolumeStatusNameType,
+    VolumeTypeType,
+    VpcAttributeNameType,
+    VpcCidrBlockStateCodeType,
+    VpcEndpointTypeType,
+    VpcPeeringConnectionStateReasonCodeType,
+    VpcStateType,
+    VpnEcmpSupportValueType,
+    VpnStateType,
+    WeekDayType,
+    scopeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,13 +233,32 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef",
+    "AcceptReservedInstancesExchangeQuoteResultTypeDef",
+    "AcceptTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+    "AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    "AcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    "AcceptTransitGatewayPeeringAttachmentResultTypeDef",
+    "AcceptTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    "AcceptTransitGatewayVpcAttachmentResultTypeDef",
+    "AcceptVpcEndpointConnectionsRequestRequestTypeDef",
+    "AcceptVpcEndpointConnectionsResultTypeDef",
+    "AcceptVpcPeeringConnectionRequestRequestTypeDef",
+    "AcceptVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
+    "AcceptVpcPeeringConnectionResultTypeDef",
     "AccountAttributeTypeDef",
     "AccountAttributeValueTypeDef",
     "ActiveInstanceTypeDef",
+    "AddPrefixListEntryTypeDef",
     "AddressAttributeTypeDef",
     "AddressTypeDef",
+    "AdvertiseByoipCidrRequestRequestTypeDef",
+    "AdvertiseByoipCidrResultTypeDef",
+    "AllocateAddressRequestRequestTypeDef",
+    "AllocateAddressResultTypeDef",
+    "AllocateHostsRequestRequestTypeDef",
+    "AllocateHostsResultTypeDef",
     "AllowedPrincipalTypeDef",
     "AlternatePathHintTypeDef",
     "AnalysisAclRuleTypeDef",
@@ -38,41 +268,122 @@ __all__ = (
     "AnalysisPacketHeaderTypeDef",
     "AnalysisRouteTableRouteTypeDef",
     "AnalysisSecurityGroupRuleTypeDef",
+    "ApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef",
+    "ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef",
+    "AssignIpv6AddressesRequestRequestTypeDef",
+    "AssignIpv6AddressesResultTypeDef",
+    "AssignPrivateIpAddressesRequestNetworkInterfaceTypeDef",
+    "AssignPrivateIpAddressesRequestRequestTypeDef",
+    "AssignPrivateIpAddressesResultTypeDef",
     "AssignedPrivateIpAddressTypeDef",
+    "AssociateAddressRequestClassicAddressTypeDef",
+    "AssociateAddressRequestRequestTypeDef",
+    "AssociateAddressRequestVpcAddressTypeDef",
+    "AssociateAddressResultTypeDef",
+    "AssociateClientVpnTargetNetworkRequestRequestTypeDef",
+    "AssociateClientVpnTargetNetworkResultTypeDef",
+    "AssociateDhcpOptionsRequestDhcpOptionsTypeDef",
+    "AssociateDhcpOptionsRequestRequestTypeDef",
+    "AssociateDhcpOptionsRequestVpcTypeDef",
+    "AssociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+    "AssociateEnclaveCertificateIamRoleResultTypeDef",
+    "AssociateIamInstanceProfileRequestRequestTypeDef",
+    "AssociateIamInstanceProfileResultTypeDef",
+    "AssociateInstanceEventWindowRequestRequestTypeDef",
+    "AssociateInstanceEventWindowResultTypeDef",
+    "AssociateRouteTableRequestRequestTypeDef",
+    "AssociateRouteTableRequestRouteTableTypeDef",
+    "AssociateRouteTableResultTypeDef",
+    "AssociateSubnetCidrBlockRequestRequestTypeDef",
+    "AssociateSubnetCidrBlockResultTypeDef",
+    "AssociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    "AssociateTransitGatewayMulticastDomainResultTypeDef",
+    "AssociateTransitGatewayRouteTableRequestRequestTypeDef",
+    "AssociateTransitGatewayRouteTableResultTypeDef",
+    "AssociateTrunkInterfaceRequestRequestTypeDef",
+    "AssociateTrunkInterfaceResultTypeDef",
+    "AssociateVpcCidrBlockRequestRequestTypeDef",
+    "AssociateVpcCidrBlockResultTypeDef",
     "AssociatedRoleTypeDef",
     "AssociatedTargetNetworkTypeDef",
     "AssociationStatusTypeDef",
+    "AthenaIntegrationTypeDef",
+    "AttachClassicLinkVpcRequestInstanceTypeDef",
+    "AttachClassicLinkVpcRequestRequestTypeDef",
+    "AttachClassicLinkVpcRequestVpcTypeDef",
+    "AttachClassicLinkVpcResultTypeDef",
+    "AttachInternetGatewayRequestInternetGatewayTypeDef",
+    "AttachInternetGatewayRequestRequestTypeDef",
+    "AttachInternetGatewayRequestVpcTypeDef",
+    "AttachNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    "AttachNetworkInterfaceRequestRequestTypeDef",
+    "AttachNetworkInterfaceResultTypeDef",
+    "AttachVolumeRequestInstanceTypeDef",
+    "AttachVolumeRequestRequestTypeDef",
+    "AttachVolumeRequestVolumeTypeDef",
+    "AttachVpnGatewayRequestRequestTypeDef",
+    "AttachVpnGatewayResultTypeDef",
     "AttributeBooleanValueTypeDef",
     "AttributeValueTypeDef",
     "AuthorizationRuleTypeDef",
+    "AuthorizeClientVpnIngressRequestRequestTypeDef",
+    "AuthorizeClientVpnIngressResultTypeDef",
+    "AuthorizeSecurityGroupEgressRequestRequestTypeDef",
+    "AuthorizeSecurityGroupEgressRequestSecurityGroupTypeDef",
+    "AuthorizeSecurityGroupEgressResultTypeDef",
+    "AuthorizeSecurityGroupIngressRequestRequestTypeDef",
+    "AuthorizeSecurityGroupIngressRequestSecurityGroupTypeDef",
+    "AuthorizeSecurityGroupIngressResultTypeDef",
     "AvailabilityZoneMessageTypeDef",
     "AvailabilityZoneTypeDef",
     "AvailableCapacityTypeDef",
+    "BlobAttributeValueTypeDef",
     "BlockDeviceMappingTypeDef",
+    "BundleInstanceRequestRequestTypeDef",
+    "BundleInstanceResultTypeDef",
     "BundleTaskErrorTypeDef",
     "BundleTaskTypeDef",
     "ByoipCidrTypeDef",
+    "CancelBundleTaskRequestRequestTypeDef",
+    "CancelBundleTaskResultTypeDef",
+    "CancelCapacityReservationRequestRequestTypeDef",
+    "CancelCapacityReservationResultTypeDef",
+    "CancelConversionRequestRequestTypeDef",
+    "CancelExportTaskRequestRequestTypeDef",
+    "CancelImportTaskRequestRequestTypeDef",
+    "CancelImportTaskResultTypeDef",
+    "CancelReservedInstancesListingRequestRequestTypeDef",
+    "CancelReservedInstancesListingResultTypeDef",
     "CancelSpotFleetRequestsErrorItemTypeDef",
     "CancelSpotFleetRequestsErrorTypeDef",
+    "CancelSpotFleetRequestsRequestRequestTypeDef",
+    "CancelSpotFleetRequestsResponseTypeDef",
     "CancelSpotFleetRequestsSuccessItemTypeDef",
+    "CancelSpotInstanceRequestsRequestRequestTypeDef",
+    "CancelSpotInstanceRequestsResultTypeDef",
     "CancelledSpotInstanceRequestTypeDef",
     "CapacityReservationGroupTypeDef",
     "CapacityReservationOptionsRequestTypeDef",
     "CapacityReservationOptionsTypeDef",
     "CapacityReservationSpecificationResponseTypeDef",
+    "CapacityReservationSpecificationTypeDef",
     "CapacityReservationTargetResponseTypeDef",
     "CapacityReservationTargetTypeDef",
     "CapacityReservationTypeDef",
     "CarrierGatewayTypeDef",
     "CertificateAuthenticationRequestTypeDef",
     "CertificateAuthenticationTypeDef",
+    "CidrAuthorizationContextTypeDef",
     "CidrBlockTypeDef",
     "ClassicLinkDnsSupportTypeDef",
     "ClassicLinkInstanceTypeDef",
     "ClassicLoadBalancerTypeDef",
     "ClassicLoadBalancersConfigTypeDef",
     "ClientCertificateRevocationListStatusTypeDef",
+    "ClientConnectOptionsTypeDef",
     "ClientConnectResponseOptionsTypeDef",
+    "ClientDataTypeDef",
+    "ClientVpnAuthenticationRequestTypeDef",
     "ClientVpnAuthenticationTypeDef",
     "ClientVpnAuthorizationRuleStatusTypeDef",
     "ClientVpnConnectionStatusTypeDef",
@@ -84,43 +395,647 @@ __all__ = (
     "ClientVpnRouteTypeDef",
     "CoipAddressUsageTypeDef",
     "CoipPoolTypeDef",
+    "ConfirmProductInstanceRequestRequestTypeDef",
+    "ConfirmProductInstanceResultTypeDef",
+    "ConnectionLogOptionsTypeDef",
     "ConnectionLogResponseOptionsTypeDef",
     "ConnectionNotificationTypeDef",
     "ConversionTaskTypeDef",
+    "CopyFpgaImageRequestRequestTypeDef",
+    "CopyFpgaImageResultTypeDef",
+    "CopyImageRequestRequestTypeDef",
+    "CopyImageResultTypeDef",
+    "CopySnapshotRequestRequestTypeDef",
+    "CopySnapshotRequestSnapshotTypeDef",
+    "CopySnapshotResultTypeDef",
+    "CpuOptionsRequestTypeDef",
     "CpuOptionsTypeDef",
+    "CreateCapacityReservationRequestRequestTypeDef",
+    "CreateCapacityReservationResultTypeDef",
+    "CreateCarrierGatewayRequestRequestTypeDef",
+    "CreateCarrierGatewayResultTypeDef",
+    "CreateClientVpnEndpointRequestRequestTypeDef",
+    "CreateClientVpnEndpointResultTypeDef",
+    "CreateClientVpnRouteRequestRequestTypeDef",
+    "CreateClientVpnRouteResultTypeDef",
+    "CreateCustomerGatewayRequestRequestTypeDef",
+    "CreateCustomerGatewayResultTypeDef",
+    "CreateDefaultSubnetRequestRequestTypeDef",
+    "CreateDefaultSubnetResultTypeDef",
+    "CreateDefaultVpcRequestRequestTypeDef",
+    "CreateDefaultVpcResultTypeDef",
+    "CreateDhcpOptionsRequestRequestTypeDef",
+    "CreateDhcpOptionsRequestServiceResourceTypeDef",
+    "CreateDhcpOptionsResultTypeDef",
+    "CreateEgressOnlyInternetGatewayRequestRequestTypeDef",
+    "CreateEgressOnlyInternetGatewayResultTypeDef",
     "CreateFleetErrorTypeDef",
     "CreateFleetInstanceTypeDef",
+    "CreateFleetRequestRequestTypeDef",
+    "CreateFleetResultTypeDef",
+    "CreateFlowLogsRequestRequestTypeDef",
+    "CreateFlowLogsResultTypeDef",
+    "CreateFpgaImageRequestRequestTypeDef",
+    "CreateFpgaImageResultTypeDef",
+    "CreateImageRequestInstanceTypeDef",
+    "CreateImageRequestRequestTypeDef",
+    "CreateImageResultTypeDef",
+    "CreateInstanceEventWindowRequestRequestTypeDef",
+    "CreateInstanceEventWindowResultTypeDef",
+    "CreateInstanceExportTaskRequestRequestTypeDef",
+    "CreateInstanceExportTaskResultTypeDef",
+    "CreateInternetGatewayRequestRequestTypeDef",
+    "CreateInternetGatewayRequestServiceResourceTypeDef",
+    "CreateInternetGatewayResultTypeDef",
+    "CreateKeyPairRequestRequestTypeDef",
+    "CreateKeyPairRequestServiceResourceTypeDef",
+    "CreateLaunchTemplateRequestRequestTypeDef",
+    "CreateLaunchTemplateResultTypeDef",
+    "CreateLaunchTemplateVersionRequestRequestTypeDef",
+    "CreateLaunchTemplateVersionResultTypeDef",
+    "CreateLocalGatewayRouteRequestRequestTypeDef",
+    "CreateLocalGatewayRouteResultTypeDef",
+    "CreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
+    "CreateLocalGatewayRouteTableVpcAssociationResultTypeDef",
+    "CreateManagedPrefixListRequestRequestTypeDef",
+    "CreateManagedPrefixListResultTypeDef",
+    "CreateNatGatewayRequestRequestTypeDef",
+    "CreateNatGatewayResultTypeDef",
+    "CreateNetworkAclEntryRequestNetworkAclTypeDef",
+    "CreateNetworkAclEntryRequestRequestTypeDef",
+    "CreateNetworkAclRequestRequestTypeDef",
+    "CreateNetworkAclRequestServiceResourceTypeDef",
+    "CreateNetworkAclRequestVpcTypeDef",
+    "CreateNetworkAclResultTypeDef",
+    "CreateNetworkInsightsPathRequestRequestTypeDef",
+    "CreateNetworkInsightsPathResultTypeDef",
+    "CreateNetworkInterfacePermissionRequestRequestTypeDef",
+    "CreateNetworkInterfacePermissionResultTypeDef",
+    "CreateNetworkInterfaceRequestRequestTypeDef",
+    "CreateNetworkInterfaceRequestServiceResourceTypeDef",
+    "CreateNetworkInterfaceRequestSubnetTypeDef",
+    "CreateNetworkInterfaceResultTypeDef",
+    "CreatePlacementGroupRequestRequestTypeDef",
+    "CreatePlacementGroupRequestServiceResourceTypeDef",
+    "CreatePlacementGroupResultTypeDef",
+    "CreateReplaceRootVolumeTaskRequestRequestTypeDef",
+    "CreateReplaceRootVolumeTaskResultTypeDef",
+    "CreateReservedInstancesListingRequestRequestTypeDef",
+    "CreateReservedInstancesListingResultTypeDef",
+    "CreateRestoreImageTaskRequestRequestTypeDef",
+    "CreateRestoreImageTaskResultTypeDef",
+    "CreateRouteRequestRequestTypeDef",
+    "CreateRouteRequestRouteTableTypeDef",
+    "CreateRouteResultTypeDef",
+    "CreateRouteTableRequestRequestTypeDef",
+    "CreateRouteTableRequestServiceResourceTypeDef",
+    "CreateRouteTableRequestVpcTypeDef",
+    "CreateRouteTableResultTypeDef",
+    "CreateSecurityGroupRequestRequestTypeDef",
+    "CreateSecurityGroupRequestServiceResourceTypeDef",
+    "CreateSecurityGroupRequestVpcTypeDef",
+    "CreateSecurityGroupResultTypeDef",
+    "CreateSnapshotRequestRequestTypeDef",
+    "CreateSnapshotRequestServiceResourceTypeDef",
+    "CreateSnapshotRequestVolumeTypeDef",
+    "CreateSnapshotsRequestRequestTypeDef",
+    "CreateSnapshotsResultTypeDef",
+    "CreateSpotDatafeedSubscriptionRequestRequestTypeDef",
+    "CreateSpotDatafeedSubscriptionResultTypeDef",
+    "CreateStoreImageTaskRequestRequestTypeDef",
+    "CreateStoreImageTaskResultTypeDef",
+    "CreateSubnetCidrReservationRequestRequestTypeDef",
+    "CreateSubnetCidrReservationResultTypeDef",
+    "CreateSubnetRequestRequestTypeDef",
+    "CreateSubnetRequestServiceResourceTypeDef",
+    "CreateSubnetRequestVpcTypeDef",
+    "CreateSubnetResultTypeDef",
+    "CreateTagsRequestDhcpOptionsTypeDef",
+    "CreateTagsRequestImageTypeDef",
+    "CreateTagsRequestInstanceTypeDef",
+    "CreateTagsRequestInternetGatewayTypeDef",
+    "CreateTagsRequestNetworkAclTypeDef",
+    "CreateTagsRequestNetworkInterfaceTypeDef",
+    "CreateTagsRequestRequestTypeDef",
+    "CreateTagsRequestRouteTableTypeDef",
+    "CreateTagsRequestSecurityGroupTypeDef",
+    "CreateTagsRequestServiceResourceTypeDef",
+    "CreateTagsRequestSnapshotTypeDef",
+    "CreateTagsRequestSubnetTypeDef",
+    "CreateTagsRequestVolumeTypeDef",
+    "CreateTagsRequestVpcTypeDef",
+    "CreateTrafficMirrorFilterRequestRequestTypeDef",
+    "CreateTrafficMirrorFilterResultTypeDef",
+    "CreateTrafficMirrorFilterRuleRequestRequestTypeDef",
+    "CreateTrafficMirrorFilterRuleResultTypeDef",
+    "CreateTrafficMirrorSessionRequestRequestTypeDef",
+    "CreateTrafficMirrorSessionResultTypeDef",
+    "CreateTrafficMirrorTargetRequestRequestTypeDef",
+    "CreateTrafficMirrorTargetResultTypeDef",
+    "CreateTransitGatewayConnectPeerRequestRequestTypeDef",
+    "CreateTransitGatewayConnectPeerResultTypeDef",
+    "CreateTransitGatewayConnectRequestOptionsTypeDef",
+    "CreateTransitGatewayConnectRequestRequestTypeDef",
+    "CreateTransitGatewayConnectResultTypeDef",
+    "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
+    "CreateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    "CreateTransitGatewayMulticastDomainResultTypeDef",
+    "CreateTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    "CreateTransitGatewayPeeringAttachmentResultTypeDef",
+    "CreateTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    "CreateTransitGatewayPrefixListReferenceResultTypeDef",
+    "CreateTransitGatewayRequestRequestTypeDef",
+    "CreateTransitGatewayResultTypeDef",
+    "CreateTransitGatewayRouteRequestRequestTypeDef",
+    "CreateTransitGatewayRouteResultTypeDef",
+    "CreateTransitGatewayRouteTableRequestRequestTypeDef",
+    "CreateTransitGatewayRouteTableResultTypeDef",
+    "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
+    "CreateTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    "CreateTransitGatewayVpcAttachmentResultTypeDef",
+    "CreateVolumePermissionModificationsTypeDef",
     "CreateVolumePermissionTypeDef",
+    "CreateVolumeRequestRequestTypeDef",
+    "CreateVolumeRequestServiceResourceTypeDef",
+    "CreateVpcEndpointConnectionNotificationRequestRequestTypeDef",
+    "CreateVpcEndpointConnectionNotificationResultTypeDef",
+    "CreateVpcEndpointRequestRequestTypeDef",
+    "CreateVpcEndpointResultTypeDef",
+    "CreateVpcEndpointServiceConfigurationRequestRequestTypeDef",
+    "CreateVpcEndpointServiceConfigurationResultTypeDef",
+    "CreateVpcPeeringConnectionRequestRequestTypeDef",
+    "CreateVpcPeeringConnectionRequestServiceResourceTypeDef",
+    "CreateVpcPeeringConnectionRequestVpcTypeDef",
+    "CreateVpcPeeringConnectionResultTypeDef",
+    "CreateVpcRequestRequestTypeDef",
+    "CreateVpcRequestServiceResourceTypeDef",
+    "CreateVpcResultTypeDef",
+    "CreateVpnConnectionRequestRequestTypeDef",
+    "CreateVpnConnectionResultTypeDef",
+    "CreateVpnConnectionRouteRequestRequestTypeDef",
+    "CreateVpnGatewayRequestRequestTypeDef",
+    "CreateVpnGatewayResultTypeDef",
     "CreditSpecificationRequestTypeDef",
     "CreditSpecificationTypeDef",
     "CustomerGatewayTypeDef",
+    "DeleteCarrierGatewayRequestRequestTypeDef",
+    "DeleteCarrierGatewayResultTypeDef",
+    "DeleteClientVpnEndpointRequestRequestTypeDef",
+    "DeleteClientVpnEndpointResultTypeDef",
+    "DeleteClientVpnRouteRequestRequestTypeDef",
+    "DeleteClientVpnRouteResultTypeDef",
+    "DeleteCustomerGatewayRequestRequestTypeDef",
+    "DeleteDhcpOptionsRequestDhcpOptionsTypeDef",
+    "DeleteDhcpOptionsRequestRequestTypeDef",
+    "DeleteEgressOnlyInternetGatewayRequestRequestTypeDef",
+    "DeleteEgressOnlyInternetGatewayResultTypeDef",
     "DeleteFleetErrorItemTypeDef",
     "DeleteFleetErrorTypeDef",
     "DeleteFleetSuccessItemTypeDef",
+    "DeleteFleetsRequestRequestTypeDef",
+    "DeleteFleetsResultTypeDef",
+    "DeleteFlowLogsRequestRequestTypeDef",
+    "DeleteFlowLogsResultTypeDef",
+    "DeleteFpgaImageRequestRequestTypeDef",
+    "DeleteFpgaImageResultTypeDef",
+    "DeleteInstanceEventWindowRequestRequestTypeDef",
+    "DeleteInstanceEventWindowResultTypeDef",
+    "DeleteInternetGatewayRequestInternetGatewayTypeDef",
+    "DeleteInternetGatewayRequestRequestTypeDef",
+    "DeleteKeyPairRequestKeyPairInfoTypeDef",
+    "DeleteKeyPairRequestKeyPairTypeDef",
+    "DeleteKeyPairRequestRequestTypeDef",
+    "DeleteLaunchTemplateRequestRequestTypeDef",
+    "DeleteLaunchTemplateResultTypeDef",
+    "DeleteLaunchTemplateVersionsRequestRequestTypeDef",
     "DeleteLaunchTemplateVersionsResponseErrorItemTypeDef",
     "DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef",
+    "DeleteLaunchTemplateVersionsResultTypeDef",
+    "DeleteLocalGatewayRouteRequestRequestTypeDef",
+    "DeleteLocalGatewayRouteResultTypeDef",
+    "DeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
+    "DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef",
+    "DeleteManagedPrefixListRequestRequestTypeDef",
+    "DeleteManagedPrefixListResultTypeDef",
+    "DeleteNatGatewayRequestRequestTypeDef",
+    "DeleteNatGatewayResultTypeDef",
+    "DeleteNetworkAclEntryRequestNetworkAclTypeDef",
+    "DeleteNetworkAclEntryRequestRequestTypeDef",
+    "DeleteNetworkAclRequestNetworkAclTypeDef",
+    "DeleteNetworkAclRequestRequestTypeDef",
+    "DeleteNetworkInsightsAnalysisRequestRequestTypeDef",
+    "DeleteNetworkInsightsAnalysisResultTypeDef",
+    "DeleteNetworkInsightsPathRequestRequestTypeDef",
+    "DeleteNetworkInsightsPathResultTypeDef",
+    "DeleteNetworkInterfacePermissionRequestRequestTypeDef",
+    "DeleteNetworkInterfacePermissionResultTypeDef",
+    "DeleteNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    "DeleteNetworkInterfaceRequestRequestTypeDef",
+    "DeletePlacementGroupRequestPlacementGroupTypeDef",
+    "DeletePlacementGroupRequestRequestTypeDef",
     "DeleteQueuedReservedInstancesErrorTypeDef",
+    "DeleteQueuedReservedInstancesRequestRequestTypeDef",
+    "DeleteQueuedReservedInstancesResultTypeDef",
+    "DeleteRouteRequestRequestTypeDef",
+    "DeleteRouteRequestRouteTypeDef",
+    "DeleteRouteTableRequestRequestTypeDef",
+    "DeleteRouteTableRequestRouteTableTypeDef",
+    "DeleteSecurityGroupRequestRequestTypeDef",
+    "DeleteSecurityGroupRequestSecurityGroupTypeDef",
+    "DeleteSnapshotRequestRequestTypeDef",
+    "DeleteSnapshotRequestSnapshotTypeDef",
+    "DeleteSpotDatafeedSubscriptionRequestRequestTypeDef",
+    "DeleteSubnetCidrReservationRequestRequestTypeDef",
+    "DeleteSubnetCidrReservationResultTypeDef",
+    "DeleteSubnetRequestRequestTypeDef",
+    "DeleteSubnetRequestSubnetTypeDef",
+    "DeleteTagsRequestRequestTypeDef",
+    "DeleteTagsRequestTagTypeDef",
+    "DeleteTrafficMirrorFilterRequestRequestTypeDef",
+    "DeleteTrafficMirrorFilterResultTypeDef",
+    "DeleteTrafficMirrorFilterRuleRequestRequestTypeDef",
+    "DeleteTrafficMirrorFilterRuleResultTypeDef",
+    "DeleteTrafficMirrorSessionRequestRequestTypeDef",
+    "DeleteTrafficMirrorSessionResultTypeDef",
+    "DeleteTrafficMirrorTargetRequestRequestTypeDef",
+    "DeleteTrafficMirrorTargetResultTypeDef",
+    "DeleteTransitGatewayConnectPeerRequestRequestTypeDef",
+    "DeleteTransitGatewayConnectPeerResultTypeDef",
+    "DeleteTransitGatewayConnectRequestRequestTypeDef",
+    "DeleteTransitGatewayConnectResultTypeDef",
+    "DeleteTransitGatewayMulticastDomainRequestRequestTypeDef",
+    "DeleteTransitGatewayMulticastDomainResultTypeDef",
+    "DeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
+    "DeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
+    "DeleteTransitGatewayRequestRequestTypeDef",
+    "DeleteTransitGatewayResultTypeDef",
+    "DeleteTransitGatewayRouteRequestRequestTypeDef",
+    "DeleteTransitGatewayRouteResultTypeDef",
+    "DeleteTransitGatewayRouteTableRequestRequestTypeDef",
+    "DeleteTransitGatewayRouteTableResultTypeDef",
+    "DeleteTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    "DeleteTransitGatewayVpcAttachmentResultTypeDef",
+    "DeleteVolumeRequestRequestTypeDef",
+    "DeleteVolumeRequestVolumeTypeDef",
+    "DeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef",
+    "DeleteVpcEndpointConnectionNotificationsResultTypeDef",
+    "DeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef",
+    "DeleteVpcEndpointServiceConfigurationsResultTypeDef",
+    "DeleteVpcEndpointsRequestRequestTypeDef",
+    "DeleteVpcEndpointsResultTypeDef",
+    "DeleteVpcPeeringConnectionRequestRequestTypeDef",
+    "DeleteVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
+    "DeleteVpcPeeringConnectionResultTypeDef",
+    "DeleteVpcRequestRequestTypeDef",
+    "DeleteVpcRequestVpcTypeDef",
+    "DeleteVpnConnectionRequestRequestTypeDef",
+    "DeleteVpnConnectionRouteRequestRequestTypeDef",
+    "DeleteVpnGatewayRequestRequestTypeDef",
+    "DeprovisionByoipCidrRequestRequestTypeDef",
+    "DeprovisionByoipCidrResultTypeDef",
+    "DeregisterImageRequestImageTypeDef",
+    "DeregisterImageRequestRequestTypeDef",
+    "DeregisterInstanceEventNotificationAttributesRequestRequestTypeDef",
+    "DeregisterInstanceEventNotificationAttributesResultTypeDef",
+    "DeregisterInstanceTagAttributeRequestTypeDef",
+    "DeregisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef",
+    "DeregisterTransitGatewayMulticastGroupMembersResultTypeDef",
+    "DeregisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef",
+    "DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef",
+    "DescribeAccountAttributesRequestRequestTypeDef",
+    "DescribeAccountAttributesResultTypeDef",
+    "DescribeAddressesAttributeRequestRequestTypeDef",
+    "DescribeAddressesAttributeResultTypeDef",
+    "DescribeAddressesRequestRequestTypeDef",
+    "DescribeAddressesResultTypeDef",
+    "DescribeAggregateIdFormatRequestRequestTypeDef",
+    "DescribeAggregateIdFormatResultTypeDef",
+    "DescribeAvailabilityZonesRequestRequestTypeDef",
+    "DescribeAvailabilityZonesResultTypeDef",
+    "DescribeBundleTasksRequestRequestTypeDef",
+    "DescribeBundleTasksResultTypeDef",
+    "DescribeByoipCidrsRequestRequestTypeDef",
+    "DescribeByoipCidrsResultTypeDef",
+    "DescribeCapacityReservationsRequestRequestTypeDef",
+    "DescribeCapacityReservationsResultTypeDef",
+    "DescribeCarrierGatewaysRequestRequestTypeDef",
+    "DescribeCarrierGatewaysResultTypeDef",
+    "DescribeClassicLinkInstancesRequestRequestTypeDef",
+    "DescribeClassicLinkInstancesResultTypeDef",
+    "DescribeClientVpnAuthorizationRulesRequestRequestTypeDef",
+    "DescribeClientVpnAuthorizationRulesResultTypeDef",
+    "DescribeClientVpnConnectionsRequestRequestTypeDef",
+    "DescribeClientVpnConnectionsResultTypeDef",
+    "DescribeClientVpnEndpointsRequestRequestTypeDef",
+    "DescribeClientVpnEndpointsResultTypeDef",
+    "DescribeClientVpnRoutesRequestRequestTypeDef",
+    "DescribeClientVpnRoutesResultTypeDef",
+    "DescribeClientVpnTargetNetworksRequestRequestTypeDef",
+    "DescribeClientVpnTargetNetworksResultTypeDef",
+    "DescribeCoipPoolsRequestRequestTypeDef",
+    "DescribeCoipPoolsResultTypeDef",
+    "DescribeConversionTasksRequestRequestTypeDef",
+    "DescribeConversionTasksResultTypeDef",
+    "DescribeCustomerGatewaysRequestRequestTypeDef",
+    "DescribeCustomerGatewaysResultTypeDef",
+    "DescribeDhcpOptionsRequestRequestTypeDef",
+    "DescribeDhcpOptionsResultTypeDef",
+    "DescribeEgressOnlyInternetGatewaysRequestRequestTypeDef",
+    "DescribeEgressOnlyInternetGatewaysResultTypeDef",
+    "DescribeElasticGpusRequestRequestTypeDef",
+    "DescribeElasticGpusResultTypeDef",
+    "DescribeExportImageTasksRequestRequestTypeDef",
+    "DescribeExportImageTasksResultTypeDef",
+    "DescribeExportTasksRequestRequestTypeDef",
+    "DescribeExportTasksResultTypeDef",
     "DescribeFastSnapshotRestoreSuccessItemTypeDef",
+    "DescribeFastSnapshotRestoresRequestRequestTypeDef",
+    "DescribeFastSnapshotRestoresResultTypeDef",
     "DescribeFleetErrorTypeDef",
+    "DescribeFleetHistoryRequestRequestTypeDef",
+    "DescribeFleetHistoryResultTypeDef",
+    "DescribeFleetInstancesRequestRequestTypeDef",
+    "DescribeFleetInstancesResultTypeDef",
     "DescribeFleetsInstancesTypeDef",
+    "DescribeFleetsRequestRequestTypeDef",
+    "DescribeFleetsResultTypeDef",
+    "DescribeFlowLogsRequestRequestTypeDef",
+    "DescribeFlowLogsResultTypeDef",
+    "DescribeFpgaImageAttributeRequestRequestTypeDef",
+    "DescribeFpgaImageAttributeResultTypeDef",
+    "DescribeFpgaImagesRequestRequestTypeDef",
+    "DescribeFpgaImagesResultTypeDef",
+    "DescribeHostReservationOfferingsRequestRequestTypeDef",
+    "DescribeHostReservationOfferingsResultTypeDef",
+    "DescribeHostReservationsRequestRequestTypeDef",
+    "DescribeHostReservationsResultTypeDef",
+    "DescribeHostsRequestRequestTypeDef",
+    "DescribeHostsResultTypeDef",
+    "DescribeIamInstanceProfileAssociationsRequestRequestTypeDef",
+    "DescribeIamInstanceProfileAssociationsResultTypeDef",
+    "DescribeIdFormatRequestRequestTypeDef",
+    "DescribeIdFormatResultTypeDef",
+    "DescribeIdentityIdFormatRequestRequestTypeDef",
+    "DescribeIdentityIdFormatResultTypeDef",
+    "DescribeImageAttributeRequestImageTypeDef",
+    "DescribeImageAttributeRequestRequestTypeDef",
+    "DescribeImagesRequestRequestTypeDef",
+    "DescribeImagesResultTypeDef",
+    "DescribeImportImageTasksRequestRequestTypeDef",
+    "DescribeImportImageTasksResultTypeDef",
+    "DescribeImportSnapshotTasksRequestRequestTypeDef",
+    "DescribeImportSnapshotTasksResultTypeDef",
+    "DescribeInstanceAttributeRequestInstanceTypeDef",
+    "DescribeInstanceAttributeRequestRequestTypeDef",
+    "DescribeInstanceCreditSpecificationsRequestRequestTypeDef",
+    "DescribeInstanceCreditSpecificationsResultTypeDef",
+    "DescribeInstanceEventNotificationAttributesRequestRequestTypeDef",
+    "DescribeInstanceEventNotificationAttributesResultTypeDef",
+    "DescribeInstanceEventWindowsRequestRequestTypeDef",
+    "DescribeInstanceEventWindowsResultTypeDef",
+    "DescribeInstanceStatusRequestRequestTypeDef",
+    "DescribeInstanceStatusResultTypeDef",
+    "DescribeInstanceTypeOfferingsRequestRequestTypeDef",
+    "DescribeInstanceTypeOfferingsResultTypeDef",
+    "DescribeInstanceTypesRequestRequestTypeDef",
+    "DescribeInstanceTypesResultTypeDef",
+    "DescribeInstancesRequestRequestTypeDef",
+    "DescribeInstancesResultTypeDef",
+    "DescribeInternetGatewaysRequestRequestTypeDef",
+    "DescribeInternetGatewaysResultTypeDef",
+    "DescribeIpv6PoolsRequestRequestTypeDef",
+    "DescribeIpv6PoolsResultTypeDef",
+    "DescribeKeyPairsRequestRequestTypeDef",
+    "DescribeKeyPairsResultTypeDef",
+    "DescribeLaunchTemplateVersionsRequestRequestTypeDef",
+    "DescribeLaunchTemplateVersionsResultTypeDef",
+    "DescribeLaunchTemplatesRequestRequestTypeDef",
+    "DescribeLaunchTemplatesResultTypeDef",
+    "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestRequestTypeDef",
+    "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef",
+    "DescribeLocalGatewayRouteTableVpcAssociationsRequestRequestTypeDef",
+    "DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef",
+    "DescribeLocalGatewayRouteTablesRequestRequestTypeDef",
+    "DescribeLocalGatewayRouteTablesResultTypeDef",
+    "DescribeLocalGatewayVirtualInterfaceGroupsRequestRequestTypeDef",
+    "DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef",
+    "DescribeLocalGatewayVirtualInterfacesRequestRequestTypeDef",
+    "DescribeLocalGatewayVirtualInterfacesResultTypeDef",
+    "DescribeLocalGatewaysRequestRequestTypeDef",
+    "DescribeLocalGatewaysResultTypeDef",
+    "DescribeManagedPrefixListsRequestRequestTypeDef",
+    "DescribeManagedPrefixListsResultTypeDef",
+    "DescribeMovingAddressesRequestRequestTypeDef",
+    "DescribeMovingAddressesResultTypeDef",
+    "DescribeNatGatewaysRequestRequestTypeDef",
+    "DescribeNatGatewaysResultTypeDef",
+    "DescribeNetworkAclsRequestRequestTypeDef",
+    "DescribeNetworkAclsResultTypeDef",
+    "DescribeNetworkInsightsAnalysesRequestRequestTypeDef",
+    "DescribeNetworkInsightsAnalysesResultTypeDef",
+    "DescribeNetworkInsightsPathsRequestRequestTypeDef",
+    "DescribeNetworkInsightsPathsResultTypeDef",
+    "DescribeNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
+    "DescribeNetworkInterfaceAttributeRequestRequestTypeDef",
+    "DescribeNetworkInterfaceAttributeResultTypeDef",
+    "DescribeNetworkInterfacePermissionsRequestRequestTypeDef",
+    "DescribeNetworkInterfacePermissionsResultTypeDef",
+    "DescribeNetworkInterfacesRequestRequestTypeDef",
+    "DescribeNetworkInterfacesResultTypeDef",
+    "DescribePlacementGroupsRequestRequestTypeDef",
+    "DescribePlacementGroupsResultTypeDef",
+    "DescribePrefixListsRequestRequestTypeDef",
+    "DescribePrefixListsResultTypeDef",
+    "DescribePrincipalIdFormatRequestRequestTypeDef",
+    "DescribePrincipalIdFormatResultTypeDef",
+    "DescribePublicIpv4PoolsRequestRequestTypeDef",
+    "DescribePublicIpv4PoolsResultTypeDef",
+    "DescribeRegionsRequestRequestTypeDef",
+    "DescribeRegionsResultTypeDef",
+    "DescribeReplaceRootVolumeTasksRequestRequestTypeDef",
+    "DescribeReplaceRootVolumeTasksResultTypeDef",
+    "DescribeReservedInstancesListingsRequestRequestTypeDef",
+    "DescribeReservedInstancesListingsResultTypeDef",
+    "DescribeReservedInstancesModificationsRequestRequestTypeDef",
+    "DescribeReservedInstancesModificationsResultTypeDef",
+    "DescribeReservedInstancesOfferingsRequestRequestTypeDef",
+    "DescribeReservedInstancesOfferingsResultTypeDef",
+    "DescribeReservedInstancesRequestRequestTypeDef",
+    "DescribeReservedInstancesResultTypeDef",
+    "DescribeRouteTablesRequestRequestTypeDef",
+    "DescribeRouteTablesResultTypeDef",
+    "DescribeScheduledInstanceAvailabilityRequestRequestTypeDef",
+    "DescribeScheduledInstanceAvailabilityResultTypeDef",
+    "DescribeScheduledInstancesRequestRequestTypeDef",
+    "DescribeScheduledInstancesResultTypeDef",
+    "DescribeSecurityGroupReferencesRequestRequestTypeDef",
+    "DescribeSecurityGroupReferencesResultTypeDef",
+    "DescribeSecurityGroupRulesRequestRequestTypeDef",
+    "DescribeSecurityGroupRulesResultTypeDef",
+    "DescribeSecurityGroupsRequestRequestTypeDef",
+    "DescribeSecurityGroupsResultTypeDef",
+    "DescribeSnapshotAttributeRequestRequestTypeDef",
+    "DescribeSnapshotAttributeRequestSnapshotTypeDef",
+    "DescribeSnapshotAttributeResultTypeDef",
+    "DescribeSnapshotsRequestRequestTypeDef",
+    "DescribeSnapshotsResultTypeDef",
+    "DescribeSpotDatafeedSubscriptionRequestRequestTypeDef",
+    "DescribeSpotDatafeedSubscriptionResultTypeDef",
+    "DescribeSpotFleetInstancesRequestRequestTypeDef",
+    "DescribeSpotFleetInstancesResponseTypeDef",
+    "DescribeSpotFleetRequestHistoryRequestRequestTypeDef",
+    "DescribeSpotFleetRequestHistoryResponseTypeDef",
+    "DescribeSpotFleetRequestsRequestRequestTypeDef",
+    "DescribeSpotFleetRequestsResponseTypeDef",
+    "DescribeSpotInstanceRequestsRequestRequestTypeDef",
+    "DescribeSpotInstanceRequestsResultTypeDef",
+    "DescribeSpotPriceHistoryRequestRequestTypeDef",
+    "DescribeSpotPriceHistoryResultTypeDef",
+    "DescribeStaleSecurityGroupsRequestRequestTypeDef",
+    "DescribeStaleSecurityGroupsResultTypeDef",
+    "DescribeStoreImageTasksRequestRequestTypeDef",
+    "DescribeStoreImageTasksResultTypeDef",
+    "DescribeSubnetsRequestRequestTypeDef",
+    "DescribeSubnetsResultTypeDef",
+    "DescribeTagsRequestRequestTypeDef",
+    "DescribeTagsResultTypeDef",
+    "DescribeTrafficMirrorFiltersRequestRequestTypeDef",
+    "DescribeTrafficMirrorFiltersResultTypeDef",
+    "DescribeTrafficMirrorSessionsRequestRequestTypeDef",
+    "DescribeTrafficMirrorSessionsResultTypeDef",
+    "DescribeTrafficMirrorTargetsRequestRequestTypeDef",
+    "DescribeTrafficMirrorTargetsResultTypeDef",
+    "DescribeTransitGatewayAttachmentsRequestRequestTypeDef",
+    "DescribeTransitGatewayAttachmentsResultTypeDef",
+    "DescribeTransitGatewayConnectPeersRequestRequestTypeDef",
+    "DescribeTransitGatewayConnectPeersResultTypeDef",
+    "DescribeTransitGatewayConnectsRequestRequestTypeDef",
+    "DescribeTransitGatewayConnectsResultTypeDef",
+    "DescribeTransitGatewayMulticastDomainsRequestRequestTypeDef",
+    "DescribeTransitGatewayMulticastDomainsResultTypeDef",
+    "DescribeTransitGatewayPeeringAttachmentsRequestRequestTypeDef",
+    "DescribeTransitGatewayPeeringAttachmentsResultTypeDef",
+    "DescribeTransitGatewayRouteTablesRequestRequestTypeDef",
+    "DescribeTransitGatewayRouteTablesResultTypeDef",
+    "DescribeTransitGatewayVpcAttachmentsRequestRequestTypeDef",
+    "DescribeTransitGatewayVpcAttachmentsResultTypeDef",
+    "DescribeTransitGatewaysRequestRequestTypeDef",
+    "DescribeTransitGatewaysResultTypeDef",
+    "DescribeTrunkInterfaceAssociationsRequestRequestTypeDef",
+    "DescribeTrunkInterfaceAssociationsResultTypeDef",
+    "DescribeVolumeAttributeRequestRequestTypeDef",
+    "DescribeVolumeAttributeRequestVolumeTypeDef",
+    "DescribeVolumeAttributeResultTypeDef",
+    "DescribeVolumeStatusRequestRequestTypeDef",
+    "DescribeVolumeStatusRequestVolumeTypeDef",
+    "DescribeVolumeStatusResultTypeDef",
+    "DescribeVolumesModificationsRequestRequestTypeDef",
+    "DescribeVolumesModificationsResultTypeDef",
+    "DescribeVolumesRequestRequestTypeDef",
+    "DescribeVolumesResultTypeDef",
+    "DescribeVpcAttributeRequestRequestTypeDef",
+    "DescribeVpcAttributeRequestVpcTypeDef",
+    "DescribeVpcAttributeResultTypeDef",
+    "DescribeVpcClassicLinkDnsSupportRequestRequestTypeDef",
+    "DescribeVpcClassicLinkDnsSupportResultTypeDef",
+    "DescribeVpcClassicLinkRequestRequestTypeDef",
+    "DescribeVpcClassicLinkResultTypeDef",
+    "DescribeVpcEndpointConnectionNotificationsRequestRequestTypeDef",
+    "DescribeVpcEndpointConnectionNotificationsResultTypeDef",
+    "DescribeVpcEndpointConnectionsRequestRequestTypeDef",
+    "DescribeVpcEndpointConnectionsResultTypeDef",
+    "DescribeVpcEndpointServiceConfigurationsRequestRequestTypeDef",
+    "DescribeVpcEndpointServiceConfigurationsResultTypeDef",
+    "DescribeVpcEndpointServicePermissionsRequestRequestTypeDef",
+    "DescribeVpcEndpointServicePermissionsResultTypeDef",
+    "DescribeVpcEndpointServicesRequestRequestTypeDef",
+    "DescribeVpcEndpointServicesResultTypeDef",
+    "DescribeVpcEndpointsRequestRequestTypeDef",
+    "DescribeVpcEndpointsResultTypeDef",
+    "DescribeVpcPeeringConnectionsRequestRequestTypeDef",
+    "DescribeVpcPeeringConnectionsResultTypeDef",
+    "DescribeVpcsRequestRequestTypeDef",
+    "DescribeVpcsResultTypeDef",
+    "DescribeVpnConnectionsRequestRequestTypeDef",
+    "DescribeVpnConnectionsResultTypeDef",
+    "DescribeVpnGatewaysRequestRequestTypeDef",
+    "DescribeVpnGatewaysResultTypeDef",
+    "DetachClassicLinkVpcRequestInstanceTypeDef",
+    "DetachClassicLinkVpcRequestRequestTypeDef",
+    "DetachClassicLinkVpcRequestVpcTypeDef",
+    "DetachClassicLinkVpcResultTypeDef",
+    "DetachInternetGatewayRequestInternetGatewayTypeDef",
+    "DetachInternetGatewayRequestRequestTypeDef",
+    "DetachInternetGatewayRequestVpcTypeDef",
+    "DetachNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    "DetachNetworkInterfaceRequestRequestTypeDef",
+    "DetachVolumeRequestInstanceTypeDef",
+    "DetachVolumeRequestRequestTypeDef",
+    "DetachVolumeRequestVolumeTypeDef",
+    "DetachVpnGatewayRequestRequestTypeDef",
     "DhcpConfigurationTypeDef",
     "DhcpOptionsTypeDef",
     "DirectoryServiceAuthenticationRequestTypeDef",
     "DirectoryServiceAuthenticationTypeDef",
+    "DisableEbsEncryptionByDefaultRequestRequestTypeDef",
+    "DisableEbsEncryptionByDefaultResultTypeDef",
     "DisableFastSnapshotRestoreErrorItemTypeDef",
     "DisableFastSnapshotRestoreStateErrorItemTypeDef",
     "DisableFastSnapshotRestoreStateErrorTypeDef",
     "DisableFastSnapshotRestoreSuccessItemTypeDef",
+    "DisableFastSnapshotRestoresRequestRequestTypeDef",
+    "DisableFastSnapshotRestoresResultTypeDef",
+    "DisableImageDeprecationRequestRequestTypeDef",
+    "DisableImageDeprecationResultTypeDef",
+    "DisableSerialConsoleAccessRequestRequestTypeDef",
+    "DisableSerialConsoleAccessResultTypeDef",
+    "DisableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
+    "DisableTransitGatewayRouteTablePropagationResultTypeDef",
+    "DisableVgwRoutePropagationRequestRequestTypeDef",
+    "DisableVpcClassicLinkDnsSupportRequestRequestTypeDef",
+    "DisableVpcClassicLinkDnsSupportResultTypeDef",
+    "DisableVpcClassicLinkRequestRequestTypeDef",
+    "DisableVpcClassicLinkRequestVpcTypeDef",
+    "DisableVpcClassicLinkResultTypeDef",
+    "DisassociateAddressRequestClassicAddressTypeDef",
+    "DisassociateAddressRequestNetworkInterfaceAssociationTypeDef",
+    "DisassociateAddressRequestRequestTypeDef",
+    "DisassociateClientVpnTargetNetworkRequestRequestTypeDef",
+    "DisassociateClientVpnTargetNetworkResultTypeDef",
+    "DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+    "DisassociateEnclaveCertificateIamRoleResultTypeDef",
+    "DisassociateIamInstanceProfileRequestRequestTypeDef",
+    "DisassociateIamInstanceProfileResultTypeDef",
+    "DisassociateInstanceEventWindowRequestRequestTypeDef",
+    "DisassociateInstanceEventWindowResultTypeDef",
+    "DisassociateRouteTableRequestRequestTypeDef",
+    "DisassociateRouteTableRequestRouteTableAssociationTypeDef",
+    "DisassociateRouteTableRequestServiceResourceTypeDef",
+    "DisassociateSubnetCidrBlockRequestRequestTypeDef",
+    "DisassociateSubnetCidrBlockResultTypeDef",
+    "DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    "DisassociateTransitGatewayMulticastDomainResultTypeDef",
+    "DisassociateTransitGatewayRouteTableRequestRequestTypeDef",
+    "DisassociateTransitGatewayRouteTableResultTypeDef",
+    "DisassociateTrunkInterfaceRequestRequestTypeDef",
+    "DisassociateTrunkInterfaceResultTypeDef",
+    "DisassociateVpcCidrBlockRequestRequestTypeDef",
+    "DisassociateVpcCidrBlockResultTypeDef",
     "DiskImageDescriptionTypeDef",
     "DiskImageDetailTypeDef",
+    "DiskImageTypeDef",
     "DiskImageVolumeDescriptionTypeDef",
     "DiskInfoTypeDef",
     "DnsEntryTypeDef",
+    "DnsServersOptionsModifyStructureTypeDef",
     "EbsBlockDeviceTypeDef",
     "EbsInfoTypeDef",
     "EbsInstanceBlockDeviceSpecificationTypeDef",
     "EbsInstanceBlockDeviceTypeDef",
     "EbsOptimizedInfoTypeDef",
+    "EfaInfoTypeDef",
     "EgressOnlyInternetGatewayTypeDef",
     "ElasticGpuAssociationTypeDef",
     "ElasticGpuHealthTypeDef",
@@ -128,21 +1043,53 @@ __all__ = (
     "ElasticGpuSpecificationTypeDef",
     "ElasticGpusTypeDef",
     "ElasticInferenceAcceleratorAssociationTypeDef",
+    "ElasticInferenceAcceleratorTypeDef",
+    "EnableEbsEncryptionByDefaultRequestRequestTypeDef",
+    "EnableEbsEncryptionByDefaultResultTypeDef",
     "EnableFastSnapshotRestoreErrorItemTypeDef",
     "EnableFastSnapshotRestoreStateErrorItemTypeDef",
     "EnableFastSnapshotRestoreStateErrorTypeDef",
     "EnableFastSnapshotRestoreSuccessItemTypeDef",
+    "EnableFastSnapshotRestoresRequestRequestTypeDef",
+    "EnableFastSnapshotRestoresResultTypeDef",
+    "EnableImageDeprecationRequestRequestTypeDef",
+    "EnableImageDeprecationResultTypeDef",
+    "EnableSerialConsoleAccessRequestRequestTypeDef",
+    "EnableSerialConsoleAccessResultTypeDef",
+    "EnableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
+    "EnableTransitGatewayRouteTablePropagationResultTypeDef",
+    "EnableVgwRoutePropagationRequestRequestTypeDef",
+    "EnableVolumeIORequestRequestTypeDef",
+    "EnableVolumeIORequestVolumeTypeDef",
+    "EnableVpcClassicLinkDnsSupportRequestRequestTypeDef",
+    "EnableVpcClassicLinkDnsSupportResultTypeDef",
+    "EnableVpcClassicLinkRequestRequestTypeDef",
+    "EnableVpcClassicLinkRequestVpcTypeDef",
+    "EnableVpcClassicLinkResultTypeDef",
+    "EnclaveOptionsRequestTypeDef",
     "EnclaveOptionsTypeDef",
     "EventInformationTypeDef",
     "ExplanationTypeDef",
+    "ExportClientVpnClientCertificateRevocationListRequestRequestTypeDef",
+    "ExportClientVpnClientCertificateRevocationListResultTypeDef",
+    "ExportClientVpnClientConfigurationRequestRequestTypeDef",
+    "ExportClientVpnClientConfigurationResultTypeDef",
+    "ExportImageRequestRequestTypeDef",
+    "ExportImageResultTypeDef",
     "ExportImageTaskTypeDef",
+    "ExportTaskS3LocationRequestTypeDef",
     "ExportTaskS3LocationTypeDef",
     "ExportTaskTypeDef",
+    "ExportToS3TaskSpecificationTypeDef",
     "ExportToS3TaskTypeDef",
+    "ExportTransitGatewayRoutesRequestRequestTypeDef",
+    "ExportTransitGatewayRoutesResultTypeDef",
     "FailedQueuedPurchaseDeletionTypeDef",
     "FederatedAuthenticationRequestTypeDef",
     "FederatedAuthenticationTypeDef",
+    "FilterTypeDef",
     "FleetDataTypeDef",
+    "FleetLaunchTemplateConfigRequestTypeDef",
     "FleetLaunchTemplateConfigTypeDef",
     "FleetLaunchTemplateOverridesRequestTypeDef",
     "FleetLaunchTemplateOverridesTypeDef",
@@ -159,10 +1106,61 @@ __all__ = (
     "FpgaImageStateTypeDef",
     "FpgaImageTypeDef",
     "FpgaInfoTypeDef",
+    "GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef",
+    "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
+    "GetAssociatedIpv6PoolCidrsRequestRequestTypeDef",
+    "GetAssociatedIpv6PoolCidrsResultTypeDef",
+    "GetCapacityReservationUsageRequestRequestTypeDef",
+    "GetCapacityReservationUsageResultTypeDef",
+    "GetCoipPoolUsageRequestRequestTypeDef",
+    "GetCoipPoolUsageResultTypeDef",
+    "GetConsoleOutputRequestInstanceTypeDef",
+    "GetConsoleOutputRequestRequestTypeDef",
+    "GetConsoleOutputResultTypeDef",
+    "GetConsoleScreenshotRequestRequestTypeDef",
+    "GetConsoleScreenshotResultTypeDef",
+    "GetDefaultCreditSpecificationRequestRequestTypeDef",
+    "GetDefaultCreditSpecificationResultTypeDef",
+    "GetEbsDefaultKmsKeyIdRequestRequestTypeDef",
+    "GetEbsDefaultKmsKeyIdResultTypeDef",
+    "GetEbsEncryptionByDefaultRequestRequestTypeDef",
+    "GetEbsEncryptionByDefaultResultTypeDef",
+    "GetFlowLogsIntegrationTemplateRequestRequestTypeDef",
+    "GetFlowLogsIntegrationTemplateResultTypeDef",
+    "GetGroupsForCapacityReservationRequestRequestTypeDef",
+    "GetGroupsForCapacityReservationResultTypeDef",
+    "GetHostReservationPurchasePreviewRequestRequestTypeDef",
+    "GetHostReservationPurchasePreviewResultTypeDef",
+    "GetLaunchTemplateDataRequestRequestTypeDef",
+    "GetLaunchTemplateDataResultTypeDef",
+    "GetManagedPrefixListAssociationsRequestRequestTypeDef",
+    "GetManagedPrefixListAssociationsResultTypeDef",
+    "GetManagedPrefixListEntriesRequestRequestTypeDef",
+    "GetManagedPrefixListEntriesResultTypeDef",
+    "GetPasswordDataRequestInstanceTypeDef",
+    "GetPasswordDataRequestRequestTypeDef",
+    "GetPasswordDataResultTypeDef",
+    "GetReservedInstancesExchangeQuoteRequestRequestTypeDef",
+    "GetReservedInstancesExchangeQuoteResultTypeDef",
+    "GetSerialConsoleAccessStatusRequestRequestTypeDef",
+    "GetSerialConsoleAccessStatusResultTypeDef",
+    "GetSubnetCidrReservationsRequestRequestTypeDef",
+    "GetSubnetCidrReservationsResultTypeDef",
+    "GetTransitGatewayAttachmentPropagationsRequestRequestTypeDef",
+    "GetTransitGatewayAttachmentPropagationsResultTypeDef",
+    "GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+    "GetTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    "GetTransitGatewayPrefixListReferencesRequestRequestTypeDef",
+    "GetTransitGatewayPrefixListReferencesResultTypeDef",
+    "GetTransitGatewayRouteTableAssociationsRequestRequestTypeDef",
+    "GetTransitGatewayRouteTableAssociationsResultTypeDef",
+    "GetTransitGatewayRouteTablePropagationsRequestRequestTypeDef",
+    "GetTransitGatewayRouteTablePropagationsResultTypeDef",
     "GpuDeviceInfoTypeDef",
     "GpuDeviceMemoryInfoTypeDef",
     "GpuInfoTypeDef",
     "GroupIdentifierTypeDef",
+    "HibernationOptionsRequestTypeDef",
     "HibernationOptionsTypeDef",
     "HistoryRecordEntryTypeDef",
     "HistoryRecordTypeDef",
@@ -178,23 +1176,55 @@ __all__ = (
     "IamInstanceProfileTypeDef",
     "IcmpTypeCodeTypeDef",
     "IdFormatTypeDef",
+    "ImageAttributeTypeDef",
+    "ImageDiskContainerTypeDef",
     "ImageTypeDef",
+    "ImportClientVpnClientCertificateRevocationListRequestRequestTypeDef",
+    "ImportClientVpnClientCertificateRevocationListResultTypeDef",
+    "ImportImageLicenseConfigurationRequestTypeDef",
     "ImportImageLicenseConfigurationResponseTypeDef",
+    "ImportImageRequestRequestTypeDef",
+    "ImportImageResultTypeDef",
     "ImportImageTaskTypeDef",
+    "ImportInstanceLaunchSpecificationTypeDef",
+    "ImportInstanceRequestRequestTypeDef",
+    "ImportInstanceResultTypeDef",
     "ImportInstanceTaskDetailsTypeDef",
     "ImportInstanceVolumeDetailItemTypeDef",
+    "ImportKeyPairRequestRequestTypeDef",
+    "ImportKeyPairRequestServiceResourceTypeDef",
+    "ImportKeyPairResultTypeDef",
+    "ImportSnapshotRequestRequestTypeDef",
+    "ImportSnapshotResultTypeDef",
     "ImportSnapshotTaskTypeDef",
+    "ImportVolumeRequestRequestTypeDef",
+    "ImportVolumeResultTypeDef",
     "ImportVolumeTaskDetailsTypeDef",
     "InferenceAcceleratorInfoTypeDef",
     "InferenceDeviceInfoTypeDef",
+    "InstanceAttributeTypeDef",
+    "InstanceBlockDeviceMappingSpecificationTypeDef",
     "InstanceBlockDeviceMappingTypeDef",
     "InstanceCapacityTypeDef",
     "InstanceCountTypeDef",
+    "InstanceCreditSpecificationRequestTypeDef",
     "InstanceCreditSpecificationTypeDef",
+    "InstanceDeleteTagsRequestTypeDef",
+    "InstanceEventWindowAssociationRequestTypeDef",
+    "InstanceEventWindowAssociationTargetTypeDef",
+    "InstanceEventWindowDisassociationRequestTypeDef",
+    "InstanceEventWindowStateChangeTypeDef",
+    "InstanceEventWindowTimeRangeRequestTypeDef",
+    "InstanceEventWindowTimeRangeTypeDef",
+    "InstanceEventWindowTypeDef",
     "InstanceExportDetailsTypeDef",
     "InstanceFamilyCreditSpecificationTypeDef",
+    "InstanceIpv4PrefixTypeDef",
     "InstanceIpv6AddressRequestTypeDef",
     "InstanceIpv6AddressTypeDef",
+    "InstanceIpv6PrefixTypeDef",
+    "InstanceMarketOptionsRequestTypeDef",
+    "InstanceMetadataOptionsRequestTypeDef",
     "InstanceMetadataOptionsResponseTypeDef",
     "InstanceMonitoringTypeDef",
     "InstanceNetworkInterfaceAssociationTypeDef",
@@ -202,6 +1232,7 @@ __all__ = (
     "InstanceNetworkInterfaceSpecificationTypeDef",
     "InstanceNetworkInterfaceTypeDef",
     "InstancePrivateIpAddressTypeDef",
+    "InstanceSpecificationTypeDef",
     "InstanceStateChangeTypeDef",
     "InstanceStateTypeDef",
     "InstanceStatusDetailsTypeDef",
@@ -214,16 +1245,25 @@ __all__ = (
     "InstanceTypeInfoTypeDef",
     "InstanceTypeOfferingTypeDef",
     "InstanceUsageTypeDef",
+    "IntegrateServicesTypeDef",
     "InternetGatewayAttachmentTypeDef",
     "InternetGatewayTypeDef",
     "IpPermissionTypeDef",
     "IpRangeTypeDef",
+    "Ipv4PrefixSpecificationRequestTypeDef",
+    "Ipv4PrefixSpecificationResponseTypeDef",
+    "Ipv4PrefixSpecificationTypeDef",
     "Ipv6CidrAssociationTypeDef",
     "Ipv6CidrBlockTypeDef",
     "Ipv6PoolTypeDef",
+    "Ipv6PrefixSpecificationRequestTypeDef",
+    "Ipv6PrefixSpecificationResponseTypeDef",
+    "Ipv6PrefixSpecificationTypeDef",
     "Ipv6RangeTypeDef",
     "KeyPairInfoTypeDef",
+    "KeyPairTypeDef",
     "LastErrorTypeDef",
+    "LaunchPermissionModificationsTypeDef",
     "LaunchPermissionTypeDef",
     "LaunchSpecificationTypeDef",
     "LaunchTemplateAndOverridesResponseTypeDef",
@@ -255,6 +1295,7 @@ __all__ = (
     "LaunchTemplateOverridesTypeDef",
     "LaunchTemplatePlacementRequestTypeDef",
     "LaunchTemplatePlacementTypeDef",
+    "LaunchTemplateSpecificationTypeDef",
     "LaunchTemplateSpotMarketOptionsRequestTypeDef",
     "LaunchTemplateSpotMarketOptionsTypeDef",
     "LaunchTemplateTagSpecificationRequestTypeDef",
@@ -263,8 +1304,10 @@ __all__ = (
     "LaunchTemplateVersionTypeDef",
     "LaunchTemplatesMonitoringRequestTypeDef",
     "LaunchTemplatesMonitoringTypeDef",
+    "LicenseConfigurationRequestTypeDef",
     "LicenseConfigurationTypeDef",
     "LoadBalancersConfigTypeDef",
+    "LoadPermissionModificationsTypeDef",
     "LoadPermissionRequestTypeDef",
     "LoadPermissionTypeDef",
     "LocalGatewayRouteTableTypeDef",
@@ -276,7 +1319,104 @@ __all__ = (
     "LocalGatewayVirtualInterfaceTypeDef",
     "ManagedPrefixListTypeDef",
     "MemoryInfoTypeDef",
+    "ModifyAddressAttributeRequestRequestTypeDef",
+    "ModifyAddressAttributeResultTypeDef",
+    "ModifyAvailabilityZoneGroupRequestRequestTypeDef",
+    "ModifyAvailabilityZoneGroupResultTypeDef",
+    "ModifyCapacityReservationRequestRequestTypeDef",
+    "ModifyCapacityReservationResultTypeDef",
+    "ModifyClientVpnEndpointRequestRequestTypeDef",
+    "ModifyClientVpnEndpointResultTypeDef",
+    "ModifyDefaultCreditSpecificationRequestRequestTypeDef",
+    "ModifyDefaultCreditSpecificationResultTypeDef",
+    "ModifyEbsDefaultKmsKeyIdRequestRequestTypeDef",
+    "ModifyEbsDefaultKmsKeyIdResultTypeDef",
+    "ModifyFleetRequestRequestTypeDef",
+    "ModifyFleetResultTypeDef",
+    "ModifyFpgaImageAttributeRequestRequestTypeDef",
+    "ModifyFpgaImageAttributeResultTypeDef",
+    "ModifyHostsRequestRequestTypeDef",
+    "ModifyHostsResultTypeDef",
+    "ModifyIdFormatRequestRequestTypeDef",
+    "ModifyIdentityIdFormatRequestRequestTypeDef",
+    "ModifyImageAttributeRequestImageTypeDef",
+    "ModifyImageAttributeRequestRequestTypeDef",
+    "ModifyInstanceAttributeRequestInstanceTypeDef",
+    "ModifyInstanceAttributeRequestRequestTypeDef",
+    "ModifyInstanceCapacityReservationAttributesRequestRequestTypeDef",
+    "ModifyInstanceCapacityReservationAttributesResultTypeDef",
+    "ModifyInstanceCreditSpecificationRequestRequestTypeDef",
+    "ModifyInstanceCreditSpecificationResultTypeDef",
+    "ModifyInstanceEventStartTimeRequestRequestTypeDef",
+    "ModifyInstanceEventStartTimeResultTypeDef",
+    "ModifyInstanceEventWindowRequestRequestTypeDef",
+    "ModifyInstanceEventWindowResultTypeDef",
+    "ModifyInstanceMetadataOptionsRequestRequestTypeDef",
+    "ModifyInstanceMetadataOptionsResultTypeDef",
+    "ModifyInstancePlacementRequestRequestTypeDef",
+    "ModifyInstancePlacementResultTypeDef",
+    "ModifyLaunchTemplateRequestRequestTypeDef",
+    "ModifyLaunchTemplateResultTypeDef",
+    "ModifyManagedPrefixListRequestRequestTypeDef",
+    "ModifyManagedPrefixListResultTypeDef",
+    "ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
+    "ModifyNetworkInterfaceAttributeRequestRequestTypeDef",
+    "ModifyReservedInstancesRequestRequestTypeDef",
+    "ModifyReservedInstancesResultTypeDef",
+    "ModifySecurityGroupRulesRequestRequestTypeDef",
+    "ModifySecurityGroupRulesResultTypeDef",
+    "ModifySnapshotAttributeRequestRequestTypeDef",
+    "ModifySnapshotAttributeRequestSnapshotTypeDef",
+    "ModifySpotFleetRequestRequestRequestTypeDef",
+    "ModifySpotFleetRequestResponseTypeDef",
+    "ModifySubnetAttributeRequestRequestTypeDef",
+    "ModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef",
+    "ModifyTrafficMirrorFilterNetworkServicesResultTypeDef",
+    "ModifyTrafficMirrorFilterRuleRequestRequestTypeDef",
+    "ModifyTrafficMirrorFilterRuleResultTypeDef",
+    "ModifyTrafficMirrorSessionRequestRequestTypeDef",
+    "ModifyTrafficMirrorSessionResultTypeDef",
+    "ModifyTransitGatewayOptionsTypeDef",
+    "ModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    "ModifyTransitGatewayPrefixListReferenceResultTypeDef",
+    "ModifyTransitGatewayRequestRequestTypeDef",
+    "ModifyTransitGatewayResultTypeDef",
+    "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
+    "ModifyTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    "ModifyTransitGatewayVpcAttachmentResultTypeDef",
+    "ModifyVolumeAttributeRequestRequestTypeDef",
+    "ModifyVolumeAttributeRequestVolumeTypeDef",
+    "ModifyVolumeRequestRequestTypeDef",
+    "ModifyVolumeResultTypeDef",
+    "ModifyVpcAttributeRequestRequestTypeDef",
+    "ModifyVpcAttributeRequestVpcTypeDef",
+    "ModifyVpcEndpointConnectionNotificationRequestRequestTypeDef",
+    "ModifyVpcEndpointConnectionNotificationResultTypeDef",
+    "ModifyVpcEndpointRequestRequestTypeDef",
+    "ModifyVpcEndpointResultTypeDef",
+    "ModifyVpcEndpointServiceConfigurationRequestRequestTypeDef",
+    "ModifyVpcEndpointServiceConfigurationResultTypeDef",
+    "ModifyVpcEndpointServicePermissionsRequestRequestTypeDef",
+    "ModifyVpcEndpointServicePermissionsResultTypeDef",
+    "ModifyVpcPeeringConnectionOptionsRequestRequestTypeDef",
+    "ModifyVpcPeeringConnectionOptionsResultTypeDef",
+    "ModifyVpcTenancyRequestRequestTypeDef",
+    "ModifyVpcTenancyResultTypeDef",
+    "ModifyVpnConnectionOptionsRequestRequestTypeDef",
+    "ModifyVpnConnectionOptionsResultTypeDef",
+    "ModifyVpnConnectionRequestRequestTypeDef",
+    "ModifyVpnConnectionResultTypeDef",
+    "ModifyVpnTunnelCertificateRequestRequestTypeDef",
+    "ModifyVpnTunnelCertificateResultTypeDef",
+    "ModifyVpnTunnelOptionsRequestRequestTypeDef",
+    "ModifyVpnTunnelOptionsResultTypeDef",
+    "ModifyVpnTunnelOptionsSpecificationTypeDef",
+    "MonitorInstancesRequestInstanceTypeDef",
+    "MonitorInstancesRequestRequestTypeDef",
+    "MonitorInstancesResultTypeDef",
     "MonitoringTypeDef",
+    "MoveAddressToVpcRequestRequestTypeDef",
+    "MoveAddressToVpcResultTypeDef",
     "MovingAddressStatusTypeDef",
     "NatGatewayAddressTypeDef",
     "NatGatewayTypeDef",
@@ -288,16 +1428,21 @@ __all__ = (
     "NetworkInsightsAnalysisTypeDef",
     "NetworkInsightsPathTypeDef",
     "NetworkInterfaceAssociationTypeDef",
+    "NetworkInterfaceAttachmentChangesTypeDef",
     "NetworkInterfaceAttachmentTypeDef",
     "NetworkInterfaceIpv6AddressTypeDef",
     "NetworkInterfacePermissionStateTypeDef",
     "NetworkInterfacePermissionTypeDef",
     "NetworkInterfacePrivateIpAddressTypeDef",
     "NetworkInterfaceTypeDef",
+    "NewDhcpConfigurationTypeDef",
+    "OnDemandOptionsRequestTypeDef",
     "OnDemandOptionsTypeDef",
+    "PaginatorConfigTypeDef",
     "PathComponentTypeDef",
     "PciIdTypeDef",
     "PeeringAttachmentStatusTypeDef",
+    "PeeringConnectionOptionsRequestTypeDef",
     "PeeringConnectionOptionsTypeDef",
     "PeeringTgwInfoTypeDef",
     "Phase1DHGroupNumbersListValueTypeDef",
@@ -322,6 +1467,7 @@ __all__ = (
     "PrefixListEntryTypeDef",
     "PrefixListIdTypeDef",
     "PrefixListTypeDef",
+    "PriceScheduleSpecificationTypeDef",
     "PriceScheduleTypeDef",
     "PricingDetailTypeDef",
     "PrincipalIdFormatTypeDef",
@@ -331,15 +1477,79 @@ __all__ = (
     "ProcessorInfoTypeDef",
     "ProductCodeTypeDef",
     "PropagatingVgwTypeDef",
+    "ProvisionByoipCidrRequestRequestTypeDef",
+    "ProvisionByoipCidrResultTypeDef",
     "ProvisionedBandwidthTypeDef",
     "PtrUpdateStatusTypeDef",
     "PublicIpv4PoolRangeTypeDef",
     "PublicIpv4PoolTypeDef",
+    "PurchaseHostReservationRequestRequestTypeDef",
+    "PurchaseHostReservationResultTypeDef",
+    "PurchaseRequestTypeDef",
+    "PurchaseReservedInstancesOfferingRequestRequestTypeDef",
+    "PurchaseReservedInstancesOfferingResultTypeDef",
+    "PurchaseScheduledInstancesRequestRequestTypeDef",
+    "PurchaseScheduledInstancesResultTypeDef",
     "PurchaseTypeDef",
+    "RebootInstancesRequestInstanceTypeDef",
+    "RebootInstancesRequestRequestTypeDef",
     "RecurringChargeTypeDef",
+    "ReferencedSecurityGroupTypeDef",
     "RegionTypeDef",
+    "RegisterImageRequestRequestTypeDef",
+    "RegisterImageRequestServiceResourceTypeDef",
+    "RegisterImageResultTypeDef",
+    "RegisterInstanceEventNotificationAttributesRequestRequestTypeDef",
+    "RegisterInstanceEventNotificationAttributesResultTypeDef",
+    "RegisterInstanceTagAttributeRequestTypeDef",
+    "RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef",
+    "RegisterTransitGatewayMulticastGroupMembersResultTypeDef",
+    "RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef",
+    "RegisterTransitGatewayMulticastGroupSourcesResultTypeDef",
+    "RejectTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+    "RejectTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    "RejectTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    "RejectTransitGatewayPeeringAttachmentResultTypeDef",
+    "RejectTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    "RejectTransitGatewayVpcAttachmentResultTypeDef",
+    "RejectVpcEndpointConnectionsRequestRequestTypeDef",
+    "RejectVpcEndpointConnectionsResultTypeDef",
+    "RejectVpcPeeringConnectionRequestRequestTypeDef",
+    "RejectVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
+    "RejectVpcPeeringConnectionResultTypeDef",
+    "ReleaseAddressRequestClassicAddressTypeDef",
+    "ReleaseAddressRequestRequestTypeDef",
+    "ReleaseAddressRequestVpcAddressTypeDef",
+    "ReleaseHostsRequestRequestTypeDef",
+    "ReleaseHostsResultTypeDef",
+    "RemovePrefixListEntryTypeDef",
+    "ReplaceIamInstanceProfileAssociationRequestRequestTypeDef",
+    "ReplaceIamInstanceProfileAssociationResultTypeDef",
+    "ReplaceNetworkAclAssociationRequestNetworkAclTypeDef",
+    "ReplaceNetworkAclAssociationRequestRequestTypeDef",
+    "ReplaceNetworkAclAssociationResultTypeDef",
+    "ReplaceNetworkAclEntryRequestNetworkAclTypeDef",
+    "ReplaceNetworkAclEntryRequestRequestTypeDef",
+    "ReplaceRootVolumeTaskTypeDef",
+    "ReplaceRouteRequestRequestTypeDef",
+    "ReplaceRouteRequestRouteTypeDef",
+    "ReplaceRouteTableAssociationRequestRequestTypeDef",
+    "ReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef",
+    "ReplaceRouteTableAssociationResultTypeDef",
+    "ReplaceTransitGatewayRouteRequestRequestTypeDef",
+    "ReplaceTransitGatewayRouteResultTypeDef",
+    "ReportInstanceStatusRequestInstanceTypeDef",
+    "ReportInstanceStatusRequestRequestTypeDef",
+    "RequestLaunchTemplateDataTypeDef",
+    "RequestSpotFleetRequestRequestTypeDef",
+    "RequestSpotFleetResponseTypeDef",
+    "RequestSpotInstancesRequestRequestTypeDef",
+    "RequestSpotInstancesResultTypeDef",
+    "RequestSpotLaunchSpecificationTypeDef",
+    "ReservationResponseMetadataTypeDef",
     "ReservationTypeDef",
     "ReservationValueTypeDef",
+    "ReservedInstanceLimitPriceTypeDef",
     "ReservedInstanceReservationValueTypeDef",
     "ReservedInstancesConfigurationTypeDef",
     "ReservedInstancesIdTypeDef",
@@ -348,33 +1558,104 @@ __all__ = (
     "ReservedInstancesModificationTypeDef",
     "ReservedInstancesOfferingTypeDef",
     "ReservedInstancesTypeDef",
+    "ResetAddressAttributeRequestRequestTypeDef",
+    "ResetAddressAttributeResultTypeDef",
+    "ResetEbsDefaultKmsKeyIdRequestRequestTypeDef",
+    "ResetEbsDefaultKmsKeyIdResultTypeDef",
+    "ResetFpgaImageAttributeRequestRequestTypeDef",
+    "ResetFpgaImageAttributeResultTypeDef",
+    "ResetImageAttributeRequestImageTypeDef",
+    "ResetImageAttributeRequestRequestTypeDef",
+    "ResetInstanceAttributeRequestInstanceTypeDef",
+    "ResetInstanceAttributeRequestRequestTypeDef",
+    "ResetNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
+    "ResetNetworkInterfaceAttributeRequestRequestTypeDef",
+    "ResetSnapshotAttributeRequestRequestTypeDef",
+    "ResetSnapshotAttributeRequestSnapshotTypeDef",
     "ResponseErrorTypeDef",
     "ResponseLaunchTemplateDataTypeDef",
+    "ResponseMetadataTypeDef",
+    "RestoreAddressToClassicRequestRequestTypeDef",
+    "RestoreAddressToClassicResultTypeDef",
+    "RestoreManagedPrefixListVersionRequestRequestTypeDef",
+    "RestoreManagedPrefixListVersionResultTypeDef",
+    "RevokeClientVpnIngressRequestRequestTypeDef",
+    "RevokeClientVpnIngressResultTypeDef",
+    "RevokeSecurityGroupEgressRequestRequestTypeDef",
+    "RevokeSecurityGroupEgressRequestSecurityGroupTypeDef",
+    "RevokeSecurityGroupEgressResultTypeDef",
+    "RevokeSecurityGroupIngressRequestRequestTypeDef",
+    "RevokeSecurityGroupIngressRequestSecurityGroupTypeDef",
+    "RevokeSecurityGroupIngressResultTypeDef",
     "RouteTableAssociationStateTypeDef",
     "RouteTableAssociationTypeDef",
     "RouteTableTypeDef",
     "RouteTypeDef",
     "RunInstancesMonitoringEnabledTypeDef",
+    "RunInstancesRequestRequestTypeDef",
+    "RunInstancesRequestServiceResourceTypeDef",
+    "RunInstancesRequestSubnetTypeDef",
+    "RunScheduledInstancesRequestRequestTypeDef",
+    "RunScheduledInstancesResultTypeDef",
+    "S3ObjectTagTypeDef",
     "S3StorageTypeDef",
     "ScheduledInstanceAvailabilityTypeDef",
+    "ScheduledInstanceRecurrenceRequestTypeDef",
     "ScheduledInstanceRecurrenceTypeDef",
     "ScheduledInstanceTypeDef",
     "ScheduledInstancesBlockDeviceMappingTypeDef",
     "ScheduledInstancesEbsTypeDef",
     "ScheduledInstancesIamInstanceProfileTypeDef",
     "ScheduledInstancesIpv6AddressTypeDef",
+    "ScheduledInstancesLaunchSpecificationTypeDef",
     "ScheduledInstancesMonitoringTypeDef",
     "ScheduledInstancesNetworkInterfaceTypeDef",
     "ScheduledInstancesPlacementTypeDef",
     "ScheduledInstancesPrivateIpAddressConfigTypeDef",
+    "SearchLocalGatewayRoutesRequestRequestTypeDef",
+    "SearchLocalGatewayRoutesResultTypeDef",
+    "SearchTransitGatewayMulticastGroupsRequestRequestTypeDef",
+    "SearchTransitGatewayMulticastGroupsResultTypeDef",
+    "SearchTransitGatewayRoutesRequestRequestTypeDef",
+    "SearchTransitGatewayRoutesResultTypeDef",
     "SecurityGroupIdentifierTypeDef",
     "SecurityGroupReferenceTypeDef",
+    "SecurityGroupRuleDescriptionTypeDef",
+    "SecurityGroupRuleRequestTypeDef",
+    "SecurityGroupRuleTypeDef",
+    "SecurityGroupRuleUpdateTypeDef",
     "SecurityGroupTypeDef",
+    "SendDiagnosticInterruptRequestRequestTypeDef",
     "ServiceConfigurationTypeDef",
     "ServiceDetailTypeDef",
+    "ServiceResourceClassicAddressRequestTypeDef",
+    "ServiceResourceDhcpOptionsRequestTypeDef",
+    "ServiceResourceImageRequestTypeDef",
+    "ServiceResourceInstanceRequestTypeDef",
+    "ServiceResourceInternetGatewayRequestTypeDef",
+    "ServiceResourceKeyPairRequestTypeDef",
+    "ServiceResourceNetworkAclRequestTypeDef",
+    "ServiceResourceNetworkInterfaceAssociationRequestTypeDef",
+    "ServiceResourceNetworkInterfaceRequestTypeDef",
+    "ServiceResourcePlacementGroupRequestTypeDef",
+    "ServiceResourceRouteRequestTypeDef",
+    "ServiceResourceRouteTableAssociationRequestTypeDef",
+    "ServiceResourceRouteTableRequestTypeDef",
+    "ServiceResourceSecurityGroupRequestTypeDef",
+    "ServiceResourceSnapshotRequestTypeDef",
+    "ServiceResourceSubnetRequestTypeDef",
+    "ServiceResourceTagRequestTypeDef",
+    "ServiceResourceVolumeRequestTypeDef",
+    "ServiceResourceVpcAddressRequestTypeDef",
+    "ServiceResourceVpcPeeringConnectionRequestTypeDef",
+    "ServiceResourceVpcRequestTypeDef",
     "ServiceTypeDetailTypeDef",
+    "SlotDateTimeRangeRequestTypeDef",
+    "SlotStartTimeRangeRequestTypeDef",
     "SnapshotDetailTypeDef",
+    "SnapshotDiskContainerTypeDef",
     "SnapshotInfoTypeDef",
+    "SnapshotResponseMetadataTypeDef",
     "SnapshotTaskDetailTypeDef",
     "SnapshotTypeDef",
     "SpotCapacityRebalanceTypeDef",
@@ -389,30 +1670,53 @@ __all__ = (
     "SpotInstanceStatusTypeDef",
     "SpotMaintenanceStrategiesTypeDef",
     "SpotMarketOptionsTypeDef",
+    "SpotOptionsRequestTypeDef",
     "SpotOptionsTypeDef",
     "SpotPlacementTypeDef",
     "SpotPriceTypeDef",
     "StaleIpPermissionTypeDef",
     "StaleSecurityGroupTypeDef",
+    "StartInstancesRequestInstanceTypeDef",
+    "StartInstancesRequestRequestTypeDef",
+    "StartInstancesResultTypeDef",
+    "StartNetworkInsightsAnalysisRequestRequestTypeDef",
+    "StartNetworkInsightsAnalysisResultTypeDef",
+    "StartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef",
+    "StartVpcEndpointServicePrivateDnsVerificationResultTypeDef",
     "StateReasonTypeDef",
+    "StopInstancesRequestInstanceTypeDef",
+    "StopInstancesRequestRequestTypeDef",
+    "StopInstancesResultTypeDef",
+    "StorageLocationTypeDef",
     "StorageTypeDef",
+    "StoreImageTaskResultTypeDef",
     "SubnetAssociationTypeDef",
     "SubnetCidrBlockStateTypeDef",
+    "SubnetCidrReservationTypeDef",
     "SubnetIpv6CidrBlockAssociationTypeDef",
     "SubnetTypeDef",
     "SuccessfulInstanceCreditSpecificationItemTypeDef",
     "SuccessfulQueuedPurchaseDeletionTypeDef",
     "TagDescriptionTypeDef",
     "TagSpecificationTypeDef",
+    "TagTypeDef",
+    "TargetCapacitySpecificationRequestTypeDef",
     "TargetCapacitySpecificationTypeDef",
+    "TargetConfigurationRequestTypeDef",
     "TargetConfigurationTypeDef",
     "TargetGroupTypeDef",
     "TargetGroupsConfigTypeDef",
     "TargetNetworkTypeDef",
     "TargetReservationValueTypeDef",
+    "TerminateClientVpnConnectionsRequestRequestTypeDef",
+    "TerminateClientVpnConnectionsResultTypeDef",
     "TerminateConnectionStatusTypeDef",
+    "TerminateInstancesRequestInstanceTypeDef",
+    "TerminateInstancesRequestRequestTypeDef",
+    "TerminateInstancesResultTypeDef",
     "TrafficMirrorFilterRuleTypeDef",
     "TrafficMirrorFilterTypeDef",
+    "TrafficMirrorPortRangeRequestTypeDef",
     "TrafficMirrorPortRangeTypeDef",
     "TrafficMirrorSessionTypeDef",
     "TrafficMirrorTargetTypeDef",
@@ -424,6 +1728,7 @@ __all__ = (
     "TransitGatewayConnectOptionsTypeDef",
     "TransitGatewayConnectPeerConfigurationTypeDef",
     "TransitGatewayConnectPeerTypeDef",
+    "TransitGatewayConnectRequestBgpOptionsTypeDef",
     "TransitGatewayConnectTypeDef",
     "TransitGatewayMulticastDeregisteredGroupMembersTypeDef",
     "TransitGatewayMulticastDeregisteredGroupSourcesTypeDef",
@@ -439,6 +1744,7 @@ __all__ = (
     "TransitGatewayPrefixListAttachmentTypeDef",
     "TransitGatewayPrefixListReferenceTypeDef",
     "TransitGatewayPropagationTypeDef",
+    "TransitGatewayRequestOptionsTypeDef",
     "TransitGatewayRouteAttachmentTypeDef",
     "TransitGatewayRouteTableAssociationTypeDef",
     "TransitGatewayRouteTablePropagationTypeDef",
@@ -447,11 +1753,23 @@ __all__ = (
     "TransitGatewayTypeDef",
     "TransitGatewayVpcAttachmentOptionsTypeDef",
     "TransitGatewayVpcAttachmentTypeDef",
+    "TrunkInterfaceAssociationTypeDef",
     "TunnelOptionTypeDef",
+    "UnassignIpv6AddressesRequestRequestTypeDef",
+    "UnassignIpv6AddressesResultTypeDef",
+    "UnassignPrivateIpAddressesRequestNetworkInterfaceTypeDef",
+    "UnassignPrivateIpAddressesRequestRequestTypeDef",
+    "UnmonitorInstancesRequestInstanceTypeDef",
+    "UnmonitorInstancesRequestRequestTypeDef",
+    "UnmonitorInstancesResultTypeDef",
     "UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef",
     "UnsuccessfulInstanceCreditSpecificationItemTypeDef",
     "UnsuccessfulItemErrorTypeDef",
     "UnsuccessfulItemTypeDef",
+    "UpdateSecurityGroupRuleDescriptionsEgressRequestRequestTypeDef",
+    "UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef",
+    "UpdateSecurityGroupRuleDescriptionsIngressRequestRequestTypeDef",
+    "UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef",
     "UserBucketDetailsTypeDef",
     "UserBucketTypeDef",
     "UserDataTypeDef",
@@ -460,9 +1778,11 @@ __all__ = (
     "ValidationErrorTypeDef",
     "ValidationWarningTypeDef",
     "VgwTelemetryTypeDef",
+    "VolumeAttachmentResponseMetadataTypeDef",
     "VolumeAttachmentTypeDef",
     "VolumeDetailTypeDef",
     "VolumeModificationTypeDef",
+    "VolumeResponseMetadataTypeDef",
     "VolumeStatusActionTypeDef",
     "VolumeStatusAttachmentStatusTypeDef",
     "VolumeStatusDetailsTypeDef",
@@ -482,463 +1802,190 @@ __all__ = (
     "VpcPeeringConnectionTypeDef",
     "VpcPeeringConnectionVpcInfoTypeDef",
     "VpcTypeDef",
+    "VpnConnectionOptionsSpecificationTypeDef",
     "VpnConnectionOptionsTypeDef",
     "VpnConnectionTypeDef",
     "VpnGatewayTypeDef",
     "VpnStaticRouteTypeDef",
     "VpnTunnelOptionsSpecificationTypeDef",
-    "AcceptReservedInstancesExchangeQuoteResultTypeDef",
-    "AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef",
-    "AcceptTransitGatewayPeeringAttachmentResultTypeDef",
-    "AcceptTransitGatewayVpcAttachmentResultTypeDef",
-    "AcceptVpcEndpointConnectionsResultTypeDef",
-    "AcceptVpcPeeringConnectionResultTypeDef",
-    "AddPrefixListEntryTypeDef",
-    "AdvertiseByoipCidrResultTypeDef",
-    "AllocateAddressResultTypeDef",
-    "AllocateHostsResultTypeDef",
-    "ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef",
-    "AssignIpv6AddressesResultTypeDef",
-    "AssignPrivateIpAddressesResultTypeDef",
-    "AssociateAddressResultTypeDef",
-    "AssociateClientVpnTargetNetworkResultTypeDef",
-    "AssociateEnclaveCertificateIamRoleResultTypeDef",
-    "AssociateIamInstanceProfileResultTypeDef",
-    "AssociateRouteTableResultTypeDef",
-    "AssociateSubnetCidrBlockResultTypeDef",
-    "AssociateTransitGatewayMulticastDomainResultTypeDef",
-    "AssociateTransitGatewayRouteTableResultTypeDef",
-    "AssociateVpcCidrBlockResultTypeDef",
-    "AttachClassicLinkVpcResultTypeDef",
-    "AttachNetworkInterfaceResultTypeDef",
-    "AttachVpnGatewayResultTypeDef",
-    "AuthorizeClientVpnIngressResultTypeDef",
-    "BlobAttributeValueTypeDef",
-    "BundleInstanceResultTypeDef",
-    "CancelBundleTaskResultTypeDef",
-    "CancelCapacityReservationResultTypeDef",
-    "CancelImportTaskResultTypeDef",
-    "CancelReservedInstancesListingResultTypeDef",
-    "CancelSpotFleetRequestsResponseTypeDef",
-    "CancelSpotInstanceRequestsResultTypeDef",
-    "CapacityReservationSpecificationTypeDef",
-    "CidrAuthorizationContextTypeDef",
-    "ClientConnectOptionsTypeDef",
-    "ClientDataTypeDef",
-    "ClientVpnAuthenticationRequestTypeDef",
-    "ConfirmProductInstanceResultTypeDef",
-    "ConnectionLogOptionsTypeDef",
-    "CopyFpgaImageResultTypeDef",
-    "CopyImageResultTypeDef",
-    "CopySnapshotResultTypeDef",
-    "CpuOptionsRequestTypeDef",
-    "CreateCapacityReservationResultTypeDef",
-    "CreateCarrierGatewayResultTypeDef",
-    "CreateClientVpnEndpointResultTypeDef",
-    "CreateClientVpnRouteResultTypeDef",
-    "CreateCustomerGatewayResultTypeDef",
-    "CreateDefaultSubnetResultTypeDef",
-    "CreateDefaultVpcResultTypeDef",
-    "CreateDhcpOptionsResultTypeDef",
-    "CreateEgressOnlyInternetGatewayResultTypeDef",
-    "CreateFleetResultTypeDef",
-    "CreateFlowLogsResultTypeDef",
-    "CreateFpgaImageResultTypeDef",
-    "CreateImageResultTypeDef",
-    "CreateInstanceExportTaskResultTypeDef",
-    "CreateInternetGatewayResultTypeDef",
-    "CreateLaunchTemplateResultTypeDef",
-    "CreateLaunchTemplateVersionResultTypeDef",
-    "CreateLocalGatewayRouteResultTypeDef",
-    "CreateLocalGatewayRouteTableVpcAssociationResultTypeDef",
-    "CreateManagedPrefixListResultTypeDef",
-    "CreateNatGatewayResultTypeDef",
-    "CreateNetworkAclResultTypeDef",
-    "CreateNetworkInsightsPathResultTypeDef",
-    "CreateNetworkInterfacePermissionResultTypeDef",
-    "CreateNetworkInterfaceResultTypeDef",
-    "CreatePlacementGroupResultTypeDef",
-    "CreateReservedInstancesListingResultTypeDef",
-    "CreateRouteResultTypeDef",
-    "CreateRouteTableResultTypeDef",
-    "CreateSecurityGroupResultTypeDef",
-    "CreateSnapshotsResultTypeDef",
-    "CreateSpotDatafeedSubscriptionResultTypeDef",
-    "CreateSubnetResultTypeDef",
-    "CreateTrafficMirrorFilterResultTypeDef",
-    "CreateTrafficMirrorFilterRuleResultTypeDef",
-    "CreateTrafficMirrorSessionResultTypeDef",
-    "CreateTrafficMirrorTargetResultTypeDef",
-    "CreateTransitGatewayConnectPeerResultTypeDef",
-    "CreateTransitGatewayConnectRequestOptionsTypeDef",
-    "CreateTransitGatewayConnectResultTypeDef",
-    "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
-    "CreateTransitGatewayMulticastDomainResultTypeDef",
-    "CreateTransitGatewayPeeringAttachmentResultTypeDef",
-    "CreateTransitGatewayPrefixListReferenceResultTypeDef",
-    "CreateTransitGatewayResultTypeDef",
-    "CreateTransitGatewayRouteResultTypeDef",
-    "CreateTransitGatewayRouteTableResultTypeDef",
-    "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
-    "CreateTransitGatewayVpcAttachmentResultTypeDef",
-    "CreateVolumePermissionModificationsTypeDef",
-    "CreateVpcEndpointConnectionNotificationResultTypeDef",
-    "CreateVpcEndpointResultTypeDef",
-    "CreateVpcEndpointServiceConfigurationResultTypeDef",
-    "CreateVpcPeeringConnectionResultTypeDef",
-    "CreateVpcResultTypeDef",
-    "CreateVpnConnectionResultTypeDef",
-    "CreateVpnGatewayResultTypeDef",
-    "DeleteCarrierGatewayResultTypeDef",
-    "DeleteClientVpnEndpointResultTypeDef",
-    "DeleteClientVpnRouteResultTypeDef",
-    "DeleteEgressOnlyInternetGatewayResultTypeDef",
-    "DeleteFleetsResultTypeDef",
-    "DeleteFlowLogsResultTypeDef",
-    "DeleteFpgaImageResultTypeDef",
-    "DeleteLaunchTemplateResultTypeDef",
-    "DeleteLaunchTemplateVersionsResultTypeDef",
-    "DeleteLocalGatewayRouteResultTypeDef",
-    "DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef",
-    "DeleteManagedPrefixListResultTypeDef",
-    "DeleteNatGatewayResultTypeDef",
-    "DeleteNetworkInsightsAnalysisResultTypeDef",
-    "DeleteNetworkInsightsPathResultTypeDef",
-    "DeleteNetworkInterfacePermissionResultTypeDef",
-    "DeleteQueuedReservedInstancesResultTypeDef",
-    "DeleteTrafficMirrorFilterResultTypeDef",
-    "DeleteTrafficMirrorFilterRuleResultTypeDef",
-    "DeleteTrafficMirrorSessionResultTypeDef",
-    "DeleteTrafficMirrorTargetResultTypeDef",
-    "DeleteTransitGatewayConnectPeerResultTypeDef",
-    "DeleteTransitGatewayConnectResultTypeDef",
-    "DeleteTransitGatewayMulticastDomainResultTypeDef",
-    "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
-    "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
-    "DeleteTransitGatewayResultTypeDef",
-    "DeleteTransitGatewayRouteResultTypeDef",
-    "DeleteTransitGatewayRouteTableResultTypeDef",
-    "DeleteTransitGatewayVpcAttachmentResultTypeDef",
-    "DeleteVpcEndpointConnectionNotificationsResultTypeDef",
-    "DeleteVpcEndpointServiceConfigurationsResultTypeDef",
-    "DeleteVpcEndpointsResultTypeDef",
-    "DeleteVpcPeeringConnectionResultTypeDef",
-    "DeprovisionByoipCidrResultTypeDef",
-    "DeregisterInstanceEventNotificationAttributesResultTypeDef",
-    "DeregisterInstanceTagAttributeRequestTypeDef",
-    "DeregisterTransitGatewayMulticastGroupMembersResultTypeDef",
-    "DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef",
-    "DescribeAccountAttributesResultTypeDef",
-    "DescribeAddressesAttributeResultTypeDef",
-    "DescribeAddressesResultTypeDef",
-    "DescribeAggregateIdFormatResultTypeDef",
-    "DescribeAvailabilityZonesResultTypeDef",
-    "DescribeBundleTasksResultTypeDef",
-    "DescribeByoipCidrsResultTypeDef",
-    "DescribeCapacityReservationsResultTypeDef",
-    "DescribeCarrierGatewaysResultTypeDef",
-    "DescribeClassicLinkInstancesResultTypeDef",
-    "DescribeClientVpnAuthorizationRulesResultTypeDef",
-    "DescribeClientVpnConnectionsResultTypeDef",
-    "DescribeClientVpnEndpointsResultTypeDef",
-    "DescribeClientVpnRoutesResultTypeDef",
-    "DescribeClientVpnTargetNetworksResultTypeDef",
-    "DescribeCoipPoolsResultTypeDef",
-    "DescribeConversionTasksResultTypeDef",
-    "DescribeCustomerGatewaysResultTypeDef",
-    "DescribeDhcpOptionsResultTypeDef",
-    "DescribeEgressOnlyInternetGatewaysResultTypeDef",
-    "DescribeElasticGpusResultTypeDef",
-    "DescribeExportImageTasksResultTypeDef",
-    "DescribeExportTasksResultTypeDef",
-    "DescribeFastSnapshotRestoresResultTypeDef",
-    "DescribeFleetHistoryResultTypeDef",
-    "DescribeFleetInstancesResultTypeDef",
-    "DescribeFleetsResultTypeDef",
-    "DescribeFlowLogsResultTypeDef",
-    "DescribeFpgaImageAttributeResultTypeDef",
-    "DescribeFpgaImagesResultTypeDef",
-    "DescribeHostReservationOfferingsResultTypeDef",
-    "DescribeHostReservationsResultTypeDef",
-    "DescribeHostsResultTypeDef",
-    "DescribeIamInstanceProfileAssociationsResultTypeDef",
-    "DescribeIdFormatResultTypeDef",
-    "DescribeIdentityIdFormatResultTypeDef",
-    "DescribeImagesResultTypeDef",
-    "DescribeImportImageTasksResultTypeDef",
-    "DescribeImportSnapshotTasksResultTypeDef",
-    "DescribeInstanceCreditSpecificationsResultTypeDef",
-    "DescribeInstanceEventNotificationAttributesResultTypeDef",
-    "DescribeInstanceStatusResultTypeDef",
-    "DescribeInstanceTypeOfferingsResultTypeDef",
-    "DescribeInstanceTypesResultTypeDef",
-    "DescribeInstancesResultTypeDef",
-    "DescribeInternetGatewaysResultTypeDef",
-    "DescribeIpv6PoolsResultTypeDef",
-    "DescribeKeyPairsResultTypeDef",
-    "DescribeLaunchTemplateVersionsResultTypeDef",
-    "DescribeLaunchTemplatesResultTypeDef",
-    "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef",
-    "DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef",
-    "DescribeLocalGatewayRouteTablesResultTypeDef",
-    "DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef",
-    "DescribeLocalGatewayVirtualInterfacesResultTypeDef",
-    "DescribeLocalGatewaysResultTypeDef",
-    "DescribeManagedPrefixListsResultTypeDef",
-    "DescribeMovingAddressesResultTypeDef",
-    "DescribeNatGatewaysResultTypeDef",
-    "DescribeNetworkAclsResultTypeDef",
-    "DescribeNetworkInsightsAnalysesResultTypeDef",
-    "DescribeNetworkInsightsPathsResultTypeDef",
-    "DescribeNetworkInterfaceAttributeResultTypeDef",
-    "DescribeNetworkInterfacePermissionsResultTypeDef",
-    "DescribeNetworkInterfacesResultTypeDef",
-    "DescribePlacementGroupsResultTypeDef",
-    "DescribePrefixListsResultTypeDef",
-    "DescribePrincipalIdFormatResultTypeDef",
-    "DescribePublicIpv4PoolsResultTypeDef",
-    "DescribeRegionsResultTypeDef",
-    "DescribeReservedInstancesListingsResultTypeDef",
-    "DescribeReservedInstancesModificationsResultTypeDef",
-    "DescribeReservedInstancesOfferingsResultTypeDef",
-    "DescribeReservedInstancesResultTypeDef",
-    "DescribeRouteTablesResultTypeDef",
-    "DescribeScheduledInstanceAvailabilityResultTypeDef",
-    "DescribeScheduledInstancesResultTypeDef",
-    "DescribeSecurityGroupReferencesResultTypeDef",
-    "DescribeSecurityGroupsResultTypeDef",
-    "DescribeSnapshotAttributeResultTypeDef",
-    "DescribeSnapshotsResultTypeDef",
-    "DescribeSpotDatafeedSubscriptionResultTypeDef",
-    "DescribeSpotFleetInstancesResponseTypeDef",
-    "DescribeSpotFleetRequestHistoryResponseTypeDef",
-    "DescribeSpotFleetRequestsResponseTypeDef",
-    "DescribeSpotInstanceRequestsResultTypeDef",
-    "DescribeSpotPriceHistoryResultTypeDef",
-    "DescribeStaleSecurityGroupsResultTypeDef",
-    "DescribeSubnetsResultTypeDef",
-    "DescribeTagsResultTypeDef",
-    "DescribeTrafficMirrorFiltersResultTypeDef",
-    "DescribeTrafficMirrorSessionsResultTypeDef",
-    "DescribeTrafficMirrorTargetsResultTypeDef",
-    "DescribeTransitGatewayAttachmentsResultTypeDef",
-    "DescribeTransitGatewayConnectPeersResultTypeDef",
-    "DescribeTransitGatewayConnectsResultTypeDef",
-    "DescribeTransitGatewayMulticastDomainsResultTypeDef",
-    "DescribeTransitGatewayPeeringAttachmentsResultTypeDef",
-    "DescribeTransitGatewayRouteTablesResultTypeDef",
-    "DescribeTransitGatewayVpcAttachmentsResultTypeDef",
-    "DescribeTransitGatewaysResultTypeDef",
-    "DescribeVolumeAttributeResultTypeDef",
-    "DescribeVolumeStatusResultTypeDef",
-    "DescribeVolumesModificationsResultTypeDef",
-    "DescribeVolumesResultTypeDef",
-    "DescribeVpcAttributeResultTypeDef",
-    "DescribeVpcClassicLinkDnsSupportResultTypeDef",
-    "DescribeVpcClassicLinkResultTypeDef",
-    "DescribeVpcEndpointConnectionNotificationsResultTypeDef",
-    "DescribeVpcEndpointConnectionsResultTypeDef",
-    "DescribeVpcEndpointServiceConfigurationsResultTypeDef",
-    "DescribeVpcEndpointServicePermissionsResultTypeDef",
-    "DescribeVpcEndpointServicesResultTypeDef",
-    "DescribeVpcEndpointsResultTypeDef",
-    "DescribeVpcPeeringConnectionsResultTypeDef",
-    "DescribeVpcsResultTypeDef",
-    "DescribeVpnConnectionsResultTypeDef",
-    "DescribeVpnGatewaysResultTypeDef",
-    "DetachClassicLinkVpcResultTypeDef",
-    "DisableEbsEncryptionByDefaultResultTypeDef",
-    "DisableFastSnapshotRestoresResultTypeDef",
-    "DisableTransitGatewayRouteTablePropagationResultTypeDef",
-    "DisableVpcClassicLinkDnsSupportResultTypeDef",
-    "DisableVpcClassicLinkResultTypeDef",
-    "DisassociateClientVpnTargetNetworkResultTypeDef",
-    "DisassociateEnclaveCertificateIamRoleResultTypeDef",
-    "DisassociateIamInstanceProfileResultTypeDef",
-    "DisassociateSubnetCidrBlockResultTypeDef",
-    "DisassociateTransitGatewayMulticastDomainResultTypeDef",
-    "DisassociateTransitGatewayRouteTableResultTypeDef",
-    "DisassociateVpcCidrBlockResultTypeDef",
-    "DiskImageTypeDef",
-    "DnsServersOptionsModifyStructureTypeDef",
-    "ElasticInferenceAcceleratorTypeDef",
-    "EnableEbsEncryptionByDefaultResultTypeDef",
-    "EnableFastSnapshotRestoresResultTypeDef",
-    "EnableTransitGatewayRouteTablePropagationResultTypeDef",
-    "EnableVpcClassicLinkDnsSupportResultTypeDef",
-    "EnableVpcClassicLinkResultTypeDef",
-    "EnclaveOptionsRequestTypeDef",
-    "ExportClientVpnClientCertificateRevocationListResultTypeDef",
-    "ExportClientVpnClientConfigurationResultTypeDef",
-    "ExportImageResultTypeDef",
-    "ExportTaskS3LocationRequestTypeDef",
-    "ExportToS3TaskSpecificationTypeDef",
-    "ExportTransitGatewayRoutesResultTypeDef",
-    "FilterTypeDef",
-    "FleetLaunchTemplateConfigRequestTypeDef",
-    "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
-    "GetAssociatedIpv6PoolCidrsResultTypeDef",
-    "GetCapacityReservationUsageResultTypeDef",
-    "GetCoipPoolUsageResultTypeDef",
-    "GetConsoleOutputResultTypeDef",
-    "GetConsoleScreenshotResultTypeDef",
-    "GetDefaultCreditSpecificationResultTypeDef",
-    "GetEbsDefaultKmsKeyIdResultTypeDef",
-    "GetEbsEncryptionByDefaultResultTypeDef",
-    "GetGroupsForCapacityReservationResultTypeDef",
-    "GetHostReservationPurchasePreviewResultTypeDef",
-    "GetLaunchTemplateDataResultTypeDef",
-    "GetManagedPrefixListAssociationsResultTypeDef",
-    "GetManagedPrefixListEntriesResultTypeDef",
-    "GetPasswordDataResultTypeDef",
-    "GetReservedInstancesExchangeQuoteResultTypeDef",
-    "GetTransitGatewayAttachmentPropagationsResultTypeDef",
-    "GetTransitGatewayMulticastDomainAssociationsResultTypeDef",
-    "GetTransitGatewayPrefixListReferencesResultTypeDef",
-    "GetTransitGatewayRouteTableAssociationsResultTypeDef",
-    "GetTransitGatewayRouteTablePropagationsResultTypeDef",
-    "HibernationOptionsRequestTypeDef",
-    "ImageAttributeTypeDef",
-    "ImageDiskContainerTypeDef",
-    "ImportClientVpnClientCertificateRevocationListResultTypeDef",
-    "ImportImageLicenseConfigurationRequestTypeDef",
-    "ImportImageResultTypeDef",
-    "ImportInstanceLaunchSpecificationTypeDef",
-    "ImportInstanceResultTypeDef",
-    "ImportKeyPairResultTypeDef",
-    "ImportSnapshotResultTypeDef",
-    "ImportVolumeResultTypeDef",
-    "InstanceAttributeTypeDef",
-    "InstanceBlockDeviceMappingSpecificationTypeDef",
-    "InstanceCreditSpecificationRequestTypeDef",
-    "InstanceMarketOptionsRequestTypeDef",
-    "InstanceMetadataOptionsRequestTypeDef",
-    "InstanceSpecificationTypeDef",
-    "KeyPairTypeDef",
-    "LaunchPermissionModificationsTypeDef",
-    "LaunchTemplateSpecificationTypeDef",
-    "LicenseConfigurationRequestTypeDef",
-    "LoadPermissionModificationsTypeDef",
-    "ModifyAddressAttributeResultTypeDef",
-    "ModifyAvailabilityZoneGroupResultTypeDef",
-    "ModifyCapacityReservationResultTypeDef",
-    "ModifyClientVpnEndpointResultTypeDef",
-    "ModifyDefaultCreditSpecificationResultTypeDef",
-    "ModifyEbsDefaultKmsKeyIdResultTypeDef",
-    "ModifyFleetResultTypeDef",
-    "ModifyFpgaImageAttributeResultTypeDef",
-    "ModifyHostsResultTypeDef",
-    "ModifyInstanceCapacityReservationAttributesResultTypeDef",
-    "ModifyInstanceCreditSpecificationResultTypeDef",
-    "ModifyInstanceEventStartTimeResultTypeDef",
-    "ModifyInstanceMetadataOptionsResultTypeDef",
-    "ModifyInstancePlacementResultTypeDef",
-    "ModifyLaunchTemplateResultTypeDef",
-    "ModifyManagedPrefixListResultTypeDef",
-    "ModifyReservedInstancesResultTypeDef",
-    "ModifySpotFleetRequestResponseTypeDef",
-    "ModifyTrafficMirrorFilterNetworkServicesResultTypeDef",
-    "ModifyTrafficMirrorFilterRuleResultTypeDef",
-    "ModifyTrafficMirrorSessionResultTypeDef",
-    "ModifyTransitGatewayOptionsTypeDef",
-    "ModifyTransitGatewayPrefixListReferenceResultTypeDef",
-    "ModifyTransitGatewayResultTypeDef",
-    "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
-    "ModifyTransitGatewayVpcAttachmentResultTypeDef",
-    "ModifyVolumeResultTypeDef",
-    "ModifyVpcEndpointConnectionNotificationResultTypeDef",
-    "ModifyVpcEndpointResultTypeDef",
-    "ModifyVpcEndpointServiceConfigurationResultTypeDef",
-    "ModifyVpcEndpointServicePermissionsResultTypeDef",
-    "ModifyVpcPeeringConnectionOptionsResultTypeDef",
-    "ModifyVpcTenancyResultTypeDef",
-    "ModifyVpnConnectionOptionsResultTypeDef",
-    "ModifyVpnConnectionResultTypeDef",
-    "ModifyVpnTunnelCertificateResultTypeDef",
-    "ModifyVpnTunnelOptionsResultTypeDef",
-    "ModifyVpnTunnelOptionsSpecificationTypeDef",
-    "MonitorInstancesResultTypeDef",
-    "MoveAddressToVpcResultTypeDef",
-    "NetworkInterfaceAttachmentChangesTypeDef",
-    "NewDhcpConfigurationTypeDef",
-    "OnDemandOptionsRequestTypeDef",
-    "PaginatorConfigTypeDef",
-    "PeeringConnectionOptionsRequestTypeDef",
-    "PriceScheduleSpecificationTypeDef",
-    "ProvisionByoipCidrResultTypeDef",
-    "PurchaseHostReservationResultTypeDef",
-    "PurchaseRequestTypeDef",
-    "PurchaseReservedInstancesOfferingResultTypeDef",
-    "PurchaseScheduledInstancesResultTypeDef",
-    "RegisterImageResultTypeDef",
-    "RegisterInstanceEventNotificationAttributesResultTypeDef",
-    "RegisterInstanceTagAttributeRequestTypeDef",
-    "RegisterTransitGatewayMulticastGroupMembersResultTypeDef",
-    "RegisterTransitGatewayMulticastGroupSourcesResultTypeDef",
-    "RejectTransitGatewayMulticastDomainAssociationsResultTypeDef",
-    "RejectTransitGatewayPeeringAttachmentResultTypeDef",
-    "RejectTransitGatewayVpcAttachmentResultTypeDef",
-    "RejectVpcEndpointConnectionsResultTypeDef",
-    "RejectVpcPeeringConnectionResultTypeDef",
-    "ReleaseHostsResultTypeDef",
-    "RemovePrefixListEntryTypeDef",
-    "ReplaceIamInstanceProfileAssociationResultTypeDef",
-    "ReplaceNetworkAclAssociationResultTypeDef",
-    "ReplaceRouteTableAssociationResultTypeDef",
-    "ReplaceTransitGatewayRouteResultTypeDef",
-    "RequestLaunchTemplateDataTypeDef",
-    "RequestSpotFleetResponseTypeDef",
-    "RequestSpotInstancesResultTypeDef",
-    "RequestSpotLaunchSpecificationTypeDef",
-    "ReservedInstanceLimitPriceTypeDef",
-    "ResetAddressAttributeResultTypeDef",
-    "ResetEbsDefaultKmsKeyIdResultTypeDef",
-    "ResetFpgaImageAttributeResultTypeDef",
-    "RestoreAddressToClassicResultTypeDef",
-    "RestoreManagedPrefixListVersionResultTypeDef",
-    "RevokeClientVpnIngressResultTypeDef",
-    "RevokeSecurityGroupEgressResultTypeDef",
-    "RevokeSecurityGroupIngressResultTypeDef",
-    "RunScheduledInstancesResultTypeDef",
-    "ScheduledInstanceRecurrenceRequestTypeDef",
-    "ScheduledInstancesLaunchSpecificationTypeDef",
-    "SearchLocalGatewayRoutesResultTypeDef",
-    "SearchTransitGatewayMulticastGroupsResultTypeDef",
-    "SearchTransitGatewayRoutesResultTypeDef",
-    "SlotDateTimeRangeRequestTypeDef",
-    "SlotStartTimeRangeRequestTypeDef",
-    "SnapshotDiskContainerTypeDef",
-    "SpotOptionsRequestTypeDef",
-    "StartInstancesResultTypeDef",
-    "StartNetworkInsightsAnalysisResultTypeDef",
-    "StartVpcEndpointServicePrivateDnsVerificationResultTypeDef",
-    "StopInstancesResultTypeDef",
-    "StorageLocationTypeDef",
-    "TagTypeDef",
-    "TargetCapacitySpecificationRequestTypeDef",
-    "TargetConfigurationRequestTypeDef",
-    "TerminateClientVpnConnectionsResultTypeDef",
-    "TerminateInstancesResultTypeDef",
-    "TrafficMirrorPortRangeRequestTypeDef",
-    "TransitGatewayConnectRequestBgpOptionsTypeDef",
-    "TransitGatewayRequestOptionsTypeDef",
-    "UnassignIpv6AddressesResultTypeDef",
-    "UnmonitorInstancesResultTypeDef",
-    "UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef",
-    "UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef",
-    "VpnConnectionOptionsSpecificationTypeDef",
     "WaiterConfigTypeDef",
+    "WithdrawByoipCidrRequestRequestTypeDef",
     "WithdrawByoipCidrResultTypeDef",
+)
+
+_RequiredAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef = TypedDict(
+    "_RequiredAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef",
+    {
+        "ReservedInstanceIds": List[str],
+    },
+)
+_OptionalAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef = TypedDict(
+    "_OptionalAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TargetConfigurations": List["TargetConfigurationRequestTypeDef"],
+    },
+    total=False,
+)
+
+class AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef(
+    _RequiredAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef,
+    _OptionalAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef,
+):
+    pass
+
+AcceptReservedInstancesExchangeQuoteResultTypeDef = TypedDict(
+    "AcceptReservedInstancesExchangeQuoteResultTypeDef",
+    {
+        "ExchangeId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AcceptTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef = TypedDict(
+    "AcceptTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "TransitGatewayAttachmentId": str,
+        "SubnetIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
+    "AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    {
+        "Associations": "TransitGatewayMulticastDomainAssociationsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredAcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalAcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalAcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef(
+    _RequiredAcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+    _OptionalAcceptTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+):
+    pass
+
+AcceptTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
+    "AcceptTransitGatewayPeeringAttachmentResultTypeDef",
+    {
+        "TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAcceptTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredAcceptTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalAcceptTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalAcceptTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AcceptTransitGatewayVpcAttachmentRequestRequestTypeDef(
+    _RequiredAcceptTransitGatewayVpcAttachmentRequestRequestTypeDef,
+    _OptionalAcceptTransitGatewayVpcAttachmentRequestRequestTypeDef,
+):
+    pass
+
+AcceptTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
+    "AcceptTransitGatewayVpcAttachmentResultTypeDef",
+    {
+        "TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAcceptVpcEndpointConnectionsRequestRequestTypeDef = TypedDict(
+    "_RequiredAcceptVpcEndpointConnectionsRequestRequestTypeDef",
+    {
+        "ServiceId": str,
+        "VpcEndpointIds": List[str],
+    },
+)
+_OptionalAcceptVpcEndpointConnectionsRequestRequestTypeDef = TypedDict(
+    "_OptionalAcceptVpcEndpointConnectionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AcceptVpcEndpointConnectionsRequestRequestTypeDef(
+    _RequiredAcceptVpcEndpointConnectionsRequestRequestTypeDef,
+    _OptionalAcceptVpcEndpointConnectionsRequestRequestTypeDef,
+):
+    pass
+
+AcceptVpcEndpointConnectionsResultTypeDef = TypedDict(
+    "AcceptVpcEndpointConnectionsResultTypeDef",
+    {
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AcceptVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "AcceptVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+AcceptVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef = TypedDict(
+    "AcceptVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+AcceptVpcPeeringConnectionResultTypeDef = TypedDict(
+    "AcceptVpcPeeringConnectionResultTypeDef",
+    {
+        "VpcPeeringConnection": "VpcPeeringConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AccountAttributeTypeDef = TypedDict(
     "AccountAttributeTypeDef",
-    {"AttributeName": str, "AttributeValues": List["AccountAttributeValueTypeDef"]},
+    {
+        "AttributeName": str,
+        "AttributeValues": List["AccountAttributeValueTypeDef"],
+    },
     total=False,
 )
 
 AccountAttributeValueTypeDef = TypedDict(
-    "AccountAttributeValueTypeDef", {"AttributeValue": str}, total=False
+    "AccountAttributeValueTypeDef",
+    {
+        "AttributeValue": str,
+    },
+    total=False,
 )
 
 ActiveInstanceTypeDef = TypedDict(
@@ -947,10 +1994,29 @@ ActiveInstanceTypeDef = TypedDict(
         "InstanceId": str,
         "InstanceType": str,
         "SpotInstanceRequestId": str,
-        "InstanceHealth": Literal["healthy", "unhealthy"],
+        "InstanceHealth": InstanceHealthStatusType,
     },
     total=False,
 )
+
+_RequiredAddPrefixListEntryTypeDef = TypedDict(
+    "_RequiredAddPrefixListEntryTypeDef",
+    {
+        "Cidr": str,
+    },
+)
+_OptionalAddPrefixListEntryTypeDef = TypedDict(
+    "_OptionalAddPrefixListEntryTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class AddPrefixListEntryTypeDef(
+    _RequiredAddPrefixListEntryTypeDef, _OptionalAddPrefixListEntryTypeDef
+):
+    pass
 
 AddressAttributeTypeDef = TypedDict(
     "AddressAttributeTypeDef",
@@ -970,7 +2036,7 @@ AddressTypeDef = TypedDict(
         "PublicIp": str,
         "AllocationId": str,
         "AssociationId": str,
-        "Domain": Literal["vpc", "standard"],
+        "Domain": DomainTypeType,
         "NetworkInterfaceId": str,
         "NetworkInterfaceOwnerId": str,
         "PrivateIpAddress": str,
@@ -984,17 +2050,112 @@ AddressTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAdvertiseByoipCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredAdvertiseByoipCidrRequestRequestTypeDef",
+    {
+        "Cidr": str,
+    },
+)
+_OptionalAdvertiseByoipCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalAdvertiseByoipCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AdvertiseByoipCidrRequestRequestTypeDef(
+    _RequiredAdvertiseByoipCidrRequestRequestTypeDef,
+    _OptionalAdvertiseByoipCidrRequestRequestTypeDef,
+):
+    pass
+
+AdvertiseByoipCidrResultTypeDef = TypedDict(
+    "AdvertiseByoipCidrResultTypeDef",
+    {
+        "ByoipCidr": "ByoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AllocateAddressRequestRequestTypeDef = TypedDict(
+    "AllocateAddressRequestRequestTypeDef",
+    {
+        "Domain": DomainTypeType,
+        "Address": str,
+        "PublicIpv4Pool": str,
+        "NetworkBorderGroup": str,
+        "CustomerOwnedIpv4Pool": str,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+AllocateAddressResultTypeDef = TypedDict(
+    "AllocateAddressResultTypeDef",
+    {
+        "PublicIp": str,
+        "AllocationId": str,
+        "PublicIpv4Pool": str,
+        "NetworkBorderGroup": str,
+        "Domain": DomainTypeType,
+        "CustomerOwnedIp": str,
+        "CustomerOwnedIpv4Pool": str,
+        "CarrierIp": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAllocateHostsRequestRequestTypeDef = TypedDict(
+    "_RequiredAllocateHostsRequestRequestTypeDef",
+    {
+        "AvailabilityZone": str,
+        "Quantity": int,
+    },
+)
+_OptionalAllocateHostsRequestRequestTypeDef = TypedDict(
+    "_OptionalAllocateHostsRequestRequestTypeDef",
+    {
+        "AutoPlacement": AutoPlacementType,
+        "ClientToken": str,
+        "InstanceType": str,
+        "InstanceFamily": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "HostRecovery": HostRecoveryType,
+    },
+    total=False,
+)
+
+class AllocateHostsRequestRequestTypeDef(
+    _RequiredAllocateHostsRequestRequestTypeDef, _OptionalAllocateHostsRequestRequestTypeDef
+):
+    pass
+
+AllocateHostsResultTypeDef = TypedDict(
+    "AllocateHostsResultTypeDef",
+    {
+        "HostIds": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 AllowedPrincipalTypeDef = TypedDict(
     "AllowedPrincipalTypeDef",
     {
-        "PrincipalType": Literal["All", "Service", "OrganizationUnit", "Account", "User", "Role"],
+        "PrincipalType": PrincipalTypeType,
         "Principal": str,
     },
     total=False,
 )
 
 AlternatePathHintTypeDef = TypedDict(
-    "AlternatePathHintTypeDef", {"ComponentId": str, "ComponentArn": str}, total=False
+    "AlternatePathHintTypeDef",
+    {
+        "ComponentId": str,
+        "ComponentArn": str,
+    },
+    total=False,
 )
 
 AnalysisAclRuleTypeDef = TypedDict(
@@ -1011,18 +2172,31 @@ AnalysisAclRuleTypeDef = TypedDict(
 )
 
 AnalysisComponentTypeDef = TypedDict(
-    "AnalysisComponentTypeDef", {"Id": str, "Arn": str}, total=False
+    "AnalysisComponentTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+    },
+    total=False,
 )
 
 AnalysisLoadBalancerListenerTypeDef = TypedDict(
     "AnalysisLoadBalancerListenerTypeDef",
-    {"LoadBalancerPort": int, "InstancePort": int},
+    {
+        "LoadBalancerPort": int,
+        "InstancePort": int,
+    },
     total=False,
 )
 
 AnalysisLoadBalancerTargetTypeDef = TypedDict(
     "AnalysisLoadBalancerTargetTypeDef",
-    {"Address": str, "AvailabilityZone": str, "Instance": "AnalysisComponentTypeDef", "Port": int},
+    {
+        "Address": str,
+        "AvailabilityZone": str,
+        "Instance": "AnalysisComponentTypeDef",
+        "Port": int,
+    },
     total=False,
 )
 
@@ -1068,8 +2242,498 @@ AnalysisSecurityGroupRuleTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef = TypedDict(
+    "_RequiredApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "VpcId": str,
+        "SecurityGroupIds": List[str],
+    },
+)
+_OptionalApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef = TypedDict(
+    "_OptionalApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef(
+    _RequiredApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef,
+    _OptionalApplySecurityGroupsToClientVpnTargetNetworkRequestRequestTypeDef,
+):
+    pass
+
+ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef = TypedDict(
+    "ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef",
+    {
+        "SecurityGroupIds": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssignIpv6AddressesRequestRequestTypeDef = TypedDict(
+    "_RequiredAssignIpv6AddressesRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalAssignIpv6AddressesRequestRequestTypeDef = TypedDict(
+    "_OptionalAssignIpv6AddressesRequestRequestTypeDef",
+    {
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List[str],
+        "Ipv6PrefixCount": int,
+        "Ipv6Prefixes": List[str],
+    },
+    total=False,
+)
+
+class AssignIpv6AddressesRequestRequestTypeDef(
+    _RequiredAssignIpv6AddressesRequestRequestTypeDef,
+    _OptionalAssignIpv6AddressesRequestRequestTypeDef,
+):
+    pass
+
+AssignIpv6AddressesResultTypeDef = TypedDict(
+    "AssignIpv6AddressesResultTypeDef",
+    {
+        "AssignedIpv6Addresses": List[str],
+        "AssignedIpv6Prefixes": List[str],
+        "NetworkInterfaceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssignPrivateIpAddressesRequestNetworkInterfaceTypeDef = TypedDict(
+    "AssignPrivateIpAddressesRequestNetworkInterfaceTypeDef",
+    {
+        "AllowReassignment": bool,
+        "PrivateIpAddresses": List[str],
+        "SecondaryPrivateIpAddressCount": int,
+        "Ipv4Prefixes": List[str],
+        "Ipv4PrefixCount": int,
+    },
+    total=False,
+)
+
+_RequiredAssignPrivateIpAddressesRequestRequestTypeDef = TypedDict(
+    "_RequiredAssignPrivateIpAddressesRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalAssignPrivateIpAddressesRequestRequestTypeDef = TypedDict(
+    "_OptionalAssignPrivateIpAddressesRequestRequestTypeDef",
+    {
+        "AllowReassignment": bool,
+        "PrivateIpAddresses": List[str],
+        "SecondaryPrivateIpAddressCount": int,
+        "Ipv4Prefixes": List[str],
+        "Ipv4PrefixCount": int,
+    },
+    total=False,
+)
+
+class AssignPrivateIpAddressesRequestRequestTypeDef(
+    _RequiredAssignPrivateIpAddressesRequestRequestTypeDef,
+    _OptionalAssignPrivateIpAddressesRequestRequestTypeDef,
+):
+    pass
+
+AssignPrivateIpAddressesResultTypeDef = TypedDict(
+    "AssignPrivateIpAddressesResultTypeDef",
+    {
+        "NetworkInterfaceId": str,
+        "AssignedPrivateIpAddresses": List["AssignedPrivateIpAddressTypeDef"],
+        "AssignedIpv4Prefixes": List["Ipv4PrefixSpecificationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 AssignedPrivateIpAddressTypeDef = TypedDict(
-    "AssignedPrivateIpAddressTypeDef", {"PrivateIpAddress": str}, total=False
+    "AssignedPrivateIpAddressTypeDef",
+    {
+        "PrivateIpAddress": str,
+    },
+    total=False,
+)
+
+AssociateAddressRequestClassicAddressTypeDef = TypedDict(
+    "AssociateAddressRequestClassicAddressTypeDef",
+    {
+        "AllocationId": str,
+        "InstanceId": str,
+        "AllowReassociation": bool,
+        "DryRun": bool,
+        "NetworkInterfaceId": str,
+        "PrivateIpAddress": str,
+    },
+    total=False,
+)
+
+AssociateAddressRequestRequestTypeDef = TypedDict(
+    "AssociateAddressRequestRequestTypeDef",
+    {
+        "AllocationId": str,
+        "InstanceId": str,
+        "PublicIp": str,
+        "AllowReassociation": bool,
+        "DryRun": bool,
+        "NetworkInterfaceId": str,
+        "PrivateIpAddress": str,
+    },
+    total=False,
+)
+
+AssociateAddressRequestVpcAddressTypeDef = TypedDict(
+    "AssociateAddressRequestVpcAddressTypeDef",
+    {
+        "InstanceId": str,
+        "PublicIp": str,
+        "AllowReassociation": bool,
+        "DryRun": bool,
+        "NetworkInterfaceId": str,
+        "PrivateIpAddress": str,
+    },
+    total=False,
+)
+
+AssociateAddressResultTypeDef = TypedDict(
+    "AssociateAddressResultTypeDef",
+    {
+        "AssociationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateClientVpnTargetNetworkRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateClientVpnTargetNetworkRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "SubnetId": str,
+    },
+)
+_OptionalAssociateClientVpnTargetNetworkRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateClientVpnTargetNetworkRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateClientVpnTargetNetworkRequestRequestTypeDef(
+    _RequiredAssociateClientVpnTargetNetworkRequestRequestTypeDef,
+    _OptionalAssociateClientVpnTargetNetworkRequestRequestTypeDef,
+):
+    pass
+
+AssociateClientVpnTargetNetworkResultTypeDef = TypedDict(
+    "AssociateClientVpnTargetNetworkResultTypeDef",
+    {
+        "AssociationId": str,
+        "Status": "AssociationStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateDhcpOptionsRequestDhcpOptionsTypeDef = TypedDict(
+    "_RequiredAssociateDhcpOptionsRequestDhcpOptionsTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalAssociateDhcpOptionsRequestDhcpOptionsTypeDef = TypedDict(
+    "_OptionalAssociateDhcpOptionsRequestDhcpOptionsTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateDhcpOptionsRequestDhcpOptionsTypeDef(
+    _RequiredAssociateDhcpOptionsRequestDhcpOptionsTypeDef,
+    _OptionalAssociateDhcpOptionsRequestDhcpOptionsTypeDef,
+):
+    pass
+
+_RequiredAssociateDhcpOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateDhcpOptionsRequestRequestTypeDef",
+    {
+        "DhcpOptionsId": str,
+        "VpcId": str,
+    },
+)
+_OptionalAssociateDhcpOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateDhcpOptionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateDhcpOptionsRequestRequestTypeDef(
+    _RequiredAssociateDhcpOptionsRequestRequestTypeDef,
+    _OptionalAssociateDhcpOptionsRequestRequestTypeDef,
+):
+    pass
+
+_RequiredAssociateDhcpOptionsRequestVpcTypeDef = TypedDict(
+    "_RequiredAssociateDhcpOptionsRequestVpcTypeDef",
+    {
+        "DhcpOptionsId": str,
+    },
+)
+_OptionalAssociateDhcpOptionsRequestVpcTypeDef = TypedDict(
+    "_OptionalAssociateDhcpOptionsRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateDhcpOptionsRequestVpcTypeDef(
+    _RequiredAssociateDhcpOptionsRequestVpcTypeDef, _OptionalAssociateDhcpOptionsRequestVpcTypeDef
+):
+    pass
+
+AssociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
+    "AssociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "RoleArn": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+AssociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
+    "AssociateEnclaveCertificateIamRoleResultTypeDef",
+    {
+        "CertificateS3BucketName": str,
+        "CertificateS3ObjectKey": str,
+        "EncryptionKmsKeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociateIamInstanceProfileRequestRequestTypeDef = TypedDict(
+    "AssociateIamInstanceProfileRequestRequestTypeDef",
+    {
+        "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
+        "InstanceId": str,
+    },
+)
+
+AssociateIamInstanceProfileResultTypeDef = TypedDict(
+    "AssociateIamInstanceProfileResultTypeDef",
+    {
+        "IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateInstanceEventWindowRequestRequestTypeDef",
+    {
+        "InstanceEventWindowId": str,
+        "AssociationTarget": "InstanceEventWindowAssociationRequestTypeDef",
+    },
+)
+_OptionalAssociateInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateInstanceEventWindowRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateInstanceEventWindowRequestRequestTypeDef(
+    _RequiredAssociateInstanceEventWindowRequestRequestTypeDef,
+    _OptionalAssociateInstanceEventWindowRequestRequestTypeDef,
+):
+    pass
+
+AssociateInstanceEventWindowResultTypeDef = TypedDict(
+    "AssociateInstanceEventWindowResultTypeDef",
+    {
+        "InstanceEventWindow": "InstanceEventWindowTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateRouteTableRequestRequestTypeDef",
+    {
+        "RouteTableId": str,
+    },
+)
+_OptionalAssociateRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "SubnetId": str,
+        "GatewayId": str,
+    },
+    total=False,
+)
+
+class AssociateRouteTableRequestRequestTypeDef(
+    _RequiredAssociateRouteTableRequestRequestTypeDef,
+    _OptionalAssociateRouteTableRequestRequestTypeDef,
+):
+    pass
+
+AssociateRouteTableRequestRouteTableTypeDef = TypedDict(
+    "AssociateRouteTableRequestRouteTableTypeDef",
+    {
+        "DryRun": bool,
+        "SubnetId": str,
+        "GatewayId": str,
+    },
+    total=False,
+)
+
+AssociateRouteTableResultTypeDef = TypedDict(
+    "AssociateRouteTableResultTypeDef",
+    {
+        "AssociationId": str,
+        "AssociationState": "RouteTableAssociationStateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociateSubnetCidrBlockRequestRequestTypeDef = TypedDict(
+    "AssociateSubnetCidrBlockRequestRequestTypeDef",
+    {
+        "Ipv6CidrBlock": str,
+        "SubnetId": str,
+    },
+)
+
+AssociateSubnetCidrBlockResultTypeDef = TypedDict(
+    "AssociateSubnetCidrBlockResultTypeDef",
+    {
+        "Ipv6CidrBlockAssociation": "SubnetIpv6CidrBlockAssociationTypeDef",
+        "SubnetId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "AssociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "TransitGatewayAttachmentId": str,
+        "SubnetIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+AssociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
+    "AssociateTransitGatewayMulticastDomainResultTypeDef",
+    {
+        "Associations": "TransitGatewayMulticastDomainAssociationsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalAssociateTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateTransitGatewayRouteTableRequestRequestTypeDef(
+    _RequiredAssociateTransitGatewayRouteTableRequestRequestTypeDef,
+    _OptionalAssociateTransitGatewayRouteTableRequestRequestTypeDef,
+):
+    pass
+
+AssociateTransitGatewayRouteTableResultTypeDef = TypedDict(
+    "AssociateTransitGatewayRouteTableResultTypeDef",
+    {
+        "Association": "TransitGatewayAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateTrunkInterfaceRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateTrunkInterfaceRequestRequestTypeDef",
+    {
+        "BranchInterfaceId": str,
+        "TrunkInterfaceId": str,
+    },
+)
+_OptionalAssociateTrunkInterfaceRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateTrunkInterfaceRequestRequestTypeDef",
+    {
+        "VlanId": int,
+        "GreKey": int,
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AssociateTrunkInterfaceRequestRequestTypeDef(
+    _RequiredAssociateTrunkInterfaceRequestRequestTypeDef,
+    _OptionalAssociateTrunkInterfaceRequestRequestTypeDef,
+):
+    pass
+
+AssociateTrunkInterfaceResultTypeDef = TypedDict(
+    "AssociateTrunkInterfaceResultTypeDef",
+    {
+        "InterfaceAssociation": "TrunkInterfaceAssociationTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAssociateVpcCidrBlockRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateVpcCidrBlockRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalAssociateVpcCidrBlockRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateVpcCidrBlockRequestRequestTypeDef",
+    {
+        "AmazonProvidedIpv6CidrBlock": bool,
+        "CidrBlock": str,
+        "Ipv6CidrBlockNetworkBorderGroup": str,
+        "Ipv6Pool": str,
+        "Ipv6CidrBlock": str,
+    },
+    total=False,
+)
+
+class AssociateVpcCidrBlockRequestRequestTypeDef(
+    _RequiredAssociateVpcCidrBlockRequestRequestTypeDef,
+    _OptionalAssociateVpcCidrBlockRequestRequestTypeDef,
+):
+    pass
+
+AssociateVpcCidrBlockResultTypeDef = TypedDict(
+    "AssociateVpcCidrBlockResultTypeDef",
+    {
+        "Ipv6CidrBlockAssociation": "VpcIpv6CidrBlockAssociationTypeDef",
+        "CidrBlockAssociation": "VpcCidrBlockAssociationTypeDef",
+        "VpcId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AssociatedRoleTypeDef = TypedDict(
@@ -1084,25 +2748,333 @@ AssociatedRoleTypeDef = TypedDict(
 )
 
 AssociatedTargetNetworkTypeDef = TypedDict(
-    "AssociatedTargetNetworkTypeDef", {"NetworkId": str, "NetworkType": Literal["vpc"]}, total=False
+    "AssociatedTargetNetworkTypeDef",
+    {
+        "NetworkId": str,
+        "NetworkType": Literal["vpc"],
+    },
+    total=False,
 )
 
 AssociationStatusTypeDef = TypedDict(
     "AssociationStatusTypeDef",
     {
-        "Code": Literal[
-            "associating", "associated", "association-failed", "disassociating", "disassociated"
-        ],
+        "Code": AssociationStatusCodeType,
         "Message": str,
     },
     total=False,
 )
 
-AttributeBooleanValueTypeDef = TypedDict(
-    "AttributeBooleanValueTypeDef", {"Value": bool}, total=False
+_RequiredAthenaIntegrationTypeDef = TypedDict(
+    "_RequiredAthenaIntegrationTypeDef",
+    {
+        "IntegrationResultS3DestinationArn": str,
+        "PartitionLoadFrequency": PartitionLoadFrequencyType,
+    },
+)
+_OptionalAthenaIntegrationTypeDef = TypedDict(
+    "_OptionalAthenaIntegrationTypeDef",
+    {
+        "PartitionStartDate": Union[datetime, str],
+        "PartitionEndDate": Union[datetime, str],
+    },
+    total=False,
 )
 
-AttributeValueTypeDef = TypedDict("AttributeValueTypeDef", {"Value": str}, total=False)
+class AthenaIntegrationTypeDef(
+    _RequiredAthenaIntegrationTypeDef, _OptionalAthenaIntegrationTypeDef
+):
+    pass
+
+_RequiredAttachClassicLinkVpcRequestInstanceTypeDef = TypedDict(
+    "_RequiredAttachClassicLinkVpcRequestInstanceTypeDef",
+    {
+        "Groups": List[str],
+        "VpcId": str,
+    },
+)
+_OptionalAttachClassicLinkVpcRequestInstanceTypeDef = TypedDict(
+    "_OptionalAttachClassicLinkVpcRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachClassicLinkVpcRequestInstanceTypeDef(
+    _RequiredAttachClassicLinkVpcRequestInstanceTypeDef,
+    _OptionalAttachClassicLinkVpcRequestInstanceTypeDef,
+):
+    pass
+
+_RequiredAttachClassicLinkVpcRequestRequestTypeDef = TypedDict(
+    "_RequiredAttachClassicLinkVpcRequestRequestTypeDef",
+    {
+        "Groups": List[str],
+        "InstanceId": str,
+        "VpcId": str,
+    },
+)
+_OptionalAttachClassicLinkVpcRequestRequestTypeDef = TypedDict(
+    "_OptionalAttachClassicLinkVpcRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachClassicLinkVpcRequestRequestTypeDef(
+    _RequiredAttachClassicLinkVpcRequestRequestTypeDef,
+    _OptionalAttachClassicLinkVpcRequestRequestTypeDef,
+):
+    pass
+
+_RequiredAttachClassicLinkVpcRequestVpcTypeDef = TypedDict(
+    "_RequiredAttachClassicLinkVpcRequestVpcTypeDef",
+    {
+        "Groups": List[str],
+        "InstanceId": str,
+    },
+)
+_OptionalAttachClassicLinkVpcRequestVpcTypeDef = TypedDict(
+    "_OptionalAttachClassicLinkVpcRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachClassicLinkVpcRequestVpcTypeDef(
+    _RequiredAttachClassicLinkVpcRequestVpcTypeDef, _OptionalAttachClassicLinkVpcRequestVpcTypeDef
+):
+    pass
+
+AttachClassicLinkVpcResultTypeDef = TypedDict(
+    "AttachClassicLinkVpcResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAttachInternetGatewayRequestInternetGatewayTypeDef = TypedDict(
+    "_RequiredAttachInternetGatewayRequestInternetGatewayTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalAttachInternetGatewayRequestInternetGatewayTypeDef = TypedDict(
+    "_OptionalAttachInternetGatewayRequestInternetGatewayTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachInternetGatewayRequestInternetGatewayTypeDef(
+    _RequiredAttachInternetGatewayRequestInternetGatewayTypeDef,
+    _OptionalAttachInternetGatewayRequestInternetGatewayTypeDef,
+):
+    pass
+
+_RequiredAttachInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredAttachInternetGatewayRequestRequestTypeDef",
+    {
+        "InternetGatewayId": str,
+        "VpcId": str,
+    },
+)
+_OptionalAttachInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalAttachInternetGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachInternetGatewayRequestRequestTypeDef(
+    _RequiredAttachInternetGatewayRequestRequestTypeDef,
+    _OptionalAttachInternetGatewayRequestRequestTypeDef,
+):
+    pass
+
+_RequiredAttachInternetGatewayRequestVpcTypeDef = TypedDict(
+    "_RequiredAttachInternetGatewayRequestVpcTypeDef",
+    {
+        "InternetGatewayId": str,
+    },
+)
+_OptionalAttachInternetGatewayRequestVpcTypeDef = TypedDict(
+    "_OptionalAttachInternetGatewayRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachInternetGatewayRequestVpcTypeDef(
+    _RequiredAttachInternetGatewayRequestVpcTypeDef, _OptionalAttachInternetGatewayRequestVpcTypeDef
+):
+    pass
+
+_RequiredAttachNetworkInterfaceRequestNetworkInterfaceTypeDef = TypedDict(
+    "_RequiredAttachNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    {
+        "DeviceIndex": int,
+        "InstanceId": str,
+    },
+)
+_OptionalAttachNetworkInterfaceRequestNetworkInterfaceTypeDef = TypedDict(
+    "_OptionalAttachNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    {
+        "DryRun": bool,
+        "NetworkCardIndex": int,
+    },
+    total=False,
+)
+
+class AttachNetworkInterfaceRequestNetworkInterfaceTypeDef(
+    _RequiredAttachNetworkInterfaceRequestNetworkInterfaceTypeDef,
+    _OptionalAttachNetworkInterfaceRequestNetworkInterfaceTypeDef,
+):
+    pass
+
+_RequiredAttachNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_RequiredAttachNetworkInterfaceRequestRequestTypeDef",
+    {
+        "DeviceIndex": int,
+        "InstanceId": str,
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalAttachNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_OptionalAttachNetworkInterfaceRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "NetworkCardIndex": int,
+    },
+    total=False,
+)
+
+class AttachNetworkInterfaceRequestRequestTypeDef(
+    _RequiredAttachNetworkInterfaceRequestRequestTypeDef,
+    _OptionalAttachNetworkInterfaceRequestRequestTypeDef,
+):
+    pass
+
+AttachNetworkInterfaceResultTypeDef = TypedDict(
+    "AttachNetworkInterfaceResultTypeDef",
+    {
+        "AttachmentId": str,
+        "NetworkCardIndex": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAttachVolumeRequestInstanceTypeDef = TypedDict(
+    "_RequiredAttachVolumeRequestInstanceTypeDef",
+    {
+        "Device": str,
+        "VolumeId": str,
+    },
+)
+_OptionalAttachVolumeRequestInstanceTypeDef = TypedDict(
+    "_OptionalAttachVolumeRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachVolumeRequestInstanceTypeDef(
+    _RequiredAttachVolumeRequestInstanceTypeDef, _OptionalAttachVolumeRequestInstanceTypeDef
+):
+    pass
+
+_RequiredAttachVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredAttachVolumeRequestRequestTypeDef",
+    {
+        "Device": str,
+        "InstanceId": str,
+        "VolumeId": str,
+    },
+)
+_OptionalAttachVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalAttachVolumeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachVolumeRequestRequestTypeDef(
+    _RequiredAttachVolumeRequestRequestTypeDef, _OptionalAttachVolumeRequestRequestTypeDef
+):
+    pass
+
+_RequiredAttachVolumeRequestVolumeTypeDef = TypedDict(
+    "_RequiredAttachVolumeRequestVolumeTypeDef",
+    {
+        "Device": str,
+        "InstanceId": str,
+    },
+)
+_OptionalAttachVolumeRequestVolumeTypeDef = TypedDict(
+    "_OptionalAttachVolumeRequestVolumeTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachVolumeRequestVolumeTypeDef(
+    _RequiredAttachVolumeRequestVolumeTypeDef, _OptionalAttachVolumeRequestVolumeTypeDef
+):
+    pass
+
+_RequiredAttachVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredAttachVpnGatewayRequestRequestTypeDef",
+    {
+        "VpcId": str,
+        "VpnGatewayId": str,
+    },
+)
+_OptionalAttachVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalAttachVpnGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AttachVpnGatewayRequestRequestTypeDef(
+    _RequiredAttachVpnGatewayRequestRequestTypeDef, _OptionalAttachVpnGatewayRequestRequestTypeDef
+):
+    pass
+
+AttachVpnGatewayResultTypeDef = TypedDict(
+    "AttachVpnGatewayResultTypeDef",
+    {
+        "VpcAttachment": "VpcAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AttributeBooleanValueTypeDef = TypedDict(
+    "AttributeBooleanValueTypeDef",
+    {
+        "Value": bool,
+    },
+    total=False,
+)
+
+AttributeValueTypeDef = TypedDict(
+    "AttributeValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
 
 AuthorizationRuleTypeDef = TypedDict(
     "AuthorizationRuleTypeDef",
@@ -1117,15 +3089,149 @@ AuthorizationRuleTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAuthorizeClientVpnIngressRequestRequestTypeDef = TypedDict(
+    "_RequiredAuthorizeClientVpnIngressRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "TargetNetworkCidr": str,
+    },
+)
+_OptionalAuthorizeClientVpnIngressRequestRequestTypeDef = TypedDict(
+    "_OptionalAuthorizeClientVpnIngressRequestRequestTypeDef",
+    {
+        "AccessGroupId": str,
+        "AuthorizeAllGroups": bool,
+        "Description": str,
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class AuthorizeClientVpnIngressRequestRequestTypeDef(
+    _RequiredAuthorizeClientVpnIngressRequestRequestTypeDef,
+    _OptionalAuthorizeClientVpnIngressRequestRequestTypeDef,
+):
+    pass
+
+AuthorizeClientVpnIngressResultTypeDef = TypedDict(
+    "AuthorizeClientVpnIngressResultTypeDef",
+    {
+        "Status": "ClientVpnAuthorizationRuleStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAuthorizeSecurityGroupEgressRequestRequestTypeDef = TypedDict(
+    "_RequiredAuthorizeSecurityGroupEgressRequestRequestTypeDef",
+    {
+        "GroupId": str,
+    },
+)
+_OptionalAuthorizeSecurityGroupEgressRequestRequestTypeDef = TypedDict(
+    "_OptionalAuthorizeSecurityGroupEgressRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "CidrIp": str,
+        "FromPort": int,
+        "IpProtocol": str,
+        "ToPort": int,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+    },
+    total=False,
+)
+
+class AuthorizeSecurityGroupEgressRequestRequestTypeDef(
+    _RequiredAuthorizeSecurityGroupEgressRequestRequestTypeDef,
+    _OptionalAuthorizeSecurityGroupEgressRequestRequestTypeDef,
+):
+    pass
+
+AuthorizeSecurityGroupEgressRequestSecurityGroupTypeDef = TypedDict(
+    "AuthorizeSecurityGroupEgressRequestSecurityGroupTypeDef",
+    {
+        "DryRun": bool,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "CidrIp": str,
+        "FromPort": int,
+        "IpProtocol": str,
+        "ToPort": int,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+    },
+    total=False,
+)
+
+AuthorizeSecurityGroupEgressResultTypeDef = TypedDict(
+    "AuthorizeSecurityGroupEgressResultTypeDef",
+    {
+        "Return": bool,
+        "SecurityGroupRules": List["SecurityGroupRuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AuthorizeSecurityGroupIngressRequestRequestTypeDef = TypedDict(
+    "AuthorizeSecurityGroupIngressRequestRequestTypeDef",
+    {
+        "CidrIp": str,
+        "FromPort": int,
+        "GroupId": str,
+        "GroupName": str,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "IpProtocol": str,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+        "ToPort": int,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+AuthorizeSecurityGroupIngressRequestSecurityGroupTypeDef = TypedDict(
+    "AuthorizeSecurityGroupIngressRequestSecurityGroupTypeDef",
+    {
+        "CidrIp": str,
+        "FromPort": int,
+        "GroupName": str,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "IpProtocol": str,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+        "ToPort": int,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+AuthorizeSecurityGroupIngressResultTypeDef = TypedDict(
+    "AuthorizeSecurityGroupIngressResultTypeDef",
+    {
+        "Return": bool,
+        "SecurityGroupRules": List["SecurityGroupRuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 AvailabilityZoneMessageTypeDef = TypedDict(
-    "AvailabilityZoneMessageTypeDef", {"Message": str}, total=False
+    "AvailabilityZoneMessageTypeDef",
+    {
+        "Message": str,
+    },
+    total=False,
 )
 
 AvailabilityZoneTypeDef = TypedDict(
     "AvailabilityZoneTypeDef",
     {
-        "State": Literal["available", "information", "impaired", "unavailable"],
-        "OptInStatus": Literal["opt-in-not-required", "opted-in", "not-opted-in"],
+        "State": AvailabilityZoneStateType,
+        "OptInStatus": AvailabilityZoneOptInStatusType,
         "Messages": List["AvailabilityZoneMessageTypeDef"],
         "RegionName": str,
         "ZoneName": str,
@@ -1141,18 +3247,67 @@ AvailabilityZoneTypeDef = TypedDict(
 
 AvailableCapacityTypeDef = TypedDict(
     "AvailableCapacityTypeDef",
-    {"AvailableInstanceCapacity": List["InstanceCapacityTypeDef"], "AvailableVCpus": int},
+    {
+        "AvailableInstanceCapacity": List["InstanceCapacityTypeDef"],
+        "AvailableVCpus": int,
+    },
+    total=False,
+)
+
+BlobAttributeValueTypeDef = TypedDict(
+    "BlobAttributeValueTypeDef",
+    {
+        "Value": Union[bytes, IO[bytes], StreamingBody],
+    },
     total=False,
 )
 
 BlockDeviceMappingTypeDef = TypedDict(
     "BlockDeviceMappingTypeDef",
-    {"DeviceName": str, "VirtualName": str, "Ebs": "EbsBlockDeviceTypeDef", "NoDevice": str},
+    {
+        "DeviceName": str,
+        "VirtualName": str,
+        "Ebs": "EbsBlockDeviceTypeDef",
+        "NoDevice": str,
+    },
     total=False,
 )
 
+_RequiredBundleInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredBundleInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Storage": "StorageTypeDef",
+    },
+)
+_OptionalBundleInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalBundleInstanceRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class BundleInstanceRequestRequestTypeDef(
+    _RequiredBundleInstanceRequestRequestTypeDef, _OptionalBundleInstanceRequestRequestTypeDef
+):
+    pass
+
+BundleInstanceResultTypeDef = TypedDict(
+    "BundleInstanceResultTypeDef",
+    {
+        "BundleTask": "BundleTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 BundleTaskErrorTypeDef = TypedDict(
-    "BundleTaskErrorTypeDef", {"Code": str, "Message": str}, total=False
+    "BundleTaskErrorTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )
 
 BundleTaskTypeDef = TypedDict(
@@ -1163,15 +3318,7 @@ BundleTaskTypeDef = TypedDict(
         "InstanceId": str,
         "Progress": str,
         "StartTime": datetime,
-        "State": Literal[
-            "pending",
-            "waiting-for-shutdown",
-            "bundling",
-            "storing",
-            "cancelling",
-            "complete",
-            "failed",
-        ],
+        "State": BundleTaskStateType,
         "Storage": "StorageTypeDef",
         "UpdateTime": datetime,
     },
@@ -1184,109 +3331,281 @@ ByoipCidrTypeDef = TypedDict(
         "Cidr": str,
         "Description": str,
         "StatusMessage": str,
-        "State": Literal[
-            "advertised",
-            "deprovisioned",
-            "failed-deprovision",
-            "failed-provision",
-            "pending-deprovision",
-            "pending-provision",
-            "provisioned",
-            "provisioned-not-publicly-advertisable",
-        ],
+        "State": ByoipCidrStateType,
     },
     total=False,
 )
 
+_RequiredCancelBundleTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelBundleTaskRequestRequestTypeDef",
+    {
+        "BundleId": str,
+    },
+)
+_OptionalCancelBundleTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelBundleTaskRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelBundleTaskRequestRequestTypeDef(
+    _RequiredCancelBundleTaskRequestRequestTypeDef, _OptionalCancelBundleTaskRequestRequestTypeDef
+):
+    pass
+
+CancelBundleTaskResultTypeDef = TypedDict(
+    "CancelBundleTaskResultTypeDef",
+    {
+        "BundleTask": "BundleTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCancelCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelCapacityReservationRequestRequestTypeDef",
+    {
+        "CapacityReservationId": str,
+    },
+)
+_OptionalCancelCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelCapacityReservationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelCapacityReservationRequestRequestTypeDef(
+    _RequiredCancelCapacityReservationRequestRequestTypeDef,
+    _OptionalCancelCapacityReservationRequestRequestTypeDef,
+):
+    pass
+
+CancelCapacityReservationResultTypeDef = TypedDict(
+    "CancelCapacityReservationResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCancelConversionRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelConversionRequestRequestTypeDef",
+    {
+        "ConversionTaskId": str,
+    },
+)
+_OptionalCancelConversionRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelConversionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ReasonMessage": str,
+    },
+    total=False,
+)
+
+class CancelConversionRequestRequestTypeDef(
+    _RequiredCancelConversionRequestRequestTypeDef, _OptionalCancelConversionRequestRequestTypeDef
+):
+    pass
+
+CancelExportTaskRequestRequestTypeDef = TypedDict(
+    "CancelExportTaskRequestRequestTypeDef",
+    {
+        "ExportTaskId": str,
+    },
+)
+
+CancelImportTaskRequestRequestTypeDef = TypedDict(
+    "CancelImportTaskRequestRequestTypeDef",
+    {
+        "CancelReason": str,
+        "DryRun": bool,
+        "ImportTaskId": str,
+    },
+    total=False,
+)
+
+CancelImportTaskResultTypeDef = TypedDict(
+    "CancelImportTaskResultTypeDef",
+    {
+        "ImportTaskId": str,
+        "PreviousState": str,
+        "State": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CancelReservedInstancesListingRequestRequestTypeDef = TypedDict(
+    "CancelReservedInstancesListingRequestRequestTypeDef",
+    {
+        "ReservedInstancesListingId": str,
+    },
+)
+
+CancelReservedInstancesListingResultTypeDef = TypedDict(
+    "CancelReservedInstancesListingResultTypeDef",
+    {
+        "ReservedInstancesListings": List["ReservedInstancesListingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CancelSpotFleetRequestsErrorItemTypeDef = TypedDict(
     "CancelSpotFleetRequestsErrorItemTypeDef",
-    {"Error": "CancelSpotFleetRequestsErrorTypeDef", "SpotFleetRequestId": str},
+    {
+        "Error": "CancelSpotFleetRequestsErrorTypeDef",
+        "SpotFleetRequestId": str,
+    },
     total=False,
 )
 
 CancelSpotFleetRequestsErrorTypeDef = TypedDict(
     "CancelSpotFleetRequestsErrorTypeDef",
     {
-        "Code": Literal[
-            "fleetRequestIdDoesNotExist",
-            "fleetRequestIdMalformed",
-            "fleetRequestNotInCancellableState",
-            "unexpectedError",
-        ],
+        "Code": CancelBatchErrorCodeType,
         "Message": str,
     },
     total=False,
 )
 
+_RequiredCancelSpotFleetRequestsRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelSpotFleetRequestsRequestRequestTypeDef",
+    {
+        "SpotFleetRequestIds": List[str],
+        "TerminateInstances": bool,
+    },
+)
+_OptionalCancelSpotFleetRequestsRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelSpotFleetRequestsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelSpotFleetRequestsRequestRequestTypeDef(
+    _RequiredCancelSpotFleetRequestsRequestRequestTypeDef,
+    _OptionalCancelSpotFleetRequestsRequestRequestTypeDef,
+):
+    pass
+
+CancelSpotFleetRequestsResponseTypeDef = TypedDict(
+    "CancelSpotFleetRequestsResponseTypeDef",
+    {
+        "SuccessfulFleetRequests": List["CancelSpotFleetRequestsSuccessItemTypeDef"],
+        "UnsuccessfulFleetRequests": List["CancelSpotFleetRequestsErrorItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CancelSpotFleetRequestsSuccessItemTypeDef = TypedDict(
     "CancelSpotFleetRequestsSuccessItemTypeDef",
     {
-        "CurrentSpotFleetRequestState": Literal[
-            "submitted",
-            "active",
-            "cancelled",
-            "failed",
-            "cancelled_running",
-            "cancelled_terminating",
-            "modifying",
-        ],
-        "PreviousSpotFleetRequestState": Literal[
-            "submitted",
-            "active",
-            "cancelled",
-            "failed",
-            "cancelled_running",
-            "cancelled_terminating",
-            "modifying",
-        ],
+        "CurrentSpotFleetRequestState": BatchStateType,
+        "PreviousSpotFleetRequestState": BatchStateType,
         "SpotFleetRequestId": str,
     },
     total=False,
+)
+
+_RequiredCancelSpotInstanceRequestsRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelSpotInstanceRequestsRequestRequestTypeDef",
+    {
+        "SpotInstanceRequestIds": List[str],
+    },
+)
+_OptionalCancelSpotInstanceRequestsRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelSpotInstanceRequestsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelSpotInstanceRequestsRequestRequestTypeDef(
+    _RequiredCancelSpotInstanceRequestsRequestRequestTypeDef,
+    _OptionalCancelSpotInstanceRequestsRequestRequestTypeDef,
+):
+    pass
+
+CancelSpotInstanceRequestsResultTypeDef = TypedDict(
+    "CancelSpotInstanceRequestsResultTypeDef",
+    {
+        "CancelledSpotInstanceRequests": List["CancelledSpotInstanceRequestTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CancelledSpotInstanceRequestTypeDef = TypedDict(
     "CancelledSpotInstanceRequestTypeDef",
     {
         "SpotInstanceRequestId": str,
-        "State": Literal["active", "open", "closed", "cancelled", "completed"],
+        "State": CancelSpotInstanceRequestStateType,
     },
     total=False,
 )
 
 CapacityReservationGroupTypeDef = TypedDict(
-    "CapacityReservationGroupTypeDef", {"GroupArn": str, "OwnerId": str}, total=False
+    "CapacityReservationGroupTypeDef",
+    {
+        "GroupArn": str,
+        "OwnerId": str,
+    },
+    total=False,
 )
 
 CapacityReservationOptionsRequestTypeDef = TypedDict(
     "CapacityReservationOptionsRequestTypeDef",
-    {"UsageStrategy": Literal["use-capacity-reservations-first"]},
+    {
+        "UsageStrategy": Literal["use-capacity-reservations-first"],
+    },
     total=False,
 )
 
 CapacityReservationOptionsTypeDef = TypedDict(
     "CapacityReservationOptionsTypeDef",
-    {"UsageStrategy": Literal["use-capacity-reservations-first"]},
+    {
+        "UsageStrategy": Literal["use-capacity-reservations-first"],
+    },
     total=False,
 )
 
 CapacityReservationSpecificationResponseTypeDef = TypedDict(
     "CapacityReservationSpecificationResponseTypeDef",
     {
-        "CapacityReservationPreference": Literal["open", "none"],
+        "CapacityReservationPreference": CapacityReservationPreferenceType,
         "CapacityReservationTarget": "CapacityReservationTargetResponseTypeDef",
+    },
+    total=False,
+)
+
+CapacityReservationSpecificationTypeDef = TypedDict(
+    "CapacityReservationSpecificationTypeDef",
+    {
+        "CapacityReservationPreference": CapacityReservationPreferenceType,
+        "CapacityReservationTarget": "CapacityReservationTargetTypeDef",
     },
     total=False,
 )
 
 CapacityReservationTargetResponseTypeDef = TypedDict(
     "CapacityReservationTargetResponseTypeDef",
-    {"CapacityReservationId": str, "CapacityReservationResourceGroupArn": str},
+    {
+        "CapacityReservationId": str,
+        "CapacityReservationResourceGroupArn": str,
+    },
     total=False,
 )
 
 CapacityReservationTargetTypeDef = TypedDict(
     "CapacityReservationTargetTypeDef",
-    {"CapacityReservationId": str, "CapacityReservationResourceGroupArn": str},
+    {
+        "CapacityReservationId": str,
+        "CapacityReservationResourceGroupArn": str,
+    },
     total=False,
 )
 
@@ -1298,32 +3617,21 @@ CapacityReservationTypeDef = TypedDict(
         "CapacityReservationArn": str,
         "AvailabilityZoneId": str,
         "InstanceType": str,
-        "InstancePlatform": Literal[
-            "Linux/UNIX",
-            "Red Hat Enterprise Linux",
-            "SUSE Linux",
-            "Windows",
-            "Windows with SQL Server",
-            "Windows with SQL Server Enterprise",
-            "Windows with SQL Server Standard",
-            "Windows with SQL Server Web",
-            "Linux with SQL Server Standard",
-            "Linux with SQL Server Web",
-            "Linux with SQL Server Enterprise",
-        ],
+        "InstancePlatform": CapacityReservationInstancePlatformType,
         "AvailabilityZone": str,
-        "Tenancy": Literal["default", "dedicated"],
+        "Tenancy": CapacityReservationTenancyType,
         "TotalInstanceCount": int,
         "AvailableInstanceCount": int,
         "EbsOptimized": bool,
         "EphemeralStorage": bool,
-        "State": Literal["active", "expired", "cancelled", "pending", "failed"],
+        "State": CapacityReservationStateType,
         "StartDate": datetime,
         "EndDate": datetime,
-        "EndDateType": Literal["unlimited", "limited"],
-        "InstanceMatchCriteria": Literal["open", "targeted"],
+        "EndDateType": EndDateTypeType,
+        "InstanceMatchCriteria": InstanceMatchCriteriaType,
         "CreateDate": datetime,
         "Tags": List["TagTypeDef"],
+        "OutpostArn": str,
     },
     total=False,
 )
@@ -1333,7 +3641,7 @@ CarrierGatewayTypeDef = TypedDict(
     {
         "CarrierGatewayId": str,
         "VpcId": str,
-        "State": Literal["pending", "available", "deleting", "deleted"],
+        "State": CarrierGatewayStateType,
         "OwnerId": str,
         "Tags": List["TagTypeDef"],
     },
@@ -1341,17 +3649,44 @@ CarrierGatewayTypeDef = TypedDict(
 )
 
 CertificateAuthenticationRequestTypeDef = TypedDict(
-    "CertificateAuthenticationRequestTypeDef", {"ClientRootCertificateChainArn": str}, total=False
+    "CertificateAuthenticationRequestTypeDef",
+    {
+        "ClientRootCertificateChainArn": str,
+    },
+    total=False,
 )
 
 CertificateAuthenticationTypeDef = TypedDict(
-    "CertificateAuthenticationTypeDef", {"ClientRootCertificateChain": str}, total=False
+    "CertificateAuthenticationTypeDef",
+    {
+        "ClientRootCertificateChain": str,
+    },
+    total=False,
 )
 
-CidrBlockTypeDef = TypedDict("CidrBlockTypeDef", {"CidrBlock": str}, total=False)
+CidrAuthorizationContextTypeDef = TypedDict(
+    "CidrAuthorizationContextTypeDef",
+    {
+        "Message": str,
+        "Signature": str,
+    },
+)
+
+CidrBlockTypeDef = TypedDict(
+    "CidrBlockTypeDef",
+    {
+        "CidrBlock": str,
+    },
+    total=False,
+)
 
 ClassicLinkDnsSupportTypeDef = TypedDict(
-    "ClassicLinkDnsSupportTypeDef", {"ClassicLinkDnsSupported": bool, "VpcId": str}, total=False
+    "ClassicLinkDnsSupportTypeDef",
+    {
+        "ClassicLinkDnsSupported": bool,
+        "VpcId": str,
+    },
+    total=False,
 )
 
 ClassicLinkInstanceTypeDef = TypedDict(
@@ -1365,17 +3700,37 @@ ClassicLinkInstanceTypeDef = TypedDict(
     total=False,
 )
 
-ClassicLoadBalancerTypeDef = TypedDict("ClassicLoadBalancerTypeDef", {"Name": str}, total=False)
+ClassicLoadBalancerTypeDef = TypedDict(
+    "ClassicLoadBalancerTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
 
 ClassicLoadBalancersConfigTypeDef = TypedDict(
     "ClassicLoadBalancersConfigTypeDef",
-    {"ClassicLoadBalancers": List["ClassicLoadBalancerTypeDef"]},
+    {
+        "ClassicLoadBalancers": List["ClassicLoadBalancerTypeDef"],
+    },
     total=False,
 )
 
 ClientCertificateRevocationListStatusTypeDef = TypedDict(
     "ClientCertificateRevocationListStatusTypeDef",
-    {"Code": Literal["pending", "active"], "Message": str},
+    {
+        "Code": ClientCertificateRevocationListStatusCodeType,
+        "Message": str,
+    },
+    total=False,
+)
+
+ClientConnectOptionsTypeDef = TypedDict(
+    "ClientConnectOptionsTypeDef",
+    {
+        "Enabled": bool,
+        "LambdaFunctionArn": str,
+    },
     total=False,
 )
 
@@ -1389,14 +3744,32 @@ ClientConnectResponseOptionsTypeDef = TypedDict(
     total=False,
 )
 
+ClientDataTypeDef = TypedDict(
+    "ClientDataTypeDef",
+    {
+        "Comment": str,
+        "UploadEnd": Union[datetime, str],
+        "UploadSize": float,
+        "UploadStart": Union[datetime, str],
+    },
+    total=False,
+)
+
+ClientVpnAuthenticationRequestTypeDef = TypedDict(
+    "ClientVpnAuthenticationRequestTypeDef",
+    {
+        "Type": ClientVpnAuthenticationTypeType,
+        "ActiveDirectory": "DirectoryServiceAuthenticationRequestTypeDef",
+        "MutualAuthentication": "CertificateAuthenticationRequestTypeDef",
+        "FederatedAuthentication": "FederatedAuthenticationRequestTypeDef",
+    },
+    total=False,
+)
+
 ClientVpnAuthenticationTypeDef = TypedDict(
     "ClientVpnAuthenticationTypeDef",
     {
-        "Type": Literal[
-            "certificate-authentication",
-            "directory-service-authentication",
-            "federated-authentication",
-        ],
+        "Type": ClientVpnAuthenticationTypeType,
         "ActiveDirectory": "DirectoryServiceAuthenticationTypeDef",
         "MutualAuthentication": "CertificateAuthenticationTypeDef",
         "FederatedAuthentication": "FederatedAuthenticationTypeDef",
@@ -1406,13 +3779,19 @@ ClientVpnAuthenticationTypeDef = TypedDict(
 
 ClientVpnAuthorizationRuleStatusTypeDef = TypedDict(
     "ClientVpnAuthorizationRuleStatusTypeDef",
-    {"Code": Literal["authorizing", "active", "failed", "revoking"], "Message": str},
+    {
+        "Code": ClientVpnAuthorizationRuleStatusCodeType,
+        "Message": str,
+    },
     total=False,
 )
 
 ClientVpnConnectionStatusTypeDef = TypedDict(
     "ClientVpnConnectionStatusTypeDef",
-    {"Code": Literal["active", "failed-to-terminate", "terminating", "terminated"], "Message": str},
+    {
+        "Code": ClientVpnConnectionStatusCodeType,
+        "Message": str,
+    },
     total=False,
 )
 
@@ -1439,13 +3818,19 @@ ClientVpnConnectionTypeDef = TypedDict(
 
 ClientVpnEndpointAttributeStatusTypeDef = TypedDict(
     "ClientVpnEndpointAttributeStatusTypeDef",
-    {"Code": Literal["applying", "applied"], "Message": str},
+    {
+        "Code": ClientVpnEndpointAttributeStatusCodeType,
+        "Message": str,
+    },
     total=False,
 )
 
 ClientVpnEndpointStatusTypeDef = TypedDict(
     "ClientVpnEndpointStatusTypeDef",
-    {"Code": Literal["pending-associate", "available", "deleting", "deleted"], "Message": str},
+    {
+        "Code": ClientVpnEndpointStatusCodeType,
+        "Message": str,
+    },
     total=False,
 )
 
@@ -1462,7 +3847,7 @@ ClientVpnEndpointTypeDef = TypedDict(
         "DnsServers": List[str],
         "SplitTunnel": bool,
         "VpnProtocol": Literal["openvpn"],
-        "TransportProtocol": Literal["tcp", "udp"],
+        "TransportProtocol": TransportProtocolType,
         "VpnPort": int,
         "AssociatedTargetNetworks": List["AssociatedTargetNetworkTypeDef"],
         "ServerCertificateArn": str,
@@ -1479,7 +3864,10 @@ ClientVpnEndpointTypeDef = TypedDict(
 
 ClientVpnRouteStatusTypeDef = TypedDict(
     "ClientVpnRouteStatusTypeDef",
-    {"Code": Literal["creating", "active", "failed", "deleting"], "Message": str},
+    {
+        "Code": ClientVpnRouteStatusCodeType,
+        "Message": str,
+    },
     total=False,
 )
 
@@ -1499,7 +3887,12 @@ ClientVpnRouteTypeDef = TypedDict(
 
 CoipAddressUsageTypeDef = TypedDict(
     "CoipAddressUsageTypeDef",
-    {"AllocationId": str, "AwsAccountId": str, "AwsService": str, "CoIp": str},
+    {
+        "AllocationId": str,
+        "AwsAccountId": str,
+        "AwsService": str,
+        "CoIp": str,
+    },
     total=False,
 )
 
@@ -1515,9 +3908,53 @@ CoipPoolTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredConfirmProductInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredConfirmProductInstanceRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ProductCode": str,
+    },
+)
+_OptionalConfirmProductInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalConfirmProductInstanceRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ConfirmProductInstanceRequestRequestTypeDef(
+    _RequiredConfirmProductInstanceRequestRequestTypeDef,
+    _OptionalConfirmProductInstanceRequestRequestTypeDef,
+):
+    pass
+
+ConfirmProductInstanceResultTypeDef = TypedDict(
+    "ConfirmProductInstanceResultTypeDef",
+    {
+        "OwnerId": str,
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ConnectionLogOptionsTypeDef = TypedDict(
+    "ConnectionLogOptionsTypeDef",
+    {
+        "Enabled": bool,
+        "CloudwatchLogGroup": str,
+        "CloudwatchLogStream": str,
+    },
+    total=False,
+)
+
 ConnectionLogResponseOptionsTypeDef = TypedDict(
     "ConnectionLogResponseOptionsTypeDef",
-    {"Enabled": bool, "CloudwatchLogGroup": str, "CloudwatchLogStream": str},
+    {
+        "Enabled": bool,
+        "CloudwatchLogGroup": str,
+        "CloudwatchLogStream": str,
+    },
     total=False,
 )
 
@@ -1530,7 +3967,7 @@ ConnectionNotificationTypeDef = TypedDict(
         "ConnectionNotificationType": Literal["Topic"],
         "ConnectionNotificationArn": str,
         "ConnectionEvents": List[str],
-        "ConnectionNotificationState": Literal["Enabled", "Disabled"],
+        "ConnectionNotificationState": ConnectionNotificationStateType,
     },
     total=False,
 )
@@ -1542,22 +3979,467 @@ ConversionTaskTypeDef = TypedDict(
         "ExpirationTime": str,
         "ImportInstance": "ImportInstanceTaskDetailsTypeDef",
         "ImportVolume": "ImportVolumeTaskDetailsTypeDef",
-        "State": Literal["active", "cancelling", "cancelled", "completed"],
+        "State": ConversionTaskStateType,
         "StatusMessage": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
 )
 
+_RequiredCopyFpgaImageRequestRequestTypeDef = TypedDict(
+    "_RequiredCopyFpgaImageRequestRequestTypeDef",
+    {
+        "SourceFpgaImageId": str,
+        "SourceRegion": str,
+    },
+)
+_OptionalCopyFpgaImageRequestRequestTypeDef = TypedDict(
+    "_OptionalCopyFpgaImageRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+        "Name": str,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CopyFpgaImageRequestRequestTypeDef(
+    _RequiredCopyFpgaImageRequestRequestTypeDef, _OptionalCopyFpgaImageRequestRequestTypeDef
+):
+    pass
+
+CopyFpgaImageResultTypeDef = TypedDict(
+    "CopyFpgaImageResultTypeDef",
+    {
+        "FpgaImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCopyImageRequestRequestTypeDef = TypedDict(
+    "_RequiredCopyImageRequestRequestTypeDef",
+    {
+        "Name": str,
+        "SourceImageId": str,
+        "SourceRegion": str,
+    },
+)
+_OptionalCopyImageRequestRequestTypeDef = TypedDict(
+    "_OptionalCopyImageRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Description": str,
+        "Encrypted": bool,
+        "KmsKeyId": str,
+        "DestinationOutpostArn": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CopyImageRequestRequestTypeDef(
+    _RequiredCopyImageRequestRequestTypeDef, _OptionalCopyImageRequestRequestTypeDef
+):
+    pass
+
+CopyImageResultTypeDef = TypedDict(
+    "CopyImageResultTypeDef",
+    {
+        "ImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCopySnapshotRequestRequestTypeDef = TypedDict(
+    "_RequiredCopySnapshotRequestRequestTypeDef",
+    {
+        "SourceRegion": str,
+        "SourceSnapshotId": str,
+    },
+)
+_OptionalCopySnapshotRequestRequestTypeDef = TypedDict(
+    "_OptionalCopySnapshotRequestRequestTypeDef",
+    {
+        "Description": str,
+        "DestinationOutpostArn": str,
+        "DestinationRegion": str,
+        "Encrypted": bool,
+        "KmsKeyId": str,
+        "PresignedUrl": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CopySnapshotRequestRequestTypeDef(
+    _RequiredCopySnapshotRequestRequestTypeDef, _OptionalCopySnapshotRequestRequestTypeDef
+):
+    pass
+
+_RequiredCopySnapshotRequestSnapshotTypeDef = TypedDict(
+    "_RequiredCopySnapshotRequestSnapshotTypeDef",
+    {
+        "SourceRegion": str,
+    },
+)
+_OptionalCopySnapshotRequestSnapshotTypeDef = TypedDict(
+    "_OptionalCopySnapshotRequestSnapshotTypeDef",
+    {
+        "Description": str,
+        "DestinationOutpostArn": str,
+        "DestinationRegion": str,
+        "Encrypted": bool,
+        "KmsKeyId": str,
+        "PresignedUrl": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CopySnapshotRequestSnapshotTypeDef(
+    _RequiredCopySnapshotRequestSnapshotTypeDef, _OptionalCopySnapshotRequestSnapshotTypeDef
+):
+    pass
+
+CopySnapshotResultTypeDef = TypedDict(
+    "CopySnapshotResultTypeDef",
+    {
+        "SnapshotId": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CpuOptionsRequestTypeDef = TypedDict(
+    "CpuOptionsRequestTypeDef",
+    {
+        "CoreCount": int,
+        "ThreadsPerCore": int,
+    },
+    total=False,
+)
+
 CpuOptionsTypeDef = TypedDict(
-    "CpuOptionsTypeDef", {"CoreCount": int, "ThreadsPerCore": int}, total=False
+    "CpuOptionsTypeDef",
+    {
+        "CoreCount": int,
+        "ThreadsPerCore": int,
+    },
+    total=False,
+)
+
+_RequiredCreateCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCapacityReservationRequestRequestTypeDef",
+    {
+        "InstanceType": str,
+        "InstancePlatform": CapacityReservationInstancePlatformType,
+        "InstanceCount": int,
+    },
+)
+_OptionalCreateCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCapacityReservationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "AvailabilityZone": str,
+        "AvailabilityZoneId": str,
+        "Tenancy": CapacityReservationTenancyType,
+        "EbsOptimized": bool,
+        "EphemeralStorage": bool,
+        "EndDate": Union[datetime, str],
+        "EndDateType": EndDateTypeType,
+        "InstanceMatchCriteria": InstanceMatchCriteriaType,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+        "OutpostArn": str,
+    },
+    total=False,
+)
+
+class CreateCapacityReservationRequestRequestTypeDef(
+    _RequiredCreateCapacityReservationRequestRequestTypeDef,
+    _OptionalCreateCapacityReservationRequestRequestTypeDef,
+):
+    pass
+
+CreateCapacityReservationResultTypeDef = TypedDict(
+    "CreateCapacityReservationResultTypeDef",
+    {
+        "CapacityReservation": "CapacityReservationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateCarrierGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCarrierGatewayRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateCarrierGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCarrierGatewayRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateCarrierGatewayRequestRequestTypeDef(
+    _RequiredCreateCarrierGatewayRequestRequestTypeDef,
+    _OptionalCreateCarrierGatewayRequestRequestTypeDef,
+):
+    pass
+
+CreateCarrierGatewayResultTypeDef = TypedDict(
+    "CreateCarrierGatewayResultTypeDef",
+    {
+        "CarrierGateway": "CarrierGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateClientVpnEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateClientVpnEndpointRequestRequestTypeDef",
+    {
+        "ClientCidrBlock": str,
+        "ServerCertificateArn": str,
+        "AuthenticationOptions": List["ClientVpnAuthenticationRequestTypeDef"],
+        "ConnectionLogOptions": "ConnectionLogOptionsTypeDef",
+    },
+)
+_OptionalCreateClientVpnEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateClientVpnEndpointRequestRequestTypeDef",
+    {
+        "DnsServers": List[str],
+        "TransportProtocol": TransportProtocolType,
+        "VpnPort": int,
+        "Description": str,
+        "SplitTunnel": bool,
+        "DryRun": bool,
+        "ClientToken": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "SecurityGroupIds": List[str],
+        "VpcId": str,
+        "SelfServicePortal": SelfServicePortalType,
+        "ClientConnectOptions": "ClientConnectOptionsTypeDef",
+    },
+    total=False,
+)
+
+class CreateClientVpnEndpointRequestRequestTypeDef(
+    _RequiredCreateClientVpnEndpointRequestRequestTypeDef,
+    _OptionalCreateClientVpnEndpointRequestRequestTypeDef,
+):
+    pass
+
+CreateClientVpnEndpointResultTypeDef = TypedDict(
+    "CreateClientVpnEndpointResultTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "Status": "ClientVpnEndpointStatusTypeDef",
+        "DnsName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateClientVpnRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateClientVpnRouteRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "DestinationCidrBlock": str,
+        "TargetVpcSubnetId": str,
+    },
+)
+_OptionalCreateClientVpnRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateClientVpnRouteRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateClientVpnRouteRequestRequestTypeDef(
+    _RequiredCreateClientVpnRouteRequestRequestTypeDef,
+    _OptionalCreateClientVpnRouteRequestRequestTypeDef,
+):
+    pass
+
+CreateClientVpnRouteResultTypeDef = TypedDict(
+    "CreateClientVpnRouteResultTypeDef",
+    {
+        "Status": "ClientVpnRouteStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateCustomerGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCustomerGatewayRequestRequestTypeDef",
+    {
+        "BgpAsn": int,
+        "Type": Literal["ipsec.1"],
+    },
+)
+_OptionalCreateCustomerGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCustomerGatewayRequestRequestTypeDef",
+    {
+        "PublicIp": str,
+        "CertificateArn": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DeviceName": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateCustomerGatewayRequestRequestTypeDef(
+    _RequiredCreateCustomerGatewayRequestRequestTypeDef,
+    _OptionalCreateCustomerGatewayRequestRequestTypeDef,
+):
+    pass
+
+CreateCustomerGatewayResultTypeDef = TypedDict(
+    "CreateCustomerGatewayResultTypeDef",
+    {
+        "CustomerGateway": "CustomerGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDefaultSubnetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDefaultSubnetRequestRequestTypeDef",
+    {
+        "AvailabilityZone": str,
+    },
+)
+_OptionalCreateDefaultSubnetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDefaultSubnetRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateDefaultSubnetRequestRequestTypeDef(
+    _RequiredCreateDefaultSubnetRequestRequestTypeDef,
+    _OptionalCreateDefaultSubnetRequestRequestTypeDef,
+):
+    pass
+
+CreateDefaultSubnetResultTypeDef = TypedDict(
+    "CreateDefaultSubnetResultTypeDef",
+    {
+        "Subnet": "SubnetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateDefaultVpcRequestRequestTypeDef = TypedDict(
+    "CreateDefaultVpcRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+CreateDefaultVpcResultTypeDef = TypedDict(
+    "CreateDefaultVpcResultTypeDef",
+    {
+        "Vpc": "VpcTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDhcpOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDhcpOptionsRequestRequestTypeDef",
+    {
+        "DhcpConfigurations": List["NewDhcpConfigurationTypeDef"],
+    },
+)
+_OptionalCreateDhcpOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDhcpOptionsRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateDhcpOptionsRequestRequestTypeDef(
+    _RequiredCreateDhcpOptionsRequestRequestTypeDef, _OptionalCreateDhcpOptionsRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateDhcpOptionsRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateDhcpOptionsRequestServiceResourceTypeDef",
+    {
+        "DhcpConfigurations": List["NewDhcpConfigurationTypeDef"],
+    },
+)
+_OptionalCreateDhcpOptionsRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateDhcpOptionsRequestServiceResourceTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateDhcpOptionsRequestServiceResourceTypeDef(
+    _RequiredCreateDhcpOptionsRequestServiceResourceTypeDef,
+    _OptionalCreateDhcpOptionsRequestServiceResourceTypeDef,
+):
+    pass
+
+CreateDhcpOptionsResultTypeDef = TypedDict(
+    "CreateDhcpOptionsResultTypeDef",
+    {
+        "DhcpOptions": "DhcpOptionsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateEgressOnlyInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEgressOnlyInternetGatewayRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateEgressOnlyInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEgressOnlyInternetGatewayRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateEgressOnlyInternetGatewayRequestRequestTypeDef(
+    _RequiredCreateEgressOnlyInternetGatewayRequestRequestTypeDef,
+    _OptionalCreateEgressOnlyInternetGatewayRequestRequestTypeDef,
+):
+    pass
+
+CreateEgressOnlyInternetGatewayResultTypeDef = TypedDict(
+    "CreateEgressOnlyInternetGatewayResultTypeDef",
+    {
+        "ClientToken": str,
+        "EgressOnlyInternetGateway": "EgressOnlyInternetGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CreateFleetErrorTypeDef = TypedDict(
     "CreateFleetErrorTypeDef",
     {
         "LaunchTemplateAndOverrides": "LaunchTemplateAndOverridesResponseTypeDef",
-        "Lifecycle": Literal["spot", "on-demand"],
+        "Lifecycle": InstanceLifecycleType,
         "ErrorCode": str,
         "ErrorMessage": str,
     },
@@ -1568,414 +4450,2381 @@ CreateFleetInstanceTypeDef = TypedDict(
     "CreateFleetInstanceTypeDef",
     {
         "LaunchTemplateAndOverrides": "LaunchTemplateAndOverridesResponseTypeDef",
-        "Lifecycle": Literal["spot", "on-demand"],
+        "Lifecycle": InstanceLifecycleType,
         "InstanceIds": List[str],
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "Platform": Literal["Windows"],
     },
     total=False,
 )
 
+_RequiredCreateFleetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFleetRequestRequestTypeDef",
+    {
+        "LaunchTemplateConfigs": List["FleetLaunchTemplateConfigRequestTypeDef"],
+        "TargetCapacitySpecification": "TargetCapacitySpecificationRequestTypeDef",
+    },
+)
+_OptionalCreateFleetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFleetRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+        "SpotOptions": "SpotOptionsRequestTypeDef",
+        "OnDemandOptions": "OnDemandOptionsRequestTypeDef",
+        "ExcessCapacityTerminationPolicy": FleetExcessCapacityTerminationPolicyType,
+        "TerminateInstancesWithExpiration": bool,
+        "Type": FleetTypeType,
+        "ValidFrom": Union[datetime, str],
+        "ValidUntil": Union[datetime, str],
+        "ReplaceUnhealthyInstances": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "Context": str,
+    },
+    total=False,
+)
+
+class CreateFleetRequestRequestTypeDef(
+    _RequiredCreateFleetRequestRequestTypeDef, _OptionalCreateFleetRequestRequestTypeDef
+):
+    pass
+
+CreateFleetResultTypeDef = TypedDict(
+    "CreateFleetResultTypeDef",
+    {
+        "FleetId": str,
+        "Errors": List["CreateFleetErrorTypeDef"],
+        "Instances": List["CreateFleetInstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFlowLogsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFlowLogsRequestRequestTypeDef",
+    {
+        "ResourceIds": List[str],
+        "ResourceType": FlowLogsResourceTypeType,
+        "TrafficType": TrafficTypeType,
+    },
+)
+_OptionalCreateFlowLogsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFlowLogsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+        "DeliverLogsPermissionArn": str,
+        "LogGroupName": str,
+        "LogDestinationType": LogDestinationTypeType,
+        "LogDestination": str,
+        "LogFormat": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "MaxAggregationInterval": int,
+    },
+    total=False,
+)
+
+class CreateFlowLogsRequestRequestTypeDef(
+    _RequiredCreateFlowLogsRequestRequestTypeDef, _OptionalCreateFlowLogsRequestRequestTypeDef
+):
+    pass
+
+CreateFlowLogsResultTypeDef = TypedDict(
+    "CreateFlowLogsResultTypeDef",
+    {
+        "ClientToken": str,
+        "FlowLogIds": List[str],
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFpgaImageRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFpgaImageRequestRequestTypeDef",
+    {
+        "InputStorageLocation": "StorageLocationTypeDef",
+    },
+)
+_OptionalCreateFpgaImageRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFpgaImageRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "LogsStorageLocation": "StorageLocationTypeDef",
+        "Description": str,
+        "Name": str,
+        "ClientToken": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFpgaImageRequestRequestTypeDef(
+    _RequiredCreateFpgaImageRequestRequestTypeDef, _OptionalCreateFpgaImageRequestRequestTypeDef
+):
+    pass
+
+CreateFpgaImageResultTypeDef = TypedDict(
+    "CreateFpgaImageResultTypeDef",
+    {
+        "FpgaImageId": str,
+        "FpgaImageGlobalId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateImageRequestInstanceTypeDef = TypedDict(
+    "_RequiredCreateImageRequestInstanceTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateImageRequestInstanceTypeDef = TypedDict(
+    "_OptionalCreateImageRequestInstanceTypeDef",
+    {
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "Description": str,
+        "DryRun": bool,
+        "NoReboot": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateImageRequestInstanceTypeDef(
+    _RequiredCreateImageRequestInstanceTypeDef, _OptionalCreateImageRequestInstanceTypeDef
+):
+    pass
+
+_RequiredCreateImageRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateImageRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Name": str,
+    },
+)
+_OptionalCreateImageRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateImageRequestRequestTypeDef",
+    {
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "Description": str,
+        "DryRun": bool,
+        "NoReboot": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateImageRequestRequestTypeDef(
+    _RequiredCreateImageRequestRequestTypeDef, _OptionalCreateImageRequestRequestTypeDef
+):
+    pass
+
+CreateImageResultTypeDef = TypedDict(
+    "CreateImageResultTypeDef",
+    {
+        "ImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "CreateInstanceEventWindowRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Name": str,
+        "TimeRanges": List["InstanceEventWindowTimeRangeRequestTypeDef"],
+        "CronExpression": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreateInstanceEventWindowResultTypeDef = TypedDict(
+    "CreateInstanceEventWindowResultTypeDef",
+    {
+        "InstanceEventWindow": "InstanceEventWindowTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateInstanceExportTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateInstanceExportTaskRequestRequestTypeDef",
+    {
+        "ExportToS3Task": "ExportToS3TaskSpecificationTypeDef",
+        "InstanceId": str,
+        "TargetEnvironment": ExportEnvironmentType,
+    },
+)
+_OptionalCreateInstanceExportTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateInstanceExportTaskRequestRequestTypeDef",
+    {
+        "Description": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateInstanceExportTaskRequestRequestTypeDef(
+    _RequiredCreateInstanceExportTaskRequestRequestTypeDef,
+    _OptionalCreateInstanceExportTaskRequestRequestTypeDef,
+):
+    pass
+
+CreateInstanceExportTaskResultTypeDef = TypedDict(
+    "CreateInstanceExportTaskResultTypeDef",
+    {
+        "ExportTask": "ExportTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateInternetGatewayRequestRequestTypeDef = TypedDict(
+    "CreateInternetGatewayRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+CreateInternetGatewayRequestServiceResourceTypeDef = TypedDict(
+    "CreateInternetGatewayRequestServiceResourceTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+CreateInternetGatewayResultTypeDef = TypedDict(
+    "CreateInternetGatewayResultTypeDef",
+    {
+        "InternetGateway": "InternetGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateKeyPairRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateKeyPairRequestRequestTypeDef",
+    {
+        "KeyName": str,
+    },
+)
+_OptionalCreateKeyPairRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateKeyPairRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateKeyPairRequestRequestTypeDef(
+    _RequiredCreateKeyPairRequestRequestTypeDef, _OptionalCreateKeyPairRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateKeyPairRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateKeyPairRequestServiceResourceTypeDef",
+    {
+        "KeyName": str,
+    },
+)
+_OptionalCreateKeyPairRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateKeyPairRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateKeyPairRequestServiceResourceTypeDef(
+    _RequiredCreateKeyPairRequestServiceResourceTypeDef,
+    _OptionalCreateKeyPairRequestServiceResourceTypeDef,
+):
+    pass
+
+_RequiredCreateLaunchTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLaunchTemplateRequestRequestTypeDef",
+    {
+        "LaunchTemplateName": str,
+        "LaunchTemplateData": "RequestLaunchTemplateDataTypeDef",
+    },
+)
+_OptionalCreateLaunchTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLaunchTemplateRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+        "VersionDescription": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLaunchTemplateRequestRequestTypeDef(
+    _RequiredCreateLaunchTemplateRequestRequestTypeDef,
+    _OptionalCreateLaunchTemplateRequestRequestTypeDef,
+):
+    pass
+
+CreateLaunchTemplateResultTypeDef = TypedDict(
+    "CreateLaunchTemplateResultTypeDef",
+    {
+        "LaunchTemplate": "LaunchTemplateTypeDef",
+        "Warning": "ValidationWarningTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLaunchTemplateVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLaunchTemplateVersionRequestRequestTypeDef",
+    {
+        "LaunchTemplateData": "RequestLaunchTemplateDataTypeDef",
+    },
+)
+_OptionalCreateLaunchTemplateVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLaunchTemplateVersionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "SourceVersion": str,
+        "VersionDescription": str,
+    },
+    total=False,
+)
+
+class CreateLaunchTemplateVersionRequestRequestTypeDef(
+    _RequiredCreateLaunchTemplateVersionRequestRequestTypeDef,
+    _OptionalCreateLaunchTemplateVersionRequestRequestTypeDef,
+):
+    pass
+
+CreateLaunchTemplateVersionResultTypeDef = TypedDict(
+    "CreateLaunchTemplateVersionResultTypeDef",
+    {
+        "LaunchTemplateVersion": "LaunchTemplateVersionTypeDef",
+        "Warning": "ValidationWarningTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocalGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocalGatewayRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "LocalGatewayRouteTableId": str,
+        "LocalGatewayVirtualInterfaceGroupId": str,
+    },
+)
+_OptionalCreateLocalGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocalGatewayRouteRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateLocalGatewayRouteRequestRequestTypeDef(
+    _RequiredCreateLocalGatewayRouteRequestRequestTypeDef,
+    _OptionalCreateLocalGatewayRouteRequestRequestTypeDef,
+):
+    pass
+
+CreateLocalGatewayRouteResultTypeDef = TypedDict(
+    "CreateLocalGatewayRouteResultTypeDef",
+    {
+        "Route": "LocalGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableId": str,
+        "VpcId": str,
+    },
+)
+_OptionalCreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef(
+    _RequiredCreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef,
+    _OptionalCreateLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef,
+):
+    pass
+
+CreateLocalGatewayRouteTableVpcAssociationResultTypeDef = TypedDict(
+    "CreateLocalGatewayRouteTableVpcAssociationResultTypeDef",
+    {
+        "LocalGatewayRouteTableVpcAssociation": "LocalGatewayRouteTableVpcAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateManagedPrefixListRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateManagedPrefixListRequestRequestTypeDef",
+    {
+        "PrefixListName": str,
+        "MaxEntries": int,
+        "AddressFamily": str,
+    },
+)
+_OptionalCreateManagedPrefixListRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateManagedPrefixListRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Entries": List["AddPrefixListEntryTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateManagedPrefixListRequestRequestTypeDef(
+    _RequiredCreateManagedPrefixListRequestRequestTypeDef,
+    _OptionalCreateManagedPrefixListRequestRequestTypeDef,
+):
+    pass
+
+CreateManagedPrefixListResultTypeDef = TypedDict(
+    "CreateManagedPrefixListResultTypeDef",
+    {
+        "PrefixList": "ManagedPrefixListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateNatGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNatGatewayRequestRequestTypeDef",
+    {
+        "SubnetId": str,
+    },
+)
+_OptionalCreateNatGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNatGatewayRequestRequestTypeDef",
+    {
+        "AllocationId": str,
+        "ClientToken": str,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ConnectivityType": ConnectivityTypeType,
+    },
+    total=False,
+)
+
+class CreateNatGatewayRequestRequestTypeDef(
+    _RequiredCreateNatGatewayRequestRequestTypeDef, _OptionalCreateNatGatewayRequestRequestTypeDef
+):
+    pass
+
+CreateNatGatewayResultTypeDef = TypedDict(
+    "CreateNatGatewayResultTypeDef",
+    {
+        "ClientToken": str,
+        "NatGateway": "NatGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateNetworkAclEntryRequestNetworkAclTypeDef = TypedDict(
+    "_RequiredCreateNetworkAclEntryRequestNetworkAclTypeDef",
+    {
+        "Egress": bool,
+        "Protocol": str,
+        "RuleAction": RuleActionType,
+        "RuleNumber": int,
+    },
+)
+_OptionalCreateNetworkAclEntryRequestNetworkAclTypeDef = TypedDict(
+    "_OptionalCreateNetworkAclEntryRequestNetworkAclTypeDef",
+    {
+        "CidrBlock": str,
+        "DryRun": bool,
+        "IcmpTypeCode": "IcmpTypeCodeTypeDef",
+        "Ipv6CidrBlock": str,
+        "PortRange": "PortRangeTypeDef",
+    },
+    total=False,
+)
+
+class CreateNetworkAclEntryRequestNetworkAclTypeDef(
+    _RequiredCreateNetworkAclEntryRequestNetworkAclTypeDef,
+    _OptionalCreateNetworkAclEntryRequestNetworkAclTypeDef,
+):
+    pass
+
+_RequiredCreateNetworkAclEntryRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNetworkAclEntryRequestRequestTypeDef",
+    {
+        "Egress": bool,
+        "NetworkAclId": str,
+        "Protocol": str,
+        "RuleAction": RuleActionType,
+        "RuleNumber": int,
+    },
+)
+_OptionalCreateNetworkAclEntryRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNetworkAclEntryRequestRequestTypeDef",
+    {
+        "CidrBlock": str,
+        "DryRun": bool,
+        "IcmpTypeCode": "IcmpTypeCodeTypeDef",
+        "Ipv6CidrBlock": str,
+        "PortRange": "PortRangeTypeDef",
+    },
+    total=False,
+)
+
+class CreateNetworkAclEntryRequestRequestTypeDef(
+    _RequiredCreateNetworkAclEntryRequestRequestTypeDef,
+    _OptionalCreateNetworkAclEntryRequestRequestTypeDef,
+):
+    pass
+
+_RequiredCreateNetworkAclRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNetworkAclRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateNetworkAclRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNetworkAclRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateNetworkAclRequestRequestTypeDef(
+    _RequiredCreateNetworkAclRequestRequestTypeDef, _OptionalCreateNetworkAclRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateNetworkAclRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateNetworkAclRequestServiceResourceTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateNetworkAclRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateNetworkAclRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateNetworkAclRequestServiceResourceTypeDef(
+    _RequiredCreateNetworkAclRequestServiceResourceTypeDef,
+    _OptionalCreateNetworkAclRequestServiceResourceTypeDef,
+):
+    pass
+
+CreateNetworkAclRequestVpcTypeDef = TypedDict(
+    "CreateNetworkAclRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreateNetworkAclResultTypeDef = TypedDict(
+    "CreateNetworkAclResultTypeDef",
+    {
+        "NetworkAcl": "NetworkAclTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateNetworkInsightsPathRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNetworkInsightsPathRequestRequestTypeDef",
+    {
+        "Source": str,
+        "Destination": str,
+        "Protocol": ProtocolType,
+        "ClientToken": str,
+    },
+)
+_OptionalCreateNetworkInsightsPathRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNetworkInsightsPathRequestRequestTypeDef",
+    {
+        "SourceIp": str,
+        "DestinationIp": str,
+        "DestinationPort": int,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateNetworkInsightsPathRequestRequestTypeDef(
+    _RequiredCreateNetworkInsightsPathRequestRequestTypeDef,
+    _OptionalCreateNetworkInsightsPathRequestRequestTypeDef,
+):
+    pass
+
+CreateNetworkInsightsPathResultTypeDef = TypedDict(
+    "CreateNetworkInsightsPathResultTypeDef",
+    {
+        "NetworkInsightsPath": "NetworkInsightsPathTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateNetworkInterfacePermissionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNetworkInterfacePermissionRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+        "Permission": InterfacePermissionTypeType,
+    },
+)
+_OptionalCreateNetworkInterfacePermissionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNetworkInterfacePermissionRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "AwsService": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateNetworkInterfacePermissionRequestRequestTypeDef(
+    _RequiredCreateNetworkInterfacePermissionRequestRequestTypeDef,
+    _OptionalCreateNetworkInterfacePermissionRequestRequestTypeDef,
+):
+    pass
+
+CreateNetworkInterfacePermissionResultTypeDef = TypedDict(
+    "CreateNetworkInterfacePermissionResultTypeDef",
+    {
+        "InterfacePermission": "NetworkInterfacePermissionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNetworkInterfaceRequestRequestTypeDef",
+    {
+        "SubnetId": str,
+    },
+)
+_OptionalCreateNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNetworkInterfaceRequestRequestTypeDef",
+    {
+        "Description": str,
+        "DryRun": bool,
+        "Groups": List[str],
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List["InstanceIpv6AddressTypeDef"],
+        "PrivateIpAddress": str,
+        "PrivateIpAddresses": List["PrivateIpAddressSpecificationTypeDef"],
+        "SecondaryPrivateIpAddressCount": int,
+        "Ipv4Prefixes": List["Ipv4PrefixSpecificationRequestTypeDef"],
+        "Ipv4PrefixCount": int,
+        "Ipv6Prefixes": List["Ipv6PrefixSpecificationRequestTypeDef"],
+        "Ipv6PrefixCount": int,
+        "InterfaceType": NetworkInterfaceCreationTypeType,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateNetworkInterfaceRequestRequestTypeDef(
+    _RequiredCreateNetworkInterfaceRequestRequestTypeDef,
+    _OptionalCreateNetworkInterfaceRequestRequestTypeDef,
+):
+    pass
+
+_RequiredCreateNetworkInterfaceRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateNetworkInterfaceRequestServiceResourceTypeDef",
+    {
+        "SubnetId": str,
+    },
+)
+_OptionalCreateNetworkInterfaceRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateNetworkInterfaceRequestServiceResourceTypeDef",
+    {
+        "Description": str,
+        "DryRun": bool,
+        "Groups": List[str],
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List["InstanceIpv6AddressTypeDef"],
+        "PrivateIpAddress": str,
+        "PrivateIpAddresses": List["PrivateIpAddressSpecificationTypeDef"],
+        "SecondaryPrivateIpAddressCount": int,
+        "Ipv4Prefixes": List["Ipv4PrefixSpecificationRequestTypeDef"],
+        "Ipv4PrefixCount": int,
+        "Ipv6Prefixes": List["Ipv6PrefixSpecificationRequestTypeDef"],
+        "Ipv6PrefixCount": int,
+        "InterfaceType": NetworkInterfaceCreationTypeType,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateNetworkInterfaceRequestServiceResourceTypeDef(
+    _RequiredCreateNetworkInterfaceRequestServiceResourceTypeDef,
+    _OptionalCreateNetworkInterfaceRequestServiceResourceTypeDef,
+):
+    pass
+
+CreateNetworkInterfaceRequestSubnetTypeDef = TypedDict(
+    "CreateNetworkInterfaceRequestSubnetTypeDef",
+    {
+        "Description": str,
+        "DryRun": bool,
+        "Groups": List[str],
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List["InstanceIpv6AddressTypeDef"],
+        "PrivateIpAddress": str,
+        "PrivateIpAddresses": List["PrivateIpAddressSpecificationTypeDef"],
+        "SecondaryPrivateIpAddressCount": int,
+        "Ipv4Prefixes": List["Ipv4PrefixSpecificationRequestTypeDef"],
+        "Ipv4PrefixCount": int,
+        "Ipv6Prefixes": List["Ipv6PrefixSpecificationRequestTypeDef"],
+        "Ipv6PrefixCount": int,
+        "InterfaceType": NetworkInterfaceCreationTypeType,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+CreateNetworkInterfaceResultTypeDef = TypedDict(
+    "CreateNetworkInterfaceResultTypeDef",
+    {
+        "NetworkInterface": "NetworkInterfaceTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreatePlacementGroupRequestRequestTypeDef = TypedDict(
+    "CreatePlacementGroupRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "GroupName": str,
+        "Strategy": PlacementStrategyType,
+        "PartitionCount": int,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreatePlacementGroupRequestServiceResourceTypeDef = TypedDict(
+    "CreatePlacementGroupRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+        "GroupName": str,
+        "Strategy": PlacementStrategyType,
+        "PartitionCount": int,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreatePlacementGroupResultTypeDef = TypedDict(
+    "CreatePlacementGroupResultTypeDef",
+    {
+        "PlacementGroup": "PlacementGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateReplaceRootVolumeTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateReplaceRootVolumeTaskRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalCreateReplaceRootVolumeTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateReplaceRootVolumeTaskRequestRequestTypeDef",
+    {
+        "SnapshotId": str,
+        "ClientToken": str,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateReplaceRootVolumeTaskRequestRequestTypeDef(
+    _RequiredCreateReplaceRootVolumeTaskRequestRequestTypeDef,
+    _OptionalCreateReplaceRootVolumeTaskRequestRequestTypeDef,
+):
+    pass
+
+CreateReplaceRootVolumeTaskResultTypeDef = TypedDict(
+    "CreateReplaceRootVolumeTaskResultTypeDef",
+    {
+        "ReplaceRootVolumeTask": "ReplaceRootVolumeTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateReservedInstancesListingRequestRequestTypeDef = TypedDict(
+    "CreateReservedInstancesListingRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "InstanceCount": int,
+        "PriceSchedules": List["PriceScheduleSpecificationTypeDef"],
+        "ReservedInstancesId": str,
+    },
+)
+
+CreateReservedInstancesListingResultTypeDef = TypedDict(
+    "CreateReservedInstancesListingResultTypeDef",
+    {
+        "ReservedInstancesListings": List["ReservedInstancesListingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateRestoreImageTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRestoreImageTaskRequestRequestTypeDef",
+    {
+        "Bucket": str,
+        "ObjectKey": str,
+    },
+)
+_OptionalCreateRestoreImageTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRestoreImageTaskRequestRequestTypeDef",
+    {
+        "Name": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateRestoreImageTaskRequestRequestTypeDef(
+    _RequiredCreateRestoreImageTaskRequestRequestTypeDef,
+    _OptionalCreateRestoreImageTaskRequestRequestTypeDef,
+):
+    pass
+
+CreateRestoreImageTaskResultTypeDef = TypedDict(
+    "CreateRestoreImageTaskResultTypeDef",
+    {
+        "ImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRouteRequestRequestTypeDef",
+    {
+        "RouteTableId": str,
+    },
+)
+_OptionalCreateRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "DestinationIpv6CidrBlock": str,
+        "DestinationPrefixListId": str,
+        "DryRun": bool,
+        "VpcEndpointId": str,
+        "EgressOnlyInternetGatewayId": str,
+        "GatewayId": str,
+        "InstanceId": str,
+        "NatGatewayId": str,
+        "TransitGatewayId": str,
+        "LocalGatewayId": str,
+        "CarrierGatewayId": str,
+        "NetworkInterfaceId": str,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+class CreateRouteRequestRequestTypeDef(
+    _RequiredCreateRouteRequestRequestTypeDef, _OptionalCreateRouteRequestRequestTypeDef
+):
+    pass
+
+CreateRouteRequestRouteTableTypeDef = TypedDict(
+    "CreateRouteRequestRouteTableTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "DestinationIpv6CidrBlock": str,
+        "DestinationPrefixListId": str,
+        "DryRun": bool,
+        "VpcEndpointId": str,
+        "EgressOnlyInternetGatewayId": str,
+        "GatewayId": str,
+        "InstanceId": str,
+        "NatGatewayId": str,
+        "TransitGatewayId": str,
+        "LocalGatewayId": str,
+        "CarrierGatewayId": str,
+        "NetworkInterfaceId": str,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+CreateRouteResultTypeDef = TypedDict(
+    "CreateRouteResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRouteTableRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateRouteTableRequestRequestTypeDef(
+    _RequiredCreateRouteTableRequestRequestTypeDef, _OptionalCreateRouteTableRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateRouteTableRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateRouteTableRequestServiceResourceTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalCreateRouteTableRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateRouteTableRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateRouteTableRequestServiceResourceTypeDef(
+    _RequiredCreateRouteTableRequestServiceResourceTypeDef,
+    _OptionalCreateRouteTableRequestServiceResourceTypeDef,
+):
+    pass
+
+CreateRouteTableRequestVpcTypeDef = TypedDict(
+    "CreateRouteTableRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreateRouteTableResultTypeDef = TypedDict(
+    "CreateRouteTableResultTypeDef",
+    {
+        "RouteTable": "RouteTableTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSecurityGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSecurityGroupRequestRequestTypeDef",
+    {
+        "Description": str,
+        "GroupName": str,
+    },
+)
+_OptionalCreateSecurityGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSecurityGroupRequestRequestTypeDef",
+    {
+        "VpcId": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSecurityGroupRequestRequestTypeDef(
+    _RequiredCreateSecurityGroupRequestRequestTypeDef,
+    _OptionalCreateSecurityGroupRequestRequestTypeDef,
+):
+    pass
+
+_RequiredCreateSecurityGroupRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateSecurityGroupRequestServiceResourceTypeDef",
+    {
+        "Description": str,
+        "GroupName": str,
+    },
+)
+_OptionalCreateSecurityGroupRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateSecurityGroupRequestServiceResourceTypeDef",
+    {
+        "VpcId": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSecurityGroupRequestServiceResourceTypeDef(
+    _RequiredCreateSecurityGroupRequestServiceResourceTypeDef,
+    _OptionalCreateSecurityGroupRequestServiceResourceTypeDef,
+):
+    pass
+
+_RequiredCreateSecurityGroupRequestVpcTypeDef = TypedDict(
+    "_RequiredCreateSecurityGroupRequestVpcTypeDef",
+    {
+        "Description": str,
+        "GroupName": str,
+    },
+)
+_OptionalCreateSecurityGroupRequestVpcTypeDef = TypedDict(
+    "_OptionalCreateSecurityGroupRequestVpcTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSecurityGroupRequestVpcTypeDef(
+    _RequiredCreateSecurityGroupRequestVpcTypeDef, _OptionalCreateSecurityGroupRequestVpcTypeDef
+):
+    pass
+
+CreateSecurityGroupResultTypeDef = TypedDict(
+    "CreateSecurityGroupResultTypeDef",
+    {
+        "GroupId": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSnapshotRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSnapshotRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalCreateSnapshotRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSnapshotRequestRequestTypeDef",
+    {
+        "Description": str,
+        "OutpostArn": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSnapshotRequestRequestTypeDef(
+    _RequiredCreateSnapshotRequestRequestTypeDef, _OptionalCreateSnapshotRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateSnapshotRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateSnapshotRequestServiceResourceTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalCreateSnapshotRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateSnapshotRequestServiceResourceTypeDef",
+    {
+        "Description": str,
+        "OutpostArn": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSnapshotRequestServiceResourceTypeDef(
+    _RequiredCreateSnapshotRequestServiceResourceTypeDef,
+    _OptionalCreateSnapshotRequestServiceResourceTypeDef,
+):
+    pass
+
+CreateSnapshotRequestVolumeTypeDef = TypedDict(
+    "CreateSnapshotRequestVolumeTypeDef",
+    {
+        "Description": str,
+        "OutpostArn": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredCreateSnapshotsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSnapshotsRequestRequestTypeDef",
+    {
+        "InstanceSpecification": "InstanceSpecificationTypeDef",
+    },
+)
+_OptionalCreateSnapshotsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSnapshotsRequestRequestTypeDef",
+    {
+        "Description": str,
+        "OutpostArn": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+        "CopyTagsFromSource": Literal["volume"],
+    },
+    total=False,
+)
+
+class CreateSnapshotsRequestRequestTypeDef(
+    _RequiredCreateSnapshotsRequestRequestTypeDef, _OptionalCreateSnapshotsRequestRequestTypeDef
+):
+    pass
+
+CreateSnapshotsResultTypeDef = TypedDict(
+    "CreateSnapshotsResultTypeDef",
+    {
+        "Snapshots": List["SnapshotInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSpotDatafeedSubscriptionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSpotDatafeedSubscriptionRequestRequestTypeDef",
+    {
+        "Bucket": str,
+    },
+)
+_OptionalCreateSpotDatafeedSubscriptionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSpotDatafeedSubscriptionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Prefix": str,
+    },
+    total=False,
+)
+
+class CreateSpotDatafeedSubscriptionRequestRequestTypeDef(
+    _RequiredCreateSpotDatafeedSubscriptionRequestRequestTypeDef,
+    _OptionalCreateSpotDatafeedSubscriptionRequestRequestTypeDef,
+):
+    pass
+
+CreateSpotDatafeedSubscriptionResultTypeDef = TypedDict(
+    "CreateSpotDatafeedSubscriptionResultTypeDef",
+    {
+        "SpotDatafeedSubscription": "SpotDatafeedSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateStoreImageTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateStoreImageTaskRequestRequestTypeDef",
+    {
+        "ImageId": str,
+        "Bucket": str,
+    },
+)
+_OptionalCreateStoreImageTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateStoreImageTaskRequestRequestTypeDef",
+    {
+        "S3ObjectTags": List["S3ObjectTagTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateStoreImageTaskRequestRequestTypeDef(
+    _RequiredCreateStoreImageTaskRequestRequestTypeDef,
+    _OptionalCreateStoreImageTaskRequestRequestTypeDef,
+):
+    pass
+
+CreateStoreImageTaskResultTypeDef = TypedDict(
+    "CreateStoreImageTaskResultTypeDef",
+    {
+        "ObjectKey": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSubnetCidrReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSubnetCidrReservationRequestRequestTypeDef",
+    {
+        "SubnetId": str,
+        "Cidr": str,
+        "ReservationType": SubnetCidrReservationTypeType,
+    },
+)
+_OptionalCreateSubnetCidrReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSubnetCidrReservationRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "Description": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSubnetCidrReservationRequestRequestTypeDef(
+    _RequiredCreateSubnetCidrReservationRequestRequestTypeDef,
+    _OptionalCreateSubnetCidrReservationRequestRequestTypeDef,
+):
+    pass
+
+CreateSubnetCidrReservationResultTypeDef = TypedDict(
+    "CreateSubnetCidrReservationResultTypeDef",
+    {
+        "SubnetCidrReservation": "SubnetCidrReservationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSubnetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSubnetRequestRequestTypeDef",
+    {
+        "VpcId": str,
+        "CidrBlock": str,
+    },
+)
+_OptionalCreateSubnetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSubnetRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "AvailabilityZone": str,
+        "AvailabilityZoneId": str,
+        "Ipv6CidrBlock": str,
+        "OutpostArn": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSubnetRequestRequestTypeDef(
+    _RequiredCreateSubnetRequestRequestTypeDef, _OptionalCreateSubnetRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateSubnetRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateSubnetRequestServiceResourceTypeDef",
+    {
+        "VpcId": str,
+        "CidrBlock": str,
+    },
+)
+_OptionalCreateSubnetRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateSubnetRequestServiceResourceTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "AvailabilityZone": str,
+        "AvailabilityZoneId": str,
+        "Ipv6CidrBlock": str,
+        "OutpostArn": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSubnetRequestServiceResourceTypeDef(
+    _RequiredCreateSubnetRequestServiceResourceTypeDef,
+    _OptionalCreateSubnetRequestServiceResourceTypeDef,
+):
+    pass
+
+_RequiredCreateSubnetRequestVpcTypeDef = TypedDict(
+    "_RequiredCreateSubnetRequestVpcTypeDef",
+    {
+        "CidrBlock": str,
+    },
+)
+_OptionalCreateSubnetRequestVpcTypeDef = TypedDict(
+    "_OptionalCreateSubnetRequestVpcTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "AvailabilityZone": str,
+        "AvailabilityZoneId": str,
+        "Ipv6CidrBlock": str,
+        "OutpostArn": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateSubnetRequestVpcTypeDef(
+    _RequiredCreateSubnetRequestVpcTypeDef, _OptionalCreateSubnetRequestVpcTypeDef
+):
+    pass
+
+CreateSubnetResultTypeDef = TypedDict(
+    "CreateSubnetResultTypeDef",
+    {
+        "Subnet": "SubnetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTagsRequestDhcpOptionsTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestDhcpOptionsTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestDhcpOptionsTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestDhcpOptionsTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestDhcpOptionsTypeDef(
+    _RequiredCreateTagsRequestDhcpOptionsTypeDef, _OptionalCreateTagsRequestDhcpOptionsTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestImageTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestImageTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestImageTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestImageTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestImageTypeDef(
+    _RequiredCreateTagsRequestImageTypeDef, _OptionalCreateTagsRequestImageTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestInstanceTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestInstanceTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestInstanceTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestInstanceTypeDef(
+    _RequiredCreateTagsRequestInstanceTypeDef, _OptionalCreateTagsRequestInstanceTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestInternetGatewayTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestInternetGatewayTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestInternetGatewayTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestInternetGatewayTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestInternetGatewayTypeDef(
+    _RequiredCreateTagsRequestInternetGatewayTypeDef,
+    _OptionalCreateTagsRequestInternetGatewayTypeDef,
+):
+    pass
+
+_RequiredCreateTagsRequestNetworkAclTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestNetworkAclTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestNetworkAclTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestNetworkAclTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestNetworkAclTypeDef(
+    _RequiredCreateTagsRequestNetworkAclTypeDef, _OptionalCreateTagsRequestNetworkAclTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestNetworkInterfaceTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestNetworkInterfaceTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestNetworkInterfaceTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestNetworkInterfaceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestNetworkInterfaceTypeDef(
+    _RequiredCreateTagsRequestNetworkInterfaceTypeDef,
+    _OptionalCreateTagsRequestNetworkInterfaceTypeDef,
+):
+    pass
+
+_RequiredCreateTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestRequestTypeDef",
+    {
+        "Resources": List[Any],
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestRequestTypeDef(
+    _RequiredCreateTagsRequestRequestTypeDef, _OptionalCreateTagsRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestRouteTableTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestRouteTableTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestRouteTableTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestRouteTableTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestRouteTableTypeDef(
+    _RequiredCreateTagsRequestRouteTableTypeDef, _OptionalCreateTagsRequestRouteTableTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestSecurityGroupTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestSecurityGroupTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestSecurityGroupTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestSecurityGroupTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestSecurityGroupTypeDef(
+    _RequiredCreateTagsRequestSecurityGroupTypeDef, _OptionalCreateTagsRequestSecurityGroupTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestServiceResourceTypeDef",
+    {
+        "Resources": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+)
+_OptionalCreateTagsRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestServiceResourceTypeDef(
+    _RequiredCreateTagsRequestServiceResourceTypeDef,
+    _OptionalCreateTagsRequestServiceResourceTypeDef,
+):
+    pass
+
+_RequiredCreateTagsRequestSnapshotTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestSnapshotTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestSnapshotTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestSnapshotTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestSnapshotTypeDef(
+    _RequiredCreateTagsRequestSnapshotTypeDef, _OptionalCreateTagsRequestSnapshotTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestSubnetTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestSubnetTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestSubnetTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestSubnetTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestSubnetTypeDef(
+    _RequiredCreateTagsRequestSubnetTypeDef, _OptionalCreateTagsRequestSubnetTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestVolumeTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestVolumeTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestVolumeTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestVolumeTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestVolumeTypeDef(
+    _RequiredCreateTagsRequestVolumeTypeDef, _OptionalCreateTagsRequestVolumeTypeDef
+):
+    pass
+
+_RequiredCreateTagsRequestVpcTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestVpcTypeDef",
+    {
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+)
+_OptionalCreateTagsRequestVpcTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTagsRequestVpcTypeDef(
+    _RequiredCreateTagsRequestVpcTypeDef, _OptionalCreateTagsRequestVpcTypeDef
+):
+    pass
+
+CreateTrafficMirrorFilterRequestRequestTypeDef = TypedDict(
+    "CreateTrafficMirrorFilterRequestRequestTypeDef",
+    {
+        "Description": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+CreateTrafficMirrorFilterResultTypeDef = TypedDict(
+    "CreateTrafficMirrorFilterResultTypeDef",
+    {
+        "TrafficMirrorFilter": "TrafficMirrorFilterTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTrafficMirrorFilterRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTrafficMirrorFilterRuleRequestRequestTypeDef",
+    {
+        "TrafficMirrorFilterId": str,
+        "TrafficDirection": TrafficDirectionType,
+        "RuleNumber": int,
+        "RuleAction": TrafficMirrorRuleActionType,
+        "DestinationCidrBlock": str,
+        "SourceCidrBlock": str,
+    },
+)
+_OptionalCreateTrafficMirrorFilterRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTrafficMirrorFilterRuleRequestRequestTypeDef",
+    {
+        "DestinationPortRange": "TrafficMirrorPortRangeRequestTypeDef",
+        "SourcePortRange": "TrafficMirrorPortRangeRequestTypeDef",
+        "Protocol": int,
+        "Description": str,
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateTrafficMirrorFilterRuleRequestRequestTypeDef(
+    _RequiredCreateTrafficMirrorFilterRuleRequestRequestTypeDef,
+    _OptionalCreateTrafficMirrorFilterRuleRequestRequestTypeDef,
+):
+    pass
+
+CreateTrafficMirrorFilterRuleResultTypeDef = TypedDict(
+    "CreateTrafficMirrorFilterRuleResultTypeDef",
+    {
+        "TrafficMirrorFilterRule": "TrafficMirrorFilterRuleTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTrafficMirrorSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTrafficMirrorSessionRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+        "TrafficMirrorTargetId": str,
+        "TrafficMirrorFilterId": str,
+        "SessionNumber": int,
+    },
+)
+_OptionalCreateTrafficMirrorSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTrafficMirrorSessionRequestRequestTypeDef",
+    {
+        "PacketLength": int,
+        "VirtualNetworkId": int,
+        "Description": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateTrafficMirrorSessionRequestRequestTypeDef(
+    _RequiredCreateTrafficMirrorSessionRequestRequestTypeDef,
+    _OptionalCreateTrafficMirrorSessionRequestRequestTypeDef,
+):
+    pass
+
+CreateTrafficMirrorSessionResultTypeDef = TypedDict(
+    "CreateTrafficMirrorSessionResultTypeDef",
+    {
+        "TrafficMirrorSession": "TrafficMirrorSessionTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTrafficMirrorTargetRequestRequestTypeDef = TypedDict(
+    "CreateTrafficMirrorTargetRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+        "NetworkLoadBalancerArn": str,
+        "Description": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+CreateTrafficMirrorTargetResultTypeDef = TypedDict(
+    "CreateTrafficMirrorTargetResultTypeDef",
+    {
+        "TrafficMirrorTarget": "TrafficMirrorTargetTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayConnectPeerRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayConnectPeerRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "PeerAddress": str,
+        "InsideCidrBlocks": List[str],
+    },
+)
+_OptionalCreateTransitGatewayConnectPeerRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayConnectPeerRequestRequestTypeDef",
+    {
+        "TransitGatewayAddress": str,
+        "BgpOptions": "TransitGatewayConnectRequestBgpOptionsTypeDef",
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayConnectPeerRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayConnectPeerRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayConnectPeerRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayConnectPeerResultTypeDef = TypedDict(
+    "CreateTransitGatewayConnectPeerResultTypeDef",
+    {
+        "TransitGatewayConnectPeer": "TransitGatewayConnectPeerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTransitGatewayConnectRequestOptionsTypeDef = TypedDict(
+    "CreateTransitGatewayConnectRequestOptionsTypeDef",
+    {
+        "Protocol": Literal["gre"],
+    },
+)
+
+_RequiredCreateTransitGatewayConnectRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayConnectRequestRequestTypeDef",
+    {
+        "TransportTransitGatewayAttachmentId": str,
+        "Options": "CreateTransitGatewayConnectRequestOptionsTypeDef",
+    },
+)
+_OptionalCreateTransitGatewayConnectRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayConnectRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayConnectRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayConnectRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayConnectRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayConnectResultTypeDef = TypedDict(
+    "CreateTransitGatewayConnectResultTypeDef",
+    {
+        "TransitGatewayConnect": "TransitGatewayConnectTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTransitGatewayMulticastDomainRequestOptionsTypeDef = TypedDict(
+    "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
+    {
+        "Igmpv2Support": Igmpv2SupportValueType,
+        "StaticSourcesSupport": StaticSourcesSupportValueType,
+        "AutoAcceptSharedAssociations": AutoAcceptSharedAssociationsValueType,
+    },
+    total=False,
+)
+
+_RequiredCreateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+    },
+)
+_OptionalCreateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
+        "Options": "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayMulticastDomainRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayMulticastDomainRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayMulticastDomainRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
+    "CreateTransitGatewayMulticastDomainResultTypeDef",
+    {
+        "TransitGatewayMulticastDomain": "TransitGatewayMulticastDomainTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+        "PeerTransitGatewayId": str,
+        "PeerAccountId": str,
+        "PeerRegion": str,
+    },
+)
+_OptionalCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayPeeringAttachmentRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
+    "CreateTransitGatewayPeeringAttachmentResultTypeDef",
+    {
+        "TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayPrefixListReferenceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "PrefixListId": str,
+    },
+)
+_OptionalCreateTransitGatewayPrefixListReferenceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "Blackhole": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayPrefixListReferenceRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayPrefixListReferenceRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayPrefixListReferenceRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
+    "CreateTransitGatewayPrefixListReferenceResultTypeDef",
+    {
+        "TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTransitGatewayRequestRequestTypeDef = TypedDict(
+    "CreateTransitGatewayRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Options": "TransitGatewayRequestOptionsTypeDef",
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+CreateTransitGatewayResultTypeDef = TypedDict(
+    "CreateTransitGatewayResultTypeDef",
+    {
+        "TransitGateway": "TransitGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "TransitGatewayRouteTableId": str,
+    },
+)
+_OptionalCreateTransitGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayRouteRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "Blackhole": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayRouteRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayRouteRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayRouteRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayRouteResultTypeDef = TypedDict(
+    "CreateTransitGatewayRouteResultTypeDef",
+    {
+        "Route": "TransitGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+    },
+)
+_OptionalCreateTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayRouteTableRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayRouteTableRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayRouteTableRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayRouteTableResultTypeDef = TypedDict(
+    "CreateTransitGatewayRouteTableResultTypeDef",
+    {
+        "TransitGatewayRouteTable": "TransitGatewayRouteTableTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef = TypedDict(
+    "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
+    {
+        "DnsSupport": DnsSupportValueType,
+        "Ipv6Support": Ipv6SupportValueType,
+        "ApplianceModeSupport": ApplianceModeSupportValueType,
+    },
+    total=False,
+)
+
+_RequiredCreateTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+        "VpcId": str,
+        "SubnetIds": List[str],
+    },
+)
+_OptionalCreateTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "Options": "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateTransitGatewayVpcAttachmentRequestRequestTypeDef(
+    _RequiredCreateTransitGatewayVpcAttachmentRequestRequestTypeDef,
+    _OptionalCreateTransitGatewayVpcAttachmentRequestRequestTypeDef,
+):
+    pass
+
+CreateTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
+    "CreateTransitGatewayVpcAttachmentResultTypeDef",
+    {
+        "TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVolumePermissionModificationsTypeDef = TypedDict(
+    "CreateVolumePermissionModificationsTypeDef",
+    {
+        "Add": List["CreateVolumePermissionTypeDef"],
+        "Remove": List["CreateVolumePermissionTypeDef"],
+    },
+    total=False,
+)
+
 CreateVolumePermissionTypeDef = TypedDict(
-    "CreateVolumePermissionTypeDef", {"Group": Literal["all"], "UserId": str}, total=False
+    "CreateVolumePermissionTypeDef",
+    {
+        "Group": Literal["all"],
+        "UserId": str,
+    },
+    total=False,
+)
+
+_RequiredCreateVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVolumeRequestRequestTypeDef",
+    {
+        "AvailabilityZone": str,
+    },
+)
+_OptionalCreateVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVolumeRequestRequestTypeDef",
+    {
+        "Encrypted": bool,
+        "Iops": int,
+        "KmsKeyId": str,
+        "OutpostArn": str,
+        "Size": int,
+        "SnapshotId": str,
+        "VolumeType": VolumeTypeType,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "MultiAttachEnabled": bool,
+        "Throughput": int,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateVolumeRequestRequestTypeDef(
+    _RequiredCreateVolumeRequestRequestTypeDef, _OptionalCreateVolumeRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateVolumeRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateVolumeRequestServiceResourceTypeDef",
+    {
+        "AvailabilityZone": str,
+    },
+)
+_OptionalCreateVolumeRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateVolumeRequestServiceResourceTypeDef",
+    {
+        "Encrypted": bool,
+        "Iops": int,
+        "KmsKeyId": str,
+        "OutpostArn": str,
+        "Size": int,
+        "SnapshotId": str,
+        "VolumeType": VolumeTypeType,
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "MultiAttachEnabled": bool,
+        "Throughput": int,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateVolumeRequestServiceResourceTypeDef(
+    _RequiredCreateVolumeRequestServiceResourceTypeDef,
+    _OptionalCreateVolumeRequestServiceResourceTypeDef,
+):
+    pass
+
+_RequiredCreateVpcEndpointConnectionNotificationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpcEndpointConnectionNotificationRequestRequestTypeDef",
+    {
+        "ConnectionNotificationArn": str,
+        "ConnectionEvents": List[str],
+    },
+)
+_OptionalCreateVpcEndpointConnectionNotificationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpcEndpointConnectionNotificationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ServiceId": str,
+        "VpcEndpointId": str,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateVpcEndpointConnectionNotificationRequestRequestTypeDef(
+    _RequiredCreateVpcEndpointConnectionNotificationRequestRequestTypeDef,
+    _OptionalCreateVpcEndpointConnectionNotificationRequestRequestTypeDef,
+):
+    pass
+
+CreateVpcEndpointConnectionNotificationResultTypeDef = TypedDict(
+    "CreateVpcEndpointConnectionNotificationResultTypeDef",
+    {
+        "ConnectionNotification": "ConnectionNotificationTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVpcEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpcEndpointRequestRequestTypeDef",
+    {
+        "VpcId": str,
+        "ServiceName": str,
+    },
+)
+_OptionalCreateVpcEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpcEndpointRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "VpcEndpointType": VpcEndpointTypeType,
+        "PolicyDocument": str,
+        "RouteTableIds": List[str],
+        "SubnetIds": List[str],
+        "SecurityGroupIds": List[str],
+        "ClientToken": str,
+        "PrivateDnsEnabled": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVpcEndpointRequestRequestTypeDef(
+    _RequiredCreateVpcEndpointRequestRequestTypeDef, _OptionalCreateVpcEndpointRequestRequestTypeDef
+):
+    pass
+
+CreateVpcEndpointResultTypeDef = TypedDict(
+    "CreateVpcEndpointResultTypeDef",
+    {
+        "VpcEndpoint": "VpcEndpointTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVpcEndpointServiceConfigurationRequestRequestTypeDef = TypedDict(
+    "CreateVpcEndpointServiceConfigurationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "AcceptanceRequired": bool,
+        "PrivateDnsName": str,
+        "NetworkLoadBalancerArns": List[str],
+        "GatewayLoadBalancerArns": List[str],
+        "ClientToken": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreateVpcEndpointServiceConfigurationResultTypeDef = TypedDict(
+    "CreateVpcEndpointServiceConfigurationResultTypeDef",
+    {
+        "ServiceConfiguration": "ServiceConfigurationTypeDef",
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "CreateVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "PeerOwnerId": str,
+        "PeerVpcId": str,
+        "VpcId": str,
+        "PeerRegion": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreateVpcPeeringConnectionRequestServiceResourceTypeDef = TypedDict(
+    "CreateVpcPeeringConnectionRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+        "PeerOwnerId": str,
+        "PeerVpcId": str,
+        "VpcId": str,
+        "PeerRegion": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreateVpcPeeringConnectionRequestVpcTypeDef = TypedDict(
+    "CreateVpcPeeringConnectionRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+        "PeerOwnerId": str,
+        "PeerVpcId": str,
+        "PeerRegion": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreateVpcPeeringConnectionResultTypeDef = TypedDict(
+    "CreateVpcPeeringConnectionResultTypeDef",
+    {
+        "VpcPeeringConnection": "VpcPeeringConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVpcRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpcRequestRequestTypeDef",
+    {
+        "CidrBlock": str,
+    },
+)
+_OptionalCreateVpcRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpcRequestRequestTypeDef",
+    {
+        "AmazonProvidedIpv6CidrBlock": bool,
+        "Ipv6Pool": str,
+        "Ipv6CidrBlock": str,
+        "DryRun": bool,
+        "InstanceTenancy": TenancyType,
+        "Ipv6CidrBlockNetworkBorderGroup": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVpcRequestRequestTypeDef(
+    _RequiredCreateVpcRequestRequestTypeDef, _OptionalCreateVpcRequestRequestTypeDef
+):
+    pass
+
+_RequiredCreateVpcRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredCreateVpcRequestServiceResourceTypeDef",
+    {
+        "CidrBlock": str,
+    },
+)
+_OptionalCreateVpcRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalCreateVpcRequestServiceResourceTypeDef",
+    {
+        "AmazonProvidedIpv6CidrBlock": bool,
+        "Ipv6Pool": str,
+        "Ipv6CidrBlock": str,
+        "DryRun": bool,
+        "InstanceTenancy": TenancyType,
+        "Ipv6CidrBlockNetworkBorderGroup": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVpcRequestServiceResourceTypeDef(
+    _RequiredCreateVpcRequestServiceResourceTypeDef, _OptionalCreateVpcRequestServiceResourceTypeDef
+):
+    pass
+
+CreateVpcResultTypeDef = TypedDict(
+    "CreateVpcResultTypeDef",
+    {
+        "Vpc": "VpcTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVpnConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpnConnectionRequestRequestTypeDef",
+    {
+        "CustomerGatewayId": str,
+        "Type": str,
+    },
+)
+_OptionalCreateVpnConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpnConnectionRequestRequestTypeDef",
+    {
+        "VpnGatewayId": str,
+        "TransitGatewayId": str,
+        "DryRun": bool,
+        "Options": "VpnConnectionOptionsSpecificationTypeDef",
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVpnConnectionRequestRequestTypeDef(
+    _RequiredCreateVpnConnectionRequestRequestTypeDef,
+    _OptionalCreateVpnConnectionRequestRequestTypeDef,
+):
+    pass
+
+CreateVpnConnectionResultTypeDef = TypedDict(
+    "CreateVpnConnectionResultTypeDef",
+    {
+        "VpnConnection": "VpnConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVpnConnectionRouteRequestRequestTypeDef = TypedDict(
+    "CreateVpnConnectionRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "VpnConnectionId": str,
+    },
+)
+
+_RequiredCreateVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpnGatewayRequestRequestTypeDef",
+    {
+        "Type": Literal["ipsec.1"],
+    },
+)
+_OptionalCreateVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpnGatewayRequestRequestTypeDef",
+    {
+        "AvailabilityZone": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "AmazonSideAsn": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateVpnGatewayRequestRequestTypeDef(
+    _RequiredCreateVpnGatewayRequestRequestTypeDef, _OptionalCreateVpnGatewayRequestRequestTypeDef
+):
+    pass
+
+CreateVpnGatewayResultTypeDef = TypedDict(
+    "CreateVpnGatewayResultTypeDef",
+    {
+        "VpnGateway": "VpnGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CreditSpecificationRequestTypeDef = TypedDict(
-    "CreditSpecificationRequestTypeDef", {"CpuCredits": str}
+    "CreditSpecificationRequestTypeDef",
+    {
+        "CpuCredits": str,
+    },
 )
 
 CreditSpecificationTypeDef = TypedDict(
-    "CreditSpecificationTypeDef", {"CpuCredits": str}, total=False
+    "CreditSpecificationTypeDef",
+    {
+        "CpuCredits": str,
+    },
+    total=False,
 )
 
 CustomerGatewayTypeDef = TypedDict(
@@ -1993,16 +6842,180 @@ CustomerGatewayTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeleteCarrierGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteCarrierGatewayRequestRequestTypeDef",
+    {
+        "CarrierGatewayId": str,
+    },
+)
+_OptionalDeleteCarrierGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteCarrierGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteCarrierGatewayRequestRequestTypeDef(
+    _RequiredDeleteCarrierGatewayRequestRequestTypeDef,
+    _OptionalDeleteCarrierGatewayRequestRequestTypeDef,
+):
+    pass
+
+DeleteCarrierGatewayResultTypeDef = TypedDict(
+    "DeleteCarrierGatewayResultTypeDef",
+    {
+        "CarrierGateway": "CarrierGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteClientVpnEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteClientVpnEndpointRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalDeleteClientVpnEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteClientVpnEndpointRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteClientVpnEndpointRequestRequestTypeDef(
+    _RequiredDeleteClientVpnEndpointRequestRequestTypeDef,
+    _OptionalDeleteClientVpnEndpointRequestRequestTypeDef,
+):
+    pass
+
+DeleteClientVpnEndpointResultTypeDef = TypedDict(
+    "DeleteClientVpnEndpointResultTypeDef",
+    {
+        "Status": "ClientVpnEndpointStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteClientVpnRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteClientVpnRouteRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "DestinationCidrBlock": str,
+    },
+)
+_OptionalDeleteClientVpnRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteClientVpnRouteRequestRequestTypeDef",
+    {
+        "TargetVpcSubnetId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteClientVpnRouteRequestRequestTypeDef(
+    _RequiredDeleteClientVpnRouteRequestRequestTypeDef,
+    _OptionalDeleteClientVpnRouteRequestRequestTypeDef,
+):
+    pass
+
+DeleteClientVpnRouteResultTypeDef = TypedDict(
+    "DeleteClientVpnRouteResultTypeDef",
+    {
+        "Status": "ClientVpnRouteStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteCustomerGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteCustomerGatewayRequestRequestTypeDef",
+    {
+        "CustomerGatewayId": str,
+    },
+)
+_OptionalDeleteCustomerGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteCustomerGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteCustomerGatewayRequestRequestTypeDef(
+    _RequiredDeleteCustomerGatewayRequestRequestTypeDef,
+    _OptionalDeleteCustomerGatewayRequestRequestTypeDef,
+):
+    pass
+
+DeleteDhcpOptionsRequestDhcpOptionsTypeDef = TypedDict(
+    "DeleteDhcpOptionsRequestDhcpOptionsTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteDhcpOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteDhcpOptionsRequestRequestTypeDef",
+    {
+        "DhcpOptionsId": str,
+    },
+)
+_OptionalDeleteDhcpOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteDhcpOptionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteDhcpOptionsRequestRequestTypeDef(
+    _RequiredDeleteDhcpOptionsRequestRequestTypeDef, _OptionalDeleteDhcpOptionsRequestRequestTypeDef
+):
+    pass
+
+_RequiredDeleteEgressOnlyInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteEgressOnlyInternetGatewayRequestRequestTypeDef",
+    {
+        "EgressOnlyInternetGatewayId": str,
+    },
+)
+_OptionalDeleteEgressOnlyInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteEgressOnlyInternetGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteEgressOnlyInternetGatewayRequestRequestTypeDef(
+    _RequiredDeleteEgressOnlyInternetGatewayRequestRequestTypeDef,
+    _OptionalDeleteEgressOnlyInternetGatewayRequestRequestTypeDef,
+):
+    pass
+
+DeleteEgressOnlyInternetGatewayResultTypeDef = TypedDict(
+    "DeleteEgressOnlyInternetGatewayResultTypeDef",
+    {
+        "ReturnCode": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteFleetErrorItemTypeDef = TypedDict(
-    "DeleteFleetErrorItemTypeDef", {"Error": "DeleteFleetErrorTypeDef", "FleetId": str}, total=False
+    "DeleteFleetErrorItemTypeDef",
+    {
+        "Error": "DeleteFleetErrorTypeDef",
+        "FleetId": str,
+    },
+    total=False,
 )
 
 DeleteFleetErrorTypeDef = TypedDict(
     "DeleteFleetErrorTypeDef",
     {
-        "Code": Literal[
-            "fleetIdDoesNotExist", "fleetIdMalformed", "fleetNotInDeletableState", "unexpectedError"
-        ],
+        "Code": DeleteFleetErrorCodeType,
         "Message": str,
     },
     total=False,
@@ -2011,28 +7024,220 @@ DeleteFleetErrorTypeDef = TypedDict(
 DeleteFleetSuccessItemTypeDef = TypedDict(
     "DeleteFleetSuccessItemTypeDef",
     {
-        "CurrentFleetState": Literal[
-            "submitted",
-            "active",
-            "deleted",
-            "failed",
-            "deleted_running",
-            "deleted_terminating",
-            "modifying",
-        ],
-        "PreviousFleetState": Literal[
-            "submitted",
-            "active",
-            "deleted",
-            "failed",
-            "deleted_running",
-            "deleted_terminating",
-            "modifying",
-        ],
+        "CurrentFleetState": FleetStateCodeType,
+        "PreviousFleetState": FleetStateCodeType,
         "FleetId": str,
     },
     total=False,
 )
+
+_RequiredDeleteFleetsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteFleetsRequestRequestTypeDef",
+    {
+        "FleetIds": List[str],
+        "TerminateInstances": bool,
+    },
+)
+_OptionalDeleteFleetsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteFleetsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteFleetsRequestRequestTypeDef(
+    _RequiredDeleteFleetsRequestRequestTypeDef, _OptionalDeleteFleetsRequestRequestTypeDef
+):
+    pass
+
+DeleteFleetsResultTypeDef = TypedDict(
+    "DeleteFleetsResultTypeDef",
+    {
+        "SuccessfulFleetDeletions": List["DeleteFleetSuccessItemTypeDef"],
+        "UnsuccessfulFleetDeletions": List["DeleteFleetErrorItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteFlowLogsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteFlowLogsRequestRequestTypeDef",
+    {
+        "FlowLogIds": List[str],
+    },
+)
+_OptionalDeleteFlowLogsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteFlowLogsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteFlowLogsRequestRequestTypeDef(
+    _RequiredDeleteFlowLogsRequestRequestTypeDef, _OptionalDeleteFlowLogsRequestRequestTypeDef
+):
+    pass
+
+DeleteFlowLogsResultTypeDef = TypedDict(
+    "DeleteFlowLogsResultTypeDef",
+    {
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteFpgaImageRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteFpgaImageRequestRequestTypeDef",
+    {
+        "FpgaImageId": str,
+    },
+)
+_OptionalDeleteFpgaImageRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteFpgaImageRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteFpgaImageRequestRequestTypeDef(
+    _RequiredDeleteFpgaImageRequestRequestTypeDef, _OptionalDeleteFpgaImageRequestRequestTypeDef
+):
+    pass
+
+DeleteFpgaImageResultTypeDef = TypedDict(
+    "DeleteFpgaImageResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteInstanceEventWindowRequestRequestTypeDef",
+    {
+        "InstanceEventWindowId": str,
+    },
+)
+_OptionalDeleteInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteInstanceEventWindowRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ForceDelete": bool,
+    },
+    total=False,
+)
+
+class DeleteInstanceEventWindowRequestRequestTypeDef(
+    _RequiredDeleteInstanceEventWindowRequestRequestTypeDef,
+    _OptionalDeleteInstanceEventWindowRequestRequestTypeDef,
+):
+    pass
+
+DeleteInstanceEventWindowResultTypeDef = TypedDict(
+    "DeleteInstanceEventWindowResultTypeDef",
+    {
+        "InstanceEventWindowState": "InstanceEventWindowStateChangeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteInternetGatewayRequestInternetGatewayTypeDef = TypedDict(
+    "DeleteInternetGatewayRequestInternetGatewayTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteInternetGatewayRequestRequestTypeDef",
+    {
+        "InternetGatewayId": str,
+    },
+)
+_OptionalDeleteInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteInternetGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteInternetGatewayRequestRequestTypeDef(
+    _RequiredDeleteInternetGatewayRequestRequestTypeDef,
+    _OptionalDeleteInternetGatewayRequestRequestTypeDef,
+):
+    pass
+
+DeleteKeyPairRequestKeyPairInfoTypeDef = TypedDict(
+    "DeleteKeyPairRequestKeyPairInfoTypeDef",
+    {
+        "KeyPairId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeleteKeyPairRequestKeyPairTypeDef = TypedDict(
+    "DeleteKeyPairRequestKeyPairTypeDef",
+    {
+        "KeyPairId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeleteKeyPairRequestRequestTypeDef = TypedDict(
+    "DeleteKeyPairRequestRequestTypeDef",
+    {
+        "KeyName": str,
+        "KeyPairId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeleteLaunchTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteLaunchTemplateRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+    },
+    total=False,
+)
+
+DeleteLaunchTemplateResultTypeDef = TypedDict(
+    "DeleteLaunchTemplateResultTypeDef",
+    {
+        "LaunchTemplate": "LaunchTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteLaunchTemplateVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteLaunchTemplateVersionsRequestRequestTypeDef",
+    {
+        "Versions": List[str],
+    },
+)
+_OptionalDeleteLaunchTemplateVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteLaunchTemplateVersionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+    },
+    total=False,
+)
+
+class DeleteLaunchTemplateVersionsRequestRequestTypeDef(
+    _RequiredDeleteLaunchTemplateVersionsRequestRequestTypeDef,
+    _OptionalDeleteLaunchTemplateVersionsRequestRequestTypeDef,
+):
+    pass
 
 DeleteLaunchTemplateVersionsResponseErrorItemTypeDef = TypedDict(
     "DeleteLaunchTemplateVersionsResponseErrorItemTypeDef",
@@ -2047,21 +7252,1801 @@ DeleteLaunchTemplateVersionsResponseErrorItemTypeDef = TypedDict(
 
 DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef = TypedDict(
     "DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef",
-    {"LaunchTemplateId": str, "LaunchTemplateName": str, "VersionNumber": int},
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "VersionNumber": int,
+    },
     total=False,
 )
+
+DeleteLaunchTemplateVersionsResultTypeDef = TypedDict(
+    "DeleteLaunchTemplateVersionsResultTypeDef",
+    {
+        "SuccessfullyDeletedLaunchTemplateVersions": List[
+            "DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef"
+        ],
+        "UnsuccessfullyDeletedLaunchTemplateVersions": List[
+            "DeleteLaunchTemplateVersionsResponseErrorItemTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteLocalGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteLocalGatewayRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "LocalGatewayRouteTableId": str,
+    },
+)
+_OptionalDeleteLocalGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteLocalGatewayRouteRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteLocalGatewayRouteRequestRequestTypeDef(
+    _RequiredDeleteLocalGatewayRouteRequestRequestTypeDef,
+    _OptionalDeleteLocalGatewayRouteRequestRequestTypeDef,
+):
+    pass
+
+DeleteLocalGatewayRouteResultTypeDef = TypedDict(
+    "DeleteLocalGatewayRouteResultTypeDef",
+    {
+        "Route": "LocalGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableVpcAssociationId": str,
+    },
+)
+_OptionalDeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef(
+    _RequiredDeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef,
+    _OptionalDeleteLocalGatewayRouteTableVpcAssociationRequestRequestTypeDef,
+):
+    pass
+
+DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef = TypedDict(
+    "DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef",
+    {
+        "LocalGatewayRouteTableVpcAssociation": "LocalGatewayRouteTableVpcAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteManagedPrefixListRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteManagedPrefixListRequestRequestTypeDef",
+    {
+        "PrefixListId": str,
+    },
+)
+_OptionalDeleteManagedPrefixListRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteManagedPrefixListRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteManagedPrefixListRequestRequestTypeDef(
+    _RequiredDeleteManagedPrefixListRequestRequestTypeDef,
+    _OptionalDeleteManagedPrefixListRequestRequestTypeDef,
+):
+    pass
+
+DeleteManagedPrefixListResultTypeDef = TypedDict(
+    "DeleteManagedPrefixListResultTypeDef",
+    {
+        "PrefixList": "ManagedPrefixListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteNatGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNatGatewayRequestRequestTypeDef",
+    {
+        "NatGatewayId": str,
+    },
+)
+_OptionalDeleteNatGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNatGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNatGatewayRequestRequestTypeDef(
+    _RequiredDeleteNatGatewayRequestRequestTypeDef, _OptionalDeleteNatGatewayRequestRequestTypeDef
+):
+    pass
+
+DeleteNatGatewayResultTypeDef = TypedDict(
+    "DeleteNatGatewayResultTypeDef",
+    {
+        "NatGatewayId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteNetworkAclEntryRequestNetworkAclTypeDef = TypedDict(
+    "_RequiredDeleteNetworkAclEntryRequestNetworkAclTypeDef",
+    {
+        "Egress": bool,
+        "RuleNumber": int,
+    },
+)
+_OptionalDeleteNetworkAclEntryRequestNetworkAclTypeDef = TypedDict(
+    "_OptionalDeleteNetworkAclEntryRequestNetworkAclTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkAclEntryRequestNetworkAclTypeDef(
+    _RequiredDeleteNetworkAclEntryRequestNetworkAclTypeDef,
+    _OptionalDeleteNetworkAclEntryRequestNetworkAclTypeDef,
+):
+    pass
+
+_RequiredDeleteNetworkAclEntryRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkAclEntryRequestRequestTypeDef",
+    {
+        "Egress": bool,
+        "NetworkAclId": str,
+        "RuleNumber": int,
+    },
+)
+_OptionalDeleteNetworkAclEntryRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkAclEntryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkAclEntryRequestRequestTypeDef(
+    _RequiredDeleteNetworkAclEntryRequestRequestTypeDef,
+    _OptionalDeleteNetworkAclEntryRequestRequestTypeDef,
+):
+    pass
+
+DeleteNetworkAclRequestNetworkAclTypeDef = TypedDict(
+    "DeleteNetworkAclRequestNetworkAclTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteNetworkAclRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkAclRequestRequestTypeDef",
+    {
+        "NetworkAclId": str,
+    },
+)
+_OptionalDeleteNetworkAclRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkAclRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkAclRequestRequestTypeDef(
+    _RequiredDeleteNetworkAclRequestRequestTypeDef, _OptionalDeleteNetworkAclRequestRequestTypeDef
+):
+    pass
+
+_RequiredDeleteNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkInsightsAnalysisRequestRequestTypeDef",
+    {
+        "NetworkInsightsAnalysisId": str,
+    },
+)
+_OptionalDeleteNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkInsightsAnalysisRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkInsightsAnalysisRequestRequestTypeDef(
+    _RequiredDeleteNetworkInsightsAnalysisRequestRequestTypeDef,
+    _OptionalDeleteNetworkInsightsAnalysisRequestRequestTypeDef,
+):
+    pass
+
+DeleteNetworkInsightsAnalysisResultTypeDef = TypedDict(
+    "DeleteNetworkInsightsAnalysisResultTypeDef",
+    {
+        "NetworkInsightsAnalysisId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteNetworkInsightsPathRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkInsightsPathRequestRequestTypeDef",
+    {
+        "NetworkInsightsPathId": str,
+    },
+)
+_OptionalDeleteNetworkInsightsPathRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkInsightsPathRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkInsightsPathRequestRequestTypeDef(
+    _RequiredDeleteNetworkInsightsPathRequestRequestTypeDef,
+    _OptionalDeleteNetworkInsightsPathRequestRequestTypeDef,
+):
+    pass
+
+DeleteNetworkInsightsPathResultTypeDef = TypedDict(
+    "DeleteNetworkInsightsPathResultTypeDef",
+    {
+        "NetworkInsightsPathId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteNetworkInterfacePermissionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkInterfacePermissionRequestRequestTypeDef",
+    {
+        "NetworkInterfacePermissionId": str,
+    },
+)
+_OptionalDeleteNetworkInterfacePermissionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkInterfacePermissionRequestRequestTypeDef",
+    {
+        "Force": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkInterfacePermissionRequestRequestTypeDef(
+    _RequiredDeleteNetworkInterfacePermissionRequestRequestTypeDef,
+    _OptionalDeleteNetworkInterfacePermissionRequestRequestTypeDef,
+):
+    pass
+
+DeleteNetworkInterfacePermissionResultTypeDef = TypedDict(
+    "DeleteNetworkInterfacePermissionResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteNetworkInterfaceRequestNetworkInterfaceTypeDef = TypedDict(
+    "DeleteNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkInterfaceRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalDeleteNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkInterfaceRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkInterfaceRequestRequestTypeDef(
+    _RequiredDeleteNetworkInterfaceRequestRequestTypeDef,
+    _OptionalDeleteNetworkInterfaceRequestRequestTypeDef,
+):
+    pass
+
+DeletePlacementGroupRequestPlacementGroupTypeDef = TypedDict(
+    "DeletePlacementGroupRequestPlacementGroupTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeletePlacementGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredDeletePlacementGroupRequestRequestTypeDef",
+    {
+        "GroupName": str,
+    },
+)
+_OptionalDeletePlacementGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalDeletePlacementGroupRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeletePlacementGroupRequestRequestTypeDef(
+    _RequiredDeletePlacementGroupRequestRequestTypeDef,
+    _OptionalDeletePlacementGroupRequestRequestTypeDef,
+):
+    pass
 
 DeleteQueuedReservedInstancesErrorTypeDef = TypedDict(
     "DeleteQueuedReservedInstancesErrorTypeDef",
     {
-        "Code": Literal[
-            "reserved-instances-id-invalid",
-            "reserved-instances-not-in-queued-state",
-            "unexpected-error",
-        ],
+        "Code": DeleteQueuedReservedInstancesErrorCodeType,
         "Message": str,
     },
     total=False,
+)
+
+_RequiredDeleteQueuedReservedInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteQueuedReservedInstancesRequestRequestTypeDef",
+    {
+        "ReservedInstancesIds": List[str],
+    },
+)
+_OptionalDeleteQueuedReservedInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteQueuedReservedInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteQueuedReservedInstancesRequestRequestTypeDef(
+    _RequiredDeleteQueuedReservedInstancesRequestRequestTypeDef,
+    _OptionalDeleteQueuedReservedInstancesRequestRequestTypeDef,
+):
+    pass
+
+DeleteQueuedReservedInstancesResultTypeDef = TypedDict(
+    "DeleteQueuedReservedInstancesResultTypeDef",
+    {
+        "SuccessfulQueuedPurchaseDeletions": List["SuccessfulQueuedPurchaseDeletionTypeDef"],
+        "FailedQueuedPurchaseDeletions": List["FailedQueuedPurchaseDeletionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteRouteRequestRequestTypeDef",
+    {
+        "RouteTableId": str,
+    },
+)
+_OptionalDeleteRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "DestinationIpv6CidrBlock": str,
+        "DestinationPrefixListId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteRouteRequestRequestTypeDef(
+    _RequiredDeleteRouteRequestRequestTypeDef, _OptionalDeleteRouteRequestRequestTypeDef
+):
+    pass
+
+DeleteRouteRequestRouteTypeDef = TypedDict(
+    "DeleteRouteRequestRouteTypeDef",
+    {
+        "DestinationIpv6CidrBlock": str,
+        "DestinationPrefixListId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteRouteTableRequestRequestTypeDef",
+    {
+        "RouteTableId": str,
+    },
+)
+_OptionalDeleteRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteRouteTableRequestRequestTypeDef(
+    _RequiredDeleteRouteTableRequestRequestTypeDef, _OptionalDeleteRouteTableRequestRequestTypeDef
+):
+    pass
+
+DeleteRouteTableRequestRouteTableTypeDef = TypedDict(
+    "DeleteRouteTableRequestRouteTableTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeleteSecurityGroupRequestRequestTypeDef = TypedDict(
+    "DeleteSecurityGroupRequestRequestTypeDef",
+    {
+        "GroupId": str,
+        "GroupName": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeleteSecurityGroupRequestSecurityGroupTypeDef = TypedDict(
+    "DeleteSecurityGroupRequestSecurityGroupTypeDef",
+    {
+        "GroupName": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteSnapshotRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteSnapshotRequestRequestTypeDef",
+    {
+        "SnapshotId": str,
+    },
+)
+_OptionalDeleteSnapshotRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteSnapshotRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteSnapshotRequestRequestTypeDef(
+    _RequiredDeleteSnapshotRequestRequestTypeDef, _OptionalDeleteSnapshotRequestRequestTypeDef
+):
+    pass
+
+DeleteSnapshotRequestSnapshotTypeDef = TypedDict(
+    "DeleteSnapshotRequestSnapshotTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeleteSpotDatafeedSubscriptionRequestRequestTypeDef = TypedDict(
+    "DeleteSpotDatafeedSubscriptionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteSubnetCidrReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteSubnetCidrReservationRequestRequestTypeDef",
+    {
+        "SubnetCidrReservationId": str,
+    },
+)
+_OptionalDeleteSubnetCidrReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteSubnetCidrReservationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteSubnetCidrReservationRequestRequestTypeDef(
+    _RequiredDeleteSubnetCidrReservationRequestRequestTypeDef,
+    _OptionalDeleteSubnetCidrReservationRequestRequestTypeDef,
+):
+    pass
+
+DeleteSubnetCidrReservationResultTypeDef = TypedDict(
+    "DeleteSubnetCidrReservationResultTypeDef",
+    {
+        "DeletedSubnetCidrReservation": "SubnetCidrReservationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteSubnetRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteSubnetRequestRequestTypeDef",
+    {
+        "SubnetId": str,
+    },
+)
+_OptionalDeleteSubnetRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteSubnetRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteSubnetRequestRequestTypeDef(
+    _RequiredDeleteSubnetRequestRequestTypeDef, _OptionalDeleteSubnetRequestRequestTypeDef
+):
+    pass
+
+DeleteSubnetRequestSubnetTypeDef = TypedDict(
+    "DeleteSubnetRequestSubnetTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTagsRequestRequestTypeDef",
+    {
+        "Resources": List[Any],
+    },
+)
+_OptionalDeleteTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTagsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Tags": Optional[List["TagTypeDef"]],
+    },
+    total=False,
+)
+
+class DeleteTagsRequestRequestTypeDef(
+    _RequiredDeleteTagsRequestRequestTypeDef, _OptionalDeleteTagsRequestRequestTypeDef
+):
+    pass
+
+DeleteTagsRequestTagTypeDef = TypedDict(
+    "DeleteTagsRequestTagTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteTrafficMirrorFilterRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTrafficMirrorFilterRequestRequestTypeDef",
+    {
+        "TrafficMirrorFilterId": str,
+    },
+)
+_OptionalDeleteTrafficMirrorFilterRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTrafficMirrorFilterRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTrafficMirrorFilterRequestRequestTypeDef(
+    _RequiredDeleteTrafficMirrorFilterRequestRequestTypeDef,
+    _OptionalDeleteTrafficMirrorFilterRequestRequestTypeDef,
+):
+    pass
+
+DeleteTrafficMirrorFilterResultTypeDef = TypedDict(
+    "DeleteTrafficMirrorFilterResultTypeDef",
+    {
+        "TrafficMirrorFilterId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTrafficMirrorFilterRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTrafficMirrorFilterRuleRequestRequestTypeDef",
+    {
+        "TrafficMirrorFilterRuleId": str,
+    },
+)
+_OptionalDeleteTrafficMirrorFilterRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTrafficMirrorFilterRuleRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTrafficMirrorFilterRuleRequestRequestTypeDef(
+    _RequiredDeleteTrafficMirrorFilterRuleRequestRequestTypeDef,
+    _OptionalDeleteTrafficMirrorFilterRuleRequestRequestTypeDef,
+):
+    pass
+
+DeleteTrafficMirrorFilterRuleResultTypeDef = TypedDict(
+    "DeleteTrafficMirrorFilterRuleResultTypeDef",
+    {
+        "TrafficMirrorFilterRuleId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTrafficMirrorSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTrafficMirrorSessionRequestRequestTypeDef",
+    {
+        "TrafficMirrorSessionId": str,
+    },
+)
+_OptionalDeleteTrafficMirrorSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTrafficMirrorSessionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTrafficMirrorSessionRequestRequestTypeDef(
+    _RequiredDeleteTrafficMirrorSessionRequestRequestTypeDef,
+    _OptionalDeleteTrafficMirrorSessionRequestRequestTypeDef,
+):
+    pass
+
+DeleteTrafficMirrorSessionResultTypeDef = TypedDict(
+    "DeleteTrafficMirrorSessionResultTypeDef",
+    {
+        "TrafficMirrorSessionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTrafficMirrorTargetRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTrafficMirrorTargetRequestRequestTypeDef",
+    {
+        "TrafficMirrorTargetId": str,
+    },
+)
+_OptionalDeleteTrafficMirrorTargetRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTrafficMirrorTargetRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTrafficMirrorTargetRequestRequestTypeDef(
+    _RequiredDeleteTrafficMirrorTargetRequestRequestTypeDef,
+    _OptionalDeleteTrafficMirrorTargetRequestRequestTypeDef,
+):
+    pass
+
+DeleteTrafficMirrorTargetResultTypeDef = TypedDict(
+    "DeleteTrafficMirrorTargetResultTypeDef",
+    {
+        "TrafficMirrorTargetId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayConnectPeerRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayConnectPeerRequestRequestTypeDef",
+    {
+        "TransitGatewayConnectPeerId": str,
+    },
+)
+_OptionalDeleteTransitGatewayConnectPeerRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayConnectPeerRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayConnectPeerRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayConnectPeerRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayConnectPeerRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayConnectPeerResultTypeDef = TypedDict(
+    "DeleteTransitGatewayConnectPeerResultTypeDef",
+    {
+        "TransitGatewayConnectPeer": "TransitGatewayConnectPeerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayConnectRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayConnectRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalDeleteTransitGatewayConnectRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayConnectRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayConnectRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayConnectRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayConnectRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayConnectResultTypeDef = TypedDict(
+    "DeleteTransitGatewayConnectResultTypeDef",
+    {
+        "TransitGatewayConnect": "TransitGatewayConnectTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+    },
+)
+_OptionalDeleteTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayMulticastDomainRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayMulticastDomainRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayMulticastDomainRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayMulticastDomainResultTypeDef = TypedDict(
+    "DeleteTransitGatewayMulticastDomainResultTypeDef",
+    {
+        "TransitGatewayMulticastDomain": "TransitGatewayMulticastDomainTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalDeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
+    "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
+    {
+        "TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "PrefixListId": str,
+    },
+)
+_OptionalDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayPrefixListReferenceRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
+    "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
+    {
+        "TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+    },
+)
+_OptionalDeleteTransitGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayResultTypeDef = TypedDict(
+    "DeleteTransitGatewayResultTypeDef",
+    {
+        "TransitGateway": "TransitGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayRouteRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "DestinationCidrBlock": str,
+    },
+)
+_OptionalDeleteTransitGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayRouteRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayRouteRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayRouteRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayRouteRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayRouteResultTypeDef = TypedDict(
+    "DeleteTransitGatewayRouteResultTypeDef",
+    {
+        "Route": "TransitGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+    },
+)
+_OptionalDeleteTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayRouteTableRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayRouteTableRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayRouteTableRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayRouteTableResultTypeDef = TypedDict(
+    "DeleteTransitGatewayRouteTableResultTypeDef",
+    {
+        "TransitGatewayRouteTable": "TransitGatewayRouteTableTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalDeleteTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteTransitGatewayVpcAttachmentRequestRequestTypeDef(
+    _RequiredDeleteTransitGatewayVpcAttachmentRequestRequestTypeDef,
+    _OptionalDeleteTransitGatewayVpcAttachmentRequestRequestTypeDef,
+):
+    pass
+
+DeleteTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
+    "DeleteTransitGatewayVpcAttachmentResultTypeDef",
+    {
+        "TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalDeleteVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVolumeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVolumeRequestRequestTypeDef(
+    _RequiredDeleteVolumeRequestRequestTypeDef, _OptionalDeleteVolumeRequestRequestTypeDef
+):
+    pass
+
+DeleteVolumeRequestVolumeTypeDef = TypedDict(
+    "DeleteVolumeRequestVolumeTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef",
+    {
+        "ConnectionNotificationIds": List[str],
+    },
+)
+_OptionalDeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef(
+    _RequiredDeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef,
+    _OptionalDeleteVpcEndpointConnectionNotificationsRequestRequestTypeDef,
+):
+    pass
+
+DeleteVpcEndpointConnectionNotificationsResultTypeDef = TypedDict(
+    "DeleteVpcEndpointConnectionNotificationsResultTypeDef",
+    {
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef",
+    {
+        "ServiceIds": List[str],
+    },
+)
+_OptionalDeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef(
+    _RequiredDeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef,
+    _OptionalDeleteVpcEndpointServiceConfigurationsRequestRequestTypeDef,
+):
+    pass
+
+DeleteVpcEndpointServiceConfigurationsResultTypeDef = TypedDict(
+    "DeleteVpcEndpointServiceConfigurationsResultTypeDef",
+    {
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVpcEndpointsRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVpcEndpointsRequestRequestTypeDef",
+    {
+        "VpcEndpointIds": List[str],
+    },
+)
+_OptionalDeleteVpcEndpointsRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVpcEndpointsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVpcEndpointsRequestRequestTypeDef(
+    _RequiredDeleteVpcEndpointsRequestRequestTypeDef,
+    _OptionalDeleteVpcEndpointsRequestRequestTypeDef,
+):
+    pass
+
+DeleteVpcEndpointsResultTypeDef = TypedDict(
+    "DeleteVpcEndpointsResultTypeDef",
+    {
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "VpcPeeringConnectionId": str,
+    },
+)
+_OptionalDeleteVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVpcPeeringConnectionRequestRequestTypeDef(
+    _RequiredDeleteVpcPeeringConnectionRequestRequestTypeDef,
+    _OptionalDeleteVpcPeeringConnectionRequestRequestTypeDef,
+):
+    pass
+
+DeleteVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef = TypedDict(
+    "DeleteVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeleteVpcPeeringConnectionResultTypeDef = TypedDict(
+    "DeleteVpcPeeringConnectionResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteVpcRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVpcRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalDeleteVpcRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVpcRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVpcRequestRequestTypeDef(
+    _RequiredDeleteVpcRequestRequestTypeDef, _OptionalDeleteVpcRequestRequestTypeDef
+):
+    pass
+
+DeleteVpcRequestVpcTypeDef = TypedDict(
+    "DeleteVpcRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeleteVpnConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVpnConnectionRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+    },
+)
+_OptionalDeleteVpnConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVpnConnectionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVpnConnectionRequestRequestTypeDef(
+    _RequiredDeleteVpnConnectionRequestRequestTypeDef,
+    _OptionalDeleteVpnConnectionRequestRequestTypeDef,
+):
+    pass
+
+DeleteVpnConnectionRouteRequestRequestTypeDef = TypedDict(
+    "DeleteVpnConnectionRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "VpnConnectionId": str,
+    },
+)
+
+_RequiredDeleteVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVpnGatewayRequestRequestTypeDef",
+    {
+        "VpnGatewayId": str,
+    },
+)
+_OptionalDeleteVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVpnGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteVpnGatewayRequestRequestTypeDef(
+    _RequiredDeleteVpnGatewayRequestRequestTypeDef, _OptionalDeleteVpnGatewayRequestRequestTypeDef
+):
+    pass
+
+_RequiredDeprovisionByoipCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredDeprovisionByoipCidrRequestRequestTypeDef",
+    {
+        "Cidr": str,
+    },
+)
+_OptionalDeprovisionByoipCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalDeprovisionByoipCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeprovisionByoipCidrRequestRequestTypeDef(
+    _RequiredDeprovisionByoipCidrRequestRequestTypeDef,
+    _OptionalDeprovisionByoipCidrRequestRequestTypeDef,
+):
+    pass
+
+DeprovisionByoipCidrResultTypeDef = TypedDict(
+    "DeprovisionByoipCidrResultTypeDef",
+    {
+        "ByoipCidr": "ByoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeregisterImageRequestImageTypeDef = TypedDict(
+    "DeregisterImageRequestImageTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDeregisterImageRequestRequestTypeDef = TypedDict(
+    "_RequiredDeregisterImageRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalDeregisterImageRequestRequestTypeDef = TypedDict(
+    "_OptionalDeregisterImageRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeregisterImageRequestRequestTypeDef(
+    _RequiredDeregisterImageRequestRequestTypeDef, _OptionalDeregisterImageRequestRequestTypeDef
+):
+    pass
+
+DeregisterInstanceEventNotificationAttributesRequestRequestTypeDef = TypedDict(
+    "DeregisterInstanceEventNotificationAttributesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "InstanceTagAttribute": "DeregisterInstanceTagAttributeRequestTypeDef",
+    },
+    total=False,
+)
+
+DeregisterInstanceEventNotificationAttributesResultTypeDef = TypedDict(
+    "DeregisterInstanceEventNotificationAttributesResultTypeDef",
+    {
+        "InstanceTagAttribute": "InstanceTagNotificationAttributeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeregisterInstanceTagAttributeRequestTypeDef = TypedDict(
+    "DeregisterInstanceTagAttributeRequestTypeDef",
+    {
+        "IncludeAllTagsOfInstance": bool,
+        "InstanceTagKeys": List[str],
+    },
+    total=False,
+)
+
+DeregisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef = TypedDict(
+    "DeregisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "GroupIpAddress": str,
+        "NetworkInterfaceIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeregisterTransitGatewayMulticastGroupMembersResultTypeDef = TypedDict(
+    "DeregisterTransitGatewayMulticastGroupMembersResultTypeDef",
+    {
+        "DeregisteredMulticastGroupMembers": "TransitGatewayMulticastDeregisteredGroupMembersTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeregisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef = TypedDict(
+    "DeregisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "GroupIpAddress": str,
+        "NetworkInterfaceIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef = TypedDict(
+    "DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef",
+    {
+        "DeregisteredMulticastGroupSources": "TransitGatewayMulticastDeregisteredGroupSourcesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAccountAttributesRequestRequestTypeDef = TypedDict(
+    "DescribeAccountAttributesRequestRequestTypeDef",
+    {
+        "AttributeNames": List[AccountAttributeNameType],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeAccountAttributesResultTypeDef = TypedDict(
+    "DescribeAccountAttributesResultTypeDef",
+    {
+        "AccountAttributes": List["AccountAttributeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAddressesAttributeRequestRequestTypeDef = TypedDict(
+    "DescribeAddressesAttributeRequestRequestTypeDef",
+    {
+        "AllocationIds": List[str],
+        "Attribute": Literal["domain-name"],
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeAddressesAttributeResultTypeDef = TypedDict(
+    "DescribeAddressesAttributeResultTypeDef",
+    {
+        "Addresses": List["AddressAttributeTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAddressesRequestRequestTypeDef = TypedDict(
+    "DescribeAddressesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "PublicIps": List[str],
+        "AllocationIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeAddressesResultTypeDef = TypedDict(
+    "DescribeAddressesResultTypeDef",
+    {
+        "Addresses": List["AddressTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAggregateIdFormatRequestRequestTypeDef = TypedDict(
+    "DescribeAggregateIdFormatRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeAggregateIdFormatResultTypeDef = TypedDict(
+    "DescribeAggregateIdFormatResultTypeDef",
+    {
+        "UseLongIdsAggregated": bool,
+        "Statuses": List["IdFormatTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeAvailabilityZonesRequestRequestTypeDef = TypedDict(
+    "DescribeAvailabilityZonesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "ZoneNames": List[str],
+        "ZoneIds": List[str],
+        "AllAvailabilityZones": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeAvailabilityZonesResultTypeDef = TypedDict(
+    "DescribeAvailabilityZonesResultTypeDef",
+    {
+        "AvailabilityZones": List["AvailabilityZoneTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeBundleTasksRequestRequestTypeDef = TypedDict(
+    "DescribeBundleTasksRequestRequestTypeDef",
+    {
+        "BundleIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeBundleTasksResultTypeDef = TypedDict(
+    "DescribeBundleTasksResultTypeDef",
+    {
+        "BundleTasks": List["BundleTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeByoipCidrsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeByoipCidrsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+    },
+)
+_OptionalDescribeByoipCidrsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeByoipCidrsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeByoipCidrsRequestRequestTypeDef(
+    _RequiredDescribeByoipCidrsRequestRequestTypeDef,
+    _OptionalDescribeByoipCidrsRequestRequestTypeDef,
+):
+    pass
+
+DescribeByoipCidrsResultTypeDef = TypedDict(
+    "DescribeByoipCidrsResultTypeDef",
+    {
+        "ByoipCidrs": List["ByoipCidrTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeCapacityReservationsRequestRequestTypeDef = TypedDict(
+    "DescribeCapacityReservationsRequestRequestTypeDef",
+    {
+        "CapacityReservationIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeCapacityReservationsResultTypeDef = TypedDict(
+    "DescribeCapacityReservationsResultTypeDef",
+    {
+        "NextToken": str,
+        "CapacityReservations": List["CapacityReservationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeCarrierGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeCarrierGatewaysRequestRequestTypeDef",
+    {
+        "CarrierGatewayIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeCarrierGatewaysResultTypeDef = TypedDict(
+    "DescribeCarrierGatewaysResultTypeDef",
+    {
+        "CarrierGateways": List["CarrierGatewayTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeClassicLinkInstancesRequestRequestTypeDef = TypedDict(
+    "DescribeClassicLinkInstancesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "InstanceIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeClassicLinkInstancesResultTypeDef = TypedDict(
+    "DescribeClassicLinkInstancesResultTypeDef",
+    {
+        "Instances": List["ClassicLinkInstanceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeClientVpnAuthorizationRulesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeClientVpnAuthorizationRulesRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalDescribeClientVpnAuthorizationRulesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeClientVpnAuthorizationRulesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeClientVpnAuthorizationRulesRequestRequestTypeDef(
+    _RequiredDescribeClientVpnAuthorizationRulesRequestRequestTypeDef,
+    _OptionalDescribeClientVpnAuthorizationRulesRequestRequestTypeDef,
+):
+    pass
+
+DescribeClientVpnAuthorizationRulesResultTypeDef = TypedDict(
+    "DescribeClientVpnAuthorizationRulesResultTypeDef",
+    {
+        "AuthorizationRules": List["AuthorizationRuleTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeClientVpnConnectionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeClientVpnConnectionsRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalDescribeClientVpnConnectionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeClientVpnConnectionsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeClientVpnConnectionsRequestRequestTypeDef(
+    _RequiredDescribeClientVpnConnectionsRequestRequestTypeDef,
+    _OptionalDescribeClientVpnConnectionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeClientVpnConnectionsResultTypeDef = TypedDict(
+    "DescribeClientVpnConnectionsResultTypeDef",
+    {
+        "Connections": List["ClientVpnConnectionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeClientVpnEndpointsRequestRequestTypeDef = TypedDict(
+    "DescribeClientVpnEndpointsRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeClientVpnEndpointsResultTypeDef = TypedDict(
+    "DescribeClientVpnEndpointsResultTypeDef",
+    {
+        "ClientVpnEndpoints": List["ClientVpnEndpointTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeClientVpnRoutesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeClientVpnRoutesRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalDescribeClientVpnRoutesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeClientVpnRoutesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeClientVpnRoutesRequestRequestTypeDef(
+    _RequiredDescribeClientVpnRoutesRequestRequestTypeDef,
+    _OptionalDescribeClientVpnRoutesRequestRequestTypeDef,
+):
+    pass
+
+DescribeClientVpnRoutesResultTypeDef = TypedDict(
+    "DescribeClientVpnRoutesResultTypeDef",
+    {
+        "Routes": List["ClientVpnRouteTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeClientVpnTargetNetworksRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeClientVpnTargetNetworksRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalDescribeClientVpnTargetNetworksRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeClientVpnTargetNetworksRequestRequestTypeDef",
+    {
+        "AssociationIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeClientVpnTargetNetworksRequestRequestTypeDef(
+    _RequiredDescribeClientVpnTargetNetworksRequestRequestTypeDef,
+    _OptionalDescribeClientVpnTargetNetworksRequestRequestTypeDef,
+):
+    pass
+
+DescribeClientVpnTargetNetworksResultTypeDef = TypedDict(
+    "DescribeClientVpnTargetNetworksResultTypeDef",
+    {
+        "ClientVpnTargetNetworks": List["TargetNetworkTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeCoipPoolsRequestRequestTypeDef = TypedDict(
+    "DescribeCoipPoolsRequestRequestTypeDef",
+    {
+        "PoolIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeCoipPoolsResultTypeDef = TypedDict(
+    "DescribeCoipPoolsResultTypeDef",
+    {
+        "CoipPools": List["CoipPoolTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeConversionTasksRequestRequestTypeDef = TypedDict(
+    "DescribeConversionTasksRequestRequestTypeDef",
+    {
+        "ConversionTaskIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeConversionTasksResultTypeDef = TypedDict(
+    "DescribeConversionTasksResultTypeDef",
+    {
+        "ConversionTasks": List["ConversionTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeCustomerGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeCustomerGatewaysRequestRequestTypeDef",
+    {
+        "CustomerGatewayIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeCustomerGatewaysResultTypeDef = TypedDict(
+    "DescribeCustomerGatewaysResultTypeDef",
+    {
+        "CustomerGateways": List["CustomerGatewayTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeDhcpOptionsRequestRequestTypeDef = TypedDict(
+    "DescribeDhcpOptionsRequestRequestTypeDef",
+    {
+        "DhcpOptionsIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeDhcpOptionsResultTypeDef = TypedDict(
+    "DescribeDhcpOptionsResultTypeDef",
+    {
+        "DhcpOptions": List["DhcpOptionsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEgressOnlyInternetGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeEgressOnlyInternetGatewaysRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "EgressOnlyInternetGatewayIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeEgressOnlyInternetGatewaysResultTypeDef = TypedDict(
+    "DescribeEgressOnlyInternetGatewaysResultTypeDef",
+    {
+        "EgressOnlyInternetGateways": List["EgressOnlyInternetGatewayTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeElasticGpusRequestRequestTypeDef = TypedDict(
+    "DescribeElasticGpusRequestRequestTypeDef",
+    {
+        "ElasticGpuIds": List[str],
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeElasticGpusResultTypeDef = TypedDict(
+    "DescribeElasticGpusResultTypeDef",
+    {
+        "ElasticGpuSet": List["ElasticGpusTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeExportImageTasksRequestRequestTypeDef = TypedDict(
+    "DescribeExportImageTasksRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "ExportImageTaskIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeExportImageTasksResultTypeDef = TypedDict(
+    "DescribeExportImageTasksResultTypeDef",
+    {
+        "ExportImageTasks": List["ExportImageTaskTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeExportTasksRequestRequestTypeDef = TypedDict(
+    "DescribeExportTasksRequestRequestTypeDef",
+    {
+        "ExportTaskIds": List[str],
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeExportTasksResultTypeDef = TypedDict(
+    "DescribeExportTasksResultTypeDef",
+    {
+        "ExportTasks": List["ExportTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DescribeFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
@@ -2069,7 +9054,7 @@ DescribeFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     {
         "SnapshotId": str,
         "AvailabilityZone": str,
-        "State": Literal["enabling", "optimizing", "enabled", "disabling", "disabled"],
+        "State": FastSnapshotRestoreStateCodeType,
         "StateTransitionReason": str,
         "OwnerId": str,
         "OwnerAlias": str,
@@ -2082,421 +9067,2679 @@ DescribeFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     total=False,
 )
 
+DescribeFastSnapshotRestoresRequestRequestTypeDef = TypedDict(
+    "DescribeFastSnapshotRestoresRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeFastSnapshotRestoresResultTypeDef = TypedDict(
+    "DescribeFastSnapshotRestoresResultTypeDef",
+    {
+        "FastSnapshotRestores": List["DescribeFastSnapshotRestoreSuccessItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeFleetErrorTypeDef = TypedDict(
     "DescribeFleetErrorTypeDef",
     {
         "LaunchTemplateAndOverrides": "LaunchTemplateAndOverridesResponseTypeDef",
-        "Lifecycle": Literal["spot", "on-demand"],
+        "Lifecycle": InstanceLifecycleType,
         "ErrorCode": str,
         "ErrorMessage": str,
     },
     total=False,
 )
 
+_RequiredDescribeFleetHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeFleetHistoryRequestRequestTypeDef",
+    {
+        "FleetId": str,
+        "StartTime": Union[datetime, str],
+    },
+)
+_OptionalDescribeFleetHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeFleetHistoryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "EventType": FleetEventTypeType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeFleetHistoryRequestRequestTypeDef(
+    _RequiredDescribeFleetHistoryRequestRequestTypeDef,
+    _OptionalDescribeFleetHistoryRequestRequestTypeDef,
+):
+    pass
+
+DescribeFleetHistoryResultTypeDef = TypedDict(
+    "DescribeFleetHistoryResultTypeDef",
+    {
+        "HistoryRecords": List["HistoryRecordEntryTypeDef"],
+        "LastEvaluatedTime": datetime,
+        "NextToken": str,
+        "FleetId": str,
+        "StartTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeFleetInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeFleetInstancesRequestRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalDescribeFleetInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeFleetInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+class DescribeFleetInstancesRequestRequestTypeDef(
+    _RequiredDescribeFleetInstancesRequestRequestTypeDef,
+    _OptionalDescribeFleetInstancesRequestRequestTypeDef,
+):
+    pass
+
+DescribeFleetInstancesResultTypeDef = TypedDict(
+    "DescribeFleetInstancesResultTypeDef",
+    {
+        "ActiveInstances": List["ActiveInstanceTypeDef"],
+        "NextToken": str,
+        "FleetId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeFleetsInstancesTypeDef = TypedDict(
     "DescribeFleetsInstancesTypeDef",
     {
         "LaunchTemplateAndOverrides": "LaunchTemplateAndOverridesResponseTypeDef",
-        "Lifecycle": Literal["spot", "on-demand"],
+        "Lifecycle": InstanceLifecycleType,
         "InstanceIds": List[str],
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "Platform": Literal["Windows"],
     },
     total=False,
 )
 
+DescribeFleetsRequestRequestTypeDef = TypedDict(
+    "DescribeFleetsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+        "FleetIds": List[str],
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeFleetsResultTypeDef = TypedDict(
+    "DescribeFleetsResultTypeDef",
+    {
+        "NextToken": str,
+        "Fleets": List["FleetDataTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFlowLogsRequestRequestTypeDef = TypedDict(
+    "DescribeFlowLogsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "FlowLogIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFlowLogsResultTypeDef = TypedDict(
+    "DescribeFlowLogsResultTypeDef",
+    {
+        "FlowLogs": List["FlowLogTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeFpgaImageAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeFpgaImageAttributeRequestRequestTypeDef",
+    {
+        "FpgaImageId": str,
+        "Attribute": FpgaImageAttributeNameType,
+    },
+)
+_OptionalDescribeFpgaImageAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeFpgaImageAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeFpgaImageAttributeRequestRequestTypeDef(
+    _RequiredDescribeFpgaImageAttributeRequestRequestTypeDef,
+    _OptionalDescribeFpgaImageAttributeRequestRequestTypeDef,
+):
+    pass
+
+DescribeFpgaImageAttributeResultTypeDef = TypedDict(
+    "DescribeFpgaImageAttributeResultTypeDef",
+    {
+        "FpgaImageAttribute": "FpgaImageAttributeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFpgaImagesRequestRequestTypeDef = TypedDict(
+    "DescribeFpgaImagesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "FpgaImageIds": List[str],
+        "Owners": List[str],
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeFpgaImagesResultTypeDef = TypedDict(
+    "DescribeFpgaImagesResultTypeDef",
+    {
+        "FpgaImages": List["FpgaImageTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeHostReservationOfferingsRequestRequestTypeDef = TypedDict(
+    "DescribeHostReservationOfferingsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxDuration": int,
+        "MaxResults": int,
+        "MinDuration": int,
+        "NextToken": str,
+        "OfferingId": str,
+    },
+    total=False,
+)
+
+DescribeHostReservationOfferingsResultTypeDef = TypedDict(
+    "DescribeHostReservationOfferingsResultTypeDef",
+    {
+        "NextToken": str,
+        "OfferingSet": List["HostOfferingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeHostReservationsRequestRequestTypeDef = TypedDict(
+    "DescribeHostReservationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "HostReservationIdSet": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeHostReservationsResultTypeDef = TypedDict(
+    "DescribeHostReservationsResultTypeDef",
+    {
+        "HostReservationSet": List["HostReservationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeHostsRequestRequestTypeDef = TypedDict(
+    "DescribeHostsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "HostIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeHostsResultTypeDef = TypedDict(
+    "DescribeHostsResultTypeDef",
+    {
+        "Hosts": List["HostTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeIamInstanceProfileAssociationsRequestRequestTypeDef = TypedDict(
+    "DescribeIamInstanceProfileAssociationsRequestRequestTypeDef",
+    {
+        "AssociationIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeIamInstanceProfileAssociationsResultTypeDef = TypedDict(
+    "DescribeIamInstanceProfileAssociationsResultTypeDef",
+    {
+        "IamInstanceProfileAssociations": List["IamInstanceProfileAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeIdFormatRequestRequestTypeDef = TypedDict(
+    "DescribeIdFormatRequestRequestTypeDef",
+    {
+        "Resource": str,
+    },
+    total=False,
+)
+
+DescribeIdFormatResultTypeDef = TypedDict(
+    "DescribeIdFormatResultTypeDef",
+    {
+        "Statuses": List["IdFormatTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeIdentityIdFormatRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeIdentityIdFormatRequestRequestTypeDef",
+    {
+        "PrincipalArn": str,
+    },
+)
+_OptionalDescribeIdentityIdFormatRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeIdentityIdFormatRequestRequestTypeDef",
+    {
+        "Resource": str,
+    },
+    total=False,
+)
+
+class DescribeIdentityIdFormatRequestRequestTypeDef(
+    _RequiredDescribeIdentityIdFormatRequestRequestTypeDef,
+    _OptionalDescribeIdentityIdFormatRequestRequestTypeDef,
+):
+    pass
+
+DescribeIdentityIdFormatResultTypeDef = TypedDict(
+    "DescribeIdentityIdFormatResultTypeDef",
+    {
+        "Statuses": List["IdFormatTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeImageAttributeRequestImageTypeDef = TypedDict(
+    "_RequiredDescribeImageAttributeRequestImageTypeDef",
+    {
+        "Attribute": ImageAttributeNameType,
+    },
+)
+_OptionalDescribeImageAttributeRequestImageTypeDef = TypedDict(
+    "_OptionalDescribeImageAttributeRequestImageTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeImageAttributeRequestImageTypeDef(
+    _RequiredDescribeImageAttributeRequestImageTypeDef,
+    _OptionalDescribeImageAttributeRequestImageTypeDef,
+):
+    pass
+
+_RequiredDescribeImageAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeImageAttributeRequestRequestTypeDef",
+    {
+        "Attribute": ImageAttributeNameType,
+        "ImageId": str,
+    },
+)
+_OptionalDescribeImageAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeImageAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeImageAttributeRequestRequestTypeDef(
+    _RequiredDescribeImageAttributeRequestRequestTypeDef,
+    _OptionalDescribeImageAttributeRequestRequestTypeDef,
+):
+    pass
+
+DescribeImagesRequestRequestTypeDef = TypedDict(
+    "DescribeImagesRequestRequestTypeDef",
+    {
+        "ExecutableUsers": List[str],
+        "Filters": List["FilterTypeDef"],
+        "ImageIds": List[str],
+        "Owners": List[str],
+        "IncludeDeprecated": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeImagesResultTypeDef = TypedDict(
+    "DescribeImagesResultTypeDef",
+    {
+        "Images": List["ImageTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeImportImageTasksRequestRequestTypeDef = TypedDict(
+    "DescribeImportImageTasksRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "ImportTaskIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeImportImageTasksResultTypeDef = TypedDict(
+    "DescribeImportImageTasksResultTypeDef",
+    {
+        "ImportImageTasks": List["ImportImageTaskTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeImportSnapshotTasksRequestRequestTypeDef = TypedDict(
+    "DescribeImportSnapshotTasksRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "ImportTaskIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeImportSnapshotTasksResultTypeDef = TypedDict(
+    "DescribeImportSnapshotTasksResultTypeDef",
+    {
+        "ImportSnapshotTasks": List["ImportSnapshotTaskTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeInstanceAttributeRequestInstanceTypeDef = TypedDict(
+    "_RequiredDescribeInstanceAttributeRequestInstanceTypeDef",
+    {
+        "Attribute": InstanceAttributeNameType,
+    },
+)
+_OptionalDescribeInstanceAttributeRequestInstanceTypeDef = TypedDict(
+    "_OptionalDescribeInstanceAttributeRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeInstanceAttributeRequestInstanceTypeDef(
+    _RequiredDescribeInstanceAttributeRequestInstanceTypeDef,
+    _OptionalDescribeInstanceAttributeRequestInstanceTypeDef,
+):
+    pass
+
+_RequiredDescribeInstanceAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeInstanceAttributeRequestRequestTypeDef",
+    {
+        "Attribute": InstanceAttributeNameType,
+        "InstanceId": str,
+    },
+)
+_OptionalDescribeInstanceAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeInstanceAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeInstanceAttributeRequestRequestTypeDef(
+    _RequiredDescribeInstanceAttributeRequestRequestTypeDef,
+    _OptionalDescribeInstanceAttributeRequestRequestTypeDef,
+):
+    pass
+
+DescribeInstanceCreditSpecificationsRequestRequestTypeDef = TypedDict(
+    "DescribeInstanceCreditSpecificationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "InstanceIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstanceCreditSpecificationsResultTypeDef = TypedDict(
+    "DescribeInstanceCreditSpecificationsResultTypeDef",
+    {
+        "InstanceCreditSpecifications": List["InstanceCreditSpecificationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstanceEventNotificationAttributesRequestRequestTypeDef = TypedDict(
+    "DescribeInstanceEventNotificationAttributesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeInstanceEventNotificationAttributesResultTypeDef = TypedDict(
+    "DescribeInstanceEventNotificationAttributesResultTypeDef",
+    {
+        "InstanceTagAttribute": "InstanceTagNotificationAttributeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstanceEventWindowsRequestRequestTypeDef = TypedDict(
+    "DescribeInstanceEventWindowsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "InstanceEventWindowIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstanceEventWindowsResultTypeDef = TypedDict(
+    "DescribeInstanceEventWindowsResultTypeDef",
+    {
+        "InstanceEventWindows": List["InstanceEventWindowTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstanceStatusRequestRequestTypeDef = TypedDict(
+    "DescribeInstanceStatusRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "InstanceIds": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+        "IncludeAllInstances": bool,
+    },
+    total=False,
+)
+
+DescribeInstanceStatusResultTypeDef = TypedDict(
+    "DescribeInstanceStatusResultTypeDef",
+    {
+        "InstanceStatuses": List["InstanceStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstanceTypeOfferingsRequestRequestTypeDef = TypedDict(
+    "DescribeInstanceTypeOfferingsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "LocationType": LocationTypeType,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstanceTypeOfferingsResultTypeDef = TypedDict(
+    "DescribeInstanceTypeOfferingsResultTypeDef",
+    {
+        "InstanceTypeOfferings": List["InstanceTypeOfferingTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstanceTypesRequestRequestTypeDef = TypedDict(
+    "DescribeInstanceTypesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "InstanceTypes": List[InstanceTypeType],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstanceTypesResultTypeDef = TypedDict(
+    "DescribeInstanceTypesResultTypeDef",
+    {
+        "InstanceTypes": List["InstanceTypeInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInstancesRequestRequestTypeDef = TypedDict(
+    "DescribeInstancesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "InstanceIds": List[str],
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeInstancesResultTypeDef = TypedDict(
+    "DescribeInstancesResultTypeDef",
+    {
+        "Reservations": List["ReservationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInternetGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeInternetGatewaysRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "InternetGatewayIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeInternetGatewaysResultTypeDef = TypedDict(
+    "DescribeInternetGatewaysResultTypeDef",
+    {
+        "InternetGateways": List["InternetGatewayTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeIpv6PoolsRequestRequestTypeDef = TypedDict(
+    "DescribeIpv6PoolsRequestRequestTypeDef",
+    {
+        "PoolIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeIpv6PoolsResultTypeDef = TypedDict(
+    "DescribeIpv6PoolsResultTypeDef",
+    {
+        "Ipv6Pools": List["Ipv6PoolTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeKeyPairsRequestRequestTypeDef = TypedDict(
+    "DescribeKeyPairsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "KeyNames": List[str],
+        "KeyPairIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeKeyPairsResultTypeDef = TypedDict(
+    "DescribeKeyPairsResultTypeDef",
+    {
+        "KeyPairs": List["KeyPairInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLaunchTemplateVersionsRequestRequestTypeDef = TypedDict(
+    "DescribeLaunchTemplateVersionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Versions": List[str],
+        "MinVersion": str,
+        "MaxVersion": str,
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribeLaunchTemplateVersionsResultTypeDef = TypedDict(
+    "DescribeLaunchTemplateVersionsResultTypeDef",
+    {
+        "LaunchTemplateVersions": List["LaunchTemplateVersionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLaunchTemplatesRequestRequestTypeDef = TypedDict(
+    "DescribeLaunchTemplatesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "LaunchTemplateIds": List[str],
+        "LaunchTemplateNames": List[str],
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeLaunchTemplatesResultTypeDef = TypedDict(
+    "DescribeLaunchTemplatesResultTypeDef",
+    {
+        "LaunchTemplates": List["LaunchTemplateTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestRequestTypeDef = TypedDict(
+    "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef = TypedDict(
+    "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef",
+    {
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociations": List[
+            "LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocalGatewayRouteTableVpcAssociationsRequestRequestTypeDef = TypedDict(
+    "DescribeLocalGatewayRouteTableVpcAssociationsRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableVpcAssociationIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef = TypedDict(
+    "DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef",
+    {
+        "LocalGatewayRouteTableVpcAssociations": List[
+            "LocalGatewayRouteTableVpcAssociationTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocalGatewayRouteTablesRequestRequestTypeDef = TypedDict(
+    "DescribeLocalGatewayRouteTablesRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeLocalGatewayRouteTablesResultTypeDef = TypedDict(
+    "DescribeLocalGatewayRouteTablesResultTypeDef",
+    {
+        "LocalGatewayRouteTables": List["LocalGatewayRouteTableTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocalGatewayVirtualInterfaceGroupsRequestRequestTypeDef = TypedDict(
+    "DescribeLocalGatewayVirtualInterfaceGroupsRequestRequestTypeDef",
+    {
+        "LocalGatewayVirtualInterfaceGroupIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef = TypedDict(
+    "DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef",
+    {
+        "LocalGatewayVirtualInterfaceGroups": List["LocalGatewayVirtualInterfaceGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocalGatewayVirtualInterfacesRequestRequestTypeDef = TypedDict(
+    "DescribeLocalGatewayVirtualInterfacesRequestRequestTypeDef",
+    {
+        "LocalGatewayVirtualInterfaceIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeLocalGatewayVirtualInterfacesResultTypeDef = TypedDict(
+    "DescribeLocalGatewayVirtualInterfacesResultTypeDef",
+    {
+        "LocalGatewayVirtualInterfaces": List["LocalGatewayVirtualInterfaceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocalGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeLocalGatewaysRequestRequestTypeDef",
+    {
+        "LocalGatewayIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeLocalGatewaysResultTypeDef = TypedDict(
+    "DescribeLocalGatewaysResultTypeDef",
+    {
+        "LocalGateways": List["LocalGatewayTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeManagedPrefixListsRequestRequestTypeDef = TypedDict(
+    "DescribeManagedPrefixListsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "PrefixListIds": List[str],
+    },
+    total=False,
+)
+
+DescribeManagedPrefixListsResultTypeDef = TypedDict(
+    "DescribeManagedPrefixListsResultTypeDef",
+    {
+        "NextToken": str,
+        "PrefixLists": List["ManagedPrefixListTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMovingAddressesRequestRequestTypeDef = TypedDict(
+    "DescribeMovingAddressesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+        "PublicIps": List[str],
+    },
+    total=False,
+)
+
+DescribeMovingAddressesResultTypeDef = TypedDict(
+    "DescribeMovingAddressesResultTypeDef",
+    {
+        "MovingAddressStatuses": List["MovingAddressStatusTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNatGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeNatGatewaysRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NatGatewayIds": List[str],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeNatGatewaysResultTypeDef = TypedDict(
+    "DescribeNatGatewaysResultTypeDef",
+    {
+        "NatGateways": List["NatGatewayTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkAclsRequestRequestTypeDef = TypedDict(
+    "DescribeNetworkAclsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "NetworkAclIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeNetworkAclsResultTypeDef = TypedDict(
+    "DescribeNetworkAclsResultTypeDef",
+    {
+        "NetworkAcls": List["NetworkAclTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkInsightsAnalysesRequestRequestTypeDef = TypedDict(
+    "DescribeNetworkInsightsAnalysesRequestRequestTypeDef",
+    {
+        "NetworkInsightsAnalysisIds": List[str],
+        "NetworkInsightsPathId": str,
+        "AnalysisStartTime": Union[datetime, str],
+        "AnalysisEndTime": Union[datetime, str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "DryRun": bool,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeNetworkInsightsAnalysesResultTypeDef = TypedDict(
+    "DescribeNetworkInsightsAnalysesResultTypeDef",
+    {
+        "NetworkInsightsAnalyses": List["NetworkInsightsAnalysisTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkInsightsPathsRequestRequestTypeDef = TypedDict(
+    "DescribeNetworkInsightsPathsRequestRequestTypeDef",
+    {
+        "NetworkInsightsPathIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "DryRun": bool,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeNetworkInsightsPathsResultTypeDef = TypedDict(
+    "DescribeNetworkInsightsPathsResultTypeDef",
+    {
+        "NetworkInsightsPaths": List["NetworkInsightsPathTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef = TypedDict(
+    "DescribeNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
+    {
+        "Attribute": NetworkInterfaceAttributeType,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDescribeNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeNetworkInterfaceAttributeRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalDescribeNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeNetworkInterfaceAttributeRequestRequestTypeDef",
+    {
+        "Attribute": NetworkInterfaceAttributeType,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeNetworkInterfaceAttributeRequestRequestTypeDef(
+    _RequiredDescribeNetworkInterfaceAttributeRequestRequestTypeDef,
+    _OptionalDescribeNetworkInterfaceAttributeRequestRequestTypeDef,
+):
+    pass
+
+DescribeNetworkInterfaceAttributeResultTypeDef = TypedDict(
+    "DescribeNetworkInterfaceAttributeResultTypeDef",
+    {
+        "Attachment": "NetworkInterfaceAttachmentTypeDef",
+        "Description": "AttributeValueTypeDef",
+        "Groups": List["GroupIdentifierTypeDef"],
+        "NetworkInterfaceId": str,
+        "SourceDestCheck": "AttributeBooleanValueTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkInterfacePermissionsRequestRequestTypeDef = TypedDict(
+    "DescribeNetworkInterfacePermissionsRequestRequestTypeDef",
+    {
+        "NetworkInterfacePermissionIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeNetworkInterfacePermissionsResultTypeDef = TypedDict(
+    "DescribeNetworkInterfacePermissionsResultTypeDef",
+    {
+        "NetworkInterfacePermissions": List["NetworkInterfacePermissionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkInterfacesRequestRequestTypeDef = TypedDict(
+    "DescribeNetworkInterfacesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "NetworkInterfaceIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeNetworkInterfacesResultTypeDef = TypedDict(
+    "DescribeNetworkInterfacesResultTypeDef",
+    {
+        "NetworkInterfaces": List["NetworkInterfaceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePlacementGroupsRequestRequestTypeDef = TypedDict(
+    "DescribePlacementGroupsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "GroupNames": List[str],
+        "GroupIds": List[str],
+    },
+    total=False,
+)
+
+DescribePlacementGroupsResultTypeDef = TypedDict(
+    "DescribePlacementGroupsResultTypeDef",
+    {
+        "PlacementGroups": List["PlacementGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePrefixListsRequestRequestTypeDef = TypedDict(
+    "DescribePrefixListsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "PrefixListIds": List[str],
+    },
+    total=False,
+)
+
+DescribePrefixListsResultTypeDef = TypedDict(
+    "DescribePrefixListsResultTypeDef",
+    {
+        "NextToken": str,
+        "PrefixLists": List["PrefixListTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePrincipalIdFormatRequestRequestTypeDef = TypedDict(
+    "DescribePrincipalIdFormatRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Resources": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribePrincipalIdFormatResultTypeDef = TypedDict(
+    "DescribePrincipalIdFormatResultTypeDef",
+    {
+        "Principals": List["PrincipalIdFormatTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePublicIpv4PoolsRequestRequestTypeDef = TypedDict(
+    "DescribePublicIpv4PoolsRequestRequestTypeDef",
+    {
+        "PoolIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+DescribePublicIpv4PoolsResultTypeDef = TypedDict(
+    "DescribePublicIpv4PoolsResultTypeDef",
+    {
+        "PublicIpv4Pools": List["PublicIpv4PoolTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRegionsRequestRequestTypeDef = TypedDict(
+    "DescribeRegionsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "RegionNames": List[str],
+        "DryRun": bool,
+        "AllRegions": bool,
+    },
+    total=False,
+)
+
+DescribeRegionsResultTypeDef = TypedDict(
+    "DescribeRegionsResultTypeDef",
+    {
+        "Regions": List["RegionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReplaceRootVolumeTasksRequestRequestTypeDef = TypedDict(
+    "DescribeReplaceRootVolumeTasksRequestRequestTypeDef",
+    {
+        "ReplaceRootVolumeTaskIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeReplaceRootVolumeTasksResultTypeDef = TypedDict(
+    "DescribeReplaceRootVolumeTasksResultTypeDef",
+    {
+        "ReplaceRootVolumeTasks": List["ReplaceRootVolumeTaskTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReservedInstancesListingsRequestRequestTypeDef = TypedDict(
+    "DescribeReservedInstancesListingsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "ReservedInstancesId": str,
+        "ReservedInstancesListingId": str,
+    },
+    total=False,
+)
+
+DescribeReservedInstancesListingsResultTypeDef = TypedDict(
+    "DescribeReservedInstancesListingsResultTypeDef",
+    {
+        "ReservedInstancesListings": List["ReservedInstancesListingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReservedInstancesModificationsRequestRequestTypeDef = TypedDict(
+    "DescribeReservedInstancesModificationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "ReservedInstancesModificationIds": List[str],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeReservedInstancesModificationsResultTypeDef = TypedDict(
+    "DescribeReservedInstancesModificationsResultTypeDef",
+    {
+        "NextToken": str,
+        "ReservedInstancesModifications": List["ReservedInstancesModificationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReservedInstancesOfferingsRequestRequestTypeDef = TypedDict(
+    "DescribeReservedInstancesOfferingsRequestRequestTypeDef",
+    {
+        "AvailabilityZone": str,
+        "Filters": List["FilterTypeDef"],
+        "IncludeMarketplace": bool,
+        "InstanceType": InstanceTypeType,
+        "MaxDuration": int,
+        "MaxInstanceCount": int,
+        "MinDuration": int,
+        "OfferingClass": OfferingClassTypeType,
+        "ProductDescription": RIProductDescriptionType,
+        "ReservedInstancesOfferingIds": List[str],
+        "DryRun": bool,
+        "InstanceTenancy": TenancyType,
+        "MaxResults": int,
+        "NextToken": str,
+        "OfferingType": OfferingTypeValuesType,
+    },
+    total=False,
+)
+
+DescribeReservedInstancesOfferingsResultTypeDef = TypedDict(
+    "DescribeReservedInstancesOfferingsResultTypeDef",
+    {
+        "ReservedInstancesOfferings": List["ReservedInstancesOfferingTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReservedInstancesRequestRequestTypeDef = TypedDict(
+    "DescribeReservedInstancesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "OfferingClass": OfferingClassTypeType,
+        "ReservedInstancesIds": List[str],
+        "DryRun": bool,
+        "OfferingType": OfferingTypeValuesType,
+    },
+    total=False,
+)
+
+DescribeReservedInstancesResultTypeDef = TypedDict(
+    "DescribeReservedInstancesResultTypeDef",
+    {
+        "ReservedInstances": List["ReservedInstancesTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRouteTablesRequestRequestTypeDef = TypedDict(
+    "DescribeRouteTablesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "RouteTableIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeRouteTablesResultTypeDef = TypedDict(
+    "DescribeRouteTablesResultTypeDef",
+    {
+        "RouteTables": List["RouteTableTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeScheduledInstanceAvailabilityRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeScheduledInstanceAvailabilityRequestRequestTypeDef",
+    {
+        "FirstSlotStartTimeRange": "SlotDateTimeRangeRequestTypeDef",
+        "Recurrence": "ScheduledInstanceRecurrenceRequestTypeDef",
+    },
+)
+_OptionalDescribeScheduledInstanceAvailabilityRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeScheduledInstanceAvailabilityRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "MaxSlotDurationInHours": int,
+        "MinSlotDurationInHours": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeScheduledInstanceAvailabilityRequestRequestTypeDef(
+    _RequiredDescribeScheduledInstanceAvailabilityRequestRequestTypeDef,
+    _OptionalDescribeScheduledInstanceAvailabilityRequestRequestTypeDef,
+):
+    pass
+
+DescribeScheduledInstanceAvailabilityResultTypeDef = TypedDict(
+    "DescribeScheduledInstanceAvailabilityResultTypeDef",
+    {
+        "NextToken": str,
+        "ScheduledInstanceAvailabilitySet": List["ScheduledInstanceAvailabilityTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeScheduledInstancesRequestRequestTypeDef = TypedDict(
+    "DescribeScheduledInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "ScheduledInstanceIds": List[str],
+        "SlotStartTimeRange": "SlotStartTimeRangeRequestTypeDef",
+    },
+    total=False,
+)
+
+DescribeScheduledInstancesResultTypeDef = TypedDict(
+    "DescribeScheduledInstancesResultTypeDef",
+    {
+        "NextToken": str,
+        "ScheduledInstanceSet": List["ScheduledInstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeSecurityGroupReferencesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSecurityGroupReferencesRequestRequestTypeDef",
+    {
+        "GroupId": List[str],
+    },
+)
+_OptionalDescribeSecurityGroupReferencesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSecurityGroupReferencesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeSecurityGroupReferencesRequestRequestTypeDef(
+    _RequiredDescribeSecurityGroupReferencesRequestRequestTypeDef,
+    _OptionalDescribeSecurityGroupReferencesRequestRequestTypeDef,
+):
+    pass
+
+DescribeSecurityGroupReferencesResultTypeDef = TypedDict(
+    "DescribeSecurityGroupReferencesResultTypeDef",
+    {
+        "SecurityGroupReferenceSet": List["SecurityGroupReferenceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSecurityGroupRulesRequestRequestTypeDef = TypedDict(
+    "DescribeSecurityGroupRulesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "SecurityGroupRuleIds": List[str],
+        "DryRun": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeSecurityGroupRulesResultTypeDef = TypedDict(
+    "DescribeSecurityGroupRulesResultTypeDef",
+    {
+        "SecurityGroupRules": List["SecurityGroupRuleTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSecurityGroupsRequestRequestTypeDef = TypedDict(
+    "DescribeSecurityGroupsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "GroupIds": List[str],
+        "GroupNames": List[str],
+        "DryRun": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeSecurityGroupsResultTypeDef = TypedDict(
+    "DescribeSecurityGroupsResultTypeDef",
+    {
+        "SecurityGroups": List["SecurityGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeSnapshotAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSnapshotAttributeRequestRequestTypeDef",
+    {
+        "Attribute": SnapshotAttributeNameType,
+        "SnapshotId": str,
+    },
+)
+_OptionalDescribeSnapshotAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSnapshotAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeSnapshotAttributeRequestRequestTypeDef(
+    _RequiredDescribeSnapshotAttributeRequestRequestTypeDef,
+    _OptionalDescribeSnapshotAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDescribeSnapshotAttributeRequestSnapshotTypeDef = TypedDict(
+    "_RequiredDescribeSnapshotAttributeRequestSnapshotTypeDef",
+    {
+        "Attribute": SnapshotAttributeNameType,
+    },
+)
+_OptionalDescribeSnapshotAttributeRequestSnapshotTypeDef = TypedDict(
+    "_OptionalDescribeSnapshotAttributeRequestSnapshotTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeSnapshotAttributeRequestSnapshotTypeDef(
+    _RequiredDescribeSnapshotAttributeRequestSnapshotTypeDef,
+    _OptionalDescribeSnapshotAttributeRequestSnapshotTypeDef,
+):
+    pass
+
+DescribeSnapshotAttributeResultTypeDef = TypedDict(
+    "DescribeSnapshotAttributeResultTypeDef",
+    {
+        "CreateVolumePermissions": List["CreateVolumePermissionTypeDef"],
+        "ProductCodes": List["ProductCodeTypeDef"],
+        "SnapshotId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSnapshotsRequestRequestTypeDef = TypedDict(
+    "DescribeSnapshotsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "OwnerIds": List[str],
+        "RestorableByUserIds": List[str],
+        "SnapshotIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeSnapshotsResultTypeDef = TypedDict(
+    "DescribeSnapshotsResultTypeDef",
+    {
+        "Snapshots": List["SnapshotTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSpotDatafeedSubscriptionRequestRequestTypeDef = TypedDict(
+    "DescribeSpotDatafeedSubscriptionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeSpotDatafeedSubscriptionResultTypeDef = TypedDict(
+    "DescribeSpotDatafeedSubscriptionResultTypeDef",
+    {
+        "SpotDatafeedSubscription": "SpotDatafeedSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeSpotFleetInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSpotFleetInstancesRequestRequestTypeDef",
+    {
+        "SpotFleetRequestId": str,
+    },
+)
+_OptionalDescribeSpotFleetInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSpotFleetInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeSpotFleetInstancesRequestRequestTypeDef(
+    _RequiredDescribeSpotFleetInstancesRequestRequestTypeDef,
+    _OptionalDescribeSpotFleetInstancesRequestRequestTypeDef,
+):
+    pass
+
+DescribeSpotFleetInstancesResponseTypeDef = TypedDict(
+    "DescribeSpotFleetInstancesResponseTypeDef",
+    {
+        "ActiveInstances": List["ActiveInstanceTypeDef"],
+        "NextToken": str,
+        "SpotFleetRequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeSpotFleetRequestHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeSpotFleetRequestHistoryRequestRequestTypeDef",
+    {
+        "SpotFleetRequestId": str,
+        "StartTime": Union[datetime, str],
+    },
+)
+_OptionalDescribeSpotFleetRequestHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeSpotFleetRequestHistoryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "EventType": EventTypeType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeSpotFleetRequestHistoryRequestRequestTypeDef(
+    _RequiredDescribeSpotFleetRequestHistoryRequestRequestTypeDef,
+    _OptionalDescribeSpotFleetRequestHistoryRequestRequestTypeDef,
+):
+    pass
+
+DescribeSpotFleetRequestHistoryResponseTypeDef = TypedDict(
+    "DescribeSpotFleetRequestHistoryResponseTypeDef",
+    {
+        "HistoryRecords": List["HistoryRecordTypeDef"],
+        "LastEvaluatedTime": datetime,
+        "NextToken": str,
+        "SpotFleetRequestId": str,
+        "StartTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSpotFleetRequestsRequestRequestTypeDef = TypedDict(
+    "DescribeSpotFleetRequestsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+        "SpotFleetRequestIds": List[str],
+    },
+    total=False,
+)
+
+DescribeSpotFleetRequestsResponseTypeDef = TypedDict(
+    "DescribeSpotFleetRequestsResponseTypeDef",
+    {
+        "NextToken": str,
+        "SpotFleetRequestConfigs": List["SpotFleetRequestConfigTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSpotInstanceRequestsRequestRequestTypeDef = TypedDict(
+    "DescribeSpotInstanceRequestsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "SpotInstanceRequestIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeSpotInstanceRequestsResultTypeDef = TypedDict(
+    "DescribeSpotInstanceRequestsResultTypeDef",
+    {
+        "SpotInstanceRequests": List["SpotInstanceRequestTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSpotPriceHistoryRequestRequestTypeDef = TypedDict(
+    "DescribeSpotPriceHistoryRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "AvailabilityZone": str,
+        "DryRun": bool,
+        "EndTime": Union[datetime, str],
+        "InstanceTypes": List[InstanceTypeType],
+        "MaxResults": int,
+        "NextToken": str,
+        "ProductDescriptions": List[str],
+        "StartTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+DescribeSpotPriceHistoryResultTypeDef = TypedDict(
+    "DescribeSpotPriceHistoryResultTypeDef",
+    {
+        "NextToken": str,
+        "SpotPriceHistory": List["SpotPriceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeStaleSecurityGroupsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeStaleSecurityGroupsRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalDescribeStaleSecurityGroupsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeStaleSecurityGroupsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeStaleSecurityGroupsRequestRequestTypeDef(
+    _RequiredDescribeStaleSecurityGroupsRequestRequestTypeDef,
+    _OptionalDescribeStaleSecurityGroupsRequestRequestTypeDef,
+):
+    pass
+
+DescribeStaleSecurityGroupsResultTypeDef = TypedDict(
+    "DescribeStaleSecurityGroupsResultTypeDef",
+    {
+        "NextToken": str,
+        "StaleSecurityGroupSet": List["StaleSecurityGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeStoreImageTasksRequestRequestTypeDef = TypedDict(
+    "DescribeStoreImageTasksRequestRequestTypeDef",
+    {
+        "ImageIds": List[str],
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeStoreImageTasksResultTypeDef = TypedDict(
+    "DescribeStoreImageTasksResultTypeDef",
+    {
+        "StoreImageTaskResults": List["StoreImageTaskResultTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSubnetsRequestRequestTypeDef = TypedDict(
+    "DescribeSubnetsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "SubnetIds": List[str],
+        "DryRun": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeSubnetsResultTypeDef = TypedDict(
+    "DescribeSubnetsResultTypeDef",
+    {
+        "Subnets": List["SubnetTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTagsRequestRequestTypeDef = TypedDict(
+    "DescribeTagsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeTagsResultTypeDef = TypedDict(
+    "DescribeTagsResultTypeDef",
+    {
+        "NextToken": str,
+        "Tags": List["TagDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTrafficMirrorFiltersRequestRequestTypeDef = TypedDict(
+    "DescribeTrafficMirrorFiltersRequestRequestTypeDef",
+    {
+        "TrafficMirrorFilterIds": List[str],
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeTrafficMirrorFiltersResultTypeDef = TypedDict(
+    "DescribeTrafficMirrorFiltersResultTypeDef",
+    {
+        "TrafficMirrorFilters": List["TrafficMirrorFilterTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTrafficMirrorSessionsRequestRequestTypeDef = TypedDict(
+    "DescribeTrafficMirrorSessionsRequestRequestTypeDef",
+    {
+        "TrafficMirrorSessionIds": List[str],
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeTrafficMirrorSessionsResultTypeDef = TypedDict(
+    "DescribeTrafficMirrorSessionsResultTypeDef",
+    {
+        "TrafficMirrorSessions": List["TrafficMirrorSessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTrafficMirrorTargetsRequestRequestTypeDef = TypedDict(
+    "DescribeTrafficMirrorTargetsRequestRequestTypeDef",
+    {
+        "TrafficMirrorTargetIds": List[str],
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeTrafficMirrorTargetsResultTypeDef = TypedDict(
+    "DescribeTrafficMirrorTargetsResultTypeDef",
+    {
+        "TrafficMirrorTargets": List["TrafficMirrorTargetTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayAttachmentsRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayAttachmentsRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayAttachmentsResultTypeDef = TypedDict(
+    "DescribeTransitGatewayAttachmentsResultTypeDef",
+    {
+        "TransitGatewayAttachments": List["TransitGatewayAttachmentTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayConnectPeersRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayConnectPeersRequestRequestTypeDef",
+    {
+        "TransitGatewayConnectPeerIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayConnectPeersResultTypeDef = TypedDict(
+    "DescribeTransitGatewayConnectPeersResultTypeDef",
+    {
+        "TransitGatewayConnectPeers": List["TransitGatewayConnectPeerTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayConnectsRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayConnectsRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayConnectsResultTypeDef = TypedDict(
+    "DescribeTransitGatewayConnectsResultTypeDef",
+    {
+        "TransitGatewayConnects": List["TransitGatewayConnectTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayMulticastDomainsRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayMulticastDomainsRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayMulticastDomainsResultTypeDef = TypedDict(
+    "DescribeTransitGatewayMulticastDomainsResultTypeDef",
+    {
+        "TransitGatewayMulticastDomains": List["TransitGatewayMulticastDomainTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayPeeringAttachmentsRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayPeeringAttachmentsRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayPeeringAttachmentsResultTypeDef = TypedDict(
+    "DescribeTransitGatewayPeeringAttachmentsResultTypeDef",
+    {
+        "TransitGatewayPeeringAttachments": List["TransitGatewayPeeringAttachmentTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayRouteTablesRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayRouteTablesRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayRouteTablesResultTypeDef = TypedDict(
+    "DescribeTransitGatewayRouteTablesResultTypeDef",
+    {
+        "TransitGatewayRouteTables": List["TransitGatewayRouteTableTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewayVpcAttachmentsRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewayVpcAttachmentsRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewayVpcAttachmentsResultTypeDef = TypedDict(
+    "DescribeTransitGatewayVpcAttachmentsResultTypeDef",
+    {
+        "TransitGatewayVpcAttachments": List["TransitGatewayVpcAttachmentTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTransitGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeTransitGatewaysRequestRequestTypeDef",
+    {
+        "TransitGatewayIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeTransitGatewaysResultTypeDef = TypedDict(
+    "DescribeTransitGatewaysResultTypeDef",
+    {
+        "TransitGateways": List["TransitGatewayTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTrunkInterfaceAssociationsRequestRequestTypeDef = TypedDict(
+    "DescribeTrunkInterfaceAssociationsRequestRequestTypeDef",
+    {
+        "AssociationIds": List[str],
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeTrunkInterfaceAssociationsResultTypeDef = TypedDict(
+    "DescribeTrunkInterfaceAssociationsResultTypeDef",
+    {
+        "InterfaceAssociations": List["TrunkInterfaceAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeVolumeAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeVolumeAttributeRequestRequestTypeDef",
+    {
+        "Attribute": VolumeAttributeNameType,
+        "VolumeId": str,
+    },
+)
+_OptionalDescribeVolumeAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeVolumeAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeVolumeAttributeRequestRequestTypeDef(
+    _RequiredDescribeVolumeAttributeRequestRequestTypeDef,
+    _OptionalDescribeVolumeAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDescribeVolumeAttributeRequestVolumeTypeDef = TypedDict(
+    "_RequiredDescribeVolumeAttributeRequestVolumeTypeDef",
+    {
+        "Attribute": VolumeAttributeNameType,
+    },
+)
+_OptionalDescribeVolumeAttributeRequestVolumeTypeDef = TypedDict(
+    "_OptionalDescribeVolumeAttributeRequestVolumeTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeVolumeAttributeRequestVolumeTypeDef(
+    _RequiredDescribeVolumeAttributeRequestVolumeTypeDef,
+    _OptionalDescribeVolumeAttributeRequestVolumeTypeDef,
+):
+    pass
+
+DescribeVolumeAttributeResultTypeDef = TypedDict(
+    "DescribeVolumeAttributeResultTypeDef",
+    {
+        "AutoEnableIO": "AttributeBooleanValueTypeDef",
+        "ProductCodes": List["ProductCodeTypeDef"],
+        "VolumeId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVolumeStatusRequestRequestTypeDef = TypedDict(
+    "DescribeVolumeStatusRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "VolumeIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVolumeStatusRequestVolumeTypeDef = TypedDict(
+    "DescribeVolumeStatusRequestVolumeTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVolumeStatusResultTypeDef = TypedDict(
+    "DescribeVolumeStatusResultTypeDef",
+    {
+        "NextToken": str,
+        "VolumeStatuses": List["VolumeStatusItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVolumesModificationsRequestRequestTypeDef = TypedDict(
+    "DescribeVolumesModificationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "VolumeIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeVolumesModificationsResultTypeDef = TypedDict(
+    "DescribeVolumesModificationsResultTypeDef",
+    {
+        "VolumesModifications": List["VolumeModificationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVolumesRequestRequestTypeDef = TypedDict(
+    "DescribeVolumesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "VolumeIds": List[str],
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVolumesResultTypeDef = TypedDict(
+    "DescribeVolumesResultTypeDef",
+    {
+        "Volumes": List["VolumeTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeVpcAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeVpcAttributeRequestRequestTypeDef",
+    {
+        "Attribute": VpcAttributeNameType,
+        "VpcId": str,
+    },
+)
+_OptionalDescribeVpcAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeVpcAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeVpcAttributeRequestRequestTypeDef(
+    _RequiredDescribeVpcAttributeRequestRequestTypeDef,
+    _OptionalDescribeVpcAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDescribeVpcAttributeRequestVpcTypeDef = TypedDict(
+    "_RequiredDescribeVpcAttributeRequestVpcTypeDef",
+    {
+        "Attribute": VpcAttributeNameType,
+    },
+)
+_OptionalDescribeVpcAttributeRequestVpcTypeDef = TypedDict(
+    "_OptionalDescribeVpcAttributeRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DescribeVpcAttributeRequestVpcTypeDef(
+    _RequiredDescribeVpcAttributeRequestVpcTypeDef, _OptionalDescribeVpcAttributeRequestVpcTypeDef
+):
+    pass
+
+DescribeVpcAttributeResultTypeDef = TypedDict(
+    "DescribeVpcAttributeResultTypeDef",
+    {
+        "VpcId": str,
+        "EnableDnsHostnames": "AttributeBooleanValueTypeDef",
+        "EnableDnsSupport": "AttributeBooleanValueTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcClassicLinkDnsSupportRequestRequestTypeDef = TypedDict(
+    "DescribeVpcClassicLinkDnsSupportRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "VpcIds": List[str],
+    },
+    total=False,
+)
+
+DescribeVpcClassicLinkDnsSupportResultTypeDef = TypedDict(
+    "DescribeVpcClassicLinkDnsSupportResultTypeDef",
+    {
+        "NextToken": str,
+        "Vpcs": List["ClassicLinkDnsSupportTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcClassicLinkRequestRequestTypeDef = TypedDict(
+    "DescribeVpcClassicLinkRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "VpcIds": List[str],
+    },
+    total=False,
+)
+
+DescribeVpcClassicLinkResultTypeDef = TypedDict(
+    "DescribeVpcClassicLinkResultTypeDef",
+    {
+        "Vpcs": List["VpcClassicLinkTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcEndpointConnectionNotificationsRequestRequestTypeDef = TypedDict(
+    "DescribeVpcEndpointConnectionNotificationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ConnectionNotificationId": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVpcEndpointConnectionNotificationsResultTypeDef = TypedDict(
+    "DescribeVpcEndpointConnectionNotificationsResultTypeDef",
+    {
+        "ConnectionNotificationSet": List["ConnectionNotificationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcEndpointConnectionsRequestRequestTypeDef = TypedDict(
+    "DescribeVpcEndpointConnectionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVpcEndpointConnectionsResultTypeDef = TypedDict(
+    "DescribeVpcEndpointConnectionsResultTypeDef",
+    {
+        "VpcEndpointConnections": List["VpcEndpointConnectionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcEndpointServiceConfigurationsRequestRequestTypeDef = TypedDict(
+    "DescribeVpcEndpointServiceConfigurationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ServiceIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVpcEndpointServiceConfigurationsResultTypeDef = TypedDict(
+    "DescribeVpcEndpointServiceConfigurationsResultTypeDef",
+    {
+        "ServiceConfigurations": List["ServiceConfigurationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeVpcEndpointServicePermissionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeVpcEndpointServicePermissionsRequestRequestTypeDef",
+    {
+        "ServiceId": str,
+    },
+)
+_OptionalDescribeVpcEndpointServicePermissionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeVpcEndpointServicePermissionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeVpcEndpointServicePermissionsRequestRequestTypeDef(
+    _RequiredDescribeVpcEndpointServicePermissionsRequestRequestTypeDef,
+    _OptionalDescribeVpcEndpointServicePermissionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeVpcEndpointServicePermissionsResultTypeDef = TypedDict(
+    "DescribeVpcEndpointServicePermissionsResultTypeDef",
+    {
+        "AllowedPrincipals": List["AllowedPrincipalTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcEndpointServicesRequestRequestTypeDef = TypedDict(
+    "DescribeVpcEndpointServicesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ServiceNames": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVpcEndpointServicesResultTypeDef = TypedDict(
+    "DescribeVpcEndpointServicesResultTypeDef",
+    {
+        "ServiceNames": List[str],
+        "ServiceDetails": List["ServiceDetailTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcEndpointsRequestRequestTypeDef = TypedDict(
+    "DescribeVpcEndpointsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "VpcEndpointIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVpcEndpointsResultTypeDef = TypedDict(
+    "DescribeVpcEndpointsResultTypeDef",
+    {
+        "VpcEndpoints": List["VpcEndpointTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcPeeringConnectionsRequestRequestTypeDef = TypedDict(
+    "DescribeVpcPeeringConnectionsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "VpcPeeringConnectionIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeVpcPeeringConnectionsResultTypeDef = TypedDict(
+    "DescribeVpcPeeringConnectionsResultTypeDef",
+    {
+        "VpcPeeringConnections": List["VpcPeeringConnectionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcsRequestRequestTypeDef = TypedDict(
+    "DescribeVpcsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "VpcIds": List[str],
+        "DryRun": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeVpcsResultTypeDef = TypedDict(
+    "DescribeVpcsResultTypeDef",
+    {
+        "Vpcs": List["VpcTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpnConnectionsRequestRequestTypeDef = TypedDict(
+    "DescribeVpnConnectionsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "VpnConnectionIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVpnConnectionsResultTypeDef = TypedDict(
+    "DescribeVpnConnectionsResultTypeDef",
+    {
+        "VpnConnections": List["VpnConnectionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpnGatewaysRequestRequestTypeDef = TypedDict(
+    "DescribeVpnGatewaysRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "VpnGatewayIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeVpnGatewaysResultTypeDef = TypedDict(
+    "DescribeVpnGatewaysResultTypeDef",
+    {
+        "VpnGateways": List["VpnGatewayTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDetachClassicLinkVpcRequestInstanceTypeDef = TypedDict(
+    "_RequiredDetachClassicLinkVpcRequestInstanceTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalDetachClassicLinkVpcRequestInstanceTypeDef = TypedDict(
+    "_OptionalDetachClassicLinkVpcRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachClassicLinkVpcRequestInstanceTypeDef(
+    _RequiredDetachClassicLinkVpcRequestInstanceTypeDef,
+    _OptionalDetachClassicLinkVpcRequestInstanceTypeDef,
+):
+    pass
+
+_RequiredDetachClassicLinkVpcRequestRequestTypeDef = TypedDict(
+    "_RequiredDetachClassicLinkVpcRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "VpcId": str,
+    },
+)
+_OptionalDetachClassicLinkVpcRequestRequestTypeDef = TypedDict(
+    "_OptionalDetachClassicLinkVpcRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachClassicLinkVpcRequestRequestTypeDef(
+    _RequiredDetachClassicLinkVpcRequestRequestTypeDef,
+    _OptionalDetachClassicLinkVpcRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDetachClassicLinkVpcRequestVpcTypeDef = TypedDict(
+    "_RequiredDetachClassicLinkVpcRequestVpcTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalDetachClassicLinkVpcRequestVpcTypeDef = TypedDict(
+    "_OptionalDetachClassicLinkVpcRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachClassicLinkVpcRequestVpcTypeDef(
+    _RequiredDetachClassicLinkVpcRequestVpcTypeDef, _OptionalDetachClassicLinkVpcRequestVpcTypeDef
+):
+    pass
+
+DetachClassicLinkVpcResultTypeDef = TypedDict(
+    "DetachClassicLinkVpcResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDetachInternetGatewayRequestInternetGatewayTypeDef = TypedDict(
+    "_RequiredDetachInternetGatewayRequestInternetGatewayTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalDetachInternetGatewayRequestInternetGatewayTypeDef = TypedDict(
+    "_OptionalDetachInternetGatewayRequestInternetGatewayTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachInternetGatewayRequestInternetGatewayTypeDef(
+    _RequiredDetachInternetGatewayRequestInternetGatewayTypeDef,
+    _OptionalDetachInternetGatewayRequestInternetGatewayTypeDef,
+):
+    pass
+
+_RequiredDetachInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDetachInternetGatewayRequestRequestTypeDef",
+    {
+        "InternetGatewayId": str,
+        "VpcId": str,
+    },
+)
+_OptionalDetachInternetGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDetachInternetGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachInternetGatewayRequestRequestTypeDef(
+    _RequiredDetachInternetGatewayRequestRequestTypeDef,
+    _OptionalDetachInternetGatewayRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDetachInternetGatewayRequestVpcTypeDef = TypedDict(
+    "_RequiredDetachInternetGatewayRequestVpcTypeDef",
+    {
+        "InternetGatewayId": str,
+    },
+)
+_OptionalDetachInternetGatewayRequestVpcTypeDef = TypedDict(
+    "_OptionalDetachInternetGatewayRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachInternetGatewayRequestVpcTypeDef(
+    _RequiredDetachInternetGatewayRequestVpcTypeDef, _OptionalDetachInternetGatewayRequestVpcTypeDef
+):
+    pass
+
+_RequiredDetachNetworkInterfaceRequestNetworkInterfaceTypeDef = TypedDict(
+    "_RequiredDetachNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    {
+        "AttachmentId": str,
+    },
+)
+_OptionalDetachNetworkInterfaceRequestNetworkInterfaceTypeDef = TypedDict(
+    "_OptionalDetachNetworkInterfaceRequestNetworkInterfaceTypeDef",
+    {
+        "DryRun": bool,
+        "Force": bool,
+    },
+    total=False,
+)
+
+class DetachNetworkInterfaceRequestNetworkInterfaceTypeDef(
+    _RequiredDetachNetworkInterfaceRequestNetworkInterfaceTypeDef,
+    _OptionalDetachNetworkInterfaceRequestNetworkInterfaceTypeDef,
+):
+    pass
+
+_RequiredDetachNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_RequiredDetachNetworkInterfaceRequestRequestTypeDef",
+    {
+        "AttachmentId": str,
+    },
+)
+_OptionalDetachNetworkInterfaceRequestRequestTypeDef = TypedDict(
+    "_OptionalDetachNetworkInterfaceRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Force": bool,
+    },
+    total=False,
+)
+
+class DetachNetworkInterfaceRequestRequestTypeDef(
+    _RequiredDetachNetworkInterfaceRequestRequestTypeDef,
+    _OptionalDetachNetworkInterfaceRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDetachVolumeRequestInstanceTypeDef = TypedDict(
+    "_RequiredDetachVolumeRequestInstanceTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalDetachVolumeRequestInstanceTypeDef = TypedDict(
+    "_OptionalDetachVolumeRequestInstanceTypeDef",
+    {
+        "Device": str,
+        "Force": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachVolumeRequestInstanceTypeDef(
+    _RequiredDetachVolumeRequestInstanceTypeDef, _OptionalDetachVolumeRequestInstanceTypeDef
+):
+    pass
+
+_RequiredDetachVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredDetachVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalDetachVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalDetachVolumeRequestRequestTypeDef",
+    {
+        "Device": str,
+        "Force": bool,
+        "InstanceId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachVolumeRequestRequestTypeDef(
+    _RequiredDetachVolumeRequestRequestTypeDef, _OptionalDetachVolumeRequestRequestTypeDef
+):
+    pass
+
+DetachVolumeRequestVolumeTypeDef = TypedDict(
+    "DetachVolumeRequestVolumeTypeDef",
+    {
+        "Device": str,
+        "Force": bool,
+        "InstanceId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDetachVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredDetachVpnGatewayRequestRequestTypeDef",
+    {
+        "VpcId": str,
+        "VpnGatewayId": str,
+    },
+)
+_OptionalDetachVpnGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalDetachVpnGatewayRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DetachVpnGatewayRequestRequestTypeDef(
+    _RequiredDetachVpnGatewayRequestRequestTypeDef, _OptionalDetachVpnGatewayRequestRequestTypeDef
+):
+    pass
+
 DhcpConfigurationTypeDef = TypedDict(
-    "DhcpConfigurationTypeDef", {"Key": str, "Values": List["AttributeValueTypeDef"]}, total=False
+    "DhcpConfigurationTypeDef",
+    {
+        "Key": str,
+        "Values": List["AttributeValueTypeDef"],
+    },
+    total=False,
 )
 
 DhcpOptionsTypeDef = TypedDict(
@@ -2511,11 +11754,35 @@ DhcpOptionsTypeDef = TypedDict(
 )
 
 DirectoryServiceAuthenticationRequestTypeDef = TypedDict(
-    "DirectoryServiceAuthenticationRequestTypeDef", {"DirectoryId": str}, total=False
+    "DirectoryServiceAuthenticationRequestTypeDef",
+    {
+        "DirectoryId": str,
+    },
+    total=False,
 )
 
 DirectoryServiceAuthenticationTypeDef = TypedDict(
-    "DirectoryServiceAuthenticationTypeDef", {"DirectoryId": str}, total=False
+    "DirectoryServiceAuthenticationTypeDef",
+    {
+        "DirectoryId": str,
+    },
+    total=False,
+)
+
+DisableEbsEncryptionByDefaultRequestRequestTypeDef = TypedDict(
+    "DisableEbsEncryptionByDefaultRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisableEbsEncryptionByDefaultResultTypeDef = TypedDict(
+    "DisableEbsEncryptionByDefaultResultTypeDef",
+    {
+        "EbsEncryptionByDefault": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DisableFastSnapshotRestoreErrorItemTypeDef = TypedDict(
@@ -2529,12 +11796,20 @@ DisableFastSnapshotRestoreErrorItemTypeDef = TypedDict(
 
 DisableFastSnapshotRestoreStateErrorItemTypeDef = TypedDict(
     "DisableFastSnapshotRestoreStateErrorItemTypeDef",
-    {"AvailabilityZone": str, "Error": "DisableFastSnapshotRestoreStateErrorTypeDef"},
+    {
+        "AvailabilityZone": str,
+        "Error": "DisableFastSnapshotRestoreStateErrorTypeDef",
+    },
     total=False,
 )
 
 DisableFastSnapshotRestoreStateErrorTypeDef = TypedDict(
-    "DisableFastSnapshotRestoreStateErrorTypeDef", {"Code": str, "Message": str}, total=False
+    "DisableFastSnapshotRestoreStateErrorTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )
 
 DisableFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
@@ -2542,7 +11817,7 @@ DisableFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     {
         "SnapshotId": str,
         "AvailabilityZone": str,
-        "State": Literal["enabling", "optimizing", "enabled", "disabling", "disabled"],
+        "State": FastSnapshotRestoreStateCodeType,
         "StateTransitionReason": str,
         "OwnerId": str,
         "OwnerAlias": str,
@@ -2555,11 +11830,467 @@ DisableFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDisableFastSnapshotRestoresRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableFastSnapshotRestoresRequestRequestTypeDef",
+    {
+        "AvailabilityZones": List[str],
+        "SourceSnapshotIds": List[str],
+    },
+)
+_OptionalDisableFastSnapshotRestoresRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableFastSnapshotRestoresRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableFastSnapshotRestoresRequestRequestTypeDef(
+    _RequiredDisableFastSnapshotRestoresRequestRequestTypeDef,
+    _OptionalDisableFastSnapshotRestoresRequestRequestTypeDef,
+):
+    pass
+
+DisableFastSnapshotRestoresResultTypeDef = TypedDict(
+    "DisableFastSnapshotRestoresResultTypeDef",
+    {
+        "Successful": List["DisableFastSnapshotRestoreSuccessItemTypeDef"],
+        "Unsuccessful": List["DisableFastSnapshotRestoreErrorItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisableImageDeprecationRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableImageDeprecationRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalDisableImageDeprecationRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableImageDeprecationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableImageDeprecationRequestRequestTypeDef(
+    _RequiredDisableImageDeprecationRequestRequestTypeDef,
+    _OptionalDisableImageDeprecationRequestRequestTypeDef,
+):
+    pass
+
+DisableImageDeprecationResultTypeDef = TypedDict(
+    "DisableImageDeprecationResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisableSerialConsoleAccessRequestRequestTypeDef = TypedDict(
+    "DisableSerialConsoleAccessRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisableSerialConsoleAccessResultTypeDef = TypedDict(
+    "DisableSerialConsoleAccessResultTypeDef",
+    {
+        "SerialConsoleAccessEnabled": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableTransitGatewayRouteTablePropagationRequestRequestTypeDef(
+    _RequiredDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef,
+    _OptionalDisableTransitGatewayRouteTablePropagationRequestRequestTypeDef,
+):
+    pass
+
+DisableTransitGatewayRouteTablePropagationResultTypeDef = TypedDict(
+    "DisableTransitGatewayRouteTablePropagationResultTypeDef",
+    {
+        "Propagation": "TransitGatewayPropagationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisableVgwRoutePropagationRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableVgwRoutePropagationRequestRequestTypeDef",
+    {
+        "GatewayId": str,
+        "RouteTableId": str,
+    },
+)
+_OptionalDisableVgwRoutePropagationRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableVgwRoutePropagationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableVgwRoutePropagationRequestRequestTypeDef(
+    _RequiredDisableVgwRoutePropagationRequestRequestTypeDef,
+    _OptionalDisableVgwRoutePropagationRequestRequestTypeDef,
+):
+    pass
+
+DisableVpcClassicLinkDnsSupportRequestRequestTypeDef = TypedDict(
+    "DisableVpcClassicLinkDnsSupportRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+    total=False,
+)
+
+DisableVpcClassicLinkDnsSupportResultTypeDef = TypedDict(
+    "DisableVpcClassicLinkDnsSupportResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisableVpcClassicLinkRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableVpcClassicLinkRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalDisableVpcClassicLinkRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableVpcClassicLinkRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableVpcClassicLinkRequestRequestTypeDef(
+    _RequiredDisableVpcClassicLinkRequestRequestTypeDef,
+    _OptionalDisableVpcClassicLinkRequestRequestTypeDef,
+):
+    pass
+
+DisableVpcClassicLinkRequestVpcTypeDef = TypedDict(
+    "DisableVpcClassicLinkRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisableVpcClassicLinkResultTypeDef = TypedDict(
+    "DisableVpcClassicLinkResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateAddressRequestClassicAddressTypeDef = TypedDict(
+    "DisassociateAddressRequestClassicAddressTypeDef",
+    {
+        "AssociationId": str,
+        "PublicIp": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisassociateAddressRequestNetworkInterfaceAssociationTypeDef = TypedDict(
+    "DisassociateAddressRequestNetworkInterfaceAssociationTypeDef",
+    {
+        "PublicIp": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisassociateAddressRequestRequestTypeDef = TypedDict(
+    "DisassociateAddressRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+        "PublicIp": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDisassociateClientVpnTargetNetworkRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateClientVpnTargetNetworkRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "AssociationId": str,
+    },
+)
+_OptionalDisassociateClientVpnTargetNetworkRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateClientVpnTargetNetworkRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateClientVpnTargetNetworkRequestRequestTypeDef(
+    _RequiredDisassociateClientVpnTargetNetworkRequestRequestTypeDef,
+    _OptionalDisassociateClientVpnTargetNetworkRequestRequestTypeDef,
+):
+    pass
+
+DisassociateClientVpnTargetNetworkResultTypeDef = TypedDict(
+    "DisassociateClientVpnTargetNetworkResultTypeDef",
+    {
+        "AssociationId": str,
+        "Status": "AssociationStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef = TypedDict(
+    "DisassociateEnclaveCertificateIamRoleRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "RoleArn": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisassociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
+    "DisassociateEnclaveCertificateIamRoleResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateIamInstanceProfileRequestRequestTypeDef = TypedDict(
+    "DisassociateIamInstanceProfileRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+    },
+)
+
+DisassociateIamInstanceProfileResultTypeDef = TypedDict(
+    "DisassociateIamInstanceProfileResultTypeDef",
+    {
+        "IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateInstanceEventWindowRequestRequestTypeDef",
+    {
+        "InstanceEventWindowId": str,
+        "AssociationTarget": "InstanceEventWindowDisassociationRequestTypeDef",
+    },
+)
+_OptionalDisassociateInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateInstanceEventWindowRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateInstanceEventWindowRequestRequestTypeDef(
+    _RequiredDisassociateInstanceEventWindowRequestRequestTypeDef,
+    _OptionalDisassociateInstanceEventWindowRequestRequestTypeDef,
+):
+    pass
+
+DisassociateInstanceEventWindowResultTypeDef = TypedDict(
+    "DisassociateInstanceEventWindowResultTypeDef",
+    {
+        "InstanceEventWindow": "InstanceEventWindowTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateRouteTableRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+    },
+)
+_OptionalDisassociateRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateRouteTableRequestRequestTypeDef(
+    _RequiredDisassociateRouteTableRequestRequestTypeDef,
+    _OptionalDisassociateRouteTableRequestRequestTypeDef,
+):
+    pass
+
+DisassociateRouteTableRequestRouteTableAssociationTypeDef = TypedDict(
+    "DisassociateRouteTableRequestRouteTableAssociationTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredDisassociateRouteTableRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredDisassociateRouteTableRequestServiceResourceTypeDef",
+    {
+        "AssociationId": str,
+    },
+)
+_OptionalDisassociateRouteTableRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalDisassociateRouteTableRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateRouteTableRequestServiceResourceTypeDef(
+    _RequiredDisassociateRouteTableRequestServiceResourceTypeDef,
+    _OptionalDisassociateRouteTableRequestServiceResourceTypeDef,
+):
+    pass
+
+DisassociateSubnetCidrBlockRequestRequestTypeDef = TypedDict(
+    "DisassociateSubnetCidrBlockRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+    },
+)
+
+DisassociateSubnetCidrBlockResultTypeDef = TypedDict(
+    "DisassociateSubnetCidrBlockResultTypeDef",
+    {
+        "Ipv6CidrBlockAssociation": "SubnetIpv6CidrBlockAssociationTypeDef",
+        "SubnetId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef = TypedDict(
+    "DisassociateTransitGatewayMulticastDomainRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "TransitGatewayAttachmentId": str,
+        "SubnetIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DisassociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
+    "DisassociateTransitGatewayMulticastDomainResultTypeDef",
+    {
+        "Associations": "TransitGatewayMulticastDomainAssociationsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalDisassociateTransitGatewayRouteTableRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateTransitGatewayRouteTableRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateTransitGatewayRouteTableRequestRequestTypeDef(
+    _RequiredDisassociateTransitGatewayRouteTableRequestRequestTypeDef,
+    _OptionalDisassociateTransitGatewayRouteTableRequestRequestTypeDef,
+):
+    pass
+
+DisassociateTransitGatewayRouteTableResultTypeDef = TypedDict(
+    "DisassociateTransitGatewayRouteTableResultTypeDef",
+    {
+        "Association": "TransitGatewayAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDisassociateTrunkInterfaceRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateTrunkInterfaceRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+    },
+)
+_OptionalDisassociateTrunkInterfaceRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateTrunkInterfaceRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisassociateTrunkInterfaceRequestRequestTypeDef(
+    _RequiredDisassociateTrunkInterfaceRequestRequestTypeDef,
+    _OptionalDisassociateTrunkInterfaceRequestRequestTypeDef,
+):
+    pass
+
+DisassociateTrunkInterfaceResultTypeDef = TypedDict(
+    "DisassociateTrunkInterfaceResultTypeDef",
+    {
+        "Return": bool,
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociateVpcCidrBlockRequestRequestTypeDef = TypedDict(
+    "DisassociateVpcCidrBlockRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+    },
+)
+
+DisassociateVpcCidrBlockResultTypeDef = TypedDict(
+    "DisassociateVpcCidrBlockResultTypeDef",
+    {
+        "Ipv6CidrBlockAssociation": "VpcIpv6CidrBlockAssociationTypeDef",
+        "CidrBlockAssociation": "VpcCidrBlockAssociationTypeDef",
+        "VpcId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DiskImageDescriptionTypeDef = TypedDict(
     "DiskImageDescriptionTypeDef",
     {
         "Checksum": str,
-        "Format": Literal["VMDK", "RAW", "VHD"],
+        "Format": DiskImageFormatType,
         "ImportManifestUrl": str,
         "Size": int,
     },
@@ -2568,18 +12299,59 @@ DiskImageDescriptionTypeDef = TypedDict(
 
 DiskImageDetailTypeDef = TypedDict(
     "DiskImageDetailTypeDef",
-    {"Bytes": int, "Format": Literal["VMDK", "RAW", "VHD"], "ImportManifestUrl": str},
+    {
+        "Bytes": int,
+        "Format": DiskImageFormatType,
+        "ImportManifestUrl": str,
+    },
+)
+
+DiskImageTypeDef = TypedDict(
+    "DiskImageTypeDef",
+    {
+        "Description": str,
+        "Image": "DiskImageDetailTypeDef",
+        "Volume": "VolumeDetailTypeDef",
+    },
+    total=False,
 )
 
 DiskImageVolumeDescriptionTypeDef = TypedDict(
-    "DiskImageVolumeDescriptionTypeDef", {"Id": str, "Size": int}, total=False
+    "DiskImageVolumeDescriptionTypeDef",
+    {
+        "Id": str,
+        "Size": int,
+    },
+    total=False,
 )
 
 DiskInfoTypeDef = TypedDict(
-    "DiskInfoTypeDef", {"SizeInGB": int, "Count": int, "Type": Literal["hdd", "ssd"]}, total=False
+    "DiskInfoTypeDef",
+    {
+        "SizeInGB": int,
+        "Count": int,
+        "Type": DiskTypeType,
+    },
+    total=False,
 )
 
-DnsEntryTypeDef = TypedDict("DnsEntryTypeDef", {"DnsName": str, "HostedZoneId": str}, total=False)
+DnsEntryTypeDef = TypedDict(
+    "DnsEntryTypeDef",
+    {
+        "DnsName": str,
+        "HostedZoneId": str,
+    },
+    total=False,
+)
+
+DnsServersOptionsModifyStructureTypeDef = TypedDict(
+    "DnsServersOptionsModifyStructureTypeDef",
+    {
+        "CustomDnsServers": List[str],
+        "Enabled": bool,
+    },
+    total=False,
+)
 
 EbsBlockDeviceTypeDef = TypedDict(
     "EbsBlockDeviceTypeDef",
@@ -2588,7 +12360,7 @@ EbsBlockDeviceTypeDef = TypedDict(
         "Iops": int,
         "SnapshotId": str,
         "VolumeSize": int,
-        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
+        "VolumeType": VolumeTypeType,
         "KmsKeyId": str,
         "Throughput": int,
         "OutpostArn": str,
@@ -2600,17 +12372,20 @@ EbsBlockDeviceTypeDef = TypedDict(
 EbsInfoTypeDef = TypedDict(
     "EbsInfoTypeDef",
     {
-        "EbsOptimizedSupport": Literal["unsupported", "supported", "default"],
-        "EncryptionSupport": Literal["unsupported", "supported"],
+        "EbsOptimizedSupport": EbsOptimizedSupportType,
+        "EncryptionSupport": EbsEncryptionSupportType,
         "EbsOptimizedInfo": "EbsOptimizedInfoTypeDef",
-        "NvmeSupport": Literal["unsupported", "supported", "required"],
+        "NvmeSupport": EbsNvmeSupportType,
     },
     total=False,
 )
 
 EbsInstanceBlockDeviceSpecificationTypeDef = TypedDict(
     "EbsInstanceBlockDeviceSpecificationTypeDef",
-    {"DeleteOnTermination": bool, "VolumeId": str},
+    {
+        "DeleteOnTermination": bool,
+        "VolumeId": str,
+    },
     total=False,
 )
 
@@ -2619,7 +12394,7 @@ EbsInstanceBlockDeviceTypeDef = TypedDict(
     {
         "AttachTime": datetime,
         "DeleteOnTermination": bool,
-        "Status": Literal["attaching", "attached", "detaching", "detached"],
+        "Status": AttachmentStatusType,
         "VolumeId": str,
     },
     total=False,
@@ -2634,6 +12409,14 @@ EbsOptimizedInfoTypeDef = TypedDict(
         "MaximumBandwidthInMbps": int,
         "MaximumThroughputInMBps": float,
         "MaximumIops": int,
+    },
+    total=False,
+)
+
+EfaInfoTypeDef = TypedDict(
+    "EfaInfoTypeDef",
+    {
+        "MaximumEfaInterfaces": int,
     },
     total=False,
 )
@@ -2660,14 +12443,27 @@ ElasticGpuAssociationTypeDef = TypedDict(
 )
 
 ElasticGpuHealthTypeDef = TypedDict(
-    "ElasticGpuHealthTypeDef", {"Status": Literal["OK", "IMPAIRED"]}, total=False
+    "ElasticGpuHealthTypeDef",
+    {
+        "Status": ElasticGpuStatusType,
+    },
+    total=False,
 )
 
 ElasticGpuSpecificationResponseTypeDef = TypedDict(
-    "ElasticGpuSpecificationResponseTypeDef", {"Type": str}, total=False
+    "ElasticGpuSpecificationResponseTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
 )
 
-ElasticGpuSpecificationTypeDef = TypedDict("ElasticGpuSpecificationTypeDef", {"Type": str})
+ElasticGpuSpecificationTypeDef = TypedDict(
+    "ElasticGpuSpecificationTypeDef",
+    {
+        "Type": str,
+    },
+)
 
 ElasticGpusTypeDef = TypedDict(
     "ElasticGpusTypeDef",
@@ -2694,6 +12490,41 @@ ElasticInferenceAcceleratorAssociationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredElasticInferenceAcceleratorTypeDef = TypedDict(
+    "_RequiredElasticInferenceAcceleratorTypeDef",
+    {
+        "Type": str,
+    },
+)
+_OptionalElasticInferenceAcceleratorTypeDef = TypedDict(
+    "_OptionalElasticInferenceAcceleratorTypeDef",
+    {
+        "Count": int,
+    },
+    total=False,
+)
+
+class ElasticInferenceAcceleratorTypeDef(
+    _RequiredElasticInferenceAcceleratorTypeDef, _OptionalElasticInferenceAcceleratorTypeDef
+):
+    pass
+
+EnableEbsEncryptionByDefaultRequestRequestTypeDef = TypedDict(
+    "EnableEbsEncryptionByDefaultRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+EnableEbsEncryptionByDefaultResultTypeDef = TypedDict(
+    "EnableEbsEncryptionByDefaultResultTypeDef",
+    {
+        "EbsEncryptionByDefault": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 EnableFastSnapshotRestoreErrorItemTypeDef = TypedDict(
     "EnableFastSnapshotRestoreErrorItemTypeDef",
     {
@@ -2705,12 +12536,20 @@ EnableFastSnapshotRestoreErrorItemTypeDef = TypedDict(
 
 EnableFastSnapshotRestoreStateErrorItemTypeDef = TypedDict(
     "EnableFastSnapshotRestoreStateErrorItemTypeDef",
-    {"AvailabilityZone": str, "Error": "EnableFastSnapshotRestoreStateErrorTypeDef"},
+    {
+        "AvailabilityZone": str,
+        "Error": "EnableFastSnapshotRestoreStateErrorTypeDef",
+    },
     total=False,
 )
 
 EnableFastSnapshotRestoreStateErrorTypeDef = TypedDict(
-    "EnableFastSnapshotRestoreStateErrorTypeDef", {"Code": str, "Message": str}, total=False
+    "EnableFastSnapshotRestoreStateErrorTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )
 
 EnableFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
@@ -2718,7 +12557,7 @@ EnableFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     {
         "SnapshotId": str,
         "AvailabilityZone": str,
-        "State": Literal["enabling", "optimizing", "enabled", "disabling", "disabled"],
+        "State": FastSnapshotRestoreStateCodeType,
         "StateTransitionReason": str,
         "OwnerId": str,
         "OwnerAlias": str,
@@ -2731,11 +12570,233 @@ EnableFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     total=False,
 )
 
-EnclaveOptionsTypeDef = TypedDict("EnclaveOptionsTypeDef", {"Enabled": bool}, total=False)
+_RequiredEnableFastSnapshotRestoresRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableFastSnapshotRestoresRequestRequestTypeDef",
+    {
+        "AvailabilityZones": List[str],
+        "SourceSnapshotIds": List[str],
+    },
+)
+_OptionalEnableFastSnapshotRestoresRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableFastSnapshotRestoresRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableFastSnapshotRestoresRequestRequestTypeDef(
+    _RequiredEnableFastSnapshotRestoresRequestRequestTypeDef,
+    _OptionalEnableFastSnapshotRestoresRequestRequestTypeDef,
+):
+    pass
+
+EnableFastSnapshotRestoresResultTypeDef = TypedDict(
+    "EnableFastSnapshotRestoresResultTypeDef",
+    {
+        "Successful": List["EnableFastSnapshotRestoreSuccessItemTypeDef"],
+        "Unsuccessful": List["EnableFastSnapshotRestoreErrorItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredEnableImageDeprecationRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableImageDeprecationRequestRequestTypeDef",
+    {
+        "ImageId": str,
+        "DeprecateAt": Union[datetime, str],
+    },
+)
+_OptionalEnableImageDeprecationRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableImageDeprecationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableImageDeprecationRequestRequestTypeDef(
+    _RequiredEnableImageDeprecationRequestRequestTypeDef,
+    _OptionalEnableImageDeprecationRequestRequestTypeDef,
+):
+    pass
+
+EnableImageDeprecationResultTypeDef = TypedDict(
+    "EnableImageDeprecationResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EnableSerialConsoleAccessRequestRequestTypeDef = TypedDict(
+    "EnableSerialConsoleAccessRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+EnableSerialConsoleAccessResultTypeDef = TypedDict(
+    "EnableSerialConsoleAccessResultTypeDef",
+    {
+        "SerialConsoleAccessEnabled": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableTransitGatewayRouteTablePropagationRequestRequestTypeDef(
+    _RequiredEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef,
+    _OptionalEnableTransitGatewayRouteTablePropagationRequestRequestTypeDef,
+):
+    pass
+
+EnableTransitGatewayRouteTablePropagationResultTypeDef = TypedDict(
+    "EnableTransitGatewayRouteTablePropagationResultTypeDef",
+    {
+        "Propagation": "TransitGatewayPropagationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredEnableVgwRoutePropagationRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableVgwRoutePropagationRequestRequestTypeDef",
+    {
+        "GatewayId": str,
+        "RouteTableId": str,
+    },
+)
+_OptionalEnableVgwRoutePropagationRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableVgwRoutePropagationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableVgwRoutePropagationRequestRequestTypeDef(
+    _RequiredEnableVgwRoutePropagationRequestRequestTypeDef,
+    _OptionalEnableVgwRoutePropagationRequestRequestTypeDef,
+):
+    pass
+
+_RequiredEnableVolumeIORequestRequestTypeDef = TypedDict(
+    "_RequiredEnableVolumeIORequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalEnableVolumeIORequestRequestTypeDef = TypedDict(
+    "_OptionalEnableVolumeIORequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableVolumeIORequestRequestTypeDef(
+    _RequiredEnableVolumeIORequestRequestTypeDef, _OptionalEnableVolumeIORequestRequestTypeDef
+):
+    pass
+
+EnableVolumeIORequestVolumeTypeDef = TypedDict(
+    "EnableVolumeIORequestVolumeTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+EnableVpcClassicLinkDnsSupportRequestRequestTypeDef = TypedDict(
+    "EnableVpcClassicLinkDnsSupportRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+    total=False,
+)
+
+EnableVpcClassicLinkDnsSupportResultTypeDef = TypedDict(
+    "EnableVpcClassicLinkDnsSupportResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredEnableVpcClassicLinkRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableVpcClassicLinkRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalEnableVpcClassicLinkRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableVpcClassicLinkRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableVpcClassicLinkRequestRequestTypeDef(
+    _RequiredEnableVpcClassicLinkRequestRequestTypeDef,
+    _OptionalEnableVpcClassicLinkRequestRequestTypeDef,
+):
+    pass
+
+EnableVpcClassicLinkRequestVpcTypeDef = TypedDict(
+    "EnableVpcClassicLinkRequestVpcTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+EnableVpcClassicLinkResultTypeDef = TypedDict(
+    "EnableVpcClassicLinkResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EnclaveOptionsRequestTypeDef = TypedDict(
+    "EnclaveOptionsRequestTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+EnclaveOptionsTypeDef = TypedDict(
+    "EnclaveOptionsTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
+)
 
 EventInformationTypeDef = TypedDict(
     "EventInformationTypeDef",
-    {"EventDescription": str, "EventSubType": str, "InstanceId": str},
+    {
+        "EventDescription": str,
+        "EventSubType": str,
+        "InstanceId": str,
+    },
     total=False,
 )
 
@@ -2791,6 +12852,105 @@ ExplanationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredExportClientVpnClientCertificateRevocationListRequestRequestTypeDef = TypedDict(
+    "_RequiredExportClientVpnClientCertificateRevocationListRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalExportClientVpnClientCertificateRevocationListRequestRequestTypeDef = TypedDict(
+    "_OptionalExportClientVpnClientCertificateRevocationListRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ExportClientVpnClientCertificateRevocationListRequestRequestTypeDef(
+    _RequiredExportClientVpnClientCertificateRevocationListRequestRequestTypeDef,
+    _OptionalExportClientVpnClientCertificateRevocationListRequestRequestTypeDef,
+):
+    pass
+
+ExportClientVpnClientCertificateRevocationListResultTypeDef = TypedDict(
+    "ExportClientVpnClientCertificateRevocationListResultTypeDef",
+    {
+        "CertificateRevocationList": str,
+        "Status": "ClientCertificateRevocationListStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredExportClientVpnClientConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredExportClientVpnClientConfigurationRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalExportClientVpnClientConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalExportClientVpnClientConfigurationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ExportClientVpnClientConfigurationRequestRequestTypeDef(
+    _RequiredExportClientVpnClientConfigurationRequestRequestTypeDef,
+    _OptionalExportClientVpnClientConfigurationRequestRequestTypeDef,
+):
+    pass
+
+ExportClientVpnClientConfigurationResultTypeDef = TypedDict(
+    "ExportClientVpnClientConfigurationResultTypeDef",
+    {
+        "ClientConfiguration": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredExportImageRequestRequestTypeDef = TypedDict(
+    "_RequiredExportImageRequestRequestTypeDef",
+    {
+        "DiskImageFormat": DiskImageFormatType,
+        "ImageId": str,
+        "S3ExportLocation": "ExportTaskS3LocationRequestTypeDef",
+    },
+)
+_OptionalExportImageRequestRequestTypeDef = TypedDict(
+    "_OptionalExportImageRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Description": str,
+        "DryRun": bool,
+        "RoleName": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class ExportImageRequestRequestTypeDef(
+    _RequiredExportImageRequestRequestTypeDef, _OptionalExportImageRequestRequestTypeDef
+):
+    pass
+
+ExportImageResultTypeDef = TypedDict(
+    "ExportImageResultTypeDef",
+    {
+        "Description": str,
+        "DiskImageFormat": DiskImageFormatType,
+        "ExportImageTaskId": str,
+        "ImageId": str,
+        "RoleName": str,
+        "Progress": str,
+        "S3ExportLocation": "ExportTaskS3LocationTypeDef",
+        "Status": str,
+        "StatusMessage": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ExportImageTaskTypeDef = TypedDict(
     "ExportImageTaskTypeDef",
     {
@@ -2806,8 +12966,32 @@ ExportImageTaskTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredExportTaskS3LocationRequestTypeDef = TypedDict(
+    "_RequiredExportTaskS3LocationRequestTypeDef",
+    {
+        "S3Bucket": str,
+    },
+)
+_OptionalExportTaskS3LocationRequestTypeDef = TypedDict(
+    "_OptionalExportTaskS3LocationRequestTypeDef",
+    {
+        "S3Prefix": str,
+    },
+    total=False,
+)
+
+class ExportTaskS3LocationRequestTypeDef(
+    _RequiredExportTaskS3LocationRequestTypeDef, _OptionalExportTaskS3LocationRequestTypeDef
+):
+    pass
+
 ExportTaskS3LocationTypeDef = TypedDict(
-    "ExportTaskS3LocationTypeDef", {"S3Bucket": str, "S3Prefix": str}, total=False
+    "ExportTaskS3LocationTypeDef",
+    {
+        "S3Bucket": str,
+        "S3Prefix": str,
+    },
+    total=False,
 )
 
 ExportTaskTypeDef = TypedDict(
@@ -2817,9 +13001,20 @@ ExportTaskTypeDef = TypedDict(
         "ExportTaskId": str,
         "ExportToS3Task": "ExportToS3TaskTypeDef",
         "InstanceExportDetails": "InstanceExportDetailsTypeDef",
-        "State": Literal["active", "cancelling", "cancelled", "completed"],
+        "State": ExportTaskStateType,
         "StatusMessage": str,
         "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+ExportToS3TaskSpecificationTypeDef = TypedDict(
+    "ExportToS3TaskSpecificationTypeDef",
+    {
+        "ContainerFormat": Literal["ova"],
+        "DiskImageFormat": DiskImageFormatType,
+        "S3Bucket": str,
+        "S3Prefix": str,
     },
     total=False,
 )
@@ -2828,56 +13023,94 @@ ExportToS3TaskTypeDef = TypedDict(
     "ExportToS3TaskTypeDef",
     {
         "ContainerFormat": Literal["ova"],
-        "DiskImageFormat": Literal["VMDK", "RAW", "VHD"],
+        "DiskImageFormat": DiskImageFormatType,
         "S3Bucket": str,
         "S3Key": str,
     },
     total=False,
 )
 
+_RequiredExportTransitGatewayRoutesRequestRequestTypeDef = TypedDict(
+    "_RequiredExportTransitGatewayRoutesRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "S3Bucket": str,
+    },
+)
+_OptionalExportTransitGatewayRoutesRequestRequestTypeDef = TypedDict(
+    "_OptionalExportTransitGatewayRoutesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ExportTransitGatewayRoutesRequestRequestTypeDef(
+    _RequiredExportTransitGatewayRoutesRequestRequestTypeDef,
+    _OptionalExportTransitGatewayRoutesRequestRequestTypeDef,
+):
+    pass
+
+ExportTransitGatewayRoutesResultTypeDef = TypedDict(
+    "ExportTransitGatewayRoutesResultTypeDef",
+    {
+        "S3Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 FailedQueuedPurchaseDeletionTypeDef = TypedDict(
     "FailedQueuedPurchaseDeletionTypeDef",
-    {"Error": "DeleteQueuedReservedInstancesErrorTypeDef", "ReservedInstancesId": str},
+    {
+        "Error": "DeleteQueuedReservedInstancesErrorTypeDef",
+        "ReservedInstancesId": str,
+    },
     total=False,
 )
 
 FederatedAuthenticationRequestTypeDef = TypedDict(
     "FederatedAuthenticationRequestTypeDef",
-    {"SAMLProviderArn": str, "SelfServiceSAMLProviderArn": str},
+    {
+        "SAMLProviderArn": str,
+        "SelfServiceSAMLProviderArn": str,
+    },
     total=False,
 )
 
 FederatedAuthenticationTypeDef = TypedDict(
     "FederatedAuthenticationTypeDef",
-    {"SamlProviderArn": str, "SelfServiceSamlProviderArn": str},
+    {
+        "SamlProviderArn": str,
+        "SelfServiceSamlProviderArn": str,
+    },
+    total=False,
+)
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "Name": str,
+        "Values": List[str],
+    },
     total=False,
 )
 
 FleetDataTypeDef = TypedDict(
     "FleetDataTypeDef",
     {
-        "ActivityStatus": Literal[
-            "error", "pending_fulfillment", "pending_termination", "fulfilled"
-        ],
+        "ActivityStatus": FleetActivityStatusType,
         "CreateTime": datetime,
         "FleetId": str,
-        "FleetState": Literal[
-            "submitted",
-            "active",
-            "deleted",
-            "failed",
-            "deleted_running",
-            "deleted_terminating",
-            "modifying",
-        ],
+        "FleetState": FleetStateCodeType,
         "ClientToken": str,
-        "ExcessCapacityTerminationPolicy": Literal["no-termination", "termination"],
+        "ExcessCapacityTerminationPolicy": FleetExcessCapacityTerminationPolicyType,
         "FulfilledCapacity": float,
         "FulfilledOnDemandCapacity": float,
         "LaunchTemplateConfigs": List["FleetLaunchTemplateConfigTypeDef"],
         "TargetCapacitySpecification": "TargetCapacitySpecificationTypeDef",
         "TerminateInstancesWithExpiration": bool,
-        "Type": Literal["request", "maintain", "instant"],
+        "Type": FleetTypeType,
         "ValidFrom": datetime,
         "ValidUntil": datetime,
         "ReplaceUnhealthyInstances": bool,
@@ -2886,6 +13119,16 @@ FleetDataTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "Errors": List["DescribeFleetErrorTypeDef"],
         "Instances": List["DescribeFleetsInstancesTypeDef"],
+        "Context": str,
+    },
+    total=False,
+)
+
+FleetLaunchTemplateConfigRequestTypeDef = TypedDict(
+    "FleetLaunchTemplateConfigRequestTypeDef",
+    {
+        "LaunchTemplateSpecification": "FleetLaunchTemplateSpecificationRequestTypeDef",
+        "Overrides": List["FleetLaunchTemplateOverridesRequestTypeDef"],
     },
     total=False,
 )
@@ -2902,397 +13145,7 @@ FleetLaunchTemplateConfigTypeDef = TypedDict(
 FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
     "FleetLaunchTemplateOverridesRequestTypeDef",
     {
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "MaxPrice": str,
         "SubnetId": str,
         "AvailabilityZone": str,
@@ -3306,397 +13159,7 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
 FleetLaunchTemplateOverridesTypeDef = TypedDict(
     "FleetLaunchTemplateOverridesTypeDef",
     {
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "MaxPrice": str,
         "SubnetId": str,
         "AvailabilityZone": str,
@@ -3709,35 +13172,53 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
 
 FleetLaunchTemplateSpecificationRequestTypeDef = TypedDict(
     "FleetLaunchTemplateSpecificationRequestTypeDef",
-    {"LaunchTemplateId": str, "LaunchTemplateName": str, "Version": str},
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Version": str,
+    },
     total=False,
 )
 
 FleetLaunchTemplateSpecificationTypeDef = TypedDict(
     "FleetLaunchTemplateSpecificationTypeDef",
-    {"LaunchTemplateId": str, "LaunchTemplateName": str, "Version": str},
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Version": str,
+    },
     total=False,
 )
 
 FleetSpotCapacityRebalanceRequestTypeDef = TypedDict(
     "FleetSpotCapacityRebalanceRequestTypeDef",
-    {"ReplacementStrategy": Literal["launch"]},
+    {
+        "ReplacementStrategy": Literal["launch"],
+    },
     total=False,
 )
 
 FleetSpotCapacityRebalanceTypeDef = TypedDict(
-    "FleetSpotCapacityRebalanceTypeDef", {"ReplacementStrategy": Literal["launch"]}, total=False
+    "FleetSpotCapacityRebalanceTypeDef",
+    {
+        "ReplacementStrategy": Literal["launch"],
+    },
+    total=False,
 )
 
 FleetSpotMaintenanceStrategiesRequestTypeDef = TypedDict(
     "FleetSpotMaintenanceStrategiesRequestTypeDef",
-    {"CapacityRebalance": "FleetSpotCapacityRebalanceRequestTypeDef"},
+    {
+        "CapacityRebalance": "FleetSpotCapacityRebalanceRequestTypeDef",
+    },
     total=False,
 )
 
 FleetSpotMaintenanceStrategiesTypeDef = TypedDict(
     "FleetSpotMaintenanceStrategiesTypeDef",
-    {"CapacityRebalance": "FleetSpotCapacityRebalanceTypeDef"},
+    {
+        "CapacityRebalance": "FleetSpotCapacityRebalanceTypeDef",
+    },
     total=False,
 )
 
@@ -3752,8 +13233,8 @@ FlowLogTypeDef = TypedDict(
         "FlowLogStatus": str,
         "LogGroupName": str,
         "ResourceId": str,
-        "TrafficType": Literal["ACCEPT", "REJECT", "ALL"],
-        "LogDestinationType": Literal["cloud-watch-logs", "s3"],
+        "TrafficType": TrafficTypeType,
+        "LogDestinationType": LogDestinationTypeType,
         "LogDestination": str,
         "LogFormat": str,
         "Tags": List["TagTypeDef"],
@@ -3764,12 +13245,21 @@ FlowLogTypeDef = TypedDict(
 
 FpgaDeviceInfoTypeDef = TypedDict(
     "FpgaDeviceInfoTypeDef",
-    {"Name": str, "Manufacturer": str, "Count": int, "MemoryInfo": "FpgaDeviceMemoryInfoTypeDef"},
+    {
+        "Name": str,
+        "Manufacturer": str,
+        "Count": int,
+        "MemoryInfo": "FpgaDeviceMemoryInfoTypeDef",
+    },
     total=False,
 )
 
 FpgaDeviceMemoryInfoTypeDef = TypedDict(
-    "FpgaDeviceMemoryInfoTypeDef", {"SizeInMiB": int}, total=False
+    "FpgaDeviceMemoryInfoTypeDef",
+    {
+        "SizeInMiB": int,
+    },
+    total=False,
 )
 
 FpgaImageAttributeTypeDef = TypedDict(
@@ -3786,7 +13276,10 @@ FpgaImageAttributeTypeDef = TypedDict(
 
 FpgaImageStateTypeDef = TypedDict(
     "FpgaImageStateTypeDef",
-    {"Code": Literal["pending", "failed", "available", "unavailable"], "Message": str},
+    {
+        "Code": FpgaImageStateCodeType,
+        "Message": str,
+    },
     total=False,
 )
 
@@ -3814,39 +13307,759 @@ FpgaImageTypeDef = TypedDict(
 
 FpgaInfoTypeDef = TypedDict(
     "FpgaInfoTypeDef",
-    {"Fpgas": List["FpgaDeviceInfoTypeDef"], "TotalFpgaMemoryInMiB": int},
+    {
+        "Fpgas": List["FpgaDeviceInfoTypeDef"],
+        "TotalFpgaMemoryInMiB": int,
+    },
     total=False,
+)
+
+GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef = TypedDict(
+    "GetAssociatedEnclaveCertificateIamRolesRequestRequestTypeDef",
+    {
+        "CertificateArn": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetAssociatedEnclaveCertificateIamRolesResultTypeDef = TypedDict(
+    "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
+    {
+        "AssociatedRoles": List["AssociatedRoleTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetAssociatedIpv6PoolCidrsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAssociatedIpv6PoolCidrsRequestRequestTypeDef",
+    {
+        "PoolId": str,
+    },
+)
+_OptionalGetAssociatedIpv6PoolCidrsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAssociatedIpv6PoolCidrsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetAssociatedIpv6PoolCidrsRequestRequestTypeDef(
+    _RequiredGetAssociatedIpv6PoolCidrsRequestRequestTypeDef,
+    _OptionalGetAssociatedIpv6PoolCidrsRequestRequestTypeDef,
+):
+    pass
+
+GetAssociatedIpv6PoolCidrsResultTypeDef = TypedDict(
+    "GetAssociatedIpv6PoolCidrsResultTypeDef",
+    {
+        "Ipv6CidrAssociations": List["Ipv6CidrAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCapacityReservationUsageRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCapacityReservationUsageRequestRequestTypeDef",
+    {
+        "CapacityReservationId": str,
+    },
+)
+_OptionalGetCapacityReservationUsageRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCapacityReservationUsageRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetCapacityReservationUsageRequestRequestTypeDef(
+    _RequiredGetCapacityReservationUsageRequestRequestTypeDef,
+    _OptionalGetCapacityReservationUsageRequestRequestTypeDef,
+):
+    pass
+
+GetCapacityReservationUsageResultTypeDef = TypedDict(
+    "GetCapacityReservationUsageResultTypeDef",
+    {
+        "NextToken": str,
+        "CapacityReservationId": str,
+        "InstanceType": str,
+        "TotalInstanceCount": int,
+        "AvailableInstanceCount": int,
+        "State": CapacityReservationStateType,
+        "InstanceUsages": List["InstanceUsageTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCoipPoolUsageRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCoipPoolUsageRequestRequestTypeDef",
+    {
+        "PoolId": str,
+    },
+)
+_OptionalGetCoipPoolUsageRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCoipPoolUsageRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetCoipPoolUsageRequestRequestTypeDef(
+    _RequiredGetCoipPoolUsageRequestRequestTypeDef, _OptionalGetCoipPoolUsageRequestRequestTypeDef
+):
+    pass
+
+GetCoipPoolUsageResultTypeDef = TypedDict(
+    "GetCoipPoolUsageResultTypeDef",
+    {
+        "CoipPoolId": str,
+        "CoipAddressUsages": List["CoipAddressUsageTypeDef"],
+        "LocalGatewayRouteTableId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetConsoleOutputRequestInstanceTypeDef = TypedDict(
+    "GetConsoleOutputRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+        "Latest": bool,
+    },
+    total=False,
+)
+
+_RequiredGetConsoleOutputRequestRequestTypeDef = TypedDict(
+    "_RequiredGetConsoleOutputRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalGetConsoleOutputRequestRequestTypeDef = TypedDict(
+    "_OptionalGetConsoleOutputRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Latest": bool,
+    },
+    total=False,
+)
+
+class GetConsoleOutputRequestRequestTypeDef(
+    _RequiredGetConsoleOutputRequestRequestTypeDef, _OptionalGetConsoleOutputRequestRequestTypeDef
+):
+    pass
+
+GetConsoleOutputResultTypeDef = TypedDict(
+    "GetConsoleOutputResultTypeDef",
+    {
+        "InstanceId": str,
+        "Output": str,
+        "Timestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetConsoleScreenshotRequestRequestTypeDef = TypedDict(
+    "_RequiredGetConsoleScreenshotRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalGetConsoleScreenshotRequestRequestTypeDef = TypedDict(
+    "_OptionalGetConsoleScreenshotRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "WakeUp": bool,
+    },
+    total=False,
+)
+
+class GetConsoleScreenshotRequestRequestTypeDef(
+    _RequiredGetConsoleScreenshotRequestRequestTypeDef,
+    _OptionalGetConsoleScreenshotRequestRequestTypeDef,
+):
+    pass
+
+GetConsoleScreenshotResultTypeDef = TypedDict(
+    "GetConsoleScreenshotResultTypeDef",
+    {
+        "ImageData": str,
+        "InstanceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetDefaultCreditSpecificationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetDefaultCreditSpecificationRequestRequestTypeDef",
+    {
+        "InstanceFamily": UnlimitedSupportedInstanceFamilyType,
+    },
+)
+_OptionalGetDefaultCreditSpecificationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetDefaultCreditSpecificationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetDefaultCreditSpecificationRequestRequestTypeDef(
+    _RequiredGetDefaultCreditSpecificationRequestRequestTypeDef,
+    _OptionalGetDefaultCreditSpecificationRequestRequestTypeDef,
+):
+    pass
+
+GetDefaultCreditSpecificationResultTypeDef = TypedDict(
+    "GetDefaultCreditSpecificationResultTypeDef",
+    {
+        "InstanceFamilyCreditSpecification": "InstanceFamilyCreditSpecificationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEbsDefaultKmsKeyIdRequestRequestTypeDef = TypedDict(
+    "GetEbsDefaultKmsKeyIdRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetEbsDefaultKmsKeyIdResultTypeDef = TypedDict(
+    "GetEbsDefaultKmsKeyIdResultTypeDef",
+    {
+        "KmsKeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEbsEncryptionByDefaultRequestRequestTypeDef = TypedDict(
+    "GetEbsEncryptionByDefaultRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetEbsEncryptionByDefaultResultTypeDef = TypedDict(
+    "GetEbsEncryptionByDefaultResultTypeDef",
+    {
+        "EbsEncryptionByDefault": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetFlowLogsIntegrationTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredGetFlowLogsIntegrationTemplateRequestRequestTypeDef",
+    {
+        "FlowLogId": str,
+        "ConfigDeliveryS3DestinationArn": str,
+        "IntegrateServices": "IntegrateServicesTypeDef",
+    },
+)
+_OptionalGetFlowLogsIntegrationTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalGetFlowLogsIntegrationTemplateRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetFlowLogsIntegrationTemplateRequestRequestTypeDef(
+    _RequiredGetFlowLogsIntegrationTemplateRequestRequestTypeDef,
+    _OptionalGetFlowLogsIntegrationTemplateRequestRequestTypeDef,
+):
+    pass
+
+GetFlowLogsIntegrationTemplateResultTypeDef = TypedDict(
+    "GetFlowLogsIntegrationTemplateResultTypeDef",
+    {
+        "Result": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetGroupsForCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetGroupsForCapacityReservationRequestRequestTypeDef",
+    {
+        "CapacityReservationId": str,
+    },
+)
+_OptionalGetGroupsForCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetGroupsForCapacityReservationRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetGroupsForCapacityReservationRequestRequestTypeDef(
+    _RequiredGetGroupsForCapacityReservationRequestRequestTypeDef,
+    _OptionalGetGroupsForCapacityReservationRequestRequestTypeDef,
+):
+    pass
+
+GetGroupsForCapacityReservationResultTypeDef = TypedDict(
+    "GetGroupsForCapacityReservationResultTypeDef",
+    {
+        "NextToken": str,
+        "CapacityReservationGroups": List["CapacityReservationGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetHostReservationPurchasePreviewRequestRequestTypeDef = TypedDict(
+    "GetHostReservationPurchasePreviewRequestRequestTypeDef",
+    {
+        "HostIdSet": List[str],
+        "OfferingId": str,
+    },
+)
+
+GetHostReservationPurchasePreviewResultTypeDef = TypedDict(
+    "GetHostReservationPurchasePreviewResultTypeDef",
+    {
+        "CurrencyCode": Literal["USD"],
+        "Purchase": List["PurchaseTypeDef"],
+        "TotalHourlyPrice": str,
+        "TotalUpfrontPrice": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetLaunchTemplateDataRequestRequestTypeDef = TypedDict(
+    "_RequiredGetLaunchTemplateDataRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalGetLaunchTemplateDataRequestRequestTypeDef = TypedDict(
+    "_OptionalGetLaunchTemplateDataRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetLaunchTemplateDataRequestRequestTypeDef(
+    _RequiredGetLaunchTemplateDataRequestRequestTypeDef,
+    _OptionalGetLaunchTemplateDataRequestRequestTypeDef,
+):
+    pass
+
+GetLaunchTemplateDataResultTypeDef = TypedDict(
+    "GetLaunchTemplateDataResultTypeDef",
+    {
+        "LaunchTemplateData": "ResponseLaunchTemplateDataTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetManagedPrefixListAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetManagedPrefixListAssociationsRequestRequestTypeDef",
+    {
+        "PrefixListId": str,
+    },
+)
+_OptionalGetManagedPrefixListAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetManagedPrefixListAssociationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetManagedPrefixListAssociationsRequestRequestTypeDef(
+    _RequiredGetManagedPrefixListAssociationsRequestRequestTypeDef,
+    _OptionalGetManagedPrefixListAssociationsRequestRequestTypeDef,
+):
+    pass
+
+GetManagedPrefixListAssociationsResultTypeDef = TypedDict(
+    "GetManagedPrefixListAssociationsResultTypeDef",
+    {
+        "PrefixListAssociations": List["PrefixListAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetManagedPrefixListEntriesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetManagedPrefixListEntriesRequestRequestTypeDef",
+    {
+        "PrefixListId": str,
+    },
+)
+_OptionalGetManagedPrefixListEntriesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetManagedPrefixListEntriesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TargetVersion": int,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetManagedPrefixListEntriesRequestRequestTypeDef(
+    _RequiredGetManagedPrefixListEntriesRequestRequestTypeDef,
+    _OptionalGetManagedPrefixListEntriesRequestRequestTypeDef,
+):
+    pass
+
+GetManagedPrefixListEntriesResultTypeDef = TypedDict(
+    "GetManagedPrefixListEntriesResultTypeDef",
+    {
+        "Entries": List["PrefixListEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetPasswordDataRequestInstanceTypeDef = TypedDict(
+    "GetPasswordDataRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredGetPasswordDataRequestRequestTypeDef = TypedDict(
+    "_RequiredGetPasswordDataRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalGetPasswordDataRequestRequestTypeDef = TypedDict(
+    "_OptionalGetPasswordDataRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetPasswordDataRequestRequestTypeDef(
+    _RequiredGetPasswordDataRequestRequestTypeDef, _OptionalGetPasswordDataRequestRequestTypeDef
+):
+    pass
+
+GetPasswordDataResultTypeDef = TypedDict(
+    "GetPasswordDataResultTypeDef",
+    {
+        "InstanceId": str,
+        "PasswordData": str,
+        "Timestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetReservedInstancesExchangeQuoteRequestRequestTypeDef = TypedDict(
+    "_RequiredGetReservedInstancesExchangeQuoteRequestRequestTypeDef",
+    {
+        "ReservedInstanceIds": List[str],
+    },
+)
+_OptionalGetReservedInstancesExchangeQuoteRequestRequestTypeDef = TypedDict(
+    "_OptionalGetReservedInstancesExchangeQuoteRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TargetConfigurations": List["TargetConfigurationRequestTypeDef"],
+    },
+    total=False,
+)
+
+class GetReservedInstancesExchangeQuoteRequestRequestTypeDef(
+    _RequiredGetReservedInstancesExchangeQuoteRequestRequestTypeDef,
+    _OptionalGetReservedInstancesExchangeQuoteRequestRequestTypeDef,
+):
+    pass
+
+GetReservedInstancesExchangeQuoteResultTypeDef = TypedDict(
+    "GetReservedInstancesExchangeQuoteResultTypeDef",
+    {
+        "CurrencyCode": str,
+        "IsValidExchange": bool,
+        "OutputReservedInstancesWillExpireAt": datetime,
+        "PaymentDue": str,
+        "ReservedInstanceValueRollup": "ReservationValueTypeDef",
+        "ReservedInstanceValueSet": List["ReservedInstanceReservationValueTypeDef"],
+        "TargetConfigurationValueRollup": "ReservationValueTypeDef",
+        "TargetConfigurationValueSet": List["TargetReservationValueTypeDef"],
+        "ValidationFailureReason": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetSerialConsoleAccessStatusRequestRequestTypeDef = TypedDict(
+    "GetSerialConsoleAccessStatusRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetSerialConsoleAccessStatusResultTypeDef = TypedDict(
+    "GetSerialConsoleAccessStatusResultTypeDef",
+    {
+        "SerialConsoleAccessEnabled": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSubnetCidrReservationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSubnetCidrReservationsRequestRequestTypeDef",
+    {
+        "SubnetId": str,
+    },
+)
+_OptionalGetSubnetCidrReservationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSubnetCidrReservationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetSubnetCidrReservationsRequestRequestTypeDef(
+    _RequiredGetSubnetCidrReservationsRequestRequestTypeDef,
+    _OptionalGetSubnetCidrReservationsRequestRequestTypeDef,
+):
+    pass
+
+GetSubnetCidrReservationsResultTypeDef = TypedDict(
+    "GetSubnetCidrReservationsResultTypeDef",
+    {
+        "SubnetIpv4CidrReservations": List["SubnetCidrReservationTypeDef"],
+        "SubnetIpv6CidrReservations": List["SubnetCidrReservationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTransitGatewayAttachmentPropagationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTransitGatewayAttachmentPropagationsRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalGetTransitGatewayAttachmentPropagationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTransitGatewayAttachmentPropagationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetTransitGatewayAttachmentPropagationsRequestRequestTypeDef(
+    _RequiredGetTransitGatewayAttachmentPropagationsRequestRequestTypeDef,
+    _OptionalGetTransitGatewayAttachmentPropagationsRequestRequestTypeDef,
+):
+    pass
+
+GetTransitGatewayAttachmentPropagationsResultTypeDef = TypedDict(
+    "GetTransitGatewayAttachmentPropagationsResultTypeDef",
+    {
+        "TransitGatewayAttachmentPropagations": List["TransitGatewayAttachmentPropagationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef = TypedDict(
+    "GetTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
+    "GetTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    {
+        "MulticastDomainAssociations": List["TransitGatewayMulticastDomainAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTransitGatewayPrefixListReferencesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTransitGatewayPrefixListReferencesRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+    },
+)
+_OptionalGetTransitGatewayPrefixListReferencesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTransitGatewayPrefixListReferencesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetTransitGatewayPrefixListReferencesRequestRequestTypeDef(
+    _RequiredGetTransitGatewayPrefixListReferencesRequestRequestTypeDef,
+    _OptionalGetTransitGatewayPrefixListReferencesRequestRequestTypeDef,
+):
+    pass
+
+GetTransitGatewayPrefixListReferencesResultTypeDef = TypedDict(
+    "GetTransitGatewayPrefixListReferencesResultTypeDef",
+    {
+        "TransitGatewayPrefixListReferences": List["TransitGatewayPrefixListReferenceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTransitGatewayRouteTableAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTransitGatewayRouteTableAssociationsRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+    },
+)
+_OptionalGetTransitGatewayRouteTableAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTransitGatewayRouteTableAssociationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetTransitGatewayRouteTableAssociationsRequestRequestTypeDef(
+    _RequiredGetTransitGatewayRouteTableAssociationsRequestRequestTypeDef,
+    _OptionalGetTransitGatewayRouteTableAssociationsRequestRequestTypeDef,
+):
+    pass
+
+GetTransitGatewayRouteTableAssociationsResultTypeDef = TypedDict(
+    "GetTransitGatewayRouteTableAssociationsResultTypeDef",
+    {
+        "Associations": List["TransitGatewayRouteTableAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTransitGatewayRouteTablePropagationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTransitGatewayRouteTablePropagationsRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+    },
+)
+_OptionalGetTransitGatewayRouteTablePropagationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTransitGatewayRouteTablePropagationsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetTransitGatewayRouteTablePropagationsRequestRequestTypeDef(
+    _RequiredGetTransitGatewayRouteTablePropagationsRequestRequestTypeDef,
+    _OptionalGetTransitGatewayRouteTablePropagationsRequestRequestTypeDef,
+):
+    pass
+
+GetTransitGatewayRouteTablePropagationsResultTypeDef = TypedDict(
+    "GetTransitGatewayRouteTablePropagationsResultTypeDef",
+    {
+        "TransitGatewayRouteTablePropagations": List["TransitGatewayRouteTablePropagationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GpuDeviceInfoTypeDef = TypedDict(
     "GpuDeviceInfoTypeDef",
-    {"Name": str, "Manufacturer": str, "Count": int, "MemoryInfo": "GpuDeviceMemoryInfoTypeDef"},
+    {
+        "Name": str,
+        "Manufacturer": str,
+        "Count": int,
+        "MemoryInfo": "GpuDeviceMemoryInfoTypeDef",
+    },
     total=False,
 )
 
 GpuDeviceMemoryInfoTypeDef = TypedDict(
-    "GpuDeviceMemoryInfoTypeDef", {"SizeInMiB": int}, total=False
+    "GpuDeviceMemoryInfoTypeDef",
+    {
+        "SizeInMiB": int,
+    },
+    total=False,
 )
 
 GpuInfoTypeDef = TypedDict(
     "GpuInfoTypeDef",
-    {"Gpus": List["GpuDeviceInfoTypeDef"], "TotalGpuMemoryInMiB": int},
+    {
+        "Gpus": List["GpuDeviceInfoTypeDef"],
+        "TotalGpuMemoryInMiB": int,
+    },
     total=False,
 )
 
 GroupIdentifierTypeDef = TypedDict(
-    "GroupIdentifierTypeDef", {"GroupName": str, "GroupId": str}, total=False
+    "GroupIdentifierTypeDef",
+    {
+        "GroupName": str,
+        "GroupId": str,
+    },
+    total=False,
+)
+
+HibernationOptionsRequestTypeDef = TypedDict(
+    "HibernationOptionsRequestTypeDef",
+    {
+        "Configured": bool,
+    },
+    total=False,
 )
 
 HibernationOptionsTypeDef = TypedDict(
-    "HibernationOptionsTypeDef", {"Configured": bool}, total=False
+    "HibernationOptionsTypeDef",
+    {
+        "Configured": bool,
+    },
+    total=False,
 )
 
 HistoryRecordEntryTypeDef = TypedDict(
     "HistoryRecordEntryTypeDef",
     {
         "EventInformation": "EventInformationTypeDef",
-        "EventType": Literal["instance-change", "fleet-change", "service-error"],
+        "EventType": FleetEventTypeType,
         "Timestamp": datetime,
     },
     total=False,
@@ -3856,14 +14069,20 @@ HistoryRecordTypeDef = TypedDict(
     "HistoryRecordTypeDef",
     {
         "EventInformation": "EventInformationTypeDef",
-        "EventType": Literal["instanceChange", "fleetRequestChange", "error", "information"],
+        "EventType": EventTypeType,
         "Timestamp": datetime,
     },
     total=False,
 )
 
 HostInstanceTypeDef = TypedDict(
-    "HostInstanceTypeDef", {"InstanceId": str, "InstanceType": str, "OwnerId": str}, total=False
+    "HostInstanceTypeDef",
+    {
+        "InstanceId": str,
+        "InstanceType": str,
+        "OwnerId": str,
+    },
+    total=False,
 )
 
 HostOfferingTypeDef = TypedDict(
@@ -3874,7 +14093,7 @@ HostOfferingTypeDef = TypedDict(
         "HourlyPrice": str,
         "InstanceFamily": str,
         "OfferingId": str,
-        "PaymentOption": Literal["AllUpfront", "PartialUpfront", "NoUpfront"],
+        "PaymentOption": PaymentOptionType,
         "UpfrontPrice": str,
     },
     total=False,
@@ -3882,7 +14101,13 @@ HostOfferingTypeDef = TypedDict(
 
 HostPropertiesTypeDef = TypedDict(
     "HostPropertiesTypeDef",
-    {"Cores": int, "InstanceType": str, "InstanceFamily": str, "Sockets": int, "TotalVCpus": int},
+    {
+        "Cores": int,
+        "InstanceType": str,
+        "InstanceFamily": str,
+        "Sockets": int,
+        "TotalVCpus": int,
+    },
     total=False,
 )
 
@@ -3898,9 +14123,9 @@ HostReservationTypeDef = TypedDict(
         "HourlyPrice": str,
         "InstanceFamily": str,
         "OfferingId": str,
-        "PaymentOption": Literal["AllUpfront", "PartialUpfront", "NoUpfront"],
+        "PaymentOption": PaymentOptionType,
         "Start": datetime,
-        "State": Literal["payment-pending", "payment-failed", "active", "retired"],
+        "State": ReservationStateType,
         "UpfrontPrice": str,
         "Tags": List["TagTypeDef"],
     },
@@ -3910,7 +14135,7 @@ HostReservationTypeDef = TypedDict(
 HostTypeDef = TypedDict(
     "HostTypeDef",
     {
-        "AutoPlacement": Literal["on", "off"],
+        "AutoPlacement": AutoPlacementType,
         "AvailabilityZone": str,
         "AvailableCapacity": "AvailableCapacityTypeDef",
         "ClientToken": str,
@@ -3918,19 +14143,12 @@ HostTypeDef = TypedDict(
         "HostProperties": "HostPropertiesTypeDef",
         "HostReservationId": str,
         "Instances": List["HostInstanceTypeDef"],
-        "State": Literal[
-            "available",
-            "under-assessment",
-            "permanent-failure",
-            "released",
-            "released-permanent-failure",
-            "pending",
-        ],
+        "State": AllocationStateType,
         "AllocationTime": datetime,
         "ReleaseTime": datetime,
         "Tags": List["TagTypeDef"],
-        "HostRecovery": Literal["on", "off"],
-        "AllowsMultipleInstanceTypes": Literal["on", "off"],
+        "HostRecovery": HostRecoveryType,
+        "AllowsMultipleInstanceTypes": AllowsMultipleInstanceTypesType,
         "OwnerId": str,
         "AvailabilityZoneId": str,
         "MemberOfServiceLinkedResourceGroup": bool,
@@ -3938,10 +14156,20 @@ HostTypeDef = TypedDict(
     total=False,
 )
 
-IKEVersionsListValueTypeDef = TypedDict("IKEVersionsListValueTypeDef", {"Value": str}, total=False)
+IKEVersionsListValueTypeDef = TypedDict(
+    "IKEVersionsListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
 
 IKEVersionsRequestListValueTypeDef = TypedDict(
-    "IKEVersionsRequestListValueTypeDef", {"Value": str}, total=False
+    "IKEVersionsRequestListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 IamInstanceProfileAssociationTypeDef = TypedDict(
@@ -3950,34 +14178,86 @@ IamInstanceProfileAssociationTypeDef = TypedDict(
         "AssociationId": str,
         "InstanceId": str,
         "IamInstanceProfile": "IamInstanceProfileTypeDef",
-        "State": Literal["associating", "associated", "disassociating", "disassociated"],
+        "State": IamInstanceProfileAssociationStateType,
         "Timestamp": datetime,
     },
     total=False,
 )
 
 IamInstanceProfileSpecificationTypeDef = TypedDict(
-    "IamInstanceProfileSpecificationTypeDef", {"Arn": str, "Name": str}, total=False
+    "IamInstanceProfileSpecificationTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 IamInstanceProfileTypeDef = TypedDict(
-    "IamInstanceProfileTypeDef", {"Arn": str, "Id": str}, total=False
+    "IamInstanceProfileTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+    },
+    total=False,
 )
 
-IcmpTypeCodeTypeDef = TypedDict("IcmpTypeCodeTypeDef", {"Code": int, "Type": int}, total=False)
+IcmpTypeCodeTypeDef = TypedDict(
+    "IcmpTypeCodeTypeDef",
+    {
+        "Code": int,
+        "Type": int,
+    },
+    total=False,
+)
 
 IdFormatTypeDef = TypedDict(
-    "IdFormatTypeDef", {"Deadline": datetime, "Resource": str, "UseLongIds": bool}, total=False
+    "IdFormatTypeDef",
+    {
+        "Deadline": datetime,
+        "Resource": str,
+        "UseLongIds": bool,
+    },
+    total=False,
+)
+
+ImageAttributeTypeDef = TypedDict(
+    "ImageAttributeTypeDef",
+    {
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "ImageId": str,
+        "LaunchPermissions": List["LaunchPermissionTypeDef"],
+        "ProductCodes": List["ProductCodeTypeDef"],
+        "Description": "AttributeValueTypeDef",
+        "KernelId": "AttributeValueTypeDef",
+        "RamdiskId": "AttributeValueTypeDef",
+        "SriovNetSupport": "AttributeValueTypeDef",
+        "BootMode": "AttributeValueTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ImageDiskContainerTypeDef = TypedDict(
+    "ImageDiskContainerTypeDef",
+    {
+        "Description": str,
+        "DeviceName": str,
+        "Format": str,
+        "SnapshotId": str,
+        "Url": str,
+        "UserBucket": "UserBucketTypeDef",
+    },
+    total=False,
 )
 
 ImageTypeDef = TypedDict(
     "ImageTypeDef",
     {
-        "Architecture": Literal["i386", "x86_64", "arm64"],
+        "Architecture": ArchitectureValuesType,
         "CreationDate": str,
         "ImageId": str,
         "ImageLocation": str,
-        "ImageType": Literal["machine", "kernel", "ramdisk"],
+        "ImageType": ImageTypeValuesType,
         "Public": bool,
         "KernelId": str,
         "OwnerId": str,
@@ -3986,27 +14266,111 @@ ImageTypeDef = TypedDict(
         "UsageOperation": str,
         "ProductCodes": List["ProductCodeTypeDef"],
         "RamdiskId": str,
-        "State": Literal[
-            "pending", "available", "invalid", "deregistered", "transient", "failed", "error"
-        ],
+        "State": ImageStateType,
         "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
         "Description": str,
         "EnaSupport": bool,
-        "Hypervisor": Literal["ovm", "xen"],
+        "Hypervisor": HypervisorTypeType,
         "ImageOwnerAlias": str,
         "Name": str,
         "RootDeviceName": str,
-        "RootDeviceType": Literal["ebs", "instance-store"],
+        "RootDeviceType": DeviceTypeType,
         "SriovNetSupport": str,
         "StateReason": "StateReasonTypeDef",
         "Tags": List["TagTypeDef"],
-        "VirtualizationType": Literal["hvm", "paravirtual"],
+        "VirtualizationType": VirtualizationTypeType,
+        "BootMode": BootModeValuesType,
+        "DeprecationTime": str,
+    },
+    total=False,
+)
+
+_RequiredImportClientVpnClientCertificateRevocationListRequestRequestTypeDef = TypedDict(
+    "_RequiredImportClientVpnClientCertificateRevocationListRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "CertificateRevocationList": str,
+    },
+)
+_OptionalImportClientVpnClientCertificateRevocationListRequestRequestTypeDef = TypedDict(
+    "_OptionalImportClientVpnClientCertificateRevocationListRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ImportClientVpnClientCertificateRevocationListRequestRequestTypeDef(
+    _RequiredImportClientVpnClientCertificateRevocationListRequestRequestTypeDef,
+    _OptionalImportClientVpnClientCertificateRevocationListRequestRequestTypeDef,
+):
+    pass
+
+ImportClientVpnClientCertificateRevocationListResultTypeDef = TypedDict(
+    "ImportClientVpnClientCertificateRevocationListResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ImportImageLicenseConfigurationRequestTypeDef = TypedDict(
+    "ImportImageLicenseConfigurationRequestTypeDef",
+    {
+        "LicenseConfigurationArn": str,
     },
     total=False,
 )
 
 ImportImageLicenseConfigurationResponseTypeDef = TypedDict(
-    "ImportImageLicenseConfigurationResponseTypeDef", {"LicenseConfigurationArn": str}, total=False
+    "ImportImageLicenseConfigurationResponseTypeDef",
+    {
+        "LicenseConfigurationArn": str,
+    },
+    total=False,
+)
+
+ImportImageRequestRequestTypeDef = TypedDict(
+    "ImportImageRequestRequestTypeDef",
+    {
+        "Architecture": str,
+        "ClientData": "ClientDataTypeDef",
+        "ClientToken": str,
+        "Description": str,
+        "DiskContainers": List["ImageDiskContainerTypeDef"],
+        "DryRun": bool,
+        "Encrypted": bool,
+        "Hypervisor": str,
+        "KmsKeyId": str,
+        "LicenseType": str,
+        "Platform": str,
+        "RoleName": str,
+        "LicenseSpecifications": List["ImportImageLicenseConfigurationRequestTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+ImportImageResultTypeDef = TypedDict(
+    "ImportImageResultTypeDef",
+    {
+        "Architecture": str,
+        "Description": str,
+        "Encrypted": bool,
+        "Hypervisor": str,
+        "ImageId": str,
+        "ImportTaskId": str,
+        "KmsKeyId": str,
+        "LicenseType": str,
+        "Platform": str,
+        "Progress": str,
+        "SnapshotDetails": List["SnapshotDetailTypeDef"],
+        "Status": str,
+        "StatusMessage": str,
+        "LicenseSpecifications": List["ImportImageLicenseConfigurationResponseTypeDef"],
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ImportImageTaskTypeDef = TypedDict(
@@ -4029,6 +14393,54 @@ ImportImageTaskTypeDef = TypedDict(
         "LicenseSpecifications": List["ImportImageLicenseConfigurationResponseTypeDef"],
     },
     total=False,
+)
+
+ImportInstanceLaunchSpecificationTypeDef = TypedDict(
+    "ImportInstanceLaunchSpecificationTypeDef",
+    {
+        "AdditionalInfo": str,
+        "Architecture": ArchitectureValuesType,
+        "GroupIds": List[str],
+        "GroupNames": List[str],
+        "InstanceInitiatedShutdownBehavior": ShutdownBehaviorType,
+        "InstanceType": InstanceTypeType,
+        "Monitoring": bool,
+        "Placement": "PlacementTypeDef",
+        "PrivateIpAddress": str,
+        "SubnetId": str,
+        "UserData": "UserDataTypeDef",
+    },
+    total=False,
+)
+
+_RequiredImportInstanceRequestRequestTypeDef = TypedDict(
+    "_RequiredImportInstanceRequestRequestTypeDef",
+    {
+        "Platform": Literal["Windows"],
+    },
+)
+_OptionalImportInstanceRequestRequestTypeDef = TypedDict(
+    "_OptionalImportInstanceRequestRequestTypeDef",
+    {
+        "Description": str,
+        "DiskImages": List["DiskImageTypeDef"],
+        "DryRun": bool,
+        "LaunchSpecification": "ImportInstanceLaunchSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class ImportInstanceRequestRequestTypeDef(
+    _RequiredImportInstanceRequestRequestTypeDef, _OptionalImportInstanceRequestRequestTypeDef
+):
+    pass
+
+ImportInstanceResultTypeDef = TypedDict(
+    "ImportInstanceResultTypeDef",
+    {
+        "ConversionTask": "ConversionTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ImportInstanceTaskDetailsTypeDef = TypedDict(
@@ -4056,6 +14468,87 @@ ImportInstanceVolumeDetailItemTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredImportKeyPairRequestRequestTypeDef = TypedDict(
+    "_RequiredImportKeyPairRequestRequestTypeDef",
+    {
+        "KeyName": str,
+        "PublicKeyMaterial": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+_OptionalImportKeyPairRequestRequestTypeDef = TypedDict(
+    "_OptionalImportKeyPairRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class ImportKeyPairRequestRequestTypeDef(
+    _RequiredImportKeyPairRequestRequestTypeDef, _OptionalImportKeyPairRequestRequestTypeDef
+):
+    pass
+
+_RequiredImportKeyPairRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredImportKeyPairRequestServiceResourceTypeDef",
+    {
+        "KeyName": str,
+        "PublicKeyMaterial": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+_OptionalImportKeyPairRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalImportKeyPairRequestServiceResourceTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class ImportKeyPairRequestServiceResourceTypeDef(
+    _RequiredImportKeyPairRequestServiceResourceTypeDef,
+    _OptionalImportKeyPairRequestServiceResourceTypeDef,
+):
+    pass
+
+ImportKeyPairResultTypeDef = TypedDict(
+    "ImportKeyPairResultTypeDef",
+    {
+        "KeyFingerprint": str,
+        "KeyName": str,
+        "KeyPairId": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ImportSnapshotRequestRequestTypeDef = TypedDict(
+    "ImportSnapshotRequestRequestTypeDef",
+    {
+        "ClientData": "ClientDataTypeDef",
+        "ClientToken": str,
+        "Description": str,
+        "DiskContainer": "SnapshotDiskContainerTypeDef",
+        "DryRun": bool,
+        "Encrypted": bool,
+        "KmsKeyId": str,
+        "RoleName": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+ImportSnapshotResultTypeDef = TypedDict(
+    "ImportSnapshotResultTypeDef",
+    {
+        "Description": str,
+        "ImportTaskId": str,
+        "SnapshotTaskDetail": "SnapshotTaskDetailTypeDef",
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ImportSnapshotTaskTypeDef = TypedDict(
     "ImportSnapshotTaskTypeDef",
     {
@@ -4065,6 +14558,36 @@ ImportSnapshotTaskTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
     },
     total=False,
+)
+
+_RequiredImportVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredImportVolumeRequestRequestTypeDef",
+    {
+        "AvailabilityZone": str,
+        "Image": "DiskImageDetailTypeDef",
+        "Volume": "VolumeDetailTypeDef",
+    },
+)
+_OptionalImportVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalImportVolumeRequestRequestTypeDef",
+    {
+        "Description": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ImportVolumeRequestRequestTypeDef(
+    _RequiredImportVolumeRequestRequestTypeDef, _OptionalImportVolumeRequestRequestTypeDef
+):
+    pass
+
+ImportVolumeResultTypeDef = TypedDict(
+    "ImportVolumeResultTypeDef",
+    {
+        "ConversionTask": "ConversionTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ImportVolumeTaskDetailsTypeDef = TypedDict(
@@ -4081,74 +14604,283 @@ ImportVolumeTaskDetailsTypeDef = TypedDict(
 
 InferenceAcceleratorInfoTypeDef = TypedDict(
     "InferenceAcceleratorInfoTypeDef",
-    {"Accelerators": List["InferenceDeviceInfoTypeDef"]},
+    {
+        "Accelerators": List["InferenceDeviceInfoTypeDef"],
+    },
     total=False,
 )
 
 InferenceDeviceInfoTypeDef = TypedDict(
-    "InferenceDeviceInfoTypeDef", {"Count": int, "Name": str, "Manufacturer": str}, total=False
+    "InferenceDeviceInfoTypeDef",
+    {
+        "Count": int,
+        "Name": str,
+        "Manufacturer": str,
+    },
+    total=False,
+)
+
+InstanceAttributeTypeDef = TypedDict(
+    "InstanceAttributeTypeDef",
+    {
+        "Groups": List["GroupIdentifierTypeDef"],
+        "BlockDeviceMappings": List["InstanceBlockDeviceMappingTypeDef"],
+        "DisableApiTermination": "AttributeBooleanValueTypeDef",
+        "EnaSupport": "AttributeBooleanValueTypeDef",
+        "EnclaveOptions": "EnclaveOptionsTypeDef",
+        "EbsOptimized": "AttributeBooleanValueTypeDef",
+        "InstanceId": str,
+        "InstanceInitiatedShutdownBehavior": "AttributeValueTypeDef",
+        "InstanceType": "AttributeValueTypeDef",
+        "KernelId": "AttributeValueTypeDef",
+        "ProductCodes": List["ProductCodeTypeDef"],
+        "RamdiskId": "AttributeValueTypeDef",
+        "RootDeviceName": "AttributeValueTypeDef",
+        "SourceDestCheck": "AttributeBooleanValueTypeDef",
+        "SriovNetSupport": "AttributeValueTypeDef",
+        "UserData": "AttributeValueTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InstanceBlockDeviceMappingSpecificationTypeDef = TypedDict(
+    "InstanceBlockDeviceMappingSpecificationTypeDef",
+    {
+        "DeviceName": str,
+        "Ebs": "EbsInstanceBlockDeviceSpecificationTypeDef",
+        "NoDevice": str,
+        "VirtualName": str,
+    },
+    total=False,
 )
 
 InstanceBlockDeviceMappingTypeDef = TypedDict(
     "InstanceBlockDeviceMappingTypeDef",
-    {"DeviceName": str, "Ebs": "EbsInstanceBlockDeviceTypeDef"},
+    {
+        "DeviceName": str,
+        "Ebs": "EbsInstanceBlockDeviceTypeDef",
+    },
     total=False,
 )
 
 InstanceCapacityTypeDef = TypedDict(
     "InstanceCapacityTypeDef",
-    {"AvailableCapacity": int, "InstanceType": str, "TotalCapacity": int},
+    {
+        "AvailableCapacity": int,
+        "InstanceType": str,
+        "TotalCapacity": int,
+    },
     total=False,
 )
 
 InstanceCountTypeDef = TypedDict(
     "InstanceCountTypeDef",
-    {"InstanceCount": int, "State": Literal["available", "sold", "cancelled", "pending"]},
+    {
+        "InstanceCount": int,
+        "State": ListingStateType,
+    },
+    total=False,
+)
+
+InstanceCreditSpecificationRequestTypeDef = TypedDict(
+    "InstanceCreditSpecificationRequestTypeDef",
+    {
+        "InstanceId": str,
+        "CpuCredits": str,
+    },
     total=False,
 )
 
 InstanceCreditSpecificationTypeDef = TypedDict(
-    "InstanceCreditSpecificationTypeDef", {"InstanceId": str, "CpuCredits": str}, total=False
+    "InstanceCreditSpecificationTypeDef",
+    {
+        "InstanceId": str,
+        "CpuCredits": str,
+    },
+    total=False,
+)
+
+InstanceDeleteTagsRequestTypeDef = TypedDict(
+    "InstanceDeleteTagsRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+InstanceEventWindowAssociationRequestTypeDef = TypedDict(
+    "InstanceEventWindowAssociationRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+        "InstanceTags": List["TagTypeDef"],
+        "DedicatedHostIds": List[str],
+    },
+    total=False,
+)
+
+InstanceEventWindowAssociationTargetTypeDef = TypedDict(
+    "InstanceEventWindowAssociationTargetTypeDef",
+    {
+        "InstanceIds": List[str],
+        "Tags": List["TagTypeDef"],
+        "DedicatedHostIds": List[str],
+    },
+    total=False,
+)
+
+InstanceEventWindowDisassociationRequestTypeDef = TypedDict(
+    "InstanceEventWindowDisassociationRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+        "InstanceTags": List["TagTypeDef"],
+        "DedicatedHostIds": List[str],
+    },
+    total=False,
+)
+
+InstanceEventWindowStateChangeTypeDef = TypedDict(
+    "InstanceEventWindowStateChangeTypeDef",
+    {
+        "InstanceEventWindowId": str,
+        "State": InstanceEventWindowStateType,
+    },
+    total=False,
+)
+
+InstanceEventWindowTimeRangeRequestTypeDef = TypedDict(
+    "InstanceEventWindowTimeRangeRequestTypeDef",
+    {
+        "StartWeekDay": WeekDayType,
+        "StartHour": int,
+        "EndWeekDay": WeekDayType,
+        "EndHour": int,
+    },
+    total=False,
+)
+
+InstanceEventWindowTimeRangeTypeDef = TypedDict(
+    "InstanceEventWindowTimeRangeTypeDef",
+    {
+        "StartWeekDay": WeekDayType,
+        "StartHour": int,
+        "EndWeekDay": WeekDayType,
+        "EndHour": int,
+    },
+    total=False,
+)
+
+InstanceEventWindowTypeDef = TypedDict(
+    "InstanceEventWindowTypeDef",
+    {
+        "InstanceEventWindowId": str,
+        "TimeRanges": List["InstanceEventWindowTimeRangeTypeDef"],
+        "Name": str,
+        "CronExpression": str,
+        "AssociationTarget": "InstanceEventWindowAssociationTargetTypeDef",
+        "State": InstanceEventWindowStateType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
 )
 
 InstanceExportDetailsTypeDef = TypedDict(
     "InstanceExportDetailsTypeDef",
-    {"InstanceId": str, "TargetEnvironment": Literal["citrix", "vmware", "microsoft"]},
+    {
+        "InstanceId": str,
+        "TargetEnvironment": ExportEnvironmentType,
+    },
     total=False,
 )
 
 InstanceFamilyCreditSpecificationTypeDef = TypedDict(
     "InstanceFamilyCreditSpecificationTypeDef",
-    {"InstanceFamily": Literal["t2", "t3", "t3a", "t4g"], "CpuCredits": str},
+    {
+        "InstanceFamily": UnlimitedSupportedInstanceFamilyType,
+        "CpuCredits": str,
+    },
+    total=False,
+)
+
+InstanceIpv4PrefixTypeDef = TypedDict(
+    "InstanceIpv4PrefixTypeDef",
+    {
+        "Ipv4Prefix": str,
+    },
     total=False,
 )
 
 InstanceIpv6AddressRequestTypeDef = TypedDict(
-    "InstanceIpv6AddressRequestTypeDef", {"Ipv6Address": str}, total=False
+    "InstanceIpv6AddressRequestTypeDef",
+    {
+        "Ipv6Address": str,
+    },
+    total=False,
 )
 
 InstanceIpv6AddressTypeDef = TypedDict(
-    "InstanceIpv6AddressTypeDef", {"Ipv6Address": str}, total=False
+    "InstanceIpv6AddressTypeDef",
+    {
+        "Ipv6Address": str,
+    },
+    total=False,
+)
+
+InstanceIpv6PrefixTypeDef = TypedDict(
+    "InstanceIpv6PrefixTypeDef",
+    {
+        "Ipv6Prefix": str,
+    },
+    total=False,
+)
+
+InstanceMarketOptionsRequestTypeDef = TypedDict(
+    "InstanceMarketOptionsRequestTypeDef",
+    {
+        "MarketType": Literal["spot"],
+        "SpotOptions": "SpotMarketOptionsTypeDef",
+    },
+    total=False,
+)
+
+InstanceMetadataOptionsRequestTypeDef = TypedDict(
+    "InstanceMetadataOptionsRequestTypeDef",
+    {
+        "HttpTokens": HttpTokensStateType,
+        "HttpPutResponseHopLimit": int,
+        "HttpEndpoint": InstanceMetadataEndpointStateType,
+    },
+    total=False,
 )
 
 InstanceMetadataOptionsResponseTypeDef = TypedDict(
     "InstanceMetadataOptionsResponseTypeDef",
     {
-        "State": Literal["pending", "applied"],
-        "HttpTokens": Literal["optional", "required"],
+        "State": InstanceMetadataOptionsStateType,
+        "HttpTokens": HttpTokensStateType,
         "HttpPutResponseHopLimit": int,
-        "HttpEndpoint": Literal["disabled", "enabled"],
+        "HttpEndpoint": InstanceMetadataEndpointStateType,
     },
     total=False,
 )
 
 InstanceMonitoringTypeDef = TypedDict(
-    "InstanceMonitoringTypeDef", {"InstanceId": str, "Monitoring": "MonitoringTypeDef"}, total=False
+    "InstanceMonitoringTypeDef",
+    {
+        "InstanceId": str,
+        "Monitoring": "MonitoringTypeDef",
+    },
+    total=False,
 )
 
 InstanceNetworkInterfaceAssociationTypeDef = TypedDict(
     "InstanceNetworkInterfaceAssociationTypeDef",
-    {"CarrierIp": str, "IpOwnerId": str, "PublicDnsName": str, "PublicIp": str},
+    {
+        "CarrierIp": str,
+        "IpOwnerId": str,
+        "PublicDnsName": str,
+        "PublicIp": str,
+    },
     total=False,
 )
 
@@ -4159,7 +14891,7 @@ InstanceNetworkInterfaceAttachmentTypeDef = TypedDict(
         "AttachmentId": str,
         "DeleteOnTermination": bool,
         "DeviceIndex": int,
-        "Status": Literal["attaching", "attached", "detaching", "detached"],
+        "Status": AttachmentStatusType,
         "NetworkCardIndex": int,
     },
     total=False,
@@ -4183,6 +14915,10 @@ InstanceNetworkInterfaceSpecificationTypeDef = TypedDict(
         "AssociateCarrierIpAddress": bool,
         "InterfaceType": str,
         "NetworkCardIndex": int,
+        "Ipv4Prefixes": List["Ipv4PrefixSpecificationRequestTypeDef"],
+        "Ipv4PrefixCount": int,
+        "Ipv6Prefixes": List["Ipv6PrefixSpecificationRequestTypeDef"],
+        "Ipv6PrefixCount": int,
     },
     total=False,
 )
@@ -4202,10 +14938,12 @@ InstanceNetworkInterfaceTypeDef = TypedDict(
         "PrivateIpAddress": str,
         "PrivateIpAddresses": List["InstancePrivateIpAddressTypeDef"],
         "SourceDestCheck": bool,
-        "Status": Literal["available", "associated", "attaching", "in-use", "detaching"],
+        "Status": NetworkInterfaceStatusType,
         "SubnetId": str,
         "VpcId": str,
         "InterfaceType": str,
+        "Ipv4Prefixes": List["InstanceIpv4PrefixTypeDef"],
+        "Ipv6Prefixes": List["InstanceIpv6PrefixTypeDef"],
     },
     total=False,
 )
@@ -4217,6 +14955,15 @@ InstancePrivateIpAddressTypeDef = TypedDict(
         "Primary": bool,
         "PrivateDnsName": str,
         "PrivateIpAddress": str,
+    },
+    total=False,
+)
+
+InstanceSpecificationTypeDef = TypedDict(
+    "InstanceSpecificationTypeDef",
+    {
+        "InstanceId": str,
+        "ExcludeBootVolume": bool,
     },
     total=False,
 )
@@ -4235,7 +14982,7 @@ InstanceStateTypeDef = TypedDict(
     "InstanceStateTypeDef",
     {
         "Code": int,
-        "Name": Literal["pending", "running", "shutting-down", "terminated", "stopping", "stopped"],
+        "Name": InstanceStateNameType,
     },
     total=False,
 )
@@ -4245,7 +14992,7 @@ InstanceStatusDetailsTypeDef = TypedDict(
     {
         "ImpairedSince": datetime,
         "Name": Literal["reachability"],
-        "Status": Literal["passed", "failed", "insufficient-data", "initializing"],
+        "Status": StatusTypeType,
     },
     total=False,
 )
@@ -4254,13 +15001,7 @@ InstanceStatusEventTypeDef = TypedDict(
     "InstanceStatusEventTypeDef",
     {
         "InstanceEventId": str,
-        "Code": Literal[
-            "instance-reboot",
-            "system-reboot",
-            "system-maintenance",
-            "instance-retirement",
-            "instance-stop",
-        ],
+        "Code": EventCodeType,
         "Description": str,
         "NotAfter": datetime,
         "NotBefore": datetime,
@@ -4273,7 +15014,7 @@ InstanceStatusSummaryTypeDef = TypedDict(
     "InstanceStatusSummaryTypeDef",
     {
         "Details": List["InstanceStatusDetailsTypeDef"],
-        "Status": Literal["ok", "impaired", "insufficient-data", "not-applicable", "initializing"],
+        "Status": SummaryStatusType,
     },
     total=False,
 )
@@ -4297,14 +15038,17 @@ InstanceStorageInfoTypeDef = TypedDict(
     {
         "TotalSizeInGB": int,
         "Disks": List["DiskInfoTypeDef"],
-        "NvmeSupport": Literal["unsupported", "supported", "required"],
+        "NvmeSupport": EphemeralNvmeSupportType,
     },
     total=False,
 )
 
 InstanceTagNotificationAttributeTypeDef = TypedDict(
     "InstanceTagNotificationAttributeTypeDef",
-    {"InstanceTagKeys": List[str], "IncludeAllTagsOfInstance": bool},
+    {
+        "InstanceTagKeys": List[str],
+        "IncludeAllTagsOfInstance": bool,
+    },
     total=False,
 )
 
@@ -4314,397 +15058,7 @@ InstanceTypeDef = TypedDict(
         "AmiLaunchIndex": int,
         "ImageId": str,
         "InstanceId": str,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "KernelId": str,
         "KeyName": str,
         "LaunchTime": datetime,
@@ -4721,14 +15075,14 @@ InstanceTypeDef = TypedDict(
         "StateTransitionReason": str,
         "SubnetId": str,
         "VpcId": str,
-        "Architecture": Literal["i386", "x86_64", "arm64"],
+        "Architecture": ArchitectureValuesType,
         "BlockDeviceMappings": List["InstanceBlockDeviceMappingTypeDef"],
         "ClientToken": str,
         "EbsOptimized": bool,
         "EnaSupport": bool,
-        "Hypervisor": Literal["ovm", "xen"],
+        "Hypervisor": HypervisorTypeType,
         "IamInstanceProfile": "IamInstanceProfileTypeDef",
-        "InstanceLifecycle": Literal["spot", "scheduled"],
+        "InstanceLifecycle": InstanceLifecycleTypeType,
         "ElasticGpuAssociations": List["ElasticGpuAssociationTypeDef"],
         "ElasticInferenceAcceleratorAssociations": List[
             "ElasticInferenceAcceleratorAssociationTypeDef"
@@ -4736,14 +15090,14 @@ InstanceTypeDef = TypedDict(
         "NetworkInterfaces": List["InstanceNetworkInterfaceTypeDef"],
         "OutpostArn": str,
         "RootDeviceName": str,
-        "RootDeviceType": Literal["ebs", "instance-store"],
+        "RootDeviceType": DeviceTypeType,
         "SecurityGroups": List["GroupIdentifierTypeDef"],
         "SourceDestCheck": bool,
         "SpotInstanceRequestId": str,
         "SriovNetSupport": str,
         "StateReason": "StateReasonTypeDef",
         "Tags": List["TagTypeDef"],
-        "VirtualizationType": Literal["hvm", "paravirtual"],
+        "VirtualizationType": VirtualizationTypeType,
         "CpuOptions": "CpuOptionsTypeDef",
         "CapacityReservationId": str,
         "CapacityReservationSpecification": "CapacityReservationSpecificationResponseTypeDef",
@@ -4751,6 +15105,7 @@ InstanceTypeDef = TypedDict(
         "Licenses": List["LicenseConfigurationTypeDef"],
         "MetadataOptions": "InstanceMetadataOptionsResponseTypeDef",
         "EnclaveOptions": "EnclaveOptionsTypeDef",
+        "BootMode": BootModeValuesType,
     },
     total=False,
 )
@@ -4758,404 +15113,14 @@ InstanceTypeDef = TypedDict(
 InstanceTypeInfoTypeDef = TypedDict(
     "InstanceTypeInfoTypeDef",
     {
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "CurrentGeneration": bool,
         "FreeTierEligible": bool,
-        "SupportedUsageClasses": List[Literal["spot", "on-demand"]],
-        "SupportedRootDeviceTypes": List[Literal["ebs", "instance-store"]],
-        "SupportedVirtualizationTypes": List[Literal["hvm", "paravirtual"]],
+        "SupportedUsageClasses": List[UsageClassTypeType],
+        "SupportedRootDeviceTypes": List[RootDeviceTypeType],
+        "SupportedVirtualizationTypes": List[VirtualizationTypeType],
         "BareMetal": bool,
-        "Hypervisor": Literal["nitro", "xen"],
+        "Hypervisor": InstanceTypeHypervisorType,
         "ProcessorInfo": "ProcessorInfoTypeDef",
         "VCpuInfo": "VCpuInfoTypeDef",
         "MemoryInfo": "MemoryInfoTypeDef",
@@ -5171,6 +15136,7 @@ InstanceTypeInfoTypeDef = TypedDict(
         "BurstablePerformanceSupported": bool,
         "DedicatedHostsSupported": bool,
         "AutoRecoverySupported": bool,
+        "SupportedBootModes": List[BootModeTypeType],
     },
     total=False,
 )
@@ -5178,410 +15144,36 @@ InstanceTypeInfoTypeDef = TypedDict(
 InstanceTypeOfferingTypeDef = TypedDict(
     "InstanceTypeOfferingTypeDef",
     {
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
-        "LocationType": Literal["region", "availability-zone", "availability-zone-id"],
+        "InstanceType": InstanceTypeType,
+        "LocationType": LocationTypeType,
         "Location": str,
     },
     total=False,
 )
 
 InstanceUsageTypeDef = TypedDict(
-    "InstanceUsageTypeDef", {"AccountId": str, "UsedInstanceCount": int}, total=False
+    "InstanceUsageTypeDef",
+    {
+        "AccountId": str,
+        "UsedInstanceCount": int,
+    },
+    total=False,
+)
+
+IntegrateServicesTypeDef = TypedDict(
+    "IntegrateServicesTypeDef",
+    {
+        "AthenaIntegrations": List["AthenaIntegrationTypeDef"],
+    },
+    total=False,
 )
 
 InternetGatewayAttachmentTypeDef = TypedDict(
     "InternetGatewayAttachmentTypeDef",
-    {"State": Literal["attaching", "attached", "detaching", "detached"], "VpcId": str},
+    {
+        "State": AttachmentStatusType,
+        "VpcId": str,
+    },
     total=False,
 )
 
@@ -5610,13 +15202,55 @@ IpPermissionTypeDef = TypedDict(
     total=False,
 )
 
-IpRangeTypeDef = TypedDict("IpRangeTypeDef", {"CidrIp": str, "Description": str}, total=False)
-
-Ipv6CidrAssociationTypeDef = TypedDict(
-    "Ipv6CidrAssociationTypeDef", {"Ipv6Cidr": str, "AssociatedResource": str}, total=False
+IpRangeTypeDef = TypedDict(
+    "IpRangeTypeDef",
+    {
+        "CidrIp": str,
+        "Description": str,
+    },
+    total=False,
 )
 
-Ipv6CidrBlockTypeDef = TypedDict("Ipv6CidrBlockTypeDef", {"Ipv6CidrBlock": str}, total=False)
+Ipv4PrefixSpecificationRequestTypeDef = TypedDict(
+    "Ipv4PrefixSpecificationRequestTypeDef",
+    {
+        "Ipv4Prefix": str,
+    },
+    total=False,
+)
+
+Ipv4PrefixSpecificationResponseTypeDef = TypedDict(
+    "Ipv4PrefixSpecificationResponseTypeDef",
+    {
+        "Ipv4Prefix": str,
+    },
+    total=False,
+)
+
+Ipv4PrefixSpecificationTypeDef = TypedDict(
+    "Ipv4PrefixSpecificationTypeDef",
+    {
+        "Ipv4Prefix": str,
+    },
+    total=False,
+)
+
+Ipv6CidrAssociationTypeDef = TypedDict(
+    "Ipv6CidrAssociationTypeDef",
+    {
+        "Ipv6Cidr": str,
+        "AssociatedResource": str,
+    },
+    total=False,
+)
+
+Ipv6CidrBlockTypeDef = TypedDict(
+    "Ipv6CidrBlockTypeDef",
+    {
+        "Ipv6CidrBlock": str,
+    },
+    total=False,
+)
 
 Ipv6PoolTypeDef = TypedDict(
     "Ipv6PoolTypeDef",
@@ -5629,18 +15263,87 @@ Ipv6PoolTypeDef = TypedDict(
     total=False,
 )
 
-Ipv6RangeTypeDef = TypedDict("Ipv6RangeTypeDef", {"CidrIpv6": str, "Description": str}, total=False)
-
-KeyPairInfoTypeDef = TypedDict(
-    "KeyPairInfoTypeDef",
-    {"KeyPairId": str, "KeyFingerprint": str, "KeyName": str, "Tags": List["TagTypeDef"]},
+Ipv6PrefixSpecificationRequestTypeDef = TypedDict(
+    "Ipv6PrefixSpecificationRequestTypeDef",
+    {
+        "Ipv6Prefix": str,
+    },
     total=False,
 )
 
-LastErrorTypeDef = TypedDict("LastErrorTypeDef", {"Message": str, "Code": str}, total=False)
+Ipv6PrefixSpecificationResponseTypeDef = TypedDict(
+    "Ipv6PrefixSpecificationResponseTypeDef",
+    {
+        "Ipv6Prefix": str,
+    },
+    total=False,
+)
+
+Ipv6PrefixSpecificationTypeDef = TypedDict(
+    "Ipv6PrefixSpecificationTypeDef",
+    {
+        "Ipv6Prefix": str,
+    },
+    total=False,
+)
+
+Ipv6RangeTypeDef = TypedDict(
+    "Ipv6RangeTypeDef",
+    {
+        "CidrIpv6": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+KeyPairInfoTypeDef = TypedDict(
+    "KeyPairInfoTypeDef",
+    {
+        "KeyPairId": str,
+        "KeyFingerprint": str,
+        "KeyName": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+KeyPairTypeDef = TypedDict(
+    "KeyPairTypeDef",
+    {
+        "KeyFingerprint": str,
+        "KeyMaterial": str,
+        "KeyName": str,
+        "KeyPairId": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+LastErrorTypeDef = TypedDict(
+    "LastErrorTypeDef",
+    {
+        "Message": str,
+        "Code": str,
+    },
+    total=False,
+)
+
+LaunchPermissionModificationsTypeDef = TypedDict(
+    "LaunchPermissionModificationsTypeDef",
+    {
+        "Add": List["LaunchPermissionTypeDef"],
+        "Remove": List["LaunchPermissionTypeDef"],
+    },
+    total=False,
+)
 
 LaunchPermissionTypeDef = TypedDict(
-    "LaunchPermissionTypeDef", {"Group": Literal["all"], "UserId": str}, total=False
+    "LaunchPermissionTypeDef",
+    {
+        "Group": Literal["all"],
+        "UserId": str,
+    },
+    total=False,
 )
 
 LaunchSpecificationTypeDef = TypedDict(
@@ -5653,397 +15356,7 @@ LaunchSpecificationTypeDef = TypedDict(
         "EbsOptimized": bool,
         "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
         "ImageId": str,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "KernelId": str,
         "KeyName": str,
         "NetworkInterfaces": List["InstanceNetworkInterfaceSpecificationTypeDef"],
@@ -6089,7 +15402,7 @@ LaunchTemplateBlockDeviceMappingTypeDef = TypedDict(
 LaunchTemplateCapacityReservationSpecificationRequestTypeDef = TypedDict(
     "LaunchTemplateCapacityReservationSpecificationRequestTypeDef",
     {
-        "CapacityReservationPreference": Literal["open", "none"],
+        "CapacityReservationPreference": CapacityReservationPreferenceType,
         "CapacityReservationTarget": "CapacityReservationTargetTypeDef",
     },
     total=False,
@@ -6098,7 +15411,7 @@ LaunchTemplateCapacityReservationSpecificationRequestTypeDef = TypedDict(
 LaunchTemplateCapacityReservationSpecificationResponseTypeDef = TypedDict(
     "LaunchTemplateCapacityReservationSpecificationResponseTypeDef",
     {
-        "CapacityReservationPreference": Literal["open", "none"],
+        "CapacityReservationPreference": CapacityReservationPreferenceType,
         "CapacityReservationTarget": "CapacityReservationTargetResponseTypeDef",
     },
     total=False,
@@ -6114,11 +15427,21 @@ LaunchTemplateConfigTypeDef = TypedDict(
 )
 
 LaunchTemplateCpuOptionsRequestTypeDef = TypedDict(
-    "LaunchTemplateCpuOptionsRequestTypeDef", {"CoreCount": int, "ThreadsPerCore": int}, total=False
+    "LaunchTemplateCpuOptionsRequestTypeDef",
+    {
+        "CoreCount": int,
+        "ThreadsPerCore": int,
+    },
+    total=False,
 )
 
 LaunchTemplateCpuOptionsTypeDef = TypedDict(
-    "LaunchTemplateCpuOptionsTypeDef", {"CoreCount": int, "ThreadsPerCore": int}, total=False
+    "LaunchTemplateCpuOptionsTypeDef",
+    {
+        "CoreCount": int,
+        "ThreadsPerCore": int,
+    },
+    total=False,
 )
 
 LaunchTemplateEbsBlockDeviceRequestTypeDef = TypedDict(
@@ -6130,7 +15453,7 @@ LaunchTemplateEbsBlockDeviceRequestTypeDef = TypedDict(
         "KmsKeyId": str,
         "SnapshotId": str,
         "VolumeSize": int,
-        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
+        "VolumeType": VolumeTypeType,
         "Throughput": int,
     },
     total=False,
@@ -6145,7 +15468,7 @@ LaunchTemplateEbsBlockDeviceTypeDef = TypedDict(
         "KmsKeyId": str,
         "SnapshotId": str,
         "VolumeSize": int,
-        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
+        "VolumeType": VolumeTypeType,
         "Throughput": int,
     },
     total=False,
@@ -6153,17 +15476,26 @@ LaunchTemplateEbsBlockDeviceTypeDef = TypedDict(
 
 LaunchTemplateElasticInferenceAcceleratorResponseTypeDef = TypedDict(
     "LaunchTemplateElasticInferenceAcceleratorResponseTypeDef",
-    {"Type": str, "Count": int},
+    {
+        "Type": str,
+        "Count": int,
+    },
     total=False,
 )
 
 _RequiredLaunchTemplateElasticInferenceAcceleratorTypeDef = TypedDict(
-    "_RequiredLaunchTemplateElasticInferenceAcceleratorTypeDef", {"Type": str}
+    "_RequiredLaunchTemplateElasticInferenceAcceleratorTypeDef",
+    {
+        "Type": str,
+    },
 )
 _OptionalLaunchTemplateElasticInferenceAcceleratorTypeDef = TypedDict(
-    "_OptionalLaunchTemplateElasticInferenceAcceleratorTypeDef", {"Count": int}, total=False
+    "_OptionalLaunchTemplateElasticInferenceAcceleratorTypeDef",
+    {
+        "Count": int,
+    },
+    total=False,
 )
-
 
 class LaunchTemplateElasticInferenceAcceleratorTypeDef(
     _RequiredLaunchTemplateElasticInferenceAcceleratorTypeDef,
@@ -6171,51 +15503,80 @@ class LaunchTemplateElasticInferenceAcceleratorTypeDef(
 ):
     pass
 
-
 LaunchTemplateEnclaveOptionsRequestTypeDef = TypedDict(
-    "LaunchTemplateEnclaveOptionsRequestTypeDef", {"Enabled": bool}, total=False
+    "LaunchTemplateEnclaveOptionsRequestTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
 )
 
 LaunchTemplateEnclaveOptionsTypeDef = TypedDict(
-    "LaunchTemplateEnclaveOptionsTypeDef", {"Enabled": bool}, total=False
+    "LaunchTemplateEnclaveOptionsTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
 )
 
 LaunchTemplateHibernationOptionsRequestTypeDef = TypedDict(
-    "LaunchTemplateHibernationOptionsRequestTypeDef", {"Configured": bool}, total=False
+    "LaunchTemplateHibernationOptionsRequestTypeDef",
+    {
+        "Configured": bool,
+    },
+    total=False,
 )
 
 LaunchTemplateHibernationOptionsTypeDef = TypedDict(
-    "LaunchTemplateHibernationOptionsTypeDef", {"Configured": bool}, total=False
+    "LaunchTemplateHibernationOptionsTypeDef",
+    {
+        "Configured": bool,
+    },
+    total=False,
 )
 
 LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef = TypedDict(
     "LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef",
-    {"Arn": str, "Name": str},
+    {
+        "Arn": str,
+        "Name": str,
+    },
     total=False,
 )
 
 LaunchTemplateIamInstanceProfileSpecificationTypeDef = TypedDict(
-    "LaunchTemplateIamInstanceProfileSpecificationTypeDef", {"Arn": str, "Name": str}, total=False
+    "LaunchTemplateIamInstanceProfileSpecificationTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 LaunchTemplateInstanceMarketOptionsRequestTypeDef = TypedDict(
     "LaunchTemplateInstanceMarketOptionsRequestTypeDef",
-    {"MarketType": Literal["spot"], "SpotOptions": "LaunchTemplateSpotMarketOptionsRequestTypeDef"},
+    {
+        "MarketType": Literal["spot"],
+        "SpotOptions": "LaunchTemplateSpotMarketOptionsRequestTypeDef",
+    },
     total=False,
 )
 
 LaunchTemplateInstanceMarketOptionsTypeDef = TypedDict(
     "LaunchTemplateInstanceMarketOptionsTypeDef",
-    {"MarketType": Literal["spot"], "SpotOptions": "LaunchTemplateSpotMarketOptionsTypeDef"},
+    {
+        "MarketType": Literal["spot"],
+        "SpotOptions": "LaunchTemplateSpotMarketOptionsTypeDef",
+    },
     total=False,
 )
 
 LaunchTemplateInstanceMetadataOptionsRequestTypeDef = TypedDict(
     "LaunchTemplateInstanceMetadataOptionsRequestTypeDef",
     {
-        "HttpTokens": Literal["optional", "required"],
+        "HttpTokens": LaunchTemplateHttpTokensStateType,
         "HttpPutResponseHopLimit": int,
-        "HttpEndpoint": Literal["disabled", "enabled"],
+        "HttpEndpoint": LaunchTemplateInstanceMetadataEndpointStateType,
     },
     total=False,
 )
@@ -6223,10 +15584,10 @@ LaunchTemplateInstanceMetadataOptionsRequestTypeDef = TypedDict(
 LaunchTemplateInstanceMetadataOptionsTypeDef = TypedDict(
     "LaunchTemplateInstanceMetadataOptionsTypeDef",
     {
-        "State": Literal["pending", "applied"],
-        "HttpTokens": Literal["optional", "required"],
+        "State": LaunchTemplateInstanceMetadataOptionsStateType,
+        "HttpTokens": LaunchTemplateHttpTokensStateType,
         "HttpPutResponseHopLimit": int,
-        "HttpEndpoint": Literal["disabled", "enabled"],
+        "HttpEndpoint": LaunchTemplateInstanceMetadataEndpointStateType,
     },
     total=False,
 )
@@ -6249,6 +15610,10 @@ LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef = TypedDict(
         "SecondaryPrivateIpAddressCount": int,
         "SubnetId": str,
         "NetworkCardIndex": int,
+        "Ipv4Prefixes": List["Ipv4PrefixSpecificationRequestTypeDef"],
+        "Ipv4PrefixCount": int,
+        "Ipv6Prefixes": List["Ipv6PrefixSpecificationRequestTypeDef"],
+        "Ipv6PrefixCount": int,
     },
     total=False,
 )
@@ -6271,414 +15636,34 @@ LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef = TypedDict(
         "SecondaryPrivateIpAddressCount": int,
         "SubnetId": str,
         "NetworkCardIndex": int,
+        "Ipv4Prefixes": List["Ipv4PrefixSpecificationResponseTypeDef"],
+        "Ipv4PrefixCount": int,
+        "Ipv6Prefixes": List["Ipv6PrefixSpecificationResponseTypeDef"],
+        "Ipv6PrefixCount": int,
     },
     total=False,
 )
 
 LaunchTemplateLicenseConfigurationRequestTypeDef = TypedDict(
     "LaunchTemplateLicenseConfigurationRequestTypeDef",
-    {"LicenseConfigurationArn": str},
+    {
+        "LicenseConfigurationArn": str,
+    },
     total=False,
 )
 
 LaunchTemplateLicenseConfigurationTypeDef = TypedDict(
-    "LaunchTemplateLicenseConfigurationTypeDef", {"LicenseConfigurationArn": str}, total=False
+    "LaunchTemplateLicenseConfigurationTypeDef",
+    {
+        "LicenseConfigurationArn": str,
+    },
+    total=False,
 )
 
 LaunchTemplateOverridesTypeDef = TypedDict(
     "LaunchTemplateOverridesTypeDef",
     {
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "SpotPrice": str,
         "SubnetId": str,
         "AvailabilityZone": str,
@@ -6695,7 +15680,7 @@ LaunchTemplatePlacementRequestTypeDef = TypedDict(
         "Affinity": str,
         "GroupName": str,
         "HostId": str,
-        "Tenancy": Literal["default", "dedicated", "host"],
+        "Tenancy": TenancyType,
         "SpreadDomain": str,
         "HostResourceGroupArn": str,
         "PartitionNumber": int,
@@ -6710,10 +15695,20 @@ LaunchTemplatePlacementTypeDef = TypedDict(
         "Affinity": str,
         "GroupName": str,
         "HostId": str,
-        "Tenancy": Literal["default", "dedicated", "host"],
+        "Tenancy": TenancyType,
         "SpreadDomain": str,
         "HostResourceGroupArn": str,
         "PartitionNumber": int,
+    },
+    total=False,
+)
+
+LaunchTemplateSpecificationTypeDef = TypedDict(
+    "LaunchTemplateSpecificationTypeDef",
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Version": str,
     },
     total=False,
 )
@@ -6722,10 +15717,10 @@ LaunchTemplateSpotMarketOptionsRequestTypeDef = TypedDict(
     "LaunchTemplateSpotMarketOptionsRequestTypeDef",
     {
         "MaxPrice": str,
-        "SpotInstanceType": Literal["one-time", "persistent"],
+        "SpotInstanceType": SpotInstanceTypeType,
         "BlockDurationMinutes": int,
-        "ValidUntil": datetime,
-        "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
+        "ValidUntil": Union[datetime, str],
+        "InstanceInterruptionBehavior": InstanceInterruptionBehaviorType,
     },
     total=False,
 )
@@ -6734,10 +15729,10 @@ LaunchTemplateSpotMarketOptionsTypeDef = TypedDict(
     "LaunchTemplateSpotMarketOptionsTypeDef",
     {
         "MaxPrice": str,
-        "SpotInstanceType": Literal["one-time", "persistent"],
+        "SpotInstanceType": SpotInstanceTypeType,
         "BlockDurationMinutes": int,
         "ValidUntil": datetime,
-        "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
+        "InstanceInterruptionBehavior": InstanceInterruptionBehaviorType,
     },
     total=False,
 )
@@ -6745,55 +15740,7 @@ LaunchTemplateSpotMarketOptionsTypeDef = TypedDict(
 LaunchTemplateTagSpecificationRequestTypeDef = TypedDict(
     "LaunchTemplateTagSpecificationRequestTypeDef",
     {
-        "ResourceType": Literal[
-            "client-vpn-endpoint",
-            "customer-gateway",
-            "dedicated-host",
-            "dhcp-options",
-            "egress-only-internet-gateway",
-            "elastic-ip",
-            "elastic-gpu",
-            "export-image-task",
-            "export-instance-task",
-            "fleet",
-            "fpga-image",
-            "host-reservation",
-            "image",
-            "import-image-task",
-            "import-snapshot-task",
-            "instance",
-            "internet-gateway",
-            "key-pair",
-            "launch-template",
-            "local-gateway-route-table-vpc-association",
-            "natgateway",
-            "network-acl",
-            "network-interface",
-            "network-insights-analysis",
-            "network-insights-path",
-            "placement-group",
-            "reserved-instances",
-            "route-table",
-            "security-group",
-            "snapshot",
-            "spot-fleet-request",
-            "spot-instances-request",
-            "subnet",
-            "traffic-mirror-filter",
-            "traffic-mirror-session",
-            "traffic-mirror-target",
-            "transit-gateway",
-            "transit-gateway-attachment",
-            "transit-gateway-connect-peer",
-            "transit-gateway-multicast-domain",
-            "transit-gateway-route-table",
-            "volume",
-            "vpc",
-            "vpc-peering-connection",
-            "vpn-connection",
-            "vpn-gateway",
-            "vpc-flow-log",
-        ],
+        "ResourceType": ResourceTypeType,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -6802,55 +15749,7 @@ LaunchTemplateTagSpecificationRequestTypeDef = TypedDict(
 LaunchTemplateTagSpecificationTypeDef = TypedDict(
     "LaunchTemplateTagSpecificationTypeDef",
     {
-        "ResourceType": Literal[
-            "client-vpn-endpoint",
-            "customer-gateway",
-            "dedicated-host",
-            "dhcp-options",
-            "egress-only-internet-gateway",
-            "elastic-ip",
-            "elastic-gpu",
-            "export-image-task",
-            "export-instance-task",
-            "fleet",
-            "fpga-image",
-            "host-reservation",
-            "image",
-            "import-image-task",
-            "import-snapshot-task",
-            "instance",
-            "internet-gateway",
-            "key-pair",
-            "launch-template",
-            "local-gateway-route-table-vpc-association",
-            "natgateway",
-            "network-acl",
-            "network-interface",
-            "network-insights-analysis",
-            "network-insights-path",
-            "placement-group",
-            "reserved-instances",
-            "route-table",
-            "security-group",
-            "snapshot",
-            "spot-fleet-request",
-            "spot-instances-request",
-            "subnet",
-            "traffic-mirror-filter",
-            "traffic-mirror-session",
-            "traffic-mirror-target",
-            "transit-gateway",
-            "transit-gateway-attachment",
-            "transit-gateway-connect-peer",
-            "transit-gateway-multicast-domain",
-            "transit-gateway-route-table",
-            "volume",
-            "vpc",
-            "vpc-peering-connection",
-            "vpn-connection",
-            "vpn-gateway",
-            "vpc-flow-log",
-        ],
+        "ResourceType": ResourceTypeType,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -6886,15 +15785,35 @@ LaunchTemplateVersionTypeDef = TypedDict(
 )
 
 LaunchTemplatesMonitoringRequestTypeDef = TypedDict(
-    "LaunchTemplatesMonitoringRequestTypeDef", {"Enabled": bool}, total=False
+    "LaunchTemplatesMonitoringRequestTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
 )
 
 LaunchTemplatesMonitoringTypeDef = TypedDict(
-    "LaunchTemplatesMonitoringTypeDef", {"Enabled": bool}, total=False
+    "LaunchTemplatesMonitoringTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+LicenseConfigurationRequestTypeDef = TypedDict(
+    "LicenseConfigurationRequestTypeDef",
+    {
+        "LicenseConfigurationArn": str,
+    },
+    total=False,
 )
 
 LicenseConfigurationTypeDef = TypedDict(
-    "LicenseConfigurationTypeDef", {"LicenseConfigurationArn": str}, total=False
+    "LicenseConfigurationTypeDef",
+    {
+        "LicenseConfigurationArn": str,
+    },
+    total=False,
 )
 
 LoadBalancersConfigTypeDef = TypedDict(
@@ -6906,12 +15825,31 @@ LoadBalancersConfigTypeDef = TypedDict(
     total=False,
 )
 
+LoadPermissionModificationsTypeDef = TypedDict(
+    "LoadPermissionModificationsTypeDef",
+    {
+        "Add": List["LoadPermissionRequestTypeDef"],
+        "Remove": List["LoadPermissionRequestTypeDef"],
+    },
+    total=False,
+)
+
 LoadPermissionRequestTypeDef = TypedDict(
-    "LoadPermissionRequestTypeDef", {"Group": Literal["all"], "UserId": str}, total=False
+    "LoadPermissionRequestTypeDef",
+    {
+        "Group": Literal["all"],
+        "UserId": str,
+    },
+    total=False,
 )
 
 LoadPermissionTypeDef = TypedDict(
-    "LoadPermissionTypeDef", {"UserId": str, "Group": Literal["all"]}, total=False
+    "LoadPermissionTypeDef",
+    {
+        "UserId": str,
+        "Group": Literal["all"],
+    },
+    total=False,
 )
 
 LocalGatewayRouteTableTypeDef = TypedDict(
@@ -6963,8 +15901,8 @@ LocalGatewayRouteTypeDef = TypedDict(
     {
         "DestinationCidrBlock": str,
         "LocalGatewayVirtualInterfaceGroupId": str,
-        "Type": Literal["static", "propagated"],
-        "State": Literal["pending", "active", "blackhole", "deleting", "deleted"],
+        "Type": LocalGatewayRouteTypeType,
+        "State": LocalGatewayRouteStateType,
         "LocalGatewayRouteTableId": str,
         "LocalGatewayRouteTableArn": str,
         "OwnerId": str,
@@ -7017,20 +15955,7 @@ ManagedPrefixListTypeDef = TypedDict(
     {
         "PrefixListId": str,
         "AddressFamily": str,
-        "State": Literal[
-            "create-in-progress",
-            "create-complete",
-            "create-failed",
-            "modify-in-progress",
-            "modify-complete",
-            "modify-failed",
-            "restore-in-progress",
-            "restore-complete",
-            "restore-failed",
-            "delete-in-progress",
-            "delete-complete",
-            "delete-failed",
-        ],
+        "State": PrefixListStateType,
         "StateMessage": str,
         "PrefixListArn": str,
         "PrefixListName": str,
@@ -7042,23 +15967,1580 @@ ManagedPrefixListTypeDef = TypedDict(
     total=False,
 )
 
-MemoryInfoTypeDef = TypedDict("MemoryInfoTypeDef", {"SizeInMiB": int}, total=False)
+MemoryInfoTypeDef = TypedDict(
+    "MemoryInfoTypeDef",
+    {
+        "SizeInMiB": int,
+    },
+    total=False,
+)
+
+_RequiredModifyAddressAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyAddressAttributeRequestRequestTypeDef",
+    {
+        "AllocationId": str,
+    },
+)
+_OptionalModifyAddressAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyAddressAttributeRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyAddressAttributeRequestRequestTypeDef(
+    _RequiredModifyAddressAttributeRequestRequestTypeDef,
+    _OptionalModifyAddressAttributeRequestRequestTypeDef,
+):
+    pass
+
+ModifyAddressAttributeResultTypeDef = TypedDict(
+    "ModifyAddressAttributeResultTypeDef",
+    {
+        "Address": "AddressAttributeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyAvailabilityZoneGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyAvailabilityZoneGroupRequestRequestTypeDef",
+    {
+        "GroupName": str,
+        "OptInStatus": ModifyAvailabilityZoneOptInStatusType,
+    },
+)
+_OptionalModifyAvailabilityZoneGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyAvailabilityZoneGroupRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyAvailabilityZoneGroupRequestRequestTypeDef(
+    _RequiredModifyAvailabilityZoneGroupRequestRequestTypeDef,
+    _OptionalModifyAvailabilityZoneGroupRequestRequestTypeDef,
+):
+    pass
+
+ModifyAvailabilityZoneGroupResultTypeDef = TypedDict(
+    "ModifyAvailabilityZoneGroupResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyCapacityReservationRequestRequestTypeDef",
+    {
+        "CapacityReservationId": str,
+    },
+)
+_OptionalModifyCapacityReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyCapacityReservationRequestRequestTypeDef",
+    {
+        "InstanceCount": int,
+        "EndDate": Union[datetime, str],
+        "EndDateType": EndDateTypeType,
+        "Accept": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyCapacityReservationRequestRequestTypeDef(
+    _RequiredModifyCapacityReservationRequestRequestTypeDef,
+    _OptionalModifyCapacityReservationRequestRequestTypeDef,
+):
+    pass
+
+ModifyCapacityReservationResultTypeDef = TypedDict(
+    "ModifyCapacityReservationResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyClientVpnEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyClientVpnEndpointRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalModifyClientVpnEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyClientVpnEndpointRequestRequestTypeDef",
+    {
+        "ServerCertificateArn": str,
+        "ConnectionLogOptions": "ConnectionLogOptionsTypeDef",
+        "DnsServers": "DnsServersOptionsModifyStructureTypeDef",
+        "VpnPort": int,
+        "Description": str,
+        "SplitTunnel": bool,
+        "DryRun": bool,
+        "SecurityGroupIds": List[str],
+        "VpcId": str,
+        "SelfServicePortal": SelfServicePortalType,
+        "ClientConnectOptions": "ClientConnectOptionsTypeDef",
+    },
+    total=False,
+)
+
+class ModifyClientVpnEndpointRequestRequestTypeDef(
+    _RequiredModifyClientVpnEndpointRequestRequestTypeDef,
+    _OptionalModifyClientVpnEndpointRequestRequestTypeDef,
+):
+    pass
+
+ModifyClientVpnEndpointResultTypeDef = TypedDict(
+    "ModifyClientVpnEndpointResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyDefaultCreditSpecificationRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyDefaultCreditSpecificationRequestRequestTypeDef",
+    {
+        "InstanceFamily": UnlimitedSupportedInstanceFamilyType,
+        "CpuCredits": str,
+    },
+)
+_OptionalModifyDefaultCreditSpecificationRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyDefaultCreditSpecificationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyDefaultCreditSpecificationRequestRequestTypeDef(
+    _RequiredModifyDefaultCreditSpecificationRequestRequestTypeDef,
+    _OptionalModifyDefaultCreditSpecificationRequestRequestTypeDef,
+):
+    pass
+
+ModifyDefaultCreditSpecificationResultTypeDef = TypedDict(
+    "ModifyDefaultCreditSpecificationResultTypeDef",
+    {
+        "InstanceFamilyCreditSpecification": "InstanceFamilyCreditSpecificationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyEbsDefaultKmsKeyIdRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyEbsDefaultKmsKeyIdRequestRequestTypeDef",
+    {
+        "KmsKeyId": str,
+    },
+)
+_OptionalModifyEbsDefaultKmsKeyIdRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyEbsDefaultKmsKeyIdRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyEbsDefaultKmsKeyIdRequestRequestTypeDef(
+    _RequiredModifyEbsDefaultKmsKeyIdRequestRequestTypeDef,
+    _OptionalModifyEbsDefaultKmsKeyIdRequestRequestTypeDef,
+):
+    pass
+
+ModifyEbsDefaultKmsKeyIdResultTypeDef = TypedDict(
+    "ModifyEbsDefaultKmsKeyIdResultTypeDef",
+    {
+        "KmsKeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyFleetRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyFleetRequestRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalModifyFleetRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyFleetRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ExcessCapacityTerminationPolicy": FleetExcessCapacityTerminationPolicyType,
+        "LaunchTemplateConfigs": List["FleetLaunchTemplateConfigRequestTypeDef"],
+        "TargetCapacitySpecification": "TargetCapacitySpecificationRequestTypeDef",
+        "Context": str,
+    },
+    total=False,
+)
+
+class ModifyFleetRequestRequestTypeDef(
+    _RequiredModifyFleetRequestRequestTypeDef, _OptionalModifyFleetRequestRequestTypeDef
+):
+    pass
+
+ModifyFleetResultTypeDef = TypedDict(
+    "ModifyFleetResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyFpgaImageAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyFpgaImageAttributeRequestRequestTypeDef",
+    {
+        "FpgaImageId": str,
+    },
+)
+_OptionalModifyFpgaImageAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyFpgaImageAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Attribute": FpgaImageAttributeNameType,
+        "OperationType": OperationTypeType,
+        "UserIds": List[str],
+        "UserGroups": List[str],
+        "ProductCodes": List[str],
+        "LoadPermission": "LoadPermissionModificationsTypeDef",
+        "Description": str,
+        "Name": str,
+    },
+    total=False,
+)
+
+class ModifyFpgaImageAttributeRequestRequestTypeDef(
+    _RequiredModifyFpgaImageAttributeRequestRequestTypeDef,
+    _OptionalModifyFpgaImageAttributeRequestRequestTypeDef,
+):
+    pass
+
+ModifyFpgaImageAttributeResultTypeDef = TypedDict(
+    "ModifyFpgaImageAttributeResultTypeDef",
+    {
+        "FpgaImageAttribute": "FpgaImageAttributeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyHostsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyHostsRequestRequestTypeDef",
+    {
+        "HostIds": List[str],
+    },
+)
+_OptionalModifyHostsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyHostsRequestRequestTypeDef",
+    {
+        "AutoPlacement": AutoPlacementType,
+        "HostRecovery": HostRecoveryType,
+        "InstanceType": str,
+        "InstanceFamily": str,
+    },
+    total=False,
+)
+
+class ModifyHostsRequestRequestTypeDef(
+    _RequiredModifyHostsRequestRequestTypeDef, _OptionalModifyHostsRequestRequestTypeDef
+):
+    pass
+
+ModifyHostsResultTypeDef = TypedDict(
+    "ModifyHostsResultTypeDef",
+    {
+        "Successful": List[str],
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyIdFormatRequestRequestTypeDef = TypedDict(
+    "ModifyIdFormatRequestRequestTypeDef",
+    {
+        "Resource": str,
+        "UseLongIds": bool,
+    },
+)
+
+ModifyIdentityIdFormatRequestRequestTypeDef = TypedDict(
+    "ModifyIdentityIdFormatRequestRequestTypeDef",
+    {
+        "PrincipalArn": str,
+        "Resource": str,
+        "UseLongIds": bool,
+    },
+)
+
+ModifyImageAttributeRequestImageTypeDef = TypedDict(
+    "ModifyImageAttributeRequestImageTypeDef",
+    {
+        "Attribute": str,
+        "Description": "AttributeValueTypeDef",
+        "LaunchPermission": "LaunchPermissionModificationsTypeDef",
+        "OperationType": OperationTypeType,
+        "ProductCodes": List[str],
+        "UserGroups": List[str],
+        "UserIds": List[str],
+        "Value": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredModifyImageAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyImageAttributeRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalModifyImageAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyImageAttributeRequestRequestTypeDef",
+    {
+        "Attribute": str,
+        "Description": "AttributeValueTypeDef",
+        "LaunchPermission": "LaunchPermissionModificationsTypeDef",
+        "OperationType": OperationTypeType,
+        "ProductCodes": List[str],
+        "UserGroups": List[str],
+        "UserIds": List[str],
+        "Value": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyImageAttributeRequestRequestTypeDef(
+    _RequiredModifyImageAttributeRequestRequestTypeDef,
+    _OptionalModifyImageAttributeRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstanceAttributeRequestInstanceTypeDef = TypedDict(
+    "ModifyInstanceAttributeRequestInstanceTypeDef",
+    {
+        "SourceDestCheck": "AttributeBooleanValueTypeDef",
+        "Attribute": InstanceAttributeNameType,
+        "BlockDeviceMappings": List["InstanceBlockDeviceMappingSpecificationTypeDef"],
+        "DisableApiTermination": "AttributeBooleanValueTypeDef",
+        "DryRun": bool,
+        "EbsOptimized": "AttributeBooleanValueTypeDef",
+        "EnaSupport": "AttributeBooleanValueTypeDef",
+        "Groups": List[str],
+        "InstanceInitiatedShutdownBehavior": "AttributeValueTypeDef",
+        "InstanceType": "AttributeValueTypeDef",
+        "Kernel": "AttributeValueTypeDef",
+        "Ramdisk": "AttributeValueTypeDef",
+        "SriovNetSupport": "AttributeValueTypeDef",
+        "UserData": "BlobAttributeValueTypeDef",
+        "Value": str,
+    },
+    total=False,
+)
+
+_RequiredModifyInstanceAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstanceAttributeRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalModifyInstanceAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstanceAttributeRequestRequestTypeDef",
+    {
+        "SourceDestCheck": "AttributeBooleanValueTypeDef",
+        "Attribute": InstanceAttributeNameType,
+        "BlockDeviceMappings": List["InstanceBlockDeviceMappingSpecificationTypeDef"],
+        "DisableApiTermination": "AttributeBooleanValueTypeDef",
+        "DryRun": bool,
+        "EbsOptimized": "AttributeBooleanValueTypeDef",
+        "EnaSupport": "AttributeBooleanValueTypeDef",
+        "Groups": List[str],
+        "InstanceInitiatedShutdownBehavior": "AttributeValueTypeDef",
+        "InstanceType": "AttributeValueTypeDef",
+        "Kernel": "AttributeValueTypeDef",
+        "Ramdisk": "AttributeValueTypeDef",
+        "SriovNetSupport": "AttributeValueTypeDef",
+        "UserData": "BlobAttributeValueTypeDef",
+        "Value": str,
+    },
+    total=False,
+)
+
+class ModifyInstanceAttributeRequestRequestTypeDef(
+    _RequiredModifyInstanceAttributeRequestRequestTypeDef,
+    _OptionalModifyInstanceAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredModifyInstanceCapacityReservationAttributesRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstanceCapacityReservationAttributesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "CapacityReservationSpecification": "CapacityReservationSpecificationTypeDef",
+    },
+)
+_OptionalModifyInstanceCapacityReservationAttributesRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstanceCapacityReservationAttributesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyInstanceCapacityReservationAttributesRequestRequestTypeDef(
+    _RequiredModifyInstanceCapacityReservationAttributesRequestRequestTypeDef,
+    _OptionalModifyInstanceCapacityReservationAttributesRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstanceCapacityReservationAttributesResultTypeDef = TypedDict(
+    "ModifyInstanceCapacityReservationAttributesResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyInstanceCreditSpecificationRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstanceCreditSpecificationRequestRequestTypeDef",
+    {
+        "InstanceCreditSpecifications": List["InstanceCreditSpecificationRequestTypeDef"],
+    },
+)
+_OptionalModifyInstanceCreditSpecificationRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstanceCreditSpecificationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ModifyInstanceCreditSpecificationRequestRequestTypeDef(
+    _RequiredModifyInstanceCreditSpecificationRequestRequestTypeDef,
+    _OptionalModifyInstanceCreditSpecificationRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstanceCreditSpecificationResultTypeDef = TypedDict(
+    "ModifyInstanceCreditSpecificationResultTypeDef",
+    {
+        "SuccessfulInstanceCreditSpecifications": List[
+            "SuccessfulInstanceCreditSpecificationItemTypeDef"
+        ],
+        "UnsuccessfulInstanceCreditSpecifications": List[
+            "UnsuccessfulInstanceCreditSpecificationItemTypeDef"
+        ],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyInstanceEventStartTimeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstanceEventStartTimeRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "InstanceEventId": str,
+        "NotBefore": Union[datetime, str],
+    },
+)
+_OptionalModifyInstanceEventStartTimeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstanceEventStartTimeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyInstanceEventStartTimeRequestRequestTypeDef(
+    _RequiredModifyInstanceEventStartTimeRequestRequestTypeDef,
+    _OptionalModifyInstanceEventStartTimeRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstanceEventStartTimeResultTypeDef = TypedDict(
+    "ModifyInstanceEventStartTimeResultTypeDef",
+    {
+        "Event": "InstanceStatusEventTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstanceEventWindowRequestRequestTypeDef",
+    {
+        "InstanceEventWindowId": str,
+    },
+)
+_OptionalModifyInstanceEventWindowRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstanceEventWindowRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Name": str,
+        "TimeRanges": List["InstanceEventWindowTimeRangeRequestTypeDef"],
+        "CronExpression": str,
+    },
+    total=False,
+)
+
+class ModifyInstanceEventWindowRequestRequestTypeDef(
+    _RequiredModifyInstanceEventWindowRequestRequestTypeDef,
+    _OptionalModifyInstanceEventWindowRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstanceEventWindowResultTypeDef = TypedDict(
+    "ModifyInstanceEventWindowResultTypeDef",
+    {
+        "InstanceEventWindow": "InstanceEventWindowTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstanceMetadataOptionsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalModifyInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstanceMetadataOptionsRequestRequestTypeDef",
+    {
+        "HttpTokens": HttpTokensStateType,
+        "HttpPutResponseHopLimit": int,
+        "HttpEndpoint": InstanceMetadataEndpointStateType,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyInstanceMetadataOptionsRequestRequestTypeDef(
+    _RequiredModifyInstanceMetadataOptionsRequestRequestTypeDef,
+    _OptionalModifyInstanceMetadataOptionsRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstanceMetadataOptionsResultTypeDef = TypedDict(
+    "ModifyInstanceMetadataOptionsResultTypeDef",
+    {
+        "InstanceId": str,
+        "InstanceMetadataOptions": "InstanceMetadataOptionsResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyInstancePlacementRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstancePlacementRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalModifyInstancePlacementRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstancePlacementRequestRequestTypeDef",
+    {
+        "Affinity": AffinityType,
+        "GroupName": str,
+        "HostId": str,
+        "Tenancy": HostTenancyType,
+        "PartitionNumber": int,
+        "HostResourceGroupArn": str,
+    },
+    total=False,
+)
+
+class ModifyInstancePlacementRequestRequestTypeDef(
+    _RequiredModifyInstancePlacementRequestRequestTypeDef,
+    _OptionalModifyInstancePlacementRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstancePlacementResultTypeDef = TypedDict(
+    "ModifyInstancePlacementResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyLaunchTemplateRequestRequestTypeDef = TypedDict(
+    "ModifyLaunchTemplateRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ClientToken": str,
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "DefaultVersion": str,
+    },
+    total=False,
+)
+
+ModifyLaunchTemplateResultTypeDef = TypedDict(
+    "ModifyLaunchTemplateResultTypeDef",
+    {
+        "LaunchTemplate": "LaunchTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyManagedPrefixListRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyManagedPrefixListRequestRequestTypeDef",
+    {
+        "PrefixListId": str,
+    },
+)
+_OptionalModifyManagedPrefixListRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyManagedPrefixListRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "CurrentVersion": int,
+        "PrefixListName": str,
+        "AddEntries": List["AddPrefixListEntryTypeDef"],
+        "RemoveEntries": List["RemovePrefixListEntryTypeDef"],
+    },
+    total=False,
+)
+
+class ModifyManagedPrefixListRequestRequestTypeDef(
+    _RequiredModifyManagedPrefixListRequestRequestTypeDef,
+    _OptionalModifyManagedPrefixListRequestRequestTypeDef,
+):
+    pass
+
+ModifyManagedPrefixListResultTypeDef = TypedDict(
+    "ModifyManagedPrefixListResultTypeDef",
+    {
+        "PrefixList": "ManagedPrefixListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef = TypedDict(
+    "ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
+    {
+        "Attachment": "NetworkInterfaceAttachmentChangesTypeDef",
+        "Description": "AttributeValueTypeDef",
+        "DryRun": bool,
+        "Groups": List[str],
+        "SourceDestCheck": "AttributeBooleanValueTypeDef",
+    },
+    total=False,
+)
+
+_RequiredModifyNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyNetworkInterfaceAttributeRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalModifyNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyNetworkInterfaceAttributeRequestRequestTypeDef",
+    {
+        "Attachment": "NetworkInterfaceAttachmentChangesTypeDef",
+        "Description": "AttributeValueTypeDef",
+        "DryRun": bool,
+        "Groups": List[str],
+        "SourceDestCheck": "AttributeBooleanValueTypeDef",
+    },
+    total=False,
+)
+
+class ModifyNetworkInterfaceAttributeRequestRequestTypeDef(
+    _RequiredModifyNetworkInterfaceAttributeRequestRequestTypeDef,
+    _OptionalModifyNetworkInterfaceAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredModifyReservedInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyReservedInstancesRequestRequestTypeDef",
+    {
+        "ReservedInstancesIds": List[str],
+        "TargetConfigurations": List["ReservedInstancesConfigurationTypeDef"],
+    },
+)
+_OptionalModifyReservedInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyReservedInstancesRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ModifyReservedInstancesRequestRequestTypeDef(
+    _RequiredModifyReservedInstancesRequestRequestTypeDef,
+    _OptionalModifyReservedInstancesRequestRequestTypeDef,
+):
+    pass
+
+ModifyReservedInstancesResultTypeDef = TypedDict(
+    "ModifyReservedInstancesResultTypeDef",
+    {
+        "ReservedInstancesModificationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifySecurityGroupRulesRequestRequestTypeDef = TypedDict(
+    "_RequiredModifySecurityGroupRulesRequestRequestTypeDef",
+    {
+        "GroupId": str,
+        "SecurityGroupRules": List["SecurityGroupRuleUpdateTypeDef"],
+    },
+)
+_OptionalModifySecurityGroupRulesRequestRequestTypeDef = TypedDict(
+    "_OptionalModifySecurityGroupRulesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifySecurityGroupRulesRequestRequestTypeDef(
+    _RequiredModifySecurityGroupRulesRequestRequestTypeDef,
+    _OptionalModifySecurityGroupRulesRequestRequestTypeDef,
+):
+    pass
+
+ModifySecurityGroupRulesResultTypeDef = TypedDict(
+    "ModifySecurityGroupRulesResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifySnapshotAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifySnapshotAttributeRequestRequestTypeDef",
+    {
+        "SnapshotId": str,
+    },
+)
+_OptionalModifySnapshotAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifySnapshotAttributeRequestRequestTypeDef",
+    {
+        "Attribute": SnapshotAttributeNameType,
+        "CreateVolumePermission": "CreateVolumePermissionModificationsTypeDef",
+        "GroupNames": List[str],
+        "OperationType": OperationTypeType,
+        "UserIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifySnapshotAttributeRequestRequestTypeDef(
+    _RequiredModifySnapshotAttributeRequestRequestTypeDef,
+    _OptionalModifySnapshotAttributeRequestRequestTypeDef,
+):
+    pass
+
+ModifySnapshotAttributeRequestSnapshotTypeDef = TypedDict(
+    "ModifySnapshotAttributeRequestSnapshotTypeDef",
+    {
+        "Attribute": SnapshotAttributeNameType,
+        "CreateVolumePermission": "CreateVolumePermissionModificationsTypeDef",
+        "GroupNames": List[str],
+        "OperationType": OperationTypeType,
+        "UserIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredModifySpotFleetRequestRequestRequestTypeDef = TypedDict(
+    "_RequiredModifySpotFleetRequestRequestRequestTypeDef",
+    {
+        "SpotFleetRequestId": str,
+    },
+)
+_OptionalModifySpotFleetRequestRequestRequestTypeDef = TypedDict(
+    "_OptionalModifySpotFleetRequestRequestRequestTypeDef",
+    {
+        "ExcessCapacityTerminationPolicy": ExcessCapacityTerminationPolicyType,
+        "LaunchTemplateConfigs": List["LaunchTemplateConfigTypeDef"],
+        "TargetCapacity": int,
+        "OnDemandTargetCapacity": int,
+        "Context": str,
+    },
+    total=False,
+)
+
+class ModifySpotFleetRequestRequestRequestTypeDef(
+    _RequiredModifySpotFleetRequestRequestRequestTypeDef,
+    _OptionalModifySpotFleetRequestRequestRequestTypeDef,
+):
+    pass
+
+ModifySpotFleetRequestResponseTypeDef = TypedDict(
+    "ModifySpotFleetRequestResponseTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifySubnetAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifySubnetAttributeRequestRequestTypeDef",
+    {
+        "SubnetId": str,
+    },
+)
+_OptionalModifySubnetAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifySubnetAttributeRequestRequestTypeDef",
+    {
+        "AssignIpv6AddressOnCreation": "AttributeBooleanValueTypeDef",
+        "MapPublicIpOnLaunch": "AttributeBooleanValueTypeDef",
+        "MapCustomerOwnedIpOnLaunch": "AttributeBooleanValueTypeDef",
+        "CustomerOwnedIpv4Pool": str,
+    },
+    total=False,
+)
+
+class ModifySubnetAttributeRequestRequestTypeDef(
+    _RequiredModifySubnetAttributeRequestRequestTypeDef,
+    _OptionalModifySubnetAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef",
+    {
+        "TrafficMirrorFilterId": str,
+    },
+)
+_OptionalModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef",
+    {
+        "AddNetworkServices": List[Literal["amazon-dns"]],
+        "RemoveNetworkServices": List[Literal["amazon-dns"]],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef(
+    _RequiredModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef,
+    _OptionalModifyTrafficMirrorFilterNetworkServicesRequestRequestTypeDef,
+):
+    pass
+
+ModifyTrafficMirrorFilterNetworkServicesResultTypeDef = TypedDict(
+    "ModifyTrafficMirrorFilterNetworkServicesResultTypeDef",
+    {
+        "TrafficMirrorFilter": "TrafficMirrorFilterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyTrafficMirrorFilterRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyTrafficMirrorFilterRuleRequestRequestTypeDef",
+    {
+        "TrafficMirrorFilterRuleId": str,
+    },
+)
+_OptionalModifyTrafficMirrorFilterRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyTrafficMirrorFilterRuleRequestRequestTypeDef",
+    {
+        "TrafficDirection": TrafficDirectionType,
+        "RuleNumber": int,
+        "RuleAction": TrafficMirrorRuleActionType,
+        "DestinationPortRange": "TrafficMirrorPortRangeRequestTypeDef",
+        "SourcePortRange": "TrafficMirrorPortRangeRequestTypeDef",
+        "Protocol": int,
+        "DestinationCidrBlock": str,
+        "SourceCidrBlock": str,
+        "Description": str,
+        "RemoveFields": List[TrafficMirrorFilterRuleFieldType],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyTrafficMirrorFilterRuleRequestRequestTypeDef(
+    _RequiredModifyTrafficMirrorFilterRuleRequestRequestTypeDef,
+    _OptionalModifyTrafficMirrorFilterRuleRequestRequestTypeDef,
+):
+    pass
+
+ModifyTrafficMirrorFilterRuleResultTypeDef = TypedDict(
+    "ModifyTrafficMirrorFilterRuleResultTypeDef",
+    {
+        "TrafficMirrorFilterRule": "TrafficMirrorFilterRuleTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyTrafficMirrorSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyTrafficMirrorSessionRequestRequestTypeDef",
+    {
+        "TrafficMirrorSessionId": str,
+    },
+)
+_OptionalModifyTrafficMirrorSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyTrafficMirrorSessionRequestRequestTypeDef",
+    {
+        "TrafficMirrorTargetId": str,
+        "TrafficMirrorFilterId": str,
+        "PacketLength": int,
+        "SessionNumber": int,
+        "VirtualNetworkId": int,
+        "Description": str,
+        "RemoveFields": List[TrafficMirrorSessionFieldType],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyTrafficMirrorSessionRequestRequestTypeDef(
+    _RequiredModifyTrafficMirrorSessionRequestRequestTypeDef,
+    _OptionalModifyTrafficMirrorSessionRequestRequestTypeDef,
+):
+    pass
+
+ModifyTrafficMirrorSessionResultTypeDef = TypedDict(
+    "ModifyTrafficMirrorSessionResultTypeDef",
+    {
+        "TrafficMirrorSession": "TrafficMirrorSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyTransitGatewayOptionsTypeDef = TypedDict(
+    "ModifyTransitGatewayOptionsTypeDef",
+    {
+        "AddTransitGatewayCidrBlocks": List[str],
+        "RemoveTransitGatewayCidrBlocks": List[str],
+        "VpnEcmpSupport": VpnEcmpSupportValueType,
+        "DnsSupport": DnsSupportValueType,
+        "AutoAcceptSharedAttachments": AutoAcceptSharedAttachmentsValueType,
+        "DefaultRouteTableAssociation": DefaultRouteTableAssociationValueType,
+        "AssociationDefaultRouteTableId": str,
+        "DefaultRouteTablePropagation": DefaultRouteTablePropagationValueType,
+        "PropagationDefaultRouteTableId": str,
+    },
+    total=False,
+)
+
+_RequiredModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "PrefixListId": str,
+    },
+)
+_OptionalModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "Blackhole": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef(
+    _RequiredModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef,
+    _OptionalModifyTransitGatewayPrefixListReferenceRequestRequestTypeDef,
+):
+    pass
+
+ModifyTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
+    "ModifyTransitGatewayPrefixListReferenceResultTypeDef",
+    {
+        "TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyTransitGatewayRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyTransitGatewayRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+    },
+)
+_OptionalModifyTransitGatewayRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyTransitGatewayRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Options": "ModifyTransitGatewayOptionsTypeDef",
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyTransitGatewayRequestRequestTypeDef(
+    _RequiredModifyTransitGatewayRequestRequestTypeDef,
+    _OptionalModifyTransitGatewayRequestRequestTypeDef,
+):
+    pass
+
+ModifyTransitGatewayResultTypeDef = TypedDict(
+    "ModifyTransitGatewayResultTypeDef",
+    {
+        "TransitGateway": "TransitGatewayTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef = TypedDict(
+    "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
+    {
+        "DnsSupport": DnsSupportValueType,
+        "Ipv6Support": Ipv6SupportValueType,
+        "ApplianceModeSupport": ApplianceModeSupportValueType,
+    },
+    total=False,
+)
+
+_RequiredModifyTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalModifyTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "AddSubnetIds": List[str],
+        "RemoveSubnetIds": List[str],
+        "Options": "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyTransitGatewayVpcAttachmentRequestRequestTypeDef(
+    _RequiredModifyTransitGatewayVpcAttachmentRequestRequestTypeDef,
+    _OptionalModifyTransitGatewayVpcAttachmentRequestRequestTypeDef,
+):
+    pass
+
+ModifyTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
+    "ModifyTransitGatewayVpcAttachmentResultTypeDef",
+    {
+        "TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVolumeAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVolumeAttributeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalModifyVolumeAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVolumeAttributeRequestRequestTypeDef",
+    {
+        "AutoEnableIO": "AttributeBooleanValueTypeDef",
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVolumeAttributeRequestRequestTypeDef(
+    _RequiredModifyVolumeAttributeRequestRequestTypeDef,
+    _OptionalModifyVolumeAttributeRequestRequestTypeDef,
+):
+    pass
+
+ModifyVolumeAttributeRequestVolumeTypeDef = TypedDict(
+    "ModifyVolumeAttributeRequestVolumeTypeDef",
+    {
+        "AutoEnableIO": "AttributeBooleanValueTypeDef",
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredModifyVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalModifyVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVolumeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Size": int,
+        "VolumeType": VolumeTypeType,
+        "Iops": int,
+        "Throughput": int,
+        "MultiAttachEnabled": bool,
+    },
+    total=False,
+)
+
+class ModifyVolumeRequestRequestTypeDef(
+    _RequiredModifyVolumeRequestRequestTypeDef, _OptionalModifyVolumeRequestRequestTypeDef
+):
+    pass
+
+ModifyVolumeResultTypeDef = TypedDict(
+    "ModifyVolumeResultTypeDef",
+    {
+        "VolumeModification": "VolumeModificationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpcAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcAttributeRequestRequestTypeDef",
+    {
+        "VpcId": str,
+    },
+)
+_OptionalModifyVpcAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcAttributeRequestRequestTypeDef",
+    {
+        "EnableDnsHostnames": "AttributeBooleanValueTypeDef",
+        "EnableDnsSupport": "AttributeBooleanValueTypeDef",
+    },
+    total=False,
+)
+
+class ModifyVpcAttributeRequestRequestTypeDef(
+    _RequiredModifyVpcAttributeRequestRequestTypeDef,
+    _OptionalModifyVpcAttributeRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpcAttributeRequestVpcTypeDef = TypedDict(
+    "ModifyVpcAttributeRequestVpcTypeDef",
+    {
+        "EnableDnsHostnames": "AttributeBooleanValueTypeDef",
+        "EnableDnsSupport": "AttributeBooleanValueTypeDef",
+    },
+    total=False,
+)
+
+_RequiredModifyVpcEndpointConnectionNotificationRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcEndpointConnectionNotificationRequestRequestTypeDef",
+    {
+        "ConnectionNotificationId": str,
+    },
+)
+_OptionalModifyVpcEndpointConnectionNotificationRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcEndpointConnectionNotificationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ConnectionNotificationArn": str,
+        "ConnectionEvents": List[str],
+    },
+    total=False,
+)
+
+class ModifyVpcEndpointConnectionNotificationRequestRequestTypeDef(
+    _RequiredModifyVpcEndpointConnectionNotificationRequestRequestTypeDef,
+    _OptionalModifyVpcEndpointConnectionNotificationRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpcEndpointConnectionNotificationResultTypeDef = TypedDict(
+    "ModifyVpcEndpointConnectionNotificationResultTypeDef",
+    {
+        "ReturnValue": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpcEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcEndpointRequestRequestTypeDef",
+    {
+        "VpcEndpointId": str,
+    },
+)
+_OptionalModifyVpcEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcEndpointRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "ResetPolicy": bool,
+        "PolicyDocument": str,
+        "AddRouteTableIds": List[str],
+        "RemoveRouteTableIds": List[str],
+        "AddSubnetIds": List[str],
+        "RemoveSubnetIds": List[str],
+        "AddSecurityGroupIds": List[str],
+        "RemoveSecurityGroupIds": List[str],
+        "PrivateDnsEnabled": bool,
+    },
+    total=False,
+)
+
+class ModifyVpcEndpointRequestRequestTypeDef(
+    _RequiredModifyVpcEndpointRequestRequestTypeDef, _OptionalModifyVpcEndpointRequestRequestTypeDef
+):
+    pass
+
+ModifyVpcEndpointResultTypeDef = TypedDict(
+    "ModifyVpcEndpointResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpcEndpointServiceConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcEndpointServiceConfigurationRequestRequestTypeDef",
+    {
+        "ServiceId": str,
+    },
+)
+_OptionalModifyVpcEndpointServiceConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcEndpointServiceConfigurationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "PrivateDnsName": str,
+        "RemovePrivateDnsName": bool,
+        "AcceptanceRequired": bool,
+        "AddNetworkLoadBalancerArns": List[str],
+        "RemoveNetworkLoadBalancerArns": List[str],
+        "AddGatewayLoadBalancerArns": List[str],
+        "RemoveGatewayLoadBalancerArns": List[str],
+    },
+    total=False,
+)
+
+class ModifyVpcEndpointServiceConfigurationRequestRequestTypeDef(
+    _RequiredModifyVpcEndpointServiceConfigurationRequestRequestTypeDef,
+    _OptionalModifyVpcEndpointServiceConfigurationRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpcEndpointServiceConfigurationResultTypeDef = TypedDict(
+    "ModifyVpcEndpointServiceConfigurationResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpcEndpointServicePermissionsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcEndpointServicePermissionsRequestRequestTypeDef",
+    {
+        "ServiceId": str,
+    },
+)
+_OptionalModifyVpcEndpointServicePermissionsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcEndpointServicePermissionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "AddAllowedPrincipals": List[str],
+        "RemoveAllowedPrincipals": List[str],
+    },
+    total=False,
+)
+
+class ModifyVpcEndpointServicePermissionsRequestRequestTypeDef(
+    _RequiredModifyVpcEndpointServicePermissionsRequestRequestTypeDef,
+    _OptionalModifyVpcEndpointServicePermissionsRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpcEndpointServicePermissionsResultTypeDef = TypedDict(
+    "ModifyVpcEndpointServicePermissionsResultTypeDef",
+    {
+        "ReturnValue": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpcPeeringConnectionOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcPeeringConnectionOptionsRequestRequestTypeDef",
+    {
+        "VpcPeeringConnectionId": str,
+    },
+)
+_OptionalModifyVpcPeeringConnectionOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcPeeringConnectionOptionsRequestRequestTypeDef",
+    {
+        "AccepterPeeringConnectionOptions": "PeeringConnectionOptionsRequestTypeDef",
+        "DryRun": bool,
+        "RequesterPeeringConnectionOptions": "PeeringConnectionOptionsRequestTypeDef",
+    },
+    total=False,
+)
+
+class ModifyVpcPeeringConnectionOptionsRequestRequestTypeDef(
+    _RequiredModifyVpcPeeringConnectionOptionsRequestRequestTypeDef,
+    _OptionalModifyVpcPeeringConnectionOptionsRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpcPeeringConnectionOptionsResultTypeDef = TypedDict(
+    "ModifyVpcPeeringConnectionOptionsResultTypeDef",
+    {
+        "AccepterPeeringConnectionOptions": "PeeringConnectionOptionsTypeDef",
+        "RequesterPeeringConnectionOptions": "PeeringConnectionOptionsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpcTenancyRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcTenancyRequestRequestTypeDef",
+    {
+        "VpcId": str,
+        "InstanceTenancy": Literal["default"],
+    },
+)
+_OptionalModifyVpcTenancyRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcTenancyRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVpcTenancyRequestRequestTypeDef(
+    _RequiredModifyVpcTenancyRequestRequestTypeDef, _OptionalModifyVpcTenancyRequestRequestTypeDef
+):
+    pass
+
+ModifyVpcTenancyResultTypeDef = TypedDict(
+    "ModifyVpcTenancyResultTypeDef",
+    {
+        "ReturnValue": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpnConnectionOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpnConnectionOptionsRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+    },
+)
+_OptionalModifyVpnConnectionOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpnConnectionOptionsRequestRequestTypeDef",
+    {
+        "LocalIpv4NetworkCidr": str,
+        "RemoteIpv4NetworkCidr": str,
+        "LocalIpv6NetworkCidr": str,
+        "RemoteIpv6NetworkCidr": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVpnConnectionOptionsRequestRequestTypeDef(
+    _RequiredModifyVpnConnectionOptionsRequestRequestTypeDef,
+    _OptionalModifyVpnConnectionOptionsRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpnConnectionOptionsResultTypeDef = TypedDict(
+    "ModifyVpnConnectionOptionsResultTypeDef",
+    {
+        "VpnConnection": "VpnConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpnConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpnConnectionRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+    },
+)
+_OptionalModifyVpnConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpnConnectionRequestRequestTypeDef",
+    {
+        "TransitGatewayId": str,
+        "CustomerGatewayId": str,
+        "VpnGatewayId": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVpnConnectionRequestRequestTypeDef(
+    _RequiredModifyVpnConnectionRequestRequestTypeDef,
+    _OptionalModifyVpnConnectionRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpnConnectionResultTypeDef = TypedDict(
+    "ModifyVpnConnectionResultTypeDef",
+    {
+        "VpnConnection": "VpnConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpnTunnelCertificateRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpnTunnelCertificateRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+        "VpnTunnelOutsideIpAddress": str,
+    },
+)
+_OptionalModifyVpnTunnelCertificateRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpnTunnelCertificateRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVpnTunnelCertificateRequestRequestTypeDef(
+    _RequiredModifyVpnTunnelCertificateRequestRequestTypeDef,
+    _OptionalModifyVpnTunnelCertificateRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpnTunnelCertificateResultTypeDef = TypedDict(
+    "ModifyVpnTunnelCertificateResultTypeDef",
+    {
+        "VpnConnection": "VpnConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpnTunnelOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpnTunnelOptionsRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+        "VpnTunnelOutsideIpAddress": str,
+        "TunnelOptions": "ModifyVpnTunnelOptionsSpecificationTypeDef",
+    },
+)
+_OptionalModifyVpnTunnelOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpnTunnelOptionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVpnTunnelOptionsRequestRequestTypeDef(
+    _RequiredModifyVpnTunnelOptionsRequestRequestTypeDef,
+    _OptionalModifyVpnTunnelOptionsRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpnTunnelOptionsResultTypeDef = TypedDict(
+    "ModifyVpnTunnelOptionsResultTypeDef",
+    {
+        "VpnConnection": "VpnConnectionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyVpnTunnelOptionsSpecificationTypeDef = TypedDict(
+    "ModifyVpnTunnelOptionsSpecificationTypeDef",
+    {
+        "TunnelInsideCidr": str,
+        "TunnelInsideIpv6Cidr": str,
+        "PreSharedKey": str,
+        "Phase1LifetimeSeconds": int,
+        "Phase2LifetimeSeconds": int,
+        "RekeyMarginTimeSeconds": int,
+        "RekeyFuzzPercentage": int,
+        "ReplayWindowSize": int,
+        "DPDTimeoutSeconds": int,
+        "DPDTimeoutAction": str,
+        "Phase1EncryptionAlgorithms": List["Phase1EncryptionAlgorithmsRequestListValueTypeDef"],
+        "Phase2EncryptionAlgorithms": List["Phase2EncryptionAlgorithmsRequestListValueTypeDef"],
+        "Phase1IntegrityAlgorithms": List["Phase1IntegrityAlgorithmsRequestListValueTypeDef"],
+        "Phase2IntegrityAlgorithms": List["Phase2IntegrityAlgorithmsRequestListValueTypeDef"],
+        "Phase1DHGroupNumbers": List["Phase1DHGroupNumbersRequestListValueTypeDef"],
+        "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersRequestListValueTypeDef"],
+        "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
+        "StartupAction": str,
+    },
+    total=False,
+)
+
+MonitorInstancesRequestInstanceTypeDef = TypedDict(
+    "MonitorInstancesRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredMonitorInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredMonitorInstancesRequestRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+    },
+)
+_OptionalMonitorInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalMonitorInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class MonitorInstancesRequestRequestTypeDef(
+    _RequiredMonitorInstancesRequestRequestTypeDef, _OptionalMonitorInstancesRequestRequestTypeDef
+):
+    pass
+
+MonitorInstancesResultTypeDef = TypedDict(
+    "MonitorInstancesResultTypeDef",
+    {
+        "InstanceMonitorings": List["InstanceMonitoringTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 MonitoringTypeDef = TypedDict(
     "MonitoringTypeDef",
-    {"State": Literal["disabled", "disabling", "enabled", "pending"]},
+    {
+        "State": MonitoringStateType,
+    },
     total=False,
+)
+
+_RequiredMoveAddressToVpcRequestRequestTypeDef = TypedDict(
+    "_RequiredMoveAddressToVpcRequestRequestTypeDef",
+    {
+        "PublicIp": str,
+    },
+)
+_OptionalMoveAddressToVpcRequestRequestTypeDef = TypedDict(
+    "_OptionalMoveAddressToVpcRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class MoveAddressToVpcRequestRequestTypeDef(
+    _RequiredMoveAddressToVpcRequestRequestTypeDef, _OptionalMoveAddressToVpcRequestRequestTypeDef
+):
+    pass
+
+MoveAddressToVpcResultTypeDef = TypedDict(
+    "MoveAddressToVpcResultTypeDef",
+    {
+        "AllocationId": str,
+        "Status": StatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 MovingAddressStatusTypeDef = TypedDict(
     "MovingAddressStatusTypeDef",
-    {"MoveStatus": Literal["movingToVpc", "restoringToClassic"], "PublicIp": str},
+    {
+        "MoveStatus": MoveStatusType,
+        "PublicIp": str,
+    },
     total=False,
 )
 
 NatGatewayAddressTypeDef = TypedDict(
     "NatGatewayAddressTypeDef",
-    {"AllocationId": str, "NetworkInterfaceId": str, "PrivateIp": str, "PublicIp": str},
+    {
+        "AllocationId": str,
+        "NetworkInterfaceId": str,
+        "PrivateIp": str,
+        "PublicIp": str,
+    },
     total=False,
 )
 
@@ -7072,17 +17554,22 @@ NatGatewayTypeDef = TypedDict(
         "NatGatewayAddresses": List["NatGatewayAddressTypeDef"],
         "NatGatewayId": str,
         "ProvisionedBandwidth": "ProvisionedBandwidthTypeDef",
-        "State": Literal["pending", "failed", "available", "deleting", "deleted"],
+        "State": NatGatewayStateType,
         "SubnetId": str,
         "VpcId": str,
         "Tags": List["TagTypeDef"],
+        "ConnectivityType": ConnectivityTypeType,
     },
     total=False,
 )
 
 NetworkAclAssociationTypeDef = TypedDict(
     "NetworkAclAssociationTypeDef",
-    {"NetworkAclAssociationId": str, "NetworkAclId": str, "SubnetId": str},
+    {
+        "NetworkAclAssociationId": str,
+        "NetworkAclId": str,
+        "SubnetId": str,
+    },
     total=False,
 )
 
@@ -7095,7 +17582,7 @@ NetworkAclEntryTypeDef = TypedDict(
         "Ipv6CidrBlock": str,
         "PortRange": "PortRangeTypeDef",
         "Protocol": str,
-        "RuleAction": Literal["allow", "deny"],
+        "RuleAction": RuleActionType,
         "RuleNumber": int,
     },
     total=False,
@@ -7117,7 +17604,11 @@ NetworkAclTypeDef = TypedDict(
 
 NetworkCardInfoTypeDef = TypedDict(
     "NetworkCardInfoTypeDef",
-    {"NetworkCardIndex": int, "NetworkPerformance": str, "MaximumNetworkInterfaces": int},
+    {
+        "NetworkCardIndex": int,
+        "NetworkPerformance": str,
+        "MaximumNetworkInterfaces": int,
+    },
     total=False,
 )
 
@@ -7132,8 +17623,9 @@ NetworkInfoTypeDef = TypedDict(
         "Ipv4AddressesPerInterface": int,
         "Ipv6AddressesPerInterface": int,
         "Ipv6Supported": bool,
-        "EnaSupport": Literal["unsupported", "supported", "required"],
+        "EnaSupport": EnaSupportType,
         "EfaSupported": bool,
+        "EfaInfo": "EfaInfoTypeDef",
     },
     total=False,
 )
@@ -7146,7 +17638,7 @@ NetworkInsightsAnalysisTypeDef = TypedDict(
         "NetworkInsightsPathId": str,
         "FilterInArns": List[str],
         "StartDate": datetime,
-        "Status": Literal["running", "succeeded", "failed"],
+        "Status": AnalysisStatusType,
         "StatusMessage": str,
         "NetworkPathFound": bool,
         "ForwardPathComponents": List["PathComponentTypeDef"],
@@ -7168,7 +17660,7 @@ NetworkInsightsPathTypeDef = TypedDict(
         "Destination": str,
         "SourceIp": str,
         "DestinationIp": str,
-        "Protocol": Literal["tcp", "udp"],
+        "Protocol": ProtocolType,
         "DestinationPort": int,
         "Tags": List["TagTypeDef"],
     },
@@ -7189,6 +17681,15 @@ NetworkInterfaceAssociationTypeDef = TypedDict(
     total=False,
 )
 
+NetworkInterfaceAttachmentChangesTypeDef = TypedDict(
+    "NetworkInterfaceAttachmentChangesTypeDef",
+    {
+        "AttachmentId": str,
+        "DeleteOnTermination": bool,
+    },
+    total=False,
+)
+
 NetworkInterfaceAttachmentTypeDef = TypedDict(
     "NetworkInterfaceAttachmentTypeDef",
     {
@@ -7199,18 +17700,25 @@ NetworkInterfaceAttachmentTypeDef = TypedDict(
         "NetworkCardIndex": int,
         "InstanceId": str,
         "InstanceOwnerId": str,
-        "Status": Literal["attaching", "attached", "detaching", "detached"],
+        "Status": AttachmentStatusType,
     },
     total=False,
 )
 
 NetworkInterfaceIpv6AddressTypeDef = TypedDict(
-    "NetworkInterfaceIpv6AddressTypeDef", {"Ipv6Address": str}, total=False
+    "NetworkInterfaceIpv6AddressTypeDef",
+    {
+        "Ipv6Address": str,
+    },
+    total=False,
 )
 
 NetworkInterfacePermissionStateTypeDef = TypedDict(
     "NetworkInterfacePermissionStateTypeDef",
-    {"State": Literal["pending", "granted", "revoking", "revoked"], "StatusMessage": str},
+    {
+        "State": NetworkInterfacePermissionStateCodeType,
+        "StatusMessage": str,
+    },
     total=False,
 )
 
@@ -7221,7 +17729,7 @@ NetworkInterfacePermissionTypeDef = TypedDict(
         "NetworkInterfaceId": str,
         "AwsAccountId": str,
         "AwsService": str,
-        "Permission": Literal["INSTANCE-ATTACH", "EIP-ASSOCIATE"],
+        "Permission": InterfacePermissionTypeType,
         "PermissionState": "NetworkInterfacePermissionStateTypeDef",
     },
     total=False,
@@ -7246,7 +17754,7 @@ NetworkInterfaceTypeDef = TypedDict(
         "AvailabilityZone": str,
         "Description": str,
         "Groups": List["GroupIdentifierTypeDef"],
-        "InterfaceType": Literal["interface", "natGateway", "efa"],
+        "InterfaceType": NetworkInterfaceTypeType,
         "Ipv6Addresses": List["NetworkInterfaceIpv6AddressTypeDef"],
         "MacAddress": str,
         "NetworkInterfaceId": str,
@@ -7255,10 +17763,12 @@ NetworkInterfaceTypeDef = TypedDict(
         "PrivateDnsName": str,
         "PrivateIpAddress": str,
         "PrivateIpAddresses": List["NetworkInterfacePrivateIpAddressTypeDef"],
+        "Ipv4Prefixes": List["Ipv4PrefixSpecificationTypeDef"],
+        "Ipv6Prefixes": List["Ipv6PrefixSpecificationTypeDef"],
         "RequesterId": str,
         "RequesterManaged": bool,
         "SourceDestCheck": bool,
-        "Status": Literal["available", "associated", "attaching", "in-use", "detaching"],
+        "Status": NetworkInterfaceStatusType,
         "SubnetId": str,
         "TagSet": List["TagTypeDef"],
         "VpcId": str,
@@ -7266,15 +17776,47 @@ NetworkInterfaceTypeDef = TypedDict(
     total=False,
 )
 
+NewDhcpConfigurationTypeDef = TypedDict(
+    "NewDhcpConfigurationTypeDef",
+    {
+        "Key": str,
+        "Values": List[str],
+    },
+    total=False,
+)
+
+OnDemandOptionsRequestTypeDef = TypedDict(
+    "OnDemandOptionsRequestTypeDef",
+    {
+        "AllocationStrategy": FleetOnDemandAllocationStrategyType,
+        "CapacityReservationOptions": "CapacityReservationOptionsRequestTypeDef",
+        "SingleInstanceType": bool,
+        "SingleAvailabilityZone": bool,
+        "MinTargetCapacity": int,
+        "MaxTotalPrice": str,
+    },
+    total=False,
+)
+
 OnDemandOptionsTypeDef = TypedDict(
     "OnDemandOptionsTypeDef",
     {
-        "AllocationStrategy": Literal["lowest-price", "prioritized"],
+        "AllocationStrategy": FleetOnDemandAllocationStrategyType,
         "CapacityReservationOptions": "CapacityReservationOptionsTypeDef",
         "SingleInstanceType": bool,
         "SingleAvailabilityZone": bool,
         "MinTargetCapacity": int,
         "MaxTotalPrice": str,
+    },
+    total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
     },
     total=False,
 )
@@ -7299,12 +17841,32 @@ PathComponentTypeDef = TypedDict(
 
 PciIdTypeDef = TypedDict(
     "PciIdTypeDef",
-    {"DeviceId": str, "VendorId": str, "SubsystemId": str, "SubsystemVendorId": str},
+    {
+        "DeviceId": str,
+        "VendorId": str,
+        "SubsystemId": str,
+        "SubsystemVendorId": str,
+    },
     total=False,
 )
 
 PeeringAttachmentStatusTypeDef = TypedDict(
-    "PeeringAttachmentStatusTypeDef", {"Code": str, "Message": str}, total=False
+    "PeeringAttachmentStatusTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+PeeringConnectionOptionsRequestTypeDef = TypedDict(
+    "PeeringConnectionOptionsRequestTypeDef",
+    {
+        "AllowDnsResolutionFromRemoteVpc": bool,
+        "AllowEgressFromLocalClassicLinkToRemoteVpc": bool,
+        "AllowEgressFromLocalVpcToRemoteClassicLink": bool,
+    },
+    total=False,
 )
 
 PeeringConnectionOptionsTypeDef = TypedDict(
@@ -7318,60 +17880,116 @@ PeeringConnectionOptionsTypeDef = TypedDict(
 )
 
 PeeringTgwInfoTypeDef = TypedDict(
-    "PeeringTgwInfoTypeDef", {"TransitGatewayId": str, "OwnerId": str, "Region": str}, total=False
+    "PeeringTgwInfoTypeDef",
+    {
+        "TransitGatewayId": str,
+        "OwnerId": str,
+        "Region": str,
+    },
+    total=False,
 )
 
 Phase1DHGroupNumbersListValueTypeDef = TypedDict(
-    "Phase1DHGroupNumbersListValueTypeDef", {"Value": int}, total=False
+    "Phase1DHGroupNumbersListValueTypeDef",
+    {
+        "Value": int,
+    },
+    total=False,
 )
 
 Phase1DHGroupNumbersRequestListValueTypeDef = TypedDict(
-    "Phase1DHGroupNumbersRequestListValueTypeDef", {"Value": int}, total=False
+    "Phase1DHGroupNumbersRequestListValueTypeDef",
+    {
+        "Value": int,
+    },
+    total=False,
 )
 
 Phase1EncryptionAlgorithmsListValueTypeDef = TypedDict(
-    "Phase1EncryptionAlgorithmsListValueTypeDef", {"Value": str}, total=False
+    "Phase1EncryptionAlgorithmsListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 Phase1EncryptionAlgorithmsRequestListValueTypeDef = TypedDict(
-    "Phase1EncryptionAlgorithmsRequestListValueTypeDef", {"Value": str}, total=False
+    "Phase1EncryptionAlgorithmsRequestListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 Phase1IntegrityAlgorithmsListValueTypeDef = TypedDict(
-    "Phase1IntegrityAlgorithmsListValueTypeDef", {"Value": str}, total=False
+    "Phase1IntegrityAlgorithmsListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 Phase1IntegrityAlgorithmsRequestListValueTypeDef = TypedDict(
-    "Phase1IntegrityAlgorithmsRequestListValueTypeDef", {"Value": str}, total=False
+    "Phase1IntegrityAlgorithmsRequestListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 Phase2DHGroupNumbersListValueTypeDef = TypedDict(
-    "Phase2DHGroupNumbersListValueTypeDef", {"Value": int}, total=False
+    "Phase2DHGroupNumbersListValueTypeDef",
+    {
+        "Value": int,
+    },
+    total=False,
 )
 
 Phase2DHGroupNumbersRequestListValueTypeDef = TypedDict(
-    "Phase2DHGroupNumbersRequestListValueTypeDef", {"Value": int}, total=False
+    "Phase2DHGroupNumbersRequestListValueTypeDef",
+    {
+        "Value": int,
+    },
+    total=False,
 )
 
 Phase2EncryptionAlgorithmsListValueTypeDef = TypedDict(
-    "Phase2EncryptionAlgorithmsListValueTypeDef", {"Value": str}, total=False
+    "Phase2EncryptionAlgorithmsListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 Phase2EncryptionAlgorithmsRequestListValueTypeDef = TypedDict(
-    "Phase2EncryptionAlgorithmsRequestListValueTypeDef", {"Value": str}, total=False
+    "Phase2EncryptionAlgorithmsRequestListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 Phase2IntegrityAlgorithmsListValueTypeDef = TypedDict(
-    "Phase2IntegrityAlgorithmsListValueTypeDef", {"Value": str}, total=False
+    "Phase2IntegrityAlgorithmsListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 Phase2IntegrityAlgorithmsRequestListValueTypeDef = TypedDict(
-    "Phase2IntegrityAlgorithmsRequestListValueTypeDef", {"Value": str}, total=False
+    "Phase2IntegrityAlgorithmsRequestListValueTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
 )
 
 PlacementGroupInfoTypeDef = TypedDict(
     "PlacementGroupInfoTypeDef",
-    {"SupportedStrategies": List[Literal["cluster", "partition", "spread"]]},
+    {
+        "SupportedStrategies": List[PlacementGroupStrategyType],
+    },
     total=False,
 )
 
@@ -7379,8 +17997,8 @@ PlacementGroupTypeDef = TypedDict(
     "PlacementGroupTypeDef",
     {
         "GroupName": str,
-        "State": Literal["pending", "available", "deleting", "deleted"],
-        "Strategy": Literal["cluster", "spread", "partition"],
+        "State": PlacementGroupStateType,
+        "Strategy": PlacementStrategyType,
         "PartitionCount": int,
         "GroupId": str,
         "Tags": List["TagTypeDef"],
@@ -7388,7 +18006,13 @@ PlacementGroupTypeDef = TypedDict(
     total=False,
 )
 
-PlacementResponseTypeDef = TypedDict("PlacementResponseTypeDef", {"GroupName": str}, total=False)
+PlacementResponseTypeDef = TypedDict(
+    "PlacementResponseTypeDef",
+    {
+        "GroupName": str,
+    },
+    total=False,
+)
 
 PlacementTypeDef = TypedDict(
     "PlacementTypeDef",
@@ -7398,57 +18022,118 @@ PlacementTypeDef = TypedDict(
         "GroupName": str,
         "PartitionNumber": int,
         "HostId": str,
-        "Tenancy": Literal["default", "dedicated", "host"],
+        "Tenancy": TenancyType,
         "SpreadDomain": str,
         "HostResourceGroupArn": str,
     },
     total=False,
 )
 
-PoolCidrBlockTypeDef = TypedDict("PoolCidrBlockTypeDef", {"Cidr": str}, total=False)
+PoolCidrBlockTypeDef = TypedDict(
+    "PoolCidrBlockTypeDef",
+    {
+        "Cidr": str,
+    },
+    total=False,
+)
 
-PortRangeTypeDef = TypedDict("PortRangeTypeDef", {"From": int, "To": int}, total=False)
+PortRangeTypeDef = TypedDict(
+    "PortRangeTypeDef",
+    {
+        "From": int,
+        "To": int,
+    },
+    total=False,
+)
 
 PrefixListAssociationTypeDef = TypedDict(
-    "PrefixListAssociationTypeDef", {"ResourceId": str, "ResourceOwner": str}, total=False
+    "PrefixListAssociationTypeDef",
+    {
+        "ResourceId": str,
+        "ResourceOwner": str,
+    },
+    total=False,
 )
 
 PrefixListEntryTypeDef = TypedDict(
-    "PrefixListEntryTypeDef", {"Cidr": str, "Description": str}, total=False
+    "PrefixListEntryTypeDef",
+    {
+        "Cidr": str,
+        "Description": str,
+    },
+    total=False,
 )
 
 PrefixListIdTypeDef = TypedDict(
-    "PrefixListIdTypeDef", {"Description": str, "PrefixListId": str}, total=False
+    "PrefixListIdTypeDef",
+    {
+        "Description": str,
+        "PrefixListId": str,
+    },
+    total=False,
 )
 
 PrefixListTypeDef = TypedDict(
     "PrefixListTypeDef",
-    {"Cidrs": List[str], "PrefixListId": str, "PrefixListName": str},
+    {
+        "Cidrs": List[str],
+        "PrefixListId": str,
+        "PrefixListName": str,
+    },
+    total=False,
+)
+
+PriceScheduleSpecificationTypeDef = TypedDict(
+    "PriceScheduleSpecificationTypeDef",
+    {
+        "CurrencyCode": Literal["USD"],
+        "Price": float,
+        "Term": int,
+    },
     total=False,
 )
 
 PriceScheduleTypeDef = TypedDict(
     "PriceScheduleTypeDef",
-    {"Active": bool, "CurrencyCode": Literal["USD"], "Price": float, "Term": int},
+    {
+        "Active": bool,
+        "CurrencyCode": Literal["USD"],
+        "Price": float,
+        "Term": int,
+    },
     total=False,
 )
 
 PricingDetailTypeDef = TypedDict(
-    "PricingDetailTypeDef", {"Count": int, "Price": float}, total=False
+    "PricingDetailTypeDef",
+    {
+        "Count": int,
+        "Price": float,
+    },
+    total=False,
 )
 
 PrincipalIdFormatTypeDef = TypedDict(
-    "PrincipalIdFormatTypeDef", {"Arn": str, "Statuses": List["IdFormatTypeDef"]}, total=False
+    "PrincipalIdFormatTypeDef",
+    {
+        "Arn": str,
+        "Statuses": List["IdFormatTypeDef"],
+    },
+    total=False,
 )
 
 PrivateDnsDetailsTypeDef = TypedDict(
-    "PrivateDnsDetailsTypeDef", {"PrivateDnsName": str}, total=False
+    "PrivateDnsDetailsTypeDef",
+    {
+        "PrivateDnsName": str,
+    },
+    total=False,
 )
 
 PrivateDnsNameConfigurationTypeDef = TypedDict(
     "PrivateDnsNameConfigurationTypeDef",
     {
-        "State": Literal["pendingVerification", "verified", "failed"],
+        "State": DnsNameStateType,
         "Type": str,
         "Value": str,
         "Name": str,
@@ -7457,13 +18142,18 @@ PrivateDnsNameConfigurationTypeDef = TypedDict(
 )
 
 PrivateIpAddressSpecificationTypeDef = TypedDict(
-    "PrivateIpAddressSpecificationTypeDef", {"Primary": bool, "PrivateIpAddress": str}, total=False
+    "PrivateIpAddressSpecificationTypeDef",
+    {
+        "Primary": bool,
+        "PrivateIpAddress": str,
+    },
+    total=False,
 )
 
 ProcessorInfoTypeDef = TypedDict(
     "ProcessorInfoTypeDef",
     {
-        "SupportedArchitectures": List[Literal["i386", "x86_64", "arm64"]],
+        "SupportedArchitectures": List[ArchitectureTypeType],
         "SustainedClockSpeedInGhz": float,
     },
     total=False,
@@ -7471,11 +18161,53 @@ ProcessorInfoTypeDef = TypedDict(
 
 ProductCodeTypeDef = TypedDict(
     "ProductCodeTypeDef",
-    {"ProductCodeId": str, "ProductCodeType": Literal["devpay", "marketplace"]},
+    {
+        "ProductCodeId": str,
+        "ProductCodeType": ProductCodeValuesType,
+    },
     total=False,
 )
 
-PropagatingVgwTypeDef = TypedDict("PropagatingVgwTypeDef", {"GatewayId": str}, total=False)
+PropagatingVgwTypeDef = TypedDict(
+    "PropagatingVgwTypeDef",
+    {
+        "GatewayId": str,
+    },
+    total=False,
+)
+
+_RequiredProvisionByoipCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredProvisionByoipCidrRequestRequestTypeDef",
+    {
+        "Cidr": str,
+    },
+)
+_OptionalProvisionByoipCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalProvisionByoipCidrRequestRequestTypeDef",
+    {
+        "CidrAuthorizationContext": "CidrAuthorizationContextTypeDef",
+        "PubliclyAdvertisable": bool,
+        "Description": str,
+        "DryRun": bool,
+        "PoolTagSpecifications": List["TagSpecificationTypeDef"],
+        "MultiRegion": bool,
+    },
+    total=False,
+)
+
+class ProvisionByoipCidrRequestRequestTypeDef(
+    _RequiredProvisionByoipCidrRequestRequestTypeDef,
+    _OptionalProvisionByoipCidrRequestRequestTypeDef,
+):
+    pass
+
+ProvisionByoipCidrResultTypeDef = TypedDict(
+    "ProvisionByoipCidrResultTypeDef",
+    {
+        "ByoipCidr": "ByoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 ProvisionedBandwidthTypeDef = TypedDict(
     "ProvisionedBandwidthTypeDef",
@@ -7490,12 +18222,23 @@ ProvisionedBandwidthTypeDef = TypedDict(
 )
 
 PtrUpdateStatusTypeDef = TypedDict(
-    "PtrUpdateStatusTypeDef", {"Value": str, "Status": str, "Reason": str}, total=False
+    "PtrUpdateStatusTypeDef",
+    {
+        "Value": str,
+        "Status": str,
+        "Reason": str,
+    },
+    total=False,
 )
 
 PublicIpv4PoolRangeTypeDef = TypedDict(
     "PublicIpv4PoolRangeTypeDef",
-    {"FirstAddress": str, "LastAddress": str, "AddressCount": int, "AvailableAddressCount": int},
+    {
+        "FirstAddress": str,
+        "LastAddress": str,
+        "AddressCount": int,
+        "AvailableAddressCount": int,
+    },
     total=False,
 )
 
@@ -7513,6 +18256,110 @@ PublicIpv4PoolTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPurchaseHostReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredPurchaseHostReservationRequestRequestTypeDef",
+    {
+        "HostIdSet": List[str],
+        "OfferingId": str,
+    },
+)
+_OptionalPurchaseHostReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalPurchaseHostReservationRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "CurrencyCode": Literal["USD"],
+        "LimitPrice": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class PurchaseHostReservationRequestRequestTypeDef(
+    _RequiredPurchaseHostReservationRequestRequestTypeDef,
+    _OptionalPurchaseHostReservationRequestRequestTypeDef,
+):
+    pass
+
+PurchaseHostReservationResultTypeDef = TypedDict(
+    "PurchaseHostReservationResultTypeDef",
+    {
+        "ClientToken": str,
+        "CurrencyCode": Literal["USD"],
+        "Purchase": List["PurchaseTypeDef"],
+        "TotalHourlyPrice": str,
+        "TotalUpfrontPrice": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PurchaseRequestTypeDef = TypedDict(
+    "PurchaseRequestTypeDef",
+    {
+        "InstanceCount": int,
+        "PurchaseToken": str,
+    },
+)
+
+_RequiredPurchaseReservedInstancesOfferingRequestRequestTypeDef = TypedDict(
+    "_RequiredPurchaseReservedInstancesOfferingRequestRequestTypeDef",
+    {
+        "InstanceCount": int,
+        "ReservedInstancesOfferingId": str,
+    },
+)
+_OptionalPurchaseReservedInstancesOfferingRequestRequestTypeDef = TypedDict(
+    "_OptionalPurchaseReservedInstancesOfferingRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "LimitPrice": "ReservedInstanceLimitPriceTypeDef",
+        "PurchaseTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class PurchaseReservedInstancesOfferingRequestRequestTypeDef(
+    _RequiredPurchaseReservedInstancesOfferingRequestRequestTypeDef,
+    _OptionalPurchaseReservedInstancesOfferingRequestRequestTypeDef,
+):
+    pass
+
+PurchaseReservedInstancesOfferingResultTypeDef = TypedDict(
+    "PurchaseReservedInstancesOfferingResultTypeDef",
+    {
+        "ReservedInstancesId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPurchaseScheduledInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredPurchaseScheduledInstancesRequestRequestTypeDef",
+    {
+        "PurchaseRequests": List["PurchaseRequestTypeDef"],
+    },
+)
+_OptionalPurchaseScheduledInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalPurchaseScheduledInstancesRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class PurchaseScheduledInstancesRequestRequestTypeDef(
+    _RequiredPurchaseScheduledInstancesRequestRequestTypeDef,
+    _OptionalPurchaseScheduledInstancesRequestRequestTypeDef,
+):
+    pass
+
+PurchaseScheduledInstancesResultTypeDef = TypedDict(
+    "PurchaseScheduledInstancesResultTypeDef",
+    {
+        "ScheduledInstanceSet": List["ScheduledInstanceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PurchaseTypeDef = TypedDict(
     "PurchaseTypeDef",
     {
@@ -7522,18 +18369,842 @@ PurchaseTypeDef = TypedDict(
         "HostReservationId": str,
         "HourlyPrice": str,
         "InstanceFamily": str,
-        "PaymentOption": Literal["AllUpfront", "PartialUpfront", "NoUpfront"],
+        "PaymentOption": PaymentOptionType,
         "UpfrontPrice": str,
     },
     total=False,
 )
 
+RebootInstancesRequestInstanceTypeDef = TypedDict(
+    "RebootInstancesRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredRebootInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredRebootInstancesRequestRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+    },
+)
+_OptionalRebootInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalRebootInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RebootInstancesRequestRequestTypeDef(
+    _RequiredRebootInstancesRequestRequestTypeDef, _OptionalRebootInstancesRequestRequestTypeDef
+):
+    pass
+
 RecurringChargeTypeDef = TypedDict(
-    "RecurringChargeTypeDef", {"Amount": float, "Frequency": Literal["Hourly"]}, total=False
+    "RecurringChargeTypeDef",
+    {
+        "Amount": float,
+        "Frequency": Literal["Hourly"],
+    },
+    total=False,
+)
+
+ReferencedSecurityGroupTypeDef = TypedDict(
+    "ReferencedSecurityGroupTypeDef",
+    {
+        "GroupId": str,
+        "PeeringStatus": str,
+        "UserId": str,
+        "VpcId": str,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
 )
 
 RegionTypeDef = TypedDict(
-    "RegionTypeDef", {"Endpoint": str, "RegionName": str, "OptInStatus": str}, total=False
+    "RegionTypeDef",
+    {
+        "Endpoint": str,
+        "RegionName": str,
+        "OptInStatus": str,
+    },
+    total=False,
+)
+
+_RequiredRegisterImageRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterImageRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalRegisterImageRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterImageRequestRequestTypeDef",
+    {
+        "ImageLocation": str,
+        "Architecture": ArchitectureValuesType,
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "Description": str,
+        "DryRun": bool,
+        "EnaSupport": bool,
+        "KernelId": str,
+        "BillingProducts": List[str],
+        "RamdiskId": str,
+        "RootDeviceName": str,
+        "SriovNetSupport": str,
+        "VirtualizationType": str,
+        "BootMode": BootModeValuesType,
+    },
+    total=False,
+)
+
+class RegisterImageRequestRequestTypeDef(
+    _RequiredRegisterImageRequestRequestTypeDef, _OptionalRegisterImageRequestRequestTypeDef
+):
+    pass
+
+_RequiredRegisterImageRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredRegisterImageRequestServiceResourceTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalRegisterImageRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalRegisterImageRequestServiceResourceTypeDef",
+    {
+        "ImageLocation": str,
+        "Architecture": ArchitectureValuesType,
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "Description": str,
+        "DryRun": bool,
+        "EnaSupport": bool,
+        "KernelId": str,
+        "BillingProducts": List[str],
+        "RamdiskId": str,
+        "RootDeviceName": str,
+        "SriovNetSupport": str,
+        "VirtualizationType": str,
+        "BootMode": BootModeValuesType,
+    },
+    total=False,
+)
+
+class RegisterImageRequestServiceResourceTypeDef(
+    _RequiredRegisterImageRequestServiceResourceTypeDef,
+    _OptionalRegisterImageRequestServiceResourceTypeDef,
+):
+    pass
+
+RegisterImageResultTypeDef = TypedDict(
+    "RegisterImageResultTypeDef",
+    {
+        "ImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegisterInstanceEventNotificationAttributesRequestRequestTypeDef = TypedDict(
+    "RegisterInstanceEventNotificationAttributesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "InstanceTagAttribute": "RegisterInstanceTagAttributeRequestTypeDef",
+    },
+    total=False,
+)
+
+RegisterInstanceEventNotificationAttributesResultTypeDef = TypedDict(
+    "RegisterInstanceEventNotificationAttributesResultTypeDef",
+    {
+        "InstanceTagAttribute": "InstanceTagNotificationAttributeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegisterInstanceTagAttributeRequestTypeDef = TypedDict(
+    "RegisterInstanceTagAttributeRequestTypeDef",
+    {
+        "IncludeAllTagsOfInstance": bool,
+        "InstanceTagKeys": List[str],
+    },
+    total=False,
+)
+
+RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef = TypedDict(
+    "RegisterTransitGatewayMulticastGroupMembersRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "GroupIpAddress": str,
+        "NetworkInterfaceIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+RegisterTransitGatewayMulticastGroupMembersResultTypeDef = TypedDict(
+    "RegisterTransitGatewayMulticastGroupMembersResultTypeDef",
+    {
+        "RegisteredMulticastGroupMembers": "TransitGatewayMulticastRegisteredGroupMembersTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef = TypedDict(
+    "RegisterTransitGatewayMulticastGroupSourcesRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "GroupIpAddress": str,
+        "NetworkInterfaceIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+RegisterTransitGatewayMulticastGroupSourcesResultTypeDef = TypedDict(
+    "RegisterTransitGatewayMulticastGroupSourcesResultTypeDef",
+    {
+        "RegisteredMulticastGroupSources": "TransitGatewayMulticastRegisteredGroupSourcesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RejectTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef = TypedDict(
+    "RejectTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "TransitGatewayAttachmentId": str,
+        "SubnetIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+RejectTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
+    "RejectTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    {
+        "Associations": "TransitGatewayMulticastDomainAssociationsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRejectTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredRejectTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalRejectTransitGatewayPeeringAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalRejectTransitGatewayPeeringAttachmentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RejectTransitGatewayPeeringAttachmentRequestRequestTypeDef(
+    _RequiredRejectTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+    _OptionalRejectTransitGatewayPeeringAttachmentRequestRequestTypeDef,
+):
+    pass
+
+RejectTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
+    "RejectTransitGatewayPeeringAttachmentResultTypeDef",
+    {
+        "TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRejectTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_RequiredRejectTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+    },
+)
+_OptionalRejectTransitGatewayVpcAttachmentRequestRequestTypeDef = TypedDict(
+    "_OptionalRejectTransitGatewayVpcAttachmentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RejectTransitGatewayVpcAttachmentRequestRequestTypeDef(
+    _RequiredRejectTransitGatewayVpcAttachmentRequestRequestTypeDef,
+    _OptionalRejectTransitGatewayVpcAttachmentRequestRequestTypeDef,
+):
+    pass
+
+RejectTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
+    "RejectTransitGatewayVpcAttachmentResultTypeDef",
+    {
+        "TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRejectVpcEndpointConnectionsRequestRequestTypeDef = TypedDict(
+    "_RequiredRejectVpcEndpointConnectionsRequestRequestTypeDef",
+    {
+        "ServiceId": str,
+        "VpcEndpointIds": List[str],
+    },
+)
+_OptionalRejectVpcEndpointConnectionsRequestRequestTypeDef = TypedDict(
+    "_OptionalRejectVpcEndpointConnectionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RejectVpcEndpointConnectionsRequestRequestTypeDef(
+    _RequiredRejectVpcEndpointConnectionsRequestRequestTypeDef,
+    _OptionalRejectVpcEndpointConnectionsRequestRequestTypeDef,
+):
+    pass
+
+RejectVpcEndpointConnectionsResultTypeDef = TypedDict(
+    "RejectVpcEndpointConnectionsResultTypeDef",
+    {
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRejectVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredRejectVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "VpcPeeringConnectionId": str,
+    },
+)
+_OptionalRejectVpcPeeringConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalRejectVpcPeeringConnectionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RejectVpcPeeringConnectionRequestRequestTypeDef(
+    _RequiredRejectVpcPeeringConnectionRequestRequestTypeDef,
+    _OptionalRejectVpcPeeringConnectionRequestRequestTypeDef,
+):
+    pass
+
+RejectVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef = TypedDict(
+    "RejectVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+RejectVpcPeeringConnectionResultTypeDef = TypedDict(
+    "RejectVpcPeeringConnectionResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ReleaseAddressRequestClassicAddressTypeDef = TypedDict(
+    "ReleaseAddressRequestClassicAddressTypeDef",
+    {
+        "AllocationId": str,
+        "PublicIp": str,
+        "NetworkBorderGroup": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+ReleaseAddressRequestRequestTypeDef = TypedDict(
+    "ReleaseAddressRequestRequestTypeDef",
+    {
+        "AllocationId": str,
+        "PublicIp": str,
+        "NetworkBorderGroup": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+ReleaseAddressRequestVpcAddressTypeDef = TypedDict(
+    "ReleaseAddressRequestVpcAddressTypeDef",
+    {
+        "AllocationId": str,
+        "PublicIp": str,
+        "NetworkBorderGroup": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+ReleaseHostsRequestRequestTypeDef = TypedDict(
+    "ReleaseHostsRequestRequestTypeDef",
+    {
+        "HostIds": List[str],
+    },
+)
+
+ReleaseHostsResultTypeDef = TypedDict(
+    "ReleaseHostsResultTypeDef",
+    {
+        "Successful": List[str],
+        "Unsuccessful": List["UnsuccessfulItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RemovePrefixListEntryTypeDef = TypedDict(
+    "RemovePrefixListEntryTypeDef",
+    {
+        "Cidr": str,
+    },
+)
+
+ReplaceIamInstanceProfileAssociationRequestRequestTypeDef = TypedDict(
+    "ReplaceIamInstanceProfileAssociationRequestRequestTypeDef",
+    {
+        "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
+        "AssociationId": str,
+    },
+)
+
+ReplaceIamInstanceProfileAssociationResultTypeDef = TypedDict(
+    "ReplaceIamInstanceProfileAssociationResultTypeDef",
+    {
+        "IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredReplaceNetworkAclAssociationRequestNetworkAclTypeDef = TypedDict(
+    "_RequiredReplaceNetworkAclAssociationRequestNetworkAclTypeDef",
+    {
+        "AssociationId": str,
+    },
+)
+_OptionalReplaceNetworkAclAssociationRequestNetworkAclTypeDef = TypedDict(
+    "_OptionalReplaceNetworkAclAssociationRequestNetworkAclTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ReplaceNetworkAclAssociationRequestNetworkAclTypeDef(
+    _RequiredReplaceNetworkAclAssociationRequestNetworkAclTypeDef,
+    _OptionalReplaceNetworkAclAssociationRequestNetworkAclTypeDef,
+):
+    pass
+
+_RequiredReplaceNetworkAclAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredReplaceNetworkAclAssociationRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+        "NetworkAclId": str,
+    },
+)
+_OptionalReplaceNetworkAclAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalReplaceNetworkAclAssociationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ReplaceNetworkAclAssociationRequestRequestTypeDef(
+    _RequiredReplaceNetworkAclAssociationRequestRequestTypeDef,
+    _OptionalReplaceNetworkAclAssociationRequestRequestTypeDef,
+):
+    pass
+
+ReplaceNetworkAclAssociationResultTypeDef = TypedDict(
+    "ReplaceNetworkAclAssociationResultTypeDef",
+    {
+        "NewAssociationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredReplaceNetworkAclEntryRequestNetworkAclTypeDef = TypedDict(
+    "_RequiredReplaceNetworkAclEntryRequestNetworkAclTypeDef",
+    {
+        "Egress": bool,
+        "Protocol": str,
+        "RuleAction": RuleActionType,
+        "RuleNumber": int,
+    },
+)
+_OptionalReplaceNetworkAclEntryRequestNetworkAclTypeDef = TypedDict(
+    "_OptionalReplaceNetworkAclEntryRequestNetworkAclTypeDef",
+    {
+        "CidrBlock": str,
+        "DryRun": bool,
+        "IcmpTypeCode": "IcmpTypeCodeTypeDef",
+        "Ipv6CidrBlock": str,
+        "PortRange": "PortRangeTypeDef",
+    },
+    total=False,
+)
+
+class ReplaceNetworkAclEntryRequestNetworkAclTypeDef(
+    _RequiredReplaceNetworkAclEntryRequestNetworkAclTypeDef,
+    _OptionalReplaceNetworkAclEntryRequestNetworkAclTypeDef,
+):
+    pass
+
+_RequiredReplaceNetworkAclEntryRequestRequestTypeDef = TypedDict(
+    "_RequiredReplaceNetworkAclEntryRequestRequestTypeDef",
+    {
+        "Egress": bool,
+        "NetworkAclId": str,
+        "Protocol": str,
+        "RuleAction": RuleActionType,
+        "RuleNumber": int,
+    },
+)
+_OptionalReplaceNetworkAclEntryRequestRequestTypeDef = TypedDict(
+    "_OptionalReplaceNetworkAclEntryRequestRequestTypeDef",
+    {
+        "CidrBlock": str,
+        "DryRun": bool,
+        "IcmpTypeCode": "IcmpTypeCodeTypeDef",
+        "Ipv6CidrBlock": str,
+        "PortRange": "PortRangeTypeDef",
+    },
+    total=False,
+)
+
+class ReplaceNetworkAclEntryRequestRequestTypeDef(
+    _RequiredReplaceNetworkAclEntryRequestRequestTypeDef,
+    _OptionalReplaceNetworkAclEntryRequestRequestTypeDef,
+):
+    pass
+
+ReplaceRootVolumeTaskTypeDef = TypedDict(
+    "ReplaceRootVolumeTaskTypeDef",
+    {
+        "ReplaceRootVolumeTaskId": str,
+        "InstanceId": str,
+        "TaskState": ReplaceRootVolumeTaskStateType,
+        "StartTime": str,
+        "CompleteTime": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredReplaceRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredReplaceRouteRequestRequestTypeDef",
+    {
+        "RouteTableId": str,
+    },
+)
+_OptionalReplaceRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalReplaceRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "DestinationIpv6CidrBlock": str,
+        "DestinationPrefixListId": str,
+        "DryRun": bool,
+        "VpcEndpointId": str,
+        "EgressOnlyInternetGatewayId": str,
+        "GatewayId": str,
+        "InstanceId": str,
+        "LocalTarget": bool,
+        "NatGatewayId": str,
+        "TransitGatewayId": str,
+        "LocalGatewayId": str,
+        "CarrierGatewayId": str,
+        "NetworkInterfaceId": str,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+class ReplaceRouteRequestRequestTypeDef(
+    _RequiredReplaceRouteRequestRequestTypeDef, _OptionalReplaceRouteRequestRequestTypeDef
+):
+    pass
+
+ReplaceRouteRequestRouteTypeDef = TypedDict(
+    "ReplaceRouteRequestRouteTypeDef",
+    {
+        "DestinationIpv6CidrBlock": str,
+        "DestinationPrefixListId": str,
+        "DryRun": bool,
+        "VpcEndpointId": str,
+        "EgressOnlyInternetGatewayId": str,
+        "GatewayId": str,
+        "InstanceId": str,
+        "LocalTarget": bool,
+        "NatGatewayId": str,
+        "TransitGatewayId": str,
+        "LocalGatewayId": str,
+        "CarrierGatewayId": str,
+        "NetworkInterfaceId": str,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+_RequiredReplaceRouteTableAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredReplaceRouteTableAssociationRequestRequestTypeDef",
+    {
+        "AssociationId": str,
+        "RouteTableId": str,
+    },
+)
+_OptionalReplaceRouteTableAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalReplaceRouteTableAssociationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ReplaceRouteTableAssociationRequestRequestTypeDef(
+    _RequiredReplaceRouteTableAssociationRequestRequestTypeDef,
+    _OptionalReplaceRouteTableAssociationRequestRequestTypeDef,
+):
+    pass
+
+_RequiredReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef = TypedDict(
+    "_RequiredReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef",
+    {
+        "RouteTableId": str,
+    },
+)
+_OptionalReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef = TypedDict(
+    "_OptionalReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef(
+    _RequiredReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef,
+    _OptionalReplaceRouteTableAssociationRequestRouteTableAssociationTypeDef,
+):
+    pass
+
+ReplaceRouteTableAssociationResultTypeDef = TypedDict(
+    "ReplaceRouteTableAssociationResultTypeDef",
+    {
+        "NewAssociationId": str,
+        "AssociationState": "RouteTableAssociationStateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredReplaceTransitGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_RequiredReplaceTransitGatewayRouteRequestRequestTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "TransitGatewayRouteTableId": str,
+    },
+)
+_OptionalReplaceTransitGatewayRouteRequestRequestTypeDef = TypedDict(
+    "_OptionalReplaceTransitGatewayRouteRequestRequestTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "Blackhole": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ReplaceTransitGatewayRouteRequestRequestTypeDef(
+    _RequiredReplaceTransitGatewayRouteRequestRequestTypeDef,
+    _OptionalReplaceTransitGatewayRouteRequestRequestTypeDef,
+):
+    pass
+
+ReplaceTransitGatewayRouteResultTypeDef = TypedDict(
+    "ReplaceTransitGatewayRouteResultTypeDef",
+    {
+        "Route": "TransitGatewayRouteTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredReportInstanceStatusRequestInstanceTypeDef = TypedDict(
+    "_RequiredReportInstanceStatusRequestInstanceTypeDef",
+    {
+        "ReasonCodes": List[ReportInstanceReasonCodesType],
+        "Status": ReportStatusTypeType,
+    },
+)
+_OptionalReportInstanceStatusRequestInstanceTypeDef = TypedDict(
+    "_OptionalReportInstanceStatusRequestInstanceTypeDef",
+    {
+        "Description": str,
+        "DryRun": bool,
+        "EndTime": Union[datetime, str],
+        "StartTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class ReportInstanceStatusRequestInstanceTypeDef(
+    _RequiredReportInstanceStatusRequestInstanceTypeDef,
+    _OptionalReportInstanceStatusRequestInstanceTypeDef,
+):
+    pass
+
+_RequiredReportInstanceStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredReportInstanceStatusRequestRequestTypeDef",
+    {
+        "Instances": List[str],
+        "ReasonCodes": List[ReportInstanceReasonCodesType],
+        "Status": ReportStatusTypeType,
+    },
+)
+_OptionalReportInstanceStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalReportInstanceStatusRequestRequestTypeDef",
+    {
+        "Description": str,
+        "DryRun": bool,
+        "EndTime": Union[datetime, str],
+        "StartTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class ReportInstanceStatusRequestRequestTypeDef(
+    _RequiredReportInstanceStatusRequestRequestTypeDef,
+    _OptionalReportInstanceStatusRequestRequestTypeDef,
+):
+    pass
+
+RequestLaunchTemplateDataTypeDef = TypedDict(
+    "RequestLaunchTemplateDataTypeDef",
+    {
+        "KernelId": str,
+        "EbsOptimized": bool,
+        "IamInstanceProfile": "LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef",
+        "BlockDeviceMappings": List["LaunchTemplateBlockDeviceMappingRequestTypeDef"],
+        "NetworkInterfaces": List[
+            "LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef"
+        ],
+        "ImageId": str,
+        "InstanceType": InstanceTypeType,
+        "KeyName": str,
+        "Monitoring": "LaunchTemplatesMonitoringRequestTypeDef",
+        "Placement": "LaunchTemplatePlacementRequestTypeDef",
+        "RamDiskId": str,
+        "DisableApiTermination": bool,
+        "InstanceInitiatedShutdownBehavior": ShutdownBehaviorType,
+        "UserData": str,
+        "TagSpecifications": List["LaunchTemplateTagSpecificationRequestTypeDef"],
+        "ElasticGpuSpecifications": List["ElasticGpuSpecificationTypeDef"],
+        "ElasticInferenceAccelerators": List["LaunchTemplateElasticInferenceAcceleratorTypeDef"],
+        "SecurityGroupIds": List[str],
+        "SecurityGroups": List[str],
+        "InstanceMarketOptions": "LaunchTemplateInstanceMarketOptionsRequestTypeDef",
+        "CreditSpecification": "CreditSpecificationRequestTypeDef",
+        "CpuOptions": "LaunchTemplateCpuOptionsRequestTypeDef",
+        "CapacityReservationSpecification": "LaunchTemplateCapacityReservationSpecificationRequestTypeDef",
+        "LicenseSpecifications": List["LaunchTemplateLicenseConfigurationRequestTypeDef"],
+        "HibernationOptions": "LaunchTemplateHibernationOptionsRequestTypeDef",
+        "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsRequestTypeDef",
+        "EnclaveOptions": "LaunchTemplateEnclaveOptionsRequestTypeDef",
+    },
+    total=False,
+)
+
+_RequiredRequestSpotFleetRequestRequestTypeDef = TypedDict(
+    "_RequiredRequestSpotFleetRequestRequestTypeDef",
+    {
+        "SpotFleetRequestConfig": "SpotFleetRequestConfigDataTypeDef",
+    },
+)
+_OptionalRequestSpotFleetRequestRequestTypeDef = TypedDict(
+    "_OptionalRequestSpotFleetRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RequestSpotFleetRequestRequestTypeDef(
+    _RequiredRequestSpotFleetRequestRequestTypeDef, _OptionalRequestSpotFleetRequestRequestTypeDef
+):
+    pass
+
+RequestSpotFleetResponseTypeDef = TypedDict(
+    "RequestSpotFleetResponseTypeDef",
+    {
+        "SpotFleetRequestId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RequestSpotInstancesRequestRequestTypeDef = TypedDict(
+    "RequestSpotInstancesRequestRequestTypeDef",
+    {
+        "AvailabilityZoneGroup": str,
+        "BlockDurationMinutes": int,
+        "ClientToken": str,
+        "DryRun": bool,
+        "InstanceCount": int,
+        "LaunchGroup": str,
+        "LaunchSpecification": "RequestSpotLaunchSpecificationTypeDef",
+        "SpotPrice": str,
+        "Type": SpotInstanceTypeType,
+        "ValidFrom": Union[datetime, str],
+        "ValidUntil": Union[datetime, str],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "InstanceInterruptionBehavior": InstanceInterruptionBehaviorType,
+    },
+    total=False,
+)
+
+RequestSpotInstancesResultTypeDef = TypedDict(
+    "RequestSpotInstancesResultTypeDef",
+    {
+        "SpotInstanceRequests": List["SpotInstanceRequestTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RequestSpotLaunchSpecificationTypeDef = TypedDict(
+    "RequestSpotLaunchSpecificationTypeDef",
+    {
+        "SecurityGroupIds": List[str],
+        "SecurityGroups": List[str],
+        "AddressingType": str,
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "EbsOptimized": bool,
+        "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
+        "ImageId": str,
+        "InstanceType": InstanceTypeType,
+        "KernelId": str,
+        "KeyName": str,
+        "Monitoring": "RunInstancesMonitoringEnabledTypeDef",
+        "NetworkInterfaces": List["InstanceNetworkInterfaceSpecificationTypeDef"],
+        "Placement": "SpotPlacementTypeDef",
+        "RamdiskId": str,
+        "SubnetId": str,
+        "UserData": str,
+    },
+    total=False,
+)
+
+ReservationResponseMetadataTypeDef = TypedDict(
+    "ReservationResponseMetadataTypeDef",
+    {
+        "Groups": List["GroupIdentifierTypeDef"],
+        "Instances": List["InstanceTypeDef"],
+        "OwnerId": str,
+        "RequesterId": str,
+        "ReservationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ReservationTypeDef = TypedDict(
@@ -7550,13 +19221,29 @@ ReservationTypeDef = TypedDict(
 
 ReservationValueTypeDef = TypedDict(
     "ReservationValueTypeDef",
-    {"HourlyPrice": str, "RemainingTotalValue": str, "RemainingUpfrontValue": str},
+    {
+        "HourlyPrice": str,
+        "RemainingTotalValue": str,
+        "RemainingUpfrontValue": str,
+    },
+    total=False,
+)
+
+ReservedInstanceLimitPriceTypeDef = TypedDict(
+    "ReservedInstanceLimitPriceTypeDef",
+    {
+        "Amount": float,
+        "CurrencyCode": Literal["USD"],
+    },
     total=False,
 )
 
 ReservedInstanceReservationValueTypeDef = TypedDict(
     "ReservedInstanceReservationValueTypeDef",
-    {"ReservationValue": "ReservationValueTypeDef", "ReservedInstanceId": str},
+    {
+        "ReservationValue": "ReservationValueTypeDef",
+        "ReservedInstanceId": str,
+    },
     total=False,
 )
 
@@ -7565,405 +19252,19 @@ ReservedInstancesConfigurationTypeDef = TypedDict(
     {
         "AvailabilityZone": str,
         "InstanceCount": int,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "Platform": str,
-        "Scope": Literal["Availability Zone", "Region"],
+        "Scope": scopeType,
     },
     total=False,
 )
 
 ReservedInstancesIdTypeDef = TypedDict(
-    "ReservedInstancesIdTypeDef", {"ReservedInstancesId": str}, total=False
+    "ReservedInstancesIdTypeDef",
+    {
+        "ReservedInstancesId": str,
+    },
+    total=False,
 )
 
 ReservedInstancesListingTypeDef = TypedDict(
@@ -7975,7 +19276,7 @@ ReservedInstancesListingTypeDef = TypedDict(
         "PriceSchedules": List["PriceScheduleTypeDef"],
         "ReservedInstancesId": str,
         "ReservedInstancesListingId": str,
-        "Status": Literal["active", "pending", "cancelled", "closed"],
+        "Status": ListingStatusType,
         "StatusMessage": str,
         "Tags": List["TagTypeDef"],
         "UpdateDate": datetime,
@@ -7985,7 +19286,10 @@ ReservedInstancesListingTypeDef = TypedDict(
 
 ReservedInstancesModificationResultTypeDef = TypedDict(
     "ReservedInstancesModificationResultTypeDef",
-    {"ReservedInstancesId": str, "TargetConfiguration": "ReservedInstancesConfigurationTypeDef"},
+    {
+        "ReservedInstancesId": str,
+        "TargetConfiguration": "ReservedInstancesConfigurationTypeDef",
+    },
     total=False,
 )
 
@@ -8011,417 +19315,18 @@ ReservedInstancesOfferingTypeDef = TypedDict(
         "AvailabilityZone": str,
         "Duration": int,
         "FixedPrice": float,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
-        "ProductDescription": Literal[
-            "Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"
-        ],
+        "InstanceType": InstanceTypeType,
+        "ProductDescription": RIProductDescriptionType,
         "ReservedInstancesOfferingId": str,
         "UsagePrice": float,
         "CurrencyCode": Literal["USD"],
-        "InstanceTenancy": Literal["default", "dedicated", "host"],
+        "InstanceTenancy": TenancyType,
         "Marketplace": bool,
-        "OfferingClass": Literal["standard", "convertible"],
-        "OfferingType": Literal[
-            "Heavy Utilization",
-            "Medium Utilization",
-            "Light Utilization",
-            "No Upfront",
-            "Partial Upfront",
-            "All Upfront",
-        ],
+        "OfferingClass": OfferingClassTypeType,
+        "OfferingType": OfferingTypeValuesType,
         "PricingDetails": List["PricingDetailTypeDef"],
         "RecurringCharges": List["RecurringChargeTypeDef"],
-        "Scope": Literal["Availability Zone", "Region"],
+        "Scope": scopeType,
     },
     total=False,
 )
@@ -8434,435 +19339,253 @@ ReservedInstancesTypeDef = TypedDict(
         "End": datetime,
         "FixedPrice": float,
         "InstanceCount": int,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
-        "ProductDescription": Literal[
-            "Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"
-        ],
+        "InstanceType": InstanceTypeType,
+        "ProductDescription": RIProductDescriptionType,
         "ReservedInstancesId": str,
         "Start": datetime,
-        "State": Literal[
-            "payment-pending", "active", "payment-failed", "retired", "queued", "queued-deleted"
-        ],
+        "State": ReservedInstanceStateType,
         "UsagePrice": float,
         "CurrencyCode": Literal["USD"],
-        "InstanceTenancy": Literal["default", "dedicated", "host"],
-        "OfferingClass": Literal["standard", "convertible"],
-        "OfferingType": Literal[
-            "Heavy Utilization",
-            "Medium Utilization",
-            "Light Utilization",
-            "No Upfront",
-            "Partial Upfront",
-            "All Upfront",
-        ],
+        "InstanceTenancy": TenancyType,
+        "OfferingClass": OfferingClassTypeType,
+        "OfferingType": OfferingTypeValuesType,
         "RecurringCharges": List["RecurringChargeTypeDef"],
-        "Scope": Literal["Availability Zone", "Region"],
+        "Scope": scopeType,
         "Tags": List["TagTypeDef"],
     },
     total=False,
 )
 
+_RequiredResetAddressAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredResetAddressAttributeRequestRequestTypeDef",
+    {
+        "AllocationId": str,
+        "Attribute": Literal["domain-name"],
+    },
+)
+_OptionalResetAddressAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalResetAddressAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ResetAddressAttributeRequestRequestTypeDef(
+    _RequiredResetAddressAttributeRequestRequestTypeDef,
+    _OptionalResetAddressAttributeRequestRequestTypeDef,
+):
+    pass
+
+ResetAddressAttributeResultTypeDef = TypedDict(
+    "ResetAddressAttributeResultTypeDef",
+    {
+        "Address": "AddressAttributeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResetEbsDefaultKmsKeyIdRequestRequestTypeDef = TypedDict(
+    "ResetEbsDefaultKmsKeyIdRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+ResetEbsDefaultKmsKeyIdResultTypeDef = TypedDict(
+    "ResetEbsDefaultKmsKeyIdResultTypeDef",
+    {
+        "KmsKeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredResetFpgaImageAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredResetFpgaImageAttributeRequestRequestTypeDef",
+    {
+        "FpgaImageId": str,
+    },
+)
+_OptionalResetFpgaImageAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalResetFpgaImageAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Attribute": Literal["loadPermission"],
+    },
+    total=False,
+)
+
+class ResetFpgaImageAttributeRequestRequestTypeDef(
+    _RequiredResetFpgaImageAttributeRequestRequestTypeDef,
+    _OptionalResetFpgaImageAttributeRequestRequestTypeDef,
+):
+    pass
+
+ResetFpgaImageAttributeResultTypeDef = TypedDict(
+    "ResetFpgaImageAttributeResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredResetImageAttributeRequestImageTypeDef = TypedDict(
+    "_RequiredResetImageAttributeRequestImageTypeDef",
+    {
+        "Attribute": Literal["launchPermission"],
+    },
+)
+_OptionalResetImageAttributeRequestImageTypeDef = TypedDict(
+    "_OptionalResetImageAttributeRequestImageTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ResetImageAttributeRequestImageTypeDef(
+    _RequiredResetImageAttributeRequestImageTypeDef, _OptionalResetImageAttributeRequestImageTypeDef
+):
+    pass
+
+_RequiredResetImageAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredResetImageAttributeRequestRequestTypeDef",
+    {
+        "Attribute": Literal["launchPermission"],
+        "ImageId": str,
+    },
+)
+_OptionalResetImageAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalResetImageAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ResetImageAttributeRequestRequestTypeDef(
+    _RequiredResetImageAttributeRequestRequestTypeDef,
+    _OptionalResetImageAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredResetInstanceAttributeRequestInstanceTypeDef = TypedDict(
+    "_RequiredResetInstanceAttributeRequestInstanceTypeDef",
+    {
+        "Attribute": InstanceAttributeNameType,
+    },
+)
+_OptionalResetInstanceAttributeRequestInstanceTypeDef = TypedDict(
+    "_OptionalResetInstanceAttributeRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ResetInstanceAttributeRequestInstanceTypeDef(
+    _RequiredResetInstanceAttributeRequestInstanceTypeDef,
+    _OptionalResetInstanceAttributeRequestInstanceTypeDef,
+):
+    pass
+
+_RequiredResetInstanceAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredResetInstanceAttributeRequestRequestTypeDef",
+    {
+        "Attribute": InstanceAttributeNameType,
+        "InstanceId": str,
+    },
+)
+_OptionalResetInstanceAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalResetInstanceAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ResetInstanceAttributeRequestRequestTypeDef(
+    _RequiredResetInstanceAttributeRequestRequestTypeDef,
+    _OptionalResetInstanceAttributeRequestRequestTypeDef,
+):
+    pass
+
+ResetNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef = TypedDict(
+    "ResetNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
+    {
+        "DryRun": bool,
+        "SourceDestCheck": str,
+    },
+    total=False,
+)
+
+_RequiredResetNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredResetNetworkInterfaceAttributeRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalResetNetworkInterfaceAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalResetNetworkInterfaceAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "SourceDestCheck": str,
+    },
+    total=False,
+)
+
+class ResetNetworkInterfaceAttributeRequestRequestTypeDef(
+    _RequiredResetNetworkInterfaceAttributeRequestRequestTypeDef,
+    _OptionalResetNetworkInterfaceAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredResetSnapshotAttributeRequestRequestTypeDef = TypedDict(
+    "_RequiredResetSnapshotAttributeRequestRequestTypeDef",
+    {
+        "Attribute": SnapshotAttributeNameType,
+        "SnapshotId": str,
+    },
+)
+_OptionalResetSnapshotAttributeRequestRequestTypeDef = TypedDict(
+    "_OptionalResetSnapshotAttributeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ResetSnapshotAttributeRequestRequestTypeDef(
+    _RequiredResetSnapshotAttributeRequestRequestTypeDef,
+    _OptionalResetSnapshotAttributeRequestRequestTypeDef,
+):
+    pass
+
+_RequiredResetSnapshotAttributeRequestSnapshotTypeDef = TypedDict(
+    "_RequiredResetSnapshotAttributeRequestSnapshotTypeDef",
+    {
+        "Attribute": SnapshotAttributeNameType,
+    },
+)
+_OptionalResetSnapshotAttributeRequestSnapshotTypeDef = TypedDict(
+    "_OptionalResetSnapshotAttributeRequestSnapshotTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ResetSnapshotAttributeRequestSnapshotTypeDef(
+    _RequiredResetSnapshotAttributeRequestSnapshotTypeDef,
+    _OptionalResetSnapshotAttributeRequestSnapshotTypeDef,
+):
+    pass
+
 ResponseErrorTypeDef = TypedDict(
     "ResponseErrorTypeDef",
     {
-        "Code": Literal[
-            "launchTemplateIdDoesNotExist",
-            "launchTemplateIdMalformed",
-            "launchTemplateNameDoesNotExist",
-            "launchTemplateNameMalformed",
-            "launchTemplateVersionDoesNotExist",
-            "unexpectedError",
-        ],
+        "Code": LaunchTemplateErrorCodeType,
         "Message": str,
     },
     total=False,
@@ -8877,403 +19600,13 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
         "BlockDeviceMappings": List["LaunchTemplateBlockDeviceMappingTypeDef"],
         "NetworkInterfaces": List["LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef"],
         "ImageId": str,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "KeyName": str,
         "Monitoring": "LaunchTemplatesMonitoringTypeDef",
         "Placement": "LaunchTemplatePlacementTypeDef",
         "RamDiskId": str,
         "DisableApiTermination": bool,
-        "InstanceInitiatedShutdownBehavior": Literal["stop", "terminate"],
+        "InstanceInitiatedShutdownBehavior": ShutdownBehaviorType,
         "UserData": str,
         "TagSpecifications": List["LaunchTemplateTagSpecificationTypeDef"],
         "ElasticGpuSpecifications": List["ElasticGpuSpecificationResponseTypeDef"],
@@ -9294,10 +19627,208 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+_RequiredRestoreAddressToClassicRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreAddressToClassicRequestRequestTypeDef",
+    {
+        "PublicIp": str,
+    },
+)
+_OptionalRestoreAddressToClassicRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreAddressToClassicRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RestoreAddressToClassicRequestRequestTypeDef(
+    _RequiredRestoreAddressToClassicRequestRequestTypeDef,
+    _OptionalRestoreAddressToClassicRequestRequestTypeDef,
+):
+    pass
+
+RestoreAddressToClassicResultTypeDef = TypedDict(
+    "RestoreAddressToClassicResultTypeDef",
+    {
+        "PublicIp": str,
+        "Status": StatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRestoreManagedPrefixListVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreManagedPrefixListVersionRequestRequestTypeDef",
+    {
+        "PrefixListId": str,
+        "PreviousVersion": int,
+        "CurrentVersion": int,
+    },
+)
+_OptionalRestoreManagedPrefixListVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreManagedPrefixListVersionRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RestoreManagedPrefixListVersionRequestRequestTypeDef(
+    _RequiredRestoreManagedPrefixListVersionRequestRequestTypeDef,
+    _OptionalRestoreManagedPrefixListVersionRequestRequestTypeDef,
+):
+    pass
+
+RestoreManagedPrefixListVersionResultTypeDef = TypedDict(
+    "RestoreManagedPrefixListVersionResultTypeDef",
+    {
+        "PrefixList": "ManagedPrefixListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRevokeClientVpnIngressRequestRequestTypeDef = TypedDict(
+    "_RequiredRevokeClientVpnIngressRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "TargetNetworkCidr": str,
+    },
+)
+_OptionalRevokeClientVpnIngressRequestRequestTypeDef = TypedDict(
+    "_OptionalRevokeClientVpnIngressRequestRequestTypeDef",
+    {
+        "AccessGroupId": str,
+        "RevokeAllGroups": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RevokeClientVpnIngressRequestRequestTypeDef(
+    _RequiredRevokeClientVpnIngressRequestRequestTypeDef,
+    _OptionalRevokeClientVpnIngressRequestRequestTypeDef,
+):
+    pass
+
+RevokeClientVpnIngressResultTypeDef = TypedDict(
+    "RevokeClientVpnIngressResultTypeDef",
+    {
+        "Status": "ClientVpnAuthorizationRuleStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRevokeSecurityGroupEgressRequestRequestTypeDef = TypedDict(
+    "_RequiredRevokeSecurityGroupEgressRequestRequestTypeDef",
+    {
+        "GroupId": str,
+    },
+)
+_OptionalRevokeSecurityGroupEgressRequestRequestTypeDef = TypedDict(
+    "_OptionalRevokeSecurityGroupEgressRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "SecurityGroupRuleIds": List[str],
+        "CidrIp": str,
+        "FromPort": int,
+        "IpProtocol": str,
+        "ToPort": int,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+    },
+    total=False,
+)
+
+class RevokeSecurityGroupEgressRequestRequestTypeDef(
+    _RequiredRevokeSecurityGroupEgressRequestRequestTypeDef,
+    _OptionalRevokeSecurityGroupEgressRequestRequestTypeDef,
+):
+    pass
+
+RevokeSecurityGroupEgressRequestSecurityGroupTypeDef = TypedDict(
+    "RevokeSecurityGroupEgressRequestSecurityGroupTypeDef",
+    {
+        "DryRun": bool,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "SecurityGroupRuleIds": List[str],
+        "CidrIp": str,
+        "FromPort": int,
+        "IpProtocol": str,
+        "ToPort": int,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+    },
+    total=False,
+)
+
+RevokeSecurityGroupEgressResultTypeDef = TypedDict(
+    "RevokeSecurityGroupEgressResultTypeDef",
+    {
+        "Return": bool,
+        "UnknownIpPermissions": List["IpPermissionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RevokeSecurityGroupIngressRequestRequestTypeDef = TypedDict(
+    "RevokeSecurityGroupIngressRequestRequestTypeDef",
+    {
+        "CidrIp": str,
+        "FromPort": int,
+        "GroupId": str,
+        "GroupName": str,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "IpProtocol": str,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+        "ToPort": int,
+        "DryRun": bool,
+        "SecurityGroupRuleIds": List[str],
+    },
+    total=False,
+)
+
+RevokeSecurityGroupIngressRequestSecurityGroupTypeDef = TypedDict(
+    "RevokeSecurityGroupIngressRequestSecurityGroupTypeDef",
+    {
+        "CidrIp": str,
+        "FromPort": int,
+        "GroupName": str,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "IpProtocol": str,
+        "SourceSecurityGroupName": str,
+        "SourceSecurityGroupOwnerId": str,
+        "ToPort": int,
+        "DryRun": bool,
+        "SecurityGroupRuleIds": List[str],
+    },
+    total=False,
+)
+
+RevokeSecurityGroupIngressResultTypeDef = TypedDict(
+    "RevokeSecurityGroupIngressResultTypeDef",
+    {
+        "Return": bool,
+        "UnknownIpPermissions": List["IpPermissionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 RouteTableAssociationStateTypeDef = TypedDict(
     "RouteTableAssociationStateTypeDef",
     {
-        "State": Literal["associating", "associated", "disassociating", "disassociated", "failed"],
+        "State": RouteTableAssociationStateCodeType,
         "StatusMessage": str,
     },
     total=False,
@@ -9345,15 +19876,220 @@ RouteTypeDef = TypedDict(
         "LocalGatewayId": str,
         "CarrierGatewayId": str,
         "NetworkInterfaceId": str,
-        "Origin": Literal["CreateRouteTable", "CreateRoute", "EnableVgwRoutePropagation"],
-        "State": Literal["active", "blackhole"],
+        "Origin": RouteOriginType,
+        "State": RouteStateType,
         "VpcPeeringConnectionId": str,
     },
     total=False,
 )
 
 RunInstancesMonitoringEnabledTypeDef = TypedDict(
-    "RunInstancesMonitoringEnabledTypeDef", {"Enabled": bool}
+    "RunInstancesMonitoringEnabledTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+
+_RequiredRunInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredRunInstancesRequestRequestTypeDef",
+    {
+        "MaxCount": int,
+        "MinCount": int,
+    },
+)
+_OptionalRunInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalRunInstancesRequestRequestTypeDef",
+    {
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "ImageId": str,
+        "InstanceType": InstanceTypeType,
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List["InstanceIpv6AddressTypeDef"],
+        "KernelId": str,
+        "KeyName": str,
+        "Monitoring": "RunInstancesMonitoringEnabledTypeDef",
+        "Placement": "PlacementTypeDef",
+        "RamdiskId": str,
+        "SecurityGroupIds": List[str],
+        "SecurityGroups": List[str],
+        "SubnetId": str,
+        "UserData": str,
+        "AdditionalInfo": str,
+        "ClientToken": str,
+        "DisableApiTermination": bool,
+        "DryRun": bool,
+        "EbsOptimized": bool,
+        "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
+        "InstanceInitiatedShutdownBehavior": ShutdownBehaviorType,
+        "NetworkInterfaces": List["InstanceNetworkInterfaceSpecificationTypeDef"],
+        "PrivateIpAddress": str,
+        "ElasticGpuSpecification": List["ElasticGpuSpecificationTypeDef"],
+        "ElasticInferenceAccelerators": List["ElasticInferenceAcceleratorTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "LaunchTemplate": "LaunchTemplateSpecificationTypeDef",
+        "InstanceMarketOptions": "InstanceMarketOptionsRequestTypeDef",
+        "CreditSpecification": "CreditSpecificationRequestTypeDef",
+        "CpuOptions": "CpuOptionsRequestTypeDef",
+        "CapacityReservationSpecification": "CapacityReservationSpecificationTypeDef",
+        "HibernationOptions": "HibernationOptionsRequestTypeDef",
+        "LicenseSpecifications": List["LicenseConfigurationRequestTypeDef"],
+        "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
+        "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
+    },
+    total=False,
+)
+
+class RunInstancesRequestRequestTypeDef(
+    _RequiredRunInstancesRequestRequestTypeDef, _OptionalRunInstancesRequestRequestTypeDef
+):
+    pass
+
+_RequiredRunInstancesRequestServiceResourceTypeDef = TypedDict(
+    "_RequiredRunInstancesRequestServiceResourceTypeDef",
+    {
+        "MaxCount": int,
+        "MinCount": int,
+    },
+)
+_OptionalRunInstancesRequestServiceResourceTypeDef = TypedDict(
+    "_OptionalRunInstancesRequestServiceResourceTypeDef",
+    {
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "ImageId": str,
+        "InstanceType": InstanceTypeType,
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List["InstanceIpv6AddressTypeDef"],
+        "KernelId": str,
+        "KeyName": str,
+        "Monitoring": "RunInstancesMonitoringEnabledTypeDef",
+        "Placement": "PlacementTypeDef",
+        "RamdiskId": str,
+        "SecurityGroupIds": List[str],
+        "SecurityGroups": List[str],
+        "SubnetId": str,
+        "UserData": str,
+        "AdditionalInfo": str,
+        "ClientToken": str,
+        "DisableApiTermination": bool,
+        "DryRun": bool,
+        "EbsOptimized": bool,
+        "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
+        "InstanceInitiatedShutdownBehavior": ShutdownBehaviorType,
+        "NetworkInterfaces": List["InstanceNetworkInterfaceSpecificationTypeDef"],
+        "PrivateIpAddress": str,
+        "ElasticGpuSpecification": List["ElasticGpuSpecificationTypeDef"],
+        "ElasticInferenceAccelerators": List["ElasticInferenceAcceleratorTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "LaunchTemplate": "LaunchTemplateSpecificationTypeDef",
+        "InstanceMarketOptions": "InstanceMarketOptionsRequestTypeDef",
+        "CreditSpecification": "CreditSpecificationRequestTypeDef",
+        "CpuOptions": "CpuOptionsRequestTypeDef",
+        "CapacityReservationSpecification": "CapacityReservationSpecificationTypeDef",
+        "HibernationOptions": "HibernationOptionsRequestTypeDef",
+        "LicenseSpecifications": List["LicenseConfigurationRequestTypeDef"],
+        "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
+        "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
+    },
+    total=False,
+)
+
+class RunInstancesRequestServiceResourceTypeDef(
+    _RequiredRunInstancesRequestServiceResourceTypeDef,
+    _OptionalRunInstancesRequestServiceResourceTypeDef,
+):
+    pass
+
+_RequiredRunInstancesRequestSubnetTypeDef = TypedDict(
+    "_RequiredRunInstancesRequestSubnetTypeDef",
+    {
+        "MaxCount": int,
+        "MinCount": int,
+    },
+)
+_OptionalRunInstancesRequestSubnetTypeDef = TypedDict(
+    "_OptionalRunInstancesRequestSubnetTypeDef",
+    {
+        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
+        "ImageId": str,
+        "InstanceType": InstanceTypeType,
+        "Ipv6AddressCount": int,
+        "Ipv6Addresses": List["InstanceIpv6AddressTypeDef"],
+        "KernelId": str,
+        "KeyName": str,
+        "Monitoring": "RunInstancesMonitoringEnabledTypeDef",
+        "Placement": "PlacementTypeDef",
+        "RamdiskId": str,
+        "SecurityGroupIds": List[str],
+        "SecurityGroups": List[str],
+        "UserData": str,
+        "AdditionalInfo": str,
+        "ClientToken": str,
+        "DisableApiTermination": bool,
+        "DryRun": bool,
+        "EbsOptimized": bool,
+        "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
+        "InstanceInitiatedShutdownBehavior": ShutdownBehaviorType,
+        "NetworkInterfaces": List["InstanceNetworkInterfaceSpecificationTypeDef"],
+        "PrivateIpAddress": str,
+        "ElasticGpuSpecification": List["ElasticGpuSpecificationTypeDef"],
+        "ElasticInferenceAccelerators": List["ElasticInferenceAcceleratorTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "LaunchTemplate": "LaunchTemplateSpecificationTypeDef",
+        "InstanceMarketOptions": "InstanceMarketOptionsRequestTypeDef",
+        "CreditSpecification": "CreditSpecificationRequestTypeDef",
+        "CpuOptions": "CpuOptionsRequestTypeDef",
+        "CapacityReservationSpecification": "CapacityReservationSpecificationTypeDef",
+        "HibernationOptions": "HibernationOptionsRequestTypeDef",
+        "LicenseSpecifications": List["LicenseConfigurationRequestTypeDef"],
+        "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
+        "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
+    },
+    total=False,
+)
+
+class RunInstancesRequestSubnetTypeDef(
+    _RequiredRunInstancesRequestSubnetTypeDef, _OptionalRunInstancesRequestSubnetTypeDef
+):
+    pass
+
+_RequiredRunScheduledInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredRunScheduledInstancesRequestRequestTypeDef",
+    {
+        "LaunchSpecification": "ScheduledInstancesLaunchSpecificationTypeDef",
+        "ScheduledInstanceId": str,
+    },
+)
+_OptionalRunScheduledInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalRunScheduledInstancesRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "DryRun": bool,
+        "InstanceCount": int,
+    },
+    total=False,
+)
+
+class RunScheduledInstancesRequestRequestTypeDef(
+    _RequiredRunScheduledInstancesRequestRequestTypeDef,
+    _OptionalRunScheduledInstancesRequestRequestTypeDef,
+):
+    pass
+
+RunScheduledInstancesResultTypeDef = TypedDict(
+    "RunScheduledInstancesResultTypeDef",
+    {
+        "InstanceIdSet": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+S3ObjectTagTypeDef = TypedDict(
+    "S3ObjectTagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
 )
 
 S3StorageTypeDef = TypedDict(
@@ -9362,7 +20098,7 @@ S3StorageTypeDef = TypedDict(
         "AWSAccessKeyId": str,
         "Bucket": str,
         "Prefix": str,
-        "UploadPolicy": Union[bytes, IO[bytes]],
+        "UploadPolicy": Union[bytes, IO[bytes], StreamingBody],
         "UploadPolicySignature": str,
     },
     total=False,
@@ -9384,6 +20120,18 @@ ScheduledInstanceAvailabilityTypeDef = TypedDict(
         "Recurrence": "ScheduledInstanceRecurrenceTypeDef",
         "SlotDurationInHours": int,
         "TotalScheduledInstanceHours": int,
+    },
+    total=False,
+)
+
+ScheduledInstanceRecurrenceRequestTypeDef = TypedDict(
+    "ScheduledInstanceRecurrenceRequestTypeDef",
+    {
+        "Frequency": str,
+        "Interval": int,
+        "OccurrenceDays": List[int],
+        "OccurrenceRelativeToEnd": bool,
+        "OccurrenceUnit": str,
     },
     total=False,
 )
@@ -9424,7 +20172,12 @@ ScheduledInstanceTypeDef = TypedDict(
 
 ScheduledInstancesBlockDeviceMappingTypeDef = TypedDict(
     "ScheduledInstancesBlockDeviceMappingTypeDef",
-    {"DeviceName": str, "Ebs": "ScheduledInstancesEbsTypeDef", "NoDevice": str, "VirtualName": str},
+    {
+        "DeviceName": str,
+        "Ebs": "ScheduledInstancesEbsTypeDef",
+        "NoDevice": str,
+        "VirtualName": str,
+    },
     total=False,
 )
 
@@ -9442,15 +20195,60 @@ ScheduledInstancesEbsTypeDef = TypedDict(
 )
 
 ScheduledInstancesIamInstanceProfileTypeDef = TypedDict(
-    "ScheduledInstancesIamInstanceProfileTypeDef", {"Arn": str, "Name": str}, total=False
+    "ScheduledInstancesIamInstanceProfileTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 ScheduledInstancesIpv6AddressTypeDef = TypedDict(
-    "ScheduledInstancesIpv6AddressTypeDef", {"Ipv6Address": str}, total=False
+    "ScheduledInstancesIpv6AddressTypeDef",
+    {
+        "Ipv6Address": str,
+    },
+    total=False,
 )
 
+_RequiredScheduledInstancesLaunchSpecificationTypeDef = TypedDict(
+    "_RequiredScheduledInstancesLaunchSpecificationTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalScheduledInstancesLaunchSpecificationTypeDef = TypedDict(
+    "_OptionalScheduledInstancesLaunchSpecificationTypeDef",
+    {
+        "BlockDeviceMappings": List["ScheduledInstancesBlockDeviceMappingTypeDef"],
+        "EbsOptimized": bool,
+        "IamInstanceProfile": "ScheduledInstancesIamInstanceProfileTypeDef",
+        "InstanceType": str,
+        "KernelId": str,
+        "KeyName": str,
+        "Monitoring": "ScheduledInstancesMonitoringTypeDef",
+        "NetworkInterfaces": List["ScheduledInstancesNetworkInterfaceTypeDef"],
+        "Placement": "ScheduledInstancesPlacementTypeDef",
+        "RamdiskId": str,
+        "SecurityGroupIds": List[str],
+        "SubnetId": str,
+        "UserData": str,
+    },
+    total=False,
+)
+
+class ScheduledInstancesLaunchSpecificationTypeDef(
+    _RequiredScheduledInstancesLaunchSpecificationTypeDef,
+    _OptionalScheduledInstancesLaunchSpecificationTypeDef,
+):
+    pass
+
 ScheduledInstancesMonitoringTypeDef = TypedDict(
-    "ScheduledInstancesMonitoringTypeDef", {"Enabled": bool}, total=False
+    "ScheduledInstancesMonitoringTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
 )
 
 ScheduledInstancesNetworkInterfaceTypeDef = TypedDict(
@@ -9473,22 +20271,176 @@ ScheduledInstancesNetworkInterfaceTypeDef = TypedDict(
 )
 
 ScheduledInstancesPlacementTypeDef = TypedDict(
-    "ScheduledInstancesPlacementTypeDef", {"AvailabilityZone": str, "GroupName": str}, total=False
+    "ScheduledInstancesPlacementTypeDef",
+    {
+        "AvailabilityZone": str,
+        "GroupName": str,
+    },
+    total=False,
 )
 
 ScheduledInstancesPrivateIpAddressConfigTypeDef = TypedDict(
     "ScheduledInstancesPrivateIpAddressConfigTypeDef",
-    {"Primary": bool, "PrivateIpAddress": str},
+    {
+        "Primary": bool,
+        "PrivateIpAddress": str,
+    },
     total=False,
 )
 
+_RequiredSearchLocalGatewayRoutesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchLocalGatewayRoutesRequestRequestTypeDef",
+    {
+        "LocalGatewayRouteTableId": str,
+        "Filters": List["FilterTypeDef"],
+    },
+)
+_OptionalSearchLocalGatewayRoutesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchLocalGatewayRoutesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class SearchLocalGatewayRoutesRequestRequestTypeDef(
+    _RequiredSearchLocalGatewayRoutesRequestRequestTypeDef,
+    _OptionalSearchLocalGatewayRoutesRequestRequestTypeDef,
+):
+    pass
+
+SearchLocalGatewayRoutesResultTypeDef = TypedDict(
+    "SearchLocalGatewayRoutesResultTypeDef",
+    {
+        "Routes": List["LocalGatewayRouteTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SearchTransitGatewayMulticastGroupsRequestRequestTypeDef = TypedDict(
+    "SearchTransitGatewayMulticastGroupsRequestRequestTypeDef",
+    {
+        "TransitGatewayMulticastDomainId": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+SearchTransitGatewayMulticastGroupsResultTypeDef = TypedDict(
+    "SearchTransitGatewayMulticastGroupsResultTypeDef",
+    {
+        "MulticastGroups": List["TransitGatewayMulticastGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSearchTransitGatewayRoutesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchTransitGatewayRoutesRequestRequestTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "Filters": List["FilterTypeDef"],
+    },
+)
+_OptionalSearchTransitGatewayRoutesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchTransitGatewayRoutesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class SearchTransitGatewayRoutesRequestRequestTypeDef(
+    _RequiredSearchTransitGatewayRoutesRequestRequestTypeDef,
+    _OptionalSearchTransitGatewayRoutesRequestRequestTypeDef,
+):
+    pass
+
+SearchTransitGatewayRoutesResultTypeDef = TypedDict(
+    "SearchTransitGatewayRoutesResultTypeDef",
+    {
+        "Routes": List["TransitGatewayRouteTypeDef"],
+        "AdditionalRoutesAvailable": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 SecurityGroupIdentifierTypeDef = TypedDict(
-    "SecurityGroupIdentifierTypeDef", {"GroupId": str, "GroupName": str}, total=False
+    "SecurityGroupIdentifierTypeDef",
+    {
+        "GroupId": str,
+        "GroupName": str,
+    },
+    total=False,
 )
 
 SecurityGroupReferenceTypeDef = TypedDict(
     "SecurityGroupReferenceTypeDef",
-    {"GroupId": str, "ReferencingVpcId": str, "VpcPeeringConnectionId": str},
+    {
+        "GroupId": str,
+        "ReferencingVpcId": str,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+SecurityGroupRuleDescriptionTypeDef = TypedDict(
+    "SecurityGroupRuleDescriptionTypeDef",
+    {
+        "SecurityGroupRuleId": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+SecurityGroupRuleRequestTypeDef = TypedDict(
+    "SecurityGroupRuleRequestTypeDef",
+    {
+        "IpProtocol": str,
+        "FromPort": int,
+        "ToPort": int,
+        "CidrIpv4": str,
+        "CidrIpv6": str,
+        "PrefixListId": str,
+        "ReferencedGroupId": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+SecurityGroupRuleTypeDef = TypedDict(
+    "SecurityGroupRuleTypeDef",
+    {
+        "SecurityGroupRuleId": str,
+        "GroupId": str,
+        "GroupOwnerId": str,
+        "IsEgress": bool,
+        "IpProtocol": str,
+        "FromPort": int,
+        "ToPort": int,
+        "CidrIpv4": str,
+        "CidrIpv6": str,
+        "PrefixListId": str,
+        "ReferencedGroupInfo": "ReferencedSecurityGroupTypeDef",
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+SecurityGroupRuleUpdateTypeDef = TypedDict(
+    "SecurityGroupRuleUpdateTypeDef",
+    {
+        "SecurityGroupRuleId": str,
+        "SecurityGroupRule": "SecurityGroupRuleRequestTypeDef",
+    },
     total=False,
 )
 
@@ -9507,13 +20459,33 @@ SecurityGroupTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSendDiagnosticInterruptRequestRequestTypeDef = TypedDict(
+    "_RequiredSendDiagnosticInterruptRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalSendDiagnosticInterruptRequestRequestTypeDef = TypedDict(
+    "_OptionalSendDiagnosticInterruptRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class SendDiagnosticInterruptRequestRequestTypeDef(
+    _RequiredSendDiagnosticInterruptRequestRequestTypeDef,
+    _OptionalSendDiagnosticInterruptRequestRequestTypeDef,
+):
+    pass
+
 ServiceConfigurationTypeDef = TypedDict(
     "ServiceConfigurationTypeDef",
     {
         "ServiceType": List["ServiceTypeDetailTypeDef"],
         "ServiceId": str,
         "ServiceName": str,
-        "ServiceState": Literal["Pending", "Available", "Deleting", "Deleted", "Failed"],
+        "ServiceState": ServiceStateType,
         "AvailabilityZones": List[str],
         "AcceptanceRequired": bool,
         "ManagesVpcEndpoints": bool,
@@ -9542,14 +20514,183 @@ ServiceDetailTypeDef = TypedDict(
         "AcceptanceRequired": bool,
         "ManagesVpcEndpoints": bool,
         "Tags": List["TagTypeDef"],
-        "PrivateDnsNameVerificationState": Literal["pendingVerification", "verified", "failed"],
+        "PrivateDnsNameVerificationState": DnsNameStateType,
     },
     total=False,
 )
 
+ServiceResourceClassicAddressRequestTypeDef = TypedDict(
+    "ServiceResourceClassicAddressRequestTypeDef",
+    {
+        "public_ip": str,
+    },
+)
+
+ServiceResourceDhcpOptionsRequestTypeDef = TypedDict(
+    "ServiceResourceDhcpOptionsRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceImageRequestTypeDef = TypedDict(
+    "ServiceResourceImageRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceInstanceRequestTypeDef = TypedDict(
+    "ServiceResourceInstanceRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceInternetGatewayRequestTypeDef = TypedDict(
+    "ServiceResourceInternetGatewayRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceKeyPairRequestTypeDef = TypedDict(
+    "ServiceResourceKeyPairRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+
+ServiceResourceNetworkAclRequestTypeDef = TypedDict(
+    "ServiceResourceNetworkAclRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceNetworkInterfaceAssociationRequestTypeDef = TypedDict(
+    "ServiceResourceNetworkInterfaceAssociationRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceNetworkInterfaceRequestTypeDef = TypedDict(
+    "ServiceResourceNetworkInterfaceRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourcePlacementGroupRequestTypeDef = TypedDict(
+    "ServiceResourcePlacementGroupRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+
+ServiceResourceRouteRequestTypeDef = TypedDict(
+    "ServiceResourceRouteRequestTypeDef",
+    {
+        "route_table_id": str,
+        "destination_cidr_block": str,
+    },
+)
+
+ServiceResourceRouteTableAssociationRequestTypeDef = TypedDict(
+    "ServiceResourceRouteTableAssociationRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceRouteTableRequestTypeDef = TypedDict(
+    "ServiceResourceRouteTableRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceSecurityGroupRequestTypeDef = TypedDict(
+    "ServiceResourceSecurityGroupRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceSnapshotRequestTypeDef = TypedDict(
+    "ServiceResourceSnapshotRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceSubnetRequestTypeDef = TypedDict(
+    "ServiceResourceSubnetRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceTagRequestTypeDef = TypedDict(
+    "ServiceResourceTagRequestTypeDef",
+    {
+        "resource_id": str,
+        "key": str,
+        "value": str,
+    },
+)
+
+ServiceResourceVolumeRequestTypeDef = TypedDict(
+    "ServiceResourceVolumeRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceVpcAddressRequestTypeDef = TypedDict(
+    "ServiceResourceVpcAddressRequestTypeDef",
+    {
+        "allocation_id": str,
+    },
+)
+
+ServiceResourceVpcPeeringConnectionRequestTypeDef = TypedDict(
+    "ServiceResourceVpcPeeringConnectionRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+ServiceResourceVpcRequestTypeDef = TypedDict(
+    "ServiceResourceVpcRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
 ServiceTypeDetailTypeDef = TypedDict(
     "ServiceTypeDetailTypeDef",
-    {"ServiceType": Literal["Interface", "Gateway", "GatewayLoadBalancer"]},
+    {
+        "ServiceType": ServiceTypeType,
+    },
+    total=False,
+)
+
+SlotDateTimeRangeRequestTypeDef = TypedDict(
+    "SlotDateTimeRangeRequestTypeDef",
+    {
+        "EarliestTime": Union[datetime, str],
+        "LatestTime": Union[datetime, str],
+    },
+)
+
+SlotStartTimeRangeRequestTypeDef = TypedDict(
+    "SlotStartTimeRangeRequestTypeDef",
+    {
+        "EarliestTime": Union[datetime, str],
+        "LatestTime": Union[datetime, str],
+    },
     total=False,
 )
 
@@ -9570,6 +20711,17 @@ SnapshotDetailTypeDef = TypedDict(
     total=False,
 )
 
+SnapshotDiskContainerTypeDef = TypedDict(
+    "SnapshotDiskContainerTypeDef",
+    {
+        "Description": str,
+        "Format": str,
+        "Url": str,
+        "UserBucket": "UserBucketTypeDef",
+    },
+    total=False,
+)
+
 SnapshotInfoTypeDef = TypedDict(
     "SnapshotInfoTypeDef",
     {
@@ -9577,7 +20729,7 @@ SnapshotInfoTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "Encrypted": bool,
         "VolumeId": str,
-        "State": Literal["pending", "completed", "error"],
+        "State": SnapshotStateType,
         "VolumeSize": int,
         "StartTime": datetime,
         "Progress": str,
@@ -9586,6 +20738,28 @@ SnapshotInfoTypeDef = TypedDict(
         "OutpostArn": str,
     },
     total=False,
+)
+
+SnapshotResponseMetadataTypeDef = TypedDict(
+    "SnapshotResponseMetadataTypeDef",
+    {
+        "DataEncryptionKeyId": str,
+        "Description": str,
+        "Encrypted": bool,
+        "KmsKeyId": str,
+        "OwnerId": str,
+        "Progress": str,
+        "SnapshotId": str,
+        "StartTime": datetime,
+        "State": SnapshotStateType,
+        "StateMessage": str,
+        "VolumeId": str,
+        "VolumeSize": int,
+        "OwnerAlias": str,
+        "OutpostArn": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 SnapshotTaskDetailTypeDef = TypedDict(
@@ -9617,7 +20791,7 @@ SnapshotTypeDef = TypedDict(
         "Progress": str,
         "SnapshotId": str,
         "StartTime": datetime,
-        "State": Literal["pending", "completed", "error"],
+        "State": SnapshotStateType,
         "StateMessage": str,
         "VolumeId": str,
         "VolumeSize": int,
@@ -9629,7 +20803,11 @@ SnapshotTypeDef = TypedDict(
 )
 
 SpotCapacityRebalanceTypeDef = TypedDict(
-    "SpotCapacityRebalanceTypeDef", {"ReplacementStrategy": Literal["launch"]}, total=False
+    "SpotCapacityRebalanceTypeDef",
+    {
+        "ReplacementStrategy": Literal["launch"],
+    },
+    total=False,
 )
 
 SpotDatafeedSubscriptionTypeDef = TypedDict(
@@ -9639,7 +20817,7 @@ SpotDatafeedSubscriptionTypeDef = TypedDict(
         "Fault": "SpotInstanceStateFaultTypeDef",
         "OwnerId": str,
         "Prefix": str,
-        "State": Literal["Active", "Inactive"],
+        "State": DatafeedSubscriptionStateType,
     },
     total=False,
 )
@@ -9653,397 +20831,7 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
         "EbsOptimized": bool,
         "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
         "ImageId": str,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
+        "InstanceType": InstanceTypeType,
         "KernelId": str,
         "KeyName": str,
         "Monitoring": "SpotFleetMonitoringTypeDef",
@@ -10059,19 +20847,29 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
     total=False,
 )
 
-SpotFleetMonitoringTypeDef = TypedDict("SpotFleetMonitoringTypeDef", {"Enabled": bool}, total=False)
+SpotFleetMonitoringTypeDef = TypedDict(
+    "SpotFleetMonitoringTypeDef",
+    {
+        "Enabled": bool,
+    },
+    total=False,
+)
 
 _RequiredSpotFleetRequestConfigDataTypeDef = TypedDict(
-    "_RequiredSpotFleetRequestConfigDataTypeDef", {"IamFleetRole": str, "TargetCapacity": int}
+    "_RequiredSpotFleetRequestConfigDataTypeDef",
+    {
+        "IamFleetRole": str,
+        "TargetCapacity": int,
+    },
 )
 _OptionalSpotFleetRequestConfigDataTypeDef = TypedDict(
     "_OptionalSpotFleetRequestConfigDataTypeDef",
     {
-        "AllocationStrategy": Literal["lowestPrice", "diversified", "capacityOptimized"],
-        "OnDemandAllocationStrategy": Literal["lowestPrice", "prioritized"],
+        "AllocationStrategy": AllocationStrategyType,
+        "OnDemandAllocationStrategy": OnDemandAllocationStrategyType,
         "SpotMaintenanceStrategies": "SpotMaintenanceStrategiesTypeDef",
         "ClientToken": str,
-        "ExcessCapacityTerminationPolicy": Literal["noTermination", "default"],
+        "ExcessCapacityTerminationPolicy": ExcessCapacityTerminationPolicyType,
         "FulfilledCapacity": float,
         "OnDemandFulfilledCapacity": float,
         "LaunchSpecifications": List["SpotFleetLaunchSpecificationTypeDef"],
@@ -10081,43 +20879,32 @@ _OptionalSpotFleetRequestConfigDataTypeDef = TypedDict(
         "OnDemandMaxTotalPrice": str,
         "SpotMaxTotalPrice": str,
         "TerminateInstancesWithExpiration": bool,
-        "Type": Literal["request", "maintain", "instant"],
+        "Type": FleetTypeType,
         "ValidFrom": datetime,
         "ValidUntil": datetime,
         "ReplaceUnhealthyInstances": bool,
-        "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
+        "InstanceInterruptionBehavior": InstanceInterruptionBehaviorType,
         "LoadBalancersConfig": "LoadBalancersConfigTypeDef",
         "InstancePoolsToUseCount": int,
+        "Context": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
-
 
 class SpotFleetRequestConfigDataTypeDef(
     _RequiredSpotFleetRequestConfigDataTypeDef, _OptionalSpotFleetRequestConfigDataTypeDef
 ):
     pass
 
-
 SpotFleetRequestConfigTypeDef = TypedDict(
     "SpotFleetRequestConfigTypeDef",
     {
-        "ActivityStatus": Literal[
-            "error", "pending_fulfillment", "pending_termination", "fulfilled"
-        ],
+        "ActivityStatus": ActivityStatusType,
         "CreateTime": datetime,
         "SpotFleetRequestConfig": "SpotFleetRequestConfigDataTypeDef",
         "SpotFleetRequestId": str,
-        "SpotFleetRequestState": Literal[
-            "submitted",
-            "active",
-            "cancelled",
-            "failed",
-            "cancelled_running",
-            "cancelled_terminating",
-            "modifying",
-        ],
+        "SpotFleetRequestState": BatchStateType,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -10126,55 +20913,7 @@ SpotFleetRequestConfigTypeDef = TypedDict(
 SpotFleetTagSpecificationTypeDef = TypedDict(
     "SpotFleetTagSpecificationTypeDef",
     {
-        "ResourceType": Literal[
-            "client-vpn-endpoint",
-            "customer-gateway",
-            "dedicated-host",
-            "dhcp-options",
-            "egress-only-internet-gateway",
-            "elastic-ip",
-            "elastic-gpu",
-            "export-image-task",
-            "export-instance-task",
-            "fleet",
-            "fpga-image",
-            "host-reservation",
-            "image",
-            "import-image-task",
-            "import-snapshot-task",
-            "instance",
-            "internet-gateway",
-            "key-pair",
-            "launch-template",
-            "local-gateway-route-table-vpc-association",
-            "natgateway",
-            "network-acl",
-            "network-interface",
-            "network-insights-analysis",
-            "network-insights-path",
-            "placement-group",
-            "reserved-instances",
-            "route-table",
-            "security-group",
-            "snapshot",
-            "spot-fleet-request",
-            "spot-instances-request",
-            "subnet",
-            "traffic-mirror-filter",
-            "traffic-mirror-session",
-            "traffic-mirror-target",
-            "transit-gateway",
-            "transit-gateway-attachment",
-            "transit-gateway-connect-peer",
-            "transit-gateway-multicast-domain",
-            "transit-gateway-route-table",
-            "volume",
-            "vpc",
-            "vpc-peering-connection",
-            "vpn-connection",
-            "vpn-gateway",
-            "vpc-flow-log",
-        ],
+        "ResourceType": ResourceTypeType,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -10192,33 +20931,44 @@ SpotInstanceRequestTypeDef = TypedDict(
         "LaunchGroup": str,
         "LaunchSpecification": "LaunchSpecificationTypeDef",
         "LaunchedAvailabilityZone": str,
-        "ProductDescription": Literal[
-            "Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"
-        ],
+        "ProductDescription": RIProductDescriptionType,
         "SpotInstanceRequestId": str,
         "SpotPrice": str,
-        "State": Literal["open", "active", "closed", "cancelled", "failed"],
+        "State": SpotInstanceStateType,
         "Status": "SpotInstanceStatusTypeDef",
         "Tags": List["TagTypeDef"],
-        "Type": Literal["one-time", "persistent"],
+        "Type": SpotInstanceTypeType,
         "ValidFrom": datetime,
         "ValidUntil": datetime,
-        "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
+        "InstanceInterruptionBehavior": InstanceInterruptionBehaviorType,
     },
     total=False,
 )
 
 SpotInstanceStateFaultTypeDef = TypedDict(
-    "SpotInstanceStateFaultTypeDef", {"Code": str, "Message": str}, total=False
+    "SpotInstanceStateFaultTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )
 
 SpotInstanceStatusTypeDef = TypedDict(
-    "SpotInstanceStatusTypeDef", {"Code": str, "Message": str, "UpdateTime": datetime}, total=False
+    "SpotInstanceStatusTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+        "UpdateTime": datetime,
+    },
+    total=False,
 )
 
 SpotMaintenanceStrategiesTypeDef = TypedDict(
     "SpotMaintenanceStrategiesTypeDef",
-    {"CapacityRebalance": "SpotCapacityRebalanceTypeDef"},
+    {
+        "CapacityRebalance": "SpotCapacityRebalanceTypeDef",
+    },
     total=False,
 )
 
@@ -10226,10 +20976,25 @@ SpotMarketOptionsTypeDef = TypedDict(
     "SpotMarketOptionsTypeDef",
     {
         "MaxPrice": str,
-        "SpotInstanceType": Literal["one-time", "persistent"],
+        "SpotInstanceType": SpotInstanceTypeType,
         "BlockDurationMinutes": int,
-        "ValidUntil": datetime,
-        "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
+        "ValidUntil": Union[datetime, str],
+        "InstanceInterruptionBehavior": InstanceInterruptionBehaviorType,
+    },
+    total=False,
+)
+
+SpotOptionsRequestTypeDef = TypedDict(
+    "SpotOptionsRequestTypeDef",
+    {
+        "AllocationStrategy": SpotAllocationStrategyType,
+        "MaintenanceStrategies": "FleetSpotMaintenanceStrategiesRequestTypeDef",
+        "InstanceInterruptionBehavior": SpotInstanceInterruptionBehaviorType,
+        "InstancePoolsToUseCount": int,
+        "SingleInstanceType": bool,
+        "SingleAvailabilityZone": bool,
+        "MinTargetCapacity": int,
+        "MaxTotalPrice": str,
     },
     total=False,
 )
@@ -10237,9 +21002,9 @@ SpotMarketOptionsTypeDef = TypedDict(
 SpotOptionsTypeDef = TypedDict(
     "SpotOptionsTypeDef",
     {
-        "AllocationStrategy": Literal["lowest-price", "diversified", "capacity-optimized"],
+        "AllocationStrategy": SpotAllocationStrategyType,
         "MaintenanceStrategies": "FleetSpotMaintenanceStrategiesTypeDef",
-        "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
+        "InstanceInterruptionBehavior": SpotInstanceInterruptionBehaviorType,
         "InstancePoolsToUseCount": int,
         "SingleInstanceType": bool,
         "SingleAvailabilityZone": bool,
@@ -10251,7 +21016,11 @@ SpotOptionsTypeDef = TypedDict(
 
 SpotPlacementTypeDef = TypedDict(
     "SpotPlacementTypeDef",
-    {"AvailabilityZone": str, "GroupName": str, "Tenancy": Literal["default", "dedicated", "host"]},
+    {
+        "AvailabilityZone": str,
+        "GroupName": str,
+        "Tenancy": TenancyType,
+    },
     total=False,
 )
 
@@ -10259,400 +21028,8 @@ SpotPriceTypeDef = TypedDict(
     "SpotPriceTypeDef",
     {
         "AvailabilityZone": str,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
-        "ProductDescription": Literal[
-            "Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"
-        ],
+        "InstanceType": InstanceTypeType,
+        "ProductDescription": RIProductDescriptionType,
         "SpotPrice": str,
         "Timestamp": datetime,
     },
@@ -10685,23 +21062,186 @@ StaleSecurityGroupTypeDef = TypedDict(
     total=False,
 )
 
-StateReasonTypeDef = TypedDict("StateReasonTypeDef", {"Code": str, "Message": str}, total=False)
+StartInstancesRequestInstanceTypeDef = TypedDict(
+    "StartInstancesRequestInstanceTypeDef",
+    {
+        "AdditionalInfo": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
 
-StorageTypeDef = TypedDict("StorageTypeDef", {"S3": "S3StorageTypeDef"}, total=False)
+_RequiredStartInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredStartInstancesRequestRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+    },
+)
+_OptionalStartInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalStartInstancesRequestRequestTypeDef",
+    {
+        "AdditionalInfo": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class StartInstancesRequestRequestTypeDef(
+    _RequiredStartInstancesRequestRequestTypeDef, _OptionalStartInstancesRequestRequestTypeDef
+):
+    pass
+
+StartInstancesResultTypeDef = TypedDict(
+    "StartInstancesResultTypeDef",
+    {
+        "StartingInstances": List["InstanceStateChangeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredStartNetworkInsightsAnalysisRequestRequestTypeDef",
+    {
+        "NetworkInsightsPathId": str,
+        "ClientToken": str,
+    },
+)
+_OptionalStartNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalStartNetworkInsightsAnalysisRequestRequestTypeDef",
+    {
+        "FilterInArns": List[str],
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class StartNetworkInsightsAnalysisRequestRequestTypeDef(
+    _RequiredStartNetworkInsightsAnalysisRequestRequestTypeDef,
+    _OptionalStartNetworkInsightsAnalysisRequestRequestTypeDef,
+):
+    pass
+
+StartNetworkInsightsAnalysisResultTypeDef = TypedDict(
+    "StartNetworkInsightsAnalysisResultTypeDef",
+    {
+        "NetworkInsightsAnalysis": "NetworkInsightsAnalysisTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef",
+    {
+        "ServiceId": str,
+    },
+)
+_OptionalStartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class StartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef(
+    _RequiredStartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef,
+    _OptionalStartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef,
+):
+    pass
+
+StartVpcEndpointServicePrivateDnsVerificationResultTypeDef = TypedDict(
+    "StartVpcEndpointServicePrivateDnsVerificationResultTypeDef",
+    {
+        "ReturnValue": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StateReasonTypeDef = TypedDict(
+    "StateReasonTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+StopInstancesRequestInstanceTypeDef = TypedDict(
+    "StopInstancesRequestInstanceTypeDef",
+    {
+        "Hibernate": bool,
+        "DryRun": bool,
+        "Force": bool,
+    },
+    total=False,
+)
+
+_RequiredStopInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredStopInstancesRequestRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+    },
+)
+_OptionalStopInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalStopInstancesRequestRequestTypeDef",
+    {
+        "Hibernate": bool,
+        "DryRun": bool,
+        "Force": bool,
+    },
+    total=False,
+)
+
+class StopInstancesRequestRequestTypeDef(
+    _RequiredStopInstancesRequestRequestTypeDef, _OptionalStopInstancesRequestRequestTypeDef
+):
+    pass
+
+StopInstancesResultTypeDef = TypedDict(
+    "StopInstancesResultTypeDef",
+    {
+        "StoppingInstances": List["InstanceStateChangeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StorageLocationTypeDef = TypedDict(
+    "StorageLocationTypeDef",
+    {
+        "Bucket": str,
+        "Key": str,
+    },
+    total=False,
+)
+
+StorageTypeDef = TypedDict(
+    "StorageTypeDef",
+    {
+        "S3": "S3StorageTypeDef",
+    },
+    total=False,
+)
+
+StoreImageTaskResultTypeDef = TypedDict(
+    "StoreImageTaskResultTypeDef",
+    {
+        "AmiId": str,
+        "TaskStartTime": datetime,
+        "Bucket": str,
+        "S3objectKey": str,
+        "ProgressPercentage": int,
+        "StoreTaskState": str,
+        "StoreTaskFailureReason": str,
+    },
+    total=False,
+)
 
 SubnetAssociationTypeDef = TypedDict(
     "SubnetAssociationTypeDef",
     {
         "SubnetId": str,
-        "State": Literal[
-            "pendingAcceptance",
-            "associating",
-            "associated",
-            "disassociating",
-            "disassociated",
-            "rejected",
-            "failed",
-        ],
+        "State": TransitGatewayMulitcastDomainAssociationStateType,
     },
     total=False,
 )
@@ -10709,10 +21249,22 @@ SubnetAssociationTypeDef = TypedDict(
 SubnetCidrBlockStateTypeDef = TypedDict(
     "SubnetCidrBlockStateTypeDef",
     {
-        "State": Literal[
-            "associating", "associated", "disassociating", "disassociated", "failing", "failed"
-        ],
+        "State": SubnetCidrBlockStateCodeType,
         "StatusMessage": str,
+    },
+    total=False,
+)
+
+SubnetCidrReservationTypeDef = TypedDict(
+    "SubnetCidrReservationTypeDef",
+    {
+        "SubnetCidrReservationId": str,
+        "SubnetId": str,
+        "Cidr": str,
+        "ReservationType": SubnetCidrReservationTypeType,
+        "OwnerId": str,
+        "Description": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -10738,7 +21290,7 @@ SubnetTypeDef = TypedDict(
         "MapPublicIpOnLaunch": bool,
         "MapCustomerOwnedIpOnLaunch": bool,
         "CustomerOwnedIpv4Pool": str,
-        "State": Literal["pending", "available"],
+        "State": SubnetStateType,
         "SubnetId": str,
         "VpcId": str,
         "OwnerId": str,
@@ -10752,11 +21304,19 @@ SubnetTypeDef = TypedDict(
 )
 
 SuccessfulInstanceCreditSpecificationItemTypeDef = TypedDict(
-    "SuccessfulInstanceCreditSpecificationItemTypeDef", {"InstanceId": str}, total=False
+    "SuccessfulInstanceCreditSpecificationItemTypeDef",
+    {
+        "InstanceId": str,
+    },
+    total=False,
 )
 
 SuccessfulQueuedPurchaseDeletionTypeDef = TypedDict(
-    "SuccessfulQueuedPurchaseDeletionTypeDef", {"ReservedInstancesId": str}, total=False
+    "SuccessfulQueuedPurchaseDeletionTypeDef",
+    {
+        "ReservedInstancesId": str,
+    },
+    total=False,
 )
 
 TagDescriptionTypeDef = TypedDict(
@@ -10764,55 +21324,7 @@ TagDescriptionTypeDef = TypedDict(
     {
         "Key": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "client-vpn-endpoint",
-            "customer-gateway",
-            "dedicated-host",
-            "dhcp-options",
-            "egress-only-internet-gateway",
-            "elastic-ip",
-            "elastic-gpu",
-            "export-image-task",
-            "export-instance-task",
-            "fleet",
-            "fpga-image",
-            "host-reservation",
-            "image",
-            "import-image-task",
-            "import-snapshot-task",
-            "instance",
-            "internet-gateway",
-            "key-pair",
-            "launch-template",
-            "local-gateway-route-table-vpc-association",
-            "natgateway",
-            "network-acl",
-            "network-interface",
-            "network-insights-analysis",
-            "network-insights-path",
-            "placement-group",
-            "reserved-instances",
-            "route-table",
-            "security-group",
-            "snapshot",
-            "spot-fleet-request",
-            "spot-instances-request",
-            "subnet",
-            "traffic-mirror-filter",
-            "traffic-mirror-session",
-            "traffic-mirror-target",
-            "transit-gateway",
-            "transit-gateway-attachment",
-            "transit-gateway-connect-peer",
-            "transit-gateway-multicast-domain",
-            "transit-gateway-route-table",
-            "volume",
-            "vpc",
-            "vpc-peering-connection",
-            "vpn-connection",
-            "vpn-gateway",
-            "vpc-flow-log",
-        ],
+        "ResourceType": ResourceTypeType,
         "Value": str,
     },
     total=False,
@@ -10821,59 +21333,50 @@ TagDescriptionTypeDef = TypedDict(
 TagSpecificationTypeDef = TypedDict(
     "TagSpecificationTypeDef",
     {
-        "ResourceType": Literal[
-            "client-vpn-endpoint",
-            "customer-gateway",
-            "dedicated-host",
-            "dhcp-options",
-            "egress-only-internet-gateway",
-            "elastic-ip",
-            "elastic-gpu",
-            "export-image-task",
-            "export-instance-task",
-            "fleet",
-            "fpga-image",
-            "host-reservation",
-            "image",
-            "import-image-task",
-            "import-snapshot-task",
-            "instance",
-            "internet-gateway",
-            "key-pair",
-            "launch-template",
-            "local-gateway-route-table-vpc-association",
-            "natgateway",
-            "network-acl",
-            "network-interface",
-            "network-insights-analysis",
-            "network-insights-path",
-            "placement-group",
-            "reserved-instances",
-            "route-table",
-            "security-group",
-            "snapshot",
-            "spot-fleet-request",
-            "spot-instances-request",
-            "subnet",
-            "traffic-mirror-filter",
-            "traffic-mirror-session",
-            "traffic-mirror-target",
-            "transit-gateway",
-            "transit-gateway-attachment",
-            "transit-gateway-connect-peer",
-            "transit-gateway-multicast-domain",
-            "transit-gateway-route-table",
-            "volume",
-            "vpc",
-            "vpc-peering-connection",
-            "vpn-connection",
-            "vpn-gateway",
-            "vpc-flow-log",
-        ],
+        "ResourceType": ResourceTypeType,
         "Tags": List["TagTypeDef"],
     },
     total=False,
 )
+
+_RequiredTagTypeDef = TypedDict(
+    "_RequiredTagTypeDef",
+    {
+        "Key": str,
+    },
+)
+_OptionalTagTypeDef = TypedDict(
+    "_OptionalTagTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
+
+class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
+    pass
+
+_RequiredTargetCapacitySpecificationRequestTypeDef = TypedDict(
+    "_RequiredTargetCapacitySpecificationRequestTypeDef",
+    {
+        "TotalTargetCapacity": int,
+    },
+)
+_OptionalTargetCapacitySpecificationRequestTypeDef = TypedDict(
+    "_OptionalTargetCapacitySpecificationRequestTypeDef",
+    {
+        "OnDemandTargetCapacity": int,
+        "SpotTargetCapacity": int,
+        "DefaultTargetCapacityType": DefaultTargetCapacityTypeType,
+    },
+    total=False,
+)
+
+class TargetCapacitySpecificationRequestTypeDef(
+    _RequiredTargetCapacitySpecificationRequestTypeDef,
+    _OptionalTargetCapacitySpecificationRequestTypeDef,
+):
+    pass
 
 TargetCapacitySpecificationTypeDef = TypedDict(
     "TargetCapacitySpecificationTypeDef",
@@ -10881,19 +21384,53 @@ TargetCapacitySpecificationTypeDef = TypedDict(
         "TotalTargetCapacity": int,
         "OnDemandTargetCapacity": int,
         "SpotTargetCapacity": int,
-        "DefaultTargetCapacityType": Literal["spot", "on-demand"],
+        "DefaultTargetCapacityType": DefaultTargetCapacityTypeType,
     },
     total=False,
 )
 
-TargetConfigurationTypeDef = TypedDict(
-    "TargetConfigurationTypeDef", {"InstanceCount": int, "OfferingId": str}, total=False
+_RequiredTargetConfigurationRequestTypeDef = TypedDict(
+    "_RequiredTargetConfigurationRequestTypeDef",
+    {
+        "OfferingId": str,
+    },
+)
+_OptionalTargetConfigurationRequestTypeDef = TypedDict(
+    "_OptionalTargetConfigurationRequestTypeDef",
+    {
+        "InstanceCount": int,
+    },
+    total=False,
 )
 
-TargetGroupTypeDef = TypedDict("TargetGroupTypeDef", {"Arn": str}, total=False)
+class TargetConfigurationRequestTypeDef(
+    _RequiredTargetConfigurationRequestTypeDef, _OptionalTargetConfigurationRequestTypeDef
+):
+    pass
+
+TargetConfigurationTypeDef = TypedDict(
+    "TargetConfigurationTypeDef",
+    {
+        "InstanceCount": int,
+        "OfferingId": str,
+    },
+    total=False,
+)
+
+TargetGroupTypeDef = TypedDict(
+    "TargetGroupTypeDef",
+    {
+        "Arn": str,
+    },
+    total=False,
+)
 
 TargetGroupsConfigTypeDef = TypedDict(
-    "TargetGroupsConfigTypeDef", {"TargetGroups": List["TargetGroupTypeDef"]}, total=False
+    "TargetGroupsConfigTypeDef",
+    {
+        "TargetGroups": List["TargetGroupTypeDef"],
+    },
+    total=False,
 )
 
 TargetNetworkTypeDef = TypedDict(
@@ -10918,6 +21455,38 @@ TargetReservationValueTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredTerminateClientVpnConnectionsRequestRequestTypeDef = TypedDict(
+    "_RequiredTerminateClientVpnConnectionsRequestRequestTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+    },
+)
+_OptionalTerminateClientVpnConnectionsRequestRequestTypeDef = TypedDict(
+    "_OptionalTerminateClientVpnConnectionsRequestRequestTypeDef",
+    {
+        "ConnectionId": str,
+        "Username": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class TerminateClientVpnConnectionsRequestRequestTypeDef(
+    _RequiredTerminateClientVpnConnectionsRequestRequestTypeDef,
+    _OptionalTerminateClientVpnConnectionsRequestRequestTypeDef,
+):
+    pass
+
+TerminateClientVpnConnectionsResultTypeDef = TypedDict(
+    "TerminateClientVpnConnectionsResultTypeDef",
+    {
+        "ClientVpnEndpointId": str,
+        "Username": str,
+        "ConnectionStatuses": List["TerminateConnectionStatusTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 TerminateConnectionStatusTypeDef = TypedDict(
     "TerminateConnectionStatusTypeDef",
     {
@@ -10928,14 +21497,50 @@ TerminateConnectionStatusTypeDef = TypedDict(
     total=False,
 )
 
+TerminateInstancesRequestInstanceTypeDef = TypedDict(
+    "TerminateInstancesRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredTerminateInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredTerminateInstancesRequestRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+    },
+)
+_OptionalTerminateInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalTerminateInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class TerminateInstancesRequestRequestTypeDef(
+    _RequiredTerminateInstancesRequestRequestTypeDef,
+    _OptionalTerminateInstancesRequestRequestTypeDef,
+):
+    pass
+
+TerminateInstancesResultTypeDef = TypedDict(
+    "TerminateInstancesResultTypeDef",
+    {
+        "TerminatingInstances": List["InstanceStateChangeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 TrafficMirrorFilterRuleTypeDef = TypedDict(
     "TrafficMirrorFilterRuleTypeDef",
     {
         "TrafficMirrorFilterRuleId": str,
         "TrafficMirrorFilterId": str,
-        "TrafficDirection": Literal["ingress", "egress"],
+        "TrafficDirection": TrafficDirectionType,
         "RuleNumber": int,
-        "RuleAction": Literal["accept", "reject"],
+        "RuleAction": TrafficMirrorRuleActionType,
         "Protocol": int,
         "DestinationPortRange": "TrafficMirrorPortRangeTypeDef",
         "SourcePortRange": "TrafficMirrorPortRangeTypeDef",
@@ -10959,8 +21564,22 @@ TrafficMirrorFilterTypeDef = TypedDict(
     total=False,
 )
 
+TrafficMirrorPortRangeRequestTypeDef = TypedDict(
+    "TrafficMirrorPortRangeRequestTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+    },
+    total=False,
+)
+
 TrafficMirrorPortRangeTypeDef = TypedDict(
-    "TrafficMirrorPortRangeTypeDef", {"FromPort": int, "ToPort": int}, total=False
+    "TrafficMirrorPortRangeTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+    },
+    total=False,
 )
 
 TrafficMirrorSessionTypeDef = TypedDict(
@@ -10986,7 +21605,7 @@ TrafficMirrorTargetTypeDef = TypedDict(
         "TrafficMirrorTargetId": str,
         "NetworkInterfaceId": str,
         "NetworkLoadBalancerArn": str,
-        "Type": Literal["network-interface", "network-load-balancer"],
+        "Type": TrafficMirrorTargetTypeType,
         "Description": str,
         "OwnerId": str,
         "Tags": List["TagTypeDef"],
@@ -11000,10 +21619,8 @@ TransitGatewayAssociationTypeDef = TypedDict(
         "TransitGatewayRouteTableId": str,
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
-        "State": Literal["associating", "associated", "disassociating", "disassociated"],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
+        "State": TransitGatewayAssociationStateType,
     },
     total=False,
 )
@@ -11012,7 +21629,7 @@ TransitGatewayAttachmentAssociationTypeDef = TypedDict(
     "TransitGatewayAttachmentAssociationTypeDef",
     {
         "TransitGatewayRouteTableId": str,
-        "State": Literal["associating", "associated", "disassociating", "disassociated"],
+        "State": TransitGatewayAssociationStateType,
     },
     total=False,
 )
@@ -11024,7 +21641,7 @@ TransitGatewayAttachmentBgpConfigurationTypeDef = TypedDict(
         "PeerAsn": int,
         "TransitGatewayAddress": str,
         "PeerAddress": str,
-        "BgpStatus": Literal["up", "down"],
+        "BgpStatus": BgpStatusType,
     },
     total=False,
 )
@@ -11033,7 +21650,7 @@ TransitGatewayAttachmentPropagationTypeDef = TypedDict(
     "TransitGatewayAttachmentPropagationTypeDef",
     {
         "TransitGatewayRouteTableId": str,
-        "State": Literal["enabling", "enabled", "disabling", "disabled"],
+        "State": TransitGatewayPropagationStateType,
     },
     total=False,
 )
@@ -11045,25 +21662,9 @@ TransitGatewayAttachmentTypeDef = TypedDict(
         "TransitGatewayId": str,
         "TransitGatewayOwnerId": str,
         "ResourceOwnerId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "ResourceId": str,
-        "State": Literal[
-            "initiating",
-            "initiatingRequest",
-            "pendingAcceptance",
-            "rollingBack",
-            "pending",
-            "available",
-            "modifying",
-            "deleting",
-            "deleted",
-            "failed",
-            "rejected",
-            "rejecting",
-            "failing",
-        ],
+        "State": TransitGatewayAttachmentStateType,
         "Association": "TransitGatewayAttachmentAssociationTypeDef",
         "CreationTime": datetime,
         "Tags": List["TagTypeDef"],
@@ -11072,7 +21673,11 @@ TransitGatewayAttachmentTypeDef = TypedDict(
 )
 
 TransitGatewayConnectOptionsTypeDef = TypedDict(
-    "TransitGatewayConnectOptionsTypeDef", {"Protocol": Literal["gre"]}, total=False
+    "TransitGatewayConnectOptionsTypeDef",
+    {
+        "Protocol": Literal["gre"],
+    },
+    total=False,
 )
 
 TransitGatewayConnectPeerConfigurationTypeDef = TypedDict(
@@ -11092,10 +21697,18 @@ TransitGatewayConnectPeerTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "TransitGatewayConnectPeerId": str,
-        "State": Literal["pending", "available", "deleting", "deleted"],
+        "State": TransitGatewayConnectPeerStateType,
         "CreationTime": datetime,
         "ConnectPeerConfiguration": "TransitGatewayConnectPeerConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+TransitGatewayConnectRequestBgpOptionsTypeDef = TypedDict(
+    "TransitGatewayConnectRequestBgpOptionsTypeDef",
+    {
+        "PeerAsn": int,
     },
     total=False,
 )
@@ -11106,21 +21719,7 @@ TransitGatewayConnectTypeDef = TypedDict(
         "TransitGatewayAttachmentId": str,
         "TransportTransitGatewayAttachmentId": str,
         "TransitGatewayId": str,
-        "State": Literal[
-            "initiating",
-            "initiatingRequest",
-            "pendingAcceptance",
-            "rollingBack",
-            "pending",
-            "available",
-            "modifying",
-            "deleting",
-            "deleted",
-            "failed",
-            "rejected",
-            "rejecting",
-            "failing",
-        ],
+        "State": TransitGatewayAttachmentStateType,
         "CreationTime": datetime,
         "Options": "TransitGatewayConnectOptionsTypeDef",
         "Tags": List["TagTypeDef"],
@@ -11153,9 +21752,7 @@ TransitGatewayMulticastDomainAssociationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "ResourceOwnerId": str,
         "Subnet": "SubnetAssociationTypeDef",
     },
@@ -11168,9 +21765,7 @@ TransitGatewayMulticastDomainAssociationsTypeDef = TypedDict(
         "TransitGatewayMulticastDomainId": str,
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "ResourceOwnerId": str,
         "Subnets": List["SubnetAssociationTypeDef"],
     },
@@ -11180,9 +21775,9 @@ TransitGatewayMulticastDomainAssociationsTypeDef = TypedDict(
 TransitGatewayMulticastDomainOptionsTypeDef = TypedDict(
     "TransitGatewayMulticastDomainOptionsTypeDef",
     {
-        "Igmpv2Support": Literal["enable", "disable"],
-        "StaticSourcesSupport": Literal["enable", "disable"],
-        "AutoAcceptSharedAssociations": Literal["enable", "disable"],
+        "Igmpv2Support": Igmpv2SupportValueType,
+        "StaticSourcesSupport": StaticSourcesSupportValueType,
+        "AutoAcceptSharedAssociations": AutoAcceptSharedAssociationsValueType,
     },
     total=False,
 )
@@ -11195,7 +21790,7 @@ TransitGatewayMulticastDomainTypeDef = TypedDict(
         "TransitGatewayMulticastDomainArn": str,
         "OwnerId": str,
         "Options": "TransitGatewayMulticastDomainOptionsTypeDef",
-        "State": Literal["pending", "available", "deleting", "deleted"],
+        "State": TransitGatewayMulticastDomainStateType,
         "CreationTime": datetime,
         "Tags": List["TagTypeDef"],
     },
@@ -11209,15 +21804,13 @@ TransitGatewayMulticastGroupTypeDef = TypedDict(
         "TransitGatewayAttachmentId": str,
         "SubnetId": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "ResourceOwnerId": str,
         "NetworkInterfaceId": str,
         "GroupMember": bool,
         "GroupSource": bool,
-        "MemberType": Literal["static", "igmp"],
-        "SourceType": Literal["static", "igmp"],
+        "MemberType": MembershipTypeType,
+        "SourceType": MembershipTypeType,
     },
     total=False,
 )
@@ -11247,14 +21840,14 @@ TransitGatewayOptionsTypeDef = TypedDict(
     {
         "AmazonSideAsn": int,
         "TransitGatewayCidrBlocks": List[str],
-        "AutoAcceptSharedAttachments": Literal["enable", "disable"],
-        "DefaultRouteTableAssociation": Literal["enable", "disable"],
+        "AutoAcceptSharedAttachments": AutoAcceptSharedAttachmentsValueType,
+        "DefaultRouteTableAssociation": DefaultRouteTableAssociationValueType,
         "AssociationDefaultRouteTableId": str,
-        "DefaultRouteTablePropagation": Literal["enable", "disable"],
+        "DefaultRouteTablePropagation": DefaultRouteTablePropagationValueType,
         "PropagationDefaultRouteTableId": str,
-        "VpnEcmpSupport": Literal["enable", "disable"],
-        "DnsSupport": Literal["enable", "disable"],
-        "MulticastSupport": Literal["enable", "disable"],
+        "VpnEcmpSupport": VpnEcmpSupportValueType,
+        "DnsSupport": DnsSupportValueType,
+        "MulticastSupport": MulticastSupportValueType,
     },
     total=False,
 )
@@ -11266,21 +21859,7 @@ TransitGatewayPeeringAttachmentTypeDef = TypedDict(
         "RequesterTgwInfo": "PeeringTgwInfoTypeDef",
         "AccepterTgwInfo": "PeeringTgwInfoTypeDef",
         "Status": "PeeringAttachmentStatusTypeDef",
-        "State": Literal[
-            "initiating",
-            "initiatingRequest",
-            "pendingAcceptance",
-            "rollingBack",
-            "pending",
-            "available",
-            "modifying",
-            "deleting",
-            "deleted",
-            "failed",
-            "rejected",
-            "rejecting",
-            "failing",
-        ],
+        "State": TransitGatewayAttachmentStateType,
         "CreationTime": datetime,
         "Tags": List["TagTypeDef"],
     },
@@ -11291,9 +21870,7 @@ TransitGatewayPrefixListAttachmentTypeDef = TypedDict(
     "TransitGatewayPrefixListAttachmentTypeDef",
     {
         "TransitGatewayAttachmentId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "ResourceId": str,
     },
     total=False,
@@ -11305,7 +21882,7 @@ TransitGatewayPrefixListReferenceTypeDef = TypedDict(
         "TransitGatewayRouteTableId": str,
         "PrefixListId": str,
         "PrefixListOwnerId": str,
-        "State": Literal["pending", "available", "modifying", "deleting"],
+        "State": TransitGatewayPrefixListReferenceStateType,
         "Blackhole": bool,
         "TransitGatewayAttachment": "TransitGatewayPrefixListAttachmentTypeDef",
     },
@@ -11317,11 +21894,24 @@ TransitGatewayPropagationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "TransitGatewayRouteTableId": str,
-        "State": Literal["enabling", "enabled", "disabling", "disabled"],
+        "State": TransitGatewayPropagationStateType,
+    },
+    total=False,
+)
+
+TransitGatewayRequestOptionsTypeDef = TypedDict(
+    "TransitGatewayRequestOptionsTypeDef",
+    {
+        "AmazonSideAsn": int,
+        "AutoAcceptSharedAttachments": AutoAcceptSharedAttachmentsValueType,
+        "DefaultRouteTableAssociation": DefaultRouteTableAssociationValueType,
+        "DefaultRouteTablePropagation": DefaultRouteTablePropagationValueType,
+        "VpnEcmpSupport": VpnEcmpSupportValueType,
+        "DnsSupport": DnsSupportValueType,
+        "MulticastSupport": MulticastSupportValueType,
+        "TransitGatewayCidrBlocks": List[str],
     },
     total=False,
 )
@@ -11331,9 +21921,7 @@ TransitGatewayRouteAttachmentTypeDef = TypedDict(
     {
         "ResourceId": str,
         "TransitGatewayAttachmentId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
     },
     total=False,
 )
@@ -11343,10 +21931,8 @@ TransitGatewayRouteTableAssociationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
-        "State": Literal["associating", "associated", "disassociating", "disassociated"],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
+        "State": TransitGatewayAssociationStateType,
     },
     total=False,
 )
@@ -11356,10 +21942,8 @@ TransitGatewayRouteTablePropagationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal[
-            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
-        ],
-        "State": Literal["enabling", "enabled", "disabling", "disabled"],
+        "ResourceType": TransitGatewayAttachmentResourceTypeType,
+        "State": TransitGatewayPropagationStateType,
     },
     total=False,
 )
@@ -11369,7 +21953,7 @@ TransitGatewayRouteTableTypeDef = TypedDict(
     {
         "TransitGatewayRouteTableId": str,
         "TransitGatewayId": str,
-        "State": Literal["pending", "available", "deleting", "deleted"],
+        "State": TransitGatewayRouteTableStateType,
         "DefaultAssociationRouteTable": bool,
         "DefaultPropagationRouteTable": bool,
         "CreationTime": datetime,
@@ -11384,8 +21968,8 @@ TransitGatewayRouteTypeDef = TypedDict(
         "DestinationCidrBlock": str,
         "PrefixListId": str,
         "TransitGatewayAttachments": List["TransitGatewayRouteAttachmentTypeDef"],
-        "Type": Literal["static", "propagated"],
-        "State": Literal["pending", "active", "blackhole", "deleting", "deleted"],
+        "Type": TransitGatewayRouteTypeType,
+        "State": TransitGatewayRouteStateType,
     },
     total=False,
 )
@@ -11395,7 +21979,7 @@ TransitGatewayTypeDef = TypedDict(
     {
         "TransitGatewayId": str,
         "TransitGatewayArn": str,
-        "State": Literal["pending", "available", "modifying", "deleting", "deleted"],
+        "State": TransitGatewayStateType,
         "OwnerId": str,
         "Description": str,
         "CreationTime": datetime,
@@ -11408,9 +21992,9 @@ TransitGatewayTypeDef = TypedDict(
 TransitGatewayVpcAttachmentOptionsTypeDef = TypedDict(
     "TransitGatewayVpcAttachmentOptionsTypeDef",
     {
-        "DnsSupport": Literal["enable", "disable"],
-        "Ipv6Support": Literal["enable", "disable"],
-        "ApplianceModeSupport": Literal["enable", "disable"],
+        "DnsSupport": DnsSupportValueType,
+        "Ipv6Support": Ipv6SupportValueType,
+        "ApplianceModeSupport": ApplianceModeSupportValueType,
     },
     total=False,
 )
@@ -11422,24 +22006,24 @@ TransitGatewayVpcAttachmentTypeDef = TypedDict(
         "TransitGatewayId": str,
         "VpcId": str,
         "VpcOwnerId": str,
-        "State": Literal[
-            "initiating",
-            "initiatingRequest",
-            "pendingAcceptance",
-            "rollingBack",
-            "pending",
-            "available",
-            "modifying",
-            "deleting",
-            "deleted",
-            "failed",
-            "rejected",
-            "rejecting",
-            "failing",
-        ],
+        "State": TransitGatewayAttachmentStateType,
         "SubnetIds": List[str],
         "CreationTime": datetime,
         "Options": "TransitGatewayVpcAttachmentOptionsTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+TrunkInterfaceAssociationTypeDef = TypedDict(
+    "TrunkInterfaceAssociationTypeDef",
+    {
+        "AssociationId": str,
+        "BranchInterfaceId": str,
+        "TrunkInterfaceId": str,
+        "InterfaceProtocol": InterfaceProtocolTypeType,
+        "VlanId": int,
+        "GreKey": int,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -11471,15 +22055,107 @@ TunnelOptionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredUnassignIpv6AddressesRequestRequestTypeDef = TypedDict(
+    "_RequiredUnassignIpv6AddressesRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalUnassignIpv6AddressesRequestRequestTypeDef = TypedDict(
+    "_OptionalUnassignIpv6AddressesRequestRequestTypeDef",
+    {
+        "Ipv6Addresses": List[str],
+        "Ipv6Prefixes": List[str],
+    },
+    total=False,
+)
+
+class UnassignIpv6AddressesRequestRequestTypeDef(
+    _RequiredUnassignIpv6AddressesRequestRequestTypeDef,
+    _OptionalUnassignIpv6AddressesRequestRequestTypeDef,
+):
+    pass
+
+UnassignIpv6AddressesResultTypeDef = TypedDict(
+    "UnassignIpv6AddressesResultTypeDef",
+    {
+        "NetworkInterfaceId": str,
+        "UnassignedIpv6Addresses": List[str],
+        "UnassignedIpv6Prefixes": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UnassignPrivateIpAddressesRequestNetworkInterfaceTypeDef = TypedDict(
+    "UnassignPrivateIpAddressesRequestNetworkInterfaceTypeDef",
+    {
+        "PrivateIpAddresses": List[str],
+        "Ipv4Prefixes": List[str],
+    },
+    total=False,
+)
+
+_RequiredUnassignPrivateIpAddressesRequestRequestTypeDef = TypedDict(
+    "_RequiredUnassignPrivateIpAddressesRequestRequestTypeDef",
+    {
+        "NetworkInterfaceId": str,
+    },
+)
+_OptionalUnassignPrivateIpAddressesRequestRequestTypeDef = TypedDict(
+    "_OptionalUnassignPrivateIpAddressesRequestRequestTypeDef",
+    {
+        "PrivateIpAddresses": List[str],
+        "Ipv4Prefixes": List[str],
+    },
+    total=False,
+)
+
+class UnassignPrivateIpAddressesRequestRequestTypeDef(
+    _RequiredUnassignPrivateIpAddressesRequestRequestTypeDef,
+    _OptionalUnassignPrivateIpAddressesRequestRequestTypeDef,
+):
+    pass
+
+UnmonitorInstancesRequestInstanceTypeDef = TypedDict(
+    "UnmonitorInstancesRequestInstanceTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+_RequiredUnmonitorInstancesRequestRequestTypeDef = TypedDict(
+    "_RequiredUnmonitorInstancesRequestRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+    },
+)
+_OptionalUnmonitorInstancesRequestRequestTypeDef = TypedDict(
+    "_OptionalUnmonitorInstancesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class UnmonitorInstancesRequestRequestTypeDef(
+    _RequiredUnmonitorInstancesRequestRequestTypeDef,
+    _OptionalUnmonitorInstancesRequestRequestTypeDef,
+):
+    pass
+
+UnmonitorInstancesResultTypeDef = TypedDict(
+    "UnmonitorInstancesResultTypeDef",
+    {
+        "InstanceMonitorings": List["InstanceMonitoringTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef = TypedDict(
     "UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef",
     {
-        "Code": Literal[
-            "InvalidInstanceID.Malformed",
-            "InvalidInstanceID.NotFound",
-            "IncorrectInstanceState",
-            "InstanceCreditSpecification.NotSupported",
-        ],
+        "Code": UnsuccessfulInstanceCreditSpecificationErrorCodeType,
         "Message": str,
     },
     total=False,
@@ -11487,27 +22163,96 @@ UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef = TypedDict(
 
 UnsuccessfulInstanceCreditSpecificationItemTypeDef = TypedDict(
     "UnsuccessfulInstanceCreditSpecificationItemTypeDef",
-    {"InstanceId": str, "Error": "UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef"},
+    {
+        "InstanceId": str,
+        "Error": "UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef",
+    },
     total=False,
 )
 
 UnsuccessfulItemErrorTypeDef = TypedDict(
-    "UnsuccessfulItemErrorTypeDef", {"Code": str, "Message": str}, total=False
+    "UnsuccessfulItemErrorTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )
 
 UnsuccessfulItemTypeDef = TypedDict(
     "UnsuccessfulItemTypeDef",
-    {"Error": "UnsuccessfulItemErrorTypeDef", "ResourceId": str},
+    {
+        "Error": "UnsuccessfulItemErrorTypeDef",
+        "ResourceId": str,
+    },
     total=False,
 )
 
-UserBucketDetailsTypeDef = TypedDict(
-    "UserBucketDetailsTypeDef", {"S3Bucket": str, "S3Key": str}, total=False
+UpdateSecurityGroupRuleDescriptionsEgressRequestRequestTypeDef = TypedDict(
+    "UpdateSecurityGroupRuleDescriptionsEgressRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "GroupId": str,
+        "GroupName": str,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "SecurityGroupRuleDescriptions": List["SecurityGroupRuleDescriptionTypeDef"],
+    },
+    total=False,
 )
 
-UserBucketTypeDef = TypedDict("UserBucketTypeDef", {"S3Bucket": str, "S3Key": str}, total=False)
+UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef = TypedDict(
+    "UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
-UserDataTypeDef = TypedDict("UserDataTypeDef", {"Data": str}, total=False)
+UpdateSecurityGroupRuleDescriptionsIngressRequestRequestTypeDef = TypedDict(
+    "UpdateSecurityGroupRuleDescriptionsIngressRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "GroupId": str,
+        "GroupName": str,
+        "IpPermissions": List["IpPermissionTypeDef"],
+        "SecurityGroupRuleDescriptions": List["SecurityGroupRuleDescriptionTypeDef"],
+    },
+    total=False,
+)
+
+UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef = TypedDict(
+    "UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UserBucketDetailsTypeDef = TypedDict(
+    "UserBucketDetailsTypeDef",
+    {
+        "S3Bucket": str,
+        "S3Key": str,
+    },
+    total=False,
+)
+
+UserBucketTypeDef = TypedDict(
+    "UserBucketTypeDef",
+    {
+        "S3Bucket": str,
+        "S3Key": str,
+    },
+    total=False,
+)
+
+UserDataTypeDef = TypedDict(
+    "UserDataTypeDef",
+    {
+        "Data": str,
+    },
+    total=False,
+)
 
 UserIdGroupPairTypeDef = TypedDict(
     "UserIdGroupPairTypeDef",
@@ -11536,11 +22281,20 @@ VCpuInfoTypeDef = TypedDict(
 )
 
 ValidationErrorTypeDef = TypedDict(
-    "ValidationErrorTypeDef", {"Code": str, "Message": str}, total=False
+    "ValidationErrorTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )
 
 ValidationWarningTypeDef = TypedDict(
-    "ValidationWarningTypeDef", {"Errors": List["ValidationErrorTypeDef"]}, total=False
+    "ValidationWarningTypeDef",
+    {
+        "Errors": List["ValidationErrorTypeDef"],
+    },
+    total=False,
 )
 
 VgwTelemetryTypeDef = TypedDict(
@@ -11549,11 +22303,24 @@ VgwTelemetryTypeDef = TypedDict(
         "AcceptedRouteCount": int,
         "LastStatusChange": datetime,
         "OutsideIpAddress": str,
-        "Status": Literal["UP", "DOWN"],
+        "Status": TelemetryStatusType,
         "StatusMessage": str,
         "CertificateArn": str,
     },
     total=False,
+)
+
+VolumeAttachmentResponseMetadataTypeDef = TypedDict(
+    "VolumeAttachmentResponseMetadataTypeDef",
+    {
+        "AttachTime": datetime,
+        "Device": str,
+        "InstanceId": str,
+        "State": VolumeAttachmentStateType,
+        "VolumeId": str,
+        "DeleteOnTermination": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 VolumeAttachmentTypeDef = TypedDict(
@@ -11562,29 +22329,34 @@ VolumeAttachmentTypeDef = TypedDict(
         "AttachTime": datetime,
         "Device": str,
         "InstanceId": str,
-        "State": Literal["attaching", "attached", "detaching", "detached", "busy"],
+        "State": VolumeAttachmentStateType,
         "VolumeId": str,
         "DeleteOnTermination": bool,
     },
     total=False,
 )
 
-VolumeDetailTypeDef = TypedDict("VolumeDetailTypeDef", {"Size": int})
+VolumeDetailTypeDef = TypedDict(
+    "VolumeDetailTypeDef",
+    {
+        "Size": int,
+    },
+)
 
 VolumeModificationTypeDef = TypedDict(
     "VolumeModificationTypeDef",
     {
         "VolumeId": str,
-        "ModificationState": Literal["modifying", "optimizing", "completed", "failed"],
+        "ModificationState": VolumeModificationStateType,
         "StatusMessage": str,
         "TargetSize": int,
         "TargetIops": int,
-        "TargetVolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
+        "TargetVolumeType": VolumeTypeType,
         "TargetThroughput": int,
         "TargetMultiAttachEnabled": bool,
         "OriginalSize": int,
         "OriginalIops": int,
-        "OriginalVolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
+        "OriginalVolumeType": VolumeTypeType,
         "OriginalThroughput": int,
         "OriginalMultiAttachEnabled": bool,
         "Progress": int,
@@ -11594,19 +22366,55 @@ VolumeModificationTypeDef = TypedDict(
     total=False,
 )
 
+VolumeResponseMetadataTypeDef = TypedDict(
+    "VolumeResponseMetadataTypeDef",
+    {
+        "Attachments": List["VolumeAttachmentTypeDef"],
+        "AvailabilityZone": str,
+        "CreateTime": datetime,
+        "Encrypted": bool,
+        "KmsKeyId": str,
+        "OutpostArn": str,
+        "Size": int,
+        "SnapshotId": str,
+        "State": VolumeStateType,
+        "VolumeId": str,
+        "Iops": int,
+        "Tags": List["TagTypeDef"],
+        "VolumeType": VolumeTypeType,
+        "FastRestored": bool,
+        "MultiAttachEnabled": bool,
+        "Throughput": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 VolumeStatusActionTypeDef = TypedDict(
     "VolumeStatusActionTypeDef",
-    {"Code": str, "Description": str, "EventId": str, "EventType": str},
+    {
+        "Code": str,
+        "Description": str,
+        "EventId": str,
+        "EventType": str,
+    },
     total=False,
 )
 
 VolumeStatusAttachmentStatusTypeDef = TypedDict(
-    "VolumeStatusAttachmentStatusTypeDef", {"IoPerformance": str, "InstanceId": str}, total=False
+    "VolumeStatusAttachmentStatusTypeDef",
+    {
+        "IoPerformance": str,
+        "InstanceId": str,
+    },
+    total=False,
 )
 
 VolumeStatusDetailsTypeDef = TypedDict(
     "VolumeStatusDetailsTypeDef",
-    {"Name": Literal["io-enabled", "io-performance"], "Status": str},
+    {
+        "Name": VolumeStatusNameType,
+        "Status": str,
+    },
     total=False,
 )
 
@@ -11627,7 +22435,7 @@ VolumeStatusInfoTypeDef = TypedDict(
     "VolumeStatusInfoTypeDef",
     {
         "Details": List["VolumeStatusDetailsTypeDef"],
-        "Status": Literal["ok", "impaired", "insufficient-data"],
+        "Status": VolumeStatusInfoStatusType,
     },
     total=False,
 )
@@ -11657,11 +22465,11 @@ VolumeTypeDef = TypedDict(
         "OutpostArn": str,
         "Size": int,
         "SnapshotId": str,
-        "State": Literal["creating", "available", "in-use", "deleting", "deleted", "error"],
+        "State": VolumeStateType,
         "VolumeId": str,
         "Iops": int,
         "Tags": List["TagTypeDef"],
-        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
+        "VolumeType": VolumeTypeType,
         "FastRestored": bool,
         "MultiAttachEnabled": bool,
         "Throughput": int,
@@ -11671,22 +22479,27 @@ VolumeTypeDef = TypedDict(
 
 VpcAttachmentTypeDef = TypedDict(
     "VpcAttachmentTypeDef",
-    {"State": Literal["attaching", "attached", "detaching", "detached"], "VpcId": str},
+    {
+        "State": AttachmentStatusType,
+        "VpcId": str,
+    },
     total=False,
 )
 
 VpcCidrBlockAssociationTypeDef = TypedDict(
     "VpcCidrBlockAssociationTypeDef",
-    {"AssociationId": str, "CidrBlock": str, "CidrBlockState": "VpcCidrBlockStateTypeDef"},
+    {
+        "AssociationId": str,
+        "CidrBlock": str,
+        "CidrBlockState": "VpcCidrBlockStateTypeDef",
+    },
     total=False,
 )
 
 VpcCidrBlockStateTypeDef = TypedDict(
     "VpcCidrBlockStateTypeDef",
     {
-        "State": Literal[
-            "associating", "associated", "disassociating", "disassociated", "failing", "failed"
-        ],
+        "State": VpcCidrBlockStateCodeType,
         "StatusMessage": str,
     },
     total=False,
@@ -11694,7 +22507,11 @@ VpcCidrBlockStateTypeDef = TypedDict(
 
 VpcClassicLinkTypeDef = TypedDict(
     "VpcClassicLinkTypeDef",
-    {"ClassicLinkEnabled": bool, "Tags": List["TagTypeDef"], "VpcId": str},
+    {
+        "ClassicLinkEnabled": bool,
+        "Tags": List["TagTypeDef"],
+        "VpcId": str,
+    },
     total=False,
 )
 
@@ -11704,16 +22521,7 @@ VpcEndpointConnectionTypeDef = TypedDict(
         "ServiceId": str,
         "VpcEndpointId": str,
         "VpcEndpointOwner": str,
-        "VpcEndpointState": Literal[
-            "PendingAcceptance",
-            "Pending",
-            "Available",
-            "Deleting",
-            "Deleted",
-            "Rejected",
-            "Failed",
-            "Expired",
-        ],
+        "VpcEndpointState": StateType,
         "CreationTimestamp": datetime,
         "DnsEntries": List["DnsEntryTypeDef"],
         "NetworkLoadBalancerArns": List[str],
@@ -11726,19 +22534,10 @@ VpcEndpointTypeDef = TypedDict(
     "VpcEndpointTypeDef",
     {
         "VpcEndpointId": str,
-        "VpcEndpointType": Literal["Interface", "Gateway", "GatewayLoadBalancer"],
+        "VpcEndpointType": VpcEndpointTypeType,
         "VpcId": str,
         "ServiceName": str,
-        "State": Literal[
-            "PendingAcceptance",
-            "Pending",
-            "Available",
-            "Deleting",
-            "Deleted",
-            "Rejected",
-            "Failed",
-            "Expired",
-        ],
+        "State": StateType,
         "PolicyDocument": str,
         "RouteTableIds": List[str],
         "SubnetIds": List[str],
@@ -11780,17 +22579,7 @@ VpcPeeringConnectionOptionsDescriptionTypeDef = TypedDict(
 VpcPeeringConnectionStateReasonTypeDef = TypedDict(
     "VpcPeeringConnectionStateReasonTypeDef",
     {
-        "Code": Literal[
-            "initiating-request",
-            "pending-acceptance",
-            "active",
-            "deleted",
-            "rejected",
-            "failed",
-            "expired",
-            "provisioning",
-            "deleting",
-        ],
+        "Code": VpcPeeringConnectionStateReasonCodeType,
         "Message": str,
     },
     total=False,
@@ -11828,14 +22617,29 @@ VpcTypeDef = TypedDict(
     {
         "CidrBlock": str,
         "DhcpOptionsId": str,
-        "State": Literal["pending", "available"],
+        "State": VpcStateType,
         "VpcId": str,
         "OwnerId": str,
-        "InstanceTenancy": Literal["default", "dedicated", "host"],
+        "InstanceTenancy": TenancyType,
         "Ipv6CidrBlockAssociationSet": List["VpcIpv6CidrBlockAssociationTypeDef"],
         "CidrBlockAssociationSet": List["VpcCidrBlockAssociationTypeDef"],
         "IsDefault": bool,
         "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+VpnConnectionOptionsSpecificationTypeDef = TypedDict(
+    "VpnConnectionOptionsSpecificationTypeDef",
+    {
+        "EnableAcceleration": bool,
+        "StaticRoutesOnly": bool,
+        "TunnelInsideIpVersion": TunnelInsideIpVersionType,
+        "TunnelOptions": List["VpnTunnelOptionsSpecificationTypeDef"],
+        "LocalIpv4NetworkCidr": str,
+        "RemoteIpv4NetworkCidr": str,
+        "LocalIpv6NetworkCidr": str,
+        "RemoteIpv6NetworkCidr": str,
     },
     total=False,
 )
@@ -11849,7 +22653,7 @@ VpnConnectionOptionsTypeDef = TypedDict(
         "RemoteIpv4NetworkCidr": str,
         "LocalIpv6NetworkCidr": str,
         "RemoteIpv6NetworkCidr": str,
-        "TunnelInsideIpVersion": Literal["ipv4", "ipv6"],
+        "TunnelInsideIpVersion": TunnelInsideIpVersionType,
         "TunnelOptions": List["TunnelOptionTypeDef"],
     },
     total=False,
@@ -11861,7 +22665,7 @@ VpnConnectionTypeDef = TypedDict(
         "CustomerGatewayConfiguration": str,
         "CustomerGatewayId": str,
         "Category": str,
-        "State": Literal["pending", "available", "deleting", "deleted"],
+        "State": VpnStateType,
         "Type": Literal["ipsec.1"],
         "VpnConnectionId": str,
         "VpnGatewayId": str,
@@ -11878,7 +22682,7 @@ VpnGatewayTypeDef = TypedDict(
     "VpnGatewayTypeDef",
     {
         "AvailabilityZone": str,
-        "State": Literal["pending", "available", "deleting", "deleted"],
+        "State": VpnStateType,
         "Type": Literal["ipsec.1"],
         "VpcAttachments": List["VpcAttachmentTypeDef"],
         "VpnGatewayId": str,
@@ -11893,7 +22697,7 @@ VpnStaticRouteTypeDef = TypedDict(
     {
         "DestinationCidrBlock": str,
         "Source": Literal["Static"],
-        "State": Literal["pending", "available", "deleting", "deleted"],
+        "State": VpnStateType,
     },
     total=False,
 )
@@ -11923,4012 +22727,38 @@ VpnTunnelOptionsSpecificationTypeDef = TypedDict(
     total=False,
 )
 
-AcceptReservedInstancesExchangeQuoteResultTypeDef = TypedDict(
-    "AcceptReservedInstancesExchangeQuoteResultTypeDef", {"ExchangeId": str}, total=False
-)
-
-AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
-    "AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef",
-    {"Associations": "TransitGatewayMulticastDomainAssociationsTypeDef"},
-    total=False,
-)
-
-AcceptTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
-    "AcceptTransitGatewayPeeringAttachmentResultTypeDef",
-    {"TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef"},
-    total=False,
-)
-
-AcceptTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
-    "AcceptTransitGatewayVpcAttachmentResultTypeDef",
-    {"TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef"},
-    total=False,
-)
-
-AcceptVpcEndpointConnectionsResultTypeDef = TypedDict(
-    "AcceptVpcEndpointConnectionsResultTypeDef",
-    {"Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-AcceptVpcPeeringConnectionResultTypeDef = TypedDict(
-    "AcceptVpcPeeringConnectionResultTypeDef",
-    {"VpcPeeringConnection": "VpcPeeringConnectionTypeDef"},
-    total=False,
-)
-
-_RequiredAddPrefixListEntryTypeDef = TypedDict("_RequiredAddPrefixListEntryTypeDef", {"Cidr": str})
-_OptionalAddPrefixListEntryTypeDef = TypedDict(
-    "_OptionalAddPrefixListEntryTypeDef", {"Description": str}, total=False
-)
-
-
-class AddPrefixListEntryTypeDef(
-    _RequiredAddPrefixListEntryTypeDef, _OptionalAddPrefixListEntryTypeDef
-):
-    pass
-
-
-AdvertiseByoipCidrResultTypeDef = TypedDict(
-    "AdvertiseByoipCidrResultTypeDef", {"ByoipCidr": "ByoipCidrTypeDef"}, total=False
-)
-
-AllocateAddressResultTypeDef = TypedDict(
-    "AllocateAddressResultTypeDef",
-    {
-        "PublicIp": str,
-        "AllocationId": str,
-        "PublicIpv4Pool": str,
-        "NetworkBorderGroup": str,
-        "Domain": Literal["vpc", "standard"],
-        "CustomerOwnedIp": str,
-        "CustomerOwnedIpv4Pool": str,
-        "CarrierIp": str,
-    },
-    total=False,
-)
-
-AllocateHostsResultTypeDef = TypedDict(
-    "AllocateHostsResultTypeDef", {"HostIds": List[str]}, total=False
-)
-
-ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef = TypedDict(
-    "ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef",
-    {"SecurityGroupIds": List[str]},
-    total=False,
-)
-
-AssignIpv6AddressesResultTypeDef = TypedDict(
-    "AssignIpv6AddressesResultTypeDef",
-    {"AssignedIpv6Addresses": List[str], "NetworkInterfaceId": str},
-    total=False,
-)
-
-AssignPrivateIpAddressesResultTypeDef = TypedDict(
-    "AssignPrivateIpAddressesResultTypeDef",
-    {
-        "NetworkInterfaceId": str,
-        "AssignedPrivateIpAddresses": List["AssignedPrivateIpAddressTypeDef"],
-    },
-    total=False,
-)
-
-AssociateAddressResultTypeDef = TypedDict(
-    "AssociateAddressResultTypeDef", {"AssociationId": str}, total=False
-)
-
-AssociateClientVpnTargetNetworkResultTypeDef = TypedDict(
-    "AssociateClientVpnTargetNetworkResultTypeDef",
-    {"AssociationId": str, "Status": "AssociationStatusTypeDef"},
-    total=False,
-)
-
-AssociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
-    "AssociateEnclaveCertificateIamRoleResultTypeDef",
-    {"CertificateS3BucketName": str, "CertificateS3ObjectKey": str, "EncryptionKmsKeyId": str},
-    total=False,
-)
-
-AssociateIamInstanceProfileResultTypeDef = TypedDict(
-    "AssociateIamInstanceProfileResultTypeDef",
-    {"IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef"},
-    total=False,
-)
-
-AssociateRouteTableResultTypeDef = TypedDict(
-    "AssociateRouteTableResultTypeDef",
-    {"AssociationId": str, "AssociationState": "RouteTableAssociationStateTypeDef"},
-    total=False,
-)
-
-AssociateSubnetCidrBlockResultTypeDef = TypedDict(
-    "AssociateSubnetCidrBlockResultTypeDef",
-    {"Ipv6CidrBlockAssociation": "SubnetIpv6CidrBlockAssociationTypeDef", "SubnetId": str},
-    total=False,
-)
-
-AssociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
-    "AssociateTransitGatewayMulticastDomainResultTypeDef",
-    {"Associations": "TransitGatewayMulticastDomainAssociationsTypeDef"},
-    total=False,
-)
-
-AssociateTransitGatewayRouteTableResultTypeDef = TypedDict(
-    "AssociateTransitGatewayRouteTableResultTypeDef",
-    {"Association": "TransitGatewayAssociationTypeDef"},
-    total=False,
-)
-
-AssociateVpcCidrBlockResultTypeDef = TypedDict(
-    "AssociateVpcCidrBlockResultTypeDef",
-    {
-        "Ipv6CidrBlockAssociation": "VpcIpv6CidrBlockAssociationTypeDef",
-        "CidrBlockAssociation": "VpcCidrBlockAssociationTypeDef",
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AttachClassicLinkVpcResultTypeDef = TypedDict(
-    "AttachClassicLinkVpcResultTypeDef", {"Return": bool}, total=False
-)
-
-AttachNetworkInterfaceResultTypeDef = TypedDict(
-    "AttachNetworkInterfaceResultTypeDef",
-    {"AttachmentId": str, "NetworkCardIndex": int},
-    total=False,
-)
-
-AttachVpnGatewayResultTypeDef = TypedDict(
-    "AttachVpnGatewayResultTypeDef", {"VpcAttachment": "VpcAttachmentTypeDef"}, total=False
-)
-
-AuthorizeClientVpnIngressResultTypeDef = TypedDict(
-    "AuthorizeClientVpnIngressResultTypeDef",
-    {"Status": "ClientVpnAuthorizationRuleStatusTypeDef"},
-    total=False,
-)
-
-BlobAttributeValueTypeDef = TypedDict(
-    "BlobAttributeValueTypeDef", {"Value": Union[bytes, IO[bytes]]}, total=False
-)
-
-BundleInstanceResultTypeDef = TypedDict(
-    "BundleInstanceResultTypeDef", {"BundleTask": "BundleTaskTypeDef"}, total=False
-)
-
-CancelBundleTaskResultTypeDef = TypedDict(
-    "CancelBundleTaskResultTypeDef", {"BundleTask": "BundleTaskTypeDef"}, total=False
-)
-
-CancelCapacityReservationResultTypeDef = TypedDict(
-    "CancelCapacityReservationResultTypeDef", {"Return": bool}, total=False
-)
-
-CancelImportTaskResultTypeDef = TypedDict(
-    "CancelImportTaskResultTypeDef",
-    {"ImportTaskId": str, "PreviousState": str, "State": str},
-    total=False,
-)
-
-CancelReservedInstancesListingResultTypeDef = TypedDict(
-    "CancelReservedInstancesListingResultTypeDef",
-    {"ReservedInstancesListings": List["ReservedInstancesListingTypeDef"]},
-    total=False,
-)
-
-CancelSpotFleetRequestsResponseTypeDef = TypedDict(
-    "CancelSpotFleetRequestsResponseTypeDef",
-    {
-        "SuccessfulFleetRequests": List["CancelSpotFleetRequestsSuccessItemTypeDef"],
-        "UnsuccessfulFleetRequests": List["CancelSpotFleetRequestsErrorItemTypeDef"],
-    },
-    total=False,
-)
-
-CancelSpotInstanceRequestsResultTypeDef = TypedDict(
-    "CancelSpotInstanceRequestsResultTypeDef",
-    {"CancelledSpotInstanceRequests": List["CancelledSpotInstanceRequestTypeDef"]},
-    total=False,
-)
-
-CapacityReservationSpecificationTypeDef = TypedDict(
-    "CapacityReservationSpecificationTypeDef",
-    {
-        "CapacityReservationPreference": Literal["open", "none"],
-        "CapacityReservationTarget": "CapacityReservationTargetTypeDef",
-    },
-    total=False,
-)
-
-CidrAuthorizationContextTypeDef = TypedDict(
-    "CidrAuthorizationContextTypeDef", {"Message": str, "Signature": str}
-)
-
-ClientConnectOptionsTypeDef = TypedDict(
-    "ClientConnectOptionsTypeDef", {"Enabled": bool, "LambdaFunctionArn": str}, total=False
-)
-
-ClientDataTypeDef = TypedDict(
-    "ClientDataTypeDef",
-    {"Comment": str, "UploadEnd": datetime, "UploadSize": float, "UploadStart": datetime},
-    total=False,
-)
-
-ClientVpnAuthenticationRequestTypeDef = TypedDict(
-    "ClientVpnAuthenticationRequestTypeDef",
-    {
-        "Type": Literal[
-            "certificate-authentication",
-            "directory-service-authentication",
-            "federated-authentication",
-        ],
-        "ActiveDirectory": "DirectoryServiceAuthenticationRequestTypeDef",
-        "MutualAuthentication": "CertificateAuthenticationRequestTypeDef",
-        "FederatedAuthentication": "FederatedAuthenticationRequestTypeDef",
-    },
-    total=False,
-)
-
-ConfirmProductInstanceResultTypeDef = TypedDict(
-    "ConfirmProductInstanceResultTypeDef", {"OwnerId": str, "Return": bool}, total=False
-)
-
-ConnectionLogOptionsTypeDef = TypedDict(
-    "ConnectionLogOptionsTypeDef",
-    {"Enabled": bool, "CloudwatchLogGroup": str, "CloudwatchLogStream": str},
-    total=False,
-)
-
-CopyFpgaImageResultTypeDef = TypedDict(
-    "CopyFpgaImageResultTypeDef", {"FpgaImageId": str}, total=False
-)
-
-CopyImageResultTypeDef = TypedDict("CopyImageResultTypeDef", {"ImageId": str}, total=False)
-
-CopySnapshotResultTypeDef = TypedDict(
-    "CopySnapshotResultTypeDef", {"SnapshotId": str, "Tags": List["TagTypeDef"]}, total=False
-)
-
-CpuOptionsRequestTypeDef = TypedDict(
-    "CpuOptionsRequestTypeDef", {"CoreCount": int, "ThreadsPerCore": int}, total=False
-)
-
-CreateCapacityReservationResultTypeDef = TypedDict(
-    "CreateCapacityReservationResultTypeDef",
-    {"CapacityReservation": "CapacityReservationTypeDef"},
-    total=False,
-)
-
-CreateCarrierGatewayResultTypeDef = TypedDict(
-    "CreateCarrierGatewayResultTypeDef", {"CarrierGateway": "CarrierGatewayTypeDef"}, total=False
-)
-
-CreateClientVpnEndpointResultTypeDef = TypedDict(
-    "CreateClientVpnEndpointResultTypeDef",
-    {"ClientVpnEndpointId": str, "Status": "ClientVpnEndpointStatusTypeDef", "DnsName": str},
-    total=False,
-)
-
-CreateClientVpnRouteResultTypeDef = TypedDict(
-    "CreateClientVpnRouteResultTypeDef", {"Status": "ClientVpnRouteStatusTypeDef"}, total=False
-)
-
-CreateCustomerGatewayResultTypeDef = TypedDict(
-    "CreateCustomerGatewayResultTypeDef", {"CustomerGateway": "CustomerGatewayTypeDef"}, total=False
-)
-
-CreateDefaultSubnetResultTypeDef = TypedDict(
-    "CreateDefaultSubnetResultTypeDef", {"Subnet": "SubnetTypeDef"}, total=False
-)
-
-CreateDefaultVpcResultTypeDef = TypedDict(
-    "CreateDefaultVpcResultTypeDef", {"Vpc": "VpcTypeDef"}, total=False
-)
-
-CreateDhcpOptionsResultTypeDef = TypedDict(
-    "CreateDhcpOptionsResultTypeDef", {"DhcpOptions": "DhcpOptionsTypeDef"}, total=False
-)
-
-CreateEgressOnlyInternetGatewayResultTypeDef = TypedDict(
-    "CreateEgressOnlyInternetGatewayResultTypeDef",
-    {"ClientToken": str, "EgressOnlyInternetGateway": "EgressOnlyInternetGatewayTypeDef"},
-    total=False,
-)
-
-CreateFleetResultTypeDef = TypedDict(
-    "CreateFleetResultTypeDef",
-    {
-        "FleetId": str,
-        "Errors": List["CreateFleetErrorTypeDef"],
-        "Instances": List["CreateFleetInstanceTypeDef"],
-    },
-    total=False,
-)
-
-CreateFlowLogsResultTypeDef = TypedDict(
-    "CreateFlowLogsResultTypeDef",
-    {"ClientToken": str, "FlowLogIds": List[str], "Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-CreateFpgaImageResultTypeDef = TypedDict(
-    "CreateFpgaImageResultTypeDef", {"FpgaImageId": str, "FpgaImageGlobalId": str}, total=False
-)
-
-CreateImageResultTypeDef = TypedDict("CreateImageResultTypeDef", {"ImageId": str}, total=False)
-
-CreateInstanceExportTaskResultTypeDef = TypedDict(
-    "CreateInstanceExportTaskResultTypeDef", {"ExportTask": "ExportTaskTypeDef"}, total=False
-)
-
-CreateInternetGatewayResultTypeDef = TypedDict(
-    "CreateInternetGatewayResultTypeDef", {"InternetGateway": "InternetGatewayTypeDef"}, total=False
-)
-
-CreateLaunchTemplateResultTypeDef = TypedDict(
-    "CreateLaunchTemplateResultTypeDef",
-    {"LaunchTemplate": "LaunchTemplateTypeDef", "Warning": "ValidationWarningTypeDef"},
-    total=False,
-)
-
-CreateLaunchTemplateVersionResultTypeDef = TypedDict(
-    "CreateLaunchTemplateVersionResultTypeDef",
-    {
-        "LaunchTemplateVersion": "LaunchTemplateVersionTypeDef",
-        "Warning": "ValidationWarningTypeDef",
-    },
-    total=False,
-)
-
-CreateLocalGatewayRouteResultTypeDef = TypedDict(
-    "CreateLocalGatewayRouteResultTypeDef", {"Route": "LocalGatewayRouteTypeDef"}, total=False
-)
-
-CreateLocalGatewayRouteTableVpcAssociationResultTypeDef = TypedDict(
-    "CreateLocalGatewayRouteTableVpcAssociationResultTypeDef",
-    {"LocalGatewayRouteTableVpcAssociation": "LocalGatewayRouteTableVpcAssociationTypeDef"},
-    total=False,
-)
-
-CreateManagedPrefixListResultTypeDef = TypedDict(
-    "CreateManagedPrefixListResultTypeDef", {"PrefixList": "ManagedPrefixListTypeDef"}, total=False
-)
-
-CreateNatGatewayResultTypeDef = TypedDict(
-    "CreateNatGatewayResultTypeDef",
-    {"ClientToken": str, "NatGateway": "NatGatewayTypeDef"},
-    total=False,
-)
-
-CreateNetworkAclResultTypeDef = TypedDict(
-    "CreateNetworkAclResultTypeDef", {"NetworkAcl": "NetworkAclTypeDef"}, total=False
-)
-
-CreateNetworkInsightsPathResultTypeDef = TypedDict(
-    "CreateNetworkInsightsPathResultTypeDef",
-    {"NetworkInsightsPath": "NetworkInsightsPathTypeDef"},
-    total=False,
-)
-
-CreateNetworkInterfacePermissionResultTypeDef = TypedDict(
-    "CreateNetworkInterfacePermissionResultTypeDef",
-    {"InterfacePermission": "NetworkInterfacePermissionTypeDef"},
-    total=False,
-)
-
-CreateNetworkInterfaceResultTypeDef = TypedDict(
-    "CreateNetworkInterfaceResultTypeDef",
-    {"NetworkInterface": "NetworkInterfaceTypeDef"},
-    total=False,
-)
-
-CreatePlacementGroupResultTypeDef = TypedDict(
-    "CreatePlacementGroupResultTypeDef", {"PlacementGroup": "PlacementGroupTypeDef"}, total=False
-)
-
-CreateReservedInstancesListingResultTypeDef = TypedDict(
-    "CreateReservedInstancesListingResultTypeDef",
-    {"ReservedInstancesListings": List["ReservedInstancesListingTypeDef"]},
-    total=False,
-)
-
-CreateRouteResultTypeDef = TypedDict("CreateRouteResultTypeDef", {"Return": bool}, total=False)
-
-CreateRouteTableResultTypeDef = TypedDict(
-    "CreateRouteTableResultTypeDef", {"RouteTable": "RouteTableTypeDef"}, total=False
-)
-
-CreateSecurityGroupResultTypeDef = TypedDict(
-    "CreateSecurityGroupResultTypeDef", {"GroupId": str, "Tags": List["TagTypeDef"]}, total=False
-)
-
-CreateSnapshotsResultTypeDef = TypedDict(
-    "CreateSnapshotsResultTypeDef", {"Snapshots": List["SnapshotInfoTypeDef"]}, total=False
-)
-
-CreateSpotDatafeedSubscriptionResultTypeDef = TypedDict(
-    "CreateSpotDatafeedSubscriptionResultTypeDef",
-    {"SpotDatafeedSubscription": "SpotDatafeedSubscriptionTypeDef"},
-    total=False,
-)
-
-CreateSubnetResultTypeDef = TypedDict(
-    "CreateSubnetResultTypeDef", {"Subnet": "SubnetTypeDef"}, total=False
-)
-
-CreateTrafficMirrorFilterResultTypeDef = TypedDict(
-    "CreateTrafficMirrorFilterResultTypeDef",
-    {"TrafficMirrorFilter": "TrafficMirrorFilterTypeDef", "ClientToken": str},
-    total=False,
-)
-
-CreateTrafficMirrorFilterRuleResultTypeDef = TypedDict(
-    "CreateTrafficMirrorFilterRuleResultTypeDef",
-    {"TrafficMirrorFilterRule": "TrafficMirrorFilterRuleTypeDef", "ClientToken": str},
-    total=False,
-)
-
-CreateTrafficMirrorSessionResultTypeDef = TypedDict(
-    "CreateTrafficMirrorSessionResultTypeDef",
-    {"TrafficMirrorSession": "TrafficMirrorSessionTypeDef", "ClientToken": str},
-    total=False,
-)
-
-CreateTrafficMirrorTargetResultTypeDef = TypedDict(
-    "CreateTrafficMirrorTargetResultTypeDef",
-    {"TrafficMirrorTarget": "TrafficMirrorTargetTypeDef", "ClientToken": str},
-    total=False,
-)
-
-CreateTransitGatewayConnectPeerResultTypeDef = TypedDict(
-    "CreateTransitGatewayConnectPeerResultTypeDef",
-    {"TransitGatewayConnectPeer": "TransitGatewayConnectPeerTypeDef"},
-    total=False,
-)
-
-CreateTransitGatewayConnectRequestOptionsTypeDef = TypedDict(
-    "CreateTransitGatewayConnectRequestOptionsTypeDef", {"Protocol": Literal["gre"]}
-)
-
-CreateTransitGatewayConnectResultTypeDef = TypedDict(
-    "CreateTransitGatewayConnectResultTypeDef",
-    {"TransitGatewayConnect": "TransitGatewayConnectTypeDef"},
-    total=False,
-)
-
-CreateTransitGatewayMulticastDomainRequestOptionsTypeDef = TypedDict(
-    "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
-    {
-        "Igmpv2Support": Literal["enable", "disable"],
-        "StaticSourcesSupport": Literal["enable", "disable"],
-        "AutoAcceptSharedAssociations": Literal["enable", "disable"],
-    },
-    total=False,
-)
-
-CreateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
-    "CreateTransitGatewayMulticastDomainResultTypeDef",
-    {"TransitGatewayMulticastDomain": "TransitGatewayMulticastDomainTypeDef"},
-    total=False,
-)
-
-CreateTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
-    "CreateTransitGatewayPeeringAttachmentResultTypeDef",
-    {"TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef"},
-    total=False,
-)
-
-CreateTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
-    "CreateTransitGatewayPrefixListReferenceResultTypeDef",
-    {"TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef"},
-    total=False,
-)
-
-CreateTransitGatewayResultTypeDef = TypedDict(
-    "CreateTransitGatewayResultTypeDef", {"TransitGateway": "TransitGatewayTypeDef"}, total=False
-)
-
-CreateTransitGatewayRouteResultTypeDef = TypedDict(
-    "CreateTransitGatewayRouteResultTypeDef", {"Route": "TransitGatewayRouteTypeDef"}, total=False
-)
-
-CreateTransitGatewayRouteTableResultTypeDef = TypedDict(
-    "CreateTransitGatewayRouteTableResultTypeDef",
-    {"TransitGatewayRouteTable": "TransitGatewayRouteTableTypeDef"},
-    total=False,
-)
-
-CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef = TypedDict(
-    "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
-    {
-        "DnsSupport": Literal["enable", "disable"],
-        "Ipv6Support": Literal["enable", "disable"],
-        "ApplianceModeSupport": Literal["enable", "disable"],
-    },
-    total=False,
-)
-
-CreateTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
-    "CreateTransitGatewayVpcAttachmentResultTypeDef",
-    {"TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef"},
-    total=False,
-)
-
-CreateVolumePermissionModificationsTypeDef = TypedDict(
-    "CreateVolumePermissionModificationsTypeDef",
-    {"Add": List["CreateVolumePermissionTypeDef"], "Remove": List["CreateVolumePermissionTypeDef"]},
-    total=False,
-)
-
-CreateVpcEndpointConnectionNotificationResultTypeDef = TypedDict(
-    "CreateVpcEndpointConnectionNotificationResultTypeDef",
-    {"ConnectionNotification": "ConnectionNotificationTypeDef", "ClientToken": str},
-    total=False,
-)
-
-CreateVpcEndpointResultTypeDef = TypedDict(
-    "CreateVpcEndpointResultTypeDef",
-    {"VpcEndpoint": "VpcEndpointTypeDef", "ClientToken": str},
-    total=False,
-)
-
-CreateVpcEndpointServiceConfigurationResultTypeDef = TypedDict(
-    "CreateVpcEndpointServiceConfigurationResultTypeDef",
-    {"ServiceConfiguration": "ServiceConfigurationTypeDef", "ClientToken": str},
-    total=False,
-)
-
-CreateVpcPeeringConnectionResultTypeDef = TypedDict(
-    "CreateVpcPeeringConnectionResultTypeDef",
-    {"VpcPeeringConnection": "VpcPeeringConnectionTypeDef"},
-    total=False,
-)
-
-CreateVpcResultTypeDef = TypedDict("CreateVpcResultTypeDef", {"Vpc": "VpcTypeDef"}, total=False)
-
-CreateVpnConnectionResultTypeDef = TypedDict(
-    "CreateVpnConnectionResultTypeDef", {"VpnConnection": "VpnConnectionTypeDef"}, total=False
-)
-
-CreateVpnGatewayResultTypeDef = TypedDict(
-    "CreateVpnGatewayResultTypeDef", {"VpnGateway": "VpnGatewayTypeDef"}, total=False
-)
-
-DeleteCarrierGatewayResultTypeDef = TypedDict(
-    "DeleteCarrierGatewayResultTypeDef", {"CarrierGateway": "CarrierGatewayTypeDef"}, total=False
-)
-
-DeleteClientVpnEndpointResultTypeDef = TypedDict(
-    "DeleteClientVpnEndpointResultTypeDef",
-    {"Status": "ClientVpnEndpointStatusTypeDef"},
-    total=False,
-)
-
-DeleteClientVpnRouteResultTypeDef = TypedDict(
-    "DeleteClientVpnRouteResultTypeDef", {"Status": "ClientVpnRouteStatusTypeDef"}, total=False
-)
-
-DeleteEgressOnlyInternetGatewayResultTypeDef = TypedDict(
-    "DeleteEgressOnlyInternetGatewayResultTypeDef", {"ReturnCode": bool}, total=False
-)
-
-DeleteFleetsResultTypeDef = TypedDict(
-    "DeleteFleetsResultTypeDef",
-    {
-        "SuccessfulFleetDeletions": List["DeleteFleetSuccessItemTypeDef"],
-        "UnsuccessfulFleetDeletions": List["DeleteFleetErrorItemTypeDef"],
-    },
-    total=False,
-)
-
-DeleteFlowLogsResultTypeDef = TypedDict(
-    "DeleteFlowLogsResultTypeDef", {"Unsuccessful": List["UnsuccessfulItemTypeDef"]}, total=False
-)
-
-DeleteFpgaImageResultTypeDef = TypedDict(
-    "DeleteFpgaImageResultTypeDef", {"Return": bool}, total=False
-)
-
-DeleteLaunchTemplateResultTypeDef = TypedDict(
-    "DeleteLaunchTemplateResultTypeDef", {"LaunchTemplate": "LaunchTemplateTypeDef"}, total=False
-)
-
-DeleteLaunchTemplateVersionsResultTypeDef = TypedDict(
-    "DeleteLaunchTemplateVersionsResultTypeDef",
-    {
-        "SuccessfullyDeletedLaunchTemplateVersions": List[
-            "DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef"
-        ],
-        "UnsuccessfullyDeletedLaunchTemplateVersions": List[
-            "DeleteLaunchTemplateVersionsResponseErrorItemTypeDef"
-        ],
-    },
-    total=False,
-)
-
-DeleteLocalGatewayRouteResultTypeDef = TypedDict(
-    "DeleteLocalGatewayRouteResultTypeDef", {"Route": "LocalGatewayRouteTypeDef"}, total=False
-)
-
-DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef = TypedDict(
-    "DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef",
-    {"LocalGatewayRouteTableVpcAssociation": "LocalGatewayRouteTableVpcAssociationTypeDef"},
-    total=False,
-)
-
-DeleteManagedPrefixListResultTypeDef = TypedDict(
-    "DeleteManagedPrefixListResultTypeDef", {"PrefixList": "ManagedPrefixListTypeDef"}, total=False
-)
-
-DeleteNatGatewayResultTypeDef = TypedDict(
-    "DeleteNatGatewayResultTypeDef", {"NatGatewayId": str}, total=False
-)
-
-DeleteNetworkInsightsAnalysisResultTypeDef = TypedDict(
-    "DeleteNetworkInsightsAnalysisResultTypeDef", {"NetworkInsightsAnalysisId": str}, total=False
-)
-
-DeleteNetworkInsightsPathResultTypeDef = TypedDict(
-    "DeleteNetworkInsightsPathResultTypeDef", {"NetworkInsightsPathId": str}, total=False
-)
-
-DeleteNetworkInterfacePermissionResultTypeDef = TypedDict(
-    "DeleteNetworkInterfacePermissionResultTypeDef", {"Return": bool}, total=False
-)
-
-DeleteQueuedReservedInstancesResultTypeDef = TypedDict(
-    "DeleteQueuedReservedInstancesResultTypeDef",
-    {
-        "SuccessfulQueuedPurchaseDeletions": List["SuccessfulQueuedPurchaseDeletionTypeDef"],
-        "FailedQueuedPurchaseDeletions": List["FailedQueuedPurchaseDeletionTypeDef"],
-    },
-    total=False,
-)
-
-DeleteTrafficMirrorFilterResultTypeDef = TypedDict(
-    "DeleteTrafficMirrorFilterResultTypeDef", {"TrafficMirrorFilterId": str}, total=False
-)
-
-DeleteTrafficMirrorFilterRuleResultTypeDef = TypedDict(
-    "DeleteTrafficMirrorFilterRuleResultTypeDef", {"TrafficMirrorFilterRuleId": str}, total=False
-)
-
-DeleteTrafficMirrorSessionResultTypeDef = TypedDict(
-    "DeleteTrafficMirrorSessionResultTypeDef", {"TrafficMirrorSessionId": str}, total=False
-)
-
-DeleteTrafficMirrorTargetResultTypeDef = TypedDict(
-    "DeleteTrafficMirrorTargetResultTypeDef", {"TrafficMirrorTargetId": str}, total=False
-)
-
-DeleteTransitGatewayConnectPeerResultTypeDef = TypedDict(
-    "DeleteTransitGatewayConnectPeerResultTypeDef",
-    {"TransitGatewayConnectPeer": "TransitGatewayConnectPeerTypeDef"},
-    total=False,
-)
-
-DeleteTransitGatewayConnectResultTypeDef = TypedDict(
-    "DeleteTransitGatewayConnectResultTypeDef",
-    {"TransitGatewayConnect": "TransitGatewayConnectTypeDef"},
-    total=False,
-)
-
-DeleteTransitGatewayMulticastDomainResultTypeDef = TypedDict(
-    "DeleteTransitGatewayMulticastDomainResultTypeDef",
-    {"TransitGatewayMulticastDomain": "TransitGatewayMulticastDomainTypeDef"},
-    total=False,
-)
-
-DeleteTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
-    "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
-    {"TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef"},
-    total=False,
-)
-
-DeleteTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
-    "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
-    {"TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef"},
-    total=False,
-)
-
-DeleteTransitGatewayResultTypeDef = TypedDict(
-    "DeleteTransitGatewayResultTypeDef", {"TransitGateway": "TransitGatewayTypeDef"}, total=False
-)
-
-DeleteTransitGatewayRouteResultTypeDef = TypedDict(
-    "DeleteTransitGatewayRouteResultTypeDef", {"Route": "TransitGatewayRouteTypeDef"}, total=False
-)
-
-DeleteTransitGatewayRouteTableResultTypeDef = TypedDict(
-    "DeleteTransitGatewayRouteTableResultTypeDef",
-    {"TransitGatewayRouteTable": "TransitGatewayRouteTableTypeDef"},
-    total=False,
-)
-
-DeleteTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
-    "DeleteTransitGatewayVpcAttachmentResultTypeDef",
-    {"TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef"},
-    total=False,
-)
-
-DeleteVpcEndpointConnectionNotificationsResultTypeDef = TypedDict(
-    "DeleteVpcEndpointConnectionNotificationsResultTypeDef",
-    {"Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-DeleteVpcEndpointServiceConfigurationsResultTypeDef = TypedDict(
-    "DeleteVpcEndpointServiceConfigurationsResultTypeDef",
-    {"Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-DeleteVpcEndpointsResultTypeDef = TypedDict(
-    "DeleteVpcEndpointsResultTypeDef",
-    {"Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-DeleteVpcPeeringConnectionResultTypeDef = TypedDict(
-    "DeleteVpcPeeringConnectionResultTypeDef", {"Return": bool}, total=False
-)
-
-DeprovisionByoipCidrResultTypeDef = TypedDict(
-    "DeprovisionByoipCidrResultTypeDef", {"ByoipCidr": "ByoipCidrTypeDef"}, total=False
-)
-
-DeregisterInstanceEventNotificationAttributesResultTypeDef = TypedDict(
-    "DeregisterInstanceEventNotificationAttributesResultTypeDef",
-    {"InstanceTagAttribute": "InstanceTagNotificationAttributeTypeDef"},
-    total=False,
-)
-
-DeregisterInstanceTagAttributeRequestTypeDef = TypedDict(
-    "DeregisterInstanceTagAttributeRequestTypeDef",
-    {"IncludeAllTagsOfInstance": bool, "InstanceTagKeys": List[str]},
-    total=False,
-)
-
-DeregisterTransitGatewayMulticastGroupMembersResultTypeDef = TypedDict(
-    "DeregisterTransitGatewayMulticastGroupMembersResultTypeDef",
-    {"DeregisteredMulticastGroupMembers": "TransitGatewayMulticastDeregisteredGroupMembersTypeDef"},
-    total=False,
-)
-
-DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef = TypedDict(
-    "DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef",
-    {"DeregisteredMulticastGroupSources": "TransitGatewayMulticastDeregisteredGroupSourcesTypeDef"},
-    total=False,
-)
-
-DescribeAccountAttributesResultTypeDef = TypedDict(
-    "DescribeAccountAttributesResultTypeDef",
-    {"AccountAttributes": List["AccountAttributeTypeDef"]},
-    total=False,
-)
-
-DescribeAddressesAttributeResultTypeDef = TypedDict(
-    "DescribeAddressesAttributeResultTypeDef",
-    {"Addresses": List["AddressAttributeTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeAddressesResultTypeDef = TypedDict(
-    "DescribeAddressesResultTypeDef", {"Addresses": List["AddressTypeDef"]}, total=False
-)
-
-DescribeAggregateIdFormatResultTypeDef = TypedDict(
-    "DescribeAggregateIdFormatResultTypeDef",
-    {"UseLongIdsAggregated": bool, "Statuses": List["IdFormatTypeDef"]},
-    total=False,
-)
-
-DescribeAvailabilityZonesResultTypeDef = TypedDict(
-    "DescribeAvailabilityZonesResultTypeDef",
-    {"AvailabilityZones": List["AvailabilityZoneTypeDef"]},
-    total=False,
-)
-
-DescribeBundleTasksResultTypeDef = TypedDict(
-    "DescribeBundleTasksResultTypeDef", {"BundleTasks": List["BundleTaskTypeDef"]}, total=False
-)
-
-DescribeByoipCidrsResultTypeDef = TypedDict(
-    "DescribeByoipCidrsResultTypeDef",
-    {"ByoipCidrs": List["ByoipCidrTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeCapacityReservationsResultTypeDef = TypedDict(
-    "DescribeCapacityReservationsResultTypeDef",
-    {"NextToken": str, "CapacityReservations": List["CapacityReservationTypeDef"]},
-    total=False,
-)
-
-DescribeCarrierGatewaysResultTypeDef = TypedDict(
-    "DescribeCarrierGatewaysResultTypeDef",
-    {"CarrierGateways": List["CarrierGatewayTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeClassicLinkInstancesResultTypeDef = TypedDict(
-    "DescribeClassicLinkInstancesResultTypeDef",
-    {"Instances": List["ClassicLinkInstanceTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeClientVpnAuthorizationRulesResultTypeDef = TypedDict(
-    "DescribeClientVpnAuthorizationRulesResultTypeDef",
-    {"AuthorizationRules": List["AuthorizationRuleTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeClientVpnConnectionsResultTypeDef = TypedDict(
-    "DescribeClientVpnConnectionsResultTypeDef",
-    {"Connections": List["ClientVpnConnectionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeClientVpnEndpointsResultTypeDef = TypedDict(
-    "DescribeClientVpnEndpointsResultTypeDef",
-    {"ClientVpnEndpoints": List["ClientVpnEndpointTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeClientVpnRoutesResultTypeDef = TypedDict(
-    "DescribeClientVpnRoutesResultTypeDef",
-    {"Routes": List["ClientVpnRouteTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeClientVpnTargetNetworksResultTypeDef = TypedDict(
-    "DescribeClientVpnTargetNetworksResultTypeDef",
-    {"ClientVpnTargetNetworks": List["TargetNetworkTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeCoipPoolsResultTypeDef = TypedDict(
-    "DescribeCoipPoolsResultTypeDef",
-    {"CoipPools": List["CoipPoolTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeConversionTasksResultTypeDef = TypedDict(
-    "DescribeConversionTasksResultTypeDef",
-    {"ConversionTasks": List["ConversionTaskTypeDef"]},
-    total=False,
-)
-
-DescribeCustomerGatewaysResultTypeDef = TypedDict(
-    "DescribeCustomerGatewaysResultTypeDef",
-    {"CustomerGateways": List["CustomerGatewayTypeDef"]},
-    total=False,
-)
-
-DescribeDhcpOptionsResultTypeDef = TypedDict(
-    "DescribeDhcpOptionsResultTypeDef",
-    {"DhcpOptions": List["DhcpOptionsTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeEgressOnlyInternetGatewaysResultTypeDef = TypedDict(
-    "DescribeEgressOnlyInternetGatewaysResultTypeDef",
-    {"EgressOnlyInternetGateways": List["EgressOnlyInternetGatewayTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeElasticGpusResultTypeDef = TypedDict(
-    "DescribeElasticGpusResultTypeDef",
-    {"ElasticGpuSet": List["ElasticGpusTypeDef"], "MaxResults": int, "NextToken": str},
-    total=False,
-)
-
-DescribeExportImageTasksResultTypeDef = TypedDict(
-    "DescribeExportImageTasksResultTypeDef",
-    {"ExportImageTasks": List["ExportImageTaskTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeExportTasksResultTypeDef = TypedDict(
-    "DescribeExportTasksResultTypeDef", {"ExportTasks": List["ExportTaskTypeDef"]}, total=False
-)
-
-DescribeFastSnapshotRestoresResultTypeDef = TypedDict(
-    "DescribeFastSnapshotRestoresResultTypeDef",
-    {
-        "FastSnapshotRestores": List["DescribeFastSnapshotRestoreSuccessItemTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeFleetHistoryResultTypeDef = TypedDict(
-    "DescribeFleetHistoryResultTypeDef",
-    {
-        "HistoryRecords": List["HistoryRecordEntryTypeDef"],
-        "LastEvaluatedTime": datetime,
-        "NextToken": str,
-        "FleetId": str,
-        "StartTime": datetime,
-    },
-    total=False,
-)
-
-DescribeFleetInstancesResultTypeDef = TypedDict(
-    "DescribeFleetInstancesResultTypeDef",
-    {"ActiveInstances": List["ActiveInstanceTypeDef"], "NextToken": str, "FleetId": str},
-    total=False,
-)
-
-DescribeFleetsResultTypeDef = TypedDict(
-    "DescribeFleetsResultTypeDef",
-    {"NextToken": str, "Fleets": List["FleetDataTypeDef"]},
-    total=False,
-)
-
-DescribeFlowLogsResultTypeDef = TypedDict(
-    "DescribeFlowLogsResultTypeDef",
-    {"FlowLogs": List["FlowLogTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeFpgaImageAttributeResultTypeDef = TypedDict(
-    "DescribeFpgaImageAttributeResultTypeDef",
-    {"FpgaImageAttribute": "FpgaImageAttributeTypeDef"},
-    total=False,
-)
-
-DescribeFpgaImagesResultTypeDef = TypedDict(
-    "DescribeFpgaImagesResultTypeDef",
-    {"FpgaImages": List["FpgaImageTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeHostReservationOfferingsResultTypeDef = TypedDict(
-    "DescribeHostReservationOfferingsResultTypeDef",
-    {"NextToken": str, "OfferingSet": List["HostOfferingTypeDef"]},
-    total=False,
-)
-
-DescribeHostReservationsResultTypeDef = TypedDict(
-    "DescribeHostReservationsResultTypeDef",
-    {"HostReservationSet": List["HostReservationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeHostsResultTypeDef = TypedDict(
-    "DescribeHostsResultTypeDef", {"Hosts": List["HostTypeDef"], "NextToken": str}, total=False
-)
-
-DescribeIamInstanceProfileAssociationsResultTypeDef = TypedDict(
-    "DescribeIamInstanceProfileAssociationsResultTypeDef",
-    {
-        "IamInstanceProfileAssociations": List["IamInstanceProfileAssociationTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeIdFormatResultTypeDef = TypedDict(
-    "DescribeIdFormatResultTypeDef", {"Statuses": List["IdFormatTypeDef"]}, total=False
-)
-
-DescribeIdentityIdFormatResultTypeDef = TypedDict(
-    "DescribeIdentityIdFormatResultTypeDef", {"Statuses": List["IdFormatTypeDef"]}, total=False
-)
-
-DescribeImagesResultTypeDef = TypedDict(
-    "DescribeImagesResultTypeDef", {"Images": List["ImageTypeDef"]}, total=False
-)
-
-DescribeImportImageTasksResultTypeDef = TypedDict(
-    "DescribeImportImageTasksResultTypeDef",
-    {"ImportImageTasks": List["ImportImageTaskTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeImportSnapshotTasksResultTypeDef = TypedDict(
-    "DescribeImportSnapshotTasksResultTypeDef",
-    {"ImportSnapshotTasks": List["ImportSnapshotTaskTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeInstanceCreditSpecificationsResultTypeDef = TypedDict(
-    "DescribeInstanceCreditSpecificationsResultTypeDef",
-    {"InstanceCreditSpecifications": List["InstanceCreditSpecificationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeInstanceEventNotificationAttributesResultTypeDef = TypedDict(
-    "DescribeInstanceEventNotificationAttributesResultTypeDef",
-    {"InstanceTagAttribute": "InstanceTagNotificationAttributeTypeDef"},
-    total=False,
-)
-
-DescribeInstanceStatusResultTypeDef = TypedDict(
-    "DescribeInstanceStatusResultTypeDef",
-    {"InstanceStatuses": List["InstanceStatusTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeInstanceTypeOfferingsResultTypeDef = TypedDict(
-    "DescribeInstanceTypeOfferingsResultTypeDef",
-    {"InstanceTypeOfferings": List["InstanceTypeOfferingTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeInstanceTypesResultTypeDef = TypedDict(
-    "DescribeInstanceTypesResultTypeDef",
-    {"InstanceTypes": List["InstanceTypeInfoTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeInstancesResultTypeDef = TypedDict(
-    "DescribeInstancesResultTypeDef",
-    {"Reservations": List["ReservationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeInternetGatewaysResultTypeDef = TypedDict(
-    "DescribeInternetGatewaysResultTypeDef",
-    {"InternetGateways": List["InternetGatewayTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeIpv6PoolsResultTypeDef = TypedDict(
-    "DescribeIpv6PoolsResultTypeDef",
-    {"Ipv6Pools": List["Ipv6PoolTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeKeyPairsResultTypeDef = TypedDict(
-    "DescribeKeyPairsResultTypeDef", {"KeyPairs": List["KeyPairInfoTypeDef"]}, total=False
-)
-
-DescribeLaunchTemplateVersionsResultTypeDef = TypedDict(
-    "DescribeLaunchTemplateVersionsResultTypeDef",
-    {"LaunchTemplateVersions": List["LaunchTemplateVersionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeLaunchTemplatesResultTypeDef = TypedDict(
-    "DescribeLaunchTemplatesResultTypeDef",
-    {"LaunchTemplates": List["LaunchTemplateTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef = TypedDict(
-    "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef",
-    {
-        "LocalGatewayRouteTableVirtualInterfaceGroupAssociations": List[
-            "LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef"
-        ],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef = TypedDict(
-    "DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef",
-    {
-        "LocalGatewayRouteTableVpcAssociations": List[
-            "LocalGatewayRouteTableVpcAssociationTypeDef"
-        ],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeLocalGatewayRouteTablesResultTypeDef = TypedDict(
-    "DescribeLocalGatewayRouteTablesResultTypeDef",
-    {"LocalGatewayRouteTables": List["LocalGatewayRouteTableTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef = TypedDict(
-    "DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef",
-    {
-        "LocalGatewayVirtualInterfaceGroups": List["LocalGatewayVirtualInterfaceGroupTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeLocalGatewayVirtualInterfacesResultTypeDef = TypedDict(
-    "DescribeLocalGatewayVirtualInterfacesResultTypeDef",
-    {
-        "LocalGatewayVirtualInterfaces": List["LocalGatewayVirtualInterfaceTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeLocalGatewaysResultTypeDef = TypedDict(
-    "DescribeLocalGatewaysResultTypeDef",
-    {"LocalGateways": List["LocalGatewayTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeManagedPrefixListsResultTypeDef = TypedDict(
-    "DescribeManagedPrefixListsResultTypeDef",
-    {"NextToken": str, "PrefixLists": List["ManagedPrefixListTypeDef"]},
-    total=False,
-)
-
-DescribeMovingAddressesResultTypeDef = TypedDict(
-    "DescribeMovingAddressesResultTypeDef",
-    {"MovingAddressStatuses": List["MovingAddressStatusTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeNatGatewaysResultTypeDef = TypedDict(
-    "DescribeNatGatewaysResultTypeDef",
-    {"NatGateways": List["NatGatewayTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeNetworkAclsResultTypeDef = TypedDict(
-    "DescribeNetworkAclsResultTypeDef",
-    {"NetworkAcls": List["NetworkAclTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeNetworkInsightsAnalysesResultTypeDef = TypedDict(
-    "DescribeNetworkInsightsAnalysesResultTypeDef",
-    {"NetworkInsightsAnalyses": List["NetworkInsightsAnalysisTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeNetworkInsightsPathsResultTypeDef = TypedDict(
-    "DescribeNetworkInsightsPathsResultTypeDef",
-    {"NetworkInsightsPaths": List["NetworkInsightsPathTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeNetworkInterfaceAttributeResultTypeDef = TypedDict(
-    "DescribeNetworkInterfaceAttributeResultTypeDef",
-    {
-        "Attachment": "NetworkInterfaceAttachmentTypeDef",
-        "Description": "AttributeValueTypeDef",
-        "Groups": List["GroupIdentifierTypeDef"],
-        "NetworkInterfaceId": str,
-        "SourceDestCheck": "AttributeBooleanValueTypeDef",
-    },
-    total=False,
-)
-
-DescribeNetworkInterfacePermissionsResultTypeDef = TypedDict(
-    "DescribeNetworkInterfacePermissionsResultTypeDef",
-    {"NetworkInterfacePermissions": List["NetworkInterfacePermissionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeNetworkInterfacesResultTypeDef = TypedDict(
-    "DescribeNetworkInterfacesResultTypeDef",
-    {"NetworkInterfaces": List["NetworkInterfaceTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribePlacementGroupsResultTypeDef = TypedDict(
-    "DescribePlacementGroupsResultTypeDef",
-    {"PlacementGroups": List["PlacementGroupTypeDef"]},
-    total=False,
-)
-
-DescribePrefixListsResultTypeDef = TypedDict(
-    "DescribePrefixListsResultTypeDef",
-    {"NextToken": str, "PrefixLists": List["PrefixListTypeDef"]},
-    total=False,
-)
-
-DescribePrincipalIdFormatResultTypeDef = TypedDict(
-    "DescribePrincipalIdFormatResultTypeDef",
-    {"Principals": List["PrincipalIdFormatTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribePublicIpv4PoolsResultTypeDef = TypedDict(
-    "DescribePublicIpv4PoolsResultTypeDef",
-    {"PublicIpv4Pools": List["PublicIpv4PoolTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeRegionsResultTypeDef = TypedDict(
-    "DescribeRegionsResultTypeDef", {"Regions": List["RegionTypeDef"]}, total=False
-)
-
-DescribeReservedInstancesListingsResultTypeDef = TypedDict(
-    "DescribeReservedInstancesListingsResultTypeDef",
-    {"ReservedInstancesListings": List["ReservedInstancesListingTypeDef"]},
-    total=False,
-)
-
-DescribeReservedInstancesModificationsResultTypeDef = TypedDict(
-    "DescribeReservedInstancesModificationsResultTypeDef",
-    {
-        "NextToken": str,
-        "ReservedInstancesModifications": List["ReservedInstancesModificationTypeDef"],
-    },
-    total=False,
-)
-
-DescribeReservedInstancesOfferingsResultTypeDef = TypedDict(
-    "DescribeReservedInstancesOfferingsResultTypeDef",
-    {"ReservedInstancesOfferings": List["ReservedInstancesOfferingTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeReservedInstancesResultTypeDef = TypedDict(
-    "DescribeReservedInstancesResultTypeDef",
-    {"ReservedInstances": List["ReservedInstancesTypeDef"]},
-    total=False,
-)
-
-DescribeRouteTablesResultTypeDef = TypedDict(
-    "DescribeRouteTablesResultTypeDef",
-    {"RouteTables": List["RouteTableTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeScheduledInstanceAvailabilityResultTypeDef = TypedDict(
-    "DescribeScheduledInstanceAvailabilityResultTypeDef",
-    {
-        "NextToken": str,
-        "ScheduledInstanceAvailabilitySet": List["ScheduledInstanceAvailabilityTypeDef"],
-    },
-    total=False,
-)
-
-DescribeScheduledInstancesResultTypeDef = TypedDict(
-    "DescribeScheduledInstancesResultTypeDef",
-    {"NextToken": str, "ScheduledInstanceSet": List["ScheduledInstanceTypeDef"]},
-    total=False,
-)
-
-DescribeSecurityGroupReferencesResultTypeDef = TypedDict(
-    "DescribeSecurityGroupReferencesResultTypeDef",
-    {"SecurityGroupReferenceSet": List["SecurityGroupReferenceTypeDef"]},
-    total=False,
-)
-
-DescribeSecurityGroupsResultTypeDef = TypedDict(
-    "DescribeSecurityGroupsResultTypeDef",
-    {"SecurityGroups": List["SecurityGroupTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeSnapshotAttributeResultTypeDef = TypedDict(
-    "DescribeSnapshotAttributeResultTypeDef",
-    {
-        "CreateVolumePermissions": List["CreateVolumePermissionTypeDef"],
-        "ProductCodes": List["ProductCodeTypeDef"],
-        "SnapshotId": str,
-    },
-    total=False,
-)
-
-DescribeSnapshotsResultTypeDef = TypedDict(
-    "DescribeSnapshotsResultTypeDef",
-    {"Snapshots": List["SnapshotTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeSpotDatafeedSubscriptionResultTypeDef = TypedDict(
-    "DescribeSpotDatafeedSubscriptionResultTypeDef",
-    {"SpotDatafeedSubscription": "SpotDatafeedSubscriptionTypeDef"},
-    total=False,
-)
-
-DescribeSpotFleetInstancesResponseTypeDef = TypedDict(
-    "DescribeSpotFleetInstancesResponseTypeDef",
-    {"ActiveInstances": List["ActiveInstanceTypeDef"], "NextToken": str, "SpotFleetRequestId": str},
-    total=False,
-)
-
-DescribeSpotFleetRequestHistoryResponseTypeDef = TypedDict(
-    "DescribeSpotFleetRequestHistoryResponseTypeDef",
-    {
-        "HistoryRecords": List["HistoryRecordTypeDef"],
-        "LastEvaluatedTime": datetime,
-        "NextToken": str,
-        "SpotFleetRequestId": str,
-        "StartTime": datetime,
-    },
-    total=False,
-)
-
-DescribeSpotFleetRequestsResponseTypeDef = TypedDict(
-    "DescribeSpotFleetRequestsResponseTypeDef",
-    {"NextToken": str, "SpotFleetRequestConfigs": List["SpotFleetRequestConfigTypeDef"]},
-    total=False,
-)
-
-DescribeSpotInstanceRequestsResultTypeDef = TypedDict(
-    "DescribeSpotInstanceRequestsResultTypeDef",
-    {"SpotInstanceRequests": List["SpotInstanceRequestTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeSpotPriceHistoryResultTypeDef = TypedDict(
-    "DescribeSpotPriceHistoryResultTypeDef",
-    {"NextToken": str, "SpotPriceHistory": List["SpotPriceTypeDef"]},
-    total=False,
-)
-
-DescribeStaleSecurityGroupsResultTypeDef = TypedDict(
-    "DescribeStaleSecurityGroupsResultTypeDef",
-    {"NextToken": str, "StaleSecurityGroupSet": List["StaleSecurityGroupTypeDef"]},
-    total=False,
-)
-
-DescribeSubnetsResultTypeDef = TypedDict(
-    "DescribeSubnetsResultTypeDef",
-    {"Subnets": List["SubnetTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTagsResultTypeDef = TypedDict(
-    "DescribeTagsResultTypeDef",
-    {"NextToken": str, "Tags": List["TagDescriptionTypeDef"]},
-    total=False,
-)
-
-DescribeTrafficMirrorFiltersResultTypeDef = TypedDict(
-    "DescribeTrafficMirrorFiltersResultTypeDef",
-    {"TrafficMirrorFilters": List["TrafficMirrorFilterTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTrafficMirrorSessionsResultTypeDef = TypedDict(
-    "DescribeTrafficMirrorSessionsResultTypeDef",
-    {"TrafficMirrorSessions": List["TrafficMirrorSessionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTrafficMirrorTargetsResultTypeDef = TypedDict(
-    "DescribeTrafficMirrorTargetsResultTypeDef",
-    {"TrafficMirrorTargets": List["TrafficMirrorTargetTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTransitGatewayAttachmentsResultTypeDef = TypedDict(
-    "DescribeTransitGatewayAttachmentsResultTypeDef",
-    {"TransitGatewayAttachments": List["TransitGatewayAttachmentTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTransitGatewayConnectPeersResultTypeDef = TypedDict(
-    "DescribeTransitGatewayConnectPeersResultTypeDef",
-    {"TransitGatewayConnectPeers": List["TransitGatewayConnectPeerTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTransitGatewayConnectsResultTypeDef = TypedDict(
-    "DescribeTransitGatewayConnectsResultTypeDef",
-    {"TransitGatewayConnects": List["TransitGatewayConnectTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTransitGatewayMulticastDomainsResultTypeDef = TypedDict(
-    "DescribeTransitGatewayMulticastDomainsResultTypeDef",
-    {
-        "TransitGatewayMulticastDomains": List["TransitGatewayMulticastDomainTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeTransitGatewayPeeringAttachmentsResultTypeDef = TypedDict(
-    "DescribeTransitGatewayPeeringAttachmentsResultTypeDef",
-    {
-        "TransitGatewayPeeringAttachments": List["TransitGatewayPeeringAttachmentTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeTransitGatewayRouteTablesResultTypeDef = TypedDict(
-    "DescribeTransitGatewayRouteTablesResultTypeDef",
-    {"TransitGatewayRouteTables": List["TransitGatewayRouteTableTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTransitGatewayVpcAttachmentsResultTypeDef = TypedDict(
-    "DescribeTransitGatewayVpcAttachmentsResultTypeDef",
-    {"TransitGatewayVpcAttachments": List["TransitGatewayVpcAttachmentTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeTransitGatewaysResultTypeDef = TypedDict(
-    "DescribeTransitGatewaysResultTypeDef",
-    {"TransitGateways": List["TransitGatewayTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVolumeAttributeResultTypeDef = TypedDict(
-    "DescribeVolumeAttributeResultTypeDef",
-    {
-        "AutoEnableIO": "AttributeBooleanValueTypeDef",
-        "ProductCodes": List["ProductCodeTypeDef"],
-        "VolumeId": str,
-    },
-    total=False,
-)
-
-DescribeVolumeStatusResultTypeDef = TypedDict(
-    "DescribeVolumeStatusResultTypeDef",
-    {"NextToken": str, "VolumeStatuses": List["VolumeStatusItemTypeDef"]},
-    total=False,
-)
-
-DescribeVolumesModificationsResultTypeDef = TypedDict(
-    "DescribeVolumesModificationsResultTypeDef",
-    {"VolumesModifications": List["VolumeModificationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVolumesResultTypeDef = TypedDict(
-    "DescribeVolumesResultTypeDef",
-    {"Volumes": List["VolumeTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcAttributeResultTypeDef = TypedDict(
-    "DescribeVpcAttributeResultTypeDef",
-    {
-        "VpcId": str,
-        "EnableDnsHostnames": "AttributeBooleanValueTypeDef",
-        "EnableDnsSupport": "AttributeBooleanValueTypeDef",
-    },
-    total=False,
-)
-
-DescribeVpcClassicLinkDnsSupportResultTypeDef = TypedDict(
-    "DescribeVpcClassicLinkDnsSupportResultTypeDef",
-    {"NextToken": str, "Vpcs": List["ClassicLinkDnsSupportTypeDef"]},
-    total=False,
-)
-
-DescribeVpcClassicLinkResultTypeDef = TypedDict(
-    "DescribeVpcClassicLinkResultTypeDef", {"Vpcs": List["VpcClassicLinkTypeDef"]}, total=False
-)
-
-DescribeVpcEndpointConnectionNotificationsResultTypeDef = TypedDict(
-    "DescribeVpcEndpointConnectionNotificationsResultTypeDef",
-    {"ConnectionNotificationSet": List["ConnectionNotificationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcEndpointConnectionsResultTypeDef = TypedDict(
-    "DescribeVpcEndpointConnectionsResultTypeDef",
-    {"VpcEndpointConnections": List["VpcEndpointConnectionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcEndpointServiceConfigurationsResultTypeDef = TypedDict(
-    "DescribeVpcEndpointServiceConfigurationsResultTypeDef",
-    {"ServiceConfigurations": List["ServiceConfigurationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcEndpointServicePermissionsResultTypeDef = TypedDict(
-    "DescribeVpcEndpointServicePermissionsResultTypeDef",
-    {"AllowedPrincipals": List["AllowedPrincipalTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcEndpointServicesResultTypeDef = TypedDict(
-    "DescribeVpcEndpointServicesResultTypeDef",
-    {"ServiceNames": List[str], "ServiceDetails": List["ServiceDetailTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcEndpointsResultTypeDef = TypedDict(
-    "DescribeVpcEndpointsResultTypeDef",
-    {"VpcEndpoints": List["VpcEndpointTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcPeeringConnectionsResultTypeDef = TypedDict(
-    "DescribeVpcPeeringConnectionsResultTypeDef",
-    {"VpcPeeringConnections": List["VpcPeeringConnectionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeVpcsResultTypeDef = TypedDict(
-    "DescribeVpcsResultTypeDef", {"Vpcs": List["VpcTypeDef"], "NextToken": str}, total=False
-)
-
-DescribeVpnConnectionsResultTypeDef = TypedDict(
-    "DescribeVpnConnectionsResultTypeDef",
-    {"VpnConnections": List["VpnConnectionTypeDef"]},
-    total=False,
-)
-
-DescribeVpnGatewaysResultTypeDef = TypedDict(
-    "DescribeVpnGatewaysResultTypeDef", {"VpnGateways": List["VpnGatewayTypeDef"]}, total=False
-)
-
-DetachClassicLinkVpcResultTypeDef = TypedDict(
-    "DetachClassicLinkVpcResultTypeDef", {"Return": bool}, total=False
-)
-
-DisableEbsEncryptionByDefaultResultTypeDef = TypedDict(
-    "DisableEbsEncryptionByDefaultResultTypeDef", {"EbsEncryptionByDefault": bool}, total=False
-)
-
-DisableFastSnapshotRestoresResultTypeDef = TypedDict(
-    "DisableFastSnapshotRestoresResultTypeDef",
-    {
-        "Successful": List["DisableFastSnapshotRestoreSuccessItemTypeDef"],
-        "Unsuccessful": List["DisableFastSnapshotRestoreErrorItemTypeDef"],
-    },
-    total=False,
-)
-
-DisableTransitGatewayRouteTablePropagationResultTypeDef = TypedDict(
-    "DisableTransitGatewayRouteTablePropagationResultTypeDef",
-    {"Propagation": "TransitGatewayPropagationTypeDef"},
-    total=False,
-)
-
-DisableVpcClassicLinkDnsSupportResultTypeDef = TypedDict(
-    "DisableVpcClassicLinkDnsSupportResultTypeDef", {"Return": bool}, total=False
-)
-
-DisableVpcClassicLinkResultTypeDef = TypedDict(
-    "DisableVpcClassicLinkResultTypeDef", {"Return": bool}, total=False
-)
-
-DisassociateClientVpnTargetNetworkResultTypeDef = TypedDict(
-    "DisassociateClientVpnTargetNetworkResultTypeDef",
-    {"AssociationId": str, "Status": "AssociationStatusTypeDef"},
-    total=False,
-)
-
-DisassociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
-    "DisassociateEnclaveCertificateIamRoleResultTypeDef", {"Return": bool}, total=False
-)
-
-DisassociateIamInstanceProfileResultTypeDef = TypedDict(
-    "DisassociateIamInstanceProfileResultTypeDef",
-    {"IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef"},
-    total=False,
-)
-
-DisassociateSubnetCidrBlockResultTypeDef = TypedDict(
-    "DisassociateSubnetCidrBlockResultTypeDef",
-    {"Ipv6CidrBlockAssociation": "SubnetIpv6CidrBlockAssociationTypeDef", "SubnetId": str},
-    total=False,
-)
-
-DisassociateTransitGatewayMulticastDomainResultTypeDef = TypedDict(
-    "DisassociateTransitGatewayMulticastDomainResultTypeDef",
-    {"Associations": "TransitGatewayMulticastDomainAssociationsTypeDef"},
-    total=False,
-)
-
-DisassociateTransitGatewayRouteTableResultTypeDef = TypedDict(
-    "DisassociateTransitGatewayRouteTableResultTypeDef",
-    {"Association": "TransitGatewayAssociationTypeDef"},
-    total=False,
-)
-
-DisassociateVpcCidrBlockResultTypeDef = TypedDict(
-    "DisassociateVpcCidrBlockResultTypeDef",
-    {
-        "Ipv6CidrBlockAssociation": "VpcIpv6CidrBlockAssociationTypeDef",
-        "CidrBlockAssociation": "VpcCidrBlockAssociationTypeDef",
-        "VpcId": str,
-    },
-    total=False,
-)
-
-DiskImageTypeDef = TypedDict(
-    "DiskImageTypeDef",
-    {"Description": str, "Image": "DiskImageDetailTypeDef", "Volume": "VolumeDetailTypeDef"},
-    total=False,
-)
-
-DnsServersOptionsModifyStructureTypeDef = TypedDict(
-    "DnsServersOptionsModifyStructureTypeDef",
-    {"CustomDnsServers": List[str], "Enabled": bool},
-    total=False,
-)
-
-_RequiredElasticInferenceAcceleratorTypeDef = TypedDict(
-    "_RequiredElasticInferenceAcceleratorTypeDef", {"Type": str}
-)
-_OptionalElasticInferenceAcceleratorTypeDef = TypedDict(
-    "_OptionalElasticInferenceAcceleratorTypeDef", {"Count": int}, total=False
-)
-
-
-class ElasticInferenceAcceleratorTypeDef(
-    _RequiredElasticInferenceAcceleratorTypeDef, _OptionalElasticInferenceAcceleratorTypeDef
-):
-    pass
-
-
-EnableEbsEncryptionByDefaultResultTypeDef = TypedDict(
-    "EnableEbsEncryptionByDefaultResultTypeDef", {"EbsEncryptionByDefault": bool}, total=False
-)
-
-EnableFastSnapshotRestoresResultTypeDef = TypedDict(
-    "EnableFastSnapshotRestoresResultTypeDef",
-    {
-        "Successful": List["EnableFastSnapshotRestoreSuccessItemTypeDef"],
-        "Unsuccessful": List["EnableFastSnapshotRestoreErrorItemTypeDef"],
-    },
-    total=False,
-)
-
-EnableTransitGatewayRouteTablePropagationResultTypeDef = TypedDict(
-    "EnableTransitGatewayRouteTablePropagationResultTypeDef",
-    {"Propagation": "TransitGatewayPropagationTypeDef"},
-    total=False,
-)
-
-EnableVpcClassicLinkDnsSupportResultTypeDef = TypedDict(
-    "EnableVpcClassicLinkDnsSupportResultTypeDef", {"Return": bool}, total=False
-)
-
-EnableVpcClassicLinkResultTypeDef = TypedDict(
-    "EnableVpcClassicLinkResultTypeDef", {"Return": bool}, total=False
-)
-
-EnclaveOptionsRequestTypeDef = TypedDict(
-    "EnclaveOptionsRequestTypeDef", {"Enabled": bool}, total=False
-)
-
-ExportClientVpnClientCertificateRevocationListResultTypeDef = TypedDict(
-    "ExportClientVpnClientCertificateRevocationListResultTypeDef",
-    {"CertificateRevocationList": str, "Status": "ClientCertificateRevocationListStatusTypeDef"},
-    total=False,
-)
-
-ExportClientVpnClientConfigurationResultTypeDef = TypedDict(
-    "ExportClientVpnClientConfigurationResultTypeDef", {"ClientConfiguration": str}, total=False
-)
-
-ExportImageResultTypeDef = TypedDict(
-    "ExportImageResultTypeDef",
-    {
-        "Description": str,
-        "DiskImageFormat": Literal["VMDK", "RAW", "VHD"],
-        "ExportImageTaskId": str,
-        "ImageId": str,
-        "RoleName": str,
-        "Progress": str,
-        "S3ExportLocation": "ExportTaskS3LocationTypeDef",
-        "Status": str,
-        "StatusMessage": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredExportTaskS3LocationRequestTypeDef = TypedDict(
-    "_RequiredExportTaskS3LocationRequestTypeDef", {"S3Bucket": str}
-)
-_OptionalExportTaskS3LocationRequestTypeDef = TypedDict(
-    "_OptionalExportTaskS3LocationRequestTypeDef", {"S3Prefix": str}, total=False
-)
-
-
-class ExportTaskS3LocationRequestTypeDef(
-    _RequiredExportTaskS3LocationRequestTypeDef, _OptionalExportTaskS3LocationRequestTypeDef
-):
-    pass
-
-
-ExportToS3TaskSpecificationTypeDef = TypedDict(
-    "ExportToS3TaskSpecificationTypeDef",
-    {
-        "ContainerFormat": Literal["ova"],
-        "DiskImageFormat": Literal["VMDK", "RAW", "VHD"],
-        "S3Bucket": str,
-        "S3Prefix": str,
-    },
-    total=False,
-)
-
-ExportTransitGatewayRoutesResultTypeDef = TypedDict(
-    "ExportTransitGatewayRoutesResultTypeDef", {"S3Location": str}, total=False
-)
-
-FilterTypeDef = TypedDict("FilterTypeDef", {"Name": str, "Values": List[str]}, total=False)
-
-FleetLaunchTemplateConfigRequestTypeDef = TypedDict(
-    "FleetLaunchTemplateConfigRequestTypeDef",
-    {
-        "LaunchTemplateSpecification": "FleetLaunchTemplateSpecificationRequestTypeDef",
-        "Overrides": List["FleetLaunchTemplateOverridesRequestTypeDef"],
-    },
-    total=False,
-)
-
-GetAssociatedEnclaveCertificateIamRolesResultTypeDef = TypedDict(
-    "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
-    {"AssociatedRoles": List["AssociatedRoleTypeDef"]},
-    total=False,
-)
-
-GetAssociatedIpv6PoolCidrsResultTypeDef = TypedDict(
-    "GetAssociatedIpv6PoolCidrsResultTypeDef",
-    {"Ipv6CidrAssociations": List["Ipv6CidrAssociationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetCapacityReservationUsageResultTypeDef = TypedDict(
-    "GetCapacityReservationUsageResultTypeDef",
-    {
-        "NextToken": str,
-        "CapacityReservationId": str,
-        "InstanceType": str,
-        "TotalInstanceCount": int,
-        "AvailableInstanceCount": int,
-        "State": Literal["active", "expired", "cancelled", "pending", "failed"],
-        "InstanceUsages": List["InstanceUsageTypeDef"],
-    },
-    total=False,
-)
-
-GetCoipPoolUsageResultTypeDef = TypedDict(
-    "GetCoipPoolUsageResultTypeDef",
-    {
-        "CoipPoolId": str,
-        "CoipAddressUsages": List["CoipAddressUsageTypeDef"],
-        "LocalGatewayRouteTableId": str,
-    },
-    total=False,
-)
-
-GetConsoleOutputResultTypeDef = TypedDict(
-    "GetConsoleOutputResultTypeDef",
-    {"InstanceId": str, "Output": str, "Timestamp": datetime},
-    total=False,
-)
-
-GetConsoleScreenshotResultTypeDef = TypedDict(
-    "GetConsoleScreenshotResultTypeDef", {"ImageData": str, "InstanceId": str}, total=False
-)
-
-GetDefaultCreditSpecificationResultTypeDef = TypedDict(
-    "GetDefaultCreditSpecificationResultTypeDef",
-    {"InstanceFamilyCreditSpecification": "InstanceFamilyCreditSpecificationTypeDef"},
-    total=False,
-)
-
-GetEbsDefaultKmsKeyIdResultTypeDef = TypedDict(
-    "GetEbsDefaultKmsKeyIdResultTypeDef", {"KmsKeyId": str}, total=False
-)
-
-GetEbsEncryptionByDefaultResultTypeDef = TypedDict(
-    "GetEbsEncryptionByDefaultResultTypeDef", {"EbsEncryptionByDefault": bool}, total=False
-)
-
-GetGroupsForCapacityReservationResultTypeDef = TypedDict(
-    "GetGroupsForCapacityReservationResultTypeDef",
-    {"NextToken": str, "CapacityReservationGroups": List["CapacityReservationGroupTypeDef"]},
-    total=False,
-)
-
-GetHostReservationPurchasePreviewResultTypeDef = TypedDict(
-    "GetHostReservationPurchasePreviewResultTypeDef",
-    {
-        "CurrencyCode": Literal["USD"],
-        "Purchase": List["PurchaseTypeDef"],
-        "TotalHourlyPrice": str,
-        "TotalUpfrontPrice": str,
-    },
-    total=False,
-)
-
-GetLaunchTemplateDataResultTypeDef = TypedDict(
-    "GetLaunchTemplateDataResultTypeDef",
-    {"LaunchTemplateData": "ResponseLaunchTemplateDataTypeDef"},
-    total=False,
-)
-
-GetManagedPrefixListAssociationsResultTypeDef = TypedDict(
-    "GetManagedPrefixListAssociationsResultTypeDef",
-    {"PrefixListAssociations": List["PrefixListAssociationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetManagedPrefixListEntriesResultTypeDef = TypedDict(
-    "GetManagedPrefixListEntriesResultTypeDef",
-    {"Entries": List["PrefixListEntryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetPasswordDataResultTypeDef = TypedDict(
-    "GetPasswordDataResultTypeDef",
-    {"InstanceId": str, "PasswordData": str, "Timestamp": datetime},
-    total=False,
-)
-
-GetReservedInstancesExchangeQuoteResultTypeDef = TypedDict(
-    "GetReservedInstancesExchangeQuoteResultTypeDef",
-    {
-        "CurrencyCode": str,
-        "IsValidExchange": bool,
-        "OutputReservedInstancesWillExpireAt": datetime,
-        "PaymentDue": str,
-        "ReservedInstanceValueRollup": "ReservationValueTypeDef",
-        "ReservedInstanceValueSet": List["ReservedInstanceReservationValueTypeDef"],
-        "TargetConfigurationValueRollup": "ReservationValueTypeDef",
-        "TargetConfigurationValueSet": List["TargetReservationValueTypeDef"],
-        "ValidationFailureReason": str,
-    },
-    total=False,
-)
-
-GetTransitGatewayAttachmentPropagationsResultTypeDef = TypedDict(
-    "GetTransitGatewayAttachmentPropagationsResultTypeDef",
-    {
-        "TransitGatewayAttachmentPropagations": List["TransitGatewayAttachmentPropagationTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
-    "GetTransitGatewayMulticastDomainAssociationsResultTypeDef",
-    {
-        "MulticastDomainAssociations": List["TransitGatewayMulticastDomainAssociationTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetTransitGatewayPrefixListReferencesResultTypeDef = TypedDict(
-    "GetTransitGatewayPrefixListReferencesResultTypeDef",
-    {
-        "TransitGatewayPrefixListReferences": List["TransitGatewayPrefixListReferenceTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetTransitGatewayRouteTableAssociationsResultTypeDef = TypedDict(
-    "GetTransitGatewayRouteTableAssociationsResultTypeDef",
-    {"Associations": List["TransitGatewayRouteTableAssociationTypeDef"], "NextToken": str},
-    total=False,
-)
-
-GetTransitGatewayRouteTablePropagationsResultTypeDef = TypedDict(
-    "GetTransitGatewayRouteTablePropagationsResultTypeDef",
-    {
-        "TransitGatewayRouteTablePropagations": List["TransitGatewayRouteTablePropagationTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-HibernationOptionsRequestTypeDef = TypedDict(
-    "HibernationOptionsRequestTypeDef", {"Configured": bool}, total=False
-)
-
-ImageAttributeTypeDef = TypedDict(
-    "ImageAttributeTypeDef",
-    {
-        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
-        "ImageId": str,
-        "LaunchPermissions": List["LaunchPermissionTypeDef"],
-        "ProductCodes": List["ProductCodeTypeDef"],
-        "Description": "AttributeValueTypeDef",
-        "KernelId": "AttributeValueTypeDef",
-        "RamdiskId": "AttributeValueTypeDef",
-        "SriovNetSupport": "AttributeValueTypeDef",
-    },
-    total=False,
-)
-
-ImageDiskContainerTypeDef = TypedDict(
-    "ImageDiskContainerTypeDef",
-    {
-        "Description": str,
-        "DeviceName": str,
-        "Format": str,
-        "SnapshotId": str,
-        "Url": str,
-        "UserBucket": "UserBucketTypeDef",
-    },
-    total=False,
-)
-
-ImportClientVpnClientCertificateRevocationListResultTypeDef = TypedDict(
-    "ImportClientVpnClientCertificateRevocationListResultTypeDef", {"Return": bool}, total=False
-)
-
-ImportImageLicenseConfigurationRequestTypeDef = TypedDict(
-    "ImportImageLicenseConfigurationRequestTypeDef", {"LicenseConfigurationArn": str}, total=False
-)
-
-ImportImageResultTypeDef = TypedDict(
-    "ImportImageResultTypeDef",
-    {
-        "Architecture": str,
-        "Description": str,
-        "Encrypted": bool,
-        "Hypervisor": str,
-        "ImageId": str,
-        "ImportTaskId": str,
-        "KmsKeyId": str,
-        "LicenseType": str,
-        "Platform": str,
-        "Progress": str,
-        "SnapshotDetails": List["SnapshotDetailTypeDef"],
-        "Status": str,
-        "StatusMessage": str,
-        "LicenseSpecifications": List["ImportImageLicenseConfigurationResponseTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-ImportInstanceLaunchSpecificationTypeDef = TypedDict(
-    "ImportInstanceLaunchSpecificationTypeDef",
-    {
-        "AdditionalInfo": str,
-        "Architecture": Literal["i386", "x86_64", "arm64"],
-        "GroupIds": List[str],
-        "GroupNames": List[str],
-        "InstanceInitiatedShutdownBehavior": Literal["stop", "terminate"],
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
-        "Monitoring": bool,
-        "Placement": "PlacementTypeDef",
-        "PrivateIpAddress": str,
-        "SubnetId": str,
-        "UserData": "UserDataTypeDef",
-    },
-    total=False,
-)
-
-ImportInstanceResultTypeDef = TypedDict(
-    "ImportInstanceResultTypeDef", {"ConversionTask": "ConversionTaskTypeDef"}, total=False
-)
-
-ImportKeyPairResultTypeDef = TypedDict(
-    "ImportKeyPairResultTypeDef",
-    {"KeyFingerprint": str, "KeyName": str, "KeyPairId": str, "Tags": List["TagTypeDef"]},
-    total=False,
-)
-
-ImportSnapshotResultTypeDef = TypedDict(
-    "ImportSnapshotResultTypeDef",
-    {
-        "Description": str,
-        "ImportTaskId": str,
-        "SnapshotTaskDetail": "SnapshotTaskDetailTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-ImportVolumeResultTypeDef = TypedDict(
-    "ImportVolumeResultTypeDef", {"ConversionTask": "ConversionTaskTypeDef"}, total=False
-)
-
-InstanceAttributeTypeDef = TypedDict(
-    "InstanceAttributeTypeDef",
-    {
-        "Groups": List["GroupIdentifierTypeDef"],
-        "BlockDeviceMappings": List["InstanceBlockDeviceMappingTypeDef"],
-        "DisableApiTermination": "AttributeBooleanValueTypeDef",
-        "EnaSupport": "AttributeBooleanValueTypeDef",
-        "EnclaveOptions": "EnclaveOptionsTypeDef",
-        "EbsOptimized": "AttributeBooleanValueTypeDef",
-        "InstanceId": str,
-        "InstanceInitiatedShutdownBehavior": "AttributeValueTypeDef",
-        "InstanceType": "AttributeValueTypeDef",
-        "KernelId": "AttributeValueTypeDef",
-        "ProductCodes": List["ProductCodeTypeDef"],
-        "RamdiskId": "AttributeValueTypeDef",
-        "RootDeviceName": "AttributeValueTypeDef",
-        "SourceDestCheck": "AttributeBooleanValueTypeDef",
-        "SriovNetSupport": "AttributeValueTypeDef",
-        "UserData": "AttributeValueTypeDef",
-    },
-    total=False,
-)
-
-InstanceBlockDeviceMappingSpecificationTypeDef = TypedDict(
-    "InstanceBlockDeviceMappingSpecificationTypeDef",
-    {
-        "DeviceName": str,
-        "Ebs": "EbsInstanceBlockDeviceSpecificationTypeDef",
-        "NoDevice": str,
-        "VirtualName": str,
-    },
-    total=False,
-)
-
-InstanceCreditSpecificationRequestTypeDef = TypedDict(
-    "InstanceCreditSpecificationRequestTypeDef", {"InstanceId": str, "CpuCredits": str}, total=False
-)
-
-InstanceMarketOptionsRequestTypeDef = TypedDict(
-    "InstanceMarketOptionsRequestTypeDef",
-    {"MarketType": Literal["spot"], "SpotOptions": "SpotMarketOptionsTypeDef"},
-    total=False,
-)
-
-InstanceMetadataOptionsRequestTypeDef = TypedDict(
-    "InstanceMetadataOptionsRequestTypeDef",
-    {
-        "HttpTokens": Literal["optional", "required"],
-        "HttpPutResponseHopLimit": int,
-        "HttpEndpoint": Literal["disabled", "enabled"],
-    },
-    total=False,
-)
-
-InstanceSpecificationTypeDef = TypedDict(
-    "InstanceSpecificationTypeDef", {"InstanceId": str, "ExcludeBootVolume": bool}, total=False
-)
-
-KeyPairTypeDef = TypedDict(
-    "KeyPairTypeDef",
-    {
-        "KeyFingerprint": str,
-        "KeyMaterial": str,
-        "KeyName": str,
-        "KeyPairId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-LaunchPermissionModificationsTypeDef = TypedDict(
-    "LaunchPermissionModificationsTypeDef",
-    {"Add": List["LaunchPermissionTypeDef"], "Remove": List["LaunchPermissionTypeDef"]},
-    total=False,
-)
-
-LaunchTemplateSpecificationTypeDef = TypedDict(
-    "LaunchTemplateSpecificationTypeDef",
-    {"LaunchTemplateId": str, "LaunchTemplateName": str, "Version": str},
-    total=False,
-)
-
-LicenseConfigurationRequestTypeDef = TypedDict(
-    "LicenseConfigurationRequestTypeDef", {"LicenseConfigurationArn": str}, total=False
-)
-
-LoadPermissionModificationsTypeDef = TypedDict(
-    "LoadPermissionModificationsTypeDef",
-    {"Add": List["LoadPermissionRequestTypeDef"], "Remove": List["LoadPermissionRequestTypeDef"]},
-    total=False,
-)
-
-ModifyAddressAttributeResultTypeDef = TypedDict(
-    "ModifyAddressAttributeResultTypeDef", {"Address": "AddressAttributeTypeDef"}, total=False
-)
-
-ModifyAvailabilityZoneGroupResultTypeDef = TypedDict(
-    "ModifyAvailabilityZoneGroupResultTypeDef", {"Return": bool}, total=False
-)
-
-ModifyCapacityReservationResultTypeDef = TypedDict(
-    "ModifyCapacityReservationResultTypeDef", {"Return": bool}, total=False
-)
-
-ModifyClientVpnEndpointResultTypeDef = TypedDict(
-    "ModifyClientVpnEndpointResultTypeDef", {"Return": bool}, total=False
-)
-
-ModifyDefaultCreditSpecificationResultTypeDef = TypedDict(
-    "ModifyDefaultCreditSpecificationResultTypeDef",
-    {"InstanceFamilyCreditSpecification": "InstanceFamilyCreditSpecificationTypeDef"},
-    total=False,
-)
-
-ModifyEbsDefaultKmsKeyIdResultTypeDef = TypedDict(
-    "ModifyEbsDefaultKmsKeyIdResultTypeDef", {"KmsKeyId": str}, total=False
-)
-
-ModifyFleetResultTypeDef = TypedDict("ModifyFleetResultTypeDef", {"Return": bool}, total=False)
-
-ModifyFpgaImageAttributeResultTypeDef = TypedDict(
-    "ModifyFpgaImageAttributeResultTypeDef",
-    {"FpgaImageAttribute": "FpgaImageAttributeTypeDef"},
-    total=False,
-)
-
-ModifyHostsResultTypeDef = TypedDict(
-    "ModifyHostsResultTypeDef",
-    {"Successful": List[str], "Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-ModifyInstanceCapacityReservationAttributesResultTypeDef = TypedDict(
-    "ModifyInstanceCapacityReservationAttributesResultTypeDef", {"Return": bool}, total=False
-)
-
-ModifyInstanceCreditSpecificationResultTypeDef = TypedDict(
-    "ModifyInstanceCreditSpecificationResultTypeDef",
-    {
-        "SuccessfulInstanceCreditSpecifications": List[
-            "SuccessfulInstanceCreditSpecificationItemTypeDef"
-        ],
-        "UnsuccessfulInstanceCreditSpecifications": List[
-            "UnsuccessfulInstanceCreditSpecificationItemTypeDef"
-        ],
-    },
-    total=False,
-)
-
-ModifyInstanceEventStartTimeResultTypeDef = TypedDict(
-    "ModifyInstanceEventStartTimeResultTypeDef",
-    {"Event": "InstanceStatusEventTypeDef"},
-    total=False,
-)
-
-ModifyInstanceMetadataOptionsResultTypeDef = TypedDict(
-    "ModifyInstanceMetadataOptionsResultTypeDef",
-    {"InstanceId": str, "InstanceMetadataOptions": "InstanceMetadataOptionsResponseTypeDef"},
-    total=False,
-)
-
-ModifyInstancePlacementResultTypeDef = TypedDict(
-    "ModifyInstancePlacementResultTypeDef", {"Return": bool}, total=False
-)
-
-ModifyLaunchTemplateResultTypeDef = TypedDict(
-    "ModifyLaunchTemplateResultTypeDef", {"LaunchTemplate": "LaunchTemplateTypeDef"}, total=False
-)
-
-ModifyManagedPrefixListResultTypeDef = TypedDict(
-    "ModifyManagedPrefixListResultTypeDef", {"PrefixList": "ManagedPrefixListTypeDef"}, total=False
-)
-
-ModifyReservedInstancesResultTypeDef = TypedDict(
-    "ModifyReservedInstancesResultTypeDef", {"ReservedInstancesModificationId": str}, total=False
-)
-
-ModifySpotFleetRequestResponseTypeDef = TypedDict(
-    "ModifySpotFleetRequestResponseTypeDef", {"Return": bool}, total=False
-)
-
-ModifyTrafficMirrorFilterNetworkServicesResultTypeDef = TypedDict(
-    "ModifyTrafficMirrorFilterNetworkServicesResultTypeDef",
-    {"TrafficMirrorFilter": "TrafficMirrorFilterTypeDef"},
-    total=False,
-)
-
-ModifyTrafficMirrorFilterRuleResultTypeDef = TypedDict(
-    "ModifyTrafficMirrorFilterRuleResultTypeDef",
-    {"TrafficMirrorFilterRule": "TrafficMirrorFilterRuleTypeDef"},
-    total=False,
-)
-
-ModifyTrafficMirrorSessionResultTypeDef = TypedDict(
-    "ModifyTrafficMirrorSessionResultTypeDef",
-    {"TrafficMirrorSession": "TrafficMirrorSessionTypeDef"},
-    total=False,
-)
-
-ModifyTransitGatewayOptionsTypeDef = TypedDict(
-    "ModifyTransitGatewayOptionsTypeDef",
-    {
-        "AddTransitGatewayCidrBlocks": List[str],
-        "RemoveTransitGatewayCidrBlocks": List[str],
-        "VpnEcmpSupport": Literal["enable", "disable"],
-        "DnsSupport": Literal["enable", "disable"],
-        "AutoAcceptSharedAttachments": Literal["enable", "disable"],
-        "DefaultRouteTableAssociation": Literal["enable", "disable"],
-        "AssociationDefaultRouteTableId": str,
-        "DefaultRouteTablePropagation": Literal["enable", "disable"],
-        "PropagationDefaultRouteTableId": str,
-    },
-    total=False,
-)
-
-ModifyTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
-    "ModifyTransitGatewayPrefixListReferenceResultTypeDef",
-    {"TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef"},
-    total=False,
-)
-
-ModifyTransitGatewayResultTypeDef = TypedDict(
-    "ModifyTransitGatewayResultTypeDef", {"TransitGateway": "TransitGatewayTypeDef"}, total=False
-)
-
-ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef = TypedDict(
-    "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
-    {
-        "DnsSupport": Literal["enable", "disable"],
-        "Ipv6Support": Literal["enable", "disable"],
-        "ApplianceModeSupport": Literal["enable", "disable"],
-    },
-    total=False,
-)
-
-ModifyTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
-    "ModifyTransitGatewayVpcAttachmentResultTypeDef",
-    {"TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef"},
-    total=False,
-)
-
-ModifyVolumeResultTypeDef = TypedDict(
-    "ModifyVolumeResultTypeDef", {"VolumeModification": "VolumeModificationTypeDef"}, total=False
-)
-
-ModifyVpcEndpointConnectionNotificationResultTypeDef = TypedDict(
-    "ModifyVpcEndpointConnectionNotificationResultTypeDef", {"ReturnValue": bool}, total=False
-)
-
-ModifyVpcEndpointResultTypeDef = TypedDict(
-    "ModifyVpcEndpointResultTypeDef", {"Return": bool}, total=False
-)
-
-ModifyVpcEndpointServiceConfigurationResultTypeDef = TypedDict(
-    "ModifyVpcEndpointServiceConfigurationResultTypeDef", {"Return": bool}, total=False
-)
-
-ModifyVpcEndpointServicePermissionsResultTypeDef = TypedDict(
-    "ModifyVpcEndpointServicePermissionsResultTypeDef", {"ReturnValue": bool}, total=False
-)
-
-ModifyVpcPeeringConnectionOptionsResultTypeDef = TypedDict(
-    "ModifyVpcPeeringConnectionOptionsResultTypeDef",
-    {
-        "AccepterPeeringConnectionOptions": "PeeringConnectionOptionsTypeDef",
-        "RequesterPeeringConnectionOptions": "PeeringConnectionOptionsTypeDef",
-    },
-    total=False,
-)
-
-ModifyVpcTenancyResultTypeDef = TypedDict(
-    "ModifyVpcTenancyResultTypeDef", {"ReturnValue": bool}, total=False
-)
-
-ModifyVpnConnectionOptionsResultTypeDef = TypedDict(
-    "ModifyVpnConnectionOptionsResultTypeDef",
-    {"VpnConnection": "VpnConnectionTypeDef"},
-    total=False,
-)
-
-ModifyVpnConnectionResultTypeDef = TypedDict(
-    "ModifyVpnConnectionResultTypeDef", {"VpnConnection": "VpnConnectionTypeDef"}, total=False
-)
-
-ModifyVpnTunnelCertificateResultTypeDef = TypedDict(
-    "ModifyVpnTunnelCertificateResultTypeDef",
-    {"VpnConnection": "VpnConnectionTypeDef"},
-    total=False,
-)
-
-ModifyVpnTunnelOptionsResultTypeDef = TypedDict(
-    "ModifyVpnTunnelOptionsResultTypeDef", {"VpnConnection": "VpnConnectionTypeDef"}, total=False
-)
-
-ModifyVpnTunnelOptionsSpecificationTypeDef = TypedDict(
-    "ModifyVpnTunnelOptionsSpecificationTypeDef",
-    {
-        "TunnelInsideCidr": str,
-        "TunnelInsideIpv6Cidr": str,
-        "PreSharedKey": str,
-        "Phase1LifetimeSeconds": int,
-        "Phase2LifetimeSeconds": int,
-        "RekeyMarginTimeSeconds": int,
-        "RekeyFuzzPercentage": int,
-        "ReplayWindowSize": int,
-        "DPDTimeoutSeconds": int,
-        "DPDTimeoutAction": str,
-        "Phase1EncryptionAlgorithms": List["Phase1EncryptionAlgorithmsRequestListValueTypeDef"],
-        "Phase2EncryptionAlgorithms": List["Phase2EncryptionAlgorithmsRequestListValueTypeDef"],
-        "Phase1IntegrityAlgorithms": List["Phase1IntegrityAlgorithmsRequestListValueTypeDef"],
-        "Phase2IntegrityAlgorithms": List["Phase2IntegrityAlgorithmsRequestListValueTypeDef"],
-        "Phase1DHGroupNumbers": List["Phase1DHGroupNumbersRequestListValueTypeDef"],
-        "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersRequestListValueTypeDef"],
-        "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
-        "StartupAction": str,
-    },
-    total=False,
-)
-
-MonitorInstancesResultTypeDef = TypedDict(
-    "MonitorInstancesResultTypeDef",
-    {"InstanceMonitorings": List["InstanceMonitoringTypeDef"]},
-    total=False,
-)
-
-MoveAddressToVpcResultTypeDef = TypedDict(
-    "MoveAddressToVpcResultTypeDef",
-    {"AllocationId": str, "Status": Literal["MoveInProgress", "InVpc", "InClassic"]},
-    total=False,
-)
-
-NetworkInterfaceAttachmentChangesTypeDef = TypedDict(
-    "NetworkInterfaceAttachmentChangesTypeDef",
-    {"AttachmentId": str, "DeleteOnTermination": bool},
-    total=False,
-)
-
-NewDhcpConfigurationTypeDef = TypedDict(
-    "NewDhcpConfigurationTypeDef", {"Key": str, "Values": List[str]}, total=False
-)
-
-OnDemandOptionsRequestTypeDef = TypedDict(
-    "OnDemandOptionsRequestTypeDef",
-    {
-        "AllocationStrategy": Literal["lowest-price", "prioritized"],
-        "CapacityReservationOptions": "CapacityReservationOptionsRequestTypeDef",
-        "SingleInstanceType": bool,
-        "SingleAvailabilityZone": bool,
-        "MinTargetCapacity": int,
-        "MaxTotalPrice": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PeeringConnectionOptionsRequestTypeDef = TypedDict(
-    "PeeringConnectionOptionsRequestTypeDef",
-    {
-        "AllowDnsResolutionFromRemoteVpc": bool,
-        "AllowEgressFromLocalClassicLinkToRemoteVpc": bool,
-        "AllowEgressFromLocalVpcToRemoteClassicLink": bool,
-    },
-    total=False,
-)
-
-PriceScheduleSpecificationTypeDef = TypedDict(
-    "PriceScheduleSpecificationTypeDef",
-    {"CurrencyCode": Literal["USD"], "Price": float, "Term": int},
-    total=False,
-)
-
-ProvisionByoipCidrResultTypeDef = TypedDict(
-    "ProvisionByoipCidrResultTypeDef", {"ByoipCidr": "ByoipCidrTypeDef"}, total=False
-)
-
-PurchaseHostReservationResultTypeDef = TypedDict(
-    "PurchaseHostReservationResultTypeDef",
-    {
-        "ClientToken": str,
-        "CurrencyCode": Literal["USD"],
-        "Purchase": List["PurchaseTypeDef"],
-        "TotalHourlyPrice": str,
-        "TotalUpfrontPrice": str,
-    },
-    total=False,
-)
-
-PurchaseRequestTypeDef = TypedDict(
-    "PurchaseRequestTypeDef", {"InstanceCount": int, "PurchaseToken": str}
-)
-
-PurchaseReservedInstancesOfferingResultTypeDef = TypedDict(
-    "PurchaseReservedInstancesOfferingResultTypeDef", {"ReservedInstancesId": str}, total=False
-)
-
-PurchaseScheduledInstancesResultTypeDef = TypedDict(
-    "PurchaseScheduledInstancesResultTypeDef",
-    {"ScheduledInstanceSet": List["ScheduledInstanceTypeDef"]},
-    total=False,
-)
-
-RegisterImageResultTypeDef = TypedDict("RegisterImageResultTypeDef", {"ImageId": str}, total=False)
-
-RegisterInstanceEventNotificationAttributesResultTypeDef = TypedDict(
-    "RegisterInstanceEventNotificationAttributesResultTypeDef",
-    {"InstanceTagAttribute": "InstanceTagNotificationAttributeTypeDef"},
-    total=False,
-)
-
-RegisterInstanceTagAttributeRequestTypeDef = TypedDict(
-    "RegisterInstanceTagAttributeRequestTypeDef",
-    {"IncludeAllTagsOfInstance": bool, "InstanceTagKeys": List[str]},
-    total=False,
-)
-
-RegisterTransitGatewayMulticastGroupMembersResultTypeDef = TypedDict(
-    "RegisterTransitGatewayMulticastGroupMembersResultTypeDef",
-    {"RegisteredMulticastGroupMembers": "TransitGatewayMulticastRegisteredGroupMembersTypeDef"},
-    total=False,
-)
-
-RegisterTransitGatewayMulticastGroupSourcesResultTypeDef = TypedDict(
-    "RegisterTransitGatewayMulticastGroupSourcesResultTypeDef",
-    {"RegisteredMulticastGroupSources": "TransitGatewayMulticastRegisteredGroupSourcesTypeDef"},
-    total=False,
-)
-
-RejectTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
-    "RejectTransitGatewayMulticastDomainAssociationsResultTypeDef",
-    {"Associations": "TransitGatewayMulticastDomainAssociationsTypeDef"},
-    total=False,
-)
-
-RejectTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
-    "RejectTransitGatewayPeeringAttachmentResultTypeDef",
-    {"TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef"},
-    total=False,
-)
-
-RejectTransitGatewayVpcAttachmentResultTypeDef = TypedDict(
-    "RejectTransitGatewayVpcAttachmentResultTypeDef",
-    {"TransitGatewayVpcAttachment": "TransitGatewayVpcAttachmentTypeDef"},
-    total=False,
-)
-
-RejectVpcEndpointConnectionsResultTypeDef = TypedDict(
-    "RejectVpcEndpointConnectionsResultTypeDef",
-    {"Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-RejectVpcPeeringConnectionResultTypeDef = TypedDict(
-    "RejectVpcPeeringConnectionResultTypeDef", {"Return": bool}, total=False
-)
-
-ReleaseHostsResultTypeDef = TypedDict(
-    "ReleaseHostsResultTypeDef",
-    {"Successful": List[str], "Unsuccessful": List["UnsuccessfulItemTypeDef"]},
-    total=False,
-)
-
-RemovePrefixListEntryTypeDef = TypedDict("RemovePrefixListEntryTypeDef", {"Cidr": str})
-
-ReplaceIamInstanceProfileAssociationResultTypeDef = TypedDict(
-    "ReplaceIamInstanceProfileAssociationResultTypeDef",
-    {"IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef"},
-    total=False,
-)
-
-ReplaceNetworkAclAssociationResultTypeDef = TypedDict(
-    "ReplaceNetworkAclAssociationResultTypeDef", {"NewAssociationId": str}, total=False
-)
-
-ReplaceRouteTableAssociationResultTypeDef = TypedDict(
-    "ReplaceRouteTableAssociationResultTypeDef",
-    {"NewAssociationId": str, "AssociationState": "RouteTableAssociationStateTypeDef"},
-    total=False,
-)
-
-ReplaceTransitGatewayRouteResultTypeDef = TypedDict(
-    "ReplaceTransitGatewayRouteResultTypeDef", {"Route": "TransitGatewayRouteTypeDef"}, total=False
-)
-
-RequestLaunchTemplateDataTypeDef = TypedDict(
-    "RequestLaunchTemplateDataTypeDef",
-    {
-        "KernelId": str,
-        "EbsOptimized": bool,
-        "IamInstanceProfile": "LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef",
-        "BlockDeviceMappings": List["LaunchTemplateBlockDeviceMappingRequestTypeDef"],
-        "NetworkInterfaces": List[
-            "LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef"
-        ],
-        "ImageId": str,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
-        "KeyName": str,
-        "Monitoring": "LaunchTemplatesMonitoringRequestTypeDef",
-        "Placement": "LaunchTemplatePlacementRequestTypeDef",
-        "RamDiskId": str,
-        "DisableApiTermination": bool,
-        "InstanceInitiatedShutdownBehavior": Literal["stop", "terminate"],
-        "UserData": str,
-        "TagSpecifications": List["LaunchTemplateTagSpecificationRequestTypeDef"],
-        "ElasticGpuSpecifications": List["ElasticGpuSpecificationTypeDef"],
-        "ElasticInferenceAccelerators": List["LaunchTemplateElasticInferenceAcceleratorTypeDef"],
-        "SecurityGroupIds": List[str],
-        "SecurityGroups": List[str],
-        "InstanceMarketOptions": "LaunchTemplateInstanceMarketOptionsRequestTypeDef",
-        "CreditSpecification": "CreditSpecificationRequestTypeDef",
-        "CpuOptions": "LaunchTemplateCpuOptionsRequestTypeDef",
-        "CapacityReservationSpecification": "LaunchTemplateCapacityReservationSpecificationRequestTypeDef",
-        "LicenseSpecifications": List["LaunchTemplateLicenseConfigurationRequestTypeDef"],
-        "HibernationOptions": "LaunchTemplateHibernationOptionsRequestTypeDef",
-        "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsRequestTypeDef",
-        "EnclaveOptions": "LaunchTemplateEnclaveOptionsRequestTypeDef",
-    },
-    total=False,
-)
-
-RequestSpotFleetResponseTypeDef = TypedDict(
-    "RequestSpotFleetResponseTypeDef", {"SpotFleetRequestId": str}, total=False
-)
-
-RequestSpotInstancesResultTypeDef = TypedDict(
-    "RequestSpotInstancesResultTypeDef",
-    {"SpotInstanceRequests": List["SpotInstanceRequestTypeDef"]},
-    total=False,
-)
-
-RequestSpotLaunchSpecificationTypeDef = TypedDict(
-    "RequestSpotLaunchSpecificationTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-        "SecurityGroups": List[str],
-        "AddressingType": str,
-        "BlockDeviceMappings": List["BlockDeviceMappingTypeDef"],
-        "EbsOptimized": bool,
-        "IamInstanceProfile": "IamInstanceProfileSpecificationTypeDef",
-        "ImageId": str,
-        "InstanceType": Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ],
-        "KernelId": str,
-        "KeyName": str,
-        "Monitoring": "RunInstancesMonitoringEnabledTypeDef",
-        "NetworkInterfaces": List["InstanceNetworkInterfaceSpecificationTypeDef"],
-        "Placement": "SpotPlacementTypeDef",
-        "RamdiskId": str,
-        "SubnetId": str,
-        "UserData": str,
-    },
-    total=False,
-)
-
-ReservedInstanceLimitPriceTypeDef = TypedDict(
-    "ReservedInstanceLimitPriceTypeDef",
-    {"Amount": float, "CurrencyCode": Literal["USD"]},
-    total=False,
-)
-
-ResetAddressAttributeResultTypeDef = TypedDict(
-    "ResetAddressAttributeResultTypeDef", {"Address": "AddressAttributeTypeDef"}, total=False
-)
-
-ResetEbsDefaultKmsKeyIdResultTypeDef = TypedDict(
-    "ResetEbsDefaultKmsKeyIdResultTypeDef", {"KmsKeyId": str}, total=False
-)
-
-ResetFpgaImageAttributeResultTypeDef = TypedDict(
-    "ResetFpgaImageAttributeResultTypeDef", {"Return": bool}, total=False
-)
-
-RestoreAddressToClassicResultTypeDef = TypedDict(
-    "RestoreAddressToClassicResultTypeDef",
-    {"PublicIp": str, "Status": Literal["MoveInProgress", "InVpc", "InClassic"]},
-    total=False,
-)
-
-RestoreManagedPrefixListVersionResultTypeDef = TypedDict(
-    "RestoreManagedPrefixListVersionResultTypeDef",
-    {"PrefixList": "ManagedPrefixListTypeDef"},
-    total=False,
-)
-
-RevokeClientVpnIngressResultTypeDef = TypedDict(
-    "RevokeClientVpnIngressResultTypeDef",
-    {"Status": "ClientVpnAuthorizationRuleStatusTypeDef"},
-    total=False,
-)
-
-RevokeSecurityGroupEgressResultTypeDef = TypedDict(
-    "RevokeSecurityGroupEgressResultTypeDef",
-    {"Return": bool, "UnknownIpPermissions": List["IpPermissionTypeDef"]},
-    total=False,
-)
-
-RevokeSecurityGroupIngressResultTypeDef = TypedDict(
-    "RevokeSecurityGroupIngressResultTypeDef",
-    {"Return": bool, "UnknownIpPermissions": List["IpPermissionTypeDef"]},
-    total=False,
-)
-
-RunScheduledInstancesResultTypeDef = TypedDict(
-    "RunScheduledInstancesResultTypeDef", {"InstanceIdSet": List[str]}, total=False
-)
-
-ScheduledInstanceRecurrenceRequestTypeDef = TypedDict(
-    "ScheduledInstanceRecurrenceRequestTypeDef",
-    {
-        "Frequency": str,
-        "Interval": int,
-        "OccurrenceDays": List[int],
-        "OccurrenceRelativeToEnd": bool,
-        "OccurrenceUnit": str,
-    },
-    total=False,
-)
-
-_RequiredScheduledInstancesLaunchSpecificationTypeDef = TypedDict(
-    "_RequiredScheduledInstancesLaunchSpecificationTypeDef", {"ImageId": str}
-)
-_OptionalScheduledInstancesLaunchSpecificationTypeDef = TypedDict(
-    "_OptionalScheduledInstancesLaunchSpecificationTypeDef",
-    {
-        "BlockDeviceMappings": List["ScheduledInstancesBlockDeviceMappingTypeDef"],
-        "EbsOptimized": bool,
-        "IamInstanceProfile": "ScheduledInstancesIamInstanceProfileTypeDef",
-        "InstanceType": str,
-        "KernelId": str,
-        "KeyName": str,
-        "Monitoring": "ScheduledInstancesMonitoringTypeDef",
-        "NetworkInterfaces": List["ScheduledInstancesNetworkInterfaceTypeDef"],
-        "Placement": "ScheduledInstancesPlacementTypeDef",
-        "RamdiskId": str,
-        "SecurityGroupIds": List[str],
-        "SubnetId": str,
-        "UserData": str,
-    },
-    total=False,
-)
-
-
-class ScheduledInstancesLaunchSpecificationTypeDef(
-    _RequiredScheduledInstancesLaunchSpecificationTypeDef,
-    _OptionalScheduledInstancesLaunchSpecificationTypeDef,
-):
-    pass
-
-
-SearchLocalGatewayRoutesResultTypeDef = TypedDict(
-    "SearchLocalGatewayRoutesResultTypeDef",
-    {"Routes": List["LocalGatewayRouteTypeDef"], "NextToken": str},
-    total=False,
-)
-
-SearchTransitGatewayMulticastGroupsResultTypeDef = TypedDict(
-    "SearchTransitGatewayMulticastGroupsResultTypeDef",
-    {"MulticastGroups": List["TransitGatewayMulticastGroupTypeDef"], "NextToken": str},
-    total=False,
-)
-
-SearchTransitGatewayRoutesResultTypeDef = TypedDict(
-    "SearchTransitGatewayRoutesResultTypeDef",
-    {"Routes": List["TransitGatewayRouteTypeDef"], "AdditionalRoutesAvailable": bool},
-    total=False,
-)
-
-SlotDateTimeRangeRequestTypeDef = TypedDict(
-    "SlotDateTimeRangeRequestTypeDef", {"EarliestTime": datetime, "LatestTime": datetime}
-)
-
-SlotStartTimeRangeRequestTypeDef = TypedDict(
-    "SlotStartTimeRangeRequestTypeDef",
-    {"EarliestTime": datetime, "LatestTime": datetime},
-    total=False,
-)
-
-SnapshotDiskContainerTypeDef = TypedDict(
-    "SnapshotDiskContainerTypeDef",
-    {"Description": str, "Format": str, "Url": str, "UserBucket": "UserBucketTypeDef"},
-    total=False,
-)
-
-SpotOptionsRequestTypeDef = TypedDict(
-    "SpotOptionsRequestTypeDef",
-    {
-        "AllocationStrategy": Literal["lowest-price", "diversified", "capacity-optimized"],
-        "MaintenanceStrategies": "FleetSpotMaintenanceStrategiesRequestTypeDef",
-        "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
-        "InstancePoolsToUseCount": int,
-        "SingleInstanceType": bool,
-        "SingleAvailabilityZone": bool,
-        "MinTargetCapacity": int,
-        "MaxTotalPrice": str,
-    },
-    total=False,
-)
-
-StartInstancesResultTypeDef = TypedDict(
-    "StartInstancesResultTypeDef",
-    {"StartingInstances": List["InstanceStateChangeTypeDef"]},
-    total=False,
-)
-
-StartNetworkInsightsAnalysisResultTypeDef = TypedDict(
-    "StartNetworkInsightsAnalysisResultTypeDef",
-    {"NetworkInsightsAnalysis": "NetworkInsightsAnalysisTypeDef"},
-    total=False,
-)
-
-StartVpcEndpointServicePrivateDnsVerificationResultTypeDef = TypedDict(
-    "StartVpcEndpointServicePrivateDnsVerificationResultTypeDef", {"ReturnValue": bool}, total=False
-)
-
-StopInstancesResultTypeDef = TypedDict(
-    "StopInstancesResultTypeDef",
-    {"StoppingInstances": List["InstanceStateChangeTypeDef"]},
-    total=False,
-)
-
-StorageLocationTypeDef = TypedDict(
-    "StorageLocationTypeDef", {"Bucket": str, "Key": str}, total=False
-)
-
-_RequiredTagTypeDef = TypedDict("_RequiredTagTypeDef", {"Key": str})
-_OptionalTagTypeDef = TypedDict("_OptionalTagTypeDef", {"Value": str}, total=False)
-
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-
-_RequiredTargetCapacitySpecificationRequestTypeDef = TypedDict(
-    "_RequiredTargetCapacitySpecificationRequestTypeDef", {"TotalTargetCapacity": int}
-)
-_OptionalTargetCapacitySpecificationRequestTypeDef = TypedDict(
-    "_OptionalTargetCapacitySpecificationRequestTypeDef",
-    {
-        "OnDemandTargetCapacity": int,
-        "SpotTargetCapacity": int,
-        "DefaultTargetCapacityType": Literal["spot", "on-demand"],
-    },
-    total=False,
-)
-
-
-class TargetCapacitySpecificationRequestTypeDef(
-    _RequiredTargetCapacitySpecificationRequestTypeDef,
-    _OptionalTargetCapacitySpecificationRequestTypeDef,
-):
-    pass
-
-
-_RequiredTargetConfigurationRequestTypeDef = TypedDict(
-    "_RequiredTargetConfigurationRequestTypeDef", {"OfferingId": str}
-)
-_OptionalTargetConfigurationRequestTypeDef = TypedDict(
-    "_OptionalTargetConfigurationRequestTypeDef", {"InstanceCount": int}, total=False
-)
-
-
-class TargetConfigurationRequestTypeDef(
-    _RequiredTargetConfigurationRequestTypeDef, _OptionalTargetConfigurationRequestTypeDef
-):
-    pass
-
-
-TerminateClientVpnConnectionsResultTypeDef = TypedDict(
-    "TerminateClientVpnConnectionsResultTypeDef",
-    {
-        "ClientVpnEndpointId": str,
-        "Username": str,
-        "ConnectionStatuses": List["TerminateConnectionStatusTypeDef"],
-    },
-    total=False,
-)
-
-TerminateInstancesResultTypeDef = TypedDict(
-    "TerminateInstancesResultTypeDef",
-    {"TerminatingInstances": List["InstanceStateChangeTypeDef"]},
-    total=False,
-)
-
-TrafficMirrorPortRangeRequestTypeDef = TypedDict(
-    "TrafficMirrorPortRangeRequestTypeDef", {"FromPort": int, "ToPort": int}, total=False
-)
-
-TransitGatewayConnectRequestBgpOptionsTypeDef = TypedDict(
-    "TransitGatewayConnectRequestBgpOptionsTypeDef", {"PeerAsn": int}, total=False
-)
-
-TransitGatewayRequestOptionsTypeDef = TypedDict(
-    "TransitGatewayRequestOptionsTypeDef",
-    {
-        "AmazonSideAsn": int,
-        "AutoAcceptSharedAttachments": Literal["enable", "disable"],
-        "DefaultRouteTableAssociation": Literal["enable", "disable"],
-        "DefaultRouteTablePropagation": Literal["enable", "disable"],
-        "VpnEcmpSupport": Literal["enable", "disable"],
-        "DnsSupport": Literal["enable", "disable"],
-        "MulticastSupport": Literal["enable", "disable"],
-        "TransitGatewayCidrBlocks": List[str],
-    },
-    total=False,
-)
-
-UnassignIpv6AddressesResultTypeDef = TypedDict(
-    "UnassignIpv6AddressesResultTypeDef",
-    {"NetworkInterfaceId": str, "UnassignedIpv6Addresses": List[str]},
-    total=False,
-)
-
-UnmonitorInstancesResultTypeDef = TypedDict(
-    "UnmonitorInstancesResultTypeDef",
-    {"InstanceMonitorings": List["InstanceMonitoringTypeDef"]},
-    total=False,
-)
-
-UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef = TypedDict(
-    "UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef", {"Return": bool}, total=False
-)
-
-UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef = TypedDict(
-    "UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef", {"Return": bool}, total=False
-)
-
-VpnConnectionOptionsSpecificationTypeDef = TypedDict(
-    "VpnConnectionOptionsSpecificationTypeDef",
-    {
-        "EnableAcceleration": bool,
-        "StaticRoutesOnly": bool,
-        "TunnelInsideIpVersion": Literal["ipv4", "ipv6"],
-        "TunnelOptions": List["VpnTunnelOptionsSpecificationTypeDef"],
-        "LocalIpv4NetworkCidr": str,
-        "RemoteIpv4NetworkCidr": str,
-        "LocalIpv6NetworkCidr": str,
-        "RemoteIpv6NetworkCidr": str,
-    },
-    total=False,
-)
-
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )
+
+_RequiredWithdrawByoipCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredWithdrawByoipCidrRequestRequestTypeDef",
+    {
+        "Cidr": str,
+    },
+)
+_OptionalWithdrawByoipCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalWithdrawByoipCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class WithdrawByoipCidrRequestRequestTypeDef(
+    _RequiredWithdrawByoipCidrRequestRequestTypeDef, _OptionalWithdrawByoipCidrRequestRequestTypeDef
+):
+    pass
 
 WithdrawByoipCidrResultTypeDef = TypedDict(
-    "WithdrawByoipCidrResultTypeDef", {"ByoipCidr": "ByoipCidrTypeDef"}, total=False
+    "WithdrawByoipCidrResultTypeDef",
+    {
+        "ByoipCidr": "ByoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )

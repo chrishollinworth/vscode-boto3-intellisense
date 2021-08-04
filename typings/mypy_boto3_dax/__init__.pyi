@@ -31,8 +31,8 @@ Usage::
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
     ```
 """
-from mypy_boto3_dax.client import DAXClient
-from mypy_boto3_dax.paginator import (
+from .client import DAXClient
+from .paginator import (
     DescribeClustersPaginator,
     DescribeDefaultParametersPaginator,
     DescribeEventsPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_dax.paginator import (
 )
 
 Client = DAXClient
-
 
 __all__ = (
     "Client",

@@ -1,5 +1,7 @@
 """
-Main interface for iot service client
+Type annotations for iot service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html)
 
 Usage::
 
@@ -12,11 +14,39 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_iot.paginator import (
+from .literals import (
+    AuditFrequencyType,
+    AuditMitigationActionsExecutionStatusType,
+    AuditMitigationActionsTaskStatusType,
+    AuditTaskStatusType,
+    AuditTaskTypeType,
+    AuthorizerStatusType,
+    AutoRegistrationStatusType,
+    BehaviorCriteriaTypeType,
+    CACertificateStatusType,
+    CertificateStatusType,
+    CustomMetricTypeType,
+    DayOfWeekType,
+    DomainConfigurationStatusType,
+    EventTypeType,
+    JobExecutionStatusType,
+    JobStatusType,
+    LogLevelType,
+    LogTargetTypeType,
+    MitigationActionTypeType,
+    OTAUpdateStatusType,
+    ProtocolType,
+    ReportTypeType,
+    ServiceTypeType,
+    StatusType,
+    TargetSelectionType,
+    TopicRuleDestinationStatusType,
+)
+from .paginator import (
     GetBehaviorModelTrainingSummariesPaginator,
     ListActiveViolationsPaginator,
     ListAttachedPoliciesPaginator,
@@ -70,7 +100,7 @@ from mypy_boto3_iot.paginator import (
     ListV2LoggingLevelsPaginator,
     ListViolationEventsPaginator,
 )
-from mypy_boto3_iot.type_defs import (
+from .type_defs import (
     AbortConfigTypeDef,
     AlertTargetTypeDef,
     AssociateTargetsWithJobResponseTypeDef,
@@ -96,6 +126,7 @@ from mypy_boto3_iot.type_defs import (
     CreateDomainConfigurationResponseTypeDef,
     CreateDynamicThingGroupResponseTypeDef,
     CreateJobResponseTypeDef,
+    CreateJobTemplateResponseTypeDef,
     CreateKeysAndCertificateResponseTypeDef,
     CreateMitigationActionResponseTypeDef,
     CreateOTAUpdateResponseTypeDef,
@@ -131,6 +162,7 @@ from mypy_boto3_iot.type_defs import (
     DescribeIndexResponseTypeDef,
     DescribeJobExecutionResponseTypeDef,
     DescribeJobResponseTypeDef,
+    DescribeJobTemplateResponseTypeDef,
     DescribeMitigationActionResponseTypeDef,
     DescribeProvisioningTemplateResponseTypeDef,
     DescribeProvisioningTemplateVersionResponseTypeDef,
@@ -181,6 +213,7 @@ from mypy_boto3_iot.type_defs import (
     ListJobExecutionsForJobResponseTypeDef,
     ListJobExecutionsForThingResponseTypeDef,
     ListJobsResponseTypeDef,
+    ListJobTemplatesResponseTypeDef,
     ListMitigationActionsResponseTypeDef,
     ListOTAUpdatesResponseTypeDef,
     ListOutgoingCertificatesResponseTypeDef,
@@ -266,23 +299,20 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("IoTClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     CertificateConflictException: Type[BotocoreClientError]
     CertificateStateException: Type[BotocoreClientError]
     CertificateValidationException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
     ConflictingResourceUpdateException: Type[BotocoreClientError]
     DeleteConflictException: Type[BotocoreClientError]
     IndexNotReadyException: Type[BotocoreClientError]
@@ -310,799 +340,1090 @@ class Exceptions:
     VersionConflictException: Type[BotocoreClientError]
     VersionsLimitExceededException: Type[BotocoreClientError]
 
-
-class IoTClient:
+class IoTClient(BaseClient):
     """
-    [IoT.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def accept_certificate_transfer(self, certificateId: str, setAsActive: bool = None) -> None:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.accept_certificate_transfer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.accept_certificate_transfer)
+        IoTClient exceptions.
         """
+    def accept_certificate_transfer(self, *, certificateId: str, setAsActive: bool = None) -> None:
+        """
+        Accepts a pending certificate transfer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.accept_certificate_transfer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#accept_certificate_transfer)
+        """
     def add_thing_to_billing_group(
         self,
+        *,
         billingGroupName: str = None,
         billingGroupArn: str = None,
         thingName: str = None,
-        thingArn: str = None,
+        thingArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.add_thing_to_billing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.add_thing_to_billing_group)
-        """
+        Adds a thing to a billing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.add_thing_to_billing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#add_thing_to_billing_group)
+        """
     def add_thing_to_thing_group(
         self,
+        *,
         thingGroupName: str = None,
         thingGroupArn: str = None,
         thingName: str = None,
         thingArn: str = None,
-        overrideDynamicGroups: bool = None,
+        overrideDynamicGroups: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.add_thing_to_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.add_thing_to_thing_group)
-        """
+        Adds a thing to a thing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.add_thing_to_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#add_thing_to_thing_group)
+        """
     def associate_targets_with_job(
-        self, targets: List[str], jobId: str, comment: str = None, namespaceId: str = None
+        self, *, targets: List[str], jobId: str, comment: str = None, namespaceId: str = None
     ) -> AssociateTargetsWithJobResponseTypeDef:
         """
-        [Client.associate_targets_with_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.associate_targets_with_job)
-        """
+        Associates a group with a continuous job.
 
-    def attach_policy(self, policyName: str, target: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.associate_targets_with_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#associate_targets_with_job)
         """
-        [Client.attach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.attach_policy)
+    def attach_policy(self, *, policyName: str, target: str) -> None:
         """
+        Attaches the specified policy to the specified principal (certificate or other
+        credential).
 
-    def attach_principal_policy(self, policyName: str, principal: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.attach_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#attach_policy)
         """
-        [Client.attach_principal_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.attach_principal_policy)
+    def attach_principal_policy(self, *, policyName: str, principal: str) -> None:
         """
+        Attaches the specified policy to the specified principal (certificate or other
+        credential).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.attach_principal_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#attach_principal_policy)
+        """
     def attach_security_profile(
-        self, securityProfileName: str, securityProfileTargetArn: str
+        self, *, securityProfileName: str, securityProfileTargetArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.attach_security_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.attach_security_profile)
-        """
+        Associates a Device Defender security profile with a thing group or this
+        account.
 
-    def attach_thing_principal(self, thingName: str, principal: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.attach_security_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#attach_security_profile)
         """
-        [Client.attach_thing_principal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.attach_thing_principal)
+    def attach_thing_principal(self, *, thingName: str, principal: str) -> Dict[str, Any]:
         """
+        Attaches the specified principal to the specified thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.attach_thing_principal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#attach_thing_principal)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def cancel_audit_mitigation_actions_task(self, taskId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#can_paginate)
         """
-        [Client.cancel_audit_mitigation_actions_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.cancel_audit_mitigation_actions_task)
+    def cancel_audit_mitigation_actions_task(self, *, taskId: str) -> Dict[str, Any]:
         """
+        Cancels a mitigation action task that is in progress.
 
-    def cancel_audit_task(self, taskId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.cancel_audit_mitigation_actions_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#cancel_audit_mitigation_actions_task)
         """
-        [Client.cancel_audit_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.cancel_audit_task)
+    def cancel_audit_task(self, *, taskId: str) -> Dict[str, Any]:
         """
+        Cancels an audit that is in progress.
 
-    def cancel_certificate_transfer(self, certificateId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.cancel_audit_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#cancel_audit_task)
         """
-        [Client.cancel_certificate_transfer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.cancel_certificate_transfer)
+    def cancel_certificate_transfer(self, *, certificateId: str) -> None:
         """
+        Cancels a pending transfer for the specified certificate.
 
-    def cancel_detect_mitigation_actions_task(self, taskId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.cancel_certificate_transfer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#cancel_certificate_transfer)
         """
-        [Client.cancel_detect_mitigation_actions_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.cancel_detect_mitigation_actions_task)
+    def cancel_detect_mitigation_actions_task(self, *, taskId: str) -> Dict[str, Any]:
         """
+        Cancels a Device Defender ML Detect mitigation action.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.cancel_detect_mitigation_actions_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#cancel_detect_mitigation_actions_task)
+        """
     def cancel_job(
-        self, jobId: str, reasonCode: str = None, comment: str = None, force: bool = None
+        self, *, jobId: str, reasonCode: str = None, comment: str = None, force: bool = None
     ) -> CancelJobResponseTypeDef:
         """
-        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.cancel_job)
-        """
+        Cancels a job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.cancel_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#cancel_job)
+        """
     def cancel_job_execution(
         self,
+        *,
         jobId: str,
         thingName: str,
         force: bool = None,
         expectedVersion: int = None,
-        statusDetails: Dict[str, str] = None,
+        statusDetails: Dict[str, str] = None
     ) -> None:
         """
-        [Client.cancel_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.cancel_job_execution)
-        """
+        Cancels the execution of a job for a given thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.cancel_job_execution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#cancel_job_execution)
+        """
     def clear_default_authorizer(self) -> Dict[str, Any]:
         """
-        [Client.clear_default_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.clear_default_authorizer)
-        """
+        Clears the default authorizer.
 
-    def confirm_topic_rule_destination(self, confirmationToken: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.clear_default_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#clear_default_authorizer)
         """
-        [Client.confirm_topic_rule_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.confirm_topic_rule_destination)
+    def confirm_topic_rule_destination(self, *, confirmationToken: str) -> Dict[str, Any]:
         """
+        Confirms a topic rule destination.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.confirm_topic_rule_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#confirm_topic_rule_destination)
+        """
     def create_audit_suppression(
         self,
+        *,
         checkName: str,
         resourceIdentifier: "ResourceIdentifierTypeDef",
         clientRequestToken: str,
-        expirationDate: datetime = None,
+        expirationDate: Union[datetime, str] = None,
         suppressIndefinitely: bool = None,
-        description: str = None,
+        description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_audit_suppression documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_audit_suppression)
-        """
+        Creates a Device Defender audit suppression.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_audit_suppression)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_audit_suppression)
+        """
     def create_authorizer(
         self,
+        *,
         authorizerName: str,
         authorizerFunctionArn: str,
         tokenKeyName: str = None,
         tokenSigningPublicKeys: Dict[str, str] = None,
-        status: Literal["ACTIVE", "INACTIVE"] = None,
+        status: AuthorizerStatusType = None,
         tags: List["TagTypeDef"] = None,
-        signingDisabled: bool = None,
+        signingDisabled: bool = None
     ) -> CreateAuthorizerResponseTypeDef:
         """
-        [Client.create_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_authorizer)
-        """
+        Creates an authorizer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_authorizer)
+        """
     def create_billing_group(
         self,
+        *,
         billingGroupName: str,
         billingGroupProperties: "BillingGroupPropertiesTypeDef" = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateBillingGroupResponseTypeDef:
         """
-        [Client.create_billing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_billing_group)
-        """
+        Creates a billing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_billing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_billing_group)
+        """
     def create_certificate_from_csr(
-        self, certificateSigningRequest: str, setAsActive: bool = None
+        self, *, certificateSigningRequest: str, setAsActive: bool = None
     ) -> CreateCertificateFromCsrResponseTypeDef:
         """
-        [Client.create_certificate_from_csr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_certificate_from_csr)
-        """
+        Creates an X.509 certificate using the specified certificate signing request.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_certificate_from_csr)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_certificate_from_csr)
+        """
     def create_custom_metric(
         self,
+        *,
         metricName: str,
-        metricType: Literal["string-list", "ip-address-list", "number-list", "number"],
+        metricType: CustomMetricTypeType,
         clientRequestToken: str,
         displayName: str = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateCustomMetricResponseTypeDef:
         """
-        [Client.create_custom_metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_custom_metric)
-        """
+        Use this API to define a Custom Metric published by your devices to Device
+        Defender.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_custom_metric)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_custom_metric)
+        """
     def create_dimension(
         self,
+        *,
         name: str,
         type: Literal["TOPIC_FILTER"],
         stringValues: List[str],
         clientRequestToken: str,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateDimensionResponseTypeDef:
         """
-        [Client.create_dimension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_dimension)
-        """
+        Create a dimension that you can use to limit the scope of a metric used in a
+        security profile for AWS IoT Device Defender.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_dimension)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_dimension)
+        """
     def create_domain_configuration(
         self,
+        *,
         domainConfigurationName: str,
         domainName: str = None,
         serverCertificateArns: List[str] = None,
         validationCertificateArn: str = None,
         authorizerConfig: "AuthorizerConfigTypeDef" = None,
-        serviceType: Literal["DATA", "CREDENTIAL_PROVIDER", "JOBS"] = None,
-        tags: List["TagTypeDef"] = None,
+        serviceType: ServiceTypeType = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateDomainConfigurationResponseTypeDef:
         """
-        [Client.create_domain_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_domain_configuration)
-        """
+        Creates a domain configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_domain_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_domain_configuration)
+        """
     def create_dynamic_thing_group(
         self,
+        *,
         thingGroupName: str,
         queryString: str,
         thingGroupProperties: "ThingGroupPropertiesTypeDef" = None,
         indexName: str = None,
         queryVersion: str = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateDynamicThingGroupResponseTypeDef:
         """
-        [Client.create_dynamic_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_dynamic_thing_group)
-        """
+        Creates a dynamic thing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_dynamic_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_dynamic_thing_group)
+        """
     def create_job(
         self,
+        *,
         jobId: str,
         targets: List[str],
         documentSource: str = None,
         document: str = None,
         description: str = None,
         presignedUrlConfig: "PresignedUrlConfigTypeDef" = None,
-        targetSelection: Literal["CONTINUOUS", "SNAPSHOT"] = None,
+        targetSelection: TargetSelectionType = None,
         jobExecutionsRolloutConfig: "JobExecutionsRolloutConfigTypeDef" = None,
         abortConfig: "AbortConfigTypeDef" = None,
         timeoutConfig: "TimeoutConfigTypeDef" = None,
         tags: List["TagTypeDef"] = None,
         namespaceId: str = None,
+        jobTemplateArn: str = None
     ) -> CreateJobResponseTypeDef:
         """
-        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_job)
-        """
+        Creates a job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_job)
+        """
+    def create_job_template(
+        self,
+        *,
+        jobTemplateId: str,
+        description: str,
+        jobArn: str = None,
+        documentSource: str = None,
+        document: str = None,
+        presignedUrlConfig: "PresignedUrlConfigTypeDef" = None,
+        jobExecutionsRolloutConfig: "JobExecutionsRolloutConfigTypeDef" = None,
+        abortConfig: "AbortConfigTypeDef" = None,
+        timeoutConfig: "TimeoutConfigTypeDef" = None,
+        tags: List["TagTypeDef"] = None
+    ) -> CreateJobTemplateResponseTypeDef:
+        """
+        Creates a job template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_job_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_job_template)
+        """
     def create_keys_and_certificate(
-        self, setAsActive: bool = None
+        self, *, setAsActive: bool = None
     ) -> CreateKeysAndCertificateResponseTypeDef:
         """
-        [Client.create_keys_and_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_keys_and_certificate)
-        """
+        Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued
+        public key.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_keys_and_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_keys_and_certificate)
+        """
     def create_mitigation_action(
         self,
+        *,
         actionName: str,
         roleArn: str,
         actionParams: "MitigationActionParamsTypeDef",
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateMitigationActionResponseTypeDef:
         """
-        [Client.create_mitigation_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_mitigation_action)
-        """
+        Defines an action that can be applied to audit findings by using
+        StartAuditMitigationActionsTask.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_mitigation_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_mitigation_action)
+        """
     def create_ota_update(
         self,
+        *,
         otaUpdateId: str,
         targets: List[str],
         files: List["OTAUpdateFileTypeDef"],
         roleArn: str,
         description: str = None,
-        protocols: List[Literal["MQTT", "HTTP"]] = None,
-        targetSelection: Literal["CONTINUOUS", "SNAPSHOT"] = None,
+        protocols: List[ProtocolType] = None,
+        targetSelection: TargetSelectionType = None,
         awsJobExecutionsRolloutConfig: "AwsJobExecutionsRolloutConfigTypeDef" = None,
         awsJobPresignedUrlConfig: "AwsJobPresignedUrlConfigTypeDef" = None,
-        awsJobAbortConfig: AwsJobAbortConfigTypeDef = None,
-        awsJobTimeoutConfig: AwsJobTimeoutConfigTypeDef = None,
+        awsJobAbortConfig: "AwsJobAbortConfigTypeDef" = None,
+        awsJobTimeoutConfig: "AwsJobTimeoutConfigTypeDef" = None,
         additionalParameters: Dict[str, str] = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateOTAUpdateResponseTypeDef:
         """
-        [Client.create_ota_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_ota_update)
-        """
+        Creates an AWS IoT OTAUpdate on a target group of things or groups.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_ota_update)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_ota_update)
+        """
     def create_policy(
-        self, policyName: str, policyDocument: str, tags: List["TagTypeDef"] = None
+        self, *, policyName: str, policyDocument: str, tags: List["TagTypeDef"] = None
     ) -> CreatePolicyResponseTypeDef:
         """
-        [Client.create_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_policy)
-        """
+        Creates an AWS IoT policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_policy)
+        """
     def create_policy_version(
-        self, policyName: str, policyDocument: str, setAsDefault: bool = None
+        self, *, policyName: str, policyDocument: str, setAsDefault: bool = None
     ) -> CreatePolicyVersionResponseTypeDef:
         """
-        [Client.create_policy_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_policy_version)
-        """
+        Creates a new version of the specified AWS IoT policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_policy_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_policy_version)
+        """
     def create_provisioning_claim(
-        self, templateName: str
+        self, *, templateName: str
     ) -> CreateProvisioningClaimResponseTypeDef:
         """
-        [Client.create_provisioning_claim documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_provisioning_claim)
-        """
+        Creates a provisioning claim.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_provisioning_claim)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_provisioning_claim)
+        """
     def create_provisioning_template(
         self,
+        *,
         templateName: str,
         templateBody: str,
         provisioningRoleArn: str,
         description: str = None,
         enabled: bool = None,
         preProvisioningHook: "ProvisioningHookTypeDef" = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateProvisioningTemplateResponseTypeDef:
         """
-        [Client.create_provisioning_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_provisioning_template)
-        """
+        Creates a fleet provisioning template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_provisioning_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_provisioning_template)
+        """
     def create_provisioning_template_version(
-        self, templateName: str, templateBody: str, setAsDefault: bool = None
+        self, *, templateName: str, templateBody: str, setAsDefault: bool = None
     ) -> CreateProvisioningTemplateVersionResponseTypeDef:
         """
-        [Client.create_provisioning_template_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_provisioning_template_version)
-        """
+        Creates a new version of a fleet provisioning template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_provisioning_template_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_provisioning_template_version)
+        """
     def create_role_alias(
         self,
+        *,
         roleAlias: str,
         roleArn: str,
         credentialDurationSeconds: int = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateRoleAliasResponseTypeDef:
         """
-        [Client.create_role_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_role_alias)
-        """
+        Creates a role alias.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_role_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_role_alias)
+        """
     def create_scheduled_audit(
         self,
-        frequency: Literal["DAILY", "WEEKLY", "BIWEEKLY", "MONTHLY"],
+        *,
+        frequency: AuditFrequencyType,
         targetCheckNames: List[str],
         scheduledAuditName: str,
         dayOfMonth: str = None,
-        dayOfWeek: Literal["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"] = None,
-        tags: List["TagTypeDef"] = None,
+        dayOfWeek: DayOfWeekType = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateScheduledAuditResponseTypeDef:
         """
-        [Client.create_scheduled_audit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_scheduled_audit)
-        """
+        Creates a scheduled audit that is run at a specified time interval.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_scheduled_audit)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_scheduled_audit)
+        """
     def create_security_profile(
         self,
+        *,
         securityProfileName: str,
         securityProfileDescription: str = None,
         behaviors: List["BehaviorTypeDef"] = None,
         alertTargets: Dict[Literal["SNS"], "AlertTargetTypeDef"] = None,
         additionalMetricsToRetain: List[str] = None,
         additionalMetricsToRetainV2: List["MetricToRetainTypeDef"] = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateSecurityProfileResponseTypeDef:
         """
-        [Client.create_security_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_security_profile)
-        """
+        Creates a Device Defender security profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_security_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_security_profile)
+        """
     def create_stream(
         self,
+        *,
         streamId: str,
         files: List["StreamFileTypeDef"],
         roleArn: str,
         description: str = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateStreamResponseTypeDef:
         """
-        [Client.create_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_stream)
-        """
+        Creates a stream for delivering one or more large files in chunks over MQTT.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_stream)
+        """
     def create_thing(
         self,
+        *,
         thingName: str,
         thingTypeName: str = None,
         attributePayload: "AttributePayloadTypeDef" = None,
-        billingGroupName: str = None,
+        billingGroupName: str = None
     ) -> CreateThingResponseTypeDef:
         """
-        [Client.create_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_thing)
-        """
+        Creates a thing record in the registry.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_thing)
+        """
     def create_thing_group(
         self,
+        *,
         thingGroupName: str,
         parentGroupName: str = None,
         thingGroupProperties: "ThingGroupPropertiesTypeDef" = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateThingGroupResponseTypeDef:
         """
-        [Client.create_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_thing_group)
-        """
+        Create a thing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_thing_group)
+        """
     def create_thing_type(
         self,
+        *,
         thingTypeName: str,
         thingTypeProperties: "ThingTypePropertiesTypeDef" = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> CreateThingTypeResponseTypeDef:
         """
-        [Client.create_thing_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_thing_type)
-        """
+        Creates a new thing type.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_thing_type)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_thing_type)
+        """
     def create_topic_rule(
-        self, ruleName: str, topicRulePayload: TopicRulePayloadTypeDef, tags: str = None
+        self, *, ruleName: str, topicRulePayload: "TopicRulePayloadTypeDef", tags: str = None
     ) -> None:
         """
-        [Client.create_topic_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_topic_rule)
-        """
+        .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_topic_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_topic_rule)
+        """
     def create_topic_rule_destination(
-        self, destinationConfiguration: TopicRuleDestinationConfigurationTypeDef
+        self, *, destinationConfiguration: "TopicRuleDestinationConfigurationTypeDef"
     ) -> CreateTopicRuleDestinationResponseTypeDef:
         """
-        [Client.create_topic_rule_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.create_topic_rule_destination)
-        """
+        Creates a topic rule destination.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.create_topic_rule_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#create_topic_rule_destination)
+        """
     def delete_account_audit_configuration(
-        self, deleteScheduledAudits: bool = None
+        self, *, deleteScheduledAudits: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_account_audit_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_account_audit_configuration)
-        """
+        Restores the default settings for Device Defender audits for this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_account_audit_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_account_audit_configuration)
+        """
     def delete_audit_suppression(
-        self, checkName: str, resourceIdentifier: "ResourceIdentifierTypeDef"
+        self, *, checkName: str, resourceIdentifier: "ResourceIdentifierTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.delete_audit_suppression documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_audit_suppression)
-        """
+        Deletes a Device Defender audit suppression.
 
-    def delete_authorizer(self, authorizerName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_audit_suppression)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_audit_suppression)
         """
-        [Client.delete_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_authorizer)
+    def delete_authorizer(self, *, authorizerName: str) -> Dict[str, Any]:
         """
+        Deletes an authorizer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_authorizer)
+        """
     def delete_billing_group(
-        self, billingGroupName: str, expectedVersion: int = None
+        self, *, billingGroupName: str, expectedVersion: int = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_billing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_billing_group)
-        """
+        Deletes the billing group.
 
-    def delete_ca_certificate(self, certificateId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_billing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_billing_group)
         """
-        [Client.delete_ca_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_ca_certificate)
+    def delete_ca_certificate(self, *, certificateId: str) -> Dict[str, Any]:
         """
+        Deletes a registered CA certificate.
 
-    def delete_certificate(self, certificateId: str, forceDelete: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_ca_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_ca_certificate)
         """
-        [Client.delete_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_certificate)
+    def delete_certificate(self, *, certificateId: str, forceDelete: bool = None) -> None:
         """
+        Deletes the specified certificate.
 
-    def delete_custom_metric(self, metricName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_certificate)
         """
-        [Client.delete_custom_metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_custom_metric)
+    def delete_custom_metric(self, *, metricName: str) -> Dict[str, Any]:
         """
+        .
 
-    def delete_dimension(self, name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_custom_metric)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_custom_metric)
         """
-        [Client.delete_dimension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_dimension)
+    def delete_dimension(self, *, name: str) -> Dict[str, Any]:
         """
+        Removes the specified dimension from your AWS account.
 
-    def delete_domain_configuration(self, domainConfigurationName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_dimension)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_dimension)
         """
-        [Client.delete_domain_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_domain_configuration)
+    def delete_domain_configuration(self, *, domainConfigurationName: str) -> Dict[str, Any]:
         """
+        Deletes the specified domain configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_domain_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_domain_configuration)
+        """
     def delete_dynamic_thing_group(
-        self, thingGroupName: str, expectedVersion: int = None
+        self, *, thingGroupName: str, expectedVersion: int = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_dynamic_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_dynamic_thing_group)
-        """
+        Deletes a dynamic thing group.
 
-    def delete_job(self, jobId: str, force: bool = None, namespaceId: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_dynamic_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_dynamic_thing_group)
         """
-        [Client.delete_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_job)
+    def delete_job(self, *, jobId: str, force: bool = None, namespaceId: str = None) -> None:
         """
+        Deletes a job and its related job executions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_job)
+        """
     def delete_job_execution(
         self,
+        *,
         jobId: str,
         thingName: str,
         executionNumber: int,
         force: bool = None,
-        namespaceId: str = None,
+        namespaceId: str = None
     ) -> None:
         """
-        [Client.delete_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_job_execution)
-        """
+        Deletes a job execution.
 
-    def delete_mitigation_action(self, actionName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_job_execution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_job_execution)
         """
-        [Client.delete_mitigation_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_mitigation_action)
+    def delete_job_template(self, *, jobTemplateId: str) -> None:
         """
+        Deletes the specified job template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_job_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_job_template)
+        """
+    def delete_mitigation_action(self, *, actionName: str) -> Dict[str, Any]:
+        """
+        Deletes a defined mitigation action from your AWS account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_mitigation_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_mitigation_action)
+        """
     def delete_ota_update(
-        self, otaUpdateId: str, deleteStream: bool = None, forceDeleteAWSJob: bool = None
+        self, *, otaUpdateId: str, deleteStream: bool = None, forceDeleteAWSJob: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_ota_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_ota_update)
-        """
+        Delete an OTA update.
 
-    def delete_policy(self, policyName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_ota_update)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_ota_update)
         """
-        [Client.delete_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_policy)
+    def delete_policy(self, *, policyName: str) -> None:
         """
+        Deletes the specified policy.
 
-    def delete_policy_version(self, policyName: str, policyVersionId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_policy)
         """
-        [Client.delete_policy_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_policy_version)
+    def delete_policy_version(self, *, policyName: str, policyVersionId: str) -> None:
         """
+        Deletes the specified version of the specified policy.
 
-    def delete_provisioning_template(self, templateName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_policy_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_policy_version)
         """
-        [Client.delete_provisioning_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_provisioning_template)
+    def delete_provisioning_template(self, *, templateName: str) -> Dict[str, Any]:
         """
+        Deletes a fleet provisioning template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_provisioning_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_provisioning_template)
+        """
     def delete_provisioning_template_version(
-        self, templateName: str, versionId: int
+        self, *, templateName: str, versionId: int
     ) -> Dict[str, Any]:
         """
-        [Client.delete_provisioning_template_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_provisioning_template_version)
-        """
+        Deletes a fleet provisioning template version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_provisioning_template_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_provisioning_template_version)
+        """
     def delete_registration_code(self) -> Dict[str, Any]:
         """
-        [Client.delete_registration_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_registration_code)
-        """
+        Deletes a CA certificate registration code.
 
-    def delete_role_alias(self, roleAlias: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_registration_code)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_registration_code)
         """
-        [Client.delete_role_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_role_alias)
+    def delete_role_alias(self, *, roleAlias: str) -> Dict[str, Any]:
         """
+        Deletes a role alias See also: `AWS API Documentation
+        <https://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DeleteRoleAlias>`_
+        **Request Syntax** response = client.delete_role_alias( roleAlias='string' ).
 
-    def delete_scheduled_audit(self, scheduledAuditName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_role_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_role_alias)
         """
-        [Client.delete_scheduled_audit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_scheduled_audit)
+    def delete_scheduled_audit(self, *, scheduledAuditName: str) -> Dict[str, Any]:
         """
+        Deletes a scheduled audit.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_scheduled_audit)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_scheduled_audit)
+        """
     def delete_security_profile(
-        self, securityProfileName: str, expectedVersion: int = None
+        self, *, securityProfileName: str, expectedVersion: int = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_security_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_security_profile)
-        """
+        Deletes a Device Defender security profile.
 
-    def delete_stream(self, streamId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_security_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_security_profile)
         """
-        [Client.delete_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_stream)
+    def delete_stream(self, *, streamId: str) -> Dict[str, Any]:
         """
+        Deletes a stream.
 
-    def delete_thing(self, thingName: str, expectedVersion: int = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_stream)
         """
-        [Client.delete_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_thing)
+    def delete_thing(self, *, thingName: str, expectedVersion: int = None) -> Dict[str, Any]:
         """
+        Deletes the specified thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_thing)
+        """
     def delete_thing_group(
-        self, thingGroupName: str, expectedVersion: int = None
+        self, *, thingGroupName: str, expectedVersion: int = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_thing_group)
-        """
+        Deletes a thing group.
 
-    def delete_thing_type(self, thingTypeName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_thing_group)
         """
-        [Client.delete_thing_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_thing_type)
+    def delete_thing_type(self, *, thingTypeName: str) -> Dict[str, Any]:
         """
+        Deletes the specified thing type.
 
-    def delete_topic_rule(self, ruleName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_thing_type)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_thing_type)
         """
-        [Client.delete_topic_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_topic_rule)
+    def delete_topic_rule(self, *, ruleName: str) -> None:
         """
+        Deletes the rule.
 
-    def delete_topic_rule_destination(self, arn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_topic_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_topic_rule)
         """
-        [Client.delete_topic_rule_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_topic_rule_destination)
+    def delete_topic_rule_destination(self, *, arn: str) -> Dict[str, Any]:
         """
+        Deletes a topic rule destination.
 
-    def delete_v2_logging_level(
-        self, targetType: Literal["DEFAULT", "THING_GROUP"], targetName: str
-    ) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_topic_rule_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_topic_rule_destination)
         """
-        [Client.delete_v2_logging_level documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.delete_v2_logging_level)
+    def delete_v2_logging_level(self, *, targetType: LogTargetTypeType, targetName: str) -> None:
         """
+        Deletes a logging level.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.delete_v2_logging_level)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#delete_v2_logging_level)
+        """
     def deprecate_thing_type(
-        self, thingTypeName: str, undoDeprecate: bool = None
+        self, *, thingTypeName: str, undoDeprecate: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.deprecate_thing_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.deprecate_thing_type)
-        """
+        Deprecates a thing type.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.deprecate_thing_type)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#deprecate_thing_type)
+        """
     def describe_account_audit_configuration(
         self,
     ) -> DescribeAccountAuditConfigurationResponseTypeDef:
         """
-        [Client.describe_account_audit_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_account_audit_configuration)
-        """
+        Gets information about the Device Defender audit settings for this account.
 
-    def describe_audit_finding(self, findingId: str) -> DescribeAuditFindingResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_account_audit_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_account_audit_configuration)
         """
-        [Client.describe_audit_finding documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_audit_finding)
+    def describe_audit_finding(self, *, findingId: str) -> DescribeAuditFindingResponseTypeDef:
         """
+        Gets information about a single audit finding.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_audit_finding)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_audit_finding)
+        """
     def describe_audit_mitigation_actions_task(
-        self, taskId: str
+        self, *, taskId: str
     ) -> DescribeAuditMitigationActionsTaskResponseTypeDef:
         """
-        [Client.describe_audit_mitigation_actions_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_audit_mitigation_actions_task)
-        """
+        Gets information about an audit mitigation task that is used to apply mitigation
+        actions to a set of audit findings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_audit_mitigation_actions_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_audit_mitigation_actions_task)
+        """
     def describe_audit_suppression(
-        self, checkName: str, resourceIdentifier: "ResourceIdentifierTypeDef"
+        self, *, checkName: str, resourceIdentifier: "ResourceIdentifierTypeDef"
     ) -> DescribeAuditSuppressionResponseTypeDef:
         """
-        [Client.describe_audit_suppression documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_audit_suppression)
-        """
+        Gets information about a Device Defender audit suppression.
 
-    def describe_audit_task(self, taskId: str) -> DescribeAuditTaskResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_audit_suppression)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_audit_suppression)
         """
-        [Client.describe_audit_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_audit_task)
+    def describe_audit_task(self, *, taskId: str) -> DescribeAuditTaskResponseTypeDef:
         """
+        Gets information about a Device Defender audit.
 
-    def describe_authorizer(self, authorizerName: str) -> DescribeAuthorizerResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_audit_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_audit_task)
         """
-        [Client.describe_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_authorizer)
+    def describe_authorizer(self, *, authorizerName: str) -> DescribeAuthorizerResponseTypeDef:
         """
+        Describes an authorizer.
 
-    def describe_billing_group(self, billingGroupName: str) -> DescribeBillingGroupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_authorizer)
         """
-        [Client.describe_billing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_billing_group)
+    def describe_billing_group(
+        self, *, billingGroupName: str
+    ) -> DescribeBillingGroupResponseTypeDef:
         """
+        Returns information about a billing group.
 
-    def describe_ca_certificate(self, certificateId: str) -> DescribeCACertificateResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_billing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_billing_group)
         """
-        [Client.describe_ca_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_ca_certificate)
+    def describe_ca_certificate(
+        self, *, certificateId: str
+    ) -> DescribeCACertificateResponseTypeDef:
         """
+        Describes a registered CA certificate.
 
-    def describe_certificate(self, certificateId: str) -> DescribeCertificateResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_ca_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_ca_certificate)
         """
-        [Client.describe_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_certificate)
+    def describe_certificate(self, *, certificateId: str) -> DescribeCertificateResponseTypeDef:
         """
+        Gets information about the specified certificate.
 
-    def describe_custom_metric(self, metricName: str) -> DescribeCustomMetricResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_certificate)
         """
-        [Client.describe_custom_metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_custom_metric)
+    def describe_custom_metric(self, *, metricName: str) -> DescribeCustomMetricResponseTypeDef:
         """
+        Gets information about a Device Defender detect custom metric.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_custom_metric)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_custom_metric)
+        """
     def describe_default_authorizer(self) -> DescribeDefaultAuthorizerResponseTypeDef:
         """
-        [Client.describe_default_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_default_authorizer)
-        """
+        Describes the default authorizer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_default_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_default_authorizer)
+        """
     def describe_detect_mitigation_actions_task(
-        self, taskId: str
+        self, *, taskId: str
     ) -> DescribeDetectMitigationActionsTaskResponseTypeDef:
         """
-        [Client.describe_detect_mitigation_actions_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_detect_mitigation_actions_task)
-        """
+        Gets information about a Device Defender ML Detect mitigation action.
 
-    def describe_dimension(self, name: str) -> DescribeDimensionResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_detect_mitigation_actions_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_detect_mitigation_actions_task)
         """
-        [Client.describe_dimension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_dimension)
+    def describe_dimension(self, *, name: str) -> DescribeDimensionResponseTypeDef:
         """
+        Provides details about a dimension that is defined in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_dimension)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_dimension)
+        """
     def describe_domain_configuration(
-        self, domainConfigurationName: str
+        self, *, domainConfigurationName: str
     ) -> DescribeDomainConfigurationResponseTypeDef:
         """
-        [Client.describe_domain_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_domain_configuration)
-        """
+        Gets summary information about a domain configuration.
 
-    def describe_endpoint(self, endpointType: str = None) -> DescribeEndpointResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_domain_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_domain_configuration)
         """
-        [Client.describe_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_endpoint)
+    def describe_endpoint(self, *, endpointType: str = None) -> DescribeEndpointResponseTypeDef:
         """
+        Returns a unique endpoint specific to the AWS account making the call.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_endpoint)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_endpoint)
+        """
     def describe_event_configurations(self) -> DescribeEventConfigurationsResponseTypeDef:
         """
-        [Client.describe_event_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_event_configurations)
-        """
+        Describes event configurations.
 
-    def describe_index(self, indexName: str) -> DescribeIndexResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_event_configurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_event_configurations)
         """
-        [Client.describe_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_index)
+    def describe_index(self, *, indexName: str) -> DescribeIndexResponseTypeDef:
         """
+        Describes a search index.
 
-    def describe_job(self, jobId: str) -> DescribeJobResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_index)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_index)
         """
-        [Client.describe_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_job)
+    def describe_job(self, *, jobId: str) -> DescribeJobResponseTypeDef:
         """
+        Describes a job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_job)
+        """
     def describe_job_execution(
-        self, jobId: str, thingName: str, executionNumber: int = None
+        self, *, jobId: str, thingName: str, executionNumber: int = None
     ) -> DescribeJobExecutionResponseTypeDef:
         """
-        [Client.describe_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_job_execution)
-        """
+        Describes a job execution.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_job_execution)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_job_execution)
+        """
+    def describe_job_template(self, *, jobTemplateId: str) -> DescribeJobTemplateResponseTypeDef:
+        """
+        Returns information about a job template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_job_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_job_template)
+        """
     def describe_mitigation_action(
-        self, actionName: str
+        self, *, actionName: str
     ) -> DescribeMitigationActionResponseTypeDef:
         """
-        [Client.describe_mitigation_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_mitigation_action)
-        """
+        Gets information about a mitigation action.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_mitigation_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_mitigation_action)
+        """
     def describe_provisioning_template(
-        self, templateName: str
+        self, *, templateName: str
     ) -> DescribeProvisioningTemplateResponseTypeDef:
         """
-        [Client.describe_provisioning_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_provisioning_template)
-        """
+        Returns information about a fleet provisioning template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_provisioning_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_provisioning_template)
+        """
     def describe_provisioning_template_version(
-        self, templateName: str, versionId: int
+        self, *, templateName: str, versionId: int
     ) -> DescribeProvisioningTemplateVersionResponseTypeDef:
         """
-        [Client.describe_provisioning_template_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_provisioning_template_version)
-        """
+        Returns information about a fleet provisioning template version.
 
-    def describe_role_alias(self, roleAlias: str) -> DescribeRoleAliasResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_provisioning_template_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_provisioning_template_version)
         """
-        [Client.describe_role_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_role_alias)
+    def describe_role_alias(self, *, roleAlias: str) -> DescribeRoleAliasResponseTypeDef:
         """
+        Describes a role alias.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_role_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_role_alias)
+        """
     def describe_scheduled_audit(
-        self, scheduledAuditName: str
+        self, *, scheduledAuditName: str
     ) -> DescribeScheduledAuditResponseTypeDef:
         """
-        [Client.describe_scheduled_audit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_scheduled_audit)
-        """
+        Gets information about a scheduled audit.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_scheduled_audit)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_scheduled_audit)
+        """
     def describe_security_profile(
-        self, securityProfileName: str
+        self, *, securityProfileName: str
     ) -> DescribeSecurityProfileResponseTypeDef:
         """
-        [Client.describe_security_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_security_profile)
-        """
+        Gets information about a Device Defender security profile.
 
-    def describe_stream(self, streamId: str) -> DescribeStreamResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_security_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_security_profile)
         """
-        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_stream)
+    def describe_stream(self, *, streamId: str) -> DescribeStreamResponseTypeDef:
         """
+        Gets information about a stream.
 
-    def describe_thing(self, thingName: str) -> DescribeThingResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_stream)
         """
-        [Client.describe_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_thing)
+    def describe_thing(self, *, thingName: str) -> DescribeThingResponseTypeDef:
         """
+        Gets information about the specified thing.
 
-    def describe_thing_group(self, thingGroupName: str) -> DescribeThingGroupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_thing)
         """
-        [Client.describe_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_thing_group)
+    def describe_thing_group(self, *, thingGroupName: str) -> DescribeThingGroupResponseTypeDef:
         """
+        Describe a thing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_thing_group)
+        """
     def describe_thing_registration_task(
-        self, taskId: str
+        self, *, taskId: str
     ) -> DescribeThingRegistrationTaskResponseTypeDef:
         """
-        [Client.describe_thing_registration_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_thing_registration_task)
-        """
+        Describes a bulk thing provisioning task.
 
-    def describe_thing_type(self, thingTypeName: str) -> DescribeThingTypeResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_thing_registration_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_thing_registration_task)
         """
-        [Client.describe_thing_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.describe_thing_type)
+    def describe_thing_type(self, *, thingTypeName: str) -> DescribeThingTypeResponseTypeDef:
         """
+        Gets information about the specified thing type.
 
-    def detach_policy(self, policyName: str, target: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.describe_thing_type)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#describe_thing_type)
         """
-        [Client.detach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.detach_policy)
+    def detach_policy(self, *, policyName: str, target: str) -> None:
         """
+        Detaches a policy from the specified target.
 
-    def detach_principal_policy(self, policyName: str, principal: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.detach_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#detach_policy)
         """
-        [Client.detach_principal_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.detach_principal_policy)
+    def detach_principal_policy(self, *, policyName: str, principal: str) -> None:
         """
+        Removes the specified policy from the specified certificate.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.detach_principal_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#detach_principal_policy)
+        """
     def detach_security_profile(
-        self, securityProfileName: str, securityProfileTargetArn: str
+        self, *, securityProfileName: str, securityProfileTargetArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.detach_security_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.detach_security_profile)
-        """
+        Disassociates a Device Defender security profile from a thing group or from this
+        account.
 
-    def detach_thing_principal(self, thingName: str, principal: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.detach_security_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#detach_security_profile)
         """
-        [Client.detach_thing_principal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.detach_thing_principal)
+    def detach_thing_principal(self, *, thingName: str, principal: str) -> Dict[str, Any]:
         """
+        Detaches the specified principal from the specified thing.
 
-    def disable_topic_rule(self, ruleName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.detach_thing_principal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#detach_thing_principal)
         """
-        [Client.disable_topic_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.disable_topic_rule)
+    def disable_topic_rule(self, *, ruleName: str) -> None:
         """
+        Disables the rule.
 
-    def enable_topic_rule(self, ruleName: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.disable_topic_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#disable_topic_rule)
         """
-        [Client.enable_topic_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.enable_topic_rule)
+    def enable_topic_rule(self, *, ruleName: str) -> None:
         """
+        Enables the rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.enable_topic_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#enable_topic_rule)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -1111,1043 +1432,1264 @@ class IoTClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#generate_presigned_url)
+        """
     def get_behavior_model_training_summaries(
-        self, securityProfileName: str = None, maxResults: int = None, nextToken: str = None
+        self, *, securityProfileName: str = None, maxResults: int = None, nextToken: str = None
     ) -> GetBehaviorModelTrainingSummariesResponseTypeDef:
         """
-        [Client.get_behavior_model_training_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_behavior_model_training_summaries)
-        """
+        Returns a Device Defender's ML Detect Security Profile training model's status.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_behavior_model_training_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_behavior_model_training_summaries)
+        """
     def get_cardinality(
         self,
+        *,
         queryString: str,
         indexName: str = None,
         aggregationField: str = None,
-        queryVersion: str = None,
+        queryVersion: str = None
     ) -> GetCardinalityResponseTypeDef:
         """
-        [Client.get_cardinality documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_cardinality)
-        """
+        Returns the approximate count of unique values that match the query.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_cardinality)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_cardinality)
+        """
     def get_effective_policies(
-        self, principal: str = None, cognitoIdentityPoolId: str = None, thingName: str = None
+        self, *, principal: str = None, cognitoIdentityPoolId: str = None, thingName: str = None
     ) -> GetEffectivePoliciesResponseTypeDef:
         """
-        [Client.get_effective_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_effective_policies)
-        """
+        Gets a list of the policies that have an effect on the authorization behavior of
+        the specified device when it connects to the AWS IoT device gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_effective_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_effective_policies)
+        """
     def get_indexing_configuration(self) -> GetIndexingConfigurationResponseTypeDef:
         """
-        [Client.get_indexing_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_indexing_configuration)
-        """
+        Gets the indexing configuration.
 
-    def get_job_document(self, jobId: str) -> GetJobDocumentResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_indexing_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_indexing_configuration)
         """
-        [Client.get_job_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_job_document)
+    def get_job_document(self, *, jobId: str) -> GetJobDocumentResponseTypeDef:
         """
+        Gets a job document.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_job_document)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_job_document)
+        """
     def get_logging_options(self) -> GetLoggingOptionsResponseTypeDef:
         """
-        [Client.get_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_logging_options)
-        """
+        Gets the logging options.
 
-    def get_ota_update(self, otaUpdateId: str) -> GetOTAUpdateResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_logging_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_logging_options)
         """
-        [Client.get_ota_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_ota_update)
+    def get_ota_update(self, *, otaUpdateId: str) -> GetOTAUpdateResponseTypeDef:
         """
+        Gets an OTA update.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_ota_update)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_ota_update)
+        """
     def get_percentiles(
         self,
+        *,
         queryString: str,
         indexName: str = None,
         aggregationField: str = None,
         queryVersion: str = None,
-        percents: List[float] = None,
+        percents: List[float] = None
     ) -> GetPercentilesResponseTypeDef:
         """
-        [Client.get_percentiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_percentiles)
-        """
+        Groups the aggregated values that match the query into percentile groupings.
 
-    def get_policy(self, policyName: str) -> GetPolicyResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_percentiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_percentiles)
         """
-        [Client.get_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_policy)
+    def get_policy(self, *, policyName: str) -> GetPolicyResponseTypeDef:
         """
+        Gets information about the specified policy with the policy document of the
+        default version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_policy)
+        """
     def get_policy_version(
-        self, policyName: str, policyVersionId: str
+        self, *, policyName: str, policyVersionId: str
     ) -> GetPolicyVersionResponseTypeDef:
         """
-        [Client.get_policy_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_policy_version)
-        """
+        Gets information about the specified policy version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_policy_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_policy_version)
+        """
     def get_registration_code(self) -> GetRegistrationCodeResponseTypeDef:
         """
-        [Client.get_registration_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_registration_code)
-        """
+        Gets a registration code used to register a CA certificate with AWS IoT.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_registration_code)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_registration_code)
+        """
     def get_statistics(
         self,
+        *,
         queryString: str,
         indexName: str = None,
         aggregationField: str = None,
-        queryVersion: str = None,
+        queryVersion: str = None
     ) -> GetStatisticsResponseTypeDef:
         """
-        [Client.get_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_statistics)
-        """
+        Returns the count, average, sum, minimum, maximum, sum of squares, variance, and
+        standard deviation for the specified aggregated field.
 
-    def get_topic_rule(self, ruleName: str) -> GetTopicRuleResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_statistics)
         """
-        [Client.get_topic_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_topic_rule)
+    def get_topic_rule(self, *, ruleName: str) -> GetTopicRuleResponseTypeDef:
         """
+        .
 
-    def get_topic_rule_destination(self, arn: str) -> GetTopicRuleDestinationResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_topic_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_topic_rule)
         """
-        [Client.get_topic_rule_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_topic_rule_destination)
+    def get_topic_rule_destination(self, *, arn: str) -> GetTopicRuleDestinationResponseTypeDef:
         """
+        Gets information about a topic rule destination.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_topic_rule_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_topic_rule_destination)
+        """
     def get_v2_logging_options(self) -> GetV2LoggingOptionsResponseTypeDef:
         """
-        [Client.get_v2_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.get_v2_logging_options)
-        """
+        Gets the fine grained logging options.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.get_v2_logging_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#get_v2_logging_options)
+        """
     def list_active_violations(
         self,
+        *,
         thingName: str = None,
         securityProfileName: str = None,
-        behaviorCriteriaType: Literal["STATIC", "STATISTICAL", "MACHINE_LEARNING"] = None,
+        behaviorCriteriaType: BehaviorCriteriaTypeType = None,
         listSuppressedAlerts: bool = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> ListActiveViolationsResponseTypeDef:
         """
-        [Client.list_active_violations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_active_violations)
-        """
+        Lists the active violations for a given Device Defender security profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_active_violations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_active_violations)
+        """
     def list_attached_policies(
-        self, target: str, recursive: bool = None, marker: str = None, pageSize: int = None
+        self, *, target: str, recursive: bool = None, marker: str = None, pageSize: int = None
     ) -> ListAttachedPoliciesResponseTypeDef:
         """
-        [Client.list_attached_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_attached_policies)
-        """
+        Lists the policies attached to the specified thing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_attached_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_attached_policies)
+        """
     def list_audit_findings(
         self,
+        *,
         taskId: str = None,
         checkName: str = None,
         resourceIdentifier: "ResourceIdentifierTypeDef" = None,
         maxResults: int = None,
         nextToken: str = None,
-        startTime: datetime = None,
-        endTime: datetime = None,
-        listSuppressedFindings: bool = None,
+        startTime: Union[datetime, str] = None,
+        endTime: Union[datetime, str] = None,
+        listSuppressedFindings: bool = None
     ) -> ListAuditFindingsResponseTypeDef:
         """
-        [Client.list_audit_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_audit_findings)
-        """
+        Lists the findings (results) of a Device Defender audit or of the audits
+        performed during a specified time period.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_audit_findings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_audit_findings)
+        """
     def list_audit_mitigation_actions_executions(
         self,
+        *,
         taskId: str,
         findingId: str,
-        actionStatus: Literal[
-            "IN_PROGRESS", "COMPLETED", "FAILED", "CANCELED", "SKIPPED", "PENDING"
-        ] = None,
+        actionStatus: AuditMitigationActionsExecutionStatusType = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListAuditMitigationActionsExecutionsResponseTypeDef:
         """
-        [Client.list_audit_mitigation_actions_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_audit_mitigation_actions_executions)
-        """
+        Gets the status of audit mitigation action tasks that were executed.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_audit_mitigation_actions_executions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_audit_mitigation_actions_executions)
+        """
     def list_audit_mitigation_actions_tasks(
         self,
-        startTime: datetime,
-        endTime: datetime,
+        *,
+        startTime: Union[datetime, str],
+        endTime: Union[datetime, str],
         auditTaskId: str = None,
         findingId: str = None,
-        taskStatus: Literal["IN_PROGRESS", "COMPLETED", "FAILED", "CANCELED"] = None,
+        taskStatus: AuditMitigationActionsTaskStatusType = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListAuditMitigationActionsTasksResponseTypeDef:
         """
-        [Client.list_audit_mitigation_actions_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_audit_mitigation_actions_tasks)
-        """
+        Gets a list of audit mitigation action tasks that match the specified filters.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_audit_mitigation_actions_tasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_audit_mitigation_actions_tasks)
+        """
     def list_audit_suppressions(
         self,
+        *,
         checkName: str = None,
         resourceIdentifier: "ResourceIdentifierTypeDef" = None,
         ascendingOrder: bool = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> ListAuditSuppressionsResponseTypeDef:
         """
-        [Client.list_audit_suppressions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_audit_suppressions)
-        """
+        Lists your Device Defender audit listings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_audit_suppressions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_audit_suppressions)
+        """
     def list_audit_tasks(
         self,
-        startTime: datetime,
-        endTime: datetime,
-        taskType: Literal["ON_DEMAND_AUDIT_TASK", "SCHEDULED_AUDIT_TASK"] = None,
-        taskStatus: Literal["IN_PROGRESS", "COMPLETED", "FAILED", "CANCELED"] = None,
+        *,
+        startTime: Union[datetime, str],
+        endTime: Union[datetime, str],
+        taskType: AuditTaskTypeType = None,
+        taskStatus: AuditTaskStatusType = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> ListAuditTasksResponseTypeDef:
         """
-        [Client.list_audit_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_audit_tasks)
-        """
+        Lists the Device Defender audits that have been performed during a given time
+        period.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_audit_tasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_audit_tasks)
+        """
     def list_authorizers(
         self,
+        *,
         pageSize: int = None,
         marker: str = None,
         ascendingOrder: bool = None,
-        status: Literal["ACTIVE", "INACTIVE"] = None,
+        status: AuthorizerStatusType = None
     ) -> ListAuthorizersResponseTypeDef:
         """
-        [Client.list_authorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_authorizers)
-        """
+        Lists the authorizers registered in your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_authorizers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_authorizers)
+        """
     def list_billing_groups(
-        self, nextToken: str = None, maxResults: int = None, namePrefixFilter: str = None
+        self, *, nextToken: str = None, maxResults: int = None, namePrefixFilter: str = None
     ) -> ListBillingGroupsResponseTypeDef:
         """
-        [Client.list_billing_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_billing_groups)
-        """
+        Lists the billing groups you have created.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_billing_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_billing_groups)
+        """
     def list_ca_certificates(
-        self, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
+        self, *, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
     ) -> ListCACertificatesResponseTypeDef:
         """
-        [Client.list_ca_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_ca_certificates)
-        """
+        Lists the CA certificates registered for your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_ca_certificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_ca_certificates)
+        """
     def list_certificates(
-        self, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
+        self, *, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
     ) -> ListCertificatesResponseTypeDef:
         """
-        [Client.list_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_certificates)
-        """
+        Lists the certificates registered in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_certificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_certificates)
+        """
     def list_certificates_by_ca(
         self,
+        *,
         caCertificateId: str,
         pageSize: int = None,
         marker: str = None,
-        ascendingOrder: bool = None,
+        ascendingOrder: bool = None
     ) -> ListCertificatesByCAResponseTypeDef:
         """
-        [Client.list_certificates_by_ca documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_certificates_by_ca)
-        """
+        List the device certificates signed by the specified CA certificate.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_certificates_by_ca)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_certificates_by_ca)
+        """
     def list_custom_metrics(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListCustomMetricsResponseTypeDef:
         """
-        [Client.list_custom_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_custom_metrics)
-        """
+        Lists your Device Defender detect custom metrics.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_custom_metrics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_custom_metrics)
+        """
     def list_detect_mitigation_actions_executions(
         self,
+        *,
         taskId: str = None,
         violationId: str = None,
         thingName: str = None,
-        startTime: datetime = None,
-        endTime: datetime = None,
+        startTime: Union[datetime, str] = None,
+        endTime: Union[datetime, str] = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListDetectMitigationActionsExecutionsResponseTypeDef:
         """
-        [Client.list_detect_mitigation_actions_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_detect_mitigation_actions_executions)
-        """
+        Lists mitigation actions executions for a Device Defender ML Detect Security
+        Profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_detect_mitigation_actions_executions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_detect_mitigation_actions_executions)
+        """
     def list_detect_mitigation_actions_tasks(
-        self, startTime: datetime, endTime: datetime, maxResults: int = None, nextToken: str = None
+        self,
+        *,
+        startTime: Union[datetime, str],
+        endTime: Union[datetime, str],
+        maxResults: int = None,
+        nextToken: str = None
     ) -> ListDetectMitigationActionsTasksResponseTypeDef:
         """
-        [Client.list_detect_mitigation_actions_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_detect_mitigation_actions_tasks)
-        """
+        List of Device Defender ML Detect mitigation actions tasks.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_detect_mitigation_actions_tasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_detect_mitigation_actions_tasks)
+        """
     def list_dimensions(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListDimensionsResponseTypeDef:
         """
-        [Client.list_dimensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_dimensions)
-        """
+        List the set of dimensions that are defined for your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_dimensions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_dimensions)
+        """
     def list_domain_configurations(
-        self,
-        marker: str = None,
-        pageSize: int = None,
-        serviceType: Literal["DATA", "CREDENTIAL_PROVIDER", "JOBS"] = None,
+        self, *, marker: str = None, pageSize: int = None, serviceType: ServiceTypeType = None
     ) -> ListDomainConfigurationsResponseTypeDef:
         """
-        [Client.list_domain_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_domain_configurations)
-        """
+        Gets a list of domain configurations for the user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_domain_configurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_domain_configurations)
+        """
     def list_indices(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListIndicesResponseTypeDef:
         """
-        [Client.list_indices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_indices)
-        """
+        Lists the search indices.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_indices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_indices)
+        """
     def list_job_executions_for_job(
         self,
+        *,
         jobId: str,
-        status: Literal[
-            "QUEUED",
-            "IN_PROGRESS",
-            "SUCCEEDED",
-            "FAILED",
-            "TIMED_OUT",
-            "REJECTED",
-            "REMOVED",
-            "CANCELED",
-        ] = None,
+        status: JobExecutionStatusType = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListJobExecutionsForJobResponseTypeDef:
         """
-        [Client.list_job_executions_for_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_job_executions_for_job)
-        """
+        Lists the job executions for a job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_job_executions_for_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_job_executions_for_job)
+        """
     def list_job_executions_for_thing(
         self,
+        *,
         thingName: str,
-        status: Literal[
-            "QUEUED",
-            "IN_PROGRESS",
-            "SUCCEEDED",
-            "FAILED",
-            "TIMED_OUT",
-            "REJECTED",
-            "REMOVED",
-            "CANCELED",
-        ] = None,
+        status: JobExecutionStatusType = None,
         namespaceId: str = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListJobExecutionsForThingResponseTypeDef:
         """
-        [Client.list_job_executions_for_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_job_executions_for_thing)
-        """
+        Lists the job executions for the specified thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_job_executions_for_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_job_executions_for_thing)
+        """
+    def list_job_templates(
+        self, *, maxResults: int = None, nextToken: str = None
+    ) -> ListJobTemplatesResponseTypeDef:
+        """
+        Returns a list of job templates.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_job_templates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_job_templates)
+        """
     def list_jobs(
         self,
-        status: Literal["IN_PROGRESS", "CANCELED", "COMPLETED", "DELETION_IN_PROGRESS"] = None,
-        targetSelection: Literal["CONTINUOUS", "SNAPSHOT"] = None,
+        *,
+        status: JobStatusType = None,
+        targetSelection: TargetSelectionType = None,
         maxResults: int = None,
         nextToken: str = None,
         thingGroupName: str = None,
         thingGroupId: str = None,
-        namespaceId: str = None,
+        namespaceId: str = None
     ) -> ListJobsResponseTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_jobs)
-        """
+        Lists jobs.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_jobs)
+        """
     def list_mitigation_actions(
         self,
-        actionType: Literal[
-            "UPDATE_DEVICE_CERTIFICATE",
-            "UPDATE_CA_CERTIFICATE",
-            "ADD_THINGS_TO_THING_GROUP",
-            "REPLACE_DEFAULT_POLICY_VERSION",
-            "ENABLE_IOT_LOGGING",
-            "PUBLISH_FINDING_TO_SNS",
-        ] = None,
+        *,
+        actionType: MitigationActionTypeType = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListMitigationActionsResponseTypeDef:
         """
-        [Client.list_mitigation_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_mitigation_actions)
-        """
+        Gets a list of all mitigation actions that match the specified filter criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_mitigation_actions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_mitigation_actions)
+        """
     def list_ota_updates(
         self,
+        *,
         maxResults: int = None,
         nextToken: str = None,
-        otaUpdateStatus: Literal[
-            "CREATE_PENDING", "CREATE_IN_PROGRESS", "CREATE_COMPLETE", "CREATE_FAILED"
-        ] = None,
+        otaUpdateStatus: OTAUpdateStatusType = None
     ) -> ListOTAUpdatesResponseTypeDef:
         """
-        [Client.list_ota_updates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_ota_updates)
-        """
+        Lists OTA updates.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_ota_updates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_ota_updates)
+        """
     def list_outgoing_certificates(
-        self, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
+        self, *, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
     ) -> ListOutgoingCertificatesResponseTypeDef:
         """
-        [Client.list_outgoing_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_outgoing_certificates)
-        """
+        Lists certificates that are being transferred but not yet accepted.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_outgoing_certificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_outgoing_certificates)
+        """
     def list_policies(
-        self, marker: str = None, pageSize: int = None, ascendingOrder: bool = None
+        self, *, marker: str = None, pageSize: int = None, ascendingOrder: bool = None
     ) -> ListPoliciesResponseTypeDef:
         """
-        [Client.list_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_policies)
-        """
+        Lists your policies.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_policies)
+        """
     def list_policy_principals(
-        self, policyName: str, marker: str = None, pageSize: int = None, ascendingOrder: bool = None
+        self,
+        *,
+        policyName: str,
+        marker: str = None,
+        pageSize: int = None,
+        ascendingOrder: bool = None
     ) -> ListPolicyPrincipalsResponseTypeDef:
         """
-        [Client.list_policy_principals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_policy_principals)
-        """
+        Lists the principals associated with the specified policy.
 
-    def list_policy_versions(self, policyName: str) -> ListPolicyVersionsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_policy_principals)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_policy_principals)
         """
-        [Client.list_policy_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_policy_versions)
+    def list_policy_versions(self, *, policyName: str) -> ListPolicyVersionsResponseTypeDef:
         """
+        Lists the versions of the specified policy and identifies the default version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_policy_versions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_policy_versions)
+        """
     def list_principal_policies(
-        self, principal: str, marker: str = None, pageSize: int = None, ascendingOrder: bool = None
+        self,
+        *,
+        principal: str,
+        marker: str = None,
+        pageSize: int = None,
+        ascendingOrder: bool = None
     ) -> ListPrincipalPoliciesResponseTypeDef:
         """
-        [Client.list_principal_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_principal_policies)
-        """
+        Lists the policies attached to the specified principal.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_principal_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_principal_policies)
+        """
     def list_principal_things(
-        self, principal: str, nextToken: str = None, maxResults: int = None
+        self, *, principal: str, nextToken: str = None, maxResults: int = None
     ) -> ListPrincipalThingsResponseTypeDef:
         """
-        [Client.list_principal_things documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_principal_things)
-        """
+        Lists the things associated with the specified principal.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_principal_things)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_principal_things)
+        """
     def list_provisioning_template_versions(
-        self, templateName: str, maxResults: int = None, nextToken: str = None
+        self, *, templateName: str, maxResults: int = None, nextToken: str = None
     ) -> ListProvisioningTemplateVersionsResponseTypeDef:
         """
-        [Client.list_provisioning_template_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_provisioning_template_versions)
-        """
+        A list of fleet provisioning template versions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_provisioning_template_versions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_provisioning_template_versions)
+        """
     def list_provisioning_templates(
-        self, maxResults: int = None, nextToken: str = None
+        self, *, maxResults: int = None, nextToken: str = None
     ) -> ListProvisioningTemplatesResponseTypeDef:
         """
-        [Client.list_provisioning_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_provisioning_templates)
-        """
+        Lists the fleet provisioning templates in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_provisioning_templates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_provisioning_templates)
+        """
     def list_role_aliases(
-        self, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
+        self, *, pageSize: int = None, marker: str = None, ascendingOrder: bool = None
     ) -> ListRoleAliasesResponseTypeDef:
         """
-        [Client.list_role_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_role_aliases)
-        """
+        Lists the role aliases registered in your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_role_aliases)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_role_aliases)
+        """
     def list_scheduled_audits(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListScheduledAuditsResponseTypeDef:
         """
-        [Client.list_scheduled_audits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_scheduled_audits)
-        """
+        Lists all of your scheduled audits.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_scheduled_audits)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_scheduled_audits)
+        """
     def list_security_profiles(
         self,
+        *,
         nextToken: str = None,
         maxResults: int = None,
         dimensionName: str = None,
-        metricName: str = None,
+        metricName: str = None
     ) -> ListSecurityProfilesResponseTypeDef:
         """
-        [Client.list_security_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_security_profiles)
-        """
+        Lists the Device Defender security profiles you've created.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_security_profiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_security_profiles)
+        """
     def list_security_profiles_for_target(
         self,
+        *,
         securityProfileTargetArn: str,
         nextToken: str = None,
         maxResults: int = None,
-        recursive: bool = None,
+        recursive: bool = None
     ) -> ListSecurityProfilesForTargetResponseTypeDef:
         """
-        [Client.list_security_profiles_for_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_security_profiles_for_target)
-        """
+        Lists the Device Defender security profiles attached to a target (thing group).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_security_profiles_for_target)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_security_profiles_for_target)
+        """
     def list_streams(
-        self, maxResults: int = None, nextToken: str = None, ascendingOrder: bool = None
+        self, *, maxResults: int = None, nextToken: str = None, ascendingOrder: bool = None
     ) -> ListStreamsResponseTypeDef:
         """
-        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_streams)
-        """
+        Lists all of the streams in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_streams)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_streams)
+        """
     def list_tags_for_resource(
-        self, resourceArn: str, nextToken: str = None
+        self, *, resourceArn: str, nextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_tags_for_resource)
-        """
+        Lists the tags (metadata) you have assigned to the resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_tags_for_resource)
+        """
     def list_targets_for_policy(
-        self, policyName: str, marker: str = None, pageSize: int = None
+        self, *, policyName: str, marker: str = None, pageSize: int = None
     ) -> ListTargetsForPolicyResponseTypeDef:
         """
-        [Client.list_targets_for_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_targets_for_policy)
-        """
+        List targets for the specified policy.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_targets_for_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_targets_for_policy)
+        """
     def list_targets_for_security_profile(
-        self, securityProfileName: str, nextToken: str = None, maxResults: int = None
+        self, *, securityProfileName: str, nextToken: str = None, maxResults: int = None
     ) -> ListTargetsForSecurityProfileResponseTypeDef:
         """
-        [Client.list_targets_for_security_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_targets_for_security_profile)
-        """
+        Lists the targets (thing groups) associated with a given Device Defender
+        security profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_targets_for_security_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_targets_for_security_profile)
+        """
     def list_thing_groups(
         self,
+        *,
         nextToken: str = None,
         maxResults: int = None,
         parentGroup: str = None,
         namePrefixFilter: str = None,
-        recursive: bool = None,
+        recursive: bool = None
     ) -> ListThingGroupsResponseTypeDef:
         """
-        [Client.list_thing_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_thing_groups)
-        """
+        List the thing groups in your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_thing_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_thing_groups)
+        """
     def list_thing_groups_for_thing(
-        self, thingName: str, nextToken: str = None, maxResults: int = None
+        self, *, thingName: str, nextToken: str = None, maxResults: int = None
     ) -> ListThingGroupsForThingResponseTypeDef:
         """
-        [Client.list_thing_groups_for_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_thing_groups_for_thing)
-        """
+        List the thing groups to which the specified thing belongs.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_thing_groups_for_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_thing_groups_for_thing)
+        """
     def list_thing_principals(
-        self, thingName: str, nextToken: str = None, maxResults: int = None
+        self, *, thingName: str, nextToken: str = None, maxResults: int = None
     ) -> ListThingPrincipalsResponseTypeDef:
         """
-        [Client.list_thing_principals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_thing_principals)
-        """
+        Lists the principals associated with the specified thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_thing_principals)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_thing_principals)
+        """
     def list_thing_registration_task_reports(
         self,
+        *,
         taskId: str,
-        reportType: Literal["ERRORS", "RESULTS"],
+        reportType: ReportTypeType,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> ListThingRegistrationTaskReportsResponseTypeDef:
         """
-        [Client.list_thing_registration_task_reports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_thing_registration_task_reports)
-        """
+        Information about the thing registration tasks.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_thing_registration_task_reports)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_thing_registration_task_reports)
+        """
     def list_thing_registration_tasks(
-        self,
-        nextToken: str = None,
-        maxResults: int = None,
-        status: Literal["InProgress", "Completed", "Failed", "Cancelled", "Cancelling"] = None,
+        self, *, nextToken: str = None, maxResults: int = None, status: StatusType = None
     ) -> ListThingRegistrationTasksResponseTypeDef:
         """
-        [Client.list_thing_registration_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_thing_registration_tasks)
-        """
+        List bulk thing provisioning tasks.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_thing_registration_tasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_thing_registration_tasks)
+        """
     def list_thing_types(
-        self, nextToken: str = None, maxResults: int = None, thingTypeName: str = None
+        self, *, nextToken: str = None, maxResults: int = None, thingTypeName: str = None
     ) -> ListThingTypesResponseTypeDef:
         """
-        [Client.list_thing_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_thing_types)
-        """
+        Lists the existing thing types.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_thing_types)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_thing_types)
+        """
     def list_things(
         self,
+        *,
         nextToken: str = None,
         maxResults: int = None,
         attributeName: str = None,
         attributeValue: str = None,
         thingTypeName: str = None,
+        usePrefixAttributeValue: bool = None
     ) -> ListThingsResponseTypeDef:
         """
-        [Client.list_things documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_things)
-        """
+        Lists your things.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_things)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_things)
+        """
     def list_things_in_billing_group(
-        self, billingGroupName: str, nextToken: str = None, maxResults: int = None
+        self, *, billingGroupName: str, nextToken: str = None, maxResults: int = None
     ) -> ListThingsInBillingGroupResponseTypeDef:
         """
-        [Client.list_things_in_billing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_things_in_billing_group)
-        """
+        Lists the things you have added to the given billing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_things_in_billing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_things_in_billing_group)
+        """
     def list_things_in_thing_group(
         self,
+        *,
         thingGroupName: str,
         recursive: bool = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> ListThingsInThingGroupResponseTypeDef:
         """
-        [Client.list_things_in_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_things_in_thing_group)
-        """
+        Lists the things in the specified group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_things_in_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_things_in_thing_group)
+        """
     def list_topic_rule_destinations(
-        self, maxResults: int = None, nextToken: str = None
+        self, *, maxResults: int = None, nextToken: str = None
     ) -> ListTopicRuleDestinationsResponseTypeDef:
         """
-        [Client.list_topic_rule_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_topic_rule_destinations)
-        """
+        Lists all the topic rule destinations in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_topic_rule_destinations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_topic_rule_destinations)
+        """
     def list_topic_rules(
         self,
+        *,
         topic: str = None,
         maxResults: int = None,
         nextToken: str = None,
-        ruleDisabled: bool = None,
+        ruleDisabled: bool = None
     ) -> ListTopicRulesResponseTypeDef:
         """
-        [Client.list_topic_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_topic_rules)
-        """
+        Lists the rules for the specific topic.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_topic_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_topic_rules)
+        """
     def list_v2_logging_levels(
-        self,
-        targetType: Literal["DEFAULT", "THING_GROUP"] = None,
-        nextToken: str = None,
-        maxResults: int = None,
+        self, *, targetType: LogTargetTypeType = None, nextToken: str = None, maxResults: int = None
     ) -> ListV2LoggingLevelsResponseTypeDef:
         """
-        [Client.list_v2_logging_levels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_v2_logging_levels)
-        """
+        Lists logging levels.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_v2_logging_levels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_v2_logging_levels)
+        """
     def list_violation_events(
         self,
-        startTime: datetime,
-        endTime: datetime,
+        *,
+        startTime: Union[datetime, str],
+        endTime: Union[datetime, str],
         thingName: str = None,
         securityProfileName: str = None,
-        behaviorCriteriaType: Literal["STATIC", "STATISTICAL", "MACHINE_LEARNING"] = None,
+        behaviorCriteriaType: BehaviorCriteriaTypeType = None,
         listSuppressedAlerts: bool = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> ListViolationEventsResponseTypeDef:
         """
-        [Client.list_violation_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.list_violation_events)
-        """
+        Lists the Device Defender security profile violations discovered during the
+        given time period.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.list_violation_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#list_violation_events)
+        """
     def register_ca_certificate(
         self,
+        *,
         caCertificate: str,
         verificationCertificate: str,
         setAsActive: bool = None,
         allowAutoRegistration: bool = None,
         registrationConfig: "RegistrationConfigTypeDef" = None,
-        tags: List["TagTypeDef"] = None,
+        tags: List["TagTypeDef"] = None
     ) -> RegisterCACertificateResponseTypeDef:
         """
-        [Client.register_ca_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.register_ca_certificate)
-        """
+        Registers a CA certificate with AWS IoT.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.register_ca_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#register_ca_certificate)
+        """
     def register_certificate(
         self,
+        *,
         certificatePem: str,
         caCertificatePem: str = None,
         setAsActive: bool = None,
-        status: Literal[
-            "ACTIVE",
-            "INACTIVE",
-            "REVOKED",
-            "PENDING_TRANSFER",
-            "REGISTER_INACTIVE",
-            "PENDING_ACTIVATION",
-        ] = None,
+        status: CertificateStatusType = None
     ) -> RegisterCertificateResponseTypeDef:
         """
-        [Client.register_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.register_certificate)
-        """
+        Registers a device certificate with AWS IoT.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.register_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#register_certificate)
+        """
     def register_certificate_without_ca(
-        self,
-        certificatePem: str,
-        status: Literal[
-            "ACTIVE",
-            "INACTIVE",
-            "REVOKED",
-            "PENDING_TRANSFER",
-            "REGISTER_INACTIVE",
-            "PENDING_ACTIVATION",
-        ] = None,
+        self, *, certificatePem: str, status: CertificateStatusType = None
     ) -> RegisterCertificateWithoutCAResponseTypeDef:
         """
-        [Client.register_certificate_without_ca documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.register_certificate_without_ca)
-        """
+        Register a certificate that does not have a certificate authority (CA).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.register_certificate_without_ca)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#register_certificate_without_ca)
+        """
     def register_thing(
-        self, templateBody: str, parameters: Dict[str, str] = None
+        self, *, templateBody: str, parameters: Dict[str, str] = None
     ) -> RegisterThingResponseTypeDef:
         """
-        [Client.register_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.register_thing)
-        """
+        Provisions a thing in the device registry.
 
-    def reject_certificate_transfer(self, certificateId: str, rejectReason: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.register_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#register_thing)
         """
-        [Client.reject_certificate_transfer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.reject_certificate_transfer)
+    def reject_certificate_transfer(self, *, certificateId: str, rejectReason: str = None) -> None:
         """
+        Rejects a pending certificate transfer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.reject_certificate_transfer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#reject_certificate_transfer)
+        """
     def remove_thing_from_billing_group(
         self,
+        *,
         billingGroupName: str = None,
         billingGroupArn: str = None,
         thingName: str = None,
-        thingArn: str = None,
+        thingArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.remove_thing_from_billing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.remove_thing_from_billing_group)
-        """
+        Removes the given thing from the billing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.remove_thing_from_billing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#remove_thing_from_billing_group)
+        """
     def remove_thing_from_thing_group(
         self,
+        *,
         thingGroupName: str = None,
         thingGroupArn: str = None,
         thingName: str = None,
-        thingArn: str = None,
+        thingArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.remove_thing_from_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.remove_thing_from_thing_group)
-        """
+        Remove the specified thing from the specified group.
 
-    def replace_topic_rule(self, ruleName: str, topicRulePayload: TopicRulePayloadTypeDef) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.remove_thing_from_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#remove_thing_from_thing_group)
         """
-        [Client.replace_topic_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.replace_topic_rule)
+    def replace_topic_rule(
+        self, *, ruleName: str, topicRulePayload: "TopicRulePayloadTypeDef"
+    ) -> None:
         """
+        .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.replace_topic_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#replace_topic_rule)
+        """
     def search_index(
         self,
+        *,
         queryString: str,
         indexName: str = None,
         nextToken: str = None,
         maxResults: int = None,
-        queryVersion: str = None,
+        queryVersion: str = None
     ) -> SearchIndexResponseTypeDef:
         """
-        [Client.search_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.search_index)
-        """
+        The query search index.
 
-    def set_default_authorizer(self, authorizerName: str) -> SetDefaultAuthorizerResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.search_index)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#search_index)
         """
-        [Client.set_default_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.set_default_authorizer)
+    def set_default_authorizer(self, *, authorizerName: str) -> SetDefaultAuthorizerResponseTypeDef:
         """
+        Sets the default authorizer.
 
-    def set_default_policy_version(self, policyName: str, policyVersionId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.set_default_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#set_default_authorizer)
         """
-        [Client.set_default_policy_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.set_default_policy_version)
+    def set_default_policy_version(self, *, policyName: str, policyVersionId: str) -> None:
         """
+        Sets the specified version of the specified policy as the policy's default
+        (operative) version.
 
-    def set_logging_options(self, loggingOptionsPayload: LoggingOptionsPayloadTypeDef) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.set_default_policy_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#set_default_policy_version)
         """
-        [Client.set_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.set_logging_options)
+    def set_logging_options(self, *, loggingOptionsPayload: "LoggingOptionsPayloadTypeDef") -> None:
         """
+        Sets the logging options.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.set_logging_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#set_logging_options)
+        """
     def set_v2_logging_level(
-        self,
-        logTarget: "LogTargetTypeDef",
-        logLevel: Literal["DEBUG", "INFO", "ERROR", "WARN", "DISABLED"],
+        self, *, logTarget: "LogTargetTypeDef", logLevel: LogLevelType
     ) -> None:
         """
-        [Client.set_v2_logging_level documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.set_v2_logging_level)
-        """
+        Sets the logging level.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.set_v2_logging_level)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#set_v2_logging_level)
+        """
     def set_v2_logging_options(
         self,
+        *,
         roleArn: str = None,
-        defaultLogLevel: Literal["DEBUG", "INFO", "ERROR", "WARN", "DISABLED"] = None,
-        disableAllLogs: bool = None,
+        defaultLogLevel: LogLevelType = None,
+        disableAllLogs: bool = None
     ) -> None:
         """
-        [Client.set_v2_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.set_v2_logging_options)
-        """
+        Sets the logging options for the V2 logging service.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.set_v2_logging_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#set_v2_logging_options)
+        """
     def start_audit_mitigation_actions_task(
         self,
+        *,
         taskId: str,
         target: "AuditMitigationActionsTaskTargetTypeDef",
         auditCheckToActionsMapping: Dict[str, List[str]],
-        clientRequestToken: str,
+        clientRequestToken: str
     ) -> StartAuditMitigationActionsTaskResponseTypeDef:
         """
-        [Client.start_audit_mitigation_actions_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.start_audit_mitigation_actions_task)
-        """
+        Starts a task that applies a set of mitigation actions to the specified target.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.start_audit_mitigation_actions_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#start_audit_mitigation_actions_task)
+        """
     def start_detect_mitigation_actions_task(
         self,
+        *,
         taskId: str,
         target: "DetectMitigationActionsTaskTargetTypeDef",
         actions: List[str],
         clientRequestToken: str,
         violationEventOccurrenceRange: "ViolationEventOccurrenceRangeTypeDef" = None,
         includeOnlyActiveViolations: bool = None,
-        includeSuppressedAlerts: bool = None,
+        includeSuppressedAlerts: bool = None
     ) -> StartDetectMitigationActionsTaskResponseTypeDef:
         """
-        [Client.start_detect_mitigation_actions_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.start_detect_mitigation_actions_task)
-        """
+        Starts a Device Defender ML Detect mitigation actions task.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.start_detect_mitigation_actions_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#start_detect_mitigation_actions_task)
+        """
     def start_on_demand_audit_task(
-        self, targetCheckNames: List[str]
+        self, *, targetCheckNames: List[str]
     ) -> StartOnDemandAuditTaskResponseTypeDef:
         """
-        [Client.start_on_demand_audit_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.start_on_demand_audit_task)
-        """
+        Starts an on-demand Device Defender audit.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.start_on_demand_audit_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#start_on_demand_audit_task)
+        """
     def start_thing_registration_task(
-        self, templateBody: str, inputFileBucket: str, inputFileKey: str, roleArn: str
+        self, *, templateBody: str, inputFileBucket: str, inputFileKey: str, roleArn: str
     ) -> StartThingRegistrationTaskResponseTypeDef:
         """
-        [Client.start_thing_registration_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.start_thing_registration_task)
-        """
+        Creates a bulk thing provisioning task.
 
-    def stop_thing_registration_task(self, taskId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.start_thing_registration_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#start_thing_registration_task)
         """
-        [Client.stop_thing_registration_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.stop_thing_registration_task)
+    def stop_thing_registration_task(self, *, taskId: str) -> Dict[str, Any]:
         """
+        Cancels a bulk thing provisioning task.
 
-    def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.stop_thing_registration_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#stop_thing_registration_task)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds to or modifies the tags of the given resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#tag_resource)
+        """
     def test_authorization(
         self,
+        *,
         authInfos: List["AuthInfoTypeDef"],
         principal: str = None,
         cognitoIdentityPoolId: str = None,
         clientId: str = None,
         policyNamesToAdd: List[str] = None,
-        policyNamesToSkip: List[str] = None,
+        policyNamesToSkip: List[str] = None
     ) -> TestAuthorizationResponseTypeDef:
         """
-        [Client.test_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.test_authorization)
-        """
+        Tests if a specified principal is authorized to perform an AWS IoT action on a
+        specified resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.test_authorization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#test_authorization)
+        """
     def test_invoke_authorizer(
         self,
+        *,
         authorizerName: str,
         token: str = None,
         tokenSignature: str = None,
-        httpContext: HttpContextTypeDef = None,
-        mqttContext: MqttContextTypeDef = None,
-        tlsContext: TlsContextTypeDef = None,
+        httpContext: "HttpContextTypeDef" = None,
+        mqttContext: "MqttContextTypeDef" = None,
+        tlsContext: "TlsContextTypeDef" = None
     ) -> TestInvokeAuthorizerResponseTypeDef:
         """
-        [Client.test_invoke_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.test_invoke_authorizer)
-        """
+        Tests a custom authorization behavior by invoking a specified custom authorizer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.test_invoke_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#test_invoke_authorizer)
+        """
     def transfer_certificate(
-        self, certificateId: str, targetAwsAccount: str, transferMessage: str = None
+        self, *, certificateId: str, targetAwsAccount: str, transferMessage: str = None
     ) -> TransferCertificateResponseTypeDef:
         """
-        [Client.transfer_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.transfer_certificate)
-        """
+        Transfers the specified certificate to the specified AWS account.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.transfer_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#transfer_certificate)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes the given tags (metadata) from the resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#untag_resource)
+        """
     def update_account_audit_configuration(
         self,
+        *,
         roleArn: str = None,
         auditNotificationTargetConfigurations: Dict[
             Literal["SNS"], "AuditNotificationTargetTypeDef"
         ] = None,
-        auditCheckConfigurations: Dict[str, "AuditCheckConfigurationTypeDef"] = None,
+        auditCheckConfigurations: Dict[str, "AuditCheckConfigurationTypeDef"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_account_audit_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_account_audit_configuration)
-        """
+        Configures or reconfigures the Device Defender audit settings for this account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_account_audit_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_account_audit_configuration)
+        """
     def update_audit_suppression(
         self,
+        *,
         checkName: str,
         resourceIdentifier: "ResourceIdentifierTypeDef",
-        expirationDate: datetime = None,
+        expirationDate: Union[datetime, str] = None,
         suppressIndefinitely: bool = None,
-        description: str = None,
+        description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_audit_suppression documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_audit_suppression)
-        """
+        Updates a Device Defender audit suppression.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_audit_suppression)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_audit_suppression)
+        """
     def update_authorizer(
         self,
+        *,
         authorizerName: str,
         authorizerFunctionArn: str = None,
         tokenKeyName: str = None,
         tokenSigningPublicKeys: Dict[str, str] = None,
-        status: Literal["ACTIVE", "INACTIVE"] = None,
+        status: AuthorizerStatusType = None
     ) -> UpdateAuthorizerResponseTypeDef:
         """
-        [Client.update_authorizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_authorizer)
-        """
+        Updates an authorizer.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_authorizer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_authorizer)
+        """
     def update_billing_group(
         self,
+        *,
         billingGroupName: str,
         billingGroupProperties: "BillingGroupPropertiesTypeDef",
-        expectedVersion: int = None,
+        expectedVersion: int = None
     ) -> UpdateBillingGroupResponseTypeDef:
         """
-        [Client.update_billing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_billing_group)
-        """
+        Updates information about the billing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_billing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_billing_group)
+        """
     def update_ca_certificate(
         self,
+        *,
         certificateId: str,
-        newStatus: Literal["ACTIVE", "INACTIVE"] = None,
-        newAutoRegistrationStatus: Literal["ENABLE", "DISABLE"] = None,
+        newStatus: CACertificateStatusType = None,
+        newAutoRegistrationStatus: AutoRegistrationStatusType = None,
         registrationConfig: "RegistrationConfigTypeDef" = None,
-        removeAutoRegistration: bool = None,
+        removeAutoRegistration: bool = None
     ) -> None:
         """
-        [Client.update_ca_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_ca_certificate)
-        """
+        Updates a registered CA certificate.
 
-    def update_certificate(
-        self,
-        certificateId: str,
-        newStatus: Literal[
-            "ACTIVE",
-            "INACTIVE",
-            "REVOKED",
-            "PENDING_TRANSFER",
-            "REGISTER_INACTIVE",
-            "PENDING_ACTIVATION",
-        ],
-    ) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_ca_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_ca_certificate)
         """
-        [Client.update_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_certificate)
+    def update_certificate(self, *, certificateId: str, newStatus: CertificateStatusType) -> None:
         """
+        Updates the status of the specified certificate.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_certificate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_certificate)
+        """
     def update_custom_metric(
-        self, metricName: str, displayName: str
+        self, *, metricName: str, displayName: str
     ) -> UpdateCustomMetricResponseTypeDef:
         """
-        [Client.update_custom_metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_custom_metric)
-        """
+        Updates a Device Defender detect custom metric.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_custom_metric)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_custom_metric)
+        """
     def update_dimension(
-        self, name: str, stringValues: List[str]
+        self, *, name: str, stringValues: List[str]
     ) -> UpdateDimensionResponseTypeDef:
         """
-        [Client.update_dimension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_dimension)
-        """
+        Updates the definition for a dimension.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_dimension)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_dimension)
+        """
     def update_domain_configuration(
         self,
+        *,
         domainConfigurationName: str,
         authorizerConfig: "AuthorizerConfigTypeDef" = None,
-        domainConfigurationStatus: Literal["ENABLED", "DISABLED"] = None,
-        removeAuthorizerConfig: bool = None,
+        domainConfigurationStatus: DomainConfigurationStatusType = None,
+        removeAuthorizerConfig: bool = None
     ) -> UpdateDomainConfigurationResponseTypeDef:
         """
-        [Client.update_domain_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_domain_configuration)
-        """
+        Updates values stored in the domain configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_domain_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_domain_configuration)
+        """
     def update_dynamic_thing_group(
         self,
+        *,
         thingGroupName: str,
         thingGroupProperties: "ThingGroupPropertiesTypeDef",
         expectedVersion: int = None,
         indexName: str = None,
         queryString: str = None,
-        queryVersion: str = None,
+        queryVersion: str = None
     ) -> UpdateDynamicThingGroupResponseTypeDef:
         """
-        [Client.update_dynamic_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_dynamic_thing_group)
-        """
+        Updates a dynamic thing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_dynamic_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_dynamic_thing_group)
+        """
     def update_event_configurations(
-        self,
-        eventConfigurations: Dict[
-            Literal[
-                "THING",
-                "THING_GROUP",
-                "THING_TYPE",
-                "THING_GROUP_MEMBERSHIP",
-                "THING_GROUP_HIERARCHY",
-                "THING_TYPE_ASSOCIATION",
-                "JOB",
-                "JOB_EXECUTION",
-                "POLICY",
-                "CERTIFICATE",
-                "CA_CERTIFICATE",
-            ],
-            "ConfigurationTypeDef",
-        ] = None,
+        self, *, eventConfigurations: Dict[EventTypeType, "ConfigurationTypeDef"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_event_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_event_configurations)
-        """
+        Updates the event configurations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_event_configurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_event_configurations)
+        """
     def update_indexing_configuration(
         self,
+        *,
         thingIndexingConfiguration: "ThingIndexingConfigurationTypeDef" = None,
-        thingGroupIndexingConfiguration: "ThingGroupIndexingConfigurationTypeDef" = None,
+        thingGroupIndexingConfiguration: "ThingGroupIndexingConfigurationTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_indexing_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_indexing_configuration)
-        """
+        Updates the search configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_indexing_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_indexing_configuration)
+        """
     def update_job(
         self,
+        *,
         jobId: str,
         description: str = None,
         presignedUrlConfig: "PresignedUrlConfigTypeDef" = None,
         jobExecutionsRolloutConfig: "JobExecutionsRolloutConfigTypeDef" = None,
         abortConfig: "AbortConfigTypeDef" = None,
         timeoutConfig: "TimeoutConfigTypeDef" = None,
-        namespaceId: str = None,
+        namespaceId: str = None
     ) -> None:
         """
-        [Client.update_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_job)
-        """
+        Updates supported fields of the specified job.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_job)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_job)
+        """
     def update_mitigation_action(
         self,
+        *,
         actionName: str,
         roleArn: str = None,
-        actionParams: "MitigationActionParamsTypeDef" = None,
+        actionParams: "MitigationActionParamsTypeDef" = None
     ) -> UpdateMitigationActionResponseTypeDef:
         """
-        [Client.update_mitigation_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_mitigation_action)
-        """
+        Updates the definition for the specified mitigation action.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_mitigation_action)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_mitigation_action)
+        """
     def update_provisioning_template(
         self,
+        *,
         templateName: str,
         description: str = None,
         enabled: bool = None,
         defaultVersionId: int = None,
         provisioningRoleArn: str = None,
         preProvisioningHook: "ProvisioningHookTypeDef" = None,
-        removePreProvisioningHook: bool = None,
+        removePreProvisioningHook: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_provisioning_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_provisioning_template)
-        """
+        Updates a fleet provisioning template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_provisioning_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_provisioning_template)
+        """
     def update_role_alias(
-        self, roleAlias: str, roleArn: str = None, credentialDurationSeconds: int = None
+        self, *, roleAlias: str, roleArn: str = None, credentialDurationSeconds: int = None
     ) -> UpdateRoleAliasResponseTypeDef:
         """
-        [Client.update_role_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_role_alias)
-        """
+        Updates a role alias.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_role_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_role_alias)
+        """
     def update_scheduled_audit(
         self,
+        *,
         scheduledAuditName: str,
-        frequency: Literal["DAILY", "WEEKLY", "BIWEEKLY", "MONTHLY"] = None,
+        frequency: AuditFrequencyType = None,
         dayOfMonth: str = None,
-        dayOfWeek: Literal["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"] = None,
-        targetCheckNames: List[str] = None,
+        dayOfWeek: DayOfWeekType = None,
+        targetCheckNames: List[str] = None
     ) -> UpdateScheduledAuditResponseTypeDef:
         """
-        [Client.update_scheduled_audit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_scheduled_audit)
-        """
+        Updates a scheduled audit, including which checks are performed and how often
+        the audit takes place.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_scheduled_audit)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_scheduled_audit)
+        """
     def update_security_profile(
         self,
+        *,
         securityProfileName: str,
         securityProfileDescription: str = None,
         behaviors: List["BehaviorTypeDef"] = None,
@@ -2157,462 +2699,481 @@ class IoTClient:
         deleteBehaviors: bool = None,
         deleteAlertTargets: bool = None,
         deleteAdditionalMetricsToRetain: bool = None,
-        expectedVersion: int = None,
+        expectedVersion: int = None
     ) -> UpdateSecurityProfileResponseTypeDef:
         """
-        [Client.update_security_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_security_profile)
-        """
+        Updates a Device Defender security profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_security_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_security_profile)
+        """
     def update_stream(
         self,
+        *,
         streamId: str,
         description: str = None,
         files: List["StreamFileTypeDef"] = None,
-        roleArn: str = None,
+        roleArn: str = None
     ) -> UpdateStreamResponseTypeDef:
         """
-        [Client.update_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_stream)
-        """
+        Updates an existing stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_stream)
+        """
     def update_thing(
         self,
+        *,
         thingName: str,
         thingTypeName: str = None,
         attributePayload: "AttributePayloadTypeDef" = None,
         expectedVersion: int = None,
-        removeThingType: bool = None,
+        removeThingType: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_thing)
-        """
+        Updates the data for a thing.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_thing)
+        """
     def update_thing_group(
         self,
+        *,
         thingGroupName: str,
         thingGroupProperties: "ThingGroupPropertiesTypeDef",
-        expectedVersion: int = None,
+        expectedVersion: int = None
     ) -> UpdateThingGroupResponseTypeDef:
         """
-        [Client.update_thing_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_thing_group)
-        """
+        Update a thing group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_thing_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_thing_group)
+        """
     def update_thing_groups_for_thing(
         self,
+        *,
         thingName: str = None,
         thingGroupsToAdd: List[str] = None,
         thingGroupsToRemove: List[str] = None,
-        overrideDynamicGroups: bool = None,
+        overrideDynamicGroups: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_thing_groups_for_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_thing_groups_for_thing)
-        """
+        Updates the groups to which the thing belongs.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_thing_groups_for_thing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_thing_groups_for_thing)
+        """
     def update_topic_rule_destination(
-        self, arn: str, status: Literal["ENABLED", "IN_PROGRESS", "DISABLED", "ERROR", "DELETING"]
+        self, *, arn: str, status: TopicRuleDestinationStatusType
     ) -> Dict[str, Any]:
         """
-        [Client.update_topic_rule_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.update_topic_rule_destination)
-        """
+        Updates a topic rule destination.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.update_topic_rule_destination)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#update_topic_rule_destination)
+        """
     def validate_security_profile_behaviors(
-        self, behaviors: List["BehaviorTypeDef"]
+        self, *, behaviors: List["BehaviorTypeDef"]
     ) -> ValidateSecurityProfileBehaviorsResponseTypeDef:
         """
-        [Client.validate_security_profile_behaviors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Client.validate_security_profile_behaviors)
-        """
+        Validates a Device Defender security profile behaviors specification.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Client.validate_security_profile_behaviors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/client.html#validate_security_profile_behaviors)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["get_behavior_model_training_summaries"]
     ) -> GetBehaviorModelTrainingSummariesPaginator:
         """
-        [Paginator.GetBehaviorModelTrainingSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.GetBehaviorModelTrainingSummaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.GetBehaviorModelTrainingSummaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#getbehaviormodeltrainingsummariespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_active_violations"]
     ) -> ListActiveViolationsPaginator:
         """
-        [Paginator.ListActiveViolations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListActiveViolations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListActiveViolations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listactiveviolationspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_attached_policies"]
     ) -> ListAttachedPoliciesPaginator:
         """
-        [Paginator.ListAttachedPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListAttachedPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListAttachedPolicies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listattachedpoliciespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_audit_findings"]
     ) -> ListAuditFindingsPaginator:
         """
-        [Paginator.ListAuditFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListAuditFindings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListAuditFindings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listauditfindingspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_audit_mitigation_actions_executions"]
     ) -> ListAuditMitigationActionsExecutionsPaginator:
         """
-        [Paginator.ListAuditMitigationActionsExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsExecutions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listauditmitigationactionsexecutionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_audit_mitigation_actions_tasks"]
     ) -> ListAuditMitigationActionsTasksPaginator:
         """
-        [Paginator.ListAuditMitigationActionsTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsTasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listauditmitigationactionstaskspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_audit_suppressions"]
     ) -> ListAuditSuppressionsPaginator:
         """
-        [Paginator.ListAuditSuppressions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListAuditSuppressions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListAuditSuppressions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listauditsuppressionspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_audit_tasks"]) -> ListAuditTasksPaginator:
         """
-        [Paginator.ListAuditTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListAuditTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListAuditTasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listaudittaskspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_authorizers"]
     ) -> ListAuthorizersPaginator:
         """
-        [Paginator.ListAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListAuthorizers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListAuthorizers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listauthorizerspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_billing_groups"]
     ) -> ListBillingGroupsPaginator:
         """
-        [Paginator.ListBillingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListBillingGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListBillingGroups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listbillinggroupspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_ca_certificates"]
     ) -> ListCACertificatesPaginator:
         """
-        [Paginator.ListCACertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListCACertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListCACertificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listcacertificatespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_certificates"]
     ) -> ListCertificatesPaginator:
         """
-        [Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListCertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListCertificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listcertificatespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_certificates_by_ca"]
     ) -> ListCertificatesByCAPaginator:
         """
-        [Paginator.ListCertificatesByCA documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListCertificatesByCA)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListCertificatesByCA)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listcertificatesbycapaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_custom_metrics"]
     ) -> ListCustomMetricsPaginator:
         """
-        [Paginator.ListCustomMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListCustomMetrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListCustomMetrics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listcustommetricspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_detect_mitigation_actions_executions"]
     ) -> ListDetectMitigationActionsExecutionsPaginator:
         """
-        [Paginator.ListDetectMitigationActionsExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListDetectMitigationActionsExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListDetectMitigationActionsExecutions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listdetectmitigationactionsexecutionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_detect_mitigation_actions_tasks"]
     ) -> ListDetectMitigationActionsTasksPaginator:
         """
-        [Paginator.ListDetectMitigationActionsTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListDetectMitigationActionsTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListDetectMitigationActionsTasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listdetectmitigationactionstaskspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_dimensions"]) -> ListDimensionsPaginator:
         """
-        [Paginator.ListDimensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListDimensions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListDimensions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listdimensionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_domain_configurations"]
     ) -> ListDomainConfigurationsPaginator:
         """
-        [Paginator.ListDomainConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListDomainConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListDomainConfigurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listdomainconfigurationspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_indices"]) -> ListIndicesPaginator:
         """
-        [Paginator.ListIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListIndices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListIndices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listindicespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_job_executions_for_job"]
     ) -> ListJobExecutionsForJobPaginator:
         """
-        [Paginator.ListJobExecutionsForJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForJob)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForJob)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listjobexecutionsforjobpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_job_executions_for_thing"]
     ) -> ListJobExecutionsForThingPaginator:
         """
-        [Paginator.ListJobExecutionsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForThing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForThing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listjobexecutionsforthingpaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListJobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listjobspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_mitigation_actions"]
     ) -> ListMitigationActionsPaginator:
         """
-        [Paginator.ListMitigationActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListMitigationActions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListMitigationActions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listmitigationactionspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_ota_updates"]) -> ListOTAUpdatesPaginator:
         """
-        [Paginator.ListOTAUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListOTAUpdates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListOTAUpdates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listotaupdatespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_outgoing_certificates"]
     ) -> ListOutgoingCertificatesPaginator:
         """
-        [Paginator.ListOutgoingCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListOutgoingCertificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListOutgoingCertificates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listoutgoingcertificatespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_policies"]) -> ListPoliciesPaginator:
         """
-        [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListPolicies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listpoliciespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_policy_principals"]
     ) -> ListPolicyPrincipalsPaginator:
         """
-        [Paginator.ListPolicyPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListPolicyPrincipals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListPolicyPrincipals)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listpolicyprincipalspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_principal_policies"]
     ) -> ListPrincipalPoliciesPaginator:
         """
-        [Paginator.ListPrincipalPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListPrincipalPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListPrincipalPolicies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listprincipalpoliciespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_principal_things"]
     ) -> ListPrincipalThingsPaginator:
         """
-        [Paginator.ListPrincipalThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListPrincipalThings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListPrincipalThings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listprincipalthingspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_provisioning_template_versions"]
     ) -> ListProvisioningTemplateVersionsPaginator:
         """
-        [Paginator.ListProvisioningTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplateVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplateVersions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listprovisioningtemplateversionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_provisioning_templates"]
     ) -> ListProvisioningTemplatesPaginator:
         """
-        [Paginator.ListProvisioningTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplates)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listprovisioningtemplatespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_role_aliases"]
     ) -> ListRoleAliasesPaginator:
         """
-        [Paginator.ListRoleAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListRoleAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListRoleAliases)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listrolealiasespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_scheduled_audits"]
     ) -> ListScheduledAuditsPaginator:
         """
-        [Paginator.ListScheduledAudits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListScheduledAudits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListScheduledAudits)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listscheduledauditspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_security_profiles"]
     ) -> ListSecurityProfilesPaginator:
         """
-        [Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListSecurityProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListSecurityProfiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listsecurityprofilespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_security_profiles_for_target"]
     ) -> ListSecurityProfilesForTargetPaginator:
         """
-        [Paginator.ListSecurityProfilesForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListSecurityProfilesForTarget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListSecurityProfilesForTarget)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listsecurityprofilesfortargetpaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_streams"]) -> ListStreamsPaginator:
         """
-        [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListStreams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListStreams)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#liststreamspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListTagsForResource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listtagsforresourcepaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_targets_for_policy"]
     ) -> ListTargetsForPolicyPaginator:
         """
-        [Paginator.ListTargetsForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListTargetsForPolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListTargetsForPolicy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listtargetsforpolicypaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_targets_for_security_profile"]
     ) -> ListTargetsForSecurityProfilePaginator:
         """
-        [Paginator.ListTargetsForSecurityProfile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListTargetsForSecurityProfile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListTargetsForSecurityProfile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listtargetsforsecurityprofilepaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_thing_groups"]
     ) -> ListThingGroupsPaginator:
         """
-        [Paginator.ListThingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingGroups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthinggroupspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_thing_groups_for_thing"]
     ) -> ListThingGroupsForThingPaginator:
         """
-        [Paginator.ListThingGroupsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingGroupsForThing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingGroupsForThing)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthinggroupsforthingpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_thing_principals"]
     ) -> ListThingPrincipalsPaginator:
         """
-        [Paginator.ListThingPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingPrincipals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingPrincipals)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthingprincipalspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_thing_registration_task_reports"]
     ) -> ListThingRegistrationTaskReportsPaginator:
         """
-        [Paginator.ListThingRegistrationTaskReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTaskReports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTaskReports)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthingregistrationtaskreportspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_thing_registration_tasks"]
     ) -> ListThingRegistrationTasksPaginator:
         """
-        [Paginator.ListThingRegistrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthingregistrationtaskspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_thing_types"]) -> ListThingTypesPaginator:
         """
-        [Paginator.ListThingTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingTypes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthingtypespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_things"]) -> ListThingsPaginator:
         """
-        [Paginator.ListThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthingspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_things_in_billing_group"]
     ) -> ListThingsInBillingGroupPaginator:
         """
-        [Paginator.ListThingsInBillingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingsInBillingGroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingsInBillingGroup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthingsinbillinggrouppaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_things_in_thing_group"]
     ) -> ListThingsInThingGroupPaginator:
         """
-        [Paginator.ListThingsInThingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListThingsInThingGroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListThingsInThingGroup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listthingsinthinggrouppaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_topic_rule_destinations"]
     ) -> ListTopicRuleDestinationsPaginator:
         """
-        [Paginator.ListTopicRuleDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListTopicRuleDestinations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListTopicRuleDestinations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listtopicruledestinationspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_topic_rules"]) -> ListTopicRulesPaginator:
         """
-        [Paginator.ListTopicRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListTopicRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListTopicRules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listtopicrulespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_v2_logging_levels"]
     ) -> ListV2LoggingLevelsPaginator:
         """
-        [Paginator.ListV2LoggingLevels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListV2LoggingLevels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListV2LoggingLevels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listv2logginglevelspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_violation_events"]
     ) -> ListViolationEventsPaginator:
         """
-        [Paginator.ListViolationEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot.html#IoT.Paginator.ListViolationEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot.html#IoT.Paginator.ListViolationEvents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot/paginators.html#listviolationeventspaginator)
         """

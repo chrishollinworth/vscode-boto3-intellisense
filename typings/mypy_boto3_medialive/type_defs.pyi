@@ -1,5 +1,7 @@
 """
-Main interface for medialive service type definitions.
+Type annotations for medialive service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/type_defs.html)
 
 Usage::
 
@@ -15,6 +17,251 @@ from typing import Any, Dict, List
 
 from botocore.response import StreamingBody
 
+from .literals import (
+    AacCodingModeType,
+    AacInputTypeType,
+    AacProfileType,
+    AacRateControlModeType,
+    AacRawFormatType,
+    AacSpecType,
+    AacVbrQualityType,
+    Ac3BitstreamModeType,
+    Ac3CodingModeType,
+    Ac3DrcProfileType,
+    Ac3LfeFilterType,
+    Ac3MetadataControlType,
+    AfdSignalingType,
+    AudioDescriptionAudioTypeControlType,
+    AudioDescriptionLanguageCodeControlType,
+    AudioLanguageSelectionPolicyType,
+    AudioNormalizationAlgorithmType,
+    AudioOnlyHlsSegmentTypeType,
+    AudioOnlyHlsTrackTypeType,
+    AudioTypeType,
+    AuthenticationSchemeType,
+    AvailBlankingStateType,
+    BlackoutSlateNetworkEndBlackoutType,
+    BlackoutSlateStateType,
+    BurnInAlignmentType,
+    BurnInBackgroundColorType,
+    BurnInFontColorType,
+    BurnInOutlineColorType,
+    BurnInShadowColorType,
+    BurnInTeletextGridControlType,
+    CdiInputResolutionType,
+    ChannelClassType,
+    ChannelStateType,
+    DeviceSettingsSyncStateType,
+    DeviceUpdateStatusType,
+    DvbSdtOutputSdtType,
+    DvbSubDestinationAlignmentType,
+    DvbSubDestinationBackgroundColorType,
+    DvbSubDestinationFontColorType,
+    DvbSubDestinationOutlineColorType,
+    DvbSubDestinationShadowColorType,
+    DvbSubDestinationTeletextGridControlType,
+    DvbSubOcrLanguageType,
+    Eac3AttenuationControlType,
+    Eac3BitstreamModeType,
+    Eac3CodingModeType,
+    Eac3DcFilterType,
+    Eac3DrcLineType,
+    Eac3DrcRfType,
+    Eac3LfeControlType,
+    Eac3LfeFilterType,
+    Eac3MetadataControlType,
+    Eac3PassthroughControlType,
+    Eac3PhaseControlType,
+    Eac3StereoDownmixType,
+    Eac3SurroundExModeType,
+    Eac3SurroundModeType,
+    EbuTtDDestinationStyleControlType,
+    EbuTtDFillLineGapControlType,
+    EmbeddedConvert608To708Type,
+    EmbeddedScte20DetectionType,
+    FeatureActivationsInputPrepareScheduleActionsType,
+    FecOutputIncludeFecType,
+    FixedAfdType,
+    Fmp4NielsenId3BehaviorType,
+    Fmp4TimedMetadataBehaviorType,
+    FollowPointType,
+    FrameCaptureIntervalUnitType,
+    GlobalConfigurationInputEndActionType,
+    GlobalConfigurationLowFramerateInputsType,
+    GlobalConfigurationOutputLockingModeType,
+    GlobalConfigurationOutputTimingSourceType,
+    H264AdaptiveQuantizationType,
+    H264ColorMetadataType,
+    H264EntropyEncodingType,
+    H264FlickerAqType,
+    H264ForceFieldPicturesType,
+    H264FramerateControlType,
+    H264GopBReferenceType,
+    H264GopSizeUnitsType,
+    H264LevelType,
+    H264LookAheadRateControlType,
+    H264ParControlType,
+    H264ProfileType,
+    H264QualityLevelType,
+    H264RateControlModeType,
+    H264ScanTypeType,
+    H264SceneChangeDetectType,
+    H264SpatialAqType,
+    H264SubGopLengthType,
+    H264SyntaxType,
+    H264TemporalAqType,
+    H264TimecodeInsertionBehaviorType,
+    H265AdaptiveQuantizationType,
+    H265AlternativeTransferFunctionType,
+    H265ColorMetadataType,
+    H265FlickerAqType,
+    H265GopSizeUnitsType,
+    H265LevelType,
+    H265LookAheadRateControlType,
+    H265ProfileType,
+    H265RateControlModeType,
+    H265ScanTypeType,
+    H265SceneChangeDetectType,
+    H265TierType,
+    H265TimecodeInsertionBehaviorType,
+    HlsAdMarkersType,
+    HlsAkamaiHttpTransferModeType,
+    HlsCaptionLanguageSettingType,
+    HlsClientCacheType,
+    HlsCodecSpecificationType,
+    HlsDirectoryStructureType,
+    HlsDiscontinuityTagsType,
+    HlsEncryptionTypeType,
+    HlsH265PackagingTypeType,
+    HlsId3SegmentTaggingStateType,
+    HlsIncompleteSegmentBehaviorType,
+    HlsIvInManifestType,
+    HlsIvSourceType,
+    HlsManifestCompressionType,
+    HlsManifestDurationFormatType,
+    HlsModeType,
+    HlsOutputSelectionType,
+    HlsProgramDateTimeType,
+    HlsRedundantManifestType,
+    HlsScte35SourceTypeType,
+    HlsSegmentationModeType,
+    HlsStreamInfResolutionType,
+    HlsTimedMetadataId3FrameType,
+    HlsTsFileModeType,
+    HlsWebdavHttpTransferModeType,
+    IFrameOnlyPlaylistTypeType,
+    InputClassType,
+    InputCodecType,
+    InputDeblockFilterType,
+    InputDenoiseFilterType,
+    InputDeviceActiveInputType,
+    InputDeviceConfiguredInputType,
+    InputDeviceConnectionStateType,
+    InputDeviceIpSchemeType,
+    InputDeviceScanTypeType,
+    InputDeviceStateType,
+    InputDeviceTransferTypeType,
+    InputFilterType,
+    InputLossActionForHlsOutType,
+    InputLossActionForMsSmoothOutType,
+    InputLossActionForRtmpOutType,
+    InputLossActionForUdpOutType,
+    InputLossImageTypeType,
+    InputMaximumBitrateType,
+    InputPreferenceType,
+    InputResolutionType,
+    InputSecurityGroupStateType,
+    InputSourceEndBehaviorType,
+    InputSourceTypeType,
+    InputStateType,
+    InputTimecodeSourceType,
+    InputTypeType,
+    LastFrameClippingBehaviorType,
+    LogLevelType,
+    M2tsAbsentInputAudioBehaviorType,
+    M2tsAribCaptionsPidControlType,
+    M2tsAribType,
+    M2tsAudioBufferModelType,
+    M2tsAudioIntervalType,
+    M2tsAudioStreamTypeType,
+    M2tsBufferModelType,
+    M2tsCcDescriptorType,
+    M2tsEbifControlType,
+    M2tsEbpPlacementType,
+    M2tsEsRateInPesType,
+    M2tsKlvType,
+    M2tsNielsenId3BehaviorType,
+    M2tsPcrControlType,
+    M2tsRateModeType,
+    M2tsScte35ControlType,
+    M2tsSegmentationMarkersType,
+    M2tsSegmentationStyleType,
+    M2tsTimedMetadataBehaviorType,
+    M3u8NielsenId3BehaviorType,
+    M3u8PcrControlType,
+    M3u8Scte35BehaviorType,
+    M3u8TimedMetadataBehaviorType,
+    MotionGraphicsInsertionType,
+    Mp2CodingModeType,
+    Mpeg2AdaptiveQuantizationType,
+    Mpeg2ColorMetadataType,
+    Mpeg2ColorSpaceType,
+    Mpeg2DisplayRatioType,
+    Mpeg2GopSizeUnitsType,
+    Mpeg2ScanTypeType,
+    Mpeg2SubGopLengthType,
+    Mpeg2TimecodeInsertionBehaviorType,
+    MsSmoothH265PackagingTypeType,
+    MultiplexStateType,
+    NetworkInputServerValidationType,
+    NielsenPcmToId3TaggingStateType,
+    PipelineIdType,
+    PreferredChannelPipelineType,
+    ReservationCodecType,
+    ReservationMaximumBitrateType,
+    ReservationMaximumFramerateType,
+    ReservationResolutionType,
+    ReservationResourceTypeType,
+    ReservationSpecialFeatureType,
+    ReservationStateType,
+    ReservationVideoQualityType,
+    RtmpCacheFullBehaviorType,
+    RtmpCaptionDataType,
+    RtmpOutputCertificateModeType,
+    S3CannedAclType,
+    Scte20Convert608To708Type,
+    Scte27OcrLanguageType,
+    Scte35AposNoRegionalBlackoutBehaviorType,
+    Scte35AposWebDeliveryAllowedBehaviorType,
+    Scte35ArchiveAllowedFlagType,
+    Scte35DeviceRestrictionsType,
+    Scte35NoRegionalBlackoutFlagType,
+    Scte35SegmentationCancelIndicatorType,
+    Scte35SpliceInsertNoRegionalBlackoutBehaviorType,
+    Scte35SpliceInsertWebDeliveryAllowedBehaviorType,
+    Scte35WebDeliveryAllowedFlagType,
+    SmoothGroupAudioOnlyTimecodeControlType,
+    SmoothGroupCertificateModeType,
+    SmoothGroupEventIdModeType,
+    SmoothGroupEventStopBehaviorType,
+    SmoothGroupSegmentationModeType,
+    SmoothGroupSparseTrackTypeType,
+    SmoothGroupStreamManifestBehaviorType,
+    SmoothGroupTimestampOffsetModeType,
+    Smpte2038DataPreferenceType,
+    TemporalFilterPostFilterSharpeningType,
+    TemporalFilterStrengthType,
+    TimecodeConfigSourceType,
+    TtmlDestinationStyleControlType,
+    UdpTimedMetadataId3FrameType,
+    VideoDescriptionRespondToAfdType,
+    VideoDescriptionScalingBehaviorType,
+    VideoSelectorColorSpaceType,
+    VideoSelectorColorSpaceUsageType,
+    WavCodingModeType,
+    WebvttDestinationStyleControlType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
@@ -24,17 +271,20 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AacSettingsTypeDef",
     "Ac3SettingsTypeDef",
+    "AcceptInputDeviceTransferRequestRequestTypeDef",
     "AncillarySourceSettingsTypeDef",
+    "ArchiveCdnSettingsTypeDef",
     "ArchiveContainerSettingsTypeDef",
     "ArchiveGroupSettingsTypeDef",
     "ArchiveOutputSettingsTypeDef",
+    "ArchiveS3SettingsTypeDef",
     "AudioChannelMappingTypeDef",
     "AudioCodecSettingsTypeDef",
     "AudioDescriptionTypeDef",
+    "AudioHlsRenditionSelectionTypeDef",
     "AudioLanguageSelectionTypeDef",
     "AudioNormalizationSettingsTypeDef",
     "AudioOnlyHlsSettingsTypeDef",
@@ -48,21 +298,78 @@ __all__ = (
     "AvailBlankingTypeDef",
     "AvailConfigurationTypeDef",
     "AvailSettingsTypeDef",
+    "BatchDeleteRequestRequestTypeDef",
+    "BatchDeleteResponseTypeDef",
     "BatchFailedResultModelTypeDef",
+    "BatchScheduleActionCreateRequestTypeDef",
     "BatchScheduleActionCreateResultTypeDef",
+    "BatchScheduleActionDeleteRequestTypeDef",
     "BatchScheduleActionDeleteResultTypeDef",
+    "BatchStartRequestRequestTypeDef",
+    "BatchStartResponseTypeDef",
+    "BatchStopRequestRequestTypeDef",
+    "BatchStopResponseTypeDef",
     "BatchSuccessfulResultModelTypeDef",
+    "BatchUpdateScheduleRequestRequestTypeDef",
+    "BatchUpdateScheduleResponseTypeDef",
     "BlackoutSlateTypeDef",
     "BurnInDestinationSettingsTypeDef",
+    "CancelInputDeviceTransferRequestRequestTypeDef",
     "CaptionDescriptionTypeDef",
     "CaptionDestinationSettingsTypeDef",
     "CaptionLanguageMappingTypeDef",
+    "CaptionRectangleTypeDef",
     "CaptionSelectorSettingsTypeDef",
     "CaptionSelectorTypeDef",
     "CdiInputSpecificationTypeDef",
     "ChannelEgressEndpointTypeDef",
     "ChannelSummaryTypeDef",
     "ChannelTypeDef",
+    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelResponseTypeDef",
+    "CreateInputRequestRequestTypeDef",
+    "CreateInputResponseTypeDef",
+    "CreateInputSecurityGroupRequestRequestTypeDef",
+    "CreateInputSecurityGroupResponseTypeDef",
+    "CreateMultiplexProgramRequestRequestTypeDef",
+    "CreateMultiplexProgramResponseTypeDef",
+    "CreateMultiplexRequestRequestTypeDef",
+    "CreateMultiplexResponseTypeDef",
+    "CreatePartnerInputRequestRequestTypeDef",
+    "CreatePartnerInputResponseTypeDef",
+    "CreateTagsRequestRequestTypeDef",
+    "DeleteChannelRequestRequestTypeDef",
+    "DeleteChannelResponseTypeDef",
+    "DeleteInputRequestRequestTypeDef",
+    "DeleteInputSecurityGroupRequestRequestTypeDef",
+    "DeleteMultiplexProgramRequestRequestTypeDef",
+    "DeleteMultiplexProgramResponseTypeDef",
+    "DeleteMultiplexRequestRequestTypeDef",
+    "DeleteMultiplexResponseTypeDef",
+    "DeleteReservationRequestRequestTypeDef",
+    "DeleteReservationResponseTypeDef",
+    "DeleteScheduleRequestRequestTypeDef",
+    "DeleteTagsRequestRequestTypeDef",
+    "DescribeChannelRequestRequestTypeDef",
+    "DescribeChannelResponseTypeDef",
+    "DescribeInputDeviceRequestRequestTypeDef",
+    "DescribeInputDeviceResponseTypeDef",
+    "DescribeInputDeviceThumbnailRequestRequestTypeDef",
+    "DescribeInputDeviceThumbnailResponseTypeDef",
+    "DescribeInputRequestRequestTypeDef",
+    "DescribeInputResponseTypeDef",
+    "DescribeInputSecurityGroupRequestRequestTypeDef",
+    "DescribeInputSecurityGroupResponseTypeDef",
+    "DescribeMultiplexProgramRequestRequestTypeDef",
+    "DescribeMultiplexProgramResponseTypeDef",
+    "DescribeMultiplexRequestRequestTypeDef",
+    "DescribeMultiplexResponseTypeDef",
+    "DescribeOfferingRequestRequestTypeDef",
+    "DescribeOfferingResponseTypeDef",
+    "DescribeReservationRequestRequestTypeDef",
+    "DescribeReservationResponseTypeDef",
+    "DescribeScheduleRequestRequestTypeDef",
+    "DescribeScheduleResponseTypeDef",
     "DvbNitSettingsTypeDef",
     "DvbSdtSettingsTypeDef",
     "DvbSubDestinationSettingsTypeDef",
@@ -79,8 +386,10 @@ __all__ = (
     "FixedModeScheduleActionStartSettingsTypeDef",
     "Fmp4HlsSettingsTypeDef",
     "FollowModeScheduleActionStartSettingsTypeDef",
+    "FrameCaptureCdnSettingsTypeDef",
     "FrameCaptureGroupSettingsTypeDef",
     "FrameCaptureOutputSettingsTypeDef",
+    "FrameCaptureS3SettingsTypeDef",
     "FrameCaptureSettingsTypeDef",
     "GlobalConfigurationTypeDef",
     "H264ColorSpaceSettingsTypeDef",
@@ -98,16 +407,20 @@ __all__ = (
     "HlsInputSettingsTypeDef",
     "HlsMediaStoreSettingsTypeDef",
     "HlsOutputSettingsTypeDef",
+    "HlsS3SettingsTypeDef",
     "HlsSettingsTypeDef",
     "HlsTimedMetadataScheduleActionSettingsTypeDef",
     "HlsWebdavSettingsTypeDef",
     "InputAttachmentTypeDef",
     "InputChannelLevelTypeDef",
     "InputClippingSettingsTypeDef",
+    "InputDestinationRequestTypeDef",
     "InputDestinationTypeDef",
     "InputDestinationVpcTypeDef",
+    "InputDeviceConfigurableSettingsTypeDef",
     "InputDeviceHdSettingsTypeDef",
     "InputDeviceNetworkSettingsTypeDef",
+    "InputDeviceRequestTypeDef",
     "InputDeviceSettingsTypeDef",
     "InputDeviceSummaryTypeDef",
     "InputDeviceUhdSettingsTypeDef",
@@ -117,17 +430,44 @@ __all__ = (
     "InputPrepareScheduleActionSettingsTypeDef",
     "InputSecurityGroupTypeDef",
     "InputSettingsTypeDef",
+    "InputSourceRequestTypeDef",
     "InputSourceTypeDef",
     "InputSpecificationTypeDef",
     "InputSwitchScheduleActionSettingsTypeDef",
     "InputTypeDef",
+    "InputVpcRequestTypeDef",
+    "InputWhitelistRuleCidrTypeDef",
     "InputWhitelistRuleTypeDef",
     "KeyProviderSettingsTypeDef",
+    "ListChannelsRequestRequestTypeDef",
+    "ListChannelsResponseTypeDef",
+    "ListInputDeviceTransfersRequestRequestTypeDef",
+    "ListInputDeviceTransfersResponseTypeDef",
+    "ListInputDevicesRequestRequestTypeDef",
+    "ListInputDevicesResponseTypeDef",
+    "ListInputSecurityGroupsRequestRequestTypeDef",
+    "ListInputSecurityGroupsResponseTypeDef",
+    "ListInputsRequestRequestTypeDef",
+    "ListInputsResponseTypeDef",
+    "ListMultiplexProgramsRequestRequestTypeDef",
+    "ListMultiplexProgramsResponseTypeDef",
+    "ListMultiplexesRequestRequestTypeDef",
+    "ListMultiplexesResponseTypeDef",
+    "ListOfferingsRequestRequestTypeDef",
+    "ListOfferingsResponseTypeDef",
+    "ListReservationsRequestRequestTypeDef",
+    "ListReservationsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "M2tsSettingsTypeDef",
     "M3u8SettingsTypeDef",
+    "MediaConnectFlowRequestTypeDef",
     "MediaConnectFlowTypeDef",
     "MediaPackageGroupSettingsTypeDef",
     "MediaPackageOutputDestinationSettingsTypeDef",
+    "MotionGraphicsActivateScheduleActionSettingsTypeDef",
+    "MotionGraphicsConfigurationTypeDef",
+    "MotionGraphicsSettingsTypeDef",
     "Mp2SettingsTypeDef",
     "Mpeg2FilterSettingsTypeDef",
     "Mpeg2SettingsTypeDef",
@@ -159,13 +499,17 @@ __all__ = (
     "OutputLocationRefTypeDef",
     "OutputSettingsTypeDef",
     "OutputTypeDef",
+    "PaginatorConfigTypeDef",
     "PauseStateScheduleActionSettingsTypeDef",
     "PipelineDetailTypeDef",
     "PipelinePauseStateSettingsTypeDef",
+    "PurchaseOfferingRequestRequestTypeDef",
+    "PurchaseOfferingResponseTypeDef",
+    "RejectInputDeviceTransferRequestRequestTypeDef",
     "RemixSettingsTypeDef",
     "ReservationResourceSpecificationTypeDef",
     "ReservationTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
     "RtmpGroupSettingsTypeDef",
     "RtmpOutputSettingsTypeDef",
     "ScheduleActionSettingsTypeDef",
@@ -183,105 +527,71 @@ __all__ = (
     "Scte35TimeSignalAposTypeDef",
     "Scte35TimeSignalScheduleActionSettingsTypeDef",
     "StandardHlsSettingsTypeDef",
+    "StartChannelRequestRequestTypeDef",
+    "StartChannelResponseTypeDef",
+    "StartMultiplexRequestRequestTypeDef",
+    "StartMultiplexResponseTypeDef",
     "StartTimecodeTypeDef",
     "StaticImageActivateScheduleActionSettingsTypeDef",
     "StaticImageDeactivateScheduleActionSettingsTypeDef",
     "StaticKeySettingsTypeDef",
+    "StopChannelRequestRequestTypeDef",
+    "StopChannelResponseTypeDef",
+    "StopMultiplexRequestRequestTypeDef",
+    "StopMultiplexResponseTypeDef",
     "StopTimecodeTypeDef",
     "TeletextSourceSettingsTypeDef",
     "TemporalFilterSettingsTypeDef",
     "TimecodeConfigTypeDef",
+    "TransferInputDeviceRequestRequestTypeDef",
     "TransferringInputDeviceSummaryTypeDef",
     "TtmlDestinationSettingsTypeDef",
     "UdpContainerSettingsTypeDef",
     "UdpGroupSettingsTypeDef",
     "UdpOutputSettingsTypeDef",
+    "UpdateChannelClassRequestRequestTypeDef",
+    "UpdateChannelClassResponseTypeDef",
+    "UpdateChannelRequestRequestTypeDef",
+    "UpdateChannelResponseTypeDef",
+    "UpdateInputDeviceRequestRequestTypeDef",
+    "UpdateInputDeviceResponseTypeDef",
+    "UpdateInputRequestRequestTypeDef",
+    "UpdateInputResponseTypeDef",
+    "UpdateInputSecurityGroupRequestRequestTypeDef",
+    "UpdateInputSecurityGroupResponseTypeDef",
+    "UpdateMultiplexProgramRequestRequestTypeDef",
+    "UpdateMultiplexProgramResponseTypeDef",
+    "UpdateMultiplexRequestRequestTypeDef",
+    "UpdateMultiplexResponseTypeDef",
+    "UpdateReservationRequestRequestTypeDef",
+    "UpdateReservationResponseTypeDef",
     "VideoBlackFailoverSettingsTypeDef",
     "VideoCodecSettingsTypeDef",
     "VideoDescriptionTypeDef",
+    "VideoSelectorColorSpaceSettingsTypeDef",
     "VideoSelectorPidTypeDef",
     "VideoSelectorProgramIdTypeDef",
     "VideoSelectorSettingsTypeDef",
     "VideoSelectorTypeDef",
+    "VpcOutputSettingsDescriptionTypeDef",
     "VpcOutputSettingsTypeDef",
-    "WavSettingsTypeDef",
-    "BatchDeleteResponseTypeDef",
-    "BatchScheduleActionCreateRequestTypeDef",
-    "BatchScheduleActionDeleteRequestTypeDef",
-    "BatchStartResponseTypeDef",
-    "BatchStopResponseTypeDef",
-    "BatchUpdateScheduleResponseTypeDef",
-    "CreateChannelResponseTypeDef",
-    "CreateInputResponseTypeDef",
-    "CreateInputSecurityGroupResponseTypeDef",
-    "CreateMultiplexProgramResponseTypeDef",
-    "CreateMultiplexResponseTypeDef",
-    "DeleteChannelResponseTypeDef",
-    "DeleteMultiplexProgramResponseTypeDef",
-    "DeleteMultiplexResponseTypeDef",
-    "DeleteReservationResponseTypeDef",
-    "DescribeChannelResponseTypeDef",
-    "DescribeInputDeviceResponseTypeDef",
-    "DescribeInputDeviceThumbnailResponseTypeDef",
-    "DescribeInputResponseTypeDef",
-    "DescribeInputSecurityGroupResponseTypeDef",
-    "DescribeMultiplexProgramResponseTypeDef",
-    "DescribeMultiplexResponseTypeDef",
-    "DescribeOfferingResponseTypeDef",
-    "DescribeReservationResponseTypeDef",
-    "DescribeScheduleResponseTypeDef",
-    "InputDestinationRequestTypeDef",
-    "InputDeviceConfigurableSettingsTypeDef",
-    "InputDeviceRequestTypeDef",
-    "InputSourceRequestTypeDef",
-    "InputVpcRequestTypeDef",
-    "InputWhitelistRuleCidrTypeDef",
-    "ListChannelsResponseTypeDef",
-    "ListInputDeviceTransfersResponseTypeDef",
-    "ListInputDevicesResponseTypeDef",
-    "ListInputSecurityGroupsResponseTypeDef",
-    "ListInputsResponseTypeDef",
-    "ListMultiplexProgramsResponseTypeDef",
-    "ListMultiplexesResponseTypeDef",
-    "ListOfferingsResponseTypeDef",
-    "ListReservationsResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "MediaConnectFlowRequestTypeDef",
-    "PaginatorConfigTypeDef",
-    "PurchaseOfferingResponseTypeDef",
-    "StartChannelResponseTypeDef",
-    "StartMultiplexResponseTypeDef",
-    "StopChannelResponseTypeDef",
-    "StopMultiplexResponseTypeDef",
-    "UpdateChannelClassResponseTypeDef",
-    "UpdateChannelResponseTypeDef",
-    "UpdateInputDeviceResponseTypeDef",
-    "UpdateInputResponseTypeDef",
-    "UpdateInputSecurityGroupResponseTypeDef",
-    "UpdateMultiplexProgramResponseTypeDef",
-    "UpdateMultiplexResponseTypeDef",
-    "UpdateReservationResponseTypeDef",
     "WaiterConfigTypeDef",
+    "WavSettingsTypeDef",
+    "WebvttDestinationSettingsTypeDef",
 )
 
 AacSettingsTypeDef = TypedDict(
     "AacSettingsTypeDef",
     {
         "Bitrate": float,
-        "CodingMode": Literal[
-            "AD_RECEIVER_MIX",
-            "CODING_MODE_1_0",
-            "CODING_MODE_1_1",
-            "CODING_MODE_2_0",
-            "CODING_MODE_5_1",
-        ],
-        "InputType": Literal["BROADCASTER_MIXED_AD", "NORMAL"],
-        "Profile": Literal["HEV1", "HEV2", "LC"],
-        "RateControlMode": Literal["CBR", "VBR"],
-        "RawFormat": Literal["LATM_LOAS", "NONE"],
+        "CodingMode": AacCodingModeType,
+        "InputType": AacInputTypeType,
+        "Profile": AacProfileType,
+        "RateControlMode": AacRateControlModeType,
+        "RawFormat": AacRawFormatType,
         "SampleRate": float,
-        "Spec": Literal["MPEG2", "MPEG4"],
-        "VbrQuality": Literal["HIGH", "LOW", "MEDIUM_HIGH", "MEDIUM_LOW"],
+        "Spec": AacSpecType,
+        "VbrQuality": AacVbrQualityType,
     },
     total=False,
 )
@@ -290,69 +600,102 @@ Ac3SettingsTypeDef = TypedDict(
     "Ac3SettingsTypeDef",
     {
         "Bitrate": float,
-        "BitstreamMode": Literal[
-            "COMMENTARY",
-            "COMPLETE_MAIN",
-            "DIALOGUE",
-            "EMERGENCY",
-            "HEARING_IMPAIRED",
-            "MUSIC_AND_EFFECTS",
-            "VISUALLY_IMPAIRED",
-            "VOICE_OVER",
-        ],
-        "CodingMode": Literal[
-            "CODING_MODE_1_0", "CODING_MODE_1_1", "CODING_MODE_2_0", "CODING_MODE_3_2_LFE"
-        ],
+        "BitstreamMode": Ac3BitstreamModeType,
+        "CodingMode": Ac3CodingModeType,
         "Dialnorm": int,
-        "DrcProfile": Literal["FILM_STANDARD", "NONE"],
-        "LfeFilter": Literal["DISABLED", "ENABLED"],
-        "MetadataControl": Literal["FOLLOW_INPUT", "USE_CONFIGURED"],
+        "DrcProfile": Ac3DrcProfileType,
+        "LfeFilter": Ac3LfeFilterType,
+        "MetadataControl": Ac3MetadataControlType,
     },
     total=False,
 )
 
+AcceptInputDeviceTransferRequestRequestTypeDef = TypedDict(
+    "AcceptInputDeviceTransferRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+    },
+)
+
 AncillarySourceSettingsTypeDef = TypedDict(
-    "AncillarySourceSettingsTypeDef", {"SourceAncillaryChannelNumber": int}, total=False
+    "AncillarySourceSettingsTypeDef",
+    {
+        "SourceAncillaryChannelNumber": int,
+    },
+    total=False,
+)
+
+ArchiveCdnSettingsTypeDef = TypedDict(
+    "ArchiveCdnSettingsTypeDef",
+    {
+        "ArchiveS3Settings": "ArchiveS3SettingsTypeDef",
+    },
+    total=False,
 )
 
 ArchiveContainerSettingsTypeDef = TypedDict(
     "ArchiveContainerSettingsTypeDef",
-    {"M2tsSettings": "M2tsSettingsTypeDef", "RawSettings": Dict[str, Any]},
+    {
+        "M2tsSettings": "M2tsSettingsTypeDef",
+        "RawSettings": Dict[str, Any],
+    },
     total=False,
 )
 
 _RequiredArchiveGroupSettingsTypeDef = TypedDict(
-    "_RequiredArchiveGroupSettingsTypeDef", {"Destination": "OutputLocationRefTypeDef"}
+    "_RequiredArchiveGroupSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
 )
 _OptionalArchiveGroupSettingsTypeDef = TypedDict(
-    "_OptionalArchiveGroupSettingsTypeDef", {"RolloverInterval": int}, total=False
+    "_OptionalArchiveGroupSettingsTypeDef",
+    {
+        "ArchiveCdnSettings": "ArchiveCdnSettingsTypeDef",
+        "RolloverInterval": int,
+    },
+    total=False,
 )
-
 
 class ArchiveGroupSettingsTypeDef(
     _RequiredArchiveGroupSettingsTypeDef, _OptionalArchiveGroupSettingsTypeDef
 ):
     pass
 
-
 _RequiredArchiveOutputSettingsTypeDef = TypedDict(
     "_RequiredArchiveOutputSettingsTypeDef",
-    {"ContainerSettings": "ArchiveContainerSettingsTypeDef"},
+    {
+        "ContainerSettings": "ArchiveContainerSettingsTypeDef",
+    },
 )
 _OptionalArchiveOutputSettingsTypeDef = TypedDict(
-    "_OptionalArchiveOutputSettingsTypeDef", {"Extension": str, "NameModifier": str}, total=False
+    "_OptionalArchiveOutputSettingsTypeDef",
+    {
+        "Extension": str,
+        "NameModifier": str,
+    },
+    total=False,
 )
-
 
 class ArchiveOutputSettingsTypeDef(
     _RequiredArchiveOutputSettingsTypeDef, _OptionalArchiveOutputSettingsTypeDef
 ):
     pass
 
+ArchiveS3SettingsTypeDef = TypedDict(
+    "ArchiveS3SettingsTypeDef",
+    {
+        "CannedAcl": S3CannedAclType,
+    },
+    total=False,
+)
 
 AudioChannelMappingTypeDef = TypedDict(
     "AudioChannelMappingTypeDef",
-    {"InputChannelLevels": List["InputChannelLevelTypeDef"], "OutputChannel": int},
+    {
+        "InputChannelLevels": List["InputChannelLevelTypeDef"],
+        "OutputChannel": int,
+    },
 )
 
 AudioCodecSettingsTypeDef = TypedDict(
@@ -369,50 +712,61 @@ AudioCodecSettingsTypeDef = TypedDict(
 )
 
 _RequiredAudioDescriptionTypeDef = TypedDict(
-    "_RequiredAudioDescriptionTypeDef", {"AudioSelectorName": str, "Name": str}
+    "_RequiredAudioDescriptionTypeDef",
+    {
+        "AudioSelectorName": str,
+        "Name": str,
+    },
 )
 _OptionalAudioDescriptionTypeDef = TypedDict(
     "_OptionalAudioDescriptionTypeDef",
     {
         "AudioNormalizationSettings": "AudioNormalizationSettingsTypeDef",
-        "AudioType": Literal[
-            "CLEAN_EFFECTS", "HEARING_IMPAIRED", "UNDEFINED", "VISUAL_IMPAIRED_COMMENTARY"
-        ],
-        "AudioTypeControl": Literal["FOLLOW_INPUT", "USE_CONFIGURED"],
+        "AudioType": AudioTypeType,
+        "AudioTypeControl": AudioDescriptionAudioTypeControlType,
         "CodecSettings": "AudioCodecSettingsTypeDef",
         "LanguageCode": str,
-        "LanguageCodeControl": Literal["FOLLOW_INPUT", "USE_CONFIGURED"],
+        "LanguageCodeControl": AudioDescriptionLanguageCodeControlType,
         "RemixSettings": "RemixSettingsTypeDef",
         "StreamName": str,
     },
     total=False,
 )
 
-
 class AudioDescriptionTypeDef(_RequiredAudioDescriptionTypeDef, _OptionalAudioDescriptionTypeDef):
     pass
 
+AudioHlsRenditionSelectionTypeDef = TypedDict(
+    "AudioHlsRenditionSelectionTypeDef",
+    {
+        "GroupId": str,
+        "Name": str,
+    },
+)
 
 _RequiredAudioLanguageSelectionTypeDef = TypedDict(
-    "_RequiredAudioLanguageSelectionTypeDef", {"LanguageCode": str}
+    "_RequiredAudioLanguageSelectionTypeDef",
+    {
+        "LanguageCode": str,
+    },
 )
 _OptionalAudioLanguageSelectionTypeDef = TypedDict(
     "_OptionalAudioLanguageSelectionTypeDef",
-    {"LanguageSelectionPolicy": Literal["LOOSE", "STRICT"]},
+    {
+        "LanguageSelectionPolicy": AudioLanguageSelectionPolicyType,
+    },
     total=False,
 )
-
 
 class AudioLanguageSelectionTypeDef(
     _RequiredAudioLanguageSelectionTypeDef, _OptionalAudioLanguageSelectionTypeDef
 ):
     pass
 
-
 AudioNormalizationSettingsTypeDef = TypedDict(
     "AudioNormalizationSettingsTypeDef",
     {
-        "Algorithm": Literal["ITU_1770_1", "ITU_1770_2"],
+        "Algorithm": AudioNormalizationAlgorithmType,
         "AlgorithmControl": Literal["CORRECT_AUDIO"],
         "TargetLkfs": float,
     },
@@ -424,22 +778,23 @@ AudioOnlyHlsSettingsTypeDef = TypedDict(
     {
         "AudioGroupId": str,
         "AudioOnlyImage": "InputLocationTypeDef",
-        "AudioTrackType": Literal[
-            "ALTERNATE_AUDIO_AUTO_SELECT",
-            "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-            "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-            "AUDIO_ONLY_VARIANT_STREAM",
-        ],
-        "SegmentType": Literal["AAC", "FMP4"],
+        "AudioTrackType": AudioOnlyHlsTrackTypeType,
+        "SegmentType": AudioOnlyHlsSegmentTypeType,
     },
     total=False,
 )
 
-AudioPidSelectionTypeDef = TypedDict("AudioPidSelectionTypeDef", {"Pid": int})
+AudioPidSelectionTypeDef = TypedDict(
+    "AudioPidSelectionTypeDef",
+    {
+        "Pid": int,
+    },
+)
 
 AudioSelectorSettingsTypeDef = TypedDict(
     "AudioSelectorSettingsTypeDef",
     {
+        "AudioHlsRenditionSelection": "AudioHlsRenditionSelectionTypeDef",
         "AudioLanguageSelection": "AudioLanguageSelectionTypeDef",
         "AudioPidSelection": "AudioPidSelectionTypeDef",
         "AudioTrackSelection": "AudioTrackSelectionTypeDef",
@@ -447,66 +802,92 @@ AudioSelectorSettingsTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredAudioSelectorTypeDef = TypedDict("_RequiredAudioSelectorTypeDef", {"Name": str})
+_RequiredAudioSelectorTypeDef = TypedDict(
+    "_RequiredAudioSelectorTypeDef",
+    {
+        "Name": str,
+    },
+)
 _OptionalAudioSelectorTypeDef = TypedDict(
     "_OptionalAudioSelectorTypeDef",
-    {"SelectorSettings": "AudioSelectorSettingsTypeDef"},
+    {
+        "SelectorSettings": "AudioSelectorSettingsTypeDef",
+    },
     total=False,
 )
-
 
 class AudioSelectorTypeDef(_RequiredAudioSelectorTypeDef, _OptionalAudioSelectorTypeDef):
     pass
 
-
 _RequiredAudioSilenceFailoverSettingsTypeDef = TypedDict(
-    "_RequiredAudioSilenceFailoverSettingsTypeDef", {"AudioSelectorName": str}
+    "_RequiredAudioSilenceFailoverSettingsTypeDef",
+    {
+        "AudioSelectorName": str,
+    },
 )
 _OptionalAudioSilenceFailoverSettingsTypeDef = TypedDict(
-    "_OptionalAudioSilenceFailoverSettingsTypeDef", {"AudioSilenceThresholdMsec": int}, total=False
+    "_OptionalAudioSilenceFailoverSettingsTypeDef",
+    {
+        "AudioSilenceThresholdMsec": int,
+    },
+    total=False,
 )
-
 
 class AudioSilenceFailoverSettingsTypeDef(
     _RequiredAudioSilenceFailoverSettingsTypeDef, _OptionalAudioSilenceFailoverSettingsTypeDef
 ):
     pass
 
-
 AudioTrackSelectionTypeDef = TypedDict(
-    "AudioTrackSelectionTypeDef", {"Tracks": List["AudioTrackTypeDef"]}
+    "AudioTrackSelectionTypeDef",
+    {
+        "Tracks": List["AudioTrackTypeDef"],
+    },
 )
 
-AudioTrackTypeDef = TypedDict("AudioTrackTypeDef", {"Track": int})
+AudioTrackTypeDef = TypedDict(
+    "AudioTrackTypeDef",
+    {
+        "Track": int,
+    },
+)
 
 _RequiredAutomaticInputFailoverSettingsTypeDef = TypedDict(
-    "_RequiredAutomaticInputFailoverSettingsTypeDef", {"SecondaryInputId": str}
+    "_RequiredAutomaticInputFailoverSettingsTypeDef",
+    {
+        "SecondaryInputId": str,
+    },
 )
 _OptionalAutomaticInputFailoverSettingsTypeDef = TypedDict(
     "_OptionalAutomaticInputFailoverSettingsTypeDef",
     {
         "ErrorClearTimeMsec": int,
         "FailoverConditions": List["FailoverConditionTypeDef"],
-        "InputPreference": Literal["EQUAL_INPUT_PREFERENCE", "PRIMARY_INPUT_PREFERRED"],
+        "InputPreference": InputPreferenceType,
     },
     total=False,
 )
-
 
 class AutomaticInputFailoverSettingsTypeDef(
     _RequiredAutomaticInputFailoverSettingsTypeDef, _OptionalAutomaticInputFailoverSettingsTypeDef
 ):
     pass
 
-
 AvailBlankingTypeDef = TypedDict(
     "AvailBlankingTypeDef",
-    {"AvailBlankingImage": "InputLocationTypeDef", "State": Literal["DISABLED", "ENABLED"]},
+    {
+        "AvailBlankingImage": "InputLocationTypeDef",
+        "State": AvailBlankingStateType,
+    },
     total=False,
 )
 
 AvailConfigurationTypeDef = TypedDict(
-    "AvailConfigurationTypeDef", {"AvailSettings": "AvailSettingsTypeDef"}, total=False
+    "AvailConfigurationTypeDef",
+    {
+        "AvailSettings": "AvailSettingsTypeDef",
+    },
+    total=False,
 )
 
 AvailSettingsTypeDef = TypedDict(
@@ -518,32 +899,149 @@ AvailSettingsTypeDef = TypedDict(
     total=False,
 )
 
-BatchFailedResultModelTypeDef = TypedDict(
-    "BatchFailedResultModelTypeDef",
-    {"Arn": str, "Code": str, "Id": str, "Message": str},
+BatchDeleteRequestRequestTypeDef = TypedDict(
+    "BatchDeleteRequestRequestTypeDef",
+    {
+        "ChannelIds": List[str],
+        "InputIds": List[str],
+        "InputSecurityGroupIds": List[str],
+        "MultiplexIds": List[str],
+    },
     total=False,
 )
 
+BatchDeleteResponseTypeDef = TypedDict(
+    "BatchDeleteResponseTypeDef",
+    {
+        "Failed": List["BatchFailedResultModelTypeDef"],
+        "Successful": List["BatchSuccessfulResultModelTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchFailedResultModelTypeDef = TypedDict(
+    "BatchFailedResultModelTypeDef",
+    {
+        "Arn": str,
+        "Code": str,
+        "Id": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+BatchScheduleActionCreateRequestTypeDef = TypedDict(
+    "BatchScheduleActionCreateRequestTypeDef",
+    {
+        "ScheduleActions": List["ScheduleActionTypeDef"],
+    },
+)
+
 BatchScheduleActionCreateResultTypeDef = TypedDict(
-    "BatchScheduleActionCreateResultTypeDef", {"ScheduleActions": List["ScheduleActionTypeDef"]}
+    "BatchScheduleActionCreateResultTypeDef",
+    {
+        "ScheduleActions": List["ScheduleActionTypeDef"],
+    },
+)
+
+BatchScheduleActionDeleteRequestTypeDef = TypedDict(
+    "BatchScheduleActionDeleteRequestTypeDef",
+    {
+        "ActionNames": List[str],
+    },
 )
 
 BatchScheduleActionDeleteResultTypeDef = TypedDict(
-    "BatchScheduleActionDeleteResultTypeDef", {"ScheduleActions": List["ScheduleActionTypeDef"]}
+    "BatchScheduleActionDeleteResultTypeDef",
+    {
+        "ScheduleActions": List["ScheduleActionTypeDef"],
+    },
+)
+
+BatchStartRequestRequestTypeDef = TypedDict(
+    "BatchStartRequestRequestTypeDef",
+    {
+        "ChannelIds": List[str],
+        "MultiplexIds": List[str],
+    },
+    total=False,
+)
+
+BatchStartResponseTypeDef = TypedDict(
+    "BatchStartResponseTypeDef",
+    {
+        "Failed": List["BatchFailedResultModelTypeDef"],
+        "Successful": List["BatchSuccessfulResultModelTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchStopRequestRequestTypeDef = TypedDict(
+    "BatchStopRequestRequestTypeDef",
+    {
+        "ChannelIds": List[str],
+        "MultiplexIds": List[str],
+    },
+    total=False,
+)
+
+BatchStopResponseTypeDef = TypedDict(
+    "BatchStopResponseTypeDef",
+    {
+        "Failed": List["BatchFailedResultModelTypeDef"],
+        "Successful": List["BatchSuccessfulResultModelTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 BatchSuccessfulResultModelTypeDef = TypedDict(
-    "BatchSuccessfulResultModelTypeDef", {"Arn": str, "Id": str, "State": str}, total=False
+    "BatchSuccessfulResultModelTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "State": str,
+    },
+    total=False,
+)
+
+_RequiredBatchUpdateScheduleRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchUpdateScheduleRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+_OptionalBatchUpdateScheduleRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchUpdateScheduleRequestRequestTypeDef",
+    {
+        "Creates": "BatchScheduleActionCreateRequestTypeDef",
+        "Deletes": "BatchScheduleActionDeleteRequestTypeDef",
+    },
+    total=False,
+)
+
+class BatchUpdateScheduleRequestRequestTypeDef(
+    _RequiredBatchUpdateScheduleRequestRequestTypeDef,
+    _OptionalBatchUpdateScheduleRequestRequestTypeDef,
+):
+    pass
+
+BatchUpdateScheduleResponseTypeDef = TypedDict(
+    "BatchUpdateScheduleResponseTypeDef",
+    {
+        "Creates": "BatchScheduleActionCreateResultTypeDef",
+        "Deletes": "BatchScheduleActionDeleteResultTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 BlackoutSlateTypeDef = TypedDict(
     "BlackoutSlateTypeDef",
     {
         "BlackoutSlateImage": "InputLocationTypeDef",
-        "NetworkEndBlackout": Literal["DISABLED", "ENABLED"],
+        "NetworkEndBlackout": BlackoutSlateNetworkEndBlackoutType,
         "NetworkEndBlackoutImage": "InputLocationTypeDef",
         "NetworkId": str,
-        "State": Literal["DISABLED", "ENABLED"],
+        "State": BlackoutSlateStateType,
     },
     total=False,
 )
@@ -551,29 +1049,40 @@ BlackoutSlateTypeDef = TypedDict(
 BurnInDestinationSettingsTypeDef = TypedDict(
     "BurnInDestinationSettingsTypeDef",
     {
-        "Alignment": Literal["CENTERED", "LEFT", "SMART"],
-        "BackgroundColor": Literal["BLACK", "NONE", "WHITE"],
+        "Alignment": BurnInAlignmentType,
+        "BackgroundColor": BurnInBackgroundColorType,
         "BackgroundOpacity": int,
         "Font": "InputLocationTypeDef",
-        "FontColor": Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
+        "FontColor": BurnInFontColorType,
         "FontOpacity": int,
         "FontResolution": int,
         "FontSize": str,
-        "OutlineColor": Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
+        "OutlineColor": BurnInOutlineColorType,
         "OutlineSize": int,
-        "ShadowColor": Literal["BLACK", "NONE", "WHITE"],
+        "ShadowColor": BurnInShadowColorType,
         "ShadowOpacity": int,
         "ShadowXOffset": int,
         "ShadowYOffset": int,
-        "TeletextGridControl": Literal["FIXED", "SCALED"],
+        "TeletextGridControl": BurnInTeletextGridControlType,
         "XPosition": int,
         "YPosition": int,
     },
     total=False,
 )
 
+CancelInputDeviceTransferRequestRequestTypeDef = TypedDict(
+    "CancelInputDeviceTransferRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+    },
+)
+
 _RequiredCaptionDescriptionTypeDef = TypedDict(
-    "_RequiredCaptionDescriptionTypeDef", {"CaptionSelectorName": str, "Name": str}
+    "_RequiredCaptionDescriptionTypeDef",
+    {
+        "CaptionSelectorName": str,
+        "Name": str,
+    },
 )
 _OptionalCaptionDescriptionTypeDef = TypedDict(
     "_OptionalCaptionDescriptionTypeDef",
@@ -585,12 +1094,10 @@ _OptionalCaptionDescriptionTypeDef = TypedDict(
     total=False,
 )
 
-
 class CaptionDescriptionTypeDef(
     _RequiredCaptionDescriptionTypeDef, _OptionalCaptionDescriptionTypeDef
 ):
     pass
-
 
 CaptionDestinationSettingsTypeDef = TypedDict(
     "CaptionDestinationSettingsTypeDef",
@@ -607,14 +1114,28 @@ CaptionDestinationSettingsTypeDef = TypedDict(
         "SmpteTtDestinationSettings": Dict[str, Any],
         "TeletextDestinationSettings": Dict[str, Any],
         "TtmlDestinationSettings": "TtmlDestinationSettingsTypeDef",
-        "WebvttDestinationSettings": Dict[str, Any],
+        "WebvttDestinationSettings": "WebvttDestinationSettingsTypeDef",
     },
     total=False,
 )
 
 CaptionLanguageMappingTypeDef = TypedDict(
     "CaptionLanguageMappingTypeDef",
-    {"CaptionChannel": int, "LanguageCode": str, "LanguageDescription": str},
+    {
+        "CaptionChannel": int,
+        "LanguageCode": str,
+        "LanguageDescription": str,
+    },
+)
+
+CaptionRectangleTypeDef = TypedDict(
+    "CaptionRectangleTypeDef",
+    {
+        "Height": float,
+        "LeftOffset": float,
+        "TopOffset": float,
+        "Width": float,
+    },
 )
 
 CaptionSelectorSettingsTypeDef = TypedDict(
@@ -631,24 +1152,38 @@ CaptionSelectorSettingsTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredCaptionSelectorTypeDef = TypedDict("_RequiredCaptionSelectorTypeDef", {"Name": str})
+_RequiredCaptionSelectorTypeDef = TypedDict(
+    "_RequiredCaptionSelectorTypeDef",
+    {
+        "Name": str,
+    },
+)
 _OptionalCaptionSelectorTypeDef = TypedDict(
     "_OptionalCaptionSelectorTypeDef",
-    {"LanguageCode": str, "SelectorSettings": "CaptionSelectorSettingsTypeDef"},
+    {
+        "LanguageCode": str,
+        "SelectorSettings": "CaptionSelectorSettingsTypeDef",
+    },
     total=False,
 )
-
 
 class CaptionSelectorTypeDef(_RequiredCaptionSelectorTypeDef, _OptionalCaptionSelectorTypeDef):
     pass
 
-
 CdiInputSpecificationTypeDef = TypedDict(
-    "CdiInputSpecificationTypeDef", {"Resolution": Literal["SD", "HD", "FHD", "UHD"]}, total=False
+    "CdiInputSpecificationTypeDef",
+    {
+        "Resolution": CdiInputResolutionType,
+    },
+    total=False,
 )
 
 ChannelEgressEndpointTypeDef = TypedDict(
-    "ChannelEgressEndpointTypeDef", {"SourceIp": str}, total=False
+    "ChannelEgressEndpointTypeDef",
+    {
+        "SourceIp": str,
+    },
+    total=False,
 )
 
 ChannelSummaryTypeDef = TypedDict(
@@ -656,31 +1191,19 @@ ChannelSummaryTypeDef = TypedDict(
     {
         "Arn": str,
         "CdiInputSpecification": "CdiInputSpecificationTypeDef",
-        "ChannelClass": Literal["STANDARD", "SINGLE_PIPELINE"],
+        "ChannelClass": ChannelClassType,
         "Destinations": List["OutputDestinationTypeDef"],
         "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
         "Id": str,
         "InputAttachments": List["InputAttachmentTypeDef"],
         "InputSpecification": "InputSpecificationTypeDef",
-        "LogLevel": Literal["ERROR", "WARNING", "INFO", "DEBUG", "DISABLED"],
+        "LogLevel": LogLevelType,
         "Name": str,
         "PipelinesRunningCount": int,
         "RoleArn": str,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-            "UPDATING",
-            "UPDATE_FAILED",
-        ],
+        "State": ChannelStateType,
         "Tags": Dict[str, str],
-        "Vpc": "VpcOutputSettingsTypeDef",
+        "Vpc": "VpcOutputSettingsDescriptionTypeDef",
     },
     total=False,
 )
@@ -690,53 +1213,607 @@ ChannelTypeDef = TypedDict(
     {
         "Arn": str,
         "CdiInputSpecification": "CdiInputSpecificationTypeDef",
-        "ChannelClass": Literal["STANDARD", "SINGLE_PIPELINE"],
+        "ChannelClass": ChannelClassType,
         "Destinations": List["OutputDestinationTypeDef"],
         "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
         "EncoderSettings": "EncoderSettingsTypeDef",
         "Id": str,
         "InputAttachments": List["InputAttachmentTypeDef"],
         "InputSpecification": "InputSpecificationTypeDef",
-        "LogLevel": Literal["ERROR", "WARNING", "INFO", "DEBUG", "DISABLED"],
+        "LogLevel": LogLevelType,
         "Name": str,
         "PipelineDetails": List["PipelineDetailTypeDef"],
         "PipelinesRunningCount": int,
         "RoleArn": str,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-            "UPDATING",
-            "UPDATE_FAILED",
-        ],
+        "State": ChannelStateType,
+        "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsDescriptionTypeDef",
+    },
+    total=False,
+)
+
+CreateChannelRequestRequestTypeDef = TypedDict(
+    "CreateChannelRequestRequestTypeDef",
+    {
+        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
+        "ChannelClass": ChannelClassType,
+        "Destinations": List["OutputDestinationTypeDef"],
+        "EncoderSettings": "EncoderSettingsTypeDef",
+        "InputAttachments": List["InputAttachmentTypeDef"],
+        "InputSpecification": "InputSpecificationTypeDef",
+        "LogLevel": LogLevelType,
+        "Name": str,
+        "RequestId": str,
+        "Reserved": str,
+        "RoleArn": str,
         "Tags": Dict[str, str],
         "Vpc": "VpcOutputSettingsTypeDef",
     },
     total=False,
 )
 
-_RequiredDvbNitSettingsTypeDef = TypedDict(
-    "_RequiredDvbNitSettingsTypeDef", {"NetworkId": int, "NetworkName": str}
-)
-_OptionalDvbNitSettingsTypeDef = TypedDict(
-    "_OptionalDvbNitSettingsTypeDef", {"RepInterval": int}, total=False
+CreateChannelResponseTypeDef = TypedDict(
+    "CreateChannelResponseTypeDef",
+    {
+        "Channel": "ChannelTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
+CreateInputRequestRequestTypeDef = TypedDict(
+    "CreateInputRequestRequestTypeDef",
+    {
+        "Destinations": List["InputDestinationRequestTypeDef"],
+        "InputDevices": List["InputDeviceSettingsTypeDef"],
+        "InputSecurityGroups": List[str],
+        "MediaConnectFlows": List["MediaConnectFlowRequestTypeDef"],
+        "Name": str,
+        "RequestId": str,
+        "RoleArn": str,
+        "Sources": List["InputSourceRequestTypeDef"],
+        "Tags": Dict[str, str],
+        "Type": InputTypeType,
+        "Vpc": "InputVpcRequestTypeDef",
+    },
+    total=False,
+)
+
+CreateInputResponseTypeDef = TypedDict(
+    "CreateInputResponseTypeDef",
+    {
+        "Input": "InputTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateInputSecurityGroupRequestRequestTypeDef = TypedDict(
+    "CreateInputSecurityGroupRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "WhitelistRules": List["InputWhitelistRuleCidrTypeDef"],
+    },
+    total=False,
+)
+
+CreateInputSecurityGroupResponseTypeDef = TypedDict(
+    "CreateInputSecurityGroupResponseTypeDef",
+    {
+        "SecurityGroup": "InputSecurityGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateMultiplexProgramRequestRequestTypeDef = TypedDict(
+    "CreateMultiplexProgramRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+        "MultiplexProgramSettings": "MultiplexProgramSettingsTypeDef",
+        "ProgramName": str,
+        "RequestId": str,
+    },
+)
+
+CreateMultiplexProgramResponseTypeDef = TypedDict(
+    "CreateMultiplexProgramResponseTypeDef",
+    {
+        "MultiplexProgram": "MultiplexProgramTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateMultiplexRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMultiplexRequestRequestTypeDef",
+    {
+        "AvailabilityZones": List[str],
+        "MultiplexSettings": "MultiplexSettingsTypeDef",
+        "Name": str,
+        "RequestId": str,
+    },
+)
+_OptionalCreateMultiplexRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMultiplexRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateMultiplexRequestRequestTypeDef(
+    _RequiredCreateMultiplexRequestRequestTypeDef, _OptionalCreateMultiplexRequestRequestTypeDef
+):
+    pass
+
+CreateMultiplexResponseTypeDef = TypedDict(
+    "CreateMultiplexResponseTypeDef",
+    {
+        "Multiplex": "MultiplexTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePartnerInputRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePartnerInputRequestRequestTypeDef",
+    {
+        "InputId": str,
+    },
+)
+_OptionalCreatePartnerInputRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePartnerInputRequestRequestTypeDef",
+    {
+        "RequestId": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreatePartnerInputRequestRequestTypeDef(
+    _RequiredCreatePartnerInputRequestRequestTypeDef,
+    _OptionalCreatePartnerInputRequestRequestTypeDef,
+):
+    pass
+
+CreatePartnerInputResponseTypeDef = TypedDict(
+    "CreatePartnerInputResponseTypeDef",
+    {
+        "Input": "InputTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTagsRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalCreateTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTagsRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateTagsRequestRequestTypeDef(
+    _RequiredCreateTagsRequestRequestTypeDef, _OptionalCreateTagsRequestRequestTypeDef
+):
+    pass
+
+DeleteChannelRequestRequestTypeDef = TypedDict(
+    "DeleteChannelRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+
+DeleteChannelResponseTypeDef = TypedDict(
+    "DeleteChannelResponseTypeDef",
+    {
+        "Arn": str,
+        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
+        "ChannelClass": ChannelClassType,
+        "Destinations": List["OutputDestinationTypeDef"],
+        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
+        "EncoderSettings": "EncoderSettingsTypeDef",
+        "Id": str,
+        "InputAttachments": List["InputAttachmentTypeDef"],
+        "InputSpecification": "InputSpecificationTypeDef",
+        "LogLevel": LogLevelType,
+        "Name": str,
+        "PipelineDetails": List["PipelineDetailTypeDef"],
+        "PipelinesRunningCount": int,
+        "RoleArn": str,
+        "State": ChannelStateType,
+        "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteInputRequestRequestTypeDef = TypedDict(
+    "DeleteInputRequestRequestTypeDef",
+    {
+        "InputId": str,
+    },
+)
+
+DeleteInputSecurityGroupRequestRequestTypeDef = TypedDict(
+    "DeleteInputSecurityGroupRequestRequestTypeDef",
+    {
+        "InputSecurityGroupId": str,
+    },
+)
+
+DeleteMultiplexProgramRequestRequestTypeDef = TypedDict(
+    "DeleteMultiplexProgramRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+        "ProgramName": str,
+    },
+)
+
+DeleteMultiplexProgramResponseTypeDef = TypedDict(
+    "DeleteMultiplexProgramResponseTypeDef",
+    {
+        "ChannelId": str,
+        "MultiplexProgramSettings": "MultiplexProgramSettingsTypeDef",
+        "PacketIdentifiersMap": "MultiplexProgramPacketIdentifiersMapTypeDef",
+        "PipelineDetails": List["MultiplexProgramPipelineDetailTypeDef"],
+        "ProgramName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteMultiplexRequestRequestTypeDef = TypedDict(
+    "DeleteMultiplexRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+    },
+)
+
+DeleteMultiplexResponseTypeDef = TypedDict(
+    "DeleteMultiplexResponseTypeDef",
+    {
+        "Arn": str,
+        "AvailabilityZones": List[str],
+        "Destinations": List["MultiplexOutputDestinationTypeDef"],
+        "Id": str,
+        "MultiplexSettings": "MultiplexSettingsTypeDef",
+        "Name": str,
+        "PipelinesRunningCount": int,
+        "ProgramCount": int,
+        "State": MultiplexStateType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteReservationRequestRequestTypeDef = TypedDict(
+    "DeleteReservationRequestRequestTypeDef",
+    {
+        "ReservationId": str,
+    },
+)
+
+DeleteReservationResponseTypeDef = TypedDict(
+    "DeleteReservationResponseTypeDef",
+    {
+        "Arn": str,
+        "Count": int,
+        "CurrencyCode": str,
+        "Duration": int,
+        "DurationUnits": Literal["MONTHS"],
+        "End": str,
+        "FixedPrice": float,
+        "Name": str,
+        "OfferingDescription": str,
+        "OfferingId": str,
+        "OfferingType": Literal["NO_UPFRONT"],
+        "Region": str,
+        "ReservationId": str,
+        "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
+        "Start": str,
+        "State": ReservationStateType,
+        "Tags": Dict[str, str],
+        "UsagePrice": float,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteScheduleRequestRequestTypeDef = TypedDict(
+    "DeleteScheduleRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+
+DeleteTagsRequestRequestTypeDef = TypedDict(
+    "DeleteTagsRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
+DescribeChannelRequestRequestTypeDef = TypedDict(
+    "DescribeChannelRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+
+DescribeChannelResponseTypeDef = TypedDict(
+    "DescribeChannelResponseTypeDef",
+    {
+        "Arn": str,
+        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
+        "ChannelClass": ChannelClassType,
+        "Destinations": List["OutputDestinationTypeDef"],
+        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
+        "EncoderSettings": "EncoderSettingsTypeDef",
+        "Id": str,
+        "InputAttachments": List["InputAttachmentTypeDef"],
+        "InputSpecification": "InputSpecificationTypeDef",
+        "LogLevel": LogLevelType,
+        "Name": str,
+        "PipelineDetails": List["PipelineDetailTypeDef"],
+        "PipelinesRunningCount": int,
+        "RoleArn": str,
+        "State": ChannelStateType,
+        "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInputDeviceRequestRequestTypeDef = TypedDict(
+    "DescribeInputDeviceRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+    },
+)
+
+DescribeInputDeviceResponseTypeDef = TypedDict(
+    "DescribeInputDeviceResponseTypeDef",
+    {
+        "Arn": str,
+        "ConnectionState": InputDeviceConnectionStateType,
+        "DeviceSettingsSyncState": DeviceSettingsSyncStateType,
+        "DeviceUpdateStatus": DeviceUpdateStatusType,
+        "HdDeviceSettings": "InputDeviceHdSettingsTypeDef",
+        "Id": str,
+        "MacAddress": str,
+        "Name": str,
+        "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
+        "SerialNumber": str,
+        "Type": Literal["HD"],
+        "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInputDeviceThumbnailRequestRequestTypeDef = TypedDict(
+    "DescribeInputDeviceThumbnailRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+        "Accept": Literal["image/jpeg"],
+    },
+)
+
+DescribeInputDeviceThumbnailResponseTypeDef = TypedDict(
+    "DescribeInputDeviceThumbnailResponseTypeDef",
+    {
+        "Body": StreamingBody,
+        "ContentType": Literal["image/jpeg"],
+        "ContentLength": int,
+        "ETag": str,
+        "LastModified": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInputRequestRequestTypeDef = TypedDict(
+    "DescribeInputRequestRequestTypeDef",
+    {
+        "InputId": str,
+    },
+)
+
+DescribeInputResponseTypeDef = TypedDict(
+    "DescribeInputResponseTypeDef",
+    {
+        "Arn": str,
+        "AttachedChannels": List[str],
+        "Destinations": List["InputDestinationTypeDef"],
+        "Id": str,
+        "InputClass": InputClassType,
+        "InputDevices": List["InputDeviceSettingsTypeDef"],
+        "InputPartnerIds": List[str],
+        "InputSourceType": InputSourceTypeType,
+        "MediaConnectFlows": List["MediaConnectFlowTypeDef"],
+        "Name": str,
+        "RoleArn": str,
+        "SecurityGroups": List[str],
+        "Sources": List["InputSourceTypeDef"],
+        "State": InputStateType,
+        "Tags": Dict[str, str],
+        "Type": InputTypeType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInputSecurityGroupRequestRequestTypeDef = TypedDict(
+    "DescribeInputSecurityGroupRequestRequestTypeDef",
+    {
+        "InputSecurityGroupId": str,
+    },
+)
+
+DescribeInputSecurityGroupResponseTypeDef = TypedDict(
+    "DescribeInputSecurityGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Inputs": List[str],
+        "State": InputSecurityGroupStateType,
+        "Tags": Dict[str, str],
+        "WhitelistRules": List["InputWhitelistRuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMultiplexProgramRequestRequestTypeDef = TypedDict(
+    "DescribeMultiplexProgramRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+        "ProgramName": str,
+    },
+)
+
+DescribeMultiplexProgramResponseTypeDef = TypedDict(
+    "DescribeMultiplexProgramResponseTypeDef",
+    {
+        "ChannelId": str,
+        "MultiplexProgramSettings": "MultiplexProgramSettingsTypeDef",
+        "PacketIdentifiersMap": "MultiplexProgramPacketIdentifiersMapTypeDef",
+        "PipelineDetails": List["MultiplexProgramPipelineDetailTypeDef"],
+        "ProgramName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMultiplexRequestRequestTypeDef = TypedDict(
+    "DescribeMultiplexRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+    },
+)
+
+DescribeMultiplexResponseTypeDef = TypedDict(
+    "DescribeMultiplexResponseTypeDef",
+    {
+        "Arn": str,
+        "AvailabilityZones": List[str],
+        "Destinations": List["MultiplexOutputDestinationTypeDef"],
+        "Id": str,
+        "MultiplexSettings": "MultiplexSettingsTypeDef",
+        "Name": str,
+        "PipelinesRunningCount": int,
+        "ProgramCount": int,
+        "State": MultiplexStateType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOfferingRequestRequestTypeDef = TypedDict(
+    "DescribeOfferingRequestRequestTypeDef",
+    {
+        "OfferingId": str,
+    },
+)
+
+DescribeOfferingResponseTypeDef = TypedDict(
+    "DescribeOfferingResponseTypeDef",
+    {
+        "Arn": str,
+        "CurrencyCode": str,
+        "Duration": int,
+        "DurationUnits": Literal["MONTHS"],
+        "FixedPrice": float,
+        "OfferingDescription": str,
+        "OfferingId": str,
+        "OfferingType": Literal["NO_UPFRONT"],
+        "Region": str,
+        "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
+        "UsagePrice": float,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReservationRequestRequestTypeDef = TypedDict(
+    "DescribeReservationRequestRequestTypeDef",
+    {
+        "ReservationId": str,
+    },
+)
+
+DescribeReservationResponseTypeDef = TypedDict(
+    "DescribeReservationResponseTypeDef",
+    {
+        "Arn": str,
+        "Count": int,
+        "CurrencyCode": str,
+        "Duration": int,
+        "DurationUnits": Literal["MONTHS"],
+        "End": str,
+        "FixedPrice": float,
+        "Name": str,
+        "OfferingDescription": str,
+        "OfferingId": str,
+        "OfferingType": Literal["NO_UPFRONT"],
+        "Region": str,
+        "ReservationId": str,
+        "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
+        "Start": str,
+        "State": ReservationStateType,
+        "Tags": Dict[str, str],
+        "UsagePrice": float,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeScheduleRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeScheduleRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+_OptionalDescribeScheduleRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeScheduleRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeScheduleRequestRequestTypeDef(
+    _RequiredDescribeScheduleRequestRequestTypeDef, _OptionalDescribeScheduleRequestRequestTypeDef
+):
+    pass
+
+DescribeScheduleResponseTypeDef = TypedDict(
+    "DescribeScheduleResponseTypeDef",
+    {
+        "NextToken": str,
+        "ScheduleActions": List["ScheduleActionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDvbNitSettingsTypeDef = TypedDict(
+    "_RequiredDvbNitSettingsTypeDef",
+    {
+        "NetworkId": int,
+        "NetworkName": str,
+    },
+)
+_OptionalDvbNitSettingsTypeDef = TypedDict(
+    "_OptionalDvbNitSettingsTypeDef",
+    {
+        "RepInterval": int,
+    },
+    total=False,
+)
 
 class DvbNitSettingsTypeDef(_RequiredDvbNitSettingsTypeDef, _OptionalDvbNitSettingsTypeDef):
     pass
 
-
 DvbSdtSettingsTypeDef = TypedDict(
     "DvbSdtSettingsTypeDef",
     {
-        "OutputSdt": Literal["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"],
+        "OutputSdt": DvbSdtOutputSdtType,
         "RepInterval": int,
         "ServiceName": str,
         "ServiceProviderName": str,
@@ -747,60 +1824,67 @@ DvbSdtSettingsTypeDef = TypedDict(
 DvbSubDestinationSettingsTypeDef = TypedDict(
     "DvbSubDestinationSettingsTypeDef",
     {
-        "Alignment": Literal["CENTERED", "LEFT", "SMART"],
-        "BackgroundColor": Literal["BLACK", "NONE", "WHITE"],
+        "Alignment": DvbSubDestinationAlignmentType,
+        "BackgroundColor": DvbSubDestinationBackgroundColorType,
         "BackgroundOpacity": int,
         "Font": "InputLocationTypeDef",
-        "FontColor": Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
+        "FontColor": DvbSubDestinationFontColorType,
         "FontOpacity": int,
         "FontResolution": int,
         "FontSize": str,
-        "OutlineColor": Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"],
+        "OutlineColor": DvbSubDestinationOutlineColorType,
         "OutlineSize": int,
-        "ShadowColor": Literal["BLACK", "NONE", "WHITE"],
+        "ShadowColor": DvbSubDestinationShadowColorType,
         "ShadowOpacity": int,
         "ShadowXOffset": int,
         "ShadowYOffset": int,
-        "TeletextGridControl": Literal["FIXED", "SCALED"],
+        "TeletextGridControl": DvbSubDestinationTeletextGridControlType,
         "XPosition": int,
         "YPosition": int,
     },
     total=False,
 )
 
-DvbSubSourceSettingsTypeDef = TypedDict("DvbSubSourceSettingsTypeDef", {"Pid": int}, total=False)
+DvbSubSourceSettingsTypeDef = TypedDict(
+    "DvbSubSourceSettingsTypeDef",
+    {
+        "OcrLanguage": DvbSubOcrLanguageType,
+        "Pid": int,
+    },
+    total=False,
+)
 
-DvbTdtSettingsTypeDef = TypedDict("DvbTdtSettingsTypeDef", {"RepInterval": int}, total=False)
+DvbTdtSettingsTypeDef = TypedDict(
+    "DvbTdtSettingsTypeDef",
+    {
+        "RepInterval": int,
+    },
+    total=False,
+)
 
 Eac3SettingsTypeDef = TypedDict(
     "Eac3SettingsTypeDef",
     {
-        "AttenuationControl": Literal["ATTENUATE_3_DB", "NONE"],
+        "AttenuationControl": Eac3AttenuationControlType,
         "Bitrate": float,
-        "BitstreamMode": Literal[
-            "COMMENTARY", "COMPLETE_MAIN", "EMERGENCY", "HEARING_IMPAIRED", "VISUALLY_IMPAIRED"
-        ],
-        "CodingMode": Literal["CODING_MODE_1_0", "CODING_MODE_2_0", "CODING_MODE_3_2"],
-        "DcFilter": Literal["DISABLED", "ENABLED"],
+        "BitstreamMode": Eac3BitstreamModeType,
+        "CodingMode": Eac3CodingModeType,
+        "DcFilter": Eac3DcFilterType,
         "Dialnorm": int,
-        "DrcLine": Literal[
-            "FILM_LIGHT", "FILM_STANDARD", "MUSIC_LIGHT", "MUSIC_STANDARD", "NONE", "SPEECH"
-        ],
-        "DrcRf": Literal[
-            "FILM_LIGHT", "FILM_STANDARD", "MUSIC_LIGHT", "MUSIC_STANDARD", "NONE", "SPEECH"
-        ],
-        "LfeControl": Literal["LFE", "NO_LFE"],
-        "LfeFilter": Literal["DISABLED", "ENABLED"],
+        "DrcLine": Eac3DrcLineType,
+        "DrcRf": Eac3DrcRfType,
+        "LfeControl": Eac3LfeControlType,
+        "LfeFilter": Eac3LfeFilterType,
         "LoRoCenterMixLevel": float,
         "LoRoSurroundMixLevel": float,
         "LtRtCenterMixLevel": float,
         "LtRtSurroundMixLevel": float,
-        "MetadataControl": Literal["FOLLOW_INPUT", "USE_CONFIGURED"],
-        "PassthroughControl": Literal["NO_PASSTHROUGH", "WHEN_POSSIBLE"],
-        "PhaseControl": Literal["NO_SHIFT", "SHIFT_90_DEGREES"],
-        "StereoDownmix": Literal["DPL2", "LO_RO", "LT_RT", "NOT_INDICATED"],
-        "SurroundExMode": Literal["DISABLED", "ENABLED", "NOT_INDICATED"],
-        "SurroundMode": Literal["DISABLED", "ENABLED", "NOT_INDICATED"],
+        "MetadataControl": Eac3MetadataControlType,
+        "PassthroughControl": Eac3PassthroughControlType,
+        "PhaseControl": Eac3PhaseControlType,
+        "StereoDownmix": Eac3StereoDownmixType,
+        "SurroundExMode": Eac3SurroundExModeType,
+        "SurroundMode": Eac3SurroundModeType,
     },
     total=False,
 )
@@ -808,9 +1892,10 @@ Eac3SettingsTypeDef = TypedDict(
 EbuTtDDestinationSettingsTypeDef = TypedDict(
     "EbuTtDDestinationSettingsTypeDef",
     {
-        "FillLineGap": Literal["DISABLED", "ENABLED"],
+        "CopyrightHolder": str,
+        "FillLineGap": EbuTtDFillLineGapControlType,
         "FontFamily": str,
-        "StyleControl": Literal["EXCLUDE", "INCLUDE"],
+        "StyleControl": EbuTtDDestinationStyleControlType,
     },
     total=False,
 )
@@ -818,8 +1903,8 @@ EbuTtDDestinationSettingsTypeDef = TypedDict(
 EmbeddedSourceSettingsTypeDef = TypedDict(
     "EmbeddedSourceSettingsTypeDef",
     {
-        "Convert608To708": Literal["DISABLED", "UPCONVERT"],
-        "Scte20Detection": Literal["AUTO", "OFF"],
+        "Convert608To708": EmbeddedConvert608To708Type,
+        "Scte20Detection": EmbeddedScte20DetectionType,
         "Source608ChannelNumber": int,
         "Source608TrackNumber": int,
     },
@@ -844,15 +1929,14 @@ _OptionalEncoderSettingsTypeDef = TypedDict(
         "CaptionDescriptions": List["CaptionDescriptionTypeDef"],
         "FeatureActivations": "FeatureActivationsTypeDef",
         "GlobalConfiguration": "GlobalConfigurationTypeDef",
+        "MotionGraphicsConfiguration": "MotionGraphicsConfigurationTypeDef",
         "NielsenConfiguration": "NielsenConfigurationTypeDef",
     },
     total=False,
 )
 
-
 class EncoderSettingsTypeDef(_RequiredEncoderSettingsTypeDef, _OptionalEncoderSettingsTypeDef):
     pass
-
 
 FailoverConditionSettingsTypeDef = TypedDict(
     "FailoverConditionSettingsTypeDef",
@@ -866,52 +1950,104 @@ FailoverConditionSettingsTypeDef = TypedDict(
 
 FailoverConditionTypeDef = TypedDict(
     "FailoverConditionTypeDef",
-    {"FailoverConditionSettings": "FailoverConditionSettingsTypeDef"},
+    {
+        "FailoverConditionSettings": "FailoverConditionSettingsTypeDef",
+    },
     total=False,
 )
 
 FeatureActivationsTypeDef = TypedDict(
     "FeatureActivationsTypeDef",
-    {"InputPrepareScheduleActions": Literal["DISABLED", "ENABLED"]},
+    {
+        "InputPrepareScheduleActions": FeatureActivationsInputPrepareScheduleActionsType,
+    },
     total=False,
 )
 
 FecOutputSettingsTypeDef = TypedDict(
     "FecOutputSettingsTypeDef",
-    {"ColumnDepth": int, "IncludeFec": Literal["COLUMN", "COLUMN_AND_ROW"], "RowLength": int},
+    {
+        "ColumnDepth": int,
+        "IncludeFec": FecOutputIncludeFecType,
+        "RowLength": int,
+    },
     total=False,
 )
 
 FixedModeScheduleActionStartSettingsTypeDef = TypedDict(
-    "FixedModeScheduleActionStartSettingsTypeDef", {"Time": str}
+    "FixedModeScheduleActionStartSettingsTypeDef",
+    {
+        "Time": str,
+    },
 )
 
 Fmp4HlsSettingsTypeDef = TypedDict(
     "Fmp4HlsSettingsTypeDef",
     {
         "AudioRenditionSets": str,
-        "NielsenId3Behavior": Literal["NO_PASSTHROUGH", "PASSTHROUGH"],
-        "TimedMetadataBehavior": Literal["NO_PASSTHROUGH", "PASSTHROUGH"],
+        "NielsenId3Behavior": Fmp4NielsenId3BehaviorType,
+        "TimedMetadataBehavior": Fmp4TimedMetadataBehaviorType,
     },
     total=False,
 )
 
 FollowModeScheduleActionStartSettingsTypeDef = TypedDict(
     "FollowModeScheduleActionStartSettingsTypeDef",
-    {"FollowPoint": Literal["END", "START"], "ReferenceActionName": str},
+    {
+        "FollowPoint": FollowPointType,
+        "ReferenceActionName": str,
+    },
 )
 
-FrameCaptureGroupSettingsTypeDef = TypedDict(
-    "FrameCaptureGroupSettingsTypeDef", {"Destination": "OutputLocationRefTypeDef"}
+FrameCaptureCdnSettingsTypeDef = TypedDict(
+    "FrameCaptureCdnSettingsTypeDef",
+    {
+        "FrameCaptureS3Settings": "FrameCaptureS3SettingsTypeDef",
+    },
+    total=False,
 )
+
+_RequiredFrameCaptureGroupSettingsTypeDef = TypedDict(
+    "_RequiredFrameCaptureGroupSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
+)
+_OptionalFrameCaptureGroupSettingsTypeDef = TypedDict(
+    "_OptionalFrameCaptureGroupSettingsTypeDef",
+    {
+        "FrameCaptureCdnSettings": "FrameCaptureCdnSettingsTypeDef",
+    },
+    total=False,
+)
+
+class FrameCaptureGroupSettingsTypeDef(
+    _RequiredFrameCaptureGroupSettingsTypeDef, _OptionalFrameCaptureGroupSettingsTypeDef
+):
+    pass
 
 FrameCaptureOutputSettingsTypeDef = TypedDict(
-    "FrameCaptureOutputSettingsTypeDef", {"NameModifier": str}, total=False
+    "FrameCaptureOutputSettingsTypeDef",
+    {
+        "NameModifier": str,
+    },
+    total=False,
+)
+
+FrameCaptureS3SettingsTypeDef = TypedDict(
+    "FrameCaptureS3SettingsTypeDef",
+    {
+        "CannedAcl": S3CannedAclType,
+    },
+    total=False,
 )
 
 FrameCaptureSettingsTypeDef = TypedDict(
     "FrameCaptureSettingsTypeDef",
-    {"CaptureInterval": int, "CaptureIntervalUnits": Literal["MILLISECONDS", "SECONDS"]},
+    {
+        "CaptureInterval": int,
+        "CaptureIntervalUnits": FrameCaptureIntervalUnitType,
+    },
     total=False,
 )
 
@@ -919,11 +2055,11 @@ GlobalConfigurationTypeDef = TypedDict(
     "GlobalConfigurationTypeDef",
     {
         "InitialAudioGain": int,
-        "InputEndAction": Literal["NONE", "SWITCH_AND_LOOP_INPUTS"],
+        "InputEndAction": GlobalConfigurationInputEndActionType,
         "InputLossBehavior": "InputLossBehaviorTypeDef",
-        "OutputLockingMode": Literal["EPOCH_LOCKING", "PIPELINE_LOCKING"],
-        "OutputTimingSource": Literal["INPUT_CLOCK", "SYSTEM_CLOCK"],
-        "SupportLowFramerateInputs": Literal["DISABLED", "ENABLED"],
+        "OutputLockingMode": GlobalConfigurationOutputLockingModeType,
+        "OutputTimingSource": GlobalConfigurationOutputTimingSourceType,
+        "SupportLowFramerateInputs": GlobalConfigurationLowFramerateInputsType,
     },
     total=False,
 )
@@ -940,84 +2076,56 @@ H264ColorSpaceSettingsTypeDef = TypedDict(
 
 H264FilterSettingsTypeDef = TypedDict(
     "H264FilterSettingsTypeDef",
-    {"TemporalFilterSettings": "TemporalFilterSettingsTypeDef"},
+    {
+        "TemporalFilterSettings": "TemporalFilterSettingsTypeDef",
+    },
     total=False,
 )
 
 H264SettingsTypeDef = TypedDict(
     "H264SettingsTypeDef",
     {
-        "AdaptiveQuantization": Literal["HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"],
-        "AfdSignaling": Literal["AUTO", "FIXED", "NONE"],
+        "AdaptiveQuantization": H264AdaptiveQuantizationType,
+        "AfdSignaling": AfdSignalingType,
         "Bitrate": int,
         "BufFillPct": int,
         "BufSize": int,
-        "ColorMetadata": Literal["IGNORE", "INSERT"],
+        "ColorMetadata": H264ColorMetadataType,
         "ColorSpaceSettings": "H264ColorSpaceSettingsTypeDef",
-        "EntropyEncoding": Literal["CABAC", "CAVLC"],
+        "EntropyEncoding": H264EntropyEncodingType,
         "FilterSettings": "H264FilterSettingsTypeDef",
-        "FixedAfd": Literal[
-            "AFD_0000",
-            "AFD_0010",
-            "AFD_0011",
-            "AFD_0100",
-            "AFD_1000",
-            "AFD_1001",
-            "AFD_1010",
-            "AFD_1011",
-            "AFD_1101",
-            "AFD_1110",
-            "AFD_1111",
-        ],
-        "FlickerAq": Literal["DISABLED", "ENABLED"],
-        "ForceFieldPictures": Literal["DISABLED", "ENABLED"],
-        "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
+        "FixedAfd": FixedAfdType,
+        "FlickerAq": H264FlickerAqType,
+        "ForceFieldPictures": H264ForceFieldPicturesType,
+        "FramerateControl": H264FramerateControlType,
         "FramerateDenominator": int,
         "FramerateNumerator": int,
-        "GopBReference": Literal["DISABLED", "ENABLED"],
+        "GopBReference": H264GopBReferenceType,
         "GopClosedCadence": int,
         "GopNumBFrames": int,
         "GopSize": float,
-        "GopSizeUnits": Literal["FRAMES", "SECONDS"],
-        "Level": Literal[
-            "H264_LEVEL_1",
-            "H264_LEVEL_1_1",
-            "H264_LEVEL_1_2",
-            "H264_LEVEL_1_3",
-            "H264_LEVEL_2",
-            "H264_LEVEL_2_1",
-            "H264_LEVEL_2_2",
-            "H264_LEVEL_3",
-            "H264_LEVEL_3_1",
-            "H264_LEVEL_3_2",
-            "H264_LEVEL_4",
-            "H264_LEVEL_4_1",
-            "H264_LEVEL_4_2",
-            "H264_LEVEL_5",
-            "H264_LEVEL_5_1",
-            "H264_LEVEL_5_2",
-            "H264_LEVEL_AUTO",
-        ],
-        "LookAheadRateControl": Literal["HIGH", "LOW", "MEDIUM"],
+        "GopSizeUnits": H264GopSizeUnitsType,
+        "Level": H264LevelType,
+        "LookAheadRateControl": H264LookAheadRateControlType,
         "MaxBitrate": int,
         "MinIInterval": int,
         "NumRefFrames": int,
-        "ParControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
+        "ParControl": H264ParControlType,
         "ParDenominator": int,
         "ParNumerator": int,
-        "Profile": Literal["BASELINE", "HIGH", "HIGH_10BIT", "HIGH_422", "HIGH_422_10BIT", "MAIN"],
-        "QualityLevel": Literal["ENHANCED_QUALITY", "STANDARD_QUALITY"],
+        "Profile": H264ProfileType,
+        "QualityLevel": H264QualityLevelType,
         "QvbrQualityLevel": int,
-        "RateControlMode": Literal["CBR", "MULTIPLEX", "QVBR", "VBR"],
-        "ScanType": Literal["INTERLACED", "PROGRESSIVE"],
-        "SceneChangeDetect": Literal["DISABLED", "ENABLED"],
+        "RateControlMode": H264RateControlModeType,
+        "ScanType": H264ScanTypeType,
+        "SceneChangeDetect": H264SceneChangeDetectType,
         "Slices": int,
         "Softness": int,
-        "SpatialAq": Literal["DISABLED", "ENABLED"],
-        "SubgopLength": Literal["DYNAMIC", "FIXED"],
-        "Syntax": Literal["DEFAULT", "RP2027"],
-        "TemporalAq": Literal["DISABLED", "ENABLED"],
-        "TimecodeInsertion": Literal["DISABLED", "PIC_TIMING_SEI"],
+        "SpatialAq": H264SpatialAqType,
+        "SubgopLength": H264SubGopLengthType,
+        "Syntax": H264SyntaxType,
+        "TemporalAq": H264TemporalAqType,
+        "TimecodeInsertion": H264TimecodeInsertionBehaviorType,
     },
     total=False,
 )
@@ -1035,81 +2143,63 @@ H265ColorSpaceSettingsTypeDef = TypedDict(
 
 H265FilterSettingsTypeDef = TypedDict(
     "H265FilterSettingsTypeDef",
-    {"TemporalFilterSettings": "TemporalFilterSettingsTypeDef"},
-    total=False,
-)
-
-_RequiredH265SettingsTypeDef = TypedDict(
-    "_RequiredH265SettingsTypeDef", {"FramerateDenominator": int, "FramerateNumerator": int}
-)
-_OptionalH265SettingsTypeDef = TypedDict(
-    "_OptionalH265SettingsTypeDef",
     {
-        "AdaptiveQuantization": Literal["HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"],
-        "AfdSignaling": Literal["AUTO", "FIXED", "NONE"],
-        "AlternativeTransferFunction": Literal["INSERT", "OMIT"],
-        "Bitrate": int,
-        "BufSize": int,
-        "ColorMetadata": Literal["IGNORE", "INSERT"],
-        "ColorSpaceSettings": "H265ColorSpaceSettingsTypeDef",
-        "FilterSettings": "H265FilterSettingsTypeDef",
-        "FixedAfd": Literal[
-            "AFD_0000",
-            "AFD_0010",
-            "AFD_0011",
-            "AFD_0100",
-            "AFD_1000",
-            "AFD_1001",
-            "AFD_1010",
-            "AFD_1011",
-            "AFD_1101",
-            "AFD_1110",
-            "AFD_1111",
-        ],
-        "FlickerAq": Literal["DISABLED", "ENABLED"],
-        "GopClosedCadence": int,
-        "GopSize": float,
-        "GopSizeUnits": Literal["FRAMES", "SECONDS"],
-        "Level": Literal[
-            "H265_LEVEL_1",
-            "H265_LEVEL_2",
-            "H265_LEVEL_2_1",
-            "H265_LEVEL_3",
-            "H265_LEVEL_3_1",
-            "H265_LEVEL_4",
-            "H265_LEVEL_4_1",
-            "H265_LEVEL_5",
-            "H265_LEVEL_5_1",
-            "H265_LEVEL_5_2",
-            "H265_LEVEL_6",
-            "H265_LEVEL_6_1",
-            "H265_LEVEL_6_2",
-            "H265_LEVEL_AUTO",
-        ],
-        "LookAheadRateControl": Literal["HIGH", "LOW", "MEDIUM"],
-        "MaxBitrate": int,
-        "MinIInterval": int,
-        "ParDenominator": int,
-        "ParNumerator": int,
-        "Profile": Literal["MAIN", "MAIN_10BIT"],
-        "QvbrQualityLevel": int,
-        "RateControlMode": Literal["CBR", "MULTIPLEX", "QVBR"],
-        "ScanType": Literal["INTERLACED", "PROGRESSIVE"],
-        "SceneChangeDetect": Literal["DISABLED", "ENABLED"],
-        "Slices": int,
-        "Tier": Literal["HIGH", "MAIN"],
-        "TimecodeInsertion": Literal["DISABLED", "PIC_TIMING_SEI"],
+        "TemporalFilterSettings": "TemporalFilterSettingsTypeDef",
     },
     total=False,
 )
 
+_RequiredH265SettingsTypeDef = TypedDict(
+    "_RequiredH265SettingsTypeDef",
+    {
+        "FramerateDenominator": int,
+        "FramerateNumerator": int,
+    },
+)
+_OptionalH265SettingsTypeDef = TypedDict(
+    "_OptionalH265SettingsTypeDef",
+    {
+        "AdaptiveQuantization": H265AdaptiveQuantizationType,
+        "AfdSignaling": AfdSignalingType,
+        "AlternativeTransferFunction": H265AlternativeTransferFunctionType,
+        "Bitrate": int,
+        "BufSize": int,
+        "ColorMetadata": H265ColorMetadataType,
+        "ColorSpaceSettings": "H265ColorSpaceSettingsTypeDef",
+        "FilterSettings": "H265FilterSettingsTypeDef",
+        "FixedAfd": FixedAfdType,
+        "FlickerAq": H265FlickerAqType,
+        "GopClosedCadence": int,
+        "GopSize": float,
+        "GopSizeUnits": H265GopSizeUnitsType,
+        "Level": H265LevelType,
+        "LookAheadRateControl": H265LookAheadRateControlType,
+        "MaxBitrate": int,
+        "MinIInterval": int,
+        "ParDenominator": int,
+        "ParNumerator": int,
+        "Profile": H265ProfileType,
+        "QvbrQualityLevel": int,
+        "RateControlMode": H265RateControlModeType,
+        "ScanType": H265ScanTypeType,
+        "SceneChangeDetect": H265SceneChangeDetectType,
+        "Slices": int,
+        "Tier": H265TierType,
+        "TimecodeInsertion": H265TimecodeInsertionBehaviorType,
+    },
+    total=False,
+)
 
 class H265SettingsTypeDef(_RequiredH265SettingsTypeDef, _OptionalH265SettingsTypeDef):
     pass
 
-
 Hdr10SettingsTypeDef = TypedDict(
-    "Hdr10SettingsTypeDef", {"MaxCll": int, "MaxFall": int}, total=False
+    "Hdr10SettingsTypeDef",
+    {
+        "MaxCll": int,
+        "MaxFall": int,
+    },
+    total=False,
 )
 
 HlsAkamaiSettingsTypeDef = TypedDict(
@@ -1117,7 +2207,7 @@ HlsAkamaiSettingsTypeDef = TypedDict(
     {
         "ConnectionRetryInterval": int,
         "FilecacheDuration": int,
-        "HttpTransferMode": Literal["CHUNKED", "NON_CHUNKED"],
+        "HttpTransferMode": HlsAkamaiHttpTransferModeType,
         "NumRetries": int,
         "RestartDelay": int,
         "Salt": str,
@@ -1143,76 +2233,85 @@ HlsCdnSettingsTypeDef = TypedDict(
         "HlsAkamaiSettings": "HlsAkamaiSettingsTypeDef",
         "HlsBasicPutSettings": "HlsBasicPutSettingsTypeDef",
         "HlsMediaStoreSettings": "HlsMediaStoreSettingsTypeDef",
+        "HlsS3Settings": "HlsS3SettingsTypeDef",
         "HlsWebdavSettings": "HlsWebdavSettingsTypeDef",
     },
     total=False,
 )
 
 _RequiredHlsGroupSettingsTypeDef = TypedDict(
-    "_RequiredHlsGroupSettingsTypeDef", {"Destination": "OutputLocationRefTypeDef"}
+    "_RequiredHlsGroupSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
 )
 _OptionalHlsGroupSettingsTypeDef = TypedDict(
     "_OptionalHlsGroupSettingsTypeDef",
     {
-        "AdMarkers": List[Literal["ADOBE", "ELEMENTAL", "ELEMENTAL_SCTE35"]],
+        "AdMarkers": List[HlsAdMarkersType],
         "BaseUrlContent": str,
         "BaseUrlContent1": str,
         "BaseUrlManifest": str,
         "BaseUrlManifest1": str,
         "CaptionLanguageMappings": List["CaptionLanguageMappingTypeDef"],
-        "CaptionLanguageSetting": Literal["INSERT", "NONE", "OMIT"],
-        "ClientCache": Literal["DISABLED", "ENABLED"],
-        "CodecSpecification": Literal["RFC_4281", "RFC_6381"],
+        "CaptionLanguageSetting": HlsCaptionLanguageSettingType,
+        "ClientCache": HlsClientCacheType,
+        "CodecSpecification": HlsCodecSpecificationType,
         "ConstantIv": str,
-        "DirectoryStructure": Literal["SINGLE_DIRECTORY", "SUBDIRECTORY_PER_STREAM"],
-        "DiscontinuityTags": Literal["INSERT", "NEVER_INSERT"],
-        "EncryptionType": Literal["AES128", "SAMPLE_AES"],
+        "DirectoryStructure": HlsDirectoryStructureType,
+        "DiscontinuityTags": HlsDiscontinuityTagsType,
+        "EncryptionType": HlsEncryptionTypeType,
         "HlsCdnSettings": "HlsCdnSettingsTypeDef",
-        "HlsId3SegmentTagging": Literal["DISABLED", "ENABLED"],
-        "IFrameOnlyPlaylists": Literal["DISABLED", "STANDARD"],
-        "IncompleteSegmentBehavior": Literal["AUTO", "SUPPRESS"],
+        "HlsId3SegmentTagging": HlsId3SegmentTaggingStateType,
+        "IFrameOnlyPlaylists": IFrameOnlyPlaylistTypeType,
+        "IncompleteSegmentBehavior": HlsIncompleteSegmentBehaviorType,
         "IndexNSegments": int,
-        "InputLossAction": Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"],
-        "IvInManifest": Literal["EXCLUDE", "INCLUDE"],
-        "IvSource": Literal["EXPLICIT", "FOLLOWS_SEGMENT_NUMBER"],
+        "InputLossAction": InputLossActionForHlsOutType,
+        "IvInManifest": HlsIvInManifestType,
+        "IvSource": HlsIvSourceType,
         "KeepSegments": int,
         "KeyFormat": str,
         "KeyFormatVersions": str,
         "KeyProviderSettings": "KeyProviderSettingsTypeDef",
-        "ManifestCompression": Literal["GZIP", "NONE"],
-        "ManifestDurationFormat": Literal["FLOATING_POINT", "INTEGER"],
+        "ManifestCompression": HlsManifestCompressionType,
+        "ManifestDurationFormat": HlsManifestDurationFormatType,
         "MinSegmentLength": int,
-        "Mode": Literal["LIVE", "VOD"],
-        "OutputSelection": Literal[
-            "MANIFESTS_AND_SEGMENTS", "SEGMENTS_ONLY", "VARIANT_MANIFESTS_AND_SEGMENTS"
-        ],
-        "ProgramDateTime": Literal["EXCLUDE", "INCLUDE"],
+        "Mode": HlsModeType,
+        "OutputSelection": HlsOutputSelectionType,
+        "ProgramDateTime": HlsProgramDateTimeType,
         "ProgramDateTimePeriod": int,
-        "RedundantManifest": Literal["DISABLED", "ENABLED"],
+        "RedundantManifest": HlsRedundantManifestType,
         "SegmentLength": int,
-        "SegmentationMode": Literal["USE_INPUT_SEGMENTATION", "USE_SEGMENT_DURATION"],
+        "SegmentationMode": HlsSegmentationModeType,
         "SegmentsPerSubdirectory": int,
-        "StreamInfResolution": Literal["EXCLUDE", "INCLUDE"],
-        "TimedMetadataId3Frame": Literal["NONE", "PRIV", "TDRL"],
+        "StreamInfResolution": HlsStreamInfResolutionType,
+        "TimedMetadataId3Frame": HlsTimedMetadataId3FrameType,
         "TimedMetadataId3Period": int,
         "TimestampDeltaMilliseconds": int,
-        "TsFileMode": Literal["SEGMENTED_FILES", "SINGLE_FILE"],
+        "TsFileMode": HlsTsFileModeType,
     },
     total=False,
 )
 
-
 class HlsGroupSettingsTypeDef(_RequiredHlsGroupSettingsTypeDef, _OptionalHlsGroupSettingsTypeDef):
     pass
 
-
 HlsId3SegmentTaggingScheduleActionSettingsTypeDef = TypedDict(
-    "HlsId3SegmentTaggingScheduleActionSettingsTypeDef", {"Tag": str}
+    "HlsId3SegmentTaggingScheduleActionSettingsTypeDef",
+    {
+        "Tag": str,
+    },
 )
 
 HlsInputSettingsTypeDef = TypedDict(
     "HlsInputSettingsTypeDef",
-    {"Bandwidth": int, "BufferSegments": int, "Retries": int, "RetryInterval": int},
+    {
+        "Bandwidth": int,
+        "BufferSegments": int,
+        "Retries": int,
+        "RetryInterval": int,
+        "Scte35Source": HlsScte35SourceTypeType,
+    },
     total=False,
 )
 
@@ -1229,20 +2328,33 @@ HlsMediaStoreSettingsTypeDef = TypedDict(
 )
 
 _RequiredHlsOutputSettingsTypeDef = TypedDict(
-    "_RequiredHlsOutputSettingsTypeDef", {"HlsSettings": "HlsSettingsTypeDef"}
+    "_RequiredHlsOutputSettingsTypeDef",
+    {
+        "HlsSettings": "HlsSettingsTypeDef",
+    },
 )
 _OptionalHlsOutputSettingsTypeDef = TypedDict(
     "_OptionalHlsOutputSettingsTypeDef",
-    {"H265PackagingType": Literal["HEV1", "HVC1"], "NameModifier": str, "SegmentModifier": str},
+    {
+        "H265PackagingType": HlsH265PackagingTypeType,
+        "NameModifier": str,
+        "SegmentModifier": str,
+    },
     total=False,
 )
-
 
 class HlsOutputSettingsTypeDef(
     _RequiredHlsOutputSettingsTypeDef, _OptionalHlsOutputSettingsTypeDef
 ):
     pass
 
+HlsS3SettingsTypeDef = TypedDict(
+    "HlsS3SettingsTypeDef",
+    {
+        "CannedAcl": S3CannedAclType,
+    },
+    total=False,
+)
 
 HlsSettingsTypeDef = TypedDict(
     "HlsSettingsTypeDef",
@@ -1256,7 +2368,10 @@ HlsSettingsTypeDef = TypedDict(
 )
 
 HlsTimedMetadataScheduleActionSettingsTypeDef = TypedDict(
-    "HlsTimedMetadataScheduleActionSettingsTypeDef", {"Id3": str}
+    "HlsTimedMetadataScheduleActionSettingsTypeDef",
+    {
+        "Id3": str,
+    },
 )
 
 HlsWebdavSettingsTypeDef = TypedDict(
@@ -1264,7 +2379,7 @@ HlsWebdavSettingsTypeDef = TypedDict(
     {
         "ConnectionRetryInterval": int,
         "FilecacheDuration": int,
-        "HttpTransferMode": Literal["CHUNKED", "NON_CHUNKED"],
+        "HttpTransferMode": HlsWebdavHttpTransferModeType,
         "NumRetries": int,
         "RestartDelay": int,
     },
@@ -1282,45 +2397,81 @@ InputAttachmentTypeDef = TypedDict(
     total=False,
 )
 
-InputChannelLevelTypeDef = TypedDict("InputChannelLevelTypeDef", {"Gain": int, "InputChannel": int})
+InputChannelLevelTypeDef = TypedDict(
+    "InputChannelLevelTypeDef",
+    {
+        "Gain": int,
+        "InputChannel": int,
+    },
+)
 
 _RequiredInputClippingSettingsTypeDef = TypedDict(
     "_RequiredInputClippingSettingsTypeDef",
-    {"InputTimecodeSource": Literal["ZEROBASED", "EMBEDDED"]},
+    {
+        "InputTimecodeSource": InputTimecodeSourceType,
+    },
 )
 _OptionalInputClippingSettingsTypeDef = TypedDict(
     "_OptionalInputClippingSettingsTypeDef",
-    {"StartTimecode": "StartTimecodeTypeDef", "StopTimecode": "StopTimecodeTypeDef"},
+    {
+        "StartTimecode": "StartTimecodeTypeDef",
+        "StopTimecode": "StopTimecodeTypeDef",
+    },
     total=False,
 )
-
 
 class InputClippingSettingsTypeDef(
     _RequiredInputClippingSettingsTypeDef, _OptionalInputClippingSettingsTypeDef
 ):
     pass
 
+InputDestinationRequestTypeDef = TypedDict(
+    "InputDestinationRequestTypeDef",
+    {
+        "StreamName": str,
+    },
+    total=False,
+)
 
 InputDestinationTypeDef = TypedDict(
     "InputDestinationTypeDef",
-    {"Ip": str, "Port": str, "Url": str, "Vpc": "InputDestinationVpcTypeDef"},
+    {
+        "Ip": str,
+        "Port": str,
+        "Url": str,
+        "Vpc": "InputDestinationVpcTypeDef",
+    },
     total=False,
 )
 
 InputDestinationVpcTypeDef = TypedDict(
-    "InputDestinationVpcTypeDef", {"AvailabilityZone": str, "NetworkInterfaceId": str}, total=False
+    "InputDestinationVpcTypeDef",
+    {
+        "AvailabilityZone": str,
+        "NetworkInterfaceId": str,
+    },
+    total=False,
+)
+
+InputDeviceConfigurableSettingsTypeDef = TypedDict(
+    "InputDeviceConfigurableSettingsTypeDef",
+    {
+        "ConfiguredInput": InputDeviceConfiguredInputType,
+        "MaxBitrate": int,
+    },
+    total=False,
 )
 
 InputDeviceHdSettingsTypeDef = TypedDict(
     "InputDeviceHdSettingsTypeDef",
     {
-        "ActiveInput": Literal["HDMI", "SDI"],
-        "ConfiguredInput": Literal["AUTO", "HDMI", "SDI"],
-        "DeviceState": Literal["IDLE", "STREAMING"],
+        "ActiveInput": InputDeviceActiveInputType,
+        "ConfiguredInput": InputDeviceConfiguredInputType,
+        "DeviceState": InputDeviceStateType,
         "Framerate": float,
         "Height": int,
         "MaxBitrate": int,
-        "ScanType": Literal["INTERLACED", "PROGRESSIVE"],
+        "ScanType": InputDeviceScanTypeType,
         "Width": int,
     },
     total=False,
@@ -1332,21 +2483,35 @@ InputDeviceNetworkSettingsTypeDef = TypedDict(
         "DnsAddresses": List[str],
         "Gateway": str,
         "IpAddress": str,
-        "IpScheme": Literal["STATIC", "DHCP"],
+        "IpScheme": InputDeviceIpSchemeType,
         "SubnetMask": str,
     },
     total=False,
 )
 
-InputDeviceSettingsTypeDef = TypedDict("InputDeviceSettingsTypeDef", {"Id": str}, total=False)
+InputDeviceRequestTypeDef = TypedDict(
+    "InputDeviceRequestTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
+
+InputDeviceSettingsTypeDef = TypedDict(
+    "InputDeviceSettingsTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
 
 InputDeviceSummaryTypeDef = TypedDict(
     "InputDeviceSummaryTypeDef",
     {
         "Arn": str,
-        "ConnectionState": Literal["DISCONNECTED", "CONNECTED"],
-        "DeviceSettingsSyncState": Literal["SYNCED", "SYNCING"],
-        "DeviceUpdateStatus": Literal["UP_TO_DATE", "NOT_UP_TO_DATE"],
+        "ConnectionState": InputDeviceConnectionStateType,
+        "DeviceSettingsSyncState": DeviceSettingsSyncStateType,
+        "DeviceUpdateStatus": DeviceUpdateStatusType,
         "HdDeviceSettings": "InputDeviceHdSettingsTypeDef",
         "Id": str,
         "MacAddress": str,
@@ -1362,27 +2527,35 @@ InputDeviceSummaryTypeDef = TypedDict(
 InputDeviceUhdSettingsTypeDef = TypedDict(
     "InputDeviceUhdSettingsTypeDef",
     {
-        "ActiveInput": Literal["HDMI", "SDI"],
-        "ConfiguredInput": Literal["AUTO", "HDMI", "SDI"],
-        "DeviceState": Literal["IDLE", "STREAMING"],
+        "ActiveInput": InputDeviceActiveInputType,
+        "ConfiguredInput": InputDeviceConfiguredInputType,
+        "DeviceState": InputDeviceStateType,
         "Framerate": float,
         "Height": int,
         "MaxBitrate": int,
-        "ScanType": Literal["INTERLACED", "PROGRESSIVE"],
+        "ScanType": InputDeviceScanTypeType,
         "Width": int,
     },
     total=False,
 )
 
-_RequiredInputLocationTypeDef = TypedDict("_RequiredInputLocationTypeDef", {"Uri": str})
-_OptionalInputLocationTypeDef = TypedDict(
-    "_OptionalInputLocationTypeDef", {"PasswordParam": str, "Username": str}, total=False
+_RequiredInputLocationTypeDef = TypedDict(
+    "_RequiredInputLocationTypeDef",
+    {
+        "Uri": str,
+    },
 )
-
+_OptionalInputLocationTypeDef = TypedDict(
+    "_OptionalInputLocationTypeDef",
+    {
+        "PasswordParam": str,
+        "Username": str,
+    },
+    total=False,
+)
 
 class InputLocationTypeDef(_RequiredInputLocationTypeDef, _OptionalInputLocationTypeDef):
     pass
-
 
 InputLossBehaviorTypeDef = TypedDict(
     "InputLossBehaviorTypeDef",
@@ -1390,14 +2563,18 @@ InputLossBehaviorTypeDef = TypedDict(
         "BlackFrameMsec": int,
         "InputLossImageColor": str,
         "InputLossImageSlate": "InputLocationTypeDef",
-        "InputLossImageType": Literal["COLOR", "SLATE"],
+        "InputLossImageType": InputLossImageTypeType,
         "RepeatFrameMsec": int,
     },
     total=False,
 )
 
 InputLossFailoverSettingsTypeDef = TypedDict(
-    "InputLossFailoverSettingsTypeDef", {"InputLossThresholdMsec": int}, total=False
+    "InputLossFailoverSettingsTypeDef",
+    {
+        "InputLossThresholdMsec": int,
+    },
+    total=False,
 )
 
 InputPrepareScheduleActionSettingsTypeDef = TypedDict(
@@ -1416,7 +2593,7 @@ InputSecurityGroupTypeDef = TypedDict(
         "Arn": str,
         "Id": str,
         "Inputs": List[str],
-        "State": Literal["IDLE", "IN_USE", "UPDATING", "DELETED"],
+        "State": InputSecurityGroupStateType,
         "Tags": Dict[str, str],
         "WhitelistRules": List["InputWhitelistRuleTypeDef"],
     },
@@ -1428,48 +2605,68 @@ InputSettingsTypeDef = TypedDict(
     {
         "AudioSelectors": List["AudioSelectorTypeDef"],
         "CaptionSelectors": List["CaptionSelectorTypeDef"],
-        "DeblockFilter": Literal["DISABLED", "ENABLED"],
-        "DenoiseFilter": Literal["DISABLED", "ENABLED"],
+        "DeblockFilter": InputDeblockFilterType,
+        "DenoiseFilter": InputDenoiseFilterType,
         "FilterStrength": int,
-        "InputFilter": Literal["AUTO", "DISABLED", "FORCED"],
+        "InputFilter": InputFilterType,
         "NetworkInputSettings": "NetworkInputSettingsTypeDef",
-        "Smpte2038DataPreference": Literal["IGNORE", "PREFER"],
-        "SourceEndBehavior": Literal["CONTINUE", "LOOP"],
+        "Smpte2038DataPreference": Smpte2038DataPreferenceType,
+        "SourceEndBehavior": InputSourceEndBehaviorType,
         "VideoSelector": "VideoSelectorTypeDef",
     },
     total=False,
 )
 
+InputSourceRequestTypeDef = TypedDict(
+    "InputSourceRequestTypeDef",
+    {
+        "PasswordParam": str,
+        "Url": str,
+        "Username": str,
+    },
+    total=False,
+)
+
 InputSourceTypeDef = TypedDict(
-    "InputSourceTypeDef", {"PasswordParam": str, "Url": str, "Username": str}, total=False
+    "InputSourceTypeDef",
+    {
+        "PasswordParam": str,
+        "Url": str,
+        "Username": str,
+    },
+    total=False,
 )
 
 InputSpecificationTypeDef = TypedDict(
     "InputSpecificationTypeDef",
     {
-        "Codec": Literal["MPEG2", "AVC", "HEVC"],
-        "MaximumBitrate": Literal["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"],
-        "Resolution": Literal["SD", "HD", "UHD"],
+        "Codec": InputCodecType,
+        "MaximumBitrate": InputMaximumBitrateType,
+        "Resolution": InputResolutionType,
     },
     total=False,
 )
 
 _RequiredInputSwitchScheduleActionSettingsTypeDef = TypedDict(
-    "_RequiredInputSwitchScheduleActionSettingsTypeDef", {"InputAttachmentNameReference": str}
+    "_RequiredInputSwitchScheduleActionSettingsTypeDef",
+    {
+        "InputAttachmentNameReference": str,
+    },
 )
 _OptionalInputSwitchScheduleActionSettingsTypeDef = TypedDict(
     "_OptionalInputSwitchScheduleActionSettingsTypeDef",
-    {"InputClippingSettings": "InputClippingSettingsTypeDef", "UrlPath": List[str]},
+    {
+        "InputClippingSettings": "InputClippingSettingsTypeDef",
+        "UrlPath": List[str],
+    },
     total=False,
 )
-
 
 class InputSwitchScheduleActionSettingsTypeDef(
     _RequiredInputSwitchScheduleActionSettingsTypeDef,
     _OptionalInputSwitchScheduleActionSettingsTypeDef,
 ):
     pass
-
 
 InputTypeDef = TypedDict(
     "InputTypeDef",
@@ -1478,86 +2675,329 @@ InputTypeDef = TypedDict(
         "AttachedChannels": List[str],
         "Destinations": List["InputDestinationTypeDef"],
         "Id": str,
-        "InputClass": Literal["STANDARD", "SINGLE_PIPELINE"],
+        "InputClass": InputClassType,
         "InputDevices": List["InputDeviceSettingsTypeDef"],
-        "InputSourceType": Literal["STATIC", "DYNAMIC"],
+        "InputPartnerIds": List[str],
+        "InputSourceType": InputSourceTypeType,
         "MediaConnectFlows": List["MediaConnectFlowTypeDef"],
         "Name": str,
         "RoleArn": str,
         "SecurityGroups": List[str],
         "Sources": List["InputSourceTypeDef"],
-        "State": Literal["CREATING", "DETACHED", "ATTACHED", "DELETING", "DELETED"],
+        "State": InputStateType,
         "Tags": Dict[str, str],
-        "Type": Literal[
-            "UDP_PUSH",
-            "RTP_PUSH",
-            "RTMP_PUSH",
-            "RTMP_PULL",
-            "URL_PULL",
-            "MP4_FILE",
-            "MEDIACONNECT",
-            "INPUT_DEVICE",
-            "AWS_CDI",
-        ],
+        "Type": InputTypeType,
     },
     total=False,
 )
 
-InputWhitelistRuleTypeDef = TypedDict("InputWhitelistRuleTypeDef", {"Cidr": str}, total=False)
+_RequiredInputVpcRequestTypeDef = TypedDict(
+    "_RequiredInputVpcRequestTypeDef",
+    {
+        "SubnetIds": List[str],
+    },
+)
+_OptionalInputVpcRequestTypeDef = TypedDict(
+    "_OptionalInputVpcRequestTypeDef",
+    {
+        "SecurityGroupIds": List[str],
+    },
+    total=False,
+)
+
+class InputVpcRequestTypeDef(_RequiredInputVpcRequestTypeDef, _OptionalInputVpcRequestTypeDef):
+    pass
+
+InputWhitelistRuleCidrTypeDef = TypedDict(
+    "InputWhitelistRuleCidrTypeDef",
+    {
+        "Cidr": str,
+    },
+    total=False,
+)
+
+InputWhitelistRuleTypeDef = TypedDict(
+    "InputWhitelistRuleTypeDef",
+    {
+        "Cidr": str,
+    },
+    total=False,
+)
 
 KeyProviderSettingsTypeDef = TypedDict(
-    "KeyProviderSettingsTypeDef", {"StaticKeySettings": "StaticKeySettingsTypeDef"}, total=False
+    "KeyProviderSettingsTypeDef",
+    {
+        "StaticKeySettings": "StaticKeySettingsTypeDef",
+    },
+    total=False,
+)
+
+ListChannelsRequestRequestTypeDef = TypedDict(
+    "ListChannelsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListChannelsResponseTypeDef = TypedDict(
+    "ListChannelsResponseTypeDef",
+    {
+        "Channels": List["ChannelSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListInputDeviceTransfersRequestRequestTypeDef = TypedDict(
+    "_RequiredListInputDeviceTransfersRequestRequestTypeDef",
+    {
+        "TransferType": str,
+    },
+)
+_OptionalListInputDeviceTransfersRequestRequestTypeDef = TypedDict(
+    "_OptionalListInputDeviceTransfersRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListInputDeviceTransfersRequestRequestTypeDef(
+    _RequiredListInputDeviceTransfersRequestRequestTypeDef,
+    _OptionalListInputDeviceTransfersRequestRequestTypeDef,
+):
+    pass
+
+ListInputDeviceTransfersResponseTypeDef = TypedDict(
+    "ListInputDeviceTransfersResponseTypeDef",
+    {
+        "InputDeviceTransfers": List["TransferringInputDeviceSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListInputDevicesRequestRequestTypeDef = TypedDict(
+    "ListInputDevicesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListInputDevicesResponseTypeDef = TypedDict(
+    "ListInputDevicesResponseTypeDef",
+    {
+        "InputDevices": List["InputDeviceSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListInputSecurityGroupsRequestRequestTypeDef = TypedDict(
+    "ListInputSecurityGroupsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListInputSecurityGroupsResponseTypeDef = TypedDict(
+    "ListInputSecurityGroupsResponseTypeDef",
+    {
+        "InputSecurityGroups": List["InputSecurityGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListInputsRequestRequestTypeDef = TypedDict(
+    "ListInputsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListInputsResponseTypeDef = TypedDict(
+    "ListInputsResponseTypeDef",
+    {
+        "Inputs": List["InputTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListMultiplexProgramsRequestRequestTypeDef = TypedDict(
+    "_RequiredListMultiplexProgramsRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+    },
+)
+_OptionalListMultiplexProgramsRequestRequestTypeDef = TypedDict(
+    "_OptionalListMultiplexProgramsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListMultiplexProgramsRequestRequestTypeDef(
+    _RequiredListMultiplexProgramsRequestRequestTypeDef,
+    _OptionalListMultiplexProgramsRequestRequestTypeDef,
+):
+    pass
+
+ListMultiplexProgramsResponseTypeDef = TypedDict(
+    "ListMultiplexProgramsResponseTypeDef",
+    {
+        "MultiplexPrograms": List["MultiplexProgramSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListMultiplexesRequestRequestTypeDef = TypedDict(
+    "ListMultiplexesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListMultiplexesResponseTypeDef = TypedDict(
+    "ListMultiplexesResponseTypeDef",
+    {
+        "Multiplexes": List["MultiplexSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListOfferingsRequestRequestTypeDef = TypedDict(
+    "ListOfferingsRequestRequestTypeDef",
+    {
+        "ChannelClass": str,
+        "ChannelConfiguration": str,
+        "Codec": str,
+        "Duration": str,
+        "MaxResults": int,
+        "MaximumBitrate": str,
+        "MaximumFramerate": str,
+        "NextToken": str,
+        "Resolution": str,
+        "ResourceType": str,
+        "SpecialFeature": str,
+        "VideoQuality": str,
+    },
+    total=False,
+)
+
+ListOfferingsResponseTypeDef = TypedDict(
+    "ListOfferingsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Offerings": List["OfferingTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListReservationsRequestRequestTypeDef = TypedDict(
+    "ListReservationsRequestRequestTypeDef",
+    {
+        "ChannelClass": str,
+        "Codec": str,
+        "MaxResults": int,
+        "MaximumBitrate": str,
+        "MaximumFramerate": str,
+        "NextToken": str,
+        "Resolution": str,
+        "ResourceType": str,
+        "SpecialFeature": str,
+        "VideoQuality": str,
+    },
+    total=False,
+)
+
+ListReservationsResponseTypeDef = TypedDict(
+    "ListReservationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Reservations": List["ReservationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 M2tsSettingsTypeDef = TypedDict(
     "M2tsSettingsTypeDef",
     {
-        "AbsentInputAudioBehavior": Literal["DROP", "ENCODE_SILENCE"],
-        "Arib": Literal["DISABLED", "ENABLED"],
+        "AbsentInputAudioBehavior": M2tsAbsentInputAudioBehaviorType,
+        "Arib": M2tsAribType,
         "AribCaptionsPid": str,
-        "AribCaptionsPidControl": Literal["AUTO", "USE_CONFIGURED"],
-        "AudioBufferModel": Literal["ATSC", "DVB"],
+        "AribCaptionsPidControl": M2tsAribCaptionsPidControlType,
+        "AudioBufferModel": M2tsAudioBufferModelType,
         "AudioFramesPerPes": int,
         "AudioPids": str,
-        "AudioStreamType": Literal["ATSC", "DVB"],
+        "AudioStreamType": M2tsAudioStreamTypeType,
         "Bitrate": int,
-        "BufferModel": Literal["MULTIPLEX", "NONE"],
-        "CcDescriptor": Literal["DISABLED", "ENABLED"],
+        "BufferModel": M2tsBufferModelType,
+        "CcDescriptor": M2tsCcDescriptorType,
         "DvbNitSettings": "DvbNitSettingsTypeDef",
         "DvbSdtSettings": "DvbSdtSettingsTypeDef",
         "DvbSubPids": str,
         "DvbTdtSettings": "DvbTdtSettingsTypeDef",
         "DvbTeletextPid": str,
-        "Ebif": Literal["NONE", "PASSTHROUGH"],
-        "EbpAudioInterval": Literal["VIDEO_AND_FIXED_INTERVALS", "VIDEO_INTERVAL"],
+        "Ebif": M2tsEbifControlType,
+        "EbpAudioInterval": M2tsAudioIntervalType,
         "EbpLookaheadMs": int,
-        "EbpPlacement": Literal["VIDEO_AND_AUDIO_PIDS", "VIDEO_PID"],
+        "EbpPlacement": M2tsEbpPlacementType,
         "EcmPid": str,
-        "EsRateInPes": Literal["EXCLUDE", "INCLUDE"],
+        "EsRateInPes": M2tsEsRateInPesType,
         "EtvPlatformPid": str,
         "EtvSignalPid": str,
         "FragmentTime": float,
-        "Klv": Literal["NONE", "PASSTHROUGH"],
+        "Klv": M2tsKlvType,
         "KlvDataPids": str,
-        "NielsenId3Behavior": Literal["NO_PASSTHROUGH", "PASSTHROUGH"],
+        "NielsenId3Behavior": M2tsNielsenId3BehaviorType,
         "NullPacketBitrate": float,
         "PatInterval": int,
-        "PcrControl": Literal["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"],
+        "PcrControl": M2tsPcrControlType,
         "PcrPeriod": int,
         "PcrPid": str,
         "PmtInterval": int,
         "PmtPid": str,
         "ProgramNum": int,
-        "RateMode": Literal["CBR", "VBR"],
+        "RateMode": M2tsRateModeType,
         "Scte27Pids": str,
-        "Scte35Control": Literal["NONE", "PASSTHROUGH"],
+        "Scte35Control": M2tsScte35ControlType,
         "Scte35Pid": str,
-        "SegmentationMarkers": Literal[
-            "EBP", "EBP_LEGACY", "NONE", "PSI_SEGSTART", "RAI_ADAPT", "RAI_SEGSTART"
-        ],
-        "SegmentationStyle": Literal["MAINTAIN_CADENCE", "RESET_CADENCE"],
+        "SegmentationMarkers": M2tsSegmentationMarkersType,
+        "SegmentationStyle": M2tsSegmentationStyleType,
         "SegmentationTime": float,
-        "TimedMetadataBehavior": Literal["NO_PASSTHROUGH", "PASSTHROUGH"],
+        "TimedMetadataBehavior": M2tsTimedMetadataBehaviorType,
         "TimedMetadataPid": str,
         "TransportStreamId": int,
         "VideoPid": str,
@@ -1571,17 +3011,17 @@ M3u8SettingsTypeDef = TypedDict(
         "AudioFramesPerPes": int,
         "AudioPids": str,
         "EcmPid": str,
-        "NielsenId3Behavior": Literal["NO_PASSTHROUGH", "PASSTHROUGH"],
+        "NielsenId3Behavior": M3u8NielsenId3BehaviorType,
         "PatInterval": int,
-        "PcrControl": Literal["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"],
+        "PcrControl": M3u8PcrControlType,
         "PcrPeriod": int,
         "PcrPid": str,
         "PmtInterval": int,
         "PmtPid": str,
         "ProgramNum": int,
-        "Scte35Behavior": Literal["NO_PASSTHROUGH", "PASSTHROUGH"],
+        "Scte35Behavior": M3u8Scte35BehaviorType,
         "Scte35Pid": str,
-        "TimedMetadataBehavior": Literal["NO_PASSTHROUGH", "PASSTHROUGH"],
+        "TimedMetadataBehavior": M3u8TimedMetadataBehaviorType,
         "TimedMetadataPid": str,
         "TransportStreamId": int,
         "VideoPid": str,
@@ -1589,21 +3029,80 @@ M3u8SettingsTypeDef = TypedDict(
     total=False,
 )
 
-MediaConnectFlowTypeDef = TypedDict("MediaConnectFlowTypeDef", {"FlowArn": str}, total=False)
+MediaConnectFlowRequestTypeDef = TypedDict(
+    "MediaConnectFlowRequestTypeDef",
+    {
+        "FlowArn": str,
+    },
+    total=False,
+)
+
+MediaConnectFlowTypeDef = TypedDict(
+    "MediaConnectFlowTypeDef",
+    {
+        "FlowArn": str,
+    },
+    total=False,
+)
 
 MediaPackageGroupSettingsTypeDef = TypedDict(
-    "MediaPackageGroupSettingsTypeDef", {"Destination": "OutputLocationRefTypeDef"}
+    "MediaPackageGroupSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
 )
 
 MediaPackageOutputDestinationSettingsTypeDef = TypedDict(
-    "MediaPackageOutputDestinationSettingsTypeDef", {"ChannelId": str}, total=False
+    "MediaPackageOutputDestinationSettingsTypeDef",
+    {
+        "ChannelId": str,
+    },
+    total=False,
+)
+
+MotionGraphicsActivateScheduleActionSettingsTypeDef = TypedDict(
+    "MotionGraphicsActivateScheduleActionSettingsTypeDef",
+    {
+        "Duration": int,
+        "PasswordParam": str,
+        "Url": str,
+        "Username": str,
+    },
+    total=False,
+)
+
+_RequiredMotionGraphicsConfigurationTypeDef = TypedDict(
+    "_RequiredMotionGraphicsConfigurationTypeDef",
+    {
+        "MotionGraphicsSettings": "MotionGraphicsSettingsTypeDef",
+    },
+)
+_OptionalMotionGraphicsConfigurationTypeDef = TypedDict(
+    "_OptionalMotionGraphicsConfigurationTypeDef",
+    {
+        "MotionGraphicsInsertion": MotionGraphicsInsertionType,
+    },
+    total=False,
+)
+
+class MotionGraphicsConfigurationTypeDef(
+    _RequiredMotionGraphicsConfigurationTypeDef, _OptionalMotionGraphicsConfigurationTypeDef
+):
+    pass
+
+MotionGraphicsSettingsTypeDef = TypedDict(
+    "MotionGraphicsSettingsTypeDef",
+    {
+        "HtmlMotionGraphicsSettings": Dict[str, Any],
+    },
+    total=False,
 )
 
 Mp2SettingsTypeDef = TypedDict(
     "Mp2SettingsTypeDef",
     {
         "Bitrate": float,
-        "CodingMode": Literal["CODING_MODE_1_0", "CODING_MODE_2_0"],
+        "CodingMode": Mp2CodingModeType,
         "SampleRate": float,
     },
     total=False,
@@ -1611,109 +3110,117 @@ Mp2SettingsTypeDef = TypedDict(
 
 Mpeg2FilterSettingsTypeDef = TypedDict(
     "Mpeg2FilterSettingsTypeDef",
-    {"TemporalFilterSettings": "TemporalFilterSettingsTypeDef"},
-    total=False,
-)
-
-_RequiredMpeg2SettingsTypeDef = TypedDict(
-    "_RequiredMpeg2SettingsTypeDef", {"FramerateDenominator": int, "FramerateNumerator": int}
-)
-_OptionalMpeg2SettingsTypeDef = TypedDict(
-    "_OptionalMpeg2SettingsTypeDef",
     {
-        "AdaptiveQuantization": Literal["AUTO", "HIGH", "LOW", "MEDIUM", "OFF"],
-        "AfdSignaling": Literal["AUTO", "FIXED", "NONE"],
-        "ColorMetadata": Literal["IGNORE", "INSERT"],
-        "ColorSpace": Literal["AUTO", "PASSTHROUGH"],
-        "DisplayAspectRatio": Literal["DISPLAYRATIO16X9", "DISPLAYRATIO4X3"],
-        "FilterSettings": "Mpeg2FilterSettingsTypeDef",
-        "FixedAfd": Literal[
-            "AFD_0000",
-            "AFD_0010",
-            "AFD_0011",
-            "AFD_0100",
-            "AFD_1000",
-            "AFD_1001",
-            "AFD_1010",
-            "AFD_1011",
-            "AFD_1101",
-            "AFD_1110",
-            "AFD_1111",
-        ],
-        "GopClosedCadence": int,
-        "GopNumBFrames": int,
-        "GopSize": float,
-        "GopSizeUnits": Literal["FRAMES", "SECONDS"],
-        "ScanType": Literal["INTERLACED", "PROGRESSIVE"],
-        "SubgopLength": Literal["DYNAMIC", "FIXED"],
-        "TimecodeInsertion": Literal["DISABLED", "GOP_TIMECODE"],
+        "TemporalFilterSettings": "TemporalFilterSettingsTypeDef",
     },
     total=False,
 )
 
+_RequiredMpeg2SettingsTypeDef = TypedDict(
+    "_RequiredMpeg2SettingsTypeDef",
+    {
+        "FramerateDenominator": int,
+        "FramerateNumerator": int,
+    },
+)
+_OptionalMpeg2SettingsTypeDef = TypedDict(
+    "_OptionalMpeg2SettingsTypeDef",
+    {
+        "AdaptiveQuantization": Mpeg2AdaptiveQuantizationType,
+        "AfdSignaling": AfdSignalingType,
+        "ColorMetadata": Mpeg2ColorMetadataType,
+        "ColorSpace": Mpeg2ColorSpaceType,
+        "DisplayAspectRatio": Mpeg2DisplayRatioType,
+        "FilterSettings": "Mpeg2FilterSettingsTypeDef",
+        "FixedAfd": FixedAfdType,
+        "GopClosedCadence": int,
+        "GopNumBFrames": int,
+        "GopSize": float,
+        "GopSizeUnits": Mpeg2GopSizeUnitsType,
+        "ScanType": Mpeg2ScanTypeType,
+        "SubgopLength": Mpeg2SubGopLengthType,
+        "TimecodeInsertion": Mpeg2TimecodeInsertionBehaviorType,
+    },
+    total=False,
+)
 
 class Mpeg2SettingsTypeDef(_RequiredMpeg2SettingsTypeDef, _OptionalMpeg2SettingsTypeDef):
     pass
 
-
 _RequiredMsSmoothGroupSettingsTypeDef = TypedDict(
-    "_RequiredMsSmoothGroupSettingsTypeDef", {"Destination": "OutputLocationRefTypeDef"}
+    "_RequiredMsSmoothGroupSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
 )
 _OptionalMsSmoothGroupSettingsTypeDef = TypedDict(
     "_OptionalMsSmoothGroupSettingsTypeDef",
     {
         "AcquisitionPointId": str,
-        "AudioOnlyTimecodeControl": Literal["PASSTHROUGH", "USE_CONFIGURED_CLOCK"],
-        "CertificateMode": Literal["SELF_SIGNED", "VERIFY_AUTHENTICITY"],
+        "AudioOnlyTimecodeControl": SmoothGroupAudioOnlyTimecodeControlType,
+        "CertificateMode": SmoothGroupCertificateModeType,
         "ConnectionRetryInterval": int,
         "EventId": str,
-        "EventIdMode": Literal["NO_EVENT_ID", "USE_CONFIGURED", "USE_TIMESTAMP"],
-        "EventStopBehavior": Literal["NONE", "SEND_EOS"],
+        "EventIdMode": SmoothGroupEventIdModeType,
+        "EventStopBehavior": SmoothGroupEventStopBehaviorType,
         "FilecacheDuration": int,
         "FragmentLength": int,
-        "InputLossAction": Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"],
+        "InputLossAction": InputLossActionForMsSmoothOutType,
         "NumRetries": int,
         "RestartDelay": int,
-        "SegmentationMode": Literal["USE_INPUT_SEGMENTATION", "USE_SEGMENT_DURATION"],
+        "SegmentationMode": SmoothGroupSegmentationModeType,
         "SendDelayMs": int,
-        "SparseTrackType": Literal["NONE", "SCTE_35", "SCTE_35_WITHOUT_SEGMENTATION"],
-        "StreamManifestBehavior": Literal["DO_NOT_SEND", "SEND"],
+        "SparseTrackType": SmoothGroupSparseTrackTypeType,
+        "StreamManifestBehavior": SmoothGroupStreamManifestBehaviorType,
         "TimestampOffset": str,
-        "TimestampOffsetMode": Literal["USE_CONFIGURED_OFFSET", "USE_EVENT_START_DATE"],
+        "TimestampOffsetMode": SmoothGroupTimestampOffsetModeType,
     },
     total=False,
 )
-
 
 class MsSmoothGroupSettingsTypeDef(
     _RequiredMsSmoothGroupSettingsTypeDef, _OptionalMsSmoothGroupSettingsTypeDef
 ):
     pass
 
-
 MsSmoothOutputSettingsTypeDef = TypedDict(
     "MsSmoothOutputSettingsTypeDef",
-    {"H265PackagingType": Literal["HEV1", "HVC1"], "NameModifier": str},
+    {
+        "H265PackagingType": MsSmoothH265PackagingTypeType,
+        "NameModifier": str,
+    },
     total=False,
 )
 
 MultiplexMediaConnectOutputDestinationSettingsTypeDef = TypedDict(
-    "MultiplexMediaConnectOutputDestinationSettingsTypeDef", {"EntitlementArn": str}, total=False
+    "MultiplexMediaConnectOutputDestinationSettingsTypeDef",
+    {
+        "EntitlementArn": str,
+    },
+    total=False,
 )
 
 MultiplexOutputDestinationTypeDef = TypedDict(
     "MultiplexOutputDestinationTypeDef",
-    {"MediaConnectSettings": "MultiplexMediaConnectOutputDestinationSettingsTypeDef"},
+    {
+        "MediaConnectSettings": "MultiplexMediaConnectOutputDestinationSettingsTypeDef",
+    },
     total=False,
 )
 
 MultiplexOutputSettingsTypeDef = TypedDict(
-    "MultiplexOutputSettingsTypeDef", {"Destination": "OutputLocationRefTypeDef"}
+    "MultiplexOutputSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
 )
 
 MultiplexProgramChannelDestinationSettingsTypeDef = TypedDict(
     "MultiplexProgramChannelDestinationSettingsTypeDef",
-    {"MultiplexId": str, "ProgramName": str},
+    {
+        "MultiplexId": str,
+        "ProgramName": str,
+    },
     total=False,
 )
 
@@ -1739,36 +3246,49 @@ MultiplexProgramPacketIdentifiersMapTypeDef = TypedDict(
 
 MultiplexProgramPipelineDetailTypeDef = TypedDict(
     "MultiplexProgramPipelineDetailTypeDef",
-    {"ActiveChannelPipeline": str, "PipelineId": str},
+    {
+        "ActiveChannelPipeline": str,
+        "PipelineId": str,
+    },
     total=False,
 )
 
 MultiplexProgramServiceDescriptorTypeDef = TypedDict(
-    "MultiplexProgramServiceDescriptorTypeDef", {"ProviderName": str, "ServiceName": str}
+    "MultiplexProgramServiceDescriptorTypeDef",
+    {
+        "ProviderName": str,
+        "ServiceName": str,
+    },
 )
 
 _RequiredMultiplexProgramSettingsTypeDef = TypedDict(
-    "_RequiredMultiplexProgramSettingsTypeDef", {"ProgramNumber": int}
+    "_RequiredMultiplexProgramSettingsTypeDef",
+    {
+        "ProgramNumber": int,
+    },
 )
 _OptionalMultiplexProgramSettingsTypeDef = TypedDict(
     "_OptionalMultiplexProgramSettingsTypeDef",
     {
-        "PreferredChannelPipeline": Literal["CURRENTLY_ACTIVE", "PIPELINE_0", "PIPELINE_1"],
+        "PreferredChannelPipeline": PreferredChannelPipelineType,
         "ServiceDescriptor": "MultiplexProgramServiceDescriptorTypeDef",
         "VideoSettings": "MultiplexVideoSettingsTypeDef",
     },
     total=False,
 )
 
-
 class MultiplexProgramSettingsTypeDef(
     _RequiredMultiplexProgramSettingsTypeDef, _OptionalMultiplexProgramSettingsTypeDef
 ):
     pass
 
-
 MultiplexProgramSummaryTypeDef = TypedDict(
-    "MultiplexProgramSummaryTypeDef", {"ChannelId": str, "ProgramName": str}, total=False
+    "MultiplexProgramSummaryTypeDef",
+    {
+        "ChannelId": str,
+        "ProgramName": str,
+    },
+    total=False,
 )
 
 MultiplexProgramTypeDef = TypedDict(
@@ -1784,28 +3304,41 @@ MultiplexProgramTypeDef = TypedDict(
 )
 
 MultiplexSettingsSummaryTypeDef = TypedDict(
-    "MultiplexSettingsSummaryTypeDef", {"TransportStreamBitrate": int}, total=False
-)
-
-_RequiredMultiplexSettingsTypeDef = TypedDict(
-    "_RequiredMultiplexSettingsTypeDef", {"TransportStreamBitrate": int, "TransportStreamId": int}
-)
-_OptionalMultiplexSettingsTypeDef = TypedDict(
-    "_OptionalMultiplexSettingsTypeDef",
-    {"MaximumVideoBufferDelayMilliseconds": int, "TransportStreamReservedBitrate": int},
+    "MultiplexSettingsSummaryTypeDef",
+    {
+        "TransportStreamBitrate": int,
+    },
     total=False,
 )
 
+_RequiredMultiplexSettingsTypeDef = TypedDict(
+    "_RequiredMultiplexSettingsTypeDef",
+    {
+        "TransportStreamBitrate": int,
+        "TransportStreamId": int,
+    },
+)
+_OptionalMultiplexSettingsTypeDef = TypedDict(
+    "_OptionalMultiplexSettingsTypeDef",
+    {
+        "MaximumVideoBufferDelayMilliseconds": int,
+        "TransportStreamReservedBitrate": int,
+    },
+    total=False,
+)
 
 class MultiplexSettingsTypeDef(
     _RequiredMultiplexSettingsTypeDef, _OptionalMultiplexSettingsTypeDef
 ):
     pass
 
-
 MultiplexStatmuxVideoSettingsTypeDef = TypedDict(
     "MultiplexStatmuxVideoSettingsTypeDef",
-    {"MaximumBitrate": int, "MinimumBitrate": int, "Priority": int},
+    {
+        "MaximumBitrate": int,
+        "MinimumBitrate": int,
+        "Priority": int,
+    },
     total=False,
 )
 
@@ -1819,17 +3352,7 @@ MultiplexSummaryTypeDef = TypedDict(
         "Name": str,
         "PipelinesRunningCount": int,
         "ProgramCount": int,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-        ],
+        "State": MultiplexStateType,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -1846,17 +3369,7 @@ MultiplexTypeDef = TypedDict(
         "Name": str,
         "PipelinesRunningCount": int,
         "ProgramCount": int,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-        ],
+        "State": MultiplexStateType,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -1864,7 +3377,10 @@ MultiplexTypeDef = TypedDict(
 
 MultiplexVideoSettingsTypeDef = TypedDict(
     "MultiplexVideoSettingsTypeDef",
-    {"ConstantBitrate": int, "StatmuxSettings": "MultiplexStatmuxVideoSettingsTypeDef"},
+    {
+        "ConstantBitrate": int,
+        "StatmuxSettings": "MultiplexStatmuxVideoSettingsTypeDef",
+    },
     total=False,
 )
 
@@ -1872,16 +3388,17 @@ NetworkInputSettingsTypeDef = TypedDict(
     "NetworkInputSettingsTypeDef",
     {
         "HlsInputSettings": "HlsInputSettingsTypeDef",
-        "ServerValidation": Literal[
-            "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME", "CHECK_CRYPTOGRAPHY_ONLY"
-        ],
+        "ServerValidation": NetworkInputServerValidationType,
     },
     total=False,
 )
 
 NielsenConfigurationTypeDef = TypedDict(
     "NielsenConfigurationTypeDef",
-    {"DistributorId": str, "NielsenPcmToId3Tagging": Literal["DISABLED", "ENABLED"]},
+    {
+        "DistributorId": str,
+        "NielsenPcmToId3Tagging": NielsenPcmToId3TaggingStateType,
+    },
     total=False,
 )
 
@@ -1905,7 +3422,12 @@ OfferingTypeDef = TypedDict(
 
 OutputDestinationSettingsTypeDef = TypedDict(
     "OutputDestinationSettingsTypeDef",
-    {"PasswordParam": str, "StreamName": str, "Url": str, "Username": str},
+    {
+        "PasswordParam": str,
+        "StreamName": str,
+        "Url": str,
+        "Username": str,
+    },
     total=False,
 )
 
@@ -1937,17 +3459,28 @@ OutputGroupSettingsTypeDef = TypedDict(
 
 _RequiredOutputGroupTypeDef = TypedDict(
     "_RequiredOutputGroupTypeDef",
-    {"OutputGroupSettings": "OutputGroupSettingsTypeDef", "Outputs": List["OutputTypeDef"]},
+    {
+        "OutputGroupSettings": "OutputGroupSettingsTypeDef",
+        "Outputs": List["OutputTypeDef"],
+    },
 )
-_OptionalOutputGroupTypeDef = TypedDict("_OptionalOutputGroupTypeDef", {"Name": str}, total=False)
-
+_OptionalOutputGroupTypeDef = TypedDict(
+    "_OptionalOutputGroupTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
 
 class OutputGroupTypeDef(_RequiredOutputGroupTypeDef, _OptionalOutputGroupTypeDef):
     pass
 
-
 OutputLocationRefTypeDef = TypedDict(
-    "OutputLocationRefTypeDef", {"DestinationRefId": str}, total=False
+    "OutputLocationRefTypeDef",
+    {
+        "DestinationRefId": str,
+    },
+    total=False,
 )
 
 OutputSettingsTypeDef = TypedDict(
@@ -1966,7 +3499,10 @@ OutputSettingsTypeDef = TypedDict(
 )
 
 _RequiredOutputTypeDef = TypedDict(
-    "_RequiredOutputTypeDef", {"OutputSettings": "OutputSettingsTypeDef"}
+    "_RequiredOutputTypeDef",
+    {
+        "OutputSettings": "OutputSettingsTypeDef",
+    },
 )
 _OptionalOutputTypeDef = TypedDict(
     "_OptionalOutputTypeDef",
@@ -1975,55 +3511,117 @@ _OptionalOutputTypeDef = TypedDict(
         "CaptionDescriptionNames": List[str],
         "OutputName": str,
         "VideoDescriptionName": str,
-        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
-
 class OutputTypeDef(_RequiredOutputTypeDef, _OptionalOutputTypeDef):
     pass
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
 
 PauseStateScheduleActionSettingsTypeDef = TypedDict(
     "PauseStateScheduleActionSettingsTypeDef",
-    {"Pipelines": List["PipelinePauseStateSettingsTypeDef"]},
+    {
+        "Pipelines": List["PipelinePauseStateSettingsTypeDef"],
+    },
     total=False,
 )
 
 PipelineDetailTypeDef = TypedDict(
     "PipelineDetailTypeDef",
-    {"ActiveInputAttachmentName": str, "ActiveInputSwitchActionName": str, "PipelineId": str},
+    {
+        "ActiveInputAttachmentName": str,
+        "ActiveInputSwitchActionName": str,
+        "ActiveMotionGraphicsActionName": str,
+        "ActiveMotionGraphicsUri": str,
+        "PipelineId": str,
+    },
     total=False,
 )
 
 PipelinePauseStateSettingsTypeDef = TypedDict(
-    "PipelinePauseStateSettingsTypeDef", {"PipelineId": Literal["PIPELINE_0", "PIPELINE_1"]}
+    "PipelinePauseStateSettingsTypeDef",
+    {
+        "PipelineId": PipelineIdType,
+    },
+)
+
+_RequiredPurchaseOfferingRequestRequestTypeDef = TypedDict(
+    "_RequiredPurchaseOfferingRequestRequestTypeDef",
+    {
+        "Count": int,
+        "OfferingId": str,
+    },
+)
+_OptionalPurchaseOfferingRequestRequestTypeDef = TypedDict(
+    "_OptionalPurchaseOfferingRequestRequestTypeDef",
+    {
+        "Name": str,
+        "RequestId": str,
+        "Start": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class PurchaseOfferingRequestRequestTypeDef(
+    _RequiredPurchaseOfferingRequestRequestTypeDef, _OptionalPurchaseOfferingRequestRequestTypeDef
+):
+    pass
+
+PurchaseOfferingResponseTypeDef = TypedDict(
+    "PurchaseOfferingResponseTypeDef",
+    {
+        "Reservation": "ReservationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RejectInputDeviceTransferRequestRequestTypeDef = TypedDict(
+    "RejectInputDeviceTransferRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+    },
 )
 
 _RequiredRemixSettingsTypeDef = TypedDict(
-    "_RequiredRemixSettingsTypeDef", {"ChannelMappings": List["AudioChannelMappingTypeDef"]}
+    "_RequiredRemixSettingsTypeDef",
+    {
+        "ChannelMappings": List["AudioChannelMappingTypeDef"],
+    },
 )
 _OptionalRemixSettingsTypeDef = TypedDict(
-    "_OptionalRemixSettingsTypeDef", {"ChannelsIn": int, "ChannelsOut": int}, total=False
+    "_OptionalRemixSettingsTypeDef",
+    {
+        "ChannelsIn": int,
+        "ChannelsOut": int,
+    },
+    total=False,
 )
-
 
 class RemixSettingsTypeDef(_RequiredRemixSettingsTypeDef, _OptionalRemixSettingsTypeDef):
     pass
 
-
 ReservationResourceSpecificationTypeDef = TypedDict(
     "ReservationResourceSpecificationTypeDef",
     {
-        "ChannelClass": Literal["STANDARD", "SINGLE_PIPELINE"],
-        "Codec": Literal["MPEG2", "AVC", "HEVC", "AUDIO", "LINK"],
-        "MaximumBitrate": Literal["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"],
-        "MaximumFramerate": Literal["MAX_30_FPS", "MAX_60_FPS"],
-        "Resolution": Literal["SD", "HD", "FHD", "UHD"],
-        "ResourceType": Literal["INPUT", "OUTPUT", "MULTIPLEX", "CHANNEL"],
-        "SpecialFeature": Literal["ADVANCED_AUDIO", "AUDIO_NORMALIZATION"],
-        "VideoQuality": Literal["STANDARD", "ENHANCED", "PREMIUM"],
+        "ChannelClass": ChannelClassType,
+        "Codec": ReservationCodecType,
+        "MaximumBitrate": ReservationMaximumBitrateType,
+        "MaximumFramerate": ReservationMaximumFramerateType,
+        "Resolution": ReservationResolutionType,
+        "ResourceType": ReservationResourceTypeType,
+        "SpecialFeature": ReservationSpecialFeatureType,
+        "VideoQuality": ReservationVideoQualityType,
     },
     total=False,
 )
@@ -2046,15 +3644,15 @@ ReservationTypeDef = TypedDict(
         "ReservationId": str,
         "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
         "Start": str,
-        "State": Literal["ACTIVE", "EXPIRED", "CANCELED", "DELETED"],
+        "State": ReservationStateType,
         "Tags": Dict[str, str],
         "UsagePrice": float,
     },
     total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -2068,35 +3666,36 @@ RtmpGroupSettingsTypeDef = TypedDict(
     "RtmpGroupSettingsTypeDef",
     {
         "AdMarkers": List[Literal["ON_CUE_POINT_SCTE35"]],
-        "AuthenticationScheme": Literal["AKAMAI", "COMMON"],
-        "CacheFullBehavior": Literal["DISCONNECT_IMMEDIATELY", "WAIT_FOR_SERVER"],
+        "AuthenticationScheme": AuthenticationSchemeType,
+        "CacheFullBehavior": RtmpCacheFullBehaviorType,
         "CacheLength": int,
-        "CaptionData": Literal["ALL", "FIELD1_608", "FIELD1_AND_FIELD2_608"],
-        "InputLossAction": Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"],
+        "CaptionData": RtmpCaptionDataType,
+        "InputLossAction": InputLossActionForRtmpOutType,
         "RestartDelay": int,
     },
     total=False,
 )
 
 _RequiredRtmpOutputSettingsTypeDef = TypedDict(
-    "_RequiredRtmpOutputSettingsTypeDef", {"Destination": "OutputLocationRefTypeDef"}
+    "_RequiredRtmpOutputSettingsTypeDef",
+    {
+        "Destination": "OutputLocationRefTypeDef",
+    },
 )
 _OptionalRtmpOutputSettingsTypeDef = TypedDict(
     "_OptionalRtmpOutputSettingsTypeDef",
     {
-        "CertificateMode": Literal["SELF_SIGNED", "VERIFY_AUTHENTICITY"],
+        "CertificateMode": RtmpOutputCertificateModeType,
         "ConnectionRetryInterval": int,
         "NumRetries": int,
     },
     total=False,
 )
 
-
 class RtmpOutputSettingsTypeDef(
     _RequiredRtmpOutputSettingsTypeDef, _OptionalRtmpOutputSettingsTypeDef
 ):
     pass
-
 
 ScheduleActionSettingsTypeDef = TypedDict(
     "ScheduleActionSettingsTypeDef",
@@ -2105,6 +3704,8 @@ ScheduleActionSettingsTypeDef = TypedDict(
         "HlsTimedMetadataSettings": "HlsTimedMetadataScheduleActionSettingsTypeDef",
         "InputPrepareSettings": "InputPrepareScheduleActionSettingsTypeDef",
         "InputSwitchSettings": "InputSwitchScheduleActionSettingsTypeDef",
+        "MotionGraphicsImageActivateSettings": "MotionGraphicsActivateScheduleActionSettingsTypeDef",
+        "MotionGraphicsImageDeactivateSettings": Dict[str, Any],
         "PauseStateSettings": "PauseStateScheduleActionSettingsTypeDef",
         "Scte35ReturnToNetworkSettings": "Scte35ReturnToNetworkScheduleActionSettingsTypeDef",
         "Scte35SpliceInsertSettings": "Scte35SpliceInsertScheduleActionSettingsTypeDef",
@@ -2136,43 +3737,57 @@ ScheduleActionTypeDef = TypedDict(
 
 Scte20SourceSettingsTypeDef = TypedDict(
     "Scte20SourceSettingsTypeDef",
-    {"Convert608To708": Literal["DISABLED", "UPCONVERT"], "Source608ChannelNumber": int},
+    {
+        "Convert608To708": Scte20Convert608To708Type,
+        "Source608ChannelNumber": int,
+    },
     total=False,
 )
 
-Scte27SourceSettingsTypeDef = TypedDict("Scte27SourceSettingsTypeDef", {"Pid": int}, total=False)
+Scte27SourceSettingsTypeDef = TypedDict(
+    "Scte27SourceSettingsTypeDef",
+    {
+        "OcrLanguage": Scte27OcrLanguageType,
+        "Pid": int,
+    },
+    total=False,
+)
 
 Scte35DeliveryRestrictionsTypeDef = TypedDict(
     "Scte35DeliveryRestrictionsTypeDef",
     {
-        "ArchiveAllowedFlag": Literal["ARCHIVE_NOT_ALLOWED", "ARCHIVE_ALLOWED"],
-        "DeviceRestrictions": Literal[
-            "NONE", "RESTRICT_GROUP0", "RESTRICT_GROUP1", "RESTRICT_GROUP2"
-        ],
-        "NoRegionalBlackoutFlag": Literal["REGIONAL_BLACKOUT", "NO_REGIONAL_BLACKOUT"],
-        "WebDeliveryAllowedFlag": Literal["WEB_DELIVERY_NOT_ALLOWED", "WEB_DELIVERY_ALLOWED"],
+        "ArchiveAllowedFlag": Scte35ArchiveAllowedFlagType,
+        "DeviceRestrictions": Scte35DeviceRestrictionsType,
+        "NoRegionalBlackoutFlag": Scte35NoRegionalBlackoutFlagType,
+        "WebDeliveryAllowedFlag": Scte35WebDeliveryAllowedFlagType,
     },
 )
 
 Scte35DescriptorSettingsTypeDef = TypedDict(
     "Scte35DescriptorSettingsTypeDef",
-    {"SegmentationDescriptorScte35DescriptorSettings": "Scte35SegmentationDescriptorTypeDef"},
+    {
+        "SegmentationDescriptorScte35DescriptorSettings": "Scte35SegmentationDescriptorTypeDef",
+    },
 )
 
 Scte35DescriptorTypeDef = TypedDict(
-    "Scte35DescriptorTypeDef", {"Scte35DescriptorSettings": "Scte35DescriptorSettingsTypeDef"}
+    "Scte35DescriptorTypeDef",
+    {
+        "Scte35DescriptorSettings": "Scte35DescriptorSettingsTypeDef",
+    },
 )
 
 Scte35ReturnToNetworkScheduleActionSettingsTypeDef = TypedDict(
-    "Scte35ReturnToNetworkScheduleActionSettingsTypeDef", {"SpliceEventId": int}
+    "Scte35ReturnToNetworkScheduleActionSettingsTypeDef",
+    {
+        "SpliceEventId": int,
+    },
 )
 
 _RequiredScte35SegmentationDescriptorTypeDef = TypedDict(
     "_RequiredScte35SegmentationDescriptorTypeDef",
     {
-        "SegmentationCancelIndicator": Literal[
-            "SEGMENTATION_EVENT_NOT_CANCELED", "SEGMENTATION_EVENT_CANCELED"
-        ],
+        "SegmentationCancelIndicator": Scte35SegmentationCancelIndicatorType,
         "SegmentationEventId": int,
     },
 )
@@ -2192,20 +3807,24 @@ _OptionalScte35SegmentationDescriptorTypeDef = TypedDict(
     total=False,
 )
 
-
 class Scte35SegmentationDescriptorTypeDef(
     _RequiredScte35SegmentationDescriptorTypeDef, _OptionalScte35SegmentationDescriptorTypeDef
 ):
     pass
 
-
 _RequiredScte35SpliceInsertScheduleActionSettingsTypeDef = TypedDict(
-    "_RequiredScte35SpliceInsertScheduleActionSettingsTypeDef", {"SpliceEventId": int}
+    "_RequiredScte35SpliceInsertScheduleActionSettingsTypeDef",
+    {
+        "SpliceEventId": int,
+    },
 )
 _OptionalScte35SpliceInsertScheduleActionSettingsTypeDef = TypedDict(
-    "_OptionalScte35SpliceInsertScheduleActionSettingsTypeDef", {"Duration": int}, total=False
+    "_OptionalScte35SpliceInsertScheduleActionSettingsTypeDef",
+    {
+        "Duration": int,
+    },
+    total=False,
 )
-
 
 class Scte35SpliceInsertScheduleActionSettingsTypeDef(
     _RequiredScte35SpliceInsertScheduleActionSettingsTypeDef,
@@ -2213,13 +3832,12 @@ class Scte35SpliceInsertScheduleActionSettingsTypeDef(
 ):
     pass
 
-
 Scte35SpliceInsertTypeDef = TypedDict(
     "Scte35SpliceInsertTypeDef",
     {
         "AdAvailOffset": int,
-        "NoRegionalBlackoutFlag": Literal["FOLLOW", "IGNORE"],
-        "WebDeliveryAllowedFlag": Literal["FOLLOW", "IGNORE"],
+        "NoRegionalBlackoutFlag": Scte35SpliceInsertNoRegionalBlackoutBehaviorType,
+        "WebDeliveryAllowedFlag": Scte35SpliceInsertWebDeliveryAllowedBehaviorType,
     },
     total=False,
 )
@@ -2228,35 +3846,106 @@ Scte35TimeSignalAposTypeDef = TypedDict(
     "Scte35TimeSignalAposTypeDef",
     {
         "AdAvailOffset": int,
-        "NoRegionalBlackoutFlag": Literal["FOLLOW", "IGNORE"],
-        "WebDeliveryAllowedFlag": Literal["FOLLOW", "IGNORE"],
+        "NoRegionalBlackoutFlag": Scte35AposNoRegionalBlackoutBehaviorType,
+        "WebDeliveryAllowedFlag": Scte35AposWebDeliveryAllowedBehaviorType,
     },
     total=False,
 )
 
 Scte35TimeSignalScheduleActionSettingsTypeDef = TypedDict(
     "Scte35TimeSignalScheduleActionSettingsTypeDef",
-    {"Scte35Descriptors": List["Scte35DescriptorTypeDef"]},
+    {
+        "Scte35Descriptors": List["Scte35DescriptorTypeDef"],
+    },
 )
 
 _RequiredStandardHlsSettingsTypeDef = TypedDict(
-    "_RequiredStandardHlsSettingsTypeDef", {"M3u8Settings": "M3u8SettingsTypeDef"}
+    "_RequiredStandardHlsSettingsTypeDef",
+    {
+        "M3u8Settings": "M3u8SettingsTypeDef",
+    },
 )
 _OptionalStandardHlsSettingsTypeDef = TypedDict(
-    "_OptionalStandardHlsSettingsTypeDef", {"AudioRenditionSets": str}, total=False
+    "_OptionalStandardHlsSettingsTypeDef",
+    {
+        "AudioRenditionSets": str,
+    },
+    total=False,
 )
-
 
 class StandardHlsSettingsTypeDef(
     _RequiredStandardHlsSettingsTypeDef, _OptionalStandardHlsSettingsTypeDef
 ):
     pass
 
+StartChannelRequestRequestTypeDef = TypedDict(
+    "StartChannelRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
 
-StartTimecodeTypeDef = TypedDict("StartTimecodeTypeDef", {"Timecode": str}, total=False)
+StartChannelResponseTypeDef = TypedDict(
+    "StartChannelResponseTypeDef",
+    {
+        "Arn": str,
+        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
+        "ChannelClass": ChannelClassType,
+        "Destinations": List["OutputDestinationTypeDef"],
+        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
+        "EncoderSettings": "EncoderSettingsTypeDef",
+        "Id": str,
+        "InputAttachments": List["InputAttachmentTypeDef"],
+        "InputSpecification": "InputSpecificationTypeDef",
+        "LogLevel": LogLevelType,
+        "Name": str,
+        "PipelineDetails": List["PipelineDetailTypeDef"],
+        "PipelinesRunningCount": int,
+        "RoleArn": str,
+        "State": ChannelStateType,
+        "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartMultiplexRequestRequestTypeDef = TypedDict(
+    "StartMultiplexRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+    },
+)
+
+StartMultiplexResponseTypeDef = TypedDict(
+    "StartMultiplexResponseTypeDef",
+    {
+        "Arn": str,
+        "AvailabilityZones": List[str],
+        "Destinations": List["MultiplexOutputDestinationTypeDef"],
+        "Id": str,
+        "MultiplexSettings": "MultiplexSettingsTypeDef",
+        "Name": str,
+        "PipelinesRunningCount": int,
+        "ProgramCount": int,
+        "State": MultiplexStateType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartTimecodeTypeDef = TypedDict(
+    "StartTimecodeTypeDef",
+    {
+        "Timecode": str,
+    },
+    total=False,
+)
 
 _RequiredStaticImageActivateScheduleActionSettingsTypeDef = TypedDict(
-    "_RequiredStaticImageActivateScheduleActionSettingsTypeDef", {"Image": "InputLocationTypeDef"}
+    "_RequiredStaticImageActivateScheduleActionSettingsTypeDef",
+    {
+        "Image": "InputLocationTypeDef",
+    },
 )
 _OptionalStaticImageActivateScheduleActionSettingsTypeDef = TypedDict(
     "_OptionalStaticImageActivateScheduleActionSettingsTypeDef",
@@ -2274,85 +3963,160 @@ _OptionalStaticImageActivateScheduleActionSettingsTypeDef = TypedDict(
     total=False,
 )
 
-
 class StaticImageActivateScheduleActionSettingsTypeDef(
     _RequiredStaticImageActivateScheduleActionSettingsTypeDef,
     _OptionalStaticImageActivateScheduleActionSettingsTypeDef,
 ):
     pass
 
-
 StaticImageDeactivateScheduleActionSettingsTypeDef = TypedDict(
     "StaticImageDeactivateScheduleActionSettingsTypeDef",
-    {"FadeOut": int, "Layer": int},
+    {
+        "FadeOut": int,
+        "Layer": int,
+    },
     total=False,
 )
 
 _RequiredStaticKeySettingsTypeDef = TypedDict(
-    "_RequiredStaticKeySettingsTypeDef", {"StaticKeyValue": str}
+    "_RequiredStaticKeySettingsTypeDef",
+    {
+        "StaticKeyValue": str,
+    },
 )
 _OptionalStaticKeySettingsTypeDef = TypedDict(
-    "_OptionalStaticKeySettingsTypeDef", {"KeyProviderServer": "InputLocationTypeDef"}, total=False
+    "_OptionalStaticKeySettingsTypeDef",
+    {
+        "KeyProviderServer": "InputLocationTypeDef",
+    },
+    total=False,
 )
-
 
 class StaticKeySettingsTypeDef(
     _RequiredStaticKeySettingsTypeDef, _OptionalStaticKeySettingsTypeDef
 ):
     pass
 
+StopChannelRequestRequestTypeDef = TypedDict(
+    "StopChannelRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+
+StopChannelResponseTypeDef = TypedDict(
+    "StopChannelResponseTypeDef",
+    {
+        "Arn": str,
+        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
+        "ChannelClass": ChannelClassType,
+        "Destinations": List["OutputDestinationTypeDef"],
+        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
+        "EncoderSettings": "EncoderSettingsTypeDef",
+        "Id": str,
+        "InputAttachments": List["InputAttachmentTypeDef"],
+        "InputSpecification": "InputSpecificationTypeDef",
+        "LogLevel": LogLevelType,
+        "Name": str,
+        "PipelineDetails": List["PipelineDetailTypeDef"],
+        "PipelinesRunningCount": int,
+        "RoleArn": str,
+        "State": ChannelStateType,
+        "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopMultiplexRequestRequestTypeDef = TypedDict(
+    "StopMultiplexRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+    },
+)
+
+StopMultiplexResponseTypeDef = TypedDict(
+    "StopMultiplexResponseTypeDef",
+    {
+        "Arn": str,
+        "AvailabilityZones": List[str],
+        "Destinations": List["MultiplexOutputDestinationTypeDef"],
+        "Id": str,
+        "MultiplexSettings": "MultiplexSettingsTypeDef",
+        "Name": str,
+        "PipelinesRunningCount": int,
+        "ProgramCount": int,
+        "State": MultiplexStateType,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 StopTimecodeTypeDef = TypedDict(
     "StopTimecodeTypeDef",
     {
-        "LastFrameClippingBehavior": Literal["EXCLUDE_LAST_FRAME", "INCLUDE_LAST_FRAME"],
+        "LastFrameClippingBehavior": LastFrameClippingBehaviorType,
         "Timecode": str,
     },
     total=False,
 )
 
 TeletextSourceSettingsTypeDef = TypedDict(
-    "TeletextSourceSettingsTypeDef", {"PageNumber": str}, total=False
+    "TeletextSourceSettingsTypeDef",
+    {
+        "OutputRectangle": "CaptionRectangleTypeDef",
+        "PageNumber": str,
+    },
+    total=False,
 )
 
 TemporalFilterSettingsTypeDef = TypedDict(
     "TemporalFilterSettingsTypeDef",
     {
-        "PostFilterSharpening": Literal["AUTO", "DISABLED", "ENABLED"],
-        "Strength": Literal[
-            "AUTO",
-            "STRENGTH_1",
-            "STRENGTH_2",
-            "STRENGTH_3",
-            "STRENGTH_4",
-            "STRENGTH_5",
-            "STRENGTH_6",
-            "STRENGTH_7",
-            "STRENGTH_8",
-            "STRENGTH_9",
-            "STRENGTH_10",
-            "STRENGTH_11",
-            "STRENGTH_12",
-            "STRENGTH_13",
-            "STRENGTH_14",
-            "STRENGTH_15",
-            "STRENGTH_16",
-        ],
+        "PostFilterSharpening": TemporalFilterPostFilterSharpeningType,
+        "Strength": TemporalFilterStrengthType,
     },
     total=False,
 )
 
 _RequiredTimecodeConfigTypeDef = TypedDict(
-    "_RequiredTimecodeConfigTypeDef", {"Source": Literal["EMBEDDED", "SYSTEMCLOCK", "ZEROBASED"]}
+    "_RequiredTimecodeConfigTypeDef",
+    {
+        "Source": TimecodeConfigSourceType,
+    },
 )
 _OptionalTimecodeConfigTypeDef = TypedDict(
-    "_OptionalTimecodeConfigTypeDef", {"SyncThreshold": int}, total=False
+    "_OptionalTimecodeConfigTypeDef",
+    {
+        "SyncThreshold": int,
+    },
+    total=False,
 )
-
 
 class TimecodeConfigTypeDef(_RequiredTimecodeConfigTypeDef, _OptionalTimecodeConfigTypeDef):
     pass
 
+_RequiredTransferInputDeviceRequestRequestTypeDef = TypedDict(
+    "_RequiredTransferInputDeviceRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+    },
+)
+_OptionalTransferInputDeviceRequestRequestTypeDef = TypedDict(
+    "_OptionalTransferInputDeviceRequestRequestTypeDef",
+    {
+        "TargetCustomerId": str,
+        "TargetRegion": str,
+        "TransferMessage": str,
+    },
+    total=False,
+)
+
+class TransferInputDeviceRequestRequestTypeDef(
+    _RequiredTransferInputDeviceRequestRequestTypeDef,
+    _OptionalTransferInputDeviceRequestRequestTypeDef,
+):
+    pass
 
 TransferringInputDeviceSummaryTypeDef = TypedDict(
     "TransferringInputDeviceSummaryTypeDef",
@@ -2360,26 +4124,32 @@ TransferringInputDeviceSummaryTypeDef = TypedDict(
         "Id": str,
         "Message": str,
         "TargetCustomerId": str,
-        "TransferType": Literal["OUTGOING", "INCOMING"],
+        "TransferType": InputDeviceTransferTypeType,
     },
     total=False,
 )
 
 TtmlDestinationSettingsTypeDef = TypedDict(
     "TtmlDestinationSettingsTypeDef",
-    {"StyleControl": Literal["PASSTHROUGH", "USE_CONFIGURED"]},
+    {
+        "StyleControl": TtmlDestinationStyleControlType,
+    },
     total=False,
 )
 
 UdpContainerSettingsTypeDef = TypedDict(
-    "UdpContainerSettingsTypeDef", {"M2tsSettings": "M2tsSettingsTypeDef"}, total=False
+    "UdpContainerSettingsTypeDef",
+    {
+        "M2tsSettings": "M2tsSettingsTypeDef",
+    },
+    total=False,
 )
 
 UdpGroupSettingsTypeDef = TypedDict(
     "UdpGroupSettingsTypeDef",
     {
-        "InputLossAction": Literal["DROP_PROGRAM", "DROP_TS", "EMIT_PROGRAM"],
-        "TimedMetadataId3Frame": Literal["NONE", "PRIV", "TDRL"],
+        "InputLossAction": InputLossActionForUdpOutType,
+        "TimedMetadataId3Frame": UdpTimedMetadataId3FrameType,
         "TimedMetadataId3Period": int,
     },
     total=False,
@@ -2387,24 +4157,280 @@ UdpGroupSettingsTypeDef = TypedDict(
 
 _RequiredUdpOutputSettingsTypeDef = TypedDict(
     "_RequiredUdpOutputSettingsTypeDef",
-    {"ContainerSettings": "UdpContainerSettingsTypeDef", "Destination": "OutputLocationRefTypeDef"},
+    {
+        "ContainerSettings": "UdpContainerSettingsTypeDef",
+        "Destination": "OutputLocationRefTypeDef",
+    },
 )
 _OptionalUdpOutputSettingsTypeDef = TypedDict(
     "_OptionalUdpOutputSettingsTypeDef",
-    {"BufferMsec": int, "FecOutputSettings": "FecOutputSettingsTypeDef"},
+    {
+        "BufferMsec": int,
+        "FecOutputSettings": "FecOutputSettingsTypeDef",
+    },
     total=False,
 )
-
 
 class UdpOutputSettingsTypeDef(
     _RequiredUdpOutputSettingsTypeDef, _OptionalUdpOutputSettingsTypeDef
 ):
     pass
 
+_RequiredUpdateChannelClassRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateChannelClassRequestRequestTypeDef",
+    {
+        "ChannelClass": ChannelClassType,
+        "ChannelId": str,
+    },
+)
+_OptionalUpdateChannelClassRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateChannelClassRequestRequestTypeDef",
+    {
+        "Destinations": List["OutputDestinationTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateChannelClassRequestRequestTypeDef(
+    _RequiredUpdateChannelClassRequestRequestTypeDef,
+    _OptionalUpdateChannelClassRequestRequestTypeDef,
+):
+    pass
+
+UpdateChannelClassResponseTypeDef = TypedDict(
+    "UpdateChannelClassResponseTypeDef",
+    {
+        "Channel": "ChannelTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateChannelRequestRequestTypeDef",
+    {
+        "ChannelId": str,
+    },
+)
+_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateChannelRequestRequestTypeDef",
+    {
+        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
+        "Destinations": List["OutputDestinationTypeDef"],
+        "EncoderSettings": "EncoderSettingsTypeDef",
+        "InputAttachments": List["InputAttachmentTypeDef"],
+        "InputSpecification": "InputSpecificationTypeDef",
+        "LogLevel": LogLevelType,
+        "Name": str,
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+class UpdateChannelRequestRequestTypeDef(
+    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
+):
+    pass
+
+UpdateChannelResponseTypeDef = TypedDict(
+    "UpdateChannelResponseTypeDef",
+    {
+        "Channel": "ChannelTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateInputDeviceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateInputDeviceRequestRequestTypeDef",
+    {
+        "InputDeviceId": str,
+    },
+)
+_OptionalUpdateInputDeviceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateInputDeviceRequestRequestTypeDef",
+    {
+        "HdDeviceSettings": "InputDeviceConfigurableSettingsTypeDef",
+        "Name": str,
+        "UhdDeviceSettings": "InputDeviceConfigurableSettingsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateInputDeviceRequestRequestTypeDef(
+    _RequiredUpdateInputDeviceRequestRequestTypeDef, _OptionalUpdateInputDeviceRequestRequestTypeDef
+):
+    pass
+
+UpdateInputDeviceResponseTypeDef = TypedDict(
+    "UpdateInputDeviceResponseTypeDef",
+    {
+        "Arn": str,
+        "ConnectionState": InputDeviceConnectionStateType,
+        "DeviceSettingsSyncState": DeviceSettingsSyncStateType,
+        "DeviceUpdateStatus": DeviceUpdateStatusType,
+        "HdDeviceSettings": "InputDeviceHdSettingsTypeDef",
+        "Id": str,
+        "MacAddress": str,
+        "Name": str,
+        "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
+        "SerialNumber": str,
+        "Type": Literal["HD"],
+        "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateInputRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateInputRequestRequestTypeDef",
+    {
+        "InputId": str,
+    },
+)
+_OptionalUpdateInputRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateInputRequestRequestTypeDef",
+    {
+        "Destinations": List["InputDestinationRequestTypeDef"],
+        "InputDevices": List["InputDeviceRequestTypeDef"],
+        "InputSecurityGroups": List[str],
+        "MediaConnectFlows": List["MediaConnectFlowRequestTypeDef"],
+        "Name": str,
+        "RoleArn": str,
+        "Sources": List["InputSourceRequestTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateInputRequestRequestTypeDef(
+    _RequiredUpdateInputRequestRequestTypeDef, _OptionalUpdateInputRequestRequestTypeDef
+):
+    pass
+
+UpdateInputResponseTypeDef = TypedDict(
+    "UpdateInputResponseTypeDef",
+    {
+        "Input": "InputTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateInputSecurityGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateInputSecurityGroupRequestRequestTypeDef",
+    {
+        "InputSecurityGroupId": str,
+    },
+)
+_OptionalUpdateInputSecurityGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateInputSecurityGroupRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "WhitelistRules": List["InputWhitelistRuleCidrTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateInputSecurityGroupRequestRequestTypeDef(
+    _RequiredUpdateInputSecurityGroupRequestRequestTypeDef,
+    _OptionalUpdateInputSecurityGroupRequestRequestTypeDef,
+):
+    pass
+
+UpdateInputSecurityGroupResponseTypeDef = TypedDict(
+    "UpdateInputSecurityGroupResponseTypeDef",
+    {
+        "SecurityGroup": "InputSecurityGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateMultiplexProgramRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateMultiplexProgramRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+        "ProgramName": str,
+    },
+)
+_OptionalUpdateMultiplexProgramRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateMultiplexProgramRequestRequestTypeDef",
+    {
+        "MultiplexProgramSettings": "MultiplexProgramSettingsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateMultiplexProgramRequestRequestTypeDef(
+    _RequiredUpdateMultiplexProgramRequestRequestTypeDef,
+    _OptionalUpdateMultiplexProgramRequestRequestTypeDef,
+):
+    pass
+
+UpdateMultiplexProgramResponseTypeDef = TypedDict(
+    "UpdateMultiplexProgramResponseTypeDef",
+    {
+        "MultiplexProgram": "MultiplexProgramTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateMultiplexRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateMultiplexRequestRequestTypeDef",
+    {
+        "MultiplexId": str,
+    },
+)
+_OptionalUpdateMultiplexRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateMultiplexRequestRequestTypeDef",
+    {
+        "MultiplexSettings": "MultiplexSettingsTypeDef",
+        "Name": str,
+    },
+    total=False,
+)
+
+class UpdateMultiplexRequestRequestTypeDef(
+    _RequiredUpdateMultiplexRequestRequestTypeDef, _OptionalUpdateMultiplexRequestRequestTypeDef
+):
+    pass
+
+UpdateMultiplexResponseTypeDef = TypedDict(
+    "UpdateMultiplexResponseTypeDef",
+    {
+        "Multiplex": "MultiplexTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateReservationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateReservationRequestRequestTypeDef",
+    {
+        "ReservationId": str,
+    },
+)
+_OptionalUpdateReservationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateReservationRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+class UpdateReservationRequestRequestTypeDef(
+    _RequiredUpdateReservationRequestRequestTypeDef, _OptionalUpdateReservationRequestRequestTypeDef
+):
+    pass
+
+UpdateReservationResponseTypeDef = TypedDict(
+    "UpdateReservationResponseTypeDef",
+    {
+        "Reservation": "ReservationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 VideoBlackFailoverSettingsTypeDef = TypedDict(
     "VideoBlackFailoverSettingsTypeDef",
-    {"BlackDetectThreshold": float, "VideoBlackThresholdMsec": int},
+    {
+        "BlackDetectThreshold": float,
+        "VideoBlackThresholdMsec": int,
+    },
     total=False,
 )
 
@@ -2419,29 +4445,50 @@ VideoCodecSettingsTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredVideoDescriptionTypeDef = TypedDict("_RequiredVideoDescriptionTypeDef", {"Name": str})
+_RequiredVideoDescriptionTypeDef = TypedDict(
+    "_RequiredVideoDescriptionTypeDef",
+    {
+        "Name": str,
+    },
+)
 _OptionalVideoDescriptionTypeDef = TypedDict(
     "_OptionalVideoDescriptionTypeDef",
     {
         "CodecSettings": "VideoCodecSettingsTypeDef",
         "Height": int,
-        "RespondToAfd": Literal["NONE", "PASSTHROUGH", "RESPOND"],
-        "ScalingBehavior": Literal["DEFAULT", "STRETCH_TO_OUTPUT"],
+        "RespondToAfd": VideoDescriptionRespondToAfdType,
+        "ScalingBehavior": VideoDescriptionScalingBehaviorType,
         "Sharpness": int,
         "Width": int,
     },
     total=False,
 )
 
-
 class VideoDescriptionTypeDef(_RequiredVideoDescriptionTypeDef, _OptionalVideoDescriptionTypeDef):
     pass
 
+VideoSelectorColorSpaceSettingsTypeDef = TypedDict(
+    "VideoSelectorColorSpaceSettingsTypeDef",
+    {
+        "Hdr10Settings": "Hdr10SettingsTypeDef",
+    },
+    total=False,
+)
 
-VideoSelectorPidTypeDef = TypedDict("VideoSelectorPidTypeDef", {"Pid": int}, total=False)
+VideoSelectorPidTypeDef = TypedDict(
+    "VideoSelectorPidTypeDef",
+    {
+        "Pid": int,
+    },
+    total=False,
+)
 
 VideoSelectorProgramIdTypeDef = TypedDict(
-    "VideoSelectorProgramIdTypeDef", {"ProgramId": int}, total=False
+    "VideoSelectorProgramIdTypeDef",
+    {
+        "ProgramId": int,
+    },
+    total=False,
 )
 
 VideoSelectorSettingsTypeDef = TypedDict(
@@ -2456,686 +4503,68 @@ VideoSelectorSettingsTypeDef = TypedDict(
 VideoSelectorTypeDef = TypedDict(
     "VideoSelectorTypeDef",
     {
-        "ColorSpace": Literal["FOLLOW", "REC_601", "REC_709"],
-        "ColorSpaceUsage": Literal["FALLBACK", "FORCE"],
+        "ColorSpace": VideoSelectorColorSpaceType,
+        "ColorSpaceSettings": "VideoSelectorColorSpaceSettingsTypeDef",
+        "ColorSpaceUsage": VideoSelectorColorSpaceUsageType,
         "SelectorSettings": "VideoSelectorSettingsTypeDef",
     },
     total=False,
 )
 
-_RequiredVpcOutputSettingsTypeDef = TypedDict(
-    "_RequiredVpcOutputSettingsTypeDef", {"SubnetIds": List[str]}
-)
-_OptionalVpcOutputSettingsTypeDef = TypedDict(
-    "_OptionalVpcOutputSettingsTypeDef",
-    {"PublicAddressAllocationIds": List[str], "SecurityGroupIds": List[str]},
+VpcOutputSettingsDescriptionTypeDef = TypedDict(
+    "VpcOutputSettingsDescriptionTypeDef",
+    {
+        "AvailabilityZones": List[str],
+        "NetworkInterfaceIds": List[str],
+        "SecurityGroupIds": List[str],
+        "SubnetIds": List[str],
+    },
     total=False,
 )
 
+_RequiredVpcOutputSettingsTypeDef = TypedDict(
+    "_RequiredVpcOutputSettingsTypeDef",
+    {
+        "SubnetIds": List[str],
+    },
+)
+_OptionalVpcOutputSettingsTypeDef = TypedDict(
+    "_OptionalVpcOutputSettingsTypeDef",
+    {
+        "PublicAddressAllocationIds": List[str],
+        "SecurityGroupIds": List[str],
+    },
+    total=False,
+)
 
 class VpcOutputSettingsTypeDef(
     _RequiredVpcOutputSettingsTypeDef, _OptionalVpcOutputSettingsTypeDef
 ):
     pass
 
+WaiterConfigTypeDef = TypedDict(
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
+)
 
 WavSettingsTypeDef = TypedDict(
     "WavSettingsTypeDef",
     {
         "BitDepth": float,
-        "CodingMode": Literal[
-            "CODING_MODE_1_0", "CODING_MODE_2_0", "CODING_MODE_4_0", "CODING_MODE_8_0"
-        ],
+        "CodingMode": WavCodingModeType,
         "SampleRate": float,
     },
     total=False,
 )
 
-BatchDeleteResponseTypeDef = TypedDict(
-    "BatchDeleteResponseTypeDef",
+WebvttDestinationSettingsTypeDef = TypedDict(
+    "WebvttDestinationSettingsTypeDef",
     {
-        "Failed": List["BatchFailedResultModelTypeDef"],
-        "Successful": List["BatchSuccessfulResultModelTypeDef"],
+        "StyleControl": WebvttDestinationStyleControlType,
     },
     total=False,
-)
-
-BatchScheduleActionCreateRequestTypeDef = TypedDict(
-    "BatchScheduleActionCreateRequestTypeDef", {"ScheduleActions": List["ScheduleActionTypeDef"]}
-)
-
-BatchScheduleActionDeleteRequestTypeDef = TypedDict(
-    "BatchScheduleActionDeleteRequestTypeDef", {"ActionNames": List[str]}
-)
-
-BatchStartResponseTypeDef = TypedDict(
-    "BatchStartResponseTypeDef",
-    {
-        "Failed": List["BatchFailedResultModelTypeDef"],
-        "Successful": List["BatchSuccessfulResultModelTypeDef"],
-    },
-    total=False,
-)
-
-BatchStopResponseTypeDef = TypedDict(
-    "BatchStopResponseTypeDef",
-    {
-        "Failed": List["BatchFailedResultModelTypeDef"],
-        "Successful": List["BatchSuccessfulResultModelTypeDef"],
-    },
-    total=False,
-)
-
-BatchUpdateScheduleResponseTypeDef = TypedDict(
-    "BatchUpdateScheduleResponseTypeDef",
-    {
-        "Creates": "BatchScheduleActionCreateResultTypeDef",
-        "Deletes": "BatchScheduleActionDeleteResultTypeDef",
-    },
-    total=False,
-)
-
-CreateChannelResponseTypeDef = TypedDict(
-    "CreateChannelResponseTypeDef", {"Channel": "ChannelTypeDef"}, total=False
-)
-
-CreateInputResponseTypeDef = TypedDict(
-    "CreateInputResponseTypeDef", {"Input": "InputTypeDef"}, total=False
-)
-
-CreateInputSecurityGroupResponseTypeDef = TypedDict(
-    "CreateInputSecurityGroupResponseTypeDef",
-    {"SecurityGroup": "InputSecurityGroupTypeDef"},
-    total=False,
-)
-
-CreateMultiplexProgramResponseTypeDef = TypedDict(
-    "CreateMultiplexProgramResponseTypeDef",
-    {"MultiplexProgram": "MultiplexProgramTypeDef"},
-    total=False,
-)
-
-CreateMultiplexResponseTypeDef = TypedDict(
-    "CreateMultiplexResponseTypeDef", {"Multiplex": "MultiplexTypeDef"}, total=False
-)
-
-DeleteChannelResponseTypeDef = TypedDict(
-    "DeleteChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
-        "ChannelClass": Literal["STANDARD", "SINGLE_PIPELINE"],
-        "Destinations": List["OutputDestinationTypeDef"],
-        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
-        "EncoderSettings": "EncoderSettingsTypeDef",
-        "Id": str,
-        "InputAttachments": List["InputAttachmentTypeDef"],
-        "InputSpecification": "InputSpecificationTypeDef",
-        "LogLevel": Literal["ERROR", "WARNING", "INFO", "DEBUG", "DISABLED"],
-        "Name": str,
-        "PipelineDetails": List["PipelineDetailTypeDef"],
-        "PipelinesRunningCount": int,
-        "RoleArn": str,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-            "UPDATING",
-            "UPDATE_FAILED",
-        ],
-        "Tags": Dict[str, str],
-        "Vpc": "VpcOutputSettingsTypeDef",
-    },
-    total=False,
-)
-
-DeleteMultiplexProgramResponseTypeDef = TypedDict(
-    "DeleteMultiplexProgramResponseTypeDef",
-    {
-        "ChannelId": str,
-        "MultiplexProgramSettings": "MultiplexProgramSettingsTypeDef",
-        "PacketIdentifiersMap": "MultiplexProgramPacketIdentifiersMapTypeDef",
-        "PipelineDetails": List["MultiplexProgramPipelineDetailTypeDef"],
-        "ProgramName": str,
-    },
-    total=False,
-)
-
-DeleteMultiplexResponseTypeDef = TypedDict(
-    "DeleteMultiplexResponseTypeDef",
-    {
-        "Arn": str,
-        "AvailabilityZones": List[str],
-        "Destinations": List["MultiplexOutputDestinationTypeDef"],
-        "Id": str,
-        "MultiplexSettings": "MultiplexSettingsTypeDef",
-        "Name": str,
-        "PipelinesRunningCount": int,
-        "ProgramCount": int,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-        ],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-DeleteReservationResponseTypeDef = TypedDict(
-    "DeleteReservationResponseTypeDef",
-    {
-        "Arn": str,
-        "Count": int,
-        "CurrencyCode": str,
-        "Duration": int,
-        "DurationUnits": Literal["MONTHS"],
-        "End": str,
-        "FixedPrice": float,
-        "Name": str,
-        "OfferingDescription": str,
-        "OfferingId": str,
-        "OfferingType": Literal["NO_UPFRONT"],
-        "Region": str,
-        "ReservationId": str,
-        "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
-        "Start": str,
-        "State": Literal["ACTIVE", "EXPIRED", "CANCELED", "DELETED"],
-        "Tags": Dict[str, str],
-        "UsagePrice": float,
-    },
-    total=False,
-)
-
-DescribeChannelResponseTypeDef = TypedDict(
-    "DescribeChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
-        "ChannelClass": Literal["STANDARD", "SINGLE_PIPELINE"],
-        "Destinations": List["OutputDestinationTypeDef"],
-        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
-        "EncoderSettings": "EncoderSettingsTypeDef",
-        "Id": str,
-        "InputAttachments": List["InputAttachmentTypeDef"],
-        "InputSpecification": "InputSpecificationTypeDef",
-        "LogLevel": Literal["ERROR", "WARNING", "INFO", "DEBUG", "DISABLED"],
-        "Name": str,
-        "PipelineDetails": List["PipelineDetailTypeDef"],
-        "PipelinesRunningCount": int,
-        "RoleArn": str,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-            "UPDATING",
-            "UPDATE_FAILED",
-        ],
-        "Tags": Dict[str, str],
-        "Vpc": "VpcOutputSettingsTypeDef",
-    },
-    total=False,
-)
-
-DescribeInputDeviceResponseTypeDef = TypedDict(
-    "DescribeInputDeviceResponseTypeDef",
-    {
-        "Arn": str,
-        "ConnectionState": Literal["DISCONNECTED", "CONNECTED"],
-        "DeviceSettingsSyncState": Literal["SYNCED", "SYNCING"],
-        "DeviceUpdateStatus": Literal["UP_TO_DATE", "NOT_UP_TO_DATE"],
-        "HdDeviceSettings": "InputDeviceHdSettingsTypeDef",
-        "Id": str,
-        "MacAddress": str,
-        "Name": str,
-        "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
-        "SerialNumber": str,
-        "Type": Literal["HD"],
-        "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
-    },
-    total=False,
-)
-
-DescribeInputDeviceThumbnailResponseTypeDef = TypedDict(
-    "DescribeInputDeviceThumbnailResponseTypeDef",
-    {
-        "Body": StreamingBody,
-        "ContentType": Literal["image/jpeg"],
-        "ContentLength": int,
-        "ETag": str,
-        "LastModified": datetime,
-    },
-    total=False,
-)
-
-DescribeInputResponseTypeDef = TypedDict(
-    "DescribeInputResponseTypeDef",
-    {
-        "Arn": str,
-        "AttachedChannels": List[str],
-        "Destinations": List["InputDestinationTypeDef"],
-        "Id": str,
-        "InputClass": Literal["STANDARD", "SINGLE_PIPELINE"],
-        "InputDevices": List["InputDeviceSettingsTypeDef"],
-        "InputSourceType": Literal["STATIC", "DYNAMIC"],
-        "MediaConnectFlows": List["MediaConnectFlowTypeDef"],
-        "Name": str,
-        "RoleArn": str,
-        "SecurityGroups": List[str],
-        "Sources": List["InputSourceTypeDef"],
-        "State": Literal["CREATING", "DETACHED", "ATTACHED", "DELETING", "DELETED"],
-        "Tags": Dict[str, str],
-        "Type": Literal[
-            "UDP_PUSH",
-            "RTP_PUSH",
-            "RTMP_PUSH",
-            "RTMP_PULL",
-            "URL_PULL",
-            "MP4_FILE",
-            "MEDIACONNECT",
-            "INPUT_DEVICE",
-            "AWS_CDI",
-        ],
-    },
-    total=False,
-)
-
-DescribeInputSecurityGroupResponseTypeDef = TypedDict(
-    "DescribeInputSecurityGroupResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Inputs": List[str],
-        "State": Literal["IDLE", "IN_USE", "UPDATING", "DELETED"],
-        "Tags": Dict[str, str],
-        "WhitelistRules": List["InputWhitelistRuleTypeDef"],
-    },
-    total=False,
-)
-
-DescribeMultiplexProgramResponseTypeDef = TypedDict(
-    "DescribeMultiplexProgramResponseTypeDef",
-    {
-        "ChannelId": str,
-        "MultiplexProgramSettings": "MultiplexProgramSettingsTypeDef",
-        "PacketIdentifiersMap": "MultiplexProgramPacketIdentifiersMapTypeDef",
-        "PipelineDetails": List["MultiplexProgramPipelineDetailTypeDef"],
-        "ProgramName": str,
-    },
-    total=False,
-)
-
-DescribeMultiplexResponseTypeDef = TypedDict(
-    "DescribeMultiplexResponseTypeDef",
-    {
-        "Arn": str,
-        "AvailabilityZones": List[str],
-        "Destinations": List["MultiplexOutputDestinationTypeDef"],
-        "Id": str,
-        "MultiplexSettings": "MultiplexSettingsTypeDef",
-        "Name": str,
-        "PipelinesRunningCount": int,
-        "ProgramCount": int,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-        ],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-DescribeOfferingResponseTypeDef = TypedDict(
-    "DescribeOfferingResponseTypeDef",
-    {
-        "Arn": str,
-        "CurrencyCode": str,
-        "Duration": int,
-        "DurationUnits": Literal["MONTHS"],
-        "FixedPrice": float,
-        "OfferingDescription": str,
-        "OfferingId": str,
-        "OfferingType": Literal["NO_UPFRONT"],
-        "Region": str,
-        "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
-        "UsagePrice": float,
-    },
-    total=False,
-)
-
-DescribeReservationResponseTypeDef = TypedDict(
-    "DescribeReservationResponseTypeDef",
-    {
-        "Arn": str,
-        "Count": int,
-        "CurrencyCode": str,
-        "Duration": int,
-        "DurationUnits": Literal["MONTHS"],
-        "End": str,
-        "FixedPrice": float,
-        "Name": str,
-        "OfferingDescription": str,
-        "OfferingId": str,
-        "OfferingType": Literal["NO_UPFRONT"],
-        "Region": str,
-        "ReservationId": str,
-        "ResourceSpecification": "ReservationResourceSpecificationTypeDef",
-        "Start": str,
-        "State": Literal["ACTIVE", "EXPIRED", "CANCELED", "DELETED"],
-        "Tags": Dict[str, str],
-        "UsagePrice": float,
-    },
-    total=False,
-)
-
-DescribeScheduleResponseTypeDef = TypedDict(
-    "DescribeScheduleResponseTypeDef",
-    {"NextToken": str, "ScheduleActions": List["ScheduleActionTypeDef"]},
-    total=False,
-)
-
-InputDestinationRequestTypeDef = TypedDict(
-    "InputDestinationRequestTypeDef", {"StreamName": str}, total=False
-)
-
-InputDeviceConfigurableSettingsTypeDef = TypedDict(
-    "InputDeviceConfigurableSettingsTypeDef",
-    {"ConfiguredInput": Literal["AUTO", "HDMI", "SDI"], "MaxBitrate": int},
-    total=False,
-)
-
-InputDeviceRequestTypeDef = TypedDict("InputDeviceRequestTypeDef", {"Id": str}, total=False)
-
-InputSourceRequestTypeDef = TypedDict(
-    "InputSourceRequestTypeDef", {"PasswordParam": str, "Url": str, "Username": str}, total=False
-)
-
-_RequiredInputVpcRequestTypeDef = TypedDict(
-    "_RequiredInputVpcRequestTypeDef", {"SubnetIds": List[str]}
-)
-_OptionalInputVpcRequestTypeDef = TypedDict(
-    "_OptionalInputVpcRequestTypeDef", {"SecurityGroupIds": List[str]}, total=False
-)
-
-
-class InputVpcRequestTypeDef(_RequiredInputVpcRequestTypeDef, _OptionalInputVpcRequestTypeDef):
-    pass
-
-
-InputWhitelistRuleCidrTypeDef = TypedDict(
-    "InputWhitelistRuleCidrTypeDef", {"Cidr": str}, total=False
-)
-
-ListChannelsResponseTypeDef = TypedDict(
-    "ListChannelsResponseTypeDef",
-    {"Channels": List["ChannelSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListInputDeviceTransfersResponseTypeDef = TypedDict(
-    "ListInputDeviceTransfersResponseTypeDef",
-    {"InputDeviceTransfers": List["TransferringInputDeviceSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListInputDevicesResponseTypeDef = TypedDict(
-    "ListInputDevicesResponseTypeDef",
-    {"InputDevices": List["InputDeviceSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListInputSecurityGroupsResponseTypeDef = TypedDict(
-    "ListInputSecurityGroupsResponseTypeDef",
-    {"InputSecurityGroups": List["InputSecurityGroupTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListInputsResponseTypeDef = TypedDict(
-    "ListInputsResponseTypeDef", {"Inputs": List["InputTypeDef"], "NextToken": str}, total=False
-)
-
-ListMultiplexProgramsResponseTypeDef = TypedDict(
-    "ListMultiplexProgramsResponseTypeDef",
-    {"MultiplexPrograms": List["MultiplexProgramSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListMultiplexesResponseTypeDef = TypedDict(
-    "ListMultiplexesResponseTypeDef",
-    {"Multiplexes": List["MultiplexSummaryTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ListOfferingsResponseTypeDef = TypedDict(
-    "ListOfferingsResponseTypeDef",
-    {"NextToken": str, "Offerings": List["OfferingTypeDef"]},
-    total=False,
-)
-
-ListReservationsResponseTypeDef = TypedDict(
-    "ListReservationsResponseTypeDef",
-    {"NextToken": str, "Reservations": List["ReservationTypeDef"]},
-    total=False,
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
-)
-
-MediaConnectFlowRequestTypeDef = TypedDict(
-    "MediaConnectFlowRequestTypeDef", {"FlowArn": str}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PurchaseOfferingResponseTypeDef = TypedDict(
-    "PurchaseOfferingResponseTypeDef", {"Reservation": "ReservationTypeDef"}, total=False
-)
-
-StartChannelResponseTypeDef = TypedDict(
-    "StartChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
-        "ChannelClass": Literal["STANDARD", "SINGLE_PIPELINE"],
-        "Destinations": List["OutputDestinationTypeDef"],
-        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
-        "EncoderSettings": "EncoderSettingsTypeDef",
-        "Id": str,
-        "InputAttachments": List["InputAttachmentTypeDef"],
-        "InputSpecification": "InputSpecificationTypeDef",
-        "LogLevel": Literal["ERROR", "WARNING", "INFO", "DEBUG", "DISABLED"],
-        "Name": str,
-        "PipelineDetails": List["PipelineDetailTypeDef"],
-        "PipelinesRunningCount": int,
-        "RoleArn": str,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-            "UPDATING",
-            "UPDATE_FAILED",
-        ],
-        "Tags": Dict[str, str],
-        "Vpc": "VpcOutputSettingsTypeDef",
-    },
-    total=False,
-)
-
-StartMultiplexResponseTypeDef = TypedDict(
-    "StartMultiplexResponseTypeDef",
-    {
-        "Arn": str,
-        "AvailabilityZones": List[str],
-        "Destinations": List["MultiplexOutputDestinationTypeDef"],
-        "Id": str,
-        "MultiplexSettings": "MultiplexSettingsTypeDef",
-        "Name": str,
-        "PipelinesRunningCount": int,
-        "ProgramCount": int,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-        ],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-StopChannelResponseTypeDef = TypedDict(
-    "StopChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "CdiInputSpecification": "CdiInputSpecificationTypeDef",
-        "ChannelClass": Literal["STANDARD", "SINGLE_PIPELINE"],
-        "Destinations": List["OutputDestinationTypeDef"],
-        "EgressEndpoints": List["ChannelEgressEndpointTypeDef"],
-        "EncoderSettings": "EncoderSettingsTypeDef",
-        "Id": str,
-        "InputAttachments": List["InputAttachmentTypeDef"],
-        "InputSpecification": "InputSpecificationTypeDef",
-        "LogLevel": Literal["ERROR", "WARNING", "INFO", "DEBUG", "DISABLED"],
-        "Name": str,
-        "PipelineDetails": List["PipelineDetailTypeDef"],
-        "PipelinesRunningCount": int,
-        "RoleArn": str,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-            "UPDATING",
-            "UPDATE_FAILED",
-        ],
-        "Tags": Dict[str, str],
-        "Vpc": "VpcOutputSettingsTypeDef",
-    },
-    total=False,
-)
-
-StopMultiplexResponseTypeDef = TypedDict(
-    "StopMultiplexResponseTypeDef",
-    {
-        "Arn": str,
-        "AvailabilityZones": List[str],
-        "Destinations": List["MultiplexOutputDestinationTypeDef"],
-        "Id": str,
-        "MultiplexSettings": "MultiplexSettingsTypeDef",
-        "Name": str,
-        "PipelinesRunningCount": int,
-        "ProgramCount": int,
-        "State": Literal[
-            "CREATING",
-            "CREATE_FAILED",
-            "IDLE",
-            "STARTING",
-            "RUNNING",
-            "RECOVERING",
-            "STOPPING",
-            "DELETING",
-            "DELETED",
-        ],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-UpdateChannelClassResponseTypeDef = TypedDict(
-    "UpdateChannelClassResponseTypeDef", {"Channel": "ChannelTypeDef"}, total=False
-)
-
-UpdateChannelResponseTypeDef = TypedDict(
-    "UpdateChannelResponseTypeDef", {"Channel": "ChannelTypeDef"}, total=False
-)
-
-UpdateInputDeviceResponseTypeDef = TypedDict(
-    "UpdateInputDeviceResponseTypeDef",
-    {
-        "Arn": str,
-        "ConnectionState": Literal["DISCONNECTED", "CONNECTED"],
-        "DeviceSettingsSyncState": Literal["SYNCED", "SYNCING"],
-        "DeviceUpdateStatus": Literal["UP_TO_DATE", "NOT_UP_TO_DATE"],
-        "HdDeviceSettings": "InputDeviceHdSettingsTypeDef",
-        "Id": str,
-        "MacAddress": str,
-        "Name": str,
-        "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
-        "SerialNumber": str,
-        "Type": Literal["HD"],
-        "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
-    },
-    total=False,
-)
-
-UpdateInputResponseTypeDef = TypedDict(
-    "UpdateInputResponseTypeDef", {"Input": "InputTypeDef"}, total=False
-)
-
-UpdateInputSecurityGroupResponseTypeDef = TypedDict(
-    "UpdateInputSecurityGroupResponseTypeDef",
-    {"SecurityGroup": "InputSecurityGroupTypeDef"},
-    total=False,
-)
-
-UpdateMultiplexProgramResponseTypeDef = TypedDict(
-    "UpdateMultiplexProgramResponseTypeDef",
-    {"MultiplexProgram": "MultiplexProgramTypeDef"},
-    total=False,
-)
-
-UpdateMultiplexResponseTypeDef = TypedDict(
-    "UpdateMultiplexResponseTypeDef", {"Multiplex": "MultiplexTypeDef"}, total=False
-)
-
-UpdateReservationResponseTypeDef = TypedDict(
-    "UpdateReservationResponseTypeDef", {"Reservation": "ReservationTypeDef"}, total=False
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
 )

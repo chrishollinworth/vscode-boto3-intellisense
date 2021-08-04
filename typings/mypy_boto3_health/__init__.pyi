@@ -31,8 +31,8 @@ Usage::
     describe_events_for_organization_paginator: DescribeEventsForOrganizationPaginator = client.get_paginator("describe_events_for_organization")
     ```
 """
-from mypy_boto3_health.client import HealthClient
-from mypy_boto3_health.paginator import (
+from .client import HealthClient
+from .paginator import (
     DescribeAffectedAccountsForOrganizationPaginator,
     DescribeAffectedEntitiesForOrganizationPaginator,
     DescribeAffectedEntitiesPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_health.paginator import (
 )
 
 Client = HealthClient
-
 
 __all__ = (
     "Client",

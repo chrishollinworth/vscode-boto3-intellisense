@@ -16,9 +16,8 @@ Usage::
     session_client: OutpostsClient = session.client("outposts")
     ```
 """
-from mypy_boto3_outposts.client import OutpostsClient
+from .client import OutpostsClient
 
 Client = OutpostsClient
-
 
 __all__ = ("Client", "OutpostsClient")

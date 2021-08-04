@@ -16,9 +16,8 @@ Usage::
     session_client: CostExplorerClient = session.client("ce")
     ```
 """
-from mypy_boto3_ce.client import CostExplorerClient
+from .client import CostExplorerClient
 
 Client = CostExplorerClient
-
 
 __all__ = ("Client", "CostExplorerClient")

@@ -1,5 +1,7 @@
 """
-Main interface for identitystore service client
+Type annotations for identitystore service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html)
 
 Usage::
 
@@ -12,9 +14,9 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_identitystore.type_defs import (
+from .type_defs import (
     DescribeGroupResponseTypeDef,
     DescribeUserResponseTypeDef,
     FilterTypeDef,
@@ -24,14 +26,11 @@ from mypy_boto3_identitystore.type_defs import (
 
 __all__ = ("IdentityStoreClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -41,30 +40,39 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class IdentityStoreClient:
+class IdentityStoreClient(BaseClient):
     """
-    [IdentityStore.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/identitystore.html#IdentityStore.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        IdentityStoreClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def describe_group(self, IdentityStoreId: str, GroupId: str) -> DescribeGroupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/identitystore.html#IdentityStore.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#can_paginate)
         """
-        [Client.describe_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.describe_group)
+    def describe_group(self, *, IdentityStoreId: str, GroupId: str) -> DescribeGroupResponseTypeDef:
         """
+        Retrieves the group metadata and attributes from `GroupId` in an identity store.
 
-    def describe_user(self, IdentityStoreId: str, UserId: str) -> DescribeUserResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/identitystore.html#IdentityStore.Client.describe_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#describe_group)
         """
-        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.describe_user)
+    def describe_user(self, *, IdentityStoreId: str, UserId: str) -> DescribeUserResponseTypeDef:
         """
+        Retrieves the user metadata and attributes from `UserId` in an identity store.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/identitystore.html#IdentityStore.Client.describe_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#describe_user)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -73,27 +81,37 @@ class IdentityStoreClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/identitystore.html#IdentityStore.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#generate_presigned_url)
+        """
     def list_groups(
         self,
+        *,
         IdentityStoreId: str,
         MaxResults: int = None,
         NextToken: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None
     ) -> ListGroupsResponseTypeDef:
         """
-        [Client.list_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.list_groups)
-        """
+        Lists the attribute name and value of the group that you specified in the
+        search.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/identitystore.html#IdentityStore.Client.list_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#list_groups)
+        """
     def list_users(
         self,
+        *,
         IdentityStoreId: str,
         MaxResults: int = None,
         NextToken: str = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None
     ) -> ListUsersResponseTypeDef:
         """
-        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.list_users)
+        Lists the attribute name and value of the user that you specified in the search.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/identitystore.html#IdentityStore.Client.list_users)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/client.html#list_users)
         """

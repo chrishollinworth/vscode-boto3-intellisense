@@ -7,18 +7,17 @@ Usage::
     import boto3
     from mypy_boto3_kendra import (
         Client,
-        KendraClient,
+        kendraClient,
     )
 
     session = boto3.Session()
 
-    client: KendraClient = boto3.client("kendra")
-    session_client: KendraClient = session.client("kendra")
+    client: kendraClient = boto3.client("kendra")
+    session_client: kendraClient = session.client("kendra")
     ```
 """
-from mypy_boto3_kendra.client import KendraClient
+from .client import kendraClient
 
-Client = KendraClient
+Client = kendraClient
 
-
-__all__ = ("Client", "KendraClient")
+__all__ = ("Client", "kendraClient")

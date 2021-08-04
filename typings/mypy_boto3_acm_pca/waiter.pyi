@@ -1,5 +1,7 @@
 """
-Main interface for acm-pca service client waiters.
+Type annotations for acm-pca service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/waiters.html)
 
 Usage::
 
@@ -22,7 +24,7 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_acm_pca.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = (
     "AuditReportCreatedWaiter",
@@ -30,45 +32,52 @@ __all__ = (
     "CertificateIssuedWaiter",
 )
 
-
 class AuditReportCreatedWaiter(Boto3Waiter):
     """
-    [Waiter.AuditReportCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/waiters.html#auditreportcreatedwaiter)
     """
 
     def wait(
         self,
+        *,
         CertificateAuthorityArn: str,
         AuditReportId: str,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [AuditReportCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/waiters.html#auditreportcreatedwaiter)
         """
-
 
 class CertificateAuthorityCSRCreatedWaiter(Boto3Waiter):
     """
-    [Waiter.CertificateAuthorityCSRCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/waiters.html#certificateauthoritycsrcreatedwaiter)
     """
 
-    def wait(self, CertificateAuthorityArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(
+        self, *, CertificateAuthorityArn: str, WaiterConfig: WaiterConfigTypeDef = None
+    ) -> None:
         """
-        [CertificateAuthorityCSRCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/waiters.html#certificateauthoritycsrcreatedwaiter)
         """
-
 
 class CertificateIssuedWaiter(Boto3Waiter):
     """
-    [Waiter.CertificateIssued documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/waiters.html#certificateissuedwaiter)
     """
 
     def wait(
         self,
+        *,
         CertificateAuthorityArn: str,
         CertificateArn: str,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [CertificateIssued.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/waiters.html#certificateissuedwaiter)
         """

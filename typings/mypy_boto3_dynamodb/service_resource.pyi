@@ -1,5 +1,7 @@
 """
-Main interface for dynamodb service ServiceResource
+Type annotations for dynamodb service ServiceResource
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html)
 
 Usage::
 
@@ -14,17 +16,26 @@ Usage::
     my_table: dynamodb_resources.Table = resource.Table(...)
 ```
 """
-import sys
 from datetime import datetime
 from decimal import Decimal
 from typing import Any, Dict, Iterator, List, Set, Union
 
 from boto3.dynamodb.conditions import ConditionBase
 from boto3.dynamodb.table import BatchWriter
+from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.resources.collection import ResourceCollection
 
-from mypy_boto3_dynamodb.type_defs import (
+from .client import DynamoDBClient
+from .literals import (
+    BillingModeType,
+    ConditionalOperatorType,
+    ReturnConsumedCapacityType,
+    ReturnItemCollectionMetricsType,
+    ReturnValueType,
+    SelectType,
+)
+from .type_defs import (
     AttributeDefinitionTypeDef,
     AttributeValueUpdateTypeDef,
     BatchGetItemOutputTypeDef,
@@ -51,44 +62,45 @@ from mypy_boto3_dynamodb.type_defs import (
     WriteRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = ("DynamoDBServiceResource", "Table", "ServiceResourceTablesCollection")
-
 
 class ServiceResourceTablesCollection(ResourceCollection):
     """
-    [ServiceResource.tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.tables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource.tables)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#serviceresourcetablescollection)
     """
 
     def all(self) -> "ServiceResourceTablesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
-        self, ExclusiveStartTableName: str = None, Limit: int = None
+        self, *, ExclusiveStartTableName: str = None, Limit: int = None
     ) -> "ServiceResourceTablesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceTablesCollection":
-        pass
-
+        """
+        Return at most this many Tables.
+        """
     def page_size(self, count: int) -> "ServiceResourceTablesCollection":
-        pass
-
+        """
+        Fetch at most this many Tables per service request.
+        """
     def pages(self) -> Iterator[List["Table"]]:
-        pass
-
+        """
+        A generator which yields pages of Tables.
+        """
     def __iter__(self) -> Iterator["Table"]:
-        pass
-
+        """
+        A generator which yields Tables.
+        """
 
 class Table(Boto3ServiceResource):
     """
-    [Table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#table)
     """
 
     attribute_definitions: List[Any]
@@ -113,19 +125,23 @@ class Table(Boto3ServiceResource):
     sse_description: Dict[str, Any]
     archival_summary: Dict[str, Any]
     name: str
-
-    def batch_writer(self, overwrite_by_pkeys: List[str] = None) -> BatchWriter:
+    def batch_writer(self, *, overwrite_by_pkeys: List[str] = None) -> BatchWriter:
         """
-        [Table.batch_writer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.batch_writer)
-        """
+        Create a batch writer object.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.batch_writer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablebatch_writer-method)
+        """
     def delete(self) -> DeleteTableOutputTypeDef:
         """
-        [Table.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.delete)
-        """
+        The `DeleteTable` operation deletes a table and all of its items.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tabledelete-method)
+        """
     def delete_item(
         self,
+        *,
         Key: Dict[
             str,
             Union[
@@ -145,11 +161,11 @@ class Table(Boto3ServiceResource):
                 None,
             ],
         ],
-        Expected: Dict[str, ExpectedAttributeValueTypeDef] = None,
-        ConditionalOperator: Literal["AND", "OR"] = None,
-        ReturnValues: Literal["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"] = None,
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
-        ReturnItemCollectionMetrics: Literal["SIZE", "NONE"] = None,
+        Expected: Dict[str, "ExpectedAttributeValueTypeDef"] = None,
+        ConditionalOperator: ConditionalOperatorType = None,
+        ReturnValues: ReturnValueType = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
+        ReturnItemCollectionMetrics: ReturnItemCollectionMetricsType = None,
         ConditionExpression: str = None,
         ExpressionAttributeNames: Dict[str, str] = None,
         ExpressionAttributeValues: Dict[
@@ -170,19 +186,24 @@ class Table(Boto3ServiceResource):
                 Dict[str, Any],
                 None,
             ],
-        ] = None,
+        ] = None
     ) -> DeleteItemOutputTypeDef:
         """
-        [Table.delete_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.delete_item)
-        """
+        Deletes a single item in a table by primary key.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.delete_item)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tabledelete_item-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Table.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableget_available_subresources-method)
+        """
     def get_item(
         self,
+        *,
         Key: Dict[
             str,
             Union[
@@ -204,21 +225,28 @@ class Table(Boto3ServiceResource):
         ],
         AttributesToGet: List[str] = None,
         ConsistentRead: bool = None,
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
         ProjectionExpression: str = None,
-        ExpressionAttributeNames: Dict[str, str] = None,
+        ExpressionAttributeNames: Dict[str, str] = None
     ) -> GetItemOutputTypeDef:
         """
-        [Table.get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.get_item)
-        """
+        The `GetItem` operation returns a set of attributes for the item with the given
+        primary key.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.get_item)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableget_item-method)
+        """
     def load(self) -> None:
         """
-        [Table.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.load)
-        """
+        Calls :py:meth:`DynamoDB.Client.describe_table` to update the attributes of the
+        Table resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableload-method)
+        """
     def put_item(
         self,
+        *,
         Item: Dict[
             str,
             Union[
@@ -238,11 +266,11 @@ class Table(Boto3ServiceResource):
                 None,
             ],
         ],
-        Expected: Dict[str, ExpectedAttributeValueTypeDef] = None,
-        ReturnValues: Literal["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"] = None,
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
-        ReturnItemCollectionMetrics: Literal["SIZE", "NONE"] = None,
-        ConditionalOperator: Literal["AND", "OR"] = None,
+        Expected: Dict[str, "ExpectedAttributeValueTypeDef"] = None,
+        ReturnValues: ReturnValueType = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
+        ReturnItemCollectionMetrics: ReturnItemCollectionMetricsType = None,
+        ConditionalOperator: ConditionalOperatorType = None,
         ConditionExpression: str = None,
         ExpressionAttributeNames: Dict[str, str] = None,
         ExpressionAttributeValues: Dict[
@@ -263,24 +291,25 @@ class Table(Boto3ServiceResource):
                 Dict[str, Any],
                 None,
             ],
-        ] = None,
+        ] = None
     ) -> PutItemOutputTypeDef:
         """
-        [Table.put_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.put_item)
-        """
+        Creates a new item, or replaces an old item with a new item.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.put_item)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableput_item-method)
+        """
     def query(
         self,
+        *,
         IndexName: str = None,
-        Select: Literal[
-            "ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"
-        ] = None,
+        Select: SelectType = None,
         AttributesToGet: List[str] = None,
         Limit: int = None,
         ConsistentRead: bool = None,
-        KeyConditions: Dict[str, ConditionTypeDef] = None,
-        QueryFilter: Dict[str, ConditionTypeDef] = None,
-        ConditionalOperator: Literal["AND", "OR"] = None,
+        KeyConditions: Dict[str, "ConditionTypeDef"] = None,
+        QueryFilter: Dict[str, "ConditionTypeDef"] = None,
+        ConditionalOperator: ConditionalOperatorType = None,
         ScanIndexForward: bool = None,
         ExclusiveStartKey: Dict[
             str,
@@ -301,7 +330,7 @@ class Table(Boto3ServiceResource):
                 None,
             ],
         ] = None,
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
         ProjectionExpression: str = None,
         FilterExpression: Union[str, ConditionBase] = None,
         KeyConditionExpression: Union[str, ConditionBase] = None,
@@ -324,27 +353,31 @@ class Table(Boto3ServiceResource):
                 Dict[str, Any],
                 None,
             ],
-        ] = None,
+        ] = None
     ) -> QueryOutputTypeDef:
         """
-        [Table.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.query)
-        """
+        The `Query` operation finds items based on primary key values.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.query)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablequery-method)
+        """
     def reload(self) -> None:
         """
-        [Table.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.reload)
-        """
+        Calls :py:meth:`DynamoDB.Client.describe_table` to update the attributes of the
+        Table resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablereload-method)
+        """
     def scan(
         self,
+        *,
         IndexName: str = None,
         AttributesToGet: List[str] = None,
         Limit: int = None,
-        Select: Literal[
-            "ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"
-        ] = None,
-        ScanFilter: Dict[str, ConditionTypeDef] = None,
-        ConditionalOperator: Literal["AND", "OR"] = None,
+        Select: SelectType = None,
+        ScanFilter: Dict[str, "ConditionTypeDef"] = None,
+        ConditionalOperator: ConditionalOperatorType = None,
         ExclusiveStartKey: Dict[
             str,
             Union[
@@ -364,7 +397,7 @@ class Table(Boto3ServiceResource):
                 None,
             ],
         ] = None,
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
         TotalSegments: int = None,
         Segment: int = None,
         ProjectionExpression: str = None,
@@ -389,28 +422,36 @@ class Table(Boto3ServiceResource):
                 None,
             ],
         ] = None,
-        ConsistentRead: bool = None,
+        ConsistentRead: bool = None
     ) -> ScanOutputTypeDef:
         """
-        [Table.scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.scan)
-        """
+        The `Scan` operation returns one or more items and item attributes by accessing
+        every item in a table or a secondary index.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.scan)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablescan-method)
+        """
     def update(
         self,
+        *,
         AttributeDefinitions: List["AttributeDefinitionTypeDef"] = None,
-        BillingMode: Literal["PROVISIONED", "PAY_PER_REQUEST"] = None,
+        BillingMode: BillingModeType = None,
         ProvisionedThroughput: "ProvisionedThroughputTypeDef" = None,
-        GlobalSecondaryIndexUpdates: List[GlobalSecondaryIndexUpdateTypeDef] = None,
+        GlobalSecondaryIndexUpdates: List["GlobalSecondaryIndexUpdateTypeDef"] = None,
         StreamSpecification: "StreamSpecificationTypeDef" = None,
-        SSESpecification: SSESpecificationTypeDef = None,
-        ReplicaUpdates: List[ReplicationGroupUpdateTypeDef] = None,
+        SSESpecification: "SSESpecificationTypeDef" = None,
+        ReplicaUpdates: List["ReplicationGroupUpdateTypeDef"] = None
     ) -> "_Table":
         """
-        [Table.update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.update)
-        """
+        Modifies the provisioned throughput settings, global secondary indexes, or
+        DynamoDB Streams settings for a given table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.update)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableupdate-method)
+        """
     def update_item(
         self,
+        *,
         Key: Dict[
             str,
             Union[
@@ -430,12 +471,12 @@ class Table(Boto3ServiceResource):
                 None,
             ],
         ],
-        AttributeUpdates: Dict[str, AttributeValueUpdateTypeDef] = None,
-        Expected: Dict[str, ExpectedAttributeValueTypeDef] = None,
-        ConditionalOperator: Literal["AND", "OR"] = None,
-        ReturnValues: Literal["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"] = None,
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
-        ReturnItemCollectionMetrics: Literal["SIZE", "NONE"] = None,
+        AttributeUpdates: Dict[str, "AttributeValueUpdateTypeDef"] = None,
+        Expected: Dict[str, "ExpectedAttributeValueTypeDef"] = None,
+        ConditionalOperator: ConditionalOperatorType = None,
+        ReturnValues: ReturnValueType = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
+        ReturnItemCollectionMetrics: ReturnItemCollectionMetricsType = None,
         UpdateExpression: str = None,
         ConditionExpression: str = None,
         ExpressionAttributeNames: Dict[str, str] = None,
@@ -457,75 +498,101 @@ class Table(Boto3ServiceResource):
                 Dict[str, Any],
                 None,
             ],
-        ] = None,
+        ] = None
     ) -> UpdateItemOutputTypeDef:
         """
-        [Table.update_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.update_item)
-        """
+        Edits an existing item's attributes, or adds a new item to the table if it does
+        not already exist.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.update_item)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tableupdate_item-method)
+        """
     def wait_until_exists(self) -> None:
         """
-        [Table.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists)
-        """
+        Waits until this Table is exists.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablewait_until_exists-method)
+        """
     def wait_until_not_exists(self) -> None:
         """
-        [Table.wait_until_not_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.wait_until_not_exists)
-        """
+        Waits until this Table is not exists.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.Table.wait_until_not_exists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#tablewait_until_not_exists-method)
+        """
 
 _Table = Table
 
+class DynamoDBResourceMeta(ResourceMeta):
+    client: DynamoDBClient
 
 class DynamoDBServiceResource(Boto3ServiceResource):
     """
-    [DynamoDB.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html)
     """
 
+    meta: "DynamoDBResourceMeta"
     tables: ServiceResourceTablesCollection
-
     def Table(self, name: str) -> _Table:
         """
-        [ServiceResource.Table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
-        """
+        Creates a Table resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcetable-method)
+        """
     def batch_get_item(
         self,
+        *,
         RequestItems: Dict[str, "KeysAndAttributesTypeDef"],
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None
     ) -> BatchGetItemOutputTypeDef:
         """
-        [ServiceResource.batch_get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_get_item)
-        """
+        The `BatchGetItem` operation returns the attributes of one or more items from
+        one or more tables.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_get_item)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcebatch_get_item-method)
+        """
     def batch_write_item(
         self,
+        *,
         RequestItems: Dict[str, List["WriteRequestTypeDef"]],
-        ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
-        ReturnItemCollectionMetrics: Literal["SIZE", "NONE"] = None,
+        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
+        ReturnItemCollectionMetrics: ReturnItemCollectionMetricsType = None
     ) -> BatchWriteItemOutputTypeDef:
         """
-        [ServiceResource.batch_write_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_write_item)
-        """
+        The `BatchWriteItem` operation puts or deletes multiple items in one or more
+        tables.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_write_item)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcebatch_write_item-method)
+        """
     def create_table(
         self,
+        *,
         AttributeDefinitions: List["AttributeDefinitionTypeDef"],
         TableName: str,
         KeySchema: List["KeySchemaElementTypeDef"],
-        LocalSecondaryIndexes: List[LocalSecondaryIndexTypeDef] = None,
-        GlobalSecondaryIndexes: List[GlobalSecondaryIndexTypeDef] = None,
-        BillingMode: Literal["PROVISIONED", "PAY_PER_REQUEST"] = None,
+        LocalSecondaryIndexes: List["LocalSecondaryIndexTypeDef"] = None,
+        GlobalSecondaryIndexes: List["GlobalSecondaryIndexTypeDef"] = None,
+        BillingMode: BillingModeType = None,
         ProvisionedThroughput: "ProvisionedThroughputTypeDef" = None,
         StreamSpecification: "StreamSpecificationTypeDef" = None,
-        SSESpecification: SSESpecificationTypeDef = None,
-        Tags: List["TagTypeDef"] = None,
+        SSESpecification: "SSESpecificationTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> _Table:
         """
-        [ServiceResource.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.create_table)
-        """
+        The `CreateTable` operation adds a new table to your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource.create_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourcecreate_table-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.get_available_subresources)
+        Returns a list of all the available sub-resources for this Resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/dynamodb.html#DynamoDB.ServiceResource.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/service_resource.html#dynamodbserviceresourceget_available_subresources-method)
         """

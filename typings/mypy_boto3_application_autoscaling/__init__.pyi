@@ -25,8 +25,8 @@ Usage::
     describe_scheduled_actions_paginator: DescribeScheduledActionsPaginator = client.get_paginator("describe_scheduled_actions")
     ```
 """
-from mypy_boto3_application_autoscaling.client import ApplicationAutoScalingClient
-from mypy_boto3_application_autoscaling.paginator import (
+from .client import ApplicationAutoScalingClient
+from .paginator import (
     DescribeScalableTargetsPaginator,
     DescribeScalingActivitiesPaginator,
     DescribeScalingPoliciesPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_application_autoscaling.paginator import (
 )
 
 Client = ApplicationAutoScalingClient
-
 
 __all__ = (
     "ApplicationAutoScalingClient",

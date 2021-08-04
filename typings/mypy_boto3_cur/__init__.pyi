@@ -19,10 +19,9 @@ Usage::
     describe_report_definitions_paginator: DescribeReportDefinitionsPaginator = client.get_paginator("describe_report_definitions")
     ```
 """
-from mypy_boto3_cur.client import CostandUsageReportServiceClient
-from mypy_boto3_cur.paginator import DescribeReportDefinitionsPaginator
+from .client import CostandUsageReportServiceClient
+from .paginator import DescribeReportDefinitionsPaginator
 
 Client = CostandUsageReportServiceClient
-
 
 __all__ = ("Client", "CostandUsageReportServiceClient", "DescribeReportDefinitionsPaginator")

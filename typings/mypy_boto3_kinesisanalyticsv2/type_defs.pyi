@@ -1,48 +1,115 @@
 """
-Main interface for kinesisanalyticsv2 service type definitions.
+Type annotations for kinesisanalyticsv2 service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalyticsv2/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationCodeConfigurationDescriptionTypeDef
+    from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef
 
-    data: ApplicationCodeConfigurationDescriptionTypeDef = {...}
+    data: AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from botocore.response import StreamingBody
+
+from .literals import (
+    ApplicationModeType,
+    ApplicationRestoreTypeType,
+    ApplicationStatusType,
+    ArtifactTypeType,
+    CodeContentTypeType,
+    ConfigurationTypeType,
+    InputStartingPositionType,
+    LogLevelType,
+    MetricsLevelType,
+    RecordFormatTypeType,
+    RuntimeEnvironmentType,
+    SnapshotStatusType,
+    UrlTypeType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    "AddApplicationCloudWatchLoggingOptionResponseTypeDef",
+    "AddApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    "AddApplicationInputProcessingConfigurationResponseTypeDef",
+    "AddApplicationInputRequestRequestTypeDef",
+    "AddApplicationInputResponseTypeDef",
+    "AddApplicationOutputRequestRequestTypeDef",
+    "AddApplicationOutputResponseTypeDef",
+    "AddApplicationReferenceDataSourceRequestRequestTypeDef",
+    "AddApplicationReferenceDataSourceResponseTypeDef",
+    "AddApplicationVpcConfigurationRequestRequestTypeDef",
+    "AddApplicationVpcConfigurationResponseTypeDef",
     "ApplicationCodeConfigurationDescriptionTypeDef",
     "ApplicationCodeConfigurationTypeDef",
     "ApplicationCodeConfigurationUpdateTypeDef",
     "ApplicationConfigurationDescriptionTypeDef",
+    "ApplicationConfigurationTypeDef",
+    "ApplicationConfigurationUpdateTypeDef",
     "ApplicationDetailTypeDef",
+    "ApplicationMaintenanceConfigurationDescriptionTypeDef",
+    "ApplicationMaintenanceConfigurationUpdateTypeDef",
     "ApplicationRestoreConfigurationTypeDef",
     "ApplicationSnapshotConfigurationDescriptionTypeDef",
     "ApplicationSnapshotConfigurationTypeDef",
     "ApplicationSnapshotConfigurationUpdateTypeDef",
     "ApplicationSummaryTypeDef",
+    "ApplicationVersionSummaryTypeDef",
     "CSVMappingParametersTypeDef",
+    "CatalogConfigurationDescriptionTypeDef",
+    "CatalogConfigurationTypeDef",
+    "CatalogConfigurationUpdateTypeDef",
     "CheckpointConfigurationDescriptionTypeDef",
     "CheckpointConfigurationTypeDef",
     "CheckpointConfigurationUpdateTypeDef",
     "CloudWatchLoggingOptionDescriptionTypeDef",
+    "CloudWatchLoggingOptionTypeDef",
+    "CloudWatchLoggingOptionUpdateTypeDef",
     "CodeContentDescriptionTypeDef",
     "CodeContentTypeDef",
     "CodeContentUpdateTypeDef",
+    "CreateApplicationPresignedUrlRequestRequestTypeDef",
+    "CreateApplicationPresignedUrlResponseTypeDef",
+    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationResponseTypeDef",
+    "CreateApplicationSnapshotRequestRequestTypeDef",
+    "CustomArtifactConfigurationDescriptionTypeDef",
+    "CustomArtifactConfigurationTypeDef",
+    "DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    "DeleteApplicationCloudWatchLoggingOptionResponseTypeDef",
+    "DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    "DeleteApplicationInputProcessingConfigurationResponseTypeDef",
+    "DeleteApplicationOutputRequestRequestTypeDef",
+    "DeleteApplicationOutputResponseTypeDef",
+    "DeleteApplicationReferenceDataSourceRequestRequestTypeDef",
+    "DeleteApplicationReferenceDataSourceResponseTypeDef",
+    "DeleteApplicationRequestRequestTypeDef",
+    "DeleteApplicationSnapshotRequestRequestTypeDef",
+    "DeleteApplicationVpcConfigurationRequestRequestTypeDef",
+    "DeleteApplicationVpcConfigurationResponseTypeDef",
+    "DeployAsApplicationConfigurationDescriptionTypeDef",
+    "DeployAsApplicationConfigurationTypeDef",
+    "DeployAsApplicationConfigurationUpdateTypeDef",
+    "DescribeApplicationRequestRequestTypeDef",
+    "DescribeApplicationResponseTypeDef",
+    "DescribeApplicationSnapshotRequestRequestTypeDef",
+    "DescribeApplicationSnapshotResponseTypeDef",
+    "DescribeApplicationVersionRequestRequestTypeDef",
+    "DescribeApplicationVersionResponseTypeDef",
     "DestinationSchemaTypeDef",
+    "DiscoverInputSchemaRequestRequestTypeDef",
+    "DiscoverInputSchemaResponseTypeDef",
     "EnvironmentPropertiesTypeDef",
     "EnvironmentPropertyDescriptionsTypeDef",
     "EnvironmentPropertyUpdatesTypeDef",
@@ -50,6 +117,9 @@ __all__ = (
     "FlinkApplicationConfigurationTypeDef",
     "FlinkApplicationConfigurationUpdateTypeDef",
     "FlinkRunConfigurationTypeDef",
+    "GlueDataCatalogConfigurationDescriptionTypeDef",
+    "GlueDataCatalogConfigurationTypeDef",
+    "GlueDataCatalogConfigurationUpdateTypeDef",
     "InputDescriptionTypeDef",
     "InputLambdaProcessorDescriptionTypeDef",
     "InputLambdaProcessorTypeDef",
@@ -79,13 +149,23 @@ __all__ = (
     "LambdaOutputDescriptionTypeDef",
     "LambdaOutputTypeDef",
     "LambdaOutputUpdateTypeDef",
+    "ListApplicationSnapshotsRequestRequestTypeDef",
+    "ListApplicationSnapshotsResponseTypeDef",
+    "ListApplicationVersionsRequestRequestTypeDef",
+    "ListApplicationVersionsResponseTypeDef",
+    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MappingParametersTypeDef",
+    "MavenReferenceTypeDef",
     "MonitoringConfigurationDescriptionTypeDef",
     "MonitoringConfigurationTypeDef",
     "MonitoringConfigurationUpdateTypeDef",
     "OutputDescriptionTypeDef",
     "OutputTypeDef",
     "OutputUpdateTypeDef",
+    "PaginatorConfigTypeDef",
     "ParallelismConfigurationDescriptionTypeDef",
     "ParallelismConfigurationTypeDef",
     "ParallelismConfigurationUpdateTypeDef",
@@ -95,9 +175,17 @@ __all__ = (
     "ReferenceDataSourceDescriptionTypeDef",
     "ReferenceDataSourceTypeDef",
     "ReferenceDataSourceUpdateTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
+    "RollbackApplicationRequestRequestTypeDef",
+    "RollbackApplicationResponseTypeDef",
     "RunConfigurationDescriptionTypeDef",
+    "RunConfigurationTypeDef",
+    "RunConfigurationUpdateTypeDef",
     "S3ApplicationCodeLocationDescriptionTypeDef",
+    "S3ConfigurationTypeDef",
+    "S3ContentBaseLocationDescriptionTypeDef",
+    "S3ContentBaseLocationTypeDef",
+    "S3ContentBaseLocationUpdateTypeDef",
     "S3ContentLocationTypeDef",
     "S3ContentLocationUpdateTypeDef",
     "S3ReferenceDataSourceDescriptionTypeDef",
@@ -109,50 +197,181 @@ __all__ = (
     "SqlApplicationConfigurationTypeDef",
     "SqlApplicationConfigurationUpdateTypeDef",
     "SqlRunConfigurationTypeDef",
+    "StartApplicationRequestRequestTypeDef",
+    "StopApplicationRequestRequestTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateApplicationMaintenanceConfigurationRequestRequestTypeDef",
+    "UpdateApplicationMaintenanceConfigurationResponseTypeDef",
+    "UpdateApplicationRequestRequestTypeDef",
+    "UpdateApplicationResponseTypeDef",
     "VpcConfigurationDescriptionTypeDef",
     "VpcConfigurationTypeDef",
     "VpcConfigurationUpdateTypeDef",
+    "ZeppelinApplicationConfigurationDescriptionTypeDef",
+    "ZeppelinApplicationConfigurationTypeDef",
+    "ZeppelinApplicationConfigurationUpdateTypeDef",
+    "ZeppelinMonitoringConfigurationDescriptionTypeDef",
+    "ZeppelinMonitoringConfigurationTypeDef",
+    "ZeppelinMonitoringConfigurationUpdateTypeDef",
+)
+
+_RequiredAddApplicationCloudWatchLoggingOptionRequestRequestTypeDef = TypedDict(
+    "_RequiredAddApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CloudWatchLoggingOption": "CloudWatchLoggingOptionTypeDef",
+    },
+)
+_OptionalAddApplicationCloudWatchLoggingOptionRequestRequestTypeDef = TypedDict(
+    "_OptionalAddApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    {
+        "CurrentApplicationVersionId": int,
+        "ConditionalToken": str,
+    },
+    total=False,
+)
+
+class AddApplicationCloudWatchLoggingOptionRequestRequestTypeDef(
+    _RequiredAddApplicationCloudWatchLoggingOptionRequestRequestTypeDef,
+    _OptionalAddApplicationCloudWatchLoggingOptionRequestRequestTypeDef,
+):
+    pass
+
+AddApplicationCloudWatchLoggingOptionResponseTypeDef = TypedDict(
     "AddApplicationCloudWatchLoggingOptionResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "CloudWatchLoggingOptionDescriptions": List["CloudWatchLoggingOptionDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddApplicationInputProcessingConfigurationRequestRequestTypeDef = TypedDict(
+    "AddApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "InputId": str,
+        "InputProcessingConfiguration": "InputProcessingConfigurationTypeDef",
+    },
+)
+
+AddApplicationInputProcessingConfigurationResponseTypeDef = TypedDict(
     "AddApplicationInputProcessingConfigurationResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "InputId": str,
+        "InputProcessingConfigurationDescription": "InputProcessingConfigurationDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddApplicationInputRequestRequestTypeDef = TypedDict(
+    "AddApplicationInputRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "Input": "InputTypeDef",
+    },
+)
+
+AddApplicationInputResponseTypeDef = TypedDict(
     "AddApplicationInputResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "InputDescriptions": List["InputDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddApplicationOutputRequestRequestTypeDef = TypedDict(
+    "AddApplicationOutputRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "Output": "OutputTypeDef",
+    },
+)
+
+AddApplicationOutputResponseTypeDef = TypedDict(
     "AddApplicationOutputResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "OutputDescriptions": List["OutputDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AddApplicationReferenceDataSourceRequestRequestTypeDef = TypedDict(
+    "AddApplicationReferenceDataSourceRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "ReferenceDataSource": "ReferenceDataSourceTypeDef",
+    },
+)
+
+AddApplicationReferenceDataSourceResponseTypeDef = TypedDict(
     "AddApplicationReferenceDataSourceResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "ReferenceDataSourceDescriptions": List["ReferenceDataSourceDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAddApplicationVpcConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredAddApplicationVpcConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "VpcConfiguration": "VpcConfigurationTypeDef",
+    },
+)
+_OptionalAddApplicationVpcConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalAddApplicationVpcConfigurationRequestRequestTypeDef",
+    {
+        "CurrentApplicationVersionId": int,
+        "ConditionalToken": str,
+    },
+    total=False,
+)
+
+class AddApplicationVpcConfigurationRequestRequestTypeDef(
+    _RequiredAddApplicationVpcConfigurationRequestRequestTypeDef,
+    _OptionalAddApplicationVpcConfigurationRequestRequestTypeDef,
+):
+    pass
+
+AddApplicationVpcConfigurationResponseTypeDef = TypedDict(
     "AddApplicationVpcConfigurationResponseTypeDef",
-    "ApplicationConfigurationTypeDef",
-    "ApplicationConfigurationUpdateTypeDef",
-    "CloudWatchLoggingOptionTypeDef",
-    "CloudWatchLoggingOptionUpdateTypeDef",
-    "CreateApplicationPresignedUrlResponseTypeDef",
-    "CreateApplicationResponseTypeDef",
-    "DeleteApplicationCloudWatchLoggingOptionResponseTypeDef",
-    "DeleteApplicationInputProcessingConfigurationResponseTypeDef",
-    "DeleteApplicationOutputResponseTypeDef",
-    "DeleteApplicationReferenceDataSourceResponseTypeDef",
-    "DeleteApplicationVpcConfigurationResponseTypeDef",
-    "DescribeApplicationResponseTypeDef",
-    "DescribeApplicationSnapshotResponseTypeDef",
-    "DiscoverInputSchemaResponseTypeDef",
-    "ListApplicationSnapshotsResponseTypeDef",
-    "ListApplicationsResponseTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "PaginatorConfigTypeDef",
-    "RunConfigurationTypeDef",
-    "RunConfigurationUpdateTypeDef",
-    "S3ConfigurationTypeDef",
-    "UpdateApplicationResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredApplicationCodeConfigurationDescriptionTypeDef = TypedDict(
     "_RequiredApplicationCodeConfigurationDescriptionTypeDef",
-    {"CodeContentType": Literal["PLAINTEXT", "ZIPFILE"]},
+    {
+        "CodeContentType": CodeContentTypeType,
+    },
 )
 _OptionalApplicationCodeConfigurationDescriptionTypeDef = TypedDict(
     "_OptionalApplicationCodeConfigurationDescriptionTypeDef",
-    {"CodeContentDescription": "CodeContentDescriptionTypeDef"},
+    {
+        "CodeContentDescription": "CodeContentDescriptionTypeDef",
+    },
     total=False,
 )
-
 
 class ApplicationCodeConfigurationDescriptionTypeDef(
     _RequiredApplicationCodeConfigurationDescriptionTypeDef,
@@ -160,28 +379,29 @@ class ApplicationCodeConfigurationDescriptionTypeDef(
 ):
     pass
 
-
 _RequiredApplicationCodeConfigurationTypeDef = TypedDict(
     "_RequiredApplicationCodeConfigurationTypeDef",
-    {"CodeContentType": Literal["PLAINTEXT", "ZIPFILE"]},
+    {
+        "CodeContentType": CodeContentTypeType,
+    },
 )
 _OptionalApplicationCodeConfigurationTypeDef = TypedDict(
     "_OptionalApplicationCodeConfigurationTypeDef",
-    {"CodeContent": "CodeContentTypeDef"},
+    {
+        "CodeContent": "CodeContentTypeDef",
+    },
     total=False,
 )
-
 
 class ApplicationCodeConfigurationTypeDef(
     _RequiredApplicationCodeConfigurationTypeDef, _OptionalApplicationCodeConfigurationTypeDef
 ):
     pass
 
-
 ApplicationCodeConfigurationUpdateTypeDef = TypedDict(
     "ApplicationCodeConfigurationUpdateTypeDef",
     {
-        "CodeContentTypeUpdate": Literal["PLAINTEXT", "ZIPFILE"],
+        "CodeContentTypeUpdate": CodeContentTypeType,
         "CodeContentUpdate": "CodeContentUpdateTypeDef",
     },
     total=False,
@@ -197,6 +417,35 @@ ApplicationConfigurationDescriptionTypeDef = TypedDict(
         "EnvironmentPropertyDescriptions": "EnvironmentPropertyDescriptionsTypeDef",
         "ApplicationSnapshotConfigurationDescription": "ApplicationSnapshotConfigurationDescriptionTypeDef",
         "VpcConfigurationDescriptions": List["VpcConfigurationDescriptionTypeDef"],
+        "ZeppelinApplicationConfigurationDescription": "ZeppelinApplicationConfigurationDescriptionTypeDef",
+    },
+    total=False,
+)
+
+ApplicationConfigurationTypeDef = TypedDict(
+    "ApplicationConfigurationTypeDef",
+    {
+        "SqlApplicationConfiguration": "SqlApplicationConfigurationTypeDef",
+        "FlinkApplicationConfiguration": "FlinkApplicationConfigurationTypeDef",
+        "EnvironmentProperties": "EnvironmentPropertiesTypeDef",
+        "ApplicationCodeConfiguration": "ApplicationCodeConfigurationTypeDef",
+        "ApplicationSnapshotConfiguration": "ApplicationSnapshotConfigurationTypeDef",
+        "VpcConfigurations": List["VpcConfigurationTypeDef"],
+        "ZeppelinApplicationConfiguration": "ZeppelinApplicationConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ApplicationConfigurationUpdateTypeDef = TypedDict(
+    "ApplicationConfigurationUpdateTypeDef",
+    {
+        "SqlApplicationConfigurationUpdate": "SqlApplicationConfigurationUpdateTypeDef",
+        "ApplicationCodeConfigurationUpdate": "ApplicationCodeConfigurationUpdateTypeDef",
+        "FlinkApplicationConfigurationUpdate": "FlinkApplicationConfigurationUpdateTypeDef",
+        "EnvironmentPropertyUpdates": "EnvironmentPropertyUpdatesTypeDef",
+        "ApplicationSnapshotConfigurationUpdate": "ApplicationSnapshotConfigurationUpdateTypeDef",
+        "VpcConfigurationUpdates": List["VpcConfigurationUpdateTypeDef"],
+        "ZeppelinApplicationConfigurationUpdate": "ZeppelinApplicationConfigurationUpdateTypeDef",
     },
     total=False,
 )
@@ -206,17 +455,8 @@ _RequiredApplicationDetailTypeDef = TypedDict(
     {
         "ApplicationARN": str,
         "ApplicationName": str,
-        "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8", "FLINK-1_11"],
-        "ApplicationStatus": Literal[
-            "DELETING",
-            "STARTING",
-            "STOPPING",
-            "READY",
-            "RUNNING",
-            "UPDATING",
-            "AUTOSCALING",
-            "FORCE_STOPPING",
-        ],
+        "RuntimeEnvironment": RuntimeEnvironmentType,
+        "ApplicationStatus": ApplicationStatusType,
         "ApplicationVersionId": int,
     },
 )
@@ -229,78 +469,140 @@ _OptionalApplicationDetailTypeDef = TypedDict(
         "LastUpdateTimestamp": datetime,
         "ApplicationConfigurationDescription": "ApplicationConfigurationDescriptionTypeDef",
         "CloudWatchLoggingOptionDescriptions": List["CloudWatchLoggingOptionDescriptionTypeDef"],
+        "ApplicationMaintenanceConfigurationDescription": "ApplicationMaintenanceConfigurationDescriptionTypeDef",
+        "ApplicationVersionUpdatedFrom": int,
+        "ApplicationVersionRolledBackFrom": int,
+        "ConditionalToken": str,
+        "ApplicationVersionRolledBackTo": int,
+        "ApplicationMode": ApplicationModeType,
     },
     total=False,
 )
-
 
 class ApplicationDetailTypeDef(
     _RequiredApplicationDetailTypeDef, _OptionalApplicationDetailTypeDef
 ):
     pass
 
+ApplicationMaintenanceConfigurationDescriptionTypeDef = TypedDict(
+    "ApplicationMaintenanceConfigurationDescriptionTypeDef",
+    {
+        "ApplicationMaintenanceWindowStartTime": str,
+        "ApplicationMaintenanceWindowEndTime": str,
+    },
+)
+
+ApplicationMaintenanceConfigurationUpdateTypeDef = TypedDict(
+    "ApplicationMaintenanceConfigurationUpdateTypeDef",
+    {
+        "ApplicationMaintenanceWindowStartTimeUpdate": str,
+    },
+)
 
 _RequiredApplicationRestoreConfigurationTypeDef = TypedDict(
     "_RequiredApplicationRestoreConfigurationTypeDef",
     {
-        "ApplicationRestoreType": Literal[
-            "SKIP_RESTORE_FROM_SNAPSHOT",
-            "RESTORE_FROM_LATEST_SNAPSHOT",
-            "RESTORE_FROM_CUSTOM_SNAPSHOT",
-        ]
+        "ApplicationRestoreType": ApplicationRestoreTypeType,
     },
 )
 _OptionalApplicationRestoreConfigurationTypeDef = TypedDict(
-    "_OptionalApplicationRestoreConfigurationTypeDef", {"SnapshotName": str}, total=False
+    "_OptionalApplicationRestoreConfigurationTypeDef",
+    {
+        "SnapshotName": str,
+    },
+    total=False,
 )
-
 
 class ApplicationRestoreConfigurationTypeDef(
     _RequiredApplicationRestoreConfigurationTypeDef, _OptionalApplicationRestoreConfigurationTypeDef
 ):
     pass
 
-
 ApplicationSnapshotConfigurationDescriptionTypeDef = TypedDict(
-    "ApplicationSnapshotConfigurationDescriptionTypeDef", {"SnapshotsEnabled": bool}
+    "ApplicationSnapshotConfigurationDescriptionTypeDef",
+    {
+        "SnapshotsEnabled": bool,
+    },
 )
 
 ApplicationSnapshotConfigurationTypeDef = TypedDict(
-    "ApplicationSnapshotConfigurationTypeDef", {"SnapshotsEnabled": bool}
+    "ApplicationSnapshotConfigurationTypeDef",
+    {
+        "SnapshotsEnabled": bool,
+    },
 )
 
 ApplicationSnapshotConfigurationUpdateTypeDef = TypedDict(
-    "ApplicationSnapshotConfigurationUpdateTypeDef", {"SnapshotsEnabledUpdate": bool}
+    "ApplicationSnapshotConfigurationUpdateTypeDef",
+    {
+        "SnapshotsEnabledUpdate": bool,
+    },
 )
 
-ApplicationSummaryTypeDef = TypedDict(
-    "ApplicationSummaryTypeDef",
+_RequiredApplicationSummaryTypeDef = TypedDict(
+    "_RequiredApplicationSummaryTypeDef",
     {
         "ApplicationName": str,
         "ApplicationARN": str,
-        "ApplicationStatus": Literal[
-            "DELETING",
-            "STARTING",
-            "STOPPING",
-            "READY",
-            "RUNNING",
-            "UPDATING",
-            "AUTOSCALING",
-            "FORCE_STOPPING",
-        ],
+        "ApplicationStatus": ApplicationStatusType,
         "ApplicationVersionId": int,
-        "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8", "FLINK-1_11"],
+        "RuntimeEnvironment": RuntimeEnvironmentType,
+    },
+)
+_OptionalApplicationSummaryTypeDef = TypedDict(
+    "_OptionalApplicationSummaryTypeDef",
+    {
+        "ApplicationMode": ApplicationModeType,
+    },
+    total=False,
+)
+
+class ApplicationSummaryTypeDef(
+    _RequiredApplicationSummaryTypeDef, _OptionalApplicationSummaryTypeDef
+):
+    pass
+
+ApplicationVersionSummaryTypeDef = TypedDict(
+    "ApplicationVersionSummaryTypeDef",
+    {
+        "ApplicationVersionId": int,
+        "ApplicationStatus": ApplicationStatusType,
     },
 )
 
 CSVMappingParametersTypeDef = TypedDict(
-    "CSVMappingParametersTypeDef", {"RecordRowDelimiter": str, "RecordColumnDelimiter": str}
+    "CSVMappingParametersTypeDef",
+    {
+        "RecordRowDelimiter": str,
+        "RecordColumnDelimiter": str,
+    },
+)
+
+CatalogConfigurationDescriptionTypeDef = TypedDict(
+    "CatalogConfigurationDescriptionTypeDef",
+    {
+        "GlueDataCatalogConfigurationDescription": "GlueDataCatalogConfigurationDescriptionTypeDef",
+    },
+)
+
+CatalogConfigurationTypeDef = TypedDict(
+    "CatalogConfigurationTypeDef",
+    {
+        "GlueDataCatalogConfiguration": "GlueDataCatalogConfigurationTypeDef",
+    },
+)
+
+CatalogConfigurationUpdateTypeDef = TypedDict(
+    "CatalogConfigurationUpdateTypeDef",
+    {
+        "GlueDataCatalogConfigurationUpdate": "GlueDataCatalogConfigurationUpdateTypeDef",
+    },
 )
 
 CheckpointConfigurationDescriptionTypeDef = TypedDict(
     "CheckpointConfigurationDescriptionTypeDef",
     {
-        "ConfigurationType": Literal["DEFAULT", "CUSTOM"],
+        "ConfigurationType": ConfigurationTypeType,
         "CheckpointingEnabled": bool,
         "CheckpointInterval": int,
         "MinPauseBetweenCheckpoints": int,
@@ -309,25 +611,30 @@ CheckpointConfigurationDescriptionTypeDef = TypedDict(
 )
 
 _RequiredCheckpointConfigurationTypeDef = TypedDict(
-    "_RequiredCheckpointConfigurationTypeDef", {"ConfigurationType": Literal["DEFAULT", "CUSTOM"]}
+    "_RequiredCheckpointConfigurationTypeDef",
+    {
+        "ConfigurationType": ConfigurationTypeType,
+    },
 )
 _OptionalCheckpointConfigurationTypeDef = TypedDict(
     "_OptionalCheckpointConfigurationTypeDef",
-    {"CheckpointingEnabled": bool, "CheckpointInterval": int, "MinPauseBetweenCheckpoints": int},
+    {
+        "CheckpointingEnabled": bool,
+        "CheckpointInterval": int,
+        "MinPauseBetweenCheckpoints": int,
+    },
     total=False,
 )
-
 
 class CheckpointConfigurationTypeDef(
     _RequiredCheckpointConfigurationTypeDef, _OptionalCheckpointConfigurationTypeDef
 ):
     pass
 
-
 CheckpointConfigurationUpdateTypeDef = TypedDict(
     "CheckpointConfigurationUpdateTypeDef",
     {
-        "ConfigurationTypeUpdate": Literal["DEFAULT", "CUSTOM"],
+        "ConfigurationTypeUpdate": ConfigurationTypeType,
         "CheckpointingEnabledUpdate": bool,
         "CheckpointIntervalUpdate": int,
         "MinPauseBetweenCheckpointsUpdate": int,
@@ -336,14 +643,19 @@ CheckpointConfigurationUpdateTypeDef = TypedDict(
 )
 
 _RequiredCloudWatchLoggingOptionDescriptionTypeDef = TypedDict(
-    "_RequiredCloudWatchLoggingOptionDescriptionTypeDef", {"LogStreamARN": str}
+    "_RequiredCloudWatchLoggingOptionDescriptionTypeDef",
+    {
+        "LogStreamARN": str,
+    },
 )
 _OptionalCloudWatchLoggingOptionDescriptionTypeDef = TypedDict(
     "_OptionalCloudWatchLoggingOptionDescriptionTypeDef",
-    {"CloudWatchLoggingOptionId": str, "RoleARN": str},
+    {
+        "CloudWatchLoggingOptionId": str,
+        "RoleARN": str,
+    },
     total=False,
 )
-
 
 class CloudWatchLoggingOptionDescriptionTypeDef(
     _RequiredCloudWatchLoggingOptionDescriptionTypeDef,
@@ -351,6 +663,31 @@ class CloudWatchLoggingOptionDescriptionTypeDef(
 ):
     pass
 
+CloudWatchLoggingOptionTypeDef = TypedDict(
+    "CloudWatchLoggingOptionTypeDef",
+    {
+        "LogStreamARN": str,
+    },
+)
+
+_RequiredCloudWatchLoggingOptionUpdateTypeDef = TypedDict(
+    "_RequiredCloudWatchLoggingOptionUpdateTypeDef",
+    {
+        "CloudWatchLoggingOptionId": str,
+    },
+)
+_OptionalCloudWatchLoggingOptionUpdateTypeDef = TypedDict(
+    "_OptionalCloudWatchLoggingOptionUpdateTypeDef",
+    {
+        "LogStreamARNUpdate": str,
+    },
+    total=False,
+)
+
+class CloudWatchLoggingOptionUpdateTypeDef(
+    _RequiredCloudWatchLoggingOptionUpdateTypeDef, _OptionalCloudWatchLoggingOptionUpdateTypeDef
+):
+    pass
 
 CodeContentDescriptionTypeDef = TypedDict(
     "CodeContentDescriptionTypeDef",
@@ -367,7 +704,7 @@ CodeContentTypeDef = TypedDict(
     "CodeContentTypeDef",
     {
         "TextContent": str,
-        "ZipFileContent": Union[bytes, IO[bytes]],
+        "ZipFileContent": Union[bytes, IO[bytes], StreamingBody],
         "S3ContentLocation": "S3ContentLocationTypeDef",
     },
     total=False,
@@ -377,28 +714,388 @@ CodeContentUpdateTypeDef = TypedDict(
     "CodeContentUpdateTypeDef",
     {
         "TextContentUpdate": str,
-        "ZipFileContentUpdate": Union[bytes, IO[bytes]],
+        "ZipFileContentUpdate": Union[bytes, IO[bytes], StreamingBody],
         "S3ContentLocationUpdate": "S3ContentLocationUpdateTypeDef",
     },
     total=False,
 )
 
+_RequiredCreateApplicationPresignedUrlRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationPresignedUrlRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "UrlType": UrlTypeType,
+    },
+)
+_OptionalCreateApplicationPresignedUrlRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationPresignedUrlRequestRequestTypeDef",
+    {
+        "SessionExpirationDurationInSeconds": int,
+    },
+    total=False,
+)
+
+class CreateApplicationPresignedUrlRequestRequestTypeDef(
+    _RequiredCreateApplicationPresignedUrlRequestRequestTypeDef,
+    _OptionalCreateApplicationPresignedUrlRequestRequestTypeDef,
+):
+    pass
+
+CreateApplicationPresignedUrlResponseTypeDef = TypedDict(
+    "CreateApplicationPresignedUrlResponseTypeDef",
+    {
+        "AuthorizedUrl": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "RuntimeEnvironment": RuntimeEnvironmentType,
+        "ServiceExecutionRole": str,
+    },
+)
+_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationRequestRequestTypeDef",
+    {
+        "ApplicationDescription": str,
+        "ApplicationConfiguration": "ApplicationConfigurationTypeDef",
+        "CloudWatchLoggingOptions": List["CloudWatchLoggingOptionTypeDef"],
+        "Tags": List["TagTypeDef"],
+        "ApplicationMode": ApplicationModeType,
+    },
+    total=False,
+)
+
+class CreateApplicationRequestRequestTypeDef(
+    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
+):
+    pass
+
+CreateApplicationResponseTypeDef = TypedDict(
+    "CreateApplicationResponseTypeDef",
+    {
+        "ApplicationDetail": "ApplicationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateApplicationSnapshotRequestRequestTypeDef = TypedDict(
+    "CreateApplicationSnapshotRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "SnapshotName": str,
+    },
+)
+
+CustomArtifactConfigurationDescriptionTypeDef = TypedDict(
+    "CustomArtifactConfigurationDescriptionTypeDef",
+    {
+        "ArtifactType": ArtifactTypeType,
+        "S3ContentLocationDescription": "S3ContentLocationTypeDef",
+        "MavenReferenceDescription": "MavenReferenceTypeDef",
+    },
+    total=False,
+)
+
+_RequiredCustomArtifactConfigurationTypeDef = TypedDict(
+    "_RequiredCustomArtifactConfigurationTypeDef",
+    {
+        "ArtifactType": ArtifactTypeType,
+    },
+)
+_OptionalCustomArtifactConfigurationTypeDef = TypedDict(
+    "_OptionalCustomArtifactConfigurationTypeDef",
+    {
+        "S3ContentLocation": "S3ContentLocationTypeDef",
+        "MavenReference": "MavenReferenceTypeDef",
+    },
+    total=False,
+)
+
+class CustomArtifactConfigurationTypeDef(
+    _RequiredCustomArtifactConfigurationTypeDef, _OptionalCustomArtifactConfigurationTypeDef
+):
+    pass
+
+_RequiredDeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CloudWatchLoggingOptionId": str,
+    },
+)
+_OptionalDeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef",
+    {
+        "CurrentApplicationVersionId": int,
+        "ConditionalToken": str,
+    },
+    total=False,
+)
+
+class DeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef(
+    _RequiredDeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef,
+    _OptionalDeleteApplicationCloudWatchLoggingOptionRequestRequestTypeDef,
+):
+    pass
+
+DeleteApplicationCloudWatchLoggingOptionResponseTypeDef = TypedDict(
+    "DeleteApplicationCloudWatchLoggingOptionResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "CloudWatchLoggingOptionDescriptions": List["CloudWatchLoggingOptionDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationInputProcessingConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "InputId": str,
+    },
+)
+
+DeleteApplicationInputProcessingConfigurationResponseTypeDef = TypedDict(
+    "DeleteApplicationInputProcessingConfigurationResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteApplicationOutputRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationOutputRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "OutputId": str,
+    },
+)
+
+DeleteApplicationOutputResponseTypeDef = TypedDict(
+    "DeleteApplicationOutputResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteApplicationReferenceDataSourceRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationReferenceDataSourceRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+        "ReferenceId": str,
+    },
+)
+
+DeleteApplicationReferenceDataSourceResponseTypeDef = TypedDict(
+    "DeleteApplicationReferenceDataSourceResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteApplicationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CreateTimestamp": Union[datetime, str],
+    },
+)
+
+DeleteApplicationSnapshotRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationSnapshotRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "SnapshotName": str,
+        "SnapshotCreationTimestamp": Union[datetime, str],
+    },
+)
+
+_RequiredDeleteApplicationVpcConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteApplicationVpcConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "VpcConfigurationId": str,
+    },
+)
+_OptionalDeleteApplicationVpcConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteApplicationVpcConfigurationRequestRequestTypeDef",
+    {
+        "CurrentApplicationVersionId": int,
+        "ConditionalToken": str,
+    },
+    total=False,
+)
+
+class DeleteApplicationVpcConfigurationRequestRequestTypeDef(
+    _RequiredDeleteApplicationVpcConfigurationRequestRequestTypeDef,
+    _OptionalDeleteApplicationVpcConfigurationRequestRequestTypeDef,
+):
+    pass
+
+DeleteApplicationVpcConfigurationResponseTypeDef = TypedDict(
+    "DeleteApplicationVpcConfigurationResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationVersionId": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeployAsApplicationConfigurationDescriptionTypeDef = TypedDict(
+    "DeployAsApplicationConfigurationDescriptionTypeDef",
+    {
+        "S3ContentLocationDescription": "S3ContentBaseLocationDescriptionTypeDef",
+    },
+)
+
+DeployAsApplicationConfigurationTypeDef = TypedDict(
+    "DeployAsApplicationConfigurationTypeDef",
+    {
+        "S3ContentLocation": "S3ContentBaseLocationTypeDef",
+    },
+)
+
+DeployAsApplicationConfigurationUpdateTypeDef = TypedDict(
+    "DeployAsApplicationConfigurationUpdateTypeDef",
+    {
+        "S3ContentLocationUpdate": "S3ContentBaseLocationUpdateTypeDef",
+    },
+)
+
+_RequiredDescribeApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalDescribeApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeApplicationRequestRequestTypeDef",
+    {
+        "IncludeAdditionalDetails": bool,
+    },
+    total=False,
+)
+
+class DescribeApplicationRequestRequestTypeDef(
+    _RequiredDescribeApplicationRequestRequestTypeDef,
+    _OptionalDescribeApplicationRequestRequestTypeDef,
+):
+    pass
+
+DescribeApplicationResponseTypeDef = TypedDict(
+    "DescribeApplicationResponseTypeDef",
+    {
+        "ApplicationDetail": "ApplicationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicationSnapshotRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationSnapshotRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "SnapshotName": str,
+    },
+)
+
+DescribeApplicationSnapshotResponseTypeDef = TypedDict(
+    "DescribeApplicationSnapshotResponseTypeDef",
+    {
+        "SnapshotDetails": "SnapshotDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicationVersionRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationVersionRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "ApplicationVersionId": int,
+    },
+)
+
+DescribeApplicationVersionResponseTypeDef = TypedDict(
+    "DescribeApplicationVersionResponseTypeDef",
+    {
+        "ApplicationVersionDetail": "ApplicationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DestinationSchemaTypeDef = TypedDict(
-    "DestinationSchemaTypeDef", {"RecordFormatType": Literal["JSON", "CSV"]}
+    "DestinationSchemaTypeDef",
+    {
+        "RecordFormatType": RecordFormatTypeType,
+    },
+)
+
+_RequiredDiscoverInputSchemaRequestRequestTypeDef = TypedDict(
+    "_RequiredDiscoverInputSchemaRequestRequestTypeDef",
+    {
+        "ServiceExecutionRole": str,
+    },
+)
+_OptionalDiscoverInputSchemaRequestRequestTypeDef = TypedDict(
+    "_OptionalDiscoverInputSchemaRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "InputStartingPositionConfiguration": "InputStartingPositionConfigurationTypeDef",
+        "S3Configuration": "S3ConfigurationTypeDef",
+        "InputProcessingConfiguration": "InputProcessingConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class DiscoverInputSchemaRequestRequestTypeDef(
+    _RequiredDiscoverInputSchemaRequestRequestTypeDef,
+    _OptionalDiscoverInputSchemaRequestRequestTypeDef,
+):
+    pass
+
+DiscoverInputSchemaResponseTypeDef = TypedDict(
+    "DiscoverInputSchemaResponseTypeDef",
+    {
+        "InputSchema": "SourceSchemaTypeDef",
+        "ParsedInputRecords": List[List[str]],
+        "ProcessedInputRecords": List[str],
+        "RawInputRecords": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 EnvironmentPropertiesTypeDef = TypedDict(
-    "EnvironmentPropertiesTypeDef", {"PropertyGroups": List["PropertyGroupTypeDef"]}
+    "EnvironmentPropertiesTypeDef",
+    {
+        "PropertyGroups": List["PropertyGroupTypeDef"],
+    },
 )
 
 EnvironmentPropertyDescriptionsTypeDef = TypedDict(
     "EnvironmentPropertyDescriptionsTypeDef",
-    {"PropertyGroupDescriptions": List["PropertyGroupTypeDef"]},
+    {
+        "PropertyGroupDescriptions": List["PropertyGroupTypeDef"],
+    },
     total=False,
 )
 
 EnvironmentPropertyUpdatesTypeDef = TypedDict(
-    "EnvironmentPropertyUpdatesTypeDef", {"PropertyGroups": List["PropertyGroupTypeDef"]}
+    "EnvironmentPropertyUpdatesTypeDef",
+    {
+        "PropertyGroups": List["PropertyGroupTypeDef"],
+    },
 )
 
 FlinkApplicationConfigurationDescriptionTypeDef = TypedDict(
@@ -433,7 +1130,33 @@ FlinkApplicationConfigurationUpdateTypeDef = TypedDict(
 )
 
 FlinkRunConfigurationTypeDef = TypedDict(
-    "FlinkRunConfigurationTypeDef", {"AllowNonRestoredState": bool}, total=False
+    "FlinkRunConfigurationTypeDef",
+    {
+        "AllowNonRestoredState": bool,
+    },
+    total=False,
+)
+
+GlueDataCatalogConfigurationDescriptionTypeDef = TypedDict(
+    "GlueDataCatalogConfigurationDescriptionTypeDef",
+    {
+        "DatabaseARN": str,
+    },
+)
+
+GlueDataCatalogConfigurationTypeDef = TypedDict(
+    "GlueDataCatalogConfigurationTypeDef",
+    {
+        "DatabaseARN": str,
+    },
+)
+
+GlueDataCatalogConfigurationUpdateTypeDef = TypedDict(
+    "GlueDataCatalogConfigurationUpdateTypeDef",
+    {
+        "DatabaseARNUpdate": str,
+    },
+    total=False,
 )
 
 InputDescriptionTypeDef = TypedDict(
@@ -453,42 +1176,73 @@ InputDescriptionTypeDef = TypedDict(
 )
 
 _RequiredInputLambdaProcessorDescriptionTypeDef = TypedDict(
-    "_RequiredInputLambdaProcessorDescriptionTypeDef", {"ResourceARN": str}
+    "_RequiredInputLambdaProcessorDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 _OptionalInputLambdaProcessorDescriptionTypeDef = TypedDict(
-    "_OptionalInputLambdaProcessorDescriptionTypeDef", {"RoleARN": str}, total=False
+    "_OptionalInputLambdaProcessorDescriptionTypeDef",
+    {
+        "RoleARN": str,
+    },
+    total=False,
 )
-
 
 class InputLambdaProcessorDescriptionTypeDef(
     _RequiredInputLambdaProcessorDescriptionTypeDef, _OptionalInputLambdaProcessorDescriptionTypeDef
 ):
     pass
 
-
-InputLambdaProcessorTypeDef = TypedDict("InputLambdaProcessorTypeDef", {"ResourceARN": str})
-
-InputLambdaProcessorUpdateTypeDef = TypedDict(
-    "InputLambdaProcessorUpdateTypeDef", {"ResourceARNUpdate": str}
+InputLambdaProcessorTypeDef = TypedDict(
+    "InputLambdaProcessorTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 
-InputParallelismTypeDef = TypedDict("InputParallelismTypeDef", {"Count": int}, total=False)
+InputLambdaProcessorUpdateTypeDef = TypedDict(
+    "InputLambdaProcessorUpdateTypeDef",
+    {
+        "ResourceARNUpdate": str,
+    },
+)
 
-InputParallelismUpdateTypeDef = TypedDict("InputParallelismUpdateTypeDef", {"CountUpdate": int})
+InputParallelismTypeDef = TypedDict(
+    "InputParallelismTypeDef",
+    {
+        "Count": int,
+    },
+    total=False,
+)
+
+InputParallelismUpdateTypeDef = TypedDict(
+    "InputParallelismUpdateTypeDef",
+    {
+        "CountUpdate": int,
+    },
+)
 
 InputProcessingConfigurationDescriptionTypeDef = TypedDict(
     "InputProcessingConfigurationDescriptionTypeDef",
-    {"InputLambdaProcessorDescription": "InputLambdaProcessorDescriptionTypeDef"},
+    {
+        "InputLambdaProcessorDescription": "InputLambdaProcessorDescriptionTypeDef",
+    },
     total=False,
 )
 
 InputProcessingConfigurationTypeDef = TypedDict(
-    "InputProcessingConfigurationTypeDef", {"InputLambdaProcessor": "InputLambdaProcessorTypeDef"}
+    "InputProcessingConfigurationTypeDef",
+    {
+        "InputLambdaProcessor": "InputLambdaProcessorTypeDef",
+    },
 )
 
 InputProcessingConfigurationUpdateTypeDef = TypedDict(
     "InputProcessingConfigurationUpdateTypeDef",
-    {"InputLambdaProcessorUpdate": "InputLambdaProcessorUpdateTypeDef"},
+    {
+        "InputLambdaProcessorUpdate": "InputLambdaProcessorUpdateTypeDef",
+    },
 )
 
 InputSchemaUpdateTypeDef = TypedDict(
@@ -503,12 +1257,18 @@ InputSchemaUpdateTypeDef = TypedDict(
 
 InputStartingPositionConfigurationTypeDef = TypedDict(
     "InputStartingPositionConfigurationTypeDef",
-    {"InputStartingPosition": Literal["NOW", "TRIM_HORIZON", "LAST_STOPPED_POINT"]},
+    {
+        "InputStartingPosition": InputStartingPositionType,
+    },
     total=False,
 )
 
 _RequiredInputTypeDef = TypedDict(
-    "_RequiredInputTypeDef", {"NamePrefix": str, "InputSchema": "SourceSchemaTypeDef"}
+    "_RequiredInputTypeDef",
+    {
+        "NamePrefix": str,
+        "InputSchema": "SourceSchemaTypeDef",
+    },
 )
 _OptionalInputTypeDef = TypedDict(
     "_OptionalInputTypeDef",
@@ -521,12 +1281,15 @@ _OptionalInputTypeDef = TypedDict(
     total=False,
 )
 
-
 class InputTypeDef(_RequiredInputTypeDef, _OptionalInputTypeDef):
     pass
 
-
-_RequiredInputUpdateTypeDef = TypedDict("_RequiredInputUpdateTypeDef", {"InputId": str})
+_RequiredInputUpdateTypeDef = TypedDict(
+    "_RequiredInputUpdateTypeDef",
+    {
+        "InputId": str,
+    },
+)
 _OptionalInputUpdateTypeDef = TypedDict(
     "_OptionalInputUpdateTypeDef",
     {
@@ -540,40 +1303,62 @@ _OptionalInputUpdateTypeDef = TypedDict(
     total=False,
 )
 
-
 class InputUpdateTypeDef(_RequiredInputUpdateTypeDef, _OptionalInputUpdateTypeDef):
     pass
 
-
-JSONMappingParametersTypeDef = TypedDict("JSONMappingParametersTypeDef", {"RecordRowPath": str})
+JSONMappingParametersTypeDef = TypedDict(
+    "JSONMappingParametersTypeDef",
+    {
+        "RecordRowPath": str,
+    },
+)
 
 _RequiredKinesisFirehoseInputDescriptionTypeDef = TypedDict(
-    "_RequiredKinesisFirehoseInputDescriptionTypeDef", {"ResourceARN": str}
+    "_RequiredKinesisFirehoseInputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 _OptionalKinesisFirehoseInputDescriptionTypeDef = TypedDict(
-    "_OptionalKinesisFirehoseInputDescriptionTypeDef", {"RoleARN": str}, total=False
+    "_OptionalKinesisFirehoseInputDescriptionTypeDef",
+    {
+        "RoleARN": str,
+    },
+    total=False,
 )
-
 
 class KinesisFirehoseInputDescriptionTypeDef(
     _RequiredKinesisFirehoseInputDescriptionTypeDef, _OptionalKinesisFirehoseInputDescriptionTypeDef
 ):
     pass
 
-
-KinesisFirehoseInputTypeDef = TypedDict("KinesisFirehoseInputTypeDef", {"ResourceARN": str})
+KinesisFirehoseInputTypeDef = TypedDict(
+    "KinesisFirehoseInputTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
 
 KinesisFirehoseInputUpdateTypeDef = TypedDict(
-    "KinesisFirehoseInputUpdateTypeDef", {"ResourceARNUpdate": str}
+    "KinesisFirehoseInputUpdateTypeDef",
+    {
+        "ResourceARNUpdate": str,
+    },
 )
 
 _RequiredKinesisFirehoseOutputDescriptionTypeDef = TypedDict(
-    "_RequiredKinesisFirehoseOutputDescriptionTypeDef", {"ResourceARN": str}
+    "_RequiredKinesisFirehoseOutputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 _OptionalKinesisFirehoseOutputDescriptionTypeDef = TypedDict(
-    "_OptionalKinesisFirehoseOutputDescriptionTypeDef", {"RoleARN": str}, total=False
+    "_OptionalKinesisFirehoseOutputDescriptionTypeDef",
+    {
+        "RoleARN": str,
+    },
+    total=False,
 )
-
 
 class KinesisFirehoseOutputDescriptionTypeDef(
     _RequiredKinesisFirehoseOutputDescriptionTypeDef,
@@ -581,102 +1366,211 @@ class KinesisFirehoseOutputDescriptionTypeDef(
 ):
     pass
 
-
-_RequiredKinesisFirehoseOutputTypeDef = TypedDict(
-    "_RequiredKinesisFirehoseOutputTypeDef", {"ResourceARN": str}
+KinesisFirehoseOutputTypeDef = TypedDict(
+    "KinesisFirehoseOutputTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
-_OptionalKinesisFirehoseOutputTypeDef = TypedDict(
-    "_OptionalKinesisFirehoseOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
-)
-
-
-class KinesisFirehoseOutputTypeDef(
-    _RequiredKinesisFirehoseOutputTypeDef, _OptionalKinesisFirehoseOutputTypeDef
-):
-    pass
-
 
 KinesisFirehoseOutputUpdateTypeDef = TypedDict(
-    "KinesisFirehoseOutputUpdateTypeDef", {"ResourceARNUpdate": str}
+    "KinesisFirehoseOutputUpdateTypeDef",
+    {
+        "ResourceARNUpdate": str,
+    },
 )
 
 _RequiredKinesisStreamsInputDescriptionTypeDef = TypedDict(
-    "_RequiredKinesisStreamsInputDescriptionTypeDef", {"ResourceARN": str}
+    "_RequiredKinesisStreamsInputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 _OptionalKinesisStreamsInputDescriptionTypeDef = TypedDict(
-    "_OptionalKinesisStreamsInputDescriptionTypeDef", {"RoleARN": str}, total=False
+    "_OptionalKinesisStreamsInputDescriptionTypeDef",
+    {
+        "RoleARN": str,
+    },
+    total=False,
 )
-
 
 class KinesisStreamsInputDescriptionTypeDef(
     _RequiredKinesisStreamsInputDescriptionTypeDef, _OptionalKinesisStreamsInputDescriptionTypeDef
 ):
     pass
 
-
-KinesisStreamsInputTypeDef = TypedDict("KinesisStreamsInputTypeDef", {"ResourceARN": str})
+KinesisStreamsInputTypeDef = TypedDict(
+    "KinesisStreamsInputTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
 
 KinesisStreamsInputUpdateTypeDef = TypedDict(
-    "KinesisStreamsInputUpdateTypeDef", {"ResourceARNUpdate": str}
+    "KinesisStreamsInputUpdateTypeDef",
+    {
+        "ResourceARNUpdate": str,
+    },
 )
 
 _RequiredKinesisStreamsOutputDescriptionTypeDef = TypedDict(
-    "_RequiredKinesisStreamsOutputDescriptionTypeDef", {"ResourceARN": str}
+    "_RequiredKinesisStreamsOutputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 _OptionalKinesisStreamsOutputDescriptionTypeDef = TypedDict(
-    "_OptionalKinesisStreamsOutputDescriptionTypeDef", {"RoleARN": str}, total=False
+    "_OptionalKinesisStreamsOutputDescriptionTypeDef",
+    {
+        "RoleARN": str,
+    },
+    total=False,
 )
-
 
 class KinesisStreamsOutputDescriptionTypeDef(
     _RequiredKinesisStreamsOutputDescriptionTypeDef, _OptionalKinesisStreamsOutputDescriptionTypeDef
 ):
     pass
 
-
-_RequiredKinesisStreamsOutputTypeDef = TypedDict(
-    "_RequiredKinesisStreamsOutputTypeDef", {"ResourceARN": str}
+KinesisStreamsOutputTypeDef = TypedDict(
+    "KinesisStreamsOutputTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
-_OptionalKinesisStreamsOutputTypeDef = TypedDict(
-    "_OptionalKinesisStreamsOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
-)
-
-
-class KinesisStreamsOutputTypeDef(
-    _RequiredKinesisStreamsOutputTypeDef, _OptionalKinesisStreamsOutputTypeDef
-):
-    pass
-
 
 KinesisStreamsOutputUpdateTypeDef = TypedDict(
-    "KinesisStreamsOutputUpdateTypeDef", {"ResourceARNUpdate": str}
+    "KinesisStreamsOutputUpdateTypeDef",
+    {
+        "ResourceARNUpdate": str,
+    },
 )
 
 _RequiredLambdaOutputDescriptionTypeDef = TypedDict(
-    "_RequiredLambdaOutputDescriptionTypeDef", {"ResourceARN": str}
+    "_RequiredLambdaOutputDescriptionTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 _OptionalLambdaOutputDescriptionTypeDef = TypedDict(
-    "_OptionalLambdaOutputDescriptionTypeDef", {"RoleARN": str}, total=False
+    "_OptionalLambdaOutputDescriptionTypeDef",
+    {
+        "RoleARN": str,
+    },
+    total=False,
 )
-
 
 class LambdaOutputDescriptionTypeDef(
     _RequiredLambdaOutputDescriptionTypeDef, _OptionalLambdaOutputDescriptionTypeDef
 ):
     pass
 
-
-_RequiredLambdaOutputTypeDef = TypedDict("_RequiredLambdaOutputTypeDef", {"ResourceARN": str})
-_OptionalLambdaOutputTypeDef = TypedDict(
-    "_OptionalLambdaOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+LambdaOutputTypeDef = TypedDict(
+    "LambdaOutputTypeDef",
+    {
+        "ResourceARN": str,
+    },
 )
 
+LambdaOutputUpdateTypeDef = TypedDict(
+    "LambdaOutputUpdateTypeDef",
+    {
+        "ResourceARNUpdate": str,
+    },
+)
 
-class LambdaOutputTypeDef(_RequiredLambdaOutputTypeDef, _OptionalLambdaOutputTypeDef):
+_RequiredListApplicationSnapshotsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationSnapshotsRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalListApplicationSnapshotsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationSnapshotsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationSnapshotsRequestRequestTypeDef(
+    _RequiredListApplicationSnapshotsRequestRequestTypeDef,
+    _OptionalListApplicationSnapshotsRequestRequestTypeDef,
+):
     pass
 
+ListApplicationSnapshotsResponseTypeDef = TypedDict(
+    "ListApplicationSnapshotsResponseTypeDef",
+    {
+        "SnapshotSummaries": List["SnapshotDetailsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
-LambdaOutputUpdateTypeDef = TypedDict("LambdaOutputUpdateTypeDef", {"ResourceARNUpdate": str})
+_RequiredListApplicationVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListApplicationVersionsRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalListApplicationVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListApplicationVersionsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListApplicationVersionsRequestRequestTypeDef(
+    _RequiredListApplicationVersionsRequestRequestTypeDef,
+    _OptionalListApplicationVersionsRequestRequestTypeDef,
+):
+    pass
+
+ListApplicationVersionsResponseTypeDef = TypedDict(
+    "ListApplicationVersionsResponseTypeDef",
+    {
+        "ApplicationVersionSummaries": List["ApplicationVersionSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListApplicationsRequestRequestTypeDef = TypedDict(
+    "ListApplicationsRequestRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListApplicationsResponseTypeDef = TypedDict(
+    "ListApplicationsResponseTypeDef",
+    {
+        "ApplicationSummaries": List["ApplicationSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 MappingParametersTypeDef = TypedDict(
     "MappingParametersTypeDef",
@@ -687,41 +1581,51 @@ MappingParametersTypeDef = TypedDict(
     total=False,
 )
 
+MavenReferenceTypeDef = TypedDict(
+    "MavenReferenceTypeDef",
+    {
+        "GroupId": str,
+        "ArtifactId": str,
+        "Version": str,
+    },
+)
+
 MonitoringConfigurationDescriptionTypeDef = TypedDict(
     "MonitoringConfigurationDescriptionTypeDef",
     {
-        "ConfigurationType": Literal["DEFAULT", "CUSTOM"],
-        "MetricsLevel": Literal["APPLICATION", "TASK", "OPERATOR", "PARALLELISM"],
-        "LogLevel": Literal["INFO", "WARN", "ERROR", "DEBUG"],
+        "ConfigurationType": ConfigurationTypeType,
+        "MetricsLevel": MetricsLevelType,
+        "LogLevel": LogLevelType,
     },
     total=False,
 )
 
 _RequiredMonitoringConfigurationTypeDef = TypedDict(
-    "_RequiredMonitoringConfigurationTypeDef", {"ConfigurationType": Literal["DEFAULT", "CUSTOM"]}
+    "_RequiredMonitoringConfigurationTypeDef",
+    {
+        "ConfigurationType": ConfigurationTypeType,
+    },
 )
 _OptionalMonitoringConfigurationTypeDef = TypedDict(
     "_OptionalMonitoringConfigurationTypeDef",
     {
-        "MetricsLevel": Literal["APPLICATION", "TASK", "OPERATOR", "PARALLELISM"],
-        "LogLevel": Literal["INFO", "WARN", "ERROR", "DEBUG"],
+        "MetricsLevel": MetricsLevelType,
+        "LogLevel": LogLevelType,
     },
     total=False,
 )
-
 
 class MonitoringConfigurationTypeDef(
     _RequiredMonitoringConfigurationTypeDef, _OptionalMonitoringConfigurationTypeDef
 ):
     pass
 
-
 MonitoringConfigurationUpdateTypeDef = TypedDict(
     "MonitoringConfigurationUpdateTypeDef",
     {
-        "ConfigurationTypeUpdate": Literal["DEFAULT", "CUSTOM"],
-        "MetricsLevelUpdate": Literal["APPLICATION", "TASK", "OPERATOR", "PARALLELISM"],
-        "LogLevelUpdate": Literal["INFO", "WARN", "ERROR", "DEBUG"],
+        "ConfigurationTypeUpdate": ConfigurationTypeType,
+        "MetricsLevelUpdate": MetricsLevelType,
+        "LogLevelUpdate": LogLevelType,
     },
     total=False,
 )
@@ -740,7 +1644,11 @@ OutputDescriptionTypeDef = TypedDict(
 )
 
 _RequiredOutputTypeDef = TypedDict(
-    "_RequiredOutputTypeDef", {"Name": str, "DestinationSchema": "DestinationSchemaTypeDef"}
+    "_RequiredOutputTypeDef",
+    {
+        "Name": str,
+        "DestinationSchema": "DestinationSchemaTypeDef",
+    },
 )
 _OptionalOutputTypeDef = TypedDict(
     "_OptionalOutputTypeDef",
@@ -748,17 +1656,19 @@ _OptionalOutputTypeDef = TypedDict(
         "KinesisStreamsOutput": "KinesisStreamsOutputTypeDef",
         "KinesisFirehoseOutput": "KinesisFirehoseOutputTypeDef",
         "LambdaOutput": "LambdaOutputTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
-
 class OutputTypeDef(_RequiredOutputTypeDef, _OptionalOutputTypeDef):
     pass
 
-
-_RequiredOutputUpdateTypeDef = TypedDict("_RequiredOutputUpdateTypeDef", {"OutputId": str})
+_RequiredOutputUpdateTypeDef = TypedDict(
+    "_RequiredOutputUpdateTypeDef",
+    {
+        "OutputId": str,
+    },
+)
 _OptionalOutputUpdateTypeDef = TypedDict(
     "_OptionalOutputUpdateTypeDef",
     {
@@ -771,15 +1681,23 @@ _OptionalOutputUpdateTypeDef = TypedDict(
     total=False,
 )
 
-
 class OutputUpdateTypeDef(_RequiredOutputUpdateTypeDef, _OptionalOutputUpdateTypeDef):
     pass
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
 
 ParallelismConfigurationDescriptionTypeDef = TypedDict(
     "ParallelismConfigurationDescriptionTypeDef",
     {
-        "ConfigurationType": Literal["DEFAULT", "CUSTOM"],
+        "ConfigurationType": ConfigurationTypeType,
         "Parallelism": int,
         "ParallelismPerKPU": int,
         "CurrentParallelism": int,
@@ -789,25 +1707,30 @@ ParallelismConfigurationDescriptionTypeDef = TypedDict(
 )
 
 _RequiredParallelismConfigurationTypeDef = TypedDict(
-    "_RequiredParallelismConfigurationTypeDef", {"ConfigurationType": Literal["DEFAULT", "CUSTOM"]}
+    "_RequiredParallelismConfigurationTypeDef",
+    {
+        "ConfigurationType": ConfigurationTypeType,
+    },
 )
 _OptionalParallelismConfigurationTypeDef = TypedDict(
     "_OptionalParallelismConfigurationTypeDef",
-    {"Parallelism": int, "ParallelismPerKPU": int, "AutoScalingEnabled": bool},
+    {
+        "Parallelism": int,
+        "ParallelismPerKPU": int,
+        "AutoScalingEnabled": bool,
+    },
     total=False,
 )
-
 
 class ParallelismConfigurationTypeDef(
     _RequiredParallelismConfigurationTypeDef, _OptionalParallelismConfigurationTypeDef
 ):
     pass
 
-
 ParallelismConfigurationUpdateTypeDef = TypedDict(
     "ParallelismConfigurationUpdateTypeDef",
     {
-        "ConfigurationTypeUpdate": Literal["DEFAULT", "CUSTOM"],
+        "ConfigurationTypeUpdate": ConfigurationTypeType,
         "ParallelismUpdate": int,
         "ParallelismPerKPUUpdate": int,
         "AutoScalingEnabledUpdate": bool,
@@ -816,32 +1739,47 @@ ParallelismConfigurationUpdateTypeDef = TypedDict(
 )
 
 PropertyGroupTypeDef = TypedDict(
-    "PropertyGroupTypeDef", {"PropertyGroupId": str, "PropertyMap": Dict[str, str]}
+    "PropertyGroupTypeDef",
+    {
+        "PropertyGroupId": str,
+        "PropertyMap": Dict[str, str],
+    },
 )
 
 _RequiredRecordColumnTypeDef = TypedDict(
-    "_RequiredRecordColumnTypeDef", {"Name": str, "SqlType": str}
+    "_RequiredRecordColumnTypeDef",
+    {
+        "Name": str,
+        "SqlType": str,
+    },
 )
 _OptionalRecordColumnTypeDef = TypedDict(
-    "_OptionalRecordColumnTypeDef", {"Mapping": str}, total=False
+    "_OptionalRecordColumnTypeDef",
+    {
+        "Mapping": str,
+    },
+    total=False,
 )
-
 
 class RecordColumnTypeDef(_RequiredRecordColumnTypeDef, _OptionalRecordColumnTypeDef):
     pass
 
-
 _RequiredRecordFormatTypeDef = TypedDict(
-    "_RequiredRecordFormatTypeDef", {"RecordFormatType": Literal["JSON", "CSV"]}
+    "_RequiredRecordFormatTypeDef",
+    {
+        "RecordFormatType": RecordFormatTypeType,
+    },
 )
 _OptionalRecordFormatTypeDef = TypedDict(
-    "_OptionalRecordFormatTypeDef", {"MappingParameters": "MappingParametersTypeDef"}, total=False
+    "_OptionalRecordFormatTypeDef",
+    {
+        "MappingParameters": "MappingParametersTypeDef",
+    },
+    total=False,
 )
-
 
 class RecordFormatTypeDef(_RequiredRecordFormatTypeDef, _OptionalRecordFormatTypeDef):
     pass
-
 
 _RequiredReferenceDataSourceDescriptionTypeDef = TypedDict(
     "_RequiredReferenceDataSourceDescriptionTypeDef",
@@ -853,36 +1791,42 @@ _RequiredReferenceDataSourceDescriptionTypeDef = TypedDict(
 )
 _OptionalReferenceDataSourceDescriptionTypeDef = TypedDict(
     "_OptionalReferenceDataSourceDescriptionTypeDef",
-    {"ReferenceSchema": "SourceSchemaTypeDef"},
+    {
+        "ReferenceSchema": "SourceSchemaTypeDef",
+    },
     total=False,
 )
-
 
 class ReferenceDataSourceDescriptionTypeDef(
     _RequiredReferenceDataSourceDescriptionTypeDef, _OptionalReferenceDataSourceDescriptionTypeDef
 ):
     pass
 
-
 _RequiredReferenceDataSourceTypeDef = TypedDict(
     "_RequiredReferenceDataSourceTypeDef",
-    {"TableName": str, "ReferenceSchema": "SourceSchemaTypeDef"},
+    {
+        "TableName": str,
+        "ReferenceSchema": "SourceSchemaTypeDef",
+    },
 )
 _OptionalReferenceDataSourceTypeDef = TypedDict(
     "_OptionalReferenceDataSourceTypeDef",
-    {"S3ReferenceDataSource": "S3ReferenceDataSourceTypeDef"},
+    {
+        "S3ReferenceDataSource": "S3ReferenceDataSourceTypeDef",
+    },
     total=False,
 )
-
 
 class ReferenceDataSourceTypeDef(
     _RequiredReferenceDataSourceTypeDef, _OptionalReferenceDataSourceTypeDef
 ):
     pass
 
-
 _RequiredReferenceDataSourceUpdateTypeDef = TypedDict(
-    "_RequiredReferenceDataSourceUpdateTypeDef", {"ReferenceId": str}
+    "_RequiredReferenceDataSourceUpdateTypeDef",
+    {
+        "ReferenceId": str,
+    },
 )
 _OptionalReferenceDataSourceUpdateTypeDef = TypedDict(
     "_OptionalReferenceDataSourceUpdateTypeDef",
@@ -894,21 +1838,35 @@ _OptionalReferenceDataSourceUpdateTypeDef = TypedDict(
     total=False,
 )
 
-
 class ReferenceDataSourceUpdateTypeDef(
     _RequiredReferenceDataSourceUpdateTypeDef, _OptionalReferenceDataSourceUpdateTypeDef
 ):
     pass
 
-
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+RollbackApplicationRequestRequestTypeDef = TypedDict(
+    "RollbackApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "CurrentApplicationVersionId": int,
+    },
+)
+
+RollbackApplicationResponseTypeDef = TypedDict(
+    "RollbackApplicationResponseTypeDef",
+    {
+        "ApplicationDetail": "ApplicationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -921,13 +1879,39 @@ RunConfigurationDescriptionTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredS3ApplicationCodeLocationDescriptionTypeDef = TypedDict(
-    "_RequiredS3ApplicationCodeLocationDescriptionTypeDef", {"BucketARN": str, "FileKey": str}
-)
-_OptionalS3ApplicationCodeLocationDescriptionTypeDef = TypedDict(
-    "_OptionalS3ApplicationCodeLocationDescriptionTypeDef", {"ObjectVersion": str}, total=False
+RunConfigurationTypeDef = TypedDict(
+    "RunConfigurationTypeDef",
+    {
+        "FlinkRunConfiguration": "FlinkRunConfigurationTypeDef",
+        "SqlRunConfigurations": List["SqlRunConfigurationTypeDef"],
+        "ApplicationRestoreConfiguration": "ApplicationRestoreConfigurationTypeDef",
+    },
+    total=False,
 )
 
+RunConfigurationUpdateTypeDef = TypedDict(
+    "RunConfigurationUpdateTypeDef",
+    {
+        "FlinkRunConfiguration": "FlinkRunConfigurationTypeDef",
+        "ApplicationRestoreConfiguration": "ApplicationRestoreConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredS3ApplicationCodeLocationDescriptionTypeDef = TypedDict(
+    "_RequiredS3ApplicationCodeLocationDescriptionTypeDef",
+    {
+        "BucketARN": str,
+        "FileKey": str,
+    },
+)
+_OptionalS3ApplicationCodeLocationDescriptionTypeDef = TypedDict(
+    "_OptionalS3ApplicationCodeLocationDescriptionTypeDef",
+    {
+        "ObjectVersion": str,
+    },
+    total=False,
+)
 
 class S3ApplicationCodeLocationDescriptionTypeDef(
     _RequiredS3ApplicationCodeLocationDescriptionTypeDef,
@@ -935,34 +1919,116 @@ class S3ApplicationCodeLocationDescriptionTypeDef(
 ):
     pass
 
+S3ConfigurationTypeDef = TypedDict(
+    "S3ConfigurationTypeDef",
+    {
+        "BucketARN": str,
+        "FileKey": str,
+    },
+)
+
+_RequiredS3ContentBaseLocationDescriptionTypeDef = TypedDict(
+    "_RequiredS3ContentBaseLocationDescriptionTypeDef",
+    {
+        "BucketARN": str,
+    },
+)
+_OptionalS3ContentBaseLocationDescriptionTypeDef = TypedDict(
+    "_OptionalS3ContentBaseLocationDescriptionTypeDef",
+    {
+        "BasePath": str,
+    },
+    total=False,
+)
+
+class S3ContentBaseLocationDescriptionTypeDef(
+    _RequiredS3ContentBaseLocationDescriptionTypeDef,
+    _OptionalS3ContentBaseLocationDescriptionTypeDef,
+):
+    pass
+
+_RequiredS3ContentBaseLocationTypeDef = TypedDict(
+    "_RequiredS3ContentBaseLocationTypeDef",
+    {
+        "BucketARN": str,
+    },
+)
+_OptionalS3ContentBaseLocationTypeDef = TypedDict(
+    "_OptionalS3ContentBaseLocationTypeDef",
+    {
+        "BasePath": str,
+    },
+    total=False,
+)
+
+class S3ContentBaseLocationTypeDef(
+    _RequiredS3ContentBaseLocationTypeDef, _OptionalS3ContentBaseLocationTypeDef
+):
+    pass
+
+_RequiredS3ContentBaseLocationUpdateTypeDef = TypedDict(
+    "_RequiredS3ContentBaseLocationUpdateTypeDef",
+    {
+        "BucketARNUpdate": str,
+    },
+)
+_OptionalS3ContentBaseLocationUpdateTypeDef = TypedDict(
+    "_OptionalS3ContentBaseLocationUpdateTypeDef",
+    {
+        "BasePathUpdate": str,
+    },
+    total=False,
+)
+
+class S3ContentBaseLocationUpdateTypeDef(
+    _RequiredS3ContentBaseLocationUpdateTypeDef, _OptionalS3ContentBaseLocationUpdateTypeDef
+):
+    pass
 
 _RequiredS3ContentLocationTypeDef = TypedDict(
-    "_RequiredS3ContentLocationTypeDef", {"BucketARN": str, "FileKey": str}
+    "_RequiredS3ContentLocationTypeDef",
+    {
+        "BucketARN": str,
+        "FileKey": str,
+    },
 )
 _OptionalS3ContentLocationTypeDef = TypedDict(
-    "_OptionalS3ContentLocationTypeDef", {"ObjectVersion": str}, total=False
+    "_OptionalS3ContentLocationTypeDef",
+    {
+        "ObjectVersion": str,
+    },
+    total=False,
 )
-
 
 class S3ContentLocationTypeDef(
     _RequiredS3ContentLocationTypeDef, _OptionalS3ContentLocationTypeDef
 ):
     pass
 
-
 S3ContentLocationUpdateTypeDef = TypedDict(
     "S3ContentLocationUpdateTypeDef",
-    {"BucketARNUpdate": str, "FileKeyUpdate": str, "ObjectVersionUpdate": str},
+    {
+        "BucketARNUpdate": str,
+        "FileKeyUpdate": str,
+        "ObjectVersionUpdate": str,
+    },
     total=False,
 )
 
 _RequiredS3ReferenceDataSourceDescriptionTypeDef = TypedDict(
-    "_RequiredS3ReferenceDataSourceDescriptionTypeDef", {"BucketARN": str, "FileKey": str}
+    "_RequiredS3ReferenceDataSourceDescriptionTypeDef",
+    {
+        "BucketARN": str,
+        "FileKey": str,
+    },
 )
 _OptionalS3ReferenceDataSourceDescriptionTypeDef = TypedDict(
-    "_OptionalS3ReferenceDataSourceDescriptionTypeDef", {"ReferenceRoleARN": str}, total=False
+    "_OptionalS3ReferenceDataSourceDescriptionTypeDef",
+    {
+        "ReferenceRoleARN": str,
+    },
+    total=False,
 )
-
 
 class S3ReferenceDataSourceDescriptionTypeDef(
     _RequiredS3ReferenceDataSourceDescriptionTypeDef,
@@ -970,14 +2036,21 @@ class S3ReferenceDataSourceDescriptionTypeDef(
 ):
     pass
 
-
 S3ReferenceDataSourceTypeDef = TypedDict(
-    "S3ReferenceDataSourceTypeDef", {"BucketARN": str, "FileKey": str}, total=False
+    "S3ReferenceDataSourceTypeDef",
+    {
+        "BucketARN": str,
+        "FileKey": str,
+    },
+    total=False,
 )
 
 S3ReferenceDataSourceUpdateTypeDef = TypedDict(
     "S3ReferenceDataSourceUpdateTypeDef",
-    {"BucketARNUpdate": str, "FileKeyUpdate": str},
+    {
+        "BucketARNUpdate": str,
+        "FileKeyUpdate": str,
+    },
     total=False,
 )
 
@@ -985,31 +2058,38 @@ _RequiredSnapshotDetailsTypeDef = TypedDict(
     "_RequiredSnapshotDetailsTypeDef",
     {
         "SnapshotName": str,
-        "SnapshotStatus": Literal["CREATING", "READY", "DELETING", "FAILED"],
+        "SnapshotStatus": SnapshotStatusType,
         "ApplicationVersionId": int,
     },
 )
 _OptionalSnapshotDetailsTypeDef = TypedDict(
-    "_OptionalSnapshotDetailsTypeDef", {"SnapshotCreationTimestamp": datetime}, total=False
+    "_OptionalSnapshotDetailsTypeDef",
+    {
+        "SnapshotCreationTimestamp": datetime,
+    },
+    total=False,
 )
-
 
 class SnapshotDetailsTypeDef(_RequiredSnapshotDetailsTypeDef, _OptionalSnapshotDetailsTypeDef):
     pass
 
-
 _RequiredSourceSchemaTypeDef = TypedDict(
     "_RequiredSourceSchemaTypeDef",
-    {"RecordFormat": "RecordFormatTypeDef", "RecordColumns": List["RecordColumnTypeDef"]},
+    {
+        "RecordFormat": "RecordFormatTypeDef",
+        "RecordColumns": List["RecordColumnTypeDef"],
+    },
 )
 _OptionalSourceSchemaTypeDef = TypedDict(
-    "_OptionalSourceSchemaTypeDef", {"RecordEncoding": str}, total=False
+    "_OptionalSourceSchemaTypeDef",
+    {
+        "RecordEncoding": str,
+    },
+    total=False,
 )
-
 
 class SourceSchemaTypeDef(_RequiredSourceSchemaTypeDef, _OptionalSourceSchemaTypeDef):
     pass
-
 
 SqlApplicationConfigurationDescriptionTypeDef = TypedDict(
     "SqlApplicationConfigurationDescriptionTypeDef",
@@ -1049,13 +2129,125 @@ SqlRunConfigurationTypeDef = TypedDict(
     },
 )
 
-_RequiredTagTypeDef = TypedDict("_RequiredTagTypeDef", {"Key": str})
-_OptionalTagTypeDef = TypedDict("_OptionalTagTypeDef", {"Value": str}, total=False)
+_RequiredStartApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalStartApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartApplicationRequestRequestTypeDef",
+    {
+        "RunConfiguration": "RunConfigurationTypeDef",
+    },
+    total=False,
+)
 
+class StartApplicationRequestRequestTypeDef(
+    _RequiredStartApplicationRequestRequestTypeDef, _OptionalStartApplicationRequestRequestTypeDef
+):
+    pass
+
+_RequiredStopApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredStopApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalStopApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalStopApplicationRequestRequestTypeDef",
+    {
+        "Force": bool,
+    },
+    total=False,
+)
+
+class StopApplicationRequestRequestTypeDef(
+    _RequiredStopApplicationRequestRequestTypeDef, _OptionalStopApplicationRequestRequestTypeDef
+):
+    pass
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+_RequiredTagTypeDef = TypedDict(
+    "_RequiredTagTypeDef",
+    {
+        "Key": str,
+    },
+)
+_OptionalTagTypeDef = TypedDict(
+    "_OptionalTagTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
 
 class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
     pass
 
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "TagKeys": List[str],
+    },
+)
+
+UpdateApplicationMaintenanceConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateApplicationMaintenanceConfigurationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+        "ApplicationMaintenanceConfigurationUpdate": "ApplicationMaintenanceConfigurationUpdateTypeDef",
+    },
+)
+
+UpdateApplicationMaintenanceConfigurationResponseTypeDef = TypedDict(
+    "UpdateApplicationMaintenanceConfigurationResponseTypeDef",
+    {
+        "ApplicationARN": str,
+        "ApplicationMaintenanceConfigurationDescription": "ApplicationMaintenanceConfigurationDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateApplicationRequestRequestTypeDef",
+    {
+        "ApplicationName": str,
+    },
+)
+_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateApplicationRequestRequestTypeDef",
+    {
+        "CurrentApplicationVersionId": int,
+        "ApplicationConfigurationUpdate": "ApplicationConfigurationUpdateTypeDef",
+        "ServiceExecutionRoleUpdate": str,
+        "RunConfigurationUpdate": "RunConfigurationUpdateTypeDef",
+        "CloudWatchLoggingOptionUpdates": List["CloudWatchLoggingOptionUpdateTypeDef"],
+        "ConditionalToken": str,
+    },
+    total=False,
+)
+
+class UpdateApplicationRequestRequestTypeDef(
+    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
+):
+    pass
+
+UpdateApplicationResponseTypeDef = TypedDict(
+    "UpdateApplicationResponseTypeDef",
+    {
+        "ApplicationDetail": "ApplicationDetailTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 VpcConfigurationDescriptionTypeDef = TypedDict(
     "VpcConfigurationDescriptionTypeDef",
@@ -1068,249 +2260,97 @@ VpcConfigurationDescriptionTypeDef = TypedDict(
 )
 
 VpcConfigurationTypeDef = TypedDict(
-    "VpcConfigurationTypeDef", {"SubnetIds": List[str], "SecurityGroupIds": List[str]}
+    "VpcConfigurationTypeDef",
+    {
+        "SubnetIds": List[str],
+        "SecurityGroupIds": List[str],
+    },
 )
 
 _RequiredVpcConfigurationUpdateTypeDef = TypedDict(
-    "_RequiredVpcConfigurationUpdateTypeDef", {"VpcConfigurationId": str}
+    "_RequiredVpcConfigurationUpdateTypeDef",
+    {
+        "VpcConfigurationId": str,
+    },
 )
 _OptionalVpcConfigurationUpdateTypeDef = TypedDict(
     "_OptionalVpcConfigurationUpdateTypeDef",
-    {"SubnetIdUpdates": List[str], "SecurityGroupIdUpdates": List[str]},
+    {
+        "SubnetIdUpdates": List[str],
+        "SecurityGroupIdUpdates": List[str],
+    },
     total=False,
 )
-
 
 class VpcConfigurationUpdateTypeDef(
     _RequiredVpcConfigurationUpdateTypeDef, _OptionalVpcConfigurationUpdateTypeDef
 ):
     pass
 
-
-AddApplicationCloudWatchLoggingOptionResponseTypeDef = TypedDict(
-    "AddApplicationCloudWatchLoggingOptionResponseTypeDef",
+_RequiredZeppelinApplicationConfigurationDescriptionTypeDef = TypedDict(
+    "_RequiredZeppelinApplicationConfigurationDescriptionTypeDef",
     {
-        "ApplicationARN": str,
-        "ApplicationVersionId": int,
-        "CloudWatchLoggingOptionDescriptions": List["CloudWatchLoggingOptionDescriptionTypeDef"],
+        "MonitoringConfigurationDescription": "ZeppelinMonitoringConfigurationDescriptionTypeDef",
+    },
+)
+_OptionalZeppelinApplicationConfigurationDescriptionTypeDef = TypedDict(
+    "_OptionalZeppelinApplicationConfigurationDescriptionTypeDef",
+    {
+        "CatalogConfigurationDescription": "CatalogConfigurationDescriptionTypeDef",
+        "DeployAsApplicationConfigurationDescription": "DeployAsApplicationConfigurationDescriptionTypeDef",
+        "CustomArtifactsConfigurationDescription": List[
+            "CustomArtifactConfigurationDescriptionTypeDef"
+        ],
     },
     total=False,
 )
 
-AddApplicationInputProcessingConfigurationResponseTypeDef = TypedDict(
-    "AddApplicationInputProcessingConfigurationResponseTypeDef",
-    {
-        "ApplicationARN": str,
-        "ApplicationVersionId": int,
-        "InputId": str,
-        "InputProcessingConfigurationDescription": "InputProcessingConfigurationDescriptionTypeDef",
-    },
-    total=False,
-)
-
-AddApplicationInputResponseTypeDef = TypedDict(
-    "AddApplicationInputResponseTypeDef",
-    {
-        "ApplicationARN": str,
-        "ApplicationVersionId": int,
-        "InputDescriptions": List["InputDescriptionTypeDef"],
-    },
-    total=False,
-)
-
-AddApplicationOutputResponseTypeDef = TypedDict(
-    "AddApplicationOutputResponseTypeDef",
-    {
-        "ApplicationARN": str,
-        "ApplicationVersionId": int,
-        "OutputDescriptions": List["OutputDescriptionTypeDef"],
-    },
-    total=False,
-)
-
-AddApplicationReferenceDataSourceResponseTypeDef = TypedDict(
-    "AddApplicationReferenceDataSourceResponseTypeDef",
-    {
-        "ApplicationARN": str,
-        "ApplicationVersionId": int,
-        "ReferenceDataSourceDescriptions": List["ReferenceDataSourceDescriptionTypeDef"],
-    },
-    total=False,
-)
-
-AddApplicationVpcConfigurationResponseTypeDef = TypedDict(
-    "AddApplicationVpcConfigurationResponseTypeDef",
-    {
-        "ApplicationARN": str,
-        "ApplicationVersionId": int,
-        "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredApplicationConfigurationTypeDef = TypedDict(
-    "_RequiredApplicationConfigurationTypeDef",
-    {"ApplicationCodeConfiguration": "ApplicationCodeConfigurationTypeDef"},
-)
-_OptionalApplicationConfigurationTypeDef = TypedDict(
-    "_OptionalApplicationConfigurationTypeDef",
-    {
-        "SqlApplicationConfiguration": "SqlApplicationConfigurationTypeDef",
-        "FlinkApplicationConfiguration": "FlinkApplicationConfigurationTypeDef",
-        "EnvironmentProperties": "EnvironmentPropertiesTypeDef",
-        "ApplicationSnapshotConfiguration": "ApplicationSnapshotConfigurationTypeDef",
-        "VpcConfigurations": List["VpcConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-
-class ApplicationConfigurationTypeDef(
-    _RequiredApplicationConfigurationTypeDef, _OptionalApplicationConfigurationTypeDef
+class ZeppelinApplicationConfigurationDescriptionTypeDef(
+    _RequiredZeppelinApplicationConfigurationDescriptionTypeDef,
+    _OptionalZeppelinApplicationConfigurationDescriptionTypeDef,
 ):
     pass
 
-
-ApplicationConfigurationUpdateTypeDef = TypedDict(
-    "ApplicationConfigurationUpdateTypeDef",
+ZeppelinApplicationConfigurationTypeDef = TypedDict(
+    "ZeppelinApplicationConfigurationTypeDef",
     {
-        "SqlApplicationConfigurationUpdate": "SqlApplicationConfigurationUpdateTypeDef",
-        "ApplicationCodeConfigurationUpdate": "ApplicationCodeConfigurationUpdateTypeDef",
-        "FlinkApplicationConfigurationUpdate": "FlinkApplicationConfigurationUpdateTypeDef",
-        "EnvironmentPropertyUpdates": "EnvironmentPropertyUpdatesTypeDef",
-        "ApplicationSnapshotConfigurationUpdate": "ApplicationSnapshotConfigurationUpdateTypeDef",
-        "VpcConfigurationUpdates": List["VpcConfigurationUpdateTypeDef"],
+        "MonitoringConfiguration": "ZeppelinMonitoringConfigurationTypeDef",
+        "CatalogConfiguration": "CatalogConfigurationTypeDef",
+        "DeployAsApplicationConfiguration": "DeployAsApplicationConfigurationTypeDef",
+        "CustomArtifactsConfiguration": List["CustomArtifactConfigurationTypeDef"],
     },
     total=False,
 )
 
-CloudWatchLoggingOptionTypeDef = TypedDict("CloudWatchLoggingOptionTypeDef", {"LogStreamARN": str})
-
-_RequiredCloudWatchLoggingOptionUpdateTypeDef = TypedDict(
-    "_RequiredCloudWatchLoggingOptionUpdateTypeDef", {"CloudWatchLoggingOptionId": str}
-)
-_OptionalCloudWatchLoggingOptionUpdateTypeDef = TypedDict(
-    "_OptionalCloudWatchLoggingOptionUpdateTypeDef", {"LogStreamARNUpdate": str}, total=False
-)
-
-
-class CloudWatchLoggingOptionUpdateTypeDef(
-    _RequiredCloudWatchLoggingOptionUpdateTypeDef, _OptionalCloudWatchLoggingOptionUpdateTypeDef
-):
-    pass
-
-
-CreateApplicationPresignedUrlResponseTypeDef = TypedDict(
-    "CreateApplicationPresignedUrlResponseTypeDef", {"AuthorizedUrl": str}, total=False
-)
-
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef", {"ApplicationDetail": "ApplicationDetailTypeDef"}
-)
-
-DeleteApplicationCloudWatchLoggingOptionResponseTypeDef = TypedDict(
-    "DeleteApplicationCloudWatchLoggingOptionResponseTypeDef",
+ZeppelinApplicationConfigurationUpdateTypeDef = TypedDict(
+    "ZeppelinApplicationConfigurationUpdateTypeDef",
     {
-        "ApplicationARN": str,
-        "ApplicationVersionId": int,
-        "CloudWatchLoggingOptionDescriptions": List["CloudWatchLoggingOptionDescriptionTypeDef"],
+        "MonitoringConfigurationUpdate": "ZeppelinMonitoringConfigurationUpdateTypeDef",
+        "CatalogConfigurationUpdate": "CatalogConfigurationUpdateTypeDef",
+        "DeployAsApplicationConfigurationUpdate": "DeployAsApplicationConfigurationUpdateTypeDef",
+        "CustomArtifactsConfigurationUpdate": List["CustomArtifactConfigurationTypeDef"],
     },
     total=False,
 )
 
-DeleteApplicationInputProcessingConfigurationResponseTypeDef = TypedDict(
-    "DeleteApplicationInputProcessingConfigurationResponseTypeDef",
-    {"ApplicationARN": str, "ApplicationVersionId": int},
-    total=False,
-)
-
-DeleteApplicationOutputResponseTypeDef = TypedDict(
-    "DeleteApplicationOutputResponseTypeDef",
-    {"ApplicationARN": str, "ApplicationVersionId": int},
-    total=False,
-)
-
-DeleteApplicationReferenceDataSourceResponseTypeDef = TypedDict(
-    "DeleteApplicationReferenceDataSourceResponseTypeDef",
-    {"ApplicationARN": str, "ApplicationVersionId": int},
-    total=False,
-)
-
-DeleteApplicationVpcConfigurationResponseTypeDef = TypedDict(
-    "DeleteApplicationVpcConfigurationResponseTypeDef",
-    {"ApplicationARN": str, "ApplicationVersionId": int},
-    total=False,
-)
-
-DescribeApplicationResponseTypeDef = TypedDict(
-    "DescribeApplicationResponseTypeDef", {"ApplicationDetail": "ApplicationDetailTypeDef"}
-)
-
-DescribeApplicationSnapshotResponseTypeDef = TypedDict(
-    "DescribeApplicationSnapshotResponseTypeDef", {"SnapshotDetails": "SnapshotDetailsTypeDef"}
-)
-
-DiscoverInputSchemaResponseTypeDef = TypedDict(
-    "DiscoverInputSchemaResponseTypeDef",
+ZeppelinMonitoringConfigurationDescriptionTypeDef = TypedDict(
+    "ZeppelinMonitoringConfigurationDescriptionTypeDef",
     {
-        "InputSchema": "SourceSchemaTypeDef",
-        "ParsedInputRecords": List[List[str]],
-        "ProcessedInputRecords": List[str],
-        "RawInputRecords": List[str],
+        "LogLevel": LogLevelType,
     },
     total=False,
 )
 
-ListApplicationSnapshotsResponseTypeDef = TypedDict(
-    "ListApplicationSnapshotsResponseTypeDef",
-    {"SnapshotSummaries": List["SnapshotDetailsTypeDef"], "NextToken": str},
-    total=False,
-)
-
-_RequiredListApplicationsResponseTypeDef = TypedDict(
-    "_RequiredListApplicationsResponseTypeDef",
-    {"ApplicationSummaries": List["ApplicationSummaryTypeDef"]},
-)
-_OptionalListApplicationsResponseTypeDef = TypedDict(
-    "_OptionalListApplicationsResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class ListApplicationsResponseTypeDef(
-    _RequiredListApplicationsResponseTypeDef, _OptionalListApplicationsResponseTypeDef
-):
-    pass
-
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-RunConfigurationTypeDef = TypedDict(
-    "RunConfigurationTypeDef",
+ZeppelinMonitoringConfigurationTypeDef = TypedDict(
+    "ZeppelinMonitoringConfigurationTypeDef",
     {
-        "FlinkRunConfiguration": "FlinkRunConfigurationTypeDef",
-        "SqlRunConfigurations": List["SqlRunConfigurationTypeDef"],
-        "ApplicationRestoreConfiguration": "ApplicationRestoreConfigurationTypeDef",
+        "LogLevel": LogLevelType,
     },
-    total=False,
 )
 
-RunConfigurationUpdateTypeDef = TypedDict(
-    "RunConfigurationUpdateTypeDef",
+ZeppelinMonitoringConfigurationUpdateTypeDef = TypedDict(
+    "ZeppelinMonitoringConfigurationUpdateTypeDef",
     {
-        "FlinkRunConfiguration": "FlinkRunConfigurationTypeDef",
-        "ApplicationRestoreConfiguration": "ApplicationRestoreConfigurationTypeDef",
+        "LogLevelUpdate": LogLevelType,
     },
-    total=False,
-)
-
-S3ConfigurationTypeDef = TypedDict("S3ConfigurationTypeDef", {"BucketARN": str, "FileKey": str})
-
-UpdateApplicationResponseTypeDef = TypedDict(
-    "UpdateApplicationResponseTypeDef", {"ApplicationDetail": "ApplicationDetailTypeDef"}
 )

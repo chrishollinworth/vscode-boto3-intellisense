@@ -1,23 +1,32 @@
 """
-Main interface for devops-guru service client
+Type annotations for devops-guru service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html)
 
 Usage::
 
     ```python
     import boto3
-    from mypy_boto3_devops_guru import DevopsGuruClient
+    from mypy_boto3_devops_guru import DevOpsGuruClient
 
-    client: DevopsGuruClient = boto3.client("devops-guru")
+    client: DevOpsGuruClient = boto3.client("devops-guru")
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, Type, overload
+from typing import Any, Dict, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_devops_guru.paginator import (
+from .literals import (
+    InsightTypeType,
+    LocaleType,
+    ResourceCollectionTypeType,
+    UpdateResourceCollectionActionType,
+)
+from .paginator import (
     DescribeResourceCollectionHealthPaginator,
+    GetCostEstimationPaginator,
     GetResourceCollectionPaginator,
     ListAnomaliesForInsightPaginator,
     ListEventsPaginator,
@@ -26,14 +35,17 @@ from mypy_boto3_devops_guru.paginator import (
     ListRecommendationsPaginator,
     SearchInsightsPaginator,
 )
-from mypy_boto3_devops_guru.type_defs import (
+from .type_defs import (
     AddNotificationChannelResponseTypeDef,
+    CostEstimationResourceCollectionFilterTypeDef,
     DescribeAccountHealthResponseTypeDef,
     DescribeAccountOverviewResponseTypeDef,
     DescribeAnomalyResponseTypeDef,
+    DescribeFeedbackResponseTypeDef,
     DescribeInsightResponseTypeDef,
     DescribeResourceCollectionHealthResponseTypeDef,
     DescribeServiceIntegrationResponseTypeDef,
+    GetCostEstimationResponseTypeDef,
     GetResourceCollectionResponseTypeDef,
     InsightFeedbackTypeDef,
     ListAnomaliesForInsightResponseTypeDef,
@@ -56,17 +68,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
-__all__ = ("DevopsGuruClient",)
-
+__all__ = ("DevOpsGuruClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -78,61 +86,93 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class DevopsGuruClient:
+class DevOpsGuruClient(BaseClient):
     """
-    [DevopsGuru.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        DevOpsGuruClient exceptions.
+        """
     def add_notification_channel(
-        self, Config: "NotificationChannelConfigTypeDef"
+        self, *, Config: "NotificationChannelConfigTypeDef"
     ) -> AddNotificationChannelResponseTypeDef:
         """
-        [Client.add_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.add_notification_channel)
-        """
+        Adds a notification channel to DevOps Guru.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.add_notification_channel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#add_notification_channel)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#can_paginate)
+        """
     def describe_account_health(self) -> DescribeAccountHealthResponseTypeDef:
         """
-        [Client.describe_account_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_account_health)
-        """
+        Returns the number of open reactive insights, the number of open proactive
+        insights, and the number of metrics analyzed in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_health)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_account_health)
+        """
     def describe_account_overview(
-        self, FromTime: datetime, ToTime: datetime = None
+        self, *, FromTime: Union[datetime, str], ToTime: Union[datetime, str] = None
     ) -> DescribeAccountOverviewResponseTypeDef:
         """
-        [Client.describe_account_overview documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_account_overview)
-        """
+        For the time range passed in, returns the number of open reactive insight that
+        were created, the number of open proactive insights that were created, and the
+        Mean Time to Recover (MTTR) for all closed reactive insights.
 
-    def describe_anomaly(self, Id: str) -> DescribeAnomalyResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_overview)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_account_overview)
         """
-        [Client.describe_anomaly documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_anomaly)
+    def describe_anomaly(self, *, Id: str) -> DescribeAnomalyResponseTypeDef:
         """
+        Returns details about an anomaly that you specify using its ID.
 
-    def describe_insight(self, Id: str) -> DescribeInsightResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.describe_anomaly)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_anomaly)
         """
-        [Client.describe_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_insight)
+    def describe_feedback(self, *, InsightId: str = None) -> DescribeFeedbackResponseTypeDef:
         """
+        Returns the most recent feedback submitted in the current AWS account and
+        Region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.describe_feedback)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_feedback)
+        """
+    def describe_insight(self, *, Id: str) -> DescribeInsightResponseTypeDef:
+        """
+        Returns details about an insight that you specify using its ID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.describe_insight)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_insight)
+        """
     def describe_resource_collection_health(
-        self, ResourceCollectionType: Literal["AWS_CLOUD_FORMATION"], NextToken: str = None
+        self, *, ResourceCollectionType: ResourceCollectionTypeType, NextToken: str = None
     ) -> DescribeResourceCollectionHealthResponseTypeDef:
         """
-        [Client.describe_resource_collection_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_resource_collection_health)
-        """
+        Returns the number of open proactive insights, open reactive insights, and the
+        Mean Time to Recover (MTTR) for all closed insights in resource collections in
+        your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.describe_resource_collection_health)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_resource_collection_health)
+        """
     def describe_service_integration(self) -> DescribeServiceIntegrationResponseTypeDef:
         """
-        [Client.describe_service_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_service_integration)
-        """
+        Returns the integration status of services that are integrated with DevOps Guru.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.describe_service_integration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#describe_service_integration)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -141,150 +181,211 @@ class DevopsGuruClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#generate_presigned_url)
+        """
+    def get_cost_estimation(self, *, NextToken: str = None) -> GetCostEstimationResponseTypeDef:
+        """
+        Returns an estimate of the monthly cost for DevOps Guru to analyze your AWS
+        resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.get_cost_estimation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#get_cost_estimation)
+        """
     def get_resource_collection(
-        self, ResourceCollectionType: Literal["AWS_CLOUD_FORMATION"], NextToken: str = None
+        self, *, ResourceCollectionType: ResourceCollectionTypeType, NextToken: str = None
     ) -> GetResourceCollectionResponseTypeDef:
         """
-        [Client.get_resource_collection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.get_resource_collection)
-        """
+        Returns lists AWS resources that are of the specified resource collection type.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.get_resource_collection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#get_resource_collection)
+        """
     def list_anomalies_for_insight(
         self,
+        *,
         InsightId: str,
         StartTimeRange: "StartTimeRangeTypeDef" = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListAnomaliesForInsightResponseTypeDef:
         """
-        [Client.list_anomalies_for_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_anomalies_for_insight)
-        """
+        Returns a list of the anomalies that belong to an insight that you specify using
+        its ID.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.list_anomalies_for_insight)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_anomalies_for_insight)
+        """
     def list_events(
-        self, Filters: ListEventsFiltersTypeDef, MaxResults: int = None, NextToken: str = None
+        self, *, Filters: "ListEventsFiltersTypeDef", MaxResults: int = None, NextToken: str = None
     ) -> ListEventsResponseTypeDef:
         """
-        [Client.list_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_events)
-        """
+        Returns a list of the events emitted by the resources that are evaluated by
+        DevOps Guru.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.list_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_events)
+        """
     def list_insights(
         self,
-        StatusFilter: ListInsightsStatusFilterTypeDef,
+        *,
+        StatusFilter: "ListInsightsStatusFilterTypeDef",
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListInsightsResponseTypeDef:
         """
-        [Client.list_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_insights)
-        """
+        Returns a list of insights in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.list_insights)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_insights)
+        """
     def list_notification_channels(
-        self, NextToken: str = None
+        self, *, NextToken: str = None
     ) -> ListNotificationChannelsResponseTypeDef:
         """
-        [Client.list_notification_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_notification_channels)
-        """
+        Returns a list of notification channels configured for DevOps Guru.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.list_notification_channels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_notification_channels)
+        """
     def list_recommendations(
-        self, InsightId: str, NextToken: str = None
+        self, *, InsightId: str, NextToken: str = None, Locale: LocaleType = None
     ) -> ListRecommendationsResponseTypeDef:
         """
-        [Client.list_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_recommendations)
-        """
+        Returns a list of a specified insight's recommendations.
 
-    def put_feedback(self, InsightFeedback: InsightFeedbackTypeDef = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.list_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#list_recommendations)
         """
-        [Client.put_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.put_feedback)
+    def put_feedback(self, *, InsightFeedback: "InsightFeedbackTypeDef" = None) -> Dict[str, Any]:
         """
+        Collects customer feedback about the specified insight.
 
-    def remove_notification_channel(self, Id: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.put_feedback)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#put_feedback)
         """
-        [Client.remove_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.remove_notification_channel)
+    def remove_notification_channel(self, *, Id: str) -> Dict[str, Any]:
         """
+        Removes a notification channel from DevOps Guru.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.remove_notification_channel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#remove_notification_channel)
+        """
     def search_insights(
         self,
+        *,
         StartTimeRange: "StartTimeRangeTypeDef",
-        Type: Literal["REACTIVE", "PROACTIVE"],
-        Filters: SearchInsightsFiltersTypeDef = None,
+        Type: InsightTypeType,
+        Filters: "SearchInsightsFiltersTypeDef" = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> SearchInsightsResponseTypeDef:
         """
-        [Client.search_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.search_insights)
-        """
+        Returns a list of insights in your AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.search_insights)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#search_insights)
+        """
+    def start_cost_estimation(
+        self,
+        *,
+        ResourceCollection: "CostEstimationResourceCollectionFilterTypeDef",
+        ClientToken: str = None
+    ) -> Dict[str, Any]:
+        """
+        Starts the creation of an estimate of the monthly cost to analyze your AWS
+        resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.start_cost_estimation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#start_cost_estimation)
+        """
     def update_resource_collection(
         self,
-        Action: Literal["ADD", "REMOVE"],
-        ResourceCollection: UpdateResourceCollectionFilterTypeDef,
+        *,
+        Action: UpdateResourceCollectionActionType,
+        ResourceCollection: "UpdateResourceCollectionFilterTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.update_resource_collection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.update_resource_collection)
-        """
+        Updates the collection of resources that DevOps Guru analyzes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.update_resource_collection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#update_resource_collection)
+        """
     def update_service_integration(
-        self, ServiceIntegration: UpdateServiceIntegrationConfigTypeDef
+        self, *, ServiceIntegration: "UpdateServiceIntegrationConfigTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.update_service_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.update_service_integration)
-        """
+        Enables or disables integration with a service that can be integrated with
+        DevOps Guru.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Client.update_service_integration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/client.html#update_service_integration)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_resource_collection_health"]
     ) -> DescribeResourceCollectionHealthPaginator:
         """
-        [Paginator.DescribeResourceCollectionHealth documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.DescribeResourceCollectionHealth)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#describeresourcecollectionhealthpaginator)
         """
-
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["get_cost_estimation"]
+    ) -> GetCostEstimationPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetCostEstimation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getcostestimationpaginator)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["get_resource_collection"]
     ) -> GetResourceCollectionPaginator:
         """
-        [Paginator.GetResourceCollection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.GetResourceCollection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getresourcecollectionpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_anomalies_for_insight"]
     ) -> ListAnomaliesForInsightPaginator:
         """
-        [Paginator.ListAnomaliesForInsight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListAnomaliesForInsight)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listanomaliesforinsightpaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_events"]) -> ListEventsPaginator:
         """
-        [Paginator.ListEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listeventspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_insights"]) -> ListInsightsPaginator:
         """
-        [Paginator.ListInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listinsightspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_notification_channels"]
     ) -> ListNotificationChannelsPaginator:
         """
-        [Paginator.ListNotificationChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListNotificationChannels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listnotificationchannelspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_recommendations"]
     ) -> ListRecommendationsPaginator:
         """
-        [Paginator.ListRecommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListRecommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listrecommendationspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["search_insights"]) -> SearchInsightsPaginator:
         """
-        [Paginator.SearchInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.SearchInsights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#searchinsightspaginator)
         """

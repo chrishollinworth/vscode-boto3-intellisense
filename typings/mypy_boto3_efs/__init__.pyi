@@ -23,15 +23,14 @@ Usage::
     describe_tags_paginator: DescribeTagsPaginator = client.get_paginator("describe_tags")
     ```
 """
-from mypy_boto3_efs.client import EFSClient
-from mypy_boto3_efs.paginator import (
+from .client import EFSClient
+from .paginator import (
     DescribeFileSystemsPaginator,
     DescribeMountTargetsPaginator,
     DescribeTagsPaginator,
 )
 
 Client = EFSClient
-
 
 __all__ = (
     "Client",

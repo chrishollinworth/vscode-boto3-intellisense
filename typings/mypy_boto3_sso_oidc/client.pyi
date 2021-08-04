@@ -1,5 +1,7 @@
 """
-Main interface for sso-oidc service client
+Type annotations for sso-oidc service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html)
 
 Usage::
 
@@ -12,9 +14,9 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_sso_oidc.type_defs import (
+from .type_defs import (
     CreateTokenResponseTypeDef,
     RegisterClientResponseTypeDef,
     StartDeviceAuthorizationResponseTypeDef,
@@ -22,14 +24,11 @@ from mypy_boto3_sso_oidc.type_defs import (
 
 __all__ = ("SSOOIDCClient",)
 
-
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -46,22 +45,28 @@ class Exceptions:
     UnauthorizedClientException: Type[BotocoreClientError]
     UnsupportedGrantTypeException: Type[BotocoreClientError]
 
-
-class SSOOIDCClient:
+class SSOOIDCClient(BaseClient):
     """
-    [SSOOIDC.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-oidc.html#SSOOIDC.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-oidc.html#SSOOIDC.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        SSOOIDCClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#can_paginate)
+        """
     def create_token(
         self,
+        *,
         clientId: str,
         clientSecret: str,
         grantType: str,
@@ -69,12 +74,14 @@ class SSOOIDCClient:
         code: str = None,
         refreshToken: str = None,
         scope: List[str] = None,
-        redirectUri: str = None,
+        redirectUri: str = None
     ) -> CreateTokenResponseTypeDef:
         """
-        [Client.create_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
-        """
+        Creates and returns an access token for the authorized client.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#create_token)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -83,19 +90,27 @@ class SSOOIDCClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#generate_presigned_url)
+        """
     def register_client(
-        self, clientName: str, clientType: str, scopes: List[str] = None
+        self, *, clientName: str, clientType: str, scopes: List[str] = None
     ) -> RegisterClientResponseTypeDef:
         """
-        [Client.register_client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
-        """
+        Registers a client with AWS SSO.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#register_client)
+        """
     def start_device_authorization(
-        self, clientId: str, clientSecret: str, startUrl: str
+        self, *, clientId: str, clientSecret: str, startUrl: str
     ) -> StartDeviceAuthorizationResponseTypeDef:
         """
-        [Client.start_device_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
+        Initiates device authorization by requesting a pair of verification codes from
+        the authorization service.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/client.html#start_device_authorization)
         """

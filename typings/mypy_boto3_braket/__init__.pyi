@@ -21,10 +21,9 @@ Usage::
     search_quantum_tasks_paginator: SearchQuantumTasksPaginator = client.get_paginator("search_quantum_tasks")
     ```
 """
-from mypy_boto3_braket.client import BraketClient
-from mypy_boto3_braket.paginator import SearchDevicesPaginator, SearchQuantumTasksPaginator
+from .client import BraketClient
+from .paginator import SearchDevicesPaginator, SearchQuantumTasksPaginator
 
 Client = BraketClient
-
 
 __all__ = ("BraketClient", "Client", "SearchDevicesPaginator", "SearchQuantumTasksPaginator")

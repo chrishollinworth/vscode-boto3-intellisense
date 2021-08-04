@@ -1,5 +1,7 @@
 """
-Main interface for servicecatalog-appregistry service client paginators.
+Type annotations for servicecatalog-appregistry service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html)
 
 Usage::
 
@@ -26,7 +28,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_servicecatalog_appregistry.type_defs import (
+from .type_defs import (
     ListApplicationsResponseTypeDef,
     ListAssociatedAttributeGroupsResponseTypeDef,
     ListAssociatedResourcesResponseTypeDef,
@@ -41,54 +43,58 @@ __all__ = (
     "ListAttributeGroupsPaginator",
 )
 
-
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListApplications)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListApplications)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listapplicationspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListApplications.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListApplications.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listapplicationspaginator)
         """
-
 
 class ListAssociatedAttributeGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedAttributeGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedAttributeGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listassociatedattributegroupspaginator)
     """
 
     def paginate(
-        self, application: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, application: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedAttributeGroupsResponseTypeDef]:
         """
-        [ListAssociatedAttributeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedAttributeGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedAttributeGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listassociatedattributegroupspaginator)
         """
-
 
 class ListAssociatedResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedResources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedResources)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listassociatedresourcespaginator)
     """
 
     def paginate(
-        self, application: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, application: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedResourcesResponseTypeDef]:
         """
-        [ListAssociatedResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedResources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedResources.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listassociatedresourcespaginator)
         """
-
 
 class ListAttributeGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAttributeGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAttributeGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listattributegroupspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttributeGroupsResponseTypeDef]:
         """
-        [ListAttributeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAttributeGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAttributeGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listattributegroupspaginator)
         """

@@ -1,9 +1,23 @@
-from mypy_boto3_marketplacecommerceanalytics import (
-    Client,
-    MarketplaceCommerceAnalyticsClient,
-)
+"""
+Main interface for marketplacecommerceanalytics service.
 
-__all__ = (
-    "Client",
-    "MarketplaceCommerceAnalyticsClient",
-)
+Usage::
+
+    ```python
+    import boto3
+    from mypy_boto3_marketplacecommerceanalytics import (
+        Client,
+        MarketplaceCommerceAnalyticsClient,
+    )
+
+    session = boto3.Session()
+
+    client: MarketplaceCommerceAnalyticsClient = boto3.client("marketplacecommerceanalytics")
+    session_client: MarketplaceCommerceAnalyticsClient = session.client("marketplacecommerceanalytics")
+    ```
+"""
+from .client import MarketplaceCommerceAnalyticsClient
+
+Client = MarketplaceCommerceAnalyticsClient
+
+__all__ = ("Client", "MarketplaceCommerceAnalyticsClient")

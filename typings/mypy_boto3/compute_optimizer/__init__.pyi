@@ -1,9 +1,23 @@
-from mypy_boto3_compute_optimizer import (
-    Client,
-    ComputeOptimizerClient,
-)
+"""
+Main interface for compute-optimizer service.
 
-__all__ = (
-    "Client",
-    "ComputeOptimizerClient",
-)
+Usage::
+
+    ```python
+    import boto3
+    from mypy_boto3_compute_optimizer import (
+        Client,
+        ComputeOptimizerClient,
+    )
+
+    session = boto3.Session()
+
+    client: ComputeOptimizerClient = boto3.client("compute-optimizer")
+    session_client: ComputeOptimizerClient = session.client("compute-optimizer")
+    ```
+"""
+from .client import ComputeOptimizerClient
+
+Client = ComputeOptimizerClient
+
+__all__ = ("Client", "ComputeOptimizerClient")

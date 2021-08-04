@@ -1,5 +1,7 @@
 """
-Main interface for emr-containers service client paginators.
+Type annotations for emr-containers service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html)
 
 Usage::
 
@@ -22,11 +24,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Iterator, List
+from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_emr_containers.type_defs import (
+from .literals import EndpointStateType, JobRunStateType, VirtualClusterStateType
+from .type_defs import (
     ListJobRunsResponseTypeDef,
     ListManagedEndpointsResponseTypeDef,
     ListVirtualClustersResponseTypeDef,
@@ -38,74 +41,67 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("ListJobRunsPaginator", "ListManagedEndpointsPaginator", "ListVirtualClustersPaginator")
-
 
 class ListJobRunsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobrunspaginator)
     """
 
     def paginate(
         self,
+        *,
         virtualClusterId: str,
-        createdBefore: datetime = None,
-        createdAfter: datetime = None,
+        createdBefore: Union[datetime, str] = None,
+        createdAfter: Union[datetime, str] = None,
         name: str = None,
-        states: List[
-            Literal[
-                "PENDING",
-                "SUBMITTED",
-                "RUNNING",
-                "FAILED",
-                "CANCELLED",
-                "CANCEL_PENDING",
-                "COMPLETED",
-            ]
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        states: List[JobRunStateType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobRunsResponseTypeDef]:
         """
-        [ListJobRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobrunspaginator)
         """
-
 
 class ListManagedEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.ListManagedEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listmanagedendpointspaginator)
     """
 
     def paginate(
         self,
+        *,
         virtualClusterId: str,
-        createdBefore: datetime = None,
-        createdAfter: datetime = None,
+        createdBefore: Union[datetime, str] = None,
+        createdAfter: Union[datetime, str] = None,
         types: List[str] = None,
-        states: List[
-            Literal["CREATING", "ACTIVE", "TERMINATING", "TERMINATED", "TERMINATED_WITH_ERRORS"]
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        states: List[EndpointStateType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListManagedEndpointsResponseTypeDef]:
         """
-        [ListManagedEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listmanagedendpointspaginator)
         """
-
 
 class ListVirtualClustersPaginator(Boto3Paginator):
     """
-    [Paginator.ListVirtualClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listvirtualclusterspaginator)
     """
 
     def paginate(
         self,
+        *,
         containerProviderId: str = None,
         containerProviderType: Literal["EKS"] = None,
-        createdAfter: datetime = None,
-        createdBefore: datetime = None,
-        states: List[Literal["RUNNING", "TERMINATING", "TERMINATED", "ARRESTED"]] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        createdAfter: Union[datetime, str] = None,
+        createdBefore: Union[datetime, str] = None,
+        states: List[VirtualClusterStateType] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVirtualClustersResponseTypeDef]:
         """
-        [ListVirtualClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listvirtualclusterspaginator)
         """

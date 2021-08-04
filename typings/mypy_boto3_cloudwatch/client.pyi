@@ -1,5 +1,7 @@
 """
-Main interface for cloudwatch service client
+Type annotations for cloudwatch service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html)
 
 Usage::
 
@@ -12,18 +14,28 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_cloudwatch.paginator import (
+from .literals import (
+    AlarmTypeType,
+    ComparisonOperatorType,
+    HistoryItemTypeType,
+    MetricStreamOutputFormatType,
+    ScanByType,
+    StandardUnitType,
+    StateValueType,
+    StatisticType,
+)
+from .paginator import (
     DescribeAlarmHistoryPaginator,
     DescribeAlarmsPaginator,
     GetMetricDataPaginator,
     ListDashboardsPaginator,
     ListMetricsPaginator,
 )
-from mypy_boto3_cloudwatch.type_defs import (
+from .type_defs import (
     AnomalyDetectorConfigurationTypeDef,
     DeleteInsightRulesOutputTypeDef,
     DescribeAlarmHistoryOutputTypeDef,
@@ -39,34 +51,34 @@ from mypy_boto3_cloudwatch.type_defs import (
     GetInsightRuleReportOutputTypeDef,
     GetMetricDataOutputTypeDef,
     GetMetricStatisticsOutputTypeDef,
+    GetMetricStreamOutputTypeDef,
     GetMetricWidgetImageOutputTypeDef,
     LabelOptionsTypeDef,
     ListDashboardsOutputTypeDef,
     ListMetricsOutputTypeDef,
+    ListMetricStreamsOutputTypeDef,
     ListTagsForResourceOutputTypeDef,
     MetricDataQueryTypeDef,
     MetricDatumTypeDef,
+    MetricStreamFilterTypeDef,
     PutDashboardOutputTypeDef,
+    PutMetricStreamOutputTypeDef,
     TagTypeDef,
 )
-from mypy_boto3_cloudwatch.waiter import AlarmExistsWaiter, CompositeAlarmExistsWaiter
+from .waiter import AlarmExistsWaiter, CompositeAlarmExistsWaiter
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("CloudWatchClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -84,158 +96,173 @@ class Exceptions:
     ResourceNotFound: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
 
-
-class CloudWatchClient:
+class CloudWatchClient(BaseClient):
     """
-    [CloudWatch.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        CloudWatchClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def delete_alarms(self, AlarmNames: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#can_paginate)
         """
-        [Client.delete_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.delete_alarms)
+    def delete_alarms(self, *, AlarmNames: List[str]) -> None:
         """
+        Deletes the specified alarms.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.delete_alarms)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_alarms)
+        """
     def delete_anomaly_detector(
         self,
+        *,
         Namespace: str,
         MetricName: str,
         Stat: str,
-        Dimensions: List["DimensionTypeDef"] = None,
+        Dimensions: List["DimensionTypeDef"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_anomaly_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.delete_anomaly_detector)
-        """
+        Deletes the specified anomaly detection model from your account.
 
-    def delete_dashboards(self, DashboardNames: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.delete_anomaly_detector)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_anomaly_detector)
         """
-        [Client.delete_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.delete_dashboards)
+    def delete_dashboards(self, *, DashboardNames: List[str]) -> Dict[str, Any]:
         """
+        Deletes all dashboards that you specify.
 
-    def delete_insight_rules(self, RuleNames: List[str]) -> DeleteInsightRulesOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.delete_dashboards)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_dashboards)
         """
-        [Client.delete_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.delete_insight_rules)
+    def delete_insight_rules(self, *, RuleNames: List[str]) -> DeleteInsightRulesOutputTypeDef:
         """
+        Permanently deletes the specified Contributor Insights rules.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.delete_insight_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_insight_rules)
+        """
+    def delete_metric_stream(self, *, Name: str) -> Dict[str, Any]:
+        """
+        Permanently deletes the metric stream that you specify.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.delete_metric_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#delete_metric_stream)
+        """
     def describe_alarm_history(
         self,
+        *,
         AlarmName: str = None,
-        AlarmTypes: List[Literal["CompositeAlarm", "MetricAlarm"]] = None,
-        HistoryItemType: Literal["ConfigurationUpdate", "StateUpdate", "Action"] = None,
-        StartDate: datetime = None,
-        EndDate: datetime = None,
+        AlarmTypes: List[AlarmTypeType] = None,
+        HistoryItemType: HistoryItemTypeType = None,
+        StartDate: Union[datetime, str] = None,
+        EndDate: Union[datetime, str] = None,
         MaxRecords: int = None,
         NextToken: str = None,
-        ScanBy: Literal["TimestampDescending", "TimestampAscending"] = None,
+        ScanBy: ScanByType = None
     ) -> DescribeAlarmHistoryOutputTypeDef:
         """
-        [Client.describe_alarm_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarm_history)
-        """
+        Retrieves the history for the specified alarm.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarm_history)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_alarm_history)
+        """
     def describe_alarms(
         self,
+        *,
         AlarmNames: List[str] = None,
         AlarmNamePrefix: str = None,
-        AlarmTypes: List[Literal["CompositeAlarm", "MetricAlarm"]] = None,
+        AlarmTypes: List[AlarmTypeType] = None,
         ChildrenOfAlarmName: str = None,
         ParentsOfAlarmName: str = None,
-        StateValue: Literal["OK", "ALARM", "INSUFFICIENT_DATA"] = None,
+        StateValue: StateValueType = None,
         ActionPrefix: str = None,
         MaxRecords: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeAlarmsOutputTypeDef:
         """
-        [Client.describe_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms)
-        """
+        Retrieves the specified alarms.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_alarms)
+        """
     def describe_alarms_for_metric(
         self,
+        *,
         MetricName: str,
         Namespace: str,
-        Statistic: Literal["SampleCount", "Average", "Sum", "Minimum", "Maximum"] = None,
+        Statistic: StatisticType = None,
         ExtendedStatistic: str = None,
         Dimensions: List["DimensionTypeDef"] = None,
         Period: int = None,
-        Unit: Literal[
-            "Seconds",
-            "Microseconds",
-            "Milliseconds",
-            "Bytes",
-            "Kilobytes",
-            "Megabytes",
-            "Gigabytes",
-            "Terabytes",
-            "Bits",
-            "Kilobits",
-            "Megabits",
-            "Gigabits",
-            "Terabits",
-            "Percent",
-            "Count",
-            "Bytes/Second",
-            "Kilobytes/Second",
-            "Megabytes/Second",
-            "Gigabytes/Second",
-            "Terabytes/Second",
-            "Bits/Second",
-            "Kilobits/Second",
-            "Megabits/Second",
-            "Gigabits/Second",
-            "Terabits/Second",
-            "Count/Second",
-            "None",
-        ] = None,
+        Unit: StandardUnitType = None
     ) -> DescribeAlarmsForMetricOutputTypeDef:
         """
-        [Client.describe_alarms_for_metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms_for_metric)
-        """
+        Retrieves the alarms for the specified metric.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms_for_metric)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_alarms_for_metric)
+        """
     def describe_anomaly_detectors(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
         Namespace: str = None,
         MetricName: str = None,
-        Dimensions: List["DimensionTypeDef"] = None,
+        Dimensions: List["DimensionTypeDef"] = None
     ) -> DescribeAnomalyDetectorsOutputTypeDef:
         """
-        [Client.describe_anomaly_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.describe_anomaly_detectors)
-        """
+        Lists the anomaly detection models that you have created in your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.describe_anomaly_detectors)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_anomaly_detectors)
+        """
     def describe_insight_rules(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> DescribeInsightRulesOutputTypeDef:
         """
-        [Client.describe_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.describe_insight_rules)
-        """
+        Returns a list of all the Contributor Insights rules in your account.
 
-    def disable_alarm_actions(self, AlarmNames: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.describe_insight_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#describe_insight_rules)
         """
-        [Client.disable_alarm_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.disable_alarm_actions)
+    def disable_alarm_actions(self, *, AlarmNames: List[str]) -> None:
         """
+        Disables the actions for the specified alarms.
 
-    def disable_insight_rules(self, RuleNames: List[str]) -> DisableInsightRulesOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.disable_alarm_actions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#disable_alarm_actions)
         """
-        [Client.disable_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.disable_insight_rules)
+    def disable_insight_rules(self, *, RuleNames: List[str]) -> DisableInsightRulesOutputTypeDef:
         """
+        Disables the specified Contributor Insights rules.
 
-    def enable_alarm_actions(self, AlarmNames: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.disable_insight_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#disable_insight_rules)
         """
-        [Client.enable_alarm_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.enable_alarm_actions)
+    def enable_alarm_actions(self, *, AlarmNames: List[str]) -> None:
         """
+        Enables the actions for the specified alarms.
 
-    def enable_insight_rules(self, RuleNames: List[str]) -> EnableInsightRulesOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.enable_alarm_actions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#enable_alarm_actions)
         """
-        [Client.enable_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.enable_insight_rules)
+    def enable_insight_rules(self, *, RuleNames: List[str]) -> EnableInsightRulesOutputTypeDef:
         """
+        Enables the specified Contributor Insights rules.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.enable_insight_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#enable_insight_rules)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -244,131 +271,148 @@ class CloudWatchClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_dashboard(self, DashboardName: str) -> GetDashboardOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#generate_presigned_url)
         """
-        [Client.get_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.get_dashboard)
+    def get_dashboard(self, *, DashboardName: str) -> GetDashboardOutputTypeDef:
         """
+        Displays the details of the dashboard that you specify.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.get_dashboard)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_dashboard)
+        """
     def get_insight_rule_report(
         self,
+        *,
         RuleName: str,
-        StartTime: datetime,
-        EndTime: datetime,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
         Period: int,
         MaxContributorCount: int = None,
         Metrics: List[str] = None,
-        OrderBy: str = None,
+        OrderBy: str = None
     ) -> GetInsightRuleReportOutputTypeDef:
         """
-        [Client.get_insight_rule_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.get_insight_rule_report)
-        """
+        This operation returns the time series data collected by a Contributor Insights
+        rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.get_insight_rule_report)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_insight_rule_report)
+        """
     def get_metric_data(
         self,
+        *,
         MetricDataQueries: List["MetricDataQueryTypeDef"],
-        StartTime: datetime,
-        EndTime: datetime,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
         NextToken: str = None,
-        ScanBy: Literal["TimestampDescending", "TimestampAscending"] = None,
+        ScanBy: ScanByType = None,
         MaxDatapoints: int = None,
-        LabelOptions: LabelOptionsTypeDef = None,
+        LabelOptions: "LabelOptionsTypeDef" = None
     ) -> GetMetricDataOutputTypeDef:
         """
-        [Client.get_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_data)
-        """
+        You can use the `GetMetricData` API to retrieve as many as 500 different metrics
+        in a single request, with a total of as many as 100,800 data points.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_data)
+        """
     def get_metric_statistics(
         self,
+        *,
         Namespace: str,
         MetricName: str,
-        StartTime: datetime,
-        EndTime: datetime,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
         Period: int,
         Dimensions: List["DimensionTypeDef"] = None,
-        Statistics: List[Literal["SampleCount", "Average", "Sum", "Minimum", "Maximum"]] = None,
+        Statistics: List[StatisticType] = None,
         ExtendedStatistics: List[str] = None,
-        Unit: Literal[
-            "Seconds",
-            "Microseconds",
-            "Milliseconds",
-            "Bytes",
-            "Kilobytes",
-            "Megabytes",
-            "Gigabytes",
-            "Terabytes",
-            "Bits",
-            "Kilobits",
-            "Megabits",
-            "Gigabits",
-            "Terabits",
-            "Percent",
-            "Count",
-            "Bytes/Second",
-            "Kilobytes/Second",
-            "Megabytes/Second",
-            "Gigabytes/Second",
-            "Terabytes/Second",
-            "Bits/Second",
-            "Kilobits/Second",
-            "Megabits/Second",
-            "Gigabits/Second",
-            "Terabits/Second",
-            "Count/Second",
-            "None",
-        ] = None,
+        Unit: StandardUnitType = None
     ) -> GetMetricStatisticsOutputTypeDef:
         """
-        [Client.get_metric_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_statistics)
-        """
+        Gets statistics for the specified metric.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_statistics)
+        """
+    def get_metric_stream(self, *, Name: str) -> GetMetricStreamOutputTypeDef:
+        """
+        Returns information about the metric stream that you specify.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_stream)
+        """
     def get_metric_widget_image(
-        self, MetricWidget: str, OutputFormat: str = None
+        self, *, MetricWidget: str, OutputFormat: str = None
     ) -> GetMetricWidgetImageOutputTypeDef:
         """
-        [Client.get_metric_widget_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_widget_image)
-        """
+        You can use the `GetMetricWidgetImage` API to retrieve a snapshot graph of one
+        or more Amazon CloudWatch metrics as a bitmap image.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_widget_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#get_metric_widget_image)
+        """
     def list_dashboards(
-        self, DashboardNamePrefix: str = None, NextToken: str = None
+        self, *, DashboardNamePrefix: str = None, NextToken: str = None
     ) -> ListDashboardsOutputTypeDef:
         """
-        [Client.list_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.list_dashboards)
-        """
+        Returns a list of the dashboards for your account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.list_dashboards)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_dashboards)
+        """
+    def list_metric_streams(
+        self, *, NextToken: str = None, MaxResults: int = None
+    ) -> ListMetricStreamsOutputTypeDef:
+        """
+        Returns a list of metric streams in this account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.list_metric_streams)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_metric_streams)
+        """
     def list_metrics(
         self,
+        *,
         Namespace: str = None,
         MetricName: str = None,
-        Dimensions: List[DimensionFilterTypeDef] = None,
+        Dimensions: List["DimensionFilterTypeDef"] = None,
         NextToken: str = None,
-        RecentlyActive: Literal["PT3H"] = None,
+        RecentlyActive: Literal["PT3H"] = None
     ) -> ListMetricsOutputTypeDef:
         """
-        [Client.list_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.list_metrics)
-        """
+        List the specified metrics.
 
-    def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.list_metrics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_metrics)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceOutputTypeDef:
         """
+        Displays the tags associated with a CloudWatch resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#list_tags_for_resource)
+        """
     def put_anomaly_detector(
         self,
+        *,
         Namespace: str,
         MetricName: str,
         Stat: str,
         Dimensions: List["DimensionTypeDef"] = None,
-        Configuration: "AnomalyDetectorConfigurationTypeDef" = None,
+        Configuration: "AnomalyDetectorConfigurationTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.put_anomaly_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.put_anomaly_detector)
-        """
+        Creates an anomaly detection model for a CloudWatch metric.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.put_anomaly_detector)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_anomaly_detector)
+        """
     def put_composite_alarm(
         self,
+        *,
         AlarmName: str,
         AlarmRule: str,
         ActionsEnabled: bool = None,
@@ -376,41 +420,42 @@ class CloudWatchClient:
         AlarmDescription: str = None,
         InsufficientDataActions: List[str] = None,
         OKActions: List[str] = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> None:
         """
-        [Client.put_composite_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.put_composite_alarm)
-        """
+        Creates or updates a *composite alarm*.
 
-    def put_dashboard(self, DashboardName: str, DashboardBody: str) -> PutDashboardOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.put_composite_alarm)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_composite_alarm)
         """
-        [Client.put_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.put_dashboard)
+    def put_dashboard(self, *, DashboardName: str, DashboardBody: str) -> PutDashboardOutputTypeDef:
         """
+        Creates a dashboard if it does not already exist, or updates an existing
+        dashboard.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.put_dashboard)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_dashboard)
+        """
     def put_insight_rule(
         self,
+        *,
         RuleName: str,
         RuleDefinition: str,
         RuleState: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.put_insight_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.put_insight_rule)
-        """
+        Creates a Contributor Insights rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.put_insight_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_insight_rule)
+        """
     def put_metric_alarm(
         self,
+        *,
         AlarmName: str,
         EvaluationPeriods: int,
-        ComparisonOperator: Literal[
-            "GreaterThanOrEqualToThreshold",
-            "GreaterThanThreshold",
-            "LessThanThreshold",
-            "LessThanOrEqualToThreshold",
-            "LessThanLowerOrGreaterThanUpperThreshold",
-            "LessThanLowerThreshold",
-            "GreaterThanUpperThreshold",
-        ],
+        ComparisonOperator: ComparisonOperatorType,
         AlarmDescription: str = None,
         ActionsEnabled: bool = None,
         OKActions: List[str] = None,
@@ -418,119 +463,135 @@ class CloudWatchClient:
         InsufficientDataActions: List[str] = None,
         MetricName: str = None,
         Namespace: str = None,
-        Statistic: Literal["SampleCount", "Average", "Sum", "Minimum", "Maximum"] = None,
+        Statistic: StatisticType = None,
         ExtendedStatistic: str = None,
         Dimensions: List["DimensionTypeDef"] = None,
         Period: int = None,
-        Unit: Literal[
-            "Seconds",
-            "Microseconds",
-            "Milliseconds",
-            "Bytes",
-            "Kilobytes",
-            "Megabytes",
-            "Gigabytes",
-            "Terabytes",
-            "Bits",
-            "Kilobits",
-            "Megabits",
-            "Gigabits",
-            "Terabits",
-            "Percent",
-            "Count",
-            "Bytes/Second",
-            "Kilobytes/Second",
-            "Megabytes/Second",
-            "Gigabytes/Second",
-            "Terabytes/Second",
-            "Bits/Second",
-            "Kilobits/Second",
-            "Megabits/Second",
-            "Gigabits/Second",
-            "Terabits/Second",
-            "Count/Second",
-            "None",
-        ] = None,
+        Unit: StandardUnitType = None,
         DatapointsToAlarm: int = None,
         Threshold: float = None,
         TreatMissingData: str = None,
         EvaluateLowSampleCountPercentile: str = None,
         Metrics: List["MetricDataQueryTypeDef"] = None,
         Tags: List["TagTypeDef"] = None,
-        ThresholdMetricId: str = None,
+        ThresholdMetricId: str = None
     ) -> None:
         """
-        [Client.put_metric_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_alarm)
-        """
+        Creates or updates an alarm and associates it with the specified metric, metric
+        math expression, or anomaly detection model.
 
-    def put_metric_data(self, Namespace: str, MetricData: List[MetricDatumTypeDef]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_alarm)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_metric_alarm)
         """
-        [Client.put_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_data)
+    def put_metric_data(self, *, Namespace: str, MetricData: List["MetricDatumTypeDef"]) -> None:
         """
+        Publishes metric data points to Amazon CloudWatch.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_metric_data)
+        """
+    def put_metric_stream(
+        self,
+        *,
+        Name: str,
+        FirehoseArn: str,
+        RoleArn: str,
+        OutputFormat: MetricStreamOutputFormatType,
+        IncludeFilters: List["MetricStreamFilterTypeDef"] = None,
+        ExcludeFilters: List["MetricStreamFilterTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
+    ) -> PutMetricStreamOutputTypeDef:
+        """
+        Creates or updates a metric stream.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#put_metric_stream)
+        """
     def set_alarm_state(
         self,
+        *,
         AlarmName: str,
-        StateValue: Literal["OK", "ALARM", "INSUFFICIENT_DATA"],
+        StateValue: StateValueType,
         StateReason: str,
-        StateReasonData: str = None,
+        StateReasonData: str = None
     ) -> None:
         """
-        [Client.set_alarm_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.set_alarm_state)
-        """
+        Temporarily sets the state of an alarm for testing purposes.
 
-    def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.set_alarm_state)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#set_alarm_state)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.tag_resource)
+    def start_metric_streams(self, *, Names: List[str]) -> Dict[str, Any]:
         """
+        Starts the streaming of metrics for one or more of your metric streams.
 
-    def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.start_metric_streams)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#start_metric_streams)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Client.untag_resource)
+    def stop_metric_streams(self, *, Names: List[str]) -> Dict[str, Any]:
         """
+        Stops the streaming of metrics for one or more of your metric streams.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.stop_metric_streams)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#stop_metric_streams)
+        """
+    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        """
+        Assigns one or more tags (key-value pairs) to the specified CloudWatch resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#tag_resource)
+        """
+    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        """
+        Removes one or more tags from the specified resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/client.html#untag_resource)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_alarm_history"]
     ) -> DescribeAlarmHistoryPaginator:
         """
-        [Paginator.DescribeAlarmHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmhistorypaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["describe_alarms"]) -> DescribeAlarmsPaginator:
         """
-        [Paginator.DescribeAlarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#describealarmspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_metric_data"]) -> GetMetricDataPaginator:
         """
-        [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#getmetricdatapaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_dashboards"]) -> ListDashboardsPaginator:
         """
-        [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listdashboardspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_metrics"]) -> ListMetricsPaginator:
         """
-        [Paginator.ListMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/paginators.html#listmetricspaginator)
         """
-
     @overload
     def get_waiter(self, waiter_name: Literal["alarm_exists"]) -> AlarmExistsWaiter:
         """
-        [Waiter.AlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#alarmexistswaiter)
         """
-
     @overload
     def get_waiter(
         self, waiter_name: Literal["composite_alarm_exists"]
     ) -> CompositeAlarmExistsWaiter:
         """
-        [Waiter.CompositeAlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#compositealarmexistswaiter)
         """

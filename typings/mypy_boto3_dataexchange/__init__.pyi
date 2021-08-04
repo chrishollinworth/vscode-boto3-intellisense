@@ -25,8 +25,8 @@ Usage::
     list_revision_assets_paginator: ListRevisionAssetsPaginator = client.get_paginator("list_revision_assets")
     ```
 """
-from mypy_boto3_dataexchange.client import DataExchangeClient
-from mypy_boto3_dataexchange.paginator import (
+from .client import DataExchangeClient
+from .paginator import (
     ListDataSetRevisionsPaginator,
     ListDataSetsPaginator,
     ListJobsPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_dataexchange.paginator import (
 )
 
 Client = DataExchangeClient
-
 
 __all__ = (
     "Client",

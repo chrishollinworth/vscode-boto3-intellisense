@@ -1,5 +1,7 @@
 """
-Main interface for application-autoscaling service client paginators.
+Type annotations for application-autoscaling service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html)
 
 Usage::
 
@@ -22,24 +24,18 @@ Usage::
     describe_scheduled_actions_paginator: DescribeScheduledActionsPaginator = client.get_paginator("describe_scheduled_actions")
     ```
 """
-import sys
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_application_autoscaling.type_defs import (
+from .literals import ScalableDimensionType, ServiceNamespaceType
+from .type_defs import (
     DescribeScalableTargetsResponseTypeDef,
     DescribeScalingActivitiesResponseTypeDef,
     DescribeScalingPoliciesResponseTypeDef,
     DescribeScheduledActionsResponseTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "DescribeScalableTargetsPaginator",
@@ -48,196 +44,80 @@ __all__ = (
     "DescribeScheduledActionsPaginator",
 )
 
-
 class DescribeScalableTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalableTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalabletargetspaginator)
     """
 
     def paginate(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ResourceIds: List[str] = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        ScalableDimension: ScalableDimensionType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeScalableTargetsResponseTypeDef]:
         """
-        [DescribeScalableTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalabletargetspaginator)
         """
-
 
 class DescribeScalingActivitiesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalingActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingactivitiespaginator)
     """
 
     def paginate(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ResourceId: str = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        ScalableDimension: ScalableDimensionType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeScalingActivitiesResponseTypeDef]:
         """
-        [DescribeScalingActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingactivitiespaginator)
         """
-
 
 class DescribeScalingPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingpoliciespaginator)
     """
 
     def paginate(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         PolicyNames: List[str] = None,
         ResourceId: str = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        ScalableDimension: ScalableDimensionType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeScalingPoliciesResponseTypeDef]:
         """
-        [DescribeScalingPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescalingpoliciespaginator)
         """
-
 
 class DescribeScheduledActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescheduledactionspaginator)
     """
 
     def paginate(
         self,
-        ServiceNamespace: Literal[
-            "ecs",
-            "elasticmapreduce",
-            "ec2",
-            "appstream",
-            "dynamodb",
-            "rds",
-            "sagemaker",
-            "custom-resource",
-            "comprehend",
-            "lambda",
-            "cassandra",
-            "kafka",
-        ],
+        *,
+        ServiceNamespace: ServiceNamespaceType,
         ScheduledActionNames: List[str] = None,
         ResourceId: str = None,
-        ScalableDimension: Literal[
-            "ecs:service:DesiredCount",
-            "ec2:spot-fleet-request:TargetCapacity",
-            "elasticmapreduce:instancegroup:InstanceCount",
-            "appstream:fleet:DesiredCapacity",
-            "dynamodb:table:ReadCapacityUnits",
-            "dynamodb:table:WriteCapacityUnits",
-            "dynamodb:index:ReadCapacityUnits",
-            "dynamodb:index:WriteCapacityUnits",
-            "rds:cluster:ReadReplicaCount",
-            "sagemaker:variant:DesiredInstanceCount",
-            "custom-resource:ResourceType:Property",
-            "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-            "lambda:function:ProvisionedConcurrency",
-            "cassandra:table:ReadCapacityUnits",
-            "cassandra:table:WriteCapacityUnits",
-            "kafka:broker-storage:VolumeSize",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        ScalableDimension: ScalableDimensionType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeScheduledActionsResponseTypeDef]:
         """
-        [DescribeScheduledActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/paginators.html#describescheduledactionspaginator)
         """

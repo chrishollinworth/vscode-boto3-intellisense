@@ -29,8 +29,8 @@ Usage::
     list_resources_paginator: ListResourcesPaginator = client.get_paginator("list_resources")
     ```
 """
-from mypy_boto3_ram.client import RAMClient
-from mypy_boto3_ram.paginator import (
+from .client import RAMClient
+from .paginator import (
     GetResourcePoliciesPaginator,
     GetResourceShareAssociationsPaginator,
     GetResourceShareInvitationsPaginator,
@@ -40,7 +40,6 @@ from mypy_boto3_ram.paginator import (
 )
 
 Client = RAMClient
-
 
 __all__ = (
     "Client",

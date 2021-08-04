@@ -16,9 +16,8 @@ Usage::
     session_client: IoTSecureTunnelingClient = session.client("iotsecuretunneling")
     ```
 """
-from mypy_boto3_iotsecuretunneling.client import IoTSecureTunnelingClient
+from .client import IoTSecureTunnelingClient
 
 Client = IoTSecureTunnelingClient
-
 
 __all__ = ("Client", "IoTSecureTunnelingClient")

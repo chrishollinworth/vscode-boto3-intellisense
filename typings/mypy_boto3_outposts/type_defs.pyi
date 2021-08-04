@@ -1,12 +1,14 @@
 """
-Main interface for outposts service type definitions.
+Type annotations for outposts service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_outposts.type_defs import InstanceTypeItemTypeDef
+    from mypy_boto3_outposts.type_defs import CreateOutpostInputRequestTypeDef
 
-    data: InstanceTypeItemTypeDef = {...}
+    data: CreateOutpostInputRequestTypeDef = {...}
     ```
 """
 import sys
@@ -17,21 +19,182 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
-    "InstanceTypeItemTypeDef",
-    "OutpostTypeDef",
-    "ResponseMetadata",
-    "SiteTypeDef",
+    "CreateOutpostInputRequestTypeDef",
     "CreateOutpostOutputTypeDef",
+    "DeleteOutpostInputRequestTypeDef",
+    "DeleteSiteInputRequestTypeDef",
+    "GetOutpostInputRequestTypeDef",
+    "GetOutpostInstanceTypesInputRequestTypeDef",
     "GetOutpostInstanceTypesOutputTypeDef",
     "GetOutpostOutputTypeDef",
+    "InstanceTypeItemTypeDef",
+    "ListOutpostsInputRequestTypeDef",
     "ListOutpostsOutputTypeDef",
+    "ListSitesInputRequestTypeDef",
     "ListSitesOutputTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "OutpostTypeDef",
+    "ResponseMetadataTypeDef",
+    "SiteTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
 )
 
-InstanceTypeItemTypeDef = TypedDict("InstanceTypeItemTypeDef", {"InstanceType": str}, total=False)
+_RequiredCreateOutpostInputRequestTypeDef = TypedDict(
+    "_RequiredCreateOutpostInputRequestTypeDef",
+    {
+        "Name": str,
+        "SiteId": str,
+    },
+)
+_OptionalCreateOutpostInputRequestTypeDef = TypedDict(
+    "_OptionalCreateOutpostInputRequestTypeDef",
+    {
+        "Description": str,
+        "AvailabilityZone": str,
+        "AvailabilityZoneId": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateOutpostInputRequestTypeDef(
+    _RequiredCreateOutpostInputRequestTypeDef, _OptionalCreateOutpostInputRequestTypeDef
+):
+    pass
+
+CreateOutpostOutputTypeDef = TypedDict(
+    "CreateOutpostOutputTypeDef",
+    {
+        "Outpost": "OutpostTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteOutpostInputRequestTypeDef = TypedDict(
+    "DeleteOutpostInputRequestTypeDef",
+    {
+        "OutpostId": str,
+    },
+)
+
+DeleteSiteInputRequestTypeDef = TypedDict(
+    "DeleteSiteInputRequestTypeDef",
+    {
+        "SiteId": str,
+    },
+)
+
+GetOutpostInputRequestTypeDef = TypedDict(
+    "GetOutpostInputRequestTypeDef",
+    {
+        "OutpostId": str,
+    },
+)
+
+_RequiredGetOutpostInstanceTypesInputRequestTypeDef = TypedDict(
+    "_RequiredGetOutpostInstanceTypesInputRequestTypeDef",
+    {
+        "OutpostId": str,
+    },
+)
+_OptionalGetOutpostInstanceTypesInputRequestTypeDef = TypedDict(
+    "_OptionalGetOutpostInstanceTypesInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetOutpostInstanceTypesInputRequestTypeDef(
+    _RequiredGetOutpostInstanceTypesInputRequestTypeDef,
+    _OptionalGetOutpostInstanceTypesInputRequestTypeDef,
+):
+    pass
+
+GetOutpostInstanceTypesOutputTypeDef = TypedDict(
+    "GetOutpostInstanceTypesOutputTypeDef",
+    {
+        "InstanceTypes": List["InstanceTypeItemTypeDef"],
+        "NextToken": str,
+        "OutpostId": str,
+        "OutpostArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetOutpostOutputTypeDef = TypedDict(
+    "GetOutpostOutputTypeDef",
+    {
+        "Outpost": "OutpostTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InstanceTypeItemTypeDef = TypedDict(
+    "InstanceTypeItemTypeDef",
+    {
+        "InstanceType": str,
+    },
+    total=False,
+)
+
+ListOutpostsInputRequestTypeDef = TypedDict(
+    "ListOutpostsInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "LifeCycleStatusFilter": List[str],
+        "AvailabilityZoneFilter": List[str],
+        "AvailabilityZoneIdFilter": List[str],
+    },
+    total=False,
+)
+
+ListOutpostsOutputTypeDef = TypedDict(
+    "ListOutpostsOutputTypeDef",
+    {
+        "Outposts": List["OutpostTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSitesInputRequestTypeDef = TypedDict(
+    "ListSitesInputRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListSitesOutputTypeDef = TypedDict(
+    "ListSitesOutputTypeDef",
+    {
+        "Sites": List["SiteTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 OutpostTypeDef = TypedDict(
     "OutpostTypeDef",
@@ -46,12 +209,13 @@ OutpostTypeDef = TypedDict(
         "AvailabilityZone": str,
         "AvailabilityZoneId": str,
         "Tags": Dict[str, str],
+        "SiteArn": str,
     },
     total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -63,46 +227,29 @@ ResponseMetadata = TypedDict(
 
 SiteTypeDef = TypedDict(
     "SiteTypeDef",
-    {"SiteId": str, "AccountId": str, "Name": str, "Description": str, "Tags": Dict[str, str]},
-    total=False,
-)
-
-CreateOutpostOutputTypeDef = TypedDict(
-    "CreateOutpostOutputTypeDef",
-    {"Outpost": "OutpostTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetOutpostInstanceTypesOutputTypeDef = TypedDict(
-    "GetOutpostInstanceTypesOutputTypeDef",
     {
-        "InstanceTypes": List["InstanceTypeItemTypeDef"],
-        "NextToken": str,
-        "OutpostId": str,
-        "OutpostArn": str,
-        "ResponseMetadata": "ResponseMetadata",
+        "SiteId": str,
+        "AccountId": str,
+        "Name": str,
+        "Description": str,
+        "Tags": Dict[str, str],
+        "SiteArn": str,
     },
     total=False,
 )
 
-GetOutpostOutputTypeDef = TypedDict(
-    "GetOutpostOutputTypeDef",
-    {"Outpost": "OutpostTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": Dict[str, str],
+    },
 )
 
-ListOutpostsOutputTypeDef = TypedDict(
-    "ListOutpostsOutputTypeDef",
-    {"Outposts": List["OutpostTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListSitesOutputTypeDef = TypedDict(
-    "ListSitesOutputTypeDef",
-    {"Sites": List["SiteTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
 )

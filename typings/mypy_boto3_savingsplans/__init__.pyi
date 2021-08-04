@@ -16,9 +16,8 @@ Usage::
     session_client: SavingsPlansClient = session.client("savingsplans")
     ```
 """
-from mypy_boto3_savingsplans.client import SavingsPlansClient
+from .client import SavingsPlansClient
 
 Client = SavingsPlansClient
-
 
 __all__ = ("Client", "SavingsPlansClient")

@@ -1,5 +1,7 @@
 """
-Main interface for servicediscovery service client paginators.
+Type annotations for servicediscovery service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html)
 
 Usage::
 
@@ -26,7 +28,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_servicediscovery.type_defs import (
+from .type_defs import (
     ListInstancesResponseTypeDef,
     ListNamespacesResponseTypeDef,
     ListOperationsResponseTypeDef,
@@ -44,60 +46,67 @@ __all__ = (
     "ListServicesPaginator",
 )
 
-
 class ListInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listinstancespaginator)
     """
 
     def paginate(
-        self, ServiceId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ServiceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstancesResponseTypeDef]:
         """
-        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listinstancespaginator)
         """
-
 
 class ListNamespacesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNamespaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listnamespacespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[NamespaceFilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        Filters: List["NamespaceFilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNamespacesResponseTypeDef]:
         """
-        [ListNamespaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listnamespacespaginator)
         """
-
 
 class ListOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listoperationspaginator)
     """
 
     def paginate(
         self,
-        Filters: List[OperationFilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        Filters: List["OperationFilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOperationsResponseTypeDef]:
         """
-        [ListOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listoperationspaginator)
         """
-
 
 class ListServicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listservicespaginator)
     """
 
     def paginate(
         self,
-        Filters: List[ServiceFilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        Filters: List["ServiceFilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServicesResponseTypeDef]:
         """
-        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/paginators.html#listservicespaginator)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for amplify service type definitions.
+Type annotations for amplify service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplify/type_defs.html)
 
 Usage::
 
@@ -11,7 +13,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List, Union
+
+from .literals import DomainStatusType, JobStatusType, JobTypeType, StageType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,58 +26,95 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "AppTypeDef",
     "ArtifactTypeDef",
     "AutoBranchCreationConfigTypeDef",
     "BackendEnvironmentTypeDef",
     "BranchTypeDef",
+    "CreateAppRequestRequestTypeDef",
+    "CreateAppResultTypeDef",
+    "CreateBackendEnvironmentRequestRequestTypeDef",
+    "CreateBackendEnvironmentResultTypeDef",
+    "CreateBranchRequestRequestTypeDef",
+    "CreateBranchResultTypeDef",
+    "CreateDeploymentRequestRequestTypeDef",
+    "CreateDeploymentResultTypeDef",
+    "CreateDomainAssociationRequestRequestTypeDef",
+    "CreateDomainAssociationResultTypeDef",
+    "CreateWebhookRequestRequestTypeDef",
+    "CreateWebhookResultTypeDef",
     "CustomRuleTypeDef",
+    "DeleteAppRequestRequestTypeDef",
+    "DeleteAppResultTypeDef",
+    "DeleteBackendEnvironmentRequestRequestTypeDef",
+    "DeleteBackendEnvironmentResultTypeDef",
+    "DeleteBranchRequestRequestTypeDef",
+    "DeleteBranchResultTypeDef",
+    "DeleteDomainAssociationRequestRequestTypeDef",
+    "DeleteDomainAssociationResultTypeDef",
+    "DeleteJobRequestRequestTypeDef",
+    "DeleteJobResultTypeDef",
+    "DeleteWebhookRequestRequestTypeDef",
+    "DeleteWebhookResultTypeDef",
     "DomainAssociationTypeDef",
+    "GenerateAccessLogsRequestRequestTypeDef",
+    "GenerateAccessLogsResultTypeDef",
+    "GetAppRequestRequestTypeDef",
+    "GetAppResultTypeDef",
+    "GetArtifactUrlRequestRequestTypeDef",
+    "GetArtifactUrlResultTypeDef",
+    "GetBackendEnvironmentRequestRequestTypeDef",
+    "GetBackendEnvironmentResultTypeDef",
+    "GetBranchRequestRequestTypeDef",
+    "GetBranchResultTypeDef",
+    "GetDomainAssociationRequestRequestTypeDef",
+    "GetDomainAssociationResultTypeDef",
+    "GetJobRequestRequestTypeDef",
+    "GetJobResultTypeDef",
+    "GetWebhookRequestRequestTypeDef",
+    "GetWebhookResultTypeDef",
     "JobSummaryTypeDef",
     "JobTypeDef",
-    "ProductionBranchTypeDef",
-    "StepTypeDef",
-    "SubDomainSettingTypeDef",
-    "SubDomainTypeDef",
-    "WebhookTypeDef",
-    "CreateAppResultTypeDef",
-    "CreateBackendEnvironmentResultTypeDef",
-    "CreateBranchResultTypeDef",
-    "CreateDeploymentResultTypeDef",
-    "CreateDomainAssociationResultTypeDef",
-    "CreateWebhookResultTypeDef",
-    "DeleteAppResultTypeDef",
-    "DeleteBackendEnvironmentResultTypeDef",
-    "DeleteBranchResultTypeDef",
-    "DeleteDomainAssociationResultTypeDef",
-    "DeleteJobResultTypeDef",
-    "DeleteWebhookResultTypeDef",
-    "GenerateAccessLogsResultTypeDef",
-    "GetAppResultTypeDef",
-    "GetArtifactUrlResultTypeDef",
-    "GetBackendEnvironmentResultTypeDef",
-    "GetBranchResultTypeDef",
-    "GetDomainAssociationResultTypeDef",
-    "GetJobResultTypeDef",
-    "GetWebhookResultTypeDef",
+    "ListAppsRequestRequestTypeDef",
     "ListAppsResultTypeDef",
+    "ListArtifactsRequestRequestTypeDef",
     "ListArtifactsResultTypeDef",
+    "ListBackendEnvironmentsRequestRequestTypeDef",
     "ListBackendEnvironmentsResultTypeDef",
+    "ListBranchesRequestRequestTypeDef",
     "ListBranchesResultTypeDef",
+    "ListDomainAssociationsRequestRequestTypeDef",
     "ListDomainAssociationsResultTypeDef",
+    "ListJobsRequestRequestTypeDef",
     "ListJobsResultTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListWebhooksRequestRequestTypeDef",
     "ListWebhooksResultTypeDef",
     "PaginatorConfigTypeDef",
+    "ProductionBranchTypeDef",
+    "ResponseMetadataTypeDef",
+    "StartDeploymentRequestRequestTypeDef",
     "StartDeploymentResultTypeDef",
+    "StartJobRequestRequestTypeDef",
     "StartJobResultTypeDef",
+    "StepTypeDef",
+    "StopJobRequestRequestTypeDef",
     "StopJobResultTypeDef",
+    "SubDomainSettingTypeDef",
+    "SubDomainTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateAppRequestRequestTypeDef",
     "UpdateAppResultTypeDef",
+    "UpdateBranchRequestRequestTypeDef",
     "UpdateBranchResultTypeDef",
+    "UpdateDomainAssociationRequestRequestTypeDef",
     "UpdateDomainAssociationResultTypeDef",
+    "UpdateWebhookRequestRequestTypeDef",
     "UpdateWebhookResultTypeDef",
+    "WebhookTypeDef",
 )
 
 _RequiredAppTypeDef = TypedDict(
@@ -111,17 +152,21 @@ _OptionalAppTypeDef = TypedDict(
     total=False,
 )
 
-
 class AppTypeDef(_RequiredAppTypeDef, _OptionalAppTypeDef):
     pass
 
-
-ArtifactTypeDef = TypedDict("ArtifactTypeDef", {"artifactFileName": str, "artifactId": str})
+ArtifactTypeDef = TypedDict(
+    "ArtifactTypeDef",
+    {
+        "artifactFileName": str,
+        "artifactId": str,
+    },
+)
 
 AutoBranchCreationConfigTypeDef = TypedDict(
     "AutoBranchCreationConfigTypeDef",
     {
-        "stage": Literal["PRODUCTION", "BETA", "DEVELOPMENT", "EXPERIMENTAL", "PULL_REQUEST"],
+        "stage": StageType,
         "framework": str,
         "enableAutoBuild": bool,
         "environmentVariables": Dict[str, str],
@@ -146,16 +191,17 @@ _RequiredBackendEnvironmentTypeDef = TypedDict(
 )
 _OptionalBackendEnvironmentTypeDef = TypedDict(
     "_OptionalBackendEnvironmentTypeDef",
-    {"stackName": str, "deploymentArtifacts": str},
+    {
+        "stackName": str,
+        "deploymentArtifacts": str,
+    },
     total=False,
 )
-
 
 class BackendEnvironmentTypeDef(
     _RequiredBackendEnvironmentTypeDef, _OptionalBackendEnvironmentTypeDef
 ):
     pass
-
 
 _RequiredBranchTypeDef = TypedDict(
     "_RequiredBranchTypeDef",
@@ -163,7 +209,7 @@ _RequiredBranchTypeDef = TypedDict(
         "branchArn": str,
         "branchName": str,
         "description": str,
-        "stage": Literal["PRODUCTION", "BETA", "DEVELOPMENT", "EXPERIMENTAL", "PULL_REQUEST"],
+        "stage": StageType,
         "displayName": str,
         "enableNotification": bool,
         "createTime": datetime,
@@ -196,20 +242,329 @@ _OptionalBranchTypeDef = TypedDict(
     total=False,
 )
 
-
 class BranchTypeDef(_RequiredBranchTypeDef, _OptionalBranchTypeDef):
     pass
 
-
-_RequiredCustomRuleTypeDef = TypedDict("_RequiredCustomRuleTypeDef", {"source": str, "target": str})
-_OptionalCustomRuleTypeDef = TypedDict(
-    "_OptionalCustomRuleTypeDef", {"status": str, "condition": str}, total=False
+_RequiredCreateAppRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAppRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalCreateAppRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAppRequestRequestTypeDef",
+    {
+        "description": str,
+        "repository": str,
+        "platform": Literal["WEB"],
+        "iamServiceRoleArn": str,
+        "oauthToken": str,
+        "accessToken": str,
+        "environmentVariables": Dict[str, str],
+        "enableBranchAutoBuild": bool,
+        "enableBranchAutoDeletion": bool,
+        "enableBasicAuth": bool,
+        "basicAuthCredentials": str,
+        "customRules": List["CustomRuleTypeDef"],
+        "tags": Dict[str, str],
+        "buildSpec": str,
+        "customHeaders": str,
+        "enableAutoBranchCreation": bool,
+        "autoBranchCreationPatterns": List[str],
+        "autoBranchCreationConfig": "AutoBranchCreationConfigTypeDef",
+    },
+    total=False,
 )
 
+class CreateAppRequestRequestTypeDef(
+    _RequiredCreateAppRequestRequestTypeDef, _OptionalCreateAppRequestRequestTypeDef
+):
+    pass
+
+CreateAppResultTypeDef = TypedDict(
+    "CreateAppResultTypeDef",
+    {
+        "app": "AppTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateBackendEnvironmentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBackendEnvironmentRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+    },
+)
+_OptionalCreateBackendEnvironmentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBackendEnvironmentRequestRequestTypeDef",
+    {
+        "stackName": str,
+        "deploymentArtifacts": str,
+    },
+    total=False,
+)
+
+class CreateBackendEnvironmentRequestRequestTypeDef(
+    _RequiredCreateBackendEnvironmentRequestRequestTypeDef,
+    _OptionalCreateBackendEnvironmentRequestRequestTypeDef,
+):
+    pass
+
+CreateBackendEnvironmentResultTypeDef = TypedDict(
+    "CreateBackendEnvironmentResultTypeDef",
+    {
+        "backendEnvironment": "BackendEnvironmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateBranchRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBranchRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+_OptionalCreateBranchRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBranchRequestRequestTypeDef",
+    {
+        "description": str,
+        "stage": StageType,
+        "framework": str,
+        "enableNotification": bool,
+        "enableAutoBuild": bool,
+        "environmentVariables": Dict[str, str],
+        "basicAuthCredentials": str,
+        "enableBasicAuth": bool,
+        "enablePerformanceMode": bool,
+        "tags": Dict[str, str],
+        "buildSpec": str,
+        "ttl": str,
+        "displayName": str,
+        "enablePullRequestPreview": bool,
+        "pullRequestEnvironmentName": str,
+        "backendEnvironmentArn": str,
+    },
+    total=False,
+)
+
+class CreateBranchRequestRequestTypeDef(
+    _RequiredCreateBranchRequestRequestTypeDef, _OptionalCreateBranchRequestRequestTypeDef
+):
+    pass
+
+CreateBranchResultTypeDef = TypedDict(
+    "CreateBranchResultTypeDef",
+    {
+        "branch": "BranchTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDeploymentRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDeploymentRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+_OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDeploymentRequestRequestTypeDef",
+    {
+        "fileMap": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateDeploymentRequestRequestTypeDef(
+    _RequiredCreateDeploymentRequestRequestTypeDef, _OptionalCreateDeploymentRequestRequestTypeDef
+):
+    pass
+
+CreateDeploymentResultTypeDef = TypedDict(
+    "CreateDeploymentResultTypeDef",
+    {
+        "jobId": str,
+        "fileUploadUrls": Dict[str, str],
+        "zipUploadUrl": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDomainAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDomainAssociationRequestRequestTypeDef",
+    {
+        "appId": str,
+        "domainName": str,
+        "subDomainSettings": List["SubDomainSettingTypeDef"],
+    },
+)
+_OptionalCreateDomainAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDomainAssociationRequestRequestTypeDef",
+    {
+        "enableAutoSubDomain": bool,
+        "autoSubDomainCreationPatterns": List[str],
+        "autoSubDomainIAMRole": str,
+    },
+    total=False,
+)
+
+class CreateDomainAssociationRequestRequestTypeDef(
+    _RequiredCreateDomainAssociationRequestRequestTypeDef,
+    _OptionalCreateDomainAssociationRequestRequestTypeDef,
+):
+    pass
+
+CreateDomainAssociationResultTypeDef = TypedDict(
+    "CreateDomainAssociationResultTypeDef",
+    {
+        "domainAssociation": "DomainAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateWebhookRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWebhookRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+_OptionalCreateWebhookRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWebhookRequestRequestTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class CreateWebhookRequestRequestTypeDef(
+    _RequiredCreateWebhookRequestRequestTypeDef, _OptionalCreateWebhookRequestRequestTypeDef
+):
+    pass
+
+CreateWebhookResultTypeDef = TypedDict(
+    "CreateWebhookResultTypeDef",
+    {
+        "webhook": "WebhookTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCustomRuleTypeDef = TypedDict(
+    "_RequiredCustomRuleTypeDef",
+    {
+        "source": str,
+        "target": str,
+    },
+)
+_OptionalCustomRuleTypeDef = TypedDict(
+    "_OptionalCustomRuleTypeDef",
+    {
+        "status": str,
+        "condition": str,
+    },
+    total=False,
+)
 
 class CustomRuleTypeDef(_RequiredCustomRuleTypeDef, _OptionalCustomRuleTypeDef):
     pass
 
+DeleteAppRequestRequestTypeDef = TypedDict(
+    "DeleteAppRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+
+DeleteAppResultTypeDef = TypedDict(
+    "DeleteAppResultTypeDef",
+    {
+        "app": "AppTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteBackendEnvironmentRequestRequestTypeDef = TypedDict(
+    "DeleteBackendEnvironmentRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+    },
+)
+
+DeleteBackendEnvironmentResultTypeDef = TypedDict(
+    "DeleteBackendEnvironmentResultTypeDef",
+    {
+        "backendEnvironment": "BackendEnvironmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteBranchRequestRequestTypeDef = TypedDict(
+    "DeleteBranchRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+
+DeleteBranchResultTypeDef = TypedDict(
+    "DeleteBranchResultTypeDef",
+    {
+        "branch": "BranchTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteDomainAssociationRequestRequestTypeDef = TypedDict(
+    "DeleteDomainAssociationRequestRequestTypeDef",
+    {
+        "appId": str,
+        "domainName": str,
+    },
+)
+
+DeleteDomainAssociationResultTypeDef = TypedDict(
+    "DeleteDomainAssociationResultTypeDef",
+    {
+        "domainAssociation": "DomainAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteJobRequestRequestTypeDef = TypedDict(
+    "DeleteJobRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+        "jobId": str,
+    },
+)
+
+DeleteJobResultTypeDef = TypedDict(
+    "DeleteJobResultTypeDef",
+    {
+        "jobSummary": "JobSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteWebhookRequestRequestTypeDef = TypedDict(
+    "DeleteWebhookRequestRequestTypeDef",
+    {
+        "webhookId": str,
+    },
+)
+
+DeleteWebhookResultTypeDef = TypedDict(
+    "DeleteWebhookResultTypeDef",
+    {
+        "webhook": "WebhookTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredDomainAssociationTypeDef = TypedDict(
     "_RequiredDomainAssociationTypeDef",
@@ -217,16 +572,7 @@ _RequiredDomainAssociationTypeDef = TypedDict(
         "domainAssociationArn": str,
         "domainName": str,
         "enableAutoSubDomain": bool,
-        "domainStatus": Literal[
-            "PENDING_VERIFICATION",
-            "IN_PROGRESS",
-            "AVAILABLE",
-            "PENDING_DEPLOYMENT",
-            "FAILED",
-            "CREATING",
-            "REQUESTING_CERTIFICATE",
-            "UPDATING",
-        ],
+        "domainStatus": DomainStatusType,
         "statusReason": str,
         "subDomains": List["SubDomainTypeDef"],
     },
@@ -241,12 +587,151 @@ _OptionalDomainAssociationTypeDef = TypedDict(
     total=False,
 )
 
-
 class DomainAssociationTypeDef(
     _RequiredDomainAssociationTypeDef, _OptionalDomainAssociationTypeDef
 ):
     pass
 
+_RequiredGenerateAccessLogsRequestRequestTypeDef = TypedDict(
+    "_RequiredGenerateAccessLogsRequestRequestTypeDef",
+    {
+        "domainName": str,
+        "appId": str,
+    },
+)
+_OptionalGenerateAccessLogsRequestRequestTypeDef = TypedDict(
+    "_OptionalGenerateAccessLogsRequestRequestTypeDef",
+    {
+        "startTime": Union[datetime, str],
+        "endTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class GenerateAccessLogsRequestRequestTypeDef(
+    _RequiredGenerateAccessLogsRequestRequestTypeDef,
+    _OptionalGenerateAccessLogsRequestRequestTypeDef,
+):
+    pass
+
+GenerateAccessLogsResultTypeDef = TypedDict(
+    "GenerateAccessLogsResultTypeDef",
+    {
+        "logUrl": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAppRequestRequestTypeDef = TypedDict(
+    "GetAppRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+
+GetAppResultTypeDef = TypedDict(
+    "GetAppResultTypeDef",
+    {
+        "app": "AppTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetArtifactUrlRequestRequestTypeDef = TypedDict(
+    "GetArtifactUrlRequestRequestTypeDef",
+    {
+        "artifactId": str,
+    },
+)
+
+GetArtifactUrlResultTypeDef = TypedDict(
+    "GetArtifactUrlResultTypeDef",
+    {
+        "artifactId": str,
+        "artifactUrl": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetBackendEnvironmentRequestRequestTypeDef = TypedDict(
+    "GetBackendEnvironmentRequestRequestTypeDef",
+    {
+        "appId": str,
+        "environmentName": str,
+    },
+)
+
+GetBackendEnvironmentResultTypeDef = TypedDict(
+    "GetBackendEnvironmentResultTypeDef",
+    {
+        "backendEnvironment": "BackendEnvironmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetBranchRequestRequestTypeDef = TypedDict(
+    "GetBranchRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+
+GetBranchResultTypeDef = TypedDict(
+    "GetBranchResultTypeDef",
+    {
+        "branch": "BranchTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDomainAssociationRequestRequestTypeDef = TypedDict(
+    "GetDomainAssociationRequestRequestTypeDef",
+    {
+        "appId": str,
+        "domainName": str,
+    },
+)
+
+GetDomainAssociationResultTypeDef = TypedDict(
+    "GetDomainAssociationResultTypeDef",
+    {
+        "domainAssociation": "DomainAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetJobRequestRequestTypeDef = TypedDict(
+    "GetJobRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+        "jobId": str,
+    },
+)
+
+GetJobResultTypeDef = TypedDict(
+    "GetJobResultTypeDef",
+    {
+        "job": "JobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetWebhookRequestRequestTypeDef = TypedDict(
+    "GetWebhookRequestRequestTypeDef",
+    {
+        "webhookId": str,
+    },
+)
+
+GetWebhookResultTypeDef = TypedDict(
+    "GetWebhookResultTypeDef",
+    {
+        "webhook": "WebhookTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredJobSummaryTypeDef = TypedDict(
     "_RequiredJobSummaryTypeDef",
@@ -257,27 +742,334 @@ _RequiredJobSummaryTypeDef = TypedDict(
         "commitMessage": str,
         "commitTime": datetime,
         "startTime": datetime,
-        "status": Literal[
-            "PENDING", "PROVISIONING", "RUNNING", "FAILED", "SUCCEED", "CANCELLING", "CANCELLED"
-        ],
-        "jobType": Literal["RELEASE", "RETRY", "MANUAL", "WEB_HOOK"],
+        "status": JobStatusType,
+        "jobType": JobTypeType,
     },
 )
 _OptionalJobSummaryTypeDef = TypedDict(
-    "_OptionalJobSummaryTypeDef", {"endTime": datetime}, total=False
+    "_OptionalJobSummaryTypeDef",
+    {
+        "endTime": datetime,
+    },
+    total=False,
 )
-
 
 class JobSummaryTypeDef(_RequiredJobSummaryTypeDef, _OptionalJobSummaryTypeDef):
     pass
 
+JobTypeDef = TypedDict(
+    "JobTypeDef",
+    {
+        "summary": "JobSummaryTypeDef",
+        "steps": List["StepTypeDef"],
+    },
+)
 
-JobTypeDef = TypedDict("JobTypeDef", {"summary": "JobSummaryTypeDef", "steps": List["StepTypeDef"]})
+ListAppsRequestRequestTypeDef = TypedDict(
+    "ListAppsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListAppsResultTypeDef = TypedDict(
+    "ListAppsResultTypeDef",
+    {
+        "apps": List["AppTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListArtifactsRequestRequestTypeDef = TypedDict(
+    "_RequiredListArtifactsRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+        "jobId": str,
+    },
+)
+_OptionalListArtifactsRequestRequestTypeDef = TypedDict(
+    "_OptionalListArtifactsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListArtifactsRequestRequestTypeDef(
+    _RequiredListArtifactsRequestRequestTypeDef, _OptionalListArtifactsRequestRequestTypeDef
+):
+    pass
+
+ListArtifactsResultTypeDef = TypedDict(
+    "ListArtifactsResultTypeDef",
+    {
+        "artifacts": List["ArtifactTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListBackendEnvironmentsRequestRequestTypeDef = TypedDict(
+    "_RequiredListBackendEnvironmentsRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalListBackendEnvironmentsRequestRequestTypeDef = TypedDict(
+    "_OptionalListBackendEnvironmentsRequestRequestTypeDef",
+    {
+        "environmentName": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListBackendEnvironmentsRequestRequestTypeDef(
+    _RequiredListBackendEnvironmentsRequestRequestTypeDef,
+    _OptionalListBackendEnvironmentsRequestRequestTypeDef,
+):
+    pass
+
+ListBackendEnvironmentsResultTypeDef = TypedDict(
+    "ListBackendEnvironmentsResultTypeDef",
+    {
+        "backendEnvironments": List["BackendEnvironmentTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListBranchesRequestRequestTypeDef = TypedDict(
+    "_RequiredListBranchesRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalListBranchesRequestRequestTypeDef = TypedDict(
+    "_OptionalListBranchesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListBranchesRequestRequestTypeDef(
+    _RequiredListBranchesRequestRequestTypeDef, _OptionalListBranchesRequestRequestTypeDef
+):
+    pass
+
+ListBranchesResultTypeDef = TypedDict(
+    "ListBranchesResultTypeDef",
+    {
+        "branches": List["BranchTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDomainAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListDomainAssociationsRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalListDomainAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListDomainAssociationsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListDomainAssociationsRequestRequestTypeDef(
+    _RequiredListDomainAssociationsRequestRequestTypeDef,
+    _OptionalListDomainAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ListDomainAssociationsResultTypeDef = TypedDict(
+    "ListDomainAssociationsResultTypeDef",
+    {
+        "domainAssociations": List["DomainAssociationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListJobsRequestRequestTypeDef = TypedDict(
+    "_RequiredListJobsRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+_OptionalListJobsRequestRequestTypeDef = TypedDict(
+    "_OptionalListJobsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListJobsRequestRequestTypeDef(
+    _RequiredListJobsRequestRequestTypeDef, _OptionalListJobsRequestRequestTypeDef
+):
+    pass
+
+ListJobsResultTypeDef = TypedDict(
+    "ListJobsResultTypeDef",
+    {
+        "jobSummaries": List["JobSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListWebhooksRequestRequestTypeDef = TypedDict(
+    "_RequiredListWebhooksRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalListWebhooksRequestRequestTypeDef = TypedDict(
+    "_OptionalListWebhooksRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListWebhooksRequestRequestTypeDef(
+    _RequiredListWebhooksRequestRequestTypeDef, _OptionalListWebhooksRequestRequestTypeDef
+):
+    pass
+
+ListWebhooksResultTypeDef = TypedDict(
+    "ListWebhooksResultTypeDef",
+    {
+        "webhooks": List["WebhookTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
 
 ProductionBranchTypeDef = TypedDict(
     "ProductionBranchTypeDef",
-    {"lastDeployTime": datetime, "status": str, "thumbnailUrl": str, "branchName": str},
+    {
+        "lastDeployTime": datetime,
+        "status": str,
+        "thumbnailUrl": str,
+        "branchName": str,
+    },
     total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+_RequiredStartDeploymentRequestRequestTypeDef = TypedDict(
+    "_RequiredStartDeploymentRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+_OptionalStartDeploymentRequestRequestTypeDef = TypedDict(
+    "_OptionalStartDeploymentRequestRequestTypeDef",
+    {
+        "jobId": str,
+        "sourceUrl": str,
+    },
+    total=False,
+)
+
+class StartDeploymentRequestRequestTypeDef(
+    _RequiredStartDeploymentRequestRequestTypeDef, _OptionalStartDeploymentRequestRequestTypeDef
+):
+    pass
+
+StartDeploymentResultTypeDef = TypedDict(
+    "StartDeploymentResultTypeDef",
+    {
+        "jobSummary": "JobSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartJobRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+        "jobType": JobTypeType,
+    },
+)
+_OptionalStartJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartJobRequestRequestTypeDef",
+    {
+        "jobId": str,
+        "jobReason": str,
+        "commitId": str,
+        "commitMessage": str,
+        "commitTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class StartJobRequestRequestTypeDef(
+    _RequiredStartJobRequestRequestTypeDef, _OptionalStartJobRequestRequestTypeDef
+):
+    pass
+
+StartJobResultTypeDef = TypedDict(
+    "StartJobResultTypeDef",
+    {
+        "jobSummary": "JobSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredStepTypeDef = TypedDict(
@@ -285,9 +1077,7 @@ _RequiredStepTypeDef = TypedDict(
     {
         "stepName": str,
         "startTime": datetime,
-        "status": Literal[
-            "PENDING", "PROVISIONING", "RUNNING", "FAILED", "SUCCEED", "CANCELLING", "CANCELLED"
-        ],
+        "status": JobStatusType,
         "endTime": datetime,
     },
 )
@@ -305,16 +1095,203 @@ _OptionalStepTypeDef = TypedDict(
     total=False,
 )
 
-
 class StepTypeDef(_RequiredStepTypeDef, _OptionalStepTypeDef):
     pass
 
+StopJobRequestRequestTypeDef = TypedDict(
+    "StopJobRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+        "jobId": str,
+    },
+)
 
-SubDomainSettingTypeDef = TypedDict("SubDomainSettingTypeDef", {"prefix": str, "branchName": str})
+StopJobResultTypeDef = TypedDict(
+    "StopJobResultTypeDef",
+    {
+        "jobSummary": "JobSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SubDomainSettingTypeDef = TypedDict(
+    "SubDomainSettingTypeDef",
+    {
+        "prefix": str,
+        "branchName": str,
+    },
+)
 
 SubDomainTypeDef = TypedDict(
     "SubDomainTypeDef",
-    {"subDomainSetting": "SubDomainSettingTypeDef", "verified": bool, "dnsRecord": str},
+    {
+        "subDomainSetting": "SubDomainSettingTypeDef",
+        "verified": bool,
+        "dnsRecord": str,
+    },
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": Dict[str, str],
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
+    },
+)
+
+_RequiredUpdateAppRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAppRequestRequestTypeDef",
+    {
+        "appId": str,
+    },
+)
+_OptionalUpdateAppRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAppRequestRequestTypeDef",
+    {
+        "name": str,
+        "description": str,
+        "platform": Literal["WEB"],
+        "iamServiceRoleArn": str,
+        "environmentVariables": Dict[str, str],
+        "enableBranchAutoBuild": bool,
+        "enableBranchAutoDeletion": bool,
+        "enableBasicAuth": bool,
+        "basicAuthCredentials": str,
+        "customRules": List["CustomRuleTypeDef"],
+        "buildSpec": str,
+        "customHeaders": str,
+        "enableAutoBranchCreation": bool,
+        "autoBranchCreationPatterns": List[str],
+        "autoBranchCreationConfig": "AutoBranchCreationConfigTypeDef",
+        "repository": str,
+        "oauthToken": str,
+        "accessToken": str,
+    },
+    total=False,
+)
+
+class UpdateAppRequestRequestTypeDef(
+    _RequiredUpdateAppRequestRequestTypeDef, _OptionalUpdateAppRequestRequestTypeDef
+):
+    pass
+
+UpdateAppResultTypeDef = TypedDict(
+    "UpdateAppResultTypeDef",
+    {
+        "app": "AppTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateBranchRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateBranchRequestRequestTypeDef",
+    {
+        "appId": str,
+        "branchName": str,
+    },
+)
+_OptionalUpdateBranchRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateBranchRequestRequestTypeDef",
+    {
+        "description": str,
+        "framework": str,
+        "stage": StageType,
+        "enableNotification": bool,
+        "enableAutoBuild": bool,
+        "environmentVariables": Dict[str, str],
+        "basicAuthCredentials": str,
+        "enableBasicAuth": bool,
+        "enablePerformanceMode": bool,
+        "buildSpec": str,
+        "ttl": str,
+        "displayName": str,
+        "enablePullRequestPreview": bool,
+        "pullRequestEnvironmentName": str,
+        "backendEnvironmentArn": str,
+    },
+    total=False,
+)
+
+class UpdateBranchRequestRequestTypeDef(
+    _RequiredUpdateBranchRequestRequestTypeDef, _OptionalUpdateBranchRequestRequestTypeDef
+):
+    pass
+
+UpdateBranchResultTypeDef = TypedDict(
+    "UpdateBranchResultTypeDef",
+    {
+        "branch": "BranchTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateDomainAssociationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDomainAssociationRequestRequestTypeDef",
+    {
+        "appId": str,
+        "domainName": str,
+        "subDomainSettings": List["SubDomainSettingTypeDef"],
+    },
+)
+_OptionalUpdateDomainAssociationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDomainAssociationRequestRequestTypeDef",
+    {
+        "enableAutoSubDomain": bool,
+        "autoSubDomainCreationPatterns": List[str],
+        "autoSubDomainIAMRole": str,
+    },
+    total=False,
+)
+
+class UpdateDomainAssociationRequestRequestTypeDef(
+    _RequiredUpdateDomainAssociationRequestRequestTypeDef,
+    _OptionalUpdateDomainAssociationRequestRequestTypeDef,
+):
+    pass
+
+UpdateDomainAssociationResultTypeDef = TypedDict(
+    "UpdateDomainAssociationResultTypeDef",
+    {
+        "domainAssociation": "DomainAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateWebhookRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateWebhookRequestRequestTypeDef",
+    {
+        "webhookId": str,
+    },
+)
+_OptionalUpdateWebhookRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateWebhookRequestRequestTypeDef",
+    {
+        "branchName": str,
+        "description": str,
+    },
+    total=False,
+)
+
+class UpdateWebhookRequestRequestTypeDef(
+    _RequiredUpdateWebhookRequestRequestTypeDef, _OptionalUpdateWebhookRequestRequestTypeDef
+):
+    pass
+
+UpdateWebhookResultTypeDef = TypedDict(
+    "UpdateWebhookResultTypeDef",
+    {
+        "webhook": "WebhookTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 WebhookTypeDef = TypedDict(
@@ -329,194 +1306,3 @@ WebhookTypeDef = TypedDict(
         "updateTime": datetime,
     },
 )
-
-CreateAppResultTypeDef = TypedDict("CreateAppResultTypeDef", {"app": "AppTypeDef"})
-
-CreateBackendEnvironmentResultTypeDef = TypedDict(
-    "CreateBackendEnvironmentResultTypeDef", {"backendEnvironment": "BackendEnvironmentTypeDef"}
-)
-
-CreateBranchResultTypeDef = TypedDict("CreateBranchResultTypeDef", {"branch": "BranchTypeDef"})
-
-_RequiredCreateDeploymentResultTypeDef = TypedDict(
-    "_RequiredCreateDeploymentResultTypeDef",
-    {"fileUploadUrls": Dict[str, str], "zipUploadUrl": str},
-)
-_OptionalCreateDeploymentResultTypeDef = TypedDict(
-    "_OptionalCreateDeploymentResultTypeDef", {"jobId": str}, total=False
-)
-
-
-class CreateDeploymentResultTypeDef(
-    _RequiredCreateDeploymentResultTypeDef, _OptionalCreateDeploymentResultTypeDef
-):
-    pass
-
-
-CreateDomainAssociationResultTypeDef = TypedDict(
-    "CreateDomainAssociationResultTypeDef", {"domainAssociation": "DomainAssociationTypeDef"}
-)
-
-CreateWebhookResultTypeDef = TypedDict("CreateWebhookResultTypeDef", {"webhook": "WebhookTypeDef"})
-
-DeleteAppResultTypeDef = TypedDict("DeleteAppResultTypeDef", {"app": "AppTypeDef"})
-
-DeleteBackendEnvironmentResultTypeDef = TypedDict(
-    "DeleteBackendEnvironmentResultTypeDef", {"backendEnvironment": "BackendEnvironmentTypeDef"}
-)
-
-DeleteBranchResultTypeDef = TypedDict("DeleteBranchResultTypeDef", {"branch": "BranchTypeDef"})
-
-DeleteDomainAssociationResultTypeDef = TypedDict(
-    "DeleteDomainAssociationResultTypeDef", {"domainAssociation": "DomainAssociationTypeDef"}
-)
-
-DeleteJobResultTypeDef = TypedDict("DeleteJobResultTypeDef", {"jobSummary": "JobSummaryTypeDef"})
-
-DeleteWebhookResultTypeDef = TypedDict("DeleteWebhookResultTypeDef", {"webhook": "WebhookTypeDef"})
-
-GenerateAccessLogsResultTypeDef = TypedDict(
-    "GenerateAccessLogsResultTypeDef", {"logUrl": str}, total=False
-)
-
-GetAppResultTypeDef = TypedDict("GetAppResultTypeDef", {"app": "AppTypeDef"})
-
-GetArtifactUrlResultTypeDef = TypedDict(
-    "GetArtifactUrlResultTypeDef", {"artifactId": str, "artifactUrl": str}
-)
-
-GetBackendEnvironmentResultTypeDef = TypedDict(
-    "GetBackendEnvironmentResultTypeDef", {"backendEnvironment": "BackendEnvironmentTypeDef"}
-)
-
-GetBranchResultTypeDef = TypedDict("GetBranchResultTypeDef", {"branch": "BranchTypeDef"})
-
-GetDomainAssociationResultTypeDef = TypedDict(
-    "GetDomainAssociationResultTypeDef", {"domainAssociation": "DomainAssociationTypeDef"}
-)
-
-GetJobResultTypeDef = TypedDict("GetJobResultTypeDef", {"job": "JobTypeDef"})
-
-GetWebhookResultTypeDef = TypedDict("GetWebhookResultTypeDef", {"webhook": "WebhookTypeDef"})
-
-_RequiredListAppsResultTypeDef = TypedDict(
-    "_RequiredListAppsResultTypeDef", {"apps": List["AppTypeDef"]}
-)
-_OptionalListAppsResultTypeDef = TypedDict(
-    "_OptionalListAppsResultTypeDef", {"nextToken": str}, total=False
-)
-
-
-class ListAppsResultTypeDef(_RequiredListAppsResultTypeDef, _OptionalListAppsResultTypeDef):
-    pass
-
-
-_RequiredListArtifactsResultTypeDef = TypedDict(
-    "_RequiredListArtifactsResultTypeDef", {"artifacts": List["ArtifactTypeDef"]}
-)
-_OptionalListArtifactsResultTypeDef = TypedDict(
-    "_OptionalListArtifactsResultTypeDef", {"nextToken": str}, total=False
-)
-
-
-class ListArtifactsResultTypeDef(
-    _RequiredListArtifactsResultTypeDef, _OptionalListArtifactsResultTypeDef
-):
-    pass
-
-
-_RequiredListBackendEnvironmentsResultTypeDef = TypedDict(
-    "_RequiredListBackendEnvironmentsResultTypeDef",
-    {"backendEnvironments": List["BackendEnvironmentTypeDef"]},
-)
-_OptionalListBackendEnvironmentsResultTypeDef = TypedDict(
-    "_OptionalListBackendEnvironmentsResultTypeDef", {"nextToken": str}, total=False
-)
-
-
-class ListBackendEnvironmentsResultTypeDef(
-    _RequiredListBackendEnvironmentsResultTypeDef, _OptionalListBackendEnvironmentsResultTypeDef
-):
-    pass
-
-
-_RequiredListBranchesResultTypeDef = TypedDict(
-    "_RequiredListBranchesResultTypeDef", {"branches": List["BranchTypeDef"]}
-)
-_OptionalListBranchesResultTypeDef = TypedDict(
-    "_OptionalListBranchesResultTypeDef", {"nextToken": str}, total=False
-)
-
-
-class ListBranchesResultTypeDef(
-    _RequiredListBranchesResultTypeDef, _OptionalListBranchesResultTypeDef
-):
-    pass
-
-
-_RequiredListDomainAssociationsResultTypeDef = TypedDict(
-    "_RequiredListDomainAssociationsResultTypeDef",
-    {"domainAssociations": List["DomainAssociationTypeDef"]},
-)
-_OptionalListDomainAssociationsResultTypeDef = TypedDict(
-    "_OptionalListDomainAssociationsResultTypeDef", {"nextToken": str}, total=False
-)
-
-
-class ListDomainAssociationsResultTypeDef(
-    _RequiredListDomainAssociationsResultTypeDef, _OptionalListDomainAssociationsResultTypeDef
-):
-    pass
-
-
-_RequiredListJobsResultTypeDef = TypedDict(
-    "_RequiredListJobsResultTypeDef", {"jobSummaries": List["JobSummaryTypeDef"]}
-)
-_OptionalListJobsResultTypeDef = TypedDict(
-    "_OptionalListJobsResultTypeDef", {"nextToken": str}, total=False
-)
-
-
-class ListJobsResultTypeDef(_RequiredListJobsResultTypeDef, _OptionalListJobsResultTypeDef):
-    pass
-
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"tags": Dict[str, str]}, total=False
-)
-
-_RequiredListWebhooksResultTypeDef = TypedDict(
-    "_RequiredListWebhooksResultTypeDef", {"webhooks": List["WebhookTypeDef"]}
-)
-_OptionalListWebhooksResultTypeDef = TypedDict(
-    "_OptionalListWebhooksResultTypeDef", {"nextToken": str}, total=False
-)
-
-
-class ListWebhooksResultTypeDef(
-    _RequiredListWebhooksResultTypeDef, _OptionalListWebhooksResultTypeDef
-):
-    pass
-
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-StartDeploymentResultTypeDef = TypedDict(
-    "StartDeploymentResultTypeDef", {"jobSummary": "JobSummaryTypeDef"}
-)
-
-StartJobResultTypeDef = TypedDict("StartJobResultTypeDef", {"jobSummary": "JobSummaryTypeDef"})
-
-StopJobResultTypeDef = TypedDict("StopJobResultTypeDef", {"jobSummary": "JobSummaryTypeDef"})
-
-UpdateAppResultTypeDef = TypedDict("UpdateAppResultTypeDef", {"app": "AppTypeDef"})
-
-UpdateBranchResultTypeDef = TypedDict("UpdateBranchResultTypeDef", {"branch": "BranchTypeDef"})
-
-UpdateDomainAssociationResultTypeDef = TypedDict(
-    "UpdateDomainAssociationResultTypeDef", {"domainAssociation": "DomainAssociationTypeDef"}
-)
-
-UpdateWebhookResultTypeDef = TypedDict("UpdateWebhookResultTypeDef", {"webhook": "WebhookTypeDef"})

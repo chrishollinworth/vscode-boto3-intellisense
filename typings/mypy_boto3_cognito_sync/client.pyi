@@ -1,5 +1,7 @@
 """
-Main interface for cognito-sync service client
+Type annotations for cognito-sync service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html)
 
 Usage::
 
@@ -10,12 +12,12 @@ Usage::
     client: CognitoSyncClient = boto3.client("cognito-sync")
     ```
 """
-import sys
 from typing import Any, Dict, List, Type
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_cognito_sync.type_defs import (
+from .literals import PlatformType
+from .type_defs import (
     BulkPublishResponseTypeDef,
     CognitoStreamsTypeDef,
     DeleteDatasetResponseTypeDef,
@@ -35,22 +37,13 @@ from mypy_boto3_cognito_sync.type_defs import (
     UpdateRecordsResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = ("CognitoSyncClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AlreadyStreamedException: Type[BotocoreClientError]
@@ -68,53 +61,70 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
 
-
-class CognitoSyncClient:
+class CognitoSyncClient(BaseClient):
     """
-    [CognitoSync.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def bulk_publish(self, IdentityPoolId: str) -> BulkPublishResponseTypeDef:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.bulk_publish documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.bulk_publish)
+        CognitoSyncClient exceptions.
         """
+    def bulk_publish(self, *, IdentityPoolId: str) -> BulkPublishResponseTypeDef:
+        """
+        Initiates a bulk publish of all existing datasets for an Identity Pool to the
+        configured stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.bulk_publish)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#bulk_publish)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#can_paginate)
+        """
     def delete_dataset(
-        self, IdentityPoolId: str, IdentityId: str, DatasetName: str
+        self, *, IdentityPoolId: str, IdentityId: str, DatasetName: str
     ) -> DeleteDatasetResponseTypeDef:
         """
-        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.delete_dataset)
-        """
+        Deletes the specific dataset.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.delete_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#delete_dataset)
+        """
     def describe_dataset(
-        self, IdentityPoolId: str, IdentityId: str, DatasetName: str
+        self, *, IdentityPoolId: str, IdentityId: str, DatasetName: str
     ) -> DescribeDatasetResponseTypeDef:
         """
-        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.describe_dataset)
-        """
+        Gets meta data about a dataset by identity and dataset name.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.describe_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#describe_dataset)
+        """
     def describe_identity_pool_usage(
-        self, IdentityPoolId: str
+        self, *, IdentityPoolId: str
     ) -> DescribeIdentityPoolUsageResponseTypeDef:
         """
-        [Client.describe_identity_pool_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.describe_identity_pool_usage)
-        """
+        Gets usage details (for example, data storage) about a particular identity pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.describe_identity_pool_usage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#describe_identity_pool_usage)
+        """
     def describe_identity_usage(
-        self, IdentityPoolId: str, IdentityId: str
+        self, *, IdentityPoolId: str, IdentityId: str
     ) -> DescribeIdentityUsageResponseTypeDef:
         """
-        [Client.describe_identity_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.describe_identity_usage)
-        """
+        Gets usage information for an identity, including number of datasets and data
+        usage.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.describe_identity_usage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#describe_identity_usage)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -123,104 +133,136 @@ class CognitoSyncClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_bulk_publish_details(self, IdentityPoolId: str) -> GetBulkPublishDetailsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#generate_presigned_url)
         """
-        [Client.get_bulk_publish_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.get_bulk_publish_details)
+    def get_bulk_publish_details(
+        self, *, IdentityPoolId: str
+    ) -> GetBulkPublishDetailsResponseTypeDef:
         """
+        Get the status of the last BulkPublish operation for an identity pool.
 
-    def get_cognito_events(self, IdentityPoolId: str) -> GetCognitoEventsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.get_bulk_publish_details)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#get_bulk_publish_details)
         """
-        [Client.get_cognito_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.get_cognito_events)
+    def get_cognito_events(self, *, IdentityPoolId: str) -> GetCognitoEventsResponseTypeDef:
         """
+        Gets the events and the corresponding Lambda functions associated with an
+        identity pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.get_cognito_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#get_cognito_events)
+        """
     def get_identity_pool_configuration(
-        self, IdentityPoolId: str
+        self, *, IdentityPoolId: str
     ) -> GetIdentityPoolConfigurationResponseTypeDef:
         """
-        [Client.get_identity_pool_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.get_identity_pool_configuration)
-        """
+        Gets the configuration settings of an identity pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.get_identity_pool_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#get_identity_pool_configuration)
+        """
     def list_datasets(
-        self, IdentityPoolId: str, IdentityId: str, NextToken: str = None, MaxResults: int = None
+        self, *, IdentityPoolId: str, IdentityId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListDatasetsResponseTypeDef:
         """
-        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.list_datasets)
-        """
+        Lists datasets for an identity.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.list_datasets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#list_datasets)
+        """
     def list_identity_pool_usage(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListIdentityPoolUsageResponseTypeDef:
         """
-        [Client.list_identity_pool_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.list_identity_pool_usage)
-        """
+        Gets a list of identity pools registered with Cognito.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.list_identity_pool_usage)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#list_identity_pool_usage)
+        """
     def list_records(
         self,
+        *,
         IdentityPoolId: str,
         IdentityId: str,
         DatasetName: str,
         LastSyncCount: int = None,
         NextToken: str = None,
         MaxResults: int = None,
-        SyncSessionToken: str = None,
+        SyncSessionToken: str = None
     ) -> ListRecordsResponseTypeDef:
         """
-        [Client.list_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.list_records)
-        """
+        Gets paginated records, optionally changed after a particular sync count for a
+        dataset and identity.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.list_records)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#list_records)
+        """
     def register_device(
-        self,
-        IdentityPoolId: str,
-        IdentityId: str,
-        Platform: Literal["APNS", "APNS_SANDBOX", "GCM", "ADM"],
-        Token: str,
+        self, *, IdentityPoolId: str, IdentityId: str, Platform: PlatformType, Token: str
     ) -> RegisterDeviceResponseTypeDef:
         """
-        [Client.register_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.register_device)
-        """
+        Registers a device to receive push sync notifications.
 
-    def set_cognito_events(self, IdentityPoolId: str, Events: Dict[str, str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.register_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#register_device)
         """
-        [Client.set_cognito_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.set_cognito_events)
+    def set_cognito_events(self, *, IdentityPoolId: str, Events: Dict[str, str]) -> None:
         """
+        Sets the AWS Lambda function for a given event type for an identity pool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.set_cognito_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#set_cognito_events)
+        """
     def set_identity_pool_configuration(
         self,
+        *,
         IdentityPoolId: str,
         PushSync: "PushSyncTypeDef" = None,
-        CognitoStreams: "CognitoStreamsTypeDef" = None,
+        CognitoStreams: "CognitoStreamsTypeDef" = None
     ) -> SetIdentityPoolConfigurationResponseTypeDef:
         """
-        [Client.set_identity_pool_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.set_identity_pool_configuration)
-        """
+        Sets the necessary configuration for push sync.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.set_identity_pool_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#set_identity_pool_configuration)
+        """
     def subscribe_to_dataset(
-        self, IdentityPoolId: str, IdentityId: str, DatasetName: str, DeviceId: str
+        self, *, IdentityPoolId: str, IdentityId: str, DatasetName: str, DeviceId: str
     ) -> Dict[str, Any]:
         """
-        [Client.subscribe_to_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.subscribe_to_dataset)
-        """
+        Subscribes to receive notifications when a dataset is modified by another
+        device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.subscribe_to_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#subscribe_to_dataset)
+        """
     def unsubscribe_from_dataset(
-        self, IdentityPoolId: str, IdentityId: str, DatasetName: str, DeviceId: str
+        self, *, IdentityPoolId: str, IdentityId: str, DatasetName: str, DeviceId: str
     ) -> Dict[str, Any]:
         """
-        [Client.unsubscribe_from_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.unsubscribe_from_dataset)
-        """
+        Unsubscribes from receiving notifications when a dataset is modified by another
+        device.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.unsubscribe_from_dataset)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#unsubscribe_from_dataset)
+        """
     def update_records(
         self,
+        *,
         IdentityPoolId: str,
         IdentityId: str,
         DatasetName: str,
         SyncSessionToken: str,
         DeviceId: str = None,
-        RecordPatches: List[RecordPatchTypeDef] = None,
-        ClientContext: str = None,
+        RecordPatches: List["RecordPatchTypeDef"] = None,
+        ClientContext: str = None
     ) -> UpdateRecordsResponseTypeDef:
         """
-        [Client.update_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-sync.html#CognitoSync.Client.update_records)
+        Posts updates to records and adds and deletes records for a dataset and user.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cognito-sync.html#CognitoSync.Client.update_records)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/client.html#update_records)
         """

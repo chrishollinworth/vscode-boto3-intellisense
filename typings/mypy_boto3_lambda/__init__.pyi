@@ -44,8 +44,8 @@ Usage::
     list_versions_by_function_paginator: ListVersionsByFunctionPaginator = client.get_paginator("list_versions_by_function")
     ```
 """
-from mypy_boto3_lambda.client import LambdaClient
-from mypy_boto3_lambda.paginator import (
+from .client import LambdaClient
+from .paginator import (
     ListAliasesPaginator,
     ListCodeSigningConfigsPaginator,
     ListEventSourceMappingsPaginator,
@@ -57,14 +57,9 @@ from mypy_boto3_lambda.paginator import (
     ListProvisionedConcurrencyConfigsPaginator,
     ListVersionsByFunctionPaginator,
 )
-from mypy_boto3_lambda.waiter import (
-    FunctionActiveWaiter,
-    FunctionExistsWaiter,
-    FunctionUpdatedWaiter,
-)
+from .waiter import FunctionActiveWaiter, FunctionExistsWaiter, FunctionUpdatedWaiter
 
 Client = LambdaClient
-
 
 __all__ = (
     "Client",

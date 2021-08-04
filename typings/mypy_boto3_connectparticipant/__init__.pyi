@@ -16,9 +16,8 @@ Usage::
     session_client: ConnectParticipantClient = session.client("connectparticipant")
     ```
 """
-from mypy_boto3_connectparticipant.client import ConnectParticipantClient
+from .client import ConnectParticipantClient
 
 Client = ConnectParticipantClient
-
 
 __all__ = ("Client", "ConnectParticipantClient")

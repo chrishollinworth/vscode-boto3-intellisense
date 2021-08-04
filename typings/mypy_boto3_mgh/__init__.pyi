@@ -27,8 +27,8 @@ Usage::
     list_progress_update_streams_paginator: ListProgressUpdateStreamsPaginator = client.get_paginator("list_progress_update_streams")
     ```
 """
-from mypy_boto3_mgh.client import MigrationHubClient
-from mypy_boto3_mgh.paginator import (
+from .client import MigrationHubClient
+from .paginator import (
     ListApplicationStatesPaginator,
     ListCreatedArtifactsPaginator,
     ListDiscoveredResourcesPaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_mgh.paginator import (
 )
 
 Client = MigrationHubClient
-
 
 __all__ = (
     "Client",

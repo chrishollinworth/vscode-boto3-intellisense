@@ -1,5 +1,7 @@
 """
-Main interface for compute-optimizer service client
+Type annotations for compute-optimizer service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html)
 
 Usage::
 
@@ -12,15 +14,25 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type
+from typing import Any, Dict, List, Type, Union
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_compute_optimizer.type_defs import (
+from .literals import (
+    ExportableAutoScalingGroupFieldType,
+    ExportableInstanceFieldType,
+    ExportableLambdaFunctionFieldType,
+    ExportableVolumeFieldType,
+    MetricStatisticType,
+    StatusType,
+)
+from .type_defs import (
     DescribeRecommendationExportJobsResponseTypeDef,
     EBSFilterTypeDef,
     ExportAutoScalingGroupRecommendationsResponseTypeDef,
+    ExportEBSVolumeRecommendationsResponseTypeDef,
     ExportEC2InstanceRecommendationsResponseTypeDef,
+    ExportLambdaFunctionRecommendationsResponseTypeDef,
     FilterTypeDef,
     GetAutoScalingGroupRecommendationsResponseTypeDef,
     GetEBSVolumeRecommendationsResponseTypeDef,
@@ -40,17 +52,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("ComputeOptimizerClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -64,133 +72,103 @@ class Exceptions:
     ServiceUnavailableException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
 
-
-class ComputeOptimizerClient:
+class ComputeOptimizerClient(BaseClient):
     """
-    [ComputeOptimizer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ComputeOptimizerClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#can_paginate)
+        """
     def describe_recommendation_export_jobs(
         self,
+        *,
         jobIds: List[str] = None,
-        filters: List[JobFilterTypeDef] = None,
+        filters: List["JobFilterTypeDef"] = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> DescribeRecommendationExportJobsResponseTypeDef:
         """
-        [Client.describe_recommendation_export_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.describe_recommendation_export_jobs)
-        """
+        Describes recommendation export jobs created in the last seven days.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.describe_recommendation_export_jobs)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#describe_recommendation_export_jobs)
+        """
     def export_auto_scaling_group_recommendations(
         self,
-        s3DestinationConfig: S3DestinationConfigTypeDef,
+        *,
+        s3DestinationConfig: "S3DestinationConfigTypeDef",
         accountIds: List[str] = None,
-        filters: List[FilterTypeDef] = None,
-        fieldsToExport: List[
-            Literal[
-                "AccountId",
-                "AutoScalingGroupArn",
-                "AutoScalingGroupName",
-                "Finding",
-                "UtilizationMetricsCpuMaximum",
-                "UtilizationMetricsMemoryMaximum",
-                "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-                "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-                "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-                "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-                "LookbackPeriodInDays",
-                "CurrentConfigurationInstanceType",
-                "CurrentConfigurationDesiredCapacity",
-                "CurrentConfigurationMinSize",
-                "CurrentConfigurationMaxSize",
-                "CurrentOnDemandPrice",
-                "CurrentStandardOneYearNoUpfrontReservedPrice",
-                "CurrentStandardThreeYearNoUpfrontReservedPrice",
-                "CurrentVCpus",
-                "CurrentMemory",
-                "CurrentStorage",
-                "CurrentNetwork",
-                "RecommendationOptionsConfigurationInstanceType",
-                "RecommendationOptionsConfigurationDesiredCapacity",
-                "RecommendationOptionsConfigurationMinSize",
-                "RecommendationOptionsConfigurationMaxSize",
-                "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-                "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-                "RecommendationOptionsPerformanceRisk",
-                "RecommendationOptionsOnDemandPrice",
-                "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-                "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-                "RecommendationOptionsVcpus",
-                "RecommendationOptionsMemory",
-                "RecommendationOptionsStorage",
-                "RecommendationOptionsNetwork",
-                "LastRefreshTimestamp",
-            ]
-        ] = None,
+        filters: List["FilterTypeDef"] = None,
+        fieldsToExport: List[ExportableAutoScalingGroupFieldType] = None,
         fileFormat: Literal["Csv"] = None,
-        includeMemberAccounts: bool = None,
+        includeMemberAccounts: bool = None
     ) -> ExportAutoScalingGroupRecommendationsResponseTypeDef:
         """
-        [Client.export_auto_scaling_group_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_auto_scaling_group_recommendations)
-        """
+        Exports optimization recommendations for Auto Scaling groups.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_auto_scaling_group_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_auto_scaling_group_recommendations)
+        """
+    def export_ebs_volume_recommendations(
+        self,
+        *,
+        s3DestinationConfig: "S3DestinationConfigTypeDef",
+        accountIds: List[str] = None,
+        filters: List["EBSFilterTypeDef"] = None,
+        fieldsToExport: List[ExportableVolumeFieldType] = None,
+        fileFormat: Literal["Csv"] = None,
+        includeMemberAccounts: bool = None
+    ) -> ExportEBSVolumeRecommendationsResponseTypeDef:
+        """
+        Exports optimization recommendations for Amazon EBS volumes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ebs_volume_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_ebs_volume_recommendations)
+        """
     def export_ec2_instance_recommendations(
         self,
-        s3DestinationConfig: S3DestinationConfigTypeDef,
+        *,
+        s3DestinationConfig: "S3DestinationConfigTypeDef",
         accountIds: List[str] = None,
-        filters: List[FilterTypeDef] = None,
-        fieldsToExport: List[
-            Literal[
-                "AccountId",
-                "InstanceArn",
-                "InstanceName",
-                "Finding",
-                "LookbackPeriodInDays",
-                "CurrentInstanceType",
-                "UtilizationMetricsCpuMaximum",
-                "UtilizationMetricsMemoryMaximum",
-                "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-                "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-                "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-                "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-                "CurrentOnDemandPrice",
-                "CurrentStandardOneYearNoUpfrontReservedPrice",
-                "CurrentStandardThreeYearNoUpfrontReservedPrice",
-                "CurrentVCpus",
-                "CurrentMemory",
-                "CurrentStorage",
-                "CurrentNetwork",
-                "RecommendationOptionsInstanceType",
-                "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-                "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-                "RecommendationOptionsPerformanceRisk",
-                "RecommendationOptionsVcpus",
-                "RecommendationOptionsMemory",
-                "RecommendationOptionsStorage",
-                "RecommendationOptionsNetwork",
-                "RecommendationOptionsOnDemandPrice",
-                "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-                "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-                "RecommendationsSourcesRecommendationSourceArn",
-                "RecommendationsSourcesRecommendationSourceType",
-                "LastRefreshTimestamp",
-            ]
-        ] = None,
+        filters: List["FilterTypeDef"] = None,
+        fieldsToExport: List[ExportableInstanceFieldType] = None,
         fileFormat: Literal["Csv"] = None,
-        includeMemberAccounts: bool = None,
+        includeMemberAccounts: bool = None
     ) -> ExportEC2InstanceRecommendationsResponseTypeDef:
         """
-        [Client.export_ec2_instance_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ec2_instance_recommendations)
-        """
+        Exports optimization recommendations for Amazon EC2 instances.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ec2_instance_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_ec2_instance_recommendations)
+        """
+    def export_lambda_function_recommendations(
+        self,
+        *,
+        s3DestinationConfig: "S3DestinationConfigTypeDef",
+        accountIds: List[str] = None,
+        filters: List["LambdaFunctionRecommendationFilterTypeDef"] = None,
+        fieldsToExport: List[ExportableLambdaFunctionFieldType] = None,
+        fileFormat: Literal["Csv"] = None,
+        includeMemberAccounts: bool = None
+    ) -> ExportLambdaFunctionRecommendationsResponseTypeDef:
+        """
+        Exports optimization recommendations for AWS Lambda functions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_lambda_function_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_lambda_function_recommendations)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -199,86 +177,111 @@ class ComputeOptimizerClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#generate_presigned_url)
+        """
     def get_auto_scaling_group_recommendations(
         self,
+        *,
         accountIds: List[str] = None,
         autoScalingGroupArns: List[str] = None,
         nextToken: str = None,
         maxResults: int = None,
-        filters: List[FilterTypeDef] = None,
+        filters: List["FilterTypeDef"] = None
     ) -> GetAutoScalingGroupRecommendationsResponseTypeDef:
         """
-        [Client.get_auto_scaling_group_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_auto_scaling_group_recommendations)
-        """
+        Returns Auto Scaling group recommendations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_auto_scaling_group_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_auto_scaling_group_recommendations)
+        """
     def get_ebs_volume_recommendations(
         self,
+        *,
         volumeArns: List[str] = None,
         nextToken: str = None,
         maxResults: int = None,
-        filters: List[EBSFilterTypeDef] = None,
-        accountIds: List[str] = None,
+        filters: List["EBSFilterTypeDef"] = None,
+        accountIds: List[str] = None
     ) -> GetEBSVolumeRecommendationsResponseTypeDef:
         """
-        [Client.get_ebs_volume_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ebs_volume_recommendations)
-        """
+        Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ebs_volume_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_ebs_volume_recommendations)
+        """
     def get_ec2_instance_recommendations(
         self,
+        *,
         instanceArns: List[str] = None,
         nextToken: str = None,
         maxResults: int = None,
-        filters: List[FilterTypeDef] = None,
-        accountIds: List[str] = None,
+        filters: List["FilterTypeDef"] = None,
+        accountIds: List[str] = None
     ) -> GetEC2InstanceRecommendationsResponseTypeDef:
         """
-        [Client.get_ec2_instance_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_instance_recommendations)
-        """
+        Returns Amazon EC2 instance recommendations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_instance_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_ec2_instance_recommendations)
+        """
     def get_ec2_recommendation_projected_metrics(
         self,
+        *,
         instanceArn: str,
-        stat: Literal["Maximum", "Average"],
+        stat: MetricStatisticType,
         period: int,
-        startTime: datetime,
-        endTime: datetime,
+        startTime: Union[datetime, str],
+        endTime: Union[datetime, str]
     ) -> GetEC2RecommendationProjectedMetricsResponseTypeDef:
         """
-        [Client.get_ec2_recommendation_projected_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_recommendation_projected_metrics)
-        """
+        Returns the projected utilization metrics of Amazon EC2 instance
+        recommendations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_recommendation_projected_metrics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_ec2_recommendation_projected_metrics)
+        """
     def get_enrollment_status(self) -> GetEnrollmentStatusResponseTypeDef:
         """
-        [Client.get_enrollment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_status)
-        """
+        Returns the enrollment (opt in) status of an account to the AWS Compute
+        Optimizer service.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_enrollment_status)
+        """
     def get_lambda_function_recommendations(
         self,
+        *,
         functionArns: List[str] = None,
         accountIds: List[str] = None,
-        filters: List[LambdaFunctionRecommendationFilterTypeDef] = None,
+        filters: List["LambdaFunctionRecommendationFilterTypeDef"] = None,
         nextToken: str = None,
-        maxResults: int = None,
+        maxResults: int = None
     ) -> GetLambdaFunctionRecommendationsResponseTypeDef:
         """
-        [Client.get_lambda_function_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_lambda_function_recommendations)
-        """
+        Returns AWS Lambda function recommendations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_lambda_function_recommendations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_lambda_function_recommendations)
+        """
     def get_recommendation_summaries(
-        self, accountIds: List[str] = None, nextToken: str = None, maxResults: int = None
+        self, *, accountIds: List[str] = None, nextToken: str = None, maxResults: int = None
     ) -> GetRecommendationSummariesResponseTypeDef:
         """
-        [Client.get_recommendation_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_summaries)
-        """
+        Returns the optimization findings for an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_recommendation_summaries)
+        """
     def update_enrollment_status(
-        self,
-        status: Literal["Active", "Inactive", "Pending", "Failed"],
-        includeMemberAccounts: bool = None,
+        self, *, status: StatusType, includeMemberAccounts: bool = None
     ) -> UpdateEnrollmentStatusResponseTypeDef:
         """
-        [Client.update_enrollment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.update_enrollment_status)
+        Updates the enrollment (opt in and opt out) status of an account to the AWS
+        Compute Optimizer service.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/compute-optimizer.html#ComputeOptimizer.Client.update_enrollment_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#update_enrollment_status)
         """

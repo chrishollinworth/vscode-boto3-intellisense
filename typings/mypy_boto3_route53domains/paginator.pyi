@@ -1,5 +1,7 @@
 """
-Main interface for route53domains service client paginators.
+Type annotations for route53domains service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html)
 
 Usage::
 
@@ -21,11 +23,11 @@ Usage::
     ```
 """
 from datetime import datetime
-from typing import Iterator
+from typing import Iterator, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_route53domains.type_defs import (
+from .type_defs import (
     ListDomainsResponseTypeDef,
     ListOperationsResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -34,44 +36,51 @@ from mypy_boto3_route53domains.type_defs import (
 
 __all__ = ("ListDomainsPaginator", "ListOperationsPaginator", "ViewBillingPaginator")
 
-
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#listdomainspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResponseTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#listdomainspaginator)
         """
-
 
 class ListOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
-    """
-
-    def paginate(
-        self, SubmittedSince: datetime = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOperationsResponseTypeDef]:
-        """
-        [ListOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations.paginate)
-        """
-
-
-class ViewBillingPaginator(Boto3Paginator):
-    """
-    [Paginator.ViewBilling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#listoperationspaginator)
     """
 
     def paginate(
         self,
-        Start: datetime = None,
-        End: datetime = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        SubmittedSince: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListOperationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#listoperationspaginator)
+        """
+
+class ViewBillingPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#viewbillingpaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        Start: Union[datetime, str] = None,
+        End: Union[datetime, str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ViewBillingResponseTypeDef]:
         """
-        [ViewBilling.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#viewbillingpaginator)
         """

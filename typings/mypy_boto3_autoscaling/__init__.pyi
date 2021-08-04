@@ -37,8 +37,8 @@ Usage::
     describe_tags_paginator: DescribeTagsPaginator = client.get_paginator("describe_tags")
     ```
 """
-from mypy_boto3_autoscaling.client import AutoScalingClient
-from mypy_boto3_autoscaling.paginator import (
+from .client import AutoScalingClient
+from .paginator import (
     DescribeAutoScalingGroupsPaginator,
     DescribeAutoScalingInstancesPaginator,
     DescribeLaunchConfigurationsPaginator,
@@ -52,7 +52,6 @@ from mypy_boto3_autoscaling.paginator import (
 )
 
 Client = AutoScalingClient
-
 
 __all__ = (
     "AutoScalingClient",

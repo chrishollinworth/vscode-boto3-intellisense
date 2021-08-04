@@ -16,9 +16,8 @@ Usage::
     session_client: PIClient = session.client("pi")
     ```
 """
-from mypy_boto3_pi.client import PIClient
+from .client import PIClient
 
 Client = PIClient
-
 
 __all__ = ("Client", "PIClient")

@@ -25,8 +25,8 @@ Usage::
     list_attribute_groups_paginator: ListAttributeGroupsPaginator = client.get_paginator("list_attribute_groups")
     ```
 """
-from mypy_boto3_servicecatalog_appregistry.client import AppRegistryClient
-from mypy_boto3_servicecatalog_appregistry.paginator import (
+from .client import AppRegistryClient
+from .paginator import (
     ListApplicationsPaginator,
     ListAssociatedAttributeGroupsPaginator,
     ListAssociatedResourcesPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_servicecatalog_appregistry.paginator import (
 )
 
 Client = AppRegistryClient
-
 
 __all__ = (
     "AppRegistryClient",

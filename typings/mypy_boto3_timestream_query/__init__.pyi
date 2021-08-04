@@ -19,10 +19,9 @@ Usage::
     query_paginator: QueryPaginator = client.get_paginator("query")
     ```
 """
-from mypy_boto3_timestream_query.client import TimestreamQueryClient
-from mypy_boto3_timestream_query.paginator import QueryPaginator
+from .client import TimestreamQueryClient
+from .paginator import QueryPaginator
 
 Client = TimestreamQueryClient
-
 
 __all__ = ("Client", "QueryPaginator", "TimestreamQueryClient")

@@ -1,17 +1,57 @@
 """
-Main interface for gamelift service type definitions.
+Type annotations for gamelift service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_gamelift.type_defs import AliasTypeDef
+    from mypy_boto3_gamelift.type_defs import AcceptMatchInputRequestTypeDef
 
-    data: AliasTypeDef = {...}
+    data: AcceptMatchInputRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
+
+from .literals import (
+    AcceptanceTypeType,
+    BackfillModeType,
+    BalancingStrategyType,
+    BuildStatusType,
+    CertificateTypeType,
+    ComparisonOperatorTypeType,
+    EC2InstanceTypeType,
+    EventCodeType,
+    FleetStatusType,
+    FleetTypeType,
+    FlexMatchModeType,
+    GameServerGroupDeleteOptionType,
+    GameServerGroupInstanceTypeType,
+    GameServerGroupStatusType,
+    GameServerInstanceStatusType,
+    GameServerProtectionPolicyType,
+    GameServerUtilizationStatusType,
+    GameSessionPlacementStateType,
+    GameSessionStatusType,
+    InstanceStatusType,
+    IpProtocolType,
+    MatchmakingConfigurationStatusType,
+    MetricNameType,
+    OperatingSystemType,
+    PlayerSessionCreationPolicyType,
+    PlayerSessionStatusType,
+    PolicyTypeType,
+    PriorityTypeType,
+    ProtectionPolicyType,
+    RoutingStrategyTypeType,
+    ScalingAdjustmentTypeType,
+    ScalingStatusTypeType,
+    SortOrderType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -22,20 +62,122 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AcceptMatchInputRequestTypeDef",
     "AliasTypeDef",
     "AttributeValueTypeDef",
     "AwsCredentialsTypeDef",
     "BuildTypeDef",
     "CertificateConfigurationTypeDef",
+    "ClaimGameServerInputRequestTypeDef",
+    "ClaimGameServerOutputTypeDef",
+    "CreateAliasInputRequestTypeDef",
+    "CreateAliasOutputTypeDef",
+    "CreateBuildInputRequestTypeDef",
+    "CreateBuildOutputTypeDef",
+    "CreateFleetInputRequestTypeDef",
+    "CreateFleetLocationsInputRequestTypeDef",
+    "CreateFleetLocationsOutputTypeDef",
+    "CreateFleetOutputTypeDef",
+    "CreateGameServerGroupInputRequestTypeDef",
+    "CreateGameServerGroupOutputTypeDef",
+    "CreateGameSessionInputRequestTypeDef",
+    "CreateGameSessionOutputTypeDef",
+    "CreateGameSessionQueueInputRequestTypeDef",
+    "CreateGameSessionQueueOutputTypeDef",
+    "CreateMatchmakingConfigurationInputRequestTypeDef",
+    "CreateMatchmakingConfigurationOutputTypeDef",
+    "CreateMatchmakingRuleSetInputRequestTypeDef",
+    "CreateMatchmakingRuleSetOutputTypeDef",
+    "CreatePlayerSessionInputRequestTypeDef",
+    "CreatePlayerSessionOutputTypeDef",
+    "CreatePlayerSessionsInputRequestTypeDef",
+    "CreatePlayerSessionsOutputTypeDef",
+    "CreateScriptInputRequestTypeDef",
+    "CreateScriptOutputTypeDef",
+    "CreateVpcPeeringAuthorizationInputRequestTypeDef",
+    "CreateVpcPeeringAuthorizationOutputTypeDef",
+    "CreateVpcPeeringConnectionInputRequestTypeDef",
+    "DeleteAliasInputRequestTypeDef",
+    "DeleteBuildInputRequestTypeDef",
+    "DeleteFleetInputRequestTypeDef",
+    "DeleteFleetLocationsInputRequestTypeDef",
+    "DeleteFleetLocationsOutputTypeDef",
+    "DeleteGameServerGroupInputRequestTypeDef",
+    "DeleteGameServerGroupOutputTypeDef",
+    "DeleteGameSessionQueueInputRequestTypeDef",
+    "DeleteMatchmakingConfigurationInputRequestTypeDef",
+    "DeleteMatchmakingRuleSetInputRequestTypeDef",
+    "DeleteScalingPolicyInputRequestTypeDef",
+    "DeleteScriptInputRequestTypeDef",
+    "DeleteVpcPeeringAuthorizationInputRequestTypeDef",
+    "DeleteVpcPeeringConnectionInputRequestTypeDef",
+    "DeregisterGameServerInputRequestTypeDef",
+    "DescribeAliasInputRequestTypeDef",
+    "DescribeAliasOutputTypeDef",
+    "DescribeBuildInputRequestTypeDef",
+    "DescribeBuildOutputTypeDef",
+    "DescribeEC2InstanceLimitsInputRequestTypeDef",
+    "DescribeEC2InstanceLimitsOutputTypeDef",
+    "DescribeFleetAttributesInputRequestTypeDef",
+    "DescribeFleetAttributesOutputTypeDef",
+    "DescribeFleetCapacityInputRequestTypeDef",
+    "DescribeFleetCapacityOutputTypeDef",
+    "DescribeFleetEventsInputRequestTypeDef",
+    "DescribeFleetEventsOutputTypeDef",
+    "DescribeFleetLocationAttributesInputRequestTypeDef",
+    "DescribeFleetLocationAttributesOutputTypeDef",
+    "DescribeFleetLocationCapacityInputRequestTypeDef",
+    "DescribeFleetLocationCapacityOutputTypeDef",
+    "DescribeFleetLocationUtilizationInputRequestTypeDef",
+    "DescribeFleetLocationUtilizationOutputTypeDef",
+    "DescribeFleetPortSettingsInputRequestTypeDef",
+    "DescribeFleetPortSettingsOutputTypeDef",
+    "DescribeFleetUtilizationInputRequestTypeDef",
+    "DescribeFleetUtilizationOutputTypeDef",
+    "DescribeGameServerGroupInputRequestTypeDef",
+    "DescribeGameServerGroupOutputTypeDef",
+    "DescribeGameServerInputRequestTypeDef",
+    "DescribeGameServerInstancesInputRequestTypeDef",
+    "DescribeGameServerInstancesOutputTypeDef",
+    "DescribeGameServerOutputTypeDef",
+    "DescribeGameSessionDetailsInputRequestTypeDef",
+    "DescribeGameSessionDetailsOutputTypeDef",
+    "DescribeGameSessionPlacementInputRequestTypeDef",
+    "DescribeGameSessionPlacementOutputTypeDef",
+    "DescribeGameSessionQueuesInputRequestTypeDef",
+    "DescribeGameSessionQueuesOutputTypeDef",
+    "DescribeGameSessionsInputRequestTypeDef",
+    "DescribeGameSessionsOutputTypeDef",
+    "DescribeInstancesInputRequestTypeDef",
+    "DescribeInstancesOutputTypeDef",
+    "DescribeMatchmakingConfigurationsInputRequestTypeDef",
+    "DescribeMatchmakingConfigurationsOutputTypeDef",
+    "DescribeMatchmakingInputRequestTypeDef",
+    "DescribeMatchmakingOutputTypeDef",
+    "DescribeMatchmakingRuleSetsInputRequestTypeDef",
+    "DescribeMatchmakingRuleSetsOutputTypeDef",
+    "DescribePlayerSessionsInputRequestTypeDef",
+    "DescribePlayerSessionsOutputTypeDef",
+    "DescribeRuntimeConfigurationInputRequestTypeDef",
+    "DescribeRuntimeConfigurationOutputTypeDef",
+    "DescribeScalingPoliciesInputRequestTypeDef",
+    "DescribeScalingPoliciesOutputTypeDef",
+    "DescribeScriptInputRequestTypeDef",
+    "DescribeScriptOutputTypeDef",
+    "DescribeVpcPeeringAuthorizationsOutputTypeDef",
+    "DescribeVpcPeeringConnectionsInputRequestTypeDef",
+    "DescribeVpcPeeringConnectionsOutputTypeDef",
+    "DesiredPlayerSessionTypeDef",
     "EC2InstanceCountsTypeDef",
     "EC2InstanceLimitTypeDef",
     "EventTypeDef",
+    "FilterConfigurationTypeDef",
     "FleetAttributesTypeDef",
     "FleetCapacityTypeDef",
     "FleetUtilizationTypeDef",
     "GamePropertyTypeDef",
+    "GameServerGroupAutoScalingPolicyTypeDef",
     "GameServerGroupTypeDef",
     "GameServerInstanceTypeDef",
     "GameServerTypeDef",
@@ -45,110 +187,122 @@ __all__ = (
     "GameSessionQueueDestinationTypeDef",
     "GameSessionQueueTypeDef",
     "GameSessionTypeDef",
+    "GetGameSessionLogUrlInputRequestTypeDef",
+    "GetGameSessionLogUrlOutputTypeDef",
+    "GetInstanceAccessInputRequestTypeDef",
+    "GetInstanceAccessOutputTypeDef",
     "InstanceAccessTypeDef",
     "InstanceCredentialsTypeDef",
     "InstanceDefinitionTypeDef",
     "InstanceTypeDef",
     "IpPermissionTypeDef",
+    "LaunchTemplateSpecificationTypeDef",
+    "ListAliasesInputRequestTypeDef",
+    "ListAliasesOutputTypeDef",
+    "ListBuildsInputRequestTypeDef",
+    "ListBuildsOutputTypeDef",
+    "ListFleetsInputRequestTypeDef",
+    "ListFleetsOutputTypeDef",
+    "ListGameServerGroupsInputRequestTypeDef",
+    "ListGameServerGroupsOutputTypeDef",
+    "ListGameServersInputRequestTypeDef",
+    "ListGameServersOutputTypeDef",
+    "ListScriptsInputRequestTypeDef",
+    "ListScriptsOutputTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "LocationAttributesTypeDef",
+    "LocationConfigurationTypeDef",
+    "LocationStateTypeDef",
     "MatchedPlayerSessionTypeDef",
     "MatchmakingConfigurationTypeDef",
     "MatchmakingRuleSetTypeDef",
     "MatchmakingTicketTypeDef",
+    "PaginatorConfigTypeDef",
     "PlacedPlayerSessionTypeDef",
     "PlayerLatencyPolicyTypeDef",
     "PlayerLatencyTypeDef",
     "PlayerSessionTypeDef",
     "PlayerTypeDef",
+    "PriorityConfigurationTypeDef",
+    "PutScalingPolicyInputRequestTypeDef",
+    "PutScalingPolicyOutputTypeDef",
+    "RegisterGameServerInputRequestTypeDef",
+    "RegisterGameServerOutputTypeDef",
+    "RequestUploadCredentialsInputRequestTypeDef",
+    "RequestUploadCredentialsOutputTypeDef",
+    "ResolveAliasInputRequestTypeDef",
+    "ResolveAliasOutputTypeDef",
     "ResourceCreationLimitPolicyTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
+    "ResumeGameServerGroupInputRequestTypeDef",
+    "ResumeGameServerGroupOutputTypeDef",
     "RoutingStrategyTypeDef",
     "RuntimeConfigurationTypeDef",
     "S3LocationTypeDef",
     "ScalingPolicyTypeDef",
     "ScriptTypeDef",
+    "SearchGameSessionsInputRequestTypeDef",
+    "SearchGameSessionsOutputTypeDef",
     "ServerProcessTypeDef",
+    "StartFleetActionsInputRequestTypeDef",
+    "StartFleetActionsOutputTypeDef",
+    "StartGameSessionPlacementInputRequestTypeDef",
+    "StartGameSessionPlacementOutputTypeDef",
+    "StartMatchBackfillInputRequestTypeDef",
+    "StartMatchBackfillOutputTypeDef",
+    "StartMatchmakingInputRequestTypeDef",
+    "StartMatchmakingOutputTypeDef",
+    "StopFleetActionsInputRequestTypeDef",
+    "StopFleetActionsOutputTypeDef",
+    "StopGameSessionPlacementInputRequestTypeDef",
+    "StopGameSessionPlacementOutputTypeDef",
+    "StopMatchmakingInputRequestTypeDef",
+    "SuspendGameServerGroupInputRequestTypeDef",
+    "SuspendGameServerGroupOutputTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TargetConfigurationTypeDef",
     "TargetTrackingConfigurationTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateAliasInputRequestTypeDef",
+    "UpdateAliasOutputTypeDef",
+    "UpdateBuildInputRequestTypeDef",
+    "UpdateBuildOutputTypeDef",
+    "UpdateFleetAttributesInputRequestTypeDef",
+    "UpdateFleetAttributesOutputTypeDef",
+    "UpdateFleetCapacityInputRequestTypeDef",
+    "UpdateFleetCapacityOutputTypeDef",
+    "UpdateFleetPortSettingsInputRequestTypeDef",
+    "UpdateFleetPortSettingsOutputTypeDef",
+    "UpdateGameServerGroupInputRequestTypeDef",
+    "UpdateGameServerGroupOutputTypeDef",
+    "UpdateGameServerInputRequestTypeDef",
+    "UpdateGameServerOutputTypeDef",
+    "UpdateGameSessionInputRequestTypeDef",
+    "UpdateGameSessionOutputTypeDef",
+    "UpdateGameSessionQueueInputRequestTypeDef",
+    "UpdateGameSessionQueueOutputTypeDef",
+    "UpdateMatchmakingConfigurationInputRequestTypeDef",
+    "UpdateMatchmakingConfigurationOutputTypeDef",
+    "UpdateRuntimeConfigurationInputRequestTypeDef",
+    "UpdateRuntimeConfigurationOutputTypeDef",
+    "UpdateScriptInputRequestTypeDef",
+    "UpdateScriptOutputTypeDef",
+    "ValidateMatchmakingRuleSetInputRequestTypeDef",
+    "ValidateMatchmakingRuleSetOutputTypeDef",
     "VpcPeeringAuthorizationTypeDef",
     "VpcPeeringConnectionStatusTypeDef",
     "VpcPeeringConnectionTypeDef",
-    "ClaimGameServerOutputTypeDef",
-    "CreateAliasOutputTypeDef",
-    "CreateBuildOutputTypeDef",
-    "CreateFleetOutputTypeDef",
-    "CreateGameServerGroupOutputTypeDef",
-    "CreateGameSessionOutputTypeDef",
-    "CreateGameSessionQueueOutputTypeDef",
-    "CreateMatchmakingConfigurationOutputTypeDef",
-    "CreateMatchmakingRuleSetOutputTypeDef",
-    "CreatePlayerSessionOutputTypeDef",
-    "CreatePlayerSessionsOutputTypeDef",
-    "CreateScriptOutputTypeDef",
-    "CreateVpcPeeringAuthorizationOutputTypeDef",
-    "DeleteGameServerGroupOutputTypeDef",
-    "DescribeAliasOutputTypeDef",
-    "DescribeBuildOutputTypeDef",
-    "DescribeEC2InstanceLimitsOutputTypeDef",
-    "DescribeFleetAttributesOutputTypeDef",
-    "DescribeFleetCapacityOutputTypeDef",
-    "DescribeFleetEventsOutputTypeDef",
-    "DescribeFleetPortSettingsOutputTypeDef",
-    "DescribeFleetUtilizationOutputTypeDef",
-    "DescribeGameServerGroupOutputTypeDef",
-    "DescribeGameServerInstancesOutputTypeDef",
-    "DescribeGameServerOutputTypeDef",
-    "DescribeGameSessionDetailsOutputTypeDef",
-    "DescribeGameSessionPlacementOutputTypeDef",
-    "DescribeGameSessionQueuesOutputTypeDef",
-    "DescribeGameSessionsOutputTypeDef",
-    "DescribeInstancesOutputTypeDef",
-    "DescribeMatchmakingConfigurationsOutputTypeDef",
-    "DescribeMatchmakingOutputTypeDef",
-    "DescribeMatchmakingRuleSetsOutputTypeDef",
-    "DescribePlayerSessionsOutputTypeDef",
-    "DescribeRuntimeConfigurationOutputTypeDef",
-    "DescribeScalingPoliciesOutputTypeDef",
-    "DescribeScriptOutputTypeDef",
-    "DescribeVpcPeeringAuthorizationsOutputTypeDef",
-    "DescribeVpcPeeringConnectionsOutputTypeDef",
-    "DesiredPlayerSessionTypeDef",
-    "GameServerGroupAutoScalingPolicyTypeDef",
-    "GetGameSessionLogUrlOutputTypeDef",
-    "GetInstanceAccessOutputTypeDef",
-    "LaunchTemplateSpecificationTypeDef",
-    "ListAliasesOutputTypeDef",
-    "ListBuildsOutputTypeDef",
-    "ListFleetsOutputTypeDef",
-    "ListGameServerGroupsOutputTypeDef",
-    "ListGameServersOutputTypeDef",
-    "ListScriptsOutputTypeDef",
-    "ListTagsForResourceResponseTypeDef",
-    "PaginatorConfigTypeDef",
-    "PutScalingPolicyOutputTypeDef",
-    "RegisterGameServerOutputTypeDef",
-    "RequestUploadCredentialsOutputTypeDef",
-    "ResolveAliasOutputTypeDef",
-    "ResumeGameServerGroupOutputTypeDef",
-    "SearchGameSessionsOutputTypeDef",
-    "StartGameSessionPlacementOutputTypeDef",
-    "StartMatchBackfillOutputTypeDef",
-    "StartMatchmakingOutputTypeDef",
-    "StopGameSessionPlacementOutputTypeDef",
-    "SuspendGameServerGroupOutputTypeDef",
-    "UpdateAliasOutputTypeDef",
-    "UpdateBuildOutputTypeDef",
-    "UpdateFleetAttributesOutputTypeDef",
-    "UpdateFleetCapacityOutputTypeDef",
-    "UpdateFleetPortSettingsOutputTypeDef",
-    "UpdateGameServerGroupOutputTypeDef",
-    "UpdateGameServerOutputTypeDef",
-    "UpdateGameSessionOutputTypeDef",
-    "UpdateGameSessionQueueOutputTypeDef",
-    "UpdateMatchmakingConfigurationOutputTypeDef",
-    "UpdateRuntimeConfigurationOutputTypeDef",
-    "UpdateScriptOutputTypeDef",
-    "ValidateMatchmakingRuleSetOutputTypeDef",
+)
+
+AcceptMatchInputRequestTypeDef = TypedDict(
+    "AcceptMatchInputRequestTypeDef",
+    {
+        "TicketId": str,
+        "PlayerIds": List[str],
+        "AcceptanceType": AcceptanceTypeType,
+    },
 )
 
 AliasTypeDef = TypedDict(
@@ -167,13 +321,22 @@ AliasTypeDef = TypedDict(
 
 AttributeValueTypeDef = TypedDict(
     "AttributeValueTypeDef",
-    {"S": str, "N": float, "SL": List[str], "SDM": Dict[str, float]},
+    {
+        "S": str,
+        "N": float,
+        "SL": List[str],
+        "SDM": Dict[str, float],
+    },
     total=False,
 )
 
 AwsCredentialsTypeDef = TypedDict(
     "AwsCredentialsTypeDef",
-    {"AccessKeyId": str, "SecretAccessKey": str, "SessionToken": str},
+    {
+        "AccessKeyId": str,
+        "SecretAccessKey": str,
+        "SessionToken": str,
+    },
     total=False,
 )
 
@@ -184,16 +347,1144 @@ BuildTypeDef = TypedDict(
         "BuildArn": str,
         "Name": str,
         "Version": str,
-        "Status": Literal["INITIALIZED", "READY", "FAILED"],
+        "Status": BuildStatusType,
         "SizeOnDisk": int,
-        "OperatingSystem": Literal["WINDOWS_2012", "AMAZON_LINUX", "AMAZON_LINUX_2"],
+        "OperatingSystem": OperatingSystemType,
         "CreationTime": datetime,
     },
     total=False,
 )
 
 CertificateConfigurationTypeDef = TypedDict(
-    "CertificateConfigurationTypeDef", {"CertificateType": Literal["DISABLED", "GENERATED"]}
+    "CertificateConfigurationTypeDef",
+    {
+        "CertificateType": CertificateTypeType,
+    },
+)
+
+_RequiredClaimGameServerInputRequestTypeDef = TypedDict(
+    "_RequiredClaimGameServerInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+    },
+)
+_OptionalClaimGameServerInputRequestTypeDef = TypedDict(
+    "_OptionalClaimGameServerInputRequestTypeDef",
+    {
+        "GameServerId": str,
+        "GameServerData": str,
+    },
+    total=False,
+)
+
+class ClaimGameServerInputRequestTypeDef(
+    _RequiredClaimGameServerInputRequestTypeDef, _OptionalClaimGameServerInputRequestTypeDef
+):
+    pass
+
+ClaimGameServerOutputTypeDef = TypedDict(
+    "ClaimGameServerOutputTypeDef",
+    {
+        "GameServer": "GameServerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateAliasInputRequestTypeDef = TypedDict(
+    "_RequiredCreateAliasInputRequestTypeDef",
+    {
+        "Name": str,
+        "RoutingStrategy": "RoutingStrategyTypeDef",
+    },
+)
+_OptionalCreateAliasInputRequestTypeDef = TypedDict(
+    "_OptionalCreateAliasInputRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAliasInputRequestTypeDef(
+    _RequiredCreateAliasInputRequestTypeDef, _OptionalCreateAliasInputRequestTypeDef
+):
+    pass
+
+CreateAliasOutputTypeDef = TypedDict(
+    "CreateAliasOutputTypeDef",
+    {
+        "Alias": "AliasTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateBuildInputRequestTypeDef = TypedDict(
+    "CreateBuildInputRequestTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+        "StorageLocation": "S3LocationTypeDef",
+        "OperatingSystem": OperatingSystemType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+CreateBuildOutputTypeDef = TypedDict(
+    "CreateBuildOutputTypeDef",
+    {
+        "Build": "BuildTypeDef",
+        "UploadCredentials": "AwsCredentialsTypeDef",
+        "StorageLocation": "S3LocationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFleetInputRequestTypeDef = TypedDict(
+    "_RequiredCreateFleetInputRequestTypeDef",
+    {
+        "Name": str,
+        "EC2InstanceType": EC2InstanceTypeType,
+    },
+)
+_OptionalCreateFleetInputRequestTypeDef = TypedDict(
+    "_OptionalCreateFleetInputRequestTypeDef",
+    {
+        "Description": str,
+        "BuildId": str,
+        "ScriptId": str,
+        "ServerLaunchPath": str,
+        "ServerLaunchParameters": str,
+        "LogPaths": List[str],
+        "EC2InboundPermissions": List["IpPermissionTypeDef"],
+        "NewGameSessionProtectionPolicy": ProtectionPolicyType,
+        "RuntimeConfiguration": "RuntimeConfigurationTypeDef",
+        "ResourceCreationLimitPolicy": "ResourceCreationLimitPolicyTypeDef",
+        "MetricGroups": List[str],
+        "PeerVpcAwsAccountId": str,
+        "PeerVpcId": str,
+        "FleetType": FleetTypeType,
+        "InstanceRoleArn": str,
+        "CertificateConfiguration": "CertificateConfigurationTypeDef",
+        "Locations": List["LocationConfigurationTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFleetInputRequestTypeDef(
+    _RequiredCreateFleetInputRequestTypeDef, _OptionalCreateFleetInputRequestTypeDef
+):
+    pass
+
+CreateFleetLocationsInputRequestTypeDef = TypedDict(
+    "CreateFleetLocationsInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "Locations": List["LocationConfigurationTypeDef"],
+    },
+)
+
+CreateFleetLocationsOutputTypeDef = TypedDict(
+    "CreateFleetLocationsOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "LocationStates": List["LocationStateTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateFleetOutputTypeDef = TypedDict(
+    "CreateFleetOutputTypeDef",
+    {
+        "FleetAttributes": "FleetAttributesTypeDef",
+        "LocationStates": List["LocationStateTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateGameServerGroupInputRequestTypeDef = TypedDict(
+    "_RequiredCreateGameServerGroupInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+        "RoleArn": str,
+        "MinSize": int,
+        "MaxSize": int,
+        "LaunchTemplate": "LaunchTemplateSpecificationTypeDef",
+        "InstanceDefinitions": List["InstanceDefinitionTypeDef"],
+    },
+)
+_OptionalCreateGameServerGroupInputRequestTypeDef = TypedDict(
+    "_OptionalCreateGameServerGroupInputRequestTypeDef",
+    {
+        "AutoScalingPolicy": "GameServerGroupAutoScalingPolicyTypeDef",
+        "BalancingStrategy": BalancingStrategyType,
+        "GameServerProtectionPolicy": GameServerProtectionPolicyType,
+        "VpcSubnets": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateGameServerGroupInputRequestTypeDef(
+    _RequiredCreateGameServerGroupInputRequestTypeDef,
+    _OptionalCreateGameServerGroupInputRequestTypeDef,
+):
+    pass
+
+CreateGameServerGroupOutputTypeDef = TypedDict(
+    "CreateGameServerGroupOutputTypeDef",
+    {
+        "GameServerGroup": "GameServerGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateGameSessionInputRequestTypeDef = TypedDict(
+    "_RequiredCreateGameSessionInputRequestTypeDef",
+    {
+        "MaximumPlayerSessionCount": int,
+    },
+)
+_OptionalCreateGameSessionInputRequestTypeDef = TypedDict(
+    "_OptionalCreateGameSessionInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "AliasId": str,
+        "Name": str,
+        "GameProperties": List["GamePropertyTypeDef"],
+        "CreatorId": str,
+        "GameSessionId": str,
+        "IdempotencyToken": str,
+        "GameSessionData": str,
+        "Location": str,
+    },
+    total=False,
+)
+
+class CreateGameSessionInputRequestTypeDef(
+    _RequiredCreateGameSessionInputRequestTypeDef, _OptionalCreateGameSessionInputRequestTypeDef
+):
+    pass
+
+CreateGameSessionOutputTypeDef = TypedDict(
+    "CreateGameSessionOutputTypeDef",
+    {
+        "GameSession": "GameSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateGameSessionQueueInputRequestTypeDef = TypedDict(
+    "_RequiredCreateGameSessionQueueInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateGameSessionQueueInputRequestTypeDef = TypedDict(
+    "_OptionalCreateGameSessionQueueInputRequestTypeDef",
+    {
+        "TimeoutInSeconds": int,
+        "PlayerLatencyPolicies": List["PlayerLatencyPolicyTypeDef"],
+        "Destinations": List["GameSessionQueueDestinationTypeDef"],
+        "FilterConfiguration": "FilterConfigurationTypeDef",
+        "PriorityConfiguration": "PriorityConfigurationTypeDef",
+        "CustomEventData": str,
+        "NotificationTarget": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateGameSessionQueueInputRequestTypeDef(
+    _RequiredCreateGameSessionQueueInputRequestTypeDef,
+    _OptionalCreateGameSessionQueueInputRequestTypeDef,
+):
+    pass
+
+CreateGameSessionQueueOutputTypeDef = TypedDict(
+    "CreateGameSessionQueueOutputTypeDef",
+    {
+        "GameSessionQueue": "GameSessionQueueTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateMatchmakingConfigurationInputRequestTypeDef = TypedDict(
+    "_RequiredCreateMatchmakingConfigurationInputRequestTypeDef",
+    {
+        "Name": str,
+        "RequestTimeoutSeconds": int,
+        "AcceptanceRequired": bool,
+        "RuleSetName": str,
+    },
+)
+_OptionalCreateMatchmakingConfigurationInputRequestTypeDef = TypedDict(
+    "_OptionalCreateMatchmakingConfigurationInputRequestTypeDef",
+    {
+        "Description": str,
+        "GameSessionQueueArns": List[str],
+        "AcceptanceTimeoutSeconds": int,
+        "NotificationTarget": str,
+        "AdditionalPlayerCount": int,
+        "CustomEventData": str,
+        "GameProperties": List["GamePropertyTypeDef"],
+        "GameSessionData": str,
+        "BackfillMode": BackfillModeType,
+        "FlexMatchMode": FlexMatchModeType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateMatchmakingConfigurationInputRequestTypeDef(
+    _RequiredCreateMatchmakingConfigurationInputRequestTypeDef,
+    _OptionalCreateMatchmakingConfigurationInputRequestTypeDef,
+):
+    pass
+
+CreateMatchmakingConfigurationOutputTypeDef = TypedDict(
+    "CreateMatchmakingConfigurationOutputTypeDef",
+    {
+        "Configuration": "MatchmakingConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateMatchmakingRuleSetInputRequestTypeDef = TypedDict(
+    "_RequiredCreateMatchmakingRuleSetInputRequestTypeDef",
+    {
+        "Name": str,
+        "RuleSetBody": str,
+    },
+)
+_OptionalCreateMatchmakingRuleSetInputRequestTypeDef = TypedDict(
+    "_OptionalCreateMatchmakingRuleSetInputRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateMatchmakingRuleSetInputRequestTypeDef(
+    _RequiredCreateMatchmakingRuleSetInputRequestTypeDef,
+    _OptionalCreateMatchmakingRuleSetInputRequestTypeDef,
+):
+    pass
+
+CreateMatchmakingRuleSetOutputTypeDef = TypedDict(
+    "CreateMatchmakingRuleSetOutputTypeDef",
+    {
+        "RuleSet": "MatchmakingRuleSetTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePlayerSessionInputRequestTypeDef = TypedDict(
+    "_RequiredCreatePlayerSessionInputRequestTypeDef",
+    {
+        "GameSessionId": str,
+        "PlayerId": str,
+    },
+)
+_OptionalCreatePlayerSessionInputRequestTypeDef = TypedDict(
+    "_OptionalCreatePlayerSessionInputRequestTypeDef",
+    {
+        "PlayerData": str,
+    },
+    total=False,
+)
+
+class CreatePlayerSessionInputRequestTypeDef(
+    _RequiredCreatePlayerSessionInputRequestTypeDef, _OptionalCreatePlayerSessionInputRequestTypeDef
+):
+    pass
+
+CreatePlayerSessionOutputTypeDef = TypedDict(
+    "CreatePlayerSessionOutputTypeDef",
+    {
+        "PlayerSession": "PlayerSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePlayerSessionsInputRequestTypeDef = TypedDict(
+    "_RequiredCreatePlayerSessionsInputRequestTypeDef",
+    {
+        "GameSessionId": str,
+        "PlayerIds": List[str],
+    },
+)
+_OptionalCreatePlayerSessionsInputRequestTypeDef = TypedDict(
+    "_OptionalCreatePlayerSessionsInputRequestTypeDef",
+    {
+        "PlayerDataMap": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreatePlayerSessionsInputRequestTypeDef(
+    _RequiredCreatePlayerSessionsInputRequestTypeDef,
+    _OptionalCreatePlayerSessionsInputRequestTypeDef,
+):
+    pass
+
+CreatePlayerSessionsOutputTypeDef = TypedDict(
+    "CreatePlayerSessionsOutputTypeDef",
+    {
+        "PlayerSessions": List["PlayerSessionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateScriptInputRequestTypeDef = TypedDict(
+    "CreateScriptInputRequestTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+        "StorageLocation": "S3LocationTypeDef",
+        "ZipFile": Union[bytes, IO[bytes], StreamingBody],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+CreateScriptOutputTypeDef = TypedDict(
+    "CreateScriptOutputTypeDef",
+    {
+        "Script": "ScriptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVpcPeeringAuthorizationInputRequestTypeDef = TypedDict(
+    "CreateVpcPeeringAuthorizationInputRequestTypeDef",
+    {
+        "GameLiftAwsAccountId": str,
+        "PeerVpcId": str,
+    },
+)
+
+CreateVpcPeeringAuthorizationOutputTypeDef = TypedDict(
+    "CreateVpcPeeringAuthorizationOutputTypeDef",
+    {
+        "VpcPeeringAuthorization": "VpcPeeringAuthorizationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateVpcPeeringConnectionInputRequestTypeDef = TypedDict(
+    "CreateVpcPeeringConnectionInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "PeerVpcAwsAccountId": str,
+        "PeerVpcId": str,
+    },
+)
+
+DeleteAliasInputRequestTypeDef = TypedDict(
+    "DeleteAliasInputRequestTypeDef",
+    {
+        "AliasId": str,
+    },
+)
+
+DeleteBuildInputRequestTypeDef = TypedDict(
+    "DeleteBuildInputRequestTypeDef",
+    {
+        "BuildId": str,
+    },
+)
+
+DeleteFleetInputRequestTypeDef = TypedDict(
+    "DeleteFleetInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+
+DeleteFleetLocationsInputRequestTypeDef = TypedDict(
+    "DeleteFleetLocationsInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "Locations": List[str],
+    },
+)
+
+DeleteFleetLocationsOutputTypeDef = TypedDict(
+    "DeleteFleetLocationsOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "LocationStates": List["LocationStateTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteGameServerGroupInputRequestTypeDef = TypedDict(
+    "_RequiredDeleteGameServerGroupInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+    },
+)
+_OptionalDeleteGameServerGroupInputRequestTypeDef = TypedDict(
+    "_OptionalDeleteGameServerGroupInputRequestTypeDef",
+    {
+        "DeleteOption": GameServerGroupDeleteOptionType,
+    },
+    total=False,
+)
+
+class DeleteGameServerGroupInputRequestTypeDef(
+    _RequiredDeleteGameServerGroupInputRequestTypeDef,
+    _OptionalDeleteGameServerGroupInputRequestTypeDef,
+):
+    pass
+
+DeleteGameServerGroupOutputTypeDef = TypedDict(
+    "DeleteGameServerGroupOutputTypeDef",
+    {
+        "GameServerGroup": "GameServerGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteGameSessionQueueInputRequestTypeDef = TypedDict(
+    "DeleteGameSessionQueueInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteMatchmakingConfigurationInputRequestTypeDef = TypedDict(
+    "DeleteMatchmakingConfigurationInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteMatchmakingRuleSetInputRequestTypeDef = TypedDict(
+    "DeleteMatchmakingRuleSetInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteScalingPolicyInputRequestTypeDef = TypedDict(
+    "DeleteScalingPolicyInputRequestTypeDef",
+    {
+        "Name": str,
+        "FleetId": str,
+    },
+)
+
+DeleteScriptInputRequestTypeDef = TypedDict(
+    "DeleteScriptInputRequestTypeDef",
+    {
+        "ScriptId": str,
+    },
+)
+
+DeleteVpcPeeringAuthorizationInputRequestTypeDef = TypedDict(
+    "DeleteVpcPeeringAuthorizationInputRequestTypeDef",
+    {
+        "GameLiftAwsAccountId": str,
+        "PeerVpcId": str,
+    },
+)
+
+DeleteVpcPeeringConnectionInputRequestTypeDef = TypedDict(
+    "DeleteVpcPeeringConnectionInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "VpcPeeringConnectionId": str,
+    },
+)
+
+DeregisterGameServerInputRequestTypeDef = TypedDict(
+    "DeregisterGameServerInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+        "GameServerId": str,
+    },
+)
+
+DescribeAliasInputRequestTypeDef = TypedDict(
+    "DescribeAliasInputRequestTypeDef",
+    {
+        "AliasId": str,
+    },
+)
+
+DescribeAliasOutputTypeDef = TypedDict(
+    "DescribeAliasOutputTypeDef",
+    {
+        "Alias": "AliasTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeBuildInputRequestTypeDef = TypedDict(
+    "DescribeBuildInputRequestTypeDef",
+    {
+        "BuildId": str,
+    },
+)
+
+DescribeBuildOutputTypeDef = TypedDict(
+    "DescribeBuildOutputTypeDef",
+    {
+        "Build": "BuildTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEC2InstanceLimitsInputRequestTypeDef = TypedDict(
+    "DescribeEC2InstanceLimitsInputRequestTypeDef",
+    {
+        "EC2InstanceType": EC2InstanceTypeType,
+        "Location": str,
+    },
+    total=False,
+)
+
+DescribeEC2InstanceLimitsOutputTypeDef = TypedDict(
+    "DescribeEC2InstanceLimitsOutputTypeDef",
+    {
+        "EC2InstanceLimits": List["EC2InstanceLimitTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetAttributesInputRequestTypeDef = TypedDict(
+    "DescribeFleetAttributesInputRequestTypeDef",
+    {
+        "FleetIds": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetAttributesOutputTypeDef = TypedDict(
+    "DescribeFleetAttributesOutputTypeDef",
+    {
+        "FleetAttributes": List["FleetAttributesTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetCapacityInputRequestTypeDef = TypedDict(
+    "DescribeFleetCapacityInputRequestTypeDef",
+    {
+        "FleetIds": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetCapacityOutputTypeDef = TypedDict(
+    "DescribeFleetCapacityOutputTypeDef",
+    {
+        "FleetCapacity": List["FleetCapacityTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeFleetEventsInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeFleetEventsInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalDescribeFleetEventsInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeFleetEventsInputRequestTypeDef",
+    {
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeFleetEventsInputRequestTypeDef(
+    _RequiredDescribeFleetEventsInputRequestTypeDef, _OptionalDescribeFleetEventsInputRequestTypeDef
+):
+    pass
+
+DescribeFleetEventsOutputTypeDef = TypedDict(
+    "DescribeFleetEventsOutputTypeDef",
+    {
+        "Events": List["EventTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeFleetLocationAttributesInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeFleetLocationAttributesInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalDescribeFleetLocationAttributesInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeFleetLocationAttributesInputRequestTypeDef",
+    {
+        "Locations": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeFleetLocationAttributesInputRequestTypeDef(
+    _RequiredDescribeFleetLocationAttributesInputRequestTypeDef,
+    _OptionalDescribeFleetLocationAttributesInputRequestTypeDef,
+):
+    pass
+
+DescribeFleetLocationAttributesOutputTypeDef = TypedDict(
+    "DescribeFleetLocationAttributesOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "LocationAttributes": List["LocationAttributesTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetLocationCapacityInputRequestTypeDef = TypedDict(
+    "DescribeFleetLocationCapacityInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "Location": str,
+    },
+)
+
+DescribeFleetLocationCapacityOutputTypeDef = TypedDict(
+    "DescribeFleetLocationCapacityOutputTypeDef",
+    {
+        "FleetCapacity": "FleetCapacityTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetLocationUtilizationInputRequestTypeDef = TypedDict(
+    "DescribeFleetLocationUtilizationInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "Location": str,
+    },
+)
+
+DescribeFleetLocationUtilizationOutputTypeDef = TypedDict(
+    "DescribeFleetLocationUtilizationOutputTypeDef",
+    {
+        "FleetUtilization": "FleetUtilizationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeFleetPortSettingsInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeFleetPortSettingsInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalDescribeFleetPortSettingsInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeFleetPortSettingsInputRequestTypeDef",
+    {
+        "Location": str,
+    },
+    total=False,
+)
+
+class DescribeFleetPortSettingsInputRequestTypeDef(
+    _RequiredDescribeFleetPortSettingsInputRequestTypeDef,
+    _OptionalDescribeFleetPortSettingsInputRequestTypeDef,
+):
+    pass
+
+DescribeFleetPortSettingsOutputTypeDef = TypedDict(
+    "DescribeFleetPortSettingsOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "InboundPermissions": List["IpPermissionTypeDef"],
+        "UpdateStatus": Literal["PENDING_UPDATE"],
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetUtilizationInputRequestTypeDef = TypedDict(
+    "DescribeFleetUtilizationInputRequestTypeDef",
+    {
+        "FleetIds": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetUtilizationOutputTypeDef = TypedDict(
+    "DescribeFleetUtilizationOutputTypeDef",
+    {
+        "FleetUtilization": List["FleetUtilizationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGameServerGroupInputRequestTypeDef = TypedDict(
+    "DescribeGameServerGroupInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+    },
+)
+
+DescribeGameServerGroupOutputTypeDef = TypedDict(
+    "DescribeGameServerGroupOutputTypeDef",
+    {
+        "GameServerGroup": "GameServerGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGameServerInputRequestTypeDef = TypedDict(
+    "DescribeGameServerInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+        "GameServerId": str,
+    },
+)
+
+_RequiredDescribeGameServerInstancesInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeGameServerInstancesInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+    },
+)
+_OptionalDescribeGameServerInstancesInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeGameServerInstancesInputRequestTypeDef",
+    {
+        "InstanceIds": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeGameServerInstancesInputRequestTypeDef(
+    _RequiredDescribeGameServerInstancesInputRequestTypeDef,
+    _OptionalDescribeGameServerInstancesInputRequestTypeDef,
+):
+    pass
+
+DescribeGameServerInstancesOutputTypeDef = TypedDict(
+    "DescribeGameServerInstancesOutputTypeDef",
+    {
+        "GameServerInstances": List["GameServerInstanceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGameServerOutputTypeDef = TypedDict(
+    "DescribeGameServerOutputTypeDef",
+    {
+        "GameServer": "GameServerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGameSessionDetailsInputRequestTypeDef = TypedDict(
+    "DescribeGameSessionDetailsInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "GameSessionId": str,
+        "AliasId": str,
+        "Location": str,
+        "StatusFilter": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeGameSessionDetailsOutputTypeDef = TypedDict(
+    "DescribeGameSessionDetailsOutputTypeDef",
+    {
+        "GameSessionDetails": List["GameSessionDetailTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGameSessionPlacementInputRequestTypeDef = TypedDict(
+    "DescribeGameSessionPlacementInputRequestTypeDef",
+    {
+        "PlacementId": str,
+    },
+)
+
+DescribeGameSessionPlacementOutputTypeDef = TypedDict(
+    "DescribeGameSessionPlacementOutputTypeDef",
+    {
+        "GameSessionPlacement": "GameSessionPlacementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGameSessionQueuesInputRequestTypeDef = TypedDict(
+    "DescribeGameSessionQueuesInputRequestTypeDef",
+    {
+        "Names": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeGameSessionQueuesOutputTypeDef = TypedDict(
+    "DescribeGameSessionQueuesOutputTypeDef",
+    {
+        "GameSessionQueues": List["GameSessionQueueTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeGameSessionsInputRequestTypeDef = TypedDict(
+    "DescribeGameSessionsInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "GameSessionId": str,
+        "AliasId": str,
+        "Location": str,
+        "StatusFilter": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeGameSessionsOutputTypeDef = TypedDict(
+    "DescribeGameSessionsOutputTypeDef",
+    {
+        "GameSessions": List["GameSessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeInstancesInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeInstancesInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalDescribeInstancesInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeInstancesInputRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Limit": int,
+        "NextToken": str,
+        "Location": str,
+    },
+    total=False,
+)
+
+class DescribeInstancesInputRequestTypeDef(
+    _RequiredDescribeInstancesInputRequestTypeDef, _OptionalDescribeInstancesInputRequestTypeDef
+):
+    pass
+
+DescribeInstancesOutputTypeDef = TypedDict(
+    "DescribeInstancesOutputTypeDef",
+    {
+        "Instances": List["InstanceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMatchmakingConfigurationsInputRequestTypeDef = TypedDict(
+    "DescribeMatchmakingConfigurationsInputRequestTypeDef",
+    {
+        "Names": List[str],
+        "RuleSetName": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeMatchmakingConfigurationsOutputTypeDef = TypedDict(
+    "DescribeMatchmakingConfigurationsOutputTypeDef",
+    {
+        "Configurations": List["MatchmakingConfigurationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMatchmakingInputRequestTypeDef = TypedDict(
+    "DescribeMatchmakingInputRequestTypeDef",
+    {
+        "TicketIds": List[str],
+    },
+)
+
+DescribeMatchmakingOutputTypeDef = TypedDict(
+    "DescribeMatchmakingOutputTypeDef",
+    {
+        "TicketList": List["MatchmakingTicketTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMatchmakingRuleSetsInputRequestTypeDef = TypedDict(
+    "DescribeMatchmakingRuleSetsInputRequestTypeDef",
+    {
+        "Names": List[str],
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeMatchmakingRuleSetsOutputTypeDef = TypedDict(
+    "DescribeMatchmakingRuleSetsOutputTypeDef",
+    {
+        "RuleSets": List["MatchmakingRuleSetTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribePlayerSessionsInputRequestTypeDef = TypedDict(
+    "DescribePlayerSessionsInputRequestTypeDef",
+    {
+        "GameSessionId": str,
+        "PlayerId": str,
+        "PlayerSessionId": str,
+        "PlayerSessionStatusFilter": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribePlayerSessionsOutputTypeDef = TypedDict(
+    "DescribePlayerSessionsOutputTypeDef",
+    {
+        "PlayerSessions": List["PlayerSessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRuntimeConfigurationInputRequestTypeDef = TypedDict(
+    "DescribeRuntimeConfigurationInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+
+DescribeRuntimeConfigurationOutputTypeDef = TypedDict(
+    "DescribeRuntimeConfigurationOutputTypeDef",
+    {
+        "RuntimeConfiguration": "RuntimeConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeScalingPoliciesInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeScalingPoliciesInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalDescribeScalingPoliciesInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeScalingPoliciesInputRequestTypeDef",
+    {
+        "StatusFilter": ScalingStatusTypeType,
+        "Limit": int,
+        "NextToken": str,
+        "Location": str,
+    },
+    total=False,
+)
+
+class DescribeScalingPoliciesInputRequestTypeDef(
+    _RequiredDescribeScalingPoliciesInputRequestTypeDef,
+    _OptionalDescribeScalingPoliciesInputRequestTypeDef,
+):
+    pass
+
+DescribeScalingPoliciesOutputTypeDef = TypedDict(
+    "DescribeScalingPoliciesOutputTypeDef",
+    {
+        "ScalingPolicies": List["ScalingPolicyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeScriptInputRequestTypeDef = TypedDict(
+    "DescribeScriptInputRequestTypeDef",
+    {
+        "ScriptId": str,
+    },
+)
+
+DescribeScriptOutputTypeDef = TypedDict(
+    "DescribeScriptOutputTypeDef",
+    {
+        "Script": "ScriptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcPeeringAuthorizationsOutputTypeDef = TypedDict(
+    "DescribeVpcPeeringAuthorizationsOutputTypeDef",
+    {
+        "VpcPeeringAuthorizations": List["VpcPeeringAuthorizationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcPeeringConnectionsInputRequestTypeDef = TypedDict(
+    "DescribeVpcPeeringConnectionsInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+    total=False,
+)
+
+DescribeVpcPeeringConnectionsOutputTypeDef = TypedDict(
+    "DescribeVpcPeeringConnectionsOutputTypeDef",
+    {
+        "VpcPeeringConnections": List["VpcPeeringConnectionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DesiredPlayerSessionTypeDef = TypedDict(
+    "DesiredPlayerSessionTypeDef",
+    {
+        "PlayerId": str,
+        "PlayerData": str,
+    },
+    total=False,
 )
 
 EC2InstanceCountsTypeDef = TypedDict(
@@ -213,92 +1504,10 @@ EC2InstanceCountsTypeDef = TypedDict(
 EC2InstanceLimitTypeDef = TypedDict(
     "EC2InstanceLimitTypeDef",
     {
-        "EC2InstanceType": Literal[
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-        ],
+        "EC2InstanceType": EC2InstanceTypeType,
         "CurrentInstances": int,
         "InstanceLimit": int,
+        "Location": str,
     },
     total=False,
 )
@@ -308,44 +1517,18 @@ EventTypeDef = TypedDict(
     {
         "EventId": str,
         "ResourceId": str,
-        "EventCode": Literal[
-            "GENERIC_EVENT",
-            "FLEET_CREATED",
-            "FLEET_DELETED",
-            "FLEET_SCALING_EVENT",
-            "FLEET_STATE_DOWNLOADING",
-            "FLEET_STATE_VALIDATING",
-            "FLEET_STATE_BUILDING",
-            "FLEET_STATE_ACTIVATING",
-            "FLEET_STATE_ACTIVE",
-            "FLEET_STATE_ERROR",
-            "FLEET_INITIALIZATION_FAILED",
-            "FLEET_BINARY_DOWNLOAD_FAILED",
-            "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
-            "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
-            "FLEET_VALIDATION_TIMED_OUT",
-            "FLEET_ACTIVATION_FAILED",
-            "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
-            "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
-            "SERVER_PROCESS_INVALID_PATH",
-            "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
-            "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
-            "SERVER_PROCESS_CRASHED",
-            "SERVER_PROCESS_TERMINATED_UNHEALTHY",
-            "SERVER_PROCESS_FORCE_TERMINATED",
-            "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
-            "GAME_SESSION_ACTIVATION_TIMEOUT",
-            "FLEET_CREATION_EXTRACTING_BUILD",
-            "FLEET_CREATION_RUNNING_INSTALLER",
-            "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
-            "FLEET_VPC_PEERING_SUCCEEDED",
-            "FLEET_VPC_PEERING_FAILED",
-            "FLEET_VPC_PEERING_DELETED",
-            "INSTANCE_INTERRUPTED",
-        ],
+        "EventCode": EventCodeType,
         "Message": str,
         "EventTime": datetime,
         "PreSignedLogUrl": str,
+    },
+    total=False,
+)
+
+FilterConfigurationTypeDef = TypedDict(
+    "FilterConfigurationTypeDef",
+    {
+        "AllowedLocations": List[str],
     },
     total=False,
 )
@@ -355,106 +1538,13 @@ FleetAttributesTypeDef = TypedDict(
     {
         "FleetId": str,
         "FleetArn": str,
-        "FleetType": Literal["ON_DEMAND", "SPOT"],
-        "InstanceType": Literal[
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-        ],
+        "FleetType": FleetTypeType,
+        "InstanceType": EC2InstanceTypeType,
         "Description": str,
         "Name": str,
         "CreationTime": datetime,
         "TerminationTime": datetime,
-        "Status": Literal[
-            "NEW",
-            "DOWNLOADING",
-            "VALIDATING",
-            "BUILDING",
-            "ACTIVATING",
-            "ACTIVE",
-            "DELETING",
-            "ERROR",
-            "TERMINATED",
-        ],
+        "Status": FleetStatusType,
         "BuildId": str,
         "BuildArn": str,
         "ScriptId": str,
@@ -462,8 +1552,8 @@ FleetAttributesTypeDef = TypedDict(
         "ServerLaunchPath": str,
         "ServerLaunchParameters": str,
         "LogPaths": List[str],
-        "NewGameSessionProtectionPolicy": Literal["NoProtection", "FullProtection"],
-        "OperatingSystem": Literal["WINDOWS_2012", "AMAZON_LINUX", "AMAZON_LINUX_2"],
+        "NewGameSessionProtectionPolicy": ProtectionPolicyType,
+        "OperatingSystem": OperatingSystemType,
         "ResourceCreationLimitPolicy": "ResourceCreationLimitPolicyTypeDef",
         "MetricGroups": List[str],
         "StoppedActions": List[Literal["AUTO_SCALING"]],
@@ -477,91 +1567,10 @@ FleetCapacityTypeDef = TypedDict(
     "FleetCapacityTypeDef",
     {
         "FleetId": str,
-        "InstanceType": Literal[
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-        ],
+        "FleetArn": str,
+        "InstanceType": EC2InstanceTypeType,
         "InstanceCounts": "EC2InstanceCountsTypeDef",
+        "Location": str,
     },
     total=False,
 )
@@ -570,15 +1579,43 @@ FleetUtilizationTypeDef = TypedDict(
     "FleetUtilizationTypeDef",
     {
         "FleetId": str,
+        "FleetArn": str,
         "ActiveServerProcessCount": int,
         "ActiveGameSessionCount": int,
         "CurrentPlayerSessionCount": int,
         "MaximumPlayerSessionCount": int,
+        "Location": str,
     },
     total=False,
 )
 
-GamePropertyTypeDef = TypedDict("GamePropertyTypeDef", {"Key": str, "Value": str})
+GamePropertyTypeDef = TypedDict(
+    "GamePropertyTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
+
+_RequiredGameServerGroupAutoScalingPolicyTypeDef = TypedDict(
+    "_RequiredGameServerGroupAutoScalingPolicyTypeDef",
+    {
+        "TargetTrackingConfiguration": "TargetTrackingConfigurationTypeDef",
+    },
+)
+_OptionalGameServerGroupAutoScalingPolicyTypeDef = TypedDict(
+    "_OptionalGameServerGroupAutoScalingPolicyTypeDef",
+    {
+        "EstimatedInstanceWarmup": int,
+    },
+    total=False,
+)
+
+class GameServerGroupAutoScalingPolicyTypeDef(
+    _RequiredGameServerGroupAutoScalingPolicyTypeDef,
+    _OptionalGameServerGroupAutoScalingPolicyTypeDef,
+):
+    pass
 
 GameServerGroupTypeDef = TypedDict(
     "GameServerGroupTypeDef",
@@ -587,12 +1624,10 @@ GameServerGroupTypeDef = TypedDict(
         "GameServerGroupArn": str,
         "RoleArn": str,
         "InstanceDefinitions": List["InstanceDefinitionTypeDef"],
-        "BalancingStrategy": Literal["SPOT_ONLY", "SPOT_PREFERRED", "ON_DEMAND_ONLY"],
-        "GameServerProtectionPolicy": Literal["NO_PROTECTION", "FULL_PROTECTION"],
+        "BalancingStrategy": BalancingStrategyType,
+        "GameServerProtectionPolicy": GameServerProtectionPolicyType,
         "AutoScalingGroupArn": str,
-        "Status": Literal[
-            "NEW", "ACTIVATING", "ACTIVE", "DELETE_SCHEDULED", "DELETING", "DELETED", "ERROR"
-        ],
+        "Status": GameServerGroupStatusType,
         "StatusReason": str,
         "SuspendedActions": List[Literal["REPLACE_INSTANCE_TYPES"]],
         "CreationTime": datetime,
@@ -607,7 +1642,7 @@ GameServerInstanceTypeDef = TypedDict(
         "GameServerGroupName": str,
         "GameServerGroupArn": str,
         "InstanceId": str,
-        "InstanceStatus": Literal["ACTIVE", "DRAINING", "SPOT_TERMINATING"],
+        "InstanceStatus": GameServerInstanceStatusType,
     },
     total=False,
 )
@@ -622,7 +1657,7 @@ GameServerTypeDef = TypedDict(
         "ConnectionInfo": str,
         "GameServerData": str,
         "ClaimStatus": Literal["CLAIMED"],
-        "UtilizationStatus": Literal["AVAILABLE", "UTILIZED"],
+        "UtilizationStatus": GameServerUtilizationStatusType,
         "RegistrationTime": datetime,
         "LastClaimTime": datetime,
         "LastHealthCheckTime": datetime,
@@ -646,7 +1681,7 @@ GameSessionDetailTypeDef = TypedDict(
     "GameSessionDetailTypeDef",
     {
         "GameSession": "GameSessionTypeDef",
-        "ProtectionPolicy": Literal["NoProtection", "FullProtection"],
+        "ProtectionPolicy": ProtectionPolicyType,
     },
     total=False,
 )
@@ -656,7 +1691,7 @@ GameSessionPlacementTypeDef = TypedDict(
     {
         "PlacementId": str,
         "GameSessionQueueName": str,
-        "Status": Literal["PENDING", "FULFILLED", "CANCELLED", "TIMED_OUT", "FAILED"],
+        "Status": GameSessionPlacementStateType,
         "GameProperties": List["GamePropertyTypeDef"],
         "MaximumPlayerSessionCount": int,
         "GameSessionName": str,
@@ -677,7 +1712,11 @@ GameSessionPlacementTypeDef = TypedDict(
 )
 
 GameSessionQueueDestinationTypeDef = TypedDict(
-    "GameSessionQueueDestinationTypeDef", {"DestinationArn": str}, total=False
+    "GameSessionQueueDestinationTypeDef",
+    {
+        "DestinationArn": str,
+    },
+    total=False,
 )
 
 GameSessionQueueTypeDef = TypedDict(
@@ -688,6 +1727,10 @@ GameSessionQueueTypeDef = TypedDict(
         "TimeoutInSeconds": int,
         "PlayerLatencyPolicies": List["PlayerLatencyPolicyTypeDef"],
         "Destinations": List["GameSessionQueueDestinationTypeDef"],
+        "FilterConfiguration": "FilterConfigurationTypeDef",
+        "PriorityConfiguration": "PriorityConfigurationTypeDef",
+        "CustomEventData": str,
+        "NotificationTarget": str,
     },
     total=False,
 )
@@ -703,18 +1746,50 @@ GameSessionTypeDef = TypedDict(
         "TerminationTime": datetime,
         "CurrentPlayerSessionCount": int,
         "MaximumPlayerSessionCount": int,
-        "Status": Literal["ACTIVE", "ACTIVATING", "TERMINATED", "TERMINATING", "ERROR"],
+        "Status": GameSessionStatusType,
         "StatusReason": Literal["INTERRUPTED"],
         "GameProperties": List["GamePropertyTypeDef"],
         "IpAddress": str,
         "DnsName": str,
         "Port": int,
-        "PlayerSessionCreationPolicy": Literal["ACCEPT_ALL", "DENY_ALL"],
+        "PlayerSessionCreationPolicy": PlayerSessionCreationPolicyType,
         "CreatorId": str,
         "GameSessionData": str,
         "MatchmakerData": str,
+        "Location": str,
     },
     total=False,
+)
+
+GetGameSessionLogUrlInputRequestTypeDef = TypedDict(
+    "GetGameSessionLogUrlInputRequestTypeDef",
+    {
+        "GameSessionId": str,
+    },
+)
+
+GetGameSessionLogUrlOutputTypeDef = TypedDict(
+    "GetGameSessionLogUrlOutputTypeDef",
+    {
+        "PreSignedUrl": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetInstanceAccessInputRequestTypeDef = TypedDict(
+    "GetInstanceAccessInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "InstanceId": str,
+    },
+)
+
+GetInstanceAccessOutputTypeDef = TypedDict(
+    "GetInstanceAccessOutputTypeDef",
+    {
+        "InstanceAccess": "InstanceAccessTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 InstanceAccessTypeDef = TypedDict(
@@ -723,203 +1798,251 @@ InstanceAccessTypeDef = TypedDict(
         "FleetId": str,
         "InstanceId": str,
         "IpAddress": str,
-        "OperatingSystem": Literal["WINDOWS_2012", "AMAZON_LINUX", "AMAZON_LINUX_2"],
+        "OperatingSystem": OperatingSystemType,
         "Credentials": "InstanceCredentialsTypeDef",
     },
     total=False,
 )
 
 InstanceCredentialsTypeDef = TypedDict(
-    "InstanceCredentialsTypeDef", {"UserName": str, "Secret": str}, total=False
+    "InstanceCredentialsTypeDef",
+    {
+        "UserName": str,
+        "Secret": str,
+    },
+    total=False,
 )
 
 _RequiredInstanceDefinitionTypeDef = TypedDict(
     "_RequiredInstanceDefinitionTypeDef",
     {
-        "InstanceType": Literal[
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-        ]
+        "InstanceType": GameServerGroupInstanceTypeType,
     },
 )
 _OptionalInstanceDefinitionTypeDef = TypedDict(
-    "_OptionalInstanceDefinitionTypeDef", {"WeightedCapacity": str}, total=False
+    "_OptionalInstanceDefinitionTypeDef",
+    {
+        "WeightedCapacity": str,
+    },
+    total=False,
 )
-
 
 class InstanceDefinitionTypeDef(
     _RequiredInstanceDefinitionTypeDef, _OptionalInstanceDefinitionTypeDef
 ):
     pass
 
-
 InstanceTypeDef = TypedDict(
     "InstanceTypeDef",
     {
         "FleetId": str,
+        "FleetArn": str,
         "InstanceId": str,
         "IpAddress": str,
         "DnsName": str,
-        "OperatingSystem": Literal["WINDOWS_2012", "AMAZON_LINUX", "AMAZON_LINUX_2"],
-        "Type": Literal[
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-        ],
-        "Status": Literal["PENDING", "ACTIVE", "TERMINATING"],
+        "OperatingSystem": OperatingSystemType,
+        "Type": EC2InstanceTypeType,
+        "Status": InstanceStatusType,
         "CreationTime": datetime,
+        "Location": str,
     },
     total=False,
 )
 
 IpPermissionTypeDef = TypedDict(
     "IpPermissionTypeDef",
-    {"FromPort": int, "ToPort": int, "IpRange": str, "Protocol": Literal["TCP", "UDP"]},
+    {
+        "FromPort": int,
+        "ToPort": int,
+        "IpRange": str,
+        "Protocol": IpProtocolType,
+    },
+)
+
+LaunchTemplateSpecificationTypeDef = TypedDict(
+    "LaunchTemplateSpecificationTypeDef",
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+ListAliasesInputRequestTypeDef = TypedDict(
+    "ListAliasesInputRequestTypeDef",
+    {
+        "RoutingStrategyType": RoutingStrategyTypeType,
+        "Name": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListAliasesOutputTypeDef = TypedDict(
+    "ListAliasesOutputTypeDef",
+    {
+        "Aliases": List["AliasTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListBuildsInputRequestTypeDef = TypedDict(
+    "ListBuildsInputRequestTypeDef",
+    {
+        "Status": BuildStatusType,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListBuildsOutputTypeDef = TypedDict(
+    "ListBuildsOutputTypeDef",
+    {
+        "Builds": List["BuildTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListFleetsInputRequestTypeDef = TypedDict(
+    "ListFleetsInputRequestTypeDef",
+    {
+        "BuildId": str,
+        "ScriptId": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListFleetsOutputTypeDef = TypedDict(
+    "ListFleetsOutputTypeDef",
+    {
+        "FleetIds": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListGameServerGroupsInputRequestTypeDef = TypedDict(
+    "ListGameServerGroupsInputRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListGameServerGroupsOutputTypeDef = TypedDict(
+    "ListGameServerGroupsOutputTypeDef",
+    {
+        "GameServerGroups": List["GameServerGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListGameServersInputRequestTypeDef = TypedDict(
+    "_RequiredListGameServersInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+    },
+)
+_OptionalListGameServersInputRequestTypeDef = TypedDict(
+    "_OptionalListGameServersInputRequestTypeDef",
+    {
+        "SortOrder": SortOrderType,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListGameServersInputRequestTypeDef(
+    _RequiredListGameServersInputRequestTypeDef, _OptionalListGameServersInputRequestTypeDef
+):
+    pass
+
+ListGameServersOutputTypeDef = TypedDict(
+    "ListGameServersOutputTypeDef",
+    {
+        "GameServers": List["GameServerTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListScriptsInputRequestTypeDef = TypedDict(
+    "ListScriptsInputRequestTypeDef",
+    {
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListScriptsOutputTypeDef = TypedDict(
+    "ListScriptsOutputTypeDef",
+    {
+        "Scripts": List["ScriptTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+LocationAttributesTypeDef = TypedDict(
+    "LocationAttributesTypeDef",
+    {
+        "LocationState": "LocationStateTypeDef",
+        "StoppedActions": List[Literal["AUTO_SCALING"]],
+        "UpdateStatus": Literal["PENDING_UPDATE"],
+    },
+    total=False,
+)
+
+LocationConfigurationTypeDef = TypedDict(
+    "LocationConfigurationTypeDef",
+    {
+        "Location": str,
+    },
+    total=False,
+)
+
+LocationStateTypeDef = TypedDict(
+    "LocationStateTypeDef",
+    {
+        "Location": str,
+        "Status": FleetStatusType,
+    },
+    total=False,
 )
 
 MatchedPlayerSessionTypeDef = TypedDict(
-    "MatchedPlayerSessionTypeDef", {"PlayerId": str, "PlayerSessionId": str}, total=False
+    "MatchedPlayerSessionTypeDef",
+    {
+        "PlayerId": str,
+        "PlayerSessionId": str,
+    },
+    total=False,
 )
 
 MatchmakingConfigurationTypeDef = TypedDict(
@@ -940,27 +2063,32 @@ MatchmakingConfigurationTypeDef = TypedDict(
         "CreationTime": datetime,
         "GameProperties": List["GamePropertyTypeDef"],
         "GameSessionData": str,
-        "BackfillMode": Literal["AUTOMATIC", "MANUAL"],
-        "FlexMatchMode": Literal["STANDALONE", "WITH_QUEUE"],
+        "BackfillMode": BackfillModeType,
+        "FlexMatchMode": FlexMatchModeType,
     },
     total=False,
 )
 
 _RequiredMatchmakingRuleSetTypeDef = TypedDict(
-    "_RequiredMatchmakingRuleSetTypeDef", {"RuleSetBody": str}
+    "_RequiredMatchmakingRuleSetTypeDef",
+    {
+        "RuleSetBody": str,
+    },
 )
 _OptionalMatchmakingRuleSetTypeDef = TypedDict(
     "_OptionalMatchmakingRuleSetTypeDef",
-    {"RuleSetName": str, "RuleSetArn": str, "CreationTime": datetime},
+    {
+        "RuleSetName": str,
+        "RuleSetArn": str,
+        "CreationTime": datetime,
+    },
     total=False,
 )
-
 
 class MatchmakingRuleSetTypeDef(
     _RequiredMatchmakingRuleSetTypeDef, _OptionalMatchmakingRuleSetTypeDef
 ):
     pass
-
 
 MatchmakingTicketTypeDef = TypedDict(
     "MatchmakingTicketTypeDef",
@@ -968,16 +2096,7 @@ MatchmakingTicketTypeDef = TypedDict(
         "TicketId": str,
         "ConfigurationName": str,
         "ConfigurationArn": str,
-        "Status": Literal[
-            "CANCELLED",
-            "COMPLETED",
-            "FAILED",
-            "PLACING",
-            "QUEUED",
-            "REQUIRES_ACCEPTANCE",
-            "SEARCHING",
-            "TIMED_OUT",
-        ],
+        "Status": MatchmakingConfigurationStatusType,
         "StatusReason": str,
         "StatusMessage": str,
         "StartTime": datetime,
@@ -989,19 +2108,41 @@ MatchmakingTicketTypeDef = TypedDict(
     total=False,
 )
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
 PlacedPlayerSessionTypeDef = TypedDict(
-    "PlacedPlayerSessionTypeDef", {"PlayerId": str, "PlayerSessionId": str}, total=False
+    "PlacedPlayerSessionTypeDef",
+    {
+        "PlayerId": str,
+        "PlayerSessionId": str,
+    },
+    total=False,
 )
 
 PlayerLatencyPolicyTypeDef = TypedDict(
     "PlayerLatencyPolicyTypeDef",
-    {"MaximumIndividualPlayerLatencyMilliseconds": int, "PolicyDurationSeconds": int},
+    {
+        "MaximumIndividualPlayerLatencyMilliseconds": int,
+        "PolicyDurationSeconds": int,
+    },
     total=False,
 )
 
 PlayerLatencyTypeDef = TypedDict(
     "PlayerLatencyTypeDef",
-    {"PlayerId": str, "RegionIdentifier": str, "LatencyInMilliseconds": float},
+    {
+        "PlayerId": str,
+        "RegionIdentifier": str,
+        "LatencyInMilliseconds": float,
+    },
     total=False,
 )
 
@@ -1015,7 +2156,7 @@ PlayerSessionTypeDef = TypedDict(
         "FleetArn": str,
         "CreationTime": datetime,
         "TerminationTime": datetime,
-        "Status": Literal["RESERVED", "ACTIVE", "COMPLETED", "TIMEDOUT"],
+        "Status": PlayerSessionStatusType,
         "IpAddress": str,
         "DnsName": str,
         "Port": int,
@@ -1035,14 +2176,123 @@ PlayerTypeDef = TypedDict(
     total=False,
 )
 
-ResourceCreationLimitPolicyTypeDef = TypedDict(
-    "ResourceCreationLimitPolicyTypeDef",
-    {"NewGameSessionsPerCreator": int, "PolicyPeriodInMinutes": int},
+PriorityConfigurationTypeDef = TypedDict(
+    "PriorityConfigurationTypeDef",
+    {
+        "PriorityOrder": List[PriorityTypeType],
+        "LocationOrder": List[str],
+    },
     total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+_RequiredPutScalingPolicyInputRequestTypeDef = TypedDict(
+    "_RequiredPutScalingPolicyInputRequestTypeDef",
+    {
+        "Name": str,
+        "FleetId": str,
+        "MetricName": MetricNameType,
+    },
+)
+_OptionalPutScalingPolicyInputRequestTypeDef = TypedDict(
+    "_OptionalPutScalingPolicyInputRequestTypeDef",
+    {
+        "ScalingAdjustment": int,
+        "ScalingAdjustmentType": ScalingAdjustmentTypeType,
+        "Threshold": float,
+        "ComparisonOperator": ComparisonOperatorTypeType,
+        "EvaluationPeriods": int,
+        "PolicyType": PolicyTypeType,
+        "TargetConfiguration": "TargetConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class PutScalingPolicyInputRequestTypeDef(
+    _RequiredPutScalingPolicyInputRequestTypeDef, _OptionalPutScalingPolicyInputRequestTypeDef
+):
+    pass
+
+PutScalingPolicyOutputTypeDef = TypedDict(
+    "PutScalingPolicyOutputTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRegisterGameServerInputRequestTypeDef = TypedDict(
+    "_RequiredRegisterGameServerInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+        "GameServerId": str,
+        "InstanceId": str,
+    },
+)
+_OptionalRegisterGameServerInputRequestTypeDef = TypedDict(
+    "_OptionalRegisterGameServerInputRequestTypeDef",
+    {
+        "ConnectionInfo": str,
+        "GameServerData": str,
+    },
+    total=False,
+)
+
+class RegisterGameServerInputRequestTypeDef(
+    _RequiredRegisterGameServerInputRequestTypeDef, _OptionalRegisterGameServerInputRequestTypeDef
+):
+    pass
+
+RegisterGameServerOutputTypeDef = TypedDict(
+    "RegisterGameServerOutputTypeDef",
+    {
+        "GameServer": "GameServerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RequestUploadCredentialsInputRequestTypeDef = TypedDict(
+    "RequestUploadCredentialsInputRequestTypeDef",
+    {
+        "BuildId": str,
+    },
+)
+
+RequestUploadCredentialsOutputTypeDef = TypedDict(
+    "RequestUploadCredentialsOutputTypeDef",
+    {
+        "UploadCredentials": "AwsCredentialsTypeDef",
+        "StorageLocation": "S3LocationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResolveAliasInputRequestTypeDef = TypedDict(
+    "ResolveAliasInputRequestTypeDef",
+    {
+        "AliasId": str,
+    },
+)
+
+ResolveAliasOutputTypeDef = TypedDict(
+    "ResolveAliasOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResourceCreationLimitPolicyTypeDef = TypedDict(
+    "ResourceCreationLimitPolicyTypeDef",
+    {
+        "NewGameSessionsPerCreator": int,
+        "PolicyPeriodInMinutes": int,
+    },
+    total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -1052,9 +2302,29 @@ ResponseMetadata = TypedDict(
     },
 )
 
+ResumeGameServerGroupInputRequestTypeDef = TypedDict(
+    "ResumeGameServerGroupInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+        "ResumeActions": List[Literal["REPLACE_INSTANCE_TYPES"]],
+    },
+)
+
+ResumeGameServerGroupOutputTypeDef = TypedDict(
+    "ResumeGameServerGroupOutputTypeDef",
+    {
+        "GameServerGroup": "GameServerGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 RoutingStrategyTypeDef = TypedDict(
     "RoutingStrategyTypeDef",
-    {"Type": Literal["SIMPLE", "TERMINAL"], "FleetId": str, "Message": str},
+    {
+        "Type": RoutingStrategyTypeType,
+        "FleetId": str,
+        "Message": str,
+    },
     total=False,
 )
 
@@ -1070,7 +2340,12 @@ RuntimeConfigurationTypeDef = TypedDict(
 
 S3LocationTypeDef = TypedDict(
     "S3LocationTypeDef",
-    {"Bucket": str, "Key": str, "RoleArn": str, "ObjectVersion": str},
+    {
+        "Bucket": str,
+        "Key": str,
+        "RoleArn": str,
+        "ObjectVersion": str,
+    },
     total=False,
 )
 
@@ -1078,43 +2353,19 @@ ScalingPolicyTypeDef = TypedDict(
     "ScalingPolicyTypeDef",
     {
         "FleetId": str,
+        "FleetArn": str,
         "Name": str,
-        "Status": Literal[
-            "ACTIVE",
-            "UPDATE_REQUESTED",
-            "UPDATING",
-            "DELETE_REQUESTED",
-            "DELETING",
-            "DELETED",
-            "ERROR",
-        ],
+        "Status": ScalingStatusTypeType,
         "ScalingAdjustment": int,
-        "ScalingAdjustmentType": Literal[
-            "ChangeInCapacity", "ExactCapacity", "PercentChangeInCapacity"
-        ],
-        "ComparisonOperator": Literal[
-            "GreaterThanOrEqualToThreshold",
-            "GreaterThanThreshold",
-            "LessThanThreshold",
-            "LessThanOrEqualToThreshold",
-        ],
+        "ScalingAdjustmentType": ScalingAdjustmentTypeType,
+        "ComparisonOperator": ComparisonOperatorTypeType,
         "Threshold": float,
         "EvaluationPeriods": int,
-        "MetricName": Literal[
-            "ActivatingGameSessions",
-            "ActiveGameSessions",
-            "ActiveInstances",
-            "AvailableGameSessions",
-            "AvailablePlayerSessions",
-            "CurrentPlayerSessions",
-            "IdleInstances",
-            "PercentAvailableGameSessions",
-            "PercentIdleInstances",
-            "QueueDepth",
-            "WaitTime",
-        ],
-        "PolicyType": Literal["RuleBased", "TargetBased"],
+        "MetricName": MetricNameType,
+        "PolicyType": PolicyTypeType,
         "TargetConfiguration": "TargetConfigurationTypeDef",
+        "UpdateStatus": Literal["PENDING_UPDATE"],
+        "Location": str,
     },
     total=False,
 )
@@ -1133,24 +2384,646 @@ ScriptTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredServerProcessTypeDef = TypedDict(
-    "_RequiredServerProcessTypeDef", {"LaunchPath": str, "ConcurrentExecutions": int}
-)
-_OptionalServerProcessTypeDef = TypedDict(
-    "_OptionalServerProcessTypeDef", {"Parameters": str}, total=False
+SearchGameSessionsInputRequestTypeDef = TypedDict(
+    "SearchGameSessionsInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "AliasId": str,
+        "Location": str,
+        "FilterExpression": str,
+        "SortExpression": str,
+        "Limit": int,
+        "NextToken": str,
+    },
+    total=False,
 )
 
+SearchGameSessionsOutputTypeDef = TypedDict(
+    "SearchGameSessionsOutputTypeDef",
+    {
+        "GameSessions": List["GameSessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredServerProcessTypeDef = TypedDict(
+    "_RequiredServerProcessTypeDef",
+    {
+        "LaunchPath": str,
+        "ConcurrentExecutions": int,
+    },
+)
+_OptionalServerProcessTypeDef = TypedDict(
+    "_OptionalServerProcessTypeDef",
+    {
+        "Parameters": str,
+    },
+    total=False,
+)
 
 class ServerProcessTypeDef(_RequiredServerProcessTypeDef, _OptionalServerProcessTypeDef):
     pass
 
+_RequiredStartFleetActionsInputRequestTypeDef = TypedDict(
+    "_RequiredStartFleetActionsInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "Actions": List[Literal["AUTO_SCALING"]],
+    },
+)
+_OptionalStartFleetActionsInputRequestTypeDef = TypedDict(
+    "_OptionalStartFleetActionsInputRequestTypeDef",
+    {
+        "Location": str,
+    },
+    total=False,
+)
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
+class StartFleetActionsInputRequestTypeDef(
+    _RequiredStartFleetActionsInputRequestTypeDef, _OptionalStartFleetActionsInputRequestTypeDef
+):
+    pass
 
-TargetConfigurationTypeDef = TypedDict("TargetConfigurationTypeDef", {"TargetValue": float})
+StartFleetActionsOutputTypeDef = TypedDict(
+    "StartFleetActionsOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartGameSessionPlacementInputRequestTypeDef = TypedDict(
+    "_RequiredStartGameSessionPlacementInputRequestTypeDef",
+    {
+        "PlacementId": str,
+        "GameSessionQueueName": str,
+        "MaximumPlayerSessionCount": int,
+    },
+)
+_OptionalStartGameSessionPlacementInputRequestTypeDef = TypedDict(
+    "_OptionalStartGameSessionPlacementInputRequestTypeDef",
+    {
+        "GameProperties": List["GamePropertyTypeDef"],
+        "GameSessionName": str,
+        "PlayerLatencies": List["PlayerLatencyTypeDef"],
+        "DesiredPlayerSessions": List["DesiredPlayerSessionTypeDef"],
+        "GameSessionData": str,
+    },
+    total=False,
+)
+
+class StartGameSessionPlacementInputRequestTypeDef(
+    _RequiredStartGameSessionPlacementInputRequestTypeDef,
+    _OptionalStartGameSessionPlacementInputRequestTypeDef,
+):
+    pass
+
+StartGameSessionPlacementOutputTypeDef = TypedDict(
+    "StartGameSessionPlacementOutputTypeDef",
+    {
+        "GameSessionPlacement": "GameSessionPlacementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartMatchBackfillInputRequestTypeDef = TypedDict(
+    "_RequiredStartMatchBackfillInputRequestTypeDef",
+    {
+        "ConfigurationName": str,
+        "Players": List["PlayerTypeDef"],
+    },
+)
+_OptionalStartMatchBackfillInputRequestTypeDef = TypedDict(
+    "_OptionalStartMatchBackfillInputRequestTypeDef",
+    {
+        "TicketId": str,
+        "GameSessionArn": str,
+    },
+    total=False,
+)
+
+class StartMatchBackfillInputRequestTypeDef(
+    _RequiredStartMatchBackfillInputRequestTypeDef, _OptionalStartMatchBackfillInputRequestTypeDef
+):
+    pass
+
+StartMatchBackfillOutputTypeDef = TypedDict(
+    "StartMatchBackfillOutputTypeDef",
+    {
+        "MatchmakingTicket": "MatchmakingTicketTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartMatchmakingInputRequestTypeDef = TypedDict(
+    "_RequiredStartMatchmakingInputRequestTypeDef",
+    {
+        "ConfigurationName": str,
+        "Players": List["PlayerTypeDef"],
+    },
+)
+_OptionalStartMatchmakingInputRequestTypeDef = TypedDict(
+    "_OptionalStartMatchmakingInputRequestTypeDef",
+    {
+        "TicketId": str,
+    },
+    total=False,
+)
+
+class StartMatchmakingInputRequestTypeDef(
+    _RequiredStartMatchmakingInputRequestTypeDef, _OptionalStartMatchmakingInputRequestTypeDef
+):
+    pass
+
+StartMatchmakingOutputTypeDef = TypedDict(
+    "StartMatchmakingOutputTypeDef",
+    {
+        "MatchmakingTicket": "MatchmakingTicketTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStopFleetActionsInputRequestTypeDef = TypedDict(
+    "_RequiredStopFleetActionsInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "Actions": List[Literal["AUTO_SCALING"]],
+    },
+)
+_OptionalStopFleetActionsInputRequestTypeDef = TypedDict(
+    "_OptionalStopFleetActionsInputRequestTypeDef",
+    {
+        "Location": str,
+    },
+    total=False,
+)
+
+class StopFleetActionsInputRequestTypeDef(
+    _RequiredStopFleetActionsInputRequestTypeDef, _OptionalStopFleetActionsInputRequestTypeDef
+):
+    pass
+
+StopFleetActionsOutputTypeDef = TypedDict(
+    "StopFleetActionsOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopGameSessionPlacementInputRequestTypeDef = TypedDict(
+    "StopGameSessionPlacementInputRequestTypeDef",
+    {
+        "PlacementId": str,
+    },
+)
+
+StopGameSessionPlacementOutputTypeDef = TypedDict(
+    "StopGameSessionPlacementOutputTypeDef",
+    {
+        "GameSessionPlacement": "GameSessionPlacementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopMatchmakingInputRequestTypeDef = TypedDict(
+    "StopMatchmakingInputRequestTypeDef",
+    {
+        "TicketId": str,
+    },
+)
+
+SuspendGameServerGroupInputRequestTypeDef = TypedDict(
+    "SuspendGameServerGroupInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+        "SuspendActions": List[Literal["REPLACE_INSTANCE_TYPES"]],
+    },
+)
+
+SuspendGameServerGroupOutputTypeDef = TypedDict(
+    "SuspendGameServerGroupOutputTypeDef",
+    {
+        "GameServerGroup": "GameServerGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
+
+TargetConfigurationTypeDef = TypedDict(
+    "TargetConfigurationTypeDef",
+    {
+        "TargetValue": float,
+    },
+)
 
 TargetTrackingConfigurationTypeDef = TypedDict(
-    "TargetTrackingConfigurationTypeDef", {"TargetValue": float}
+    "TargetTrackingConfigurationTypeDef",
+    {
+        "TargetValue": float,
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceARN": str,
+        "TagKeys": List[str],
+    },
+)
+
+_RequiredUpdateAliasInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateAliasInputRequestTypeDef",
+    {
+        "AliasId": str,
+    },
+)
+_OptionalUpdateAliasInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateAliasInputRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "RoutingStrategy": "RoutingStrategyTypeDef",
+    },
+    total=False,
+)
+
+class UpdateAliasInputRequestTypeDef(
+    _RequiredUpdateAliasInputRequestTypeDef, _OptionalUpdateAliasInputRequestTypeDef
+):
+    pass
+
+UpdateAliasOutputTypeDef = TypedDict(
+    "UpdateAliasOutputTypeDef",
+    {
+        "Alias": "AliasTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateBuildInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateBuildInputRequestTypeDef",
+    {
+        "BuildId": str,
+    },
+)
+_OptionalUpdateBuildInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateBuildInputRequestTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+class UpdateBuildInputRequestTypeDef(
+    _RequiredUpdateBuildInputRequestTypeDef, _OptionalUpdateBuildInputRequestTypeDef
+):
+    pass
+
+UpdateBuildOutputTypeDef = TypedDict(
+    "UpdateBuildOutputTypeDef",
+    {
+        "Build": "BuildTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateFleetAttributesInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateFleetAttributesInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalUpdateFleetAttributesInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateFleetAttributesInputRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "NewGameSessionProtectionPolicy": ProtectionPolicyType,
+        "ResourceCreationLimitPolicy": "ResourceCreationLimitPolicyTypeDef",
+        "MetricGroups": List[str],
+    },
+    total=False,
+)
+
+class UpdateFleetAttributesInputRequestTypeDef(
+    _RequiredUpdateFleetAttributesInputRequestTypeDef,
+    _OptionalUpdateFleetAttributesInputRequestTypeDef,
+):
+    pass
+
+UpdateFleetAttributesOutputTypeDef = TypedDict(
+    "UpdateFleetAttributesOutputTypeDef",
+    {
+        "FleetId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateFleetCapacityInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateFleetCapacityInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalUpdateFleetCapacityInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateFleetCapacityInputRequestTypeDef",
+    {
+        "DesiredInstances": int,
+        "MinSize": int,
+        "MaxSize": int,
+        "Location": str,
+    },
+    total=False,
+)
+
+class UpdateFleetCapacityInputRequestTypeDef(
+    _RequiredUpdateFleetCapacityInputRequestTypeDef, _OptionalUpdateFleetCapacityInputRequestTypeDef
+):
+    pass
+
+UpdateFleetCapacityOutputTypeDef = TypedDict(
+    "UpdateFleetCapacityOutputTypeDef",
+    {
+        "FleetId": str,
+        "FleetArn": str,
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateFleetPortSettingsInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateFleetPortSettingsInputRequestTypeDef",
+    {
+        "FleetId": str,
+    },
+)
+_OptionalUpdateFleetPortSettingsInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateFleetPortSettingsInputRequestTypeDef",
+    {
+        "InboundPermissionAuthorizations": List["IpPermissionTypeDef"],
+        "InboundPermissionRevocations": List["IpPermissionTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateFleetPortSettingsInputRequestTypeDef(
+    _RequiredUpdateFleetPortSettingsInputRequestTypeDef,
+    _OptionalUpdateFleetPortSettingsInputRequestTypeDef,
+):
+    pass
+
+UpdateFleetPortSettingsOutputTypeDef = TypedDict(
+    "UpdateFleetPortSettingsOutputTypeDef",
+    {
+        "FleetId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateGameServerGroupInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateGameServerGroupInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+    },
+)
+_OptionalUpdateGameServerGroupInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateGameServerGroupInputRequestTypeDef",
+    {
+        "RoleArn": str,
+        "InstanceDefinitions": List["InstanceDefinitionTypeDef"],
+        "GameServerProtectionPolicy": GameServerProtectionPolicyType,
+        "BalancingStrategy": BalancingStrategyType,
+    },
+    total=False,
+)
+
+class UpdateGameServerGroupInputRequestTypeDef(
+    _RequiredUpdateGameServerGroupInputRequestTypeDef,
+    _OptionalUpdateGameServerGroupInputRequestTypeDef,
+):
+    pass
+
+UpdateGameServerGroupOutputTypeDef = TypedDict(
+    "UpdateGameServerGroupOutputTypeDef",
+    {
+        "GameServerGroup": "GameServerGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateGameServerInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateGameServerInputRequestTypeDef",
+    {
+        "GameServerGroupName": str,
+        "GameServerId": str,
+    },
+)
+_OptionalUpdateGameServerInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateGameServerInputRequestTypeDef",
+    {
+        "GameServerData": str,
+        "UtilizationStatus": GameServerUtilizationStatusType,
+        "HealthCheck": Literal["HEALTHY"],
+    },
+    total=False,
+)
+
+class UpdateGameServerInputRequestTypeDef(
+    _RequiredUpdateGameServerInputRequestTypeDef, _OptionalUpdateGameServerInputRequestTypeDef
+):
+    pass
+
+UpdateGameServerOutputTypeDef = TypedDict(
+    "UpdateGameServerOutputTypeDef",
+    {
+        "GameServer": "GameServerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateGameSessionInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateGameSessionInputRequestTypeDef",
+    {
+        "GameSessionId": str,
+    },
+)
+_OptionalUpdateGameSessionInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateGameSessionInputRequestTypeDef",
+    {
+        "MaximumPlayerSessionCount": int,
+        "Name": str,
+        "PlayerSessionCreationPolicy": PlayerSessionCreationPolicyType,
+        "ProtectionPolicy": ProtectionPolicyType,
+    },
+    total=False,
+)
+
+class UpdateGameSessionInputRequestTypeDef(
+    _RequiredUpdateGameSessionInputRequestTypeDef, _OptionalUpdateGameSessionInputRequestTypeDef
+):
+    pass
+
+UpdateGameSessionOutputTypeDef = TypedDict(
+    "UpdateGameSessionOutputTypeDef",
+    {
+        "GameSession": "GameSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateGameSessionQueueInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateGameSessionQueueInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalUpdateGameSessionQueueInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateGameSessionQueueInputRequestTypeDef",
+    {
+        "TimeoutInSeconds": int,
+        "PlayerLatencyPolicies": List["PlayerLatencyPolicyTypeDef"],
+        "Destinations": List["GameSessionQueueDestinationTypeDef"],
+        "FilterConfiguration": "FilterConfigurationTypeDef",
+        "PriorityConfiguration": "PriorityConfigurationTypeDef",
+        "CustomEventData": str,
+        "NotificationTarget": str,
+    },
+    total=False,
+)
+
+class UpdateGameSessionQueueInputRequestTypeDef(
+    _RequiredUpdateGameSessionQueueInputRequestTypeDef,
+    _OptionalUpdateGameSessionQueueInputRequestTypeDef,
+):
+    pass
+
+UpdateGameSessionQueueOutputTypeDef = TypedDict(
+    "UpdateGameSessionQueueOutputTypeDef",
+    {
+        "GameSessionQueue": "GameSessionQueueTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateMatchmakingConfigurationInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateMatchmakingConfigurationInputRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalUpdateMatchmakingConfigurationInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateMatchmakingConfigurationInputRequestTypeDef",
+    {
+        "Description": str,
+        "GameSessionQueueArns": List[str],
+        "RequestTimeoutSeconds": int,
+        "AcceptanceTimeoutSeconds": int,
+        "AcceptanceRequired": bool,
+        "RuleSetName": str,
+        "NotificationTarget": str,
+        "AdditionalPlayerCount": int,
+        "CustomEventData": str,
+        "GameProperties": List["GamePropertyTypeDef"],
+        "GameSessionData": str,
+        "BackfillMode": BackfillModeType,
+        "FlexMatchMode": FlexMatchModeType,
+    },
+    total=False,
+)
+
+class UpdateMatchmakingConfigurationInputRequestTypeDef(
+    _RequiredUpdateMatchmakingConfigurationInputRequestTypeDef,
+    _OptionalUpdateMatchmakingConfigurationInputRequestTypeDef,
+):
+    pass
+
+UpdateMatchmakingConfigurationOutputTypeDef = TypedDict(
+    "UpdateMatchmakingConfigurationOutputTypeDef",
+    {
+        "Configuration": "MatchmakingConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateRuntimeConfigurationInputRequestTypeDef = TypedDict(
+    "UpdateRuntimeConfigurationInputRequestTypeDef",
+    {
+        "FleetId": str,
+        "RuntimeConfiguration": "RuntimeConfigurationTypeDef",
+    },
+)
+
+UpdateRuntimeConfigurationOutputTypeDef = TypedDict(
+    "UpdateRuntimeConfigurationOutputTypeDef",
+    {
+        "RuntimeConfiguration": "RuntimeConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateScriptInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateScriptInputRequestTypeDef",
+    {
+        "ScriptId": str,
+    },
+)
+_OptionalUpdateScriptInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateScriptInputRequestTypeDef",
+    {
+        "Name": str,
+        "Version": str,
+        "StorageLocation": "S3LocationTypeDef",
+        "ZipFile": Union[bytes, IO[bytes], StreamingBody],
+    },
+    total=False,
+)
+
+class UpdateScriptInputRequestTypeDef(
+    _RequiredUpdateScriptInputRequestTypeDef, _OptionalUpdateScriptInputRequestTypeDef
+):
+    pass
+
+UpdateScriptOutputTypeDef = TypedDict(
+    "UpdateScriptOutputTypeDef",
+    {
+        "Script": "ScriptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ValidateMatchmakingRuleSetInputRequestTypeDef = TypedDict(
+    "ValidateMatchmakingRuleSetInputRequestTypeDef",
+    {
+        "RuleSetBody": str,
+    },
+)
+
+ValidateMatchmakingRuleSetOutputTypeDef = TypedDict(
+    "ValidateMatchmakingRuleSetOutputTypeDef",
+    {
+        "Valid": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 VpcPeeringAuthorizationTypeDef = TypedDict(
@@ -1166,7 +3039,12 @@ VpcPeeringAuthorizationTypeDef = TypedDict(
 )
 
 VpcPeeringConnectionStatusTypeDef = TypedDict(
-    "VpcPeeringConnectionStatusTypeDef", {"Code": str, "Message": str}, total=False
+    "VpcPeeringConnectionStatusTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
 )
 
 VpcPeeringConnectionTypeDef = TypedDict(
@@ -1180,563 +3058,5 @@ VpcPeeringConnectionTypeDef = TypedDict(
         "PeerVpcId": str,
         "GameLiftVpcId": str,
     },
-    total=False,
-)
-
-ClaimGameServerOutputTypeDef = TypedDict(
-    "ClaimGameServerOutputTypeDef",
-    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateAliasOutputTypeDef = TypedDict(
-    "CreateAliasOutputTypeDef",
-    {"Alias": "AliasTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateBuildOutputTypeDef = TypedDict(
-    "CreateBuildOutputTypeDef",
-    {
-        "Build": "BuildTypeDef",
-        "UploadCredentials": "AwsCredentialsTypeDef",
-        "StorageLocation": "S3LocationTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-CreateFleetOutputTypeDef = TypedDict(
-    "CreateFleetOutputTypeDef",
-    {"FleetAttributes": "FleetAttributesTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateGameServerGroupOutputTypeDef = TypedDict(
-    "CreateGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateGameSessionOutputTypeDef = TypedDict(
-    "CreateGameSessionOutputTypeDef",
-    {"GameSession": "GameSessionTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateGameSessionQueueOutputTypeDef = TypedDict(
-    "CreateGameSessionQueueOutputTypeDef",
-    {"GameSessionQueue": "GameSessionQueueTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateMatchmakingConfigurationOutputTypeDef = TypedDict(
-    "CreateMatchmakingConfigurationOutputTypeDef",
-    {"Configuration": "MatchmakingConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-_RequiredCreateMatchmakingRuleSetOutputTypeDef = TypedDict(
-    "_RequiredCreateMatchmakingRuleSetOutputTypeDef", {"RuleSet": "MatchmakingRuleSetTypeDef"}
-)
-_OptionalCreateMatchmakingRuleSetOutputTypeDef = TypedDict(
-    "_OptionalCreateMatchmakingRuleSetOutputTypeDef",
-    {"ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-
-class CreateMatchmakingRuleSetOutputTypeDef(
-    _RequiredCreateMatchmakingRuleSetOutputTypeDef, _OptionalCreateMatchmakingRuleSetOutputTypeDef
-):
-    pass
-
-
-CreatePlayerSessionOutputTypeDef = TypedDict(
-    "CreatePlayerSessionOutputTypeDef",
-    {"PlayerSession": "PlayerSessionTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreatePlayerSessionsOutputTypeDef = TypedDict(
-    "CreatePlayerSessionsOutputTypeDef",
-    {"PlayerSessions": List["PlayerSessionTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateScriptOutputTypeDef = TypedDict(
-    "CreateScriptOutputTypeDef",
-    {"Script": "ScriptTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-CreateVpcPeeringAuthorizationOutputTypeDef = TypedDict(
-    "CreateVpcPeeringAuthorizationOutputTypeDef",
-    {
-        "VpcPeeringAuthorization": "VpcPeeringAuthorizationTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DeleteGameServerGroupOutputTypeDef = TypedDict(
-    "DeleteGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeAliasOutputTypeDef = TypedDict(
-    "DescribeAliasOutputTypeDef",
-    {"Alias": "AliasTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeBuildOutputTypeDef = TypedDict(
-    "DescribeBuildOutputTypeDef",
-    {"Build": "BuildTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeEC2InstanceLimitsOutputTypeDef = TypedDict(
-    "DescribeEC2InstanceLimitsOutputTypeDef",
-    {"EC2InstanceLimits": List["EC2InstanceLimitTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeFleetAttributesOutputTypeDef = TypedDict(
-    "DescribeFleetAttributesOutputTypeDef",
-    {
-        "FleetAttributes": List["FleetAttributesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeFleetCapacityOutputTypeDef = TypedDict(
-    "DescribeFleetCapacityOutputTypeDef",
-    {
-        "FleetCapacity": List["FleetCapacityTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeFleetEventsOutputTypeDef = TypedDict(
-    "DescribeFleetEventsOutputTypeDef",
-    {"Events": List["EventTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeFleetPortSettingsOutputTypeDef = TypedDict(
-    "DescribeFleetPortSettingsOutputTypeDef",
-    {"InboundPermissions": List["IpPermissionTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeFleetUtilizationOutputTypeDef = TypedDict(
-    "DescribeFleetUtilizationOutputTypeDef",
-    {
-        "FleetUtilization": List["FleetUtilizationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeGameServerGroupOutputTypeDef = TypedDict(
-    "DescribeGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeGameServerInstancesOutputTypeDef = TypedDict(
-    "DescribeGameServerInstancesOutputTypeDef",
-    {
-        "GameServerInstances": List["GameServerInstanceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeGameServerOutputTypeDef = TypedDict(
-    "DescribeGameServerOutputTypeDef",
-    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeGameSessionDetailsOutputTypeDef = TypedDict(
-    "DescribeGameSessionDetailsOutputTypeDef",
-    {
-        "GameSessionDetails": List["GameSessionDetailTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeGameSessionPlacementOutputTypeDef = TypedDict(
-    "DescribeGameSessionPlacementOutputTypeDef",
-    {"GameSessionPlacement": "GameSessionPlacementTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeGameSessionQueuesOutputTypeDef = TypedDict(
-    "DescribeGameSessionQueuesOutputTypeDef",
-    {
-        "GameSessionQueues": List["GameSessionQueueTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeGameSessionsOutputTypeDef = TypedDict(
-    "DescribeGameSessionsOutputTypeDef",
-    {
-        "GameSessions": List["GameSessionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeInstancesOutputTypeDef = TypedDict(
-    "DescribeInstancesOutputTypeDef",
-    {
-        "Instances": List["InstanceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeMatchmakingConfigurationsOutputTypeDef = TypedDict(
-    "DescribeMatchmakingConfigurationsOutputTypeDef",
-    {
-        "Configurations": List["MatchmakingConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeMatchmakingOutputTypeDef = TypedDict(
-    "DescribeMatchmakingOutputTypeDef",
-    {"TicketList": List["MatchmakingTicketTypeDef"], "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-_RequiredDescribeMatchmakingRuleSetsOutputTypeDef = TypedDict(
-    "_RequiredDescribeMatchmakingRuleSetsOutputTypeDef",
-    {"RuleSets": List["MatchmakingRuleSetTypeDef"]},
-)
-_OptionalDescribeMatchmakingRuleSetsOutputTypeDef = TypedDict(
-    "_OptionalDescribeMatchmakingRuleSetsOutputTypeDef",
-    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-
-class DescribeMatchmakingRuleSetsOutputTypeDef(
-    _RequiredDescribeMatchmakingRuleSetsOutputTypeDef,
-    _OptionalDescribeMatchmakingRuleSetsOutputTypeDef,
-):
-    pass
-
-
-DescribePlayerSessionsOutputTypeDef = TypedDict(
-    "DescribePlayerSessionsOutputTypeDef",
-    {
-        "PlayerSessions": List["PlayerSessionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeRuntimeConfigurationOutputTypeDef = TypedDict(
-    "DescribeRuntimeConfigurationOutputTypeDef",
-    {"RuntimeConfiguration": "RuntimeConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeScalingPoliciesOutputTypeDef = TypedDict(
-    "DescribeScalingPoliciesOutputTypeDef",
-    {
-        "ScalingPolicies": List["ScalingPolicyTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeScriptOutputTypeDef = TypedDict(
-    "DescribeScriptOutputTypeDef",
-    {"Script": "ScriptTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-DescribeVpcPeeringAuthorizationsOutputTypeDef = TypedDict(
-    "DescribeVpcPeeringAuthorizationsOutputTypeDef",
-    {
-        "VpcPeeringAuthorizations": List["VpcPeeringAuthorizationTypeDef"],
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DescribeVpcPeeringConnectionsOutputTypeDef = TypedDict(
-    "DescribeVpcPeeringConnectionsOutputTypeDef",
-    {
-        "VpcPeeringConnections": List["VpcPeeringConnectionTypeDef"],
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-DesiredPlayerSessionTypeDef = TypedDict(
-    "DesiredPlayerSessionTypeDef", {"PlayerId": str, "PlayerData": str}, total=False
-)
-
-_RequiredGameServerGroupAutoScalingPolicyTypeDef = TypedDict(
-    "_RequiredGameServerGroupAutoScalingPolicyTypeDef",
-    {"TargetTrackingConfiguration": "TargetTrackingConfigurationTypeDef"},
-)
-_OptionalGameServerGroupAutoScalingPolicyTypeDef = TypedDict(
-    "_OptionalGameServerGroupAutoScalingPolicyTypeDef",
-    {"EstimatedInstanceWarmup": int},
-    total=False,
-)
-
-
-class GameServerGroupAutoScalingPolicyTypeDef(
-    _RequiredGameServerGroupAutoScalingPolicyTypeDef,
-    _OptionalGameServerGroupAutoScalingPolicyTypeDef,
-):
-    pass
-
-
-GetGameSessionLogUrlOutputTypeDef = TypedDict(
-    "GetGameSessionLogUrlOutputTypeDef",
-    {"PreSignedUrl": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-GetInstanceAccessOutputTypeDef = TypedDict(
-    "GetInstanceAccessOutputTypeDef",
-    {"InstanceAccess": "InstanceAccessTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-LaunchTemplateSpecificationTypeDef = TypedDict(
-    "LaunchTemplateSpecificationTypeDef",
-    {"LaunchTemplateId": str, "LaunchTemplateName": str, "Version": str},
-    total=False,
-)
-
-ListAliasesOutputTypeDef = TypedDict(
-    "ListAliasesOutputTypeDef",
-    {"Aliases": List["AliasTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListBuildsOutputTypeDef = TypedDict(
-    "ListBuildsOutputTypeDef",
-    {"Builds": List["BuildTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListFleetsOutputTypeDef = TypedDict(
-    "ListFleetsOutputTypeDef",
-    {"FleetIds": List[str], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListGameServerGroupsOutputTypeDef = TypedDict(
-    "ListGameServerGroupsOutputTypeDef",
-    {
-        "GameServerGroups": List["GameServerGroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-ListGameServersOutputTypeDef = TypedDict(
-    "ListGameServersOutputTypeDef",
-    {
-        "GameServers": List["GameServerTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-ListScriptsOutputTypeDef = TypedDict(
-    "ListScriptsOutputTypeDef",
-    {"Scripts": List["ScriptTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-PutScalingPolicyOutputTypeDef = TypedDict(
-    "PutScalingPolicyOutputTypeDef",
-    {"Name": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-RegisterGameServerOutputTypeDef = TypedDict(
-    "RegisterGameServerOutputTypeDef",
-    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-RequestUploadCredentialsOutputTypeDef = TypedDict(
-    "RequestUploadCredentialsOutputTypeDef",
-    {
-        "UploadCredentials": "AwsCredentialsTypeDef",
-        "StorageLocation": "S3LocationTypeDef",
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-ResolveAliasOutputTypeDef = TypedDict(
-    "ResolveAliasOutputTypeDef",
-    {"FleetId": str, "FleetArn": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ResumeGameServerGroupOutputTypeDef = TypedDict(
-    "ResumeGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-SearchGameSessionsOutputTypeDef = TypedDict(
-    "SearchGameSessionsOutputTypeDef",
-    {
-        "GameSessions": List["GameSessionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadata",
-    },
-    total=False,
-)
-
-StartGameSessionPlacementOutputTypeDef = TypedDict(
-    "StartGameSessionPlacementOutputTypeDef",
-    {"GameSessionPlacement": "GameSessionPlacementTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-StartMatchBackfillOutputTypeDef = TypedDict(
-    "StartMatchBackfillOutputTypeDef",
-    {"MatchmakingTicket": "MatchmakingTicketTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-StartMatchmakingOutputTypeDef = TypedDict(
-    "StartMatchmakingOutputTypeDef",
-    {"MatchmakingTicket": "MatchmakingTicketTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-StopGameSessionPlacementOutputTypeDef = TypedDict(
-    "StopGameSessionPlacementOutputTypeDef",
-    {"GameSessionPlacement": "GameSessionPlacementTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-SuspendGameServerGroupOutputTypeDef = TypedDict(
-    "SuspendGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateAliasOutputTypeDef = TypedDict(
-    "UpdateAliasOutputTypeDef",
-    {"Alias": "AliasTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateBuildOutputTypeDef = TypedDict(
-    "UpdateBuildOutputTypeDef",
-    {"Build": "BuildTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateFleetAttributesOutputTypeDef = TypedDict(
-    "UpdateFleetAttributesOutputTypeDef",
-    {"FleetId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateFleetCapacityOutputTypeDef = TypedDict(
-    "UpdateFleetCapacityOutputTypeDef",
-    {"FleetId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateFleetPortSettingsOutputTypeDef = TypedDict(
-    "UpdateFleetPortSettingsOutputTypeDef",
-    {"FleetId": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateGameServerGroupOutputTypeDef = TypedDict(
-    "UpdateGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateGameServerOutputTypeDef = TypedDict(
-    "UpdateGameServerOutputTypeDef",
-    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateGameSessionOutputTypeDef = TypedDict(
-    "UpdateGameSessionOutputTypeDef",
-    {"GameSession": "GameSessionTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateGameSessionQueueOutputTypeDef = TypedDict(
-    "UpdateGameSessionQueueOutputTypeDef",
-    {"GameSessionQueue": "GameSessionQueueTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateMatchmakingConfigurationOutputTypeDef = TypedDict(
-    "UpdateMatchmakingConfigurationOutputTypeDef",
-    {"Configuration": "MatchmakingConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateRuntimeConfigurationOutputTypeDef = TypedDict(
-    "UpdateRuntimeConfigurationOutputTypeDef",
-    {"RuntimeConfiguration": "RuntimeConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-UpdateScriptOutputTypeDef = TypedDict(
-    "UpdateScriptOutputTypeDef",
-    {"Script": "ScriptTypeDef", "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-ValidateMatchmakingRuleSetOutputTypeDef = TypedDict(
-    "ValidateMatchmakingRuleSetOutputTypeDef",
-    {"Valid": bool, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )

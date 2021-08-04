@@ -16,9 +16,8 @@ Usage::
     session_client: FirehoseClient = session.client("firehose")
     ```
 """
-from mypy_boto3_firehose.client import FirehoseClient
+from .client import FirehoseClient
 
 Client = FirehoseClient
-
 
 __all__ = ("Client", "FirehoseClient")

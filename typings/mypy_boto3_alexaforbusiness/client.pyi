@@ -1,5 +1,7 @@
 """
-Main interface for alexaforbusiness service client
+Type annotations for alexaforbusiness service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html)
 
 Usage::
 
@@ -13,9 +15,21 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_alexaforbusiness.paginator import (
+from .literals import (
+    BusinessReportFormatType,
+    ConferenceProviderTypeType,
+    DeviceEventTypeType,
+    DistanceUnitType,
+    EnablementTypeFilterType,
+    FeatureType,
+    NetworkSecurityTypeType,
+    SkillTypeFilterType,
+    TemperatureUnitType,
+    WakeWordType,
+)
+from .paginator import (
     ListBusinessReportSchedulesPaginator,
     ListConferenceProvidersPaginator,
     ListDeviceEventsPaginator,
@@ -30,7 +44,7 @@ from mypy_boto3_alexaforbusiness.paginator import (
     SearchSkillGroupsPaginator,
     SearchUsersPaginator,
 )
-from mypy_boto3_alexaforbusiness.type_defs import (
+from .type_defs import (
     BusinessReportContentRangeTypeDef,
     BusinessReportRecurrenceTypeDef,
     ConferencePreferenceTypeDef,
@@ -97,17 +111,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("AlexaForBusinessClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AlreadyExistsException: Type[BotocoreClientError]
@@ -127,113 +137,137 @@ class Exceptions:
     SkillNotLinkedException: Type[BotocoreClientError]
     UnauthorizedException: Type[BotocoreClientError]
 
-
-class AlexaForBusinessClient:
+class AlexaForBusinessClient(BaseClient):
     """
-    [AlexaForBusiness.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
-    def approve_skill(self, SkillId: str) -> Dict[str, Any]:
+    @property
+    def exceptions(self) -> Exceptions:
         """
-        [Client.approve_skill documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.approve_skill)
+        AlexaForBusinessClient exceptions.
         """
+    def approve_skill(self, *, SkillId: str) -> Dict[str, Any]:
+        """
+        Associates a skill with the organization under the customer's AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.approve_skill)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#approve_skill)
+        """
     def associate_contact_with_address_book(
-        self, ContactArn: str, AddressBookArn: str
+        self, *, ContactArn: str, AddressBookArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.associate_contact_with_address_book documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_contact_with_address_book)
-        """
+        Associates a contact with a given address book.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_contact_with_address_book)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#associate_contact_with_address_book)
+        """
     def associate_device_with_network_profile(
-        self, DeviceArn: str, NetworkProfileArn: str
+        self, *, DeviceArn: str, NetworkProfileArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.associate_device_with_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_device_with_network_profile)
-        """
+        Associates a device with the specified network profile.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_device_with_network_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#associate_device_with_network_profile)
+        """
     def associate_device_with_room(
-        self, DeviceArn: str = None, RoomArn: str = None
+        self, *, DeviceArn: str = None, RoomArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.associate_device_with_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_device_with_room)
-        """
+        Associates a device with a given room.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_device_with_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#associate_device_with_room)
+        """
     def associate_skill_group_with_room(
-        self, SkillGroupArn: str = None, RoomArn: str = None
+        self, *, SkillGroupArn: str = None, RoomArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.associate_skill_group_with_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_skill_group_with_room)
-        """
+        Associates a skill group with a given room.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_skill_group_with_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#associate_skill_group_with_room)
+        """
     def associate_skill_with_skill_group(
-        self, SkillId: str, SkillGroupArn: str = None
+        self, *, SkillId: str, SkillGroupArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.associate_skill_with_skill_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_skill_with_skill_group)
-        """
+        Associates a skill with a skill group.
 
-    def associate_skill_with_users(self, SkillId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_skill_with_skill_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#associate_skill_with_skill_group)
         """
-        [Client.associate_skill_with_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_skill_with_users)
+    def associate_skill_with_users(self, *, SkillId: str) -> Dict[str, Any]:
         """
+        Makes a private skill available for enrolled users to enable on their devices.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.associate_skill_with_users)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#associate_skill_with_users)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#can_paginate)
+        """
     def create_address_book(
-        self, Name: str, Description: str = None, ClientRequestToken: str = None
+        self,
+        *,
+        Name: str,
+        Description: str = None,
+        ClientRequestToken: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateAddressBookResponseTypeDef:
         """
-        [Client.create_address_book documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_address_book)
-        """
+        Creates an address book with the specified details.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_address_book)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_address_book)
+        """
     def create_business_report_schedule(
         self,
-        Format: Literal["CSV", "CSV_ZIP"],
+        *,
+        Format: BusinessReportFormatType,
         ContentRange: "BusinessReportContentRangeTypeDef",
         ScheduleName: str = None,
         S3BucketName: str = None,
         S3KeyPrefix: str = None,
         Recurrence: "BusinessReportRecurrenceTypeDef" = None,
         ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateBusinessReportScheduleResponseTypeDef:
         """
-        [Client.create_business_report_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_business_report_schedule)
-        """
+        Creates a recurring schedule for usage reports to deliver to the specified S3
+        location with a specified daily or weekly interval.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_business_report_schedule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_business_report_schedule)
+        """
     def create_conference_provider(
         self,
+        *,
         ConferenceProviderName: str,
-        ConferenceProviderType: Literal[
-            "CHIME",
-            "BLUEJEANS",
-            "FUZE",
-            "GOOGLE_HANGOUTS",
-            "POLYCOM",
-            "RINGCENTRAL",
-            "SKYPE_FOR_BUSINESS",
-            "WEBEX",
-            "ZOOM",
-            "CUSTOM",
-        ],
+        ConferenceProviderType: ConferenceProviderTypeType,
         MeetingSetting: "MeetingSettingTypeDef",
         IPDialIn: "IPDialInTypeDef" = None,
         PSTNDialIn: "PSTNDialInTypeDef" = None,
         ClientRequestToken: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateConferenceProviderResponseTypeDef:
         """
-        [Client.create_conference_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_conference_provider)
-        """
+        Adds a new conference provider under the user's AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_conference_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_conference_provider)
+        """
     def create_contact(
         self,
+        *,
         FirstName: str,
         DisplayName: str = None,
         LastName: str = None,
@@ -241,23 +275,34 @@ class AlexaForBusinessClient:
         PhoneNumbers: List["PhoneNumberTypeDef"] = None,
         SipAddresses: List["SipAddressTypeDef"] = None,
         ClientRequestToken: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateContactResponseTypeDef:
         """
-        [Client.create_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_contact)
-        """
+        Creates a contact with the specified details.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_contact)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_contact)
+        """
     def create_gateway_group(
-        self, Name: str, ClientRequestToken: str, Description: str = None
+        self,
+        *,
+        Name: str,
+        ClientRequestToken: str,
+        Description: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateGatewayGroupResponseTypeDef:
         """
-        [Client.create_gateway_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_gateway_group)
-        """
+        Creates a gateway group with the specified details.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_gateway_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_gateway_group)
+        """
     def create_network_profile(
         self,
+        *,
         NetworkProfileName: str,
         Ssid: str,
-        SecurityType: Literal["OPEN", "WEP", "WPA_PSK", "WPA2_PSK", "WPA2_ENTERPRISE"],
+        SecurityType: NetworkSecurityTypeType,
         ClientRequestToken: str,
         Description: str = None,
         EapMethod: Literal["EAP_TLS"] = None,
@@ -265,178 +310,237 @@ class AlexaForBusinessClient:
         NextPassword: str = None,
         CertificateAuthorityArn: str = None,
         TrustAnchors: List[str] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateNetworkProfileResponseTypeDef:
         """
-        [Client.create_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_network_profile)
-        """
+        Creates a network profile with the specified details.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_network_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_network_profile)
+        """
     def create_profile(
         self,
+        *,
         ProfileName: str,
         Timezone: str,
         Address: str,
-        DistanceUnit: Literal["METRIC", "IMPERIAL"],
-        TemperatureUnit: Literal["FAHRENHEIT", "CELSIUS"],
-        WakeWord: Literal["ALEXA", "AMAZON", "ECHO", "COMPUTER"],
+        DistanceUnit: DistanceUnitType,
+        TemperatureUnit: TemperatureUnitType,
+        WakeWord: WakeWordType,
         Locale: str = None,
         ClientRequestToken: str = None,
         SetupModeDisabled: bool = None,
         MaxVolumeLimit: int = None,
         PSTNEnabled: bool = None,
-        MeetingRoomConfiguration: CreateMeetingRoomConfigurationTypeDef = None,
-        Tags: List["TagTypeDef"] = None,
+        DataRetentionOptIn: bool = None,
+        MeetingRoomConfiguration: "CreateMeetingRoomConfigurationTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateProfileResponseTypeDef:
         """
-        [Client.create_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_profile)
-        """
+        Creates a new room profile with the specified details.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_profile)
+        """
     def create_room(
         self,
+        *,
         RoomName: str,
         Description: str = None,
         ProfileArn: str = None,
         ProviderCalendarId: str = None,
         ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateRoomResponseTypeDef:
         """
-        [Client.create_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_room)
-        """
+        Creates a room with the specified details.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_room)
+        """
     def create_skill_group(
         self,
+        *,
         SkillGroupName: str,
         Description: str = None,
         ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateSkillGroupResponseTypeDef:
         """
-        [Client.create_skill_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_skill_group)
-        """
+        Creates a skill group with a specified name and description.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_skill_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_skill_group)
+        """
     def create_user(
         self,
+        *,
         UserId: str,
         FirstName: str = None,
         LastName: str = None,
         Email: str = None,
         ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateUserResponseTypeDef:
         """
-        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_user)
-        """
+        Creates a user.
 
-    def delete_address_book(self, AddressBookArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.create_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#create_user)
         """
-        [Client.delete_address_book documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_address_book)
+    def delete_address_book(self, *, AddressBookArn: str) -> Dict[str, Any]:
         """
+        Deletes an address book by the address book ARN.
 
-    def delete_business_report_schedule(self, ScheduleArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_address_book)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_address_book)
         """
-        [Client.delete_business_report_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_business_report_schedule)
+    def delete_business_report_schedule(self, *, ScheduleArn: str) -> Dict[str, Any]:
         """
+        Deletes the recurring report delivery schedule with the specified schedule ARN.
 
-    def delete_conference_provider(self, ConferenceProviderArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_business_report_schedule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_business_report_schedule)
         """
-        [Client.delete_conference_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_conference_provider)
+    def delete_conference_provider(self, *, ConferenceProviderArn: str) -> Dict[str, Any]:
         """
+        Deletes a conference provider.
 
-    def delete_contact(self, ContactArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_conference_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_conference_provider)
         """
-        [Client.delete_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_contact)
+    def delete_contact(self, *, ContactArn: str) -> Dict[str, Any]:
         """
+        Deletes a contact by the contact ARN.
 
-    def delete_device(self, DeviceArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_contact)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_contact)
         """
-        [Client.delete_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_device)
+    def delete_device(self, *, DeviceArn: str) -> Dict[str, Any]:
         """
+        Removes a device from Alexa For Business.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_device)
+        """
     def delete_device_usage_data(
-        self, DeviceArn: str, DeviceUsageType: Literal["VOICE"]
+        self, *, DeviceArn: str, DeviceUsageType: Literal["VOICE"]
     ) -> Dict[str, Any]:
         """
-        [Client.delete_device_usage_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_device_usage_data)
-        """
+        When this action is called for a specified shared device, it allows authorized
+        users to delete the device's entire previous history of voice input data and
+        associated response data.
 
-    def delete_gateway_group(self, GatewayGroupArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_device_usage_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_device_usage_data)
         """
-        [Client.delete_gateway_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_gateway_group)
+    def delete_gateway_group(self, *, GatewayGroupArn: str) -> Dict[str, Any]:
         """
+        Deletes a gateway group.
 
-    def delete_network_profile(self, NetworkProfileArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_gateway_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_gateway_group)
         """
-        [Client.delete_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_network_profile)
+    def delete_network_profile(self, *, NetworkProfileArn: str) -> Dict[str, Any]:
         """
+        Deletes a network profile by the network profile ARN.
 
-    def delete_profile(self, ProfileArn: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_network_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_network_profile)
         """
-        [Client.delete_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_profile)
+    def delete_profile(self, *, ProfileArn: str = None) -> Dict[str, Any]:
         """
+        Deletes a room profile by the profile ARN.
 
-    def delete_room(self, RoomArn: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_profile)
         """
-        [Client.delete_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_room)
+    def delete_room(self, *, RoomArn: str = None) -> Dict[str, Any]:
         """
+        Deletes a room by the room ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_room)
+        """
     def delete_room_skill_parameter(
-        self, SkillId: str, ParameterKey: str, RoomArn: str = None
+        self, *, SkillId: str, ParameterKey: str, RoomArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_room_skill_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_room_skill_parameter)
-        """
+        Deletes room skill parameter details by room, skill, and parameter key ID.
 
-    def delete_skill_authorization(self, SkillId: str, RoomArn: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_room_skill_parameter)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_room_skill_parameter)
         """
-        [Client.delete_skill_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_skill_authorization)
+    def delete_skill_authorization(self, *, SkillId: str, RoomArn: str = None) -> Dict[str, Any]:
         """
+        Unlinks a third-party account from a skill.
 
-    def delete_skill_group(self, SkillGroupArn: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_skill_authorization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_skill_authorization)
         """
-        [Client.delete_skill_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_skill_group)
+    def delete_skill_group(self, *, SkillGroupArn: str = None) -> Dict[str, Any]:
         """
+        Deletes a skill group by skill group ARN.
 
-    def delete_user(self, EnrollmentId: str, UserArn: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_skill_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_skill_group)
         """
-        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_user)
+    def delete_user(self, *, EnrollmentId: str, UserArn: str = None) -> Dict[str, Any]:
         """
+        Deletes a specified user by user ARN and enrollment ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.delete_user)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#delete_user)
+        """
     def disassociate_contact_from_address_book(
-        self, ContactArn: str, AddressBookArn: str
+        self, *, ContactArn: str, AddressBookArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_contact_from_address_book documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_contact_from_address_book)
-        """
+        Disassociates a contact from a given address book.
 
-    def disassociate_device_from_room(self, DeviceArn: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_contact_from_address_book)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#disassociate_contact_from_address_book)
         """
-        [Client.disassociate_device_from_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_device_from_room)
+    def disassociate_device_from_room(self, *, DeviceArn: str = None) -> Dict[str, Any]:
         """
+        Disassociates a device from its current room.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_device_from_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#disassociate_device_from_room)
+        """
     def disassociate_skill_from_skill_group(
-        self, SkillId: str, SkillGroupArn: str = None
+        self, *, SkillId: str, SkillGroupArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_skill_from_skill_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_skill_from_skill_group)
-        """
+        Disassociates a skill from a skill group.
 
-    def disassociate_skill_from_users(self, SkillId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_skill_from_skill_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#disassociate_skill_from_skill_group)
         """
-        [Client.disassociate_skill_from_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_skill_from_users)
+    def disassociate_skill_from_users(self, *, SkillId: str) -> Dict[str, Any]:
         """
+        Makes a private skill unavailable for enrolled users and prevents them from
+        enabling it on their devices.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_skill_from_users)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#disassociate_skill_from_users)
+        """
     def disassociate_skill_group_from_room(
-        self, SkillGroupArn: str = None, RoomArn: str = None
+        self, *, SkillGroupArn: str = None, RoomArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_skill_group_from_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_skill_group_from_room)
-        """
+        Disassociates a skill group from a specified room.
 
-    def forget_smart_home_appliances(self, RoomArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.disassociate_skill_group_from_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#disassociate_skill_group_from_room)
         """
-        [Client.forget_smart_home_appliances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.forget_smart_home_appliances)
+    def forget_smart_home_appliances(self, *, RoomArn: str) -> Dict[str, Any]:
         """
+        Forgets smart home appliances associated to a room.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.forget_smart_home_appliances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#forget_smart_home_appliances)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -445,574 +549,696 @@ class AlexaForBusinessClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_address_book(self, AddressBookArn: str) -> GetAddressBookResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#generate_presigned_url)
         """
-        [Client.get_address_book documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_address_book)
+    def get_address_book(self, *, AddressBookArn: str) -> GetAddressBookResponseTypeDef:
         """
+        Gets address the book details by the address book ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_address_book)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_address_book)
+        """
     def get_conference_preference(self) -> GetConferencePreferenceResponseTypeDef:
         """
-        [Client.get_conference_preference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_conference_preference)
-        """
+        Retrieves the existing conference preferences.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_conference_preference)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_conference_preference)
+        """
     def get_conference_provider(
-        self, ConferenceProviderArn: str
+        self, *, ConferenceProviderArn: str
     ) -> GetConferenceProviderResponseTypeDef:
         """
-        [Client.get_conference_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_conference_provider)
-        """
+        Gets details about a specific conference provider.
 
-    def get_contact(self, ContactArn: str) -> GetContactResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_conference_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_conference_provider)
         """
-        [Client.get_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_contact)
+    def get_contact(self, *, ContactArn: str) -> GetContactResponseTypeDef:
         """
+        Gets the contact details by the contact ARN.
 
-    def get_device(self, DeviceArn: str = None) -> GetDeviceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_contact)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_contact)
         """
-        [Client.get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_device)
+    def get_device(self, *, DeviceArn: str = None) -> GetDeviceResponseTypeDef:
         """
+        Gets the details of a device by device ARN.
 
-    def get_gateway(self, GatewayArn: str) -> GetGatewayResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_device)
         """
-        [Client.get_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_gateway)
+    def get_gateway(self, *, GatewayArn: str) -> GetGatewayResponseTypeDef:
         """
+        Retrieves the details of a gateway.
 
-    def get_gateway_group(self, GatewayGroupArn: str) -> GetGatewayGroupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_gateway)
         """
-        [Client.get_gateway_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_gateway_group)
+    def get_gateway_group(self, *, GatewayGroupArn: str) -> GetGatewayGroupResponseTypeDef:
         """
+        Retrieves the details of a gateway group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_gateway_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_gateway_group)
+        """
     def get_invitation_configuration(self) -> GetInvitationConfigurationResponseTypeDef:
         """
-        [Client.get_invitation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_invitation_configuration)
-        """
+        Retrieves the configured values for the user enrollment invitation email
+        template.
 
-    def get_network_profile(self, NetworkProfileArn: str) -> GetNetworkProfileResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_invitation_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_invitation_configuration)
         """
-        [Client.get_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_network_profile)
+    def get_network_profile(self, *, NetworkProfileArn: str) -> GetNetworkProfileResponseTypeDef:
         """
+        Gets the network profile details by the network profile ARN.
 
-    def get_profile(self, ProfileArn: str = None) -> GetProfileResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_network_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_network_profile)
         """
-        [Client.get_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_profile)
+    def get_profile(self, *, ProfileArn: str = None) -> GetProfileResponseTypeDef:
         """
+        Gets the details of a room profile by profile ARN.
 
-    def get_room(self, RoomArn: str = None) -> GetRoomResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_profile)
         """
-        [Client.get_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_room)
+    def get_room(self, *, RoomArn: str = None) -> GetRoomResponseTypeDef:
         """
+        Gets room details by room ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_room)
+        """
     def get_room_skill_parameter(
-        self, SkillId: str, ParameterKey: str, RoomArn: str = None
+        self, *, SkillId: str, ParameterKey: str, RoomArn: str = None
     ) -> GetRoomSkillParameterResponseTypeDef:
         """
-        [Client.get_room_skill_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_room_skill_parameter)
-        """
+        Gets room skill parameter details by room, skill, and parameter key ARN.
 
-    def get_skill_group(self, SkillGroupArn: str = None) -> GetSkillGroupResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_room_skill_parameter)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_room_skill_parameter)
         """
-        [Client.get_skill_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_skill_group)
+    def get_skill_group(self, *, SkillGroupArn: str = None) -> GetSkillGroupResponseTypeDef:
         """
+        Gets skill group details by skill group ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.get_skill_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#get_skill_group)
+        """
     def list_business_report_schedules(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListBusinessReportSchedulesResponseTypeDef:
         """
-        [Client.list_business_report_schedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_business_report_schedules)
-        """
+        Lists the details of the schedules that a user configured.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_business_report_schedules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_business_report_schedules)
+        """
     def list_conference_providers(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListConferenceProvidersResponseTypeDef:
         """
-        [Client.list_conference_providers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_conference_providers)
-        """
+        Lists conference providers under a specific AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_conference_providers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_conference_providers)
+        """
     def list_device_events(
         self,
+        *,
         DeviceArn: str,
-        EventType: Literal["CONNECTION_STATUS", "DEVICE_STATUS"] = None,
+        EventType: DeviceEventTypeType = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListDeviceEventsResponseTypeDef:
         """
-        [Client.list_device_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_device_events)
-        """
+        Lists the device event history, including device connection status, for up to 30
+        days.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_device_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_device_events)
+        """
     def list_gateway_groups(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListGatewayGroupsResponseTypeDef:
         """
-        [Client.list_gateway_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_gateway_groups)
-        """
+        Retrieves a list of gateway group summaries.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_gateway_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_gateway_groups)
+        """
     def list_gateways(
-        self, GatewayGroupArn: str = None, NextToken: str = None, MaxResults: int = None
+        self, *, GatewayGroupArn: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListGatewaysResponseTypeDef:
         """
-        [Client.list_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_gateways)
-        """
+        Retrieves a list of gateway summaries.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_gateways)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_gateways)
+        """
     def list_skills(
         self,
+        *,
         SkillGroupArn: str = None,
-        EnablementType: Literal["ENABLED", "PENDING"] = None,
-        SkillType: Literal["PUBLIC", "PRIVATE", "ALL"] = None,
+        EnablementType: EnablementTypeFilterType = None,
+        SkillType: SkillTypeFilterType = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> ListSkillsResponseTypeDef:
         """
-        [Client.list_skills documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_skills)
-        """
+        Lists all enabled skills in a specific skill group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_skills)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_skills)
+        """
     def list_skills_store_categories(
-        self, NextToken: str = None, MaxResults: int = None
+        self, *, NextToken: str = None, MaxResults: int = None
     ) -> ListSkillsStoreCategoriesResponseTypeDef:
         """
-        [Client.list_skills_store_categories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_skills_store_categories)
-        """
+        Lists all categories in the Alexa skill store.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_skills_store_categories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_skills_store_categories)
+        """
     def list_skills_store_skills_by_category(
-        self, CategoryId: int, NextToken: str = None, MaxResults: int = None
+        self, *, CategoryId: int, NextToken: str = None, MaxResults: int = None
     ) -> ListSkillsStoreSkillsByCategoryResponseTypeDef:
         """
-        [Client.list_skills_store_skills_by_category documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_skills_store_skills_by_category)
-        """
+        Lists all skills in the Alexa skill store by category.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_skills_store_skills_by_category)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_skills_store_skills_by_category)
+        """
     def list_smart_home_appliances(
-        self, RoomArn: str, MaxResults: int = None, NextToken: str = None
+        self, *, RoomArn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListSmartHomeAppliancesResponseTypeDef:
         """
-        [Client.list_smart_home_appliances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_smart_home_appliances)
-        """
+        Lists all of the smart home appliances associated with a room.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_smart_home_appliances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_smart_home_appliances)
+        """
     def list_tags(
-        self, Arn: str, NextToken: str = None, MaxResults: int = None
+        self, *, Arn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsResponseTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_tags)
-        """
+        Lists all tags for the specified resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.list_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#list_tags)
+        """
     def put_conference_preference(
-        self, ConferencePreference: "ConferencePreferenceTypeDef"
+        self, *, ConferencePreference: "ConferencePreferenceTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.put_conference_preference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_conference_preference)
-        """
+        Sets the conference preferences on a specific conference provider at the account
+        level.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_conference_preference)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#put_conference_preference)
+        """
     def put_invitation_configuration(
-        self, OrganizationName: str, ContactEmail: str = None, PrivateSkillIds: List[str] = None
+        self, *, OrganizationName: str, ContactEmail: str = None, PrivateSkillIds: List[str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.put_invitation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_invitation_configuration)
-        """
+        Configures the email template for the user enrollment invitation with the
+        specified attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_invitation_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#put_invitation_configuration)
+        """
     def put_room_skill_parameter(
-        self, SkillId: str, RoomSkillParameter: "RoomSkillParameterTypeDef", RoomArn: str = None
+        self, *, SkillId: str, RoomSkillParameter: "RoomSkillParameterTypeDef", RoomArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.put_room_skill_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_room_skill_parameter)
-        """
+        Updates room skill parameter details by room, skill, and parameter key ID.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_room_skill_parameter)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#put_room_skill_parameter)
+        """
     def put_skill_authorization(
-        self, AuthorizationResult: Dict[str, str], SkillId: str, RoomArn: str = None
+        self, *, AuthorizationResult: Dict[str, str], SkillId: str, RoomArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.put_skill_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_skill_authorization)
-        """
+        Links a user's account to a third-party skill provider.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.put_skill_authorization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#put_skill_authorization)
+        """
     def register_avs_device(
         self,
+        *,
         ClientId: str,
         UserCode: str,
         ProductId: str,
         AmazonId: str,
         DeviceSerialNumber: str = None,
         RoomArn: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> RegisterAVSDeviceResponseTypeDef:
         """
-        [Client.register_avs_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.register_avs_device)
-        """
+        Registers an Alexa-enabled device built by an Original Equipment Manufacturer
+        (OEM) using Alexa Voice Service (AVS).
 
-    def reject_skill(self, SkillId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.register_avs_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#register_avs_device)
         """
-        [Client.reject_skill documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.reject_skill)
+    def reject_skill(self, *, SkillId: str) -> Dict[str, Any]:
         """
+        Disassociates a skill from the organization under a user's AWS account.
 
-    def resolve_room(self, UserId: str, SkillId: str) -> ResolveRoomResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.reject_skill)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#reject_skill)
         """
-        [Client.resolve_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.resolve_room)
+    def resolve_room(self, *, UserId: str, SkillId: str) -> ResolveRoomResponseTypeDef:
         """
+        Determines the details for the room from which a skill request was invoked.
 
-    def revoke_invitation(self, UserArn: str = None, EnrollmentId: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.resolve_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#resolve_room)
         """
-        [Client.revoke_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.revoke_invitation)
+    def revoke_invitation(self, *, UserArn: str = None, EnrollmentId: str = None) -> Dict[str, Any]:
         """
+        Revokes an invitation and invalidates the enrollment URL.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.revoke_invitation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#revoke_invitation)
+        """
     def search_address_books(
         self,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> SearchAddressBooksResponseTypeDef:
         """
-        [Client.search_address_books documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_address_books)
-        """
+        Searches address books and lists the ones that meet a set of filter and sort
+        criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_address_books)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_address_books)
+        """
     def search_contacts(
         self,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> SearchContactsResponseTypeDef:
         """
-        [Client.search_contacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_contacts)
-        """
+        Searches contacts and lists the ones that meet a set of filter and sort
+        criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_contacts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_contacts)
+        """
     def search_devices(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None
     ) -> SearchDevicesResponseTypeDef:
         """
-        [Client.search_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_devices)
-        """
+        Searches devices and lists the ones that meet a set of filter criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_devices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_devices)
+        """
     def search_network_profiles(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None
     ) -> SearchNetworkProfilesResponseTypeDef:
         """
-        [Client.search_network_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_network_profiles)
-        """
+        Searches network profiles and lists the ones that meet a set of filter and sort
+        criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_network_profiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_network_profiles)
+        """
     def search_profiles(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None
     ) -> SearchProfilesResponseTypeDef:
         """
-        [Client.search_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_profiles)
-        """
+        Searches room profiles and lists the ones that meet a set of filter criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_profiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_profiles)
+        """
     def search_rooms(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None
     ) -> SearchRoomsResponseTypeDef:
         """
-        [Client.search_rooms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_rooms)
-        """
+        Searches rooms and lists the ones that meet a set of filter and sort criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_rooms)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_rooms)
+        """
     def search_skill_groups(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None
     ) -> SearchSkillGroupsResponseTypeDef:
         """
-        [Client.search_skill_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_skill_groups)
-        """
+        Searches skill groups and lists the ones that meet a set of filter and sort
+        criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_skill_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_skill_groups)
+        """
     def search_users(
         self,
+        *,
         NextToken: str = None,
         MaxResults: int = None,
-        Filters: List[FilterTypeDef] = None,
-        SortCriteria: List[SortTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
+        SortCriteria: List["SortTypeDef"] = None
     ) -> SearchUsersResponseTypeDef:
         """
-        [Client.search_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_users)
-        """
+        Searches users and lists the ones that meet a set of filter and sort criteria.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.search_users)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#search_users)
+        """
     def send_announcement(
         self,
-        RoomFilters: List[FilterTypeDef],
-        Content: ContentTypeDef,
+        *,
+        RoomFilters: List["FilterTypeDef"],
+        Content: "ContentTypeDef",
         ClientRequestToken: str,
-        TimeToLiveInSeconds: int = None,
+        TimeToLiveInSeconds: int = None
     ) -> SendAnnouncementResponseTypeDef:
         """
-        [Client.send_announcement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.send_announcement)
-        """
+        Triggers an asynchronous flow to send text, SSML, or audio announcements to
+        rooms that are identified by a search or filter.
 
-    def send_invitation(self, UserArn: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.send_announcement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#send_announcement)
         """
-        [Client.send_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.send_invitation)
+    def send_invitation(self, *, UserArn: str = None) -> Dict[str, Any]:
         """
+        Sends an enrollment invitation email with a URL to a user.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.send_invitation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#send_invitation)
+        """
     def start_device_sync(
-        self,
-        Features: List[
-            Literal[
-                "BLUETOOTH",
-                "VOLUME",
-                "NOTIFICATIONS",
-                "LISTS",
-                "SKILLS",
-                "NETWORK_PROFILE",
-                "SETTINGS",
-                "ALL",
-            ]
-        ],
-        RoomArn: str = None,
-        DeviceArn: str = None,
+        self, *, Features: List[FeatureType], RoomArn: str = None, DeviceArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.start_device_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.start_device_sync)
-        """
+        Resets a device and its account to the known default settings.
 
-    def start_smart_home_appliance_discovery(self, RoomArn: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.start_device_sync)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#start_device_sync)
         """
-        [Client.start_smart_home_appliance_discovery documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.start_smart_home_appliance_discovery)
+    def start_smart_home_appliance_discovery(self, *, RoomArn: str) -> Dict[str, Any]:
         """
+        Initiates the discovery of any smart home appliances associated with the room.
 
-    def tag_resource(self, Arn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.start_smart_home_appliance_discovery)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#start_smart_home_appliance_discovery)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.tag_resource)
+    def tag_resource(self, *, Arn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds metadata tags to a specified resource.
 
-    def untag_resource(self, Arn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.untag_resource)
+    def untag_resource(self, *, Arn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes metadata tags from a specified resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#untag_resource)
+        """
     def update_address_book(
-        self, AddressBookArn: str, Name: str = None, Description: str = None
+        self, *, AddressBookArn: str, Name: str = None, Description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_address_book documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_address_book)
-        """
+        Updates address book details by the address book ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_address_book)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_address_book)
+        """
     def update_business_report_schedule(
         self,
+        *,
         ScheduleArn: str,
         S3BucketName: str = None,
         S3KeyPrefix: str = None,
-        Format: Literal["CSV", "CSV_ZIP"] = None,
+        Format: BusinessReportFormatType = None,
         ScheduleName: str = None,
-        Recurrence: "BusinessReportRecurrenceTypeDef" = None,
+        Recurrence: "BusinessReportRecurrenceTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_business_report_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_business_report_schedule)
-        """
+        Updates the configuration of the report delivery schedule with the specified
+        schedule ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_business_report_schedule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_business_report_schedule)
+        """
     def update_conference_provider(
         self,
+        *,
         ConferenceProviderArn: str,
-        ConferenceProviderType: Literal[
-            "CHIME",
-            "BLUEJEANS",
-            "FUZE",
-            "GOOGLE_HANGOUTS",
-            "POLYCOM",
-            "RINGCENTRAL",
-            "SKYPE_FOR_BUSINESS",
-            "WEBEX",
-            "ZOOM",
-            "CUSTOM",
-        ],
+        ConferenceProviderType: ConferenceProviderTypeType,
         MeetingSetting: "MeetingSettingTypeDef",
         IPDialIn: "IPDialInTypeDef" = None,
-        PSTNDialIn: "PSTNDialInTypeDef" = None,
+        PSTNDialIn: "PSTNDialInTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_conference_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_conference_provider)
-        """
+        Updates an existing conference provider's settings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_conference_provider)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_conference_provider)
+        """
     def update_contact(
         self,
+        *,
         ContactArn: str,
         DisplayName: str = None,
         FirstName: str = None,
         LastName: str = None,
         PhoneNumber: str = None,
         PhoneNumbers: List["PhoneNumberTypeDef"] = None,
-        SipAddresses: List["SipAddressTypeDef"] = None,
+        SipAddresses: List["SipAddressTypeDef"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_contact)
-        """
+        Updates the contact details by the contact ARN.
 
-    def update_device(self, DeviceArn: str = None, DeviceName: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_contact)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_contact)
         """
-        [Client.update_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_device)
+    def update_device(self, *, DeviceArn: str = None, DeviceName: str = None) -> Dict[str, Any]:
         """
+        Updates the device name by device ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_device)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_device)
+        """
     def update_gateway(
         self,
+        *,
         GatewayArn: str,
         Name: str = None,
         Description: str = None,
-        SoftwareVersion: str = None,
+        SoftwareVersion: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_gateway)
-        """
+        Updates the details of a gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_gateway)
+        """
     def update_gateway_group(
-        self, GatewayGroupArn: str, Name: str = None, Description: str = None
+        self, *, GatewayGroupArn: str, Name: str = None, Description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_gateway_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_gateway_group)
-        """
+        Updates the details of a gateway group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_gateway_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_gateway_group)
+        """
     def update_network_profile(
         self,
+        *,
         NetworkProfileArn: str,
         NetworkProfileName: str = None,
         Description: str = None,
         CurrentPassword: str = None,
         NextPassword: str = None,
         CertificateAuthorityArn: str = None,
-        TrustAnchors: List[str] = None,
+        TrustAnchors: List[str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_network_profile)
-        """
+        Updates a network profile by the network profile ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_network_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_network_profile)
+        """
     def update_profile(
         self,
+        *,
         ProfileArn: str = None,
         ProfileName: str = None,
         IsDefault: bool = None,
         Timezone: str = None,
         Address: str = None,
-        DistanceUnit: Literal["METRIC", "IMPERIAL"] = None,
-        TemperatureUnit: Literal["FAHRENHEIT", "CELSIUS"] = None,
-        WakeWord: Literal["ALEXA", "AMAZON", "ECHO", "COMPUTER"] = None,
+        DistanceUnit: DistanceUnitType = None,
+        TemperatureUnit: TemperatureUnitType = None,
+        WakeWord: WakeWordType = None,
         Locale: str = None,
         SetupModeDisabled: bool = None,
         MaxVolumeLimit: int = None,
         PSTNEnabled: bool = None,
-        MeetingRoomConfiguration: UpdateMeetingRoomConfigurationTypeDef = None,
+        DataRetentionOptIn: bool = None,
+        MeetingRoomConfiguration: "UpdateMeetingRoomConfigurationTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_profile)
-        """
+        Updates an existing room profile by room profile ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_profile)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_profile)
+        """
     def update_room(
         self,
+        *,
         RoomArn: str = None,
         RoomName: str = None,
         Description: str = None,
         ProviderCalendarId: str = None,
-        ProfileArn: str = None,
+        ProfileArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_room documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_room)
-        """
+        Updates room details by room ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_room)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_room)
+        """
     def update_skill_group(
-        self, SkillGroupArn: str = None, SkillGroupName: str = None, Description: str = None
+        self, *, SkillGroupArn: str = None, SkillGroupName: str = None, Description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_skill_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_skill_group)
-        """
+        Updates skill group details by skill group ARN.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Client.update_skill_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/client.html#update_skill_group)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_business_report_schedules"]
     ) -> ListBusinessReportSchedulesPaginator:
         """
-        [Paginator.ListBusinessReportSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListBusinessReportSchedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListBusinessReportSchedules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listbusinessreportschedulespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_conference_providers"]
     ) -> ListConferenceProvidersPaginator:
         """
-        [Paginator.ListConferenceProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListConferenceProviders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListConferenceProviders)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listconferenceproviderspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_device_events"]
     ) -> ListDeviceEventsPaginator:
         """
-        [Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListDeviceEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListDeviceEvents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listdeviceeventspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_skills"]) -> ListSkillsPaginator:
         """
-        [Paginator.ListSkills documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkills)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkills)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listskillspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_skills_store_categories"]
     ) -> ListSkillsStoreCategoriesPaginator:
         """
-        [Paginator.ListSkillsStoreCategories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreCategories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreCategories)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listskillsstorecategoriespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_skills_store_skills_by_category"]
     ) -> ListSkillsStoreSkillsByCategoryPaginator:
         """
-        [Paginator.ListSkillsStoreSkillsByCategory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreSkillsByCategory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreSkillsByCategory)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listskillsstoreskillsbycategorypaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_smart_home_appliances"]
     ) -> ListSmartHomeAppliancesPaginator:
         """
-        [Paginator.ListSmartHomeAppliances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSmartHomeAppliances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSmartHomeAppliances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listsmarthomeappliancespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListTags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#listtagspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["search_devices"]) -> SearchDevicesPaginator:
         """
-        [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchDevices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchDevices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#searchdevicespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["search_profiles"]) -> SearchProfilesPaginator:
         """
-        [Paginator.SearchProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchProfiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchProfiles)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#searchprofilespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["search_rooms"]) -> SearchRoomsPaginator:
         """
-        [Paginator.SearchRooms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchRooms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchRooms)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#searchroomspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["search_skill_groups"]
     ) -> SearchSkillGroupsPaginator:
         """
-        [Paginator.SearchSkillGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchSkillGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchSkillGroups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#searchskillgroupspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["search_users"]) -> SearchUsersPaginator:
         """
-        [Paginator.SearchUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchUsers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchUsers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_alexaforbusiness/paginators.html#searchuserspaginator)
         """

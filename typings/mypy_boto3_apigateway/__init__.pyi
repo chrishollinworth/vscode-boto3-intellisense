@@ -53,8 +53,8 @@ Usage::
     get_vpc_links_paginator: GetVpcLinksPaginator = client.get_paginator("get_vpc_links")
     ```
 """
-from mypy_boto3_apigateway.client import APIGatewayClient
-from mypy_boto3_apigateway.paginator import (
+from .client import APIGatewayClient
+from .paginator import (
     GetApiKeysPaginator,
     GetAuthorizersPaginator,
     GetBasePathMappingsPaginator,
@@ -76,7 +76,6 @@ from mypy_boto3_apigateway.paginator import (
 )
 
 Client = APIGatewayClient
-
 
 __all__ = (
     "APIGatewayClient",

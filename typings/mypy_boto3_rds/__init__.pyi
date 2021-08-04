@@ -29,6 +29,7 @@ Usage::
         DescribeDBParameterGroupsPaginator,
         DescribeDBParametersPaginator,
         DescribeDBProxiesPaginator,
+        DescribeDBProxyEndpointsPaginator,
         DescribeDBProxyTargetGroupsPaginator,
         DescribeDBProxyTargetsPaginator,
         DescribeDBSecurityGroupsPaginator,
@@ -80,6 +81,7 @@ Usage::
     describe_db_parameter_groups_paginator: DescribeDBParameterGroupsPaginator = client.get_paginator("describe_db_parameter_groups")
     describe_db_parameters_paginator: DescribeDBParametersPaginator = client.get_paginator("describe_db_parameters")
     describe_db_proxies_paginator: DescribeDBProxiesPaginator = client.get_paginator("describe_db_proxies")
+    describe_db_proxy_endpoints_paginator: DescribeDBProxyEndpointsPaginator = client.get_paginator("describe_db_proxy_endpoints")
     describe_db_proxy_target_groups_paginator: DescribeDBProxyTargetGroupsPaginator = client.get_paginator("describe_db_proxy_target_groups")
     describe_db_proxy_targets_paginator: DescribeDBProxyTargetsPaginator = client.get_paginator("describe_db_proxy_targets")
     describe_db_security_groups_paginator: DescribeDBSecurityGroupsPaginator = client.get_paginator("describe_db_security_groups")
@@ -102,8 +104,8 @@ Usage::
     download_db_log_file_portion_paginator: DownloadDBLogFilePortionPaginator = client.get_paginator("download_db_log_file_portion")
     ```
 """
-from mypy_boto3_rds.client import RDSClient
-from mypy_boto3_rds.paginator import (
+from .client import RDSClient
+from .paginator import (
     DescribeCertificatesPaginator,
     DescribeCustomAvailabilityZonesPaginator,
     DescribeDBClusterBacktracksPaginator,
@@ -119,6 +121,7 @@ from mypy_boto3_rds.paginator import (
     DescribeDBParameterGroupsPaginator,
     DescribeDBParametersPaginator,
     DescribeDBProxiesPaginator,
+    DescribeDBProxyEndpointsPaginator,
     DescribeDBProxyTargetGroupsPaginator,
     DescribeDBProxyTargetsPaginator,
     DescribeDBSecurityGroupsPaginator,
@@ -140,7 +143,7 @@ from mypy_boto3_rds.paginator import (
     DescribeSourceRegionsPaginator,
     DownloadDBLogFilePortionPaginator,
 )
-from mypy_boto3_rds.waiter import (
+from .waiter import (
     DBClusterSnapshotAvailableWaiter,
     DBClusterSnapshotDeletedWaiter,
     DBInstanceAvailableWaiter,
@@ -151,7 +154,6 @@ from mypy_boto3_rds.waiter import (
 )
 
 Client = RDSClient
-
 
 __all__ = (
     "Client",
@@ -177,6 +179,7 @@ __all__ = (
     "DescribeDBParameterGroupsPaginator",
     "DescribeDBParametersPaginator",
     "DescribeDBProxiesPaginator",
+    "DescribeDBProxyEndpointsPaginator",
     "DescribeDBProxyTargetGroupsPaginator",
     "DescribeDBProxyTargetsPaginator",
     "DescribeDBSecurityGroupsPaginator",

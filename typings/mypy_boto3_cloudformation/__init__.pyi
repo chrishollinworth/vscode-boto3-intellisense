@@ -23,6 +23,7 @@ Usage::
         ListStackSetOperationsPaginator,
         ListStackSetsPaginator,
         ListStacksPaginator,
+        ListTypesPaginator,
         ServiceResource,
         StackCreateCompleteWaiter,
         StackDeleteCompleteWaiter,
@@ -63,10 +64,11 @@ Usage::
     list_stack_set_operations_paginator: ListStackSetOperationsPaginator = client.get_paginator("list_stack_set_operations")
     list_stack_sets_paginator: ListStackSetsPaginator = client.get_paginator("list_stack_sets")
     list_stacks_paginator: ListStacksPaginator = client.get_paginator("list_stacks")
+    list_types_paginator: ListTypesPaginator = client.get_paginator("list_types")
     ```
 """
-from mypy_boto3_cloudformation.client import CloudFormationClient
-from mypy_boto3_cloudformation.paginator import (
+from .client import CloudFormationClient
+from .paginator import (
     DescribeAccountLimitsPaginator,
     DescribeChangeSetPaginator,
     DescribeStackEventsPaginator,
@@ -80,9 +82,10 @@ from mypy_boto3_cloudformation.paginator import (
     ListStackSetOperationsPaginator,
     ListStackSetsPaginator,
     ListStacksPaginator,
+    ListTypesPaginator,
 )
-from mypy_boto3_cloudformation.service_resource import CloudFormationServiceResource
-from mypy_boto3_cloudformation.waiter import (
+from .service_resource import CloudFormationServiceResource
+from .waiter import (
     ChangeSetCreateCompleteWaiter,
     StackCreateCompleteWaiter,
     StackDeleteCompleteWaiter,
@@ -95,9 +98,7 @@ from mypy_boto3_cloudformation.waiter import (
 
 Client = CloudFormationClient
 
-
 ServiceResource = CloudFormationServiceResource
-
 
 __all__ = (
     "ChangeSetCreateCompleteWaiter",
@@ -117,6 +118,7 @@ __all__ = (
     "ListStackSetOperationsPaginator",
     "ListStackSetsPaginator",
     "ListStacksPaginator",
+    "ListTypesPaginator",
     "ServiceResource",
     "StackCreateCompleteWaiter",
     "StackDeleteCompleteWaiter",

@@ -1,5 +1,7 @@
 """
-Main interface for xray service client paginators.
+Type annotations for xray service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html)
 
 Usage::
 
@@ -30,13 +32,13 @@ Usage::
     get_trace_summaries_paginator: GetTraceSummariesPaginator = client.get_paginator("get_trace_summaries")
     ```
 """
-import sys
 from datetime import datetime
-from typing import Iterator, List
+from typing import Iterator, List, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_xray.type_defs import (
+from .literals import TimeRangeTypeType
+from .type_defs import (
     BatchGetTracesResultTypeDef,
     GetGroupsResultTypeDef,
     GetSamplingRulesResultTypeDef,
@@ -49,12 +51,6 @@ from mypy_boto3_xray.type_defs import (
     SamplingStrategyTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = (
     "BatchGetTracesPaginator",
     "GetGroupsPaginator",
@@ -66,126 +62,137 @@ __all__ = (
     "GetTraceSummariesPaginator",
 )
 
-
 class BatchGetTracesPaginator(Boto3Paginator):
     """
-    [Paginator.BatchGetTraces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#batchgettracespaginator)
     """
 
     def paginate(
-        self, TraceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, TraceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[BatchGetTracesResultTypeDef]:
         """
-        [BatchGetTraces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.BatchGetTraces.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.BatchGetTraces.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#batchgettracespaginator)
         """
-
 
 class GetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.GetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getgroupspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetGroupsResultTypeDef]:
         """
-        [GetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getgroupspaginator)
         """
-
 
 class GetSamplingRulesPaginator(Boto3Paginator):
     """
-    [Paginator.GetSamplingRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getsamplingrulespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSamplingRulesResultTypeDef]:
         """
-        [GetSamplingRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetSamplingRules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetSamplingRules.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getsamplingrulespaginator)
         """
-
 
 class GetSamplingStatisticSummariesPaginator(Boto3Paginator):
     """
-    [Paginator.GetSamplingStatisticSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getsamplingstatisticsummariespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSamplingStatisticSummariesResultTypeDef]:
         """
-        [GetSamplingStatisticSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getsamplingstatisticsummariespaginator)
         """
-
 
 class GetServiceGraphPaginator(Boto3Paginator):
     """
-    [Paginator.GetServiceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getservicegraphpaginator)
     """
 
     def paginate(
         self,
-        StartTime: datetime,
-        EndTime: datetime,
+        *,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
         GroupName: str = None,
         GroupARN: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetServiceGraphResultTypeDef]:
         """
-        [GetServiceGraph.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetServiceGraph.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetServiceGraph.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getservicegraphpaginator)
         """
-
 
 class GetTimeSeriesServiceStatisticsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTimeSeriesServiceStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettimeseriesservicestatisticspaginator)
     """
 
     def paginate(
         self,
-        StartTime: datetime,
-        EndTime: datetime,
+        *,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
         GroupName: str = None,
         GroupARN: str = None,
         EntitySelectorExpression: str = None,
         Period: int = None,
         ForecastStatistics: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTimeSeriesServiceStatisticsResultTypeDef]:
         """
-        [GetTimeSeriesServiceStatistics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettimeseriesservicestatisticspaginator)
         """
-
 
 class GetTraceGraphPaginator(Boto3Paginator):
     """
-    [Paginator.GetTraceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettracegraphpaginator)
     """
 
     def paginate(
-        self, TraceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, TraceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTraceGraphResultTypeDef]:
         """
-        [GetTraceGraph.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTraceGraph.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTraceGraph.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettracegraphpaginator)
         """
-
 
 class GetTraceSummariesPaginator(Boto3Paginator):
     """
-    [Paginator.GetTraceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettracesummariespaginator)
     """
 
     def paginate(
         self,
-        StartTime: datetime,
-        EndTime: datetime,
-        TimeRangeType: Literal["TraceId", "Event"] = None,
+        *,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
+        TimeRangeType: TimeRangeTypeType = None,
         Sampling: bool = None,
-        SamplingStrategy: SamplingStrategyTypeDef = None,
+        SamplingStrategy: "SamplingStrategyTypeDef" = None,
         FilterExpression: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTraceSummariesResultTypeDef]:
         """
-        [GetTraceSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTraceSummaries.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTraceSummaries.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettracesummariespaginator)
         """

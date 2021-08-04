@@ -23,15 +23,14 @@ Usage::
     list_virtual_clusters_paginator: ListVirtualClustersPaginator = client.get_paginator("list_virtual_clusters")
     ```
 """
-from mypy_boto3_emr_containers.client import EMRContainersClient
-from mypy_boto3_emr_containers.paginator import (
+from .client import EMRContainersClient
+from .paginator import (
     ListJobRunsPaginator,
     ListManagedEndpointsPaginator,
     ListVirtualClustersPaginator,
 )
 
 Client = EMRContainersClient
-
 
 __all__ = (
     "Client",

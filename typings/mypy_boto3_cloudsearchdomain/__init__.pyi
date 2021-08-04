@@ -16,9 +16,8 @@ Usage::
     session_client: CloudSearchDomainClient = session.client("cloudsearchdomain")
     ```
 """
-from mypy_boto3_cloudsearchdomain.client import CloudSearchDomainClient
+from .client import CloudSearchDomainClient
 
 Client = CloudSearchDomainClient
-
 
 __all__ = ("Client", "CloudSearchDomainClient")

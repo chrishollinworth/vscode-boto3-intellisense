@@ -16,9 +16,8 @@ Usage::
     session_client: FraudDetectorClient = session.client("frauddetector")
     ```
 """
-from mypy_boto3_frauddetector.client import FraudDetectorClient
+from .client import FraudDetectorClient
 
 Client = FraudDetectorClient
-
 
 __all__ = ("Client", "FraudDetectorClient")

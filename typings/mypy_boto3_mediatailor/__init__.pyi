@@ -7,7 +7,12 @@ Usage::
     import boto3
     from mypy_boto3_mediatailor import (
         Client,
+        GetChannelSchedulePaginator,
+        ListAlertsPaginator,
+        ListChannelsPaginator,
         ListPlaybackConfigurationsPaginator,
+        ListSourceLocationsPaginator,
+        ListVodSourcesPaginator,
         MediaTailorClient,
     )
 
@@ -16,13 +21,33 @@ Usage::
     client: MediaTailorClient = boto3.client("mediatailor")
     session_client: MediaTailorClient = session.client("mediatailor")
 
+    get_channel_schedule_paginator: GetChannelSchedulePaginator = client.get_paginator("get_channel_schedule")
+    list_alerts_paginator: ListAlertsPaginator = client.get_paginator("list_alerts")
+    list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_playback_configurations_paginator: ListPlaybackConfigurationsPaginator = client.get_paginator("list_playback_configurations")
+    list_source_locations_paginator: ListSourceLocationsPaginator = client.get_paginator("list_source_locations")
+    list_vod_sources_paginator: ListVodSourcesPaginator = client.get_paginator("list_vod_sources")
     ```
 """
-from mypy_boto3_mediatailor.client import MediaTailorClient
-from mypy_boto3_mediatailor.paginator import ListPlaybackConfigurationsPaginator
+from .client import MediaTailorClient
+from .paginator import (
+    GetChannelSchedulePaginator,
+    ListAlertsPaginator,
+    ListChannelsPaginator,
+    ListPlaybackConfigurationsPaginator,
+    ListSourceLocationsPaginator,
+    ListVodSourcesPaginator,
+)
 
 Client = MediaTailorClient
 
-
-__all__ = ("Client", "ListPlaybackConfigurationsPaginator", "MediaTailorClient")
+__all__ = (
+    "Client",
+    "GetChannelSchedulePaginator",
+    "ListAlertsPaginator",
+    "ListChannelsPaginator",
+    "ListPlaybackConfigurationsPaginator",
+    "ListSourceLocationsPaginator",
+    "ListVodSourcesPaginator",
+    "MediaTailorClient",
+)

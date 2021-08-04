@@ -16,9 +16,8 @@ Usage::
     session_client: AppflowClient = session.client("appflow")
     ```
 """
-from mypy_boto3_appflow.client import AppflowClient
+from .client import AppflowClient
 
 Client = AppflowClient
-
 
 __all__ = ("AppflowClient", "Client")

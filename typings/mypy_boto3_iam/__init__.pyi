@@ -32,6 +32,7 @@ Usage::
         ListServerCertificatesPaginator,
         ListSigningCertificatesPaginator,
         ListUserPoliciesPaginator,
+        ListUserTagsPaginator,
         ListUsersPaginator,
         ListVirtualMFADevicesPaginator,
         PolicyExistsWaiter,
@@ -77,14 +78,15 @@ Usage::
     list_server_certificates_paginator: ListServerCertificatesPaginator = client.get_paginator("list_server_certificates")
     list_signing_certificates_paginator: ListSigningCertificatesPaginator = client.get_paginator("list_signing_certificates")
     list_user_policies_paginator: ListUserPoliciesPaginator = client.get_paginator("list_user_policies")
+    list_user_tags_paginator: ListUserTagsPaginator = client.get_paginator("list_user_tags")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     list_virtual_mfa_devices_paginator: ListVirtualMFADevicesPaginator = client.get_paginator("list_virtual_mfa_devices")
     simulate_custom_policy_paginator: SimulateCustomPolicyPaginator = client.get_paginator("simulate_custom_policy")
     simulate_principal_policy_paginator: SimulatePrincipalPolicyPaginator = client.get_paginator("simulate_principal_policy")
     ```
 """
-from mypy_boto3_iam.client import IAMClient
-from mypy_boto3_iam.paginator import (
+from .client import IAMClient
+from .paginator import (
     GetAccountAuthorizationDetailsPaginator,
     GetGroupPaginator,
     ListAccessKeysPaginator,
@@ -108,12 +110,13 @@ from mypy_boto3_iam.paginator import (
     ListSSHPublicKeysPaginator,
     ListUserPoliciesPaginator,
     ListUsersPaginator,
+    ListUserTagsPaginator,
     ListVirtualMFADevicesPaginator,
     SimulateCustomPolicyPaginator,
     SimulatePrincipalPolicyPaginator,
 )
-from mypy_boto3_iam.service_resource import IAMServiceResource
-from mypy_boto3_iam.waiter import (
+from .service_resource import IAMServiceResource
+from .waiter import (
     InstanceProfileExistsWaiter,
     PolicyExistsWaiter,
     RoleExistsWaiter,
@@ -122,9 +125,7 @@ from mypy_boto3_iam.waiter import (
 
 Client = IAMClient
 
-
 ServiceResource = IAMServiceResource
-
 
 __all__ = (
     "Client",
@@ -153,6 +154,7 @@ __all__ = (
     "ListServerCertificatesPaginator",
     "ListSigningCertificatesPaginator",
     "ListUserPoliciesPaginator",
+    "ListUserTagsPaginator",
     "ListUsersPaginator",
     "ListVirtualMFADevicesPaginator",
     "PolicyExistsWaiter",

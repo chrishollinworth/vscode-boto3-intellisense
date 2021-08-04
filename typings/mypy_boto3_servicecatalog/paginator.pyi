@@ -1,5 +1,7 @@
 """
-Main interface for servicecatalog service client paginators.
+Type annotations for servicecatalog service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html)
 
 Usage::
 
@@ -51,7 +53,14 @@ from typing import Dict, Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_servicecatalog.type_defs import (
+from .literals import (
+    OrganizationNodeTypeType,
+    PortfolioShareTypeType,
+    ProductViewFilterByType,
+    ProductViewSortByType,
+    SortOrderType,
+)
+from .type_defs import (
     AccessLevelFilterTypeDef,
     ListAcceptedPortfolioSharesOutputTypeDef,
     ListConstraintsForPortfolioOutputTypeDef,
@@ -79,7 +88,6 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = (
     "ListAcceptedPortfolioSharesPaginator",
     "ListConstraintsForPortfolioPaginator",
@@ -99,262 +107,290 @@ __all__ = (
     "SearchProductsAsAdminPaginator",
 )
 
-
 class ListAcceptedPortfolioSharesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAcceptedPortfolioShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listacceptedportfoliosharespaginator)
     """
 
     def paginate(
         self,
+        *,
         AcceptLanguage: str = None,
-        PortfolioShareType: Literal["IMPORTED", "AWS_SERVICECATALOG", "AWS_ORGANIZATIONS"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PortfolioShareType: PortfolioShareTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAcceptedPortfolioSharesOutputTypeDef]:
         """
-        [ListAcceptedPortfolioShares.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listacceptedportfoliosharespaginator)
         """
-
 
 class ListConstraintsForPortfolioPaginator(Boto3Paginator):
     """
-    [Paginator.ListConstraintsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listconstraintsforportfoliopaginator)
     """
 
     def paginate(
         self,
+        *,
         PortfolioId: str,
         AcceptLanguage: str = None,
         ProductId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConstraintsForPortfolioOutputTypeDef]:
         """
-        [ListConstraintsForPortfolio.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listconstraintsforportfoliopaginator)
         """
-
 
 class ListLaunchPathsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLaunchPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listlaunchpathspaginator)
     """
 
     def paginate(
         self,
+        *,
         ProductId: str,
         AcceptLanguage: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLaunchPathsOutputTypeDef]:
         """
-        [ListLaunchPaths.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listlaunchpathspaginator)
         """
-
 
 class ListOrganizationPortfolioAccessPaginator(Boto3Paginator):
     """
-    [Paginator.ListOrganizationPortfolioAccess documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listorganizationportfolioaccesspaginator)
     """
 
     def paginate(
         self,
+        *,
         PortfolioId: str,
-        OrganizationNodeType: Literal["ORGANIZATION", "ORGANIZATIONAL_UNIT", "ACCOUNT"],
+        OrganizationNodeType: OrganizationNodeTypeType,
         AcceptLanguage: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrganizationPortfolioAccessOutputTypeDef]:
         """
-        [ListOrganizationPortfolioAccess.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listorganizationportfolioaccesspaginator)
         """
-
 
 class ListPortfoliosPaginator(Boto3Paginator):
     """
-    [Paginator.ListPortfolios documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listportfoliospaginator)
     """
 
     def paginate(
-        self, AcceptLanguage: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AcceptLanguage: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPortfoliosOutputTypeDef]:
         """
-        [ListPortfolios.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listportfoliospaginator)
         """
-
 
 class ListPortfoliosForProductPaginator(Boto3Paginator):
     """
-    [Paginator.ListPortfoliosForProduct documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listportfoliosforproductpaginator)
     """
 
     def paginate(
         self,
+        *,
         ProductId: str,
         AcceptLanguage: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPortfoliosForProductOutputTypeDef]:
         """
-        [ListPortfoliosForProduct.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listportfoliosforproductpaginator)
         """
-
 
 class ListPrincipalsForPortfolioPaginator(Boto3Paginator):
     """
-    [Paginator.ListPrincipalsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprincipalsforportfoliopaginator)
     """
 
     def paginate(
         self,
+        *,
         PortfolioId: str,
         AcceptLanguage: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPrincipalsForPortfolioOutputTypeDef]:
         """
-        [ListPrincipalsForPortfolio.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprincipalsforportfoliopaginator)
         """
-
 
 class ListProvisionedProductPlansPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisionedProductPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprovisionedproductplanspaginator)
     """
 
     def paginate(
         self,
+        *,
         AcceptLanguage: str = None,
         ProvisionProductId: str = None,
-        AccessLevelFilter: AccessLevelFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        AccessLevelFilter: "AccessLevelFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProvisionedProductPlansOutputTypeDef]:
         """
-        [ListProvisionedProductPlans.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprovisionedproductplanspaginator)
         """
-
 
 class ListProvisioningArtifactsForServiceActionPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisioningArtifactsForServiceAction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprovisioningartifactsforserviceactionpaginator)
     """
 
     def paginate(
         self,
+        *,
         ServiceActionId: str,
         AcceptLanguage: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProvisioningArtifactsForServiceActionOutputTypeDef]:
         """
-        [ListProvisioningArtifactsForServiceAction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listprovisioningartifactsforserviceactionpaginator)
         """
-
 
 class ListRecordHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.ListRecordHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listrecordhistorypaginator)
     """
 
     def paginate(
         self,
+        *,
         AcceptLanguage: str = None,
-        AccessLevelFilter: AccessLevelFilterTypeDef = None,
-        SearchFilter: ListRecordHistorySearchFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        AccessLevelFilter: "AccessLevelFilterTypeDef" = None,
+        SearchFilter: "ListRecordHistorySearchFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecordHistoryOutputTypeDef]:
         """
-        [ListRecordHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listrecordhistorypaginator)
         """
-
 
 class ListResourcesForTagOptionPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourcesForTagOption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listresourcesfortagoptionpaginator)
     """
 
     def paginate(
         self,
+        *,
         TagOptionId: str,
         ResourceType: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourcesForTagOptionOutputTypeDef]:
         """
-        [ListResourcesForTagOption.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listresourcesfortagoptionpaginator)
         """
-
 
 class ListServiceActionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listserviceactionspaginator)
     """
 
     def paginate(
-        self, AcceptLanguage: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AcceptLanguage: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceActionsOutputTypeDef]:
         """
-        [ListServiceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listserviceactionspaginator)
         """
-
 
 class ListServiceActionsForProvisioningArtifactPaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceActionsForProvisioningArtifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listserviceactionsforprovisioningartifactpaginator)
     """
 
     def paginate(
         self,
+        *,
         ProductId: str,
         ProvisioningArtifactId: str,
         AcceptLanguage: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceActionsForProvisioningArtifactOutputTypeDef]:
         """
-        [ListServiceActionsForProvisioningArtifact.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listserviceactionsforprovisioningartifactpaginator)
         """
-
 
 class ListTagOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTagOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listtagoptionspaginator)
     """
 
     def paginate(
         self,
-        Filters: ListTagOptionsFiltersTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        Filters: "ListTagOptionsFiltersTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagOptionsOutputTypeDef]:
         """
-        [ListTagOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#listtagoptionspaginator)
         """
-
 
 class ScanProvisionedProductsPaginator(Boto3Paginator):
     """
-    [Paginator.ScanProvisionedProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#scanprovisionedproductspaginator)
     """
 
     def paginate(
         self,
+        *,
         AcceptLanguage: str = None,
-        AccessLevelFilter: AccessLevelFilterTypeDef = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        AccessLevelFilter: "AccessLevelFilterTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ScanProvisionedProductsOutputTypeDef]:
         """
-        [ScanProvisionedProducts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#scanprovisionedproductspaginator)
         """
-
 
 class SearchProductsAsAdminPaginator(Boto3Paginator):
     """
-    [Paginator.SearchProductsAsAdmin documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#searchproductsasadminpaginator)
     """
 
     def paginate(
         self,
+        *,
         AcceptLanguage: str = None,
         PortfolioId: str = None,
-        Filters: Dict[
-            Literal["FullTextSearch", "Owner", "ProductType", "SourceProductId"], List[str]
-        ] = None,
-        SortBy: Literal["Title", "VersionCount", "CreationDate"] = None,
-        SortOrder: Literal["ASCENDING", "DESCENDING"] = None,
+        Filters: Dict[ProductViewFilterByType, List[str]] = None,
+        SortBy: ProductViewSortByType = None,
+        SortOrder: SortOrderType = None,
         ProductSource: Literal["ACCOUNT"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchProductsAsAdminOutputTypeDef]:
         """
-        [SearchProductsAsAdmin.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/paginators.html#searchproductsasadminpaginator)
         """

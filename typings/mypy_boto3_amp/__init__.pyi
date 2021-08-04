@@ -19,10 +19,9 @@ Usage::
     list_workspaces_paginator: ListWorkspacesPaginator = client.get_paginator("list_workspaces")
     ```
 """
-from mypy_boto3_amp.client import PrometheusServiceClient
-from mypy_boto3_amp.paginator import ListWorkspacesPaginator
+from .client import PrometheusServiceClient
+from .paginator import ListWorkspacesPaginator
 
 Client = PrometheusServiceClient
-
 
 __all__ = ("Client", "ListWorkspacesPaginator", "PrometheusServiceClient")

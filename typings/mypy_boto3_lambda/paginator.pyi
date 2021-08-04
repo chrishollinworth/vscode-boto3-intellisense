@@ -1,5 +1,7 @@
 """
-Main interface for lambda service client paginators.
+Type annotations for lambda service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html)
 
 Usage::
 
@@ -39,7 +41,8 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_lambda.type_defs import (
+from .literals import RuntimeType
+from .type_defs import (
     ListAliasesResponseTypeDef,
     ListCodeSigningConfigsResponseTypeDef,
     ListEventSourceMappingsResponseTypeDef,
@@ -58,7 +61,6 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = (
     "ListAliasesPaginator",
     "ListCodeSigningConfigsPaginator",
@@ -72,196 +74,161 @@ __all__ = (
     "ListVersionsByFunctionPaginator",
 )
 
-
 class ListAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListAliases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListAliases)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listaliasespaginator)
     """
 
     def paginate(
         self,
+        *,
         FunctionName: str,
         FunctionVersion: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAliasesResponseTypeDef]:
         """
-        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListAliases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListAliases.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listaliasespaginator)
         """
-
 
 class ListCodeSigningConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCodeSigningConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listcodesigningconfigspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCodeSigningConfigsResponseTypeDef]:
         """
-        [ListCodeSigningConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listcodesigningconfigspaginator)
         """
-
 
 class ListEventSourceMappingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEventSourceMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listeventsourcemappingspaginator)
     """
 
     def paginate(
         self,
+        *,
         EventSourceArn: str = None,
         FunctionName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventSourceMappingsResponseTypeDef]:
         """
-        [ListEventSourceMappings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listeventsourcemappingspaginator)
         """
-
 
 class ListFunctionEventInvokeConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctionEventInvokeConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctioneventinvokeconfigspaginator)
     """
 
     def paginate(
-        self, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionEventInvokeConfigsResponseTypeDef]:
         """
-        [ListFunctionEventInvokeConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctioneventinvokeconfigspaginator)
         """
-
 
 class ListFunctionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionspaginator)
     """
 
     def paginate(
         self,
+        *,
         MasterRegion: str = None,
         FunctionVersion: Literal["ALL"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionsResponseTypeDef]:
         """
-        [ListFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListFunctions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionspaginator)
         """
-
 
 class ListFunctionsByCodeSigningConfigPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctionsByCodeSigningConfig documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionsbycodesigningconfigpaginator)
     """
 
     def paginate(
-        self, CodeSigningConfigArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, CodeSigningConfigArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionsByCodeSigningConfigResponseTypeDef]:
         """
-        [ListFunctionsByCodeSigningConfig.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionsbycodesigningconfigpaginator)
         """
-
 
 class ListLayerVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLayerVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerversionspaginator)
     """
 
     def paginate(
         self,
+        *,
         LayerName: str,
-        CompatibleRuntime: Literal[
-            "nodejs",
-            "nodejs4.3",
-            "nodejs6.10",
-            "nodejs8.10",
-            "nodejs10.x",
-            "nodejs12.x",
-            "nodejs14.x",
-            "java8",
-            "java8.al2",
-            "java11",
-            "python2.7",
-            "python3.6",
-            "python3.7",
-            "python3.8",
-            "dotnetcore1.0",
-            "dotnetcore2.0",
-            "dotnetcore2.1",
-            "dotnetcore3.1",
-            "nodejs4.3-edge",
-            "go1.x",
-            "ruby2.5",
-            "ruby2.7",
-            "provided",
-            "provided.al2",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        CompatibleRuntime: RuntimeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLayerVersionsResponseTypeDef]:
         """
-        [ListLayerVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerversionspaginator)
         """
-
 
 class ListLayersPaginator(Boto3Paginator):
     """
-    [Paginator.ListLayers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListLayers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerspaginator)
     """
 
     def paginate(
         self,
-        CompatibleRuntime: Literal[
-            "nodejs",
-            "nodejs4.3",
-            "nodejs6.10",
-            "nodejs8.10",
-            "nodejs10.x",
-            "nodejs12.x",
-            "nodejs14.x",
-            "java8",
-            "java8.al2",
-            "java11",
-            "python2.7",
-            "python3.6",
-            "python3.7",
-            "python3.8",
-            "dotnetcore1.0",
-            "dotnetcore2.0",
-            "dotnetcore2.1",
-            "dotnetcore3.1",
-            "nodejs4.3-edge",
-            "go1.x",
-            "ruby2.5",
-            "ruby2.7",
-            "provided",
-            "provided.al2",
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        CompatibleRuntime: RuntimeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLayersResponseTypeDef]:
         """
-        [ListLayers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListLayers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerspaginator)
         """
-
 
 class ListProvisionedConcurrencyConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisionedConcurrencyConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listprovisionedconcurrencyconfigspaginator)
     """
 
     def paginate(
-        self, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProvisionedConcurrencyConfigsResponseTypeDef]:
         """
-        [ListProvisionedConcurrencyConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listprovisionedconcurrencyconfigspaginator)
         """
-
 
 class ListVersionsByFunctionPaginator(Boto3Paginator):
     """
-    [Paginator.ListVersionsByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listversionsbyfunctionpaginator)
     """
 
     def paginate(
-        self, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVersionsByFunctionResponseTypeDef]:
         """
-        [ListVersionsByFunction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listversionsbyfunctionpaginator)
         """

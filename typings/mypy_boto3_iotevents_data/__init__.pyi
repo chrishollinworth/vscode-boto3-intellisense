@@ -16,9 +16,8 @@ Usage::
     session_client: IoTEventsDataClient = session.client("iotevents-data")
     ```
 """
-from mypy_boto3_iotevents_data.client import IoTEventsDataClient
+from .client import IoTEventsDataClient
 
 Client = IoTEventsDataClient
-
 
 __all__ = ("Client", "IoTEventsDataClient")

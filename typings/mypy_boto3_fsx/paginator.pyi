@@ -1,5 +1,7 @@
 """
-Main interface for fsx service client paginators.
+Type annotations for fsx service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html)
 
 Usage::
 
@@ -24,7 +26,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_fsx.type_defs import (
+from .type_defs import (
     DescribeBackupsResponseTypeDef,
     DescribeFileSystemsResponseTypeDef,
     FilterTypeDef,
@@ -38,44 +40,48 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-
 class DescribeBackupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describebackupspaginator)
     """
 
     def paginate(
         self,
+        *,
         BackupIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Filters: List["FilterTypeDef"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBackupsResponseTypeDef]:
         """
-        [DescribeBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeBackups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fsx.html#FSx.Paginator.DescribeBackups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describebackupspaginator)
         """
-
 
 class DescribeFileSystemsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describefilesystemspaginator)
     """
 
     def paginate(
-        self, FileSystemIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, FileSystemIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFileSystemsResponseTypeDef]:
         """
-        [DescribeFileSystems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describefilesystemspaginator)
         """
-
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#listtagsforresourcepaginator)
     """
 
     def paginate(
-        self, ResourceARN: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ResourceARN: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.ListTagsForResource.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fsx.html#FSx.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#listtagsforresourcepaginator)
         """

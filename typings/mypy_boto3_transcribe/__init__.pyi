@@ -16,9 +16,8 @@ Usage::
     session_client: TranscribeServiceClient = session.client("transcribe")
     ```
 """
-from mypy_boto3_transcribe.client import TranscribeServiceClient
+from .client import TranscribeServiceClient
 
 Client = TranscribeServiceClient
-
 
 __all__ = ("Client", "TranscribeServiceClient")

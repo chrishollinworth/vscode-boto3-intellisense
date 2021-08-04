@@ -16,9 +16,8 @@ Usage::
     session_client: BackupClient = session.client("backup")
     ```
 """
-from mypy_boto3_backup.client import BackupClient
+from .client import BackupClient
 
 Client = BackupClient
-
 
 __all__ = ("BackupClient", "Client")

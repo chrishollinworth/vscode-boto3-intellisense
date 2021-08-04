@@ -1,5 +1,7 @@
 """
-Main interface for globalaccelerator service client paginators.
+Type annotations for globalaccelerator service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html)
 
 Usage::
 
@@ -34,7 +36,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_globalaccelerator.type_defs import (
+from .type_defs import (
     ListAcceleratorsResponseTypeDef,
     ListByoipCidrsResponseTypeDef,
     ListCustomRoutingAcceleratorsResponseTypeDef,
@@ -57,112 +59,122 @@ __all__ = (
     "ListListenersPaginator",
 )
 
-
 class ListAcceleratorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listacceleratorspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAcceleratorsResponseTypeDef]:
         """
-        [ListAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listacceleratorspaginator)
         """
-
 
 class ListByoipCidrsPaginator(Boto3Paginator):
     """
-    [Paginator.ListByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListByoipCidrs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListByoipCidrs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listbyoipcidrspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListByoipCidrsResponseTypeDef]:
         """
-        [ListByoipCidrs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListByoipCidrs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListByoipCidrs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listbyoipcidrspaginator)
         """
-
 
 class ListCustomRoutingAcceleratorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCustomRoutingAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingAccelerators)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingAccelerators)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingacceleratorspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCustomRoutingAcceleratorsResponseTypeDef]:
         """
-        [ListCustomRoutingAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingAccelerators.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingAccelerators.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingacceleratorspaginator)
         """
-
 
 class ListCustomRoutingListenersPaginator(Boto3Paginator):
     """
-    [Paginator.ListCustomRoutingListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingListeners)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingListeners)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutinglistenerspaginator)
     """
 
     def paginate(
-        self, AcceleratorArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AcceleratorArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCustomRoutingListenersResponseTypeDef]:
         """
-        [ListCustomRoutingListeners.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingListeners.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingListeners.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutinglistenerspaginator)
         """
-
 
 class ListCustomRoutingPortMappingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCustomRoutingPortMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingportmappingspaginator)
     """
 
     def paginate(
         self,
+        *,
         AcceleratorArn: str,
         EndpointGroupArn: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCustomRoutingPortMappingsResponseTypeDef]:
         """
-        [ListCustomRoutingPortMappings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingportmappingspaginator)
         """
-
 
 class ListCustomRoutingPortMappingsByDestinationPaginator(Boto3Paginator):
     """
-    [Paginator.ListCustomRoutingPortMappingsByDestination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappingsByDestination)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappingsByDestination)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingportmappingsbydestinationpaginator)
     """
 
     def paginate(
         self,
+        *,
         EndpointId: str,
         DestinationAddress: str,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCustomRoutingPortMappingsByDestinationResponseTypeDef]:
         """
-        [ListCustomRoutingPortMappingsByDestination.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappingsByDestination.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappingsByDestination.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listcustomroutingportmappingsbydestinationpaginator)
         """
-
 
 class ListEndpointGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEndpointGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listendpointgroupspaginator)
     """
 
     def paginate(
-        self, ListenerArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ListenerArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointGroupsResponseTypeDef]:
         """
-        [ListEndpointGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listendpointgroupspaginator)
         """
-
 
 class ListListenersPaginator(Boto3Paginator):
     """
-    [Paginator.ListListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listlistenerspaginator)
     """
 
     def paginate(
-        self, AcceleratorArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, AcceleratorArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListListenersResponseTypeDef]:
         """
-        [ListListeners.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/paginators.html#listlistenerspaginator)
         """

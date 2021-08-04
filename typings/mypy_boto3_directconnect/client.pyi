@@ -1,5 +1,7 @@
 """
-Main interface for directconnect service client
+Type annotations for directconnect service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html)
 
 Usage::
 
@@ -13,22 +15,23 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_directconnect.paginator import (
+from .paginator import (
     DescribeDirectConnectGatewayAssociationsPaginator,
     DescribeDirectConnectGatewayAttachmentsPaginator,
     DescribeDirectConnectGatewaysPaginator,
 )
-from mypy_boto3_directconnect.type_defs import (
+from .type_defs import (
     AcceptDirectConnectGatewayAssociationProposalResultTypeDef,
     AllocateTransitVirtualInterfaceResultTypeDef,
+    AssociateMacSecKeyResponseTypeDef,
     ConfirmConnectionResponseTypeDef,
     ConfirmPrivateVirtualInterfaceResponseTypeDef,
     ConfirmPublicVirtualInterfaceResponseTypeDef,
     ConfirmTransitVirtualInterfaceResponseTypeDef,
+    ConnectionResponseMetadataTypeDef,
     ConnectionsTypeDef,
-    ConnectionTypeDef,
     CreateBGPPeerResponseTypeDef,
     CreateDirectConnectGatewayAssociationProposalResultTypeDef,
     CreateDirectConnectGatewayAssociationResultTypeDef,
@@ -47,12 +50,13 @@ from mypy_boto3_directconnect.type_defs import (
     DescribeDirectConnectGatewaysResultTypeDef,
     DescribeInterconnectLoaResponseTypeDef,
     DescribeTagsResponseTypeDef,
+    DisassociateMacSecKeyResponseTypeDef,
+    InterconnectResponseMetadataTypeDef,
     InterconnectsTypeDef,
-    InterconnectTypeDef,
+    LagResponseMetadataTypeDef,
     LagsTypeDef,
-    LagTypeDef,
     ListVirtualInterfaceTestHistoryResponseTypeDef,
-    LoaTypeDef,
+    LoaResponseMetadataTypeDef,
     LocationsTypeDef,
     NewBGPPeerTypeDef,
     NewPrivateVirtualInterfaceAllocationTypeDef,
@@ -67,8 +71,8 @@ from mypy_boto3_directconnect.type_defs import (
     TagTypeDef,
     UpdateDirectConnectGatewayAssociationResultTypeDef,
     VirtualGatewaysTypeDef,
+    VirtualInterfaceResponseMetadataTypeDef,
     VirtualInterfacesTypeDef,
-    VirtualInterfaceTypeDef,
 )
 
 if sys.version_info >= (3, 8):
@@ -76,17 +80,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("DirectConnectClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -95,194 +95,276 @@ class Exceptions:
     DuplicateTagKeysException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
 
-
-class DirectConnectClient:
+class DirectConnectClient(BaseClient):
     """
-    [DirectConnect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        DirectConnectClient exceptions.
+        """
     def accept_direct_connect_gateway_association_proposal(
         self,
+        *,
         directConnectGatewayId: str,
         proposalId: str,
         associatedGatewayOwnerAccount: str,
-        overrideAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
+        overrideAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None
     ) -> AcceptDirectConnectGatewayAssociationProposalResultTypeDef:
         """
-        [Client.accept_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.accept_direct_connect_gateway_association_proposal)
-        """
+        Accepts a proposal request to attach a virtual private gateway or transit
+        gateway to a Direct Connect gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.accept_direct_connect_gateway_association_proposal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#accept_direct_connect_gateway_association_proposal)
+        """
     def allocate_connection_on_interconnect(
-        self, bandwidth: str, connectionName: str, ownerAccount: str, interconnectId: str, vlan: int
-    ) -> "ConnectionTypeDef":
+        self,
+        *,
+        bandwidth: str,
+        connectionName: str,
+        ownerAccount: str,
+        interconnectId: str,
+        vlan: int
+    ) -> ConnectionResponseMetadataTypeDef:
         """
-        [Client.allocate_connection_on_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.allocate_connection_on_interconnect)
-        """
+        Deprecated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.allocate_connection_on_interconnect)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#allocate_connection_on_interconnect)
+        """
     def allocate_hosted_connection(
         self,
+        *,
         connectionId: str,
         ownerAccount: str,
         bandwidth: str,
         connectionName: str,
         vlan: int,
-        tags: List["TagTypeDef"] = None,
-    ) -> "ConnectionTypeDef":
+        tags: List["TagTypeDef"] = None
+    ) -> ConnectionResponseMetadataTypeDef:
         """
-        [Client.allocate_hosted_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.allocate_hosted_connection)
-        """
+        Creates a hosted connection on the specified interconnect or a link aggregation
+        group (LAG) of interconnects.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.allocate_hosted_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#allocate_hosted_connection)
+        """
     def allocate_private_virtual_interface(
         self,
+        *,
         connectionId: str,
         ownerAccount: str,
-        newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocationTypeDef,
-    ) -> "VirtualInterfaceTypeDef":
+        newPrivateVirtualInterfaceAllocation: "NewPrivateVirtualInterfaceAllocationTypeDef"
+    ) -> VirtualInterfaceResponseMetadataTypeDef:
         """
-        [Client.allocate_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.allocate_private_virtual_interface)
-        """
+        Provisions a private virtual interface to be owned by the specified account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.allocate_private_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#allocate_private_virtual_interface)
+        """
     def allocate_public_virtual_interface(
         self,
+        *,
         connectionId: str,
         ownerAccount: str,
-        newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocationTypeDef,
-    ) -> "VirtualInterfaceTypeDef":
+        newPublicVirtualInterfaceAllocation: "NewPublicVirtualInterfaceAllocationTypeDef"
+    ) -> VirtualInterfaceResponseMetadataTypeDef:
         """
-        [Client.allocate_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.allocate_public_virtual_interface)
-        """
+        Provisions a public virtual interface to be owned by the specified account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.allocate_public_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#allocate_public_virtual_interface)
+        """
     def allocate_transit_virtual_interface(
         self,
+        *,
         connectionId: str,
         ownerAccount: str,
-        newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocationTypeDef,
+        newTransitVirtualInterfaceAllocation: "NewTransitVirtualInterfaceAllocationTypeDef"
     ) -> AllocateTransitVirtualInterfaceResultTypeDef:
         """
-        [Client.allocate_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.allocate_transit_virtual_interface)
-        """
+        Provisions a transit virtual interface to be owned by the specified account.
 
-    def associate_connection_with_lag(self, connectionId: str, lagId: str) -> "ConnectionTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.allocate_transit_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#allocate_transit_virtual_interface)
         """
-        [Client.associate_connection_with_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.associate_connection_with_lag)
+    def associate_connection_with_lag(
+        self, *, connectionId: str, lagId: str
+    ) -> ConnectionResponseMetadataTypeDef:
         """
+        Associates an existing connection with a link aggregation group (LAG).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.associate_connection_with_lag)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#associate_connection_with_lag)
+        """
     def associate_hosted_connection(
-        self, connectionId: str, parentConnectionId: str
-    ) -> "ConnectionTypeDef":
+        self, *, connectionId: str, parentConnectionId: str
+    ) -> ConnectionResponseMetadataTypeDef:
         """
-        [Client.associate_hosted_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.associate_hosted_connection)
-        """
+        Associates a hosted connection and its virtual interfaces with a link
+        aggregation group (LAG) or interconnect.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.associate_hosted_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#associate_hosted_connection)
+        """
+    def associate_mac_sec_key(
+        self, *, connectionId: str, secretARN: str = None, ckn: str = None, cak: str = None
+    ) -> AssociateMacSecKeyResponseTypeDef:
+        """
+        Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity
+        Association Key (CAK) pair with an Direct Connect dedicated connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.associate_mac_sec_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#associate_mac_sec_key)
+        """
     def associate_virtual_interface(
-        self, virtualInterfaceId: str, connectionId: str
-    ) -> "VirtualInterfaceTypeDef":
+        self, *, virtualInterfaceId: str, connectionId: str
+    ) -> VirtualInterfaceResponseMetadataTypeDef:
         """
-        [Client.associate_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.associate_virtual_interface)
-        """
+        Associates a virtual interface with a specified link aggregation group (LAG) or
+        connection.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.associate_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#associate_virtual_interface)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def confirm_connection(self, connectionId: str) -> ConfirmConnectionResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#can_paginate)
         """
-        [Client.confirm_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.confirm_connection)
+    def confirm_connection(self, *, connectionId: str) -> ConfirmConnectionResponseTypeDef:
         """
+        Confirms the creation of the specified hosted connection on an interconnect.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.confirm_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#confirm_connection)
+        """
     def confirm_private_virtual_interface(
         self,
+        *,
         virtualInterfaceId: str,
         virtualGatewayId: str = None,
-        directConnectGatewayId: str = None,
+        directConnectGatewayId: str = None
     ) -> ConfirmPrivateVirtualInterfaceResponseTypeDef:
         """
-        [Client.confirm_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.confirm_private_virtual_interface)
-        """
+        Accepts ownership of a private virtual interface created by another account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.confirm_private_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#confirm_private_virtual_interface)
+        """
     def confirm_public_virtual_interface(
-        self, virtualInterfaceId: str
+        self, *, virtualInterfaceId: str
     ) -> ConfirmPublicVirtualInterfaceResponseTypeDef:
         """
-        [Client.confirm_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.confirm_public_virtual_interface)
-        """
+        Accepts ownership of a public virtual interface created by another account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.confirm_public_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#confirm_public_virtual_interface)
+        """
     def confirm_transit_virtual_interface(
-        self, virtualInterfaceId: str, directConnectGatewayId: str
+        self, *, virtualInterfaceId: str, directConnectGatewayId: str
     ) -> ConfirmTransitVirtualInterfaceResponseTypeDef:
         """
-        [Client.confirm_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.confirm_transit_virtual_interface)
-        """
+        Accepts ownership of a transit virtual interface created by another account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.confirm_transit_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#confirm_transit_virtual_interface)
+        """
     def create_bgp_peer(
-        self, virtualInterfaceId: str = None, newBGPPeer: NewBGPPeerTypeDef = None
+        self, *, virtualInterfaceId: str = None, newBGPPeer: "NewBGPPeerTypeDef" = None
     ) -> CreateBGPPeerResponseTypeDef:
         """
-        [Client.create_bgp_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_bgp_peer)
-        """
+        Creates a BGP peer on the specified virtual interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_bgp_peer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_bgp_peer)
+        """
     def create_connection(
         self,
+        *,
         location: str,
         bandwidth: str,
         connectionName: str,
         lagId: str = None,
         tags: List["TagTypeDef"] = None,
         providerName: str = None,
-    ) -> "ConnectionTypeDef":
+        requestMACSec: bool = None
+    ) -> ConnectionResponseMetadataTypeDef:
         """
-        [Client.create_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_connection)
-        """
+        Creates a connection between a customer network and a specific Direct Connect
+        location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_connection)
+        """
     def create_direct_connect_gateway(
-        self, directConnectGatewayName: str, amazonSideAsn: int = None
+        self, *, directConnectGatewayName: str, amazonSideAsn: int = None
     ) -> CreateDirectConnectGatewayResultTypeDef:
         """
-        [Client.create_direct_connect_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway)
-        """
+        Creates a Direct Connect gateway, which is an intermediate object that enables
+        you to connect a set of virtual interfaces and virtual private gateways.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_direct_connect_gateway)
+        """
     def create_direct_connect_gateway_association(
         self,
+        *,
         directConnectGatewayId: str,
         gatewayId: str = None,
         addAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
-        virtualGatewayId: str = None,
+        virtualGatewayId: str = None
     ) -> CreateDirectConnectGatewayAssociationResultTypeDef:
         """
-        [Client.create_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association)
-        """
+        Creates an association between a Direct Connect gateway and a virtual private
+        gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_direct_connect_gateway_association)
+        """
     def create_direct_connect_gateway_association_proposal(
         self,
+        *,
         directConnectGatewayId: str,
         directConnectGatewayOwnerAccount: str,
         gatewayId: str,
         addAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
-        removeAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
+        removeAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None
     ) -> CreateDirectConnectGatewayAssociationProposalResultTypeDef:
         """
-        [Client.create_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association_proposal)
-        """
+        Creates a proposal to associate the specified virtual private gateway or transit
+        gateway with the specified Direct Connect gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association_proposal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_direct_connect_gateway_association_proposal)
+        """
     def create_interconnect(
         self,
+        *,
         interconnectName: str,
         bandwidth: str,
         location: str,
         lagId: str = None,
         tags: List["TagTypeDef"] = None,
-        providerName: str = None,
-    ) -> "InterconnectTypeDef":
+        providerName: str = None
+    ) -> InterconnectResponseMetadataTypeDef:
         """
-        [Client.create_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_interconnect)
-        """
+        Creates an interconnect between an Direct Connect Partner's network and a
+        specific Direct Connect location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_interconnect)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_interconnect)
+        """
     def create_lag(
         self,
+        *,
         numberOfConnections: int,
         location: str,
         connectionsBandwidth: str,
@@ -291,216 +373,304 @@ class DirectConnectClient:
         tags: List["TagTypeDef"] = None,
         childConnectionTags: List["TagTypeDef"] = None,
         providerName: str = None,
-    ) -> "LagTypeDef":
+        requestMACSec: bool = None
+    ) -> LagResponseMetadataTypeDef:
         """
-        [Client.create_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_lag)
-        """
+        Creates a link aggregation group (LAG) with the specified number of bundled
+        physical dedicated connections between the customer network and a specific
+        Direct Connect location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_lag)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_lag)
+        """
     def create_private_virtual_interface(
-        self, connectionId: str, newPrivateVirtualInterface: NewPrivateVirtualInterfaceTypeDef
-    ) -> "VirtualInterfaceTypeDef":
+        self, *, connectionId: str, newPrivateVirtualInterface: "NewPrivateVirtualInterfaceTypeDef"
+    ) -> VirtualInterfaceResponseMetadataTypeDef:
         """
-        [Client.create_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_private_virtual_interface)
-        """
+        Creates a private virtual interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_private_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_private_virtual_interface)
+        """
     def create_public_virtual_interface(
-        self, connectionId: str, newPublicVirtualInterface: NewPublicVirtualInterfaceTypeDef
-    ) -> "VirtualInterfaceTypeDef":
+        self, *, connectionId: str, newPublicVirtualInterface: "NewPublicVirtualInterfaceTypeDef"
+    ) -> VirtualInterfaceResponseMetadataTypeDef:
         """
-        [Client.create_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_public_virtual_interface)
-        """
+        Creates a public virtual interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_public_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_public_virtual_interface)
+        """
     def create_transit_virtual_interface(
-        self, connectionId: str, newTransitVirtualInterface: NewTransitVirtualInterfaceTypeDef
+        self, *, connectionId: str, newTransitVirtualInterface: "NewTransitVirtualInterfaceTypeDef"
     ) -> CreateTransitVirtualInterfaceResultTypeDef:
         """
-        [Client.create_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.create_transit_virtual_interface)
-        """
+        Creates a transit virtual interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.create_transit_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#create_transit_virtual_interface)
+        """
     def delete_bgp_peer(
         self,
+        *,
         virtualInterfaceId: str = None,
         asn: int = None,
         customerAddress: str = None,
-        bgpPeerId: str = None,
+        bgpPeerId: str = None
     ) -> DeleteBGPPeerResponseTypeDef:
         """
-        [Client.delete_bgp_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_bgp_peer)
-        """
+        Deletes the specified BGP peer on the specified virtual interface with the
+        specified customer address and ASN.
 
-    def delete_connection(self, connectionId: str) -> "ConnectionTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_bgp_peer)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_bgp_peer)
         """
-        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_connection)
+    def delete_connection(self, *, connectionId: str) -> ConnectionResponseMetadataTypeDef:
         """
+        Deletes the specified connection.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_connection)
+        """
     def delete_direct_connect_gateway(
-        self, directConnectGatewayId: str
+        self, *, directConnectGatewayId: str
     ) -> DeleteDirectConnectGatewayResultTypeDef:
         """
-        [Client.delete_direct_connect_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway)
-        """
+        Deletes the specified Direct Connect gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_direct_connect_gateway)
+        """
     def delete_direct_connect_gateway_association(
         self,
+        *,
         associationId: str = None,
         directConnectGatewayId: str = None,
-        virtualGatewayId: str = None,
+        virtualGatewayId: str = None
     ) -> DeleteDirectConnectGatewayAssociationResultTypeDef:
         """
-        [Client.delete_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association)
-        """
+        Deletes the association between the specified Direct Connect gateway and virtual
+        private gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_direct_connect_gateway_association)
+        """
     def delete_direct_connect_gateway_association_proposal(
-        self, proposalId: str
+        self, *, proposalId: str
     ) -> DeleteDirectConnectGatewayAssociationProposalResultTypeDef:
         """
-        [Client.delete_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association_proposal)
-        """
+        Deletes the association proposal request between the specified Direct Connect
+        gateway and virtual private gateway or transit gateway.
 
-    def delete_interconnect(self, interconnectId: str) -> DeleteInterconnectResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association_proposal)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_direct_connect_gateway_association_proposal)
         """
-        [Client.delete_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_interconnect)
+    def delete_interconnect(self, *, interconnectId: str) -> DeleteInterconnectResponseTypeDef:
         """
+        Deletes the specified interconnect.
 
-    def delete_lag(self, lagId: str) -> "LagTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_interconnect)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_interconnect)
         """
-        [Client.delete_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_lag)
+    def delete_lag(self, *, lagId: str) -> LagResponseMetadataTypeDef:
         """
+        Deletes the specified link aggregation group (LAG).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_lag)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_lag)
+        """
     def delete_virtual_interface(
-        self, virtualInterfaceId: str
+        self, *, virtualInterfaceId: str
     ) -> DeleteVirtualInterfaceResponseTypeDef:
         """
-        [Client.delete_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.delete_virtual_interface)
-        """
+        Deletes a virtual interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.delete_virtual_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#delete_virtual_interface)
+        """
     def describe_connection_loa(
         self,
+        *,
         connectionId: str,
         providerName: str = None,
-        loaContentType: Literal["application/pdf"] = None,
+        loaContentType: Literal["application/pdf"] = None
     ) -> DescribeConnectionLoaResponseTypeDef:
         """
-        [Client.describe_connection_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_connection_loa)
-        """
+        Deprecated.
 
-    def describe_connections(self, connectionId: str = None) -> ConnectionsTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_connection_loa)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_connection_loa)
         """
-        [Client.describe_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_connections)
+    def describe_connections(self, *, connectionId: str = None) -> ConnectionsTypeDef:
         """
+        Displays the specified connection or all connections in this Region.
 
-    def describe_connections_on_interconnect(self, interconnectId: str) -> ConnectionsTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_connections)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_connections)
         """
-        [Client.describe_connections_on_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_connections_on_interconnect)
+    def describe_connections_on_interconnect(self, *, interconnectId: str) -> ConnectionsTypeDef:
         """
+        Deprecated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_connections_on_interconnect)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_connections_on_interconnect)
+        """
     def describe_direct_connect_gateway_association_proposals(
         self,
+        *,
         directConnectGatewayId: str = None,
         proposalId: str = None,
         associatedGatewayId: str = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> DescribeDirectConnectGatewayAssociationProposalsResultTypeDef:
         """
-        [Client.describe_direct_connect_gateway_association_proposals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_association_proposals)
-        """
+        Describes one or more association proposals for connection between a virtual
+        private gateway or transit gateway and a Direct Connect gateway.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_association_proposals)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_direct_connect_gateway_association_proposals)
+        """
     def describe_direct_connect_gateway_associations(
         self,
+        *,
         associationId: str = None,
         associatedGatewayId: str = None,
         directConnectGatewayId: str = None,
         maxResults: int = None,
         nextToken: str = None,
-        virtualGatewayId: str = None,
+        virtualGatewayId: str = None
     ) -> DescribeDirectConnectGatewayAssociationsResultTypeDef:
         """
-        [Client.describe_direct_connect_gateway_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_associations)
-        """
+        Lists the associations between your Direct Connect gateways and virtual private
+        gateways and transit gateways.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_associations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_direct_connect_gateway_associations)
+        """
     def describe_direct_connect_gateway_attachments(
         self,
+        *,
         directConnectGatewayId: str = None,
         virtualInterfaceId: str = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> DescribeDirectConnectGatewayAttachmentsResultTypeDef:
         """
-        [Client.describe_direct_connect_gateway_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_attachments)
-        """
+        Lists the attachments between your Direct Connect gateways and virtual
+        interfaces.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_attachments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_direct_connect_gateway_attachments)
+        """
     def describe_direct_connect_gateways(
-        self, directConnectGatewayId: str = None, maxResults: int = None, nextToken: str = None
+        self, *, directConnectGatewayId: str = None, maxResults: int = None, nextToken: str = None
     ) -> DescribeDirectConnectGatewaysResultTypeDef:
         """
-        [Client.describe_direct_connect_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateways)
-        """
+        Lists all your Direct Connect gateways or only the specified Direct Connect
+        gateway.
 
-    def describe_hosted_connections(self, connectionId: str) -> ConnectionsTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateways)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_direct_connect_gateways)
         """
-        [Client.describe_hosted_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_hosted_connections)
+    def describe_hosted_connections(self, *, connectionId: str) -> ConnectionsTypeDef:
         """
+        Lists the hosted connections that have been provisioned on the specified
+        interconnect or link aggregation group (LAG).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_hosted_connections)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_hosted_connections)
+        """
     def describe_interconnect_loa(
         self,
+        *,
         interconnectId: str,
         providerName: str = None,
-        loaContentType: Literal["application/pdf"] = None,
+        loaContentType: Literal["application/pdf"] = None
     ) -> DescribeInterconnectLoaResponseTypeDef:
         """
-        [Client.describe_interconnect_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_interconnect_loa)
-        """
+        Deprecated.
 
-    def describe_interconnects(self, interconnectId: str = None) -> InterconnectsTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_interconnect_loa)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_interconnect_loa)
         """
-        [Client.describe_interconnects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_interconnects)
+    def describe_interconnects(self, *, interconnectId: str = None) -> InterconnectsTypeDef:
         """
+        Lists the interconnects owned by the account or only the specified interconnect.
 
-    def describe_lags(self, lagId: str = None) -> LagsTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_interconnects)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_interconnects)
         """
-        [Client.describe_lags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_lags)
+    def describe_lags(self, *, lagId: str = None) -> LagsTypeDef:
         """
+        Describes all your link aggregation groups (LAG) or the specified LAG.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_lags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_lags)
+        """
     def describe_loa(
         self,
+        *,
         connectionId: str,
         providerName: str = None,
-        loaContentType: Literal["application/pdf"] = None,
-    ) -> "LoaTypeDef":
+        loaContentType: Literal["application/pdf"] = None
+    ) -> LoaResponseMetadataTypeDef:
         """
-        [Client.describe_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_loa)
-        """
+        Gets the LOA-CFA for a connection, interconnect, or link aggregation group
+        (LAG).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_loa)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_loa)
+        """
     def describe_locations(self) -> LocationsTypeDef:
         """
-        [Client.describe_locations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_locations)
-        """
+        Lists the Direct Connect locations in the current Region.
 
-    def describe_tags(self, resourceArns: List[str]) -> DescribeTagsResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_locations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_locations)
         """
-        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_tags)
+    def describe_tags(self, *, resourceArns: List[str]) -> DescribeTagsResponseTypeDef:
         """
+        Describes the tags associated with the specified Direct Connect resources.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_tags)
+        """
     def describe_virtual_gateways(self) -> VirtualGatewaysTypeDef:
         """
-        [Client.describe_virtual_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_gateways)
-        """
+        Lists the virtual private gateways owned by the account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_gateways)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_virtual_gateways)
+        """
     def describe_virtual_interfaces(
-        self, connectionId: str = None, virtualInterfaceId: str = None
+        self, *, connectionId: str = None, virtualInterfaceId: str = None
     ) -> VirtualInterfacesTypeDef:
         """
-        [Client.describe_virtual_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_interfaces)
-        """
+        Displays all virtual interfaces for an account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_interfaces)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#describe_virtual_interfaces)
+        """
     def disassociate_connection_from_lag(
-        self, connectionId: str, lagId: str
-    ) -> "ConnectionTypeDef":
+        self, *, connectionId: str, lagId: str
+    ) -> ConnectionResponseMetadataTypeDef:
         """
-        [Client.disassociate_connection_from_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.disassociate_connection_from_lag)
-        """
+        Disassociates a connection from a link aggregation group (LAG).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.disassociate_connection_from_lag)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#disassociate_connection_from_lag)
+        """
+    def disassociate_mac_sec_key(
+        self, *, connectionId: str, secretARN: str
+    ) -> DisassociateMacSecKeyResponseTypeDef:
+        """
+        Removes the association between a MAC Security (MACsec) security key and an
+        Direct Connect dedicated connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.disassociate_mac_sec_key)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#disassociate_mac_sec_key)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -509,86 +679,131 @@ class DirectConnectClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#generate_presigned_url)
+        """
     def list_virtual_interface_test_history(
         self,
+        *,
         testId: str = None,
         virtualInterfaceId: str = None,
         bgpPeers: List[str] = None,
         status: str = None,
         maxResults: int = None,
-        nextToken: str = None,
+        nextToken: str = None
     ) -> ListVirtualInterfaceTestHistoryResponseTypeDef:
         """
-        [Client.list_virtual_interface_test_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.list_virtual_interface_test_history)
-        """
+        Lists the virtual interface failover test history.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.list_virtual_interface_test_history)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#list_virtual_interface_test_history)
+        """
     def start_bgp_failover_test(
-        self, virtualInterfaceId: str, bgpPeers: List[str] = None, testDurationInMinutes: int = None
+        self,
+        *,
+        virtualInterfaceId: str,
+        bgpPeers: List[str] = None,
+        testDurationInMinutes: int = None
     ) -> StartBgpFailoverTestResponseTypeDef:
         """
-        [Client.start_bgp_failover_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.start_bgp_failover_test)
-        """
+        Starts the virtual interface failover test that verifies your configuration
+        meets your resiliency requirements by placing the BGP peering session in the
+        DOWN state.
 
-    def stop_bgp_failover_test(self, virtualInterfaceId: str) -> StopBgpFailoverTestResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.start_bgp_failover_test)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#start_bgp_failover_test)
         """
-        [Client.stop_bgp_failover_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.stop_bgp_failover_test)
+    def stop_bgp_failover_test(
+        self, *, virtualInterfaceId: str
+    ) -> StopBgpFailoverTestResponseTypeDef:
         """
+        Stops the virtual interface failover test.
 
-    def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.stop_bgp_failover_test)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#stop_bgp_failover_test)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Adds the specified tags to the specified Direct Connect resource.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes one or more tags from the specified Direct Connect resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#untag_resource)
+        """
+    def update_connection(
+        self, *, connectionId: str, connectionName: str = None, encryptionMode: str = None
+    ) -> ConnectionResponseMetadataTypeDef:
+        """
+        Updates the Direct Connect dedicated connection configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.update_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#update_connection)
+        """
     def update_direct_connect_gateway_association(
         self,
+        *,
         associationId: str = None,
         addAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
-        removeAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
+        removeAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None
     ) -> UpdateDirectConnectGatewayAssociationResultTypeDef:
         """
-        [Client.update_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.update_direct_connect_gateway_association)
-        """
+        Updates the specified attributes of the Direct Connect gateway association.
 
-    def update_lag(self, lagId: str, lagName: str = None, minimumLinks: int = None) -> "LagTypeDef":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.update_direct_connect_gateway_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#update_direct_connect_gateway_association)
         """
-        [Client.update_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.update_lag)
+    def update_lag(
+        self,
+        *,
+        lagId: str,
+        lagName: str = None,
+        minimumLinks: int = None,
+        encryptionMode: str = None
+    ) -> LagResponseMetadataTypeDef:
         """
+        Updates the attributes of the specified link aggregation group (LAG).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.update_lag)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#update_lag)
+        """
     def update_virtual_interface_attributes(
-        self, virtualInterfaceId: str, mtu: int = None
-    ) -> "VirtualInterfaceTypeDef":
+        self, *, virtualInterfaceId: str, mtu: int = None
+    ) -> VirtualInterfaceResponseMetadataTypeDef:
         """
-        [Client.update_virtual_interface_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Client.update_virtual_interface_attributes)
-        """
+        Updates the specified attributes of the specified virtual private interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Client.update_virtual_interface_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/client.html#update_virtual_interface_attributes)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_direct_connect_gateway_associations"]
     ) -> DescribeDirectConnectGatewayAssociationsPaginator:
         """
-        [Paginator.DescribeDirectConnectGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayassociationspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_direct_connect_gateway_attachments"]
     ) -> DescribeDirectConnectGatewayAttachmentsPaginator:
         """
-        [Paginator.DescribeDirectConnectGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayattachmentspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_direct_connect_gateways"]
     ) -> DescribeDirectConnectGatewaysPaginator:
         """
-        [Paginator.DescribeDirectConnectGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayspaginator)
         """

@@ -16,9 +16,8 @@ Usage::
     session_client: DLMClient = session.client("dlm")
     ```
 """
-from mypy_boto3_dlm.client import DLMClient
+from .client import DLMClient
 
 Client = DLMClient
-
 
 __all__ = ("Client", "DLMClient")

@@ -31,8 +31,8 @@ Usage::
     poll_for_decision_task_paginator: PollForDecisionTaskPaginator = client.get_paginator("poll_for_decision_task")
     ```
 """
-from mypy_boto3_swf.client import SWFClient
-from mypy_boto3_swf.paginator import (
+from .client import SWFClient
+from .paginator import (
     GetWorkflowExecutionHistoryPaginator,
     ListActivityTypesPaginator,
     ListClosedWorkflowExecutionsPaginator,
@@ -43,7 +43,6 @@ from mypy_boto3_swf.paginator import (
 )
 
 Client = SWFClient
-
 
 __all__ = (
     "Client",

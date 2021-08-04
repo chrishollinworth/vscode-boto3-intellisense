@@ -27,8 +27,8 @@ Usage::
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
     ```
 """
-from mypy_boto3_mediaconvert.client import MediaConvertClient
-from mypy_boto3_mediaconvert.paginator import (
+from .client import MediaConvertClient
+from .paginator import (
     DescribeEndpointsPaginator,
     ListJobsPaginator,
     ListJobTemplatesPaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_mediaconvert.paginator import (
 )
 
 Client = MediaConvertClient
-
 
 __all__ = (
     "Client",

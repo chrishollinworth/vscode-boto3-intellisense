@@ -16,9 +16,8 @@ Usage::
     session_client: TimestreamWriteClient = session.client("timestream-write")
     ```
 """
-from mypy_boto3_timestream_write.client import TimestreamWriteClient
+from .client import TimestreamWriteClient
 
 Client = TimestreamWriteClient
-
 
 __all__ = ("Client", "TimestreamWriteClient")

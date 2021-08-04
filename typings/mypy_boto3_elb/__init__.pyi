@@ -28,16 +28,11 @@ Usage::
     describe_load_balancers_paginator: DescribeLoadBalancersPaginator = client.get_paginator("describe_load_balancers")
     ```
 """
-from mypy_boto3_elb.client import ElasticLoadBalancingClient
-from mypy_boto3_elb.paginator import DescribeAccountLimitsPaginator, DescribeLoadBalancersPaginator
-from mypy_boto3_elb.waiter import (
-    AnyInstanceInServiceWaiter,
-    InstanceDeregisteredWaiter,
-    InstanceInServiceWaiter,
-)
+from .client import ElasticLoadBalancingClient
+from .paginator import DescribeAccountLimitsPaginator, DescribeLoadBalancersPaginator
+from .waiter import AnyInstanceInServiceWaiter, InstanceDeregisteredWaiter, InstanceInServiceWaiter
 
 Client = ElasticLoadBalancingClient
-
 
 __all__ = (
     "AnyInstanceInServiceWaiter",

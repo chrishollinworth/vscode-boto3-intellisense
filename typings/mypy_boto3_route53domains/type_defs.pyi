@@ -1,89 +1,123 @@
 """
-Main interface for route53domains service type definitions.
+Type annotations for route53domains service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_route53domains.type_defs import BillingRecordTypeDef
+    from mypy_boto3_route53domains.type_defs import AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef
 
-    data: BillingRecordTypeDef = {...}
+    data: AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from .literals import (
+    ContactTypeType,
+    CountryCodeType,
+    DomainAvailabilityType,
+    ExtraParamNameType,
+    OperationStatusType,
+    OperationTypeType,
+    ReachabilityStatusType,
+    TransferableType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef",
+    "AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef",
     "BillingRecordTypeDef",
+    "CancelDomainTransferToAnotherAwsAccountRequestRequestTypeDef",
+    "CancelDomainTransferToAnotherAwsAccountResponseTypeDef",
+    "CheckDomainAvailabilityRequestRequestTypeDef",
+    "CheckDomainAvailabilityResponseTypeDef",
+    "CheckDomainTransferabilityRequestRequestTypeDef",
+    "CheckDomainTransferabilityResponseTypeDef",
     "ContactDetailTypeDef",
+    "DeleteTagsForDomainRequestRequestTypeDef",
+    "DisableDomainAutoRenewRequestRequestTypeDef",
+    "DisableDomainTransferLockRequestRequestTypeDef",
+    "DisableDomainTransferLockResponseTypeDef",
     "DomainSuggestionTypeDef",
     "DomainSummaryTypeDef",
     "DomainTransferabilityTypeDef",
+    "EnableDomainAutoRenewRequestRequestTypeDef",
+    "EnableDomainTransferLockRequestRequestTypeDef",
+    "EnableDomainTransferLockResponseTypeDef",
     "ExtraParamTypeDef",
+    "GetContactReachabilityStatusRequestRequestTypeDef",
+    "GetContactReachabilityStatusResponseTypeDef",
+    "GetDomainDetailRequestRequestTypeDef",
+    "GetDomainDetailResponseTypeDef",
+    "GetDomainSuggestionsRequestRequestTypeDef",
+    "GetDomainSuggestionsResponseTypeDef",
+    "GetOperationDetailRequestRequestTypeDef",
+    "GetOperationDetailResponseTypeDef",
+    "ListDomainsRequestRequestTypeDef",
+    "ListDomainsResponseTypeDef",
+    "ListOperationsRequestRequestTypeDef",
+    "ListOperationsResponseTypeDef",
+    "ListTagsForDomainRequestRequestTypeDef",
+    "ListTagsForDomainResponseTypeDef",
     "NameserverTypeDef",
     "OperationSummaryTypeDef",
-    "TagTypeDef",
-    "AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef",
-    "CancelDomainTransferToAnotherAwsAccountResponseTypeDef",
-    "CheckDomainAvailabilityResponseTypeDef",
-    "CheckDomainTransferabilityResponseTypeDef",
-    "DisableDomainTransferLockResponseTypeDef",
-    "EnableDomainTransferLockResponseTypeDef",
-    "GetContactReachabilityStatusResponseTypeDef",
-    "GetDomainDetailResponseTypeDef",
-    "GetDomainSuggestionsResponseTypeDef",
-    "GetOperationDetailResponseTypeDef",
-    "ListDomainsResponseTypeDef",
-    "ListOperationsResponseTypeDef",
-    "ListTagsForDomainResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "RegisterDomainRequestRequestTypeDef",
     "RegisterDomainResponseTypeDef",
+    "RejectDomainTransferFromAnotherAwsAccountRequestRequestTypeDef",
     "RejectDomainTransferFromAnotherAwsAccountResponseTypeDef",
+    "RenewDomainRequestRequestTypeDef",
     "RenewDomainResponseTypeDef",
+    "ResendContactReachabilityEmailRequestRequestTypeDef",
     "ResendContactReachabilityEmailResponseTypeDef",
+    "ResponseMetadataTypeDef",
+    "RetrieveDomainAuthCodeRequestRequestTypeDef",
     "RetrieveDomainAuthCodeResponseTypeDef",
+    "TagTypeDef",
+    "TransferDomainRequestRequestTypeDef",
     "TransferDomainResponseTypeDef",
+    "TransferDomainToAnotherAwsAccountRequestRequestTypeDef",
     "TransferDomainToAnotherAwsAccountResponseTypeDef",
+    "UpdateDomainContactPrivacyRequestRequestTypeDef",
     "UpdateDomainContactPrivacyResponseTypeDef",
+    "UpdateDomainContactRequestRequestTypeDef",
     "UpdateDomainContactResponseTypeDef",
+    "UpdateDomainNameserversRequestRequestTypeDef",
     "UpdateDomainNameserversResponseTypeDef",
+    "UpdateTagsForDomainRequestRequestTypeDef",
+    "ViewBillingRequestRequestTypeDef",
     "ViewBillingResponseTypeDef",
+)
+
+AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef = TypedDict(
+    "AcceptDomainTransferFromAnotherAwsAccountRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Password": str,
+    },
+)
+
+AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef = TypedDict(
+    "AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 BillingRecordTypeDef = TypedDict(
     "BillingRecordTypeDef",
     {
         "DomainName": str,
-        "Operation": Literal[
-            "REGISTER_DOMAIN",
-            "DELETE_DOMAIN",
-            "TRANSFER_IN_DOMAIN",
-            "UPDATE_DOMAIN_CONTACT",
-            "UPDATE_NAMESERVER",
-            "CHANGE_PRIVACY_PROTECTION",
-            "DOMAIN_LOCK",
-            "ENABLE_AUTORENEW",
-            "DISABLE_AUTORENEW",
-            "ADD_DNSSEC",
-            "REMOVE_DNSSEC",
-            "EXPIRE_DOMAIN",
-            "TRANSFER_OUT_DOMAIN",
-            "CHANGE_DOMAIN_OWNER",
-            "RENEW_DOMAIN",
-            "PUSH_DOMAIN",
-            "INTERNAL_TRANSFER_OUT_DOMAIN",
-            "INTERNAL_TRANSFER_IN_DOMAIN",
-        ],
+        "Operation": OperationTypeType,
         "InvoiceId": str,
         "BillDate": datetime,
         "Price": float,
@@ -91,248 +125,89 @@ BillingRecordTypeDef = TypedDict(
     total=False,
 )
 
+CancelDomainTransferToAnotherAwsAccountRequestRequestTypeDef = TypedDict(
+    "CancelDomainTransferToAnotherAwsAccountRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+CancelDomainTransferToAnotherAwsAccountResponseTypeDef = TypedDict(
+    "CancelDomainTransferToAnotherAwsAccountResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCheckDomainAvailabilityRequestRequestTypeDef = TypedDict(
+    "_RequiredCheckDomainAvailabilityRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalCheckDomainAvailabilityRequestRequestTypeDef = TypedDict(
+    "_OptionalCheckDomainAvailabilityRequestRequestTypeDef",
+    {
+        "IdnLangCode": str,
+    },
+    total=False,
+)
+
+class CheckDomainAvailabilityRequestRequestTypeDef(
+    _RequiredCheckDomainAvailabilityRequestRequestTypeDef,
+    _OptionalCheckDomainAvailabilityRequestRequestTypeDef,
+):
+    pass
+
+CheckDomainAvailabilityResponseTypeDef = TypedDict(
+    "CheckDomainAvailabilityResponseTypeDef",
+    {
+        "Availability": DomainAvailabilityType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCheckDomainTransferabilityRequestRequestTypeDef = TypedDict(
+    "_RequiredCheckDomainTransferabilityRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalCheckDomainTransferabilityRequestRequestTypeDef = TypedDict(
+    "_OptionalCheckDomainTransferabilityRequestRequestTypeDef",
+    {
+        "AuthCode": str,
+    },
+    total=False,
+)
+
+class CheckDomainTransferabilityRequestRequestTypeDef(
+    _RequiredCheckDomainTransferabilityRequestRequestTypeDef,
+    _OptionalCheckDomainTransferabilityRequestRequestTypeDef,
+):
+    pass
+
+CheckDomainTransferabilityResponseTypeDef = TypedDict(
+    "CheckDomainTransferabilityResponseTypeDef",
+    {
+        "Transferability": "DomainTransferabilityTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ContactDetailTypeDef = TypedDict(
     "ContactDetailTypeDef",
     {
         "FirstName": str,
         "LastName": str,
-        "ContactType": Literal["PERSON", "COMPANY", "ASSOCIATION", "PUBLIC_BODY", "RESELLER"],
+        "ContactType": ContactTypeType,
         "OrganizationName": str,
         "AddressLine1": str,
         "AddressLine2": str,
         "City": str,
         "State": str,
-        "CountryCode": Literal[
-            "AD",
-            "AE",
-            "AF",
-            "AG",
-            "AI",
-            "AL",
-            "AM",
-            "AN",
-            "AO",
-            "AQ",
-            "AR",
-            "AS",
-            "AT",
-            "AU",
-            "AW",
-            "AZ",
-            "BA",
-            "BB",
-            "BD",
-            "BE",
-            "BF",
-            "BG",
-            "BH",
-            "BI",
-            "BJ",
-            "BL",
-            "BM",
-            "BN",
-            "BO",
-            "BR",
-            "BS",
-            "BT",
-            "BW",
-            "BY",
-            "BZ",
-            "CA",
-            "CC",
-            "CD",
-            "CF",
-            "CG",
-            "CH",
-            "CI",
-            "CK",
-            "CL",
-            "CM",
-            "CN",
-            "CO",
-            "CR",
-            "CU",
-            "CV",
-            "CX",
-            "CY",
-            "CZ",
-            "DE",
-            "DJ",
-            "DK",
-            "DM",
-            "DO",
-            "DZ",
-            "EC",
-            "EE",
-            "EG",
-            "ER",
-            "ES",
-            "ET",
-            "FI",
-            "FJ",
-            "FK",
-            "FM",
-            "FO",
-            "FR",
-            "GA",
-            "GB",
-            "GD",
-            "GE",
-            "GH",
-            "GI",
-            "GL",
-            "GM",
-            "GN",
-            "GQ",
-            "GR",
-            "GT",
-            "GU",
-            "GW",
-            "GY",
-            "HK",
-            "HN",
-            "HR",
-            "HT",
-            "HU",
-            "ID",
-            "IE",
-            "IL",
-            "IM",
-            "IN",
-            "IQ",
-            "IR",
-            "IS",
-            "IT",
-            "JM",
-            "JO",
-            "JP",
-            "KE",
-            "KG",
-            "KH",
-            "KI",
-            "KM",
-            "KN",
-            "KP",
-            "KR",
-            "KW",
-            "KY",
-            "KZ",
-            "LA",
-            "LB",
-            "LC",
-            "LI",
-            "LK",
-            "LR",
-            "LS",
-            "LT",
-            "LU",
-            "LV",
-            "LY",
-            "MA",
-            "MC",
-            "MD",
-            "ME",
-            "MF",
-            "MG",
-            "MH",
-            "MK",
-            "ML",
-            "MM",
-            "MN",
-            "MO",
-            "MP",
-            "MR",
-            "MS",
-            "MT",
-            "MU",
-            "MV",
-            "MW",
-            "MX",
-            "MY",
-            "MZ",
-            "NA",
-            "NC",
-            "NE",
-            "NG",
-            "NI",
-            "NL",
-            "NO",
-            "NP",
-            "NR",
-            "NU",
-            "NZ",
-            "OM",
-            "PA",
-            "PE",
-            "PF",
-            "PG",
-            "PH",
-            "PK",
-            "PL",
-            "PM",
-            "PN",
-            "PR",
-            "PT",
-            "PW",
-            "PY",
-            "QA",
-            "RO",
-            "RS",
-            "RU",
-            "RW",
-            "SA",
-            "SB",
-            "SC",
-            "SD",
-            "SE",
-            "SG",
-            "SH",
-            "SI",
-            "SK",
-            "SL",
-            "SM",
-            "SN",
-            "SO",
-            "SR",
-            "ST",
-            "SV",
-            "SY",
-            "SZ",
-            "TC",
-            "TD",
-            "TG",
-            "TH",
-            "TJ",
-            "TK",
-            "TL",
-            "TM",
-            "TN",
-            "TO",
-            "TR",
-            "TT",
-            "TV",
-            "TW",
-            "TZ",
-            "UA",
-            "UG",
-            "US",
-            "UY",
-            "UZ",
-            "VA",
-            "VC",
-            "VE",
-            "VG",
-            "VI",
-            "VN",
-            "VU",
-            "WF",
-            "WS",
-            "YE",
-            "YT",
-            "ZA",
-            "ZM",
-            "ZW",
-        ],
+        "CountryCode": CountryCodeType,
         "ZipCode": str,
         "PhoneNumber": str,
         "Email": str,
@@ -342,163 +217,135 @@ ContactDetailTypeDef = TypedDict(
     total=False,
 )
 
-DomainSuggestionTypeDef = TypedDict(
-    "DomainSuggestionTypeDef", {"DomainName": str, "Availability": str}, total=False
+DeleteTagsForDomainRequestRequestTypeDef = TypedDict(
+    "DeleteTagsForDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "TagsToDelete": List[str],
+    },
 )
 
-_RequiredDomainSummaryTypeDef = TypedDict("_RequiredDomainSummaryTypeDef", {"DomainName": str})
-_OptionalDomainSummaryTypeDef = TypedDict(
-    "_OptionalDomainSummaryTypeDef",
-    {"AutoRenew": bool, "TransferLock": bool, "Expiry": datetime},
+DisableDomainAutoRenewRequestRequestTypeDef = TypedDict(
+    "DisableDomainAutoRenewRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+DisableDomainTransferLockRequestRequestTypeDef = TypedDict(
+    "DisableDomainTransferLockRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+DisableDomainTransferLockResponseTypeDef = TypedDict(
+    "DisableDomainTransferLockResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DomainSuggestionTypeDef = TypedDict(
+    "DomainSuggestionTypeDef",
+    {
+        "DomainName": str,
+        "Availability": str,
+    },
     total=False,
 )
 
+_RequiredDomainSummaryTypeDef = TypedDict(
+    "_RequiredDomainSummaryTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDomainSummaryTypeDef = TypedDict(
+    "_OptionalDomainSummaryTypeDef",
+    {
+        "AutoRenew": bool,
+        "TransferLock": bool,
+        "Expiry": datetime,
+    },
+    total=False,
+)
 
 class DomainSummaryTypeDef(_RequiredDomainSummaryTypeDef, _OptionalDomainSummaryTypeDef):
     pass
 
-
 DomainTransferabilityTypeDef = TypedDict(
     "DomainTransferabilityTypeDef",
-    {"Transferable": Literal["TRANSFERABLE", "UNTRANSFERABLE", "DONT_KNOW"]},
+    {
+        "Transferable": TransferableType,
+    },
     total=False,
+)
+
+EnableDomainAutoRenewRequestRequestTypeDef = TypedDict(
+    "EnableDomainAutoRenewRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+EnableDomainTransferLockRequestRequestTypeDef = TypedDict(
+    "EnableDomainTransferLockRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+EnableDomainTransferLockResponseTypeDef = TypedDict(
+    "EnableDomainTransferLockResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ExtraParamTypeDef = TypedDict(
     "ExtraParamTypeDef",
     {
-        "Name": Literal[
-            "DUNS_NUMBER",
-            "BRAND_NUMBER",
-            "BIRTH_DEPARTMENT",
-            "BIRTH_DATE_IN_YYYY_MM_DD",
-            "BIRTH_COUNTRY",
-            "BIRTH_CITY",
-            "DOCUMENT_NUMBER",
-            "AU_ID_NUMBER",
-            "AU_ID_TYPE",
-            "CA_LEGAL_TYPE",
-            "CA_BUSINESS_ENTITY_TYPE",
-            "CA_LEGAL_REPRESENTATIVE",
-            "CA_LEGAL_REPRESENTATIVE_CAPACITY",
-            "ES_IDENTIFICATION",
-            "ES_IDENTIFICATION_TYPE",
-            "ES_LEGAL_FORM",
-            "FI_BUSINESS_NUMBER",
-            "FI_ID_NUMBER",
-            "FI_NATIONALITY",
-            "FI_ORGANIZATION_TYPE",
-            "IT_NATIONALITY",
-            "IT_PIN",
-            "IT_REGISTRANT_ENTITY_TYPE",
-            "RU_PASSPORT_DATA",
-            "SE_ID_NUMBER",
-            "SG_ID_NUMBER",
-            "VAT_NUMBER",
-            "UK_CONTACT_TYPE",
-            "UK_COMPANY_NUMBER",
-        ],
+        "Name": ExtraParamNameType,
         "Value": str,
     },
 )
 
-_RequiredNameserverTypeDef = TypedDict("_RequiredNameserverTypeDef", {"Name": str})
-_OptionalNameserverTypeDef = TypedDict(
-    "_OptionalNameserverTypeDef", {"GlueIps": List[str]}, total=False
-)
-
-
-class NameserverTypeDef(_RequiredNameserverTypeDef, _OptionalNameserverTypeDef):
-    pass
-
-
-OperationSummaryTypeDef = TypedDict(
-    "OperationSummaryTypeDef",
+GetContactReachabilityStatusRequestRequestTypeDef = TypedDict(
+    "GetContactReachabilityStatusRequestRequestTypeDef",
     {
-        "OperationId": str,
-        "Status": Literal["SUBMITTED", "IN_PROGRESS", "ERROR", "SUCCESSFUL", "FAILED"],
-        "Type": Literal[
-            "REGISTER_DOMAIN",
-            "DELETE_DOMAIN",
-            "TRANSFER_IN_DOMAIN",
-            "UPDATE_DOMAIN_CONTACT",
-            "UPDATE_NAMESERVER",
-            "CHANGE_PRIVACY_PROTECTION",
-            "DOMAIN_LOCK",
-            "ENABLE_AUTORENEW",
-            "DISABLE_AUTORENEW",
-            "ADD_DNSSEC",
-            "REMOVE_DNSSEC",
-            "EXPIRE_DOMAIN",
-            "TRANSFER_OUT_DOMAIN",
-            "CHANGE_DOMAIN_OWNER",
-            "RENEW_DOMAIN",
-            "PUSH_DOMAIN",
-            "INTERNAL_TRANSFER_OUT_DOMAIN",
-            "INTERNAL_TRANSFER_IN_DOMAIN",
-        ],
-        "SubmittedDate": datetime,
+        "domainName": str,
     },
-)
-
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
-
-AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef = TypedDict(
-    "AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef", {"OperationId": str}, total=False
-)
-
-CancelDomainTransferToAnotherAwsAccountResponseTypeDef = TypedDict(
-    "CancelDomainTransferToAnotherAwsAccountResponseTypeDef", {"OperationId": str}, total=False
-)
-
-CheckDomainAvailabilityResponseTypeDef = TypedDict(
-    "CheckDomainAvailabilityResponseTypeDef",
-    {
-        "Availability": Literal[
-            "AVAILABLE",
-            "AVAILABLE_RESERVED",
-            "AVAILABLE_PREORDER",
-            "UNAVAILABLE",
-            "UNAVAILABLE_PREMIUM",
-            "UNAVAILABLE_RESTRICTED",
-            "RESERVED",
-            "DONT_KNOW",
-        ]
-    },
-)
-
-CheckDomainTransferabilityResponseTypeDef = TypedDict(
-    "CheckDomainTransferabilityResponseTypeDef", {"Transferability": "DomainTransferabilityTypeDef"}
-)
-
-DisableDomainTransferLockResponseTypeDef = TypedDict(
-    "DisableDomainTransferLockResponseTypeDef", {"OperationId": str}
-)
-
-EnableDomainTransferLockResponseTypeDef = TypedDict(
-    "EnableDomainTransferLockResponseTypeDef", {"OperationId": str}
+    total=False,
 )
 
 GetContactReachabilityStatusResponseTypeDef = TypedDict(
     "GetContactReachabilityStatusResponseTypeDef",
-    {"domainName": str, "status": Literal["PENDING", "DONE", "EXPIRED"]},
-    total=False,
+    {
+        "domainName": str,
+        "status": ReachabilityStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
-_RequiredGetDomainDetailResponseTypeDef = TypedDict(
-    "_RequiredGetDomainDetailResponseTypeDef",
+GetDomainDetailRequestRequestTypeDef = TypedDict(
+    "GetDomainDetailRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+GetDomainDetailResponseTypeDef = TypedDict(
+    "GetDomainDetailResponseTypeDef",
     {
         "DomainName": str,
         "Nameservers": List["NameserverTypeDef"],
+        "AutoRenew": bool,
         "AdminContact": "ContactDetailTypeDef",
         "RegistrantContact": "ContactDetailTypeDef",
         "TechContact": "ContactDetailTypeDef",
-    },
-)
-_OptionalGetDomainDetailResponseTypeDef = TypedDict(
-    "_OptionalGetDomainDetailResponseTypeDef",
-    {
-        "AutoRenew": bool,
         "AdminPrivacy": bool,
         "RegistrantPrivacy": bool,
         "TechPrivacy": bool,
@@ -514,131 +361,446 @@ _OptionalGetDomainDetailResponseTypeDef = TypedDict(
         "Reseller": str,
         "DnsSec": str,
         "StatusList": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
-    total=False,
 )
 
-
-class GetDomainDetailResponseTypeDef(
-    _RequiredGetDomainDetailResponseTypeDef, _OptionalGetDomainDetailResponseTypeDef
-):
-    pass
-
+GetDomainSuggestionsRequestRequestTypeDef = TypedDict(
+    "GetDomainSuggestionsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "SuggestionCount": int,
+        "OnlyAvailable": bool,
+    },
+)
 
 GetDomainSuggestionsResponseTypeDef = TypedDict(
     "GetDomainSuggestionsResponseTypeDef",
-    {"SuggestionsList": List["DomainSuggestionTypeDef"]},
-    total=False,
+    {
+        "SuggestionsList": List["DomainSuggestionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetOperationDetailRequestRequestTypeDef = TypedDict(
+    "GetOperationDetailRequestRequestTypeDef",
+    {
+        "OperationId": str,
+    },
 )
 
 GetOperationDetailResponseTypeDef = TypedDict(
     "GetOperationDetailResponseTypeDef",
     {
         "OperationId": str,
-        "Status": Literal["SUBMITTED", "IN_PROGRESS", "ERROR", "SUCCESSFUL", "FAILED"],
+        "Status": OperationStatusType,
         "Message": str,
         "DomainName": str,
-        "Type": Literal[
-            "REGISTER_DOMAIN",
-            "DELETE_DOMAIN",
-            "TRANSFER_IN_DOMAIN",
-            "UPDATE_DOMAIN_CONTACT",
-            "UPDATE_NAMESERVER",
-            "CHANGE_PRIVACY_PROTECTION",
-            "DOMAIN_LOCK",
-            "ENABLE_AUTORENEW",
-            "DISABLE_AUTORENEW",
-            "ADD_DNSSEC",
-            "REMOVE_DNSSEC",
-            "EXPIRE_DOMAIN",
-            "TRANSFER_OUT_DOMAIN",
-            "CHANGE_DOMAIN_OWNER",
-            "RENEW_DOMAIN",
-            "PUSH_DOMAIN",
-            "INTERNAL_TRANSFER_OUT_DOMAIN",
-            "INTERNAL_TRANSFER_IN_DOMAIN",
-        ],
+        "Type": OperationTypeType,
         "SubmittedDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDomainsRequestRequestTypeDef = TypedDict(
+    "ListDomainsRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": int,
     },
     total=False,
 )
 
-_RequiredListDomainsResponseTypeDef = TypedDict(
-    "_RequiredListDomainsResponseTypeDef", {"Domains": List["DomainSummaryTypeDef"]}
-)
-_OptionalListDomainsResponseTypeDef = TypedDict(
-    "_OptionalListDomainsResponseTypeDef", {"NextPageMarker": str}, total=False
-)
-
-
-class ListDomainsResponseTypeDef(
-    _RequiredListDomainsResponseTypeDef, _OptionalListDomainsResponseTypeDef
-):
-    pass
-
-
-_RequiredListOperationsResponseTypeDef = TypedDict(
-    "_RequiredListOperationsResponseTypeDef", {"Operations": List["OperationSummaryTypeDef"]}
-)
-_OptionalListOperationsResponseTypeDef = TypedDict(
-    "_OptionalListOperationsResponseTypeDef", {"NextPageMarker": str}, total=False
+ListDomainsResponseTypeDef = TypedDict(
+    "ListDomainsResponseTypeDef",
+    {
+        "Domains": List["DomainSummaryTypeDef"],
+        "NextPageMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
+ListOperationsRequestRequestTypeDef = TypedDict(
+    "ListOperationsRequestRequestTypeDef",
+    {
+        "SubmittedSince": Union[datetime, str],
+        "Marker": str,
+        "MaxItems": int,
+    },
+    total=False,
+)
 
-class ListOperationsResponseTypeDef(
-    _RequiredListOperationsResponseTypeDef, _OptionalListOperationsResponseTypeDef
-):
-    pass
+ListOperationsResponseTypeDef = TypedDict(
+    "ListOperationsResponseTypeDef",
+    {
+        "Operations": List["OperationSummaryTypeDef"],
+        "NextPageMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
+ListTagsForDomainRequestRequestTypeDef = TypedDict(
+    "ListTagsForDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
 
 ListTagsForDomainResponseTypeDef = TypedDict(
-    "ListTagsForDomainResponseTypeDef", {"TagList": List["TagTypeDef"]}
+    "ListTagsForDomainResponseTypeDef",
+    {
+        "TagList": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredNameserverTypeDef = TypedDict(
+    "_RequiredNameserverTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalNameserverTypeDef = TypedDict(
+    "_OptionalNameserverTypeDef",
+    {
+        "GlueIps": List[str],
+    },
+    total=False,
+)
+
+class NameserverTypeDef(_RequiredNameserverTypeDef, _OptionalNameserverTypeDef):
+    pass
+
+OperationSummaryTypeDef = TypedDict(
+    "OperationSummaryTypeDef",
+    {
+        "OperationId": str,
+        "Status": OperationStatusType,
+        "Type": OperationTypeType,
+        "SubmittedDate": datetime,
+    },
 )
 
 PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
-RegisterDomainResponseTypeDef = TypedDict("RegisterDomainResponseTypeDef", {"OperationId": str})
+_RequiredRegisterDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "DurationInYears": int,
+        "AdminContact": "ContactDetailTypeDef",
+        "RegistrantContact": "ContactDetailTypeDef",
+        "TechContact": "ContactDetailTypeDef",
+    },
+)
+_OptionalRegisterDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterDomainRequestRequestTypeDef",
+    {
+        "IdnLangCode": str,
+        "AutoRenew": bool,
+        "PrivacyProtectAdminContact": bool,
+        "PrivacyProtectRegistrantContact": bool,
+        "PrivacyProtectTechContact": bool,
+    },
+    total=False,
+)
+
+class RegisterDomainRequestRequestTypeDef(
+    _RequiredRegisterDomainRequestRequestTypeDef, _OptionalRegisterDomainRequestRequestTypeDef
+):
+    pass
+
+RegisterDomainResponseTypeDef = TypedDict(
+    "RegisterDomainResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RejectDomainTransferFromAnotherAwsAccountRequestRequestTypeDef = TypedDict(
+    "RejectDomainTransferFromAnotherAwsAccountRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
 
 RejectDomainTransferFromAnotherAwsAccountResponseTypeDef = TypedDict(
-    "RejectDomainTransferFromAnotherAwsAccountResponseTypeDef", {"OperationId": str}, total=False
+    "RejectDomainTransferFromAnotherAwsAccountResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
-RenewDomainResponseTypeDef = TypedDict("RenewDomainResponseTypeDef", {"OperationId": str})
+_RequiredRenewDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredRenewDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "CurrentExpiryYear": int,
+    },
+)
+_OptionalRenewDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalRenewDomainRequestRequestTypeDef",
+    {
+        "DurationInYears": int,
+    },
+    total=False,
+)
+
+class RenewDomainRequestRequestTypeDef(
+    _RequiredRenewDomainRequestRequestTypeDef, _OptionalRenewDomainRequestRequestTypeDef
+):
+    pass
+
+RenewDomainResponseTypeDef = TypedDict(
+    "RenewDomainResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResendContactReachabilityEmailRequestRequestTypeDef = TypedDict(
+    "ResendContactReachabilityEmailRequestRequestTypeDef",
+    {
+        "domainName": str,
+    },
+    total=False,
+)
 
 ResendContactReachabilityEmailResponseTypeDef = TypedDict(
     "ResendContactReachabilityEmailResponseTypeDef",
-    {"domainName": str, "emailAddress": str, "isAlreadyVerified": bool},
-    total=False,
+    {
+        "domainName": str,
+        "emailAddress": str,
+        "isAlreadyVerified": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+RetrieveDomainAuthCodeRequestRequestTypeDef = TypedDict(
+    "RetrieveDomainAuthCodeRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
 )
 
 RetrieveDomainAuthCodeResponseTypeDef = TypedDict(
-    "RetrieveDomainAuthCodeResponseTypeDef", {"AuthCode": str}
+    "RetrieveDomainAuthCodeResponseTypeDef",
+    {
+        "AuthCode": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
-TransferDomainResponseTypeDef = TypedDict("TransferDomainResponseTypeDef", {"OperationId": str})
-
-TransferDomainToAnotherAwsAccountResponseTypeDef = TypedDict(
-    "TransferDomainToAnotherAwsAccountResponseTypeDef",
-    {"OperationId": str, "Password": str},
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
     total=False,
 )
 
-UpdateDomainContactPrivacyResponseTypeDef = TypedDict(
-    "UpdateDomainContactPrivacyResponseTypeDef", {"OperationId": str}
+_RequiredTransferDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredTransferDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "DurationInYears": int,
+        "AdminContact": "ContactDetailTypeDef",
+        "RegistrantContact": "ContactDetailTypeDef",
+        "TechContact": "ContactDetailTypeDef",
+    },
 )
+_OptionalTransferDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalTransferDomainRequestRequestTypeDef",
+    {
+        "IdnLangCode": str,
+        "Nameservers": List["NameserverTypeDef"],
+        "AuthCode": str,
+        "AutoRenew": bool,
+        "PrivacyProtectAdminContact": bool,
+        "PrivacyProtectRegistrantContact": bool,
+        "PrivacyProtectTechContact": bool,
+    },
+    total=False,
+)
+
+class TransferDomainRequestRequestTypeDef(
+    _RequiredTransferDomainRequestRequestTypeDef, _OptionalTransferDomainRequestRequestTypeDef
+):
+    pass
+
+TransferDomainResponseTypeDef = TypedDict(
+    "TransferDomainResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+TransferDomainToAnotherAwsAccountRequestRequestTypeDef = TypedDict(
+    "TransferDomainToAnotherAwsAccountRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "AccountId": str,
+    },
+)
+
+TransferDomainToAnotherAwsAccountResponseTypeDef = TypedDict(
+    "TransferDomainToAnotherAwsAccountResponseTypeDef",
+    {
+        "OperationId": str,
+        "Password": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateDomainContactPrivacyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDomainContactPrivacyRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalUpdateDomainContactPrivacyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDomainContactPrivacyRequestRequestTypeDef",
+    {
+        "AdminPrivacy": bool,
+        "RegistrantPrivacy": bool,
+        "TechPrivacy": bool,
+    },
+    total=False,
+)
+
+class UpdateDomainContactPrivacyRequestRequestTypeDef(
+    _RequiredUpdateDomainContactPrivacyRequestRequestTypeDef,
+    _OptionalUpdateDomainContactPrivacyRequestRequestTypeDef,
+):
+    pass
+
+UpdateDomainContactPrivacyResponseTypeDef = TypedDict(
+    "UpdateDomainContactPrivacyResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateDomainContactRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDomainContactRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalUpdateDomainContactRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDomainContactRequestRequestTypeDef",
+    {
+        "AdminContact": "ContactDetailTypeDef",
+        "RegistrantContact": "ContactDetailTypeDef",
+        "TechContact": "ContactDetailTypeDef",
+    },
+    total=False,
+)
+
+class UpdateDomainContactRequestRequestTypeDef(
+    _RequiredUpdateDomainContactRequestRequestTypeDef,
+    _OptionalUpdateDomainContactRequestRequestTypeDef,
+):
+    pass
 
 UpdateDomainContactResponseTypeDef = TypedDict(
-    "UpdateDomainContactResponseTypeDef", {"OperationId": str}
+    "UpdateDomainContactResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
+_RequiredUpdateDomainNameserversRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDomainNameserversRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Nameservers": List["NameserverTypeDef"],
+    },
+)
+_OptionalUpdateDomainNameserversRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDomainNameserversRequestRequestTypeDef",
+    {
+        "FIAuthKey": str,
+    },
+    total=False,
+)
+
+class UpdateDomainNameserversRequestRequestTypeDef(
+    _RequiredUpdateDomainNameserversRequestRequestTypeDef,
+    _OptionalUpdateDomainNameserversRequestRequestTypeDef,
+):
+    pass
+
 UpdateDomainNameserversResponseTypeDef = TypedDict(
-    "UpdateDomainNameserversResponseTypeDef", {"OperationId": str}
+    "UpdateDomainNameserversResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateTagsForDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTagsForDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalUpdateTagsForDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTagsForDomainRequestRequestTypeDef",
+    {
+        "TagsToUpdate": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateTagsForDomainRequestRequestTypeDef(
+    _RequiredUpdateTagsForDomainRequestRequestTypeDef,
+    _OptionalUpdateTagsForDomainRequestRequestTypeDef,
+):
+    pass
+
+ViewBillingRequestRequestTypeDef = TypedDict(
+    "ViewBillingRequestRequestTypeDef",
+    {
+        "Start": Union[datetime, str],
+        "End": Union[datetime, str],
+        "Marker": str,
+        "MaxItems": int,
+    },
+    total=False,
 )
 
 ViewBillingResponseTypeDef = TypedDict(
     "ViewBillingResponseTypeDef",
-    {"NextPageMarker": str, "BillingRecords": List["BillingRecordTypeDef"]},
-    total=False,
+    {
+        "NextPageMarker": str,
+        "BillingRecords": List["BillingRecordTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )

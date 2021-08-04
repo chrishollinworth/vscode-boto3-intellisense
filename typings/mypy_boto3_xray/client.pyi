@@ -1,5 +1,7 @@
 """
-Main interface for xray service client
+Type annotations for xray service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html)
 
 Usage::
 
@@ -12,11 +14,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type, overload
+from typing import Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_xray.paginator import (
+from .literals import EncryptionTypeType, InsightStateType, TimeRangeTypeType
+from .paginator import (
     BatchGetTracesPaginator,
     GetGroupsPaginator,
     GetSamplingRulesPaginator,
@@ -26,7 +29,7 @@ from mypy_boto3_xray.paginator import (
     GetTraceGraphPaginator,
     GetTraceSummariesPaginator,
 )
-from mypy_boto3_xray.type_defs import (
+from .type_defs import (
     BatchGetTracesResultTypeDef,
     CreateGroupResultTypeDef,
     CreateSamplingRuleResultTypeDef,
@@ -64,17 +67,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("XRayClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -84,57 +83,73 @@ class Exceptions:
     ThrottledException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
 
-
-class XRayClient:
+class XRayClient(BaseClient):
     """
-    [XRay.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        XRayClient exceptions.
+        """
     def batch_get_traces(
-        self, TraceIds: List[str], NextToken: str = None
+        self, *, TraceIds: List[str], NextToken: str = None
     ) -> BatchGetTracesResultTypeDef:
         """
-        [Client.batch_get_traces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.batch_get_traces)
-        """
+        Retrieves a list of traces specified by ID.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.batch_get_traces)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#batch_get_traces)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#can_paginate)
+        """
     def create_group(
         self,
+        *,
         GroupName: str,
         FilterExpression: str = None,
         InsightsConfiguration: "InsightsConfigurationTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateGroupResultTypeDef:
         """
-        [Client.create_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.create_group)
-        """
+        Creates a group resource with a name and a filter expression.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.create_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#create_group)
+        """
     def create_sampling_rule(
-        self, SamplingRule: "SamplingRuleTypeDef", Tags: List["TagTypeDef"] = None
+        self, *, SamplingRule: "SamplingRuleTypeDef", Tags: List["TagTypeDef"] = None
     ) -> CreateSamplingRuleResultTypeDef:
         """
-        [Client.create_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.create_sampling_rule)
-        """
+        Creates a rule to control sampling behavior for instrumented applications.
 
-    def delete_group(self, GroupName: str = None, GroupARN: str = None) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.create_sampling_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#create_sampling_rule)
         """
-        [Client.delete_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.delete_group)
+    def delete_group(self, *, GroupName: str = None, GroupARN: str = None) -> Dict[str, Any]:
         """
+        Deletes a group resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.delete_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#delete_group)
+        """
     def delete_sampling_rule(
-        self, RuleName: str = None, RuleARN: str = None
+        self, *, RuleName: str = None, RuleARN: str = None
     ) -> DeleteSamplingRuleResultTypeDef:
         """
-        [Client.delete_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.delete_sampling_rule)
-        """
+        Deletes a sampling rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.delete_sampling_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#delete_sampling_rule)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -143,236 +158,302 @@ class XRayClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#generate_presigned_url)
+        """
     def get_encryption_config(self) -> GetEncryptionConfigResultTypeDef:
         """
-        [Client.get_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_encryption_config)
-        """
+        Retrieves the current encryption configuration for X-Ray data.
 
-    def get_group(self, GroupName: str = None, GroupARN: str = None) -> GetGroupResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_encryption_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_encryption_config)
         """
-        [Client.get_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_group)
+    def get_group(self, *, GroupName: str = None, GroupARN: str = None) -> GetGroupResultTypeDef:
         """
+        Retrieves group resource details.
 
-    def get_groups(self, NextToken: str = None) -> GetGroupsResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_group)
         """
-        [Client.get_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_groups)
+    def get_groups(self, *, NextToken: str = None) -> GetGroupsResultTypeDef:
         """
+        Retrieves all active group details.
 
-    def get_insight(self, InsightId: str) -> GetInsightResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_groups)
         """
-        [Client.get_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_insight)
+    def get_insight(self, *, InsightId: str) -> GetInsightResultTypeDef:
         """
+        Retrieves the summary information of an insight.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_insight)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_insight)
+        """
     def get_insight_events(
-        self, InsightId: str, MaxResults: int = None, NextToken: str = None
+        self, *, InsightId: str, MaxResults: int = None, NextToken: str = None
     ) -> GetInsightEventsResultTypeDef:
         """
-        [Client.get_insight_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_insight_events)
-        """
+        X-Ray reevaluates insights periodically until they're resolved, and records each
+        intermediate state as an event.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_insight_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_insight_events)
+        """
     def get_insight_impact_graph(
-        self, InsightId: str, StartTime: datetime, EndTime: datetime, NextToken: str = None
+        self,
+        *,
+        InsightId: str,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
+        NextToken: str = None
     ) -> GetInsightImpactGraphResultTypeDef:
         """
-        [Client.get_insight_impact_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_insight_impact_graph)
-        """
+        Retrieves a service graph structure filtered by the specified insight.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_insight_impact_graph)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_insight_impact_graph)
+        """
     def get_insight_summaries(
         self,
-        StartTime: datetime,
-        EndTime: datetime,
-        States: List[Literal["ACTIVE", "CLOSED"]] = None,
+        *,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
+        States: List[InsightStateType] = None,
         GroupARN: str = None,
         GroupName: str = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> GetInsightSummariesResultTypeDef:
         """
-        [Client.get_insight_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_insight_summaries)
-        """
+        Retrieves the summaries of all insights in the specified group matching the
+        provided filter values.
 
-    def get_sampling_rules(self, NextToken: str = None) -> GetSamplingRulesResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_insight_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_insight_summaries)
         """
-        [Client.get_sampling_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_sampling_rules)
+    def get_sampling_rules(self, *, NextToken: str = None) -> GetSamplingRulesResultTypeDef:
         """
+        Retrieves all sampling rules.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_sampling_rules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_sampling_rules)
+        """
     def get_sampling_statistic_summaries(
-        self, NextToken: str = None
+        self, *, NextToken: str = None
     ) -> GetSamplingStatisticSummariesResultTypeDef:
         """
-        [Client.get_sampling_statistic_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_sampling_statistic_summaries)
-        """
+        Retrieves information about recent sampling results for all sampling rules.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_sampling_statistic_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_sampling_statistic_summaries)
+        """
     def get_sampling_targets(
-        self, SamplingStatisticsDocuments: List[SamplingStatisticsDocumentTypeDef]
+        self, *, SamplingStatisticsDocuments: List["SamplingStatisticsDocumentTypeDef"]
     ) -> GetSamplingTargetsResultTypeDef:
         """
-        [Client.get_sampling_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_sampling_targets)
-        """
+        Requests a sampling quota for rules that the service is using to sample
+        requests.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_sampling_targets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_sampling_targets)
+        """
     def get_service_graph(
         self,
-        StartTime: datetime,
-        EndTime: datetime,
+        *,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
         GroupName: str = None,
         GroupARN: str = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> GetServiceGraphResultTypeDef:
         """
-        [Client.get_service_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_service_graph)
-        """
+        Retrieves a document that describes services that process incoming requests, and
+        downstream services that they call as a result.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_service_graph)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_service_graph)
+        """
     def get_time_series_service_statistics(
         self,
-        StartTime: datetime,
-        EndTime: datetime,
+        *,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
         GroupName: str = None,
         GroupARN: str = None,
         EntitySelectorExpression: str = None,
         Period: int = None,
         ForecastStatistics: bool = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> GetTimeSeriesServiceStatisticsResultTypeDef:
         """
-        [Client.get_time_series_service_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_time_series_service_statistics)
-        """
+        Get an aggregation of service statistics defined by a specific time range.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_time_series_service_statistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_time_series_service_statistics)
+        """
     def get_trace_graph(
-        self, TraceIds: List[str], NextToken: str = None
+        self, *, TraceIds: List[str], NextToken: str = None
     ) -> GetTraceGraphResultTypeDef:
         """
-        [Client.get_trace_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_trace_graph)
-        """
+        Retrieves a service graph for one or more specific trace IDs.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_trace_graph)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_trace_graph)
+        """
     def get_trace_summaries(
         self,
-        StartTime: datetime,
-        EndTime: datetime,
-        TimeRangeType: Literal["TraceId", "Event"] = None,
+        *,
+        StartTime: Union[datetime, str],
+        EndTime: Union[datetime, str],
+        TimeRangeType: TimeRangeTypeType = None,
         Sampling: bool = None,
-        SamplingStrategy: SamplingStrategyTypeDef = None,
+        SamplingStrategy: "SamplingStrategyTypeDef" = None,
         FilterExpression: str = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> GetTraceSummariesResultTypeDef:
         """
-        [Client.get_trace_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.get_trace_summaries)
-        """
+        Retrieves IDs and annotations for traces available for a specified time frame
+        using an optional filter.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.get_trace_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#get_trace_summaries)
+        """
     def list_tags_for_resource(
-        self, ResourceARN: str, NextToken: str = None
+        self, *, ResourceARN: str, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.list_tags_for_resource)
-        """
+        Returns a list of tags that are applied to the specified AWS X-Ray group or
+        sampling rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#list_tags_for_resource)
+        """
     def put_encryption_config(
-        self, Type: Literal["NONE", "KMS"], KeyId: str = None
+        self, *, Type: EncryptionTypeType, KeyId: str = None
     ) -> PutEncryptionConfigResultTypeDef:
         """
-        [Client.put_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.put_encryption_config)
-        """
+        Updates the encryption configuration for X-Ray data.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.put_encryption_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#put_encryption_config)
+        """
     def put_telemetry_records(
         self,
-        TelemetryRecords: List[TelemetryRecordTypeDef],
+        *,
+        TelemetryRecords: List["TelemetryRecordTypeDef"],
         EC2InstanceId: str = None,
         Hostname: str = None,
-        ResourceARN: str = None,
+        ResourceARN: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.put_telemetry_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.put_telemetry_records)
-        """
+        Used by the AWS X-Ray daemon to upload telemetry.
 
-    def put_trace_segments(self, TraceSegmentDocuments: List[str]) -> PutTraceSegmentsResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.put_telemetry_records)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#put_telemetry_records)
         """
-        [Client.put_trace_segments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.put_trace_segments)
+    def put_trace_segments(
+        self, *, TraceSegmentDocuments: List[str]
+    ) -> PutTraceSegmentsResultTypeDef:
         """
+        Uploads segment documents to AWS X-Ray.
 
-    def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.put_trace_segments)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#put_trace_segments)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.tag_resource)
+    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Applies tags to an existing AWS X-Ray group or sampling rule.
 
-    def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.untag_resource)
+    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes tags from an AWS X-Ray group or sampling rule.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#untag_resource)
+        """
     def update_group(
         self,
+        *,
         GroupName: str = None,
         GroupARN: str = None,
         FilterExpression: str = None,
-        InsightsConfiguration: "InsightsConfigurationTypeDef" = None,
+        InsightsConfiguration: "InsightsConfigurationTypeDef" = None
     ) -> UpdateGroupResultTypeDef:
         """
-        [Client.update_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.update_group)
-        """
+        Updates a group resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.update_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#update_group)
+        """
     def update_sampling_rule(
-        self, SamplingRuleUpdate: SamplingRuleUpdateTypeDef
+        self, *, SamplingRuleUpdate: "SamplingRuleUpdateTypeDef"
     ) -> UpdateSamplingRuleResultTypeDef:
         """
-        [Client.update_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Client.update_sampling_rule)
-        """
+        Modifies a sampling rule's configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Client.update_sampling_rule)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/client.html#update_sampling_rule)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["batch_get_traces"]) -> BatchGetTracesPaginator:
         """
-        [Paginator.BatchGetTraces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#batchgettracespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_groups"]) -> GetGroupsPaginator:
         """
-        [Paginator.GetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetGroups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getgroupspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_sampling_rules"]
     ) -> GetSamplingRulesPaginator:
         """
-        [Paginator.GetSamplingRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getsamplingrulespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_sampling_statistic_summaries"]
     ) -> GetSamplingStatisticSummariesPaginator:
         """
-        [Paginator.GetSamplingStatisticSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getsamplingstatisticsummariespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_service_graph"]
     ) -> GetServiceGraphPaginator:
         """
-        [Paginator.GetServiceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#getservicegraphpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_time_series_service_statistics"]
     ) -> GetTimeSeriesServiceStatisticsPaginator:
         """
-        [Paginator.GetTimeSeriesServiceStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettimeseriesservicestatisticspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["get_trace_graph"]) -> GetTraceGraphPaginator:
         """
-        [Paginator.GetTraceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettracegraphpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["get_trace_summaries"]
     ) -> GetTraceSummariesPaginator:
         """
-        [Paginator.GetTraceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_xray/paginators.html#gettracesummariespaginator)
         """

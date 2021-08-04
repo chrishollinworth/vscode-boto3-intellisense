@@ -1,5 +1,7 @@
 """
-Main interface for ec2 service ServiceResource
+Type annotations for ec2 service ServiceResource
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html)
 
 Usage::
 
@@ -39,10 +41,33 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, Iterator, List, Optional, Union
 
+from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.resources.collection import ResourceCollection
+from botocore.response import StreamingBody
 
-from mypy_boto3_ec2.type_defs import (
+from .client import EC2Client
+from .literals import (
+    ArchitectureValuesType,
+    BootModeValuesType,
+    ImageAttributeNameType,
+    InstanceAttributeNameType,
+    InstanceTypeType,
+    NetworkInterfaceAttributeType,
+    NetworkInterfaceCreationTypeType,
+    OperationTypeType,
+    PlacementStrategyType,
+    ReportInstanceReasonCodesType,
+    ReportStatusTypeType,
+    RuleActionType,
+    ShutdownBehaviorType,
+    SnapshotAttributeNameType,
+    TenancyType,
+    VolumeAttributeNameType,
+    VolumeTypeType,
+    VpcAttributeNameType,
+)
+from .type_defs import (
     AcceptVpcPeeringConnectionResultTypeDef,
     AssignPrivateIpAddressesResultTypeDef,
     AssociateAddressResultTypeDef,
@@ -50,6 +75,8 @@ from mypy_boto3_ec2.type_defs import (
     AttachNetworkInterfaceResultTypeDef,
     AttributeBooleanValueTypeDef,
     AttributeValueTypeDef,
+    AuthorizeSecurityGroupEgressResultTypeDef,
+    AuthorizeSecurityGroupIngressResultTypeDef,
     BlobAttributeValueTypeDef,
     BlockDeviceMappingTypeDef,
     CapacityReservationSpecificationTypeDef,
@@ -83,6 +110,8 @@ from mypy_boto3_ec2.type_defs import (
     InstanceMetadataOptionsRequestTypeDef,
     InstanceNetworkInterfaceSpecificationTypeDef,
     IpPermissionTypeDef,
+    Ipv4PrefixSpecificationRequestTypeDef,
+    Ipv6PrefixSpecificationRequestTypeDef,
     LaunchPermissionModificationsTypeDef,
     LaunchTemplateSpecificationTypeDef,
     LicenseConfigurationRequestTypeDef,
@@ -103,14 +132,13 @@ from mypy_boto3_ec2.type_defs import (
     TagTypeDef,
     TerminateInstancesResultTypeDef,
     UnmonitorInstancesResultTypeDef,
-    VolumeAttachmentTypeDef,
+    VolumeAttachmentResponseMetadataTypeDef,
 )
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 
 __all__ = (
     "EC2ServiceResource",
@@ -170,1095 +198,1388 @@ __all__ = (
     "VpcSubnetsCollection",
 )
 
-
 class ServiceResourceClassicAddressesCollection(ResourceCollection):
     """
-    [ServiceResource.classic_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.classic_addresses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.classic_addresses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourceclassicaddressescollection)
     """
 
     def all(self) -> "ServiceResourceClassicAddressesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         PublicIps: List[str] = None,
         AllocationIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> "ServiceResourceClassicAddressesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceClassicAddressesCollection":
-        pass
-
+        """
+        Return at most this many ClassicAddresss.
+        """
     def page_size(self, count: int) -> "ServiceResourceClassicAddressesCollection":
-        pass
-
+        """
+        Fetch at most this many ClassicAddresss per service request.
+        """
     def pages(self) -> Iterator[List["ClassicAddress"]]:
-        pass
-
+        """
+        A generator which yields pages of ClassicAddresss.
+        """
     def __iter__(self) -> Iterator["ClassicAddress"]:
-        pass
-
+        """
+        A generator which yields ClassicAddresss.
+        """
 
 class ServiceResourceDhcpOptionsSetsCollection(ResourceCollection):
     """
-    [ServiceResource.dhcp_options_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.dhcp_options_sets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.dhcp_options_sets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcedhcpoptionssetscollection)
     """
 
     def all(self) -> "ServiceResourceDhcpOptionsSetsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
+        *,
         DhcpOptionsIds: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceDhcpOptionsSetsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceDhcpOptionsSetsCollection":
-        pass
-
+        """
+        Return at most this many DhcpOptionss.
+        """
     def page_size(self, count: int) -> "ServiceResourceDhcpOptionsSetsCollection":
-        pass
-
+        """
+        Fetch at most this many DhcpOptionss per service request.
+        """
     def pages(self) -> Iterator[List["DhcpOptions"]]:
-        pass
-
+        """
+        A generator which yields pages of DhcpOptionss.
+        """
     def __iter__(self) -> Iterator["DhcpOptions"]:
-        pass
-
+        """
+        A generator which yields DhcpOptionss.
+        """
 
 class ServiceResourceImagesCollection(ResourceCollection):
     """
-    [ServiceResource.images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.images)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.images)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourceimagescollection)
     """
 
     def all(self) -> "ServiceResourceImagesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
+        *,
         ExecutableUsers: List[str] = None,
-        Filters: List[FilterTypeDef] = None,
+        Filters: List["FilterTypeDef"] = None,
         ImageIds: List[str] = None,
         Owners: List[str] = None,
-        DryRun: bool = None,
+        IncludeDeprecated: bool = None,
+        DryRun: bool = None
     ) -> "ServiceResourceImagesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceImagesCollection":
-        pass
-
+        """
+        Return at most this many Images.
+        """
     def page_size(self, count: int) -> "ServiceResourceImagesCollection":
-        pass
-
+        """
+        Fetch at most this many Images per service request.
+        """
     def pages(self) -> Iterator[List["Image"]]:
-        pass
-
+        """
+        A generator which yields pages of Images.
+        """
     def __iter__(self) -> Iterator["Image"]:
-        pass
-
+        """
+        A generator which yields Images.
+        """
 
 class ServiceResourceInstancesCollection(ResourceCollection):
     """
-    [ServiceResource.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.instances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.instances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourceinstancescollection)
     """
 
     def all(self) -> "ServiceResourceInstancesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> "ServiceResourceInstancesCollection":
-        pass
-
-    def create_tags(self, DryRun: bool = None) -> None:
-        pass
-
-    def monitor(self, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
-        pass
-
-    def reboot(self, DryRun: bool = None) -> None:
-        pass
-
-    def start(self, AdditionalInfo: str = None, DryRun: bool = None) -> StartInstancesResultTypeDef:
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
+    def create_tags(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def monitor(self, *, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def reboot(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def start(
+        self, *, AdditionalInfo: str = None, DryRun: bool = None
+    ) -> StartInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def stop(
-        self, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
+        self, *, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
     ) -> StopInstancesResultTypeDef:
-        pass
-
-    def terminate(self, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
-        pass
-
-    def unmonitor(self, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
-        pass
-
+        """
+        Batch method.
+        """
+    def terminate(self, *, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def unmonitor(self, *, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def limit(self, count: int) -> "ServiceResourceInstancesCollection":
-        pass
-
+        """
+        Return at most this many Instances.
+        """
     def page_size(self, count: int) -> "ServiceResourceInstancesCollection":
-        pass
-
+        """
+        Fetch at most this many Instances per service request.
+        """
     def pages(self) -> Iterator[List["Instance"]]:
-        pass
-
+        """
+        A generator which yields pages of Instances.
+        """
     def __iter__(self) -> Iterator["Instance"]:
-        pass
-
+        """
+        A generator which yields Instances.
+        """
 
 class ServiceResourceInternetGatewaysCollection(ResourceCollection):
     """
-    [ServiceResource.internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.internet_gateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.internet_gateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourceinternetgatewayscollection)
     """
 
     def all(self) -> "ServiceResourceInternetGatewaysCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         InternetGatewayIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceInternetGatewaysCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceInternetGatewaysCollection":
-        pass
-
+        """
+        Return at most this many InternetGateways.
+        """
     def page_size(self, count: int) -> "ServiceResourceInternetGatewaysCollection":
-        pass
-
+        """
+        Fetch at most this many InternetGateways per service request.
+        """
     def pages(self) -> Iterator[List["InternetGateway"]]:
-        pass
-
+        """
+        A generator which yields pages of InternetGateways.
+        """
     def __iter__(self) -> Iterator["InternetGateway"]:
-        pass
-
+        """
+        A generator which yields InternetGateways.
+        """
 
 class ServiceResourceKeyPairsCollection(ResourceCollection):
     """
-    [ServiceResource.key_pairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.key_pairs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.key_pairs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcekeypairscollection)
     """
 
     def all(self) -> "ServiceResourceKeyPairsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         KeyNames: List[str] = None,
         KeyPairIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> "ServiceResourceKeyPairsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceKeyPairsCollection":
-        pass
-
+        """
+        Return at most this many KeyPairInfos.
+        """
     def page_size(self, count: int) -> "ServiceResourceKeyPairsCollection":
-        pass
-
+        """
+        Fetch at most this many KeyPairInfos per service request.
+        """
     def pages(self) -> Iterator[List["KeyPairInfo"]]:
-        pass
-
+        """
+        A generator which yields pages of KeyPairInfos.
+        """
     def __iter__(self) -> Iterator["KeyPairInfo"]:
-        pass
-
+        """
+        A generator which yields KeyPairInfos.
+        """
 
 class ServiceResourceNetworkAclsCollection(ResourceCollection):
     """
-    [ServiceResource.network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.network_acls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.network_acls)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcenetworkaclscollection)
     """
 
     def all(self) -> "ServiceResourceNetworkAclsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkAclIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceNetworkAclsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceNetworkAclsCollection":
-        pass
-
+        """
+        Return at most this many NetworkAcls.
+        """
     def page_size(self, count: int) -> "ServiceResourceNetworkAclsCollection":
-        pass
-
+        """
+        Fetch at most this many NetworkAcls per service request.
+        """
     def pages(self) -> Iterator[List["NetworkAcl"]]:
-        pass
-
+        """
+        A generator which yields pages of NetworkAcls.
+        """
     def __iter__(self) -> Iterator["NetworkAcl"]:
-        pass
-
+        """
+        A generator which yields NetworkAcls.
+        """
 
 class ServiceResourceNetworkInterfacesCollection(ResourceCollection):
     """
-    [ServiceResource.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.network_interfaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.network_interfaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcenetworkinterfacescollection)
     """
 
     def all(self) -> "ServiceResourceNetworkInterfacesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkInterfaceIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceNetworkInterfacesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceNetworkInterfacesCollection":
-        pass
-
+        """
+        Return at most this many NetworkInterfaces.
+        """
     def page_size(self, count: int) -> "ServiceResourceNetworkInterfacesCollection":
-        pass
-
+        """
+        Fetch at most this many NetworkInterfaces per service request.
+        """
     def pages(self) -> Iterator[List["NetworkInterface"]]:
-        pass
-
+        """
+        A generator which yields pages of NetworkInterfaces.
+        """
     def __iter__(self) -> Iterator["NetworkInterface"]:
-        pass
-
+        """
+        A generator which yields NetworkInterfaces.
+        """
 
 class ServiceResourcePlacementGroupsCollection(ResourceCollection):
     """
-    [ServiceResource.placement_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.placement_groups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.placement_groups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourceplacementgroupscollection)
     """
 
     def all(self) -> "ServiceResourcePlacementGroupsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         GroupNames: List[str] = None,
-        GroupIds: List[str] = None,
+        GroupIds: List[str] = None
     ) -> "ServiceResourcePlacementGroupsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourcePlacementGroupsCollection":
-        pass
-
+        """
+        Return at most this many PlacementGroups.
+        """
     def page_size(self, count: int) -> "ServiceResourcePlacementGroupsCollection":
-        pass
-
+        """
+        Fetch at most this many PlacementGroups per service request.
+        """
     def pages(self) -> Iterator[List["PlacementGroup"]]:
-        pass
-
+        """
+        A generator which yields pages of PlacementGroups.
+        """
     def __iter__(self) -> Iterator["PlacementGroup"]:
-        pass
-
+        """
+        A generator which yields PlacementGroups.
+        """
 
 class ServiceResourceRouteTablesCollection(ResourceCollection):
     """
-    [ServiceResource.route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.route_tables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.route_tables)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourceroutetablescollection)
     """
 
     def all(self) -> "ServiceResourceRouteTablesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         RouteTableIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceRouteTablesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceRouteTablesCollection":
-        pass
-
+        """
+        Return at most this many RouteTables.
+        """
     def page_size(self, count: int) -> "ServiceResourceRouteTablesCollection":
-        pass
-
+        """
+        Fetch at most this many RouteTables per service request.
+        """
     def pages(self) -> Iterator[List["RouteTable"]]:
-        pass
-
+        """
+        A generator which yields pages of RouteTables.
+        """
     def __iter__(self) -> Iterator["RouteTable"]:
-        pass
-
+        """
+        A generator which yields RouteTables.
+        """
 
 class ServiceResourceSecurityGroupsCollection(ResourceCollection):
     """
-    [ServiceResource.security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.security_groups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.security_groups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcesecuritygroupscollection)
     """
 
     def all(self) -> "ServiceResourceSecurityGroupsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         GroupIds: List[str] = None,
         GroupNames: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceSecurityGroupsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceSecurityGroupsCollection":
-        pass
-
+        """
+        Return at most this many SecurityGroups.
+        """
     def page_size(self, count: int) -> "ServiceResourceSecurityGroupsCollection":
-        pass
-
+        """
+        Fetch at most this many SecurityGroups per service request.
+        """
     def pages(self) -> Iterator[List["SecurityGroup"]]:
-        pass
-
+        """
+        A generator which yields pages of SecurityGroups.
+        """
     def __iter__(self) -> Iterator["SecurityGroup"]:
-        pass
-
+        """
+        A generator which yields SecurityGroups.
+        """
 
 class ServiceResourceSnapshotsCollection(ResourceCollection):
     """
-    [ServiceResource.snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.snapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.snapshots)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcesnapshotscollection)
     """
 
     def all(self) -> "ServiceResourceSnapshotsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxResults: int = None,
         NextToken: str = None,
         OwnerIds: List[str] = None,
         RestorableByUserIds: List[str] = None,
         SnapshotIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> "ServiceResourceSnapshotsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceSnapshotsCollection":
-        pass
-
+        """
+        Return at most this many Snapshots.
+        """
     def page_size(self, count: int) -> "ServiceResourceSnapshotsCollection":
-        pass
-
+        """
+        Fetch at most this many Snapshots per service request.
+        """
     def pages(self) -> Iterator[List["Snapshot"]]:
-        pass
-
+        """
+        A generator which yields pages of Snapshots.
+        """
     def __iter__(self) -> Iterator["Snapshot"]:
-        pass
-
+        """
+        A generator which yields Snapshots.
+        """
 
 class ServiceResourceSubnetsCollection(ResourceCollection):
     """
-    [ServiceResource.subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.subnets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.subnets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcesubnetscollection)
     """
 
     def all(self) -> "ServiceResourceSubnetsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         SubnetIds: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceSubnetsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceSubnetsCollection":
-        pass
-
+        """
+        Return at most this many Subnets.
+        """
     def page_size(self, count: int) -> "ServiceResourceSubnetsCollection":
-        pass
-
+        """
+        Fetch at most this many Subnets per service request.
+        """
     def pages(self) -> Iterator[List["Subnet"]]:
-        pass
-
+        """
+        A generator which yields pages of Subnets.
+        """
     def __iter__(self) -> Iterator["Subnet"]:
-        pass
-
+        """
+        A generator which yields Subnets.
+        """
 
 class ServiceResourceVolumesCollection(ResourceCollection):
     """
-    [ServiceResource.volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.volumes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.volumes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcevolumescollection)
     """
 
     def all(self) -> "ServiceResourceVolumesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VolumeIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> "ServiceResourceVolumesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceVolumesCollection":
-        pass
-
+        """
+        Return at most this many Volumes.
+        """
     def page_size(self, count: int) -> "ServiceResourceVolumesCollection":
-        pass
-
+        """
+        Fetch at most this many Volumes per service request.
+        """
     def pages(self) -> Iterator[List["Volume"]]:
-        pass
-
+        """
+        A generator which yields pages of Volumes.
+        """
     def __iter__(self) -> Iterator["Volume"]:
-        pass
-
+        """
+        A generator which yields Volumes.
+        """
 
 class ServiceResourceVpcAddressesCollection(ResourceCollection):
     """
-    [ServiceResource.vpc_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.vpc_addresses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.vpc_addresses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcevpcaddressescollection)
     """
 
     def all(self) -> "ServiceResourceVpcAddressesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         PublicIps: List[str] = None,
         AllocationIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> "ServiceResourceVpcAddressesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceVpcAddressesCollection":
-        pass
-
+        """
+        Return at most this many VpcAddresss.
+        """
     def page_size(self, count: int) -> "ServiceResourceVpcAddressesCollection":
-        pass
-
+        """
+        Fetch at most this many VpcAddresss per service request.
+        """
     def pages(self) -> Iterator[List["VpcAddress"]]:
-        pass
-
+        """
+        A generator which yields pages of VpcAddresss.
+        """
     def __iter__(self) -> Iterator["VpcAddress"]:
-        pass
-
+        """
+        A generator which yields VpcAddresss.
+        """
 
 class ServiceResourceVpcPeeringConnectionsCollection(ResourceCollection):
     """
-    [ServiceResource.vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.vpc_peering_connections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.vpc_peering_connections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcevpcpeeringconnectionscollection)
     """
 
     def all(self) -> "ServiceResourceVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         VpcPeeringConnectionIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Return at most this many VpcPeeringConnections.
+        """
     def page_size(self, count: int) -> "ServiceResourceVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Fetch at most this many VpcPeeringConnections per service request.
+        """
     def pages(self) -> Iterator[List["VpcPeeringConnection"]]:
-        pass
-
+        """
+        A generator which yields pages of VpcPeeringConnections.
+        """
     def __iter__(self) -> Iterator["VpcPeeringConnection"]:
-        pass
-
+        """
+        A generator which yields VpcPeeringConnections.
+        """
 
 class ServiceResourceVpcsCollection(ResourceCollection):
     """
-    [ServiceResource.vpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.vpcs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.vpcs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#serviceresourcevpcscollection)
     """
 
     def all(self) -> "ServiceResourceVpcsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VpcIds: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "ServiceResourceVpcsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "ServiceResourceVpcsCollection":
-        pass
-
+        """
+        Return at most this many Vpcs.
+        """
     def page_size(self, count: int) -> "ServiceResourceVpcsCollection":
-        pass
-
+        """
+        Fetch at most this many Vpcs per service request.
+        """
     def pages(self) -> Iterator[List["Vpc"]]:
-        pass
-
+        """
+        A generator which yields pages of Vpcs.
+        """
     def __iter__(self) -> Iterator["Vpc"]:
-        pass
-
+        """
+        A generator which yields Vpcs.
+        """
 
 class InstanceVolumesCollection(ResourceCollection):
     """
-    [Instance.volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.volumes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.volumes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancevolumescollection)
     """
 
     def all(self) -> "InstanceVolumesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         VolumeIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> "InstanceVolumesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "InstanceVolumesCollection":
-        pass
-
+        """
+        Return at most this many Volumes.
+        """
     def page_size(self, count: int) -> "InstanceVolumesCollection":
-        pass
-
+        """
+        Fetch at most this many Volumes per service request.
+        """
     def pages(self) -> Iterator[List["Volume"]]:
-        pass
-
+        """
+        A generator which yields pages of Volumes.
+        """
     def __iter__(self) -> Iterator["Volume"]:
-        pass
-
+        """
+        A generator which yields Volumes.
+        """
 
 class InstanceVpcAddressesCollection(ResourceCollection):
     """
-    [Instance.vpc_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.vpc_addresses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.vpc_addresses)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancevpcaddressescollection)
     """
 
     def all(self) -> "InstanceVpcAddressesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         PublicIps: List[str] = None,
         AllocationIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> "InstanceVpcAddressesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "InstanceVpcAddressesCollection":
-        pass
-
+        """
+        Return at most this many VpcAddresss.
+        """
     def page_size(self, count: int) -> "InstanceVpcAddressesCollection":
-        pass
-
+        """
+        Fetch at most this many VpcAddresss per service request.
+        """
     def pages(self) -> Iterator[List["VpcAddress"]]:
-        pass
-
+        """
+        A generator which yields pages of VpcAddresss.
+        """
     def __iter__(self) -> Iterator["VpcAddress"]:
-        pass
-
+        """
+        A generator which yields VpcAddresss.
+        """
 
 class PlacementGroupInstancesCollection(ResourceCollection):
     """
-    [PlacementGroup.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.PlacementGroup.instances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.PlacementGroup.instances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#placementgroupinstancescollection)
     """
 
     def all(self) -> "PlacementGroupInstancesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> "PlacementGroupInstancesCollection":
-        pass
-
-    def create_tags(self, DryRun: bool = None) -> None:
-        pass
-
-    def monitor(self, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
-        pass
-
-    def reboot(self, DryRun: bool = None) -> None:
-        pass
-
-    def start(self, AdditionalInfo: str = None, DryRun: bool = None) -> StartInstancesResultTypeDef:
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
+    def create_tags(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def monitor(self, *, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def reboot(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def start(
+        self, *, AdditionalInfo: str = None, DryRun: bool = None
+    ) -> StartInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def stop(
-        self, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
+        self, *, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
     ) -> StopInstancesResultTypeDef:
-        pass
-
-    def terminate(self, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
-        pass
-
-    def unmonitor(self, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
-        pass
-
+        """
+        Batch method.
+        """
+    def terminate(self, *, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def unmonitor(self, *, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def limit(self, count: int) -> "PlacementGroupInstancesCollection":
-        pass
-
+        """
+        Return at most this many Instances.
+        """
     def page_size(self, count: int) -> "PlacementGroupInstancesCollection":
-        pass
-
+        """
+        Fetch at most this many Instances per service request.
+        """
     def pages(self) -> Iterator[List["Instance"]]:
-        pass
-
+        """
+        A generator which yields pages of Instances.
+        """
     def __iter__(self) -> Iterator["Instance"]:
-        pass
-
+        """
+        A generator which yields Instances.
+        """
 
 class SubnetInstancesCollection(ResourceCollection):
     """
-    [Subnet.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.instances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.instances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetinstancescollection)
     """
 
     def all(self) -> "SubnetInstancesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> "SubnetInstancesCollection":
-        pass
-
-    def create_tags(self, DryRun: bool = None) -> None:
-        pass
-
-    def monitor(self, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
-        pass
-
-    def reboot(self, DryRun: bool = None) -> None:
-        pass
-
-    def start(self, AdditionalInfo: str = None, DryRun: bool = None) -> StartInstancesResultTypeDef:
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
+    def create_tags(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def monitor(self, *, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def reboot(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def start(
+        self, *, AdditionalInfo: str = None, DryRun: bool = None
+    ) -> StartInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def stop(
-        self, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
+        self, *, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
     ) -> StopInstancesResultTypeDef:
-        pass
-
-    def terminate(self, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
-        pass
-
-    def unmonitor(self, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
-        pass
-
+        """
+        Batch method.
+        """
+    def terminate(self, *, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def unmonitor(self, *, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def limit(self, count: int) -> "SubnetInstancesCollection":
-        pass
-
+        """
+        Return at most this many Instances.
+        """
     def page_size(self, count: int) -> "SubnetInstancesCollection":
-        pass
-
+        """
+        Fetch at most this many Instances per service request.
+        """
     def pages(self) -> Iterator[List["Instance"]]:
-        pass
-
+        """
+        A generator which yields pages of Instances.
+        """
     def __iter__(self) -> Iterator["Instance"]:
-        pass
-
+        """
+        A generator which yields Instances.
+        """
 
 class SubnetNetworkInterfacesCollection(ResourceCollection):
     """
-    [Subnet.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.network_interfaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.network_interfaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetnetworkinterfacescollection)
     """
 
     def all(self) -> "SubnetNetworkInterfacesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkInterfaceIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "SubnetNetworkInterfacesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "SubnetNetworkInterfacesCollection":
-        pass
-
+        """
+        Return at most this many NetworkInterfaces.
+        """
     def page_size(self, count: int) -> "SubnetNetworkInterfacesCollection":
-        pass
-
+        """
+        Fetch at most this many NetworkInterfaces per service request.
+        """
     def pages(self) -> Iterator[List["NetworkInterface"]]:
-        pass
-
+        """
+        A generator which yields pages of NetworkInterfaces.
+        """
     def __iter__(self) -> Iterator["NetworkInterface"]:
-        pass
-
+        """
+        A generator which yields NetworkInterfaces.
+        """
 
 class VolumeSnapshotsCollection(ResourceCollection):
     """
-    [Volume.snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.snapshots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.snapshots)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumesnapshotscollection)
     """
 
     def all(self) -> "VolumeSnapshotsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxResults: int = None,
         NextToken: str = None,
         OwnerIds: List[str] = None,
         RestorableByUserIds: List[str] = None,
         SnapshotIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> "VolumeSnapshotsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VolumeSnapshotsCollection":
-        pass
-
+        """
+        Return at most this many Snapshots.
+        """
     def page_size(self, count: int) -> "VolumeSnapshotsCollection":
-        pass
-
+        """
+        Fetch at most this many Snapshots per service request.
+        """
     def pages(self) -> Iterator[List["Snapshot"]]:
-        pass
-
+        """
+        A generator which yields pages of Snapshots.
+        """
     def __iter__(self) -> Iterator["Snapshot"]:
-        pass
-
+        """
+        A generator which yields Snapshots.
+        """
 
 class VpcAcceptedVpcPeeringConnectionsCollection(ResourceCollection):
     """
-    [Vpc.accepted_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.accepted_vpc_peering_connections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.accepted_vpc_peering_connections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcacceptedvpcpeeringconnectionscollection)
     """
 
     def all(self) -> "VpcAcceptedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         VpcPeeringConnectionIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcAcceptedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcAcceptedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Return at most this many VpcPeeringConnections.
+        """
     def page_size(self, count: int) -> "VpcAcceptedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Fetch at most this many VpcPeeringConnections per service request.
+        """
     def pages(self) -> Iterator[List["VpcPeeringConnection"]]:
-        pass
-
+        """
+        A generator which yields pages of VpcPeeringConnections.
+        """
     def __iter__(self) -> Iterator["VpcPeeringConnection"]:
-        pass
-
+        """
+        A generator which yields VpcPeeringConnections.
+        """
 
 class VpcInstancesCollection(ResourceCollection):
     """
-    [Vpc.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.instances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.instances)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcinstancescollection)
     """
 
     def all(self) -> "VpcInstancesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         InstanceIds: List[str] = None,
         DryRun: bool = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> "VpcInstancesCollection":
-        pass
-
-    def create_tags(self, DryRun: bool = None) -> None:
-        pass
-
-    def monitor(self, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
-        pass
-
-    def reboot(self, DryRun: bool = None) -> None:
-        pass
-
-    def start(self, AdditionalInfo: str = None, DryRun: bool = None) -> StartInstancesResultTypeDef:
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
+    def create_tags(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def monitor(self, *, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def reboot(self, *, DryRun: bool = None) -> None:
+        """
+        Batch method.
+        """
+    def start(
+        self, *, AdditionalInfo: str = None, DryRun: bool = None
+    ) -> StartInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def stop(
-        self, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
+        self, *, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
     ) -> StopInstancesResultTypeDef:
-        pass
-
-    def terminate(self, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
-        pass
-
-    def unmonitor(self, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
-        pass
-
+        """
+        Batch method.
+        """
+    def terminate(self, *, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
+        """
+        Batch method.
+        """
+    def unmonitor(self, *, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
+        """
+        Batch method.
+        """
     def limit(self, count: int) -> "VpcInstancesCollection":
-        pass
-
+        """
+        Return at most this many Instances.
+        """
     def page_size(self, count: int) -> "VpcInstancesCollection":
-        pass
-
+        """
+        Fetch at most this many Instances per service request.
+        """
     def pages(self) -> Iterator[List["Instance"]]:
-        pass
-
+        """
+        A generator which yields pages of Instances.
+        """
     def __iter__(self) -> Iterator["Instance"]:
-        pass
-
+        """
+        A generator which yields Instances.
+        """
 
 class VpcInternetGatewaysCollection(ResourceCollection):
     """
-    [Vpc.internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.internet_gateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.internet_gateways)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcinternetgatewayscollection)
     """
 
     def all(self) -> "VpcInternetGatewaysCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         InternetGatewayIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcInternetGatewaysCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcInternetGatewaysCollection":
-        pass
-
+        """
+        Return at most this many InternetGateways.
+        """
     def page_size(self, count: int) -> "VpcInternetGatewaysCollection":
-        pass
-
+        """
+        Fetch at most this many InternetGateways per service request.
+        """
     def pages(self) -> Iterator[List["InternetGateway"]]:
-        pass
-
+        """
+        A generator which yields pages of InternetGateways.
+        """
     def __iter__(self) -> Iterator["InternetGateway"]:
-        pass
-
+        """
+        A generator which yields InternetGateways.
+        """
 
 class VpcNetworkAclsCollection(ResourceCollection):
     """
-    [Vpc.network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.network_acls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.network_acls)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcnetworkaclscollection)
     """
 
     def all(self) -> "VpcNetworkAclsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkAclIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcNetworkAclsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcNetworkAclsCollection":
-        pass
-
+        """
+        Return at most this many NetworkAcls.
+        """
     def page_size(self, count: int) -> "VpcNetworkAclsCollection":
-        pass
-
+        """
+        Fetch at most this many NetworkAcls per service request.
+        """
     def pages(self) -> Iterator[List["NetworkAcl"]]:
-        pass
-
+        """
+        A generator which yields pages of NetworkAcls.
+        """
     def __iter__(self) -> Iterator["NetworkAcl"]:
-        pass
-
+        """
+        A generator which yields NetworkAcls.
+        """
 
 class VpcNetworkInterfacesCollection(ResourceCollection):
     """
-    [Vpc.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.network_interfaces)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.network_interfaces)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcnetworkinterfacescollection)
     """
 
     def all(self) -> "VpcNetworkInterfacesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         NetworkInterfaceIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcNetworkInterfacesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcNetworkInterfacesCollection":
-        pass
-
+        """
+        Return at most this many NetworkInterfaces.
+        """
     def page_size(self, count: int) -> "VpcNetworkInterfacesCollection":
-        pass
-
+        """
+        Fetch at most this many NetworkInterfaces per service request.
+        """
     def pages(self) -> Iterator[List["NetworkInterface"]]:
-        pass
-
+        """
+        A generator which yields pages of NetworkInterfaces.
+        """
     def __iter__(self) -> Iterator["NetworkInterface"]:
-        pass
-
+        """
+        A generator which yields NetworkInterfaces.
+        """
 
 class VpcRequestedVpcPeeringConnectionsCollection(ResourceCollection):
     """
-    [Vpc.requested_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.requested_vpc_peering_connections)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.requested_vpc_peering_connections)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcrequestedvpcpeeringconnectionscollection)
     """
 
     def all(self) -> "VpcRequestedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         VpcPeeringConnectionIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcRequestedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcRequestedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Return at most this many VpcPeeringConnections.
+        """
     def page_size(self, count: int) -> "VpcRequestedVpcPeeringConnectionsCollection":
-        pass
-
+        """
+        Fetch at most this many VpcPeeringConnections per service request.
+        """
     def pages(self) -> Iterator[List["VpcPeeringConnection"]]:
-        pass
-
+        """
+        A generator which yields pages of VpcPeeringConnections.
+        """
     def __iter__(self) -> Iterator["VpcPeeringConnection"]:
-        pass
-
+        """
+        A generator which yields VpcPeeringConnections.
+        """
 
 class VpcRouteTablesCollection(ResourceCollection):
     """
-    [Vpc.route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.route_tables)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.route_tables)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcroutetablescollection)
     """
 
     def all(self) -> "VpcRouteTablesCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         DryRun: bool = None,
         RouteTableIds: List[str] = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcRouteTablesCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcRouteTablesCollection":
-        pass
-
+        """
+        Return at most this many RouteTables.
+        """
     def page_size(self, count: int) -> "VpcRouteTablesCollection":
-        pass
-
+        """
+        Fetch at most this many RouteTables per service request.
+        """
     def pages(self) -> Iterator[List["RouteTable"]]:
-        pass
-
+        """
+        A generator which yields pages of RouteTables.
+        """
     def __iter__(self) -> Iterator["RouteTable"]:
-        pass
-
+        """
+        A generator which yields RouteTables.
+        """
 
 class VpcSecurityGroupsCollection(ResourceCollection):
     """
-    [Vpc.security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.security_groups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.security_groups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcsecuritygroupscollection)
     """
 
     def all(self) -> "VpcSecurityGroupsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         GroupIds: List[str] = None,
         GroupNames: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcSecurityGroupsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcSecurityGroupsCollection":
-        pass
-
+        """
+        Return at most this many SecurityGroups.
+        """
     def page_size(self, count: int) -> "VpcSecurityGroupsCollection":
-        pass
-
+        """
+        Fetch at most this many SecurityGroups per service request.
+        """
     def pages(self) -> Iterator[List["SecurityGroup"]]:
-        pass
-
+        """
+        A generator which yields pages of SecurityGroups.
+        """
     def __iter__(self) -> Iterator["SecurityGroup"]:
-        pass
-
+        """
+        A generator which yields SecurityGroups.
+        """
 
 class VpcSubnetsCollection(ResourceCollection):
     """
-    [Vpc.subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.subnets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.subnets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcsubnetscollection)
     """
 
     def all(self) -> "VpcSubnetsCollection":
-        pass
-
+        """
+        Get all items from the collection, optionally with a custom page size and item count limit.
+        """
     def filter(  # type: ignore
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         SubnetIds: List[str] = None,
         DryRun: bool = None,
         NextToken: str = None,
-        MaxResults: int = None,
+        MaxResults: int = None
     ) -> "VpcSubnetsCollection":
-        pass
-
+        """
+        Get items from the collection, passing keyword arguments along as parameters to the underlying service operation, which are typically used to filter the results.
+        """
     def limit(self, count: int) -> "VpcSubnetsCollection":
-        pass
-
+        """
+        Return at most this many Subnets.
+        """
     def page_size(self, count: int) -> "VpcSubnetsCollection":
-        pass
-
+        """
+        Fetch at most this many Subnets per service request.
+        """
     def pages(self) -> Iterator[List["Subnet"]]:
-        pass
-
+        """
+        A generator which yields pages of Subnets.
+        """
     def __iter__(self) -> Iterator["Subnet"]:
-        pass
-
+        """
+        A generator which yields Subnets.
+        """
 
 class ClassicAddress(Boto3ServiceResource):
     """
-    [ClassicAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#classicaddress)
     """
 
     instance_id: str
@@ -1275,60 +1596,77 @@ class ClassicAddress(Boto3ServiceResource):
     customer_owned_ipv4_pool: str
     carrier_ip: str
     public_ip: str
-
     def associate(
         self,
+        *,
         AllocationId: str = None,
         InstanceId: str = None,
         AllowReassociation: bool = None,
         DryRun: bool = None,
         NetworkInterfaceId: str = None,
-        PrivateIpAddress: str = None,
+        PrivateIpAddress: str = None
     ) -> AssociateAddressResultTypeDef:
         """
-        [ClassicAddress.associate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ClassicAddress.associate)
-        """
+        Associates an Elastic IP address, or carrier IP address (for instances that are
+        in subnets in Wavelength Zones) with an instance or a network interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ClassicAddress.associate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#classicaddressassociate-method)
+        """
     def disassociate(
-        self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None
+        self, *, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None
     ) -> None:
         """
-        [ClassicAddress.disassociate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ClassicAddress.disassociate)
-        """
+        Disassociates an Elastic IP address from the instance or network interface it's
+        associated with.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ClassicAddress.disassociate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#classicaddressdisassociate-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [ClassicAddress.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ClassicAddress.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ClassicAddress.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#classicaddressget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [ClassicAddress.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ClassicAddress.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_addresses` to update the attributes of the
+        ClassicAddress resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ClassicAddress.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#classicaddressload-method)
+        """
     def release(
         self,
+        *,
         AllocationId: str = None,
         PublicIp: str = None,
         NetworkBorderGroup: str = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> None:
         """
-        [ClassicAddress.release documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ClassicAddress.release)
-        """
+        Releases the specified Elastic IP address.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ClassicAddress.release)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#classicaddressrelease-method)
+        """
     def reload(self) -> None:
         """
-        [ClassicAddress.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ClassicAddress.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_addresses` to update the attributes of the
+        ClassicAddress resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ClassicAddress.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#classicaddressreload-method)
+        """
 
 _ClassicAddress = ClassicAddress
 
-
 class KeyPair(Boto3ServiceResource):
     """
-    [KeyPair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypair)
     """
 
     key_fingerprint: str
@@ -1337,24 +1675,27 @@ class KeyPair(Boto3ServiceResource):
     key_pair_id: str
     tags: List[Any]
     name: str
-
-    def delete(self, KeyPairId: str = None, DryRun: bool = None) -> None:
+    def delete(self, *, KeyPairId: str = None, DryRun: bool = None) -> None:
         """
-        [KeyPair.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.KeyPair.delete)
-        """
+        Deletes the specified key pair, by removing the public key from Amazon EC2.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.KeyPair.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypairdelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [KeyPair.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.KeyPair.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.KeyPair.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypairget_available_subresources-method)
+        """
 
 _KeyPair = KeyPair
 
-
 class KeyPairInfo(Boto3ServiceResource):
     """
-    [KeyPairInfo documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.KeyPairInfo)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.KeyPairInfo)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypairinfo)
     """
 
     key_pair_id: str
@@ -1362,34 +1703,43 @@ class KeyPairInfo(Boto3ServiceResource):
     key_name: str
     tags: List[Any]
     name: str
-
-    def delete(self, KeyPairId: str = None, DryRun: bool = None) -> None:
+    def delete(self, *, KeyPairId: str = None, DryRun: bool = None) -> None:
         """
-        [KeyPairInfo.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.KeyPairInfo.delete)
-        """
+        Deletes the specified key pair, by removing the public key from Amazon EC2.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.KeyPairInfo.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypairinfodelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [KeyPairInfo.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.KeyPairInfo.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.KeyPairInfo.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypairinfoget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [KeyPairInfo.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.KeyPairInfo.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_key_pairs` to update the attributes of the
+        KeyPairInfo resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.KeyPairInfo.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypairinfoload-method)
+        """
     def reload(self) -> None:
         """
-        [KeyPairInfo.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.KeyPairInfo.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_key_pairs` to update the attributes of the
+        KeyPairInfo resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.KeyPairInfo.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#keypairinforeload-method)
+        """
 
 _KeyPairInfo = KeyPairInfo
 
-
 class NetworkInterfaceAssociation(Boto3ServiceResource):
     """
-    [NetworkInterfaceAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceassociation)
     """
 
     carrier_ip: str
@@ -1398,34 +1748,44 @@ class NetworkInterfaceAssociation(Boto3ServiceResource):
     public_ip: str
     id: str
     address: "VpcAddress"
-
-    def delete(self, PublicIp: str = None, DryRun: bool = None) -> None:
+    def delete(self, *, PublicIp: str = None, DryRun: bool = None) -> None:
         """
-        [NetworkInterfaceAssociation.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.delete)
-        """
+        Disassociates an Elastic IP address from the instance or network interface it's
+        associated with.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceassociationdelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [NetworkInterfaceAssociation.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceassociationget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [NetworkInterfaceAssociation.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_network_interfaces` to update the attributes
+        of the NetworkInterfaceAssociation resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceassociationload-method)
+        """
     def reload(self) -> None:
         """
-        [NetworkInterfaceAssociation.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_network_interfaces` to update the attributes
+        of the NetworkInterfaceAssociation resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceassociationreload-method)
+        """
 
 _NetworkInterfaceAssociation = NetworkInterfaceAssociation
 
-
 class PlacementGroup(Boto3ServiceResource):
     """
-    [PlacementGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#placementgroup)
     """
 
     group_name: str
@@ -1436,70 +1796,86 @@ class PlacementGroup(Boto3ServiceResource):
     tags: List[Any]
     name: str
     instances: PlacementGroupInstancesCollection
-
-    def delete(self, DryRun: bool = None) -> None:
+    def delete(self, *, DryRun: bool = None) -> None:
         """
-        [PlacementGroup.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.PlacementGroup.delete)
-        """
+        Deletes the specified placement group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.PlacementGroup.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#placementgroupdelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [PlacementGroup.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.PlacementGroup.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.PlacementGroup.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#placementgroupget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [PlacementGroup.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.PlacementGroup.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_placement_groups` to update the attributes
+        of the PlacementGroup resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.PlacementGroup.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#placementgroupload-method)
+        """
     def reload(self) -> None:
         """
-        [PlacementGroup.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.PlacementGroup.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_placement_groups` to update the attributes
+        of the PlacementGroup resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.PlacementGroup.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#placementgroupreload-method)
+        """
 
 _PlacementGroup = PlacementGroup
 
-
 class Tag(Boto3ServiceResource):
     """
-    [Tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Tag)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Tag)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#tag)
     """
 
     resource_type: str
     resource_id: str
     key: str
     value: str
-
-    def delete(
-        self, Resources: List[str], DryRun: bool = None, Tags: List["TagTypeDef"] = None
-    ) -> None:
+    def delete(self, *, DryRun: bool = None) -> None:
         """
-        [Tag.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Tag.delete)
-        """
+        Deletes the specified set of tags from the specified set of resources.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Tag.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#tagdelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Tag.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Tag.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Tag.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#tagget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [Tag.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Tag.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_tags` to update the attributes of the Tag
+        resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Tag.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#tagload-method)
+        """
     def reload(self) -> None:
         """
-        [Tag.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Tag.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_tags` to update the attributes of the Tag
+        resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Tag.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#tagreload-method)
+        """
 
 _Tag = Tag
 
-
 class VpcPeeringConnection(Boto3ServiceResource):
     """
-    [VpcPeeringConnection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnection)
     """
 
     accepter_vpc_info: Dict[str, Any]
@@ -1511,49 +1887,64 @@ class VpcPeeringConnection(Boto3ServiceResource):
     id: str
     accepter_vpc: "Vpc"
     requester_vpc: "Vpc"
+    def accept(self, *, DryRun: bool = None) -> AcceptVpcPeeringConnectionResultTypeDef:
+        """
+        Accept a VPC peering connection request.
 
-    def accept(self, DryRun: bool = None) -> AcceptVpcPeeringConnectionResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcPeeringConnection.accept)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnectionaccept-method)
         """
-        [VpcPeeringConnection.accept documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcPeeringConnection.accept)
+    def delete(self, *, DryRun: bool = None) -> DeleteVpcPeeringConnectionResultTypeDef:
         """
+        Deletes a VPC peering connection.
 
-    def delete(self, DryRun: bool = None) -> DeleteVpcPeeringConnectionResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcPeeringConnection.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnectiondelete-method)
         """
-        [VpcPeeringConnection.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcPeeringConnection.delete)
-        """
-
     def get_available_subresources(self) -> List[str]:
         """
-        [VpcPeeringConnection.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcPeeringConnection.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcPeeringConnection.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnectionget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [VpcPeeringConnection.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcPeeringConnection.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_vpc_peering_connections` to update the
+        attributes of the VpcPeeringConnection resource.
 
-    def reject(self, DryRun: bool = None) -> RejectVpcPeeringConnectionResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcPeeringConnection.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnectionload-method)
         """
-        [VpcPeeringConnection.reject documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcPeeringConnection.reject)
+    def reject(self, *, DryRun: bool = None) -> RejectVpcPeeringConnectionResultTypeDef:
         """
+        Rejects a VPC peering connection request.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcPeeringConnection.reject)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnectionreject-method)
+        """
     def reload(self) -> None:
         """
-        [VpcPeeringConnection.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcPeeringConnection.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_vpc_peering_connections` to update the
+        attributes of the VpcPeeringConnection resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcPeeringConnection.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnectionreload-method)
+        """
     def wait_until_exists(self) -> None:
         """
-        [VpcPeeringConnection.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcPeeringConnection.wait_until_exists)
-        """
+        Waits until this VpcPeeringConnection is exists.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcPeeringConnection.wait_until_exists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcpeeringconnectionwait_until_exists-method)
+        """
 
 _VpcPeeringConnection = VpcPeeringConnection
 
-
 class VpcAddress(Boto3ServiceResource):
     """
-    [VpcAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcaddress)
     """
 
     instance_id: str
@@ -1571,53 +1962,67 @@ class VpcAddress(Boto3ServiceResource):
     carrier_ip: str
     allocation_id: str
     association: "NetworkInterfaceAssociation"
-
     def associate(
         self,
+        *,
         InstanceId: str = None,
         PublicIp: str = None,
         AllowReassociation: bool = None,
         DryRun: bool = None,
         NetworkInterfaceId: str = None,
-        PrivateIpAddress: str = None,
+        PrivateIpAddress: str = None
     ) -> AssociateAddressResultTypeDef:
         """
-        [VpcAddress.associate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcAddress.associate)
-        """
+        Associates an Elastic IP address, or carrier IP address (for instances that are
+        in subnets in Wavelength Zones) with an instance or a network interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcAddress.associate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcaddressassociate-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [VpcAddress.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcAddress.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcAddress.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcaddressget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [VpcAddress.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcAddress.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_addresses` to update the attributes of the
+        VpcAddress resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcAddress.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcaddressload-method)
+        """
     def release(
         self,
+        *,
         AllocationId: str = None,
         PublicIp: str = None,
         NetworkBorderGroup: str = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> None:
         """
-        [VpcAddress.release documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcAddress.release)
-        """
+        Releases the specified Elastic IP address.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcAddress.release)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcaddressrelease-method)
+        """
     def reload(self) -> None:
         """
-        [VpcAddress.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.VpcAddress.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_addresses` to update the attributes of the
+        VpcAddress resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.VpcAddress.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcaddressreload-method)
+        """
 
 _VpcAddress = VpcAddress
 
-
 class DhcpOptions(Boto3ServiceResource):
     """
-    [DhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#dhcpoptions)
     """
 
     dhcp_configurations: List[Any]
@@ -1625,44 +2030,59 @@ class DhcpOptions(Boto3ServiceResource):
     owner_id: str
     tags: List[Any]
     id: str
+    def associate_with_vpc(self, *, VpcId: str, DryRun: bool = None) -> None:
+        """
+        Associates a set of DHCP options (that you've previously created) with the
+        specified VPC, or associates no DHCP options with the VPC.
 
-    def associate_with_vpc(self, VpcId: str, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.DhcpOptions.associate_with_vpc)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#dhcpoptionsassociate_with_vpc-method)
         """
-        [DhcpOptions.associate_with_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.DhcpOptions.associate_with_vpc)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.DhcpOptions.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#dhcpoptionscreate_tags-method)
         """
-        [DhcpOptions.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.DhcpOptions.create_tags)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified set of DHCP options.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.DhcpOptions.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#dhcpoptionsdelete-method)
         """
-        [DhcpOptions.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.DhcpOptions.delete)
-        """
-
     def get_available_subresources(self) -> List[str]:
         """
-        [DhcpOptions.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.DhcpOptions.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.DhcpOptions.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#dhcpoptionsget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [DhcpOptions.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.DhcpOptions.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_dhcp_options` to update the attributes of
+        the DhcpOptions resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.DhcpOptions.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#dhcpoptionsload-method)
+        """
     def reload(self) -> None:
         """
-        [DhcpOptions.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.DhcpOptions.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_dhcp_options` to update the attributes of
+        the DhcpOptions resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.DhcpOptions.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#dhcpoptionsreload-method)
+        """
 
 _DhcpOptions = DhcpOptions
 
-
 class Image(Boto3ServiceResource):
     """
-    [Image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Image)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Image)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#image)
     """
 
     architecture: str
@@ -1691,83 +2111,98 @@ class Image(Boto3ServiceResource):
     state_reason: Dict[str, Any]
     tags: List[Any]
     virtualization_type: str
+    boot_mode: str
+    deprecation_time: str
     id: str
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
+        """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imagecreate_tags-method)
         """
-        [Image.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.create_tags)
+    def deregister(self, *, DryRun: bool = None) -> None:
         """
+        Deregisters the specified AMI.
 
-    def deregister(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.deregister)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imagederegister-method)
         """
-        [Image.deregister documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.deregister)
-        """
-
     def describe_attribute(
-        self,
-        Attribute: Literal[
-            "description",
-            "kernel",
-            "ramdisk",
-            "launchPermission",
-            "productCodes",
-            "blockDeviceMapping",
-            "sriovNetSupport",
-        ],
-        DryRun: bool = None,
+        self, *, Attribute: ImageAttributeNameType, DryRun: bool = None
     ) -> ImageAttributeTypeDef:
         """
-        [Image.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.describe_attribute)
-        """
+        Describes the specified attribute of the specified AMI.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.describe_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imagedescribe_attribute-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Image.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imageget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [Image.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_images` to update the attributes of the
+        Image resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imageload-method)
+        """
     def modify_attribute(
         self,
+        *,
         Attribute: str = None,
         Description: "AttributeValueTypeDef" = None,
-        LaunchPermission: LaunchPermissionModificationsTypeDef = None,
-        OperationType: Literal["add", "remove"] = None,
+        LaunchPermission: "LaunchPermissionModificationsTypeDef" = None,
+        OperationType: OperationTypeType = None,
         ProductCodes: List[str] = None,
         UserGroups: List[str] = None,
         UserIds: List[str] = None,
         Value: str = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> None:
         """
-        [Image.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.modify_attribute)
-        """
+        Modifies the specified attribute of the specified AMI.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.modify_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imagemodify_attribute-method)
+        """
     def reload(self) -> None:
         """
-        [Image.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_images` to update the attributes of the
+        Image resource.
 
-    def reset_attribute(self, Attribute: Literal["launchPermission"], DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imagereload-method)
         """
-        [Image.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.reset_attribute)
+    def reset_attribute(
+        self, *, Attribute: Literal["launchPermission"], DryRun: bool = None
+    ) -> None:
         """
+        Resets an attribute of an AMI to its default value.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.reset_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imagereset_attribute-method)
+        """
     def wait_until_exists(self) -> None:
         """
-        [Image.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Image.wait_until_exists)
-        """
+        Waits until this Image is exists.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Image.wait_until_exists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#imagewait_until_exists-method)
+        """
 
 _Image = Image
 
-
 class InternetGateway(Boto3ServiceResource):
     """
-    [InternetGateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgateway)
     """
 
     attachments: List[Any]
@@ -1775,49 +2210,67 @@ class InternetGateway(Boto3ServiceResource):
     owner_id: str
     tags: List[Any]
     id: str
+    def attach_to_vpc(self, *, VpcId: str, DryRun: bool = None) -> None:
+        """
+        Attaches an internet gateway or a virtual private gateway to a VPC, enabling
+        connectivity between the internet and the VPC.
 
-    def attach_to_vpc(self, VpcId: str, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.InternetGateway.attach_to_vpc)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgatewayattach_to_vpc-method)
         """
-        [InternetGateway.attach_to_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.InternetGateway.attach_to_vpc)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.InternetGateway.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgatewaycreate_tags-method)
         """
-        [InternetGateway.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.InternetGateway.create_tags)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified internet gateway.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.InternetGateway.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgatewaydelete-method)
         """
-        [InternetGateway.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.InternetGateway.delete)
+    def detach_from_vpc(self, *, VpcId: str, DryRun: bool = None) -> None:
         """
+        Detaches an internet gateway from a VPC, disabling connectivity between the
+        internet and the VPC.
 
-    def detach_from_vpc(self, VpcId: str, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.InternetGateway.detach_from_vpc)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgatewaydetach_from_vpc-method)
         """
-        [InternetGateway.detach_from_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.InternetGateway.detach_from_vpc)
-        """
-
     def get_available_subresources(self) -> List[str]:
         """
-        [InternetGateway.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.InternetGateway.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.InternetGateway.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgatewayget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [InternetGateway.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.InternetGateway.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_internet_gateways` to update the attributes
+        of the InternetGateway resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.InternetGateway.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgatewayload-method)
+        """
     def reload(self) -> None:
         """
-        [InternetGateway.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.InternetGateway.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_internet_gateways` to update the attributes
+        of the InternetGateway resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.InternetGateway.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#internetgatewayreload-method)
+        """
 
 _InternetGateway = InternetGateway
 
-
 class NetworkAcl(Boto3ServiceResource):
     """
-    [NetworkAcl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkacl)
     """
 
     associations: List[Any]
@@ -1829,83 +2282,106 @@ class NetworkAcl(Boto3ServiceResource):
     owner_id: str
     id: str
     vpc: "Vpc"
-
     def create_entry(
         self,
+        *,
         Egress: bool,
         Protocol: str,
-        RuleAction: Literal["allow", "deny"],
+        RuleAction: RuleActionType,
         RuleNumber: int,
         CidrBlock: str = None,
         DryRun: bool = None,
         IcmpTypeCode: "IcmpTypeCodeTypeDef" = None,
         Ipv6CidrBlock: str = None,
-        PortRange: "PortRangeTypeDef" = None,
+        PortRange: "PortRangeTypeDef" = None
     ) -> None:
         """
-        [NetworkAcl.create_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.create_entry)
-        """
+        Creates an entry (a rule) in a network ACL with the specified rule number.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.create_entry)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkaclcreate_entry-method)
         """
-        [NetworkAcl.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkaclcreate_tags-method)
         """
-        [NetworkAcl.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.delete)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified network ACL.
 
-    def delete_entry(self, Egress: bool, RuleNumber: int, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkacldelete-method)
         """
-        [NetworkAcl.delete_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.delete_entry)
+    def delete_entry(self, *, Egress: bool, RuleNumber: int, DryRun: bool = None) -> None:
         """
+        Deletes the specified ingress or egress entry (rule) from the specified network
+        ACL.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.delete_entry)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkacldelete_entry-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [NetworkAcl.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkaclget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [NetworkAcl.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_network_acls` to update the attributes of
+        the NetworkAcl resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkaclload-method)
+        """
     def reload(self) -> None:
         """
-        [NetworkAcl.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_network_acls` to update the attributes of
+        the NetworkAcl resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkaclreload-method)
+        """
     def replace_association(
-        self, AssociationId: str, DryRun: bool = None
+        self, *, AssociationId: str, DryRun: bool = None
     ) -> ReplaceNetworkAclAssociationResultTypeDef:
         """
-        [NetworkAcl.replace_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.replace_association)
-        """
+        Changes which network ACL a subnet is associated with.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.replace_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkaclreplace_association-method)
+        """
     def replace_entry(
         self,
+        *,
         Egress: bool,
         Protocol: str,
-        RuleAction: Literal["allow", "deny"],
+        RuleAction: RuleActionType,
         RuleNumber: int,
         CidrBlock: str = None,
         DryRun: bool = None,
         IcmpTypeCode: "IcmpTypeCodeTypeDef" = None,
         Ipv6CidrBlock: str = None,
-        PortRange: "PortRangeTypeDef" = None,
+        PortRange: "PortRangeTypeDef" = None
     ) -> None:
         """
-        [NetworkAcl.replace_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkAcl.replace_entry)
-        """
+        Replaces an entry (rule) in a network ACL.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkAcl.replace_entry)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkaclreplace_entry-method)
+        """
 
 _NetworkAcl = NetworkAcl
 
-
 class NetworkInterface(Boto3ServiceResource):
     """
-    [NetworkInterface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterface)
     """
 
     association_attribute: Dict[str, Any]
@@ -1922,6 +2398,8 @@ class NetworkInterface(Boto3ServiceResource):
     private_dns_name: str
     private_ip_address: str
     private_ip_addresses: List[Any]
+    ipv4_prefixes: List[Any]
+    ipv6_prefixes: List[Any]
     requester_id: str
     requester_managed: bool
     source_dest_check: bool
@@ -1933,92 +2411,129 @@ class NetworkInterface(Boto3ServiceResource):
     association: "NetworkInterfaceAssociation"
     subnet: "Subnet"
     vpc: "Vpc"
-
     def assign_private_ip_addresses(
         self,
+        *,
         AllowReassignment: bool = None,
         PrivateIpAddresses: List[str] = None,
         SecondaryPrivateIpAddressCount: int = None,
+        Ipv4Prefixes: List[str] = None,
+        Ipv4PrefixCount: int = None
     ) -> AssignPrivateIpAddressesResultTypeDef:
         """
-        [NetworkInterface.assign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.assign_private_ip_addresses)
-        """
+        Assigns one or more secondary private IP addresses to the specified network
+        interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.assign_private_ip_addresses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceassign_private_ip_addresses-method)
+        """
     def attach(
-        self, DeviceIndex: int, InstanceId: str, DryRun: bool = None, NetworkCardIndex: int = None
+        self,
+        *,
+        DeviceIndex: int,
+        InstanceId: str,
+        DryRun: bool = None,
+        NetworkCardIndex: int = None
     ) -> AttachNetworkInterfaceResultTypeDef:
         """
-        [NetworkInterface.attach documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.attach)
-        """
+        Attaches a network interface to an instance.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.attach)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceattach-method)
         """
-        [NetworkInterface.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfacecreate_tags-method)
         """
-        [NetworkInterface.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.delete)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified network interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfacedelete-method)
+        """
     def describe_attribute(
-        self,
-        Attribute: Literal["description", "groupSet", "sourceDestCheck", "attachment"] = None,
-        DryRun: bool = None,
+        self, *, Attribute: NetworkInterfaceAttributeType = None, DryRun: bool = None
     ) -> DescribeNetworkInterfaceAttributeResultTypeDef:
         """
-        [NetworkInterface.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.describe_attribute)
-        """
+        Describes a network interface attribute.
 
-    def detach(self, AttachmentId: str, DryRun: bool = None, Force: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.describe_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfacedescribe_attribute-method)
         """
-        [NetworkInterface.detach documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.detach)
+    def detach(self, *, AttachmentId: str, DryRun: bool = None, Force: bool = None) -> None:
         """
+        Detaches a network interface from an instance.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.detach)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfacedetach-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [NetworkInterface.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [NetworkInterface.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_network_interfaces` to update the attributes
+        of the NetworkInterface resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceload-method)
+        """
     def modify_attribute(
         self,
-        Attachment: NetworkInterfaceAttachmentChangesTypeDef = None,
+        *,
+        Attachment: "NetworkInterfaceAttachmentChangesTypeDef" = None,
         Description: "AttributeValueTypeDef" = None,
         DryRun: bool = None,
         Groups: List[str] = None,
-        SourceDestCheck: "AttributeBooleanValueTypeDef" = None,
+        SourceDestCheck: "AttributeBooleanValueTypeDef" = None
     ) -> None:
         """
-        [NetworkInterface.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.modify_attribute)
-        """
+        Modifies the specified network interface attribute.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.modify_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfacemodify_attribute-method)
+        """
     def reload(self) -> None:
         """
-        [NetworkInterface.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_network_interfaces` to update the attributes
+        of the NetworkInterface resource.
 
-    def reset_attribute(self, DryRun: bool = None, SourceDestCheck: str = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfacereload-method)
         """
-        [NetworkInterface.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.reset_attribute)
+    def reset_attribute(self, *, DryRun: bool = None, SourceDestCheck: str = None) -> None:
         """
+        Resets a network interface attribute.
 
-    def unassign_private_ip_addresses(self, PrivateIpAddresses: List[str]) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.reset_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfacereset_attribute-method)
         """
-        [NetworkInterface.unassign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.NetworkInterface.unassign_private_ip_addresses)
+    def unassign_private_ip_addresses(
+        self, *, PrivateIpAddresses: List[str] = None, Ipv4Prefixes: List[str] = None
+    ) -> None:
         """
+        Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation
+        prefixes from a network interface.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.NetworkInterface.unassign_private_ip_addresses)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#networkinterfaceunassign_private_ip_addresses-method)
+        """
 
 _NetworkInterface = NetworkInterface
 
-
 class Route(Boto3ServiceResource):
     """
-    [Route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Route)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Route)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#route)
     """
 
     destination_ipv6_cidr_block: str
@@ -2037,29 +2552,36 @@ class Route(Boto3ServiceResource):
     vpc_peering_connection_id: str
     route_table_id: str
     destination_cidr_block: str
-
     def RouteTable(self) -> "_RouteTable":
         """
-        [Route.RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Route.RouteTable)
-        """
+        Creates a RouteTable resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Route.RouteTable)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routeroutetable-method)
+        """
     def delete(
         self,
+        *,
         DestinationIpv6CidrBlock: str = None,
         DestinationPrefixListId: str = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> None:
         """
-        [Route.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Route.delete)
-        """
+        Deletes the specified route from the specified route table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Route.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routedelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Route.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Route.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Route.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routeget_available_subresources-method)
+        """
     def replace(
         self,
+        *,
         DestinationIpv6CidrBlock: str = None,
         DestinationPrefixListId: str = None,
         DryRun: bool = None,
@@ -2073,19 +2595,21 @@ class Route(Boto3ServiceResource):
         LocalGatewayId: str = None,
         CarrierGatewayId: str = None,
         NetworkInterfaceId: str = None,
-        VpcPeeringConnectionId: str = None,
+        VpcPeeringConnectionId: str = None
     ) -> None:
         """
-        [Route.replace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Route.replace)
-        """
+        Replaces an existing route within a route table in a VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Route.replace)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routereplace-method)
+        """
 
 _Route = Route
 
-
 class RouteTableAssociation(Boto3ServiceResource):
     """
-    [RouteTableAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetableassociation)
     """
 
     main: bool
@@ -2097,29 +2621,35 @@ class RouteTableAssociation(Boto3ServiceResource):
     id: str
     route_table: "RouteTable"
     subnet: "Subnet"
-
-    def delete(self, DryRun: bool = None) -> None:
+    def delete(self, *, DryRun: bool = None) -> None:
         """
-        [RouteTableAssociation.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTableAssociation.delete)
-        """
+        Disassociates a subnet or gateway from a route table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTableAssociation.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetableassociationdelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [RouteTableAssociation.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTableAssociation.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
-    def replace_subnet(self, RouteTableId: str, DryRun: bool = None) -> "_RouteTableAssociation":
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTableAssociation.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetableassociationget_available_subresources-method)
         """
-        [RouteTableAssociation.replace_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTableAssociation.replace_subnet)
+    def replace_subnet(self, *, RouteTableId: str, DryRun: bool = None) -> "_RouteTableAssociation":
         """
+        Changes the route table associated with a given subnet, internet gateway, or
+        virtual private gateway in a VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTableAssociation.replace_subnet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetableassociationreplace_subnet-method)
+        """
 
 _RouteTableAssociation = RouteTableAssociation
 
-
 class SecurityGroup(Boto3ServiceResource):
     """
-    [SecurityGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroup)
     """
 
     description: str
@@ -2131,24 +2661,29 @@ class SecurityGroup(Boto3ServiceResource):
     tags: List[Any]
     vpc_id: str
     id: str
-
     def authorize_egress(
         self,
+        *,
         DryRun: bool = None,
         IpPermissions: List["IpPermissionTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None,
         CidrIp: str = None,
         FromPort: int = None,
         IpProtocol: str = None,
         ToPort: int = None,
         SourceSecurityGroupName: str = None,
-        SourceSecurityGroupOwnerId: str = None,
-    ) -> None:
+        SourceSecurityGroupOwnerId: str = None
+    ) -> AuthorizeSecurityGroupEgressResultTypeDef:
         """
-        [SecurityGroup.authorize_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.authorize_egress)
-        """
+        [VPC only] Adds the specified outbound (egress) rules to a security group for
+        use with a VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.authorize_egress)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroupauthorize_egress-method)
+        """
     def authorize_ingress(
         self,
+        *,
         CidrIp: str = None,
         FromPort: int = None,
         GroupName: str = None,
@@ -2158,53 +2693,75 @@ class SecurityGroup(Boto3ServiceResource):
         SourceSecurityGroupOwnerId: str = None,
         ToPort: int = None,
         DryRun: bool = None,
-    ) -> None:
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
+    ) -> AuthorizeSecurityGroupIngressResultTypeDef:
         """
-        [SecurityGroup.authorize_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.authorize_ingress)
-        """
+        Adds the specified inbound (ingress) rules to a security group.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.authorize_ingress)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroupauthorize_ingress-method)
         """
-        [SecurityGroup.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, GroupName: str = None, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroupcreate_tags-method)
         """
-        [SecurityGroup.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.delete)
+    def delete(self, *, GroupName: str = None, DryRun: bool = None) -> None:
         """
+        Deletes a security group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroupdelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [SecurityGroup.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroupget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [SecurityGroup.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_security_groups` to update the attributes of
+        the SecurityGroup resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroupload-method)
+        """
     def reload(self) -> None:
         """
-        [SecurityGroup.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_security_groups` to update the attributes of
+        the SecurityGroup resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygroupreload-method)
+        """
     def revoke_egress(
         self,
+        *,
         DryRun: bool = None,
         IpPermissions: List["IpPermissionTypeDef"] = None,
+        SecurityGroupRuleIds: List[str] = None,
         CidrIp: str = None,
         FromPort: int = None,
         IpProtocol: str = None,
         ToPort: int = None,
         SourceSecurityGroupName: str = None,
-        SourceSecurityGroupOwnerId: str = None,
+        SourceSecurityGroupOwnerId: str = None
     ) -> RevokeSecurityGroupEgressResultTypeDef:
         """
-        [SecurityGroup.revoke_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.revoke_egress)
-        """
+        [VPC only] Removes the specified outbound (egress) rules from a security group
+        for EC2-VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.revoke_egress)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygrouprevoke_egress-method)
+        """
     def revoke_ingress(
         self,
+        *,
         CidrIp: str = None,
         FromPort: int = None,
         GroupName: str = None,
@@ -2214,18 +2771,21 @@ class SecurityGroup(Boto3ServiceResource):
         SourceSecurityGroupOwnerId: str = None,
         ToPort: int = None,
         DryRun: bool = None,
+        SecurityGroupRuleIds: List[str] = None
     ) -> RevokeSecurityGroupIngressResultTypeDef:
         """
-        [SecurityGroup.revoke_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.SecurityGroup.revoke_ingress)
-        """
+        Removes the specified inbound (ingress) rules from a security group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.SecurityGroup.revoke_ingress)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#securitygrouprevoke_ingress-method)
+        """
 
 _SecurityGroup = SecurityGroup
 
-
 class Snapshot(Boto3ServiceResource):
     """
-    [Snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshot)
     """
 
     data_encryption_key_id: str
@@ -2245,9 +2805,9 @@ class Snapshot(Boto3ServiceResource):
     tags: List[Any]
     id: str
     volume: "Volume"
-
     def copy(
         self,
+        *,
         SourceRegion: str,
         Description: str = None,
         DestinationOutpostArn: str = None,
@@ -2256,76 +2816,98 @@ class Snapshot(Boto3ServiceResource):
         KmsKeyId: str = None,
         PresignedUrl: str = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> CopySnapshotResultTypeDef:
         """
-        [Snapshot.copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.copy)
-        """
+        Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.copy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotcopy-method)
         """
-        [Snapshot.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotcreate_tags-method)
         """
-        [Snapshot.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.delete)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified snapshot.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotdelete-method)
+        """
     def describe_attribute(
-        self, Attribute: Literal["productCodes", "createVolumePermission"], DryRun: bool = None
+        self, *, Attribute: SnapshotAttributeNameType, DryRun: bool = None
     ) -> DescribeSnapshotAttributeResultTypeDef:
         """
-        [Snapshot.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.describe_attribute)
-        """
+        Describes the specified attribute of the specified snapshot.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.describe_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotdescribe_attribute-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Snapshot.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [Snapshot.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_snapshots` to update the attributes of the
+        Snapshot resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotload-method)
+        """
     def modify_attribute(
         self,
-        Attribute: Literal["productCodes", "createVolumePermission"] = None,
-        CreateVolumePermission: CreateVolumePermissionModificationsTypeDef = None,
+        *,
+        Attribute: SnapshotAttributeNameType = None,
+        CreateVolumePermission: "CreateVolumePermissionModificationsTypeDef" = None,
         GroupNames: List[str] = None,
-        OperationType: Literal["add", "remove"] = None,
+        OperationType: OperationTypeType = None,
         UserIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> None:
         """
-        [Snapshot.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.modify_attribute)
-        """
+        Adds or removes permission settings for the specified snapshot.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.modify_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotmodify_attribute-method)
+        """
     def reload(self) -> None:
         """
-        [Snapshot.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_snapshots` to update the attributes of the
+        Snapshot resource.
 
-    def reset_attribute(
-        self, Attribute: Literal["productCodes", "createVolumePermission"], DryRun: bool = None
-    ) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotreload-method)
         """
-        [Snapshot.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.reset_attribute)
+    def reset_attribute(self, *, Attribute: SnapshotAttributeNameType, DryRun: bool = None) -> None:
         """
+        Resets permission settings for the specified snapshot.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.reset_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotreset_attribute-method)
+        """
     def wait_until_completed(self) -> None:
         """
-        [Snapshot.wait_until_completed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Snapshot.wait_until_completed)
-        """
+        Waits until this Snapshot is completed.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Snapshot.wait_until_completed)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#snapshotwait_until_completed-method)
+        """
 
 _Snapshot = Snapshot
 
-
 class Instance(Boto3ServiceResource):
     """
-    [Instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Instance)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Instance)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instance)
     """
 
     ami_launch_index: int
@@ -2376,6 +2958,7 @@ class Instance(Boto3ServiceResource):
     licenses: List[Any]
     metadata_options: Dict[str, Any]
     enclave_options: Dict[str, Any]
+    boot_mode: str
     id: str
     classic_address: "ClassicAddress"
     image: "Image"
@@ -2386,121 +2969,115 @@ class Instance(Boto3ServiceResource):
     vpc: "Vpc"
     volumes: InstanceVolumesCollection
     vpc_addresses: InstanceVpcAddressesCollection
-
     def attach_classic_link_vpc(
-        self, Groups: List[str], VpcId: str, DryRun: bool = None
+        self, *, Groups: List[str], VpcId: str, DryRun: bool = None
     ) -> AttachClassicLinkVpcResultTypeDef:
         """
-        [Instance.attach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.attach_classic_link_vpc)
-        """
+        Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more
+        of the VPC's security groups.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.attach_classic_link_vpc)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instanceattach_classic_link_vpc-method)
+        """
     def attach_volume(
-        self, Device: str, VolumeId: str, DryRun: bool = None
-    ) -> "VolumeAttachmentTypeDef":
+        self, *, Device: str, VolumeId: str, DryRun: bool = None
+    ) -> VolumeAttachmentResponseMetadataTypeDef:
         """
-        [Instance.attach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.attach_volume)
-        """
+        Attaches an EBS volume to a running or stopped instance and exposes it to the
+        instance with the specified device name.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.attach_volume)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instanceattach_volume-method)
+        """
     def console_output(
-        self, DryRun: bool = None, Latest: bool = None
+        self, *, DryRun: bool = None, Latest: bool = None
     ) -> GetConsoleOutputResultTypeDef:
         """
-        [Instance.console_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.console_output)
-        """
+        Gets the console output for the specified instance.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.console_output)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instanceconsole_output-method)
+        """
     def create_image(
         self,
+        *,
         Name: str,
         BlockDeviceMappings: List["BlockDeviceMappingTypeDef"] = None,
         Description: str = None,
         DryRun: bool = None,
         NoReboot: bool = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _Image:
         """
-        [Instance.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.create_image)
-        """
+        Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
+        either running or stopped.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.create_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancecreate_image-method)
         """
-        [Instance.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete_tags(self, Tags: List[TagTypeDef] = None, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancecreate_tags-method)
         """
-        [Instance.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.delete_tags)
+    def delete_tags(self, *, Tags: List["TagTypeDef"] = None, DryRun: bool = None) -> None:
         """
+        Deletes the specified set of tags from the specified set of resources.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.delete_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancedelete_tags-method)
+        """
     def describe_attribute(
-        self,
-        Attribute: Literal[
-            "instanceType",
-            "kernel",
-            "ramdisk",
-            "userData",
-            "disableApiTermination",
-            "instanceInitiatedShutdownBehavior",
-            "rootDeviceName",
-            "blockDeviceMapping",
-            "productCodes",
-            "sourceDestCheck",
-            "groupSet",
-            "ebsOptimized",
-            "sriovNetSupport",
-            "enaSupport",
-            "enclaveOptions",
-        ],
-        DryRun: bool = None,
+        self, *, Attribute: InstanceAttributeNameType, DryRun: bool = None
     ) -> InstanceAttributeTypeDef:
         """
-        [Instance.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.describe_attribute)
-        """
+        Describes the specified attribute of the specified instance.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.describe_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancedescribe_attribute-method)
+        """
     def detach_classic_link_vpc(
-        self, VpcId: str, DryRun: bool = None
+        self, *, VpcId: str, DryRun: bool = None
     ) -> DetachClassicLinkVpcResultTypeDef:
         """
-        [Instance.detach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.detach_classic_link_vpc)
-        """
+        Unlinks (detaches) a linked EC2-Classic instance from a VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.detach_classic_link_vpc)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancedetach_classic_link_vpc-method)
+        """
     def detach_volume(
-        self, VolumeId: str, Device: str = None, Force: bool = None, DryRun: bool = None
-    ) -> "VolumeAttachmentTypeDef":
+        self, *, VolumeId: str, Device: str = None, Force: bool = None, DryRun: bool = None
+    ) -> VolumeAttachmentResponseMetadataTypeDef:
         """
-        [Instance.detach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.detach_volume)
-        """
+        Detaches an EBS volume from an instance.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.detach_volume)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancedetach_volume-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Instance.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instanceget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [Instance.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_instances` to update the attributes of the
+        Instance resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instanceload-method)
+        """
     def modify_attribute(
         self,
+        *,
         SourceDestCheck: "AttributeBooleanValueTypeDef" = None,
-        Attribute: Literal[
-            "instanceType",
-            "kernel",
-            "ramdisk",
-            "userData",
-            "disableApiTermination",
-            "instanceInitiatedShutdownBehavior",
-            "rootDeviceName",
-            "blockDeviceMapping",
-            "productCodes",
-            "sourceDestCheck",
-            "groupSet",
-            "ebsOptimized",
-            "sriovNetSupport",
-            "enaSupport",
-            "enclaveOptions",
-        ] = None,
-        BlockDeviceMappings: List[InstanceBlockDeviceMappingSpecificationTypeDef] = None,
+        Attribute: InstanceAttributeNameType = None,
+        BlockDeviceMappings: List["InstanceBlockDeviceMappingSpecificationTypeDef"] = None,
         DisableApiTermination: "AttributeBooleanValueTypeDef" = None,
         DryRun: bool = None,
         EbsOptimized: "AttributeBooleanValueTypeDef" = None,
@@ -2511,218 +3088,157 @@ class Instance(Boto3ServiceResource):
         Kernel: "AttributeValueTypeDef" = None,
         Ramdisk: "AttributeValueTypeDef" = None,
         SriovNetSupport: "AttributeValueTypeDef" = None,
-        UserData: BlobAttributeValueTypeDef = None,
-        Value: str = None,
+        UserData: "BlobAttributeValueTypeDef" = None,
+        Value: str = None
     ) -> None:
         """
-        [Instance.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.modify_attribute)
-        """
+        Modifies the specified attribute of the specified instance.
 
-    def monitor(self, InstanceIds: List[str], DryRun: bool = None) -> MonitorInstancesResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.modify_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancemodify_attribute-method)
         """
-        [Instance.monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.monitor)
+    def monitor(self, *, DryRun: bool = None) -> MonitorInstancesResultTypeDef:
         """
+        Enables detailed monitoring for a running instance.
 
-    def password_data(self, DryRun: bool = None) -> GetPasswordDataResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.monitor)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancemonitor-method)
         """
-        [Instance.password_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.password_data)
+    def password_data(self, *, DryRun: bool = None) -> GetPasswordDataResultTypeDef:
         """
+        Retrieves the encrypted administrator password for a running Windows instance.
 
-    def reboot(self, InstanceIds: List[str], DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.password_data)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancepassword_data-method)
         """
-        [Instance.reboot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.reboot)
+    def reboot(self, *, DryRun: bool = None) -> None:
         """
+        Requests a reboot of the specified instances.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.reboot)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancereboot-method)
+        """
     def reload(self) -> None:
         """
-        [Instance.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_instances` to update the attributes of the
+        Instance resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancereload-method)
+        """
     def report_status(
         self,
-        Instances: List[str],
-        ReasonCodes: List[
-            Literal[
-                "instance-stuck-in-state",
-                "unresponsive",
-                "not-accepting-credentials",
-                "password-not-available",
-                "performance-network",
-                "performance-instance-store",
-                "performance-ebs-volume",
-                "performance-other",
-                "other",
-            ]
-        ],
-        Status: Literal["ok", "impaired"],
+        *,
+        ReasonCodes: List[ReportInstanceReasonCodesType],
+        Status: ReportStatusTypeType,
         Description: str = None,
         DryRun: bool = None,
-        EndTime: datetime = None,
-        StartTime: datetime = None,
+        EndTime: Union[datetime, str] = None,
+        StartTime: Union[datetime, str] = None
     ) -> None:
         """
-        [Instance.report_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.report_status)
-        """
+        Submits feedback about the status of an instance.
 
-    def reset_attribute(
-        self,
-        Attribute: Literal[
-            "instanceType",
-            "kernel",
-            "ramdisk",
-            "userData",
-            "disableApiTermination",
-            "instanceInitiatedShutdownBehavior",
-            "rootDeviceName",
-            "blockDeviceMapping",
-            "productCodes",
-            "sourceDestCheck",
-            "groupSet",
-            "ebsOptimized",
-            "sriovNetSupport",
-            "enaSupport",
-            "enclaveOptions",
-        ],
-        DryRun: bool = None,
-    ) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.report_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancereport_status-method)
         """
-        [Instance.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.reset_attribute)
+    def reset_attribute(self, *, Attribute: InstanceAttributeNameType, DryRun: bool = None) -> None:
         """
+        Resets an attribute of an instance to its default value.
 
-    def reset_kernel(
-        self,
-        Attribute: Literal[
-            "instanceType",
-            "kernel",
-            "ramdisk",
-            "userData",
-            "disableApiTermination",
-            "instanceInitiatedShutdownBehavior",
-            "rootDeviceName",
-            "blockDeviceMapping",
-            "productCodes",
-            "sourceDestCheck",
-            "groupSet",
-            "ebsOptimized",
-            "sriovNetSupport",
-            "enaSupport",
-            "enclaveOptions",
-        ],
-        DryRun: bool = None,
-    ) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.reset_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancereset_attribute-method)
         """
-        [Instance.reset_kernel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.reset_kernel)
+    def reset_kernel(self, *, Attribute: InstanceAttributeNameType, DryRun: bool = None) -> None:
         """
+        Resets an attribute of an instance to its default value.
 
-    def reset_ramdisk(
-        self,
-        Attribute: Literal[
-            "instanceType",
-            "kernel",
-            "ramdisk",
-            "userData",
-            "disableApiTermination",
-            "instanceInitiatedShutdownBehavior",
-            "rootDeviceName",
-            "blockDeviceMapping",
-            "productCodes",
-            "sourceDestCheck",
-            "groupSet",
-            "ebsOptimized",
-            "sriovNetSupport",
-            "enaSupport",
-            "enclaveOptions",
-        ],
-        DryRun: bool = None,
-    ) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.reset_kernel)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancereset_kernel-method)
         """
-        [Instance.reset_ramdisk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.reset_ramdisk)
+    def reset_ramdisk(self, *, Attribute: InstanceAttributeNameType, DryRun: bool = None) -> None:
         """
+        Resets an attribute of an instance to its default value.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.reset_ramdisk)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancereset_ramdisk-method)
+        """
     def reset_source_dest_check(
-        self,
-        Attribute: Literal[
-            "instanceType",
-            "kernel",
-            "ramdisk",
-            "userData",
-            "disableApiTermination",
-            "instanceInitiatedShutdownBehavior",
-            "rootDeviceName",
-            "blockDeviceMapping",
-            "productCodes",
-            "sourceDestCheck",
-            "groupSet",
-            "ebsOptimized",
-            "sriovNetSupport",
-            "enaSupport",
-            "enclaveOptions",
-        ],
-        DryRun: bool = None,
+        self, *, Attribute: InstanceAttributeNameType, DryRun: bool = None
     ) -> None:
         """
-        [Instance.reset_source_dest_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.reset_source_dest_check)
-        """
+        Resets an attribute of an instance to its default value.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.reset_source_dest_check)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancereset_source_dest_check-method)
+        """
     def start(
-        self, InstanceIds: List[str], AdditionalInfo: str = None, DryRun: bool = None
+        self, *, AdditionalInfo: str = None, DryRun: bool = None
     ) -> StartInstancesResultTypeDef:
         """
-        [Instance.start documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.start)
-        """
+        Starts an Amazon EBS-backed instance that you've previously stopped.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.start)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancestart-method)
+        """
     def stop(
-        self,
-        InstanceIds: List[str],
-        Hibernate: bool = None,
-        DryRun: bool = None,
-        Force: bool = None,
+        self, *, Hibernate: bool = None, DryRun: bool = None, Force: bool = None
     ) -> StopInstancesResultTypeDef:
         """
-        [Instance.stop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.stop)
-        """
+        Stops an Amazon EBS-backed instance.
 
-    def terminate(
-        self, InstanceIds: List[str], DryRun: bool = None
-    ) -> TerminateInstancesResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.stop)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancestop-method)
         """
-        [Instance.terminate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.terminate)
+    def terminate(self, *, DryRun: bool = None) -> TerminateInstancesResultTypeDef:
         """
+        Shuts down the specified instances.
 
-    def unmonitor(
-        self, InstanceIds: List[str], DryRun: bool = None
-    ) -> UnmonitorInstancesResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.terminate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instanceterminate-method)
         """
-        [Instance.unmonitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.unmonitor)
+    def unmonitor(self, *, DryRun: bool = None) -> UnmonitorInstancesResultTypeDef:
         """
+        Disables detailed monitoring for a running instance.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.unmonitor)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instanceunmonitor-method)
+        """
     def wait_until_exists(self) -> None:
         """
-        [Instance.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.wait_until_exists)
-        """
+        Waits until this Instance is exists.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.wait_until_exists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancewait_until_exists-method)
+        """
     def wait_until_running(self) -> None:
         """
-        [Instance.wait_until_running documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.wait_until_running)
-        """
+        Waits until this Instance is running.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.wait_until_running)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancewait_until_running-method)
+        """
     def wait_until_stopped(self) -> None:
         """
-        [Instance.wait_until_stopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.wait_until_stopped)
-        """
+        Waits until this Instance is stopped.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.wait_until_stopped)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancewait_until_stopped-method)
+        """
     def wait_until_terminated(self) -> None:
         """
-        [Instance.wait_until_terminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Instance.wait_until_terminated)
-        """
+        Waits until this Instance is terminated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Instance.wait_until_terminated)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#instancewait_until_terminated-method)
+        """
 
 _Instance = Instance
 
-
 class Volume(Boto3ServiceResource):
     """
-    [Volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Volume)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Volume)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volume)
     """
 
     attachments: List[Any]
@@ -2743,95 +3259,124 @@ class Volume(Boto3ServiceResource):
     throughput: int
     id: str
     snapshots: VolumeSnapshotsCollection
-
     def attach_to_instance(
-        self, Device: str, InstanceId: str, DryRun: bool = None
-    ) -> "VolumeAttachmentTypeDef":
+        self, *, Device: str, InstanceId: str, DryRun: bool = None
+    ) -> VolumeAttachmentResponseMetadataTypeDef:
         """
-        [Volume.attach_to_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.attach_to_instance)
-        """
+        Attaches an EBS volume to a running or stopped instance and exposes it to the
+        instance with the specified device name.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.attach_to_instance)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumeattach_to_instance-method)
+        """
     def create_snapshot(
         self,
+        *,
         Description: str = None,
         OutpostArn: str = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> _Snapshot:
         """
-        [Volume.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.create_snapshot)
-        """
+        Creates a snapshot of an EBS volume and stores it in Amazon S3.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.create_snapshot)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumecreate_snapshot-method)
         """
-        [Volume.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumecreate_tags-method)
         """
-        [Volume.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.delete)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified EBS volume.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumedelete-method)
+        """
     def describe_attribute(
-        self, Attribute: Literal["autoEnableIO", "productCodes"], DryRun: bool = None
+        self, *, Attribute: VolumeAttributeNameType, DryRun: bool = None
     ) -> DescribeVolumeAttributeResultTypeDef:
         """
-        [Volume.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.describe_attribute)
-        """
+        Describes the specified attribute of the specified volume.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.describe_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumedescribe_attribute-method)
+        """
     def describe_status(
         self,
-        Filters: List[FilterTypeDef] = None,
+        *,
+        Filters: List["FilterTypeDef"] = None,
         MaxResults: int = None,
         NextToken: str = None,
-        VolumeIds: List[str] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> DescribeVolumeStatusResultTypeDef:
         """
-        [Volume.describe_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.describe_status)
-        """
+        Describes the status of the specified volumes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.describe_status)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumedescribe_status-method)
+        """
     def detach_from_instance(
-        self, Device: str = None, Force: bool = None, InstanceId: str = None, DryRun: bool = None
-    ) -> "VolumeAttachmentTypeDef":
+        self, *, Device: str = None, Force: bool = None, InstanceId: str = None, DryRun: bool = None
+    ) -> VolumeAttachmentResponseMetadataTypeDef:
         """
-        [Volume.detach_from_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.detach_from_instance)
-        """
+        Detaches an EBS volume from an instance.
 
-    def enable_io(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.detach_from_instance)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumedetach_from_instance-method)
         """
-        [Volume.enable_io documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.enable_io)
+    def enable_io(self, *, DryRun: bool = None) -> None:
         """
+        Enables I/O operations for a volume that had I/O operations disabled because the
+        data on the volume was potentially inconsistent.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.enable_io)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumeenable_io-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Volume.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumeget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [Volume.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_volumes` to update the attributes of the
+        Volume resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumeload-method)
+        """
     def modify_attribute(
-        self, AutoEnableIO: "AttributeBooleanValueTypeDef" = None, DryRun: bool = None
+        self, *, AutoEnableIO: "AttributeBooleanValueTypeDef" = None, DryRun: bool = None
     ) -> None:
         """
-        [Volume.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.modify_attribute)
-        """
+        Modifies a volume attribute.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.modify_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumemodify_attribute-method)
+        """
     def reload(self) -> None:
         """
-        [Volume.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Volume.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_volumes` to update the attributes of the
+        Volume resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Volume.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#volumereload-method)
+        """
 
 _Volume = Volume
 
-
 class RouteTable(Boto3ServiceResource):
     """
-    [RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetable)
     """
 
     associations_attribute: List[Any]
@@ -2845,16 +3390,19 @@ class RouteTable(Boto3ServiceResource):
     associations: "RouteTableAssociation"
     routes: "Route"
     vpc: "Vpc"
-
     def associate_with_subnet(
-        self, DryRun: bool = None, SubnetId: str = None, GatewayId: str = None
+        self, *, DryRun: bool = None, SubnetId: str = None, GatewayId: str = None
     ) -> _RouteTableAssociation:
         """
-        [RouteTable.associate_with_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTable.associate_with_subnet)
-        """
+        Associates a subnet in your VPC or an internet gateway or virtual private
+        gateway attached to your VPC with a route table in your VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTable.associate_with_subnet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetableassociate_with_subnet-method)
+        """
     def create_route(
         self,
+        *,
         DestinationCidrBlock: str = None,
         DestinationIpv6CidrBlock: str = None,
         DestinationPrefixListId: str = None,
@@ -2868,44 +3416,59 @@ class RouteTable(Boto3ServiceResource):
         LocalGatewayId: str = None,
         CarrierGatewayId: str = None,
         NetworkInterfaceId: str = None,
-        VpcPeeringConnectionId: str = None,
+        VpcPeeringConnectionId: str = None
     ) -> _Route:
         """
-        [RouteTable.create_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTable.create_route)
-        """
+        Creates a route in a route table within a VPC.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTable.create_route)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetablecreate_route-method)
         """
-        [RouteTable.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTable.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTable.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetablecreate_tags-method)
         """
-        [RouteTable.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTable.delete)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified route table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTable.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetabledelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [RouteTable.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTable.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTable.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetableget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [RouteTable.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTable.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_route_tables` to update the attributes of
+        the RouteTable resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTable.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetableload-method)
+        """
     def reload(self) -> None:
         """
-        [RouteTable.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.RouteTable.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_route_tables` to update the attributes of
+        the RouteTable resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.RouteTable.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#routetablereload-method)
+        """
 
 _RouteTable = RouteTable
 
-
 class Subnet(Boto3ServiceResource):
     """
-    [Subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Subnet)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Subnet)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnet)
     """
 
     availability_zone: str
@@ -2929,404 +3492,14 @@ class Subnet(Boto3ServiceResource):
     vpc: "Vpc"
     instances: SubnetInstancesCollection
     network_interfaces: SubnetNetworkInterfacesCollection
-
     def create_instances(
         self,
+        *,
         MaxCount: int,
         MinCount: int,
         BlockDeviceMappings: List["BlockDeviceMappingTypeDef"] = None,
         ImageId: str = None,
-        InstanceType: Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ] = None,
+        InstanceType: InstanceTypeType = None,
         Ipv6AddressCount: int = None,
         Ipv6Addresses: List["InstanceIpv6AddressTypeDef"] = None,
         KernelId: str = None,
@@ -3343,28 +3516,32 @@ class Subnet(Boto3ServiceResource):
         DryRun: bool = None,
         EbsOptimized: bool = None,
         IamInstanceProfile: "IamInstanceProfileSpecificationTypeDef" = None,
-        InstanceInitiatedShutdownBehavior: Literal["stop", "terminate"] = None,
+        InstanceInitiatedShutdownBehavior: ShutdownBehaviorType = None,
         NetworkInterfaces: List["InstanceNetworkInterfaceSpecificationTypeDef"] = None,
         PrivateIpAddress: str = None,
         ElasticGpuSpecification: List["ElasticGpuSpecificationTypeDef"] = None,
-        ElasticInferenceAccelerators: List[ElasticInferenceAcceleratorTypeDef] = None,
+        ElasticInferenceAccelerators: List["ElasticInferenceAcceleratorTypeDef"] = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        LaunchTemplate: LaunchTemplateSpecificationTypeDef = None,
-        InstanceMarketOptions: InstanceMarketOptionsRequestTypeDef = None,
+        LaunchTemplate: "LaunchTemplateSpecificationTypeDef" = None,
+        InstanceMarketOptions: "InstanceMarketOptionsRequestTypeDef" = None,
         CreditSpecification: "CreditSpecificationRequestTypeDef" = None,
-        CpuOptions: CpuOptionsRequestTypeDef = None,
-        CapacityReservationSpecification: CapacityReservationSpecificationTypeDef = None,
-        HibernationOptions: HibernationOptionsRequestTypeDef = None,
-        LicenseSpecifications: List[LicenseConfigurationRequestTypeDef] = None,
-        MetadataOptions: InstanceMetadataOptionsRequestTypeDef = None,
-        EnclaveOptions: EnclaveOptionsRequestTypeDef = None,
+        CpuOptions: "CpuOptionsRequestTypeDef" = None,
+        CapacityReservationSpecification: "CapacityReservationSpecificationTypeDef" = None,
+        HibernationOptions: "HibernationOptionsRequestTypeDef" = None,
+        LicenseSpecifications: List["LicenseConfigurationRequestTypeDef"] = None,
+        MetadataOptions: "InstanceMetadataOptionsRequestTypeDef" = None,
+        EnclaveOptions: "EnclaveOptionsRequestTypeDef" = None
     ) -> List[_Instance]:
         """
-        [Subnet.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.create_instances)
-        """
+        Launches the specified number of instances using an AMI for which you have
+        permissions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.create_instances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetcreate_instances-method)
+        """
     def create_network_interface(
         self,
+        *,
         Description: str = None,
         DryRun: bool = None,
         Groups: List[str] = None,
@@ -3373,45 +3550,65 @@ class Subnet(Boto3ServiceResource):
         PrivateIpAddress: str = None,
         PrivateIpAddresses: List["PrivateIpAddressSpecificationTypeDef"] = None,
         SecondaryPrivateIpAddressCount: int = None,
-        InterfaceType: Literal["efa"] = None,
+        Ipv4Prefixes: List["Ipv4PrefixSpecificationRequestTypeDef"] = None,
+        Ipv4PrefixCount: int = None,
+        Ipv6Prefixes: List["Ipv6PrefixSpecificationRequestTypeDef"] = None,
+        Ipv6PrefixCount: int = None,
+        InterfaceType: NetworkInterfaceCreationTypeType = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        ClientToken: str = None
     ) -> _NetworkInterface:
         """
-        [Subnet.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.create_network_interface)
-        """
+        Creates a network interface in the specified subnet.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.create_network_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetcreate_network_interface-method)
         """
-        [Subnet.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetcreate_tags-method)
         """
-        [Subnet.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.delete)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified subnet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetdelete-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Subnet.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [Subnet.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_subnets` to update the attributes of the
+        Subnet resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetload-method)
+        """
     def reload(self) -> None:
         """
-        [Subnet.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Subnet.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_subnets` to update the attributes of the
+        Subnet resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Subnet.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#subnetreload-method)
+        """
 
 _Subnet = Subnet
 
-
 class Vpc(Boto3ServiceResource):
     """
-    [Vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Vpc)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Vpc)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpc)
     """
 
     cidr_block: str
@@ -3435,157 +3632,214 @@ class Vpc(Boto3ServiceResource):
     route_tables: VpcRouteTablesCollection
     security_groups: VpcSecurityGroupsCollection
     subnets: VpcSubnetsCollection
-
-    def associate_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None) -> None:
+    def associate_dhcp_options(self, *, DhcpOptionsId: str, DryRun: bool = None) -> None:
         """
-        [Vpc.associate_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.associate_dhcp_options)
-        """
+        Associates a set of DHCP options (that you've previously created) with the
+        specified VPC, or associates no DHCP options with the VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.associate_dhcp_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcassociate_dhcp_options-method)
+        """
     def attach_classic_link_instance(
-        self, Groups: List[str], InstanceId: str, DryRun: bool = None
+        self, *, Groups: List[str], InstanceId: str, DryRun: bool = None
     ) -> AttachClassicLinkVpcResultTypeDef:
         """
-        [Vpc.attach_classic_link_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.attach_classic_link_instance)
-        """
+        Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more
+        of the VPC's security groups.
 
-    def attach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.attach_classic_link_instance)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcattach_classic_link_instance-method)
         """
-        [Vpc.attach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.attach_internet_gateway)
+    def attach_internet_gateway(self, *, InternetGatewayId: str, DryRun: bool = None) -> None:
         """
+        Attaches an internet gateway or a virtual private gateway to a VPC, enabling
+        connectivity between the internet and the VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.attach_internet_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcattach_internet_gateway-method)
+        """
     def create_network_acl(
-        self, DryRun: bool = None, TagSpecifications: List["TagSpecificationTypeDef"] = None
+        self, *, DryRun: bool = None, TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _NetworkAcl:
         """
-        [Vpc.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.create_network_acl)
-        """
+        Creates a network ACL in a VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.create_network_acl)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpccreate_network_acl-method)
+        """
     def create_route_table(
-        self, DryRun: bool = None, TagSpecifications: List["TagSpecificationTypeDef"] = None
+        self, *, DryRun: bool = None, TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _RouteTable:
         """
-        [Vpc.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.create_route_table)
-        """
+        Creates a route table for the specified VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.create_route_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpccreate_route_table-method)
+        """
     def create_security_group(
         self,
+        *,
         Description: str,
         GroupName: str,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> _SecurityGroup:
         """
-        [Vpc.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.create_security_group)
-        """
+        Creates a security group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.create_security_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpccreate_security_group-method)
+        """
     def create_subnet(
         self,
+        *,
         CidrBlock: str,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
         AvailabilityZone: str = None,
         AvailabilityZoneId: str = None,
         Ipv6CidrBlock: str = None,
         OutpostArn: str = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> _Subnet:
         """
-        [Vpc.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.create_subnet)
-        """
+        Creates a subnet in a specified VPC.
 
-    def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.create_subnet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpccreate_subnet-method)
         """
-        [Vpc.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.create_tags)
+    def create_tags(self, *, Tags: Optional[List["TagTypeDef"]], DryRun: bool = None) -> _Tag:
         """
+        Adds or overwrites only the specified tags for the specified Amazon EC2 resource
+        or resources.
 
-    def delete(self, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpccreate_tags-method)
         """
-        [Vpc.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.delete)
+    def delete(self, *, DryRun: bool = None) -> None:
         """
+        Deletes the specified VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.delete)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcdelete-method)
+        """
     def describe_attribute(
-        self, Attribute: Literal["enableDnsSupport", "enableDnsHostnames"], DryRun: bool = None
+        self, *, Attribute: VpcAttributeNameType, DryRun: bool = None
     ) -> DescribeVpcAttributeResultTypeDef:
         """
-        [Vpc.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.describe_attribute)
-        """
+        Describes the specified attribute of the specified VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.describe_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcdescribe_attribute-method)
+        """
     def detach_classic_link_instance(
-        self, InstanceId: str, DryRun: bool = None
+        self, *, InstanceId: str, DryRun: bool = None
     ) -> DetachClassicLinkVpcResultTypeDef:
         """
-        [Vpc.detach_classic_link_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.detach_classic_link_instance)
-        """
+        Unlinks (detaches) a linked EC2-Classic instance from a VPC.
 
-    def detach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.detach_classic_link_instance)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcdetach_classic_link_instance-method)
         """
-        [Vpc.detach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.detach_internet_gateway)
+    def detach_internet_gateway(self, *, InternetGatewayId: str, DryRun: bool = None) -> None:
         """
+        Detaches an internet gateway from a VPC, disabling connectivity between the
+        internet and the VPC.
 
-    def disable_classic_link(self, DryRun: bool = None) -> DisableVpcClassicLinkResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.detach_internet_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcdetach_internet_gateway-method)
         """
-        [Vpc.disable_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.disable_classic_link)
+    def disable_classic_link(self, *, DryRun: bool = None) -> DisableVpcClassicLinkResultTypeDef:
         """
+        Disables ClassicLink for a VPC.
 
-    def enable_classic_link(self, DryRun: bool = None) -> EnableVpcClassicLinkResultTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.disable_classic_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcdisable_classic_link-method)
         """
-        [Vpc.enable_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.enable_classic_link)
+    def enable_classic_link(self, *, DryRun: bool = None) -> EnableVpcClassicLinkResultTypeDef:
         """
+        Enables a VPC for ClassicLink.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.enable_classic_link)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcenable_classic_link-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [Vpc.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcget_available_subresources-method)
+        """
     def load(self) -> None:
         """
-        [Vpc.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.load)
-        """
+        Calls :py:meth:`EC2.Client.describe_vpcs` to update the attributes of the Vpc
+        resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.load)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcload-method)
+        """
     def modify_attribute(
         self,
+        *,
         EnableDnsHostnames: "AttributeBooleanValueTypeDef" = None,
-        EnableDnsSupport: "AttributeBooleanValueTypeDef" = None,
+        EnableDnsSupport: "AttributeBooleanValueTypeDef" = None
     ) -> None:
         """
-        [Vpc.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.modify_attribute)
-        """
+        Modifies the specified attribute of the specified VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.modify_attribute)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcmodify_attribute-method)
+        """
     def reload(self) -> None:
         """
-        [Vpc.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.reload)
-        """
+        Calls :py:meth:`EC2.Client.describe_vpcs` to update the attributes of the Vpc
+        resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.reload)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcreload-method)
+        """
     def request_vpc_peering_connection(
         self,
+        *,
         DryRun: bool = None,
         PeerOwnerId: str = None,
         PeerVpcId: str = None,
         PeerRegion: str = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _VpcPeeringConnection:
         """
-        [Vpc.request_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.request_vpc_peering_connection)
-        """
+        Requests a VPC peering connection between two VPCs: a requester VPC that you own
+        and an accepter VPC with which to create the connection.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.request_vpc_peering_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcrequest_vpc_peering_connection-method)
+        """
     def wait_until_available(self) -> None:
         """
-        [Vpc.wait_until_available documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.wait_until_available)
-        """
+        Waits until this Vpc is available.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.wait_until_available)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcwait_until_available-method)
+        """
     def wait_until_exists(self) -> None:
         """
-        [Vpc.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Vpc.wait_until_exists)
-        """
+        Waits until this Vpc is exists.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.Vpc.wait_until_exists)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#vpcwait_until_exists-method)
+        """
 
 _Vpc = Vpc
 
+class EC2ResourceMeta(ResourceMeta):
+    client: EC2Client
 
 class EC2ServiceResource(Boto3ServiceResource):
     """
-    [EC2.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html)
     """
 
+    meta: "EC2ResourceMeta"
     classic_addresses: ServiceResourceClassicAddressesCollection
     dhcp_options_sets: ServiceResourceDhcpOptionsSetsCollection
     images: ServiceResourceImagesCollection
@@ -3603,519 +3857,174 @@ class EC2ServiceResource(Boto3ServiceResource):
     vpc_addresses: ServiceResourceVpcAddressesCollection
     vpc_peering_connections: ServiceResourceVpcPeeringConnectionsCollection
     vpcs: ServiceResourceVpcsCollection
-
     def ClassicAddress(self, public_ip: str) -> _ClassicAddress:
         """
-        [ServiceResource.ClassicAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
-        """
+        Creates a ClassicAddress resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceclassicaddress-method)
+        """
     def DhcpOptions(self, id: str) -> _DhcpOptions:
         """
-        [ServiceResource.DhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
-        """
+        Creates a DhcpOptions resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcedhcpoptions-method)
+        """
     def Image(self, id: str) -> _Image:
         """
-        [ServiceResource.Image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Image)
-        """
+        Creates a Image resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceimage-method)
+        """
     def Instance(self, id: str) -> _Instance:
         """
-        [ServiceResource.Instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Instance)
-        """
+        Creates a Instance resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Instance)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceinstance-method)
+        """
     def InternetGateway(self, id: str) -> _InternetGateway:
         """
-        [ServiceResource.InternetGateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
-        """
+        Creates a InternetGateway resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceinternetgateway-method)
+        """
     def KeyPair(self, name: str) -> _KeyPairInfo:
         """
-        [ServiceResource.KeyPair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
-        """
+        Creates a KeyPairInfo resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcekeypair-method)
+        """
     def NetworkAcl(self, id: str) -> _NetworkAcl:
         """
-        [ServiceResource.NetworkAcl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
-        """
+        Creates a NetworkAcl resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcenetworkacl-method)
+        """
     def NetworkInterface(self, id: str) -> _NetworkInterface:
         """
-        [ServiceResource.NetworkInterface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
-        """
+        Creates a NetworkInterface resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcenetworkinterface-method)
+        """
     def NetworkInterfaceAssociation(self, id: str) -> _NetworkInterfaceAssociation:
         """
-        [ServiceResource.NetworkInterfaceAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
-        """
+        Creates a NetworkInterfaceAssociation resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcenetworkinterfaceassociation-method)
+        """
     def PlacementGroup(self, name: str) -> _PlacementGroup:
         """
-        [ServiceResource.PlacementGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
-        """
+        Creates a PlacementGroup resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceplacementgroup-method)
+        """
     def Route(self, route_table_id: str, destination_cidr_block: str) -> _Route:
         """
-        [ServiceResource.Route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Route)
-        """
+        Creates a Route resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Route)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceroute-method)
+        """
     def RouteTable(self, id: str) -> _RouteTable:
         """
-        [ServiceResource.RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
-        """
+        Creates a RouteTable resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceroutetable-method)
+        """
     def RouteTableAssociation(self, id: str) -> _RouteTableAssociation:
         """
-        [ServiceResource.RouteTableAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
-        """
+        Creates a RouteTableAssociation resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceroutetableassociation-method)
+        """
     def SecurityGroup(self, id: str) -> _SecurityGroup:
         """
-        [ServiceResource.SecurityGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
-        """
+        Creates a SecurityGroup resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcesecuritygroup-method)
+        """
     def Snapshot(self, id: str) -> _Snapshot:
         """
-        [ServiceResource.Snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
-        """
+        Creates a Snapshot resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcesnapshot-method)
+        """
     def Subnet(self, id: str) -> _Subnet:
         """
-        [ServiceResource.Subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Subnet)
-        """
+        Creates a Subnet resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Subnet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcesubnet-method)
+        """
     def Tag(self, resource_id: str, key: str, value: str) -> _Tag:
         """
-        [ServiceResource.Tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Tag)
-        """
+        Creates a Tag resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Tag)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcetag-method)
+        """
     def Volume(self, id: str) -> _Volume:
         """
-        [ServiceResource.Volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Volume)
-        """
+        Creates a Volume resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Volume)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcevolume-method)
+        """
     def Vpc(self, id: str) -> _Vpc:
         """
-        [ServiceResource.Vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.Vpc)
-        """
+        Creates a Vpc resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.Vpc)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcevpc-method)
+        """
     def VpcAddress(self, allocation_id: str) -> _VpcAddress:
         """
-        [ServiceResource.VpcAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
-        """
+        Creates a VpcAddress resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcevpcaddress-method)
+        """
     def VpcPeeringConnection(self, id: str) -> _VpcPeeringConnection:
         """
-        [ServiceResource.VpcPeeringConnection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
-        """
+        Creates a VpcPeeringConnection resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcevpcpeeringconnection-method)
+        """
     def create_dhcp_options(
         self,
-        DhcpConfigurations: List[NewDhcpConfigurationTypeDef],
+        *,
+        DhcpConfigurations: List["NewDhcpConfigurationTypeDef"],
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> _DhcpOptions:
         """
-        [ServiceResource.create_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_dhcp_options)
-        """
+        Creates a set of DHCP options for your VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_dhcp_options)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_dhcp_options-method)
+        """
     def create_instances(
         self,
+        *,
         MaxCount: int,
         MinCount: int,
         BlockDeviceMappings: List["BlockDeviceMappingTypeDef"] = None,
         ImageId: str = None,
-        InstanceType: Literal[
-            "t1.micro",
-            "t2.nano",
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "t2.xlarge",
-            "t2.2xlarge",
-            "t3.nano",
-            "t3.micro",
-            "t3.small",
-            "t3.medium",
-            "t3.large",
-            "t3.xlarge",
-            "t3.2xlarge",
-            "t3a.nano",
-            "t3a.micro",
-            "t3a.small",
-            "t3a.medium",
-            "t3a.large",
-            "t3a.xlarge",
-            "t3a.2xlarge",
-            "t4g.nano",
-            "t4g.micro",
-            "t4g.small",
-            "t4g.medium",
-            "t4g.large",
-            "t4g.xlarge",
-            "t4g.2xlarge",
-            "m1.small",
-            "m1.medium",
-            "m1.large",
-            "m1.xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m4.16xlarge",
-            "m2.xlarge",
-            "m2.2xlarge",
-            "m2.4xlarge",
-            "cr1.8xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5.metal",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "r5b.large",
-            "r5b.xlarge",
-            "r5b.2xlarge",
-            "r5b.4xlarge",
-            "r5b.8xlarge",
-            "r5b.12xlarge",
-            "r5b.16xlarge",
-            "r5b.24xlarge",
-            "r5b.metal",
-            "r5d.large",
-            "r5d.xlarge",
-            "r5d.2xlarge",
-            "r5d.4xlarge",
-            "r5d.8xlarge",
-            "r5d.12xlarge",
-            "r5d.16xlarge",
-            "r5d.24xlarge",
-            "r5d.metal",
-            "r5ad.large",
-            "r5ad.xlarge",
-            "r5ad.2xlarge",
-            "r5ad.4xlarge",
-            "r5ad.8xlarge",
-            "r5ad.12xlarge",
-            "r5ad.16xlarge",
-            "r5ad.24xlarge",
-            "r6g.metal",
-            "r6g.medium",
-            "r6g.large",
-            "r6g.xlarge",
-            "r6g.2xlarge",
-            "r6g.4xlarge",
-            "r6g.8xlarge",
-            "r6g.12xlarge",
-            "r6g.16xlarge",
-            "r6gd.metal",
-            "r6gd.medium",
-            "r6gd.large",
-            "r6gd.xlarge",
-            "r6gd.2xlarge",
-            "r6gd.4xlarge",
-            "r6gd.8xlarge",
-            "r6gd.12xlarge",
-            "r6gd.16xlarge",
-            "x1.16xlarge",
-            "x1.32xlarge",
-            "x1e.xlarge",
-            "x1e.2xlarge",
-            "x1e.4xlarge",
-            "x1e.8xlarge",
-            "x1e.16xlarge",
-            "x1e.32xlarge",
-            "i2.xlarge",
-            "i2.2xlarge",
-            "i2.4xlarge",
-            "i2.8xlarge",
-            "i3.large",
-            "i3.xlarge",
-            "i3.2xlarge",
-            "i3.4xlarge",
-            "i3.8xlarge",
-            "i3.16xlarge",
-            "i3.metal",
-            "i3en.large",
-            "i3en.xlarge",
-            "i3en.2xlarge",
-            "i3en.3xlarge",
-            "i3en.6xlarge",
-            "i3en.12xlarge",
-            "i3en.24xlarge",
-            "i3en.metal",
-            "hi1.4xlarge",
-            "hs1.8xlarge",
-            "c1.medium",
-            "c1.xlarge",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5.metal",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "c5ad.large",
-            "c5ad.xlarge",
-            "c5ad.2xlarge",
-            "c5ad.4xlarge",
-            "c5ad.8xlarge",
-            "c5ad.12xlarge",
-            "c5ad.16xlarge",
-            "c5ad.24xlarge",
-            "c5d.large",
-            "c5d.xlarge",
-            "c5d.2xlarge",
-            "c5d.4xlarge",
-            "c5d.9xlarge",
-            "c5d.12xlarge",
-            "c5d.18xlarge",
-            "c5d.24xlarge",
-            "c5d.metal",
-            "c5n.large",
-            "c5n.xlarge",
-            "c5n.2xlarge",
-            "c5n.4xlarge",
-            "c5n.9xlarge",
-            "c5n.18xlarge",
-            "c5n.metal",
-            "c6g.metal",
-            "c6g.medium",
-            "c6g.large",
-            "c6g.xlarge",
-            "c6g.2xlarge",
-            "c6g.4xlarge",
-            "c6g.8xlarge",
-            "c6g.12xlarge",
-            "c6g.16xlarge",
-            "c6gd.metal",
-            "c6gd.medium",
-            "c6gd.large",
-            "c6gd.xlarge",
-            "c6gd.2xlarge",
-            "c6gd.4xlarge",
-            "c6gd.8xlarge",
-            "c6gd.12xlarge",
-            "c6gd.16xlarge",
-            "c6gn.medium",
-            "c6gn.large",
-            "c6gn.xlarge",
-            "c6gn.2xlarge",
-            "c6gn.4xlarge",
-            "c6gn.8xlarge",
-            "c6gn.12xlarge",
-            "c6gn.16xlarge",
-            "cc1.4xlarge",
-            "cc2.8xlarge",
-            "g2.2xlarge",
-            "g2.8xlarge",
-            "g3.4xlarge",
-            "g3.8xlarge",
-            "g3.16xlarge",
-            "g3s.xlarge",
-            "g4ad.4xlarge",
-            "g4ad.8xlarge",
-            "g4ad.16xlarge",
-            "g4dn.xlarge",
-            "g4dn.2xlarge",
-            "g4dn.4xlarge",
-            "g4dn.8xlarge",
-            "g4dn.12xlarge",
-            "g4dn.16xlarge",
-            "g4dn.metal",
-            "cg1.4xlarge",
-            "p2.xlarge",
-            "p2.8xlarge",
-            "p2.16xlarge",
-            "p3.2xlarge",
-            "p3.8xlarge",
-            "p3.16xlarge",
-            "p3dn.24xlarge",
-            "p4d.24xlarge",
-            "d2.xlarge",
-            "d2.2xlarge",
-            "d2.4xlarge",
-            "d2.8xlarge",
-            "d3.xlarge",
-            "d3.2xlarge",
-            "d3.4xlarge",
-            "d3.8xlarge",
-            "d3en.xlarge",
-            "d3en.2xlarge",
-            "d3en.4xlarge",
-            "d3en.6xlarge",
-            "d3en.8xlarge",
-            "d3en.12xlarge",
-            "f1.2xlarge",
-            "f1.4xlarge",
-            "f1.16xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5.metal",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-            "m5d.large",
-            "m5d.xlarge",
-            "m5d.2xlarge",
-            "m5d.4xlarge",
-            "m5d.8xlarge",
-            "m5d.12xlarge",
-            "m5d.16xlarge",
-            "m5d.24xlarge",
-            "m5d.metal",
-            "m5ad.large",
-            "m5ad.xlarge",
-            "m5ad.2xlarge",
-            "m5ad.4xlarge",
-            "m5ad.8xlarge",
-            "m5ad.12xlarge",
-            "m5ad.16xlarge",
-            "m5ad.24xlarge",
-            "m5zn.large",
-            "m5zn.xlarge",
-            "m5zn.2xlarge",
-            "m5zn.3xlarge",
-            "m5zn.6xlarge",
-            "m5zn.12xlarge",
-            "m5zn.metal",
-            "h1.2xlarge",
-            "h1.4xlarge",
-            "h1.8xlarge",
-            "h1.16xlarge",
-            "z1d.large",
-            "z1d.xlarge",
-            "z1d.2xlarge",
-            "z1d.3xlarge",
-            "z1d.6xlarge",
-            "z1d.12xlarge",
-            "z1d.metal",
-            "u-6tb1.metal",
-            "u-9tb1.metal",
-            "u-12tb1.metal",
-            "u-18tb1.metal",
-            "u-24tb1.metal",
-            "a1.medium",
-            "a1.large",
-            "a1.xlarge",
-            "a1.2xlarge",
-            "a1.4xlarge",
-            "a1.metal",
-            "m5dn.large",
-            "m5dn.xlarge",
-            "m5dn.2xlarge",
-            "m5dn.4xlarge",
-            "m5dn.8xlarge",
-            "m5dn.12xlarge",
-            "m5dn.16xlarge",
-            "m5dn.24xlarge",
-            "m5n.large",
-            "m5n.xlarge",
-            "m5n.2xlarge",
-            "m5n.4xlarge",
-            "m5n.8xlarge",
-            "m5n.12xlarge",
-            "m5n.16xlarge",
-            "m5n.24xlarge",
-            "r5dn.large",
-            "r5dn.xlarge",
-            "r5dn.2xlarge",
-            "r5dn.4xlarge",
-            "r5dn.8xlarge",
-            "r5dn.12xlarge",
-            "r5dn.16xlarge",
-            "r5dn.24xlarge",
-            "r5n.large",
-            "r5n.xlarge",
-            "r5n.2xlarge",
-            "r5n.4xlarge",
-            "r5n.8xlarge",
-            "r5n.12xlarge",
-            "r5n.16xlarge",
-            "r5n.24xlarge",
-            "inf1.xlarge",
-            "inf1.2xlarge",
-            "inf1.6xlarge",
-            "inf1.24xlarge",
-            "m6g.metal",
-            "m6g.medium",
-            "m6g.large",
-            "m6g.xlarge",
-            "m6g.2xlarge",
-            "m6g.4xlarge",
-            "m6g.8xlarge",
-            "m6g.12xlarge",
-            "m6g.16xlarge",
-            "m6gd.metal",
-            "m6gd.medium",
-            "m6gd.large",
-            "m6gd.xlarge",
-            "m6gd.2xlarge",
-            "m6gd.4xlarge",
-            "m6gd.8xlarge",
-            "m6gd.12xlarge",
-            "m6gd.16xlarge",
-            "mac1.metal",
-        ] = None,
+        InstanceType: InstanceTypeType = None,
         Ipv6AddressCount: int = None,
         Ipv6Addresses: List["InstanceIpv6AddressTypeDef"] = None,
         KernelId: str = None,
@@ -4133,55 +4042,67 @@ class EC2ServiceResource(Boto3ServiceResource):
         DryRun: bool = None,
         EbsOptimized: bool = None,
         IamInstanceProfile: "IamInstanceProfileSpecificationTypeDef" = None,
-        InstanceInitiatedShutdownBehavior: Literal["stop", "terminate"] = None,
+        InstanceInitiatedShutdownBehavior: ShutdownBehaviorType = None,
         NetworkInterfaces: List["InstanceNetworkInterfaceSpecificationTypeDef"] = None,
         PrivateIpAddress: str = None,
         ElasticGpuSpecification: List["ElasticGpuSpecificationTypeDef"] = None,
-        ElasticInferenceAccelerators: List[ElasticInferenceAcceleratorTypeDef] = None,
+        ElasticInferenceAccelerators: List["ElasticInferenceAcceleratorTypeDef"] = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        LaunchTemplate: LaunchTemplateSpecificationTypeDef = None,
-        InstanceMarketOptions: InstanceMarketOptionsRequestTypeDef = None,
+        LaunchTemplate: "LaunchTemplateSpecificationTypeDef" = None,
+        InstanceMarketOptions: "InstanceMarketOptionsRequestTypeDef" = None,
         CreditSpecification: "CreditSpecificationRequestTypeDef" = None,
-        CpuOptions: CpuOptionsRequestTypeDef = None,
-        CapacityReservationSpecification: CapacityReservationSpecificationTypeDef = None,
-        HibernationOptions: HibernationOptionsRequestTypeDef = None,
-        LicenseSpecifications: List[LicenseConfigurationRequestTypeDef] = None,
-        MetadataOptions: InstanceMetadataOptionsRequestTypeDef = None,
-        EnclaveOptions: EnclaveOptionsRequestTypeDef = None,
+        CpuOptions: "CpuOptionsRequestTypeDef" = None,
+        CapacityReservationSpecification: "CapacityReservationSpecificationTypeDef" = None,
+        HibernationOptions: "HibernationOptionsRequestTypeDef" = None,
+        LicenseSpecifications: List["LicenseConfigurationRequestTypeDef"] = None,
+        MetadataOptions: "InstanceMetadataOptionsRequestTypeDef" = None,
+        EnclaveOptions: "EnclaveOptionsRequestTypeDef" = None
     ) -> List[_Instance]:
         """
-        [ServiceResource.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_instances)
-        """
+        Launches the specified number of instances using an AMI for which you have
+        permissions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_instances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_instances-method)
+        """
     def create_internet_gateway(
-        self, TagSpecifications: List["TagSpecificationTypeDef"] = None, DryRun: bool = None
+        self, *, TagSpecifications: List["TagSpecificationTypeDef"] = None, DryRun: bool = None
     ) -> _InternetGateway:
         """
-        [ServiceResource.create_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_internet_gateway)
-        """
+        Creates an internet gateway for use with a VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_internet_gateway)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_internet_gateway-method)
+        """
     def create_key_pair(
         self,
+        *,
         KeyName: str,
         DryRun: bool = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _KeyPair:
         """
-        [ServiceResource.create_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_key_pair)
-        """
+        Creates a 2048-bit RSA key pair with the specified name.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_key_pair)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_key_pair-method)
+        """
     def create_network_acl(
         self,
+        *,
         VpcId: str,
         DryRun: bool = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _NetworkAcl:
         """
-        [ServiceResource.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_network_acl)
-        """
+        Creates a network ACL in a VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_network_acl)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_network_acl-method)
+        """
     def create_network_interface(
         self,
+        *,
         SubnetId: str,
         Description: str = None,
         DryRun: bool = None,
@@ -4191,83 +4112,106 @@ class EC2ServiceResource(Boto3ServiceResource):
         PrivateIpAddress: str = None,
         PrivateIpAddresses: List["PrivateIpAddressSpecificationTypeDef"] = None,
         SecondaryPrivateIpAddressCount: int = None,
-        InterfaceType: Literal["efa"] = None,
+        Ipv4Prefixes: List["Ipv4PrefixSpecificationRequestTypeDef"] = None,
+        Ipv4PrefixCount: int = None,
+        Ipv6Prefixes: List["Ipv6PrefixSpecificationRequestTypeDef"] = None,
+        Ipv6PrefixCount: int = None,
+        InterfaceType: NetworkInterfaceCreationTypeType = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        ClientToken: str = None
     ) -> _NetworkInterface:
         """
-        [ServiceResource.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_network_interface)
-        """
+        Creates a network interface in the specified subnet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_network_interface)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_network_interface-method)
+        """
     def create_placement_group(
         self,
+        *,
         DryRun: bool = None,
         GroupName: str = None,
-        Strategy: Literal["cluster", "spread", "partition"] = None,
+        Strategy: PlacementStrategyType = None,
         PartitionCount: int = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _PlacementGroup:
         """
-        [ServiceResource.create_placement_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_placement_group)
-        """
+        Creates a placement group in which to launch instances.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_placement_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_placement_group-method)
+        """
     def create_route_table(
         self,
+        *,
         VpcId: str,
         DryRun: bool = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _RouteTable:
         """
-        [ServiceResource.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_route_table)
-        """
+        Creates a route table for the specified VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_route_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_route_table-method)
+        """
     def create_security_group(
         self,
+        *,
         Description: str,
         GroupName: str,
         VpcId: str = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> _SecurityGroup:
         """
-        [ServiceResource.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_security_group)
-        """
+        Creates a security group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_security_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_security_group-method)
+        """
     def create_snapshot(
         self,
+        *,
         VolumeId: str,
         Description: str = None,
         OutpostArn: str = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> _Snapshot:
         """
-        [ServiceResource.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_snapshot)
-        """
+        Creates a snapshot of an EBS volume and stores it in Amazon S3.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_snapshot)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_snapshot-method)
+        """
     def create_subnet(
         self,
-        CidrBlock: str,
+        *,
         VpcId: str,
+        CidrBlock: str,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
         AvailabilityZone: str = None,
         AvailabilityZoneId: str = None,
         Ipv6CidrBlock: str = None,
         OutpostArn: str = None,
-        DryRun: bool = None,
+        DryRun: bool = None
     ) -> _Subnet:
         """
-        [ServiceResource.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_subnet)
-        """
+        Creates a subnet in a specified VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_subnet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_subnet-method)
+        """
     def create_tags(
-        self, Resources: List[str], Tags: List["TagTypeDef"], DryRun: bool = None
+        self, *, Resources: List[str], Tags: List["TagTypeDef"], DryRun: bool = None
     ) -> None:
         """
-        [ServiceResource.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_tags)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_tags-method)
         """
-
     def create_volume(
         self,
+        *,
         AvailabilityZone: str,
         Encrypted: bool = None,
         Iops: int = None,
@@ -4275,70 +4219,90 @@ class EC2ServiceResource(Boto3ServiceResource):
         OutpostArn: str = None,
         Size: int = None,
         SnapshotId: str = None,
-        VolumeType: Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"] = None,
+        VolumeType: VolumeTypeType = None,
         DryRun: bool = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
         MultiAttachEnabled: bool = None,
         Throughput: int = None,
+        ClientToken: str = None
     ) -> _Volume:
         """
-        [ServiceResource.create_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_volume)
-        """
+        Creates an EBS volume that can be attached to an instance in the same
+        Availability Zone.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_volume)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_volume-method)
+        """
     def create_vpc(
         self,
+        *,
         CidrBlock: str,
         AmazonProvidedIpv6CidrBlock: bool = None,
         Ipv6Pool: str = None,
         Ipv6CidrBlock: str = None,
         DryRun: bool = None,
-        InstanceTenancy: Literal["default", "dedicated", "host"] = None,
+        InstanceTenancy: TenancyType = None,
         Ipv6CidrBlockNetworkBorderGroup: str = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _Vpc:
         """
-        [ServiceResource.create_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_vpc)
-        """
+        Creates a VPC with the specified IPv4 CIDR block.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_vpc)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_vpc-method)
+        """
     def create_vpc_peering_connection(
         self,
+        *,
         DryRun: bool = None,
         PeerOwnerId: str = None,
         PeerVpcId: str = None,
         VpcId: str = None,
         PeerRegion: str = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _VpcPeeringConnection:
         """
-        [ServiceResource.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.create_vpc_peering_connection)
-        """
+        Requests a VPC peering connection between two VPCs: a requester VPC that you own
+        and an accepter VPC with which to create the connection.
 
-    def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.create_vpc_peering_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcecreate_vpc_peering_connection-method)
         """
-        [ServiceResource.disassociate_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.disassociate_route_table)
+    def disassociate_route_table(self, *, AssociationId: str, DryRun: bool = None) -> None:
         """
+        Disassociates a subnet or gateway from a route table.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.disassociate_route_table)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourcedisassociate_route_table-method)
+        """
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.get_available_subresources)
-        """
+        Returns a list of all the available sub-resources for this Resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.get_available_subresources)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceget_available_subresources-method)
+        """
     def import_key_pair(
         self,
+        *,
         KeyName: str,
-        PublicKeyMaterial: Union[bytes, IO[bytes]],
+        PublicKeyMaterial: Union[bytes, IO[bytes], StreamingBody],
         DryRun: bool = None,
-        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _KeyPairInfo:
         """
-        [ServiceResource.import_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.import_key_pair)
-        """
+        Imports the public key from an RSA key pair that you created with a third-party
+        tool.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.import_key_pair)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceimport_key_pair-method)
+        """
     def register_image(
         self,
+        *,
         Name: str,
         ImageLocation: str = None,
-        Architecture: Literal["i386", "x86_64", "arm64"] = None,
+        Architecture: ArchitectureValuesType = None,
         BlockDeviceMappings: List["BlockDeviceMappingTypeDef"] = None,
         Description: str = None,
         DryRun: bool = None,
@@ -4349,7 +4313,11 @@ class EC2ServiceResource(Boto3ServiceResource):
         RootDeviceName: str = None,
         SriovNetSupport: str = None,
         VirtualizationType: str = None,
+        BootMode: BootModeValuesType = None
     ) -> _Image:
         """
-        [ServiceResource.register_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.ServiceResource.register_image)
+        Registers an AMI.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ec2.html#EC2.ServiceResource.register_image)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2/service_resource.html#ec2serviceresourceregister_image-method)
         """

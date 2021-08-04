@@ -49,8 +49,8 @@ Usage::
     list_xss_match_sets_paginator: ListXssMatchSetsPaginator = client.get_paginator("list_xss_match_sets")
     ```
 """
-from mypy_boto3_waf.client import WAFClient
-from mypy_boto3_waf.paginator import (
+from .client import WAFClient
+from .paginator import (
     GetRateBasedRuleManagedKeysPaginator,
     ListActivatedRulesInRuleGroupPaginator,
     ListByteMatchSetsPaginator,
@@ -70,7 +70,6 @@ from mypy_boto3_waf.paginator import (
 )
 
 Client = WAFClient
-
 
 __all__ = (
     "Client",

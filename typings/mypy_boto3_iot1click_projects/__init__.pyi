@@ -21,10 +21,9 @@ Usage::
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     ```
 """
-from mypy_boto3_iot1click_projects.client import IoT1ClickProjectsClient
-from mypy_boto3_iot1click_projects.paginator import ListPlacementsPaginator, ListProjectsPaginator
+from .client import IoT1ClickProjectsClient
+from .paginator import ListPlacementsPaginator, ListProjectsPaginator
 
 Client = IoT1ClickProjectsClient
-
 
 __all__ = ("Client", "IoT1ClickProjectsClient", "ListPlacementsPaginator", "ListProjectsPaginator")

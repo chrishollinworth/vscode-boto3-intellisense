@@ -16,9 +16,8 @@ Usage::
     session_client: MarketplaceCommerceAnalyticsClient = session.client("marketplacecommerceanalytics")
     ```
 """
-from mypy_boto3_marketplacecommerceanalytics.client import MarketplaceCommerceAnalyticsClient
+from .client import MarketplaceCommerceAnalyticsClient
 
 Client = MarketplaceCommerceAnalyticsClient
-
 
 __all__ = ("Client", "MarketplaceCommerceAnalyticsClient")

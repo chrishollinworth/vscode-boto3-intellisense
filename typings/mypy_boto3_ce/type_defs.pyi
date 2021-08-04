@@ -1,16 +1,48 @@
 """
-Main interface for ce service type definitions.
+Type annotations for ce service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/type_defs.html)
 
 Usage::
 
     ```python
-    from mypy_boto3_ce.type_defs import AnomalyMonitorTypeDef
+    from mypy_boto3_ce.type_defs import AnomalyDateIntervalTypeDef
 
-    data: AnomalyMonitorTypeDef = {...}
+    data: AnomalyDateIntervalTypeDef = {...}
     ```
 """
 import sys
 from typing import Any, Dict, List
+
+from .literals import (
+    AccountScopeType,
+    AnomalyFeedbackTypeType,
+    AnomalySubscriptionFrequencyType,
+    ContextType,
+    CostCategoryInheritedValueDimensionNameType,
+    CostCategoryRuleTypeType,
+    CostCategoryStatusType,
+    DimensionType,
+    FindingReasonCodeType,
+    GranularityType,
+    GroupDefinitionTypeType,
+    LookbackPeriodInDaysType,
+    MatchOptionType,
+    MetricType,
+    MonitorTypeType,
+    NumericOperatorType,
+    OfferingClassType,
+    PaymentOptionType,
+    PlatformDifferenceType,
+    RecommendationTargetType,
+    RightsizingTypeType,
+    SavingsPlansDataTypeType,
+    SortOrderType,
+    SubscriberStatusType,
+    SubscriberTypeType,
+    SupportedSavingsPlansTypeType,
+    TermInYearsType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -21,12 +53,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
+    "AnomalyDateIntervalTypeDef",
     "AnomalyMonitorTypeDef",
     "AnomalyScoreTypeDef",
     "AnomalySubscriptionTypeDef",
     "AnomalyTypeDef",
+    "CostCategoryInheritedValueDimensionTypeDef",
     "CostCategoryProcessingStatusTypeDef",
     "CostCategoryReferenceTypeDef",
     "CostCategoryRuleTypeDef",
@@ -37,10 +70,23 @@ __all__ = (
     "CoverageHoursTypeDef",
     "CoverageNormalizedUnitsTypeDef",
     "CoverageTypeDef",
+    "CreateAnomalyMonitorRequestRequestTypeDef",
+    "CreateAnomalyMonitorResponseTypeDef",
+    "CreateAnomalySubscriptionRequestRequestTypeDef",
+    "CreateAnomalySubscriptionResponseTypeDef",
+    "CreateCostCategoryDefinitionRequestRequestTypeDef",
+    "CreateCostCategoryDefinitionResponseTypeDef",
     "CurrentInstanceTypeDef",
     "DateIntervalTypeDef",
+    "DeleteAnomalyMonitorRequestRequestTypeDef",
+    "DeleteAnomalySubscriptionRequestRequestTypeDef",
+    "DeleteCostCategoryDefinitionRequestRequestTypeDef",
+    "DeleteCostCategoryDefinitionResponseTypeDef",
+    "DescribeCostCategoryDefinitionRequestRequestTypeDef",
+    "DescribeCostCategoryDefinitionResponseTypeDef",
     "DimensionValuesTypeDef",
     "DimensionValuesWithAttributesTypeDef",
+    "DiskResourceUtilizationTypeDef",
     "EBSResourceUtilizationTypeDef",
     "EC2InstanceDetailsTypeDef",
     "EC2ResourceDetailsTypeDef",
@@ -48,13 +94,55 @@ __all__ = (
     "EC2SpecificationTypeDef",
     "ESInstanceDetailsTypeDef",
     "ElastiCacheInstanceDetailsTypeDef",
+    "ExpressionTypeDef",
     "ForecastResultTypeDef",
+    "GetAnomaliesRequestRequestTypeDef",
+    "GetAnomaliesResponseTypeDef",
+    "GetAnomalyMonitorsRequestRequestTypeDef",
+    "GetAnomalyMonitorsResponseTypeDef",
+    "GetAnomalySubscriptionsRequestRequestTypeDef",
+    "GetAnomalySubscriptionsResponseTypeDef",
+    "GetCostAndUsageRequestRequestTypeDef",
+    "GetCostAndUsageResponseTypeDef",
+    "GetCostAndUsageWithResourcesRequestRequestTypeDef",
+    "GetCostAndUsageWithResourcesResponseTypeDef",
+    "GetCostCategoriesRequestRequestTypeDef",
+    "GetCostCategoriesResponseTypeDef",
+    "GetCostForecastRequestRequestTypeDef",
+    "GetCostForecastResponseTypeDef",
+    "GetDimensionValuesRequestRequestTypeDef",
+    "GetDimensionValuesResponseTypeDef",
+    "GetReservationCoverageRequestRequestTypeDef",
+    "GetReservationCoverageResponseTypeDef",
+    "GetReservationPurchaseRecommendationRequestRequestTypeDef",
+    "GetReservationPurchaseRecommendationResponseTypeDef",
+    "GetReservationUtilizationRequestRequestTypeDef",
+    "GetReservationUtilizationResponseTypeDef",
+    "GetRightsizingRecommendationRequestRequestTypeDef",
+    "GetRightsizingRecommendationResponseTypeDef",
+    "GetSavingsPlansCoverageRequestRequestTypeDef",
+    "GetSavingsPlansCoverageResponseTypeDef",
+    "GetSavingsPlansPurchaseRecommendationRequestRequestTypeDef",
+    "GetSavingsPlansPurchaseRecommendationResponseTypeDef",
+    "GetSavingsPlansUtilizationDetailsRequestRequestTypeDef",
+    "GetSavingsPlansUtilizationDetailsResponseTypeDef",
+    "GetSavingsPlansUtilizationRequestRequestTypeDef",
+    "GetSavingsPlansUtilizationResponseTypeDef",
+    "GetTagsRequestRequestTypeDef",
+    "GetTagsResponseTypeDef",
+    "GetUsageForecastRequestRequestTypeDef",
+    "GetUsageForecastResponseTypeDef",
     "GroupDefinitionTypeDef",
     "GroupTypeDef",
     "ImpactTypeDef",
     "InstanceDetailsTypeDef",
+    "ListCostCategoryDefinitionsRequestRequestTypeDef",
+    "ListCostCategoryDefinitionsResponseTypeDef",
     "MetricValueTypeDef",
     "ModifyRecommendationDetailTypeDef",
+    "NetworkResourceUtilizationTypeDef",
+    "ProvideAnomalyFeedbackRequestRequestTypeDef",
+    "ProvideAnomalyFeedbackResponseTypeDef",
     "RDSInstanceDetailsTypeDef",
     "RedshiftInstanceDetailsTypeDef",
     "ReservationAggregatesTypeDef",
@@ -66,6 +154,7 @@ __all__ = (
     "ReservationUtilizationGroupTypeDef",
     "ResourceDetailsTypeDef",
     "ResourceUtilizationTypeDef",
+    "ResponseMetadataTypeDef",
     "ResultByTimeTypeDef",
     "RightsizingRecommendationConfigurationTypeDef",
     "RightsizingRecommendationMetadataTypeDef",
@@ -86,48 +175,46 @@ __all__ = (
     "SavingsPlansUtilizationDetailTypeDef",
     "SavingsPlansUtilizationTypeDef",
     "ServiceSpecificationTypeDef",
+    "SortDefinitionTypeDef",
     "SubscriberTypeDef",
     "TagValuesTypeDef",
     "TargetInstanceTypeDef",
     "TerminateRecommendationDetailTypeDef",
-    "UtilizationByTimeTypeDef",
-    "AnomalyDateIntervalTypeDef",
-    "CreateAnomalyMonitorResponseTypeDef",
-    "CreateAnomalySubscriptionResponseTypeDef",
-    "CreateCostCategoryDefinitionResponseTypeDef",
-    "DeleteCostCategoryDefinitionResponseTypeDef",
-    "DescribeCostCategoryDefinitionResponseTypeDef",
-    "ExpressionTypeDef",
-    "GetAnomaliesResponseTypeDef",
-    "GetAnomalyMonitorsResponseTypeDef",
-    "GetAnomalySubscriptionsResponseTypeDef",
-    "GetCostAndUsageResponseTypeDef",
-    "GetCostAndUsageWithResourcesResponseTypeDef",
-    "GetCostCategoriesResponseTypeDef",
-    "GetCostForecastResponseTypeDef",
-    "GetDimensionValuesResponseTypeDef",
-    "GetReservationCoverageResponseTypeDef",
-    "GetReservationPurchaseRecommendationResponseTypeDef",
-    "GetReservationUtilizationResponseTypeDef",
-    "GetRightsizingRecommendationResponseTypeDef",
-    "GetSavingsPlansCoverageResponseTypeDef",
-    "GetSavingsPlansPurchaseRecommendationResponseTypeDef",
-    "GetSavingsPlansUtilizationDetailsResponseTypeDef",
-    "GetSavingsPlansUtilizationResponseTypeDef",
-    "GetTagsResponseTypeDef",
-    "GetUsageForecastResponseTypeDef",
-    "ListCostCategoryDefinitionsResponseTypeDef",
-    "ProvideAnomalyFeedbackResponseTypeDef",
-    "SortDefinitionTypeDef",
     "TotalImpactFilterTypeDef",
+    "UpdateAnomalyMonitorRequestRequestTypeDef",
     "UpdateAnomalyMonitorResponseTypeDef",
+    "UpdateAnomalySubscriptionRequestRequestTypeDef",
     "UpdateAnomalySubscriptionResponseTypeDef",
+    "UpdateCostCategoryDefinitionRequestRequestTypeDef",
     "UpdateCostCategoryDefinitionResponseTypeDef",
+    "UtilizationByTimeTypeDef",
 )
+
+_RequiredAnomalyDateIntervalTypeDef = TypedDict(
+    "_RequiredAnomalyDateIntervalTypeDef",
+    {
+        "StartDate": str,
+    },
+)
+_OptionalAnomalyDateIntervalTypeDef = TypedDict(
+    "_OptionalAnomalyDateIntervalTypeDef",
+    {
+        "EndDate": str,
+    },
+    total=False,
+)
+
+class AnomalyDateIntervalTypeDef(
+    _RequiredAnomalyDateIntervalTypeDef, _OptionalAnomalyDateIntervalTypeDef
+):
+    pass
 
 _RequiredAnomalyMonitorTypeDef = TypedDict(
     "_RequiredAnomalyMonitorTypeDef",
-    {"MonitorName": str, "MonitorType": Literal["DIMENSIONAL", "CUSTOM"]},
+    {
+        "MonitorName": str,
+        "MonitorType": MonitorTypeType,
+    },
 )
 _OptionalAnomalyMonitorTypeDef = TypedDict(
     "_OptionalAnomalyMonitorTypeDef",
@@ -137,18 +224,22 @@ _OptionalAnomalyMonitorTypeDef = TypedDict(
         "LastUpdatedDate": str,
         "LastEvaluatedDate": str,
         "MonitorDimension": Literal["SERVICE"],
-        "MonitorSpecification": Dict[str, Any],
+        "MonitorSpecification": "ExpressionTypeDef",
         "DimensionalValueCount": int,
     },
     total=False,
 )
 
-
 class AnomalyMonitorTypeDef(_RequiredAnomalyMonitorTypeDef, _OptionalAnomalyMonitorTypeDef):
     pass
 
-
-AnomalyScoreTypeDef = TypedDict("AnomalyScoreTypeDef", {"MaxScore": float, "CurrentScore": float})
+AnomalyScoreTypeDef = TypedDict(
+    "AnomalyScoreTypeDef",
+    {
+        "MaxScore": float,
+        "CurrentScore": float,
+    },
+)
 
 _RequiredAnomalySubscriptionTypeDef = TypedDict(
     "_RequiredAnomalySubscriptionTypeDef",
@@ -156,20 +247,23 @@ _RequiredAnomalySubscriptionTypeDef = TypedDict(
         "MonitorArnList": List[str],
         "Subscribers": List["SubscriberTypeDef"],
         "Threshold": float,
-        "Frequency": Literal["DAILY", "IMMEDIATE", "WEEKLY"],
+        "Frequency": AnomalySubscriptionFrequencyType,
         "SubscriptionName": str,
     },
 )
 _OptionalAnomalySubscriptionTypeDef = TypedDict(
-    "_OptionalAnomalySubscriptionTypeDef", {"SubscriptionArn": str, "AccountId": str}, total=False
+    "_OptionalAnomalySubscriptionTypeDef",
+    {
+        "SubscriptionArn": str,
+        "AccountId": str,
+    },
+    total=False,
 )
-
 
 class AnomalySubscriptionTypeDef(
     _RequiredAnomalySubscriptionTypeDef, _OptionalAnomalySubscriptionTypeDef
 ):
     pass
-
 
 _RequiredAnomalyTypeDef = TypedDict(
     "_RequiredAnomalyTypeDef",
@@ -187,19 +281,29 @@ _OptionalAnomalyTypeDef = TypedDict(
         "AnomalyEndDate": str,
         "DimensionValue": str,
         "RootCauses": List["RootCauseTypeDef"],
-        "Feedback": Literal["YES", "NO", "PLANNED_ACTIVITY"],
+        "Feedback": AnomalyFeedbackTypeType,
     },
     total=False,
 )
 
-
 class AnomalyTypeDef(_RequiredAnomalyTypeDef, _OptionalAnomalyTypeDef):
     pass
 
+CostCategoryInheritedValueDimensionTypeDef = TypedDict(
+    "CostCategoryInheritedValueDimensionTypeDef",
+    {
+        "DimensionName": CostCategoryInheritedValueDimensionNameType,
+        "DimensionKey": str,
+    },
+    total=False,
+)
 
 CostCategoryProcessingStatusTypeDef = TypedDict(
     "CostCategoryProcessingStatusTypeDef",
-    {"Component": Literal["COST_EXPLORER"], "Status": Literal["PROCESSING", "APPLIED"]},
+    {
+        "Component": Literal["COST_EXPLORER"],
+        "Status": CostCategoryStatusType,
+    },
     total=False,
 )
 
@@ -213,12 +317,20 @@ CostCategoryReferenceTypeDef = TypedDict(
         "NumberOfRules": int,
         "ProcessingStatus": List["CostCategoryProcessingStatusTypeDef"],
         "Values": List[str],
+        "DefaultValue": str,
     },
     total=False,
 )
 
 CostCategoryRuleTypeDef = TypedDict(
-    "CostCategoryRuleTypeDef", {"Value": str, "Rule": Dict[str, Any]}
+    "CostCategoryRuleTypeDef",
+    {
+        "Value": str,
+        "Rule": "ExpressionTypeDef",
+        "InheritedValue": "CostCategoryInheritedValueDimensionTypeDef",
+        "Type": CostCategoryRuleTypeType,
+    },
+    total=False,
 )
 
 _RequiredCostCategoryTypeDef = TypedDict(
@@ -233,31 +345,23 @@ _RequiredCostCategoryTypeDef = TypedDict(
 )
 _OptionalCostCategoryTypeDef = TypedDict(
     "_OptionalCostCategoryTypeDef",
-    {"EffectiveEnd": str, "ProcessingStatus": List["CostCategoryProcessingStatusTypeDef"]},
+    {
+        "EffectiveEnd": str,
+        "ProcessingStatus": List["CostCategoryProcessingStatusTypeDef"],
+        "DefaultValue": str,
+    },
     total=False,
 )
 
-
 class CostCategoryTypeDef(_RequiredCostCategoryTypeDef, _OptionalCostCategoryTypeDef):
     pass
-
 
 CostCategoryValuesTypeDef = TypedDict(
     "CostCategoryValuesTypeDef",
     {
         "Key": str,
         "Values": List[str],
-        "MatchOptions": List[
-            Literal[
-                "EQUALS",
-                "ABSENT",
-                "STARTS_WITH",
-                "ENDS_WITH",
-                "CONTAINS",
-                "CASE_SENSITIVE",
-                "CASE_INSENSITIVE",
-            ]
-        ],
+        "MatchOptions": List[MatchOptionType],
     },
     total=False,
 )
@@ -272,7 +376,13 @@ CoverageByTimeTypeDef = TypedDict(
     total=False,
 )
 
-CoverageCostTypeDef = TypedDict("CoverageCostTypeDef", {"OnDemandCost": str}, total=False)
+CoverageCostTypeDef = TypedDict(
+    "CoverageCostTypeDef",
+    {
+        "OnDemandCost": str,
+    },
+    total=False,
+)
 
 CoverageHoursTypeDef = TypedDict(
     "CoverageHoursTypeDef",
@@ -306,6 +416,67 @@ CoverageTypeDef = TypedDict(
     total=False,
 )
 
+CreateAnomalyMonitorRequestRequestTypeDef = TypedDict(
+    "CreateAnomalyMonitorRequestRequestTypeDef",
+    {
+        "AnomalyMonitor": "AnomalyMonitorTypeDef",
+    },
+)
+
+CreateAnomalyMonitorResponseTypeDef = TypedDict(
+    "CreateAnomalyMonitorResponseTypeDef",
+    {
+        "MonitorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateAnomalySubscriptionRequestRequestTypeDef = TypedDict(
+    "CreateAnomalySubscriptionRequestRequestTypeDef",
+    {
+        "AnomalySubscription": "AnomalySubscriptionTypeDef",
+    },
+)
+
+CreateAnomalySubscriptionResponseTypeDef = TypedDict(
+    "CreateAnomalySubscriptionResponseTypeDef",
+    {
+        "SubscriptionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCostCategoryDefinitionRequestRequestTypeDef",
+    {
+        "Name": str,
+        "RuleVersion": Literal["CostCategoryExpression.v1"],
+        "Rules": List["CostCategoryRuleTypeDef"],
+    },
+)
+_OptionalCreateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCostCategoryDefinitionRequestRequestTypeDef",
+    {
+        "DefaultValue": str,
+    },
+    total=False,
+)
+
+class CreateCostCategoryDefinitionRequestRequestTypeDef(
+    _RequiredCreateCostCategoryDefinitionRequestRequestTypeDef,
+    _OptionalCreateCostCategoryDefinitionRequestRequestTypeDef,
+):
+    pass
+
+CreateCostCategoryDefinitionResponseTypeDef = TypedDict(
+    "CreateCostCategoryDefinitionResponseTypeDef",
+    {
+        "CostCategoryArn": str,
+        "EffectiveStart": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CurrentInstanceTypeDef = TypedDict(
     "CurrentInstanceTypeDef",
     {
@@ -324,63 +495,99 @@ CurrentInstanceTypeDef = TypedDict(
     total=False,
 )
 
-DateIntervalTypeDef = TypedDict("DateIntervalTypeDef", {"Start": str, "End": str})
+DateIntervalTypeDef = TypedDict(
+    "DateIntervalTypeDef",
+    {
+        "Start": str,
+        "End": str,
+    },
+)
+
+DeleteAnomalyMonitorRequestRequestTypeDef = TypedDict(
+    "DeleteAnomalyMonitorRequestRequestTypeDef",
+    {
+        "MonitorArn": str,
+    },
+)
+
+DeleteAnomalySubscriptionRequestRequestTypeDef = TypedDict(
+    "DeleteAnomalySubscriptionRequestRequestTypeDef",
+    {
+        "SubscriptionArn": str,
+    },
+)
+
+DeleteCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
+    "DeleteCostCategoryDefinitionRequestRequestTypeDef",
+    {
+        "CostCategoryArn": str,
+    },
+)
+
+DeleteCostCategoryDefinitionResponseTypeDef = TypedDict(
+    "DeleteCostCategoryDefinitionResponseTypeDef",
+    {
+        "CostCategoryArn": str,
+        "EffectiveEnd": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeCostCategoryDefinitionRequestRequestTypeDef",
+    {
+        "CostCategoryArn": str,
+    },
+)
+_OptionalDescribeCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeCostCategoryDefinitionRequestRequestTypeDef",
+    {
+        "EffectiveOn": str,
+    },
+    total=False,
+)
+
+class DescribeCostCategoryDefinitionRequestRequestTypeDef(
+    _RequiredDescribeCostCategoryDefinitionRequestRequestTypeDef,
+    _OptionalDescribeCostCategoryDefinitionRequestRequestTypeDef,
+):
+    pass
+
+DescribeCostCategoryDefinitionResponseTypeDef = TypedDict(
+    "DescribeCostCategoryDefinitionResponseTypeDef",
+    {
+        "CostCategory": "CostCategoryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DimensionValuesTypeDef = TypedDict(
     "DimensionValuesTypeDef",
     {
-        "Key": Literal[
-            "AZ",
-            "INSTANCE_TYPE",
-            "LINKED_ACCOUNT",
-            "LINKED_ACCOUNT_NAME",
-            "OPERATION",
-            "PURCHASE_TYPE",
-            "REGION",
-            "SERVICE",
-            "SERVICE_CODE",
-            "USAGE_TYPE",
-            "USAGE_TYPE_GROUP",
-            "RECORD_TYPE",
-            "OPERATING_SYSTEM",
-            "TENANCY",
-            "SCOPE",
-            "PLATFORM",
-            "SUBSCRIPTION_ID",
-            "LEGAL_ENTITY_NAME",
-            "DEPLOYMENT_OPTION",
-            "DATABASE_ENGINE",
-            "CACHE_ENGINE",
-            "INSTANCE_TYPE_FAMILY",
-            "BILLING_ENTITY",
-            "RESERVATION_ID",
-            "RESOURCE_ID",
-            "RIGHTSIZING_TYPE",
-            "SAVINGS_PLANS_TYPE",
-            "SAVINGS_PLAN_ARN",
-            "PAYMENT_OPTION",
-            "AGREEMENT_END_DATE_TIME_AFTER",
-            "AGREEMENT_END_DATE_TIME_BEFORE",
-        ],
+        "Key": DimensionType,
         "Values": List[str],
-        "MatchOptions": List[
-            Literal[
-                "EQUALS",
-                "ABSENT",
-                "STARTS_WITH",
-                "ENDS_WITH",
-                "CONTAINS",
-                "CASE_SENSITIVE",
-                "CASE_INSENSITIVE",
-            ]
-        ],
+        "MatchOptions": List[MatchOptionType],
     },
     total=False,
 )
 
 DimensionValuesWithAttributesTypeDef = TypedDict(
     "DimensionValuesWithAttributesTypeDef",
-    {"Value": str, "Attributes": Dict[str, str]},
+    {
+        "Value": str,
+        "Attributes": Dict[str, str],
+    },
+    total=False,
+)
+
+DiskResourceUtilizationTypeDef = TypedDict(
+    "DiskResourceUtilizationTypeDef",
+    {
+        "DiskReadOpsPerSecond": str,
+        "DiskWriteOpsPerSecond": str,
+        "DiskReadBytesPerSecond": str,
+        "DiskWriteBytesPerSecond": str,
+    },
     total=False,
 )
 
@@ -433,12 +640,18 @@ EC2ResourceUtilizationTypeDef = TypedDict(
         "MaxMemoryUtilizationPercentage": str,
         "MaxStorageUtilizationPercentage": str,
         "EBSResourceUtilization": "EBSResourceUtilizationTypeDef",
+        "DiskResourceUtilization": "DiskResourceUtilizationTypeDef",
+        "NetworkResourceUtilization": "NetworkResourceUtilizationTypeDef",
     },
     total=False,
 )
 
 EC2SpecificationTypeDef = TypedDict(
-    "EC2SpecificationTypeDef", {"OfferingClass": Literal["STANDARD", "CONVERTIBLE"]}, total=False
+    "EC2SpecificationTypeDef",
+    {
+        "OfferingClass": OfferingClassType,
+    },
+    total=False,
 )
 
 ESInstanceDetailsTypeDef = TypedDict(
@@ -466,6 +679,19 @@ ElastiCacheInstanceDetailsTypeDef = TypedDict(
     total=False,
 )
 
+ExpressionTypeDef = TypedDict(
+    "ExpressionTypeDef",
+    {
+        "Or": List[Dict[str, Any]],
+        "And": List[Dict[str, Any]],
+        "Not": Dict[str, Any],
+        "Dimensions": "DimensionValuesTypeDef",
+        "Tags": "TagValuesTypeDef",
+        "CostCategories": "CostCategoryValuesTypeDef",
+    },
+    total=False,
+)
+
 ForecastResultTypeDef = TypedDict(
     "ForecastResultTypeDef",
     {
@@ -477,23 +703,631 @@ ForecastResultTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredGetAnomaliesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetAnomaliesRequestRequestTypeDef",
+    {
+        "DateInterval": "AnomalyDateIntervalTypeDef",
+    },
+)
+_OptionalGetAnomaliesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetAnomaliesRequestRequestTypeDef",
+    {
+        "MonitorArn": str,
+        "Feedback": AnomalyFeedbackTypeType,
+        "TotalImpact": "TotalImpactFilterTypeDef",
+        "NextPageToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetAnomaliesRequestRequestTypeDef(
+    _RequiredGetAnomaliesRequestRequestTypeDef, _OptionalGetAnomaliesRequestRequestTypeDef
+):
+    pass
+
+GetAnomaliesResponseTypeDef = TypedDict(
+    "GetAnomaliesResponseTypeDef",
+    {
+        "Anomalies": List["AnomalyTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAnomalyMonitorsRequestRequestTypeDef = TypedDict(
+    "GetAnomalyMonitorsRequestRequestTypeDef",
+    {
+        "MonitorArnList": List[str],
+        "NextPageToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+GetAnomalyMonitorsResponseTypeDef = TypedDict(
+    "GetAnomalyMonitorsResponseTypeDef",
+    {
+        "AnomalyMonitors": List["AnomalyMonitorTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAnomalySubscriptionsRequestRequestTypeDef = TypedDict(
+    "GetAnomalySubscriptionsRequestRequestTypeDef",
+    {
+        "SubscriptionArnList": List[str],
+        "MonitorArn": str,
+        "NextPageToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+GetAnomalySubscriptionsResponseTypeDef = TypedDict(
+    "GetAnomalySubscriptionsResponseTypeDef",
+    {
+        "AnomalySubscriptions": List["AnomalySubscriptionTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCostAndUsageRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCostAndUsageRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+        "Granularity": GranularityType,
+        "Metrics": List[str],
+    },
+)
+_OptionalGetCostAndUsageRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCostAndUsageRequestRequestTypeDef",
+    {
+        "Filter": "ExpressionTypeDef",
+        "GroupBy": List["GroupDefinitionTypeDef"],
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+class GetCostAndUsageRequestRequestTypeDef(
+    _RequiredGetCostAndUsageRequestRequestTypeDef, _OptionalGetCostAndUsageRequestRequestTypeDef
+):
+    pass
+
+GetCostAndUsageResponseTypeDef = TypedDict(
+    "GetCostAndUsageResponseTypeDef",
+    {
+        "NextPageToken": str,
+        "GroupDefinitions": List["GroupDefinitionTypeDef"],
+        "ResultsByTime": List["ResultByTimeTypeDef"],
+        "DimensionValueAttributes": List["DimensionValuesWithAttributesTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCostAndUsageWithResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCostAndUsageWithResourcesRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+        "Granularity": GranularityType,
+        "Filter": "ExpressionTypeDef",
+    },
+)
+_OptionalGetCostAndUsageWithResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCostAndUsageWithResourcesRequestRequestTypeDef",
+    {
+        "Metrics": List[str],
+        "GroupBy": List["GroupDefinitionTypeDef"],
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+class GetCostAndUsageWithResourcesRequestRequestTypeDef(
+    _RequiredGetCostAndUsageWithResourcesRequestRequestTypeDef,
+    _OptionalGetCostAndUsageWithResourcesRequestRequestTypeDef,
+):
+    pass
+
+GetCostAndUsageWithResourcesResponseTypeDef = TypedDict(
+    "GetCostAndUsageWithResourcesResponseTypeDef",
+    {
+        "NextPageToken": str,
+        "GroupDefinitions": List["GroupDefinitionTypeDef"],
+        "ResultsByTime": List["ResultByTimeTypeDef"],
+        "DimensionValueAttributes": List["DimensionValuesWithAttributesTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCostCategoriesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCostCategoriesRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+    },
+)
+_OptionalGetCostCategoriesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCostCategoriesRequestRequestTypeDef",
+    {
+        "SearchString": str,
+        "CostCategoryName": str,
+        "Filter": "ExpressionTypeDef",
+        "SortBy": List["SortDefinitionTypeDef"],
+        "MaxResults": int,
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+class GetCostCategoriesRequestRequestTypeDef(
+    _RequiredGetCostCategoriesRequestRequestTypeDef, _OptionalGetCostCategoriesRequestRequestTypeDef
+):
+    pass
+
+GetCostCategoriesResponseTypeDef = TypedDict(
+    "GetCostCategoriesResponseTypeDef",
+    {
+        "NextPageToken": str,
+        "CostCategoryNames": List[str],
+        "CostCategoryValues": List[str],
+        "ReturnSize": int,
+        "TotalSize": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCostForecastRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCostForecastRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+        "Metric": MetricType,
+        "Granularity": GranularityType,
+    },
+)
+_OptionalGetCostForecastRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCostForecastRequestRequestTypeDef",
+    {
+        "Filter": "ExpressionTypeDef",
+        "PredictionIntervalLevel": int,
+    },
+    total=False,
+)
+
+class GetCostForecastRequestRequestTypeDef(
+    _RequiredGetCostForecastRequestRequestTypeDef, _OptionalGetCostForecastRequestRequestTypeDef
+):
+    pass
+
+GetCostForecastResponseTypeDef = TypedDict(
+    "GetCostForecastResponseTypeDef",
+    {
+        "Total": "MetricValueTypeDef",
+        "ForecastResultsByTime": List["ForecastResultTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetDimensionValuesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetDimensionValuesRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+        "Dimension": DimensionType,
+    },
+)
+_OptionalGetDimensionValuesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetDimensionValuesRequestRequestTypeDef",
+    {
+        "SearchString": str,
+        "Context": ContextType,
+        "Filter": "ExpressionTypeDef",
+        "SortBy": List["SortDefinitionTypeDef"],
+        "MaxResults": int,
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+class GetDimensionValuesRequestRequestTypeDef(
+    _RequiredGetDimensionValuesRequestRequestTypeDef,
+    _OptionalGetDimensionValuesRequestRequestTypeDef,
+):
+    pass
+
+GetDimensionValuesResponseTypeDef = TypedDict(
+    "GetDimensionValuesResponseTypeDef",
+    {
+        "DimensionValues": List["DimensionValuesWithAttributesTypeDef"],
+        "ReturnSize": int,
+        "TotalSize": int,
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetReservationCoverageRequestRequestTypeDef = TypedDict(
+    "_RequiredGetReservationCoverageRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+    },
+)
+_OptionalGetReservationCoverageRequestRequestTypeDef = TypedDict(
+    "_OptionalGetReservationCoverageRequestRequestTypeDef",
+    {
+        "GroupBy": List["GroupDefinitionTypeDef"],
+        "Granularity": GranularityType,
+        "Filter": "ExpressionTypeDef",
+        "Metrics": List[str],
+        "NextPageToken": str,
+        "SortBy": "SortDefinitionTypeDef",
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetReservationCoverageRequestRequestTypeDef(
+    _RequiredGetReservationCoverageRequestRequestTypeDef,
+    _OptionalGetReservationCoverageRequestRequestTypeDef,
+):
+    pass
+
+GetReservationCoverageResponseTypeDef = TypedDict(
+    "GetReservationCoverageResponseTypeDef",
+    {
+        "CoveragesByTime": List["CoverageByTimeTypeDef"],
+        "Total": "CoverageTypeDef",
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetReservationPurchaseRecommendationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetReservationPurchaseRecommendationRequestRequestTypeDef",
+    {
+        "Service": str,
+    },
+)
+_OptionalGetReservationPurchaseRecommendationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetReservationPurchaseRecommendationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Filter": "ExpressionTypeDef",
+        "AccountScope": AccountScopeType,
+        "LookbackPeriodInDays": LookbackPeriodInDaysType,
+        "TermInYears": TermInYearsType,
+        "PaymentOption": PaymentOptionType,
+        "ServiceSpecification": "ServiceSpecificationTypeDef",
+        "PageSize": int,
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+class GetReservationPurchaseRecommendationRequestRequestTypeDef(
+    _RequiredGetReservationPurchaseRecommendationRequestRequestTypeDef,
+    _OptionalGetReservationPurchaseRecommendationRequestRequestTypeDef,
+):
+    pass
+
+GetReservationPurchaseRecommendationResponseTypeDef = TypedDict(
+    "GetReservationPurchaseRecommendationResponseTypeDef",
+    {
+        "Metadata": "ReservationPurchaseRecommendationMetadataTypeDef",
+        "Recommendations": List["ReservationPurchaseRecommendationTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetReservationUtilizationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetReservationUtilizationRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+    },
+)
+_OptionalGetReservationUtilizationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetReservationUtilizationRequestRequestTypeDef",
+    {
+        "GroupBy": List["GroupDefinitionTypeDef"],
+        "Granularity": GranularityType,
+        "Filter": "ExpressionTypeDef",
+        "SortBy": "SortDefinitionTypeDef",
+        "NextPageToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetReservationUtilizationRequestRequestTypeDef(
+    _RequiredGetReservationUtilizationRequestRequestTypeDef,
+    _OptionalGetReservationUtilizationRequestRequestTypeDef,
+):
+    pass
+
+GetReservationUtilizationResponseTypeDef = TypedDict(
+    "GetReservationUtilizationResponseTypeDef",
+    {
+        "UtilizationsByTime": List["UtilizationByTimeTypeDef"],
+        "Total": "ReservationAggregatesTypeDef",
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetRightsizingRecommendationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetRightsizingRecommendationRequestRequestTypeDef",
+    {
+        "Service": str,
+    },
+)
+_OptionalGetRightsizingRecommendationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetRightsizingRecommendationRequestRequestTypeDef",
+    {
+        "Filter": "ExpressionTypeDef",
+        "Configuration": "RightsizingRecommendationConfigurationTypeDef",
+        "PageSize": int,
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+class GetRightsizingRecommendationRequestRequestTypeDef(
+    _RequiredGetRightsizingRecommendationRequestRequestTypeDef,
+    _OptionalGetRightsizingRecommendationRequestRequestTypeDef,
+):
+    pass
+
+GetRightsizingRecommendationResponseTypeDef = TypedDict(
+    "GetRightsizingRecommendationResponseTypeDef",
+    {
+        "Metadata": "RightsizingRecommendationMetadataTypeDef",
+        "Summary": "RightsizingRecommendationSummaryTypeDef",
+        "RightsizingRecommendations": List["RightsizingRecommendationTypeDef"],
+        "NextPageToken": str,
+        "Configuration": "RightsizingRecommendationConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSavingsPlansCoverageRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSavingsPlansCoverageRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+    },
+)
+_OptionalGetSavingsPlansCoverageRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSavingsPlansCoverageRequestRequestTypeDef",
+    {
+        "GroupBy": List["GroupDefinitionTypeDef"],
+        "Granularity": GranularityType,
+        "Filter": "ExpressionTypeDef",
+        "Metrics": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "SortBy": "SortDefinitionTypeDef",
+    },
+    total=False,
+)
+
+class GetSavingsPlansCoverageRequestRequestTypeDef(
+    _RequiredGetSavingsPlansCoverageRequestRequestTypeDef,
+    _OptionalGetSavingsPlansCoverageRequestRequestTypeDef,
+):
+    pass
+
+GetSavingsPlansCoverageResponseTypeDef = TypedDict(
+    "GetSavingsPlansCoverageResponseTypeDef",
+    {
+        "SavingsPlansCoverages": List["SavingsPlansCoverageTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSavingsPlansPurchaseRecommendationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSavingsPlansPurchaseRecommendationRequestRequestTypeDef",
+    {
+        "SavingsPlansType": SupportedSavingsPlansTypeType,
+        "TermInYears": TermInYearsType,
+        "PaymentOption": PaymentOptionType,
+        "LookbackPeriodInDays": LookbackPeriodInDaysType,
+    },
+)
+_OptionalGetSavingsPlansPurchaseRecommendationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSavingsPlansPurchaseRecommendationRequestRequestTypeDef",
+    {
+        "AccountScope": AccountScopeType,
+        "NextPageToken": str,
+        "PageSize": int,
+        "Filter": "ExpressionTypeDef",
+    },
+    total=False,
+)
+
+class GetSavingsPlansPurchaseRecommendationRequestRequestTypeDef(
+    _RequiredGetSavingsPlansPurchaseRecommendationRequestRequestTypeDef,
+    _OptionalGetSavingsPlansPurchaseRecommendationRequestRequestTypeDef,
+):
+    pass
+
+GetSavingsPlansPurchaseRecommendationResponseTypeDef = TypedDict(
+    "GetSavingsPlansPurchaseRecommendationResponseTypeDef",
+    {
+        "Metadata": "SavingsPlansPurchaseRecommendationMetadataTypeDef",
+        "SavingsPlansPurchaseRecommendation": "SavingsPlansPurchaseRecommendationTypeDef",
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSavingsPlansUtilizationDetailsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSavingsPlansUtilizationDetailsRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+    },
+)
+_OptionalGetSavingsPlansUtilizationDetailsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSavingsPlansUtilizationDetailsRequestRequestTypeDef",
+    {
+        "Filter": "ExpressionTypeDef",
+        "DataType": List[SavingsPlansDataTypeType],
+        "NextToken": str,
+        "MaxResults": int,
+        "SortBy": "SortDefinitionTypeDef",
+    },
+    total=False,
+)
+
+class GetSavingsPlansUtilizationDetailsRequestRequestTypeDef(
+    _RequiredGetSavingsPlansUtilizationDetailsRequestRequestTypeDef,
+    _OptionalGetSavingsPlansUtilizationDetailsRequestRequestTypeDef,
+):
+    pass
+
+GetSavingsPlansUtilizationDetailsResponseTypeDef = TypedDict(
+    "GetSavingsPlansUtilizationDetailsResponseTypeDef",
+    {
+        "SavingsPlansUtilizationDetails": List["SavingsPlansUtilizationDetailTypeDef"],
+        "Total": "SavingsPlansUtilizationAggregatesTypeDef",
+        "TimePeriod": "DateIntervalTypeDef",
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSavingsPlansUtilizationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSavingsPlansUtilizationRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+    },
+)
+_OptionalGetSavingsPlansUtilizationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSavingsPlansUtilizationRequestRequestTypeDef",
+    {
+        "Granularity": GranularityType,
+        "Filter": "ExpressionTypeDef",
+        "SortBy": "SortDefinitionTypeDef",
+    },
+    total=False,
+)
+
+class GetSavingsPlansUtilizationRequestRequestTypeDef(
+    _RequiredGetSavingsPlansUtilizationRequestRequestTypeDef,
+    _OptionalGetSavingsPlansUtilizationRequestRequestTypeDef,
+):
+    pass
+
+GetSavingsPlansUtilizationResponseTypeDef = TypedDict(
+    "GetSavingsPlansUtilizationResponseTypeDef",
+    {
+        "SavingsPlansUtilizationsByTime": List["SavingsPlansUtilizationByTimeTypeDef"],
+        "Total": "SavingsPlansUtilizationAggregatesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTagsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTagsRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+    },
+)
+_OptionalGetTagsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTagsRequestRequestTypeDef",
+    {
+        "SearchString": str,
+        "TagKey": str,
+        "Filter": "ExpressionTypeDef",
+        "SortBy": List["SortDefinitionTypeDef"],
+        "MaxResults": int,
+        "NextPageToken": str,
+    },
+    total=False,
+)
+
+class GetTagsRequestRequestTypeDef(
+    _RequiredGetTagsRequestRequestTypeDef, _OptionalGetTagsRequestRequestTypeDef
+):
+    pass
+
+GetTagsResponseTypeDef = TypedDict(
+    "GetTagsResponseTypeDef",
+    {
+        "NextPageToken": str,
+        "Tags": List[str],
+        "ReturnSize": int,
+        "TotalSize": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetUsageForecastRequestRequestTypeDef = TypedDict(
+    "_RequiredGetUsageForecastRequestRequestTypeDef",
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+        "Metric": MetricType,
+        "Granularity": GranularityType,
+    },
+)
+_OptionalGetUsageForecastRequestRequestTypeDef = TypedDict(
+    "_OptionalGetUsageForecastRequestRequestTypeDef",
+    {
+        "Filter": "ExpressionTypeDef",
+        "PredictionIntervalLevel": int,
+    },
+    total=False,
+)
+
+class GetUsageForecastRequestRequestTypeDef(
+    _RequiredGetUsageForecastRequestRequestTypeDef, _OptionalGetUsageForecastRequestRequestTypeDef
+):
+    pass
+
+GetUsageForecastResponseTypeDef = TypedDict(
+    "GetUsageForecastResponseTypeDef",
+    {
+        "Total": "MetricValueTypeDef",
+        "ForecastResultsByTime": List["ForecastResultTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GroupDefinitionTypeDef = TypedDict(
     "GroupDefinitionTypeDef",
-    {"Type": Literal["DIMENSION", "TAG", "COST_CATEGORY"], "Key": str},
+    {
+        "Type": GroupDefinitionTypeType,
+        "Key": str,
+    },
     total=False,
 )
 
 GroupTypeDef = TypedDict(
-    "GroupTypeDef", {"Keys": List[str], "Metrics": Dict[str, "MetricValueTypeDef"]}, total=False
+    "GroupTypeDef",
+    {
+        "Keys": List[str],
+        "Metrics": Dict[str, "MetricValueTypeDef"],
+    },
+    total=False,
 )
 
-_RequiredImpactTypeDef = TypedDict("_RequiredImpactTypeDef", {"MaxImpact": float})
-_OptionalImpactTypeDef = TypedDict("_OptionalImpactTypeDef", {"TotalImpact": float}, total=False)
-
+_RequiredImpactTypeDef = TypedDict(
+    "_RequiredImpactTypeDef",
+    {
+        "MaxImpact": float,
+    },
+)
+_OptionalImpactTypeDef = TypedDict(
+    "_OptionalImpactTypeDef",
+    {
+        "TotalImpact": float,
+    },
+    total=False,
+)
 
 class ImpactTypeDef(_RequiredImpactTypeDef, _OptionalImpactTypeDef):
     pass
-
 
 InstanceDetailsTypeDef = TypedDict(
     "InstanceDetailsTypeDef",
@@ -507,12 +1341,67 @@ InstanceDetailsTypeDef = TypedDict(
     total=False,
 )
 
-MetricValueTypeDef = TypedDict("MetricValueTypeDef", {"Amount": str, "Unit": str}, total=False)
+ListCostCategoryDefinitionsRequestRequestTypeDef = TypedDict(
+    "ListCostCategoryDefinitionsRequestRequestTypeDef",
+    {
+        "EffectiveOn": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListCostCategoryDefinitionsResponseTypeDef = TypedDict(
+    "ListCostCategoryDefinitionsResponseTypeDef",
+    {
+        "CostCategoryReferences": List["CostCategoryReferenceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+MetricValueTypeDef = TypedDict(
+    "MetricValueTypeDef",
+    {
+        "Amount": str,
+        "Unit": str,
+    },
+    total=False,
+)
 
 ModifyRecommendationDetailTypeDef = TypedDict(
     "ModifyRecommendationDetailTypeDef",
-    {"TargetInstances": List["TargetInstanceTypeDef"]},
+    {
+        "TargetInstances": List["TargetInstanceTypeDef"],
+    },
     total=False,
+)
+
+NetworkResourceUtilizationTypeDef = TypedDict(
+    "NetworkResourceUtilizationTypeDef",
+    {
+        "NetworkInBytesPerSecond": str,
+        "NetworkOutBytesPerSecond": str,
+        "NetworkPacketsInPerSecond": str,
+        "NetworkPacketsOutPerSecond": str,
+    },
+    total=False,
+)
+
+ProvideAnomalyFeedbackRequestRequestTypeDef = TypedDict(
+    "ProvideAnomalyFeedbackRequestRequestTypeDef",
+    {
+        "AnomalyId": str,
+        "Feedback": AnomalyFeedbackTypeType,
+    },
+)
+
+ProvideAnomalyFeedbackResponseTypeDef = TypedDict(
+    "ProvideAnomalyFeedbackResponseTypeDef",
+    {
+        "AnomalyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 RDSInstanceDetailsTypeDef = TypedDict(
@@ -569,7 +1458,10 @@ ReservationAggregatesTypeDef = TypedDict(
 
 ReservationCoverageGroupTypeDef = TypedDict(
     "ReservationCoverageGroupTypeDef",
-    {"Attributes": Dict[str, str], "Coverage": "CoverageTypeDef"},
+    {
+        "Attributes": Dict[str, str],
+        "Coverage": "CoverageTypeDef",
+    },
     total=False,
 )
 
@@ -601,7 +1493,10 @@ ReservationPurchaseRecommendationDetailTypeDef = TypedDict(
 
 ReservationPurchaseRecommendationMetadataTypeDef = TypedDict(
     "ReservationPurchaseRecommendationMetadataTypeDef",
-    {"RecommendationId": str, "GenerationTimestamp": str},
+    {
+        "RecommendationId": str,
+        "GenerationTimestamp": str,
+    },
     total=False,
 )
 
@@ -618,17 +1513,10 @@ ReservationPurchaseRecommendationSummaryTypeDef = TypedDict(
 ReservationPurchaseRecommendationTypeDef = TypedDict(
     "ReservationPurchaseRecommendationTypeDef",
     {
-        "AccountScope": Literal["PAYER", "LINKED"],
-        "LookbackPeriodInDays": Literal["SEVEN_DAYS", "THIRTY_DAYS", "SIXTY_DAYS"],
-        "TermInYears": Literal["ONE_YEAR", "THREE_YEARS"],
-        "PaymentOption": Literal[
-            "NO_UPFRONT",
-            "PARTIAL_UPFRONT",
-            "ALL_UPFRONT",
-            "LIGHT_UTILIZATION",
-            "MEDIUM_UTILIZATION",
-            "HEAVY_UTILIZATION",
-        ],
+        "AccountScope": AccountScopeType,
+        "LookbackPeriodInDays": LookbackPeriodInDaysType,
+        "TermInYears": TermInYearsType,
+        "PaymentOption": PaymentOptionType,
         "ServiceSpecification": "ServiceSpecificationTypeDef",
         "RecommendationDetails": List["ReservationPurchaseRecommendationDetailTypeDef"],
         "RecommendationSummary": "ReservationPurchaseRecommendationSummaryTypeDef",
@@ -648,13 +1536,30 @@ ReservationUtilizationGroupTypeDef = TypedDict(
 )
 
 ResourceDetailsTypeDef = TypedDict(
-    "ResourceDetailsTypeDef", {"EC2ResourceDetails": "EC2ResourceDetailsTypeDef"}, total=False
+    "ResourceDetailsTypeDef",
+    {
+        "EC2ResourceDetails": "EC2ResourceDetailsTypeDef",
+    },
+    total=False,
 )
 
 ResourceUtilizationTypeDef = TypedDict(
     "ResourceUtilizationTypeDef",
-    {"EC2ResourceUtilization": "EC2ResourceUtilizationTypeDef"},
+    {
+        "EC2ResourceUtilization": "EC2ResourceUtilizationTypeDef",
+    },
     total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 ResultByTimeTypeDef = TypedDict(
@@ -671,7 +1576,7 @@ ResultByTimeTypeDef = TypedDict(
 RightsizingRecommendationConfigurationTypeDef = TypedDict(
     "RightsizingRecommendationConfigurationTypeDef",
     {
-        "RecommendationTarget": Literal["SAME_INSTANCE_FAMILY", "CROSS_INSTANCE_FAMILY"],
+        "RecommendationTarget": RecommendationTargetType,
         "BenefitsConsidered": bool,
     },
 )
@@ -681,7 +1586,7 @@ RightsizingRecommendationMetadataTypeDef = TypedDict(
     {
         "RecommendationId": str,
         "GenerationTimestamp": str,
-        "LookbackPeriodInDays": Literal["SEVEN_DAYS", "THIRTY_DAYS", "SIXTY_DAYS"],
+        "LookbackPeriodInDays": LookbackPeriodInDaysType,
         "AdditionalMetadata": str,
     },
     total=False,
@@ -703,16 +1608,22 @@ RightsizingRecommendationTypeDef = TypedDict(
     {
         "AccountId": str,
         "CurrentInstance": "CurrentInstanceTypeDef",
-        "RightsizingType": Literal["TERMINATE", "MODIFY"],
+        "RightsizingType": RightsizingTypeType,
         "ModifyRecommendationDetail": "ModifyRecommendationDetailTypeDef",
         "TerminateRecommendationDetail": "TerminateRecommendationDetailTypeDef",
+        "FindingReasonCodes": List[FindingReasonCodeType],
     },
     total=False,
 )
 
 RootCauseTypeDef = TypedDict(
     "RootCauseTypeDef",
-    {"Service": str, "Region": str, "LinkedAccount": str, "UsageType": str},
+    {
+        "Service": str,
+        "Region": str,
+        "LinkedAccount": str,
+        "UsageType": str,
+    },
     total=False,
 )
 
@@ -749,7 +1660,11 @@ SavingsPlansCoverageTypeDef = TypedDict(
 
 SavingsPlansDetailsTypeDef = TypedDict(
     "SavingsPlansDetailsTypeDef",
-    {"Region": str, "InstanceFamily": str, "OfferingId": str},
+    {
+        "Region": str,
+        "InstanceFamily": str,
+        "OfferingId": str,
+    },
     total=False,
 )
 
@@ -778,7 +1693,11 @@ SavingsPlansPurchaseRecommendationDetailTypeDef = TypedDict(
 
 SavingsPlansPurchaseRecommendationMetadataTypeDef = TypedDict(
     "SavingsPlansPurchaseRecommendationMetadataTypeDef",
-    {"RecommendationId": str, "GenerationTimestamp": str, "AdditionalMetadata": str},
+    {
+        "RecommendationId": str,
+        "GenerationTimestamp": str,
+        "AdditionalMetadata": str,
+    },
     total=False,
 )
 
@@ -803,18 +1722,11 @@ SavingsPlansPurchaseRecommendationSummaryTypeDef = TypedDict(
 SavingsPlansPurchaseRecommendationTypeDef = TypedDict(
     "SavingsPlansPurchaseRecommendationTypeDef",
     {
-        "AccountScope": Literal["PAYER", "LINKED"],
-        "SavingsPlansType": Literal["COMPUTE_SP", "EC2_INSTANCE_SP"],
-        "TermInYears": Literal["ONE_YEAR", "THREE_YEARS"],
-        "PaymentOption": Literal[
-            "NO_UPFRONT",
-            "PARTIAL_UPFRONT",
-            "ALL_UPFRONT",
-            "LIGHT_UTILIZATION",
-            "MEDIUM_UTILIZATION",
-            "HEAVY_UTILIZATION",
-        ],
-        "LookbackPeriodInDays": Literal["SEVEN_DAYS", "THIRTY_DAYS", "SIXTY_DAYS"],
+        "AccountScope": AccountScopeType,
+        "SavingsPlansType": SupportedSavingsPlansTypeType,
+        "TermInYears": TermInYearsType,
+        "PaymentOption": PaymentOptionType,
+        "LookbackPeriodInDays": LookbackPeriodInDaysType,
         "SavingsPlansPurchaseRecommendationDetails": List[
             "SavingsPlansPurchaseRecommendationDetailTypeDef"
         ],
@@ -824,12 +1736,19 @@ SavingsPlansPurchaseRecommendationTypeDef = TypedDict(
 )
 
 SavingsPlansSavingsTypeDef = TypedDict(
-    "SavingsPlansSavingsTypeDef", {"NetSavings": str, "OnDemandCostEquivalent": str}, total=False
+    "SavingsPlansSavingsTypeDef",
+    {
+        "NetSavings": str,
+        "OnDemandCostEquivalent": str,
+    },
+    total=False,
 )
 
 _RequiredSavingsPlansUtilizationAggregatesTypeDef = TypedDict(
     "_RequiredSavingsPlansUtilizationAggregatesTypeDef",
-    {"Utilization": "SavingsPlansUtilizationTypeDef"},
+    {
+        "Utilization": "SavingsPlansUtilizationTypeDef",
+    },
 )
 _OptionalSavingsPlansUtilizationAggregatesTypeDef = TypedDict(
     "_OptionalSavingsPlansUtilizationAggregatesTypeDef",
@@ -840,17 +1759,18 @@ _OptionalSavingsPlansUtilizationAggregatesTypeDef = TypedDict(
     total=False,
 )
 
-
 class SavingsPlansUtilizationAggregatesTypeDef(
     _RequiredSavingsPlansUtilizationAggregatesTypeDef,
     _OptionalSavingsPlansUtilizationAggregatesTypeDef,
 ):
     pass
 
-
 _RequiredSavingsPlansUtilizationByTimeTypeDef = TypedDict(
     "_RequiredSavingsPlansUtilizationByTimeTypeDef",
-    {"TimePeriod": "DateIntervalTypeDef", "Utilization": "SavingsPlansUtilizationTypeDef"},
+    {
+        "TimePeriod": "DateIntervalTypeDef",
+        "Utilization": "SavingsPlansUtilizationTypeDef",
+    },
 )
 _OptionalSavingsPlansUtilizationByTimeTypeDef = TypedDict(
     "_OptionalSavingsPlansUtilizationByTimeTypeDef",
@@ -861,12 +1781,10 @@ _OptionalSavingsPlansUtilizationByTimeTypeDef = TypedDict(
     total=False,
 )
 
-
 class SavingsPlansUtilizationByTimeTypeDef(
     _RequiredSavingsPlansUtilizationByTimeTypeDef, _OptionalSavingsPlansUtilizationByTimeTypeDef
 ):
     pass
-
 
 SavingsPlansUtilizationDetailTypeDef = TypedDict(
     "SavingsPlansUtilizationDetailTypeDef",
@@ -892,12 +1810,37 @@ SavingsPlansUtilizationTypeDef = TypedDict(
 )
 
 ServiceSpecificationTypeDef = TypedDict(
-    "ServiceSpecificationTypeDef", {"EC2Specification": "EC2SpecificationTypeDef"}, total=False
+    "ServiceSpecificationTypeDef",
+    {
+        "EC2Specification": "EC2SpecificationTypeDef",
+    },
+    total=False,
 )
+
+_RequiredSortDefinitionTypeDef = TypedDict(
+    "_RequiredSortDefinitionTypeDef",
+    {
+        "Key": str,
+    },
+)
+_OptionalSortDefinitionTypeDef = TypedDict(
+    "_OptionalSortDefinitionTypeDef",
+    {
+        "SortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+class SortDefinitionTypeDef(_RequiredSortDefinitionTypeDef, _OptionalSortDefinitionTypeDef):
+    pass
 
 SubscriberTypeDef = TypedDict(
     "SubscriberTypeDef",
-    {"Address": str, "Type": Literal["EMAIL", "SNS"], "Status": Literal["CONFIRMED", "DECLINED"]},
+    {
+        "Address": str,
+        "Type": SubscriberTypeType,
+        "Status": SubscriberStatusType,
+    },
     total=False,
 )
 
@@ -906,17 +1849,7 @@ TagValuesTypeDef = TypedDict(
     {
         "Key": str,
         "Values": List[str],
-        "MatchOptions": List[
-            Literal[
-                "EQUALS",
-                "ABSENT",
-                "STARTS_WITH",
-                "ENDS_WITH",
-                "CONTAINS",
-                "CASE_SENSITIVE",
-                "CASE_INSENSITIVE",
-            ]
-        ],
+        "MatchOptions": List[MatchOptionType],
     },
     total=False,
 )
@@ -930,14 +1863,129 @@ TargetInstanceTypeDef = TypedDict(
         "DefaultTargetInstance": bool,
         "ResourceDetails": "ResourceDetailsTypeDef",
         "ExpectedResourceUtilization": "ResourceUtilizationTypeDef",
+        "PlatformDifferences": List[PlatformDifferenceType],
     },
     total=False,
 )
 
 TerminateRecommendationDetailTypeDef = TypedDict(
     "TerminateRecommendationDetailTypeDef",
-    {"EstimatedMonthlySavings": str, "CurrencyCode": str},
+    {
+        "EstimatedMonthlySavings": str,
+        "CurrencyCode": str,
+    },
     total=False,
+)
+
+_RequiredTotalImpactFilterTypeDef = TypedDict(
+    "_RequiredTotalImpactFilterTypeDef",
+    {
+        "NumericOperator": NumericOperatorType,
+        "StartValue": float,
+    },
+)
+_OptionalTotalImpactFilterTypeDef = TypedDict(
+    "_OptionalTotalImpactFilterTypeDef",
+    {
+        "EndValue": float,
+    },
+    total=False,
+)
+
+class TotalImpactFilterTypeDef(
+    _RequiredTotalImpactFilterTypeDef, _OptionalTotalImpactFilterTypeDef
+):
+    pass
+
+_RequiredUpdateAnomalyMonitorRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAnomalyMonitorRequestRequestTypeDef",
+    {
+        "MonitorArn": str,
+    },
+)
+_OptionalUpdateAnomalyMonitorRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAnomalyMonitorRequestRequestTypeDef",
+    {
+        "MonitorName": str,
+    },
+    total=False,
+)
+
+class UpdateAnomalyMonitorRequestRequestTypeDef(
+    _RequiredUpdateAnomalyMonitorRequestRequestTypeDef,
+    _OptionalUpdateAnomalyMonitorRequestRequestTypeDef,
+):
+    pass
+
+UpdateAnomalyMonitorResponseTypeDef = TypedDict(
+    "UpdateAnomalyMonitorResponseTypeDef",
+    {
+        "MonitorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateAnomalySubscriptionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateAnomalySubscriptionRequestRequestTypeDef",
+    {
+        "SubscriptionArn": str,
+    },
+)
+_OptionalUpdateAnomalySubscriptionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateAnomalySubscriptionRequestRequestTypeDef",
+    {
+        "Threshold": float,
+        "Frequency": AnomalySubscriptionFrequencyType,
+        "MonitorArnList": List[str],
+        "Subscribers": List["SubscriberTypeDef"],
+        "SubscriptionName": str,
+    },
+    total=False,
+)
+
+class UpdateAnomalySubscriptionRequestRequestTypeDef(
+    _RequiredUpdateAnomalySubscriptionRequestRequestTypeDef,
+    _OptionalUpdateAnomalySubscriptionRequestRequestTypeDef,
+):
+    pass
+
+UpdateAnomalySubscriptionResponseTypeDef = TypedDict(
+    "UpdateAnomalySubscriptionResponseTypeDef",
+    {
+        "SubscriptionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateCostCategoryDefinitionRequestRequestTypeDef",
+    {
+        "CostCategoryArn": str,
+        "RuleVersion": Literal["CostCategoryExpression.v1"],
+        "Rules": List["CostCategoryRuleTypeDef"],
+    },
+)
+_OptionalUpdateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateCostCategoryDefinitionRequestRequestTypeDef",
+    {
+        "DefaultValue": str,
+    },
+    total=False,
+)
+
+class UpdateCostCategoryDefinitionRequestRequestTypeDef(
+    _RequiredUpdateCostCategoryDefinitionRequestRequestTypeDef,
+    _OptionalUpdateCostCategoryDefinitionRequestRequestTypeDef,
+):
+    pass
+
+UpdateCostCategoryDefinitionResponseTypeDef = TypedDict(
+    "UpdateCostCategoryDefinitionResponseTypeDef",
+    {
+        "CostCategoryArn": str,
+        "EffectiveStart": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 UtilizationByTimeTypeDef = TypedDict(
@@ -947,362 +1995,5 @@ UtilizationByTimeTypeDef = TypedDict(
         "Groups": List["ReservationUtilizationGroupTypeDef"],
         "Total": "ReservationAggregatesTypeDef",
     },
-    total=False,
-)
-
-_RequiredAnomalyDateIntervalTypeDef = TypedDict(
-    "_RequiredAnomalyDateIntervalTypeDef", {"StartDate": str}
-)
-_OptionalAnomalyDateIntervalTypeDef = TypedDict(
-    "_OptionalAnomalyDateIntervalTypeDef", {"EndDate": str}, total=False
-)
-
-
-class AnomalyDateIntervalTypeDef(
-    _RequiredAnomalyDateIntervalTypeDef, _OptionalAnomalyDateIntervalTypeDef
-):
-    pass
-
-
-CreateAnomalyMonitorResponseTypeDef = TypedDict(
-    "CreateAnomalyMonitorResponseTypeDef", {"MonitorArn": str}
-)
-
-CreateAnomalySubscriptionResponseTypeDef = TypedDict(
-    "CreateAnomalySubscriptionResponseTypeDef", {"SubscriptionArn": str}
-)
-
-CreateCostCategoryDefinitionResponseTypeDef = TypedDict(
-    "CreateCostCategoryDefinitionResponseTypeDef",
-    {"CostCategoryArn": str, "EffectiveStart": str},
-    total=False,
-)
-
-DeleteCostCategoryDefinitionResponseTypeDef = TypedDict(
-    "DeleteCostCategoryDefinitionResponseTypeDef",
-    {"CostCategoryArn": str, "EffectiveEnd": str},
-    total=False,
-)
-
-DescribeCostCategoryDefinitionResponseTypeDef = TypedDict(
-    "DescribeCostCategoryDefinitionResponseTypeDef",
-    {"CostCategory": "CostCategoryTypeDef"},
-    total=False,
-)
-
-ExpressionTypeDef = TypedDict(
-    "ExpressionTypeDef",
-    {
-        "Or": List[Dict[str, Any]],
-        "And": List[Dict[str, Any]],
-        "Not": Dict[str, Any],
-        "Dimensions": "DimensionValuesTypeDef",
-        "Tags": "TagValuesTypeDef",
-        "CostCategories": "CostCategoryValuesTypeDef",
-    },
-    total=False,
-)
-
-_RequiredGetAnomaliesResponseTypeDef = TypedDict(
-    "_RequiredGetAnomaliesResponseTypeDef", {"Anomalies": List["AnomalyTypeDef"]}
-)
-_OptionalGetAnomaliesResponseTypeDef = TypedDict(
-    "_OptionalGetAnomaliesResponseTypeDef", {"NextPageToken": str}, total=False
-)
-
-
-class GetAnomaliesResponseTypeDef(
-    _RequiredGetAnomaliesResponseTypeDef, _OptionalGetAnomaliesResponseTypeDef
-):
-    pass
-
-
-_RequiredGetAnomalyMonitorsResponseTypeDef = TypedDict(
-    "_RequiredGetAnomalyMonitorsResponseTypeDef", {"AnomalyMonitors": List["AnomalyMonitorTypeDef"]}
-)
-_OptionalGetAnomalyMonitorsResponseTypeDef = TypedDict(
-    "_OptionalGetAnomalyMonitorsResponseTypeDef", {"NextPageToken": str}, total=False
-)
-
-
-class GetAnomalyMonitorsResponseTypeDef(
-    _RequiredGetAnomalyMonitorsResponseTypeDef, _OptionalGetAnomalyMonitorsResponseTypeDef
-):
-    pass
-
-
-_RequiredGetAnomalySubscriptionsResponseTypeDef = TypedDict(
-    "_RequiredGetAnomalySubscriptionsResponseTypeDef",
-    {"AnomalySubscriptions": List["AnomalySubscriptionTypeDef"]},
-)
-_OptionalGetAnomalySubscriptionsResponseTypeDef = TypedDict(
-    "_OptionalGetAnomalySubscriptionsResponseTypeDef", {"NextPageToken": str}, total=False
-)
-
-
-class GetAnomalySubscriptionsResponseTypeDef(
-    _RequiredGetAnomalySubscriptionsResponseTypeDef, _OptionalGetAnomalySubscriptionsResponseTypeDef
-):
-    pass
-
-
-GetCostAndUsageResponseTypeDef = TypedDict(
-    "GetCostAndUsageResponseTypeDef",
-    {
-        "NextPageToken": str,
-        "GroupDefinitions": List["GroupDefinitionTypeDef"],
-        "ResultsByTime": List["ResultByTimeTypeDef"],
-        "DimensionValueAttributes": List["DimensionValuesWithAttributesTypeDef"],
-    },
-    total=False,
-)
-
-GetCostAndUsageWithResourcesResponseTypeDef = TypedDict(
-    "GetCostAndUsageWithResourcesResponseTypeDef",
-    {
-        "NextPageToken": str,
-        "GroupDefinitions": List["GroupDefinitionTypeDef"],
-        "ResultsByTime": List["ResultByTimeTypeDef"],
-        "DimensionValueAttributes": List["DimensionValuesWithAttributesTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredGetCostCategoriesResponseTypeDef = TypedDict(
-    "_RequiredGetCostCategoriesResponseTypeDef", {"ReturnSize": int, "TotalSize": int}
-)
-_OptionalGetCostCategoriesResponseTypeDef = TypedDict(
-    "_OptionalGetCostCategoriesResponseTypeDef",
-    {"NextPageToken": str, "CostCategoryNames": List[str], "CostCategoryValues": List[str]},
-    total=False,
-)
-
-
-class GetCostCategoriesResponseTypeDef(
-    _RequiredGetCostCategoriesResponseTypeDef, _OptionalGetCostCategoriesResponseTypeDef
-):
-    pass
-
-
-GetCostForecastResponseTypeDef = TypedDict(
-    "GetCostForecastResponseTypeDef",
-    {"Total": "MetricValueTypeDef", "ForecastResultsByTime": List["ForecastResultTypeDef"]},
-    total=False,
-)
-
-_RequiredGetDimensionValuesResponseTypeDef = TypedDict(
-    "_RequiredGetDimensionValuesResponseTypeDef",
-    {
-        "DimensionValues": List["DimensionValuesWithAttributesTypeDef"],
-        "ReturnSize": int,
-        "TotalSize": int,
-    },
-)
-_OptionalGetDimensionValuesResponseTypeDef = TypedDict(
-    "_OptionalGetDimensionValuesResponseTypeDef", {"NextPageToken": str}, total=False
-)
-
-
-class GetDimensionValuesResponseTypeDef(
-    _RequiredGetDimensionValuesResponseTypeDef, _OptionalGetDimensionValuesResponseTypeDef
-):
-    pass
-
-
-_RequiredGetReservationCoverageResponseTypeDef = TypedDict(
-    "_RequiredGetReservationCoverageResponseTypeDef",
-    {"CoveragesByTime": List["CoverageByTimeTypeDef"]},
-)
-_OptionalGetReservationCoverageResponseTypeDef = TypedDict(
-    "_OptionalGetReservationCoverageResponseTypeDef",
-    {"Total": "CoverageTypeDef", "NextPageToken": str},
-    total=False,
-)
-
-
-class GetReservationCoverageResponseTypeDef(
-    _RequiredGetReservationCoverageResponseTypeDef, _OptionalGetReservationCoverageResponseTypeDef
-):
-    pass
-
-
-GetReservationPurchaseRecommendationResponseTypeDef = TypedDict(
-    "GetReservationPurchaseRecommendationResponseTypeDef",
-    {
-        "Metadata": "ReservationPurchaseRecommendationMetadataTypeDef",
-        "Recommendations": List["ReservationPurchaseRecommendationTypeDef"],
-        "NextPageToken": str,
-    },
-    total=False,
-)
-
-_RequiredGetReservationUtilizationResponseTypeDef = TypedDict(
-    "_RequiredGetReservationUtilizationResponseTypeDef",
-    {"UtilizationsByTime": List["UtilizationByTimeTypeDef"]},
-)
-_OptionalGetReservationUtilizationResponseTypeDef = TypedDict(
-    "_OptionalGetReservationUtilizationResponseTypeDef",
-    {"Total": "ReservationAggregatesTypeDef", "NextPageToken": str},
-    total=False,
-)
-
-
-class GetReservationUtilizationResponseTypeDef(
-    _RequiredGetReservationUtilizationResponseTypeDef,
-    _OptionalGetReservationUtilizationResponseTypeDef,
-):
-    pass
-
-
-GetRightsizingRecommendationResponseTypeDef = TypedDict(
-    "GetRightsizingRecommendationResponseTypeDef",
-    {
-        "Metadata": "RightsizingRecommendationMetadataTypeDef",
-        "Summary": "RightsizingRecommendationSummaryTypeDef",
-        "RightsizingRecommendations": List["RightsizingRecommendationTypeDef"],
-        "NextPageToken": str,
-        "Configuration": "RightsizingRecommendationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredGetSavingsPlansCoverageResponseTypeDef = TypedDict(
-    "_RequiredGetSavingsPlansCoverageResponseTypeDef",
-    {"SavingsPlansCoverages": List["SavingsPlansCoverageTypeDef"]},
-)
-_OptionalGetSavingsPlansCoverageResponseTypeDef = TypedDict(
-    "_OptionalGetSavingsPlansCoverageResponseTypeDef", {"NextToken": str}, total=False
-)
-
-
-class GetSavingsPlansCoverageResponseTypeDef(
-    _RequiredGetSavingsPlansCoverageResponseTypeDef, _OptionalGetSavingsPlansCoverageResponseTypeDef
-):
-    pass
-
-
-GetSavingsPlansPurchaseRecommendationResponseTypeDef = TypedDict(
-    "GetSavingsPlansPurchaseRecommendationResponseTypeDef",
-    {
-        "Metadata": "SavingsPlansPurchaseRecommendationMetadataTypeDef",
-        "SavingsPlansPurchaseRecommendation": "SavingsPlansPurchaseRecommendationTypeDef",
-        "NextPageToken": str,
-    },
-    total=False,
-)
-
-_RequiredGetSavingsPlansUtilizationDetailsResponseTypeDef = TypedDict(
-    "_RequiredGetSavingsPlansUtilizationDetailsResponseTypeDef",
-    {
-        "SavingsPlansUtilizationDetails": List["SavingsPlansUtilizationDetailTypeDef"],
-        "TimePeriod": "DateIntervalTypeDef",
-    },
-)
-_OptionalGetSavingsPlansUtilizationDetailsResponseTypeDef = TypedDict(
-    "_OptionalGetSavingsPlansUtilizationDetailsResponseTypeDef",
-    {"Total": "SavingsPlansUtilizationAggregatesTypeDef", "NextToken": str},
-    total=False,
-)
-
-
-class GetSavingsPlansUtilizationDetailsResponseTypeDef(
-    _RequiredGetSavingsPlansUtilizationDetailsResponseTypeDef,
-    _OptionalGetSavingsPlansUtilizationDetailsResponseTypeDef,
-):
-    pass
-
-
-_RequiredGetSavingsPlansUtilizationResponseTypeDef = TypedDict(
-    "_RequiredGetSavingsPlansUtilizationResponseTypeDef",
-    {"Total": "SavingsPlansUtilizationAggregatesTypeDef"},
-)
-_OptionalGetSavingsPlansUtilizationResponseTypeDef = TypedDict(
-    "_OptionalGetSavingsPlansUtilizationResponseTypeDef",
-    {"SavingsPlansUtilizationsByTime": List["SavingsPlansUtilizationByTimeTypeDef"]},
-    total=False,
-)
-
-
-class GetSavingsPlansUtilizationResponseTypeDef(
-    _RequiredGetSavingsPlansUtilizationResponseTypeDef,
-    _OptionalGetSavingsPlansUtilizationResponseTypeDef,
-):
-    pass
-
-
-_RequiredGetTagsResponseTypeDef = TypedDict(
-    "_RequiredGetTagsResponseTypeDef", {"Tags": List[str], "ReturnSize": int, "TotalSize": int}
-)
-_OptionalGetTagsResponseTypeDef = TypedDict(
-    "_OptionalGetTagsResponseTypeDef", {"NextPageToken": str}, total=False
-)
-
-
-class GetTagsResponseTypeDef(_RequiredGetTagsResponseTypeDef, _OptionalGetTagsResponseTypeDef):
-    pass
-
-
-GetUsageForecastResponseTypeDef = TypedDict(
-    "GetUsageForecastResponseTypeDef",
-    {"Total": "MetricValueTypeDef", "ForecastResultsByTime": List["ForecastResultTypeDef"]},
-    total=False,
-)
-
-ListCostCategoryDefinitionsResponseTypeDef = TypedDict(
-    "ListCostCategoryDefinitionsResponseTypeDef",
-    {"CostCategoryReferences": List["CostCategoryReferenceTypeDef"], "NextToken": str},
-    total=False,
-)
-
-ProvideAnomalyFeedbackResponseTypeDef = TypedDict(
-    "ProvideAnomalyFeedbackResponseTypeDef", {"AnomalyId": str}
-)
-
-_RequiredSortDefinitionTypeDef = TypedDict("_RequiredSortDefinitionTypeDef", {"Key": str})
-_OptionalSortDefinitionTypeDef = TypedDict(
-    "_OptionalSortDefinitionTypeDef", {"SortOrder": Literal["ASCENDING", "DESCENDING"]}, total=False
-)
-
-
-class SortDefinitionTypeDef(_RequiredSortDefinitionTypeDef, _OptionalSortDefinitionTypeDef):
-    pass
-
-
-_RequiredTotalImpactFilterTypeDef = TypedDict(
-    "_RequiredTotalImpactFilterTypeDef",
-    {
-        "NumericOperator": Literal[
-            "EQUAL",
-            "GREATER_THAN_OR_EQUAL",
-            "LESS_THAN_OR_EQUAL",
-            "GREATER_THAN",
-            "LESS_THAN",
-            "BETWEEN",
-        ],
-        "StartValue": float,
-    },
-)
-_OptionalTotalImpactFilterTypeDef = TypedDict(
-    "_OptionalTotalImpactFilterTypeDef", {"EndValue": float}, total=False
-)
-
-
-class TotalImpactFilterTypeDef(
-    _RequiredTotalImpactFilterTypeDef, _OptionalTotalImpactFilterTypeDef
-):
-    pass
-
-
-UpdateAnomalyMonitorResponseTypeDef = TypedDict(
-    "UpdateAnomalyMonitorResponseTypeDef", {"MonitorArn": str}
-)
-
-UpdateAnomalySubscriptionResponseTypeDef = TypedDict(
-    "UpdateAnomalySubscriptionResponseTypeDef", {"SubscriptionArn": str}
-)
-
-UpdateCostCategoryDefinitionResponseTypeDef = TypedDict(
-    "UpdateCostCategoryDefinitionResponseTypeDef",
-    {"CostCategoryArn": str, "EffectiveStart": str},
     total=False,
 )

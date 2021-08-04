@@ -30,18 +30,17 @@ Usage::
     list_vpc_association_authorizations_paginator: ListVPCAssociationAuthorizationsPaginator = client.get_paginator("list_vpc_association_authorizations")
     ```
 """
-from mypy_boto3_route53.client import Route53Client
-from mypy_boto3_route53.paginator import (
+from .client import Route53Client
+from .paginator import (
     ListHealthChecksPaginator,
     ListHostedZonesPaginator,
     ListQueryLoggingConfigsPaginator,
     ListResourceRecordSetsPaginator,
     ListVPCAssociationAuthorizationsPaginator,
 )
-from mypy_boto3_route53.waiter import ResourceRecordSetsChangedWaiter
+from .waiter import ResourceRecordSetsChangedWaiter
 
 Client = Route53Client
-
 
 __all__ = (
     "Client",

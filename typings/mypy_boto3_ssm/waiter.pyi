@@ -1,5 +1,7 @@
 """
-Main interface for ssm service client waiters.
+Type annotations for ssm service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html)
 
 Usage::
 
@@ -18,23 +20,25 @@ Usage::
 """
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_ssm.type_defs import WaiterConfigTypeDef
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("CommandExecutedWaiter",)
 
-
 class CommandExecutedWaiter(Boto3Waiter):
     """
-    [Waiter.CommandExecuted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html#commandexecutedwaiter)
     """
 
     def wait(
         self,
+        *,
         CommandId: str,
         InstanceId: str,
         PluginName: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [CommandExecuted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ssm.html#SSM.Waiter.CommandExecuted.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ssm.html#SSM.Waiter.CommandExecuted.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html#commandexecutedwaiter)
         """

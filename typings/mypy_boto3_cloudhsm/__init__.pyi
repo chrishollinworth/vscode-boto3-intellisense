@@ -23,15 +23,10 @@ Usage::
     list_luna_clients_paginator: ListLunaClientsPaginator = client.get_paginator("list_luna_clients")
     ```
 """
-from mypy_boto3_cloudhsm.client import CloudHSMClient
-from mypy_boto3_cloudhsm.paginator import (
-    ListHapgsPaginator,
-    ListHsmsPaginator,
-    ListLunaClientsPaginator,
-)
+from .client import CloudHSMClient
+from .paginator import ListHapgsPaginator, ListHsmsPaginator, ListLunaClientsPaginator
 
 Client = CloudHSMClient
-
 
 __all__ = (
     "Client",

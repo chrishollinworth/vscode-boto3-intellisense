@@ -1,5 +1,7 @@
 """
-Main interface for serverlessrepo service client
+Type annotations for serverlessrepo service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html)
 
 Usage::
 
@@ -13,14 +15,14 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_serverlessrepo.paginator import (
+from .paginator import (
     ListApplicationDependenciesPaginator,
     ListApplicationsPaginator,
     ListApplicationVersionsPaginator,
 )
-from mypy_boto3_serverlessrepo.type_defs import (
+from .type_defs import (
     ApplicationPolicyStatementTypeDef,
     CreateApplicationResponseTypeDef,
     CreateApplicationVersionResponseTypeDef,
@@ -44,17 +46,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("ServerlessApplicationRepositoryClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     BadRequestException: Type[BotocoreClientError]
@@ -65,22 +63,28 @@ class Exceptions:
     NotFoundException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
 
-
-class ServerlessApplicationRepositoryClient:
+class ServerlessApplicationRepositoryClient(BaseClient):
     """
-    [ServerlessApplicationRepository.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ServerlessApplicationRepositoryClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#can_paginate)
+        """
     def create_application(
         self,
+        *,
         Author: str,
         Description: str,
         Name: str,
@@ -95,27 +99,34 @@ class ServerlessApplicationRepositoryClient:
         SourceCodeUrl: str = None,
         SpdxLicenseId: str = None,
         TemplateBody: str = None,
-        TemplateUrl: str = None,
+        TemplateUrl: str = None
     ) -> CreateApplicationResponseTypeDef:
         """
-        [Client.create_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application)
-        """
+        Creates an application, optionally including an AWS SAM file to create the first
+        application version in the same call.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_application)
+        """
     def create_application_version(
         self,
+        *,
         ApplicationId: str,
         SemanticVersion: str,
         SourceCodeArchiveUrl: str = None,
         SourceCodeUrl: str = None,
         TemplateBody: str = None,
-        TemplateUrl: str = None,
+        TemplateUrl: str = None
     ) -> CreateApplicationVersionResponseTypeDef:
         """
-        [Client.create_application_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application_version)
-        """
+        Creates an application version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_application_version)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_application_version)
+        """
     def create_cloud_formation_change_set(
         self,
+        *,
         ApplicationId: str,
         StackName: str,
         Capabilities: List[str] = None,
@@ -123,29 +134,35 @@ class ServerlessApplicationRepositoryClient:
         ClientToken: str = None,
         Description: str = None,
         NotificationArns: List[str] = None,
-        ParameterOverrides: List[ParameterValueTypeDef] = None,
+        ParameterOverrides: List["ParameterValueTypeDef"] = None,
         ResourceTypes: List[str] = None,
-        RollbackConfiguration: RollbackConfigurationTypeDef = None,
+        RollbackConfiguration: "RollbackConfigurationTypeDef" = None,
         SemanticVersion: str = None,
-        Tags: List[TagTypeDef] = None,
-        TemplateId: str = None,
+        Tags: List["TagTypeDef"] = None,
+        TemplateId: str = None
     ) -> CreateCloudFormationChangeSetResponseTypeDef:
         """
-        [Client.create_cloud_formation_change_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_change_set)
-        """
+        Creates an AWS CloudFormation change set for the given application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_change_set)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_cloud_formation_change_set)
+        """
     def create_cloud_formation_template(
-        self, ApplicationId: str, SemanticVersion: str = None
+        self, *, ApplicationId: str, SemanticVersion: str = None
     ) -> CreateCloudFormationTemplateResponseTypeDef:
         """
-        [Client.create_cloud_formation_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_template)
-        """
+        Creates an AWS CloudFormation template.
 
-    def delete_application(self, ApplicationId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.create_cloud_formation_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#create_cloud_formation_template)
         """
-        [Client.delete_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.delete_application)
+    def delete_application(self, *, ApplicationId: str) -> None:
         """
+        Deletes the specified application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.delete_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#delete_application)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -154,99 +171,122 @@ class ServerlessApplicationRepositoryClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#generate_presigned_url)
+        """
     def get_application(
-        self, ApplicationId: str, SemanticVersion: str = None
+        self, *, ApplicationId: str, SemanticVersion: str = None
     ) -> GetApplicationResponseTypeDef:
         """
-        [Client.get_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application)
-        """
+        Gets the specified application.
 
-    def get_application_policy(self, ApplicationId: str) -> GetApplicationPolicyResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#get_application)
         """
-        [Client.get_application_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application_policy)
+    def get_application_policy(self, *, ApplicationId: str) -> GetApplicationPolicyResponseTypeDef:
         """
+        Retrieves the policy for the application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_application_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#get_application_policy)
+        """
     def get_cloud_formation_template(
-        self, ApplicationId: str, TemplateId: str
+        self, *, ApplicationId: str, TemplateId: str
     ) -> GetCloudFormationTemplateResponseTypeDef:
         """
-        [Client.get_cloud_formation_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_cloud_formation_template)
-        """
+        Gets the specified AWS CloudFormation template.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.get_cloud_formation_template)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#get_cloud_formation_template)
+        """
     def list_application_dependencies(
         self,
+        *,
         ApplicationId: str,
         MaxItems: int = None,
         NextToken: str = None,
-        SemanticVersion: str = None,
+        SemanticVersion: str = None
     ) -> ListApplicationDependenciesResponseTypeDef:
         """
-        [Client.list_application_dependencies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_dependencies)
-        """
+        Retrieves the list of applications nested in the containing application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_dependencies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#list_application_dependencies)
+        """
     def list_application_versions(
-        self, ApplicationId: str, MaxItems: int = None, NextToken: str = None
+        self, *, ApplicationId: str, MaxItems: int = None, NextToken: str = None
     ) -> ListApplicationVersionsResponseTypeDef:
         """
-        [Client.list_application_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_versions)
-        """
+        Lists versions for the specified application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_application_versions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#list_application_versions)
+        """
     def list_applications(
-        self, MaxItems: int = None, NextToken: str = None
+        self, *, MaxItems: int = None, NextToken: str = None
     ) -> ListApplicationsResponseTypeDef:
         """
-        [Client.list_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_applications)
-        """
+        Lists applications owned by the requester.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.list_applications)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#list_applications)
+        """
     def put_application_policy(
-        self, ApplicationId: str, Statements: List["ApplicationPolicyStatementTypeDef"]
+        self, *, ApplicationId: str, Statements: List["ApplicationPolicyStatementTypeDef"]
     ) -> PutApplicationPolicyResponseTypeDef:
         """
-        [Client.put_application_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.put_application_policy)
-        """
+        Sets the permission policy for an application.
 
-    def unshare_application(self, ApplicationId: str, OrganizationId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.put_application_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#put_application_policy)
         """
-        [Client.unshare_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.unshare_application)
+    def unshare_application(self, *, ApplicationId: str, OrganizationId: str) -> None:
         """
+        Unshares an application from an AWS Organization.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.unshare_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#unshare_application)
+        """
     def update_application(
         self,
+        *,
         ApplicationId: str,
         Author: str = None,
         Description: str = None,
         HomePageUrl: str = None,
         Labels: List[str] = None,
         ReadmeBody: str = None,
-        ReadmeUrl: str = None,
+        ReadmeUrl: str = None
     ) -> UpdateApplicationResponseTypeDef:
         """
-        [Client.update_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.update_application)
-        """
+        Updates the specified application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Client.update_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/client.html#update_application)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["list_application_dependencies"]
     ) -> ListApplicationDependenciesPaginator:
         """
-        [Paginator.ListApplicationDependencies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/paginators.html#listapplicationdependenciespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_application_versions"]
     ) -> ListApplicationVersionsPaginator:
         """
-        [Paginator.ListApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/paginators.html#listapplicationversionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/paginators.html#listapplicationspaginator)
         """

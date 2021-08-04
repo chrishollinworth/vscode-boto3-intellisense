@@ -35,8 +35,8 @@ Usage::
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     ```
 """
-from mypy_boto3_ds.client import DirectoryServiceClient
-from mypy_boto3_ds.paginator import (
+from .client import DirectoryServiceClient
+from .paginator import (
     DescribeDirectoriesPaginator,
     DescribeDomainControllersPaginator,
     DescribeSharedDirectoriesPaginator,
@@ -49,7 +49,6 @@ from mypy_boto3_ds.paginator import (
 )
 
 Client = DirectoryServiceClient
-
 
 __all__ = (
     "Client",

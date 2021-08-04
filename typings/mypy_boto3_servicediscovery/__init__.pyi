@@ -25,8 +25,8 @@ Usage::
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     ```
 """
-from mypy_boto3_servicediscovery.client import ServiceDiscoveryClient
-from mypy_boto3_servicediscovery.paginator import (
+from .client import ServiceDiscoveryClient
+from .paginator import (
     ListInstancesPaginator,
     ListNamespacesPaginator,
     ListOperationsPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_servicediscovery.paginator import (
 )
 
 Client = ServiceDiscoveryClient
-
 
 __all__ = (
     "Client",

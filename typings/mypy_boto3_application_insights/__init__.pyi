@@ -16,9 +16,8 @@ Usage::
     session_client: ApplicationInsightsClient = session.client("application-insights")
     ```
 """
-from mypy_boto3_application_insights.client import ApplicationInsightsClient
+from .client import ApplicationInsightsClient
 
 Client = ApplicationInsightsClient
-
 
 __all__ = ("ApplicationInsightsClient", "Client")

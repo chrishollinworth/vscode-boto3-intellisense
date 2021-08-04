@@ -16,9 +16,8 @@ Usage::
     session_client: SagemakerEdgeManagerClient = session.client("sagemaker-edge")
     ```
 """
-from mypy_boto3_sagemaker_edge.client import SagemakerEdgeManagerClient
+from .client import SagemakerEdgeManagerClient
 
 Client = SagemakerEdgeManagerClient
-
 
 __all__ = ("Client", "SagemakerEdgeManagerClient")

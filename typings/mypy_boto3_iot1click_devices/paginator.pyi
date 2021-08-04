@@ -1,5 +1,7 @@
 """
-Main interface for iot1click-devices service client paginators.
+Type annotations for iot1click-devices service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/paginators.html)
 
 Usage::
 
@@ -19,11 +21,11 @@ Usage::
     ```
 """
 from datetime import datetime
-from typing import Iterator
+from typing import Iterator, Union
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_iot1click_devices.type_defs import (
+from .type_defs import (
     ListDeviceEventsResponseTypeDef,
     ListDevicesResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -31,32 +33,35 @@ from mypy_boto3_iot1click_devices.type_defs import (
 
 __all__ = ("ListDeviceEventsPaginator", "ListDevicesPaginator")
 
-
 class ListDeviceEventsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/paginators.html#listdeviceeventspaginator)
     """
 
     def paginate(
         self,
+        *,
         DeviceId: str,
-        FromTimeStamp: datetime,
-        ToTimeStamp: datetime,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        FromTimeStamp: Union[datetime, str],
+        ToTimeStamp: Union[datetime, str],
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceEventsResponseTypeDef]:
         """
-        [ListDeviceEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/paginators.html#listdeviceeventspaginator)
         """
-
 
 class ListDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/paginators.html#listdevicespaginator)
     """
 
     def paginate(
-        self, DeviceType: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, DeviceType: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevicesResponseTypeDef]:
         """
-        [ListDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_devices/paginators.html#listdevicespaginator)
         """

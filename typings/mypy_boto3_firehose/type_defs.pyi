@@ -1,5 +1,7 @@
 """
-Main interface for firehose service type definitions.
+Type annotations for firehose service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/type_defs.html)
 
 Usage::
 
@@ -13,6 +15,30 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
 
+from botocore.response import StreamingBody
+
+from .literals import (
+    CompressionFormatType,
+    ContentEncodingType,
+    DeliveryStreamEncryptionStatusType,
+    DeliveryStreamFailureTypeType,
+    DeliveryStreamStatusType,
+    DeliveryStreamTypeType,
+    ElasticsearchIndexRotationPeriodType,
+    ElasticsearchS3BackupModeType,
+    HECEndpointTypeType,
+    HttpEndpointS3BackupModeType,
+    KeyTypeType,
+    OrcCompressionType,
+    OrcFormatVersionType,
+    ParquetCompressionType,
+    ParquetWriterVersionType,
+    ProcessorParameterNameType,
+    RedshiftS3BackupModeType,
+    S3BackupModeType,
+    SplunkS3BackupModeType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
@@ -22,33 +48,49 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-
 __all__ = (
     "BufferingHintsTypeDef",
     "CloudWatchLoggingOptionsTypeDef",
     "CopyCommandTypeDef",
+    "CreateDeliveryStreamInputRequestTypeDef",
+    "CreateDeliveryStreamOutputTypeDef",
     "DataFormatConversionConfigurationTypeDef",
+    "DeleteDeliveryStreamInputRequestTypeDef",
     "DeliveryStreamDescriptionTypeDef",
+    "DeliveryStreamEncryptionConfigurationInputTypeDef",
     "DeliveryStreamEncryptionConfigurationTypeDef",
+    "DescribeDeliveryStreamInputRequestTypeDef",
+    "DescribeDeliveryStreamOutputTypeDef",
     "DeserializerTypeDef",
     "DestinationDescriptionTypeDef",
     "ElasticsearchBufferingHintsTypeDef",
+    "ElasticsearchDestinationConfigurationTypeDef",
     "ElasticsearchDestinationDescriptionTypeDef",
+    "ElasticsearchDestinationUpdateTypeDef",
     "ElasticsearchRetryOptionsTypeDef",
     "EncryptionConfigurationTypeDef",
+    "ExtendedS3DestinationConfigurationTypeDef",
     "ExtendedS3DestinationDescriptionTypeDef",
+    "ExtendedS3DestinationUpdateTypeDef",
     "FailureDescriptionTypeDef",
     "HiveJsonSerDeTypeDef",
     "HttpEndpointBufferingHintsTypeDef",
     "HttpEndpointCommonAttributeTypeDef",
     "HttpEndpointConfigurationTypeDef",
     "HttpEndpointDescriptionTypeDef",
+    "HttpEndpointDestinationConfigurationTypeDef",
     "HttpEndpointDestinationDescriptionTypeDef",
+    "HttpEndpointDestinationUpdateTypeDef",
     "HttpEndpointRequestConfigurationTypeDef",
     "HttpEndpointRetryOptionsTypeDef",
     "InputFormatConfigurationTypeDef",
     "KMSEncryptionConfigTypeDef",
+    "KinesisStreamSourceConfigurationTypeDef",
     "KinesisStreamSourceDescriptionTypeDef",
+    "ListDeliveryStreamsInputRequestTypeDef",
+    "ListDeliveryStreamsOutputTypeDef",
+    "ListTagsForDeliveryStreamInputRequestTypeDef",
+    "ListTagsForDeliveryStreamOutputTypeDef",
     "OpenXJsonSerDeTypeDef",
     "OrcSerDeTypeDef",
     "OutputFormatConfigurationTypeDef",
@@ -56,61 +98,110 @@ __all__ = (
     "ProcessingConfigurationTypeDef",
     "ProcessorParameterTypeDef",
     "ProcessorTypeDef",
+    "PutRecordBatchInputRequestTypeDef",
+    "PutRecordBatchOutputTypeDef",
     "PutRecordBatchResponseEntryTypeDef",
+    "PutRecordInputRequestTypeDef",
+    "PutRecordOutputTypeDef",
+    "RecordTypeDef",
+    "RedshiftDestinationConfigurationTypeDef",
     "RedshiftDestinationDescriptionTypeDef",
+    "RedshiftDestinationUpdateTypeDef",
     "RedshiftRetryOptionsTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
     "S3DestinationConfigurationTypeDef",
     "S3DestinationDescriptionTypeDef",
     "S3DestinationUpdateTypeDef",
     "SchemaConfigurationTypeDef",
     "SerializerTypeDef",
     "SourceDescriptionTypeDef",
+    "SplunkDestinationConfigurationTypeDef",
     "SplunkDestinationDescriptionTypeDef",
+    "SplunkDestinationUpdateTypeDef",
     "SplunkRetryOptionsTypeDef",
+    "StartDeliveryStreamEncryptionInputRequestTypeDef",
+    "StopDeliveryStreamEncryptionInputRequestTypeDef",
+    "TagDeliveryStreamInputRequestTypeDef",
     "TagTypeDef",
+    "UntagDeliveryStreamInputRequestTypeDef",
+    "UpdateDestinationInputRequestTypeDef",
     "VpcConfigurationDescriptionTypeDef",
     "VpcConfigurationTypeDef",
-    "CreateDeliveryStreamOutputTypeDef",
-    "DeliveryStreamEncryptionConfigurationInputTypeDef",
-    "DescribeDeliveryStreamOutputTypeDef",
-    "ElasticsearchDestinationConfigurationTypeDef",
-    "ElasticsearchDestinationUpdateTypeDef",
-    "ExtendedS3DestinationConfigurationTypeDef",
-    "ExtendedS3DestinationUpdateTypeDef",
-    "HttpEndpointDestinationConfigurationTypeDef",
-    "HttpEndpointDestinationUpdateTypeDef",
-    "KinesisStreamSourceConfigurationTypeDef",
-    "ListDeliveryStreamsOutputTypeDef",
-    "ListTagsForDeliveryStreamOutputTypeDef",
-    "PutRecordBatchOutputTypeDef",
-    "PutRecordOutputTypeDef",
-    "RecordTypeDef",
-    "RedshiftDestinationConfigurationTypeDef",
-    "RedshiftDestinationUpdateTypeDef",
-    "SplunkDestinationConfigurationTypeDef",
-    "SplunkDestinationUpdateTypeDef",
 )
 
 BufferingHintsTypeDef = TypedDict(
-    "BufferingHintsTypeDef", {"SizeInMBs": int, "IntervalInSeconds": int}, total=False
+    "BufferingHintsTypeDef",
+    {
+        "SizeInMBs": int,
+        "IntervalInSeconds": int,
+    },
+    total=False,
 )
 
 CloudWatchLoggingOptionsTypeDef = TypedDict(
     "CloudWatchLoggingOptionsTypeDef",
-    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    {
+        "Enabled": bool,
+        "LogGroupName": str,
+        "LogStreamName": str,
+    },
     total=False,
 )
 
-_RequiredCopyCommandTypeDef = TypedDict("_RequiredCopyCommandTypeDef", {"DataTableName": str})
-_OptionalCopyCommandTypeDef = TypedDict(
-    "_OptionalCopyCommandTypeDef", {"DataTableColumns": str, "CopyOptions": str}, total=False
+_RequiredCopyCommandTypeDef = TypedDict(
+    "_RequiredCopyCommandTypeDef",
+    {
+        "DataTableName": str,
+    },
 )
-
+_OptionalCopyCommandTypeDef = TypedDict(
+    "_OptionalCopyCommandTypeDef",
+    {
+        "DataTableColumns": str,
+        "CopyOptions": str,
+    },
+    total=False,
+)
 
 class CopyCommandTypeDef(_RequiredCopyCommandTypeDef, _OptionalCopyCommandTypeDef):
     pass
 
+_RequiredCreateDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_RequiredCreateDeliveryStreamInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+    },
+)
+_OptionalCreateDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_OptionalCreateDeliveryStreamInputRequestTypeDef",
+    {
+        "DeliveryStreamType": DeliveryStreamTypeType,
+        "KinesisStreamSourceConfiguration": "KinesisStreamSourceConfigurationTypeDef",
+        "DeliveryStreamEncryptionConfigurationInput": "DeliveryStreamEncryptionConfigurationInputTypeDef",
+        "S3DestinationConfiguration": "S3DestinationConfigurationTypeDef",
+        "ExtendedS3DestinationConfiguration": "ExtendedS3DestinationConfigurationTypeDef",
+        "RedshiftDestinationConfiguration": "RedshiftDestinationConfigurationTypeDef",
+        "ElasticsearchDestinationConfiguration": "ElasticsearchDestinationConfigurationTypeDef",
+        "SplunkDestinationConfiguration": "SplunkDestinationConfigurationTypeDef",
+        "HttpEndpointDestinationConfiguration": "HttpEndpointDestinationConfigurationTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDeliveryStreamInputRequestTypeDef(
+    _RequiredCreateDeliveryStreamInputRequestTypeDef,
+    _OptionalCreateDeliveryStreamInputRequestTypeDef,
+):
+    pass
+
+CreateDeliveryStreamOutputTypeDef = TypedDict(
+    "CreateDeliveryStreamOutputTypeDef",
+    {
+        "DeliveryStreamARN": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DataFormatConversionConfigurationTypeDef = TypedDict(
     "DataFormatConversionConfigurationTypeDef",
@@ -123,15 +214,33 @@ DataFormatConversionConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeleteDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_RequiredDeleteDeliveryStreamInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+    },
+)
+_OptionalDeleteDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_OptionalDeleteDeliveryStreamInputRequestTypeDef",
+    {
+        "AllowForceDelete": bool,
+    },
+    total=False,
+)
+
+class DeleteDeliveryStreamInputRequestTypeDef(
+    _RequiredDeleteDeliveryStreamInputRequestTypeDef,
+    _OptionalDeleteDeliveryStreamInputRequestTypeDef,
+):
+    pass
+
 _RequiredDeliveryStreamDescriptionTypeDef = TypedDict(
     "_RequiredDeliveryStreamDescriptionTypeDef",
     {
         "DeliveryStreamName": str,
         "DeliveryStreamARN": str,
-        "DeliveryStreamStatus": Literal[
-            "CREATING", "CREATING_FAILED", "DELETING", "DELETING_FAILED", "ACTIVE"
-        ],
-        "DeliveryStreamType": Literal["DirectPut", "KinesisStreamAsSource"],
+        "DeliveryStreamStatus": DeliveryStreamStatusType,
+        "DeliveryStreamType": DeliveryStreamTypeType,
         "VersionId": str,
         "Destinations": List["DestinationDescriptionTypeDef"],
         "HasMoreDestinations": bool,
@@ -149,34 +258,85 @@ _OptionalDeliveryStreamDescriptionTypeDef = TypedDict(
     total=False,
 )
 
-
 class DeliveryStreamDescriptionTypeDef(
     _RequiredDeliveryStreamDescriptionTypeDef, _OptionalDeliveryStreamDescriptionTypeDef
 ):
     pass
 
+_RequiredDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
+    "_RequiredDeliveryStreamEncryptionConfigurationInputTypeDef",
+    {
+        "KeyType": KeyTypeType,
+    },
+)
+_OptionalDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
+    "_OptionalDeliveryStreamEncryptionConfigurationInputTypeDef",
+    {
+        "KeyARN": str,
+    },
+    total=False,
+)
+
+class DeliveryStreamEncryptionConfigurationInputTypeDef(
+    _RequiredDeliveryStreamEncryptionConfigurationInputTypeDef,
+    _OptionalDeliveryStreamEncryptionConfigurationInputTypeDef,
+):
+    pass
 
 DeliveryStreamEncryptionConfigurationTypeDef = TypedDict(
     "DeliveryStreamEncryptionConfigurationTypeDef",
     {
         "KeyARN": str,
-        "KeyType": Literal["AWS_OWNED_CMK", "CUSTOMER_MANAGED_CMK"],
-        "Status": Literal[
-            "ENABLED", "ENABLING", "ENABLING_FAILED", "DISABLED", "DISABLING", "DISABLING_FAILED"
-        ],
+        "KeyType": KeyTypeType,
+        "Status": DeliveryStreamEncryptionStatusType,
         "FailureDescription": "FailureDescriptionTypeDef",
     },
     total=False,
 )
 
+_RequiredDescribeDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeDeliveryStreamInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+    },
+)
+_OptionalDescribeDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeDeliveryStreamInputRequestTypeDef",
+    {
+        "Limit": int,
+        "ExclusiveStartDestinationId": str,
+    },
+    total=False,
+)
+
+class DescribeDeliveryStreamInputRequestTypeDef(
+    _RequiredDescribeDeliveryStreamInputRequestTypeDef,
+    _OptionalDescribeDeliveryStreamInputRequestTypeDef,
+):
+    pass
+
+DescribeDeliveryStreamOutputTypeDef = TypedDict(
+    "DescribeDeliveryStreamOutputTypeDef",
+    {
+        "DeliveryStreamDescription": "DeliveryStreamDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeserializerTypeDef = TypedDict(
     "DeserializerTypeDef",
-    {"OpenXJsonSerDe": "OpenXJsonSerDeTypeDef", "HiveJsonSerDe": "HiveJsonSerDeTypeDef"},
+    {
+        "OpenXJsonSerDe": "OpenXJsonSerDeTypeDef",
+        "HiveJsonSerDe": "HiveJsonSerDeTypeDef",
+    },
     total=False,
 )
 
 _RequiredDestinationDescriptionTypeDef = TypedDict(
-    "_RequiredDestinationDescriptionTypeDef", {"DestinationId": str}
+    "_RequiredDestinationDescriptionTypeDef",
+    {
+        "DestinationId": str,
+    },
 )
 _OptionalDestinationDescriptionTypeDef = TypedDict(
     "_OptionalDestinationDescriptionTypeDef",
@@ -191,16 +351,50 @@ _OptionalDestinationDescriptionTypeDef = TypedDict(
     total=False,
 )
 
-
 class DestinationDescriptionTypeDef(
     _RequiredDestinationDescriptionTypeDef, _OptionalDestinationDescriptionTypeDef
 ):
     pass
 
-
 ElasticsearchBufferingHintsTypeDef = TypedDict(
-    "ElasticsearchBufferingHintsTypeDef", {"IntervalInSeconds": int, "SizeInMBs": int}, total=False
+    "ElasticsearchBufferingHintsTypeDef",
+    {
+        "IntervalInSeconds": int,
+        "SizeInMBs": int,
+    },
+    total=False,
 )
+
+_RequiredElasticsearchDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredElasticsearchDestinationConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "IndexName": str,
+        "S3Configuration": "S3DestinationConfigurationTypeDef",
+    },
+)
+_OptionalElasticsearchDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalElasticsearchDestinationConfigurationTypeDef",
+    {
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "TypeName": str,
+        "IndexRotationPeriod": ElasticsearchIndexRotationPeriodType,
+        "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
+        "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
+        "S3BackupMode": ElasticsearchS3BackupModeType,
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "VpcConfiguration": "VpcConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class ElasticsearchDestinationConfigurationTypeDef(
+    _RequiredElasticsearchDestinationConfigurationTypeDef,
+    _OptionalElasticsearchDestinationConfigurationTypeDef,
+):
+    pass
 
 ElasticsearchDestinationDescriptionTypeDef = TypedDict(
     "ElasticsearchDestinationDescriptionTypeDef",
@@ -210,10 +404,10 @@ ElasticsearchDestinationDescriptionTypeDef = TypedDict(
         "ClusterEndpoint": str,
         "IndexName": str,
         "TypeName": str,
-        "IndexRotationPeriod": Literal["NoRotation", "OneHour", "OneDay", "OneWeek", "OneMonth"],
+        "IndexRotationPeriod": ElasticsearchIndexRotationPeriodType,
         "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
         "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedDocumentsOnly", "AllDocuments"],
+        "S3BackupMode": ElasticsearchS3BackupModeType,
         "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
@@ -222,8 +416,30 @@ ElasticsearchDestinationDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+ElasticsearchDestinationUpdateTypeDef = TypedDict(
+    "ElasticsearchDestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "IndexName": str,
+        "TypeName": str,
+        "IndexRotationPeriod": ElasticsearchIndexRotationPeriodType,
+        "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
+        "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
+        "S3Update": "S3DestinationUpdateTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+    },
+    total=False,
+)
+
 ElasticsearchRetryOptionsTypeDef = TypedDict(
-    "ElasticsearchRetryOptionsTypeDef", {"DurationInSeconds": int}, total=False
+    "ElasticsearchRetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
 )
 
 EncryptionConfigurationTypeDef = TypedDict(
@@ -235,13 +451,43 @@ EncryptionConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredExtendedS3DestinationConfigurationTypeDef = TypedDict(
+    "_RequiredExtendedS3DestinationConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+    },
+)
+_OptionalExtendedS3DestinationConfigurationTypeDef = TypedDict(
+    "_OptionalExtendedS3DestinationConfigurationTypeDef",
+    {
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": "BufferingHintsTypeDef",
+        "CompressionFormat": CompressionFormatType,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "S3BackupMode": S3BackupModeType,
+        "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
+        "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class ExtendedS3DestinationConfigurationTypeDef(
+    _RequiredExtendedS3DestinationConfigurationTypeDef,
+    _OptionalExtendedS3DestinationConfigurationTypeDef,
+):
+    pass
+
 _RequiredExtendedS3DestinationDescriptionTypeDef = TypedDict(
     "_RequiredExtendedS3DestinationDescriptionTypeDef",
     {
         "RoleARN": str,
         "BucketARN": str,
         "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY"],
+        "CompressionFormat": CompressionFormatType,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
     },
 )
@@ -252,13 +498,12 @@ _OptionalExtendedS3DestinationDescriptionTypeDef = TypedDict(
         "ErrorOutputPrefix": str,
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupMode": S3BackupModeType,
         "S3BackupDescription": "S3DestinationDescriptionTypeDef",
         "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
     },
     total=False,
 )
-
 
 class ExtendedS3DestinationDescriptionTypeDef(
     _RequiredExtendedS3DestinationDescriptionTypeDef,
@@ -266,60 +511,113 @@ class ExtendedS3DestinationDescriptionTypeDef(
 ):
     pass
 
+ExtendedS3DestinationUpdateTypeDef = TypedDict(
+    "ExtendedS3DestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": "BufferingHintsTypeDef",
+        "CompressionFormat": CompressionFormatType,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "S3BackupMode": S3BackupModeType,
+        "S3BackupUpdate": "S3DestinationUpdateTypeDef",
+        "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
+    },
+    total=False,
+)
 
 FailureDescriptionTypeDef = TypedDict(
     "FailureDescriptionTypeDef",
     {
-        "Type": Literal[
-            "RETIRE_KMS_GRANT_FAILED",
-            "CREATE_KMS_GRANT_FAILED",
-            "KMS_ACCESS_DENIED",
-            "DISABLED_KMS_KEY",
-            "INVALID_KMS_KEY",
-            "KMS_KEY_NOT_FOUND",
-            "KMS_OPT_IN_REQUIRED",
-            "CREATE_ENI_FAILED",
-            "DELETE_ENI_FAILED",
-            "SUBNET_NOT_FOUND",
-            "SECURITY_GROUP_NOT_FOUND",
-            "ENI_ACCESS_DENIED",
-            "SUBNET_ACCESS_DENIED",
-            "SECURITY_GROUP_ACCESS_DENIED",
-            "UNKNOWN_ERROR",
-        ],
+        "Type": DeliveryStreamFailureTypeType,
         "Details": str,
     },
 )
 
 HiveJsonSerDeTypeDef = TypedDict(
-    "HiveJsonSerDeTypeDef", {"TimestampFormats": List[str]}, total=False
+    "HiveJsonSerDeTypeDef",
+    {
+        "TimestampFormats": List[str],
+    },
+    total=False,
 )
 
 HttpEndpointBufferingHintsTypeDef = TypedDict(
-    "HttpEndpointBufferingHintsTypeDef", {"SizeInMBs": int, "IntervalInSeconds": int}, total=False
+    "HttpEndpointBufferingHintsTypeDef",
+    {
+        "SizeInMBs": int,
+        "IntervalInSeconds": int,
+    },
+    total=False,
 )
 
 HttpEndpointCommonAttributeTypeDef = TypedDict(
-    "HttpEndpointCommonAttributeTypeDef", {"AttributeName": str, "AttributeValue": str}
+    "HttpEndpointCommonAttributeTypeDef",
+    {
+        "AttributeName": str,
+        "AttributeValue": str,
+    },
 )
 
 _RequiredHttpEndpointConfigurationTypeDef = TypedDict(
-    "_RequiredHttpEndpointConfigurationTypeDef", {"Url": str}
+    "_RequiredHttpEndpointConfigurationTypeDef",
+    {
+        "Url": str,
+    },
 )
 _OptionalHttpEndpointConfigurationTypeDef = TypedDict(
-    "_OptionalHttpEndpointConfigurationTypeDef", {"Name": str, "AccessKey": str}, total=False
+    "_OptionalHttpEndpointConfigurationTypeDef",
+    {
+        "Name": str,
+        "AccessKey": str,
+    },
+    total=False,
 )
-
 
 class HttpEndpointConfigurationTypeDef(
     _RequiredHttpEndpointConfigurationTypeDef, _OptionalHttpEndpointConfigurationTypeDef
 ):
     pass
 
-
 HttpEndpointDescriptionTypeDef = TypedDict(
-    "HttpEndpointDescriptionTypeDef", {"Url": str, "Name": str}, total=False
+    "HttpEndpointDescriptionTypeDef",
+    {
+        "Url": str,
+        "Name": str,
+    },
+    total=False,
 )
+
+_RequiredHttpEndpointDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredHttpEndpointDestinationConfigurationTypeDef",
+    {
+        "EndpointConfiguration": "HttpEndpointConfigurationTypeDef",
+        "S3Configuration": "S3DestinationConfigurationTypeDef",
+    },
+)
+_OptionalHttpEndpointDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalHttpEndpointDestinationConfigurationTypeDef",
+    {
+        "BufferingHints": "HttpEndpointBufferingHintsTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "RequestConfiguration": "HttpEndpointRequestConfigurationTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "RoleARN": str,
+        "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
+        "S3BackupMode": HttpEndpointS3BackupModeType,
+    },
+    total=False,
+)
+
+class HttpEndpointDestinationConfigurationTypeDef(
+    _RequiredHttpEndpointDestinationConfigurationTypeDef,
+    _OptionalHttpEndpointDestinationConfigurationTypeDef,
+):
+    pass
 
 HttpEndpointDestinationDescriptionTypeDef = TypedDict(
     "HttpEndpointDestinationDescriptionTypeDef",
@@ -331,8 +629,24 @@ HttpEndpointDestinationDescriptionTypeDef = TypedDict(
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "RoleARN": str,
         "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedDataOnly", "AllData"],
+        "S3BackupMode": HttpEndpointS3BackupModeType,
         "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
+    },
+    total=False,
+)
+
+HttpEndpointDestinationUpdateTypeDef = TypedDict(
+    "HttpEndpointDestinationUpdateTypeDef",
+    {
+        "EndpointConfiguration": "HttpEndpointConfigurationTypeDef",
+        "BufferingHints": "HttpEndpointBufferingHintsTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "RequestConfiguration": "HttpEndpointRequestConfigurationTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "RoleARN": str,
+        "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
+        "S3BackupMode": HttpEndpointS3BackupModeType,
+        "S3Update": "S3DestinationUpdateTypeDef",
     },
     total=False,
 )
@@ -340,26 +654,100 @@ HttpEndpointDestinationDescriptionTypeDef = TypedDict(
 HttpEndpointRequestConfigurationTypeDef = TypedDict(
     "HttpEndpointRequestConfigurationTypeDef",
     {
-        "ContentEncoding": Literal["NONE", "GZIP"],
+        "ContentEncoding": ContentEncodingType,
         "CommonAttributes": List["HttpEndpointCommonAttributeTypeDef"],
     },
     total=False,
 )
 
 HttpEndpointRetryOptionsTypeDef = TypedDict(
-    "HttpEndpointRetryOptionsTypeDef", {"DurationInSeconds": int}, total=False
+    "HttpEndpointRetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
 )
 
 InputFormatConfigurationTypeDef = TypedDict(
-    "InputFormatConfigurationTypeDef", {"Deserializer": "DeserializerTypeDef"}, total=False
+    "InputFormatConfigurationTypeDef",
+    {
+        "Deserializer": "DeserializerTypeDef",
+    },
+    total=False,
 )
 
-KMSEncryptionConfigTypeDef = TypedDict("KMSEncryptionConfigTypeDef", {"AWSKMSKeyARN": str})
+KMSEncryptionConfigTypeDef = TypedDict(
+    "KMSEncryptionConfigTypeDef",
+    {
+        "AWSKMSKeyARN": str,
+    },
+)
+
+KinesisStreamSourceConfigurationTypeDef = TypedDict(
+    "KinesisStreamSourceConfigurationTypeDef",
+    {
+        "KinesisStreamARN": str,
+        "RoleARN": str,
+    },
+)
 
 KinesisStreamSourceDescriptionTypeDef = TypedDict(
     "KinesisStreamSourceDescriptionTypeDef",
-    {"KinesisStreamARN": str, "RoleARN": str, "DeliveryStartTimestamp": datetime},
+    {
+        "KinesisStreamARN": str,
+        "RoleARN": str,
+        "DeliveryStartTimestamp": datetime,
+    },
     total=False,
+)
+
+ListDeliveryStreamsInputRequestTypeDef = TypedDict(
+    "ListDeliveryStreamsInputRequestTypeDef",
+    {
+        "Limit": int,
+        "DeliveryStreamType": DeliveryStreamTypeType,
+        "ExclusiveStartDeliveryStreamName": str,
+    },
+    total=False,
+)
+
+ListDeliveryStreamsOutputTypeDef = TypedDict(
+    "ListDeliveryStreamsOutputTypeDef",
+    {
+        "DeliveryStreamNames": List[str],
+        "HasMoreDeliveryStreams": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListTagsForDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_RequiredListTagsForDeliveryStreamInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+    },
+)
+_OptionalListTagsForDeliveryStreamInputRequestTypeDef = TypedDict(
+    "_OptionalListTagsForDeliveryStreamInputRequestTypeDef",
+    {
+        "ExclusiveStartTagKey": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+class ListTagsForDeliveryStreamInputRequestTypeDef(
+    _RequiredListTagsForDeliveryStreamInputRequestTypeDef,
+    _OptionalListTagsForDeliveryStreamInputRequestTypeDef,
+):
+    pass
+
+ListTagsForDeliveryStreamOutputTypeDef = TypedDict(
+    "ListTagsForDeliveryStreamOutputTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+        "HasMoreTags": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 OpenXJsonSerDeTypeDef = TypedDict(
@@ -380,17 +768,21 @@ OrcSerDeTypeDef = TypedDict(
         "RowIndexStride": int,
         "EnablePadding": bool,
         "PaddingTolerance": float,
-        "Compression": Literal["NONE", "ZLIB", "SNAPPY"],
+        "Compression": OrcCompressionType,
         "BloomFilterColumns": List[str],
         "BloomFilterFalsePositiveProbability": float,
         "DictionaryKeyThreshold": float,
-        "FormatVersion": Literal["V0_11", "V0_12"],
+        "FormatVersion": OrcFormatVersionType,
     },
     total=False,
 )
 
 OutputFormatConfigurationTypeDef = TypedDict(
-    "OutputFormatConfigurationTypeDef", {"Serializer": "SerializerTypeDef"}, total=False
+    "OutputFormatConfigurationTypeDef",
+    {
+        "Serializer": "SerializerTypeDef",
+    },
+    total=False,
 )
 
 ParquetSerDeTypeDef = TypedDict(
@@ -398,45 +790,128 @@ ParquetSerDeTypeDef = TypedDict(
     {
         "BlockSizeBytes": int,
         "PageSizeBytes": int,
-        "Compression": Literal["UNCOMPRESSED", "GZIP", "SNAPPY"],
+        "Compression": ParquetCompressionType,
         "EnableDictionaryCompression": bool,
         "MaxPaddingBytes": int,
-        "WriterVersion": Literal["V1", "V2"],
+        "WriterVersion": ParquetWriterVersionType,
     },
     total=False,
 )
 
 ProcessingConfigurationTypeDef = TypedDict(
     "ProcessingConfigurationTypeDef",
-    {"Enabled": bool, "Processors": List["ProcessorTypeDef"]},
+    {
+        "Enabled": bool,
+        "Processors": List["ProcessorTypeDef"],
+    },
     total=False,
 )
 
 ProcessorParameterTypeDef = TypedDict(
     "ProcessorParameterTypeDef",
     {
-        "ParameterName": Literal[
-            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
-        ],
+        "ParameterName": ProcessorParameterNameType,
         "ParameterValue": str,
     },
 )
 
-_RequiredProcessorTypeDef = TypedDict("_RequiredProcessorTypeDef", {"Type": Literal["Lambda"]})
-_OptionalProcessorTypeDef = TypedDict(
-    "_OptionalProcessorTypeDef", {"Parameters": List["ProcessorParameterTypeDef"]}, total=False
+_RequiredProcessorTypeDef = TypedDict(
+    "_RequiredProcessorTypeDef",
+    {
+        "Type": Literal["Lambda"],
+    },
 )
-
+_OptionalProcessorTypeDef = TypedDict(
+    "_OptionalProcessorTypeDef",
+    {
+        "Parameters": List["ProcessorParameterTypeDef"],
+    },
+    total=False,
+)
 
 class ProcessorTypeDef(_RequiredProcessorTypeDef, _OptionalProcessorTypeDef):
     pass
 
+PutRecordBatchInputRequestTypeDef = TypedDict(
+    "PutRecordBatchInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+        "Records": List["RecordTypeDef"],
+    },
+)
+
+PutRecordBatchOutputTypeDef = TypedDict(
+    "PutRecordBatchOutputTypeDef",
+    {
+        "FailedPutCount": int,
+        "Encrypted": bool,
+        "RequestResponses": List["PutRecordBatchResponseEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 PutRecordBatchResponseEntryTypeDef = TypedDict(
     "PutRecordBatchResponseEntryTypeDef",
-    {"RecordId": str, "ErrorCode": str, "ErrorMessage": str},
+    {
+        "RecordId": str,
+        "ErrorCode": str,
+        "ErrorMessage": str,
+    },
     total=False,
 )
+
+PutRecordInputRequestTypeDef = TypedDict(
+    "PutRecordInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+        "Record": "RecordTypeDef",
+    },
+)
+
+PutRecordOutputTypeDef = TypedDict(
+    "PutRecordOutputTypeDef",
+    {
+        "RecordId": str,
+        "Encrypted": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RecordTypeDef = TypedDict(
+    "RecordTypeDef",
+    {
+        "Data": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+
+_RequiredRedshiftDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredRedshiftDestinationConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "ClusterJDBCURL": str,
+        "CopyCommand": "CopyCommandTypeDef",
+        "Username": str,
+        "Password": str,
+        "S3Configuration": "S3DestinationConfigurationTypeDef",
+    },
+)
+_OptionalRedshiftDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalRedshiftDestinationConfigurationTypeDef",
+    {
+        "RetryOptions": "RedshiftRetryOptionsTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "S3BackupMode": RedshiftS3BackupModeType,
+        "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+    },
+    total=False,
+)
+
+class RedshiftDestinationConfigurationTypeDef(
+    _RequiredRedshiftDestinationConfigurationTypeDef,
+    _OptionalRedshiftDestinationConfigurationTypeDef,
+):
+    pass
 
 _RequiredRedshiftDestinationDescriptionTypeDef = TypedDict(
     "_RequiredRedshiftDestinationDescriptionTypeDef",
@@ -453,26 +928,46 @@ _OptionalRedshiftDestinationDescriptionTypeDef = TypedDict(
     {
         "RetryOptions": "RedshiftRetryOptionsTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupMode": RedshiftS3BackupModeType,
         "S3BackupDescription": "S3DestinationDescriptionTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
     },
     total=False,
 )
 
-
 class RedshiftDestinationDescriptionTypeDef(
     _RequiredRedshiftDestinationDescriptionTypeDef, _OptionalRedshiftDestinationDescriptionTypeDef
 ):
     pass
 
-
-RedshiftRetryOptionsTypeDef = TypedDict(
-    "RedshiftRetryOptionsTypeDef", {"DurationInSeconds": int}, total=False
+RedshiftDestinationUpdateTypeDef = TypedDict(
+    "RedshiftDestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "ClusterJDBCURL": str,
+        "CopyCommand": "CopyCommandTypeDef",
+        "Username": str,
+        "Password": str,
+        "RetryOptions": "RedshiftRetryOptionsTypeDef",
+        "S3Update": "S3DestinationUpdateTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "S3BackupMode": RedshiftS3BackupModeType,
+        "S3BackupUpdate": "S3DestinationUpdateTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+    },
+    total=False,
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+RedshiftRetryOptionsTypeDef = TypedDict(
+    "RedshiftRetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -483,7 +978,11 @@ ResponseMetadata = TypedDict(
 )
 
 _RequiredS3DestinationConfigurationTypeDef = TypedDict(
-    "_RequiredS3DestinationConfigurationTypeDef", {"RoleARN": str, "BucketARN": str}
+    "_RequiredS3DestinationConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+    },
 )
 _OptionalS3DestinationConfigurationTypeDef = TypedDict(
     "_OptionalS3DestinationConfigurationTypeDef",
@@ -491,19 +990,17 @@ _OptionalS3DestinationConfigurationTypeDef = TypedDict(
         "Prefix": str,
         "ErrorOutputPrefix": str,
         "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY"],
+        "CompressionFormat": CompressionFormatType,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
     },
     total=False,
 )
 
-
 class S3DestinationConfigurationTypeDef(
     _RequiredS3DestinationConfigurationTypeDef, _OptionalS3DestinationConfigurationTypeDef
 ):
     pass
-
 
 _RequiredS3DestinationDescriptionTypeDef = TypedDict(
     "_RequiredS3DestinationDescriptionTypeDef",
@@ -511,7 +1008,7 @@ _RequiredS3DestinationDescriptionTypeDef = TypedDict(
         "RoleARN": str,
         "BucketARN": str,
         "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY"],
+        "CompressionFormat": CompressionFormatType,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
     },
 )
@@ -525,12 +1022,10 @@ _OptionalS3DestinationDescriptionTypeDef = TypedDict(
     total=False,
 )
 
-
 class S3DestinationDescriptionTypeDef(
     _RequiredS3DestinationDescriptionTypeDef, _OptionalS3DestinationDescriptionTypeDef
 ):
     pass
-
 
 S3DestinationUpdateTypeDef = TypedDict(
     "S3DestinationUpdateTypeDef",
@@ -540,7 +1035,7 @@ S3DestinationUpdateTypeDef = TypedDict(
         "Prefix": str,
         "ErrorOutputPrefix": str,
         "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY"],
+        "CompressionFormat": CompressionFormatType,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
     },
@@ -562,346 +1057,17 @@ SchemaConfigurationTypeDef = TypedDict(
 
 SerializerTypeDef = TypedDict(
     "SerializerTypeDef",
-    {"ParquetSerDe": "ParquetSerDeTypeDef", "OrcSerDe": "OrcSerDeTypeDef"},
+    {
+        "ParquetSerDe": "ParquetSerDeTypeDef",
+        "OrcSerDe": "OrcSerDeTypeDef",
+    },
     total=False,
 )
 
 SourceDescriptionTypeDef = TypedDict(
     "SourceDescriptionTypeDef",
-    {"KinesisStreamSourceDescription": "KinesisStreamSourceDescriptionTypeDef"},
-    total=False,
-)
-
-SplunkDestinationDescriptionTypeDef = TypedDict(
-    "SplunkDestinationDescriptionTypeDef",
     {
-        "HECEndpoint": str,
-        "HECEndpointType": Literal["Raw", "Event"],
-        "HECToken": str,
-        "HECAcknowledgmentTimeoutInSeconds": int,
-        "RetryOptions": "SplunkRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedEventsOnly", "AllEvents"],
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-    },
-    total=False,
-)
-
-SplunkRetryOptionsTypeDef = TypedDict(
-    "SplunkRetryOptionsTypeDef", {"DurationInSeconds": int}, total=False
-)
-
-_RequiredTagTypeDef = TypedDict("_RequiredTagTypeDef", {"Key": str})
-_OptionalTagTypeDef = TypedDict("_OptionalTagTypeDef", {"Value": str}, total=False)
-
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-
-VpcConfigurationDescriptionTypeDef = TypedDict(
-    "VpcConfigurationDescriptionTypeDef",
-    {"SubnetIds": List[str], "RoleARN": str, "SecurityGroupIds": List[str], "VpcId": str},
-)
-
-VpcConfigurationTypeDef = TypedDict(
-    "VpcConfigurationTypeDef",
-    {"SubnetIds": List[str], "RoleARN": str, "SecurityGroupIds": List[str]},
-)
-
-CreateDeliveryStreamOutputTypeDef = TypedDict(
-    "CreateDeliveryStreamOutputTypeDef",
-    {"DeliveryStreamARN": str, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-_RequiredDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
-    "_RequiredDeliveryStreamEncryptionConfigurationInputTypeDef",
-    {"KeyType": Literal["AWS_OWNED_CMK", "CUSTOMER_MANAGED_CMK"]},
-)
-_OptionalDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
-    "_OptionalDeliveryStreamEncryptionConfigurationInputTypeDef", {"KeyARN": str}, total=False
-)
-
-
-class DeliveryStreamEncryptionConfigurationInputTypeDef(
-    _RequiredDeliveryStreamEncryptionConfigurationInputTypeDef,
-    _OptionalDeliveryStreamEncryptionConfigurationInputTypeDef,
-):
-    pass
-
-
-_RequiredDescribeDeliveryStreamOutputTypeDef = TypedDict(
-    "_RequiredDescribeDeliveryStreamOutputTypeDef",
-    {"DeliveryStreamDescription": "DeliveryStreamDescriptionTypeDef"},
-)
-_OptionalDescribeDeliveryStreamOutputTypeDef = TypedDict(
-    "_OptionalDescribeDeliveryStreamOutputTypeDef",
-    {"ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-
-class DescribeDeliveryStreamOutputTypeDef(
-    _RequiredDescribeDeliveryStreamOutputTypeDef, _OptionalDescribeDeliveryStreamOutputTypeDef
-):
-    pass
-
-
-_RequiredElasticsearchDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredElasticsearchDestinationConfigurationTypeDef",
-    {"RoleARN": str, "IndexName": str, "S3Configuration": "S3DestinationConfigurationTypeDef"},
-)
-_OptionalElasticsearchDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalElasticsearchDestinationConfigurationTypeDef",
-    {
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "TypeName": str,
-        "IndexRotationPeriod": Literal["NoRotation", "OneHour", "OneDay", "OneWeek", "OneMonth"],
-        "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
-        "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedDocumentsOnly", "AllDocuments"],
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-    },
-    total=False,
-)
-
-
-class ElasticsearchDestinationConfigurationTypeDef(
-    _RequiredElasticsearchDestinationConfigurationTypeDef,
-    _OptionalElasticsearchDestinationConfigurationTypeDef,
-):
-    pass
-
-
-ElasticsearchDestinationUpdateTypeDef = TypedDict(
-    "ElasticsearchDestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "IndexName": str,
-        "TypeName": str,
-        "IndexRotationPeriod": Literal["NoRotation", "OneHour", "OneDay", "OneWeek", "OneMonth"],
-        "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
-        "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredExtendedS3DestinationConfigurationTypeDef = TypedDict(
-    "_RequiredExtendedS3DestinationConfigurationTypeDef", {"RoleARN": str, "BucketARN": str}
-)
-_OptionalExtendedS3DestinationConfigurationTypeDef = TypedDict(
-    "_OptionalExtendedS3DestinationConfigurationTypeDef",
-    {
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY"],
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": Literal["Disabled", "Enabled"],
-        "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
-        "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-
-class ExtendedS3DestinationConfigurationTypeDef(
-    _RequiredExtendedS3DestinationConfigurationTypeDef,
-    _OptionalExtendedS3DestinationConfigurationTypeDef,
-):
-    pass
-
-
-ExtendedS3DestinationUpdateTypeDef = TypedDict(
-    "ExtendedS3DestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "BucketARN": str,
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY"],
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": Literal["Disabled", "Enabled"],
-        "S3BackupUpdate": "S3DestinationUpdateTypeDef",
-        "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredHttpEndpointDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredHttpEndpointDestinationConfigurationTypeDef",
-    {
-        "EndpointConfiguration": "HttpEndpointConfigurationTypeDef",
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalHttpEndpointDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalHttpEndpointDestinationConfigurationTypeDef",
-    {
-        "BufferingHints": "HttpEndpointBufferingHintsTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "RequestConfiguration": "HttpEndpointRequestConfigurationTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RoleARN": str,
-        "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedDataOnly", "AllData"],
-    },
-    total=False,
-)
-
-
-class HttpEndpointDestinationConfigurationTypeDef(
-    _RequiredHttpEndpointDestinationConfigurationTypeDef,
-    _OptionalHttpEndpointDestinationConfigurationTypeDef,
-):
-    pass
-
-
-HttpEndpointDestinationUpdateTypeDef = TypedDict(
-    "HttpEndpointDestinationUpdateTypeDef",
-    {
-        "EndpointConfiguration": "HttpEndpointConfigurationTypeDef",
-        "BufferingHints": "HttpEndpointBufferingHintsTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "RequestConfiguration": "HttpEndpointRequestConfigurationTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RoleARN": str,
-        "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedDataOnly", "AllData"],
-        "S3Update": "S3DestinationUpdateTypeDef",
-    },
-    total=False,
-)
-
-KinesisStreamSourceConfigurationTypeDef = TypedDict(
-    "KinesisStreamSourceConfigurationTypeDef", {"KinesisStreamARN": str, "RoleARN": str}
-)
-
-_RequiredListDeliveryStreamsOutputTypeDef = TypedDict(
-    "_RequiredListDeliveryStreamsOutputTypeDef",
-    {"DeliveryStreamNames": List[str], "HasMoreDeliveryStreams": bool},
-)
-_OptionalListDeliveryStreamsOutputTypeDef = TypedDict(
-    "_OptionalListDeliveryStreamsOutputTypeDef",
-    {"ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-
-class ListDeliveryStreamsOutputTypeDef(
-    _RequiredListDeliveryStreamsOutputTypeDef, _OptionalListDeliveryStreamsOutputTypeDef
-):
-    pass
-
-
-_RequiredListTagsForDeliveryStreamOutputTypeDef = TypedDict(
-    "_RequiredListTagsForDeliveryStreamOutputTypeDef",
-    {"Tags": List["TagTypeDef"], "HasMoreTags": bool},
-)
-_OptionalListTagsForDeliveryStreamOutputTypeDef = TypedDict(
-    "_OptionalListTagsForDeliveryStreamOutputTypeDef",
-    {"ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-
-class ListTagsForDeliveryStreamOutputTypeDef(
-    _RequiredListTagsForDeliveryStreamOutputTypeDef, _OptionalListTagsForDeliveryStreamOutputTypeDef
-):
-    pass
-
-
-_RequiredPutRecordBatchOutputTypeDef = TypedDict(
-    "_RequiredPutRecordBatchOutputTypeDef",
-    {"FailedPutCount": int, "RequestResponses": List["PutRecordBatchResponseEntryTypeDef"]},
-)
-_OptionalPutRecordBatchOutputTypeDef = TypedDict(
-    "_OptionalPutRecordBatchOutputTypeDef",
-    {"Encrypted": bool, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-
-class PutRecordBatchOutputTypeDef(
-    _RequiredPutRecordBatchOutputTypeDef, _OptionalPutRecordBatchOutputTypeDef
-):
-    pass
-
-
-_RequiredPutRecordOutputTypeDef = TypedDict("_RequiredPutRecordOutputTypeDef", {"RecordId": str})
-_OptionalPutRecordOutputTypeDef = TypedDict(
-    "_OptionalPutRecordOutputTypeDef",
-    {"Encrypted": bool, "ResponseMetadata": "ResponseMetadata"},
-    total=False,
-)
-
-
-class PutRecordOutputTypeDef(_RequiredPutRecordOutputTypeDef, _OptionalPutRecordOutputTypeDef):
-    pass
-
-
-RecordTypeDef = TypedDict("RecordTypeDef", {"Data": Union[bytes, IO[bytes]]})
-
-_RequiredRedshiftDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredRedshiftDestinationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "ClusterJDBCURL": str,
-        "CopyCommand": "CopyCommandTypeDef",
-        "Username": str,
-        "Password": str,
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalRedshiftDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalRedshiftDestinationConfigurationTypeDef",
-    {
-        "RetryOptions": "RedshiftRetryOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": Literal["Disabled", "Enabled"],
-        "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-    },
-    total=False,
-)
-
-
-class RedshiftDestinationConfigurationTypeDef(
-    _RequiredRedshiftDestinationConfigurationTypeDef,
-    _OptionalRedshiftDestinationConfigurationTypeDef,
-):
-    pass
-
-
-RedshiftDestinationUpdateTypeDef = TypedDict(
-    "RedshiftDestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "ClusterJDBCURL": str,
-        "CopyCommand": "CopyCommandTypeDef",
-        "Username": str,
-        "Password": str,
-        "RetryOptions": "RedshiftRetryOptionsTypeDef",
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": Literal["Disabled", "Enabled"],
-        "S3BackupUpdate": "S3DestinationUpdateTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "KinesisStreamSourceDescription": "KinesisStreamSourceDescriptionTypeDef",
     },
     total=False,
 )
@@ -910,7 +1076,7 @@ _RequiredSplunkDestinationConfigurationTypeDef = TypedDict(
     "_RequiredSplunkDestinationConfigurationTypeDef",
     {
         "HECEndpoint": str,
-        "HECEndpointType": Literal["Raw", "Event"],
+        "HECEndpointType": HECEndpointTypeType,
         "HECToken": str,
         "S3Configuration": "S3DestinationConfigurationTypeDef",
     },
@@ -920,32 +1086,159 @@ _OptionalSplunkDestinationConfigurationTypeDef = TypedDict(
     {
         "HECAcknowledgmentTimeoutInSeconds": int,
         "RetryOptions": "SplunkRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedEventsOnly", "AllEvents"],
+        "S3BackupMode": SplunkS3BackupModeType,
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
     },
     total=False,
 )
 
-
 class SplunkDestinationConfigurationTypeDef(
     _RequiredSplunkDestinationConfigurationTypeDef, _OptionalSplunkDestinationConfigurationTypeDef
 ):
     pass
 
+SplunkDestinationDescriptionTypeDef = TypedDict(
+    "SplunkDestinationDescriptionTypeDef",
+    {
+        "HECEndpoint": str,
+        "HECEndpointType": HECEndpointTypeType,
+        "HECToken": str,
+        "HECAcknowledgmentTimeoutInSeconds": int,
+        "RetryOptions": "SplunkRetryOptionsTypeDef",
+        "S3BackupMode": SplunkS3BackupModeType,
+        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+    },
+    total=False,
+)
 
 SplunkDestinationUpdateTypeDef = TypedDict(
     "SplunkDestinationUpdateTypeDef",
     {
         "HECEndpoint": str,
-        "HECEndpointType": Literal["Raw", "Event"],
+        "HECEndpointType": HECEndpointTypeType,
         "HECToken": str,
         "HECAcknowledgmentTimeoutInSeconds": int,
         "RetryOptions": "SplunkRetryOptionsTypeDef",
-        "S3BackupMode": Literal["FailedEventsOnly", "AllEvents"],
+        "S3BackupMode": SplunkS3BackupModeType,
         "S3Update": "S3DestinationUpdateTypeDef",
         "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
         "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
     },
     total=False,
+)
+
+SplunkRetryOptionsTypeDef = TypedDict(
+    "SplunkRetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
+)
+
+_RequiredStartDeliveryStreamEncryptionInputRequestTypeDef = TypedDict(
+    "_RequiredStartDeliveryStreamEncryptionInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+    },
+)
+_OptionalStartDeliveryStreamEncryptionInputRequestTypeDef = TypedDict(
+    "_OptionalStartDeliveryStreamEncryptionInputRequestTypeDef",
+    {
+        "DeliveryStreamEncryptionConfigurationInput": "DeliveryStreamEncryptionConfigurationInputTypeDef",
+    },
+    total=False,
+)
+
+class StartDeliveryStreamEncryptionInputRequestTypeDef(
+    _RequiredStartDeliveryStreamEncryptionInputRequestTypeDef,
+    _OptionalStartDeliveryStreamEncryptionInputRequestTypeDef,
+):
+    pass
+
+StopDeliveryStreamEncryptionInputRequestTypeDef = TypedDict(
+    "StopDeliveryStreamEncryptionInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+    },
+)
+
+TagDeliveryStreamInputRequestTypeDef = TypedDict(
+    "TagDeliveryStreamInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+_RequiredTagTypeDef = TypedDict(
+    "_RequiredTagTypeDef",
+    {
+        "Key": str,
+    },
+)
+_OptionalTagTypeDef = TypedDict(
+    "_OptionalTagTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
+
+class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
+    pass
+
+UntagDeliveryStreamInputRequestTypeDef = TypedDict(
+    "UntagDeliveryStreamInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+        "TagKeys": List[str],
+    },
+)
+
+_RequiredUpdateDestinationInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateDestinationInputRequestTypeDef",
+    {
+        "DeliveryStreamName": str,
+        "CurrentDeliveryStreamVersionId": str,
+        "DestinationId": str,
+    },
+)
+_OptionalUpdateDestinationInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateDestinationInputRequestTypeDef",
+    {
+        "S3DestinationUpdate": "S3DestinationUpdateTypeDef",
+        "ExtendedS3DestinationUpdate": "ExtendedS3DestinationUpdateTypeDef",
+        "RedshiftDestinationUpdate": "RedshiftDestinationUpdateTypeDef",
+        "ElasticsearchDestinationUpdate": "ElasticsearchDestinationUpdateTypeDef",
+        "SplunkDestinationUpdate": "SplunkDestinationUpdateTypeDef",
+        "HttpEndpointDestinationUpdate": "HttpEndpointDestinationUpdateTypeDef",
+    },
+    total=False,
+)
+
+class UpdateDestinationInputRequestTypeDef(
+    _RequiredUpdateDestinationInputRequestTypeDef, _OptionalUpdateDestinationInputRequestTypeDef
+):
+    pass
+
+VpcConfigurationDescriptionTypeDef = TypedDict(
+    "VpcConfigurationDescriptionTypeDef",
+    {
+        "SubnetIds": List[str],
+        "RoleARN": str,
+        "SecurityGroupIds": List[str],
+        "VpcId": str,
+    },
+)
+
+VpcConfigurationTypeDef = TypedDict(
+    "VpcConfigurationTypeDef",
+    {
+        "SubnetIds": List[str],
+        "RoleARN": str,
+        "SecurityGroupIds": List[str],
+    },
 )

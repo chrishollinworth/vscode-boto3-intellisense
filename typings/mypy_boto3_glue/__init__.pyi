@@ -55,8 +55,8 @@ Usage::
     list_schemas_paginator: ListSchemasPaginator = client.get_paginator("list_schemas")
     ```
 """
-from mypy_boto3_glue.client import GlueClient
-from mypy_boto3_glue.paginator import (
+from .client import GlueClient
+from .paginator import (
     GetClassifiersPaginator,
     GetConnectionsPaginator,
     GetCrawlerMetricsPaginator,
@@ -79,7 +79,6 @@ from mypy_boto3_glue.paginator import (
 )
 
 Client = GlueClient
-
 
 __all__ = (
     "Client",

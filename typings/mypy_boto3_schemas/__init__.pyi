@@ -30,18 +30,17 @@ Usage::
     search_schemas_paginator: SearchSchemasPaginator = client.get_paginator("search_schemas")
     ```
 """
-from mypy_boto3_schemas.client import SchemasClient
-from mypy_boto3_schemas.paginator import (
+from .client import SchemasClient
+from .paginator import (
     ListDiscoverersPaginator,
     ListRegistriesPaginator,
     ListSchemasPaginator,
     ListSchemaVersionsPaginator,
     SearchSchemasPaginator,
 )
-from mypy_boto3_schemas.waiter import CodeBindingExistsWaiter
+from .waiter import CodeBindingExistsWaiter
 
 Client = SchemasClient
-
 
 __all__ = (
     "Client",

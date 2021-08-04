@@ -60,8 +60,8 @@ Usage::
     describe_users_paginator: DescribeUsersPaginator = client.get_paginator("describe_users")
     ```
 """
-from mypy_boto3_elasticache.client import ElastiCacheClient
-from mypy_boto3_elasticache.paginator import (
+from .client import ElastiCacheClient
+from .paginator import (
     DescribeCacheClustersPaginator,
     DescribeCacheEngineVersionsPaginator,
     DescribeCacheParameterGroupsPaginator,
@@ -80,7 +80,7 @@ from mypy_boto3_elasticache.paginator import (
     DescribeUserGroupsPaginator,
     DescribeUsersPaginator,
 )
-from mypy_boto3_elasticache.waiter import (
+from .waiter import (
     CacheClusterAvailableWaiter,
     CacheClusterDeletedWaiter,
     ReplicationGroupAvailableWaiter,
@@ -88,7 +88,6 @@ from mypy_boto3_elasticache.waiter import (
 )
 
 Client = ElastiCacheClient
-
 
 __all__ = (
     "CacheClusterAvailableWaiter",

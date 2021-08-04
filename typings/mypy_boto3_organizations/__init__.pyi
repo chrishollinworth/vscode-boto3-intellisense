@@ -49,8 +49,8 @@ Usage::
     list_targets_for_policy_paginator: ListTargetsForPolicyPaginator = client.get_paginator("list_targets_for_policy")
     ```
 """
-from mypy_boto3_organizations.client import OrganizationsClient
-from mypy_boto3_organizations.paginator import (
+from .client import OrganizationsClient
+from .paginator import (
     ListAccountsForParentPaginator,
     ListAccountsPaginator,
     ListAWSServiceAccessForOrganizationPaginator,
@@ -70,7 +70,6 @@ from mypy_boto3_organizations.paginator import (
 )
 
 Client = OrganizationsClient
-
 
 __all__ = (
     "Client",

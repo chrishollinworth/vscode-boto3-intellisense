@@ -30,17 +30,16 @@ Usage::
     list_streams_paginator: ListStreamsPaginator = client.get_paginator("list_streams")
     ```
 """
-from mypy_boto3_kinesis.client import KinesisClient
-from mypy_boto3_kinesis.paginator import (
+from .client import KinesisClient
+from .paginator import (
     DescribeStreamPaginator,
     ListShardsPaginator,
     ListStreamConsumersPaginator,
     ListStreamsPaginator,
 )
-from mypy_boto3_kinesis.waiter import StreamExistsWaiter, StreamNotExistsWaiter
+from .waiter import StreamExistsWaiter, StreamNotExistsWaiter
 
 Client = KinesisClient
-
 
 __all__ = (
     "Client",

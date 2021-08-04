@@ -37,22 +37,20 @@ Usage::
     list_metrics_paginator: ListMetricsPaginator = client.get_paginator("list_metrics")
     ```
 """
-from mypy_boto3_cloudwatch.client import CloudWatchClient
-from mypy_boto3_cloudwatch.paginator import (
+from .client import CloudWatchClient
+from .paginator import (
     DescribeAlarmHistoryPaginator,
     DescribeAlarmsPaginator,
     GetMetricDataPaginator,
     ListDashboardsPaginator,
     ListMetricsPaginator,
 )
-from mypy_boto3_cloudwatch.service_resource import CloudWatchServiceResource
-from mypy_boto3_cloudwatch.waiter import AlarmExistsWaiter, CompositeAlarmExistsWaiter
+from .service_resource import CloudWatchServiceResource
+from .waiter import AlarmExistsWaiter, CompositeAlarmExistsWaiter
 
 Client = CloudWatchClient
 
-
 ServiceResource = CloudWatchServiceResource
-
 
 __all__ = (
     "AlarmExistsWaiter",

@@ -1,5 +1,7 @@
 """
-Main interface for appstream service client paginators.
+Type annotations for appstream service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html)
 
 Usage::
 
@@ -34,12 +36,12 @@ Usage::
     list_associated_stacks_paginator: ListAssociatedStacksPaginator = client.get_paginator("list_associated_stacks")
     ```
 """
-import sys
 from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_appstream.type_defs import (
+from .literals import AuthenticationTypeType, VisibilityTypeType
+from .type_defs import (
     DescribeDirectoryConfigsResultTypeDef,
     DescribeFleetsResultTypeDef,
     DescribeImageBuildersResultTypeDef,
@@ -52,12 +54,6 @@ from mypy_boto3_appstream.type_defs import (
     ListAssociatedStacksResultTypeDef,
     PaginatorConfigTypeDef,
 )
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
 
 __all__ = (
     "DescribeDirectoryConfigsPaginator",
@@ -72,147 +68,161 @@ __all__ = (
     "ListAssociatedStacksPaginator",
 )
 
-
 class DescribeDirectoryConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDirectoryConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describedirectoryconfigspaginator)
     """
 
     def paginate(
-        self, DirectoryNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, DirectoryNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDirectoryConfigsResultTypeDef]:
         """
-        [DescribeDirectoryConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describedirectoryconfigspaginator)
         """
-
 
 class DescribeFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describefleetspaginator)
     """
 
     def paginate(
-        self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFleetsResultTypeDef]:
         """
-        [DescribeFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeFleets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describefleetspaginator)
         """
-
 
 class DescribeImageBuildersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImageBuilders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeimagebuilderspaginator)
     """
 
     def paginate(
-        self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeImageBuildersResultTypeDef]:
         """
-        [DescribeImageBuilders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeimagebuilderspaginator)
         """
-
 
 class DescribeImagesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeimagespaginator)
     """
 
     def paginate(
         self,
+        *,
         Names: List[str] = None,
         Arns: List[str] = None,
-        Type: Literal["PUBLIC", "PRIVATE", "SHARED"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        Type: VisibilityTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeImagesResultTypeDef]:
         """
-        [DescribeImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImages.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeImages.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeimagespaginator)
         """
-
 
 class DescribeSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describesessionspaginator)
     """
 
     def paginate(
         self,
+        *,
         StackName: str,
         FleetName: str,
         UserId: str = None,
-        AuthenticationType: Literal["API", "SAML", "USERPOOL"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        AuthenticationType: AuthenticationTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSessionsResultTypeDef]:
         """
-        [DescribeSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeSessions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeSessions.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describesessionspaginator)
         """
-
 
 class DescribeStacksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describestackspaginator)
     """
 
     def paginate(
-        self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStacksResultTypeDef]:
         """
-        [DescribeStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeStacks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeStacks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describestackspaginator)
         """
-
 
 class DescribeUserStackAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeUserStackAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeuserstackassociationspaginator)
     """
 
     def paginate(
         self,
+        *,
         StackName: str = None,
         UserName: str = None,
-        AuthenticationType: Literal["API", "SAML", "USERPOOL"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        AuthenticationType: AuthenticationTypeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeUserStackAssociationsResultTypeDef]:
         """
-        [DescribeUserStackAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeuserstackassociationspaginator)
         """
-
 
 class DescribeUsersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeuserspaginator)
     """
 
     def paginate(
         self,
-        AuthenticationType: Literal["API", "SAML", "USERPOOL"],
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        *,
+        AuthenticationType: AuthenticationTypeType,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeUsersResultTypeDef]:
         """
-        [DescribeUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUsers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.DescribeUsers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#describeuserspaginator)
         """
-
 
 class ListAssociatedFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#listassociatedfleetspaginator)
     """
 
     def paginate(
-        self, StackName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, StackName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedFleetsResultTypeDef]:
         """
-        [ListAssociatedFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#listassociatedfleetspaginator)
         """
-
 
 class ListAssociatedStacksPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#listassociatedstackspaginator)
     """
 
     def paginate(
-        self, FleetName: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, FleetName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedStacksResultTypeDef]:
         """
-        [ListAssociatedStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appstream/paginators.html#listassociatedstackspaginator)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for network-firewall service client paginators.
+Type annotations for network-firewall service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html)
 
 Usage::
 
@@ -26,7 +28,7 @@ from typing import Iterator, List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_network_firewall.type_defs import (
+from .type_defs import (
     ListFirewallPoliciesResponseTypeDef,
     ListFirewallsResponseTypeDef,
     ListRuleGroupsResponseTypeDef,
@@ -41,54 +43,58 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-
 class ListFirewallPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFirewallPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listfirewallpoliciespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFirewallPoliciesResponseTypeDef]:
         """
-        [ListFirewallPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listfirewallpoliciespaginator)
         """
-
 
 class ListFirewallsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFirewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listfirewallspaginator)
     """
 
     def paginate(
-        self, VpcIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, VpcIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFirewallsResponseTypeDef]:
         """
-        [ListFirewalls.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listfirewallspaginator)
         """
-
 
 class ListRuleGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listrulegroupspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRuleGroupsResponseTypeDef]:
         """
-        [ListRuleGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listrulegroupspaginator)
         """
-
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listtagsforresourcepaginator)
     """
 
     def paginate(
-        self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/paginators.html#listtagsforresourcepaginator)
         """

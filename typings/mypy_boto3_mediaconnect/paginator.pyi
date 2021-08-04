@@ -1,5 +1,7 @@
 """
-Main interface for mediaconnect service client paginators.
+Type annotations for mediaconnect service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html)
 
 Usage::
 
@@ -26,7 +28,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_mediaconnect.type_defs import (
+from .type_defs import (
     ListEntitlementsResponseTypeDef,
     ListFlowsResponseTypeDef,
     ListOfferingsResponseTypeDef,
@@ -41,54 +43,58 @@ __all__ = (
     "ListReservationsPaginator",
 )
 
-
 class ListEntitlementsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listentitlementspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEntitlementsResponseTypeDef]:
         """
-        [ListEntitlements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listentitlementspaginator)
         """
-
 
 class ListFlowsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listflowspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFlowsResponseTypeDef]:
         """
-        [ListFlows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listflowspaginator)
         """
-
 
 class ListOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listofferingspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingsResponseTypeDef]:
         """
-        [ListOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listofferingspaginator)
         """
-
 
 class ListReservationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listreservationspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListReservationsResponseTypeDef]:
         """
-        [ListReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listreservationspaginator)
         """

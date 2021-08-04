@@ -1,5 +1,7 @@
 """
-Main interface for rekognition service type definitions.
+Type annotations for rekognition service type definitions.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/type_defs.html)
 
 Usage::
 
@@ -13,15 +15,38 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from botocore.response import StreamingBody
+
+from .literals import (
+    AttributeType,
+    BodyPartType,
+    CelebrityRecognitionSortByType,
+    ContentClassifierType,
+    ContentModerationSortByType,
+    EmotionNameType,
+    FaceAttributesType,
+    FaceSearchSortByType,
+    GenderTypeType,
+    LabelDetectionSortByType,
+    LandmarkTypeType,
+    OrientationCorrectionType,
+    PersonTrackingSortByType,
+    ProjectStatusType,
+    ProjectVersionStatusType,
+    ProtectiveEquipmentTypeType,
+    QualityFilterType,
+    ReasonType,
+    SegmentTypeType,
+    StreamProcessorStatusType,
+    TechnicalCueTypeType,
+    TextTypesType,
+    VideoJobStatusType,
+)
+
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
-
 
 __all__ = (
     "AgeRangeTypeDef",
@@ -33,11 +58,51 @@ __all__ = (
     "CelebrityRecognitionTypeDef",
     "CelebrityTypeDef",
     "CompareFacesMatchTypeDef",
+    "CompareFacesRequestRequestTypeDef",
+    "CompareFacesResponseTypeDef",
     "ComparedFaceTypeDef",
     "ComparedSourceImageFaceTypeDef",
     "ContentModerationDetectionTypeDef",
     "CoversBodyPartTypeDef",
+    "CreateCollectionRequestRequestTypeDef",
+    "CreateCollectionResponseTypeDef",
+    "CreateProjectRequestRequestTypeDef",
+    "CreateProjectResponseTypeDef",
+    "CreateProjectVersionRequestRequestTypeDef",
+    "CreateProjectVersionResponseTypeDef",
+    "CreateStreamProcessorRequestRequestTypeDef",
+    "CreateStreamProcessorResponseTypeDef",
     "CustomLabelTypeDef",
+    "DeleteCollectionRequestRequestTypeDef",
+    "DeleteCollectionResponseTypeDef",
+    "DeleteFacesRequestRequestTypeDef",
+    "DeleteFacesResponseTypeDef",
+    "DeleteProjectRequestRequestTypeDef",
+    "DeleteProjectResponseTypeDef",
+    "DeleteProjectVersionRequestRequestTypeDef",
+    "DeleteProjectVersionResponseTypeDef",
+    "DeleteStreamProcessorRequestRequestTypeDef",
+    "DescribeCollectionRequestRequestTypeDef",
+    "DescribeCollectionResponseTypeDef",
+    "DescribeProjectVersionsRequestRequestTypeDef",
+    "DescribeProjectVersionsResponseTypeDef",
+    "DescribeProjectsRequestRequestTypeDef",
+    "DescribeProjectsResponseTypeDef",
+    "DescribeStreamProcessorRequestRequestTypeDef",
+    "DescribeStreamProcessorResponseTypeDef",
+    "DetectCustomLabelsRequestRequestTypeDef",
+    "DetectCustomLabelsResponseTypeDef",
+    "DetectFacesRequestRequestTypeDef",
+    "DetectFacesResponseTypeDef",
+    "DetectLabelsRequestRequestTypeDef",
+    "DetectLabelsResponseTypeDef",
+    "DetectModerationLabelsRequestRequestTypeDef",
+    "DetectModerationLabelsResponseTypeDef",
+    "DetectProtectiveEquipmentRequestRequestTypeDef",
+    "DetectProtectiveEquipmentResponseTypeDef",
+    "DetectTextFiltersTypeDef",
+    "DetectTextRequestRequestTypeDef",
+    "DetectTextResponseTypeDef",
     "DetectionFilterTypeDef",
     "EmotionTypeDef",
     "EquipmentDetectionTypeDef",
@@ -52,20 +117,52 @@ __all__ = (
     "FaceTypeDef",
     "GenderTypeDef",
     "GeometryTypeDef",
+    "GetCelebrityInfoRequestRequestTypeDef",
+    "GetCelebrityInfoResponseTypeDef",
+    "GetCelebrityRecognitionRequestRequestTypeDef",
+    "GetCelebrityRecognitionResponseTypeDef",
+    "GetContentModerationRequestRequestTypeDef",
+    "GetContentModerationResponseTypeDef",
+    "GetFaceDetectionRequestRequestTypeDef",
+    "GetFaceDetectionResponseTypeDef",
+    "GetFaceSearchRequestRequestTypeDef",
+    "GetFaceSearchResponseTypeDef",
+    "GetLabelDetectionRequestRequestTypeDef",
+    "GetLabelDetectionResponseTypeDef",
+    "GetPersonTrackingRequestRequestTypeDef",
+    "GetPersonTrackingResponseTypeDef",
+    "GetSegmentDetectionRequestRequestTypeDef",
+    "GetSegmentDetectionResponseTypeDef",
+    "GetTextDetectionRequestRequestTypeDef",
+    "GetTextDetectionResponseTypeDef",
     "GroundTruthManifestTypeDef",
     "HumanLoopActivationOutputTypeDef",
+    "HumanLoopConfigTypeDef",
     "HumanLoopDataAttributesTypeDef",
     "ImageQualityTypeDef",
+    "ImageTypeDef",
+    "IndexFacesRequestRequestTypeDef",
+    "IndexFacesResponseTypeDef",
     "InstanceTypeDef",
     "KinesisDataStreamTypeDef",
     "KinesisVideoStreamTypeDef",
     "LabelDetectionTypeDef",
     "LabelTypeDef",
     "LandmarkTypeDef",
+    "ListCollectionsRequestRequestTypeDef",
+    "ListCollectionsResponseTypeDef",
+    "ListFacesRequestRequestTypeDef",
+    "ListFacesResponseTypeDef",
+    "ListStreamProcessorsRequestRequestTypeDef",
+    "ListStreamProcessorsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ModerationLabelTypeDef",
     "MouthOpenTypeDef",
     "MustacheTypeDef",
+    "NotificationChannelTypeDef",
     "OutputConfigTypeDef",
+    "PaginatorConfigTypeDef",
     "ParentTypeDef",
     "PersonDetailTypeDef",
     "PersonDetectionTypeDef",
@@ -76,22 +173,54 @@ __all__ = (
     "ProjectVersionDescriptionTypeDef",
     "ProtectiveEquipmentBodyPartTypeDef",
     "ProtectiveEquipmentPersonTypeDef",
+    "ProtectiveEquipmentSummarizationAttributesTypeDef",
     "ProtectiveEquipmentSummaryTypeDef",
+    "RecognizeCelebritiesRequestRequestTypeDef",
+    "RecognizeCelebritiesResponseTypeDef",
     "RegionOfInterestTypeDef",
-    "ResponseMetadata",
+    "ResponseMetadataTypeDef",
     "S3ObjectTypeDef",
+    "SearchFacesByImageRequestRequestTypeDef",
+    "SearchFacesByImageResponseTypeDef",
+    "SearchFacesRequestRequestTypeDef",
+    "SearchFacesResponseTypeDef",
     "SegmentDetectionTypeDef",
     "SegmentTypeInfoTypeDef",
     "ShotSegmentTypeDef",
     "SmileTypeDef",
+    "StartCelebrityRecognitionRequestRequestTypeDef",
+    "StartCelebrityRecognitionResponseTypeDef",
+    "StartContentModerationRequestRequestTypeDef",
+    "StartContentModerationResponseTypeDef",
+    "StartFaceDetectionRequestRequestTypeDef",
+    "StartFaceDetectionResponseTypeDef",
+    "StartFaceSearchRequestRequestTypeDef",
+    "StartFaceSearchResponseTypeDef",
+    "StartLabelDetectionRequestRequestTypeDef",
+    "StartLabelDetectionResponseTypeDef",
+    "StartPersonTrackingRequestRequestTypeDef",
+    "StartPersonTrackingResponseTypeDef",
+    "StartProjectVersionRequestRequestTypeDef",
+    "StartProjectVersionResponseTypeDef",
+    "StartSegmentDetectionFiltersTypeDef",
+    "StartSegmentDetectionRequestRequestTypeDef",
+    "StartSegmentDetectionResponseTypeDef",
     "StartShotDetectionFilterTypeDef",
+    "StartStreamProcessorRequestRequestTypeDef",
     "StartTechnicalCueDetectionFilterTypeDef",
+    "StartTextDetectionFiltersTypeDef",
+    "StartTextDetectionRequestRequestTypeDef",
+    "StartTextDetectionResponseTypeDef",
+    "StopProjectVersionRequestRequestTypeDef",
+    "StopProjectVersionResponseTypeDef",
+    "StopStreamProcessorRequestRequestTypeDef",
     "StreamProcessorInputTypeDef",
     "StreamProcessorOutputTypeDef",
     "StreamProcessorSettingsTypeDef",
     "StreamProcessorTypeDef",
     "SummaryTypeDef",
     "SunglassesTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TechnicalCueSegmentTypeDef",
     "TestingDataResultTypeDef",
     "TestingDataTypeDef",
@@ -100,82 +229,58 @@ __all__ = (
     "TrainingDataResultTypeDef",
     "TrainingDataTypeDef",
     "UnindexedFaceTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "ValidationDataTypeDef",
     "VideoMetadataTypeDef",
-    "CompareFacesResponseTypeDef",
-    "CreateCollectionResponseTypeDef",
-    "CreateProjectResponseTypeDef",
-    "CreateProjectVersionResponseTypeDef",
-    "CreateStreamProcessorResponseTypeDef",
-    "DeleteCollectionResponseTypeDef",
-    "DeleteFacesResponseTypeDef",
-    "DeleteProjectResponseTypeDef",
-    "DeleteProjectVersionResponseTypeDef",
-    "DescribeCollectionResponseTypeDef",
-    "DescribeProjectVersionsResponseTypeDef",
-    "DescribeProjectsResponseTypeDef",
-    "DescribeStreamProcessorResponseTypeDef",
-    "DetectCustomLabelsResponseTypeDef",
-    "DetectFacesResponseTypeDef",
-    "DetectLabelsResponseTypeDef",
-    "DetectModerationLabelsResponseTypeDef",
-    "DetectProtectiveEquipmentResponseTypeDef",
-    "DetectTextFiltersTypeDef",
-    "DetectTextResponseTypeDef",
-    "GetCelebrityInfoResponseTypeDef",
-    "GetCelebrityRecognitionResponseTypeDef",
-    "GetContentModerationResponseTypeDef",
-    "GetFaceDetectionResponseTypeDef",
-    "GetFaceSearchResponseTypeDef",
-    "GetLabelDetectionResponseTypeDef",
-    "GetPersonTrackingResponseTypeDef",
-    "GetSegmentDetectionResponseTypeDef",
-    "GetTextDetectionResponseTypeDef",
-    "HumanLoopConfigTypeDef",
-    "ImageTypeDef",
-    "IndexFacesResponseTypeDef",
-    "ListCollectionsResponseTypeDef",
-    "ListFacesResponseTypeDef",
-    "ListStreamProcessorsResponseTypeDef",
-    "NotificationChannelTypeDef",
-    "PaginatorConfigTypeDef",
-    "ProtectiveEquipmentSummarizationAttributesTypeDef",
-    "RecognizeCelebritiesResponseTypeDef",
-    "SearchFacesByImageResponseTypeDef",
-    "SearchFacesResponseTypeDef",
-    "StartCelebrityRecognitionResponseTypeDef",
-    "StartContentModerationResponseTypeDef",
-    "StartFaceDetectionResponseTypeDef",
-    "StartFaceSearchResponseTypeDef",
-    "StartLabelDetectionResponseTypeDef",
-    "StartPersonTrackingResponseTypeDef",
-    "StartProjectVersionResponseTypeDef",
-    "StartSegmentDetectionFiltersTypeDef",
-    "StartSegmentDetectionResponseTypeDef",
-    "StartTextDetectionFiltersTypeDef",
-    "StartTextDetectionResponseTypeDef",
-    "StopProjectVersionResponseTypeDef",
     "VideoTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AgeRangeTypeDef = TypedDict("AgeRangeTypeDef", {"Low": int, "High": int}, total=False)
+AgeRangeTypeDef = TypedDict(
+    "AgeRangeTypeDef",
+    {
+        "Low": int,
+        "High": int,
+    },
+    total=False,
+)
 
 AssetTypeDef = TypedDict(
-    "AssetTypeDef", {"GroundTruthManifest": "GroundTruthManifestTypeDef"}, total=False
+    "AssetTypeDef",
+    {
+        "GroundTruthManifest": "GroundTruthManifestTypeDef",
+    },
+    total=False,
 )
 
 AudioMetadataTypeDef = TypedDict(
     "AudioMetadataTypeDef",
-    {"Codec": str, "DurationMillis": int, "SampleRate": int, "NumberOfChannels": int},
+    {
+        "Codec": str,
+        "DurationMillis": int,
+        "SampleRate": int,
+        "NumberOfChannels": int,
+    },
     total=False,
 )
 
-BeardTypeDef = TypedDict("BeardTypeDef", {"Value": bool, "Confidence": float}, total=False)
+BeardTypeDef = TypedDict(
+    "BeardTypeDef",
+    {
+        "Value": bool,
+        "Confidence": float,
+    },
+    total=False,
+)
 
 BoundingBoxTypeDef = TypedDict(
     "BoundingBoxTypeDef",
-    {"Width": float, "Height": float, "Left": float, "Top": float},
+    {
+        "Width": float,
+        "Height": float,
+        "Left": float,
+        "Top": float,
+    },
     total=False,
 )
 
@@ -194,7 +299,10 @@ CelebrityDetailTypeDef = TypedDict(
 
 CelebrityRecognitionTypeDef = TypedDict(
     "CelebrityRecognitionTypeDef",
-    {"Timestamp": int, "Celebrity": "CelebrityDetailTypeDef"},
+    {
+        "Timestamp": int,
+        "Celebrity": "CelebrityDetailTypeDef",
+    },
     total=False,
 )
 
@@ -211,7 +319,45 @@ CelebrityTypeDef = TypedDict(
 )
 
 CompareFacesMatchTypeDef = TypedDict(
-    "CompareFacesMatchTypeDef", {"Similarity": float, "Face": "ComparedFaceTypeDef"}, total=False
+    "CompareFacesMatchTypeDef",
+    {
+        "Similarity": float,
+        "Face": "ComparedFaceTypeDef",
+    },
+    total=False,
+)
+
+_RequiredCompareFacesRequestRequestTypeDef = TypedDict(
+    "_RequiredCompareFacesRequestRequestTypeDef",
+    {
+        "SourceImage": "ImageTypeDef",
+        "TargetImage": "ImageTypeDef",
+    },
+)
+_OptionalCompareFacesRequestRequestTypeDef = TypedDict(
+    "_OptionalCompareFacesRequestRequestTypeDef",
+    {
+        "SimilarityThreshold": float,
+        "QualityFilter": QualityFilterType,
+    },
+    total=False,
+)
+
+class CompareFacesRequestRequestTypeDef(
+    _RequiredCompareFacesRequestRequestTypeDef, _OptionalCompareFacesRequestRequestTypeDef
+):
+    pass
+
+CompareFacesResponseTypeDef = TypedDict(
+    "CompareFacesResponseTypeDef",
+    {
+        "SourceImageFace": "ComparedSourceImageFaceTypeDef",
+        "FaceMatches": List["CompareFacesMatchTypeDef"],
+        "UnmatchedFaces": List["ComparedFaceTypeDef"],
+        "SourceImageOrientationCorrection": OrientationCorrectionType,
+        "TargetImageOrientationCorrection": OrientationCorrectionType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ComparedFaceTypeDef = TypedDict(
@@ -228,38 +374,509 @@ ComparedFaceTypeDef = TypedDict(
 
 ComparedSourceImageFaceTypeDef = TypedDict(
     "ComparedSourceImageFaceTypeDef",
-    {"BoundingBox": "BoundingBoxTypeDef", "Confidence": float},
+    {
+        "BoundingBox": "BoundingBoxTypeDef",
+        "Confidence": float,
+    },
     total=False,
 )
 
 ContentModerationDetectionTypeDef = TypedDict(
     "ContentModerationDetectionTypeDef",
-    {"Timestamp": int, "ModerationLabel": "ModerationLabelTypeDef"},
+    {
+        "Timestamp": int,
+        "ModerationLabel": "ModerationLabelTypeDef",
+    },
     total=False,
 )
 
 CoversBodyPartTypeDef = TypedDict(
-    "CoversBodyPartTypeDef", {"Confidence": float, "Value": bool}, total=False
+    "CoversBodyPartTypeDef",
+    {
+        "Confidence": float,
+        "Value": bool,
+    },
+    total=False,
+)
+
+_RequiredCreateCollectionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCollectionRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+    },
+)
+_OptionalCreateCollectionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCollectionRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateCollectionRequestRequestTypeDef(
+    _RequiredCreateCollectionRequestRequestTypeDef, _OptionalCreateCollectionRequestRequestTypeDef
+):
+    pass
+
+CreateCollectionResponseTypeDef = TypedDict(
+    "CreateCollectionResponseTypeDef",
+    {
+        "StatusCode": int,
+        "CollectionArn": str,
+        "FaceModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateProjectRequestRequestTypeDef = TypedDict(
+    "CreateProjectRequestRequestTypeDef",
+    {
+        "ProjectName": str,
+    },
+)
+
+CreateProjectResponseTypeDef = TypedDict(
+    "CreateProjectResponseTypeDef",
+    {
+        "ProjectArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateProjectVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateProjectVersionRequestRequestTypeDef",
+    {
+        "ProjectArn": str,
+        "VersionName": str,
+        "OutputConfig": "OutputConfigTypeDef",
+        "TrainingData": "TrainingDataTypeDef",
+        "TestingData": "TestingDataTypeDef",
+    },
+)
+_OptionalCreateProjectVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateProjectVersionRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "KmsKeyId": str,
+    },
+    total=False,
+)
+
+class CreateProjectVersionRequestRequestTypeDef(
+    _RequiredCreateProjectVersionRequestRequestTypeDef,
+    _OptionalCreateProjectVersionRequestRequestTypeDef,
+):
+    pass
+
+CreateProjectVersionResponseTypeDef = TypedDict(
+    "CreateProjectVersionResponseTypeDef",
+    {
+        "ProjectVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateStreamProcessorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateStreamProcessorRequestRequestTypeDef",
+    {
+        "Input": "StreamProcessorInputTypeDef",
+        "Output": "StreamProcessorOutputTypeDef",
+        "Name": str,
+        "Settings": "StreamProcessorSettingsTypeDef",
+        "RoleArn": str,
+    },
+)
+_OptionalCreateStreamProcessorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateStreamProcessorRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateStreamProcessorRequestRequestTypeDef(
+    _RequiredCreateStreamProcessorRequestRequestTypeDef,
+    _OptionalCreateStreamProcessorRequestRequestTypeDef,
+):
+    pass
+
+CreateStreamProcessorResponseTypeDef = TypedDict(
+    "CreateStreamProcessorResponseTypeDef",
+    {
+        "StreamProcessorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CustomLabelTypeDef = TypedDict(
     "CustomLabelTypeDef",
-    {"Name": str, "Confidence": float, "Geometry": "GeometryTypeDef"},
+    {
+        "Name": str,
+        "Confidence": float,
+        "Geometry": "GeometryTypeDef",
+    },
     total=False,
+)
+
+DeleteCollectionRequestRequestTypeDef = TypedDict(
+    "DeleteCollectionRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+    },
+)
+
+DeleteCollectionResponseTypeDef = TypedDict(
+    "DeleteCollectionResponseTypeDef",
+    {
+        "StatusCode": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteFacesRequestRequestTypeDef = TypedDict(
+    "DeleteFacesRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+        "FaceIds": List[str],
+    },
+)
+
+DeleteFacesResponseTypeDef = TypedDict(
+    "DeleteFacesResponseTypeDef",
+    {
+        "DeletedFaces": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteProjectRequestRequestTypeDef = TypedDict(
+    "DeleteProjectRequestRequestTypeDef",
+    {
+        "ProjectArn": str,
+    },
+)
+
+DeleteProjectResponseTypeDef = TypedDict(
+    "DeleteProjectResponseTypeDef",
+    {
+        "Status": ProjectStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteProjectVersionRequestRequestTypeDef = TypedDict(
+    "DeleteProjectVersionRequestRequestTypeDef",
+    {
+        "ProjectVersionArn": str,
+    },
+)
+
+DeleteProjectVersionResponseTypeDef = TypedDict(
+    "DeleteProjectVersionResponseTypeDef",
+    {
+        "Status": ProjectVersionStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteStreamProcessorRequestRequestTypeDef = TypedDict(
+    "DeleteStreamProcessorRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DescribeCollectionRequestRequestTypeDef = TypedDict(
+    "DescribeCollectionRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+    },
+)
+
+DescribeCollectionResponseTypeDef = TypedDict(
+    "DescribeCollectionResponseTypeDef",
+    {
+        "FaceCount": int,
+        "FaceModelVersion": str,
+        "CollectionARN": str,
+        "CreationTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeProjectVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeProjectVersionsRequestRequestTypeDef",
+    {
+        "ProjectArn": str,
+    },
+)
+_OptionalDescribeProjectVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeProjectVersionsRequestRequestTypeDef",
+    {
+        "VersionNames": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeProjectVersionsRequestRequestTypeDef(
+    _RequiredDescribeProjectVersionsRequestRequestTypeDef,
+    _OptionalDescribeProjectVersionsRequestRequestTypeDef,
+):
+    pass
+
+DescribeProjectVersionsResponseTypeDef = TypedDict(
+    "DescribeProjectVersionsResponseTypeDef",
+    {
+        "ProjectVersionDescriptions": List["ProjectVersionDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeProjectsRequestRequestTypeDef = TypedDict(
+    "DescribeProjectsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeProjectsResponseTypeDef = TypedDict(
+    "DescribeProjectsResponseTypeDef",
+    {
+        "ProjectDescriptions": List["ProjectDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeStreamProcessorRequestRequestTypeDef = TypedDict(
+    "DescribeStreamProcessorRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DescribeStreamProcessorResponseTypeDef = TypedDict(
+    "DescribeStreamProcessorResponseTypeDef",
+    {
+        "Name": str,
+        "StreamProcessorArn": str,
+        "Status": StreamProcessorStatusType,
+        "StatusMessage": str,
+        "CreationTimestamp": datetime,
+        "LastUpdateTimestamp": datetime,
+        "Input": "StreamProcessorInputTypeDef",
+        "Output": "StreamProcessorOutputTypeDef",
+        "RoleArn": str,
+        "Settings": "StreamProcessorSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDetectCustomLabelsRequestRequestTypeDef = TypedDict(
+    "_RequiredDetectCustomLabelsRequestRequestTypeDef",
+    {
+        "ProjectVersionArn": str,
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalDetectCustomLabelsRequestRequestTypeDef = TypedDict(
+    "_OptionalDetectCustomLabelsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "MinConfidence": float,
+    },
+    total=False,
+)
+
+class DetectCustomLabelsRequestRequestTypeDef(
+    _RequiredDetectCustomLabelsRequestRequestTypeDef,
+    _OptionalDetectCustomLabelsRequestRequestTypeDef,
+):
+    pass
+
+DetectCustomLabelsResponseTypeDef = TypedDict(
+    "DetectCustomLabelsResponseTypeDef",
+    {
+        "CustomLabels": List["CustomLabelTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDetectFacesRequestRequestTypeDef = TypedDict(
+    "_RequiredDetectFacesRequestRequestTypeDef",
+    {
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalDetectFacesRequestRequestTypeDef = TypedDict(
+    "_OptionalDetectFacesRequestRequestTypeDef",
+    {
+        "Attributes": List[AttributeType],
+    },
+    total=False,
+)
+
+class DetectFacesRequestRequestTypeDef(
+    _RequiredDetectFacesRequestRequestTypeDef, _OptionalDetectFacesRequestRequestTypeDef
+):
+    pass
+
+DetectFacesResponseTypeDef = TypedDict(
+    "DetectFacesResponseTypeDef",
+    {
+        "FaceDetails": List["FaceDetailTypeDef"],
+        "OrientationCorrection": OrientationCorrectionType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDetectLabelsRequestRequestTypeDef = TypedDict(
+    "_RequiredDetectLabelsRequestRequestTypeDef",
+    {
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalDetectLabelsRequestRequestTypeDef = TypedDict(
+    "_OptionalDetectLabelsRequestRequestTypeDef",
+    {
+        "MaxLabels": int,
+        "MinConfidence": float,
+    },
+    total=False,
+)
+
+class DetectLabelsRequestRequestTypeDef(
+    _RequiredDetectLabelsRequestRequestTypeDef, _OptionalDetectLabelsRequestRequestTypeDef
+):
+    pass
+
+DetectLabelsResponseTypeDef = TypedDict(
+    "DetectLabelsResponseTypeDef",
+    {
+        "Labels": List["LabelTypeDef"],
+        "OrientationCorrection": OrientationCorrectionType,
+        "LabelModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDetectModerationLabelsRequestRequestTypeDef = TypedDict(
+    "_RequiredDetectModerationLabelsRequestRequestTypeDef",
+    {
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalDetectModerationLabelsRequestRequestTypeDef = TypedDict(
+    "_OptionalDetectModerationLabelsRequestRequestTypeDef",
+    {
+        "MinConfidence": float,
+        "HumanLoopConfig": "HumanLoopConfigTypeDef",
+    },
+    total=False,
+)
+
+class DetectModerationLabelsRequestRequestTypeDef(
+    _RequiredDetectModerationLabelsRequestRequestTypeDef,
+    _OptionalDetectModerationLabelsRequestRequestTypeDef,
+):
+    pass
+
+DetectModerationLabelsResponseTypeDef = TypedDict(
+    "DetectModerationLabelsResponseTypeDef",
+    {
+        "ModerationLabels": List["ModerationLabelTypeDef"],
+        "ModerationModelVersion": str,
+        "HumanLoopActivationOutput": "HumanLoopActivationOutputTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDetectProtectiveEquipmentRequestRequestTypeDef = TypedDict(
+    "_RequiredDetectProtectiveEquipmentRequestRequestTypeDef",
+    {
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalDetectProtectiveEquipmentRequestRequestTypeDef = TypedDict(
+    "_OptionalDetectProtectiveEquipmentRequestRequestTypeDef",
+    {
+        "SummarizationAttributes": "ProtectiveEquipmentSummarizationAttributesTypeDef",
+    },
+    total=False,
+)
+
+class DetectProtectiveEquipmentRequestRequestTypeDef(
+    _RequiredDetectProtectiveEquipmentRequestRequestTypeDef,
+    _OptionalDetectProtectiveEquipmentRequestRequestTypeDef,
+):
+    pass
+
+DetectProtectiveEquipmentResponseTypeDef = TypedDict(
+    "DetectProtectiveEquipmentResponseTypeDef",
+    {
+        "ProtectiveEquipmentModelVersion": str,
+        "Persons": List["ProtectiveEquipmentPersonTypeDef"],
+        "Summary": "ProtectiveEquipmentSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetectTextFiltersTypeDef = TypedDict(
+    "DetectTextFiltersTypeDef",
+    {
+        "WordFilter": "DetectionFilterTypeDef",
+        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredDetectTextRequestRequestTypeDef = TypedDict(
+    "_RequiredDetectTextRequestRequestTypeDef",
+    {
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalDetectTextRequestRequestTypeDef = TypedDict(
+    "_OptionalDetectTextRequestRequestTypeDef",
+    {
+        "Filters": "DetectTextFiltersTypeDef",
+    },
+    total=False,
+)
+
+class DetectTextRequestRequestTypeDef(
+    _RequiredDetectTextRequestRequestTypeDef, _OptionalDetectTextRequestRequestTypeDef
+):
+    pass
+
+DetectTextResponseTypeDef = TypedDict(
+    "DetectTextResponseTypeDef",
+    {
+        "TextDetections": List["TextDetectionTypeDef"],
+        "TextModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DetectionFilterTypeDef = TypedDict(
     "DetectionFilterTypeDef",
-    {"MinConfidence": float, "MinBoundingBoxHeight": float, "MinBoundingBoxWidth": float},
+    {
+        "MinConfidence": float,
+        "MinBoundingBoxHeight": float,
+        "MinBoundingBoxWidth": float,
+    },
     total=False,
 )
 
 EmotionTypeDef = TypedDict(
     "EmotionTypeDef",
     {
-        "Type": Literal[
-            "HAPPY", "SAD", "ANGRY", "CONFUSED", "DISGUSTED", "SURPRISED", "CALM", "UNKNOWN", "FEAR"
-        ],
+        "Type": EmotionNameType,
         "Confidence": float,
     },
     total=False,
@@ -270,20 +887,37 @@ EquipmentDetectionTypeDef = TypedDict(
     {
         "BoundingBox": "BoundingBoxTypeDef",
         "Confidence": float,
-        "Type": Literal["FACE_COVER", "HAND_COVER", "HEAD_COVER"],
+        "Type": ProtectiveEquipmentTypeType,
         "CoversBodyPart": "CoversBodyPartTypeDef",
     },
     total=False,
 )
 
 EvaluationResultTypeDef = TypedDict(
-    "EvaluationResultTypeDef", {"F1Score": float, "Summary": "SummaryTypeDef"}, total=False
+    "EvaluationResultTypeDef",
+    {
+        "F1Score": float,
+        "Summary": "SummaryTypeDef",
+    },
+    total=False,
 )
 
-EyeOpenTypeDef = TypedDict("EyeOpenTypeDef", {"Value": bool, "Confidence": float}, total=False)
+EyeOpenTypeDef = TypedDict(
+    "EyeOpenTypeDef",
+    {
+        "Value": bool,
+        "Confidence": float,
+    },
+    total=False,
+)
 
 EyeglassesTypeDef = TypedDict(
-    "EyeglassesTypeDef", {"Value": bool, "Confidence": float}, total=False
+    "EyeglassesTypeDef",
+    {
+        "Value": bool,
+        "Confidence": float,
+    },
+    total=False,
 )
 
 FaceDetailTypeDef = TypedDict(
@@ -309,19 +943,39 @@ FaceDetailTypeDef = TypedDict(
 )
 
 FaceDetectionTypeDef = TypedDict(
-    "FaceDetectionTypeDef", {"Timestamp": int, "Face": "FaceDetailTypeDef"}, total=False
+    "FaceDetectionTypeDef",
+    {
+        "Timestamp": int,
+        "Face": "FaceDetailTypeDef",
+    },
+    total=False,
 )
 
 FaceMatchTypeDef = TypedDict(
-    "FaceMatchTypeDef", {"Similarity": float, "Face": "FaceTypeDef"}, total=False
+    "FaceMatchTypeDef",
+    {
+        "Similarity": float,
+        "Face": "FaceTypeDef",
+    },
+    total=False,
 )
 
 FaceRecordTypeDef = TypedDict(
-    "FaceRecordTypeDef", {"Face": "FaceTypeDef", "FaceDetail": "FaceDetailTypeDef"}, total=False
+    "FaceRecordTypeDef",
+    {
+        "Face": "FaceTypeDef",
+        "FaceDetail": "FaceDetailTypeDef",
+    },
+    total=False,
 )
 
 FaceSearchSettingsTypeDef = TypedDict(
-    "FaceSearchSettingsTypeDef", {"CollectionId": str, "FaceMatchThreshold": float}, total=False
+    "FaceSearchSettingsTypeDef",
+    {
+        "CollectionId": str,
+        "FaceMatchThreshold": float,
+    },
+    total=False,
 )
 
 FaceTypeDef = TypedDict(
@@ -337,17 +991,314 @@ FaceTypeDef = TypedDict(
 )
 
 GenderTypeDef = TypedDict(
-    "GenderTypeDef", {"Value": Literal["Male", "Female"], "Confidence": float}, total=False
+    "GenderTypeDef",
+    {
+        "Value": GenderTypeType,
+        "Confidence": float,
+    },
+    total=False,
 )
 
 GeometryTypeDef = TypedDict(
     "GeometryTypeDef",
-    {"BoundingBox": "BoundingBoxTypeDef", "Polygon": List["PointTypeDef"]},
+    {
+        "BoundingBox": "BoundingBoxTypeDef",
+        "Polygon": List["PointTypeDef"],
+    },
     total=False,
 )
 
+GetCelebrityInfoRequestRequestTypeDef = TypedDict(
+    "GetCelebrityInfoRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetCelebrityInfoResponseTypeDef = TypedDict(
+    "GetCelebrityInfoResponseTypeDef",
+    {
+        "Urls": List[str],
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetCelebrityRecognitionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCelebrityRecognitionRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetCelebrityRecognitionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCelebrityRecognitionRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "SortBy": CelebrityRecognitionSortByType,
+    },
+    total=False,
+)
+
+class GetCelebrityRecognitionRequestRequestTypeDef(
+    _RequiredGetCelebrityRecognitionRequestRequestTypeDef,
+    _OptionalGetCelebrityRecognitionRequestRequestTypeDef,
+):
+    pass
+
+GetCelebrityRecognitionResponseTypeDef = TypedDict(
+    "GetCelebrityRecognitionResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "VideoMetadata": "VideoMetadataTypeDef",
+        "NextToken": str,
+        "Celebrities": List["CelebrityRecognitionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetContentModerationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetContentModerationRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetContentModerationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetContentModerationRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "SortBy": ContentModerationSortByType,
+    },
+    total=False,
+)
+
+class GetContentModerationRequestRequestTypeDef(
+    _RequiredGetContentModerationRequestRequestTypeDef,
+    _OptionalGetContentModerationRequestRequestTypeDef,
+):
+    pass
+
+GetContentModerationResponseTypeDef = TypedDict(
+    "GetContentModerationResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "VideoMetadata": "VideoMetadataTypeDef",
+        "ModerationLabels": List["ContentModerationDetectionTypeDef"],
+        "NextToken": str,
+        "ModerationModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetFaceDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetFaceDetectionRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetFaceDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetFaceDetectionRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetFaceDetectionRequestRequestTypeDef(
+    _RequiredGetFaceDetectionRequestRequestTypeDef, _OptionalGetFaceDetectionRequestRequestTypeDef
+):
+    pass
+
+GetFaceDetectionResponseTypeDef = TypedDict(
+    "GetFaceDetectionResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "VideoMetadata": "VideoMetadataTypeDef",
+        "NextToken": str,
+        "Faces": List["FaceDetectionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetFaceSearchRequestRequestTypeDef = TypedDict(
+    "_RequiredGetFaceSearchRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetFaceSearchRequestRequestTypeDef = TypedDict(
+    "_OptionalGetFaceSearchRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "SortBy": FaceSearchSortByType,
+    },
+    total=False,
+)
+
+class GetFaceSearchRequestRequestTypeDef(
+    _RequiredGetFaceSearchRequestRequestTypeDef, _OptionalGetFaceSearchRequestRequestTypeDef
+):
+    pass
+
+GetFaceSearchResponseTypeDef = TypedDict(
+    "GetFaceSearchResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "NextToken": str,
+        "VideoMetadata": "VideoMetadataTypeDef",
+        "Persons": List["PersonMatchTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetLabelDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetLabelDetectionRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetLabelDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetLabelDetectionRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "SortBy": LabelDetectionSortByType,
+    },
+    total=False,
+)
+
+class GetLabelDetectionRequestRequestTypeDef(
+    _RequiredGetLabelDetectionRequestRequestTypeDef, _OptionalGetLabelDetectionRequestRequestTypeDef
+):
+    pass
+
+GetLabelDetectionResponseTypeDef = TypedDict(
+    "GetLabelDetectionResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "VideoMetadata": "VideoMetadataTypeDef",
+        "NextToken": str,
+        "Labels": List["LabelDetectionTypeDef"],
+        "LabelModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetPersonTrackingRequestRequestTypeDef = TypedDict(
+    "_RequiredGetPersonTrackingRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetPersonTrackingRequestRequestTypeDef = TypedDict(
+    "_OptionalGetPersonTrackingRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "SortBy": PersonTrackingSortByType,
+    },
+    total=False,
+)
+
+class GetPersonTrackingRequestRequestTypeDef(
+    _RequiredGetPersonTrackingRequestRequestTypeDef, _OptionalGetPersonTrackingRequestRequestTypeDef
+):
+    pass
+
+GetPersonTrackingResponseTypeDef = TypedDict(
+    "GetPersonTrackingResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "VideoMetadata": "VideoMetadataTypeDef",
+        "NextToken": str,
+        "Persons": List["PersonDetectionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSegmentDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSegmentDetectionRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetSegmentDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSegmentDetectionRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetSegmentDetectionRequestRequestTypeDef(
+    _RequiredGetSegmentDetectionRequestRequestTypeDef,
+    _OptionalGetSegmentDetectionRequestRequestTypeDef,
+):
+    pass
+
+GetSegmentDetectionResponseTypeDef = TypedDict(
+    "GetSegmentDetectionResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "VideoMetadata": List["VideoMetadataTypeDef"],
+        "AudioMetadata": List["AudioMetadataTypeDef"],
+        "NextToken": str,
+        "Segments": List["SegmentDetectionTypeDef"],
+        "SelectedSegmentTypes": List["SegmentTypeInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTextDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTextDetectionRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetTextDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTextDetectionRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetTextDetectionRequestRequestTypeDef(
+    _RequiredGetTextDetectionRequestRequestTypeDef, _OptionalGetTextDetectionRequestRequestTypeDef
+):
+    pass
+
+GetTextDetectionResponseTypeDef = TypedDict(
+    "GetTextDetectionResponseTypeDef",
+    {
+        "JobStatus": VideoJobStatusType,
+        "StatusMessage": str,
+        "VideoMetadata": "VideoMetadataTypeDef",
+        "TextDetections": List["TextDetectionResultTypeDef"],
+        "NextToken": str,
+        "TextModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GroundTruthManifestTypeDef = TypedDict(
-    "GroundTruthManifestTypeDef", {"S3Object": "S3ObjectTypeDef"}, total=False
+    "GroundTruthManifestTypeDef",
+    {
+        "S3Object": "S3ObjectTypeDef",
+    },
+    total=False,
 )
 
 HumanLoopActivationOutputTypeDef = TypedDict(
@@ -356,35 +1307,120 @@ HumanLoopActivationOutputTypeDef = TypedDict(
         "HumanLoopArn": str,
         "HumanLoopActivationReasons": List[str],
         "HumanLoopActivationConditionsEvaluationResults": str,
-        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
+_RequiredHumanLoopConfigTypeDef = TypedDict(
+    "_RequiredHumanLoopConfigTypeDef",
+    {
+        "HumanLoopName": str,
+        "FlowDefinitionArn": str,
+    },
+)
+_OptionalHumanLoopConfigTypeDef = TypedDict(
+    "_OptionalHumanLoopConfigTypeDef",
+    {
+        "DataAttributes": "HumanLoopDataAttributesTypeDef",
+    },
+    total=False,
+)
+
+class HumanLoopConfigTypeDef(_RequiredHumanLoopConfigTypeDef, _OptionalHumanLoopConfigTypeDef):
+    pass
+
 HumanLoopDataAttributesTypeDef = TypedDict(
     "HumanLoopDataAttributesTypeDef",
     {
-        "ContentClassifiers": List[
-            Literal["FreeOfPersonallyIdentifiableInformation", "FreeOfAdultContent"]
-        ]
+        "ContentClassifiers": List[ContentClassifierType],
     },
     total=False,
 )
 
 ImageQualityTypeDef = TypedDict(
-    "ImageQualityTypeDef", {"Brightness": float, "Sharpness": float}, total=False
+    "ImageQualityTypeDef",
+    {
+        "Brightness": float,
+        "Sharpness": float,
+    },
+    total=False,
+)
+
+ImageTypeDef = TypedDict(
+    "ImageTypeDef",
+    {
+        "Bytes": Union[bytes, IO[bytes], StreamingBody],
+        "S3Object": "S3ObjectTypeDef",
+    },
+    total=False,
+)
+
+_RequiredIndexFacesRequestRequestTypeDef = TypedDict(
+    "_RequiredIndexFacesRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalIndexFacesRequestRequestTypeDef = TypedDict(
+    "_OptionalIndexFacesRequestRequestTypeDef",
+    {
+        "ExternalImageId": str,
+        "DetectionAttributes": List[AttributeType],
+        "MaxFaces": int,
+        "QualityFilter": QualityFilterType,
+    },
+    total=False,
+)
+
+class IndexFacesRequestRequestTypeDef(
+    _RequiredIndexFacesRequestRequestTypeDef, _OptionalIndexFacesRequestRequestTypeDef
+):
+    pass
+
+IndexFacesResponseTypeDef = TypedDict(
+    "IndexFacesResponseTypeDef",
+    {
+        "FaceRecords": List["FaceRecordTypeDef"],
+        "OrientationCorrection": OrientationCorrectionType,
+        "FaceModelVersion": str,
+        "UnindexedFaces": List["UnindexedFaceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 InstanceTypeDef = TypedDict(
-    "InstanceTypeDef", {"BoundingBox": "BoundingBoxTypeDef", "Confidence": float}, total=False
+    "InstanceTypeDef",
+    {
+        "BoundingBox": "BoundingBoxTypeDef",
+        "Confidence": float,
+    },
+    total=False,
 )
 
-KinesisDataStreamTypeDef = TypedDict("KinesisDataStreamTypeDef", {"Arn": str}, total=False)
+KinesisDataStreamTypeDef = TypedDict(
+    "KinesisDataStreamTypeDef",
+    {
+        "Arn": str,
+    },
+    total=False,
+)
 
-KinesisVideoStreamTypeDef = TypedDict("KinesisVideoStreamTypeDef", {"Arn": str}, total=False)
+KinesisVideoStreamTypeDef = TypedDict(
+    "KinesisVideoStreamTypeDef",
+    {
+        "Arn": str,
+    },
+    total=False,
+)
 
 LabelDetectionTypeDef = TypedDict(
-    "LabelDetectionTypeDef", {"Timestamp": int, "Label": "LabelTypeDef"}, total=False
+    "LabelDetectionTypeDef",
+    {
+        "Timestamp": int,
+        "Label": "LabelTypeDef",
+    },
+    total=False,
 )
 
 LabelTypeDef = TypedDict(
@@ -401,84 +1437,212 @@ LabelTypeDef = TypedDict(
 LandmarkTypeDef = TypedDict(
     "LandmarkTypeDef",
     {
-        "Type": Literal[
-            "eyeLeft",
-            "eyeRight",
-            "nose",
-            "mouthLeft",
-            "mouthRight",
-            "leftEyeBrowLeft",
-            "leftEyeBrowRight",
-            "leftEyeBrowUp",
-            "rightEyeBrowLeft",
-            "rightEyeBrowRight",
-            "rightEyeBrowUp",
-            "leftEyeLeft",
-            "leftEyeRight",
-            "leftEyeUp",
-            "leftEyeDown",
-            "rightEyeLeft",
-            "rightEyeRight",
-            "rightEyeUp",
-            "rightEyeDown",
-            "noseLeft",
-            "noseRight",
-            "mouthUp",
-            "mouthDown",
-            "leftPupil",
-            "rightPupil",
-            "upperJawlineLeft",
-            "midJawlineLeft",
-            "chinBottom",
-            "midJawlineRight",
-            "upperJawlineRight",
-        ],
+        "Type": LandmarkTypeType,
         "X": float,
         "Y": float,
     },
     total=False,
 )
 
-ModerationLabelTypeDef = TypedDict(
-    "ModerationLabelTypeDef", {"Confidence": float, "Name": str, "ParentName": str}, total=False
+ListCollectionsRequestRequestTypeDef = TypedDict(
+    "ListCollectionsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
 )
 
-MouthOpenTypeDef = TypedDict("MouthOpenTypeDef", {"Value": bool, "Confidence": float}, total=False)
+ListCollectionsResponseTypeDef = TypedDict(
+    "ListCollectionsResponseTypeDef",
+    {
+        "CollectionIds": List[str],
+        "NextToken": str,
+        "FaceModelVersions": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
-MustacheTypeDef = TypedDict("MustacheTypeDef", {"Value": bool, "Confidence": float}, total=False)
+_RequiredListFacesRequestRequestTypeDef = TypedDict(
+    "_RequiredListFacesRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+    },
+)
+_OptionalListFacesRequestRequestTypeDef = TypedDict(
+    "_OptionalListFacesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListFacesRequestRequestTypeDef(
+    _RequiredListFacesRequestRequestTypeDef, _OptionalListFacesRequestRequestTypeDef
+):
+    pass
+
+ListFacesResponseTypeDef = TypedDict(
+    "ListFacesResponseTypeDef",
+    {
+        "Faces": List["FaceTypeDef"],
+        "NextToken": str,
+        "FaceModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListStreamProcessorsRequestRequestTypeDef = TypedDict(
+    "ListStreamProcessorsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListStreamProcessorsResponseTypeDef = TypedDict(
+    "ListStreamProcessorsResponseTypeDef",
+    {
+        "NextToken": str,
+        "StreamProcessors": List["StreamProcessorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModerationLabelTypeDef = TypedDict(
+    "ModerationLabelTypeDef",
+    {
+        "Confidence": float,
+        "Name": str,
+        "ParentName": str,
+    },
+    total=False,
+)
+
+MouthOpenTypeDef = TypedDict(
+    "MouthOpenTypeDef",
+    {
+        "Value": bool,
+        "Confidence": float,
+    },
+    total=False,
+)
+
+MustacheTypeDef = TypedDict(
+    "MustacheTypeDef",
+    {
+        "Value": bool,
+        "Confidence": float,
+    },
+    total=False,
+)
+
+NotificationChannelTypeDef = TypedDict(
+    "NotificationChannelTypeDef",
+    {
+        "SNSTopicArn": str,
+        "RoleArn": str,
+    },
+)
 
 OutputConfigTypeDef = TypedDict(
-    "OutputConfigTypeDef", {"S3Bucket": str, "S3KeyPrefix": str}, total=False
+    "OutputConfigTypeDef",
+    {
+        "S3Bucket": str,
+        "S3KeyPrefix": str,
+    },
+    total=False,
 )
 
-ParentTypeDef = TypedDict("ParentTypeDef", {"Name": str}, total=False)
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+ParentTypeDef = TypedDict(
+    "ParentTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
 
 PersonDetailTypeDef = TypedDict(
     "PersonDetailTypeDef",
-    {"Index": int, "BoundingBox": "BoundingBoxTypeDef", "Face": "FaceDetailTypeDef"},
+    {
+        "Index": int,
+        "BoundingBox": "BoundingBoxTypeDef",
+        "Face": "FaceDetailTypeDef",
+    },
     total=False,
 )
 
 PersonDetectionTypeDef = TypedDict(
-    "PersonDetectionTypeDef", {"Timestamp": int, "Person": "PersonDetailTypeDef"}, total=False
+    "PersonDetectionTypeDef",
+    {
+        "Timestamp": int,
+        "Person": "PersonDetailTypeDef",
+    },
+    total=False,
 )
 
 PersonMatchTypeDef = TypedDict(
     "PersonMatchTypeDef",
-    {"Timestamp": int, "Person": "PersonDetailTypeDef", "FaceMatches": List["FaceMatchTypeDef"]},
+    {
+        "Timestamp": int,
+        "Person": "PersonDetailTypeDef",
+        "FaceMatches": List["FaceMatchTypeDef"],
+    },
     total=False,
 )
 
-PointTypeDef = TypedDict("PointTypeDef", {"X": float, "Y": float}, total=False)
+PointTypeDef = TypedDict(
+    "PointTypeDef",
+    {
+        "X": float,
+        "Y": float,
+    },
+    total=False,
+)
 
-PoseTypeDef = TypedDict("PoseTypeDef", {"Roll": float, "Yaw": float, "Pitch": float}, total=False)
+PoseTypeDef = TypedDict(
+    "PoseTypeDef",
+    {
+        "Roll": float,
+        "Yaw": float,
+        "Pitch": float,
+    },
+    total=False,
+)
 
 ProjectDescriptionTypeDef = TypedDict(
     "ProjectDescriptionTypeDef",
     {
         "ProjectArn": str,
         "CreationTimestamp": datetime,
-        "Status": Literal["CREATING", "CREATED", "DELETING"],
+        "Status": ProjectStatusType,
     },
     total=False,
 )
@@ -489,17 +1653,7 @@ ProjectVersionDescriptionTypeDef = TypedDict(
         "ProjectVersionArn": str,
         "CreationTimestamp": datetime,
         "MinInferenceUnits": int,
-        "Status": Literal[
-            "TRAINING_IN_PROGRESS",
-            "TRAINING_COMPLETED",
-            "TRAINING_FAILED",
-            "STARTING",
-            "RUNNING",
-            "FAILED",
-            "STOPPING",
-            "STOPPED",
-            "DELETING",
-        ],
+        "Status": ProjectVersionStatusType,
         "StatusMessage": str,
         "BillableTrainingTimeInSeconds": int,
         "TrainingEndTimestamp": datetime,
@@ -508,6 +1662,7 @@ ProjectVersionDescriptionTypeDef = TypedDict(
         "TestingDataResult": "TestingDataResultTypeDef",
         "EvaluationResult": "EvaluationResultTypeDef",
         "ManifestSummary": "GroundTruthManifestTypeDef",
+        "KmsKeyId": str,
     },
     total=False,
 )
@@ -515,7 +1670,7 @@ ProjectVersionDescriptionTypeDef = TypedDict(
 ProtectiveEquipmentBodyPartTypeDef = TypedDict(
     "ProtectiveEquipmentBodyPartTypeDef",
     {
-        "Name": Literal["FACE", "HEAD", "LEFT_HAND", "RIGHT_HAND"],
+        "Name": BodyPartType,
         "Confidence": float,
         "EquipmentDetections": List["EquipmentDetectionTypeDef"],
     },
@@ -533,6 +1688,14 @@ ProtectiveEquipmentPersonTypeDef = TypedDict(
     total=False,
 )
 
+ProtectiveEquipmentSummarizationAttributesTypeDef = TypedDict(
+    "ProtectiveEquipmentSummarizationAttributesTypeDef",
+    {
+        "MinConfidence": float,
+        "RequiredEquipmentTypes": List[ProtectiveEquipmentTypeType],
+    },
+)
+
 ProtectiveEquipmentSummaryTypeDef = TypedDict(
     "ProtectiveEquipmentSummaryTypeDef",
     {
@@ -543,12 +1706,33 @@ ProtectiveEquipmentSummaryTypeDef = TypedDict(
     total=False,
 )
 
-RegionOfInterestTypeDef = TypedDict(
-    "RegionOfInterestTypeDef", {"BoundingBox": "BoundingBoxTypeDef"}, total=False
+RecognizeCelebritiesRequestRequestTypeDef = TypedDict(
+    "RecognizeCelebritiesRequestRequestTypeDef",
+    {
+        "Image": "ImageTypeDef",
+    },
 )
 
-ResponseMetadata = TypedDict(
-    "ResponseMetadata",
+RecognizeCelebritiesResponseTypeDef = TypedDict(
+    "RecognizeCelebritiesResponseTypeDef",
+    {
+        "CelebrityFaces": List["CelebrityTypeDef"],
+        "UnrecognizedFaces": List["ComparedFaceTypeDef"],
+        "OrientationCorrection": OrientationCorrectionType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegionOfInterestTypeDef = TypedDict(
+    "RegionOfInterestTypeDef",
+    {
+        "BoundingBox": "BoundingBoxTypeDef",
+    },
+    total=False,
+)
+
+ResponseMetadataTypeDef = TypedDict(
+    "ResponseMetadataTypeDef",
     {
         "RequestId": str,
         "HostId": str,
@@ -559,13 +1743,84 @@ ResponseMetadata = TypedDict(
 )
 
 S3ObjectTypeDef = TypedDict(
-    "S3ObjectTypeDef", {"Bucket": str, "Name": str, "Version": str}, total=False
+    "S3ObjectTypeDef",
+    {
+        "Bucket": str,
+        "Name": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+_RequiredSearchFacesByImageRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchFacesByImageRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+        "Image": "ImageTypeDef",
+    },
+)
+_OptionalSearchFacesByImageRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchFacesByImageRequestRequestTypeDef",
+    {
+        "MaxFaces": int,
+        "FaceMatchThreshold": float,
+        "QualityFilter": QualityFilterType,
+    },
+    total=False,
+)
+
+class SearchFacesByImageRequestRequestTypeDef(
+    _RequiredSearchFacesByImageRequestRequestTypeDef,
+    _OptionalSearchFacesByImageRequestRequestTypeDef,
+):
+    pass
+
+SearchFacesByImageResponseTypeDef = TypedDict(
+    "SearchFacesByImageResponseTypeDef",
+    {
+        "SearchedFaceBoundingBox": "BoundingBoxTypeDef",
+        "SearchedFaceConfidence": float,
+        "FaceMatches": List["FaceMatchTypeDef"],
+        "FaceModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSearchFacesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchFacesRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+        "FaceId": str,
+    },
+)
+_OptionalSearchFacesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchFacesRequestRequestTypeDef",
+    {
+        "MaxFaces": int,
+        "FaceMatchThreshold": float,
+    },
+    total=False,
+)
+
+class SearchFacesRequestRequestTypeDef(
+    _RequiredSearchFacesRequestRequestTypeDef, _OptionalSearchFacesRequestRequestTypeDef
+):
+    pass
+
+SearchFacesResponseTypeDef = TypedDict(
+    "SearchFacesResponseTypeDef",
+    {
+        "SearchedFaceId": str,
+        "FaceMatches": List["FaceMatchTypeDef"],
+        "FaceModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 SegmentDetectionTypeDef = TypedDict(
     "SegmentDetectionTypeDef",
     {
-        "Type": Literal["TECHNICAL_CUE", "SHOT"],
+        "Type": SegmentTypeType,
         "StartTimestampMillis": int,
         "EndTimestampMillis": int,
         "DurationMillis": int,
@@ -580,53 +1835,421 @@ SegmentDetectionTypeDef = TypedDict(
 
 SegmentTypeInfoTypeDef = TypedDict(
     "SegmentTypeInfoTypeDef",
-    {"Type": Literal["TECHNICAL_CUE", "SHOT"], "ModelVersion": str},
+    {
+        "Type": SegmentTypeType,
+        "ModelVersion": str,
+    },
     total=False,
 )
 
 ShotSegmentTypeDef = TypedDict(
-    "ShotSegmentTypeDef", {"Index": int, "Confidence": float}, total=False
+    "ShotSegmentTypeDef",
+    {
+        "Index": int,
+        "Confidence": float,
+    },
+    total=False,
 )
 
-SmileTypeDef = TypedDict("SmileTypeDef", {"Value": bool, "Confidence": float}, total=False)
+SmileTypeDef = TypedDict(
+    "SmileTypeDef",
+    {
+        "Value": bool,
+        "Confidence": float,
+    },
+    total=False,
+)
+
+_RequiredStartCelebrityRecognitionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartCelebrityRecognitionRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+    },
+)
+_OptionalStartCelebrityRecognitionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartCelebrityRecognitionRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "JobTag": str,
+    },
+    total=False,
+)
+
+class StartCelebrityRecognitionRequestRequestTypeDef(
+    _RequiredStartCelebrityRecognitionRequestRequestTypeDef,
+    _OptionalStartCelebrityRecognitionRequestRequestTypeDef,
+):
+    pass
+
+StartCelebrityRecognitionResponseTypeDef = TypedDict(
+    "StartCelebrityRecognitionResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartContentModerationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartContentModerationRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+    },
+)
+_OptionalStartContentModerationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartContentModerationRequestRequestTypeDef",
+    {
+        "MinConfidence": float,
+        "ClientRequestToken": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "JobTag": str,
+    },
+    total=False,
+)
+
+class StartContentModerationRequestRequestTypeDef(
+    _RequiredStartContentModerationRequestRequestTypeDef,
+    _OptionalStartContentModerationRequestRequestTypeDef,
+):
+    pass
+
+StartContentModerationResponseTypeDef = TypedDict(
+    "StartContentModerationResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartFaceDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartFaceDetectionRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+    },
+)
+_OptionalStartFaceDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartFaceDetectionRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "FaceAttributes": FaceAttributesType,
+        "JobTag": str,
+    },
+    total=False,
+)
+
+class StartFaceDetectionRequestRequestTypeDef(
+    _RequiredStartFaceDetectionRequestRequestTypeDef,
+    _OptionalStartFaceDetectionRequestRequestTypeDef,
+):
+    pass
+
+StartFaceDetectionResponseTypeDef = TypedDict(
+    "StartFaceDetectionResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartFaceSearchRequestRequestTypeDef = TypedDict(
+    "_RequiredStartFaceSearchRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+        "CollectionId": str,
+    },
+)
+_OptionalStartFaceSearchRequestRequestTypeDef = TypedDict(
+    "_OptionalStartFaceSearchRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "FaceMatchThreshold": float,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "JobTag": str,
+    },
+    total=False,
+)
+
+class StartFaceSearchRequestRequestTypeDef(
+    _RequiredStartFaceSearchRequestRequestTypeDef, _OptionalStartFaceSearchRequestRequestTypeDef
+):
+    pass
+
+StartFaceSearchResponseTypeDef = TypedDict(
+    "StartFaceSearchResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartLabelDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartLabelDetectionRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+    },
+)
+_OptionalStartLabelDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartLabelDetectionRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "MinConfidence": float,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "JobTag": str,
+    },
+    total=False,
+)
+
+class StartLabelDetectionRequestRequestTypeDef(
+    _RequiredStartLabelDetectionRequestRequestTypeDef,
+    _OptionalStartLabelDetectionRequestRequestTypeDef,
+):
+    pass
+
+StartLabelDetectionResponseTypeDef = TypedDict(
+    "StartLabelDetectionResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartPersonTrackingRequestRequestTypeDef = TypedDict(
+    "_RequiredStartPersonTrackingRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+    },
+)
+_OptionalStartPersonTrackingRequestRequestTypeDef = TypedDict(
+    "_OptionalStartPersonTrackingRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "JobTag": str,
+    },
+    total=False,
+)
+
+class StartPersonTrackingRequestRequestTypeDef(
+    _RequiredStartPersonTrackingRequestRequestTypeDef,
+    _OptionalStartPersonTrackingRequestRequestTypeDef,
+):
+    pass
+
+StartPersonTrackingResponseTypeDef = TypedDict(
+    "StartPersonTrackingResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartProjectVersionRequestRequestTypeDef = TypedDict(
+    "StartProjectVersionRequestRequestTypeDef",
+    {
+        "ProjectVersionArn": str,
+        "MinInferenceUnits": int,
+    },
+)
+
+StartProjectVersionResponseTypeDef = TypedDict(
+    "StartProjectVersionResponseTypeDef",
+    {
+        "Status": ProjectVersionStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartSegmentDetectionFiltersTypeDef = TypedDict(
+    "StartSegmentDetectionFiltersTypeDef",
+    {
+        "TechnicalCueFilter": "StartTechnicalCueDetectionFilterTypeDef",
+        "ShotFilter": "StartShotDetectionFilterTypeDef",
+    },
+    total=False,
+)
+
+_RequiredStartSegmentDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartSegmentDetectionRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+        "SegmentTypes": List[SegmentTypeType],
+    },
+)
+_OptionalStartSegmentDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartSegmentDetectionRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "JobTag": str,
+        "Filters": "StartSegmentDetectionFiltersTypeDef",
+    },
+    total=False,
+)
+
+class StartSegmentDetectionRequestRequestTypeDef(
+    _RequiredStartSegmentDetectionRequestRequestTypeDef,
+    _OptionalStartSegmentDetectionRequestRequestTypeDef,
+):
+    pass
+
+StartSegmentDetectionResponseTypeDef = TypedDict(
+    "StartSegmentDetectionResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 StartShotDetectionFilterTypeDef = TypedDict(
-    "StartShotDetectionFilterTypeDef", {"MinSegmentConfidence": float}, total=False
+    "StartShotDetectionFilterTypeDef",
+    {
+        "MinSegmentConfidence": float,
+    },
+    total=False,
+)
+
+StartStreamProcessorRequestRequestTypeDef = TypedDict(
+    "StartStreamProcessorRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
 )
 
 StartTechnicalCueDetectionFilterTypeDef = TypedDict(
-    "StartTechnicalCueDetectionFilterTypeDef", {"MinSegmentConfidence": float}, total=False
+    "StartTechnicalCueDetectionFilterTypeDef",
+    {
+        "MinSegmentConfidence": float,
+    },
+    total=False,
+)
+
+StartTextDetectionFiltersTypeDef = TypedDict(
+    "StartTextDetectionFiltersTypeDef",
+    {
+        "WordFilter": "DetectionFilterTypeDef",
+        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredStartTextDetectionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartTextDetectionRequestRequestTypeDef",
+    {
+        "Video": "VideoTypeDef",
+    },
+)
+_OptionalStartTextDetectionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartTextDetectionRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "JobTag": str,
+        "Filters": "StartTextDetectionFiltersTypeDef",
+    },
+    total=False,
+)
+
+class StartTextDetectionRequestRequestTypeDef(
+    _RequiredStartTextDetectionRequestRequestTypeDef,
+    _OptionalStartTextDetectionRequestRequestTypeDef,
+):
+    pass
+
+StartTextDetectionResponseTypeDef = TypedDict(
+    "StartTextDetectionResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopProjectVersionRequestRequestTypeDef = TypedDict(
+    "StopProjectVersionRequestRequestTypeDef",
+    {
+        "ProjectVersionArn": str,
+    },
+)
+
+StopProjectVersionResponseTypeDef = TypedDict(
+    "StopProjectVersionResponseTypeDef",
+    {
+        "Status": ProjectVersionStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopStreamProcessorRequestRequestTypeDef = TypedDict(
+    "StopStreamProcessorRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
 )
 
 StreamProcessorInputTypeDef = TypedDict(
-    "StreamProcessorInputTypeDef", {"KinesisVideoStream": "KinesisVideoStreamTypeDef"}, total=False
+    "StreamProcessorInputTypeDef",
+    {
+        "KinesisVideoStream": "KinesisVideoStreamTypeDef",
+    },
+    total=False,
 )
 
 StreamProcessorOutputTypeDef = TypedDict(
     "StreamProcessorOutputTypeDef",
-    {"KinesisDataStream": "KinesisDataStreamTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    {
+        "KinesisDataStream": "KinesisDataStreamTypeDef",
+    },
     total=False,
 )
 
 StreamProcessorSettingsTypeDef = TypedDict(
-    "StreamProcessorSettingsTypeDef", {"FaceSearch": "FaceSearchSettingsTypeDef"}, total=False
+    "StreamProcessorSettingsTypeDef",
+    {
+        "FaceSearch": "FaceSearchSettingsTypeDef",
+    },
+    total=False,
 )
 
 StreamProcessorTypeDef = TypedDict(
     "StreamProcessorTypeDef",
-    {"Name": str, "Status": Literal["STOPPED", "STARTING", "RUNNING", "FAILED", "STOPPING"]},
+    {
+        "Name": str,
+        "Status": StreamProcessorStatusType,
+    },
     total=False,
 )
 
-SummaryTypeDef = TypedDict("SummaryTypeDef", {"S3Object": "S3ObjectTypeDef"}, total=False)
+SummaryTypeDef = TypedDict(
+    "SummaryTypeDef",
+    {
+        "S3Object": "S3ObjectTypeDef",
+    },
+    total=False,
+)
 
 SunglassesTypeDef = TypedDict(
-    "SunglassesTypeDef", {"Value": bool, "Confidence": float}, total=False
+    "SunglassesTypeDef",
+    {
+        "Value": bool,
+        "Confidence": float,
+    },
+    total=False,
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": Dict[str, str],
+    },
 )
 
 TechnicalCueSegmentTypeDef = TypedDict(
     "TechnicalCueSegmentTypeDef",
-    {"Type": Literal["ColorBars", "EndCredits", "BlackFrames"], "Confidence": float},
+    {
+        "Type": TechnicalCueTypeType,
+        "Confidence": float,
+    },
     total=False,
 )
 
@@ -641,12 +2264,20 @@ TestingDataResultTypeDef = TypedDict(
 )
 
 TestingDataTypeDef = TypedDict(
-    "TestingDataTypeDef", {"Assets": List["AssetTypeDef"], "AutoCreate": bool}, total=False
+    "TestingDataTypeDef",
+    {
+        "Assets": List["AssetTypeDef"],
+        "AutoCreate": bool,
+    },
+    total=False,
 )
 
 TextDetectionResultTypeDef = TypedDict(
     "TextDetectionResultTypeDef",
-    {"Timestamp": int, "TextDetection": "TextDetectionTypeDef"},
+    {
+        "Timestamp": int,
+        "TextDetection": "TextDetectionTypeDef",
+    },
     total=False,
 )
 
@@ -654,7 +2285,7 @@ TextDetectionTypeDef = TypedDict(
     "TextDetectionTypeDef",
     {
         "DetectedText": str,
-        "Type": Literal["LINE", "WORD"],
+        "Type": TextTypesType,
         "Id": int,
         "ParentId": int,
         "Confidence": float,
@@ -674,30 +2305,36 @@ TrainingDataResultTypeDef = TypedDict(
 )
 
 TrainingDataTypeDef = TypedDict(
-    "TrainingDataTypeDef", {"Assets": List["AssetTypeDef"]}, total=False
+    "TrainingDataTypeDef",
+    {
+        "Assets": List["AssetTypeDef"],
+    },
+    total=False,
 )
 
 UnindexedFaceTypeDef = TypedDict(
     "UnindexedFaceTypeDef",
     {
-        "Reasons": List[
-            Literal[
-                "EXCEEDS_MAX_FACES",
-                "EXTREME_POSE",
-                "LOW_BRIGHTNESS",
-                "LOW_SHARPNESS",
-                "LOW_CONFIDENCE",
-                "SMALL_BOUNDING_BOX",
-                "LOW_FACE_QUALITY",
-            ]
-        ],
+        "Reasons": List[ReasonType],
         "FaceDetail": "FaceDetailTypeDef",
     },
     total=False,
 )
 
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
 ValidationDataTypeDef = TypedDict(
-    "ValidationDataTypeDef", {"Assets": List["AssetTypeDef"]}, total=False
+    "ValidationDataTypeDef",
+    {
+        "Assets": List["AssetTypeDef"],
+    },
+    total=False,
 )
 
 VideoMetadataTypeDef = TypedDict(
@@ -713,447 +2350,19 @@ VideoMetadataTypeDef = TypedDict(
     total=False,
 )
 
-CompareFacesResponseTypeDef = TypedDict(
-    "CompareFacesResponseTypeDef",
+VideoTypeDef = TypedDict(
+    "VideoTypeDef",
     {
-        "SourceImageFace": "ComparedSourceImageFaceTypeDef",
-        "FaceMatches": List["CompareFacesMatchTypeDef"],
-        "UnmatchedFaces": List["ComparedFaceTypeDef"],
-        "SourceImageOrientationCorrection": Literal[
-            "ROTATE_0", "ROTATE_90", "ROTATE_180", "ROTATE_270"
-        ],
-        "TargetImageOrientationCorrection": Literal[
-            "ROTATE_0", "ROTATE_90", "ROTATE_180", "ROTATE_270"
-        ],
+        "S3Object": "S3ObjectTypeDef",
     },
     total=False,
 )
-
-CreateCollectionResponseTypeDef = TypedDict(
-    "CreateCollectionResponseTypeDef",
-    {"StatusCode": int, "CollectionArn": str, "FaceModelVersion": str},
-    total=False,
-)
-
-CreateProjectResponseTypeDef = TypedDict(
-    "CreateProjectResponseTypeDef", {"ProjectArn": str}, total=False
-)
-
-CreateProjectVersionResponseTypeDef = TypedDict(
-    "CreateProjectVersionResponseTypeDef", {"ProjectVersionArn": str}, total=False
-)
-
-CreateStreamProcessorResponseTypeDef = TypedDict(
-    "CreateStreamProcessorResponseTypeDef", {"StreamProcessorArn": str}, total=False
-)
-
-DeleteCollectionResponseTypeDef = TypedDict(
-    "DeleteCollectionResponseTypeDef", {"StatusCode": int}, total=False
-)
-
-DeleteFacesResponseTypeDef = TypedDict(
-    "DeleteFacesResponseTypeDef", {"DeletedFaces": List[str]}, total=False
-)
-
-DeleteProjectResponseTypeDef = TypedDict(
-    "DeleteProjectResponseTypeDef",
-    {"Status": Literal["CREATING", "CREATED", "DELETING"]},
-    total=False,
-)
-
-DeleteProjectVersionResponseTypeDef = TypedDict(
-    "DeleteProjectVersionResponseTypeDef",
-    {
-        "Status": Literal[
-            "TRAINING_IN_PROGRESS",
-            "TRAINING_COMPLETED",
-            "TRAINING_FAILED",
-            "STARTING",
-            "RUNNING",
-            "FAILED",
-            "STOPPING",
-            "STOPPED",
-            "DELETING",
-        ]
-    },
-    total=False,
-)
-
-DescribeCollectionResponseTypeDef = TypedDict(
-    "DescribeCollectionResponseTypeDef",
-    {
-        "FaceCount": int,
-        "FaceModelVersion": str,
-        "CollectionARN": str,
-        "CreationTimestamp": datetime,
-    },
-    total=False,
-)
-
-DescribeProjectVersionsResponseTypeDef = TypedDict(
-    "DescribeProjectVersionsResponseTypeDef",
-    {"ProjectVersionDescriptions": List["ProjectVersionDescriptionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeProjectsResponseTypeDef = TypedDict(
-    "DescribeProjectsResponseTypeDef",
-    {"ProjectDescriptions": List["ProjectDescriptionTypeDef"], "NextToken": str},
-    total=False,
-)
-
-DescribeStreamProcessorResponseTypeDef = TypedDict(
-    "DescribeStreamProcessorResponseTypeDef",
-    {
-        "Name": str,
-        "StreamProcessorArn": str,
-        "Status": Literal["STOPPED", "STARTING", "RUNNING", "FAILED", "STOPPING"],
-        "StatusMessage": str,
-        "CreationTimestamp": datetime,
-        "LastUpdateTimestamp": datetime,
-        "Input": "StreamProcessorInputTypeDef",
-        "Output": "StreamProcessorOutputTypeDef",
-        "RoleArn": str,
-        "Settings": "StreamProcessorSettingsTypeDef",
-    },
-    total=False,
-)
-
-DetectCustomLabelsResponseTypeDef = TypedDict(
-    "DetectCustomLabelsResponseTypeDef", {"CustomLabels": List["CustomLabelTypeDef"]}, total=False
-)
-
-DetectFacesResponseTypeDef = TypedDict(
-    "DetectFacesResponseTypeDef",
-    {
-        "FaceDetails": List["FaceDetailTypeDef"],
-        "OrientationCorrection": Literal["ROTATE_0", "ROTATE_90", "ROTATE_180", "ROTATE_270"],
-    },
-    total=False,
-)
-
-DetectLabelsResponseTypeDef = TypedDict(
-    "DetectLabelsResponseTypeDef",
-    {
-        "Labels": List["LabelTypeDef"],
-        "OrientationCorrection": Literal["ROTATE_0", "ROTATE_90", "ROTATE_180", "ROTATE_270"],
-        "LabelModelVersion": str,
-    },
-    total=False,
-)
-
-DetectModerationLabelsResponseTypeDef = TypedDict(
-    "DetectModerationLabelsResponseTypeDef",
-    {
-        "ModerationLabels": List["ModerationLabelTypeDef"],
-        "ModerationModelVersion": str,
-        "HumanLoopActivationOutput": "HumanLoopActivationOutputTypeDef",
-    },
-    total=False,
-)
-
-DetectProtectiveEquipmentResponseTypeDef = TypedDict(
-    "DetectProtectiveEquipmentResponseTypeDef",
-    {
-        "ProtectiveEquipmentModelVersion": str,
-        "Persons": List["ProtectiveEquipmentPersonTypeDef"],
-        "Summary": "ProtectiveEquipmentSummaryTypeDef",
-    },
-    total=False,
-)
-
-DetectTextFiltersTypeDef = TypedDict(
-    "DetectTextFiltersTypeDef",
-    {"WordFilter": "DetectionFilterTypeDef", "RegionsOfInterest": List["RegionOfInterestTypeDef"]},
-    total=False,
-)
-
-DetectTextResponseTypeDef = TypedDict(
-    "DetectTextResponseTypeDef",
-    {"TextDetections": List["TextDetectionTypeDef"], "TextModelVersion": str},
-    total=False,
-)
-
-GetCelebrityInfoResponseTypeDef = TypedDict(
-    "GetCelebrityInfoResponseTypeDef", {"Urls": List[str], "Name": str}, total=False
-)
-
-GetCelebrityRecognitionResponseTypeDef = TypedDict(
-    "GetCelebrityRecognitionResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Celebrities": List["CelebrityRecognitionTypeDef"],
-    },
-    total=False,
-)
-
-GetContentModerationResponseTypeDef = TypedDict(
-    "GetContentModerationResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "ModerationLabels": List["ContentModerationDetectionTypeDef"],
-        "NextToken": str,
-        "ModerationModelVersion": str,
-    },
-    total=False,
-)
-
-GetFaceDetectionResponseTypeDef = TypedDict(
-    "GetFaceDetectionResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Faces": List["FaceDetectionTypeDef"],
-    },
-    total=False,
-)
-
-GetFaceSearchResponseTypeDef = TypedDict(
-    "GetFaceSearchResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "NextToken": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "Persons": List["PersonMatchTypeDef"],
-    },
-    total=False,
-)
-
-GetLabelDetectionResponseTypeDef = TypedDict(
-    "GetLabelDetectionResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Labels": List["LabelDetectionTypeDef"],
-        "LabelModelVersion": str,
-    },
-    total=False,
-)
-
-GetPersonTrackingResponseTypeDef = TypedDict(
-    "GetPersonTrackingResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Persons": List["PersonDetectionTypeDef"],
-    },
-    total=False,
-)
-
-GetSegmentDetectionResponseTypeDef = TypedDict(
-    "GetSegmentDetectionResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "VideoMetadata": List["VideoMetadataTypeDef"],
-        "AudioMetadata": List["AudioMetadataTypeDef"],
-        "NextToken": str,
-        "Segments": List["SegmentDetectionTypeDef"],
-        "SelectedSegmentTypes": List["SegmentTypeInfoTypeDef"],
-    },
-    total=False,
-)
-
-GetTextDetectionResponseTypeDef = TypedDict(
-    "GetTextDetectionResponseTypeDef",
-    {
-        "JobStatus": Literal["IN_PROGRESS", "SUCCEEDED", "FAILED"],
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "TextDetections": List["TextDetectionResultTypeDef"],
-        "NextToken": str,
-        "TextModelVersion": str,
-    },
-    total=False,
-)
-
-_RequiredHumanLoopConfigTypeDef = TypedDict(
-    "_RequiredHumanLoopConfigTypeDef", {"HumanLoopName": str, "FlowDefinitionArn": str}
-)
-_OptionalHumanLoopConfigTypeDef = TypedDict(
-    "_OptionalHumanLoopConfigTypeDef",
-    {"DataAttributes": "HumanLoopDataAttributesTypeDef"},
-    total=False,
-)
-
-
-class HumanLoopConfigTypeDef(_RequiredHumanLoopConfigTypeDef, _OptionalHumanLoopConfigTypeDef):
-    pass
-
-
-ImageTypeDef = TypedDict(
-    "ImageTypeDef", {"Bytes": Union[bytes, IO[bytes]], "S3Object": "S3ObjectTypeDef"}, total=False
-)
-
-IndexFacesResponseTypeDef = TypedDict(
-    "IndexFacesResponseTypeDef",
-    {
-        "FaceRecords": List["FaceRecordTypeDef"],
-        "OrientationCorrection": Literal["ROTATE_0", "ROTATE_90", "ROTATE_180", "ROTATE_270"],
-        "FaceModelVersion": str,
-        "UnindexedFaces": List["UnindexedFaceTypeDef"],
-    },
-    total=False,
-)
-
-ListCollectionsResponseTypeDef = TypedDict(
-    "ListCollectionsResponseTypeDef",
-    {"CollectionIds": List[str], "NextToken": str, "FaceModelVersions": List[str]},
-    total=False,
-)
-
-ListFacesResponseTypeDef = TypedDict(
-    "ListFacesResponseTypeDef",
-    {"Faces": List["FaceTypeDef"], "NextToken": str, "FaceModelVersion": str},
-    total=False,
-)
-
-ListStreamProcessorsResponseTypeDef = TypedDict(
-    "ListStreamProcessorsResponseTypeDef",
-    {"NextToken": str, "StreamProcessors": List["StreamProcessorTypeDef"]},
-    total=False,
-)
-
-NotificationChannelTypeDef = TypedDict(
-    "NotificationChannelTypeDef", {"SNSTopicArn": str, "RoleArn": str}
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
-)
-
-ProtectiveEquipmentSummarizationAttributesTypeDef = TypedDict(
-    "ProtectiveEquipmentSummarizationAttributesTypeDef",
-    {
-        "MinConfidence": float,
-        "RequiredEquipmentTypes": List[Literal["FACE_COVER", "HAND_COVER", "HEAD_COVER"]],
-    },
-)
-
-RecognizeCelebritiesResponseTypeDef = TypedDict(
-    "RecognizeCelebritiesResponseTypeDef",
-    {
-        "CelebrityFaces": List["CelebrityTypeDef"],
-        "UnrecognizedFaces": List["ComparedFaceTypeDef"],
-        "OrientationCorrection": Literal["ROTATE_0", "ROTATE_90", "ROTATE_180", "ROTATE_270"],
-    },
-    total=False,
-)
-
-SearchFacesByImageResponseTypeDef = TypedDict(
-    "SearchFacesByImageResponseTypeDef",
-    {
-        "SearchedFaceBoundingBox": "BoundingBoxTypeDef",
-        "SearchedFaceConfidence": float,
-        "FaceMatches": List["FaceMatchTypeDef"],
-        "FaceModelVersion": str,
-    },
-    total=False,
-)
-
-SearchFacesResponseTypeDef = TypedDict(
-    "SearchFacesResponseTypeDef",
-    {"SearchedFaceId": str, "FaceMatches": List["FaceMatchTypeDef"], "FaceModelVersion": str},
-    total=False,
-)
-
-StartCelebrityRecognitionResponseTypeDef = TypedDict(
-    "StartCelebrityRecognitionResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartContentModerationResponseTypeDef = TypedDict(
-    "StartContentModerationResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartFaceDetectionResponseTypeDef = TypedDict(
-    "StartFaceDetectionResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartFaceSearchResponseTypeDef = TypedDict(
-    "StartFaceSearchResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartLabelDetectionResponseTypeDef = TypedDict(
-    "StartLabelDetectionResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartPersonTrackingResponseTypeDef = TypedDict(
-    "StartPersonTrackingResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartProjectVersionResponseTypeDef = TypedDict(
-    "StartProjectVersionResponseTypeDef",
-    {
-        "Status": Literal[
-            "TRAINING_IN_PROGRESS",
-            "TRAINING_COMPLETED",
-            "TRAINING_FAILED",
-            "STARTING",
-            "RUNNING",
-            "FAILED",
-            "STOPPING",
-            "STOPPED",
-            "DELETING",
-        ]
-    },
-    total=False,
-)
-
-StartSegmentDetectionFiltersTypeDef = TypedDict(
-    "StartSegmentDetectionFiltersTypeDef",
-    {
-        "TechnicalCueFilter": "StartTechnicalCueDetectionFilterTypeDef",
-        "ShotFilter": "StartShotDetectionFilterTypeDef",
-    },
-    total=False,
-)
-
-StartSegmentDetectionResponseTypeDef = TypedDict(
-    "StartSegmentDetectionResponseTypeDef", {"JobId": str}, total=False
-)
-
-StartTextDetectionFiltersTypeDef = TypedDict(
-    "StartTextDetectionFiltersTypeDef",
-    {"WordFilter": "DetectionFilterTypeDef", "RegionsOfInterest": List["RegionOfInterestTypeDef"]},
-    total=False,
-)
-
-StartTextDetectionResponseTypeDef = TypedDict(
-    "StartTextDetectionResponseTypeDef", {"JobId": str}, total=False
-)
-
-StopProjectVersionResponseTypeDef = TypedDict(
-    "StopProjectVersionResponseTypeDef",
-    {
-        "Status": Literal[
-            "TRAINING_IN_PROGRESS",
-            "TRAINING_COMPLETED",
-            "TRAINING_FAILED",
-            "STARTING",
-            "RUNNING",
-            "FAILED",
-            "STOPPING",
-            "STOPPED",
-            "DELETING",
-        ]
-    },
-    total=False,
-)
-
-VideoTypeDef = TypedDict("VideoTypeDef", {"S3Object": "S3ObjectTypeDef"}, total=False)
 
 WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

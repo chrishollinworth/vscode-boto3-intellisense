@@ -27,8 +27,8 @@ Usage::
     list_usage_for_license_configuration_paginator: ListUsageForLicenseConfigurationPaginator = client.get_paginator("list_usage_for_license_configuration")
     ```
 """
-from mypy_boto3_license_manager.client import LicenseManagerClient
-from mypy_boto3_license_manager.paginator import (
+from .client import LicenseManagerClient
+from .paginator import (
     ListAssociationsForLicenseConfigurationPaginator,
     ListLicenseConfigurationsPaginator,
     ListLicenseSpecificationsForResourcePaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_license_manager.paginator import (
 )
 
 Client = LicenseManagerClient
-
 
 __all__ = (
     "Client",

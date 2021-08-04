@@ -27,8 +27,8 @@ Usage::
     list_apps_paginator: ListAppsPaginator = client.get_paginator("list_apps")
     ```
 """
-from mypy_boto3_sms.client import SMSClient
-from mypy_boto3_sms.paginator import (
+from .client import SMSClient
+from .paginator import (
     GetConnectorsPaginator,
     GetReplicationJobsPaginator,
     GetReplicationRunsPaginator,
@@ -37,7 +37,6 @@ from mypy_boto3_sms.paginator import (
 )
 
 Client = SMSClient
-
 
 __all__ = (
     "Client",

@@ -1,5 +1,7 @@
 """
-Main interface for medialive service client paginators.
+Type annotations for medialive service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html)
 
 Usage::
 
@@ -38,7 +40,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_medialive.type_defs import (
+from .type_defs import (
     DescribeScheduleResponseTypeDef,
     ListChannelsResponseTypeDef,
     ListInputDevicesResponseTypeDef,
@@ -65,118 +67,127 @@ __all__ = (
     "ListReservationsPaginator",
 )
 
-
 class DescribeSchedulePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#describeschedulepaginator)
     """
 
     def paginate(
-        self, ChannelId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, ChannelId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeScheduleResponseTypeDef]:
         """
-        [DescribeSchedule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#describeschedulepaginator)
         """
-
 
 class ListChannelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListChannels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListChannels)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listchannelspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListChannelsResponseTypeDef]:
         """
-        [ListChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListChannels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListChannels.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listchannelspaginator)
         """
-
 
 class ListInputDeviceTransfersPaginator(Boto3Paginator):
     """
-    [Paginator.ListInputDeviceTransfers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicetransferspaginator)
     """
 
     def paginate(
-        self, TransferType: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, TransferType: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInputDeviceTransfersResponseTypeDef]:
         """
-        [ListInputDeviceTransfers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicetransferspaginator)
         """
-
 
 class ListInputDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInputDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInputDevicesResponseTypeDef]:
         """
-        [ListInputDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicespaginator)
         """
-
 
 class ListInputSecurityGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInputSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputsecuritygroupspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInputSecurityGroupsResponseTypeDef]:
         """
-        [ListInputSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputsecuritygroupspaginator)
         """
-
 
 class ListInputsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInputs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputs)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInputsResponseTypeDef]:
         """
-        [ListInputs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListInputs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListInputs.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputspaginator)
         """
-
 
 class ListMultiplexProgramsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMultiplexPrograms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexprogramspaginator)
     """
 
     def paginate(
-        self, MultiplexId: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, MultiplexId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMultiplexProgramsResponseTypeDef]:
         """
-        [ListMultiplexPrograms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexprogramspaginator)
         """
-
 
 class ListMultiplexesPaginator(Boto3Paginator):
     """
-    [Paginator.ListMultiplexes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexespaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMultiplexesResponseTypeDef]:
         """
-        [ListMultiplexes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexespaginator)
         """
-
 
 class ListOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListOfferings)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListOfferings)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listofferingspaginator)
     """
 
     def paginate(
         self,
+        *,
         ChannelClass: str = None,
         ChannelConfiguration: str = None,
         Codec: str = None,
@@ -187,20 +198,22 @@ class ListOfferingsPaginator(Boto3Paginator):
         ResourceType: str = None,
         SpecialFeature: str = None,
         VideoQuality: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingsResponseTypeDef]:
         """
-        [ListOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListOfferings.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListOfferings.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listofferingspaginator)
         """
-
 
 class ListReservationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListReservations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListReservations)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listreservationspaginator)
     """
 
     def paginate(
         self,
+        *,
         ChannelClass: str = None,
         Codec: str = None,
         MaximumBitrate: str = None,
@@ -209,8 +222,9 @@ class ListReservationsPaginator(Boto3Paginator):
         ResourceType: str = None,
         SpecialFeature: str = None,
         VideoQuality: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListReservationsResponseTypeDef]:
         """
-        [ListReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/medialive.html#MediaLive.Paginator.ListReservations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/medialive.html#MediaLive.Paginator.ListReservations.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listreservationspaginator)
         """

@@ -21,10 +21,9 @@ Usage::
     select_paginator: SelectPaginator = client.get_paginator("select")
     ```
 """
-from mypy_boto3_sdb.client import SimpleDBClient
-from mypy_boto3_sdb.paginator import ListDomainsPaginator, SelectPaginator
+from .client import SimpleDBClient
+from .paginator import ListDomainsPaginator, SelectPaginator
 
 Client = SimpleDBClient
-
 
 __all__ = ("Client", "ListDomainsPaginator", "SelectPaginator", "SimpleDBClient")

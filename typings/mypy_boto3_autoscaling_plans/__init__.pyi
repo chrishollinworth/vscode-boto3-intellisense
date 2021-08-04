@@ -21,14 +21,10 @@ Usage::
     describe_scaling_plans_paginator: DescribeScalingPlansPaginator = client.get_paginator("describe_scaling_plans")
     ```
 """
-from mypy_boto3_autoscaling_plans.client import AutoScalingPlansClient
-from mypy_boto3_autoscaling_plans.paginator import (
-    DescribeScalingPlanResourcesPaginator,
-    DescribeScalingPlansPaginator,
-)
+from .client import AutoScalingPlansClient
+from .paginator import DescribeScalingPlanResourcesPaginator, DescribeScalingPlansPaginator
 
 Client = AutoScalingPlansClient
-
 
 __all__ = (
     "AutoScalingPlansClient",

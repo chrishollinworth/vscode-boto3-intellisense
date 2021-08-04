@@ -1,5 +1,7 @@
 """
-Main interface for gamelift service client
+Type annotations for gamelift service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html)
 
 Usage::
 
@@ -14,9 +16,32 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
+from botocore.response import StreamingBody
 
-from mypy_boto3_gamelift.paginator import (
+from .literals import (
+    AcceptanceTypeType,
+    BackfillModeType,
+    BalancingStrategyType,
+    BuildStatusType,
+    ComparisonOperatorTypeType,
+    EC2InstanceTypeType,
+    FleetTypeType,
+    FlexMatchModeType,
+    GameServerGroupDeleteOptionType,
+    GameServerProtectionPolicyType,
+    GameServerUtilizationStatusType,
+    MetricNameType,
+    OperatingSystemType,
+    PlayerSessionCreationPolicyType,
+    PolicyTypeType,
+    ProtectionPolicyType,
+    RoutingStrategyTypeType,
+    ScalingAdjustmentTypeType,
+    ScalingStatusTypeType,
+    SortOrderType,
+)
+from .paginator import (
     DescribeFleetAttributesPaginator,
     DescribeFleetCapacityPaginator,
     DescribeFleetEventsPaginator,
@@ -38,11 +63,12 @@ from mypy_boto3_gamelift.paginator import (
     ListScriptsPaginator,
     SearchGameSessionsPaginator,
 )
-from mypy_boto3_gamelift.type_defs import (
+from .type_defs import (
     CertificateConfigurationTypeDef,
     ClaimGameServerOutputTypeDef,
     CreateAliasOutputTypeDef,
     CreateBuildOutputTypeDef,
+    CreateFleetLocationsOutputTypeDef,
     CreateFleetOutputTypeDef,
     CreateGameServerGroupOutputTypeDef,
     CreateGameSessionOutputTypeDef,
@@ -53,6 +79,7 @@ from mypy_boto3_gamelift.type_defs import (
     CreatePlayerSessionsOutputTypeDef,
     CreateScriptOutputTypeDef,
     CreateVpcPeeringAuthorizationOutputTypeDef,
+    DeleteFleetLocationsOutputTypeDef,
     DeleteGameServerGroupOutputTypeDef,
     DescribeAliasOutputTypeDef,
     DescribeBuildOutputTypeDef,
@@ -60,6 +87,9 @@ from mypy_boto3_gamelift.type_defs import (
     DescribeFleetAttributesOutputTypeDef,
     DescribeFleetCapacityOutputTypeDef,
     DescribeFleetEventsOutputTypeDef,
+    DescribeFleetLocationAttributesOutputTypeDef,
+    DescribeFleetLocationCapacityOutputTypeDef,
+    DescribeFleetLocationUtilizationOutputTypeDef,
     DescribeFleetPortSettingsOutputTypeDef,
     DescribeFleetUtilizationOutputTypeDef,
     DescribeGameServerGroupOutputTypeDef,
@@ -80,6 +110,7 @@ from mypy_boto3_gamelift.type_defs import (
     DescribeVpcPeeringAuthorizationsOutputTypeDef,
     DescribeVpcPeeringConnectionsOutputTypeDef,
     DesiredPlayerSessionTypeDef,
+    FilterConfigurationTypeDef,
     GamePropertyTypeDef,
     GameServerGroupAutoScalingPolicyTypeDef,
     GameSessionQueueDestinationTypeDef,
@@ -95,9 +126,11 @@ from mypy_boto3_gamelift.type_defs import (
     ListGameServersOutputTypeDef,
     ListScriptsOutputTypeDef,
     ListTagsForResourceResponseTypeDef,
+    LocationConfigurationTypeDef,
     PlayerLatencyPolicyTypeDef,
     PlayerLatencyTypeDef,
     PlayerTypeDef,
+    PriorityConfigurationTypeDef,
     PutScalingPolicyOutputTypeDef,
     RegisterGameServerOutputTypeDef,
     RequestUploadCredentialsOutputTypeDef,
@@ -108,9 +141,11 @@ from mypy_boto3_gamelift.type_defs import (
     RuntimeConfigurationTypeDef,
     S3LocationTypeDef,
     SearchGameSessionsOutputTypeDef,
+    StartFleetActionsOutputTypeDef,
     StartGameSessionPlacementOutputTypeDef,
     StartMatchBackfillOutputTypeDef,
     StartMatchmakingOutputTypeDef,
+    StopFleetActionsOutputTypeDef,
     StopGameSessionPlacementOutputTypeDef,
     SuspendGameServerGroupOutputTypeDef,
     TagTypeDef,
@@ -135,17 +170,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("GameLiftClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -165,144 +196,79 @@ class Exceptions:
     UnauthorizedException: Type[BotocoreClientError]
     UnsupportedRegionException: Type[BotocoreClientError]
 
-
-class GameLiftClient:
+class GameLiftClient(BaseClient):
     """
-    [GameLift.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        GameLiftClient exceptions.
+        """
     def accept_match(
-        self, TicketId: str, PlayerIds: List[str], AcceptanceType: Literal["ACCEPT", "REJECT"]
+        self, *, TicketId: str, PlayerIds: List[str], AcceptanceType: AcceptanceTypeType
     ) -> Dict[str, Any]:
         """
-        [Client.accept_match documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.accept_match)
-        """
+        Registers a player's acceptance or rejection of a proposed FlexMatch match.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.accept_match)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#accept_match)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#can_paginate)
+        """
     def claim_game_server(
-        self, GameServerGroupName: str, GameServerId: str = None, GameServerData: str = None
+        self, *, GameServerGroupName: str, GameServerId: str = None, GameServerData: str = None
     ) -> ClaimGameServerOutputTypeDef:
         """
-        [Client.claim_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.claim_game_server)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Locates an available game server and temporarily reserves it to host
+        gameplay and players.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.claim_game_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#claim_game_server)
+        """
     def create_alias(
         self,
+        *,
         Name: str,
         RoutingStrategy: "RoutingStrategyTypeDef",
         Description: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateAliasOutputTypeDef:
         """
-        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_alias)
-        """
+        Creates an alias for a fleet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_alias)
+        """
     def create_build(
         self,
+        *,
         Name: str = None,
         Version: str = None,
         StorageLocation: "S3LocationTypeDef" = None,
-        OperatingSystem: Literal["WINDOWS_2012", "AMAZON_LINUX", "AMAZON_LINUX_2"] = None,
-        Tags: List["TagTypeDef"] = None,
+        OperatingSystem: OperatingSystemType = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateBuildOutputTypeDef:
         """
-        [Client.create_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_build)
-        """
+        Creates a new Amazon GameLift build resource for your game server binary files.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_build)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_build)
+        """
     def create_fleet(
         self,
+        *,
         Name: str,
-        EC2InstanceType: Literal[
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-        ],
+        EC2InstanceType: EC2InstanceTypeType,
         Description: str = None,
         BuildId: str = None,
         ScriptId: str = None,
@@ -310,41 +276,61 @@ class GameLiftClient:
         ServerLaunchParameters: str = None,
         LogPaths: List[str] = None,
         EC2InboundPermissions: List["IpPermissionTypeDef"] = None,
-        NewGameSessionProtectionPolicy: Literal["NoProtection", "FullProtection"] = None,
+        NewGameSessionProtectionPolicy: ProtectionPolicyType = None,
         RuntimeConfiguration: "RuntimeConfigurationTypeDef" = None,
         ResourceCreationLimitPolicy: "ResourceCreationLimitPolicyTypeDef" = None,
         MetricGroups: List[str] = None,
         PeerVpcAwsAccountId: str = None,
         PeerVpcId: str = None,
-        FleetType: Literal["ON_DEMAND", "SPOT"] = None,
+        FleetType: FleetTypeType = None,
         InstanceRoleArn: str = None,
         CertificateConfiguration: "CertificateConfigurationTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
+        Locations: List["LocationConfigurationTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateFleetOutputTypeDef:
         """
-        [Client.create_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_fleet)
-        """
+        Creates a fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host
+        your custom game server or Realtime Servers.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_fleet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_fleet)
+        """
+    def create_fleet_locations(
+        self, *, FleetId: str, Locations: List["LocationConfigurationTypeDef"]
+    ) -> CreateFleetLocationsOutputTypeDef:
+        """
+        Adds remote locations to a fleet and begins populating the new locations with
+        EC2 instances.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_fleet_locations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_fleet_locations)
+        """
     def create_game_server_group(
         self,
+        *,
         GameServerGroupName: str,
         RoleArn: str,
         MinSize: int,
         MaxSize: int,
-        LaunchTemplate: LaunchTemplateSpecificationTypeDef,
+        LaunchTemplate: "LaunchTemplateSpecificationTypeDef",
         InstanceDefinitions: List["InstanceDefinitionTypeDef"],
-        AutoScalingPolicy: GameServerGroupAutoScalingPolicyTypeDef = None,
-        BalancingStrategy: Literal["SPOT_ONLY", "SPOT_PREFERRED", "ON_DEMAND_ONLY"] = None,
-        GameServerProtectionPolicy: Literal["NO_PROTECTION", "FULL_PROTECTION"] = None,
+        AutoScalingPolicy: "GameServerGroupAutoScalingPolicyTypeDef" = None,
+        BalancingStrategy: BalancingStrategyType = None,
+        GameServerProtectionPolicy: GameServerProtectionPolicyType = None,
         VpcSubnets: List[str] = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateGameServerGroupOutputTypeDef:
         """
-        [Client.create_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_game_server_group)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Creates a GameLift FleetIQ game server group for managing game hosting
+        on a collection of Amazon EC2 instances for game hosting.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_game_server_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_game_server_group)
+        """
     def create_game_session(
         self,
+        *,
         MaximumPlayerSessionCount: int,
         FleetId: str = None,
         AliasId: str = None,
@@ -354,25 +340,36 @@ class GameLiftClient:
         GameSessionId: str = None,
         IdempotencyToken: str = None,
         GameSessionData: str = None,
+        Location: str = None
     ) -> CreateGameSessionOutputTypeDef:
         """
-        [Client.create_game_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_game_session)
-        """
+        Creates a multiplayer game session for players in a specific fleet location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_game_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_game_session)
+        """
     def create_game_session_queue(
         self,
+        *,
         Name: str,
         TimeoutInSeconds: int = None,
         PlayerLatencyPolicies: List["PlayerLatencyPolicyTypeDef"] = None,
         Destinations: List["GameSessionQueueDestinationTypeDef"] = None,
-        Tags: List["TagTypeDef"] = None,
+        FilterConfiguration: "FilterConfigurationTypeDef" = None,
+        PriorityConfiguration: "PriorityConfigurationTypeDef" = None,
+        CustomEventData: str = None,
+        NotificationTarget: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateGameSessionQueueOutputTypeDef:
         """
-        [Client.create_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_game_session_queue)
-        """
+        Creates a placement queue that processes requests for new game sessions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_game_session_queue)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_game_session_queue)
+        """
     def create_matchmaking_configuration(
         self,
+        *,
         Name: str,
         RequestTimeoutSeconds: int,
         AcceptanceRequired: bool,
@@ -385,419 +382,485 @@ class GameLiftClient:
         CustomEventData: str = None,
         GameProperties: List["GamePropertyTypeDef"] = None,
         GameSessionData: str = None,
-        BackfillMode: Literal["AUTOMATIC", "MANUAL"] = None,
-        FlexMatchMode: Literal["STANDALONE", "WITH_QUEUE"] = None,
-        Tags: List["TagTypeDef"] = None,
+        BackfillMode: BackfillModeType = None,
+        FlexMatchMode: FlexMatchModeType = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateMatchmakingConfigurationOutputTypeDef:
         """
-        [Client.create_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_matchmaking_configuration)
-        """
+        Defines a new matchmaking configuration for use with FlexMatch.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_matchmaking_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_matchmaking_configuration)
+        """
     def create_matchmaking_rule_set(
-        self, Name: str, RuleSetBody: str, Tags: List["TagTypeDef"] = None
+        self, *, Name: str, RuleSetBody: str, Tags: List["TagTypeDef"] = None
     ) -> CreateMatchmakingRuleSetOutputTypeDef:
         """
-        [Client.create_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_matchmaking_rule_set)
-        """
+        Creates a new rule set for FlexMatch matchmaking.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_matchmaking_rule_set)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_matchmaking_rule_set)
+        """
     def create_player_session(
-        self, GameSessionId: str, PlayerId: str, PlayerData: str = None
+        self, *, GameSessionId: str, PlayerId: str, PlayerData: str = None
     ) -> CreatePlayerSessionOutputTypeDef:
         """
-        [Client.create_player_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_player_session)
-        """
+        Reserves an open player slot in a game session for a player.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_player_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_player_session)
+        """
     def create_player_sessions(
-        self, GameSessionId: str, PlayerIds: List[str], PlayerDataMap: Dict[str, str] = None
+        self, *, GameSessionId: str, PlayerIds: List[str], PlayerDataMap: Dict[str, str] = None
     ) -> CreatePlayerSessionsOutputTypeDef:
         """
-        [Client.create_player_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_player_sessions)
-        """
+        Reserves open slots in a game session for a group of players.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_player_sessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_player_sessions)
+        """
     def create_script(
         self,
+        *,
         Name: str = None,
         Version: str = None,
         StorageLocation: "S3LocationTypeDef" = None,
-        ZipFile: Union[bytes, IO[bytes]] = None,
-        Tags: List["TagTypeDef"] = None,
+        ZipFile: Union[bytes, IO[bytes], StreamingBody] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateScriptOutputTypeDef:
         """
-        [Client.create_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_script)
-        """
+        Creates a new script record for your Realtime Servers script.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_script)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_script)
+        """
     def create_vpc_peering_authorization(
-        self, GameLiftAwsAccountId: str, PeerVpcId: str
+        self, *, GameLiftAwsAccountId: str, PeerVpcId: str
     ) -> CreateVpcPeeringAuthorizationOutputTypeDef:
         """
-        [Client.create_vpc_peering_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_authorization)
-        """
+        Requests authorization to create or delete a peer connection between the VPC for
+        your Amazon GameLift fleet and a virtual private cloud (VPC) in your AWS
+        account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_authorization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_vpc_peering_authorization)
+        """
     def create_vpc_peering_connection(
-        self, FleetId: str, PeerVpcAwsAccountId: str, PeerVpcId: str
+        self, *, FleetId: str, PeerVpcAwsAccountId: str, PeerVpcId: str
     ) -> Dict[str, Any]:
         """
-        [Client.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_connection)
-        """
+        Establishes a VPC peering connection between a virtual private cloud (VPC) in an
+        AWS account with the VPC for your Amazon GameLift fleet.
 
-    def delete_alias(self, AliasId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#create_vpc_peering_connection)
         """
-        [Client.delete_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_alias)
+    def delete_alias(self, *, AliasId: str) -> None:
         """
+        Deletes an alias.
 
-    def delete_build(self, BuildId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_alias)
         """
-        [Client.delete_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_build)
+    def delete_build(self, *, BuildId: str) -> None:
         """
+        Deletes a build.
 
-    def delete_fleet(self, FleetId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_build)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_build)
         """
-        [Client.delete_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_fleet)
+    def delete_fleet(self, *, FleetId: str) -> None:
         """
+        Deletes all resources and information related a fleet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_fleet)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_fleet)
+        """
+    def delete_fleet_locations(
+        self, *, FleetId: str, Locations: List[str]
+    ) -> DeleteFleetLocationsOutputTypeDef:
+        """
+        Removes locations from a multi-location fleet.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_fleet_locations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_fleet_locations)
+        """
     def delete_game_server_group(
-        self,
-        GameServerGroupName: str,
-        DeleteOption: Literal["SAFE_DELETE", "FORCE_DELETE", "RETAIN"] = None,
+        self, *, GameServerGroupName: str, DeleteOption: GameServerGroupDeleteOptionType = None
     ) -> DeleteGameServerGroupOutputTypeDef:
         """
-        [Client.delete_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_game_server_group)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Terminates a game server group and permanently deletes the game server
+        group record.
 
-    def delete_game_session_queue(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_game_server_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_game_server_group)
         """
-        [Client.delete_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_game_session_queue)
+    def delete_game_session_queue(self, *, Name: str) -> Dict[str, Any]:
         """
+        Deletes a game session queue.
 
-    def delete_matchmaking_configuration(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_game_session_queue)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_game_session_queue)
         """
-        [Client.delete_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_configuration)
+    def delete_matchmaking_configuration(self, *, Name: str) -> Dict[str, Any]:
         """
+        Permanently removes a FlexMatch matchmaking configuration.
 
-    def delete_matchmaking_rule_set(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_matchmaking_configuration)
         """
-        [Client.delete_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_rule_set)
+    def delete_matchmaking_rule_set(self, *, Name: str) -> Dict[str, Any]:
         """
+        Deletes an existing matchmaking rule set.
 
-    def delete_scaling_policy(self, Name: str, FleetId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_rule_set)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_matchmaking_rule_set)
         """
-        [Client.delete_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_scaling_policy)
+    def delete_scaling_policy(self, *, Name: str, FleetId: str) -> None:
         """
+        Deletes a fleet scaling policy.
 
-    def delete_script(self, ScriptId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_scaling_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_scaling_policy)
         """
-        [Client.delete_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_script)
+    def delete_script(self, *, ScriptId: str) -> None:
         """
+        Deletes a Realtime script.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_script)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_script)
+        """
     def delete_vpc_peering_authorization(
-        self, GameLiftAwsAccountId: str, PeerVpcId: str
+        self, *, GameLiftAwsAccountId: str, PeerVpcId: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_vpc_peering_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_authorization)
-        """
+        Cancels a pending VPC peering authorization for the specified VPC.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_authorization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_vpc_peering_authorization)
+        """
     def delete_vpc_peering_connection(
-        self, FleetId: str, VpcPeeringConnectionId: str
+        self, *, FleetId: str, VpcPeeringConnectionId: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_connection)
-        """
+        Removes a VPC peering connection.
 
-    def deregister_game_server(self, GameServerGroupName: str, GameServerId: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_connection)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#delete_vpc_peering_connection)
         """
-        [Client.deregister_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.deregister_game_server)
+    def deregister_game_server(self, *, GameServerGroupName: str, GameServerId: str) -> None:
         """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Removes the game server from a game server group.
 
-    def describe_alias(self, AliasId: str) -> DescribeAliasOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.deregister_game_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#deregister_game_server)
         """
-        [Client.describe_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_alias)
+    def describe_alias(self, *, AliasId: str) -> DescribeAliasOutputTypeDef:
         """
+        Retrieves properties for an alias.
 
-    def describe_build(self, BuildId: str) -> DescribeBuildOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_alias)
         """
-        [Client.describe_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_build)
+    def describe_build(self, *, BuildId: str) -> DescribeBuildOutputTypeDef:
         """
+        Retrieves properties for a custom game build.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_build)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_build)
+        """
     def describe_ec2_instance_limits(
-        self,
-        EC2InstanceType: Literal[
-            "t2.micro",
-            "t2.small",
-            "t2.medium",
-            "t2.large",
-            "c3.large",
-            "c3.xlarge",
-            "c3.2xlarge",
-            "c3.4xlarge",
-            "c3.8xlarge",
-            "c4.large",
-            "c4.xlarge",
-            "c4.2xlarge",
-            "c4.4xlarge",
-            "c4.8xlarge",
-            "c5.large",
-            "c5.xlarge",
-            "c5.2xlarge",
-            "c5.4xlarge",
-            "c5.9xlarge",
-            "c5.12xlarge",
-            "c5.18xlarge",
-            "c5.24xlarge",
-            "c5a.large",
-            "c5a.xlarge",
-            "c5a.2xlarge",
-            "c5a.4xlarge",
-            "c5a.8xlarge",
-            "c5a.12xlarge",
-            "c5a.16xlarge",
-            "c5a.24xlarge",
-            "r3.large",
-            "r3.xlarge",
-            "r3.2xlarge",
-            "r3.4xlarge",
-            "r3.8xlarge",
-            "r4.large",
-            "r4.xlarge",
-            "r4.2xlarge",
-            "r4.4xlarge",
-            "r4.8xlarge",
-            "r4.16xlarge",
-            "r5.large",
-            "r5.xlarge",
-            "r5.2xlarge",
-            "r5.4xlarge",
-            "r5.8xlarge",
-            "r5.12xlarge",
-            "r5.16xlarge",
-            "r5.24xlarge",
-            "r5a.large",
-            "r5a.xlarge",
-            "r5a.2xlarge",
-            "r5a.4xlarge",
-            "r5a.8xlarge",
-            "r5a.12xlarge",
-            "r5a.16xlarge",
-            "r5a.24xlarge",
-            "m3.medium",
-            "m3.large",
-            "m3.xlarge",
-            "m3.2xlarge",
-            "m4.large",
-            "m4.xlarge",
-            "m4.2xlarge",
-            "m4.4xlarge",
-            "m4.10xlarge",
-            "m5.large",
-            "m5.xlarge",
-            "m5.2xlarge",
-            "m5.4xlarge",
-            "m5.8xlarge",
-            "m5.12xlarge",
-            "m5.16xlarge",
-            "m5.24xlarge",
-            "m5a.large",
-            "m5a.xlarge",
-            "m5a.2xlarge",
-            "m5a.4xlarge",
-            "m5a.8xlarge",
-            "m5a.12xlarge",
-            "m5a.16xlarge",
-            "m5a.24xlarge",
-        ] = None,
+        self, *, EC2InstanceType: EC2InstanceTypeType = None, Location: str = None
     ) -> DescribeEC2InstanceLimitsOutputTypeDef:
         """
-        [Client.describe_ec2_instance_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_ec2_instance_limits)
-        """
+        The GameLift service limits and current utilization for an AWS Region or
+        location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_ec2_instance_limits)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_ec2_instance_limits)
+        """
     def describe_fleet_attributes(
-        self, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
+        self, *, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeFleetAttributesOutputTypeDef:
         """
-        [Client.describe_fleet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_fleet_attributes)
-        """
+        Retrieves core fleet-wide properties, including the computing hardware and
+        deployment configuration for all instances in the fleet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_attributes)
+        """
     def describe_fleet_capacity(
-        self, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
+        self, *, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeFleetCapacityOutputTypeDef:
         """
-        [Client.describe_fleet_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_fleet_capacity)
-        """
+        Retrieves the resource capacity settings for one or more fleets.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_capacity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_capacity)
+        """
     def describe_fleet_events(
         self,
+        *,
         FleetId: str,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeFleetEventsOutputTypeDef:
         """
-        [Client.describe_fleet_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_fleet_events)
-        """
+        Retrieves entries from a fleet's event log.
 
-    def describe_fleet_port_settings(self, FleetId: str) -> DescribeFleetPortSettingsOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_events)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_events)
         """
-        [Client.describe_fleet_port_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_fleet_port_settings)
+    def describe_fleet_location_attributes(
+        self, *, FleetId: str, Locations: List[str] = None, Limit: int = None, NextToken: str = None
+    ) -> DescribeFleetLocationAttributesOutputTypeDef:
         """
+        Retrieves information on a fleet's remote locations, including life-cycle status
+        and any suspended fleet activity.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_location_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_location_attributes)
+        """
+    def describe_fleet_location_capacity(
+        self, *, FleetId: str, Location: str
+    ) -> DescribeFleetLocationCapacityOutputTypeDef:
+        """
+        Retrieves the resource capacity settings for a fleet location.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_location_capacity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_location_capacity)
+        """
+    def describe_fleet_location_utilization(
+        self, *, FleetId: str, Location: str
+    ) -> DescribeFleetLocationUtilizationOutputTypeDef:
+        """
+        Retrieves current usage data for a fleet location.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_location_utilization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_location_utilization)
+        """
+    def describe_fleet_port_settings(
+        self, *, FleetId: str, Location: str = None
+    ) -> DescribeFleetPortSettingsOutputTypeDef:
+        """
+        Retrieves a fleet's inbound connection permissions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_port_settings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_port_settings)
+        """
     def describe_fleet_utilization(
-        self, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
+        self, *, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeFleetUtilizationOutputTypeDef:
         """
-        [Client.describe_fleet_utilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_fleet_utilization)
-        """
+        Retrieves utilization statistics for one or more fleets.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_fleet_utilization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_fleet_utilization)
+        """
     def describe_game_server(
-        self, GameServerGroupName: str, GameServerId: str
+        self, *, GameServerGroupName: str, GameServerId: str
     ) -> DescribeGameServerOutputTypeDef:
         """
-        [Client.describe_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_game_server)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Retrieves information for a registered game server.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_game_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_game_server)
+        """
     def describe_game_server_group(
-        self, GameServerGroupName: str
+        self, *, GameServerGroupName: str
     ) -> DescribeGameServerGroupOutputTypeDef:
         """
-        [Client.describe_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_game_server_group)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Retrieves information on a game server group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_game_server_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_game_server_group)
+        """
     def describe_game_server_instances(
         self,
+        *,
         GameServerGroupName: str,
         InstanceIds: List[str] = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeGameServerInstancesOutputTypeDef:
         """
-        [Client.describe_game_server_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_game_server_instances)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Retrieves status information about the Amazon EC2 instances associated
+        with a GameLift FleetIQ game server group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_game_server_instances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_game_server_instances)
+        """
     def describe_game_session_details(
         self,
+        *,
         FleetId: str = None,
         GameSessionId: str = None,
         AliasId: str = None,
+        Location: str = None,
         StatusFilter: str = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeGameSessionDetailsOutputTypeDef:
         """
-        [Client.describe_game_session_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_game_session_details)
-        """
+        Retrieves additional game session properties, including the game session
+        protection policy in force, a set of one or more game sessions in a specific
+        fleet location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_game_session_details)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_game_session_details)
+        """
     def describe_game_session_placement(
-        self, PlacementId: str
+        self, *, PlacementId: str
     ) -> DescribeGameSessionPlacementOutputTypeDef:
         """
-        [Client.describe_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_game_session_placement)
-        """
+        Retrieves information, including current status, about a game session placement
+        request.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_game_session_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_game_session_placement)
+        """
     def describe_game_session_queues(
-        self, Names: List[str] = None, Limit: int = None, NextToken: str = None
+        self, *, Names: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeGameSessionQueuesOutputTypeDef:
         """
-        [Client.describe_game_session_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_game_session_queues)
-        """
+        Retrieves the properties for one or more game session queues.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_game_session_queues)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_game_session_queues)
+        """
     def describe_game_sessions(
         self,
+        *,
         FleetId: str = None,
         GameSessionId: str = None,
         AliasId: str = None,
+        Location: str = None,
         StatusFilter: str = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeGameSessionsOutputTypeDef:
         """
-        [Client.describe_game_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_game_sessions)
-        """
+        Retrieves a set of one or more game sessions in a specific fleet location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_game_sessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_game_sessions)
+        """
     def describe_instances(
-        self, FleetId: str, InstanceId: str = None, Limit: int = None, NextToken: str = None
+        self,
+        *,
+        FleetId: str,
+        InstanceId: str = None,
+        Limit: int = None,
+        NextToken: str = None,
+        Location: str = None
     ) -> DescribeInstancesOutputTypeDef:
         """
-        [Client.describe_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_instances)
-        """
+        Retrieves information about a fleet's instances, including instance IDs,
+        connection data, and status.
 
-    def describe_matchmaking(self, TicketIds: List[str]) -> DescribeMatchmakingOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_instances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_instances)
         """
-        [Client.describe_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_matchmaking)
+    def describe_matchmaking(self, *, TicketIds: List[str]) -> DescribeMatchmakingOutputTypeDef:
         """
+        Retrieves one or more matchmaking tickets.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_matchmaking)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_matchmaking)
+        """
     def describe_matchmaking_configurations(
         self,
+        *,
         Names: List[str] = None,
         RuleSetName: str = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeMatchmakingConfigurationsOutputTypeDef:
         """
-        [Client.describe_matchmaking_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_configurations)
-        """
+        Retrieves the details of FlexMatch matchmaking configurations.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_configurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_matchmaking_configurations)
+        """
     def describe_matchmaking_rule_sets(
-        self, Names: List[str] = None, Limit: int = None, NextToken: str = None
+        self, *, Names: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeMatchmakingRuleSetsOutputTypeDef:
         """
-        [Client.describe_matchmaking_rule_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_rule_sets)
-        """
+        Retrieves the details for FlexMatch matchmaking rule sets.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_rule_sets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_matchmaking_rule_sets)
+        """
     def describe_player_sessions(
         self,
+        *,
         GameSessionId: str = None,
         PlayerId: str = None,
         PlayerSessionId: str = None,
         PlayerSessionStatusFilter: str = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribePlayerSessionsOutputTypeDef:
         """
-        [Client.describe_player_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_player_sessions)
-        """
+        Retrieves properties for one or more player sessions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_player_sessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_player_sessions)
+        """
     def describe_runtime_configuration(
-        self, FleetId: str
+        self, *, FleetId: str
     ) -> DescribeRuntimeConfigurationOutputTypeDef:
         """
-        [Client.describe_runtime_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_runtime_configuration)
-        """
+        Retrieves a fleet's runtime configuration settings.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_runtime_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_runtime_configuration)
+        """
     def describe_scaling_policies(
         self,
+        *,
         FleetId: str,
-        StatusFilter: Literal[
-            "ACTIVE",
-            "UPDATE_REQUESTED",
-            "UPDATING",
-            "DELETE_REQUESTED",
-            "DELETING",
-            "DELETED",
-            "ERROR",
-        ] = None,
+        StatusFilter: ScalingStatusTypeType = None,
         Limit: int = None,
         NextToken: str = None,
+        Location: str = None
     ) -> DescribeScalingPoliciesOutputTypeDef:
         """
-        [Client.describe_scaling_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_scaling_policies)
-        """
+        Retrieves all scaling policies applied to a fleet.
 
-    def describe_script(self, ScriptId: str) -> DescribeScriptOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_scaling_policies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_scaling_policies)
         """
-        [Client.describe_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_script)
+    def describe_script(self, *, ScriptId: str) -> DescribeScriptOutputTypeDef:
         """
+        Retrieves properties for a Realtime script.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_script)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_script)
+        """
     def describe_vpc_peering_authorizations(self) -> DescribeVpcPeeringAuthorizationsOutputTypeDef:
         """
-        [Client.describe_vpc_peering_authorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_authorizations)
-        """
+        Retrieves valid VPC peering authorizations that are pending for the AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_authorizations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_vpc_peering_authorizations)
+        """
     def describe_vpc_peering_connections(
-        self, FleetId: str = None
+        self, *, FleetId: str = None
     ) -> DescribeVpcPeeringConnectionsOutputTypeDef:
         """
-        [Client.describe_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_connections)
-        """
+        Retrieves information on VPC peering connections.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_connections)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#describe_vpc_peering_connections)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -806,326 +869,425 @@ class GameLiftClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_game_session_log_url(self, GameSessionId: str) -> GetGameSessionLogUrlOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#generate_presigned_url)
         """
-        [Client.get_game_session_log_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.get_game_session_log_url)
+    def get_game_session_log_url(self, *, GameSessionId: str) -> GetGameSessionLogUrlOutputTypeDef:
         """
+        Retrieves the location of stored game session logs for a specified game session.
 
-    def get_instance_access(self, FleetId: str, InstanceId: str) -> GetInstanceAccessOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.get_game_session_log_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#get_game_session_log_url)
         """
-        [Client.get_instance_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.get_instance_access)
+    def get_instance_access(
+        self, *, FleetId: str, InstanceId: str
+    ) -> GetInstanceAccessOutputTypeDef:
         """
+        Requests remote access to a fleet instance.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.get_instance_access)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#get_instance_access)
+        """
     def list_aliases(
         self,
-        RoutingStrategyType: Literal["SIMPLE", "TERMINAL"] = None,
+        *,
+        RoutingStrategyType: RoutingStrategyTypeType = None,
         Name: str = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListAliasesOutputTypeDef:
         """
-        [Client.list_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.list_aliases)
-        """
+        Retrieves all aliases for this AWS account.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.list_aliases)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#list_aliases)
+        """
     def list_builds(
-        self,
-        Status: Literal["INITIALIZED", "READY", "FAILED"] = None,
-        Limit: int = None,
-        NextToken: str = None,
+        self, *, Status: BuildStatusType = None, Limit: int = None, NextToken: str = None
     ) -> ListBuildsOutputTypeDef:
         """
-        [Client.list_builds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.list_builds)
-        """
+        Retrieves build resources for all builds associated with the AWS account in use.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.list_builds)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#list_builds)
+        """
     def list_fleets(
-        self, BuildId: str = None, ScriptId: str = None, Limit: int = None, NextToken: str = None
+        self, *, BuildId: str = None, ScriptId: str = None, Limit: int = None, NextToken: str = None
     ) -> ListFleetsOutputTypeDef:
         """
-        [Client.list_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.list_fleets)
-        """
+        Retrieves a collection of fleet resources in an AWS Region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.list_fleets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#list_fleets)
+        """
     def list_game_server_groups(
-        self, Limit: int = None, NextToken: str = None
+        self, *, Limit: int = None, NextToken: str = None
     ) -> ListGameServerGroupsOutputTypeDef:
         """
-        [Client.list_game_server_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.list_game_server_groups)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Retrieves information on all game servers groups that exist in the
+        current AWS account for the selected Region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.list_game_server_groups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#list_game_server_groups)
+        """
     def list_game_servers(
         self,
+        *,
         GameServerGroupName: str,
-        SortOrder: Literal["ASCENDING", "DESCENDING"] = None,
+        SortOrder: SortOrderType = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListGameServersOutputTypeDef:
         """
-        [Client.list_game_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.list_game_servers)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Retrieves information on all game servers that are currently active in
+        a specified game server group.
 
-    def list_scripts(self, Limit: int = None, NextToken: str = None) -> ListScriptsOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.list_game_servers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#list_game_servers)
         """
-        [Client.list_scripts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.list_scripts)
+    def list_scripts(self, *, Limit: int = None, NextToken: str = None) -> ListScriptsOutputTypeDef:
         """
+        Retrieves script records for all Realtime scripts that are associated with the
+        AWS account in use.
 
-    def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.list_scripts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#list_scripts)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Retrieves all tags that are assigned to a GameLift resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#list_tags_for_resource)
+        """
     def put_scaling_policy(
         self,
+        *,
         Name: str,
         FleetId: str,
-        MetricName: Literal[
-            "ActivatingGameSessions",
-            "ActiveGameSessions",
-            "ActiveInstances",
-            "AvailableGameSessions",
-            "AvailablePlayerSessions",
-            "CurrentPlayerSessions",
-            "IdleInstances",
-            "PercentAvailableGameSessions",
-            "PercentIdleInstances",
-            "QueueDepth",
-            "WaitTime",
-        ],
+        MetricName: MetricNameType,
         ScalingAdjustment: int = None,
-        ScalingAdjustmentType: Literal[
-            "ChangeInCapacity", "ExactCapacity", "PercentChangeInCapacity"
-        ] = None,
+        ScalingAdjustmentType: ScalingAdjustmentTypeType = None,
         Threshold: float = None,
-        ComparisonOperator: Literal[
-            "GreaterThanOrEqualToThreshold",
-            "GreaterThanThreshold",
-            "LessThanThreshold",
-            "LessThanOrEqualToThreshold",
-        ] = None,
+        ComparisonOperator: ComparisonOperatorTypeType = None,
         EvaluationPeriods: int = None,
-        PolicyType: Literal["RuleBased", "TargetBased"] = None,
-        TargetConfiguration: "TargetConfigurationTypeDef" = None,
+        PolicyType: PolicyTypeType = None,
+        TargetConfiguration: "TargetConfigurationTypeDef" = None
     ) -> PutScalingPolicyOutputTypeDef:
         """
-        [Client.put_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.put_scaling_policy)
-        """
+        Creates or updates a scaling policy for a fleet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.put_scaling_policy)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#put_scaling_policy)
+        """
     def register_game_server(
         self,
+        *,
         GameServerGroupName: str,
         GameServerId: str,
         InstanceId: str,
         ConnectionInfo: str = None,
-        GameServerData: str = None,
+        GameServerData: str = None
     ) -> RegisterGameServerOutputTypeDef:
         """
-        [Client.register_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.register_game_server)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Creates a new game server resource and notifies GameLift FleetIQ that
+        the game server is ready to host gameplay and players.
 
-    def request_upload_credentials(self, BuildId: str) -> RequestUploadCredentialsOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.register_game_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#register_game_server)
         """
-        [Client.request_upload_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.request_upload_credentials)
+    def request_upload_credentials(self, *, BuildId: str) -> RequestUploadCredentialsOutputTypeDef:
         """
+        Retrieves a fresh set of credentials for use when uploading a new set of game
+        build files to Amazon GameLift's Amazon S3.
 
-    def resolve_alias(self, AliasId: str) -> ResolveAliasOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.request_upload_credentials)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#request_upload_credentials)
         """
-        [Client.resolve_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.resolve_alias)
+    def resolve_alias(self, *, AliasId: str) -> ResolveAliasOutputTypeDef:
         """
+        Retrieves the fleet ID that an alias is currently pointing to.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.resolve_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#resolve_alias)
+        """
     def resume_game_server_group(
-        self, GameServerGroupName: str, ResumeActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
+        self, *, GameServerGroupName: str, ResumeActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
     ) -> ResumeGameServerGroupOutputTypeDef:
         """
-        [Client.resume_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.resume_game_server_group)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Reinstates activity on a game server group after it has been
+        suspended.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.resume_game_server_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#resume_game_server_group)
+        """
     def search_game_sessions(
         self,
+        *,
         FleetId: str = None,
         AliasId: str = None,
+        Location: str = None,
         FilterExpression: str = None,
         SortExpression: str = None,
         Limit: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> SearchGameSessionsOutputTypeDef:
         """
-        [Client.search_game_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.search_game_sessions)
-        """
+        Retrieves all active game sessions that match a set of search criteria and sorts
+        them into a specified order.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.search_game_sessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#search_game_sessions)
+        """
     def start_fleet_actions(
-        self, FleetId: str, Actions: List[Literal["AUTO_SCALING"]]
-    ) -> Dict[str, Any]:
+        self, *, FleetId: str, Actions: List[Literal["AUTO_SCALING"]], Location: str = None
+    ) -> StartFleetActionsOutputTypeDef:
         """
-        [Client.start_fleet_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.start_fleet_actions)
-        """
+        Resumes certain types of activity on fleet instances that were suspended with
+        StopFleetActions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.start_fleet_actions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#start_fleet_actions)
+        """
     def start_game_session_placement(
         self,
+        *,
         PlacementId: str,
         GameSessionQueueName: str,
         MaximumPlayerSessionCount: int,
         GameProperties: List["GamePropertyTypeDef"] = None,
         GameSessionName: str = None,
         PlayerLatencies: List["PlayerLatencyTypeDef"] = None,
-        DesiredPlayerSessions: List[DesiredPlayerSessionTypeDef] = None,
-        GameSessionData: str = None,
+        DesiredPlayerSessions: List["DesiredPlayerSessionTypeDef"] = None,
+        GameSessionData: str = None
     ) -> StartGameSessionPlacementOutputTypeDef:
         """
-        [Client.start_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.start_game_session_placement)
-        """
+        Places a request for a new game session in a queue (see  CreateGameSessionQueue
+        ).
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.start_game_session_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#start_game_session_placement)
+        """
     def start_match_backfill(
         self,
+        *,
         ConfigurationName: str,
         Players: List["PlayerTypeDef"],
         TicketId: str = None,
-        GameSessionArn: str = None,
+        GameSessionArn: str = None
     ) -> StartMatchBackfillOutputTypeDef:
         """
-        [Client.start_match_backfill documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.start_match_backfill)
-        """
+        Finds new players to fill open slots in currently running game sessions.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.start_match_backfill)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#start_match_backfill)
+        """
     def start_matchmaking(
-        self, ConfigurationName: str, Players: List["PlayerTypeDef"], TicketId: str = None
+        self, *, ConfigurationName: str, Players: List["PlayerTypeDef"], TicketId: str = None
     ) -> StartMatchmakingOutputTypeDef:
         """
-        [Client.start_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.start_matchmaking)
-        """
+        Uses FlexMatch to create a game match for a group of players based on custom
+        matchmaking rules.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.start_matchmaking)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#start_matchmaking)
+        """
     def stop_fleet_actions(
-        self, FleetId: str, Actions: List[Literal["AUTO_SCALING"]]
-    ) -> Dict[str, Any]:
+        self, *, FleetId: str, Actions: List[Literal["AUTO_SCALING"]], Location: str = None
+    ) -> StopFleetActionsOutputTypeDef:
         """
-        [Client.stop_fleet_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.stop_fleet_actions)
-        """
+        Suspends certain types of activity in a fleet location.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.stop_fleet_actions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#stop_fleet_actions)
+        """
     def stop_game_session_placement(
-        self, PlacementId: str
+        self, *, PlacementId: str
     ) -> StopGameSessionPlacementOutputTypeDef:
         """
-        [Client.stop_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.stop_game_session_placement)
-        """
+        Cancels a game session placement that is in `PENDING` status.
 
-    def stop_matchmaking(self, TicketId: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.stop_game_session_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#stop_game_session_placement)
         """
-        [Client.stop_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.stop_matchmaking)
+    def stop_matchmaking(self, *, TicketId: str) -> Dict[str, Any]:
         """
+        Cancels a matchmaking ticket or match backfill ticket that is currently being
+        processed.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.stop_matchmaking)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#stop_matchmaking)
+        """
     def suspend_game_server_group(
-        self, GameServerGroupName: str, SuspendActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
+        self, *, GameServerGroupName: str, SuspendActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
     ) -> SuspendGameServerGroupOutputTypeDef:
         """
-        [Client.suspend_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.suspend_game_server_group)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Temporarily stops activity on a game server group without terminating
+        instances or the game server group.
 
-    def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.suspend_game_server_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#suspend_game_server_group)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.tag_resource)
+    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Assigns a tag to a GameLift resource.
 
-    def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.untag_resource)
+    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes a tag that is assigned to a GameLift resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#untag_resource)
+        """
     def update_alias(
         self,
+        *,
         AliasId: str,
         Name: str = None,
         Description: str = None,
-        RoutingStrategy: "RoutingStrategyTypeDef" = None,
+        RoutingStrategy: "RoutingStrategyTypeDef" = None
     ) -> UpdateAliasOutputTypeDef:
         """
-        [Client.update_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_alias)
-        """
+        Updates properties for an alias.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_alias)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_alias)
+        """
     def update_build(
-        self, BuildId: str, Name: str = None, Version: str = None
+        self, *, BuildId: str, Name: str = None, Version: str = None
     ) -> UpdateBuildOutputTypeDef:
         """
-        [Client.update_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_build)
-        """
+        Updates metadata in a build resource, including the build name and version.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_build)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_build)
+        """
     def update_fleet_attributes(
         self,
+        *,
         FleetId: str,
         Name: str = None,
         Description: str = None,
-        NewGameSessionProtectionPolicy: Literal["NoProtection", "FullProtection"] = None,
+        NewGameSessionProtectionPolicy: ProtectionPolicyType = None,
         ResourceCreationLimitPolicy: "ResourceCreationLimitPolicyTypeDef" = None,
-        MetricGroups: List[str] = None,
+        MetricGroups: List[str] = None
     ) -> UpdateFleetAttributesOutputTypeDef:
         """
-        [Client.update_fleet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_fleet_attributes)
-        """
+        Updates a fleet's mutable attributes, including game session protection and
+        resource creation limits.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_fleet_attributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_fleet_attributes)
+        """
     def update_fleet_capacity(
-        self, FleetId: str, DesiredInstances: int = None, MinSize: int = None, MaxSize: int = None
+        self,
+        *,
+        FleetId: str,
+        DesiredInstances: int = None,
+        MinSize: int = None,
+        MaxSize: int = None,
+        Location: str = None
     ) -> UpdateFleetCapacityOutputTypeDef:
         """
-        [Client.update_fleet_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_fleet_capacity)
-        """
+        Updates capacity settings for a fleet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_fleet_capacity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_fleet_capacity)
+        """
     def update_fleet_port_settings(
         self,
+        *,
         FleetId: str,
         InboundPermissionAuthorizations: List["IpPermissionTypeDef"] = None,
-        InboundPermissionRevocations: List["IpPermissionTypeDef"] = None,
+        InboundPermissionRevocations: List["IpPermissionTypeDef"] = None
     ) -> UpdateFleetPortSettingsOutputTypeDef:
         """
-        [Client.update_fleet_port_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_fleet_port_settings)
-        """
+        Updates permissions that allow inbound traffic to connect to game sessions that
+        are being hosted on instances in the fleet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_fleet_port_settings)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_fleet_port_settings)
+        """
     def update_game_server(
         self,
+        *,
         GameServerGroupName: str,
         GameServerId: str,
         GameServerData: str = None,
-        UtilizationStatus: Literal["AVAILABLE", "UTILIZED"] = None,
-        HealthCheck: Literal["HEALTHY"] = None,
+        UtilizationStatus: GameServerUtilizationStatusType = None,
+        HealthCheck: Literal["HEALTHY"] = None
     ) -> UpdateGameServerOutputTypeDef:
         """
-        [Client.update_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_game_server)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Updates information about a registered game server to help GameLift
+        FleetIQ to track game server availability.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_game_server)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_game_server)
+        """
     def update_game_server_group(
         self,
+        *,
         GameServerGroupName: str,
         RoleArn: str = None,
         InstanceDefinitions: List["InstanceDefinitionTypeDef"] = None,
-        GameServerProtectionPolicy: Literal["NO_PROTECTION", "FULL_PROTECTION"] = None,
-        BalancingStrategy: Literal["SPOT_ONLY", "SPOT_PREFERRED", "ON_DEMAND_ONLY"] = None,
+        GameServerProtectionPolicy: GameServerProtectionPolicyType = None,
+        BalancingStrategy: BalancingStrategyType = None
     ) -> UpdateGameServerGroupOutputTypeDef:
         """
-        [Client.update_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_game_server_group)
-        """
+        **This operation is used with the GameLift FleetIQ solution and game server
+        groups.** Updates GameLift FleetIQ-specific properties for a game server group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_game_server_group)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_game_server_group)
+        """
     def update_game_session(
         self,
+        *,
         GameSessionId: str,
         MaximumPlayerSessionCount: int = None,
         Name: str = None,
-        PlayerSessionCreationPolicy: Literal["ACCEPT_ALL", "DENY_ALL"] = None,
-        ProtectionPolicy: Literal["NoProtection", "FullProtection"] = None,
+        PlayerSessionCreationPolicy: PlayerSessionCreationPolicyType = None,
+        ProtectionPolicy: ProtectionPolicyType = None
     ) -> UpdateGameSessionOutputTypeDef:
         """
-        [Client.update_game_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_game_session)
-        """
+        Updates the mutable properties of a game session.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_game_session)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_game_session)
+        """
     def update_game_session_queue(
         self,
+        *,
         Name: str,
         TimeoutInSeconds: int = None,
         PlayerLatencyPolicies: List["PlayerLatencyPolicyTypeDef"] = None,
         Destinations: List["GameSessionQueueDestinationTypeDef"] = None,
+        FilterConfiguration: "FilterConfigurationTypeDef" = None,
+        PriorityConfiguration: "PriorityConfigurationTypeDef" = None,
+        CustomEventData: str = None,
+        NotificationTarget: str = None
     ) -> UpdateGameSessionQueueOutputTypeDef:
         """
-        [Client.update_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_game_session_queue)
-        """
+        Updates the configuration of a game session queue, which determines how the
+        queue processes new game session requests.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_game_session_queue)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_game_session_queue)
+        """
     def update_matchmaking_configuration(
         self,
+        *,
         Name: str,
         Description: str = None,
         GameSessionQueueArns: List[str] = None,
@@ -1138,187 +1300,198 @@ class GameLiftClient:
         CustomEventData: str = None,
         GameProperties: List["GamePropertyTypeDef"] = None,
         GameSessionData: str = None,
-        BackfillMode: Literal["AUTOMATIC", "MANUAL"] = None,
-        FlexMatchMode: Literal["STANDALONE", "WITH_QUEUE"] = None,
+        BackfillMode: BackfillModeType = None,
+        FlexMatchMode: FlexMatchModeType = None
     ) -> UpdateMatchmakingConfigurationOutputTypeDef:
         """
-        [Client.update_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_matchmaking_configuration)
-        """
+        Updates settings for a FlexMatch matchmaking configuration.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_matchmaking_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_matchmaking_configuration)
+        """
     def update_runtime_configuration(
-        self, FleetId: str, RuntimeConfiguration: "RuntimeConfigurationTypeDef"
+        self, *, FleetId: str, RuntimeConfiguration: "RuntimeConfigurationTypeDef"
     ) -> UpdateRuntimeConfigurationOutputTypeDef:
         """
-        [Client.update_runtime_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_runtime_configuration)
-        """
+        Updates the current runtime configuration for the specified fleet, which tells
+        GameLift how to launch server processes on all instances in the fleet.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_runtime_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_runtime_configuration)
+        """
     def update_script(
         self,
+        *,
         ScriptId: str,
         Name: str = None,
         Version: str = None,
         StorageLocation: "S3LocationTypeDef" = None,
-        ZipFile: Union[bytes, IO[bytes]] = None,
+        ZipFile: Union[bytes, IO[bytes], StreamingBody] = None
     ) -> UpdateScriptOutputTypeDef:
         """
-        [Client.update_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.update_script)
-        """
+        Updates Realtime script metadata and content.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.update_script)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#update_script)
+        """
     def validate_matchmaking_rule_set(
-        self, RuleSetBody: str
+        self, *, RuleSetBody: str
     ) -> ValidateMatchmakingRuleSetOutputTypeDef:
         """
-        [Client.validate_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Client.validate_matchmaking_rule_set)
-        """
+        Validates the syntax of a matchmaking rule or rule set.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Client.validate_matchmaking_rule_set)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/client.html#validate_matchmaking_rule_set)
+        """
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_fleet_attributes"]
     ) -> DescribeFleetAttributesPaginator:
         """
-        [Paginator.DescribeFleetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describefleetattributespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_fleet_capacity"]
     ) -> DescribeFleetCapacityPaginator:
         """
-        [Paginator.DescribeFleetCapacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describefleetcapacitypaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_fleet_events"]
     ) -> DescribeFleetEventsPaginator:
         """
-        [Paginator.DescribeFleetEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describefleeteventspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_fleet_utilization"]
     ) -> DescribeFleetUtilizationPaginator:
         """
-        [Paginator.DescribeFleetUtilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describefleetutilizationpaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_game_server_instances"]
     ) -> DescribeGameServerInstancesPaginator:
         """
-        [Paginator.DescribeGameServerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeGameServerInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeGameServerInstances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describegameserverinstancespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_game_session_details"]
     ) -> DescribeGameSessionDetailsPaginator:
         """
-        [Paginator.DescribeGameSessionDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describegamesessiondetailspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_game_session_queues"]
     ) -> DescribeGameSessionQueuesPaginator:
         """
-        [Paginator.DescribeGameSessionQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describegamesessionqueuespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_game_sessions"]
     ) -> DescribeGameSessionsPaginator:
         """
-        [Paginator.DescribeGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describegamesessionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_instances"]
     ) -> DescribeInstancesPaginator:
         """
-        [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describeinstancespaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_matchmaking_configurations"]
     ) -> DescribeMatchmakingConfigurationsPaginator:
         """
-        [Paginator.DescribeMatchmakingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describematchmakingconfigurationspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_matchmaking_rule_sets"]
     ) -> DescribeMatchmakingRuleSetsPaginator:
         """
-        [Paginator.DescribeMatchmakingRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describematchmakingrulesetspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_player_sessions"]
     ) -> DescribePlayerSessionsPaginator:
         """
-        [Paginator.DescribePlayerSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describeplayersessionspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["describe_scaling_policies"]
     ) -> DescribeScalingPoliciesPaginator:
         """
-        [Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#describescalingpoliciespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
         """
-        [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.ListAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.ListAliases)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#listaliasespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_builds"]) -> ListBuildsPaginator:
         """
-        [Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.ListBuilds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.ListBuilds)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#listbuildspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_fleets"]) -> ListFleetsPaginator:
         """
-        [Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.ListFleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.ListFleets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#listfleetspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_game_server_groups"]
     ) -> ListGameServerGroupsPaginator:
         """
-        [Paginator.ListGameServerGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.ListGameServerGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.ListGameServerGroups)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#listgameservergroupspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_game_servers"]
     ) -> ListGameServersPaginator:
         """
-        [Paginator.ListGameServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.ListGameServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.ListGameServers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#listgameserverspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_scripts"]) -> ListScriptsPaginator:
         """
-        [Paginator.ListScripts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.ListScripts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.ListScripts)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#listscriptspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["search_game_sessions"]
     ) -> SearchGameSessionsPaginator:
         """
-        [Paginator.SearchGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_gamelift/paginators.html#searchgamesessionspaginator)
         """

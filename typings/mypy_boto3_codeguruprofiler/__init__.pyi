@@ -19,10 +19,9 @@ Usage::
     list_profile_times_paginator: ListProfileTimesPaginator = client.get_paginator("list_profile_times")
     ```
 """
-from mypy_boto3_codeguruprofiler.client import CodeGuruProfilerClient
-from mypy_boto3_codeguruprofiler.paginator import ListProfileTimesPaginator
+from .client import CodeGuruProfilerClient
+from .paginator import ListProfileTimesPaginator
 
 Client = CodeGuruProfilerClient
-
 
 __all__ = ("Client", "CodeGuruProfilerClient", "ListProfileTimesPaginator")

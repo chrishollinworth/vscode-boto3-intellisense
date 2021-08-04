@@ -28,17 +28,16 @@ Usage::
     list_presets_paginator: ListPresetsPaginator = client.get_paginator("list_presets")
     ```
 """
-from mypy_boto3_elastictranscoder.client import ElasticTranscoderClient
-from mypy_boto3_elastictranscoder.paginator import (
+from .client import ElasticTranscoderClient
+from .paginator import (
     ListJobsByPipelinePaginator,
     ListJobsByStatusPaginator,
     ListPipelinesPaginator,
     ListPresetsPaginator,
 )
-from mypy_boto3_elastictranscoder.waiter import JobCompleteWaiter
+from .waiter import JobCompleteWaiter
 
 Client = ElasticTranscoderClient
-
 
 __all__ = (
     "Client",

@@ -16,9 +16,8 @@ Usage::
     session_client: SyntheticsClient = session.client("synthetics")
     ```
 """
-from mypy_boto3_synthetics.client import SyntheticsClient
+from .client import SyntheticsClient
 
 Client = SyntheticsClient
-
 
 __all__ = ("Client", "SyntheticsClient")

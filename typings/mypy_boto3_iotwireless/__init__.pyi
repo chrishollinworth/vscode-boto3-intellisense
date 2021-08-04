@@ -16,9 +16,8 @@ Usage::
     session_client: IoTWirelessClient = session.client("iotwireless")
     ```
 """
-from mypy_boto3_iotwireless.client import IoTWirelessClient
+from .client import IoTWirelessClient
 
 Client = IoTWirelessClient
-
 
 __all__ = ("Client", "IoTWirelessClient")

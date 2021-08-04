@@ -16,9 +16,8 @@ Usage::
     session_client: PinpointClient = session.client("pinpoint")
     ```
 """
-from mypy_boto3_pinpoint.client import PinpointClient
+from .client import PinpointClient
 
 Client = PinpointClient
-
 
 __all__ = ("Client", "PinpointClient")

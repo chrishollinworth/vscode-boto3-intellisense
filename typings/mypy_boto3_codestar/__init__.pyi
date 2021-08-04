@@ -25,8 +25,8 @@ Usage::
     list_user_profiles_paginator: ListUserProfilesPaginator = client.get_paginator("list_user_profiles")
     ```
 """
-from mypy_boto3_codestar.client import CodeStarClient
-from mypy_boto3_codestar.paginator import (
+from .client import CodeStarClient
+from .paginator import (
     ListProjectsPaginator,
     ListResourcesPaginator,
     ListTeamMembersPaginator,
@@ -34,7 +34,6 @@ from mypy_boto3_codestar.paginator import (
 )
 
 Client = CodeStarClient
-
 
 __all__ = (
     "Client",

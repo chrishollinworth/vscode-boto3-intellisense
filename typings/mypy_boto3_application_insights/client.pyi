@@ -1,5 +1,7 @@
 """
-Main interface for application-insights service client
+Type annotations for application-insights service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html)
 
 Usage::
 
@@ -10,13 +12,13 @@ Usage::
     client: ApplicationInsightsClient = boto3.client("application-insights")
     ```
 """
-import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type
+from typing import Any, Dict, List, Type, Union
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_application_insights.type_defs import (
+from .literals import ConfigurationEventStatusType, TierType
+from .type_defs import (
     CreateApplicationResponseTypeDef,
     CreateLogPatternResponseTypeDef,
     DescribeApplicationResponseTypeDef,
@@ -39,22 +41,13 @@ from mypy_boto3_application_insights.type_defs import (
     UpdateLogPatternResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = ("ApplicationInsightsClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     AccessDeniedException: Type[BotocoreClientError]
@@ -67,129 +60,154 @@ class Exceptions:
     TooManyTagsException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-
-class ApplicationInsightsClient:
+class ApplicationInsightsClient(BaseClient):
     """
-    [ApplicationInsights.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        ApplicationInsightsClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#can_paginate)
+        """
     def create_application(
         self,
+        *,
         ResourceGroupName: str,
         OpsCenterEnabled: bool = None,
         CWEMonitorEnabled: bool = None,
         OpsItemSNSTopicArn: str = None,
-        Tags: List["TagTypeDef"] = None,
+        Tags: List["TagTypeDef"] = None
     ) -> CreateApplicationResponseTypeDef:
         """
-        [Client.create_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.create_application)
-        """
+        Adds an application that is created from a resource group.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.create_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#create_application)
+        """
     def create_component(
-        self, ResourceGroupName: str, ComponentName: str, ResourceList: List[str]
+        self, *, ResourceGroupName: str, ComponentName: str, ResourceList: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.create_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.create_component)
-        """
+        Creates a custom component by grouping similar standalone instances to monitor.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.create_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#create_component)
+        """
     def create_log_pattern(
-        self, ResourceGroupName: str, PatternSetName: str, PatternName: str, Pattern: str, Rank: int
+        self,
+        *,
+        ResourceGroupName: str,
+        PatternSetName: str,
+        PatternName: str,
+        Pattern: str,
+        Rank: int
     ) -> CreateLogPatternResponseTypeDef:
         """
-        [Client.create_log_pattern documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.create_log_pattern)
-        """
+        Adds an log pattern to a `LogPatternSet` .
 
-    def delete_application(self, ResourceGroupName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.create_log_pattern)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#create_log_pattern)
         """
-        [Client.delete_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.delete_application)
+    def delete_application(self, *, ResourceGroupName: str) -> Dict[str, Any]:
         """
+        Removes the specified application from monitoring.
 
-    def delete_component(self, ResourceGroupName: str, ComponentName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.delete_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#delete_application)
         """
-        [Client.delete_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.delete_component)
+    def delete_component(self, *, ResourceGroupName: str, ComponentName: str) -> Dict[str, Any]:
         """
+        Ungroups a custom component.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.delete_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#delete_component)
+        """
     def delete_log_pattern(
-        self, ResourceGroupName: str, PatternSetName: str, PatternName: str
+        self, *, ResourceGroupName: str, PatternSetName: str, PatternName: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_log_pattern documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.delete_log_pattern)
-        """
+        Removes the specified log pattern from a `LogPatternSet` .
 
-    def describe_application(self, ResourceGroupName: str) -> DescribeApplicationResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.delete_log_pattern)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#delete_log_pattern)
         """
-        [Client.describe_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_application)
+    def describe_application(self, *, ResourceGroupName: str) -> DescribeApplicationResponseTypeDef:
         """
+        Describes the application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_application)
+        """
     def describe_component(
-        self, ResourceGroupName: str, ComponentName: str
+        self, *, ResourceGroupName: str, ComponentName: str
     ) -> DescribeComponentResponseTypeDef:
         """
-        [Client.describe_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_component)
-        """
+        Describes a component and lists the resources that are grouped together in a
+        component.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_component)
+        """
     def describe_component_configuration(
-        self, ResourceGroupName: str, ComponentName: str
+        self, *, ResourceGroupName: str, ComponentName: str
     ) -> DescribeComponentConfigurationResponseTypeDef:
         """
-        [Client.describe_component_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_component_configuration)
-        """
+        Describes the monitoring configuration of the component.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_component_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_component_configuration)
+        """
     def describe_component_configuration_recommendation(
-        self,
-        ResourceGroupName: str,
-        ComponentName: str,
-        Tier: Literal[
-            "CUSTOM",
-            "DEFAULT",
-            "DOT_NET_CORE",
-            "DOT_NET_WORKER",
-            "DOT_NET_WEB_TIER",
-            "DOT_NET_WEB",
-            "SQL_SERVER",
-            "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP",
-            "MYSQL",
-            "POSTGRESQL",
-            "JAVA_JMX",
-            "ORACLE",
-        ],
+        self, *, ResourceGroupName: str, ComponentName: str, Tier: TierType
     ) -> DescribeComponentConfigurationRecommendationResponseTypeDef:
         """
-        [Client.describe_component_configuration_recommendation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_component_configuration_recommendation)
-        """
+        Describes the recommended monitoring configuration of the component.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_component_configuration_recommendation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_component_configuration_recommendation)
+        """
     def describe_log_pattern(
-        self, ResourceGroupName: str, PatternSetName: str, PatternName: str
+        self, *, ResourceGroupName: str, PatternSetName: str, PatternName: str
     ) -> DescribeLogPatternResponseTypeDef:
         """
-        [Client.describe_log_pattern documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_log_pattern)
-        """
+        Describe a specific log pattern from a `LogPatternSet` .
 
-    def describe_observation(self, ObservationId: str) -> DescribeObservationResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_log_pattern)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_log_pattern)
         """
-        [Client.describe_observation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_observation)
+    def describe_observation(self, *, ObservationId: str) -> DescribeObservationResponseTypeDef:
         """
+        Describes an anomaly or error with the application.
 
-    def describe_problem(self, ProblemId: str) -> DescribeProblemResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_observation)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_observation)
         """
-        [Client.describe_problem documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_problem)
+    def describe_problem(self, *, ProblemId: str) -> DescribeProblemResponseTypeDef:
         """
+        Describes an application problem.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_problem)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_problem)
+        """
     def describe_problem_observations(
-        self, ProblemId: str
+        self, *, ProblemId: str
     ) -> DescribeProblemObservationsResponseTypeDef:
         """
-        [Client.describe_problem_observations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.describe_problem_observations)
-        """
+        Describes the anomalies or errors associated with the problem.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.describe_problem_observations)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#describe_problem_observations)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -198,137 +216,163 @@ class ApplicationInsightsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#generate_presigned_url)
+        """
     def list_applications(
-        self, MaxResults: int = None, NextToken: str = None
+        self, *, MaxResults: int = None, NextToken: str = None
     ) -> ListApplicationsResponseTypeDef:
         """
-        [Client.list_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.list_applications)
-        """
+        Lists the IDs of the applications that you are monitoring.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.list_applications)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#list_applications)
+        """
     def list_components(
-        self, ResourceGroupName: str, MaxResults: int = None, NextToken: str = None
+        self, *, ResourceGroupName: str, MaxResults: int = None, NextToken: str = None
     ) -> ListComponentsResponseTypeDef:
         """
-        [Client.list_components documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.list_components)
-        """
+        Lists the auto-grouped, standalone, and custom components of the application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.list_components)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#list_components)
+        """
     def list_configuration_history(
         self,
+        *,
         ResourceGroupName: str = None,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
-        EventStatus: Literal["INFO", "WARN", "ERROR"] = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
+        EventStatus: ConfigurationEventStatusType = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListConfigurationHistoryResponseTypeDef:
         """
-        [Client.list_configuration_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.list_configuration_history)
-        """
+        Lists the INFO, WARN, and ERROR events for periodic configuration updates
+        performed by Application Insights.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.list_configuration_history)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#list_configuration_history)
+        """
     def list_log_pattern_sets(
-        self, ResourceGroupName: str, MaxResults: int = None, NextToken: str = None
+        self, *, ResourceGroupName: str, MaxResults: int = None, NextToken: str = None
     ) -> ListLogPatternSetsResponseTypeDef:
         """
-        [Client.list_log_pattern_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.list_log_pattern_sets)
-        """
+        Lists the log pattern sets in the specific application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.list_log_pattern_sets)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#list_log_pattern_sets)
+        """
     def list_log_patterns(
         self,
+        *,
         ResourceGroupName: str,
         PatternSetName: str = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListLogPatternsResponseTypeDef:
         """
-        [Client.list_log_patterns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.list_log_patterns)
-        """
+        Lists the log patterns in the specific log `LogPatternSet` .
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.list_log_patterns)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#list_log_patterns)
+        """
     def list_problems(
         self,
+        *,
         ResourceGroupName: str = None,
-        StartTime: datetime = None,
-        EndTime: datetime = None,
+        StartTime: Union[datetime, str] = None,
+        EndTime: Union[datetime, str] = None,
         MaxResults: int = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> ListProblemsResponseTypeDef:
         """
-        [Client.list_problems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.list_problems)
-        """
+        Lists the problems with your application.
 
-    def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.list_problems)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#list_problems)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Retrieve a list of the tags (keys and values) that are associated with a
+        specified application.
 
-    def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#list_tags_for_resource)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.tag_resource)
+    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
+        Add one or more tags (keys and values) to a specified application.
 
-    def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.untag_resource)
+    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Remove one or more tags (keys and values) from a specified application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#untag_resource)
+        """
     def update_application(
         self,
+        *,
         ResourceGroupName: str,
         OpsCenterEnabled: bool = None,
         CWEMonitorEnabled: bool = None,
         OpsItemSNSTopicArn: str = None,
-        RemoveSNSTopic: bool = None,
+        RemoveSNSTopic: bool = None
     ) -> UpdateApplicationResponseTypeDef:
         """
-        [Client.update_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.update_application)
-        """
+        Updates the application.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.update_application)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#update_application)
+        """
     def update_component(
         self,
+        *,
         ResourceGroupName: str,
         ComponentName: str,
         NewComponentName: str = None,
-        ResourceList: List[str] = None,
+        ResourceList: List[str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.update_component)
-        """
+        Updates the custom component name and/or the list of resources that make up the
+        component.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.update_component)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#update_component)
+        """
     def update_component_configuration(
         self,
+        *,
         ResourceGroupName: str,
         ComponentName: str,
         Monitor: bool = None,
-        Tier: Literal[
-            "CUSTOM",
-            "DEFAULT",
-            "DOT_NET_CORE",
-            "DOT_NET_WORKER",
-            "DOT_NET_WEB_TIER",
-            "DOT_NET_WEB",
-            "SQL_SERVER",
-            "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP",
-            "MYSQL",
-            "POSTGRESQL",
-            "JAVA_JMX",
-            "ORACLE",
-        ] = None,
-        ComponentConfiguration: str = None,
+        Tier: TierType = None,
+        ComponentConfiguration: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_component_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.update_component_configuration)
-        """
+        Updates the monitoring configurations for the component.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.update_component_configuration)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#update_component_configuration)
+        """
     def update_log_pattern(
         self,
+        *,
         ResourceGroupName: str,
         PatternSetName: str,
         PatternName: str,
         Pattern: str = None,
-        Rank: int = None,
+        Rank: int = None
     ) -> UpdateLogPatternResponseTypeDef:
         """
-        [Client.update_log_pattern documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/application-insights.html#ApplicationInsights.Client.update_log_pattern)
+        Adds a log pattern to a `LogPatternSet` .
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/application-insights.html#ApplicationInsights.Client.update_log_pattern)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/client.html#update_log_pattern)
         """

@@ -1,5 +1,7 @@
 """
-Main interface for polly service client paginators.
+Type annotations for polly service client paginators.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html)
 
 Usage::
 
@@ -20,97 +22,63 @@ Usage::
     list_speech_synthesis_tasks_paginator: ListSpeechSynthesisTasksPaginator = client.get_paginator("list_speech_synthesis_tasks")
     ```
 """
-import sys
 from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_polly.type_defs import (
+from .literals import EngineType, LanguageCodeType, TaskStatusType
+from .type_defs import (
     DescribeVoicesOutputTypeDef,
     ListLexiconsOutputTypeDef,
     ListSpeechSynthesisTasksOutputTypeDef,
     PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = ("DescribeVoicesPaginator", "ListLexiconsPaginator", "ListSpeechSynthesisTasksPaginator")
-
 
 class DescribeVoicesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVoices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#describevoicespaginator)
     """
 
     def paginate(
         self,
-        Engine: Literal["standard", "neural"] = None,
-        LanguageCode: Literal[
-            "arb",
-            "cmn-CN",
-            "cy-GB",
-            "da-DK",
-            "de-DE",
-            "en-AU",
-            "en-GB",
-            "en-GB-WLS",
-            "en-IN",
-            "en-US",
-            "es-ES",
-            "es-MX",
-            "es-US",
-            "fr-CA",
-            "fr-FR",
-            "is-IS",
-            "it-IT",
-            "ja-JP",
-            "hi-IN",
-            "ko-KR",
-            "nb-NO",
-            "nl-NL",
-            "pl-PL",
-            "pt-BR",
-            "pt-PT",
-            "ro-RO",
-            "ru-RU",
-            "sv-SE",
-            "tr-TR",
-        ] = None,
+        *,
+        Engine: EngineType = None,
+        LanguageCode: LanguageCodeType = None,
         IncludeAdditionalLanguageCodes: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVoicesOutputTypeDef]:
         """
-        [DescribeVoices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.DescribeVoices.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.DescribeVoices.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#describevoicespaginator)
         """
-
 
 class ListLexiconsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.ListLexicons)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.ListLexicons)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listlexiconspaginator)
     """
 
     def paginate(
-        self, PaginationConfig: PaginatorConfigTypeDef = None
+        self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLexiconsOutputTypeDef]:
         """
-        [ListLexicons.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.ListLexicons.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.ListLexicons.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listlexiconspaginator)
         """
-
 
 class ListSpeechSynthesisTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListSpeechSynthesisTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listspeechsynthesistaskspaginator)
     """
 
     def paginate(
-        self,
-        Status: Literal["scheduled", "inProgress", "completed", "failed"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None,
+        self, *, Status: TaskStatusType = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSpeechSynthesisTasksOutputTypeDef]:
         """
-        [ListSpeechSynthesisTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listspeechsynthesistaskspaginator)
         """

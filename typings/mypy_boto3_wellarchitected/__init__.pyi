@@ -16,9 +16,8 @@ Usage::
     session_client: WellArchitectedClient = session.client("wellarchitected")
     ```
 """
-from mypy_boto3_wellarchitected.client import WellArchitectedClient
+from .client import WellArchitectedClient
 
 Client = WellArchitectedClient
-
 
 __all__ = ("Client", "WellArchitectedClient")

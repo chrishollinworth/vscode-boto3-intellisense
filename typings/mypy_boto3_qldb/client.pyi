@@ -1,5 +1,7 @@
 """
-Main interface for qldb service client
+Type annotations for qldb service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html)
 
 Usage::
 
@@ -10,13 +12,13 @@ Usage::
     client: QLDBClient = boto3.client("qldb")
     ```
 """
-import sys
 from datetime import datetime
-from typing import Any, Dict, List, Type
+from typing import Any, Dict, List, Type, Union
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_qldb.type_defs import (
+from .literals import PermissionsModeType
+from .type_defs import (
     CancelJournalKinesisStreamResponseTypeDef,
     CreateLedgerResponseTypeDef,
     DescribeJournalKinesisStreamResponseTypeDef,
@@ -34,26 +36,18 @@ from mypy_boto3_qldb.type_defs import (
     ListTagsForResourceResponseTypeDef,
     S3ExportConfigurationTypeDef,
     StreamJournalToKinesisResponseTypeDef,
+    UpdateLedgerPermissionsModeResponseTypeDef,
     UpdateLedgerResponseTypeDef,
     ValueHolderTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
-
 __all__ = ("QLDBClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -64,74 +58,100 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     ResourcePreconditionNotMetException: Type[BotocoreClientError]
 
-
-class QLDBClient:
+class QLDBClient(BaseClient):
     """
-    [QLDB.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        QLDBClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#can_paginate)
+        """
     def cancel_journal_kinesis_stream(
-        self, LedgerName: str, StreamId: str
+        self, *, LedgerName: str, StreamId: str
     ) -> CancelJournalKinesisStreamResponseTypeDef:
         """
-        [Client.cancel_journal_kinesis_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.cancel_journal_kinesis_stream)
-        """
+        Ends a given Amazon QLDB journal stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.cancel_journal_kinesis_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#cancel_journal_kinesis_stream)
+        """
     def create_ledger(
         self,
+        *,
         Name: str,
-        PermissionsMode: Literal["ALLOW_ALL"],
+        PermissionsMode: PermissionsModeType,
         Tags: Dict[str, str] = None,
         DeletionProtection: bool = None,
+        KmsKey: str = None
     ) -> CreateLedgerResponseTypeDef:
         """
-        [Client.create_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.create_ledger)
-        """
+        Creates a new ledger in your account in the current Region.
 
-    def delete_ledger(self, Name: str) -> None:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.create_ledger)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#create_ledger)
         """
-        [Client.delete_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.delete_ledger)
+    def delete_ledger(self, *, Name: str) -> None:
         """
+        Deletes a ledger and all of its contents.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.delete_ledger)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#delete_ledger)
+        """
     def describe_journal_kinesis_stream(
-        self, LedgerName: str, StreamId: str
+        self, *, LedgerName: str, StreamId: str
     ) -> DescribeJournalKinesisStreamResponseTypeDef:
         """
-        [Client.describe_journal_kinesis_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.describe_journal_kinesis_stream)
-        """
+        Returns detailed information about a given Amazon QLDB journal stream.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.describe_journal_kinesis_stream)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#describe_journal_kinesis_stream)
+        """
     def describe_journal_s3_export(
-        self, Name: str, ExportId: str
+        self, *, Name: str, ExportId: str
     ) -> DescribeJournalS3ExportResponseTypeDef:
         """
-        [Client.describe_journal_s3_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.describe_journal_s3_export)
-        """
+        Returns information about a journal export job, including the ledger name,
+        export ID, creation time, current status, and the parameters of the original
+        export creation request.
 
-    def describe_ledger(self, Name: str) -> DescribeLedgerResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.describe_journal_s3_export)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#describe_journal_s3_export)
         """
-        [Client.describe_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.describe_ledger)
+    def describe_ledger(self, *, Name: str) -> DescribeLedgerResponseTypeDef:
         """
+        Returns information about a ledger, including its state, permissions mode,
+        encryption at rest settings, and when it was created.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.describe_ledger)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#describe_ledger)
+        """
     def export_journal_to_s3(
         self,
+        *,
         Name: str,
-        InclusiveStartTime: datetime,
-        ExclusiveEndTime: datetime,
+        InclusiveStartTime: Union[datetime, str],
+        ExclusiveEndTime: Union[datetime, str],
         S3ExportConfiguration: "S3ExportConfigurationTypeDef",
-        RoleArn: str,
+        RoleArn: str
     ) -> ExportJournalToS3ResponseTypeDef:
         """
-        [Client.export_journal_to_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.export_journal_to_s3)
-        """
+        Exports journal contents within a date and time range from a ledger into a
+        specified Amazon Simple Storage Service (Amazon S3) bucket.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.export_journal_to_s3)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#export_journal_to_s3)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -140,95 +160,137 @@ class QLDBClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#generate_presigned_url)
+        """
     def get_block(
         self,
+        *,
         Name: str,
         BlockAddress: "ValueHolderTypeDef",
-        DigestTipAddress: "ValueHolderTypeDef" = None,
+        DigestTipAddress: "ValueHolderTypeDef" = None
     ) -> GetBlockResponseTypeDef:
         """
-        [Client.get_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.get_block)
-        """
+        Returns a block object at a specified address in a journal.
 
-    def get_digest(self, Name: str) -> GetDigestResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.get_block)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#get_block)
         """
-        [Client.get_digest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.get_digest)
+    def get_digest(self, *, Name: str) -> GetDigestResponseTypeDef:
         """
+        Returns the digest of a ledger at the latest committed block in the journal.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.get_digest)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#get_digest)
+        """
     def get_revision(
         self,
+        *,
         Name: str,
         BlockAddress: "ValueHolderTypeDef",
         DocumentId: str,
-        DigestTipAddress: "ValueHolderTypeDef" = None,
+        DigestTipAddress: "ValueHolderTypeDef" = None
     ) -> GetRevisionResponseTypeDef:
         """
-        [Client.get_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.get_revision)
-        """
+        Returns a revision data object for a specified document ID and block address.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.get_revision)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#get_revision)
+        """
     def list_journal_kinesis_streams_for_ledger(
-        self, LedgerName: str, MaxResults: int = None, NextToken: str = None
+        self, *, LedgerName: str, MaxResults: int = None, NextToken: str = None
     ) -> ListJournalKinesisStreamsForLedgerResponseTypeDef:
         """
-        [Client.list_journal_kinesis_streams_for_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.list_journal_kinesis_streams_for_ledger)
-        """
+        Returns an array of all Amazon QLDB journal stream descriptors for a given
+        ledger.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.list_journal_kinesis_streams_for_ledger)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_journal_kinesis_streams_for_ledger)
+        """
     def list_journal_s3_exports(
-        self, MaxResults: int = None, NextToken: str = None
+        self, *, MaxResults: int = None, NextToken: str = None
     ) -> ListJournalS3ExportsResponseTypeDef:
         """
-        [Client.list_journal_s3_exports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports)
-        """
+        Returns an array of journal export job descriptions for all ledgers that are
+        associated with the current account and Region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_journal_s3_exports)
+        """
     def list_journal_s3_exports_for_ledger(
-        self, Name: str, MaxResults: int = None, NextToken: str = None
+        self, *, Name: str, MaxResults: int = None, NextToken: str = None
     ) -> ListJournalS3ExportsForLedgerResponseTypeDef:
         """
-        [Client.list_journal_s3_exports_for_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports_for_ledger)
-        """
+        Returns an array of journal export job descriptions for a specified ledger.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports_for_ledger)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_journal_s3_exports_for_ledger)
+        """
     def list_ledgers(
-        self, MaxResults: int = None, NextToken: str = None
+        self, *, MaxResults: int = None, NextToken: str = None
     ) -> ListLedgersResponseTypeDef:
         """
-        [Client.list_ledgers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.list_ledgers)
-        """
+        Returns an array of ledger summaries that are associated with the current
+        account and Region.
 
-    def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.list_ledgers)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_ledgers)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Returns all tags for a specified Amazon QLDB resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#list_tags_for_resource)
+        """
     def stream_journal_to_kinesis(
         self,
+        *,
         LedgerName: str,
         RoleArn: str,
-        InclusiveStartTime: datetime,
+        InclusiveStartTime: Union[datetime, str],
         KinesisConfiguration: "KinesisConfigurationTypeDef",
         StreamName: str,
         Tags: Dict[str, str] = None,
-        ExclusiveEndTime: datetime = None,
+        ExclusiveEndTime: Union[datetime, str] = None
     ) -> StreamJournalToKinesisResponseTypeDef:
         """
-        [Client.stream_journal_to_kinesis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.stream_journal_to_kinesis)
-        """
+        Creates a journal stream for a given Amazon QLDB ledger.
 
-    def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.stream_journal_to_kinesis)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#stream_journal_to_kinesis)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.tag_resource)
+    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Adds one or more tags to a specified Amazon QLDB resource.
 
-    def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.untag_resource)
+    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes one or more tags from a specified Amazon QLDB resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#untag_resource)
+        """
     def update_ledger(
-        self, Name: str, DeletionProtection: bool = None
+        self, *, Name: str, DeletionProtection: bool = None, KmsKey: str = None
     ) -> UpdateLedgerResponseTypeDef:
         """
-        [Client.update_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/qldb.html#QLDB.Client.update_ledger)
+        Updates properties on a ledger.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.update_ledger)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#update_ledger)
+        """
+    def update_ledger_permissions_mode(
+        self, *, Name: str, PermissionsMode: PermissionsModeType
+    ) -> UpdateLedgerPermissionsModeResponseTypeDef:
+        """
+        Updates the permissions mode of a ledger.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/qldb.html#QLDB.Client.update_ledger_permissions_mode)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_qldb/client.html#update_ledger_permissions_mode)
         """

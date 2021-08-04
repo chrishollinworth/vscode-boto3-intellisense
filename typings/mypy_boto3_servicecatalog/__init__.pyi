@@ -49,8 +49,8 @@ Usage::
     search_products_as_admin_paginator: SearchProductsAsAdminPaginator = client.get_paginator("search_products_as_admin")
     ```
 """
-from mypy_boto3_servicecatalog.client import ServiceCatalogClient
-from mypy_boto3_servicecatalog.paginator import (
+from .client import ServiceCatalogClient
+from .paginator import (
     ListAcceptedPortfolioSharesPaginator,
     ListConstraintsForPortfolioPaginator,
     ListLaunchPathsPaginator,
@@ -70,7 +70,6 @@ from mypy_boto3_servicecatalog.paginator import (
 )
 
 Client = ServiceCatalogClient
-
 
 __all__ = (
     "Client",

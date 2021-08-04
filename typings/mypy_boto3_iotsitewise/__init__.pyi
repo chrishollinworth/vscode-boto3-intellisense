@@ -13,6 +13,7 @@ Usage::
         Client,
         GetAssetPropertyAggregatesPaginator,
         GetAssetPropertyValueHistoryPaginator,
+        GetInterpolatedAssetPropertyValuesPaginator,
         IoTSiteWiseClient,
         ListAccessPoliciesPaginator,
         ListAssetModelsPaginator,
@@ -42,6 +43,7 @@ Usage::
 
     get_asset_property_aggregates_paginator: GetAssetPropertyAggregatesPaginator = client.get_paginator("get_asset_property_aggregates")
     get_asset_property_value_history_paginator: GetAssetPropertyValueHistoryPaginator = client.get_paginator("get_asset_property_value_history")
+    get_interpolated_asset_property_values_paginator: GetInterpolatedAssetPropertyValuesPaginator = client.get_paginator("get_interpolated_asset_property_values")
     list_access_policies_paginator: ListAccessPoliciesPaginator = client.get_paginator("list_access_policies")
     list_asset_models_paginator: ListAssetModelsPaginator = client.get_paginator("list_asset_models")
     list_asset_relationships_paginator: ListAssetRelationshipsPaginator = client.get_paginator("list_asset_relationships")
@@ -54,10 +56,11 @@ Usage::
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     ```
 """
-from mypy_boto3_iotsitewise.client import IoTSiteWiseClient
-from mypy_boto3_iotsitewise.paginator import (
+from .client import IoTSiteWiseClient
+from .paginator import (
     GetAssetPropertyAggregatesPaginator,
     GetAssetPropertyValueHistoryPaginator,
+    GetInterpolatedAssetPropertyValuesPaginator,
     ListAccessPoliciesPaginator,
     ListAssetModelsPaginator,
     ListAssetRelationshipsPaginator,
@@ -69,7 +72,7 @@ from mypy_boto3_iotsitewise.paginator import (
     ListProjectAssetsPaginator,
     ListProjectsPaginator,
 )
-from mypy_boto3_iotsitewise.waiter import (
+from .waiter import (
     AssetActiveWaiter,
     AssetModelActiveWaiter,
     AssetModelNotExistsWaiter,
@@ -80,7 +83,6 @@ from mypy_boto3_iotsitewise.waiter import (
 
 Client = IoTSiteWiseClient
 
-
 __all__ = (
     "AssetActiveWaiter",
     "AssetModelActiveWaiter",
@@ -89,6 +91,7 @@ __all__ = (
     "Client",
     "GetAssetPropertyAggregatesPaginator",
     "GetAssetPropertyValueHistoryPaginator",
+    "GetInterpolatedAssetPropertyValuesPaginator",
     "IoTSiteWiseClient",
     "ListAccessPoliciesPaginator",
     "ListAssetModelsPaginator",

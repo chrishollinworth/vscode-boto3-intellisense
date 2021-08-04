@@ -19,10 +19,9 @@ Usage::
     list_terminologies_paginator: ListTerminologiesPaginator = client.get_paginator("list_terminologies")
     ```
 """
-from mypy_boto3_translate.client import TranslateClient
-from mypy_boto3_translate.paginator import ListTerminologiesPaginator
+from .client import TranslateClient
+from .paginator import ListTerminologiesPaginator
 
 Client = TranslateClient
-
 
 __all__ = ("Client", "ListTerminologiesPaginator", "TranslateClient")

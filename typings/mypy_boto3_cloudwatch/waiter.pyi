@@ -1,5 +1,7 @@
 """
-Main interface for cloudwatch service client waiters.
+Type annotations for cloudwatch service client waiters.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html)
 
 Usage::
 
@@ -18,63 +20,61 @@ Usage::
     composite_alarm_exists_waiter: CompositeAlarmExistsWaiter = client.get_waiter("composite_alarm_exists")
     ```
 """
-import sys
 from typing import List
 
 from botocore.waiter import Waiter as Boto3Waiter
 
-from mypy_boto3_cloudwatch.type_defs import WaiterConfigTypeDef
-
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-
+from .literals import AlarmTypeType, StateValueType
+from .type_defs import WaiterConfigTypeDef
 
 __all__ = ("AlarmExistsWaiter", "CompositeAlarmExistsWaiter")
 
-
 class AlarmExistsWaiter(Boto3Waiter):
     """
-    [Waiter.AlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#alarmexistswaiter)
     """
 
     def wait(
         self,
+        *,
         AlarmNames: List[str] = None,
         AlarmNamePrefix: str = None,
-        AlarmTypes: List[Literal["CompositeAlarm", "MetricAlarm"]] = None,
+        AlarmTypes: List[AlarmTypeType] = None,
         ChildrenOfAlarmName: str = None,
         ParentsOfAlarmName: str = None,
-        StateValue: Literal["OK", "ALARM", "INSUFFICIENT_DATA"] = None,
+        StateValue: StateValueType = None,
         ActionPrefix: str = None,
         MaxRecords: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [AlarmExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#alarmexistswaiter)
         """
-
 
 class CompositeAlarmExistsWaiter(Boto3Waiter):
     """
-    [Waiter.CompositeAlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#compositealarmexistswaiter)
     """
 
     def wait(
         self,
+        *,
         AlarmNames: List[str] = None,
         AlarmNamePrefix: str = None,
-        AlarmTypes: List[Literal["CompositeAlarm", "MetricAlarm"]] = None,
+        AlarmTypes: List[AlarmTypeType] = None,
         ChildrenOfAlarmName: str = None,
         ParentsOfAlarmName: str = None,
-        StateValue: Literal["OK", "ALARM", "INSUFFICIENT_DATA"] = None,
+        StateValue: StateValueType = None,
         ActionPrefix: str = None,
         MaxRecords: int = None,
         NextToken: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None,
+        WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [CompositeAlarmExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists.wait)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/waiters.html#compositealarmexistswaiter)
         """

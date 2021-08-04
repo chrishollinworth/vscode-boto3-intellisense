@@ -16,9 +16,8 @@ Usage::
     session_client: PersonalizeEventsClient = session.client("personalize-events")
     ```
 """
-from mypy_boto3_personalize_events.client import PersonalizeEventsClient
+from .client import PersonalizeEventsClient
 
 Client = PersonalizeEventsClient
-
 
 __all__ = ("Client", "PersonalizeEventsClient")

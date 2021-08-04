@@ -1,5 +1,7 @@
 """
-Main interface for polly service client
+Type annotations for polly service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html)
 
 Usage::
 
@@ -13,14 +15,23 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_polly.paginator import (
+from .literals import (
+    EngineType,
+    LanguageCodeType,
+    OutputFormatType,
+    SpeechMarkTypeType,
+    TaskStatusType,
+    TextTypeType,
+    VoiceIdType,
+)
+from .paginator import (
     DescribeVoicesPaginator,
     ListLexiconsPaginator,
     ListSpeechSynthesisTasksPaginator,
 )
-from mypy_boto3_polly.type_defs import (
+from .type_defs import (
     DescribeVoicesOutputTypeDef,
     GetLexiconOutputTypeDef,
     GetSpeechSynthesisTaskOutputTypeDef,
@@ -35,17 +46,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("PollyClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -71,66 +78,47 @@ class Exceptions:
     UnsupportedPlsAlphabetException: Type[BotocoreClientError]
     UnsupportedPlsLanguageException: Type[BotocoreClientError]
 
-
-class PollyClient:
+class PollyClient(BaseClient):
     """
-    [Polly.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        PollyClient exceptions.
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
-    def delete_lexicon(self, Name: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#can_paginate)
         """
-        [Client.delete_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.delete_lexicon)
+    def delete_lexicon(self, *, Name: str) -> Dict[str, Any]:
         """
+        Deletes the specified pronunciation lexicon stored in an AWS Region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.delete_lexicon)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#delete_lexicon)
+        """
     def describe_voices(
         self,
-        Engine: Literal["standard", "neural"] = None,
-        LanguageCode: Literal[
-            "arb",
-            "cmn-CN",
-            "cy-GB",
-            "da-DK",
-            "de-DE",
-            "en-AU",
-            "en-GB",
-            "en-GB-WLS",
-            "en-IN",
-            "en-US",
-            "es-ES",
-            "es-MX",
-            "es-US",
-            "fr-CA",
-            "fr-FR",
-            "is-IS",
-            "it-IT",
-            "ja-JP",
-            "hi-IN",
-            "ko-KR",
-            "nb-NO",
-            "nl-NL",
-            "pl-PL",
-            "pt-BR",
-            "pt-PT",
-            "ro-RO",
-            "ru-RU",
-            "sv-SE",
-            "tr-TR",
-        ] = None,
+        *,
+        Engine: EngineType = None,
+        LanguageCode: LanguageCodeType = None,
         IncludeAdditionalLanguageCodes: bool = None,
-        NextToken: str = None,
+        NextToken: str = None
     ) -> DescribeVoicesOutputTypeDef:
         """
-        [Client.describe_voices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.describe_voices)
-        """
+        Returns the list of voices that are available for use when requesting speech
+        synthesis.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.describe_voices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#describe_voices)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -139,276 +127,108 @@ class PollyClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
-    def get_lexicon(self, Name: str) -> GetLexiconOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#generate_presigned_url)
         """
-        [Client.get_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.get_lexicon)
+    def get_lexicon(self, *, Name: str) -> GetLexiconOutputTypeDef:
         """
+        Returns the content of the specified pronunciation lexicon stored in an AWS
+        Region.
 
-    def get_speech_synthesis_task(self, TaskId: str) -> GetSpeechSynthesisTaskOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.get_lexicon)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#get_lexicon)
         """
-        [Client.get_speech_synthesis_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.get_speech_synthesis_task)
+    def get_speech_synthesis_task(self, *, TaskId: str) -> GetSpeechSynthesisTaskOutputTypeDef:
         """
+        Retrieves a specific SpeechSynthesisTask object based on its TaskID.
 
-    def list_lexicons(self, NextToken: str = None) -> ListLexiconsOutputTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.get_speech_synthesis_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#get_speech_synthesis_task)
         """
-        [Client.list_lexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.list_lexicons)
+    def list_lexicons(self, *, NextToken: str = None) -> ListLexiconsOutputTypeDef:
         """
+        Returns a list of pronunciation lexicons stored in an AWS Region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.list_lexicons)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#list_lexicons)
+        """
     def list_speech_synthesis_tasks(
-        self,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Status: Literal["scheduled", "inProgress", "completed", "failed"] = None,
+        self, *, MaxResults: int = None, NextToken: str = None, Status: TaskStatusType = None
     ) -> ListSpeechSynthesisTasksOutputTypeDef:
         """
-        [Client.list_speech_synthesis_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.list_speech_synthesis_tasks)
-        """
+        Returns a list of SpeechSynthesisTask objects ordered by their creation date.
 
-    def put_lexicon(self, Name: str, Content: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.list_speech_synthesis_tasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#list_speech_synthesis_tasks)
         """
-        [Client.put_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.put_lexicon)
+    def put_lexicon(self, *, Name: str, Content: str) -> Dict[str, Any]:
         """
+        Stores a pronunciation lexicon in an AWS Region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.put_lexicon)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#put_lexicon)
+        """
     def start_speech_synthesis_task(
         self,
-        OutputFormat: Literal["json", "mp3", "ogg_vorbis", "pcm"],
+        *,
+        OutputFormat: OutputFormatType,
         OutputS3BucketName: str,
         Text: str,
-        VoiceId: Literal[
-            "Aditi",
-            "Amy",
-            "Astrid",
-            "Bianca",
-            "Brian",
-            "Camila",
-            "Carla",
-            "Carmen",
-            "Celine",
-            "Chantal",
-            "Conchita",
-            "Cristiano",
-            "Dora",
-            "Emma",
-            "Enrique",
-            "Ewa",
-            "Filiz",
-            "Geraint",
-            "Giorgio",
-            "Gwyneth",
-            "Hans",
-            "Ines",
-            "Ivy",
-            "Jacek",
-            "Jan",
-            "Joanna",
-            "Joey",
-            "Justin",
-            "Karl",
-            "Kendra",
-            "Kevin",
-            "Kimberly",
-            "Lea",
-            "Liv",
-            "Lotte",
-            "Lucia",
-            "Lupe",
-            "Mads",
-            "Maja",
-            "Marlene",
-            "Mathieu",
-            "Matthew",
-            "Maxim",
-            "Mia",
-            "Miguel",
-            "Mizuki",
-            "Naja",
-            "Nicole",
-            "Olivia",
-            "Penelope",
-            "Raveena",
-            "Ricardo",
-            "Ruben",
-            "Russell",
-            "Salli",
-            "Seoyeon",
-            "Takumi",
-            "Tatyana",
-            "Vicki",
-            "Vitoria",
-            "Zeina",
-            "Zhiyu",
-        ],
-        Engine: Literal["standard", "neural"] = None,
-        LanguageCode: Literal[
-            "arb",
-            "cmn-CN",
-            "cy-GB",
-            "da-DK",
-            "de-DE",
-            "en-AU",
-            "en-GB",
-            "en-GB-WLS",
-            "en-IN",
-            "en-US",
-            "es-ES",
-            "es-MX",
-            "es-US",
-            "fr-CA",
-            "fr-FR",
-            "is-IS",
-            "it-IT",
-            "ja-JP",
-            "hi-IN",
-            "ko-KR",
-            "nb-NO",
-            "nl-NL",
-            "pl-PL",
-            "pt-BR",
-            "pt-PT",
-            "ro-RO",
-            "ru-RU",
-            "sv-SE",
-            "tr-TR",
-        ] = None,
+        VoiceId: VoiceIdType,
+        Engine: EngineType = None,
+        LanguageCode: LanguageCodeType = None,
         LexiconNames: List[str] = None,
         OutputS3KeyPrefix: str = None,
         SampleRate: str = None,
         SnsTopicArn: str = None,
-        SpeechMarkTypes: List[Literal["sentence", "ssml", "viseme", "word"]] = None,
-        TextType: Literal["ssml", "text"] = None,
+        SpeechMarkTypes: List[SpeechMarkTypeType] = None,
+        TextType: TextTypeType = None
     ) -> StartSpeechSynthesisTaskOutputTypeDef:
         """
-        [Client.start_speech_synthesis_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.start_speech_synthesis_task)
-        """
+        Allows the creation of an asynchronous synthesis task, by starting a new
+        `SpeechSynthesisTask`.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.start_speech_synthesis_task)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#start_speech_synthesis_task)
+        """
     def synthesize_speech(
         self,
-        OutputFormat: Literal["json", "mp3", "ogg_vorbis", "pcm"],
+        *,
+        OutputFormat: OutputFormatType,
         Text: str,
-        VoiceId: Literal[
-            "Aditi",
-            "Amy",
-            "Astrid",
-            "Bianca",
-            "Brian",
-            "Camila",
-            "Carla",
-            "Carmen",
-            "Celine",
-            "Chantal",
-            "Conchita",
-            "Cristiano",
-            "Dora",
-            "Emma",
-            "Enrique",
-            "Ewa",
-            "Filiz",
-            "Geraint",
-            "Giorgio",
-            "Gwyneth",
-            "Hans",
-            "Ines",
-            "Ivy",
-            "Jacek",
-            "Jan",
-            "Joanna",
-            "Joey",
-            "Justin",
-            "Karl",
-            "Kendra",
-            "Kevin",
-            "Kimberly",
-            "Lea",
-            "Liv",
-            "Lotte",
-            "Lucia",
-            "Lupe",
-            "Mads",
-            "Maja",
-            "Marlene",
-            "Mathieu",
-            "Matthew",
-            "Maxim",
-            "Mia",
-            "Miguel",
-            "Mizuki",
-            "Naja",
-            "Nicole",
-            "Olivia",
-            "Penelope",
-            "Raveena",
-            "Ricardo",
-            "Ruben",
-            "Russell",
-            "Salli",
-            "Seoyeon",
-            "Takumi",
-            "Tatyana",
-            "Vicki",
-            "Vitoria",
-            "Zeina",
-            "Zhiyu",
-        ],
-        Engine: Literal["standard", "neural"] = None,
-        LanguageCode: Literal[
-            "arb",
-            "cmn-CN",
-            "cy-GB",
-            "da-DK",
-            "de-DE",
-            "en-AU",
-            "en-GB",
-            "en-GB-WLS",
-            "en-IN",
-            "en-US",
-            "es-ES",
-            "es-MX",
-            "es-US",
-            "fr-CA",
-            "fr-FR",
-            "is-IS",
-            "it-IT",
-            "ja-JP",
-            "hi-IN",
-            "ko-KR",
-            "nb-NO",
-            "nl-NL",
-            "pl-PL",
-            "pt-BR",
-            "pt-PT",
-            "ro-RO",
-            "ru-RU",
-            "sv-SE",
-            "tr-TR",
-        ] = None,
+        VoiceId: VoiceIdType,
+        Engine: EngineType = None,
+        LanguageCode: LanguageCodeType = None,
         LexiconNames: List[str] = None,
         SampleRate: str = None,
-        SpeechMarkTypes: List[Literal["sentence", "ssml", "viseme", "word"]] = None,
-        TextType: Literal["ssml", "text"] = None,
+        SpeechMarkTypes: List[SpeechMarkTypeType] = None,
+        TextType: TextTypeType = None
     ) -> SynthesizeSpeechOutputTypeDef:
         """
-        [Client.synthesize_speech documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Client.synthesize_speech)
-        """
+        Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Client.synthesize_speech)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#synthesize_speech)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["describe_voices"]) -> DescribeVoicesPaginator:
         """
-        [Paginator.DescribeVoices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#describevoicespaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_lexicons"]) -> ListLexiconsPaginator:
         """
-        [Paginator.ListLexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.ListLexicons)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.ListLexicons)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listlexiconspaginator)
         """
-
     @overload
     def get_paginator(
         self, operation_name: Literal["list_speech_synthesis_tasks"]
     ) -> ListSpeechSynthesisTasksPaginator:
         """
-        [Paginator.ListSpeechSynthesisTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listspeechsynthesistaskspaginator)
         """

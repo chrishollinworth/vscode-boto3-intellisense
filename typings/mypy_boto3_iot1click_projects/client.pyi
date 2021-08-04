@@ -1,5 +1,7 @@
 """
-Main interface for iot1click-projects service client
+Type annotations for iot1click-projects service client.
+
+[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html)
 
 Usage::
 
@@ -13,10 +15,10 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.client import ClientMeta
+from botocore.client import BaseClient, ClientMeta
 
-from mypy_boto3_iot1click_projects.paginator import ListPlacementsPaginator, ListProjectsPaginator
-from mypy_boto3_iot1click_projects.type_defs import (
+from .paginator import ListPlacementsPaginator, ListProjectsPaginator
+from .type_defs import (
     DescribePlacementResponseTypeDef,
     DescribeProjectResponseTypeDef,
     GetDevicesInPlacementResponseTypeDef,
@@ -31,17 +33,13 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-
 __all__ = ("IoT1ClickProjectsClient",)
-
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
-
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
-
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
@@ -51,74 +49,96 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     TooManyRequestsException: Type[BotocoreClientError]
 
-
-class IoT1ClickProjectsClient:
+class IoT1ClickProjectsClient(BaseClient):
     """
-    [IoT1ClickProjects.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html)
     """
 
     meta: ClientMeta
-    exceptions: Exceptions
-
+    @property
+    def exceptions(self) -> Exceptions:
+        """
+        IoT1ClickProjectsClient exceptions.
+        """
     def associate_device_with_placement(
-        self, projectName: str, placementName: str, deviceId: str, deviceTemplateName: str
+        self, *, projectName: str, placementName: str, deviceId: str, deviceTemplateName: str
     ) -> Dict[str, Any]:
         """
-        [Client.associate_device_with_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.associate_device_with_placement)
-        """
+        Associates a physical device with a placement.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.associate_device_with_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#associate_device_with_placement)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.can_paginate)
-        """
+        Check if an operation can be paginated.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.can_paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#can_paginate)
+        """
     def create_placement(
-        self, placementName: str, projectName: str, attributes: Dict[str, str] = None
+        self, *, placementName: str, projectName: str, attributes: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.create_placement)
-        """
+        Creates an empty placement.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.create_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#create_placement)
+        """
     def create_project(
         self,
+        *,
         projectName: str,
         description: str = None,
         placementTemplate: "PlacementTemplateTypeDef" = None,
-        tags: Dict[str, str] = None,
+        tags: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.create_project)
-        """
+        Creates an empty project with a placement template.
 
-    def delete_placement(self, placementName: str, projectName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.create_project)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#create_project)
         """
-        [Client.delete_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.delete_placement)
+    def delete_placement(self, *, placementName: str, projectName: str) -> Dict[str, Any]:
         """
+        Deletes a placement.
 
-    def delete_project(self, projectName: str) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.delete_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#delete_placement)
         """
-        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.delete_project)
+    def delete_project(self, *, projectName: str) -> Dict[str, Any]:
         """
+        Deletes a project.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.delete_project)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#delete_project)
+        """
     def describe_placement(
-        self, placementName: str, projectName: str
+        self, *, placementName: str, projectName: str
     ) -> DescribePlacementResponseTypeDef:
         """
-        [Client.describe_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.describe_placement)
-        """
+        Describes a placement in a project.
 
-    def describe_project(self, projectName: str) -> DescribeProjectResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.describe_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#describe_placement)
         """
-        [Client.describe_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.describe_project)
+    def describe_project(self, *, projectName: str) -> DescribeProjectResponseTypeDef:
         """
+        Returns an object describing a project.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.describe_project)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#describe_project)
+        """
     def disassociate_device_from_placement(
-        self, projectName: str, placementName: str, deviceTemplateName: str
+        self, *, projectName: str, placementName: str, deviceTemplateName: str
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_device_from_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.disassociate_device_from_placement)
-        """
+        Removes a physical device from a placement.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.disassociate_device_from_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#disassociate_device_from_placement)
+        """
     def generate_presigned_url(
         self,
         ClientMethod: str,
@@ -127,70 +147,92 @@ class IoT1ClickProjectsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.generate_presigned_url)
-        """
+        Generate a presigned url given a client, its method, and arguments.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.generate_presigned_url)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#generate_presigned_url)
+        """
     def get_devices_in_placement(
-        self, projectName: str, placementName: str
+        self, *, projectName: str, placementName: str
     ) -> GetDevicesInPlacementResponseTypeDef:
         """
-        [Client.get_devices_in_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.get_devices_in_placement)
-        """
+        Returns an object enumerating the devices in a placement.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.get_devices_in_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#get_devices_in_placement)
+        """
     def list_placements(
-        self, projectName: str, nextToken: str = None, maxResults: int = None
+        self, *, projectName: str, nextToken: str = None, maxResults: int = None
     ) -> ListPlacementsResponseTypeDef:
         """
-        [Client.list_placements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.list_placements)
-        """
+        Lists the placement(s) of a project.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.list_placements)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#list_placements)
+        """
     def list_projects(
-        self, nextToken: str = None, maxResults: int = None
+        self, *, nextToken: str = None, maxResults: int = None
     ) -> ListProjectsResponseTypeDef:
         """
-        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.list_projects)
-        """
+        Lists the AWS IoT 1-Click project(s) associated with your AWS account and
+        region.
 
-    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.list_projects)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#list_projects)
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.list_tags_for_resource)
+    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
+        Lists the tags (metadata key/value pairs) which you have assigned to the
+        resource.
 
-    def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.list_tags_for_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#list_tags_for_resource)
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.tag_resource)
+    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
+        Creates or modifies tags for a resource.
 
-    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.tag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#tag_resource)
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.untag_resource)
+    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
+        Removes one or more tags (metadata key/value pairs) from a resource.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.untag_resource)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#untag_resource)
+        """
     def update_placement(
-        self, placementName: str, projectName: str, attributes: Dict[str, str] = None
+        self, *, placementName: str, projectName: str, attributes: Dict[str, str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.update_placement)
-        """
+        Updates a placement with the given attributes.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.update_placement)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#update_placement)
+        """
     def update_project(
         self,
+        *,
         projectName: str,
         description: str = None,
-        placementTemplate: "PlacementTemplateTypeDef" = None,
+        placementTemplate: "PlacementTemplateTypeDef" = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.update_project)
-        """
+        Updates a project associated with your AWS account and region.
 
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Client.update_project)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/client.html#update_project)
+        """
     @overload
     def get_paginator(self, operation_name: Literal["list_placements"]) -> ListPlacementsPaginator:
         """
-        [Paginator.ListPlacements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/paginators.html#listplacementspaginator)
         """
-
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot1click_projects/paginators.html#listprojectspaginator)
         """
