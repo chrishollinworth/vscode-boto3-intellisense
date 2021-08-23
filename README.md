@@ -1,6 +1,10 @@
-# vscode-pyright-boto3-stubs-intellisense
+# vscode-boto3-intellisense
 
-Enables boto3 intellisense using pyright with [mypy_boto3_builder](https://github.com/vemel/mypy_boto3_builder)
+Enables boto3 intellisense using pylance with [mypy_boto3_builder](https://github.com/vemel/mypy_boto3_builder)
+
+Works with vscode when python or pylance extensions are installed
+
+[ms-python.python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 Logic
 1. Install dependencies
