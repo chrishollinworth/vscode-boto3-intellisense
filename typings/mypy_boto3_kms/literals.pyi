@@ -29,6 +29,7 @@ __all__ = (
     "ExpirationModelTypeType",
     "GrantOperationType",
     "KeyManagerTypeType",
+    "KeySpecType",
     "KeyStateType",
     "KeyUsageTypeType",
     "ListAliasesPaginatorName",
@@ -96,6 +97,16 @@ GrantOperationType = Literal[
     "Verify",
 ]
 KeyManagerTypeType = Literal["AWS", "CUSTOMER"]
+KeySpecType = Literal[
+    "ECC_NIST_P256",
+    "ECC_NIST_P384",
+    "ECC_NIST_P521",
+    "ECC_SECG_P256K1",
+    "RSA_2048",
+    "RSA_3072",
+    "RSA_4096",
+    "SYMMETRIC_DEFAULT",
+]
 KeyStateType = Literal[
     "Creating",
     "Disabled",

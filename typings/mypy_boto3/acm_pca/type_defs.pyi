@@ -87,6 +87,7 @@ __all__ = (
     "ListPermissionsResponseTypeDef",
     "ListTagsRequestRequestTypeDef",
     "ListTagsResponseTypeDef",
+    "OcspConfigurationTypeDef",
     "OtherNameTypeDef",
     "PaginatorConfigTypeDef",
     "PermissionTypeDef",
@@ -639,6 +640,25 @@ ListTagsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredOcspConfigurationTypeDef = TypedDict(
+    "_RequiredOcspConfigurationTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalOcspConfigurationTypeDef = TypedDict(
+    "_OptionalOcspConfigurationTypeDef",
+    {
+        "OcspCustomCname": str,
+    },
+    total=False,
+)
+
+class OcspConfigurationTypeDef(
+    _RequiredOcspConfigurationTypeDef, _OptionalOcspConfigurationTypeDef
+):
+    pass
+
 OtherNameTypeDef = TypedDict(
     "OtherNameTypeDef",
     {
@@ -734,6 +754,7 @@ RevocationConfigurationTypeDef = TypedDict(
     "RevocationConfigurationTypeDef",
     {
         "CrlConfiguration": "CrlConfigurationTypeDef",
+        "OcspConfiguration": "OcspConfigurationTypeDef",
     },
     total=False,
 )

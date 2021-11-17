@@ -41,7 +41,7 @@ __all__ = (
 
 class DescribeDirectConnectGatewayAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayassociationspaginator)
     """
 
@@ -55,13 +55,13 @@ class DescribeDirectConnectGatewayAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDirectConnectGatewayAssociationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayassociationspaginator)
         """
 
 class DescribeDirectConnectGatewayAttachmentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayattachmentspaginator)
     """
 
@@ -73,13 +73,13 @@ class DescribeDirectConnectGatewayAttachmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDirectConnectGatewayAttachmentsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayattachmentspaginator)
         """
 
 class DescribeDirectConnectGatewaysPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayspaginator)
     """
 
@@ -87,6 +87,6 @@ class DescribeDirectConnectGatewaysPaginator(Boto3Paginator):
         self, *, directConnectGatewayId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDirectConnectGatewaysResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_directconnect/paginators.html#describedirectconnectgatewayspaginator)
         """

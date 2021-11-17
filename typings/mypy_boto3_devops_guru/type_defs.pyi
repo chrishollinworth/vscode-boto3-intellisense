@@ -6,9 +6,9 @@ Type annotations for devops-guru service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_devops_guru.type_defs import AddNotificationChannelRequestRequestTypeDef
+    from mypy_boto3_devops_guru.type_defs import AccountHealthTypeDef
 
-    data: AddNotificationChannelRequestRequestTypeDef = {...}
+    data: AccountHealthTypeDef = {...}
     ```
 """
 import sys
@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AnomalySeverityType,
     AnomalyStatusType,
+    CloudWatchMetricDataStatusCodeType,
     CloudWatchMetricsStatType,
     CostEstimationServiceResourceStateType,
     CostEstimationStatusType,
@@ -29,6 +30,7 @@ from .literals import (
     InsightTypeType,
     LocaleType,
     OptInStatusType,
+    OrganizationResourceCollectionTypeType,
     ResourceCollectionTypeType,
     ServiceNameType,
     UpdateResourceCollectionActionType,
@@ -40,6 +42,8 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccountHealthTypeDef",
+    "AccountInsightHealthTypeDef",
     "AddNotificationChannelRequestRequestTypeDef",
     "AddNotificationChannelResponseTypeDef",
     "AnomalyReportedTimeRangeTypeDef",
@@ -49,6 +53,7 @@ __all__ = (
     "CloudFormationCollectionTypeDef",
     "CloudFormationCostEstimationResourceCollectionFilterTypeDef",
     "CloudFormationHealthTypeDef",
+    "CloudWatchMetricsDataSummaryTypeDef",
     "CloudWatchMetricsDetailTypeDef",
     "CloudWatchMetricsDimensionTypeDef",
     "CostEstimationResourceCollectionFilterTypeDef",
@@ -62,6 +67,12 @@ __all__ = (
     "DescribeFeedbackResponseTypeDef",
     "DescribeInsightRequestRequestTypeDef",
     "DescribeInsightResponseTypeDef",
+    "DescribeOrganizationHealthRequestRequestTypeDef",
+    "DescribeOrganizationHealthResponseTypeDef",
+    "DescribeOrganizationOverviewRequestRequestTypeDef",
+    "DescribeOrganizationOverviewResponseTypeDef",
+    "DescribeOrganizationResourceCollectionHealthRequestRequestTypeDef",
+    "DescribeOrganizationResourceCollectionHealthResponseTypeDef",
     "DescribeResourceCollectionHealthRequestRequestTypeDef",
     "DescribeResourceCollectionHealthResponseTypeDef",
     "DescribeServiceIntegrationResponseTypeDef",
@@ -89,6 +100,8 @@ __all__ = (
     "ListInsightsStatusFilterTypeDef",
     "ListNotificationChannelsRequestRequestTypeDef",
     "ListNotificationChannelsResponseTypeDef",
+    "ListOrganizationInsightsRequestRequestTypeDef",
+    "ListOrganizationInsightsResponseTypeDef",
     "ListRecommendationsRequestRequestTypeDef",
     "ListRecommendationsResponseTypeDef",
     "NotificationChannelConfigTypeDef",
@@ -101,11 +114,13 @@ __all__ = (
     "ProactiveAnomalyTypeDef",
     "ProactiveInsightSummaryTypeDef",
     "ProactiveInsightTypeDef",
+    "ProactiveOrganizationInsightSummaryTypeDef",
     "PutFeedbackRequestRequestTypeDef",
     "ReactiveAnomalySummaryTypeDef",
     "ReactiveAnomalyTypeDef",
     "ReactiveInsightSummaryTypeDef",
     "ReactiveInsightTypeDef",
+    "ReactiveOrganizationInsightSummaryTypeDef",
     "RecommendationRelatedAnomalyResourceTypeDef",
     "RecommendationRelatedAnomalySourceDetailTypeDef",
     "RecommendationRelatedAnomalyTypeDef",
@@ -120,6 +135,9 @@ __all__ = (
     "SearchInsightsFiltersTypeDef",
     "SearchInsightsRequestRequestTypeDef",
     "SearchInsightsResponseTypeDef",
+    "SearchOrganizationInsightsFiltersTypeDef",
+    "SearchOrganizationInsightsRequestRequestTypeDef",
+    "SearchOrganizationInsightsResponseTypeDef",
     "ServiceCollectionTypeDef",
     "ServiceHealthTypeDef",
     "ServiceInsightHealthTypeDef",
@@ -128,11 +146,30 @@ __all__ = (
     "SnsChannelConfigTypeDef",
     "StartCostEstimationRequestRequestTypeDef",
     "StartTimeRangeTypeDef",
+    "TimestampMetricValuePairTypeDef",
     "UpdateCloudFormationCollectionFilterTypeDef",
     "UpdateResourceCollectionFilterTypeDef",
     "UpdateResourceCollectionRequestRequestTypeDef",
     "UpdateServiceIntegrationConfigTypeDef",
     "UpdateServiceIntegrationRequestRequestTypeDef",
+)
+
+AccountHealthTypeDef = TypedDict(
+    "AccountHealthTypeDef",
+    {
+        "AccountId": str,
+        "Insight": "AccountInsightHealthTypeDef",
+    },
+    total=False,
+)
+
+AccountInsightHealthTypeDef = TypedDict(
+    "AccountInsightHealthTypeDef",
+    {
+        "OpenProactiveInsights": int,
+        "OpenReactiveInsights": int,
+    },
+    total=False,
 )
 
 AddNotificationChannelRequestRequestTypeDef = TypedDict(
@@ -227,6 +264,15 @@ CloudFormationHealthTypeDef = TypedDict(
     total=False,
 )
 
+CloudWatchMetricsDataSummaryTypeDef = TypedDict(
+    "CloudWatchMetricsDataSummaryTypeDef",
+    {
+        "TimestampMetricValuePairList": List["TimestampMetricValuePairTypeDef"],
+        "StatusCode": CloudWatchMetricDataStatusCodeType,
+    },
+    total=False,
+)
+
 CloudWatchMetricsDetailTypeDef = TypedDict(
     "CloudWatchMetricsDetailTypeDef",
     {
@@ -236,6 +282,7 @@ CloudWatchMetricsDetailTypeDef = TypedDict(
         "Stat": CloudWatchMetricsStatType,
         "Unit": str,
         "Period": int,
+        "MetricDataSummary": "CloudWatchMetricsDataSummaryTypeDef",
     },
     total=False,
 )
@@ -307,12 +354,24 @@ DescribeAccountOverviewResponseTypeDef = TypedDict(
     },
 )
 
-DescribeAnomalyRequestRequestTypeDef = TypedDict(
-    "DescribeAnomalyRequestRequestTypeDef",
+_RequiredDescribeAnomalyRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeAnomalyRequestRequestTypeDef",
     {
         "Id": str,
     },
 )
+_OptionalDescribeAnomalyRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeAnomalyRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+class DescribeAnomalyRequestRequestTypeDef(
+    _RequiredDescribeAnomalyRequestRequestTypeDef, _OptionalDescribeAnomalyRequestRequestTypeDef
+):
+    pass
 
 DescribeAnomalyResponseTypeDef = TypedDict(
     "DescribeAnomalyResponseTypeDef",
@@ -339,18 +398,115 @@ DescribeFeedbackResponseTypeDef = TypedDict(
     },
 )
 
-DescribeInsightRequestRequestTypeDef = TypedDict(
-    "DescribeInsightRequestRequestTypeDef",
+_RequiredDescribeInsightRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeInsightRequestRequestTypeDef",
     {
         "Id": str,
     },
 )
+_OptionalDescribeInsightRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeInsightRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+    total=False,
+)
+
+class DescribeInsightRequestRequestTypeDef(
+    _RequiredDescribeInsightRequestRequestTypeDef, _OptionalDescribeInsightRequestRequestTypeDef
+):
+    pass
 
 DescribeInsightResponseTypeDef = TypedDict(
     "DescribeInsightResponseTypeDef",
     {
         "ProactiveInsight": "ProactiveInsightTypeDef",
         "ReactiveInsight": "ReactiveInsightTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeOrganizationHealthRequestRequestTypeDef = TypedDict(
+    "DescribeOrganizationHealthRequestRequestTypeDef",
+    {
+        "AccountIds": List[str],
+        "OrganizationalUnitIds": List[str],
+    },
+    total=False,
+)
+
+DescribeOrganizationHealthResponseTypeDef = TypedDict(
+    "DescribeOrganizationHealthResponseTypeDef",
+    {
+        "OpenReactiveInsights": int,
+        "OpenProactiveInsights": int,
+        "MetricsAnalyzed": int,
+        "ResourceHours": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeOrganizationOverviewRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeOrganizationOverviewRequestRequestTypeDef",
+    {
+        "FromTime": Union[datetime, str],
+    },
+)
+_OptionalDescribeOrganizationOverviewRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeOrganizationOverviewRequestRequestTypeDef",
+    {
+        "ToTime": Union[datetime, str],
+        "AccountIds": List[str],
+        "OrganizationalUnitIds": List[str],
+    },
+    total=False,
+)
+
+class DescribeOrganizationOverviewRequestRequestTypeDef(
+    _RequiredDescribeOrganizationOverviewRequestRequestTypeDef,
+    _OptionalDescribeOrganizationOverviewRequestRequestTypeDef,
+):
+    pass
+
+DescribeOrganizationOverviewResponseTypeDef = TypedDict(
+    "DescribeOrganizationOverviewResponseTypeDef",
+    {
+        "ReactiveInsights": int,
+        "ProactiveInsights": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef",
+    {
+        "OrganizationResourceCollectionType": OrganizationResourceCollectionTypeType,
+    },
+)
+_OptionalDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef",
+    {
+        "AccountIds": List[str],
+        "OrganizationalUnitIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeOrganizationResourceCollectionHealthRequestRequestTypeDef(
+    _RequiredDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef,
+    _OptionalDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef,
+):
+    pass
+
+DescribeOrganizationResourceCollectionHealthResponseTypeDef = TypedDict(
+    "DescribeOrganizationResourceCollectionHealthResponseTypeDef",
+    {
+        "CloudFormation": List["CloudFormationHealthTypeDef"],
+        "Service": List["ServiceHealthTypeDef"],
+        "Account": List["AccountHealthTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -533,6 +689,7 @@ _OptionalListAnomaliesForInsightRequestRequestTypeDef = TypedDict(
         "StartTimeRange": "StartTimeRangeTypeDef",
         "MaxResults": int,
         "NextToken": str,
+        "AccountId": str,
     },
     total=False,
 )
@@ -577,6 +734,7 @@ _OptionalListEventsRequestRequestTypeDef = TypedDict(
     {
         "MaxResults": int,
         "NextToken": str,
+        "AccountId": str,
     },
     total=False,
 )
@@ -675,6 +833,39 @@ ListNotificationChannelsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListOrganizationInsightsRequestRequestTypeDef = TypedDict(
+    "_RequiredListOrganizationInsightsRequestRequestTypeDef",
+    {
+        "StatusFilter": "ListInsightsStatusFilterTypeDef",
+    },
+)
+_OptionalListOrganizationInsightsRequestRequestTypeDef = TypedDict(
+    "_OptionalListOrganizationInsightsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "AccountIds": List[str],
+        "OrganizationalUnitIds": List[str],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListOrganizationInsightsRequestRequestTypeDef(
+    _RequiredListOrganizationInsightsRequestRequestTypeDef,
+    _OptionalListOrganizationInsightsRequestRequestTypeDef,
+):
+    pass
+
+ListOrganizationInsightsResponseTypeDef = TypedDict(
+    "ListOrganizationInsightsResponseTypeDef",
+    {
+        "ProactiveInsights": List["ProactiveOrganizationInsightSummaryTypeDef"],
+        "ReactiveInsights": List["ReactiveOrganizationInsightSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListRecommendationsRequestRequestTypeDef = TypedDict(
     "_RequiredListRecommendationsRequestRequestTypeDef",
     {
@@ -686,6 +877,7 @@ _OptionalListRecommendationsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "Locale": LocaleType,
+        "AccountId": str,
     },
     total=False,
 )
@@ -832,6 +1024,23 @@ ProactiveInsightTypeDef = TypedDict(
     total=False,
 )
 
+ProactiveOrganizationInsightSummaryTypeDef = TypedDict(
+    "ProactiveOrganizationInsightSummaryTypeDef",
+    {
+        "Id": str,
+        "AccountId": str,
+        "OrganizationalUnitId": str,
+        "Name": str,
+        "Severity": InsightSeverityType,
+        "Status": InsightStatusType,
+        "InsightTimeRange": "InsightTimeRangeTypeDef",
+        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
+        "ResourceCollection": "ResourceCollectionTypeDef",
+        "ServiceCollection": "ServiceCollectionTypeDef",
+    },
+    total=False,
+)
+
 PutFeedbackRequestRequestTypeDef = TypedDict(
     "PutFeedbackRequestRequestTypeDef",
     {
@@ -894,6 +1103,22 @@ ReactiveInsightTypeDef = TypedDict(
         "InsightTimeRange": "InsightTimeRangeTypeDef",
         "ResourceCollection": "ResourceCollectionTypeDef",
         "SsmOpsItemId": str,
+    },
+    total=False,
+)
+
+ReactiveOrganizationInsightSummaryTypeDef = TypedDict(
+    "ReactiveOrganizationInsightSummaryTypeDef",
+    {
+        "Id": str,
+        "AccountId": str,
+        "OrganizationalUnitId": str,
+        "Name": str,
+        "Severity": InsightSeverityType,
+        "Status": InsightStatusType,
+        "InsightTimeRange": "InsightTimeRangeTypeDef",
+        "ResourceCollection": "ResourceCollectionTypeDef",
+        "ServiceCollection": "ServiceCollectionTypeDef",
     },
     total=False,
 )
@@ -1041,6 +1266,51 @@ SearchInsightsResponseTypeDef = TypedDict(
     },
 )
 
+SearchOrganizationInsightsFiltersTypeDef = TypedDict(
+    "SearchOrganizationInsightsFiltersTypeDef",
+    {
+        "Severities": List[InsightSeverityType],
+        "Statuses": List[InsightStatusType],
+        "ResourceCollection": "ResourceCollectionTypeDef",
+        "ServiceCollection": "ServiceCollectionTypeDef",
+    },
+    total=False,
+)
+
+_RequiredSearchOrganizationInsightsRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchOrganizationInsightsRequestRequestTypeDef",
+    {
+        "AccountIds": List[str],
+        "StartTimeRange": "StartTimeRangeTypeDef",
+        "Type": InsightTypeType,
+    },
+)
+_OptionalSearchOrganizationInsightsRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchOrganizationInsightsRequestRequestTypeDef",
+    {
+        "Filters": "SearchOrganizationInsightsFiltersTypeDef",
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class SearchOrganizationInsightsRequestRequestTypeDef(
+    _RequiredSearchOrganizationInsightsRequestRequestTypeDef,
+    _OptionalSearchOrganizationInsightsRequestRequestTypeDef,
+):
+    pass
+
+SearchOrganizationInsightsResponseTypeDef = TypedDict(
+    "SearchOrganizationInsightsResponseTypeDef",
+    {
+        "ProactiveInsights": List["ProactiveInsightSummaryTypeDef"],
+        "ReactiveInsights": List["ReactiveInsightSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ServiceCollectionTypeDef = TypedDict(
     "ServiceCollectionTypeDef",
     {
@@ -1120,6 +1390,15 @@ StartTimeRangeTypeDef = TypedDict(
     {
         "FromTime": Union[datetime, str],
         "ToTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+TimestampMetricValuePairTypeDef = TypedDict(
+    "TimestampMetricValuePairTypeDef",
+    {
+        "Timestamp": datetime,
+        "MetricValue": float,
     },
     total=False,
 )

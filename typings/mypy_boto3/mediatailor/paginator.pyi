@@ -14,6 +14,7 @@ Usage::
         ListAlertsPaginator,
         ListChannelsPaginator,
         ListPlaybackConfigurationsPaginator,
+        ListPrefetchSchedulesPaginator,
         ListSourceLocationsPaginator,
         ListVodSourcesPaginator,
     )
@@ -24,6 +25,7 @@ Usage::
     list_alerts_paginator: ListAlertsPaginator = client.get_paginator("list_alerts")
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_playback_configurations_paginator: ListPlaybackConfigurationsPaginator = client.get_paginator("list_playback_configurations")
+    list_prefetch_schedules_paginator: ListPrefetchSchedulesPaginator = client.get_paginator("list_prefetch_schedules")
     list_source_locations_paginator: ListSourceLocationsPaginator = client.get_paginator("list_source_locations")
     list_vod_sources_paginator: ListVodSourcesPaginator = client.get_paginator("list_vod_sources")
     ```
@@ -37,6 +39,7 @@ from .type_defs import (
     ListAlertsResponseTypeDef,
     ListChannelsResponseTypeDef,
     ListPlaybackConfigurationsResponseTypeDef,
+    ListPrefetchSchedulesResponseTypeDef,
     ListSourceLocationsResponseTypeDef,
     ListVodSourcesResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -47,13 +50,14 @@ __all__ = (
     "ListAlertsPaginator",
     "ListChannelsPaginator",
     "ListPlaybackConfigurationsPaginator",
+    "ListPrefetchSchedulesPaginator",
     "ListSourceLocationsPaginator",
     "ListVodSourcesPaginator",
 )
 
 class GetChannelSchedulePaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#getchannelschedulepaginator)
     """
 
@@ -65,13 +69,13 @@ class GetChannelSchedulePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetChannelScheduleResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#getchannelschedulepaginator)
         """
 
 class ListAlertsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListAlerts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListAlerts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listalertspaginator)
     """
 
@@ -79,13 +83,13 @@ class ListAlertsPaginator(Boto3Paginator):
         self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAlertsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListAlerts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListAlerts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listalertspaginator)
         """
 
 class ListChannelsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listchannelspaginator)
     """
 
@@ -93,13 +97,13 @@ class ListChannelsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListChannelsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listchannelspaginator)
         """
 
 class ListPlaybackConfigurationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listplaybackconfigurationspaginator)
     """
 
@@ -107,13 +111,31 @@ class ListPlaybackConfigurationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPlaybackConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listplaybackconfigurationspaginator)
+        """
+
+class ListPrefetchSchedulesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListPrefetchSchedules)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listprefetchschedulespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        PlaybackConfigurationName: str,
+        StreamId: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListPrefetchSchedulesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListPrefetchSchedules.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listprefetchschedulespaginator)
         """
 
 class ListSourceLocationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listsourcelocationspaginator)
     """
 
@@ -121,13 +143,13 @@ class ListSourceLocationsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSourceLocationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listsourcelocationspaginator)
         """
 
 class ListVodSourcesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listvodsourcespaginator)
     """
 
@@ -135,6 +157,6 @@ class ListVodSourcesPaginator(Boto3Paginator):
         self, *, SourceLocationName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVodSourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listvodsourcespaginator)
         """

@@ -302,6 +302,7 @@ ComponentRunWithTypeDef = TypedDict(
     {
         "posixUser": str,
         "systemResourceLimits": "SystemResourceLimitsTypeDef",
+        "windowsUser": str,
     },
     total=False,
 )

@@ -21,6 +21,7 @@ from .literals import (
     AMITypesType,
     CapacityTypesType,
     ClusterStatusType,
+    ConnectorConfigProviderType,
     ErrorCodeType,
     FargateProfileStatusType,
     LogTypeType,
@@ -53,6 +54,8 @@ __all__ = (
     "CertificateTypeDef",
     "ClusterTypeDef",
     "CompatibilityTypeDef",
+    "ConnectorConfigRequestTypeDef",
+    "ConnectorConfigResponseTypeDef",
     "CreateAddonRequestRequestTypeDef",
     "CreateAddonResponseTypeDef",
     "CreateClusterRequestRequestTypeDef",
@@ -69,6 +72,8 @@ __all__ = (
     "DeleteFargateProfileResponseTypeDef",
     "DeleteNodegroupRequestRequestTypeDef",
     "DeleteNodegroupResponseTypeDef",
+    "DeregisterClusterRequestRequestTypeDef",
+    "DeregisterClusterResponseTypeDef",
     "DescribeAddonRequestRequestTypeDef",
     "DescribeAddonResponseTypeDef",
     "DescribeAddonVersionsRequestRequestTypeDef",
@@ -122,6 +127,8 @@ __all__ = (
     "OidcIdentityProviderConfigTypeDef",
     "PaginatorConfigTypeDef",
     "ProviderTypeDef",
+    "RegisterClusterRequestRequestTypeDef",
+    "RegisterClusterResponseTypeDef",
     "RemoteAccessConfigTypeDef",
     "ResponseMetadataTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -296,6 +303,7 @@ ClusterTypeDef = TypedDict(
         "platformVersion": str,
         "tags": Dict[str, str],
         "encryptionConfig": List["EncryptionConfigTypeDef"],
+        "connectorConfig": "ConnectorConfigResponseTypeDef",
     },
     total=False,
 )
@@ -306,6 +314,26 @@ CompatibilityTypeDef = TypedDict(
         "clusterVersion": str,
         "platformVersions": List[str],
         "defaultVersion": bool,
+    },
+    total=False,
+)
+
+ConnectorConfigRequestTypeDef = TypedDict(
+    "ConnectorConfigRequestTypeDef",
+    {
+        "roleArn": str,
+        "provider": ConnectorConfigProviderType,
+    },
+)
+
+ConnectorConfigResponseTypeDef = TypedDict(
+    "ConnectorConfigResponseTypeDef",
+    {
+        "activationId": str,
+        "activationCode": str,
+        "activationExpiry": datetime,
+        "provider": str,
+        "roleArn": str,
     },
     total=False,
 )
@@ -452,13 +480,25 @@ CreateNodegroupResponseTypeDef = TypedDict(
     },
 )
 
-DeleteAddonRequestRequestTypeDef = TypedDict(
-    "DeleteAddonRequestRequestTypeDef",
+_RequiredDeleteAddonRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteAddonRequestRequestTypeDef",
     {
         "clusterName": str,
         "addonName": str,
     },
 )
+_OptionalDeleteAddonRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteAddonRequestRequestTypeDef",
+    {
+        "preserve": bool,
+    },
+    total=False,
+)
+
+class DeleteAddonRequestRequestTypeDef(
+    _RequiredDeleteAddonRequestRequestTypeDef, _OptionalDeleteAddonRequestRequestTypeDef
+):
+    pass
 
 DeleteAddonResponseTypeDef = TypedDict(
     "DeleteAddonResponseTypeDef",
@@ -511,6 +551,21 @@ DeleteNodegroupResponseTypeDef = TypedDict(
     "DeleteNodegroupResponseTypeDef",
     {
         "nodegroup": "NodegroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeregisterClusterRequestRequestTypeDef = TypedDict(
+    "DeregisterClusterRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+
+DeregisterClusterResponseTypeDef = TypedDict(
+    "DeregisterClusterResponseTypeDef",
+    {
+        "cluster": "ClusterTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -810,6 +865,7 @@ ListClustersRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "include": List[str],
     },
     total=False,
 )
@@ -1110,6 +1166,35 @@ ProviderTypeDef = TypedDict(
         "keyArn": str,
     },
     total=False,
+)
+
+_RequiredRegisterClusterRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterClusterRequestRequestTypeDef",
+    {
+        "name": str,
+        "connectorConfig": "ConnectorConfigRequestTypeDef",
+    },
+)
+_OptionalRegisterClusterRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterClusterRequestRequestTypeDef",
+    {
+        "clientRequestToken": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class RegisterClusterRequestRequestTypeDef(
+    _RequiredRegisterClusterRequestRequestTypeDef, _OptionalRegisterClusterRequestRequestTypeDef
+):
+    pass
+
+RegisterClusterResponseTypeDef = TypedDict(
+    "RegisterClusterResponseTypeDef",
+    {
+        "cluster": "ClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 RemoteAccessConfigTypeDef = TypedDict(

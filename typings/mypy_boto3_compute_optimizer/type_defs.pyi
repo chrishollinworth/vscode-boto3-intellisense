@@ -6,9 +6,9 @@ Type annotations for compute-optimizer service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_compute_optimizer.type_defs import AutoScalingGroupConfigurationTypeDef
+    from mypy_boto3_compute_optimizer.type_defs import AccountEnrollmentStatusTypeDef
 
-    data: AutoScalingGroupConfigurationTypeDef = {...}
+    data: AccountEnrollmentStatusTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    CpuVendorArchitectureType,
     EBSFindingType,
     EBSMetricNameType,
     ExportableAutoScalingGroupFieldType,
@@ -52,6 +53,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccountEnrollmentStatusTypeDef",
     "AutoScalingGroupConfigurationTypeDef",
     "AutoScalingGroupRecommendationOptionTypeDef",
     "AutoScalingGroupRecommendationTypeDef",
@@ -59,6 +61,7 @@ __all__ = (
     "DescribeRecommendationExportJobsResponseTypeDef",
     "EBSFilterTypeDef",
     "EBSUtilizationMetricTypeDef",
+    "EnrollmentFilterTypeDef",
     "ExportAutoScalingGroupRecommendationsRequestRequestTypeDef",
     "ExportAutoScalingGroupRecommendationsResponseTypeDef",
     "ExportDestinationTypeDef",
@@ -78,6 +81,8 @@ __all__ = (
     "GetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
     "GetEC2RecommendationProjectedMetricsResponseTypeDef",
     "GetEnrollmentStatusResponseTypeDef",
+    "GetEnrollmentStatusesForOrganizationRequestRequestTypeDef",
+    "GetEnrollmentStatusesForOrganizationResponseTypeDef",
     "GetLambdaFunctionRecommendationsRequestRequestTypeDef",
     "GetLambdaFunctionRecommendationsResponseTypeDef",
     "GetRecommendationErrorTypeDef",
@@ -94,6 +99,7 @@ __all__ = (
     "ProjectedMetricTypeDef",
     "ReasonCodeSummaryTypeDef",
     "RecommendationExportJobTypeDef",
+    "RecommendationPreferencesTypeDef",
     "RecommendationSourceTypeDef",
     "RecommendationSummaryTypeDef",
     "RecommendedOptionProjectedMetricTypeDef",
@@ -107,6 +113,17 @@ __all__ = (
     "VolumeConfigurationTypeDef",
     "VolumeRecommendationOptionTypeDef",
     "VolumeRecommendationTypeDef",
+)
+
+AccountEnrollmentStatusTypeDef = TypedDict(
+    "AccountEnrollmentStatusTypeDef",
+    {
+        "accountId": str,
+        "status": StatusType,
+        "statusReason": str,
+        "lastUpdatedTimestamp": datetime,
+    },
+    total=False,
 )
 
 AutoScalingGroupConfigurationTypeDef = TypedDict(
@@ -186,6 +203,15 @@ EBSUtilizationMetricTypeDef = TypedDict(
     total=False,
 )
 
+EnrollmentFilterTypeDef = TypedDict(
+    "EnrollmentFilterTypeDef",
+    {
+        "name": Literal["Status"],
+        "values": List[str],
+    },
+    total=False,
+)
+
 _RequiredExportAutoScalingGroupRecommendationsRequestRequestTypeDef = TypedDict(
     "_RequiredExportAutoScalingGroupRecommendationsRequestRequestTypeDef",
     {
@@ -200,6 +226,7 @@ _OptionalExportAutoScalingGroupRecommendationsRequestRequestTypeDef = TypedDict(
         "fieldsToExport": List[ExportableAutoScalingGroupFieldType],
         "fileFormat": Literal["Csv"],
         "includeMemberAccounts": bool,
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
     },
     total=False,
 )
@@ -274,6 +301,7 @@ _OptionalExportEC2InstanceRecommendationsRequestRequestTypeDef = TypedDict(
         "fieldsToExport": List[ExportableInstanceFieldType],
         "fileFormat": Literal["Csv"],
         "includeMemberAccounts": bool,
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
     },
     total=False,
 )
@@ -343,6 +371,7 @@ GetAutoScalingGroupRecommendationsRequestRequestTypeDef = TypedDict(
         "nextToken": str,
         "maxResults": int,
         "filters": List["FilterTypeDef"],
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
     },
     total=False,
 )
@@ -387,6 +416,7 @@ GetEC2InstanceRecommendationsRequestRequestTypeDef = TypedDict(
         "maxResults": int,
         "filters": List["FilterTypeDef"],
         "accountIds": List[str],
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
     },
     total=False,
 )
@@ -401,8 +431,8 @@ GetEC2InstanceRecommendationsResponseTypeDef = TypedDict(
     },
 )
 
-GetEC2RecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
-    "GetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
+_RequiredGetEC2RecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
     {
         "instanceArn": str,
         "stat": MetricStatisticType,
@@ -411,6 +441,19 @@ GetEC2RecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
         "endTime": Union[datetime, str],
     },
 )
+_OptionalGetEC2RecommendationProjectedMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
+    {
+        "recommendationPreferences": "RecommendationPreferencesTypeDef",
+    },
+    total=False,
+)
+
+class GetEC2RecommendationProjectedMetricsRequestRequestTypeDef(
+    _RequiredGetEC2RecommendationProjectedMetricsRequestRequestTypeDef,
+    _OptionalGetEC2RecommendationProjectedMetricsRequestRequestTypeDef,
+):
+    pass
 
 GetEC2RecommendationProjectedMetricsResponseTypeDef = TypedDict(
     "GetEC2RecommendationProjectedMetricsResponseTypeDef",
@@ -426,6 +469,27 @@ GetEnrollmentStatusResponseTypeDef = TypedDict(
         "status": StatusType,
         "statusReason": str,
         "memberAccountsEnrolled": bool,
+        "lastUpdatedTimestamp": datetime,
+        "numberOfMemberAccountsOptedIn": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEnrollmentStatusesForOrganizationRequestRequestTypeDef = TypedDict(
+    "GetEnrollmentStatusesForOrganizationRequestRequestTypeDef",
+    {
+        "filters": List["EnrollmentFilterTypeDef"],
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+GetEnrollmentStatusesForOrganizationResponseTypeDef = TypedDict(
+    "GetEnrollmentStatusesForOrganizationResponseTypeDef",
+    {
+        "accountEnrollmentStatuses": List["AccountEnrollmentStatusTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -605,6 +669,14 @@ RecommendationExportJobTypeDef = TypedDict(
         "creationTimestamp": datetime,
         "lastUpdatedTimestamp": datetime,
         "failureReason": str,
+    },
+    total=False,
+)
+
+RecommendationPreferencesTypeDef = TypedDict(
+    "RecommendationPreferencesTypeDef",
+    {
+        "cpuVendorArchitectures": List[CpuVendorArchitectureType],
     },
     total=False,
 )

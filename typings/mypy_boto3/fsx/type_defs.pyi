@@ -25,14 +25,25 @@ from .literals import (
     DataRepositoryLifecycleType,
     DataRepositoryTaskFilterNameType,
     DataRepositoryTaskLifecycleType,
+    DiskIopsConfigurationModeType,
     DriveCacheTypeType,
     FileSystemLifecycleType,
     FileSystemMaintenanceOperationType,
     FileSystemTypeType,
     FilterNameType,
+    FlexCacheEndpointTypeType,
     LustreDeploymentTypeType,
+    OntapVolumeTypeType,
+    ResourceTypeType,
+    SecurityStyleType,
     StatusType,
     StorageTypeType,
+    StorageVirtualMachineLifecycleType,
+    StorageVirtualMachineRootVolumeSecurityStyleType,
+    StorageVirtualMachineSubtypeType,
+    TieringPolicyNameType,
+    VolumeFilterNameType,
+    VolumeLifecycleType,
     WindowsAccessAuditLogLevelType,
     WindowsDeploymentTypeType,
 )
@@ -67,9 +78,18 @@ __all__ = (
     "CreateFileSystemFromBackupRequestRequestTypeDef",
     "CreateFileSystemFromBackupResponseTypeDef",
     "CreateFileSystemLustreConfigurationTypeDef",
+    "CreateFileSystemOntapConfigurationTypeDef",
     "CreateFileSystemRequestRequestTypeDef",
     "CreateFileSystemResponseTypeDef",
     "CreateFileSystemWindowsConfigurationTypeDef",
+    "CreateOntapVolumeConfigurationTypeDef",
+    "CreateStorageVirtualMachineRequestRequestTypeDef",
+    "CreateStorageVirtualMachineResponseTypeDef",
+    "CreateSvmActiveDirectoryConfigurationTypeDef",
+    "CreateVolumeFromBackupRequestRequestTypeDef",
+    "CreateVolumeFromBackupResponseTypeDef",
+    "CreateVolumeRequestRequestTypeDef",
+    "CreateVolumeResponseTypeDef",
     "DataRepositoryConfigurationTypeDef",
     "DataRepositoryFailureDetailsTypeDef",
     "DataRepositoryTaskFailureDetailsTypeDef",
@@ -84,6 +104,12 @@ __all__ = (
     "DeleteFileSystemResponseTypeDef",
     "DeleteFileSystemWindowsConfigurationTypeDef",
     "DeleteFileSystemWindowsResponseTypeDef",
+    "DeleteStorageVirtualMachineRequestRequestTypeDef",
+    "DeleteStorageVirtualMachineResponseTypeDef",
+    "DeleteVolumeOntapConfigurationTypeDef",
+    "DeleteVolumeOntapResponseTypeDef",
+    "DeleteVolumeRequestRequestTypeDef",
+    "DeleteVolumeResponseTypeDef",
     "DescribeBackupsRequestRequestTypeDef",
     "DescribeBackupsResponseTypeDef",
     "DescribeDataRepositoryTasksRequestRequestTypeDef",
@@ -92,26 +118,51 @@ __all__ = (
     "DescribeFileSystemAliasesResponseTypeDef",
     "DescribeFileSystemsRequestRequestTypeDef",
     "DescribeFileSystemsResponseTypeDef",
+    "DescribeStorageVirtualMachinesRequestRequestTypeDef",
+    "DescribeStorageVirtualMachinesResponseTypeDef",
+    "DescribeVolumesRequestRequestTypeDef",
+    "DescribeVolumesResponseTypeDef",
     "DisassociateFileSystemAliasesRequestRequestTypeDef",
     "DisassociateFileSystemAliasesResponseTypeDef",
+    "DiskIopsConfigurationTypeDef",
+    "FileSystemEndpointTypeDef",
+    "FileSystemEndpointsTypeDef",
     "FileSystemFailureDetailsTypeDef",
     "FileSystemTypeDef",
     "FilterTypeDef",
+    "LifecycleTransitionReasonTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LustreFileSystemConfigurationTypeDef",
+    "OntapFileSystemConfigurationTypeDef",
+    "OntapVolumeConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "SelfManagedActiveDirectoryAttributesTypeDef",
     "SelfManagedActiveDirectoryConfigurationTypeDef",
     "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
+    "StorageVirtualMachineFilterTypeDef",
+    "StorageVirtualMachineTypeDef",
+    "SvmActiveDirectoryConfigurationTypeDef",
+    "SvmEndpointTypeDef",
+    "SvmEndpointsTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TieringPolicyTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateFileSystemLustreConfigurationTypeDef",
+    "UpdateFileSystemOntapConfigurationTypeDef",
     "UpdateFileSystemRequestRequestTypeDef",
     "UpdateFileSystemResponseTypeDef",
     "UpdateFileSystemWindowsConfigurationTypeDef",
+    "UpdateOntapVolumeConfigurationTypeDef",
+    "UpdateStorageVirtualMachineRequestRequestTypeDef",
+    "UpdateStorageVirtualMachineResponseTypeDef",
+    "UpdateSvmActiveDirectoryConfigurationTypeDef",
+    "UpdateVolumeRequestRequestTypeDef",
+    "UpdateVolumeResponseTypeDef",
+    "VolumeFilterTypeDef",
+    "VolumeTypeDef",
     "WindowsAuditLogConfigurationTypeDef",
     "WindowsAuditLogCreateConfigurationTypeDef",
     "WindowsFileSystemConfigurationTypeDef",
@@ -144,6 +195,7 @@ AdministrativeActionTypeDef = TypedDict(
         "Status": StatusType,
         "TargetFileSystemValues": Dict[str, Any],
         "FailureDetails": "AdministrativeActionFailureDetailsTypeDef",
+        "TargetVolumeValues": "VolumeTypeDef",
     },
     total=False,
 )
@@ -216,6 +268,8 @@ _OptionalBackupTypeDef = TypedDict(
         "OwnerId": str,
         "SourceBackupId": str,
         "SourceBackupRegion": str,
+        "ResourceType": ResourceTypeType,
+        "Volume": "VolumeTypeDef",
     },
     total=False,
 )
@@ -289,25 +343,16 @@ CopyBackupResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredCreateBackupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBackupRequestRequestTypeDef",
+CreateBackupRequestRequestTypeDef = TypedDict(
+    "CreateBackupRequestRequestTypeDef",
     {
         "FileSystemId": str,
-    },
-)
-_OptionalCreateBackupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBackupRequestRequestTypeDef",
-    {
         "ClientRequestToken": str,
         "Tags": List["TagTypeDef"],
+        "VolumeId": str,
     },
     total=False,
 )
-
-class CreateBackupRequestRequestTypeDef(
-    _RequiredCreateBackupRequestRequestTypeDef, _OptionalCreateBackupRequestRequestTypeDef
-):
-    pass
 
 CreateBackupResponseTypeDef = TypedDict(
     "CreateBackupResponseTypeDef",
@@ -366,6 +411,7 @@ _OptionalCreateFileSystemFromBackupRequestRequestTypeDef = TypedDict(
         "LustreConfiguration": "CreateFileSystemLustreConfigurationTypeDef",
         "StorageType": StorageTypeType,
         "KmsKeyId": str,
+        "FileSystemTypeVersion": str,
     },
     total=False,
 )
@@ -403,6 +449,34 @@ CreateFileSystemLustreConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateFileSystemOntapConfigurationTypeDef = TypedDict(
+    "_RequiredCreateFileSystemOntapConfigurationTypeDef",
+    {
+        "DeploymentType": Literal["MULTI_AZ_1"],
+        "ThroughputCapacity": int,
+    },
+)
+_OptionalCreateFileSystemOntapConfigurationTypeDef = TypedDict(
+    "_OptionalCreateFileSystemOntapConfigurationTypeDef",
+    {
+        "AutomaticBackupRetentionDays": int,
+        "DailyAutomaticBackupStartTime": str,
+        "EndpointIpAddressRange": str,
+        "FsxAdminPassword": str,
+        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
+        "PreferredSubnetId": str,
+        "RouteTableIds": List[str],
+        "WeeklyMaintenanceStartTime": str,
+    },
+    total=False,
+)
+
+class CreateFileSystemOntapConfigurationTypeDef(
+    _RequiredCreateFileSystemOntapConfigurationTypeDef,
+    _OptionalCreateFileSystemOntapConfigurationTypeDef,
+):
+    pass
+
 _RequiredCreateFileSystemRequestRequestTypeDef = TypedDict(
     "_RequiredCreateFileSystemRequestRequestTypeDef",
     {
@@ -421,6 +495,8 @@ _OptionalCreateFileSystemRequestRequestTypeDef = TypedDict(
         "KmsKeyId": str,
         "WindowsConfiguration": "CreateFileSystemWindowsConfigurationTypeDef",
         "LustreConfiguration": "CreateFileSystemLustreConfigurationTypeDef",
+        "OntapConfiguration": "CreateFileSystemOntapConfigurationTypeDef",
+        "FileSystemTypeVersion": str,
     },
     total=False,
 )
@@ -466,6 +542,143 @@ class CreateFileSystemWindowsConfigurationTypeDef(
     _OptionalCreateFileSystemWindowsConfigurationTypeDef,
 ):
     pass
+
+_RequiredCreateOntapVolumeConfigurationTypeDef = TypedDict(
+    "_RequiredCreateOntapVolumeConfigurationTypeDef",
+    {
+        "JunctionPath": str,
+        "SizeInMegabytes": int,
+        "StorageEfficiencyEnabled": bool,
+        "StorageVirtualMachineId": str,
+    },
+)
+_OptionalCreateOntapVolumeConfigurationTypeDef = TypedDict(
+    "_OptionalCreateOntapVolumeConfigurationTypeDef",
+    {
+        "SecurityStyle": SecurityStyleType,
+        "TieringPolicy": "TieringPolicyTypeDef",
+    },
+    total=False,
+)
+
+class CreateOntapVolumeConfigurationTypeDef(
+    _RequiredCreateOntapVolumeConfigurationTypeDef, _OptionalCreateOntapVolumeConfigurationTypeDef
+):
+    pass
+
+_RequiredCreateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateStorageVirtualMachineRequestRequestTypeDef",
+    {
+        "FileSystemId": str,
+        "Name": str,
+    },
+)
+_OptionalCreateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateStorageVirtualMachineRequestRequestTypeDef",
+    {
+        "ActiveDirectoryConfiguration": "CreateSvmActiveDirectoryConfigurationTypeDef",
+        "ClientRequestToken": str,
+        "SvmAdminPassword": str,
+        "Tags": List["TagTypeDef"],
+        "RootVolumeSecurityStyle": StorageVirtualMachineRootVolumeSecurityStyleType,
+    },
+    total=False,
+)
+
+class CreateStorageVirtualMachineRequestRequestTypeDef(
+    _RequiredCreateStorageVirtualMachineRequestRequestTypeDef,
+    _OptionalCreateStorageVirtualMachineRequestRequestTypeDef,
+):
+    pass
+
+CreateStorageVirtualMachineResponseTypeDef = TypedDict(
+    "CreateStorageVirtualMachineResponseTypeDef",
+    {
+        "StorageVirtualMachine": "StorageVirtualMachineTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSvmActiveDirectoryConfigurationTypeDef = TypedDict(
+    "_RequiredCreateSvmActiveDirectoryConfigurationTypeDef",
+    {
+        "NetBiosName": str,
+    },
+)
+_OptionalCreateSvmActiveDirectoryConfigurationTypeDef = TypedDict(
+    "_OptionalCreateSvmActiveDirectoryConfigurationTypeDef",
+    {
+        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CreateSvmActiveDirectoryConfigurationTypeDef(
+    _RequiredCreateSvmActiveDirectoryConfigurationTypeDef,
+    _OptionalCreateSvmActiveDirectoryConfigurationTypeDef,
+):
+    pass
+
+_RequiredCreateVolumeFromBackupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVolumeFromBackupRequestRequestTypeDef",
+    {
+        "BackupId": str,
+        "Name": str,
+    },
+)
+_OptionalCreateVolumeFromBackupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVolumeFromBackupRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "OntapConfiguration": "CreateOntapVolumeConfigurationTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVolumeFromBackupRequestRequestTypeDef(
+    _RequiredCreateVolumeFromBackupRequestRequestTypeDef,
+    _OptionalCreateVolumeFromBackupRequestRequestTypeDef,
+):
+    pass
+
+CreateVolumeFromBackupResponseTypeDef = TypedDict(
+    "CreateVolumeFromBackupResponseTypeDef",
+    {
+        "Volume": "VolumeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVolumeRequestRequestTypeDef",
+    {
+        "VolumeType": Literal["ONTAP"],
+        "Name": str,
+    },
+)
+_OptionalCreateVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVolumeRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "OntapConfiguration": "CreateOntapVolumeConfigurationTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVolumeRequestRequestTypeDef(
+    _RequiredCreateVolumeRequestRequestTypeDef, _OptionalCreateVolumeRequestRequestTypeDef
+):
+    pass
+
+CreateVolumeResponseTypeDef = TypedDict(
+    "CreateVolumeResponseTypeDef",
+    {
+        "Volume": "VolumeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DataRepositoryConfigurationTypeDef = TypedDict(
     "DataRepositoryConfigurationTypeDef",
@@ -642,6 +855,83 @@ DeleteFileSystemWindowsResponseTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeleteStorageVirtualMachineRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteStorageVirtualMachineRequestRequestTypeDef",
+    {
+        "StorageVirtualMachineId": str,
+    },
+)
+_OptionalDeleteStorageVirtualMachineRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteStorageVirtualMachineRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class DeleteStorageVirtualMachineRequestRequestTypeDef(
+    _RequiredDeleteStorageVirtualMachineRequestRequestTypeDef,
+    _OptionalDeleteStorageVirtualMachineRequestRequestTypeDef,
+):
+    pass
+
+DeleteStorageVirtualMachineResponseTypeDef = TypedDict(
+    "DeleteStorageVirtualMachineResponseTypeDef",
+    {
+        "StorageVirtualMachineId": str,
+        "Lifecycle": StorageVirtualMachineLifecycleType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteVolumeOntapConfigurationTypeDef = TypedDict(
+    "DeleteVolumeOntapConfigurationTypeDef",
+    {
+        "SkipFinalBackup": bool,
+        "FinalBackupTags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+DeleteVolumeOntapResponseTypeDef = TypedDict(
+    "DeleteVolumeOntapResponseTypeDef",
+    {
+        "FinalBackupId": str,
+        "FinalBackupTags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredDeleteVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalDeleteVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteVolumeRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "OntapConfiguration": "DeleteVolumeOntapConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class DeleteVolumeRequestRequestTypeDef(
+    _RequiredDeleteVolumeRequestRequestTypeDef, _OptionalDeleteVolumeRequestRequestTypeDef
+):
+    pass
+
+DeleteVolumeResponseTypeDef = TypedDict(
+    "DeleteVolumeResponseTypeDef",
+    {
+        "VolumeId": str,
+        "Lifecycle": VolumeLifecycleType,
+        "OntapResponse": "DeleteVolumeOntapResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeBackupsRequestRequestTypeDef = TypedDict(
     "DescribeBackupsRequestRequestTypeDef",
     {
@@ -732,6 +1022,46 @@ DescribeFileSystemsResponseTypeDef = TypedDict(
     },
 )
 
+DescribeStorageVirtualMachinesRequestRequestTypeDef = TypedDict(
+    "DescribeStorageVirtualMachinesRequestRequestTypeDef",
+    {
+        "StorageVirtualMachineIds": List[str],
+        "Filters": List["StorageVirtualMachineFilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeStorageVirtualMachinesResponseTypeDef = TypedDict(
+    "DescribeStorageVirtualMachinesResponseTypeDef",
+    {
+        "StorageVirtualMachines": List["StorageVirtualMachineTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVolumesRequestRequestTypeDef = TypedDict(
+    "DescribeVolumesRequestRequestTypeDef",
+    {
+        "VolumeIds": List[str],
+        "Filters": List["VolumeFilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeVolumesResponseTypeDef = TypedDict(
+    "DescribeVolumesResponseTypeDef",
+    {
+        "Volumes": List["VolumeTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDisassociateFileSystemAliasesRequestRequestTypeDef = TypedDict(
     "_RequiredDisassociateFileSystemAliasesRequestRequestTypeDef",
     {
@@ -759,6 +1089,33 @@ DisassociateFileSystemAliasesResponseTypeDef = TypedDict(
         "Aliases": List["AliasTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DiskIopsConfigurationTypeDef = TypedDict(
+    "DiskIopsConfigurationTypeDef",
+    {
+        "Mode": DiskIopsConfigurationModeType,
+        "Iops": int,
+    },
+    total=False,
+)
+
+FileSystemEndpointTypeDef = TypedDict(
+    "FileSystemEndpointTypeDef",
+    {
+        "DNSName": str,
+        "IpAddresses": List[str],
+    },
+    total=False,
+)
+
+FileSystemEndpointsTypeDef = TypedDict(
+    "FileSystemEndpointsTypeDef",
+    {
+        "Intercluster": "FileSystemEndpointTypeDef",
+        "Management": "FileSystemEndpointTypeDef",
+    },
+    total=False,
 )
 
 FileSystemFailureDetailsTypeDef = TypedDict(
@@ -790,6 +1147,8 @@ FileSystemTypeDef = TypedDict(
         "WindowsConfiguration": "WindowsFileSystemConfigurationTypeDef",
         "LustreConfiguration": "LustreFileSystemConfigurationTypeDef",
         "AdministrativeActions": List[Dict[str, Any]],
+        "OntapConfiguration": "OntapFileSystemConfigurationTypeDef",
+        "FileSystemTypeVersion": str,
     },
     total=False,
 )
@@ -799,6 +1158,14 @@ FilterTypeDef = TypedDict(
     {
         "Name": FilterNameType,
         "Values": List[str],
+    },
+    total=False,
+)
+
+LifecycleTransitionReasonTypeDef = TypedDict(
+    "LifecycleTransitionReasonTypeDef",
+    {
+        "Message": str,
     },
     total=False,
 )
@@ -846,6 +1213,40 @@ LustreFileSystemConfigurationTypeDef = TypedDict(
         "CopyTagsToBackups": bool,
         "DriveCacheType": DriveCacheTypeType,
         "DataCompressionType": DataCompressionTypeType,
+    },
+    total=False,
+)
+
+OntapFileSystemConfigurationTypeDef = TypedDict(
+    "OntapFileSystemConfigurationTypeDef",
+    {
+        "AutomaticBackupRetentionDays": int,
+        "DailyAutomaticBackupStartTime": str,
+        "DeploymentType": Literal["MULTI_AZ_1"],
+        "EndpointIpAddressRange": str,
+        "Endpoints": "FileSystemEndpointsTypeDef",
+        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
+        "PreferredSubnetId": str,
+        "RouteTableIds": List[str],
+        "ThroughputCapacity": int,
+        "WeeklyMaintenanceStartTime": str,
+    },
+    total=False,
+)
+
+OntapVolumeConfigurationTypeDef = TypedDict(
+    "OntapVolumeConfigurationTypeDef",
+    {
+        "FlexCacheEndpointType": FlexCacheEndpointTypeType,
+        "JunctionPath": str,
+        "SecurityStyle": SecurityStyleType,
+        "SizeInMegabytes": int,
+        "StorageEfficiencyEnabled": bool,
+        "StorageVirtualMachineId": str,
+        "StorageVirtualMachineRoot": bool,
+        "TieringPolicy": "TieringPolicyTypeDef",
+        "UUID": str,
+        "OntapVolumeType": OntapVolumeTypeType,
     },
     total=False,
 )
@@ -917,6 +1318,64 @@ SelfManagedActiveDirectoryConfigurationUpdatesTypeDef = TypedDict(
     total=False,
 )
 
+StorageVirtualMachineFilterTypeDef = TypedDict(
+    "StorageVirtualMachineFilterTypeDef",
+    {
+        "Name": Literal["file-system-id"],
+        "Values": List[str],
+    },
+    total=False,
+)
+
+StorageVirtualMachineTypeDef = TypedDict(
+    "StorageVirtualMachineTypeDef",
+    {
+        "ActiveDirectoryConfiguration": "SvmActiveDirectoryConfigurationTypeDef",
+        "CreationTime": datetime,
+        "Endpoints": "SvmEndpointsTypeDef",
+        "FileSystemId": str,
+        "Lifecycle": StorageVirtualMachineLifecycleType,
+        "Name": str,
+        "ResourceARN": str,
+        "StorageVirtualMachineId": str,
+        "Subtype": StorageVirtualMachineSubtypeType,
+        "UUID": str,
+        "Tags": List["TagTypeDef"],
+        "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
+        "RootVolumeSecurityStyle": StorageVirtualMachineRootVolumeSecurityStyleType,
+    },
+    total=False,
+)
+
+SvmActiveDirectoryConfigurationTypeDef = TypedDict(
+    "SvmActiveDirectoryConfigurationTypeDef",
+    {
+        "NetBiosName": str,
+        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryAttributesTypeDef",
+    },
+    total=False,
+)
+
+SvmEndpointTypeDef = TypedDict(
+    "SvmEndpointTypeDef",
+    {
+        "DNSName": str,
+        "IpAddresses": List[str],
+    },
+    total=False,
+)
+
+SvmEndpointsTypeDef = TypedDict(
+    "SvmEndpointsTypeDef",
+    {
+        "Iscsi": "SvmEndpointTypeDef",
+        "Management": "SvmEndpointTypeDef",
+        "Nfs": "SvmEndpointTypeDef",
+        "Smb": "SvmEndpointTypeDef",
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -931,6 +1390,15 @@ TagTypeDef = TypedDict(
         "Key": str,
         "Value": str,
     },
+)
+
+TieringPolicyTypeDef = TypedDict(
+    "TieringPolicyTypeDef",
+    {
+        "CoolingPeriod": int,
+        "Name": TieringPolicyNameType,
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(
@@ -953,6 +1421,17 @@ UpdateFileSystemLustreConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+UpdateFileSystemOntapConfigurationTypeDef = TypedDict(
+    "UpdateFileSystemOntapConfigurationTypeDef",
+    {
+        "AutomaticBackupRetentionDays": int,
+        "DailyAutomaticBackupStartTime": str,
+        "FsxAdminPassword": str,
+        "WeeklyMaintenanceStartTime": str,
+    },
+    total=False,
+)
+
 _RequiredUpdateFileSystemRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFileSystemRequestRequestTypeDef",
     {
@@ -966,6 +1445,7 @@ _OptionalUpdateFileSystemRequestRequestTypeDef = TypedDict(
         "StorageCapacity": int,
         "WindowsConfiguration": "UpdateFileSystemWindowsConfigurationTypeDef",
         "LustreConfiguration": "UpdateFileSystemLustreConfigurationTypeDef",
+        "OntapConfiguration": "UpdateFileSystemOntapConfigurationTypeDef",
     },
     total=False,
 )
@@ -992,6 +1472,110 @@ UpdateFileSystemWindowsConfigurationTypeDef = TypedDict(
         "ThroughputCapacity": int,
         "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
         "AuditLogConfiguration": "WindowsAuditLogCreateConfigurationTypeDef",
+    },
+    total=False,
+)
+
+UpdateOntapVolumeConfigurationTypeDef = TypedDict(
+    "UpdateOntapVolumeConfigurationTypeDef",
+    {
+        "JunctionPath": str,
+        "SecurityStyle": SecurityStyleType,
+        "SizeInMegabytes": int,
+        "StorageEfficiencyEnabled": bool,
+        "TieringPolicy": "TieringPolicyTypeDef",
+    },
+    total=False,
+)
+
+_RequiredUpdateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateStorageVirtualMachineRequestRequestTypeDef",
+    {
+        "StorageVirtualMachineId": str,
+    },
+)
+_OptionalUpdateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateStorageVirtualMachineRequestRequestTypeDef",
+    {
+        "ActiveDirectoryConfiguration": "UpdateSvmActiveDirectoryConfigurationTypeDef",
+        "ClientRequestToken": str,
+        "SvmAdminPassword": str,
+    },
+    total=False,
+)
+
+class UpdateStorageVirtualMachineRequestRequestTypeDef(
+    _RequiredUpdateStorageVirtualMachineRequestRequestTypeDef,
+    _OptionalUpdateStorageVirtualMachineRequestRequestTypeDef,
+):
+    pass
+
+UpdateStorageVirtualMachineResponseTypeDef = TypedDict(
+    "UpdateStorageVirtualMachineResponseTypeDef",
+    {
+        "StorageVirtualMachine": "StorageVirtualMachineTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateSvmActiveDirectoryConfigurationTypeDef = TypedDict(
+    "UpdateSvmActiveDirectoryConfigurationTypeDef",
+    {
+        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
+    },
+    total=False,
+)
+
+_RequiredUpdateVolumeRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateVolumeRequestRequestTypeDef",
+    {
+        "VolumeId": str,
+    },
+)
+_OptionalUpdateVolumeRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateVolumeRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "OntapConfiguration": "UpdateOntapVolumeConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateVolumeRequestRequestTypeDef(
+    _RequiredUpdateVolumeRequestRequestTypeDef, _OptionalUpdateVolumeRequestRequestTypeDef
+):
+    pass
+
+UpdateVolumeResponseTypeDef = TypedDict(
+    "UpdateVolumeResponseTypeDef",
+    {
+        "Volume": "VolumeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VolumeFilterTypeDef = TypedDict(
+    "VolumeFilterTypeDef",
+    {
+        "Name": VolumeFilterNameType,
+        "Values": List[str],
+    },
+    total=False,
+)
+
+VolumeTypeDef = TypedDict(
+    "VolumeTypeDef",
+    {
+        "CreationTime": datetime,
+        "FileSystemId": str,
+        "Lifecycle": VolumeLifecycleType,
+        "Name": str,
+        "OntapConfiguration": "OntapVolumeConfigurationTypeDef",
+        "ResourceARN": str,
+        "Tags": List["TagTypeDef"],
+        "VolumeId": str,
+        "VolumeType": Literal["ONTAP"],
+        "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
     },
     total=False,
 )

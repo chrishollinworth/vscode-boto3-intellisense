@@ -58,6 +58,7 @@ QueueAttributeNameType = Literal[
     "Policy",
     "QueueArn",
     "ReceiveMessageWaitTimeSeconds",
+    "RedriveAllowPolicy",
     "RedrivePolicy",
     "VisibilityTimeout",
 ]

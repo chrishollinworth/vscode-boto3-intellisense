@@ -75,10 +75,12 @@ from .type_defs import (
     KeyPhrasesDetectionJobFilterTypeDef,
     ListDocumentClassificationJobsResponseTypeDef,
     ListDocumentClassifiersResponseTypeDef,
+    ListDocumentClassifierSummariesResponseTypeDef,
     ListDominantLanguageDetectionJobsResponseTypeDef,
     ListEndpointsResponseTypeDef,
     ListEntitiesDetectionJobsResponseTypeDef,
     ListEntityRecognizersResponseTypeDef,
+    ListEntityRecognizerSummariesResponseTypeDef,
     ListEventsDetectionJobsResponseTypeDef,
     ListKeyPhrasesDetectionJobsResponseTypeDef,
     ListPiiEntitiesDetectionJobsResponseTypeDef,
@@ -142,7 +144,7 @@ class Exceptions:
 
 class ComprehendClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html)
     """
 
@@ -158,7 +160,7 @@ class ComprehendClient(BaseClient):
         """
         Determines the dominant language of the input text for a batch of documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.batch_detect_dominant_language)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.batch_detect_dominant_language)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#batch_detect_dominant_language)
         """
     def batch_detect_entities(
@@ -168,7 +170,7 @@ class ComprehendClient(BaseClient):
         Inspects the text of a batch of documents for named entities and returns
         information about them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.batch_detect_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.batch_detect_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#batch_detect_entities)
         """
     def batch_detect_key_phrases(
@@ -177,7 +179,7 @@ class ComprehendClient(BaseClient):
         """
         Detects the key noun phrases found in a batch of documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.batch_detect_key_phrases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.batch_detect_key_phrases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#batch_detect_key_phrases)
         """
     def batch_detect_sentiment(
@@ -187,7 +189,7 @@ class ComprehendClient(BaseClient):
         Inspects a batch of documents and returns an inference of the prevailing
         sentiment, `POSITIVE` , `NEUTRAL` , `MIXED` , or `NEGATIVE` , in each one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.batch_detect_sentiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.batch_detect_sentiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#batch_detect_sentiment)
         """
     def batch_detect_syntax(
@@ -197,14 +199,14 @@ class ComprehendClient(BaseClient):
         Inspects the text of a batch of documents for the syntax and part of speech of
         the words in the document and returns information about them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.batch_detect_syntax)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.batch_detect_syntax)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#batch_detect_syntax)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#can_paginate)
         """
     def classify_document(self, *, Text: str, EndpointArn: str) -> ClassifyDocumentResponseTypeDef:
@@ -212,7 +214,7 @@ class ComprehendClient(BaseClient):
         Creates a new document classification request to analyze a single document in
         real-time, using a previously created and trained custom model and an endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.classify_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.classify_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#classify_document)
         """
     def contains_pii_entities(
@@ -223,7 +225,7 @@ class ComprehendClient(BaseClient):
         (PII) and returns the labels of identified PII entity types such as name,
         address, bank account number, or phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.contains_pii_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.contains_pii_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#contains_pii_entities)
         """
     def create_document_classifier(
@@ -233,6 +235,7 @@ class ComprehendClient(BaseClient):
         DataAccessRoleArn: str,
         InputDataConfig: "DocumentClassifierInputDataConfigTypeDef",
         LanguageCode: LanguageCodeType,
+        VersionName: str = None,
         Tags: List["TagTypeDef"] = None,
         OutputDataConfig: "DocumentClassifierOutputDataConfigTypeDef" = None,
         ClientRequestToken: str = None,
@@ -244,7 +247,7 @@ class ComprehendClient(BaseClient):
         """
         Creates a new document classifier that you can use to categorize documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.create_document_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.create_document_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#create_document_classifier)
         """
     def create_endpoint(
@@ -263,7 +266,7 @@ class ComprehendClient(BaseClient):
         <https://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/CreateEndpoint>`_
         **Request Syntax** response = client.create_endpoint( EndpointName...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.create_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.create_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#create_endpoint)
         """
     def create_entity_recognizer(
@@ -273,6 +276,7 @@ class ComprehendClient(BaseClient):
         DataAccessRoleArn: str,
         InputDataConfig: "EntityRecognizerInputDataConfigTypeDef",
         LanguageCode: LanguageCodeType,
+        VersionName: str = None,
         Tags: List["TagTypeDef"] = None,
         ClientRequestToken: str = None,
         VolumeKmsKeyId: str = None,
@@ -282,7 +286,7 @@ class ComprehendClient(BaseClient):
         """
         Creates an entity recognizer using submitted files.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.create_entity_recognizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.create_entity_recognizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#create_entity_recognizer)
         """
     def delete_document_classifier(self, *, DocumentClassifierArn: str) -> Dict[str, Any]:
@@ -290,21 +294,21 @@ class ComprehendClient(BaseClient):
         Deletes a previously created document classifier Only those classifiers that are
         in terminated states (IN_ERROR, TRAINED) will be deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.delete_document_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.delete_document_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#delete_document_classifier)
         """
     def delete_endpoint(self, *, EndpointArn: str) -> Dict[str, Any]:
         """
         Deletes a model-specific endpoint for a previously-trained custom model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.delete_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.delete_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#delete_endpoint)
         """
     def delete_entity_recognizer(self, *, EntityRecognizerArn: str) -> Dict[str, Any]:
         """
         Deletes an entity recognizer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.delete_entity_recognizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.delete_entity_recognizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#delete_entity_recognizer)
         """
     def describe_document_classification_job(
@@ -313,7 +317,7 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with a document classification job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_document_classification_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_document_classification_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_document_classification_job)
         """
     def describe_document_classifier(
@@ -322,7 +326,7 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with a document classifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_document_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_document_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_document_classifier)
         """
     def describe_dominant_language_detection_job(
@@ -331,14 +335,14 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with a dominant language detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_dominant_language_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_dominant_language_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_dominant_language_detection_job)
         """
     def describe_endpoint(self, *, EndpointArn: str) -> DescribeEndpointResponseTypeDef:
         """
         Gets the properties associated with a specific endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_endpoint)
         """
     def describe_entities_detection_job(
@@ -347,7 +351,7 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with an entities detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_entities_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_entities_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_entities_detection_job)
         """
     def describe_entity_recognizer(
@@ -357,7 +361,7 @@ class ComprehendClient(BaseClient):
         Provides details about an entity recognizer including status, S3 buckets
         containing training data, recognizer metadata, metrics, and so on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_entity_recognizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_entity_recognizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_entity_recognizer)
         """
     def describe_events_detection_job(
@@ -366,7 +370,7 @@ class ComprehendClient(BaseClient):
         """
         Gets the status and details of an events detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_events_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_events_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_events_detection_job)
         """
     def describe_key_phrases_detection_job(
@@ -375,7 +379,7 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with a key phrases detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_key_phrases_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_key_phrases_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_key_phrases_detection_job)
         """
     def describe_pii_entities_detection_job(
@@ -384,7 +388,7 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with a PII entities detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_pii_entities_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_pii_entities_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_pii_entities_detection_job)
         """
     def describe_sentiment_detection_job(
@@ -393,7 +397,7 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with a sentiment detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_sentiment_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_sentiment_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_sentiment_detection_job)
         """
     def describe_topics_detection_job(
@@ -402,14 +406,14 @@ class ComprehendClient(BaseClient):
         """
         Gets the properties associated with a topic detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.describe_topics_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.describe_topics_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#describe_topics_detection_job)
         """
     def detect_dominant_language(self, *, Text: str) -> DetectDominantLanguageResponseTypeDef:
         """
         Determines the dominant language of the input text.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.detect_dominant_language)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.detect_dominant_language)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#detect_dominant_language)
         """
     def detect_entities(
@@ -418,7 +422,7 @@ class ComprehendClient(BaseClient):
         """
         Inspects text for named entities, and returns information about them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.detect_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.detect_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#detect_entities)
         """
     def detect_key_phrases(
@@ -427,7 +431,7 @@ class ComprehendClient(BaseClient):
         """
         Detects the key noun phrases found in the text.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.detect_key_phrases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.detect_key_phrases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#detect_key_phrases)
         """
     def detect_pii_entities(
@@ -437,7 +441,7 @@ class ComprehendClient(BaseClient):
         Inspects the input text for entities that contain personally identifiable
         information (PII) and returns information about them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.detect_pii_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.detect_pii_entities)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#detect_pii_entities)
         """
     def detect_sentiment(
@@ -447,7 +451,7 @@ class ComprehendClient(BaseClient):
         Inspects text and returns an inference of the prevailing sentiment (`POSITIVE` ,
         `NEUTRAL` , `MIXED` , or `NEGATIVE` ).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.detect_sentiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.detect_sentiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#detect_sentiment)
         """
     def detect_syntax(
@@ -456,7 +460,7 @@ class ComprehendClient(BaseClient):
         """
         Inspects text for syntax and the part of speech of words in the document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.detect_syntax)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.detect_syntax)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#detect_syntax)
         """
     def generate_presigned_url(
@@ -469,7 +473,7 @@ class ComprehendClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#generate_presigned_url)
         """
     def list_document_classification_jobs(
@@ -482,8 +486,20 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of the documentation classification jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_document_classification_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_document_classification_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_document_classification_jobs)
+        """
+    def list_document_classifier_summaries(
+        self, *, NextToken: str = None, MaxResults: int = None
+    ) -> ListDocumentClassifierSummariesResponseTypeDef:
+        """
+        Gets a list of summaries of the document classifiers that you have created See
+        also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/comprehend
+        -2017-11-27/ListDocumentClassifierSummaries>`_ **Request Syntax** response =
+        client.list_document_classifier_summaries( ...
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_document_classifier_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_document_classifier_summaries)
         """
     def list_document_classifiers(
         self,
@@ -495,7 +511,7 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of the document classifiers that you have created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_document_classifiers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_document_classifiers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_document_classifiers)
         """
     def list_dominant_language_detection_jobs(
@@ -508,7 +524,7 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of the dominant language detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_dominant_language_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_dominant_language_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_dominant_language_detection_jobs)
         """
     def list_endpoints(
@@ -521,7 +537,7 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of all existing endpoints that you've created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_endpoints)
         """
     def list_entities_detection_jobs(
@@ -534,8 +550,17 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of the entity detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_entities_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_entities_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_entities_detection_jobs)
+        """
+    def list_entity_recognizer_summaries(
+        self, *, NextToken: str = None, MaxResults: int = None
+    ) -> ListEntityRecognizerSummariesResponseTypeDef:
+        """
+        Gets a list of summaries for the entity recognizers that you have created.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_entity_recognizer_summaries)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_entity_recognizer_summaries)
         """
     def list_entity_recognizers(
         self,
@@ -548,7 +573,7 @@ class ComprehendClient(BaseClient):
         Gets a list of the properties of all entity recognizers that you created,
         including recognizers currently in training.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_entity_recognizers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_entity_recognizers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_entity_recognizers)
         """
     def list_events_detection_jobs(
@@ -561,7 +586,7 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of the events detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_events_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_events_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_events_detection_jobs)
         """
     def list_key_phrases_detection_jobs(
@@ -574,7 +599,7 @@ class ComprehendClient(BaseClient):
         """
         Get a list of key phrase detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_key_phrases_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_key_phrases_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_key_phrases_detection_jobs)
         """
     def list_pii_entities_detection_jobs(
@@ -587,7 +612,7 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of the PII entity detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_pii_entities_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_pii_entities_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_pii_entities_detection_jobs)
         """
     def list_sentiment_detection_jobs(
@@ -600,14 +625,14 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of sentiment detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_sentiment_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_sentiment_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_sentiment_detection_jobs)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all tags associated with a given Amazon Comprehend resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_tags_for_resource)
         """
     def list_topics_detection_jobs(
@@ -620,7 +645,7 @@ class ComprehendClient(BaseClient):
         """
         Gets a list of the topic detection jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.list_topics_detection_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.list_topics_detection_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#list_topics_detection_jobs)
         """
     def start_document_classification_job(
@@ -633,12 +658,13 @@ class ComprehendClient(BaseClient):
         JobName: str = None,
         ClientRequestToken: str = None,
         VolumeKmsKeyId: str = None,
-        VpcConfig: "VpcConfigTypeDef" = None
+        VpcConfig: "VpcConfigTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartDocumentClassificationJobResponseTypeDef:
         """
         Starts an asynchronous document classification job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_document_classification_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_document_classification_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_document_classification_job)
         """
     def start_dominant_language_detection_job(
@@ -650,13 +676,14 @@ class ComprehendClient(BaseClient):
         JobName: str = None,
         ClientRequestToken: str = None,
         VolumeKmsKeyId: str = None,
-        VpcConfig: "VpcConfigTypeDef" = None
+        VpcConfig: "VpcConfigTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartDominantLanguageDetectionJobResponseTypeDef:
         """
         Starts an asynchronous dominant language detection job for a collection of
         documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_dominant_language_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_dominant_language_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_dominant_language_detection_job)
         """
     def start_entities_detection_job(
@@ -670,12 +697,13 @@ class ComprehendClient(BaseClient):
         EntityRecognizerArn: str = None,
         ClientRequestToken: str = None,
         VolumeKmsKeyId: str = None,
-        VpcConfig: "VpcConfigTypeDef" = None
+        VpcConfig: "VpcConfigTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartEntitiesDetectionJobResponseTypeDef:
         """
         Starts an asynchronous entity detection job for a collection of documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_entities_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_entities_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_entities_detection_job)
         """
     def start_events_detection_job(
@@ -687,12 +715,13 @@ class ComprehendClient(BaseClient):
         LanguageCode: LanguageCodeType,
         TargetEventTypes: List[str],
         JobName: str = None,
-        ClientRequestToken: str = None
+        ClientRequestToken: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartEventsDetectionJobResponseTypeDef:
         """
         Starts an asynchronous event detection job for a collection of documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_events_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_events_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_events_detection_job)
         """
     def start_key_phrases_detection_job(
@@ -705,12 +734,13 @@ class ComprehendClient(BaseClient):
         JobName: str = None,
         ClientRequestToken: str = None,
         VolumeKmsKeyId: str = None,
-        VpcConfig: "VpcConfigTypeDef" = None
+        VpcConfig: "VpcConfigTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartKeyPhrasesDetectionJobResponseTypeDef:
         """
         Starts an asynchronous key phrase detection job for a collection of documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_key_phrases_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_key_phrases_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_key_phrases_detection_job)
         """
     def start_pii_entities_detection_job(
@@ -723,12 +753,13 @@ class ComprehendClient(BaseClient):
         LanguageCode: LanguageCodeType,
         RedactionConfig: "RedactionConfigTypeDef" = None,
         JobName: str = None,
-        ClientRequestToken: str = None
+        ClientRequestToken: str = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartPiiEntitiesDetectionJobResponseTypeDef:
         """
         Starts an asynchronous PII entity detection job for a collection of documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_pii_entities_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_pii_entities_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_pii_entities_detection_job)
         """
     def start_sentiment_detection_job(
@@ -741,12 +772,13 @@ class ComprehendClient(BaseClient):
         JobName: str = None,
         ClientRequestToken: str = None,
         VolumeKmsKeyId: str = None,
-        VpcConfig: "VpcConfigTypeDef" = None
+        VpcConfig: "VpcConfigTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartSentimentDetectionJobResponseTypeDef:
         """
         Starts an asynchronous sentiment detection job for a collection of documents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_sentiment_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_sentiment_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_sentiment_detection_job)
         """
     def start_topics_detection_job(
@@ -759,12 +791,13 @@ class ComprehendClient(BaseClient):
         NumberOfTopics: int = None,
         ClientRequestToken: str = None,
         VolumeKmsKeyId: str = None,
-        VpcConfig: "VpcConfigTypeDef" = None
+        VpcConfig: "VpcConfigTypeDef" = None,
+        Tags: List["TagTypeDef"] = None
     ) -> StartTopicsDetectionJobResponseTypeDef:
         """
         Starts an asynchronous topic detection job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.start_topics_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.start_topics_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#start_topics_detection_job)
         """
     def stop_dominant_language_detection_job(
@@ -773,21 +806,21 @@ class ComprehendClient(BaseClient):
         """
         Stops a dominant language detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_dominant_language_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_dominant_language_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_dominant_language_detection_job)
         """
     def stop_entities_detection_job(self, *, JobId: str) -> StopEntitiesDetectionJobResponseTypeDef:
         """
         Stops an entities detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_entities_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_entities_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_entities_detection_job)
         """
     def stop_events_detection_job(self, *, JobId: str) -> StopEventsDetectionJobResponseTypeDef:
         """
         Stops an events detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_events_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_events_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_events_detection_job)
         """
     def stop_key_phrases_detection_job(
@@ -796,7 +829,7 @@ class ComprehendClient(BaseClient):
         """
         Stops a key phrases detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_key_phrases_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_key_phrases_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_key_phrases_detection_job)
         """
     def stop_pii_entities_detection_job(
@@ -805,7 +838,7 @@ class ComprehendClient(BaseClient):
         """
         Stops a PII entities detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_pii_entities_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_pii_entities_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_pii_entities_detection_job)
         """
     def stop_sentiment_detection_job(
@@ -814,42 +847,49 @@ class ComprehendClient(BaseClient):
         """
         Stops a sentiment detection job in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_sentiment_detection_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_sentiment_detection_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_sentiment_detection_job)
         """
     def stop_training_document_classifier(self, *, DocumentClassifierArn: str) -> Dict[str, Any]:
         """
         Stops a document classifier training job while in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_training_document_classifier)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_training_document_classifier)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_training_document_classifier)
         """
     def stop_training_entity_recognizer(self, *, EntityRecognizerArn: str) -> Dict[str, Any]:
         """
         Stops an entity recognizer training job while in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.stop_training_entity_recognizer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.stop_training_entity_recognizer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#stop_training_entity_recognizer)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Associates a specific tag with an Amazon Comprehend resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a specific tag associated with an Amazon Comprehend resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#untag_resource)
         """
-    def update_endpoint(self, *, EndpointArn: str, DesiredInferenceUnits: int) -> Dict[str, Any]:
+    def update_endpoint(
+        self,
+        *,
+        EndpointArn: str,
+        DesiredModelArn: str = None,
+        DesiredInferenceUnits: int = None,
+        DesiredDataAccessRoleArn: str = None
+    ) -> Dict[str, Any]:
         """
         Updates information about the specified endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Client.update_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Client.update_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/client.html#update_endpoint)
         """
     @overload
@@ -857,7 +897,7 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_document_classification_jobs"]
     ) -> ListDocumentClassificationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassificationjobspaginator)
         """
     @overload
@@ -865,7 +905,7 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_document_classifiers"]
     ) -> ListDocumentClassifiersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassifierspaginator)
         """
     @overload
@@ -873,7 +913,7 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_dominant_language_detection_jobs"]
     ) -> ListDominantLanguageDetectionJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdominantlanguagedetectionjobspaginator)
         """
     @overload
@@ -881,7 +921,7 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_entities_detection_jobs"]
     ) -> ListEntitiesDetectionJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentitiesdetectionjobspaginator)
         """
     @overload
@@ -889,7 +929,7 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_entity_recognizers"]
     ) -> ListEntityRecognizersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentityrecognizerspaginator)
         """
     @overload
@@ -897,7 +937,7 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_key_phrases_detection_jobs"]
     ) -> ListKeyPhrasesDetectionJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listkeyphrasesdetectionjobspaginator)
         """
     @overload
@@ -905,7 +945,7 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_sentiment_detection_jobs"]
     ) -> ListSentimentDetectionJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listsentimentdetectionjobspaginator)
         """
     @overload
@@ -913,6 +953,6 @@ class ComprehendClient(BaseClient):
         self, operation_name: Literal["list_topics_detection_jobs"]
     ) -> ListTopicsDetectionJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listtopicsdetectionjobspaginator)
         """

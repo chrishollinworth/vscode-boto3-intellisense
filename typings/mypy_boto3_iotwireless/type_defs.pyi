@@ -12,17 +12,23 @@ Usage::
     ```
 """
 import sys
-from typing import Any, Dict, List
+from datetime import datetime
+from typing import Any, Dict, List, Union
 
 from .literals import (
     BatteryLevelType,
     ConnectionStatusType,
     DeviceStateType,
+    DlClassType,
+    EventNotificationTopicStatusType,
     EventType,
     ExpressionTypeType,
+    FuotaDeviceStatusType,
+    FuotaTaskStatusType,
     LogLevelType,
     MessageTypeType,
     SigningAlgType,
+    SupportedRfRegionType,
     WirelessDeviceEventType,
     WirelessDeviceIdTypeType,
     WirelessDeviceTypeType,
@@ -46,15 +52,23 @@ __all__ = (
     "AbpV1_1TypeDef",
     "AssociateAwsAccountWithPartnerAccountRequestRequestTypeDef",
     "AssociateAwsAccountWithPartnerAccountResponseTypeDef",
+    "AssociateMulticastGroupWithFuotaTaskRequestRequestTypeDef",
+    "AssociateWirelessDeviceWithFuotaTaskRequestRequestTypeDef",
+    "AssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef",
     "AssociateWirelessDeviceWithThingRequestRequestTypeDef",
     "AssociateWirelessGatewayWithCertificateRequestRequestTypeDef",
     "AssociateWirelessGatewayWithCertificateResponseTypeDef",
     "AssociateWirelessGatewayWithThingRequestRequestTypeDef",
+    "CancelMulticastGroupSessionRequestRequestTypeDef",
     "CertificateListTypeDef",
     "CreateDestinationRequestRequestTypeDef",
     "CreateDestinationResponseTypeDef",
     "CreateDeviceProfileRequestRequestTypeDef",
     "CreateDeviceProfileResponseTypeDef",
+    "CreateFuotaTaskRequestRequestTypeDef",
+    "CreateFuotaTaskResponseTypeDef",
+    "CreateMulticastGroupRequestRequestTypeDef",
+    "CreateMulticastGroupResponseTypeDef",
     "CreateServiceProfileRequestRequestTypeDef",
     "CreateServiceProfileResponseTypeDef",
     "CreateWirelessDeviceRequestRequestTypeDef",
@@ -67,6 +81,8 @@ __all__ = (
     "CreateWirelessGatewayTaskResponseTypeDef",
     "DeleteDestinationRequestRequestTypeDef",
     "DeleteDeviceProfileRequestRequestTypeDef",
+    "DeleteFuotaTaskRequestRequestTypeDef",
+    "DeleteMulticastGroupRequestRequestTypeDef",
     "DeleteServiceProfileRequestRequestTypeDef",
     "DeleteWirelessDeviceRequestRequestTypeDef",
     "DeleteWirelessGatewayRequestRequestTypeDef",
@@ -74,17 +90,31 @@ __all__ = (
     "DeleteWirelessGatewayTaskRequestRequestTypeDef",
     "DestinationsTypeDef",
     "DeviceProfileTypeDef",
+    "DeviceRegistrationStateEventConfigurationTypeDef",
     "DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef",
+    "DisassociateMulticastGroupFromFuotaTaskRequestRequestTypeDef",
+    "DisassociateWirelessDeviceFromFuotaTaskRequestRequestTypeDef",
+    "DisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef",
     "DisassociateWirelessDeviceFromThingRequestRequestTypeDef",
     "DisassociateWirelessGatewayFromCertificateRequestRequestTypeDef",
     "DisassociateWirelessGatewayFromThingRequestRequestTypeDef",
+    "FPortsTypeDef",
+    "FuotaTaskTypeDef",
     "GetDestinationRequestRequestTypeDef",
     "GetDestinationResponseTypeDef",
     "GetDeviceProfileRequestRequestTypeDef",
     "GetDeviceProfileResponseTypeDef",
+    "GetFuotaTaskRequestRequestTypeDef",
+    "GetFuotaTaskResponseTypeDef",
     "GetLogLevelsByResourceTypesResponseTypeDef",
+    "GetMulticastGroupRequestRequestTypeDef",
+    "GetMulticastGroupResponseTypeDef",
+    "GetMulticastGroupSessionRequestRequestTypeDef",
+    "GetMulticastGroupSessionResponseTypeDef",
     "GetPartnerAccountRequestRequestTypeDef",
     "GetPartnerAccountResponseTypeDef",
+    "GetResourceEventConfigurationRequestRequestTypeDef",
+    "GetResourceEventConfigurationResponseTypeDef",
     "GetResourceLogLevelRequestRequestTypeDef",
     "GetResourceLogLevelResponseTypeDef",
     "GetServiceEndpointRequestRequestTypeDef",
@@ -111,6 +141,12 @@ __all__ = (
     "ListDestinationsResponseTypeDef",
     "ListDeviceProfilesRequestRequestTypeDef",
     "ListDeviceProfilesResponseTypeDef",
+    "ListFuotaTasksRequestRequestTypeDef",
+    "ListFuotaTasksResponseTypeDef",
+    "ListMulticastGroupsByFuotaTaskRequestRequestTypeDef",
+    "ListMulticastGroupsByFuotaTaskResponseTypeDef",
+    "ListMulticastGroupsRequestRequestTypeDef",
+    "ListMulticastGroupsResponseTypeDef",
     "ListPartnerAccountsRequestRequestTypeDef",
     "ListPartnerAccountsResponseTypeDef",
     "ListServiceProfilesRequestRequestTypeDef",
@@ -126,22 +162,35 @@ __all__ = (
     "LoRaWANDeviceMetadataTypeDef",
     "LoRaWANDeviceProfileTypeDef",
     "LoRaWANDeviceTypeDef",
+    "LoRaWANFuotaTaskGetInfoTypeDef",
+    "LoRaWANFuotaTaskTypeDef",
     "LoRaWANGatewayCurrentVersionTypeDef",
     "LoRaWANGatewayMetadataTypeDef",
     "LoRaWANGatewayTypeDef",
     "LoRaWANGatewayVersionTypeDef",
     "LoRaWANGetServiceProfileInfoTypeDef",
     "LoRaWANListDeviceTypeDef",
+    "LoRaWANMulticastGetTypeDef",
+    "LoRaWANMulticastMetadataTypeDef",
+    "LoRaWANMulticastSessionTypeDef",
+    "LoRaWANMulticastTypeDef",
     "LoRaWANSendDataToDeviceTypeDef",
     "LoRaWANServiceProfileTypeDef",
+    "LoRaWANStartFuotaTaskTypeDef",
     "LoRaWANUpdateDeviceTypeDef",
     "LoRaWANUpdateGatewayTaskCreateTypeDef",
     "LoRaWANUpdateGatewayTaskEntryTypeDef",
+    "MulticastGroupByFuotaTaskTypeDef",
+    "MulticastGroupTypeDef",
+    "MulticastWirelessMetadataTypeDef",
     "OtaaV1_0_xTypeDef",
     "OtaaV1_1TypeDef",
+    "ProximityEventConfigurationTypeDef",
     "PutResourceLogLevelRequestRequestTypeDef",
     "ResetResourceLogLevelRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "SendDataToMulticastGroupRequestRequestTypeDef",
+    "SendDataToMulticastGroupResponseTypeDef",
     "SendDataToWirelessDeviceRequestRequestTypeDef",
     "SendDataToWirelessDeviceResponseTypeDef",
     "ServiceProfileTypeDef",
@@ -151,17 +200,25 @@ __all__ = (
     "SidewalkAccountInfoWithFingerprintTypeDef",
     "SidewalkDeviceMetadataTypeDef",
     "SidewalkDeviceTypeDef",
+    "SidewalkEventNotificationConfigurationsTypeDef",
     "SidewalkListDeviceTypeDef",
     "SidewalkSendDataToDeviceTypeDef",
     "SidewalkUpdateAccountTypeDef",
+    "StartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef",
+    "StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef",
+    "StartFuotaTaskRequestRequestTypeDef",
+    "StartMulticastGroupSessionRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TestWirelessDeviceRequestRequestTypeDef",
     "TestWirelessDeviceResponseTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDestinationRequestRequestTypeDef",
+    "UpdateFuotaTaskRequestRequestTypeDef",
     "UpdateLogLevelsByResourceTypesRequestRequestTypeDef",
+    "UpdateMulticastGroupRequestRequestTypeDef",
     "UpdatePartnerAccountRequestRequestTypeDef",
+    "UpdateResourceEventConfigurationRequestRequestTypeDef",
     "UpdateWirelessDeviceRequestRequestTypeDef",
     "UpdateWirelessGatewayRequestRequestTypeDef",
     "UpdateWirelessGatewayTaskCreateTypeDef",
@@ -223,6 +280,30 @@ AssociateAwsAccountWithPartnerAccountResponseTypeDef = TypedDict(
     },
 )
 
+AssociateMulticastGroupWithFuotaTaskRequestRequestTypeDef = TypedDict(
+    "AssociateMulticastGroupWithFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+        "MulticastGroupId": str,
+    },
+)
+
+AssociateWirelessDeviceWithFuotaTaskRequestRequestTypeDef = TypedDict(
+    "AssociateWirelessDeviceWithFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+        "WirelessDeviceId": str,
+    },
+)
+
+AssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef = TypedDict(
+    "AssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+        "WirelessDeviceId": str,
+    },
+)
+
 AssociateWirelessDeviceWithThingRequestRequestTypeDef = TypedDict(
     "AssociateWirelessDeviceWithThingRequestRequestTypeDef",
     {
@@ -252,6 +333,13 @@ AssociateWirelessGatewayWithThingRequestRequestTypeDef = TypedDict(
     {
         "Id": str,
         "ThingArn": str,
+    },
+)
+
+CancelMulticastGroupSessionRequestRequestTypeDef = TypedDict(
+    "CancelMulticastGroupSessionRequestRequestTypeDef",
+    {
+        "Id": str,
     },
 )
 
@@ -309,6 +397,71 @@ CreateDeviceProfileRequestRequestTypeDef = TypedDict(
 
 CreateDeviceProfileResponseTypeDef = TypedDict(
     "CreateDeviceProfileResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFuotaTaskRequestRequestTypeDef",
+    {
+        "FirmwareUpdateImage": str,
+        "FirmwareUpdateRole": str,
+    },
+)
+_OptionalCreateFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFuotaTaskRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "ClientRequestToken": str,
+        "LoRaWAN": "LoRaWANFuotaTaskTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFuotaTaskRequestRequestTypeDef(
+    _RequiredCreateFuotaTaskRequestRequestTypeDef, _OptionalCreateFuotaTaskRequestRequestTypeDef
+):
+    pass
+
+CreateFuotaTaskResponseTypeDef = TypedDict(
+    "CreateFuotaTaskResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMulticastGroupRequestRequestTypeDef",
+    {
+        "LoRaWAN": "LoRaWANMulticastTypeDef",
+    },
+)
+_OptionalCreateMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMulticastGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "ClientRequestToken": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateMulticastGroupRequestRequestTypeDef(
+    _RequiredCreateMulticastGroupRequestRequestTypeDef,
+    _OptionalCreateMulticastGroupRequestRequestTypeDef,
+):
+    pass
+
+CreateMulticastGroupResponseTypeDef = TypedDict(
+    "CreateMulticastGroupResponseTypeDef",
     {
         "Arn": str,
         "Id": str,
@@ -465,6 +618,20 @@ DeleteDeviceProfileRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteFuotaTaskRequestRequestTypeDef = TypedDict(
+    "DeleteFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+DeleteMulticastGroupRequestRequestTypeDef = TypedDict(
+    "DeleteMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
 DeleteServiceProfileRequestRequestTypeDef = TypedDict(
     "DeleteServiceProfileRequestRequestTypeDef",
     {
@@ -523,11 +690,43 @@ DeviceProfileTypeDef = TypedDict(
     total=False,
 )
 
+DeviceRegistrationStateEventConfigurationTypeDef = TypedDict(
+    "DeviceRegistrationStateEventConfigurationTypeDef",
+    {
+        "Sidewalk": "SidewalkEventNotificationConfigurationsTypeDef",
+    },
+    total=False,
+)
+
 DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef = TypedDict(
     "DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef",
     {
         "PartnerAccountId": str,
         "PartnerType": Literal["Sidewalk"],
+    },
+)
+
+DisassociateMulticastGroupFromFuotaTaskRequestRequestTypeDef = TypedDict(
+    "DisassociateMulticastGroupFromFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+        "MulticastGroupId": str,
+    },
+)
+
+DisassociateWirelessDeviceFromFuotaTaskRequestRequestTypeDef = TypedDict(
+    "DisassociateWirelessDeviceFromFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+        "WirelessDeviceId": str,
+    },
+)
+
+DisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef = TypedDict(
+    "DisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+        "WirelessDeviceId": str,
     },
 )
 
@@ -550,6 +749,26 @@ DisassociateWirelessGatewayFromThingRequestRequestTypeDef = TypedDict(
     {
         "Id": str,
     },
+)
+
+FPortsTypeDef = TypedDict(
+    "FPortsTypeDef",
+    {
+        "Fuota": int,
+        "Multicast": int,
+        "ClockSync": int,
+    },
+    total=False,
+)
+
+FuotaTaskTypeDef = TypedDict(
+    "FuotaTaskTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 GetDestinationRequestRequestTypeDef = TypedDict(
@@ -590,12 +809,71 @@ GetDeviceProfileResponseTypeDef = TypedDict(
     },
 )
 
+GetFuotaTaskRequestRequestTypeDef = TypedDict(
+    "GetFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetFuotaTaskResponseTypeDef = TypedDict(
+    "GetFuotaTaskResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Status": FuotaTaskStatusType,
+        "Name": str,
+        "Description": str,
+        "LoRaWAN": "LoRaWANFuotaTaskGetInfoTypeDef",
+        "FirmwareUpdateImage": str,
+        "FirmwareUpdateRole": str,
+        "CreatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetLogLevelsByResourceTypesResponseTypeDef = TypedDict(
     "GetLogLevelsByResourceTypesResponseTypeDef",
     {
         "DefaultLogLevel": LogLevelType,
         "WirelessGatewayLogOptions": List["WirelessGatewayLogOptionTypeDef"],
         "WirelessDeviceLogOptions": List["WirelessDeviceLogOptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMulticastGroupRequestRequestTypeDef = TypedDict(
+    "GetMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetMulticastGroupResponseTypeDef = TypedDict(
+    "GetMulticastGroupResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "Status": str,
+        "LoRaWAN": "LoRaWANMulticastGetTypeDef",
+        "CreatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMulticastGroupSessionRequestRequestTypeDef = TypedDict(
+    "GetMulticastGroupSessionRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetMulticastGroupSessionResponseTypeDef = TypedDict(
+    "GetMulticastGroupSessionResponseTypeDef",
+    {
+        "LoRaWAN": "LoRaWANMulticastSessionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -613,6 +891,36 @@ GetPartnerAccountResponseTypeDef = TypedDict(
     {
         "Sidewalk": "SidewalkAccountInfoWithFingerprintTypeDef",
         "AccountLinked": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetResourceEventConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetResourceEventConfigurationRequestRequestTypeDef",
+    {
+        "Identifier": str,
+        "IdentifierType": Literal["PartnerAccountId"],
+    },
+)
+_OptionalGetResourceEventConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetResourceEventConfigurationRequestRequestTypeDef",
+    {
+        "PartnerType": Literal["Sidewalk"],
+    },
+    total=False,
+)
+
+class GetResourceEventConfigurationRequestRequestTypeDef(
+    _RequiredGetResourceEventConfigurationRequestRequestTypeDef,
+    _OptionalGetResourceEventConfigurationRequestRequestTypeDef,
+):
+    pass
+
+GetResourceEventConfigurationResponseTypeDef = TypedDict(
+    "GetResourceEventConfigurationResponseTypeDef",
+    {
+        "DeviceRegistrationState": "DeviceRegistrationStateEventConfigurationTypeDef",
+        "Proximity": "ProximityEventConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -855,6 +1163,72 @@ ListDeviceProfilesResponseTypeDef = TypedDict(
     },
 )
 
+ListFuotaTasksRequestRequestTypeDef = TypedDict(
+    "ListFuotaTasksRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListFuotaTasksResponseTypeDef = TypedDict(
+    "ListFuotaTasksResponseTypeDef",
+    {
+        "NextToken": str,
+        "FuotaTaskList": List["FuotaTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListMulticastGroupsByFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredListMulticastGroupsByFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalListMulticastGroupsByFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalListMulticastGroupsByFuotaTaskRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListMulticastGroupsByFuotaTaskRequestRequestTypeDef(
+    _RequiredListMulticastGroupsByFuotaTaskRequestRequestTypeDef,
+    _OptionalListMulticastGroupsByFuotaTaskRequestRequestTypeDef,
+):
+    pass
+
+ListMulticastGroupsByFuotaTaskResponseTypeDef = TypedDict(
+    "ListMulticastGroupsByFuotaTaskResponseTypeDef",
+    {
+        "NextToken": str,
+        "MulticastGroupList": List["MulticastGroupByFuotaTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListMulticastGroupsRequestRequestTypeDef = TypedDict(
+    "ListMulticastGroupsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListMulticastGroupsResponseTypeDef = TypedDict(
+    "ListMulticastGroupsResponseTypeDef",
+    {
+        "NextToken": str,
+        "MulticastGroupList": List["MulticastGroupTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListPartnerAccountsRequestRequestTypeDef = TypedDict(
     "ListPartnerAccountsRequestRequestTypeDef",
     {
@@ -915,6 +1289,8 @@ ListWirelessDevicesRequestRequestTypeDef = TypedDict(
         "DeviceProfileId": str,
         "ServiceProfileId": str,
         "WirelessDeviceType": WirelessDeviceTypeType,
+        "FuotaTaskId": str,
+        "MulticastGroupId": str,
     },
     total=False,
 )
@@ -1014,6 +1390,24 @@ LoRaWANDeviceTypeDef = TypedDict(
         "OtaaV1_0_x": "OtaaV1_0_xTypeDef",
         "AbpV1_1": "AbpV1_1TypeDef",
         "AbpV1_0_x": "AbpV1_0_xTypeDef",
+        "FPorts": "FPortsTypeDef",
+    },
+    total=False,
+)
+
+LoRaWANFuotaTaskGetInfoTypeDef = TypedDict(
+    "LoRaWANFuotaTaskGetInfoTypeDef",
+    {
+        "RfRegion": str,
+        "StartTime": datetime,
+    },
+    total=False,
+)
+
+LoRaWANFuotaTaskTypeDef = TypedDict(
+    "LoRaWANFuotaTaskTypeDef",
+    {
+        "RfRegion": SupportedRfRegionType,
     },
     total=False,
 )
@@ -1092,6 +1486,45 @@ LoRaWANListDeviceTypeDef = TypedDict(
     total=False,
 )
 
+LoRaWANMulticastGetTypeDef = TypedDict(
+    "LoRaWANMulticastGetTypeDef",
+    {
+        "RfRegion": SupportedRfRegionType,
+        "DlClass": DlClassType,
+        "NumberOfDevicesRequested": int,
+        "NumberOfDevicesInGroup": int,
+    },
+    total=False,
+)
+
+LoRaWANMulticastMetadataTypeDef = TypedDict(
+    "LoRaWANMulticastMetadataTypeDef",
+    {
+        "FPort": int,
+    },
+    total=False,
+)
+
+LoRaWANMulticastSessionTypeDef = TypedDict(
+    "LoRaWANMulticastSessionTypeDef",
+    {
+        "DlDr": int,
+        "DlFreq": int,
+        "SessionStartTime": datetime,
+        "SessionTimeout": int,
+    },
+    total=False,
+)
+
+LoRaWANMulticastTypeDef = TypedDict(
+    "LoRaWANMulticastTypeDef",
+    {
+        "RfRegion": SupportedRfRegionType,
+        "DlClass": DlClassType,
+    },
+    total=False,
+)
+
 LoRaWANSendDataToDeviceTypeDef = TypedDict(
     "LoRaWANSendDataToDeviceTypeDef",
     {
@@ -1104,6 +1537,14 @@ LoRaWANServiceProfileTypeDef = TypedDict(
     "LoRaWANServiceProfileTypeDef",
     {
         "AddGwMetadata": bool,
+    },
+    total=False,
+)
+
+LoRaWANStartFuotaTaskTypeDef = TypedDict(
+    "LoRaWANStartFuotaTaskTypeDef",
+    {
+        "StartTime": Union[datetime, str],
     },
     total=False,
 )
@@ -1137,11 +1578,38 @@ LoRaWANUpdateGatewayTaskEntryTypeDef = TypedDict(
     total=False,
 )
 
+MulticastGroupByFuotaTaskTypeDef = TypedDict(
+    "MulticastGroupByFuotaTaskTypeDef",
+    {
+        "Id": str,
+    },
+    total=False,
+)
+
+MulticastGroupTypeDef = TypedDict(
+    "MulticastGroupTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+    },
+    total=False,
+)
+
+MulticastWirelessMetadataTypeDef = TypedDict(
+    "MulticastWirelessMetadataTypeDef",
+    {
+        "LoRaWAN": "LoRaWANMulticastMetadataTypeDef",
+    },
+    total=False,
+)
+
 OtaaV1_0_xTypeDef = TypedDict(
     "OtaaV1_0_xTypeDef",
     {
         "AppKey": str,
         "AppEui": str,
+        "GenAppKey": str,
     },
     total=False,
 )
@@ -1152,6 +1620,14 @@ OtaaV1_1TypeDef = TypedDict(
         "AppKey": str,
         "NwkKey": str,
         "JoinEui": str,
+    },
+    total=False,
+)
+
+ProximityEventConfigurationTypeDef = TypedDict(
+    "ProximityEventConfigurationTypeDef",
+    {
+        "Sidewalk": "SidewalkEventNotificationConfigurationsTypeDef",
     },
     total=False,
 )
@@ -1181,6 +1657,23 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+SendDataToMulticastGroupRequestRequestTypeDef = TypedDict(
+    "SendDataToMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+        "PayloadData": str,
+        "WirelessMetadata": "MulticastWirelessMetadataTypeDef",
+    },
+)
+
+SendDataToMulticastGroupResponseTypeDef = TypedDict(
+    "SendDataToMulticastGroupResponseTypeDef",
+    {
+        "MessageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1285,6 +1778,14 @@ SidewalkDeviceTypeDef = TypedDict(
     total=False,
 )
 
+SidewalkEventNotificationConfigurationsTypeDef = TypedDict(
+    "SidewalkEventNotificationConfigurationsTypeDef",
+    {
+        "AmazonIdEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
 SidewalkListDeviceTypeDef = TypedDict(
     "SidewalkListDeviceTypeDef",
     {
@@ -1311,6 +1812,75 @@ SidewalkUpdateAccountTypeDef = TypedDict(
         "AppServerPrivateKey": str,
     },
     total=False,
+)
+
+_RequiredStartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredStartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalStartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalStartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef",
+    {
+        "QueryString": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class StartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef(
+    _RequiredStartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef,
+    _OptionalStartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef,
+):
+    pass
+
+_RequiredStartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredStartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalStartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalStartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef",
+    {
+        "QueryString": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef(
+    _RequiredStartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef,
+    _OptionalStartBulkDisassociateWirelessDeviceFromMulticastGroupRequestRequestTypeDef,
+):
+    pass
+
+_RequiredStartFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredStartFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalStartFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalStartFuotaTaskRequestRequestTypeDef",
+    {
+        "LoRaWAN": "LoRaWANStartFuotaTaskTypeDef",
+    },
+    total=False,
+)
+
+class StartFuotaTaskRequestRequestTypeDef(
+    _RequiredStartFuotaTaskRequestRequestTypeDef, _OptionalStartFuotaTaskRequestRequestTypeDef
+):
+    pass
+
+StartMulticastGroupSessionRequestRequestTypeDef = TypedDict(
+    "StartMulticastGroupSessionRequestRequestTypeDef",
+    {
+        "Id": str,
+        "LoRaWAN": "LoRaWANMulticastSessionTypeDef",
+    },
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(
@@ -1374,6 +1944,29 @@ class UpdateDestinationRequestRequestTypeDef(
 ):
     pass
 
+_RequiredUpdateFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFuotaTaskRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalUpdateFuotaTaskRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFuotaTaskRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "LoRaWAN": "LoRaWANFuotaTaskTypeDef",
+        "FirmwareUpdateImage": str,
+        "FirmwareUpdateRole": str,
+    },
+    total=False,
+)
+
+class UpdateFuotaTaskRequestRequestTypeDef(
+    _RequiredUpdateFuotaTaskRequestRequestTypeDef, _OptionalUpdateFuotaTaskRequestRequestTypeDef
+):
+    pass
+
 UpdateLogLevelsByResourceTypesRequestRequestTypeDef = TypedDict(
     "UpdateLogLevelsByResourceTypesRequestRequestTypeDef",
     {
@@ -1384,6 +1977,28 @@ UpdateLogLevelsByResourceTypesRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredUpdateMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateMulticastGroupRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalUpdateMulticastGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateMulticastGroupRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "LoRaWAN": "LoRaWANMulticastTypeDef",
+    },
+    total=False,
+)
+
+class UpdateMulticastGroupRequestRequestTypeDef(
+    _RequiredUpdateMulticastGroupRequestRequestTypeDef,
+    _OptionalUpdateMulticastGroupRequestRequestTypeDef,
+):
+    pass
+
 UpdatePartnerAccountRequestRequestTypeDef = TypedDict(
     "UpdatePartnerAccountRequestRequestTypeDef",
     {
@@ -1392,6 +2007,29 @@ UpdatePartnerAccountRequestRequestTypeDef = TypedDict(
         "PartnerType": Literal["Sidewalk"],
     },
 )
+
+_RequiredUpdateResourceEventConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateResourceEventConfigurationRequestRequestTypeDef",
+    {
+        "Identifier": str,
+        "IdentifierType": Literal["PartnerAccountId"],
+    },
+)
+_OptionalUpdateResourceEventConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateResourceEventConfigurationRequestRequestTypeDef",
+    {
+        "PartnerType": Literal["Sidewalk"],
+        "DeviceRegistrationState": "DeviceRegistrationStateEventConfigurationTypeDef",
+        "Proximity": "ProximityEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class UpdateResourceEventConfigurationRequestRequestTypeDef(
+    _RequiredUpdateResourceEventConfigurationRequestRequestTypeDef,
+    _OptionalUpdateResourceEventConfigurationRequestRequestTypeDef,
+):
+    pass
 
 _RequiredUpdateWirelessDeviceRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateWirelessDeviceRequestRequestTypeDef",
@@ -1498,6 +2136,9 @@ WirelessDeviceStatisticsTypeDef = TypedDict(
         "LastUplinkReceivedAt": str,
         "LoRaWAN": "LoRaWANListDeviceTypeDef",
         "Sidewalk": "SidewalkListDeviceTypeDef",
+        "FuotaDeviceStatus": FuotaDeviceStatusType,
+        "MulticastDeviceStatus": str,
+        "McGroupId": int,
     },
     total=False,
 )

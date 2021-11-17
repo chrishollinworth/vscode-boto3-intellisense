@@ -6,9 +6,9 @@ Type annotations for compute-optimizer service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_compute_optimizer.literals import EBSFilterNameType
+    from mypy_boto3_compute_optimizer.literals import CpuVendorArchitectureType
 
-    data: EBSFilterNameType = "Finding"
+    data: CpuVendorArchitectureType = "AWS_ARM64"
     ```
 """
 import sys
@@ -19,9 +19,11 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "CpuVendorArchitectureType",
     "EBSFilterNameType",
     "EBSFindingType",
     "EBSMetricNameType",
+    "EnrollmentFilterNameType",
     "ExportableAutoScalingGroupFieldType",
     "ExportableInstanceFieldType",
     "ExportableLambdaFunctionFieldType",
@@ -48,6 +50,7 @@ __all__ = (
     "StatusType",
 )
 
+CpuVendorArchitectureType = Literal["AWS_ARM64", "CURRENT"]
 EBSFilterNameType = Literal["Finding"]
 EBSFindingType = Literal["NotOptimized", "Optimized"]
 EBSMetricNameType = Literal[
@@ -56,6 +59,7 @@ EBSMetricNameType = Literal[
     "VolumeWriteBytesPerSecond",
     "VolumeWriteOpsPerSecond",
 ]
+EnrollmentFilterNameType = Literal["Status"]
 ExportableAutoScalingGroupFieldType = Literal[
     "AccountId",
     "AutoScalingGroupArn",
@@ -249,6 +253,7 @@ MetricNameType = Literal[
 ]
 MetricStatisticType = Literal["Average", "Maximum"]
 PlatformDifferenceType = Literal[
+    "Architecture",
     "Hypervisor",
     "InstanceStoreAvailability",
     "NetworkInterface",

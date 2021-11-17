@@ -20,6 +20,8 @@ else:
 
 __all__ = (
     "BackfillErrorCodeType",
+    "BlueprintRunStateType",
+    "BlueprintStatusType",
     "CatalogEncryptionModeType",
     "CloudWatchEncryptionModeType",
     "ColumnStatisticsTypeType",
@@ -96,6 +98,8 @@ BackfillErrorCodeType = Literal[
     "MISSING_PARTITION_VALUE_ERROR",
     "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
 ]
+BlueprintRunStateType = Literal["FAILED", "ROLLING_BACK", "RUNNING", "SUCCEEDED"]
+BlueprintStatusType = Literal["ACTIVE", "CREATING", "FAILED", "UPDATING"]
 CatalogEncryptionModeType = Literal["DISABLED", "SSE-KMS"]
 CloudWatchEncryptionModeType = Literal["DISABLED", "SSE-KMS"]
 ColumnStatisticsTypeType = Literal[
@@ -190,7 +194,7 @@ PermissionType = Literal[
     "SELECT",
 ]
 PrincipalTypeType = Literal["GROUP", "ROLE", "USER"]
-RecrawlBehaviorType = Literal["CRAWL_EVERYTHING", "CRAWL_NEW_FOLDERS_ONLY"]
+RecrawlBehaviorType = Literal["CRAWL_EVENT_MODE", "CRAWL_EVERYTHING", "CRAWL_NEW_FOLDERS_ONLY"]
 RegistryStatusType = Literal["AVAILABLE", "DELETING"]
 ResourceShareTypeType = Literal["ALL", "FOREIGN"]
 ResourceTypeType = Literal["ARCHIVE", "FILE", "JAR"]

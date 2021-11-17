@@ -24,6 +24,7 @@ from .literals import (
     CachePolicyTypeType,
     CertificateSourceType,
     EventTypeType,
+    FrameOptionsListType,
     FunctionStageType,
     GeoRestrictionTypeType,
     HttpVersionType,
@@ -38,6 +39,9 @@ from .literals import (
     OriginRequestPolicyTypeType,
     PriceClassType,
     RealtimeMetricsSubscriptionStatusType,
+    ReferrerPolicyListType,
+    ResponseHeadersPolicyAccessControlAllowMethodsValuesType,
+    ResponseHeadersPolicyTypeType,
     SslProtocolType,
     SSLSupportMethodType,
     ViewerProtocolPolicyType,
@@ -106,6 +110,8 @@ __all__ = (
     "CreatePublicKeyResultTypeDef",
     "CreateRealtimeLogConfigRequestRequestTypeDef",
     "CreateRealtimeLogConfigResultTypeDef",
+    "CreateResponseHeadersPolicyRequestRequestTypeDef",
+    "CreateResponseHeadersPolicyResultTypeDef",
     "CreateStreamingDistributionRequestRequestTypeDef",
     "CreateStreamingDistributionResultTypeDef",
     "CreateStreamingDistributionWithTagsRequestRequestTypeDef",
@@ -126,6 +132,7 @@ __all__ = (
     "DeleteOriginRequestPolicyRequestRequestTypeDef",
     "DeletePublicKeyRequestRequestTypeDef",
     "DeleteRealtimeLogConfigRequestRequestTypeDef",
+    "DeleteResponseHeadersPolicyRequestRequestTypeDef",
     "DeleteStreamingDistributionRequestRequestTypeDef",
     "DescribeFunctionRequestRequestTypeDef",
     "DescribeFunctionResultTypeDef",
@@ -195,6 +202,10 @@ __all__ = (
     "GetPublicKeyResultTypeDef",
     "GetRealtimeLogConfigRequestRequestTypeDef",
     "GetRealtimeLogConfigResultTypeDef",
+    "GetResponseHeadersPolicyConfigRequestRequestTypeDef",
+    "GetResponseHeadersPolicyConfigResultTypeDef",
+    "GetResponseHeadersPolicyRequestRequestTypeDef",
+    "GetResponseHeadersPolicyResultTypeDef",
     "GetStreamingDistributionConfigRequestRequestTypeDef",
     "GetStreamingDistributionConfigResultTypeDef",
     "GetStreamingDistributionRequestRequestTypeDef",
@@ -227,6 +238,8 @@ __all__ = (
     "ListDistributionsByOriginRequestPolicyIdResultTypeDef",
     "ListDistributionsByRealtimeLogConfigRequestRequestTypeDef",
     "ListDistributionsByRealtimeLogConfigResultTypeDef",
+    "ListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef",
+    "ListDistributionsByResponseHeadersPolicyIdResultTypeDef",
     "ListDistributionsByWebACLIdRequestRequestTypeDef",
     "ListDistributionsByWebACLIdResultTypeDef",
     "ListDistributionsRequestRequestTypeDef",
@@ -247,6 +260,8 @@ __all__ = (
     "ListPublicKeysResultTypeDef",
     "ListRealtimeLogConfigsRequestRequestTypeDef",
     "ListRealtimeLogConfigsResultTypeDef",
+    "ListResponseHeadersPoliciesRequestRequestTypeDef",
+    "ListResponseHeadersPoliciesResultTypeDef",
     "ListStreamingDistributionsRequestRequestTypeDef",
     "ListStreamingDistributionsResultTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -287,6 +302,24 @@ __all__ = (
     "RealtimeLogConfigTypeDef",
     "RealtimeLogConfigsTypeDef",
     "RealtimeMetricsSubscriptionConfigTypeDef",
+    "ResponseHeadersPolicyAccessControlAllowHeadersTypeDef",
+    "ResponseHeadersPolicyAccessControlAllowMethodsTypeDef",
+    "ResponseHeadersPolicyAccessControlAllowOriginsTypeDef",
+    "ResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
+    "ResponseHeadersPolicyConfigTypeDef",
+    "ResponseHeadersPolicyContentSecurityPolicyTypeDef",
+    "ResponseHeadersPolicyContentTypeOptionsTypeDef",
+    "ResponseHeadersPolicyCorsConfigTypeDef",
+    "ResponseHeadersPolicyCustomHeaderTypeDef",
+    "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
+    "ResponseHeadersPolicyFrameOptionsTypeDef",
+    "ResponseHeadersPolicyListTypeDef",
+    "ResponseHeadersPolicyReferrerPolicyTypeDef",
+    "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
+    "ResponseHeadersPolicyStrictTransportSecurityTypeDef",
+    "ResponseHeadersPolicySummaryTypeDef",
+    "ResponseHeadersPolicyTypeDef",
+    "ResponseHeadersPolicyXSSProtectionTypeDef",
     "ResponseMetadataTypeDef",
     "RestrictionsTypeDef",
     "S3OriginConfigTypeDef",
@@ -329,6 +362,8 @@ __all__ = (
     "UpdatePublicKeyResultTypeDef",
     "UpdateRealtimeLogConfigRequestRequestTypeDef",
     "UpdateRealtimeLogConfigResultTypeDef",
+    "UpdateResponseHeadersPolicyRequestRequestTypeDef",
+    "UpdateResponseHeadersPolicyResultTypeDef",
     "UpdateStreamingDistributionRequestRequestTypeDef",
     "UpdateStreamingDistributionResultTypeDef",
     "ViewerCertificateTypeDef",
@@ -449,6 +484,7 @@ _OptionalCacheBehaviorTypeDef = TypedDict(
         "RealtimeLogConfigArn": str,
         "CachePolicyId": str,
         "OriginRequestPolicyId": str,
+        "ResponseHeadersPolicyId": str,
         "ForwardedValues": "ForwardedValuesTypeDef",
         "MinTTL": int,
         "DefaultTTL": int,
@@ -998,6 +1034,23 @@ CreateRealtimeLogConfigResultTypeDef = TypedDict(
     },
 )
 
+CreateResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
+    "CreateResponseHeadersPolicyRequestRequestTypeDef",
+    {
+        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
+    },
+)
+
+CreateResponseHeadersPolicyResultTypeDef = TypedDict(
+    "CreateResponseHeadersPolicyResultTypeDef",
+    {
+        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
+        "Location": str,
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateStreamingDistributionRequestRequestTypeDef = TypedDict(
     "CreateStreamingDistributionRequestRequestTypeDef",
     {
@@ -1133,6 +1186,7 @@ _OptionalDefaultCacheBehaviorTypeDef = TypedDict(
         "RealtimeLogConfigArn": str,
         "CachePolicyId": str,
         "OriginRequestPolicyId": str,
+        "ResponseHeadersPolicyId": str,
         "ForwardedValues": "ForwardedValuesTypeDef",
         "MinTTL": int,
         "DefaultTTL": int,
@@ -1326,6 +1380,26 @@ DeleteRealtimeLogConfigRequestRequestTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDeleteResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteResponseHeadersPolicyRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalDeleteResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteResponseHeadersPolicyRequestRequestTypeDef",
+    {
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class DeleteResponseHeadersPolicyRequestRequestTypeDef(
+    _RequiredDeleteResponseHeadersPolicyRequestRequestTypeDef,
+    _OptionalDeleteResponseHeadersPolicyRequestRequestTypeDef,
+):
+    pass
 
 _RequiredDeleteStreamingDistributionRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteStreamingDistributionRequestRequestTypeDef",
@@ -2195,6 +2269,38 @@ GetRealtimeLogConfigResultTypeDef = TypedDict(
     },
 )
 
+GetResponseHeadersPolicyConfigRequestRequestTypeDef = TypedDict(
+    "GetResponseHeadersPolicyConfigRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetResponseHeadersPolicyConfigResultTypeDef = TypedDict(
+    "GetResponseHeadersPolicyConfigResultTypeDef",
+    {
+        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
+    "GetResponseHeadersPolicyRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
+GetResponseHeadersPolicyResultTypeDef = TypedDict(
+    "GetResponseHeadersPolicyResultTypeDef",
+    {
+        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
+        "ETag": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetStreamingDistributionConfigRequestRequestTypeDef = TypedDict(
     "GetStreamingDistributionConfigRequestRequestTypeDef",
     {
@@ -2589,6 +2695,35 @@ ListDistributionsByRealtimeLogConfigResultTypeDef = TypedDict(
     },
 )
 
+_RequiredListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef = TypedDict(
+    "_RequiredListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef",
+    {
+        "ResponseHeadersPolicyId": str,
+    },
+)
+_OptionalListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef = TypedDict(
+    "_OptionalListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+class ListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef(
+    _RequiredListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef,
+    _OptionalListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef,
+):
+    pass
+
+ListDistributionsByResponseHeadersPolicyIdResultTypeDef = TypedDict(
+    "ListDistributionsByResponseHeadersPolicyIdResultTypeDef",
+    {
+        "DistributionIdList": "DistributionIdListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListDistributionsByWebACLIdRequestRequestTypeDef = TypedDict(
     "_RequiredListDistributionsByWebACLIdRequestRequestTypeDef",
     {
@@ -2780,6 +2915,24 @@ ListRealtimeLogConfigsResultTypeDef = TypedDict(
     "ListRealtimeLogConfigsResultTypeDef",
     {
         "RealtimeLogConfigs": "RealtimeLogConfigsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListResponseHeadersPoliciesRequestRequestTypeDef = TypedDict(
+    "ListResponseHeadersPoliciesRequestRequestTypeDef",
+    {
+        "Type": ResponseHeadersPolicyTypeType,
+        "Marker": str,
+        "MaxItems": str,
+    },
+    total=False,
+)
+
+ListResponseHeadersPoliciesResultTypeDef = TypedDict(
+    "ListResponseHeadersPoliciesResultTypeDef",
+    {
+        "ResponseHeadersPolicyList": "ResponseHeadersPolicyListTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3319,6 +3472,251 @@ RealtimeMetricsSubscriptionConfigTypeDef = TypedDict(
         "RealtimeMetricsSubscriptionStatus": RealtimeMetricsSubscriptionStatusType,
     },
 )
+
+ResponseHeadersPolicyAccessControlAllowHeadersTypeDef = TypedDict(
+    "ResponseHeadersPolicyAccessControlAllowHeadersTypeDef",
+    {
+        "Quantity": int,
+        "Items": List[str],
+    },
+)
+
+ResponseHeadersPolicyAccessControlAllowMethodsTypeDef = TypedDict(
+    "ResponseHeadersPolicyAccessControlAllowMethodsTypeDef",
+    {
+        "Quantity": int,
+        "Items": List[ResponseHeadersPolicyAccessControlAllowMethodsValuesType],
+    },
+)
+
+ResponseHeadersPolicyAccessControlAllowOriginsTypeDef = TypedDict(
+    "ResponseHeadersPolicyAccessControlAllowOriginsTypeDef",
+    {
+        "Quantity": int,
+        "Items": List[str],
+    },
+)
+
+_RequiredResponseHeadersPolicyAccessControlExposeHeadersTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
+    {
+        "Quantity": int,
+    },
+)
+_OptionalResponseHeadersPolicyAccessControlExposeHeadersTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
+    {
+        "Items": List[str],
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyAccessControlExposeHeadersTypeDef(
+    _RequiredResponseHeadersPolicyAccessControlExposeHeadersTypeDef,
+    _OptionalResponseHeadersPolicyAccessControlExposeHeadersTypeDef,
+):
+    pass
+
+_RequiredResponseHeadersPolicyConfigTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyConfigTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalResponseHeadersPolicyConfigTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyConfigTypeDef",
+    {
+        "Comment": str,
+        "CorsConfig": "ResponseHeadersPolicyCorsConfigTypeDef",
+        "SecurityHeadersConfig": "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
+        "CustomHeadersConfig": "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyConfigTypeDef(
+    _RequiredResponseHeadersPolicyConfigTypeDef, _OptionalResponseHeadersPolicyConfigTypeDef
+):
+    pass
+
+ResponseHeadersPolicyContentSecurityPolicyTypeDef = TypedDict(
+    "ResponseHeadersPolicyContentSecurityPolicyTypeDef",
+    {
+        "Override": bool,
+        "ContentSecurityPolicy": str,
+    },
+)
+
+ResponseHeadersPolicyContentTypeOptionsTypeDef = TypedDict(
+    "ResponseHeadersPolicyContentTypeOptionsTypeDef",
+    {
+        "Override": bool,
+    },
+)
+
+_RequiredResponseHeadersPolicyCorsConfigTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyCorsConfigTypeDef",
+    {
+        "AccessControlAllowOrigins": "ResponseHeadersPolicyAccessControlAllowOriginsTypeDef",
+        "AccessControlAllowHeaders": "ResponseHeadersPolicyAccessControlAllowHeadersTypeDef",
+        "AccessControlAllowMethods": "ResponseHeadersPolicyAccessControlAllowMethodsTypeDef",
+        "AccessControlAllowCredentials": bool,
+        "OriginOverride": bool,
+    },
+)
+_OptionalResponseHeadersPolicyCorsConfigTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyCorsConfigTypeDef",
+    {
+        "AccessControlExposeHeaders": "ResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
+        "AccessControlMaxAgeSec": int,
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyCorsConfigTypeDef(
+    _RequiredResponseHeadersPolicyCorsConfigTypeDef, _OptionalResponseHeadersPolicyCorsConfigTypeDef
+):
+    pass
+
+ResponseHeadersPolicyCustomHeaderTypeDef = TypedDict(
+    "ResponseHeadersPolicyCustomHeaderTypeDef",
+    {
+        "Header": str,
+        "Value": str,
+        "Override": bool,
+    },
+)
+
+_RequiredResponseHeadersPolicyCustomHeadersConfigTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyCustomHeadersConfigTypeDef",
+    {
+        "Quantity": int,
+    },
+)
+_OptionalResponseHeadersPolicyCustomHeadersConfigTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyCustomHeadersConfigTypeDef",
+    {
+        "Items": List["ResponseHeadersPolicyCustomHeaderTypeDef"],
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyCustomHeadersConfigTypeDef(
+    _RequiredResponseHeadersPolicyCustomHeadersConfigTypeDef,
+    _OptionalResponseHeadersPolicyCustomHeadersConfigTypeDef,
+):
+    pass
+
+ResponseHeadersPolicyFrameOptionsTypeDef = TypedDict(
+    "ResponseHeadersPolicyFrameOptionsTypeDef",
+    {
+        "Override": bool,
+        "FrameOption": FrameOptionsListType,
+    },
+)
+
+_RequiredResponseHeadersPolicyListTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyListTypeDef",
+    {
+        "MaxItems": int,
+        "Quantity": int,
+    },
+)
+_OptionalResponseHeadersPolicyListTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyListTypeDef",
+    {
+        "NextMarker": str,
+        "Items": List["ResponseHeadersPolicySummaryTypeDef"],
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyListTypeDef(
+    _RequiredResponseHeadersPolicyListTypeDef, _OptionalResponseHeadersPolicyListTypeDef
+):
+    pass
+
+ResponseHeadersPolicyReferrerPolicyTypeDef = TypedDict(
+    "ResponseHeadersPolicyReferrerPolicyTypeDef",
+    {
+        "Override": bool,
+        "ReferrerPolicy": ReferrerPolicyListType,
+    },
+)
+
+ResponseHeadersPolicySecurityHeadersConfigTypeDef = TypedDict(
+    "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
+    {
+        "XSSProtection": "ResponseHeadersPolicyXSSProtectionTypeDef",
+        "FrameOptions": "ResponseHeadersPolicyFrameOptionsTypeDef",
+        "ReferrerPolicy": "ResponseHeadersPolicyReferrerPolicyTypeDef",
+        "ContentSecurityPolicy": "ResponseHeadersPolicyContentSecurityPolicyTypeDef",
+        "ContentTypeOptions": "ResponseHeadersPolicyContentTypeOptionsTypeDef",
+        "StrictTransportSecurity": "ResponseHeadersPolicyStrictTransportSecurityTypeDef",
+    },
+    total=False,
+)
+
+_RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef",
+    {
+        "Override": bool,
+        "AccessControlMaxAgeSec": int,
+    },
+)
+_OptionalResponseHeadersPolicyStrictTransportSecurityTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyStrictTransportSecurityTypeDef",
+    {
+        "IncludeSubdomains": bool,
+        "Preload": bool,
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyStrictTransportSecurityTypeDef(
+    _RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef,
+    _OptionalResponseHeadersPolicyStrictTransportSecurityTypeDef,
+):
+    pass
+
+ResponseHeadersPolicySummaryTypeDef = TypedDict(
+    "ResponseHeadersPolicySummaryTypeDef",
+    {
+        "Type": ResponseHeadersPolicyTypeType,
+        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
+    },
+)
+
+ResponseHeadersPolicyTypeDef = TypedDict(
+    "ResponseHeadersPolicyTypeDef",
+    {
+        "Id": str,
+        "LastModifiedTime": datetime,
+        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
+    },
+)
+
+_RequiredResponseHeadersPolicyXSSProtectionTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyXSSProtectionTypeDef",
+    {
+        "Override": bool,
+        "Protection": bool,
+    },
+)
+_OptionalResponseHeadersPolicyXSSProtectionTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyXSSProtectionTypeDef",
+    {
+        "ModeBlock": bool,
+        "ReportUri": str,
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyXSSProtectionTypeDef(
+    _RequiredResponseHeadersPolicyXSSProtectionTypeDef,
+    _OptionalResponseHeadersPolicyXSSProtectionTypeDef,
+):
+    pass
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
@@ -3874,6 +4272,36 @@ UpdateRealtimeLogConfigResultTypeDef = TypedDict(
     "UpdateRealtimeLogConfigResultTypeDef",
     {
         "RealtimeLogConfig": "RealtimeLogConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateResponseHeadersPolicyRequestRequestTypeDef",
+    {
+        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
+        "Id": str,
+    },
+)
+_OptionalUpdateResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateResponseHeadersPolicyRequestRequestTypeDef",
+    {
+        "IfMatch": str,
+    },
+    total=False,
+)
+
+class UpdateResponseHeadersPolicyRequestRequestTypeDef(
+    _RequiredUpdateResponseHeadersPolicyRequestRequestTypeDef,
+    _OptionalUpdateResponseHeadersPolicyRequestRequestTypeDef,
+):
+    pass
+
+UpdateResponseHeadersPolicyResultTypeDef = TypedDict(
+    "UpdateResponseHeadersPolicyResultTypeDef",
+    {
+        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
+        "ETag": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

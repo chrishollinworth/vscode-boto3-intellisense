@@ -21,16 +21,23 @@ else:
 __all__ = (
     "AdminStatusType",
     "AwsIamAccessKeyStatusType",
+    "AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType",
     "ComplianceStatusType",
     "ControlStatusType",
     "DateRangeUnitType",
+    "DescribeActionTargetsPaginatorName",
+    "DescribeProductsPaginatorName",
+    "DescribeStandardsControlsPaginatorName",
+    "DescribeStandardsPaginatorName",
     "GetEnabledStandardsPaginatorName",
     "GetFindingsPaginatorName",
     "GetInsightsPaginatorName",
     "IntegrationTypeType",
     "ListEnabledProductsForImportPaginatorName",
+    "ListFindingAggregatorsPaginatorName",
     "ListInvitationsPaginatorName",
     "ListMembersPaginatorName",
+    "ListOrganizationAdminAccountsPaginatorName",
     "MalwareStateType",
     "MalwareTypeType",
     "MapFilterComparisonType",
@@ -51,9 +58,14 @@ __all__ = (
 
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
 AwsIamAccessKeyStatusType = Literal["Active", "Inactive"]
+AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType = Literal["Prefix", "Suffix"]
 ComplianceStatusType = Literal["FAILED", "NOT_AVAILABLE", "PASSED", "WARNING"]
 ControlStatusType = Literal["DISABLED", "ENABLED"]
 DateRangeUnitType = Literal["DAYS"]
+DescribeActionTargetsPaginatorName = Literal["describe_action_targets"]
+DescribeProductsPaginatorName = Literal["describe_products"]
+DescribeStandardsControlsPaginatorName = Literal["describe_standards_controls"]
+DescribeStandardsPaginatorName = Literal["describe_standards"]
 GetEnabledStandardsPaginatorName = Literal["get_enabled_standards"]
 GetFindingsPaginatorName = Literal["get_findings"]
 GetInsightsPaginatorName = Literal["get_insights"]
@@ -63,8 +75,10 @@ IntegrationTypeType = Literal[
     "UPDATE_FINDINGS_IN_SECURITY_HUB",
 ]
 ListEnabledProductsForImportPaginatorName = Literal["list_enabled_products_for_import"]
+ListFindingAggregatorsPaginatorName = Literal["list_finding_aggregators"]
 ListInvitationsPaginatorName = Literal["list_invitations"]
 ListMembersPaginatorName = Literal["list_members"]
+ListOrganizationAdminAccountsPaginatorName = Literal["list_organization_admin_accounts"]
 MalwareStateType = Literal["OBSERVED", "REMOVAL_FAILED", "REMOVED"]
 MalwareTypeType = Literal[
     "ADWARE",

@@ -68,6 +68,8 @@ __all__ = (
     "CreateIpGroupRequestRequestTypeDef",
     "CreateIpGroupResultTypeDef",
     "CreateTagsRequestRequestTypeDef",
+    "CreateUpdatedWorkspaceImageRequestRequestTypeDef",
+    "CreateUpdatedWorkspaceImageResultTypeDef",
     "CreateWorkspaceBundleRequestRequestTypeDef",
     "CreateWorkspaceBundleResultTypeDef",
     "CreateWorkspacesRequestRequestTypeDef",
@@ -152,6 +154,7 @@ __all__ = (
     "TerminateWorkspacesRequestRequestTypeDef",
     "TerminateWorkspacesResultTypeDef",
     "UpdateConnectionAliasPermissionRequestRequestTypeDef",
+    "UpdateResultTypeDef",
     "UpdateRulesOfIpGroupRequestRequestTypeDef",
     "UpdateWorkspaceBundleRequestRequestTypeDef",
     "UpdateWorkspaceImagePermissionRequestRequestTypeDef",
@@ -362,6 +365,36 @@ CreateTagsRequestRequestTypeDef = TypedDict(
     {
         "ResourceId": str,
         "Tags": List["TagTypeDef"],
+    },
+)
+
+_RequiredCreateUpdatedWorkspaceImageRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateUpdatedWorkspaceImageRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "SourceImageId": str,
+    },
+)
+_OptionalCreateUpdatedWorkspaceImageRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateUpdatedWorkspaceImageRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateUpdatedWorkspaceImageRequestRequestTypeDef(
+    _RequiredCreateUpdatedWorkspaceImageRequestRequestTypeDef,
+    _OptionalCreateUpdatedWorkspaceImageRequestRequestTypeDef,
+):
+    pass
+
+CreateUpdatedWorkspaceImageResultTypeDef = TypedDict(
+    "CreateUpdatedWorkspaceImageResultTypeDef",
+    {
+        "ImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1172,6 +1205,15 @@ UpdateConnectionAliasPermissionRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateResultTypeDef = TypedDict(
+    "UpdateResultTypeDef",
+    {
+        "UpdateAvailable": bool,
+        "Description": str,
+    },
+    total=False,
+)
+
 UpdateRulesOfIpGroupRequestRequestTypeDef = TypedDict(
     "UpdateRulesOfIpGroupRequestRequestTypeDef",
     {
@@ -1298,6 +1340,7 @@ WorkspaceImageTypeDef = TypedDict(
         "ErrorMessage": str,
         "Created": datetime,
         "OwnerAccountId": str,
+        "Updates": "UpdateResultTypeDef",
     },
     total=False,
 )

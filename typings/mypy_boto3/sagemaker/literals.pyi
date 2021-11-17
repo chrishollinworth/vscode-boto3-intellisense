@@ -25,6 +25,7 @@ __all__ = (
     "AppImageConfigSortKeyType",
     "AppInstanceTypeType",
     "AppNetworkAccessTypeType",
+    "AppSecurityGroupManagementType",
     "AppSortKeyType",
     "AppStatusType",
     "AppTypeType",
@@ -148,6 +149,7 @@ __all__ = (
     "ListPipelineParametersForExecutionPaginatorName",
     "ListPipelinesPaginatorName",
     "ListProcessingJobsPaginatorName",
+    "ListStudioLifecycleConfigsPaginatorName",
     "ListSubscribedWorkteamsPaginatorName",
     "ListTagsPaginatorName",
     "ListTrainingJobsForHyperParameterTuningJobPaginatorName",
@@ -160,6 +162,7 @@ __all__ = (
     "ListWorkforcesSortByOptionsType",
     "ListWorkteamsPaginatorName",
     "ListWorkteamsSortByOptionsType",
+    "MetricSetSourceType",
     "ModelApprovalStatusType",
     "ModelCacheSettingType",
     "ModelPackageGroupSortByType",
@@ -205,6 +208,8 @@ __all__ = (
     "ProjectSortByType",
     "ProjectSortOrderType",
     "ProjectStatusType",
+    "RStudioServerProAccessStatusType",
+    "RStudioServerProUserGroupType",
     "RecordWrapperType",
     "RedshiftResultCompressionTypeType",
     "RedshiftResultFormatType",
@@ -233,6 +238,8 @@ __all__ = (
     "SortTrialsByType",
     "SplitTypeType",
     "StepStatusType",
+    "StudioLifecycleConfigAppTypeType",
+    "StudioLifecycleConfigSortKeyType",
     "TargetDeviceType",
     "TargetPlatformAcceleratorType",
     "TargetPlatformArchType",
@@ -251,6 +258,7 @@ __all__ = (
     "UserProfileSortKeyType",
     "UserProfileStatusType",
     "VariantPropertyTypeType",
+    "VariantStatusType",
 )
 
 ActionStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping", "Unknown"]
@@ -309,9 +317,12 @@ AppInstanceTypeType = Literal[
     "system",
 ]
 AppNetworkAccessTypeType = Literal["PublicInternetOnly", "VpcOnly"]
+AppSecurityGroupManagementType = Literal["Customer", "Service"]
 AppSortKeyType = Literal["CreationTime"]
 AppStatusType = Literal["Deleted", "Deleting", "Failed", "InService", "Pending"]
-AppTypeType = Literal["JupyterServer", "KernelGateway", "TensorBoard"]
+AppTypeType = Literal[
+    "JupyterServer", "KernelGateway", "RSessionGateway", "RStudioServerPro", "TensorBoard"
+]
 ArtifactSourceIdTypeType = Literal["Custom", "MD5Hash", "S3ETag", "S3Version"]
 AssemblyTypeType = Literal["Line", "None"]
 AssociationEdgeTypeType = Literal["AssociatedWith", "ContributedTo", "DerivedFrom", "Produced"]
@@ -443,6 +454,12 @@ InstanceTypeType = Literal[
     "ml.c5d.4xlarge",
     "ml.c5d.9xlarge",
     "ml.c5d.xlarge",
+    "ml.g4dn.12xlarge",
+    "ml.g4dn.16xlarge",
+    "ml.g4dn.2xlarge",
+    "ml.g4dn.4xlarge",
+    "ml.g4dn.8xlarge",
+    "ml.g4dn.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -453,12 +470,29 @@ InstanceTypeType = Literal[
     "ml.m5.2xlarge",
     "ml.m5.4xlarge",
     "ml.m5.xlarge",
+    "ml.m5d.12xlarge",
+    "ml.m5d.16xlarge",
+    "ml.m5d.24xlarge",
+    "ml.m5d.2xlarge",
+    "ml.m5d.4xlarge",
+    "ml.m5d.8xlarge",
+    "ml.m5d.large",
+    "ml.m5d.xlarge",
     "ml.p2.16xlarge",
     "ml.p2.8xlarge",
     "ml.p2.xlarge",
     "ml.p3.16xlarge",
     "ml.p3.2xlarge",
     "ml.p3.8xlarge",
+    "ml.p3dn.24xlarge",
+    "ml.r5.12xlarge",
+    "ml.r5.16xlarge",
+    "ml.r5.24xlarge",
+    "ml.r5.2xlarge",
+    "ml.r5.4xlarge",
+    "ml.r5.8xlarge",
+    "ml.r5.large",
+    "ml.r5.xlarge",
     "ml.t2.2xlarge",
     "ml.t2.large",
     "ml.t2.medium",
@@ -524,6 +558,7 @@ ListPipelineExecutionsPaginatorName = Literal["list_pipeline_executions"]
 ListPipelineParametersForExecutionPaginatorName = Literal["list_pipeline_parameters_for_execution"]
 ListPipelinesPaginatorName = Literal["list_pipelines"]
 ListProcessingJobsPaginatorName = Literal["list_processing_jobs"]
+ListStudioLifecycleConfigsPaginatorName = Literal["list_studio_lifecycle_configs"]
 ListSubscribedWorkteamsPaginatorName = Literal["list_subscribed_workteams"]
 ListTagsPaginatorName = Literal["list_tags"]
 ListTrainingJobsForHyperParameterTuningJobPaginatorName = Literal[
@@ -538,6 +573,7 @@ ListWorkforcesPaginatorName = Literal["list_workforces"]
 ListWorkforcesSortByOptionsType = Literal["CreateDate", "Name"]
 ListWorkteamsPaginatorName = Literal["list_workteams"]
 ListWorkteamsSortByOptionsType = Literal["CreateDate", "Name"]
+MetricSetSourceType = Literal["Test", "Train", "Validation"]
 ModelApprovalStatusType = Literal["Approved", "PendingManualApproval", "Rejected"]
 ModelCacheSettingType = Literal["Disabled", "Enabled"]
 ModelPackageGroupSortByType = Literal["CreationTime", "Name"]
@@ -733,7 +769,12 @@ ProjectStatusType = Literal[
     "DeleteFailed",
     "DeleteInProgress",
     "Pending",
+    "UpdateCompleted",
+    "UpdateFailed",
+    "UpdateInProgress",
 ]
+RStudioServerProAccessStatusType = Literal["DISABLED", "ENABLED"]
+RStudioServerProUserGroupType = Literal["R_STUDIO_ADMIN", "R_STUDIO_USER"]
 RecordWrapperType = Literal["None", "RecordIO"]
 RedshiftResultCompressionTypeType = Literal["BZIP2", "GZIP", "None", "SNAPPY", "ZSTD"]
 RedshiftResultFormatType = Literal["CSV", "PARQUET"]
@@ -748,6 +789,7 @@ ResourceTypeType = Literal[
     "ModelPackageGroup",
     "Pipeline",
     "PipelineExecution",
+    "Project",
     "TrainingJob",
 ]
 RetentionTypeType = Literal["Delete", "Retain"]
@@ -794,12 +836,15 @@ SortTrialComponentsByType = Literal["CreationTime", "Name"]
 SortTrialsByType = Literal["CreationTime", "Name"]
 SplitTypeType = Literal["Line", "None", "RecordIO", "TFRecord"]
 StepStatusType = Literal["Executing", "Failed", "Starting", "Stopped", "Stopping", "Succeeded"]
+StudioLifecycleConfigAppTypeType = Literal["JupyterServer", "KernelGateway"]
+StudioLifecycleConfigSortKeyType = Literal["CreationTime", "LastModifiedTime", "Name"]
 TargetDeviceType = Literal[
     "aisage",
     "amba_cv22",
     "amba_cv25",
     "coreml",
     "deeplens",
+    "imx8mplus",
     "imx8qm",
     "jacinto_tda4vm",
     "jetson_nano",
@@ -829,8 +874,8 @@ TargetDeviceType = Literal[
 TargetPlatformAcceleratorType = Literal["INTEL_GRAPHICS", "MALI", "NVIDIA"]
 TargetPlatformArchType = Literal["ARM64", "ARM_EABI", "ARM_EABIHF", "X86", "X86_64"]
 TargetPlatformOsType = Literal["ANDROID", "LINUX"]
-TrafficRoutingConfigTypeType = Literal["ALL_AT_ONCE", "CANARY"]
-TrainingInputModeType = Literal["File", "Pipe"]
+TrafficRoutingConfigTypeType = Literal["ALL_AT_ONCE", "CANARY", "LINEAR"]
+TrainingInputModeType = Literal["FastFile", "File", "Pipe"]
 TrainingInstanceTypeType = Literal[
     "ml.c4.2xlarge",
     "ml.c4.4xlarge",
@@ -922,3 +967,4 @@ UserProfileStatusType = Literal[
     "Delete_Failed", "Deleting", "Failed", "InService", "Pending", "Update_Failed", "Updating"
 ]
 VariantPropertyTypeType = Literal["DataCaptureConfig", "DesiredInstanceCount", "DesiredWeight"]
+VariantStatusType = Literal["ActivatingTraffic", "Baking", "Creating", "Deleting", "Updating"]

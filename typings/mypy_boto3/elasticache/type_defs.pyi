@@ -2198,6 +2198,7 @@ ReplicationGroupTypeDef = TypedDict(
         "ARN": str,
         "UserGroupIds": List[str],
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationTypeDef"],
+        "ReplicationGroupCreateTime": datetime,
     },
     total=False,
 )

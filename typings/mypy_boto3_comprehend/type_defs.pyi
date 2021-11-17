@@ -16,8 +16,12 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AugmentedManifestsDocumentTypeFormatType,
     DocumentClassifierDataFormatType,
     DocumentClassifierModeType,
+    DocumentReadActionType,
+    DocumentReadFeatureTypesType,
+    DocumentReadModeType,
     EndpointStatusType,
     EntityRecognizerDataFormatType,
     EntityTypeType,
@@ -30,6 +34,7 @@ from .literals import (
     PiiEntitiesDetectionModeType,
     PiiEntityTypeType,
     SentimentTypeType,
+    SplitType,
     SyntaxLanguageCodeType,
 )
 
@@ -112,7 +117,9 @@ __all__ = (
     "DocumentClassifierInputDataConfigTypeDef",
     "DocumentClassifierOutputDataConfigTypeDef",
     "DocumentClassifierPropertiesTypeDef",
+    "DocumentClassifierSummaryTypeDef",
     "DocumentLabelTypeDef",
+    "DocumentReaderConfigTypeDef",
     "DominantLanguageDetectionJobFilterTypeDef",
     "DominantLanguageDetectionJobPropertiesTypeDef",
     "DominantLanguageTypeDef",
@@ -130,6 +137,7 @@ __all__ = (
     "EntityRecognizerMetadataEntityTypesListItemTypeDef",
     "EntityRecognizerMetadataTypeDef",
     "EntityRecognizerPropertiesTypeDef",
+    "EntityRecognizerSummaryTypeDef",
     "EntityTypeDef",
     "EntityTypesEvaluationMetricsTypeDef",
     "EntityTypesListItemTypeDef",
@@ -141,6 +149,8 @@ __all__ = (
     "KeyPhrasesDetectionJobPropertiesTypeDef",
     "ListDocumentClassificationJobsRequestRequestTypeDef",
     "ListDocumentClassificationJobsResponseTypeDef",
+    "ListDocumentClassifierSummariesRequestRequestTypeDef",
+    "ListDocumentClassifierSummariesResponseTypeDef",
     "ListDocumentClassifiersRequestRequestTypeDef",
     "ListDocumentClassifiersResponseTypeDef",
     "ListDominantLanguageDetectionJobsRequestRequestTypeDef",
@@ -149,6 +159,8 @@ __all__ = (
     "ListEndpointsResponseTypeDef",
     "ListEntitiesDetectionJobsRequestRequestTypeDef",
     "ListEntitiesDetectionJobsResponseTypeDef",
+    "ListEntityRecognizerSummariesRequestRequestTypeDef",
+    "ListEntityRecognizerSummariesResponseTypeDef",
     "ListEntityRecognizersRequestRequestTypeDef",
     "ListEntityRecognizersResponseTypeDef",
     "ListEventsDetectionJobsRequestRequestTypeDef",
@@ -215,13 +227,28 @@ __all__ = (
     "VpcConfigTypeDef",
 )
 
-AugmentedManifestsListItemTypeDef = TypedDict(
-    "AugmentedManifestsListItemTypeDef",
+_RequiredAugmentedManifestsListItemTypeDef = TypedDict(
+    "_RequiredAugmentedManifestsListItemTypeDef",
     {
         "S3Uri": str,
         "AttributeNames": List[str],
     },
 )
+_OptionalAugmentedManifestsListItemTypeDef = TypedDict(
+    "_OptionalAugmentedManifestsListItemTypeDef",
+    {
+        "Split": SplitType,
+        "AnnotationDataS3Uri": str,
+        "SourceDocumentsS3Uri": str,
+        "DocumentType": AugmentedManifestsDocumentTypeFormatType,
+    },
+    total=False,
+)
+
+class AugmentedManifestsListItemTypeDef(
+    _RequiredAugmentedManifestsListItemTypeDef, _OptionalAugmentedManifestsListItemTypeDef
+):
+    pass
 
 BatchDetectDominantLanguageItemResultTypeDef = TypedDict(
     "BatchDetectDominantLanguageItemResultTypeDef",
@@ -434,6 +461,7 @@ _RequiredCreateDocumentClassifierRequestRequestTypeDef = TypedDict(
 _OptionalCreateDocumentClassifierRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDocumentClassifierRequestRequestTypeDef",
     {
+        "VersionName": str,
         "Tags": List["TagTypeDef"],
         "OutputDataConfig": "DocumentClassifierOutputDataConfigTypeDef",
         "ClientRequestToken": str,
@@ -502,6 +530,7 @@ _RequiredCreateEntityRecognizerRequestRequestTypeDef = TypedDict(
 _OptionalCreateEntityRecognizerRequestRequestTypeDef = TypedDict(
     "_OptionalCreateEntityRecognizerRequestRequestTypeDef",
     {
+        "VersionName": str,
         "Tags": List["TagTypeDef"],
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
@@ -843,6 +872,7 @@ DocumentClassificationJobPropertiesTypeDef = TypedDict(
     "DocumentClassificationJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -862,6 +892,7 @@ DocumentClassifierFilterTypeDef = TypedDict(
     "DocumentClassifierFilterTypeDef",
     {
         "Status": ModelStatusType,
+        "DocumentClassifierName": str,
         "SubmitTimeBefore": Union[datetime, str],
         "SubmitTimeAfter": Union[datetime, str],
     },
@@ -873,6 +904,7 @@ DocumentClassifierInputDataConfigTypeDef = TypedDict(
     {
         "DataFormat": DocumentClassifierDataFormatType,
         "S3Uri": str,
+        "TestS3Uri": str,
         "LabelDelimiter": str,
         "AugmentedManifests": List["AugmentedManifestsListItemTypeDef"],
     },
@@ -907,6 +939,19 @@ DocumentClassifierPropertiesTypeDef = TypedDict(
         "VpcConfig": "VpcConfigTypeDef",
         "Mode": DocumentClassifierModeType,
         "ModelKmsKeyId": str,
+        "VersionName": str,
+    },
+    total=False,
+)
+
+DocumentClassifierSummaryTypeDef = TypedDict(
+    "DocumentClassifierSummaryTypeDef",
+    {
+        "DocumentClassifierName": str,
+        "NumberOfVersions": int,
+        "LatestVersionCreatedAt": datetime,
+        "LatestVersionName": str,
+        "LatestVersionStatus": ModelStatusType,
     },
     total=False,
 )
@@ -919,6 +964,26 @@ DocumentLabelTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDocumentReaderConfigTypeDef = TypedDict(
+    "_RequiredDocumentReaderConfigTypeDef",
+    {
+        "DocumentReadAction": DocumentReadActionType,
+    },
+)
+_OptionalDocumentReaderConfigTypeDef = TypedDict(
+    "_OptionalDocumentReaderConfigTypeDef",
+    {
+        "DocumentReadMode": DocumentReadModeType,
+        "FeatureTypes": List[DocumentReadFeatureTypesType],
+    },
+    total=False,
+)
+
+class DocumentReaderConfigTypeDef(
+    _RequiredDocumentReaderConfigTypeDef, _OptionalDocumentReaderConfigTypeDef
+):
+    pass
 
 DominantLanguageDetectionJobFilterTypeDef = TypedDict(
     "DominantLanguageDetectionJobFilterTypeDef",
@@ -935,6 +1000,7 @@ DominantLanguageDetectionJobPropertiesTypeDef = TypedDict(
     "DominantLanguageDetectionJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -976,11 +1042,13 @@ EndpointPropertiesTypeDef = TypedDict(
         "Status": EndpointStatusType,
         "Message": str,
         "ModelArn": str,
+        "DesiredModelArn": str,
         "DesiredInferenceUnits": int,
         "CurrentInferenceUnits": int,
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "DataAccessRoleArn": str,
+        "DesiredDataAccessRoleArn": str,
     },
     total=False,
 )
@@ -1000,6 +1068,7 @@ EntitiesDetectionJobPropertiesTypeDef = TypedDict(
     "EntitiesDetectionJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -1025,19 +1094,44 @@ EntityLabelTypeDef = TypedDict(
     total=False,
 )
 
-EntityRecognizerAnnotationsTypeDef = TypedDict(
-    "EntityRecognizerAnnotationsTypeDef",
+_RequiredEntityRecognizerAnnotationsTypeDef = TypedDict(
+    "_RequiredEntityRecognizerAnnotationsTypeDef",
     {
         "S3Uri": str,
     },
+)
+_OptionalEntityRecognizerAnnotationsTypeDef = TypedDict(
+    "_OptionalEntityRecognizerAnnotationsTypeDef",
+    {
+        "TestS3Uri": str,
+    },
+    total=False,
 )
 
-EntityRecognizerDocumentsTypeDef = TypedDict(
-    "EntityRecognizerDocumentsTypeDef",
+class EntityRecognizerAnnotationsTypeDef(
+    _RequiredEntityRecognizerAnnotationsTypeDef, _OptionalEntityRecognizerAnnotationsTypeDef
+):
+    pass
+
+_RequiredEntityRecognizerDocumentsTypeDef = TypedDict(
+    "_RequiredEntityRecognizerDocumentsTypeDef",
     {
         "S3Uri": str,
     },
 )
+_OptionalEntityRecognizerDocumentsTypeDef = TypedDict(
+    "_OptionalEntityRecognizerDocumentsTypeDef",
+    {
+        "TestS3Uri": str,
+        "InputFormat": InputFormatType,
+    },
+    total=False,
+)
+
+class EntityRecognizerDocumentsTypeDef(
+    _RequiredEntityRecognizerDocumentsTypeDef, _OptionalEntityRecognizerDocumentsTypeDef
+):
+    pass
 
 EntityRecognizerEntityListTypeDef = TypedDict(
     "EntityRecognizerEntityListTypeDef",
@@ -1060,6 +1154,7 @@ EntityRecognizerFilterTypeDef = TypedDict(
     "EntityRecognizerFilterTypeDef",
     {
         "Status": ModelStatusType,
+        "RecognizerName": str,
         "SubmitTimeBefore": Union[datetime, str],
         "SubmitTimeAfter": Union[datetime, str],
     },
@@ -1127,6 +1222,19 @@ EntityRecognizerPropertiesTypeDef = TypedDict(
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
         "ModelKmsKeyId": str,
+        "VersionName": str,
+    },
+    total=False,
+)
+
+EntityRecognizerSummaryTypeDef = TypedDict(
+    "EntityRecognizerSummaryTypeDef",
+    {
+        "RecognizerName": str,
+        "NumberOfVersions": int,
+        "LatestVersionCreatedAt": datetime,
+        "LatestVersionName": str,
+        "LatestVersionStatus": ModelStatusType,
     },
     total=False,
 )
@@ -1175,6 +1283,7 @@ EventsDetectionJobPropertiesTypeDef = TypedDict(
     "EventsDetectionJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -1199,6 +1308,7 @@ _OptionalInputDataConfigTypeDef = TypedDict(
     "_OptionalInputDataConfigTypeDef",
     {
         "InputFormat": InputFormatType,
+        "DocumentReaderConfig": "DocumentReaderConfigTypeDef",
     },
     total=False,
 )
@@ -1232,6 +1342,7 @@ KeyPhrasesDetectionJobPropertiesTypeDef = TypedDict(
     "KeyPhrasesDetectionJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -1263,6 +1374,24 @@ ListDocumentClassificationJobsResponseTypeDef = TypedDict(
         "DocumentClassificationJobPropertiesList": List[
             "DocumentClassificationJobPropertiesTypeDef"
         ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDocumentClassifierSummariesRequestRequestTypeDef = TypedDict(
+    "ListDocumentClassifierSummariesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDocumentClassifierSummariesResponseTypeDef = TypedDict(
+    "ListDocumentClassifierSummariesResponseTypeDef",
+    {
+        "DocumentClassifierSummariesList": List["DocumentClassifierSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1341,6 +1470,24 @@ ListEntitiesDetectionJobsResponseTypeDef = TypedDict(
     "ListEntitiesDetectionJobsResponseTypeDef",
     {
         "EntitiesDetectionJobPropertiesList": List["EntitiesDetectionJobPropertiesTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListEntityRecognizerSummariesRequestRequestTypeDef = TypedDict(
+    "ListEntityRecognizerSummariesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListEntityRecognizerSummariesResponseTypeDef = TypedDict(
+    "ListEntityRecognizerSummariesResponseTypeDef",
+    {
+        "EntityRecognizerSummariesList": List["EntityRecognizerSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1527,6 +1674,7 @@ PiiEntitiesDetectionJobPropertiesTypeDef = TypedDict(
     "PiiEntitiesDetectionJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -1608,6 +1756,7 @@ SentimentDetectionJobPropertiesTypeDef = TypedDict(
     "SentimentDetectionJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -1650,6 +1799,7 @@ _OptionalStartDocumentClassificationJobRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1664,6 +1814,7 @@ StartDocumentClassificationJobResponseTypeDef = TypedDict(
     "StartDocumentClassificationJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1684,6 +1835,7 @@ _OptionalStartDominantLanguageDetectionJobRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1698,6 +1850,7 @@ StartDominantLanguageDetectionJobResponseTypeDef = TypedDict(
     "StartDominantLanguageDetectionJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1720,6 +1873,7 @@ _OptionalStartEntitiesDetectionJobRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1734,6 +1888,7 @@ StartEntitiesDetectionJobResponseTypeDef = TypedDict(
     "StartEntitiesDetectionJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1754,6 +1909,7 @@ _OptionalStartEventsDetectionJobRequestRequestTypeDef = TypedDict(
     {
         "JobName": str,
         "ClientRequestToken": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1768,6 +1924,7 @@ StartEventsDetectionJobResponseTypeDef = TypedDict(
     "StartEventsDetectionJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1789,6 +1946,7 @@ _OptionalStartKeyPhrasesDetectionJobRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1803,6 +1961,7 @@ StartKeyPhrasesDetectionJobResponseTypeDef = TypedDict(
     "StartKeyPhrasesDetectionJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1824,6 +1983,7 @@ _OptionalStartPiiEntitiesDetectionJobRequestRequestTypeDef = TypedDict(
         "RedactionConfig": "RedactionConfigTypeDef",
         "JobName": str,
         "ClientRequestToken": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1838,6 +1998,7 @@ StartPiiEntitiesDetectionJobResponseTypeDef = TypedDict(
     "StartPiiEntitiesDetectionJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1859,6 +2020,7 @@ _OptionalStartSentimentDetectionJobRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1873,6 +2035,7 @@ StartSentimentDetectionJobResponseTypeDef = TypedDict(
     "StartSentimentDetectionJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1894,6 +2057,7 @@ _OptionalStartTopicsDetectionJobRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1908,6 +2072,7 @@ StartTopicsDetectionJobResponseTypeDef = TypedDict(
     "StartTopicsDetectionJobResponseTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobStatus": JobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2075,6 +2240,7 @@ TopicsDetectionJobPropertiesTypeDef = TypedDict(
     "TopicsDetectionJobPropertiesTypeDef",
     {
         "JobId": str,
+        "JobArn": str,
         "JobName": str,
         "JobStatus": JobStatusType,
         "Message": str,
@@ -2098,13 +2264,26 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-UpdateEndpointRequestRequestTypeDef = TypedDict(
-    "UpdateEndpointRequestRequestTypeDef",
+_RequiredUpdateEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEndpointRequestRequestTypeDef",
     {
         "EndpointArn": str,
-        "DesiredInferenceUnits": int,
     },
 )
+_OptionalUpdateEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEndpointRequestRequestTypeDef",
+    {
+        "DesiredModelArn": str,
+        "DesiredInferenceUnits": int,
+        "DesiredDataAccessRoleArn": str,
+    },
+    total=False,
+)
+
+class UpdateEndpointRequestRequestTypeDef(
+    _RequiredUpdateEndpointRequestRequestTypeDef, _OptionalUpdateEndpointRequestRequestTypeDef
+):
+    pass
 
 VpcConfigTypeDef = TypedDict(
     "VpcConfigTypeDef",

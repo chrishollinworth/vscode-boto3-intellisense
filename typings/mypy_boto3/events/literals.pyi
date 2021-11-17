@@ -50,7 +50,7 @@ ConnectionStateType = Literal[
     "AUTHORIZED", "AUTHORIZING", "CREATING", "DEAUTHORIZED", "DEAUTHORIZING", "DELETING", "UPDATING"
 ]
 EventSourceStateType = Literal["ACTIVE", "DELETED", "PENDING"]
-LaunchTypeType = Literal["EC2", "FARGATE"]
+LaunchTypeType = Literal["EC2", "EXTERNAL", "FARGATE"]
 ListRuleNamesByTargetPaginatorName = Literal["list_rule_names_by_target"]
 ListRulesPaginatorName = Literal["list_rules"]
 ListTargetsByRulePaginatorName = Literal["list_targets_by_rule"]

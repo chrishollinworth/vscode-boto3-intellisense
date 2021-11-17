@@ -32,6 +32,7 @@ __all__ = (
     "ListRouteCalculatorsPaginatorName",
     "ListTrackerConsumersPaginatorName",
     "ListTrackersPaginatorName",
+    "PositionFilteringType",
     "PricingPlanType",
     "TravelModeType",
     "VehicleWeightUnitType",
@@ -57,6 +58,7 @@ ListPlaceIndexesPaginatorName = Literal["list_place_indexes"]
 ListRouteCalculatorsPaginatorName = Literal["list_route_calculators"]
 ListTrackerConsumersPaginatorName = Literal["list_tracker_consumers"]
 ListTrackersPaginatorName = Literal["list_trackers"]
+PositionFilteringType = Literal["AccuracyBased", "DistanceBased", "TimeBased"]
 PricingPlanType = Literal["MobileAssetManagement", "MobileAssetTracking", "RequestBasedUsage"]
 TravelModeType = Literal["Car", "Truck", "Walking"]
 VehicleWeightUnitType = Literal["Kilograms", "Pounds"]

@@ -20,6 +20,7 @@ from .literals import (
     ArtifactPackagingType,
     ArtifactsTypeType,
     AuthTypeType,
+    BatchReportModeTypeType,
     BucketOwnerAccessType,
     BuildBatchPhaseTypeType,
     BuildPhaseTypeType,
@@ -33,6 +34,7 @@ from .literals import (
     LogsConfigStatusTypeType,
     PlatformTypeType,
     ProjectSortByTypeType,
+    ProjectVisibilityTypeType,
     ReportCodeCoverageSortByTypeType,
     ReportExportConfigTypeType,
     ReportGroupSortByTypeType,
@@ -189,6 +191,8 @@ __all__ = (
     "TestReportSummaryTypeDef",
     "UpdateProjectInputRequestTypeDef",
     "UpdateProjectOutputTypeDef",
+    "UpdateProjectVisibilityInputRequestTypeDef",
+    "UpdateProjectVisibilityOutputTypeDef",
     "UpdateReportGroupInputRequestTypeDef",
     "UpdateReportGroupOutputTypeDef",
     "UpdateWebhookInputRequestTypeDef",
@@ -1250,6 +1254,7 @@ ProjectBuildBatchConfigTypeDef = TypedDict(
         "combineArtifacts": bool,
         "restrictions": "BatchRestrictionsTypeDef",
         "timeoutInMins": int,
+        "batchReportMode": BatchReportModeTypeType,
     },
     total=False,
 )
@@ -1370,6 +1375,9 @@ ProjectTypeDef = TypedDict(
         "fileSystemLocations": List["ProjectFileSystemLocationTypeDef"],
         "buildBatchConfig": "ProjectBuildBatchConfigTypeDef",
         "concurrentBuildLimit": int,
+        "projectVisibility": ProjectVisibilityTypeType,
+        "publicProjectAlias": str,
+        "resourceAccessRole": str,
     },
     total=False,
 )
@@ -1809,6 +1817,37 @@ UpdateProjectOutputTypeDef = TypedDict(
     "UpdateProjectOutputTypeDef",
     {
         "project": "ProjectTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateProjectVisibilityInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateProjectVisibilityInputRequestTypeDef",
+    {
+        "projectArn": str,
+        "projectVisibility": ProjectVisibilityTypeType,
+    },
+)
+_OptionalUpdateProjectVisibilityInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateProjectVisibilityInputRequestTypeDef",
+    {
+        "resourceAccessRole": str,
+    },
+    total=False,
+)
+
+class UpdateProjectVisibilityInputRequestTypeDef(
+    _RequiredUpdateProjectVisibilityInputRequestTypeDef,
+    _OptionalUpdateProjectVisibilityInputRequestTypeDef,
+):
+    pass
+
+UpdateProjectVisibilityOutputTypeDef = TypedDict(
+    "UpdateProjectVisibilityOutputTypeDef",
+    {
+        "projectArn": str,
+        "publicProjectAlias": str,
+        "projectVisibility": ProjectVisibilityTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

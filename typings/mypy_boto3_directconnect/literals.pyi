@@ -36,6 +36,7 @@ __all__ = (
     "InterconnectStateType",
     "LagStateType",
     "LoaContentTypeType",
+    "NniPartnerTypeType",
     "VirtualInterfaceStateType",
 )
 
@@ -78,6 +79,7 @@ LagStateType = Literal[
     "available", "deleted", "deleting", "down", "pending", "requested", "unknown"
 ]
 LoaContentTypeType = Literal["application/pdf"]
+NniPartnerTypeType = Literal["nonPartner", "v1", "v2"]
 VirtualInterfaceStateType = Literal[
     "available",
     "confirming",

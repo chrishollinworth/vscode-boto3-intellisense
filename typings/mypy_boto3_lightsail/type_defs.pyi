@@ -6,9 +6,9 @@ Type annotations for lightsail service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lightsail.type_defs import AccessKeyTypeDef
+    from mypy_boto3_lightsail.type_defs import AccessKeyLastUsedTypeDef
 
-    data: AccessKeyTypeDef = {...}
+    data: AccessKeyLastUsedTypeDef = {...}
     ```
 """
 import sys
@@ -86,6 +86,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccessKeyLastUsedTypeDef",
     "AccessKeyTypeDef",
     "AccessRulesTypeDef",
     "AddOnRequestTypeDef",
@@ -108,6 +109,7 @@ __all__ = (
     "AutoSnapshotDetailsTypeDef",
     "AvailabilityZoneTypeDef",
     "BlueprintTypeDef",
+    "BucketAccessLogConfigTypeDef",
     "BucketBundleTypeDef",
     "BucketStateTypeDef",
     "BucketTypeDef",
@@ -481,6 +483,16 @@ __all__ = (
     "UpdateRelationalDatabaseResultTypeDef",
 )
 
+AccessKeyLastUsedTypeDef = TypedDict(
+    "AccessKeyLastUsedTypeDef",
+    {
+        "lastUsedDate": datetime,
+        "region": str,
+        "serviceName": str,
+    },
+    total=False,
+)
+
 AccessKeyTypeDef = TypedDict(
     "AccessKeyTypeDef",
     {
@@ -488,6 +500,7 @@ AccessKeyTypeDef = TypedDict(
         "secretAccessKey": str,
         "status": StatusTypeType,
         "createdAt": datetime,
+        "lastUsed": "AccessKeyLastUsedTypeDef",
     },
     total=False,
 )
@@ -708,6 +721,26 @@ BlueprintTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredBucketAccessLogConfigTypeDef = TypedDict(
+    "_RequiredBucketAccessLogConfigTypeDef",
+    {
+        "enabled": bool,
+    },
+)
+_OptionalBucketAccessLogConfigTypeDef = TypedDict(
+    "_OptionalBucketAccessLogConfigTypeDef",
+    {
+        "destination": str,
+        "prefix": str,
+    },
+    total=False,
+)
+
+class BucketAccessLogConfigTypeDef(
+    _RequiredBucketAccessLogConfigTypeDef, _OptionalBucketAccessLogConfigTypeDef
+):
+    pass
+
 BucketBundleTypeDef = TypedDict(
     "BucketBundleTypeDef",
     {
@@ -748,6 +781,7 @@ BucketTypeDef = TypedDict(
         "readonlyAccessAccounts": List[str],
         "resourcesReceivingAccess": List["ResourceReceivingAccessTypeDef"],
         "state": "BucketStateTypeDef",
+        "accessLogConfig": "BucketAccessLogConfigTypeDef",
     },
     total=False,
 )
@@ -4610,6 +4644,7 @@ _OptionalUpdateBucketRequestRequestTypeDef = TypedDict(
         "accessRules": "AccessRulesTypeDef",
         "versioning": str,
         "readonlyAccessAccounts": List[str],
+        "accessLogConfig": "BucketAccessLogConfigTypeDef",
     },
     total=False,
 )

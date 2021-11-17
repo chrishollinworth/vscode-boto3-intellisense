@@ -111,6 +111,7 @@ __all__ = (
     "ListResourceDataSyncPaginatorName",
     "MaintenanceWindowExecutionStatusType",
     "MaintenanceWindowResourceTypeType",
+    "MaintenanceWindowTaskCutoffBehaviorType",
     "MaintenanceWindowTaskTypeType",
     "NotificationEventType",
     "NotificationTypeType",
@@ -340,6 +341,7 @@ MaintenanceWindowExecutionStatusType = Literal[
     "TIMED_OUT",
 ]
 MaintenanceWindowResourceTypeType = Literal["INSTANCE", "RESOURCE_GROUP"]
+MaintenanceWindowTaskCutoffBehaviorType = Literal["CANCEL_TASK", "CONTINUE_TASK"]
 MaintenanceWindowTaskTypeType = Literal["AUTOMATION", "LAMBDA", "RUN_COMMAND", "STEP_FUNCTIONS"]
 NotificationEventType = Literal["All", "Cancelled", "Failed", "InProgress", "Success", "TimedOut"]
 NotificationTypeType = Literal["Command", "Invocation"]
@@ -350,6 +352,7 @@ OperatingSystemType = Literal[
     "DEBIAN",
     "MACOS",
     "ORACLE_LINUX",
+    "RASPBIAN",
     "REDHAT_ENTERPRISE_LINUX",
     "SUSE",
     "UBUNTU",

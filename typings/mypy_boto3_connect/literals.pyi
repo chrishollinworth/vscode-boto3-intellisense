@@ -6,9 +6,9 @@ Type annotations for connect service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connect.literals import ChannelType
+    from mypy_boto3_connect.literals import AgentStatusStateType
 
-    data: ChannelType = "CHAT"
+    data: AgentStatusStateType = "DISABLED"
     ```
 """
 import sys
@@ -19,9 +19,12 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AgentStatusStateType",
+    "AgentStatusTypeType",
     "ChannelType",
     "ComparisonType",
     "ContactFlowTypeType",
+    "ContactInitiationMethodType",
     "CurrentMetricNameType",
     "DirectoryTypeType",
     "EncryptionTypeType",
@@ -34,9 +37,11 @@ __all__ = (
     "InstanceStorageResourceTypeType",
     "IntegrationTypeType",
     "LexVersionType",
+    "ListAgentStatusesPaginatorName",
     "ListApprovedOriginsPaginatorName",
     "ListBotsPaginatorName",
     "ListContactFlowsPaginatorName",
+    "ListContactReferencesPaginatorName",
     "ListHoursOfOperationsPaginatorName",
     "ListInstanceAttributesPaginatorName",
     "ListInstanceStorageConfigsPaginatorName",
@@ -52,6 +57,7 @@ __all__ = (
     "ListRoutingProfileQueuesPaginatorName",
     "ListRoutingProfilesPaginatorName",
     "ListSecurityKeysPaginatorName",
+    "ListSecurityProfilePermissionsPaginatorName",
     "ListSecurityProfilesPaginatorName",
     "ListUseCasesPaginatorName",
     "ListUserHierarchyGroupsPaginatorName",
@@ -62,15 +68,19 @@ __all__ = (
     "QueueStatusType",
     "QueueTypeType",
     "QuickConnectTypeType",
+    "ReferenceStatusType",
     "ReferenceTypeType",
     "SourceTypeType",
     "StatisticType",
     "StorageTypeType",
+    "TrafficTypeType",
     "UnitType",
     "UseCaseTypeType",
     "VoiceRecordingTrackType",
 )
 
+AgentStatusStateType = Literal["DISABLED", "ENABLED"]
+AgentStatusTypeType = Literal["CUSTOM", "OFFLINE", "ROUTABLE"]
 ChannelType = Literal["CHAT", "TASK", "VOICE"]
 ComparisonType = Literal["LT"]
 ContactFlowTypeType = Literal[
@@ -83,6 +93,9 @@ ContactFlowTypeType = Literal[
     "CUSTOMER_WHISPER",
     "OUTBOUND_WHISPER",
     "QUEUE_TRANSFER",
+]
+ContactInitiationMethodType = Literal[
+    "API", "CALLBACK", "INBOUND", "OUTBOUND", "QUEUE_TRANSFER", "TRANSFER"
 ]
 CurrentMetricNameType = Literal[
     "AGENTS_AFTER_CONTACT_WORK",
@@ -151,11 +164,15 @@ InstanceStorageResourceTypeType = Literal[
     "MEDIA_STREAMS",
     "SCHEDULED_REPORTS",
 ]
-IntegrationTypeType = Literal["EVENT"]
+IntegrationTypeType = Literal[
+    "EVENT", "PINPOINT_APP", "VOICE_ID", "WISDOM_ASSISTANT", "WISDOM_KNOWLEDGE_BASE"
+]
 LexVersionType = Literal["V1", "V2"]
+ListAgentStatusesPaginatorName = Literal["list_agent_statuses"]
 ListApprovedOriginsPaginatorName = Literal["list_approved_origins"]
 ListBotsPaginatorName = Literal["list_bots"]
 ListContactFlowsPaginatorName = Literal["list_contact_flows"]
+ListContactReferencesPaginatorName = Literal["list_contact_references"]
 ListHoursOfOperationsPaginatorName = Literal["list_hours_of_operations"]
 ListInstanceAttributesPaginatorName = Literal["list_instance_attributes"]
 ListInstanceStorageConfigsPaginatorName = Literal["list_instance_storage_configs"]
@@ -171,6 +188,7 @@ ListQuickConnectsPaginatorName = Literal["list_quick_connects"]
 ListRoutingProfileQueuesPaginatorName = Literal["list_routing_profile_queues"]
 ListRoutingProfilesPaginatorName = Literal["list_routing_profiles"]
 ListSecurityKeysPaginatorName = Literal["list_security_keys"]
+ListSecurityProfilePermissionsPaginatorName = Literal["list_security_profile_permissions"]
 ListSecurityProfilesPaginatorName = Literal["list_security_profiles"]
 ListUseCasesPaginatorName = Literal["list_use_cases"]
 ListUserHierarchyGroupsPaginatorName = Literal["list_user_hierarchy_groups"]
@@ -419,10 +437,12 @@ PhoneTypeType = Literal["DESK_PHONE", "SOFT_PHONE"]
 QueueStatusType = Literal["DISABLED", "ENABLED"]
 QueueTypeType = Literal["AGENT", "STANDARD"]
 QuickConnectTypeType = Literal["PHONE_NUMBER", "QUEUE", "USER"]
-ReferenceTypeType = Literal["URL"]
+ReferenceStatusType = Literal["APPROVED", "REJECTED"]
+ReferenceTypeType = Literal["ATTACHMENT", "URL"]
 SourceTypeType = Literal["SALESFORCE", "ZENDESK"]
 StatisticType = Literal["AVG", "MAX", "SUM"]
 StorageTypeType = Literal["KINESIS_FIREHOSE", "KINESIS_STREAM", "KINESIS_VIDEO_STREAM", "S3"]
+TrafficTypeType = Literal["CAMPAIGN", "GENERAL"]
 UnitType = Literal["COUNT", "PERCENT", "SECONDS"]
-UseCaseTypeType = Literal["RULES_EVALUATION"]
+UseCaseTypeType = Literal["CONNECT_CAMPAIGNS", "RULES_EVALUATION"]
 VoiceRecordingTrackType = Literal["ALL", "FROM_AGENT", "TO_AGENT"]

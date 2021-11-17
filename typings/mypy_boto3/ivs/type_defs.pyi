@@ -126,8 +126,8 @@ BatchGetStreamKeyRequestRequestTypeDef = TypedDict(
 BatchGetStreamKeyResponseTypeDef = TypedDict(
     "BatchGetStreamKeyResponseTypeDef",
     {
-        "streamKeys": List["StreamKeyTypeDef"],
         "errors": List["BatchErrorTypeDef"],
+        "streamKeys": List["StreamKeyTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -136,9 +136,9 @@ ChannelSummaryTypeDef = TypedDict(
     "ChannelSummaryTypeDef",
     {
         "arn": str,
-        "name": str,
-        "latencyMode": ChannelLatencyModeType,
         "authorized": bool,
+        "latencyMode": ChannelLatencyModeType,
+        "name": str,
         "recordingConfigurationArn": str,
         "tags": Dict[str, str],
     },
@@ -149,14 +149,14 @@ ChannelTypeDef = TypedDict(
     "ChannelTypeDef",
     {
         "arn": str,
-        "name": str,
-        "latencyMode": ChannelLatencyModeType,
-        "type": ChannelTypeType,
-        "recordingConfigurationArn": str,
-        "ingestEndpoint": str,
-        "playbackUrl": str,
         "authorized": bool,
+        "ingestEndpoint": str,
+        "latencyMode": ChannelLatencyModeType,
+        "name": str,
+        "playbackUrl": str,
+        "recordingConfigurationArn": str,
         "tags": Dict[str, str],
+        "type": ChannelTypeType,
     },
     total=False,
 )
@@ -164,12 +164,12 @@ ChannelTypeDef = TypedDict(
 CreateChannelRequestRequestTypeDef = TypedDict(
     "CreateChannelRequestRequestTypeDef",
     {
-        "name": str,
-        "latencyMode": ChannelLatencyModeType,
-        "type": ChannelTypeType,
         "authorized": bool,
+        "latencyMode": ChannelLatencyModeType,
+        "name": str,
         "recordingConfigurationArn": str,
         "tags": Dict[str, str],
+        "type": ChannelTypeType,
     },
     total=False,
 )
@@ -384,8 +384,8 @@ ListChannelsRequestRequestTypeDef = TypedDict(
     {
         "filterByName": str,
         "filterByRecordingConfigurationArn": str,
-        "nextToken": str,
         "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -402,8 +402,8 @@ ListChannelsResponseTypeDef = TypedDict(
 ListPlaybackKeyPairsRequestRequestTypeDef = TypedDict(
     "ListPlaybackKeyPairsRequestRequestTypeDef",
     {
-        "nextToken": str,
         "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -420,8 +420,8 @@ ListPlaybackKeyPairsResponseTypeDef = TypedDict(
 ListRecordingConfigurationsRequestRequestTypeDef = TypedDict(
     "ListRecordingConfigurationsRequestRequestTypeDef",
     {
-        "nextToken": str,
         "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -429,8 +429,8 @@ ListRecordingConfigurationsRequestRequestTypeDef = TypedDict(
 ListRecordingConfigurationsResponseTypeDef = TypedDict(
     "ListRecordingConfigurationsResponseTypeDef",
     {
-        "recordingConfigurations": List["RecordingConfigurationSummaryTypeDef"],
         "nextToken": str,
+        "recordingConfigurations": List["RecordingConfigurationSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -444,8 +444,8 @@ _RequiredListStreamKeysRequestRequestTypeDef = TypedDict(
 _OptionalListStreamKeysRequestRequestTypeDef = TypedDict(
     "_OptionalListStreamKeysRequestRequestTypeDef",
     {
-        "nextToken": str,
         "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -458,8 +458,8 @@ class ListStreamKeysRequestRequestTypeDef(
 ListStreamKeysResponseTypeDef = TypedDict(
     "ListStreamKeysResponseTypeDef",
     {
-        "streamKeys": List["StreamKeySummaryTypeDef"],
         "nextToken": str,
+        "streamKeys": List["StreamKeySummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -467,8 +467,8 @@ ListStreamKeysResponseTypeDef = TypedDict(
 ListStreamsRequestRequestTypeDef = TypedDict(
     "ListStreamsRequestRequestTypeDef",
     {
-        "nextToken": str,
         "maxResults": int,
+        "nextToken": str,
     },
     total=False,
 )
@@ -476,38 +476,23 @@ ListStreamsRequestRequestTypeDef = TypedDict(
 ListStreamsResponseTypeDef = TypedDict(
     "ListStreamsResponseTypeDef",
     {
-        "streams": List["StreamSummaryTypeDef"],
         "nextToken": str,
+        "streams": List["StreamSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
     {
         "resourceArn": str,
     },
 )
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
 
 ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef",
     {
         "tags": Dict[str, str],
-        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -536,8 +521,8 @@ PlaybackKeyPairTypeDef = TypedDict(
     "PlaybackKeyPairTypeDef",
     {
         "arn": str,
-        "name": str,
         "fingerprint": str,
+        "name": str,
         "tags": Dict[str, str],
     },
     total=False,
@@ -634,9 +619,9 @@ StreamKeyTypeDef = TypedDict(
     "StreamKeyTypeDef",
     {
         "arn": str,
-        "value": str,
         "channelArn": str,
         "tags": Dict[str, str],
+        "value": str,
     },
     total=False,
 )
@@ -645,10 +630,10 @@ StreamSummaryTypeDef = TypedDict(
     "StreamSummaryTypeDef",
     {
         "channelArn": str,
-        "state": StreamStateType,
         "health": StreamHealthType,
-        "viewerCount": int,
         "startTime": datetime,
+        "state": StreamStateType,
+        "viewerCount": int,
     },
     total=False,
 )
@@ -657,10 +642,10 @@ StreamTypeDef = TypedDict(
     "StreamTypeDef",
     {
         "channelArn": str,
+        "health": StreamHealthType,
         "playbackUrl": str,
         "startTime": datetime,
         "state": StreamStateType,
-        "health": StreamHealthType,
         "viewerCount": int,
     },
     total=False,
@@ -691,11 +676,11 @@ _RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
 _OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateChannelRequestRequestTypeDef",
     {
-        "name": str,
-        "latencyMode": ChannelLatencyModeType,
-        "type": ChannelTypeType,
         "authorized": bool,
+        "latencyMode": ChannelLatencyModeType,
+        "name": str,
         "recordingConfigurationArn": str,
+        "type": ChannelTypeType,
     },
     total=False,
 )

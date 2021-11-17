@@ -6,9 +6,9 @@ Type annotations for lexv2-models service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lexv2_models.type_defs import AudioLogDestinationTypeDef
+    from mypy_boto3_lexv2_models.type_defs import AggregatedUtterancesFilterTypeDef
 
-    data: AudioLogDestinationTypeDef = {...}
+    data: AggregatedUtterancesFilterTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,8 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AggregatedUtterancesFilterOperatorType,
+    AggregatedUtterancesSortAttributeType,
     BotAliasStatusType,
     BotFilterOperatorType,
     BotLocaleFilterOperatorType,
@@ -37,6 +39,7 @@ from .literals import (
     SlotTypeSortAttributeType,
     SlotValueResolutionStrategyType,
     SortOrderType,
+    TimeDimensionType,
 )
 
 if sys.version_info >= (3, 8):
@@ -49,6 +52,9 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AggregatedUtterancesFilterTypeDef",
+    "AggregatedUtterancesSortByTypeDef",
+    "AggregatedUtterancesSummaryTypeDef",
     "AudioLogDestinationTypeDef",
     "AudioLogSettingTypeDef",
     "BotAliasHistoryEventTypeDef",
@@ -120,6 +126,7 @@ __all__ = (
     "DeleteResourcePolicyStatementResponseTypeDef",
     "DeleteSlotRequestRequestTypeDef",
     "DeleteSlotTypeRequestRequestTypeDef",
+    "DeleteUtterancesRequestRequestTypeDef",
     "DescribeBotAliasRequestRequestTypeDef",
     "DescribeBotAliasResponseTypeDef",
     "DescribeBotLocaleRequestRequestTypeDef",
@@ -146,6 +153,9 @@ __all__ = (
     "ExportSortByTypeDef",
     "ExportSummaryTypeDef",
     "FulfillmentCodeHookSettingsTypeDef",
+    "FulfillmentStartResponseSpecificationTypeDef",
+    "FulfillmentUpdateResponseSpecificationTypeDef",
+    "FulfillmentUpdatesSpecificationTypeDef",
     "ImageResponseCardTypeDef",
     "ImportFilterTypeDef",
     "ImportResourceSpecificationTypeDef",
@@ -159,6 +169,8 @@ __all__ = (
     "IntentSummaryTypeDef",
     "KendraConfigurationTypeDef",
     "LambdaCodeHookTypeDef",
+    "ListAggregatedUtterancesRequestRequestTypeDef",
+    "ListAggregatedUtterancesResponseTypeDef",
     "ListBotAliasesRequestRequestTypeDef",
     "ListBotAliasesResponseTypeDef",
     "ListBotLocalesRequestRequestTypeDef",
@@ -189,8 +201,10 @@ __all__ = (
     "ObfuscationSettingTypeDef",
     "OutputContextTypeDef",
     "PlainTextMessageTypeDef",
+    "PostFulfillmentStatusSpecificationTypeDef",
     "PrincipalTypeDef",
     "PromptSpecificationTypeDef",
+    "RelativeAggregationDurationTypeDef",
     "ResponseMetadataTypeDef",
     "ResponseSpecificationTypeDef",
     "S3BucketLogDestinationTypeDef",
@@ -234,9 +248,40 @@ __all__ = (
     "UpdateSlotResponseTypeDef",
     "UpdateSlotTypeRequestRequestTypeDef",
     "UpdateSlotTypeResponseTypeDef",
+    "UtteranceAggregationDurationTypeDef",
     "VoiceSettingsTypeDef",
     "WaitAndContinueSpecificationTypeDef",
     "WaiterConfigTypeDef",
+)
+
+AggregatedUtterancesFilterTypeDef = TypedDict(
+    "AggregatedUtterancesFilterTypeDef",
+    {
+        "name": Literal["Utterance"],
+        "values": List[str],
+        "operator": AggregatedUtterancesFilterOperatorType,
+    },
+)
+
+AggregatedUtterancesSortByTypeDef = TypedDict(
+    "AggregatedUtterancesSortByTypeDef",
+    {
+        "attribute": AggregatedUtterancesSortAttributeType,
+        "order": SortOrderType,
+    },
+)
+
+AggregatedUtterancesSummaryTypeDef = TypedDict(
+    "AggregatedUtterancesSummaryTypeDef",
+    {
+        "utterance": str,
+        "hitCount": int,
+        "missedCount": int,
+        "utteranceFirstRecordedInAggregationDuration": datetime,
+        "utteranceLastRecordedInAggregationDuration": datetime,
+        "containsDataFromDeletedResources": bool,
+    },
+    total=False,
 )
 
 AudioLogDestinationTypeDef = TypedDict(
@@ -1187,6 +1232,26 @@ class DeleteSlotTypeRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteUtterancesRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteUtterancesRequestRequestTypeDef",
+    {
+        "botId": str,
+    },
+)
+_OptionalDeleteUtterancesRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteUtterancesRequestRequestTypeDef",
+    {
+        "localeId": str,
+        "sessionId": str,
+    },
+    total=False,
+)
+
+class DeleteUtterancesRequestRequestTypeDef(
+    _RequiredDeleteUtterancesRequestRequestTypeDef, _OptionalDeleteUtterancesRequestRequestTypeDef
+):
+    pass
+
 DescribeBotAliasRequestRequestTypeDef = TypedDict(
     "DescribeBotAliasRequestRequestTypeDef",
     {
@@ -1495,12 +1560,88 @@ ExportSummaryTypeDef = TypedDict(
     total=False,
 )
 
-FulfillmentCodeHookSettingsTypeDef = TypedDict(
-    "FulfillmentCodeHookSettingsTypeDef",
+_RequiredFulfillmentCodeHookSettingsTypeDef = TypedDict(
+    "_RequiredFulfillmentCodeHookSettingsTypeDef",
     {
         "enabled": bool,
     },
 )
+_OptionalFulfillmentCodeHookSettingsTypeDef = TypedDict(
+    "_OptionalFulfillmentCodeHookSettingsTypeDef",
+    {
+        "postFulfillmentStatusSpecification": "PostFulfillmentStatusSpecificationTypeDef",
+        "fulfillmentUpdatesSpecification": "FulfillmentUpdatesSpecificationTypeDef",
+    },
+    total=False,
+)
+
+class FulfillmentCodeHookSettingsTypeDef(
+    _RequiredFulfillmentCodeHookSettingsTypeDef, _OptionalFulfillmentCodeHookSettingsTypeDef
+):
+    pass
+
+_RequiredFulfillmentStartResponseSpecificationTypeDef = TypedDict(
+    "_RequiredFulfillmentStartResponseSpecificationTypeDef",
+    {
+        "delayInSeconds": int,
+        "messageGroups": List["MessageGroupTypeDef"],
+    },
+)
+_OptionalFulfillmentStartResponseSpecificationTypeDef = TypedDict(
+    "_OptionalFulfillmentStartResponseSpecificationTypeDef",
+    {
+        "allowInterrupt": bool,
+    },
+    total=False,
+)
+
+class FulfillmentStartResponseSpecificationTypeDef(
+    _RequiredFulfillmentStartResponseSpecificationTypeDef,
+    _OptionalFulfillmentStartResponseSpecificationTypeDef,
+):
+    pass
+
+_RequiredFulfillmentUpdateResponseSpecificationTypeDef = TypedDict(
+    "_RequiredFulfillmentUpdateResponseSpecificationTypeDef",
+    {
+        "frequencyInSeconds": int,
+        "messageGroups": List["MessageGroupTypeDef"],
+    },
+)
+_OptionalFulfillmentUpdateResponseSpecificationTypeDef = TypedDict(
+    "_OptionalFulfillmentUpdateResponseSpecificationTypeDef",
+    {
+        "allowInterrupt": bool,
+    },
+    total=False,
+)
+
+class FulfillmentUpdateResponseSpecificationTypeDef(
+    _RequiredFulfillmentUpdateResponseSpecificationTypeDef,
+    _OptionalFulfillmentUpdateResponseSpecificationTypeDef,
+):
+    pass
+
+_RequiredFulfillmentUpdatesSpecificationTypeDef = TypedDict(
+    "_RequiredFulfillmentUpdatesSpecificationTypeDef",
+    {
+        "active": bool,
+    },
+)
+_OptionalFulfillmentUpdatesSpecificationTypeDef = TypedDict(
+    "_OptionalFulfillmentUpdatesSpecificationTypeDef",
+    {
+        "startResponse": "FulfillmentStartResponseSpecificationTypeDef",
+        "updateResponse": "FulfillmentUpdateResponseSpecificationTypeDef",
+        "timeoutInSeconds": int,
+    },
+    total=False,
+)
+
+class FulfillmentUpdatesSpecificationTypeDef(
+    _RequiredFulfillmentUpdatesSpecificationTypeDef, _OptionalFulfillmentUpdatesSpecificationTypeDef
+):
+    pass
 
 _RequiredImageResponseCardTypeDef = TypedDict(
     "_RequiredImageResponseCardTypeDef",
@@ -1570,20 +1711,44 @@ InputContextTypeDef = TypedDict(
     },
 )
 
-IntentClosingSettingTypeDef = TypedDict(
-    "IntentClosingSettingTypeDef",
+_RequiredIntentClosingSettingTypeDef = TypedDict(
+    "_RequiredIntentClosingSettingTypeDef",
     {
         "closingResponse": "ResponseSpecificationTypeDef",
     },
 )
+_OptionalIntentClosingSettingTypeDef = TypedDict(
+    "_OptionalIntentClosingSettingTypeDef",
+    {
+        "active": bool,
+    },
+    total=False,
+)
 
-IntentConfirmationSettingTypeDef = TypedDict(
-    "IntentConfirmationSettingTypeDef",
+class IntentClosingSettingTypeDef(
+    _RequiredIntentClosingSettingTypeDef, _OptionalIntentClosingSettingTypeDef
+):
+    pass
+
+_RequiredIntentConfirmationSettingTypeDef = TypedDict(
+    "_RequiredIntentConfirmationSettingTypeDef",
     {
         "promptSpecification": "PromptSpecificationTypeDef",
         "declinationResponse": "ResponseSpecificationTypeDef",
     },
 )
+_OptionalIntentConfirmationSettingTypeDef = TypedDict(
+    "_OptionalIntentConfirmationSettingTypeDef",
+    {
+        "active": bool,
+    },
+    total=False,
+)
+
+class IntentConfirmationSettingTypeDef(
+    _RequiredIntentConfirmationSettingTypeDef, _OptionalIntentConfirmationSettingTypeDef
+):
+    pass
 
 IntentFilterTypeDef = TypedDict(
     "IntentFilterTypeDef",
@@ -1641,6 +1806,50 @@ LambdaCodeHookTypeDef = TypedDict(
     {
         "lambdaARN": str,
         "codeHookInterfaceVersion": str,
+    },
+)
+
+_RequiredListAggregatedUtterancesRequestRequestTypeDef = TypedDict(
+    "_RequiredListAggregatedUtterancesRequestRequestTypeDef",
+    {
+        "botId": str,
+        "localeId": str,
+        "aggregationDuration": "UtteranceAggregationDurationTypeDef",
+    },
+)
+_OptionalListAggregatedUtterancesRequestRequestTypeDef = TypedDict(
+    "_OptionalListAggregatedUtterancesRequestRequestTypeDef",
+    {
+        "botAliasId": str,
+        "botVersion": str,
+        "sortBy": "AggregatedUtterancesSortByTypeDef",
+        "filters": List["AggregatedUtterancesFilterTypeDef"],
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListAggregatedUtterancesRequestRequestTypeDef(
+    _RequiredListAggregatedUtterancesRequestRequestTypeDef,
+    _OptionalListAggregatedUtterancesRequestRequestTypeDef,
+):
+    pass
+
+ListAggregatedUtterancesResponseTypeDef = TypedDict(
+    "ListAggregatedUtterancesResponseTypeDef",
+    {
+        "botId": str,
+        "botAliasId": str,
+        "botVersion": str,
+        "localeId": str,
+        "aggregationDuration": "UtteranceAggregationDurationTypeDef",
+        "aggregationWindowStartTime": datetime,
+        "aggregationWindowEndTime": datetime,
+        "aggregationLastRefreshedDateTime": datetime,
+        "aggregatedUtterancesSummaries": List["AggregatedUtterancesSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -2055,6 +2264,16 @@ PlainTextMessageTypeDef = TypedDict(
     },
 )
 
+PostFulfillmentStatusSpecificationTypeDef = TypedDict(
+    "PostFulfillmentStatusSpecificationTypeDef",
+    {
+        "successResponse": "ResponseSpecificationTypeDef",
+        "failureResponse": "ResponseSpecificationTypeDef",
+        "timeoutResponse": "ResponseSpecificationTypeDef",
+    },
+    total=False,
+)
+
 PrincipalTypeDef = TypedDict(
     "PrincipalTypeDef",
     {
@@ -2083,6 +2302,14 @@ class PromptSpecificationTypeDef(
     _RequiredPromptSpecificationTypeDef, _OptionalPromptSpecificationTypeDef
 ):
     pass
+
+RelativeAggregationDurationTypeDef = TypedDict(
+    "RelativeAggregationDurationTypeDef",
+    {
+        "timeDimension": TimeDimensionType,
+        "timeValue": int,
+    },
+)
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
@@ -2722,6 +2949,13 @@ UpdateSlotTypeResponseTypeDef = TypedDict(
     },
 )
 
+UtteranceAggregationDurationTypeDef = TypedDict(
+    "UtteranceAggregationDurationTypeDef",
+    {
+        "relativeAggregationDuration": "RelativeAggregationDurationTypeDef",
+    },
+)
+
 VoiceSettingsTypeDef = TypedDict(
     "VoiceSettingsTypeDef",
     {
@@ -2740,6 +2974,7 @@ _OptionalWaitAndContinueSpecificationTypeDef = TypedDict(
     "_OptionalWaitAndContinueSpecificationTypeDef",
     {
         "stillWaitingResponse": "StillWaitingResponseSpecificationTypeDef",
+        "active": bool,
     },
     total=False,
 )

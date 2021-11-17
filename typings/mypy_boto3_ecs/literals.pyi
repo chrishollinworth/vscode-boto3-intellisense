@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AgentUpdateStatusType",
     "AssignPublicIpType",
+    "CPUArchitectureType",
     "CapacityProviderFieldType",
     "CapacityProviderStatusType",
     "CapacityProviderUpdateStatusType",
@@ -41,6 +42,8 @@ __all__ = (
     "ExecuteCommandLoggingType",
     "FirelensConfigurationTypeType",
     "HealthStatusType",
+    "InstanceHealthCheckStateType",
+    "InstanceHealthCheckTypeType",
     "IpcModeType",
     "LaunchTypeType",
     "ListAccountSettingsPaginatorName",
@@ -56,6 +59,7 @@ __all__ = (
     "ManagedScalingStatusType",
     "ManagedTerminationProtectionType",
     "NetworkModeType",
+    "OSFamilyType",
     "PidModeType",
     "PlacementConstraintTypeType",
     "PlacementStrategyTypeType",
@@ -88,6 +92,7 @@ __all__ = (
 
 AgentUpdateStatusType = Literal["FAILED", "PENDING", "STAGED", "STAGING", "UPDATED", "UPDATING"]
 AssignPublicIpType = Literal["DISABLED", "ENABLED"]
+CPUArchitectureType = Literal["ARM64", "X86_64"]
 CapacityProviderFieldType = Literal["TAGS"]
 CapacityProviderStatusType = Literal["ACTIVE", "INACTIVE"]
 CapacityProviderUpdateStatusType = Literal[
@@ -103,7 +108,7 @@ ClusterSettingNameType = Literal["containerInsights"]
 CompatibilityType = Literal["EC2", "EXTERNAL", "FARGATE"]
 ConnectivityType = Literal["CONNECTED", "DISCONNECTED"]
 ContainerConditionType = Literal["COMPLETE", "HEALTHY", "START", "SUCCESS"]
-ContainerInstanceFieldType = Literal["TAGS"]
+ContainerInstanceFieldType = Literal["CONTAINER_INSTANCE_HEALTH", "TAGS"]
 ContainerInstanceStatusType = Literal[
     "ACTIVE", "DEREGISTERING", "DRAINING", "REGISTERING", "REGISTRATION_FAILED"
 ]
@@ -117,6 +122,8 @@ EnvironmentFileTypeType = Literal["s3"]
 ExecuteCommandLoggingType = Literal["DEFAULT", "NONE", "OVERRIDE"]
 FirelensConfigurationTypeType = Literal["fluentbit", "fluentd"]
 HealthStatusType = Literal["HEALTHY", "UNHEALTHY", "UNKNOWN"]
+InstanceHealthCheckStateType = Literal["IMPAIRED", "INITIALIZING", "INSUFFICIENT_DATA", "OK"]
+InstanceHealthCheckTypeType = Literal["CONTAINER_RUNTIME"]
 IpcModeType = Literal["host", "none", "task"]
 LaunchTypeType = Literal["EC2", "EXTERNAL", "FARGATE"]
 ListAccountSettingsPaginatorName = Literal["list_account_settings"]
@@ -134,6 +141,16 @@ ManagedAgentNameType = Literal["ExecuteCommandAgent"]
 ManagedScalingStatusType = Literal["DISABLED", "ENABLED"]
 ManagedTerminationProtectionType = Literal["DISABLED", "ENABLED"]
 NetworkModeType = Literal["awsvpc", "bridge", "host", "none"]
+OSFamilyType = Literal[
+    "LINUX",
+    "WINDOWS_SERVER_2004_CORE",
+    "WINDOWS_SERVER_2016_FULL",
+    "WINDOWS_SERVER_2019_CORE",
+    "WINDOWS_SERVER_2019_FULL",
+    "WINDOWS_SERVER_2022_CORE",
+    "WINDOWS_SERVER_2022_FULL",
+    "WINDOWS_SERVER_20H2_CORE",
+]
 PidModeType = Literal["host", "task"]
 PlacementConstraintTypeType = Literal["distinctInstance", "memberOf"]
 PlacementStrategyTypeType = Literal["binpack", "random", "spread"]

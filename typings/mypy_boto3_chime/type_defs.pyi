@@ -19,6 +19,8 @@ from .literals import (
     AccountStatusType,
     AccountTypeType,
     AppInstanceDataTypeType,
+    ArtifactsStateType,
+    AudioMuxTypeType,
     CallingNameStatusType,
     CapabilityType,
     ChannelMembershipTypeType,
@@ -79,6 +81,7 @@ __all__ = (
     "AppInstanceUserMembershipSummaryTypeDef",
     "AppInstanceUserSummaryTypeDef",
     "AppInstanceUserTypeDef",
+    "ArtifactsConfigurationTypeDef",
     "AssociatePhoneNumberWithUserRequestRequestTypeDef",
     "AssociatePhoneNumbersWithVoiceConnectorGroupRequestRequestTypeDef",
     "AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef",
@@ -86,6 +89,7 @@ __all__ = (
     "AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef",
     "AssociateSigninDelegateGroupsWithAccountRequestRequestTypeDef",
     "AttendeeTypeDef",
+    "AudioArtifactsConfigurationTypeDef",
     "BatchChannelMembershipsTypeDef",
     "BatchCreateAttendeeRequestRequestTypeDef",
     "BatchCreateAttendeeResponseTypeDef",
@@ -119,6 +123,8 @@ __all__ = (
     "ChannelRetentionSettingsTypeDef",
     "ChannelSummaryTypeDef",
     "ChannelTypeDef",
+    "ChimeSdkMeetingConfigurationTypeDef",
+    "ContentArtifactsConfigurationTypeDef",
     "ConversationRetentionSettingsTypeDef",
     "CreateAccountRequestRequestTypeDef",
     "CreateAccountResponseTypeDef",
@@ -417,6 +423,7 @@ __all__ = (
     "RoomTypeDef",
     "SearchAvailablePhoneNumbersRequestRequestTypeDef",
     "SearchAvailablePhoneNumbersResponseTypeDef",
+    "SelectedVideoStreamsTypeDef",
     "SendChannelMessageRequestRequestTypeDef",
     "SendChannelMessageResponseTypeDef",
     "SigninDelegateGroupTypeDef",
@@ -426,6 +433,7 @@ __all__ = (
     "SipMediaApplicationTypeDef",
     "SipRuleTargetApplicationTypeDef",
     "SipRuleTypeDef",
+    "SourceConfigurationTypeDef",
     "StartMeetingTranscriptionRequestRequestTypeDef",
     "StopMeetingTranscriptionRequestRequestTypeDef",
     "StreamingConfigurationTypeDef",
@@ -484,6 +492,7 @@ __all__ = (
     "UserErrorTypeDef",
     "UserSettingsTypeDef",
     "UserTypeDef",
+    "VideoArtifactsConfigurationTypeDef",
     "VoiceConnectorGroupTypeDef",
     "VoiceConnectorItemTypeDef",
     "VoiceConnectorSettingsTypeDef",
@@ -619,6 +628,15 @@ AppInstanceUserTypeDef = TypedDict(
     total=False,
 )
 
+ArtifactsConfigurationTypeDef = TypedDict(
+    "ArtifactsConfigurationTypeDef",
+    {
+        "Audio": "AudioArtifactsConfigurationTypeDef",
+        "Video": "VideoArtifactsConfigurationTypeDef",
+        "Content": "ContentArtifactsConfigurationTypeDef",
+    },
+)
+
 AssociatePhoneNumberWithUserRequestRequestTypeDef = TypedDict(
     "AssociatePhoneNumberWithUserRequestRequestTypeDef",
     {
@@ -702,6 +720,13 @@ AttendeeTypeDef = TypedDict(
         "JoinToken": str,
     },
     total=False,
+)
+
+AudioArtifactsConfigurationTypeDef = TypedDict(
+    "AudioArtifactsConfigurationTypeDef",
+    {
+        "MuxType": AudioMuxTypeType,
+    },
 )
 
 BatchChannelMembershipsTypeDef = TypedDict(
@@ -1039,6 +1064,34 @@ ChannelTypeDef = TypedDict(
     total=False,
 )
 
+ChimeSdkMeetingConfigurationTypeDef = TypedDict(
+    "ChimeSdkMeetingConfigurationTypeDef",
+    {
+        "SourceConfiguration": "SourceConfigurationTypeDef",
+        "ArtifactsConfiguration": "ArtifactsConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredContentArtifactsConfigurationTypeDef = TypedDict(
+    "_RequiredContentArtifactsConfigurationTypeDef",
+    {
+        "State": ArtifactsStateType,
+    },
+)
+_OptionalContentArtifactsConfigurationTypeDef = TypedDict(
+    "_OptionalContentArtifactsConfigurationTypeDef",
+    {
+        "MuxType": Literal["ContentOnly"],
+    },
+    total=False,
+)
+
+class ContentArtifactsConfigurationTypeDef(
+    _RequiredContentArtifactsConfigurationTypeDef, _OptionalContentArtifactsConfigurationTypeDef
+):
+    pass
+
 ConversationRetentionSettingsTypeDef = TypedDict(
     "ConversationRetentionSettingsTypeDef",
     {
@@ -1361,6 +1414,7 @@ _OptionalCreateMediaCapturePipelineRequestRequestTypeDef = TypedDict(
     "_OptionalCreateMediaCapturePipelineRequestRequestTypeDef",
     {
         "ClientRequestToken": str,
+        "ChimeSdkMeetingConfiguration": "ChimeSdkMeetingConfigurationTypeDef",
     },
     total=False,
 )
@@ -1571,14 +1625,27 @@ CreateRoomResponseTypeDef = TypedDict(
     },
 )
 
-CreateSipMediaApplicationCallRequestRequestTypeDef = TypedDict(
-    "CreateSipMediaApplicationCallRequestRequestTypeDef",
+_RequiredCreateSipMediaApplicationCallRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSipMediaApplicationCallRequestRequestTypeDef",
     {
         "FromPhoneNumber": str,
         "ToPhoneNumber": str,
         "SipMediaApplicationId": str,
     },
 )
+_OptionalCreateSipMediaApplicationCallRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSipMediaApplicationCallRequestRequestTypeDef",
+    {
+        "SipHeaders": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateSipMediaApplicationCallRequestRequestTypeDef(
+    _RequiredCreateSipMediaApplicationCallRequestRequestTypeDef,
+    _OptionalCreateSipMediaApplicationCallRequestRequestTypeDef,
+):
+    pass
 
 CreateSipMediaApplicationCallResponseTypeDef = TypedDict(
     "CreateSipMediaApplicationCallResponseTypeDef",
@@ -3623,6 +3690,7 @@ MediaCapturePipelineTypeDef = TypedDict(
         "SinkArn": str,
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "ChimeSdkMeetingConfiguration": "ChimeSdkMeetingConfigurationTypeDef",
     },
     total=False,
 )
@@ -4267,6 +4335,15 @@ SearchAvailablePhoneNumbersResponseTypeDef = TypedDict(
     },
 )
 
+SelectedVideoStreamsTypeDef = TypedDict(
+    "SelectedVideoStreamsTypeDef",
+    {
+        "AttendeeIds": List[str],
+        "ExternalUserIds": List[str],
+    },
+    total=False,
+)
+
 _RequiredSendChannelMessageRequestRequestTypeDef = TypedDict(
     "_RequiredSendChannelMessageRequestRequestTypeDef",
     {
@@ -4367,6 +4444,14 @@ SipRuleTypeDef = TypedDict(
         "TargetApplications": List["SipRuleTargetApplicationTypeDef"],
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+SourceConfigurationTypeDef = TypedDict(
+    "SourceConfigurationTypeDef",
+    {
+        "SelectedVideoStreams": "SelectedVideoStreamsTypeDef",
     },
     total=False,
 )
@@ -4727,6 +4812,7 @@ UpdateGlobalSettingsRequestRequestTypeDef = TypedDict(
         "BusinessCalling": "BusinessCallingSettingsTypeDef",
         "VoiceConnector": "VoiceConnectorSettingsTypeDef",
     },
+    total=False,
 )
 
 _RequiredUpdatePhoneNumberRequestItemTypeDef = TypedDict(
@@ -5086,6 +5172,25 @@ _OptionalUserTypeDef = TypedDict(
 class UserTypeDef(_RequiredUserTypeDef, _OptionalUserTypeDef):
     pass
 
+_RequiredVideoArtifactsConfigurationTypeDef = TypedDict(
+    "_RequiredVideoArtifactsConfigurationTypeDef",
+    {
+        "State": ArtifactsStateType,
+    },
+)
+_OptionalVideoArtifactsConfigurationTypeDef = TypedDict(
+    "_OptionalVideoArtifactsConfigurationTypeDef",
+    {
+        "MuxType": Literal["VideoOnly"],
+    },
+    total=False,
+)
+
+class VideoArtifactsConfigurationTypeDef(
+    _RequiredVideoArtifactsConfigurationTypeDef, _OptionalVideoArtifactsConfigurationTypeDef
+):
+    pass
+
 VoiceConnectorGroupTypeDef = TypedDict(
     "VoiceConnectorGroupTypeDef",
     {
@@ -5094,6 +5199,7 @@ VoiceConnectorGroupTypeDef = TypedDict(
         "VoiceConnectorItems": List["VoiceConnectorItemTypeDef"],
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "VoiceConnectorGroupArn": str,
     },
     total=False,
 )
@@ -5124,6 +5230,7 @@ VoiceConnectorTypeDef = TypedDict(
         "RequireEncryption": bool,
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
+        "VoiceConnectorArn": str,
     },
     total=False,
 )

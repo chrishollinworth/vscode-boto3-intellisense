@@ -23,6 +23,7 @@ __all__ = (
     "AnalysisFilterAttributeType",
     "AssignmentStatusType",
     "ColumnDataTypeType",
+    "ColumnTagNameType",
     "DashboardBehaviorType",
     "DashboardErrorTypeType",
     "DashboardFilterAttributeType",
@@ -44,6 +45,7 @@ __all__ = (
     "IngestionRequestSourceType",
     "IngestionRequestTypeType",
     "IngestionStatusType",
+    "IngestionTypeType",
     "InputColumnDataTypeType",
     "JoinTypeType",
     "ListAnalysesPaginatorName",
@@ -89,6 +91,7 @@ AnalysisErrorTypeType = Literal[
 AnalysisFilterAttributeType = Literal["QUICKSIGHT_USER"]
 AssignmentStatusType = Literal["DISABLED", "DRAFT", "ENABLED"]
 ColumnDataTypeType = Literal["DATETIME", "DECIMAL", "INTEGER", "STRING"]
+ColumnTagNameType = Literal["COLUMN_DESCRIPTION", "COLUMN_GEOGRAPHIC_ROLE"]
 DashboardBehaviorType = Literal["DISABLED", "ENABLED"]
 DashboardErrorTypeType = Literal[
     "ACCESS_DENIED",
@@ -118,6 +121,7 @@ DataSourceErrorInfoTypeType = Literal[
 DataSourceTypeType = Literal[
     "ADOBE_ANALYTICS",
     "AMAZON_ELASTICSEARCH",
+    "AMAZON_OPENSEARCH",
     "ATHENA",
     "AURORA",
     "AURORA_POSTGRESQL",
@@ -155,6 +159,7 @@ IdentityTypeType = Literal["IAM", "QUICKSIGHT"]
 IngestionErrorTypeType = Literal[
     "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
     "CONNECTION_FAILURE",
+    "CURSOR_NOT_ENABLED",
     "CUSTOMER_ERROR",
     "DATA_SET_DELETED",
     "DATA_SET_NOT_SPICE",
@@ -163,6 +168,7 @@ IngestionErrorTypeType = Literal[
     "DATA_SOURCE_CONNECTION_FAILED",
     "DATA_SOURCE_NOT_FOUND",
     "DATA_TOLERANCE_EXCEPTION",
+    "ELASTICSEARCH_CURSOR_NOT_ENABLED",
     "FAILURE_TO_ASSUME_ROLE",
     "FAILURE_TO_PROCESS_JSON_FILE",
     "IAM_ROLE_NOT_AVAILABLE",
@@ -177,7 +183,9 @@ IngestionErrorTypeType = Literal[
     "OAUTH_TOKEN_FAILURE",
     "PASSWORD_AUTHENTICATION_FAILURE",
     "PERMISSION_DENIED",
+    "PERMISSION_NOT_FOUND",
     "QUERY_TIMEOUT",
+    "REFRESH_SUPPRESSED_BY_EDIT",
     "ROW_SIZE_LIMIT_EXCEEDED",
     "S3_FILE_INACCESSIBLE",
     "S3_MANIFEST_ERROR",
@@ -201,6 +209,7 @@ IngestionRequestTypeType = Literal[
 IngestionStatusType = Literal[
     "CANCELLED", "COMPLETED", "FAILED", "INITIALIZED", "QUEUED", "RUNNING"
 ]
+IngestionTypeType = Literal["FULL_REFRESH", "INCREMENTAL_REFRESH"]
 InputColumnDataTypeType = Literal[
     "BIT", "BOOLEAN", "DATETIME", "DECIMAL", "INTEGER", "JSON", "STRING"
 ]

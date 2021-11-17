@@ -21,11 +21,15 @@ from .literals import (
     DataSourceType,
     DataTypeType,
     DetectorVersionStatusType,
+    EventIngestionType,
     ModelEndpointStatusType,
     ModelInputDataFormatType,
     ModelOutputDataFormatType,
+    ModelTypeEnumType,
     ModelVersionStatusType,
     RuleExecutionModeType,
+    TrainingDataSourceEnumType,
+    UnlabeledEventsTreatmentType,
 )
 
 if sys.version_info >= (3, 8):
@@ -44,8 +48,11 @@ __all__ = (
     "BatchGetVariableErrorTypeDef",
     "BatchGetVariableRequestRequestTypeDef",
     "BatchGetVariableResultTypeDef",
+    "BatchImportTypeDef",
     "BatchPredictionTypeDef",
+    "CancelBatchImportJobRequestRequestTypeDef",
     "CancelBatchPredictionJobRequestRequestTypeDef",
+    "CreateBatchImportJobRequestRequestTypeDef",
     "CreateBatchPredictionJobRequestRequestTypeDef",
     "CreateDetectorVersionRequestRequestTypeDef",
     "CreateDetectorVersionResultTypeDef",
@@ -56,12 +63,15 @@ __all__ = (
     "CreateRuleResultTypeDef",
     "CreateVariableRequestRequestTypeDef",
     "DataValidationMetricsTypeDef",
+    "DeleteBatchImportJobRequestRequestTypeDef",
     "DeleteBatchPredictionJobRequestRequestTypeDef",
     "DeleteDetectorRequestRequestTypeDef",
     "DeleteDetectorVersionRequestRequestTypeDef",
     "DeleteEntityTypeRequestRequestTypeDef",
     "DeleteEventRequestRequestTypeDef",
     "DeleteEventTypeRequestRequestTypeDef",
+    "DeleteEventsByEventTypeRequestRequestTypeDef",
+    "DeleteEventsByEventTypeResultTypeDef",
     "DeleteExternalModelRequestRequestTypeDef",
     "DeleteLabelRequestRequestTypeDef",
     "DeleteModelRequestRequestTypeDef",
@@ -77,13 +87,20 @@ __all__ = (
     "DetectorVersionSummaryTypeDef",
     "EntityTypeDef",
     "EntityTypeTypeDef",
+    "EventTypeDef",
     "EventTypeTypeDef",
     "ExternalEventsDetailTypeDef",
+    "ExternalModelOutputsTypeDef",
+    "ExternalModelSummaryTypeDef",
     "ExternalModelTypeDef",
     "FieldValidationMessageTypeDef",
     "FileValidationMessageTypeDef",
+    "GetBatchImportJobsRequestRequestTypeDef",
+    "GetBatchImportJobsResultTypeDef",
     "GetBatchPredictionJobsRequestRequestTypeDef",
     "GetBatchPredictionJobsResultTypeDef",
+    "GetDeleteEventsByEventTypeStatusRequestRequestTypeDef",
+    "GetDeleteEventsByEventTypeStatusResultTypeDef",
     "GetDetectorVersionRequestRequestTypeDef",
     "GetDetectorVersionResultTypeDef",
     "GetDetectorsRequestRequestTypeDef",
@@ -92,6 +109,8 @@ __all__ = (
     "GetEntityTypesResultTypeDef",
     "GetEventPredictionRequestRequestTypeDef",
     "GetEventPredictionResultTypeDef",
+    "GetEventRequestRequestTypeDef",
+    "GetEventResultTypeDef",
     "GetEventTypesRequestRequestTypeDef",
     "GetEventTypesResultTypeDef",
     "GetExternalModelsRequestRequestTypeDef",
@@ -109,12 +128,15 @@ __all__ = (
     "GetRulesResultTypeDef",
     "GetVariablesRequestRequestTypeDef",
     "GetVariablesResultTypeDef",
+    "IngestedEventStatisticsTypeDef",
+    "IngestedEventsDetailTypeDef",
+    "IngestedEventsTimeWindowTypeDef",
     "KMSKeyTypeDef",
     "LabelSchemaTypeDef",
     "LabelTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
-    "LogitMetricTypeDef",
+    "LogOddsMetricTypeDef",
     "MetricDataPointTypeDef",
     "ModelEndpointDataBlobTypeDef",
     "ModelInputConfigurationTypeDef",
@@ -135,6 +157,7 @@ __all__ = (
     "RuleDetailTypeDef",
     "RuleResultTypeDef",
     "RuleTypeDef",
+    "SendEventRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TrainingDataSchemaTypeDef",
@@ -144,6 +167,7 @@ __all__ = (
     "UpdateDetectorVersionMetadataRequestRequestTypeDef",
     "UpdateDetectorVersionRequestRequestTypeDef",
     "UpdateDetectorVersionStatusRequestRequestTypeDef",
+    "UpdateEventLabelRequestRequestTypeDef",
     "UpdateModelRequestRequestTypeDef",
     "UpdateModelVersionRequestRequestTypeDef",
     "UpdateModelVersionResultTypeDef",
@@ -221,6 +245,26 @@ BatchGetVariableResultTypeDef = TypedDict(
     },
 )
 
+BatchImportTypeDef = TypedDict(
+    "BatchImportTypeDef",
+    {
+        "jobId": str,
+        "status": AsyncJobStatusType,
+        "failureReason": str,
+        "startTime": str,
+        "completionTime": str,
+        "inputPath": str,
+        "outputPath": str,
+        "eventTypeName": str,
+        "iamRoleArn": str,
+        "arn": str,
+        "processedRecordsCount": int,
+        "failedRecordsCount": int,
+        "totalRecordsCount": int,
+    },
+    total=False,
+)
+
 BatchPredictionTypeDef = TypedDict(
     "BatchPredictionTypeDef",
     {
@@ -243,12 +287,43 @@ BatchPredictionTypeDef = TypedDict(
     total=False,
 )
 
+CancelBatchImportJobRequestRequestTypeDef = TypedDict(
+    "CancelBatchImportJobRequestRequestTypeDef",
+    {
+        "jobId": str,
+    },
+)
+
 CancelBatchPredictionJobRequestRequestTypeDef = TypedDict(
     "CancelBatchPredictionJobRequestRequestTypeDef",
     {
         "jobId": str,
     },
 )
+
+_RequiredCreateBatchImportJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBatchImportJobRequestRequestTypeDef",
+    {
+        "jobId": str,
+        "inputPath": str,
+        "outputPath": str,
+        "eventTypeName": str,
+        "iamRoleArn": str,
+    },
+)
+_OptionalCreateBatchImportJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBatchImportJobRequestRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateBatchImportJobRequestRequestTypeDef(
+    _RequiredCreateBatchImportJobRequestRequestTypeDef,
+    _OptionalCreateBatchImportJobRequestRequestTypeDef,
+):
+    pass
 
 _RequiredCreateBatchPredictionJobRequestRequestTypeDef = TypedDict(
     "_RequiredCreateBatchPredictionJobRequestRequestTypeDef",
@@ -315,7 +390,7 @@ _RequiredCreateModelRequestRequestTypeDef = TypedDict(
     "_RequiredCreateModelRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "eventTypeName": str,
     },
 )
@@ -337,8 +412,8 @@ _RequiredCreateModelVersionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateModelVersionRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
-        "trainingDataSource": Literal["EXTERNAL_EVENTS"],
+        "modelType": ModelTypeEnumType,
+        "trainingDataSource": TrainingDataSourceEnumType,
         "trainingDataSchema": "TrainingDataSchemaTypeDef",
     },
 )
@@ -346,6 +421,7 @@ _OptionalCreateModelVersionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateModelVersionRequestRequestTypeDef",
     {
         "externalEventsDetail": "ExternalEventsDetailTypeDef",
+        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -361,7 +437,7 @@ CreateModelVersionResultTypeDef = TypedDict(
     "CreateModelVersionResultTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
         "status": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -433,6 +509,13 @@ DataValidationMetricsTypeDef = TypedDict(
     total=False,
 )
 
+DeleteBatchImportJobRequestRequestTypeDef = TypedDict(
+    "DeleteBatchImportJobRequestRequestTypeDef",
+    {
+        "jobId": str,
+    },
+)
+
 DeleteBatchPredictionJobRequestRequestTypeDef = TypedDict(
     "DeleteBatchPredictionJobRequestRequestTypeDef",
     {
@@ -462,18 +545,46 @@ DeleteEntityTypeRequestRequestTypeDef = TypedDict(
     },
 )
 
-DeleteEventRequestRequestTypeDef = TypedDict(
-    "DeleteEventRequestRequestTypeDef",
+_RequiredDeleteEventRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteEventRequestRequestTypeDef",
     {
         "eventId": str,
         "eventTypeName": str,
     },
 )
+_OptionalDeleteEventRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteEventRequestRequestTypeDef",
+    {
+        "deleteAuditHistory": bool,
+    },
+    total=False,
+)
+
+class DeleteEventRequestRequestTypeDef(
+    _RequiredDeleteEventRequestRequestTypeDef, _OptionalDeleteEventRequestRequestTypeDef
+):
+    pass
 
 DeleteEventTypeRequestRequestTypeDef = TypedDict(
     "DeleteEventTypeRequestRequestTypeDef",
     {
         "name": str,
+    },
+)
+
+DeleteEventsByEventTypeRequestRequestTypeDef = TypedDict(
+    "DeleteEventsByEventTypeRequestRequestTypeDef",
+    {
+        "eventTypeName": str,
+    },
+)
+
+DeleteEventsByEventTypeResultTypeDef = TypedDict(
+    "DeleteEventsByEventTypeResultTypeDef",
+    {
+        "eventTypeName": str,
+        "eventsDeletionStatus": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -495,7 +606,7 @@ DeleteModelRequestRequestTypeDef = TypedDict(
     "DeleteModelRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
     },
 )
 
@@ -503,7 +614,7 @@ DeleteModelVersionRequestRequestTypeDef = TypedDict(
     "DeleteModelVersionRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
     },
 )
@@ -565,7 +676,7 @@ DescribeModelVersionsRequestRequestTypeDef = TypedDict(
     {
         "modelId": str,
         "modelVersionNumber": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "nextToken": str,
         "maxResults": int,
     },
@@ -625,6 +736,20 @@ EntityTypeTypeDef = TypedDict(
     total=False,
 )
 
+EventTypeDef = TypedDict(
+    "EventTypeDef",
+    {
+        "eventId": str,
+        "eventTypeName": str,
+        "eventTimestamp": str,
+        "eventVariables": Dict[str, str],
+        "currentLabel": str,
+        "labelTimestamp": str,
+        "entities": List["EntityTypeDef"],
+    },
+    total=False,
+)
+
 EventTypeTypeDef = TypedDict(
     "EventTypeTypeDef",
     {
@@ -633,6 +758,8 @@ EventTypeTypeDef = TypedDict(
         "eventVariables": List[str],
         "labels": List[str],
         "entityTypes": List[str],
+        "eventIngestion": EventIngestionType,
+        "ingestedEventStatistics": "IngestedEventStatisticsTypeDef",
         "lastUpdatedTime": str,
         "createdTime": str,
         "arn": str,
@@ -646,6 +773,24 @@ ExternalEventsDetailTypeDef = TypedDict(
         "dataLocation": str,
         "dataAccessRoleArn": str,
     },
+)
+
+ExternalModelOutputsTypeDef = TypedDict(
+    "ExternalModelOutputsTypeDef",
+    {
+        "externalModel": "ExternalModelSummaryTypeDef",
+        "outputs": Dict[str, str],
+    },
+    total=False,
+)
+
+ExternalModelSummaryTypeDef = TypedDict(
+    "ExternalModelSummaryTypeDef",
+    {
+        "modelEndpoint": str,
+        "modelSource": Literal["SAGEMAKER"],
+    },
+    total=False,
 )
 
 ExternalModelTypeDef = TypedDict(
@@ -686,6 +831,25 @@ FileValidationMessageTypeDef = TypedDict(
     total=False,
 )
 
+GetBatchImportJobsRequestRequestTypeDef = TypedDict(
+    "GetBatchImportJobsRequestRequestTypeDef",
+    {
+        "jobId": str,
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+GetBatchImportJobsResultTypeDef = TypedDict(
+    "GetBatchImportJobsResultTypeDef",
+    {
+        "batchImports": List["BatchImportTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetBatchPredictionJobsRequestRequestTypeDef = TypedDict(
     "GetBatchPredictionJobsRequestRequestTypeDef",
     {
@@ -701,6 +865,22 @@ GetBatchPredictionJobsResultTypeDef = TypedDict(
     {
         "batchPredictions": List["BatchPredictionTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDeleteEventsByEventTypeStatusRequestRequestTypeDef = TypedDict(
+    "GetDeleteEventsByEventTypeStatusRequestRequestTypeDef",
+    {
+        "eventTypeName": str,
+    },
+)
+
+GetDeleteEventsByEventTypeStatusResultTypeDef = TypedDict(
+    "GetDeleteEventsByEventTypeStatusResultTypeDef",
+    {
+        "eventTypeName": str,
+        "eventsDeletionStatus": AsyncJobStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -800,6 +980,23 @@ GetEventPredictionResultTypeDef = TypedDict(
     {
         "modelScores": List["ModelScoresTypeDef"],
         "ruleResults": List["RuleResultTypeDef"],
+        "externalModelOutputs": List["ExternalModelOutputsTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEventRequestRequestTypeDef = TypedDict(
+    "GetEventRequestRequestTypeDef",
+    {
+        "eventId": str,
+        "eventTypeName": str,
+    },
+)
+
+GetEventResultTypeDef = TypedDict(
+    "GetEventResultTypeDef",
+    {
+        "event": "EventTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -873,7 +1070,7 @@ GetModelVersionRequestRequestTypeDef = TypedDict(
     "GetModelVersionRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
     },
 )
@@ -882,11 +1079,12 @@ GetModelVersionResultTypeDef = TypedDict(
     "GetModelVersionResultTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
-        "trainingDataSource": Literal["EXTERNAL_EVENTS"],
+        "trainingDataSource": TrainingDataSourceEnumType,
         "trainingDataSchema": "TrainingDataSchemaTypeDef",
         "externalEventsDetail": "ExternalEventsDetailTypeDef",
+        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
         "status": str,
         "arn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -897,7 +1095,7 @@ GetModelsRequestRequestTypeDef = TypedDict(
     "GetModelsRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "nextToken": str,
         "maxResults": int,
     },
@@ -982,6 +1180,33 @@ GetVariablesResultTypeDef = TypedDict(
     },
 )
 
+IngestedEventStatisticsTypeDef = TypedDict(
+    "IngestedEventStatisticsTypeDef",
+    {
+        "numberOfEvents": int,
+        "eventDataSizeInBytes": int,
+        "leastRecentEvent": str,
+        "mostRecentEvent": str,
+        "lastUpdatedTime": str,
+    },
+    total=False,
+)
+
+IngestedEventsDetailTypeDef = TypedDict(
+    "IngestedEventsDetailTypeDef",
+    {
+        "ingestedEventsTimeWindow": "IngestedEventsTimeWindowTypeDef",
+    },
+)
+
+IngestedEventsTimeWindowTypeDef = TypedDict(
+    "IngestedEventsTimeWindowTypeDef",
+    {
+        "startTime": str,
+        "endTime": str,
+    },
+)
+
 KMSKeyTypeDef = TypedDict(
     "KMSKeyTypeDef",
     {
@@ -990,12 +1215,22 @@ KMSKeyTypeDef = TypedDict(
     total=False,
 )
 
-LabelSchemaTypeDef = TypedDict(
-    "LabelSchemaTypeDef",
+_RequiredLabelSchemaTypeDef = TypedDict(
+    "_RequiredLabelSchemaTypeDef",
     {
         "labelMapper": Dict[str, List[str]],
     },
 )
+_OptionalLabelSchemaTypeDef = TypedDict(
+    "_OptionalLabelSchemaTypeDef",
+    {
+        "unlabeledEventsTreatment": UnlabeledEventsTreatmentType,
+    },
+    total=False,
+)
+
+class LabelSchemaTypeDef(_RequiredLabelSchemaTypeDef, _OptionalLabelSchemaTypeDef):
+    pass
 
 LabelTypeDef = TypedDict(
     "LabelTypeDef",
@@ -1039,8 +1274,8 @@ ListTagsForResourceResultTypeDef = TypedDict(
     },
 )
 
-LogitMetricTypeDef = TypedDict(
-    "LogitMetricTypeDef",
+LogOddsMetricTypeDef = TypedDict(
+    "LogOddsMetricTypeDef",
     {
         "variableName": str,
         "variableType": str,
@@ -1123,7 +1358,7 @@ ModelTypeDef = TypedDict(
     "ModelTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "description": str,
         "eventTypeName": str,
         "createdTime": str,
@@ -1137,12 +1372,13 @@ ModelVersionDetailTypeDef = TypedDict(
     "ModelVersionDetailTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
         "status": str,
-        "trainingDataSource": Literal["EXTERNAL_EVENTS"],
+        "trainingDataSource": TrainingDataSourceEnumType,
         "trainingDataSchema": "TrainingDataSchemaTypeDef",
         "externalEventsDetail": "ExternalEventsDetailTypeDef",
+        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
         "trainingResult": "TrainingResultTypeDef",
         "lastUpdatedTime": str,
         "createdTime": str,
@@ -1155,7 +1391,7 @@ _RequiredModelVersionTypeDef = TypedDict(
     "_RequiredModelVersionTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
     },
 )
@@ -1236,6 +1472,7 @@ _OptionalPutEventTypeRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "labels": List[str],
+        "eventIngestion": EventIngestionType,
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -1363,6 +1600,30 @@ RuleTypeDef = TypedDict(
     },
 )
 
+_RequiredSendEventRequestRequestTypeDef = TypedDict(
+    "_RequiredSendEventRequestRequestTypeDef",
+    {
+        "eventId": str,
+        "eventTypeName": str,
+        "eventTimestamp": str,
+        "eventVariables": Dict[str, str],
+        "entities": List["EntityTypeDef"],
+    },
+)
+_OptionalSendEventRequestRequestTypeDef = TypedDict(
+    "_OptionalSendEventRequestRequestTypeDef",
+    {
+        "assignedLabel": str,
+        "labelTimestamp": str,
+    },
+    total=False,
+)
+
+class SendEventRequestRequestTypeDef(
+    _RequiredSendEventRequestRequestTypeDef, _OptionalSendEventRequestRequestTypeDef
+):
+    pass
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -1457,11 +1718,21 @@ UpdateDetectorVersionStatusRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateEventLabelRequestRequestTypeDef = TypedDict(
+    "UpdateEventLabelRequestRequestTypeDef",
+    {
+        "eventId": str,
+        "eventTypeName": str,
+        "assignedLabel": str,
+        "labelTimestamp": str,
+    },
+)
+
 _RequiredUpdateModelRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateModelRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
     },
 )
 _OptionalUpdateModelRequestRequestTypeDef = TypedDict(
@@ -1481,7 +1752,7 @@ _RequiredUpdateModelVersionRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateModelVersionRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "majorVersionNumber": str,
     },
 )
@@ -1489,6 +1760,7 @@ _OptionalUpdateModelVersionRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateModelVersionRequestRequestTypeDef",
     {
         "externalEventsDetail": "ExternalEventsDetailTypeDef",
+        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -1504,7 +1776,7 @@ UpdateModelVersionResultTypeDef = TypedDict(
     "UpdateModelVersionResultTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
         "status": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -1515,7 +1787,7 @@ UpdateModelVersionStatusRequestRequestTypeDef = TypedDict(
     "UpdateModelVersionStatusRequestRequestTypeDef",
     {
         "modelId": str,
-        "modelType": Literal["ONLINE_FRAUD_INSIGHTS"],
+        "modelType": ModelTypeEnumType,
         "modelVersionNumber": str,
         "status": ModelVersionStatusType,
     },
@@ -1597,7 +1869,7 @@ VariableEntryTypeDef = TypedDict(
 VariableImportanceMetricsTypeDef = TypedDict(
     "VariableImportanceMetricsTypeDef",
     {
-        "LogitMetrics": List["LogitMetricTypeDef"],
+        "logOddsMetrics": List["LogOddsMetricTypeDef"],
     },
     total=False,
 )

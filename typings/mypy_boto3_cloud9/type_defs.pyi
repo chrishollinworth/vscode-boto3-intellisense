@@ -20,6 +20,7 @@ from .literals import (
     EnvironmentLifecycleStatusType,
     EnvironmentStatusType,
     EnvironmentTypeType,
+    ManagedCredentialsActionType,
     ManagedCredentialsStatusType,
     MemberPermissionsType,
     PermissionsType,
@@ -78,6 +79,7 @@ _OptionalCreateEnvironmentEC2RequestRequestTypeDef = TypedDict(
         "ownerArn": str,
         "tags": List["TagTypeDef"],
         "connectionType": ConnectionTypeType,
+        "dryRun": bool,
     },
     total=False,
 )
@@ -342,6 +344,7 @@ _OptionalUpdateEnvironmentRequestRequestTypeDef = TypedDict(
     {
         "name": str,
         "description": str,
+        "managedCredentialsAction": ManagedCredentialsActionType,
     },
     total=False,
 )

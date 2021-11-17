@@ -6,9 +6,9 @@ Type annotations for sagemaker-runtime service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_runtime.type_defs import InvokeEndpointInputRequestTypeDef
+    from mypy_boto3_sagemaker_runtime.type_defs import InvokeEndpointAsyncInputRequestTypeDef
 
-    data: InvokeEndpointInputRequestTypeDef = {...}
+    data: InvokeEndpointAsyncInputRequestTypeDef = {...}
     ```
 """
 import sys
@@ -22,9 +22,44 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "InvokeEndpointAsyncInputRequestTypeDef",
+    "InvokeEndpointAsyncOutputTypeDef",
     "InvokeEndpointInputRequestTypeDef",
     "InvokeEndpointOutputTypeDef",
     "ResponseMetadataTypeDef",
+)
+
+_RequiredInvokeEndpointAsyncInputRequestTypeDef = TypedDict(
+    "_RequiredInvokeEndpointAsyncInputRequestTypeDef",
+    {
+        "EndpointName": str,
+        "InputLocation": str,
+    },
+)
+_OptionalInvokeEndpointAsyncInputRequestTypeDef = TypedDict(
+    "_OptionalInvokeEndpointAsyncInputRequestTypeDef",
+    {
+        "ContentType": str,
+        "Accept": str,
+        "CustomAttributes": str,
+        "InferenceId": str,
+        "RequestTTLSeconds": int,
+    },
+    total=False,
+)
+
+class InvokeEndpointAsyncInputRequestTypeDef(
+    _RequiredInvokeEndpointAsyncInputRequestTypeDef, _OptionalInvokeEndpointAsyncInputRequestTypeDef
+):
+    pass
+
+InvokeEndpointAsyncOutputTypeDef = TypedDict(
+    "InvokeEndpointAsyncOutputTypeDef",
+    {
+        "InferenceId": str,
+        "OutputLocation": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredInvokeEndpointInputRequestTypeDef = TypedDict(

@@ -21,6 +21,7 @@ from .literals import (
     DomainType,
     EvaluationTypeType,
     FilterConditionStringType,
+    OptimizationMetricType,
     ScalingTypeType,
 )
 
@@ -367,6 +368,7 @@ _OptionalCreatePredictorRequestRequestTypeDef = TypedDict(
         "HPOConfig": "HyperParameterTuningJobConfigTypeDef",
         "EncryptionConfig": "EncryptionConfigTypeDef",
         "Tags": List["TagTypeDef"],
+        "OptimizationMetric": OptimizationMetricType,
     },
     total=False,
 )
@@ -666,6 +668,7 @@ DescribePredictorResponseTypeDef = TypedDict(
         "Message": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+        "OptimizationMetric": OptimizationMetricType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -684,6 +687,8 @@ ErrorMetricTypeDef = TypedDict(
         "ForecastType": str,
         "WAPE": float,
         "RMSE": float,
+        "MASE": float,
+        "MAPE": float,
     },
     total=False,
 )
@@ -812,6 +817,7 @@ GetAccuracyMetricsResponseTypeDef = TypedDict(
     {
         "PredictorEvaluationResults": List["EvaluationResultTypeDef"],
         "AutoMLOverrideStrategy": Literal["LatencyOptimized"],
+        "OptimizationMetric": OptimizationMetricType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1014,6 +1020,7 @@ MetricsTypeDef = TypedDict(
         "RMSE": float,
         "WeightedQuantileLosses": List["WeightedQuantileLossTypeDef"],
         "ErrorMetrics": List["ErrorMetricTypeDef"],
+        "AverageWeightedQuantileLoss": float,
     },
     total=False,
 )

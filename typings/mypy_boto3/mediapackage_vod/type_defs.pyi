@@ -428,6 +428,7 @@ EgressEndpointTypeDef = TypedDict(
     "EgressEndpointTypeDef",
     {
         "PackagingConfigurationId": str,
+        "Status": str,
         "Url": str,
     },
     total=False,
@@ -474,6 +475,7 @@ _OptionalHlsPackageTypeDef = TypedDict(
     "_OptionalHlsPackageTypeDef",
     {
         "Encryption": "HlsEncryptionTypeDef",
+        "IncludeDvbSubtitles": bool,
         "SegmentDurationSeconds": int,
         "UseAudioRenditionGroup": bool,
     },

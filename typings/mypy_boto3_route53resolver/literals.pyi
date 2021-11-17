@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "ActionType",
+    "AutodefinedReverseFlagType",
     "BlockOverrideDnsTypeType",
     "BlockResponseType",
     "FirewallDomainImportOperationType",
@@ -35,6 +36,7 @@ __all__ = (
     "ListFirewallRuleGroupAssociationsPaginatorName",
     "ListFirewallRuleGroupsPaginatorName",
     "ListFirewallRulesPaginatorName",
+    "ListResolverConfigsPaginatorName",
     "ListResolverDnssecConfigsPaginatorName",
     "ListResolverEndpointIpAddressesPaginatorName",
     "ListResolverEndpointsPaginatorName",
@@ -44,6 +46,7 @@ __all__ = (
     "ListResolverRulesPaginatorName",
     "ListTagsForResourcePaginatorName",
     "MutationProtectionStatusType",
+    "ResolverAutodefinedReverseStatusType",
     "ResolverDNSSECValidationStatusType",
     "ResolverEndpointDirectionType",
     "ResolverEndpointStatusType",
@@ -59,6 +62,7 @@ __all__ = (
 )
 
 ActionType = Literal["ALERT", "ALLOW", "BLOCK"]
+AutodefinedReverseFlagType = Literal["DISABLE", "ENABLE"]
 BlockOverrideDnsTypeType = Literal["CNAME"]
 BlockResponseType = Literal["NODATA", "NXDOMAIN", "OVERRIDE"]
 FirewallDomainImportOperationType = Literal["REPLACE"]
@@ -87,6 +91,7 @@ ListFirewallDomainsPaginatorName = Literal["list_firewall_domains"]
 ListFirewallRuleGroupAssociationsPaginatorName = Literal["list_firewall_rule_group_associations"]
 ListFirewallRuleGroupsPaginatorName = Literal["list_firewall_rule_groups"]
 ListFirewallRulesPaginatorName = Literal["list_firewall_rules"]
+ListResolverConfigsPaginatorName = Literal["list_resolver_configs"]
 ListResolverDnssecConfigsPaginatorName = Literal["list_resolver_dnssec_configs"]
 ListResolverEndpointIpAddressesPaginatorName = Literal["list_resolver_endpoint_ip_addresses"]
 ListResolverEndpointsPaginatorName = Literal["list_resolver_endpoints"]
@@ -98,6 +103,7 @@ ListResolverRuleAssociationsPaginatorName = Literal["list_resolver_rule_associat
 ListResolverRulesPaginatorName = Literal["list_resolver_rules"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 MutationProtectionStatusType = Literal["DISABLED", "ENABLED"]
+ResolverAutodefinedReverseStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
 ResolverDNSSECValidationStatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]
 ResolverEndpointDirectionType = Literal["INBOUND", "OUTBOUND"]
 ResolverEndpointStatusType = Literal[

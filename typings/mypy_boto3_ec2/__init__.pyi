@@ -14,6 +14,7 @@ Usage::
         CustomerGatewayAvailableWaiter,
         DescribeAddressesAttributePaginator,
         DescribeByoipCidrsPaginator,
+        DescribeCapacityReservationFleetsPaginator,
         DescribeCapacityReservationsPaginator,
         DescribeCarrierGatewaysPaginator,
         DescribeClassicLinkInstancesPaginator,
@@ -91,6 +92,7 @@ Usage::
         DescribeTransitGatewayRouteTablesPaginator,
         DescribeTransitGatewayVpcAttachmentsPaginator,
         DescribeTransitGatewaysPaginator,
+        DescribeTrunkInterfaceAssociationsPaginator,
         DescribeVolumeStatusPaginator,
         DescribeVolumesModificationsPaginator,
         DescribeVolumesPaginator,
@@ -109,13 +111,16 @@ Usage::
         ExportTaskCompletedWaiter,
         GetAssociatedIpv6PoolCidrsPaginator,
         GetGroupsForCapacityReservationPaginator,
+        GetInstanceTypesFromInstanceRequirementsPaginator,
         GetManagedPrefixListAssociationsPaginator,
         GetManagedPrefixListEntriesPaginator,
+        GetSpotPlacementScoresPaginator,
         GetTransitGatewayAttachmentPropagationsPaginator,
         GetTransitGatewayMulticastDomainAssociationsPaginator,
         GetTransitGatewayPrefixListReferencesPaginator,
         GetTransitGatewayRouteTableAssociationsPaginator,
         GetTransitGatewayRouteTablePropagationsPaginator,
+        GetVpnConnectionDeviceTypesPaginator,
         ImageAvailableWaiter,
         ImageExistsWaiter,
         InstanceExistsWaiter,
@@ -189,6 +194,7 @@ Usage::
 
     describe_addresses_attribute_paginator: DescribeAddressesAttributePaginator = client.get_paginator("describe_addresses_attribute")
     describe_byoip_cidrs_paginator: DescribeByoipCidrsPaginator = client.get_paginator("describe_byoip_cidrs")
+    describe_capacity_reservation_fleets_paginator: DescribeCapacityReservationFleetsPaginator = client.get_paginator("describe_capacity_reservation_fleets")
     describe_capacity_reservations_paginator: DescribeCapacityReservationsPaginator = client.get_paginator("describe_capacity_reservations")
     describe_carrier_gateways_paginator: DescribeCarrierGatewaysPaginator = client.get_paginator("describe_carrier_gateways")
     describe_classic_link_instances_paginator: DescribeClassicLinkInstancesPaginator = client.get_paginator("describe_classic_link_instances")
@@ -266,6 +272,7 @@ Usage::
     describe_transit_gateway_route_tables_paginator: DescribeTransitGatewayRouteTablesPaginator = client.get_paginator("describe_transit_gateway_route_tables")
     describe_transit_gateway_vpc_attachments_paginator: DescribeTransitGatewayVpcAttachmentsPaginator = client.get_paginator("describe_transit_gateway_vpc_attachments")
     describe_transit_gateways_paginator: DescribeTransitGatewaysPaginator = client.get_paginator("describe_transit_gateways")
+    describe_trunk_interface_associations_paginator: DescribeTrunkInterfaceAssociationsPaginator = client.get_paginator("describe_trunk_interface_associations")
     describe_volume_status_paginator: DescribeVolumeStatusPaginator = client.get_paginator("describe_volume_status")
     describe_volumes_paginator: DescribeVolumesPaginator = client.get_paginator("describe_volumes")
     describe_volumes_modifications_paginator: DescribeVolumesModificationsPaginator = client.get_paginator("describe_volumes_modifications")
@@ -280,13 +287,16 @@ Usage::
     describe_vpcs_paginator: DescribeVpcsPaginator = client.get_paginator("describe_vpcs")
     get_associated_ipv6_pool_cidrs_paginator: GetAssociatedIpv6PoolCidrsPaginator = client.get_paginator("get_associated_ipv6_pool_cidrs")
     get_groups_for_capacity_reservation_paginator: GetGroupsForCapacityReservationPaginator = client.get_paginator("get_groups_for_capacity_reservation")
+    get_instance_types_from_instance_requirements_paginator: GetInstanceTypesFromInstanceRequirementsPaginator = client.get_paginator("get_instance_types_from_instance_requirements")
     get_managed_prefix_list_associations_paginator: GetManagedPrefixListAssociationsPaginator = client.get_paginator("get_managed_prefix_list_associations")
     get_managed_prefix_list_entries_paginator: GetManagedPrefixListEntriesPaginator = client.get_paginator("get_managed_prefix_list_entries")
+    get_spot_placement_scores_paginator: GetSpotPlacementScoresPaginator = client.get_paginator("get_spot_placement_scores")
     get_transit_gateway_attachment_propagations_paginator: GetTransitGatewayAttachmentPropagationsPaginator = client.get_paginator("get_transit_gateway_attachment_propagations")
     get_transit_gateway_multicast_domain_associations_paginator: GetTransitGatewayMulticastDomainAssociationsPaginator = client.get_paginator("get_transit_gateway_multicast_domain_associations")
     get_transit_gateway_prefix_list_references_paginator: GetTransitGatewayPrefixListReferencesPaginator = client.get_paginator("get_transit_gateway_prefix_list_references")
     get_transit_gateway_route_table_associations_paginator: GetTransitGatewayRouteTableAssociationsPaginator = client.get_paginator("get_transit_gateway_route_table_associations")
     get_transit_gateway_route_table_propagations_paginator: GetTransitGatewayRouteTablePropagationsPaginator = client.get_paginator("get_transit_gateway_route_table_propagations")
+    get_vpn_connection_device_types_paginator: GetVpnConnectionDeviceTypesPaginator = client.get_paginator("get_vpn_connection_device_types")
     search_local_gateway_routes_paginator: SearchLocalGatewayRoutesPaginator = client.get_paginator("search_local_gateway_routes")
     search_transit_gateway_multicast_groups_paginator: SearchTransitGatewayMulticastGroupsPaginator = client.get_paginator("search_transit_gateway_multicast_groups")
     ```
@@ -295,6 +305,7 @@ from .client import EC2Client
 from .paginator import (
     DescribeAddressesAttributePaginator,
     DescribeByoipCidrsPaginator,
+    DescribeCapacityReservationFleetsPaginator,
     DescribeCapacityReservationsPaginator,
     DescribeCarrierGatewaysPaginator,
     DescribeClassicLinkInstancesPaginator,
@@ -372,6 +383,7 @@ from .paginator import (
     DescribeTransitGatewayRouteTablesPaginator,
     DescribeTransitGatewaysPaginator,
     DescribeTransitGatewayVpcAttachmentsPaginator,
+    DescribeTrunkInterfaceAssociationsPaginator,
     DescribeVolumesModificationsPaginator,
     DescribeVolumesPaginator,
     DescribeVolumeStatusPaginator,
@@ -386,13 +398,16 @@ from .paginator import (
     DescribeVpcsPaginator,
     GetAssociatedIpv6PoolCidrsPaginator,
     GetGroupsForCapacityReservationPaginator,
+    GetInstanceTypesFromInstanceRequirementsPaginator,
     GetManagedPrefixListAssociationsPaginator,
     GetManagedPrefixListEntriesPaginator,
+    GetSpotPlacementScoresPaginator,
     GetTransitGatewayAttachmentPropagationsPaginator,
     GetTransitGatewayMulticastDomainAssociationsPaginator,
     GetTransitGatewayPrefixListReferencesPaginator,
     GetTransitGatewayRouteTableAssociationsPaginator,
     GetTransitGatewayRouteTablePropagationsPaginator,
+    GetVpnConnectionDeviceTypesPaginator,
     SearchLocalGatewayRoutesPaginator,
     SearchTransitGatewayMulticastGroupsPaginator,
 )
@@ -445,6 +460,7 @@ __all__ = (
     "CustomerGatewayAvailableWaiter",
     "DescribeAddressesAttributePaginator",
     "DescribeByoipCidrsPaginator",
+    "DescribeCapacityReservationFleetsPaginator",
     "DescribeCapacityReservationsPaginator",
     "DescribeCarrierGatewaysPaginator",
     "DescribeClassicLinkInstancesPaginator",
@@ -522,6 +538,7 @@ __all__ = (
     "DescribeTransitGatewayRouteTablesPaginator",
     "DescribeTransitGatewayVpcAttachmentsPaginator",
     "DescribeTransitGatewaysPaginator",
+    "DescribeTrunkInterfaceAssociationsPaginator",
     "DescribeVolumeStatusPaginator",
     "DescribeVolumesModificationsPaginator",
     "DescribeVolumesPaginator",
@@ -540,13 +557,16 @@ __all__ = (
     "ExportTaskCompletedWaiter",
     "GetAssociatedIpv6PoolCidrsPaginator",
     "GetGroupsForCapacityReservationPaginator",
+    "GetInstanceTypesFromInstanceRequirementsPaginator",
     "GetManagedPrefixListAssociationsPaginator",
     "GetManagedPrefixListEntriesPaginator",
+    "GetSpotPlacementScoresPaginator",
     "GetTransitGatewayAttachmentPropagationsPaginator",
     "GetTransitGatewayMulticastDomainAssociationsPaginator",
     "GetTransitGatewayPrefixListReferencesPaginator",
     "GetTransitGatewayRouteTableAssociationsPaginator",
     "GetTransitGatewayRouteTablePropagationsPaginator",
+    "GetVpnConnectionDeviceTypesPaginator",
     "ImageAvailableWaiter",
     "ImageExistsWaiter",
     "InstanceExistsWaiter",

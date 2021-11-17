@@ -6,9 +6,9 @@ Type annotations for dataexchange service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_dataexchange.type_defs import AssetDestinationEntryTypeDef
+    from mypy_boto3_dataexchange.type_defs import ActionTypeDef
 
-    data: AssetDestinationEntryTypeDef = {...}
+    data: ActionTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AssetTypeType,
     CodeType,
     JobErrorLimitNameType,
     JobErrorResourceTypesType,
@@ -26,22 +27,23 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ActionTypeDef",
     "AssetDestinationEntryTypeDef",
     "AssetDetailsTypeDef",
     "AssetEntryTypeDef",
     "AssetSourceEntryTypeDef",
+    "AutoExportRevisionDestinationEntryTypeDef",
+    "AutoExportRevisionToS3RequestDetailsTypeDef",
     "CancelJobRequestRequestTypeDef",
     "CreateDataSetRequestRequestTypeDef",
     "CreateDataSetResponseTypeDef",
+    "CreateEventActionRequestRequestTypeDef",
+    "CreateEventActionResponseTypeDef",
     "CreateJobRequestRequestTypeDef",
     "CreateJobResponseTypeDef",
     "CreateRevisionRequestRequestTypeDef",
@@ -49,8 +51,11 @@ __all__ = (
     "DataSetEntryTypeDef",
     "DeleteAssetRequestRequestTypeDef",
     "DeleteDataSetRequestRequestTypeDef",
+    "DeleteEventActionRequestRequestTypeDef",
     "DeleteRevisionRequestRequestTypeDef",
     "DetailsTypeDef",
+    "EventActionEntryTypeDef",
+    "EventTypeDef",
     "ExportAssetToSignedUrlRequestDetailsTypeDef",
     "ExportAssetToSignedUrlResponseDetailsTypeDef",
     "ExportAssetsToS3RequestDetailsTypeDef",
@@ -62,6 +67,8 @@ __all__ = (
     "GetAssetResponseTypeDef",
     "GetDataSetRequestRequestTypeDef",
     "GetDataSetResponseTypeDef",
+    "GetEventActionRequestRequestTypeDef",
+    "GetEventActionResponseTypeDef",
     "GetJobRequestRequestTypeDef",
     "GetJobResponseTypeDef",
     "GetRevisionRequestRequestTypeDef",
@@ -69,6 +76,8 @@ __all__ = (
     "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
     "ImportAssetFromSignedUrlRequestDetailsTypeDef",
     "ImportAssetFromSignedUrlResponseDetailsTypeDef",
+    "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
+    "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
     "ImportAssetsFromS3RequestDetailsTypeDef",
     "ImportAssetsFromS3ResponseDetailsTypeDef",
     "JobEntryTypeDef",
@@ -77,6 +86,8 @@ __all__ = (
     "ListDataSetRevisionsResponseTypeDef",
     "ListDataSetsRequestRequestTypeDef",
     "ListDataSetsResponseTypeDef",
+    "ListEventActionsRequestRequestTypeDef",
+    "ListEventActionsResponseTypeDef",
     "ListJobsRequestRequestTypeDef",
     "ListJobsResponseTypeDef",
     "ListRevisionAssetsRequestRequestTypeDef",
@@ -85,11 +96,14 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "OriginDetailsTypeDef",
     "PaginatorConfigTypeDef",
+    "RedshiftDataShareAssetSourceEntryTypeDef",
+    "RedshiftDataShareAssetTypeDef",
     "RequestDetailsTypeDef",
     "ResponseDetailsTypeDef",
     "ResponseMetadataTypeDef",
     "RevisionDestinationEntryTypeDef",
     "RevisionEntryTypeDef",
+    "RevisionPublishedTypeDef",
     "S3SnapshotAssetTypeDef",
     "StartJobRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -98,8 +112,18 @@ __all__ = (
     "UpdateAssetResponseTypeDef",
     "UpdateDataSetRequestRequestTypeDef",
     "UpdateDataSetResponseTypeDef",
+    "UpdateEventActionRequestRequestTypeDef",
+    "UpdateEventActionResponseTypeDef",
     "UpdateRevisionRequestRequestTypeDef",
     "UpdateRevisionResponseTypeDef",
+)
+
+ActionTypeDef = TypedDict(
+    "ActionTypeDef",
+    {
+        "ExportRevisionToS3": "AutoExportRevisionToS3RequestDetailsTypeDef",
+    },
+    total=False,
 )
 
 _RequiredAssetDestinationEntryTypeDef = TypedDict(
@@ -126,6 +150,7 @@ AssetDetailsTypeDef = TypedDict(
     "AssetDetailsTypeDef",
     {
         "S3SnapshotAsset": "S3SnapshotAssetTypeDef",
+        "RedshiftDataShareAsset": "RedshiftDataShareAssetTypeDef",
     },
     total=False,
 )
@@ -135,7 +160,7 @@ _RequiredAssetEntryTypeDef = TypedDict(
     {
         "Arn": str,
         "AssetDetails": "AssetDetailsTypeDef",
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "CreatedAt": datetime,
         "DataSetId": str,
         "Id": str,
@@ -163,6 +188,46 @@ AssetSourceEntryTypeDef = TypedDict(
     },
 )
 
+_RequiredAutoExportRevisionDestinationEntryTypeDef = TypedDict(
+    "_RequiredAutoExportRevisionDestinationEntryTypeDef",
+    {
+        "Bucket": str,
+    },
+)
+_OptionalAutoExportRevisionDestinationEntryTypeDef = TypedDict(
+    "_OptionalAutoExportRevisionDestinationEntryTypeDef",
+    {
+        "KeyPattern": str,
+    },
+    total=False,
+)
+
+class AutoExportRevisionDestinationEntryTypeDef(
+    _RequiredAutoExportRevisionDestinationEntryTypeDef,
+    _OptionalAutoExportRevisionDestinationEntryTypeDef,
+):
+    pass
+
+_RequiredAutoExportRevisionToS3RequestDetailsTypeDef = TypedDict(
+    "_RequiredAutoExportRevisionToS3RequestDetailsTypeDef",
+    {
+        "RevisionDestination": "AutoExportRevisionDestinationEntryTypeDef",
+    },
+)
+_OptionalAutoExportRevisionToS3RequestDetailsTypeDef = TypedDict(
+    "_OptionalAutoExportRevisionToS3RequestDetailsTypeDef",
+    {
+        "Encryption": "ExportServerSideEncryptionTypeDef",
+    },
+    total=False,
+)
+
+class AutoExportRevisionToS3RequestDetailsTypeDef(
+    _RequiredAutoExportRevisionToS3RequestDetailsTypeDef,
+    _OptionalAutoExportRevisionToS3RequestDetailsTypeDef,
+):
+    pass
+
 CancelJobRequestRequestTypeDef = TypedDict(
     "CancelJobRequestRequestTypeDef",
     {
@@ -173,7 +238,7 @@ CancelJobRequestRequestTypeDef = TypedDict(
 _RequiredCreateDataSetRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDataSetRequestRequestTypeDef",
     {
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "Description": str,
         "Name": str,
     },
@@ -195,7 +260,7 @@ CreateDataSetResponseTypeDef = TypedDict(
     "CreateDataSetResponseTypeDef",
     {
         "Arn": str,
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "CreatedAt": datetime,
         "Description": str,
         "Id": str,
@@ -204,6 +269,27 @@ CreateDataSetResponseTypeDef = TypedDict(
         "OriginDetails": "OriginDetailsTypeDef",
         "SourceId": str,
         "Tags": Dict[str, str],
+        "UpdatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateEventActionRequestRequestTypeDef = TypedDict(
+    "CreateEventActionRequestRequestTypeDef",
+    {
+        "Action": "ActionTypeDef",
+        "Event": "EventTypeDef",
+    },
+)
+
+CreateEventActionResponseTypeDef = TypedDict(
+    "CreateEventActionResponseTypeDef",
+    {
+        "Action": "ActionTypeDef",
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Event": "EventTypeDef",
+        "Id": str,
         "UpdatedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -272,7 +358,7 @@ _RequiredDataSetEntryTypeDef = TypedDict(
     "_RequiredDataSetEntryTypeDef",
     {
         "Arn": str,
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "CreatedAt": datetime,
         "Description": str,
         "Id": str,
@@ -309,6 +395,13 @@ DeleteDataSetRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteEventActionRequestRequestTypeDef = TypedDict(
+    "DeleteEventActionRequestRequestTypeDef",
+    {
+        "EventActionId": str,
+    },
+)
+
 DeleteRevisionRequestRequestTypeDef = TypedDict(
     "DeleteRevisionRequestRequestTypeDef",
     {
@@ -322,6 +415,26 @@ DetailsTypeDef = TypedDict(
     {
         "ImportAssetFromSignedUrlJobErrorDetails": "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
         "ImportAssetsFromS3JobErrorDetails": List["AssetSourceEntryTypeDef"],
+    },
+    total=False,
+)
+
+EventActionEntryTypeDef = TypedDict(
+    "EventActionEntryTypeDef",
+    {
+        "Action": "ActionTypeDef",
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Event": "EventTypeDef",
+        "Id": str,
+        "UpdatedAt": datetime,
+    },
+)
+
+EventTypeDef = TypedDict(
+    "EventTypeDef",
+    {
+        "RevisionPublished": "RevisionPublishedTypeDef",
     },
     total=False,
 )
@@ -432,6 +545,7 @@ _OptionalExportRevisionsToS3ResponseDetailsTypeDef = TypedDict(
     "_OptionalExportRevisionsToS3ResponseDetailsTypeDef",
     {
         "Encryption": "ExportServerSideEncryptionTypeDef",
+        "EventActionArn": str,
     },
     total=False,
 )
@@ -475,7 +589,7 @@ GetAssetResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "AssetDetails": "AssetDetailsTypeDef",
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "CreatedAt": datetime,
         "DataSetId": str,
         "Id": str,
@@ -498,7 +612,7 @@ GetDataSetResponseTypeDef = TypedDict(
     "GetDataSetResponseTypeDef",
     {
         "Arn": str,
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "CreatedAt": datetime,
         "Description": str,
         "Id": str,
@@ -507,6 +621,26 @@ GetDataSetResponseTypeDef = TypedDict(
         "OriginDetails": "OriginDetailsTypeDef",
         "SourceId": str,
         "Tags": Dict[str, str],
+        "UpdatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEventActionRequestRequestTypeDef = TypedDict(
+    "GetEventActionRequestRequestTypeDef",
+    {
+        "EventActionId": str,
+    },
+)
+
+GetEventActionResponseTypeDef = TypedDict(
+    "GetEventActionResponseTypeDef",
+    {
+        "Action": "ActionTypeDef",
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Event": "EventTypeDef",
+        "Id": str,
         "UpdatedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -598,6 +732,24 @@ class ImportAssetFromSignedUrlResponseDetailsTypeDef(
     _OptionalImportAssetFromSignedUrlResponseDetailsTypeDef,
 ):
     pass
+
+ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef = TypedDict(
+    "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
+    {
+        "AssetSources": List["RedshiftDataShareAssetSourceEntryTypeDef"],
+        "DataSetId": str,
+        "RevisionId": str,
+    },
+)
+
+ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef = TypedDict(
+    "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
+    {
+        "AssetSources": List["RedshiftDataShareAssetSourceEntryTypeDef"],
+        "DataSetId": str,
+        "RevisionId": str,
+    },
+)
 
 ImportAssetsFromS3RequestDetailsTypeDef = TypedDict(
     "ImportAssetsFromS3RequestDetailsTypeDef",
@@ -711,6 +863,25 @@ ListDataSetsResponseTypeDef = TypedDict(
     },
 )
 
+ListEventActionsRequestRequestTypeDef = TypedDict(
+    "ListEventActionsRequestRequestTypeDef",
+    {
+        "EventSourceId": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListEventActionsResponseTypeDef = TypedDict(
+    "ListEventActionsResponseTypeDef",
+    {
+        "EventActions": List["EventActionEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListJobsRequestRequestTypeDef = TypedDict(
     "ListJobsRequestRequestTypeDef",
     {
@@ -794,6 +965,20 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+RedshiftDataShareAssetSourceEntryTypeDef = TypedDict(
+    "RedshiftDataShareAssetSourceEntryTypeDef",
+    {
+        "DataShareArn": str,
+    },
+)
+
+RedshiftDataShareAssetTypeDef = TypedDict(
+    "RedshiftDataShareAssetTypeDef",
+    {
+        "Arn": str,
+    },
+)
+
 RequestDetailsTypeDef = TypedDict(
     "RequestDetailsTypeDef",
     {
@@ -802,6 +987,7 @@ RequestDetailsTypeDef = TypedDict(
         "ExportRevisionsToS3": "ExportRevisionsToS3RequestDetailsTypeDef",
         "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlRequestDetailsTypeDef",
         "ImportAssetsFromS3": "ImportAssetsFromS3RequestDetailsTypeDef",
+        "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
     },
     total=False,
 )
@@ -814,6 +1000,7 @@ ResponseDetailsTypeDef = TypedDict(
         "ExportRevisionsToS3": "ExportRevisionsToS3ResponseDetailsTypeDef",
         "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlResponseDetailsTypeDef",
         "ImportAssetsFromS3": "ImportAssetsFromS3ResponseDetailsTypeDef",
+        "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
     },
     total=False,
 )
@@ -872,6 +1059,13 @@ _OptionalRevisionEntryTypeDef = TypedDict(
 class RevisionEntryTypeDef(_RequiredRevisionEntryTypeDef, _OptionalRevisionEntryTypeDef):
     pass
 
+RevisionPublishedTypeDef = TypedDict(
+    "RevisionPublishedTypeDef",
+    {
+        "DataSetId": str,
+    },
+)
+
 S3SnapshotAssetTypeDef = TypedDict(
     "S3SnapshotAssetTypeDef",
     {
@@ -917,7 +1111,7 @@ UpdateAssetResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "AssetDetails": "AssetDetailsTypeDef",
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "CreatedAt": datetime,
         "DataSetId": str,
         "Id": str,
@@ -953,7 +1147,7 @@ UpdateDataSetResponseTypeDef = TypedDict(
     "UpdateDataSetResponseTypeDef",
     {
         "Arn": str,
-        "AssetType": Literal["S3_SNAPSHOT"],
+        "AssetType": AssetTypeType,
         "CreatedAt": datetime,
         "Description": str,
         "Id": str,
@@ -961,6 +1155,38 @@ UpdateDataSetResponseTypeDef = TypedDict(
         "Origin": OriginType,
         "OriginDetails": "OriginDetailsTypeDef",
         "SourceId": str,
+        "UpdatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateEventActionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEventActionRequestRequestTypeDef",
+    {
+        "EventActionId": str,
+    },
+)
+_OptionalUpdateEventActionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEventActionRequestRequestTypeDef",
+    {
+        "Action": "ActionTypeDef",
+    },
+    total=False,
+)
+
+class UpdateEventActionRequestRequestTypeDef(
+    _RequiredUpdateEventActionRequestRequestTypeDef, _OptionalUpdateEventActionRequestRequestTypeDef
+):
+    pass
+
+UpdateEventActionResponseTypeDef = TypedDict(
+    "UpdateEventActionResponseTypeDef",
+    {
+        "Action": "ActionTypeDef",
+        "Arn": str,
+        "CreatedAt": datetime,
+        "Event": "EventTypeDef",
+        "Id": str,
         "UpdatedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

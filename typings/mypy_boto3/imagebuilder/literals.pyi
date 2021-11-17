@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "ComponentFormatType",
+    "ComponentStatusType",
     "ComponentTypeType",
     "ContainerRepositoryServiceType",
     "ContainerTypeType",
@@ -33,6 +34,7 @@ __all__ = (
 )
 
 ComponentFormatType = Literal["SHELL"]
+ComponentStatusType = Literal["DEPRECATED"]
 ComponentTypeType = Literal["BUILD", "TEST"]
 ContainerRepositoryServiceType = Literal["ECR"]
 ContainerTypeType = Literal["DOCKER"]

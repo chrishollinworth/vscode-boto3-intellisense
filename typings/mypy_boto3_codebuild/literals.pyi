@@ -23,6 +23,7 @@ __all__ = (
     "ArtifactPackagingType",
     "ArtifactsTypeType",
     "AuthTypeType",
+    "BatchReportModeTypeType",
     "BucketOwnerAccessType",
     "BuildBatchPhaseTypeType",
     "BuildPhaseTypeType",
@@ -50,6 +51,7 @@ __all__ = (
     "LogsConfigStatusTypeType",
     "PlatformTypeType",
     "ProjectSortByTypeType",
+    "ProjectVisibilityTypeType",
     "ReportCodeCoverageSortByTypeType",
     "ReportExportConfigTypeType",
     "ReportGroupSortByTypeType",
@@ -73,6 +75,7 @@ ArtifactNamespaceType = Literal["BUILD_ID", "NONE"]
 ArtifactPackagingType = Literal["NONE", "ZIP"]
 ArtifactsTypeType = Literal["CODEPIPELINE", "NO_ARTIFACTS", "S3"]
 AuthTypeType = Literal["BASIC_AUTH", "OAUTH", "PERSONAL_ACCESS_TOKEN"]
+BatchReportModeTypeType = Literal["REPORT_AGGREGATED_BATCH", "REPORT_INDIVIDUAL_BUILDS"]
 BucketOwnerAccessType = Literal["FULL", "NONE", "READ_ONLY"]
 BuildBatchPhaseTypeType = Literal[
     "COMBINE_ARTIFACTS",
@@ -133,6 +136,7 @@ ListSharedReportGroupsPaginatorName = Literal["list_shared_report_groups"]
 LogsConfigStatusTypeType = Literal["DISABLED", "ENABLED"]
 PlatformTypeType = Literal["AMAZON_LINUX", "DEBIAN", "UBUNTU", "WINDOWS_SERVER"]
 ProjectSortByTypeType = Literal["CREATED_TIME", "LAST_MODIFIED_TIME", "NAME"]
+ProjectVisibilityTypeType = Literal["PRIVATE", "PUBLIC_READ"]
 ReportCodeCoverageSortByTypeType = Literal["FILE_PATH", "LINE_COVERAGE_PERCENTAGE"]
 ReportExportConfigTypeType = Literal["NO_EXPORT", "S3"]
 ReportGroupSortByTypeType = Literal["CREATED_TIME", "LAST_MODIFIED_TIME", "NAME"]

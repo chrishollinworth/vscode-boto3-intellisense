@@ -973,6 +973,7 @@ DeployAsApplicationConfigurationUpdateTypeDef = TypedDict(
     {
         "S3ContentLocationUpdate": "S3ContentBaseLocationUpdateTypeDef",
     },
+    total=False,
 )
 
 _RequiredDescribeApplicationRequestRequestTypeDef = TypedDict(
@@ -1156,7 +1157,6 @@ GlueDataCatalogConfigurationUpdateTypeDef = TypedDict(
     {
         "DatabaseARNUpdate": str,
     },
-    total=False,
 )
 
 InputDescriptionTypeDef = TypedDict(
@@ -1966,24 +1966,14 @@ class S3ContentBaseLocationTypeDef(
 ):
     pass
 
-_RequiredS3ContentBaseLocationUpdateTypeDef = TypedDict(
-    "_RequiredS3ContentBaseLocationUpdateTypeDef",
+S3ContentBaseLocationUpdateTypeDef = TypedDict(
+    "S3ContentBaseLocationUpdateTypeDef",
     {
         "BucketARNUpdate": str,
-    },
-)
-_OptionalS3ContentBaseLocationUpdateTypeDef = TypedDict(
-    "_OptionalS3ContentBaseLocationUpdateTypeDef",
-    {
         "BasePathUpdate": str,
     },
     total=False,
 )
-
-class S3ContentBaseLocationUpdateTypeDef(
-    _RequiredS3ContentBaseLocationUpdateTypeDef, _OptionalS3ContentBaseLocationUpdateTypeDef
-):
-    pass
 
 _RequiredS3ContentLocationTypeDef = TypedDict(
     "_RequiredS3ContentLocationTypeDef",

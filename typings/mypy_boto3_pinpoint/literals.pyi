@@ -20,7 +20,9 @@ else:
 
 __all__ = (
     "ActionType",
+    "AlignmentType",
     "AttributeTypeType",
+    "ButtonActionType",
     "CampaignStatusType",
     "ChannelTypeType",
     "DeliveryStatusType",
@@ -31,6 +33,7 @@ __all__ = (
     "FrequencyType",
     "IncludeType",
     "JobStatusType",
+    "LayoutType",
     "MessageTypeType",
     "ModeType",
     "OperatorType",
@@ -44,9 +47,11 @@ __all__ = (
 )
 
 ActionType = Literal["DEEP_LINK", "OPEN_APP", "URL"]
+AlignmentType = Literal["CENTER", "LEFT", "RIGHT"]
 AttributeTypeType = Literal[
     "AFTER", "BEFORE", "BETWEEN", "CONTAINS", "EXCLUSIVE", "INCLUSIVE", "ON"
 ]
+ButtonActionType = Literal["CLOSE", "DEEP_LINK", "LINK"]
 CampaignStatusType = Literal[
     "COMPLETED", "DELETED", "EXECUTING", "INVALID", "PAUSED", "PENDING_NEXT_RUN", "SCHEDULED"
 ]
@@ -60,6 +65,7 @@ ChannelTypeType = Literal[
     "CUSTOM",
     "EMAIL",
     "GCM",
+    "IN_APP",
     "PUSH",
     "SMS",
     "VOICE",
@@ -77,7 +83,7 @@ DimensionTypeType = Literal["EXCLUSIVE", "INCLUSIVE"]
 DurationType = Literal["DAY_14", "DAY_30", "DAY_7", "HR_24"]
 FilterTypeType = Literal["ENDPOINT", "SYSTEM"]
 FormatType = Literal["CSV", "JSON"]
-FrequencyType = Literal["DAILY", "EVENT", "HOURLY", "MONTHLY", "ONCE", "WEEKLY"]
+FrequencyType = Literal["DAILY", "EVENT", "HOURLY", "IN_APP_EVENT", "MONTHLY", "ONCE", "WEEKLY"]
 IncludeType = Literal["ALL", "ANY", "NONE"]
 JobStatusType = Literal[
     "COMPLETED",
@@ -90,6 +96,9 @@ JobStatusType = Literal[
     "PREPARING_FOR_INITIALIZATION",
     "PROCESSING",
 ]
+LayoutType = Literal[
+    "BOTTOM_BANNER", "CAROUSEL", "MIDDLE_BANNER", "MOBILE_FEED", "OVERLAYS", "TOP_BANNER"
+]
 MessageTypeType = Literal["PROMOTIONAL", "TRANSACTIONAL"]
 ModeType = Literal["DELIVERY", "FILTER"]
 OperatorType = Literal["ALL", "ANY"]
@@ -97,7 +106,7 @@ RecencyTypeType = Literal["ACTIVE", "INACTIVE"]
 SegmentTypeType = Literal["DIMENSIONAL", "IMPORT"]
 SourceTypeType = Literal["ALL", "ANY", "NONE"]
 StateType = Literal["ACTIVE", "CANCELLED", "CLOSED", "COMPLETED", "DRAFT", "PAUSED"]
-TemplateTypeType = Literal["EMAIL", "PUSH", "SMS", "VOICE"]
+TemplateTypeType = Literal["EMAIL", "INAPP", "PUSH", "SMS", "VOICE"]
 TypeType = Literal["ALL", "ANY", "NONE"]
 __EndpointTypesElementType = Literal[
     "ADM",
@@ -109,6 +118,7 @@ __EndpointTypesElementType = Literal[
     "CUSTOM",
     "EMAIL",
     "GCM",
+    "IN_APP",
     "PUSH",
     "SMS",
     "VOICE",

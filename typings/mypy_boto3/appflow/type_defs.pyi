@@ -32,8 +32,12 @@ from .literals import (
     OperatorType,
     PrefixFormatType,
     PrefixTypeType,
+    PrivateConnectionProvisioningFailureCauseType,
+    PrivateConnectionProvisioningStatusType,
     S3ConnectorOperatorType,
+    S3InputFileTypeType,
     SalesforceConnectorOperatorType,
+    SAPODataConnectorOperatorType,
     ScheduleFrequencyTypeType,
     ServiceNowConnectorOperatorType,
     SingularConnectorOperatorType,
@@ -59,6 +63,7 @@ __all__ = (
     "AggregationConfigTypeDef",
     "AmplitudeConnectorProfileCredentialsTypeDef",
     "AmplitudeSourcePropertiesTypeDef",
+    "BasicAuthCredentialsTypeDef",
     "ConnectorConfigurationTypeDef",
     "ConnectorEntityFieldTypeDef",
     "ConnectorEntityTypeDef",
@@ -122,14 +127,21 @@ __all__ = (
     "MarketoConnectorProfileCredentialsTypeDef",
     "MarketoConnectorProfilePropertiesTypeDef",
     "MarketoSourcePropertiesTypeDef",
+    "OAuthCredentialsTypeDef",
+    "OAuthPropertiesTypeDef",
     "PrefixConfigTypeDef",
+    "PrivateConnectionProvisioningStateTypeDef",
     "RedshiftConnectorProfileCredentialsTypeDef",
     "RedshiftConnectorProfilePropertiesTypeDef",
     "RedshiftDestinationPropertiesTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationPropertiesTypeDef",
+    "S3InputFormatConfigTypeDef",
     "S3OutputFormatConfigTypeDef",
     "S3SourcePropertiesTypeDef",
+    "SAPODataConnectorProfileCredentialsTypeDef",
+    "SAPODataConnectorProfilePropertiesTypeDef",
+    "SAPODataSourcePropertiesTypeDef",
     "SalesforceConnectorProfileCredentialsTypeDef",
     "SalesforceConnectorProfilePropertiesTypeDef",
     "SalesforceDestinationPropertiesTypeDef",
@@ -200,6 +212,14 @@ AmplitudeSourcePropertiesTypeDef = TypedDict(
     "AmplitudeSourcePropertiesTypeDef",
     {
         "object": str,
+    },
+)
+
+BasicAuthCredentialsTypeDef = TypedDict(
+    "BasicAuthCredentialsTypeDef",
+    {
+        "username": str,
+        "password": str,
     },
 )
 
@@ -282,6 +302,7 @@ ConnectorMetadataTypeDef = TypedDict(
         "Upsolver": Dict[str, Any],
         "CustomerProfiles": Dict[str, Any],
         "Honeycode": "HoneycodeMetadataTypeDef",
+        "SAPOData": Dict[str, Any],
     },
     total=False,
 )
@@ -312,6 +333,7 @@ ConnectorOperatorTypeDef = TypedDict(
         "Trendmicro": TrendmicroConnectorOperatorType,
         "Veeva": VeevaConnectorOperatorType,
         "Zendesk": ZendeskConnectorOperatorType,
+        "SAPOData": SAPODataConnectorOperatorType,
     },
     total=False,
 )
@@ -343,6 +365,7 @@ ConnectorProfileCredentialsTypeDef = TypedDict(
         "Trendmicro": "TrendmicroConnectorProfileCredentialsTypeDef",
         "Veeva": "VeevaConnectorProfileCredentialsTypeDef",
         "Zendesk": "ZendeskConnectorProfileCredentialsTypeDef",
+        "SAPOData": "SAPODataConnectorProfileCredentialsTypeDef",
     },
     total=False,
 )
@@ -366,6 +389,7 @@ ConnectorProfilePropertiesTypeDef = TypedDict(
         "Trendmicro": Dict[str, Any],
         "Veeva": "VeevaConnectorProfilePropertiesTypeDef",
         "Zendesk": "ZendeskConnectorProfilePropertiesTypeDef",
+        "SAPOData": "SAPODataConnectorProfilePropertiesTypeDef",
     },
     total=False,
 )
@@ -381,6 +405,7 @@ ConnectorProfileTypeDef = TypedDict(
         "connectorProfileProperties": "ConnectorProfilePropertiesTypeDef",
         "createdAt": datetime,
         "lastUpdatedAt": datetime,
+        "privateConnectionProvisioningState": "PrivateConnectionProvisioningStateTypeDef",
     },
     total=False,
 )
@@ -1034,11 +1059,50 @@ MarketoSourcePropertiesTypeDef = TypedDict(
     },
 )
 
+_RequiredOAuthCredentialsTypeDef = TypedDict(
+    "_RequiredOAuthCredentialsTypeDef",
+    {
+        "clientId": str,
+        "clientSecret": str,
+    },
+)
+_OptionalOAuthCredentialsTypeDef = TypedDict(
+    "_OptionalOAuthCredentialsTypeDef",
+    {
+        "accessToken": str,
+        "refreshToken": str,
+        "oAuthRequest": "ConnectorOAuthRequestTypeDef",
+    },
+    total=False,
+)
+
+class OAuthCredentialsTypeDef(_RequiredOAuthCredentialsTypeDef, _OptionalOAuthCredentialsTypeDef):
+    pass
+
+OAuthPropertiesTypeDef = TypedDict(
+    "OAuthPropertiesTypeDef",
+    {
+        "tokenUrl": str,
+        "authCodeUrl": str,
+        "oAuthScopes": List[str],
+    },
+)
+
 PrefixConfigTypeDef = TypedDict(
     "PrefixConfigTypeDef",
     {
         "prefixType": PrefixTypeType,
         "prefixFormat": PrefixFormatType,
+    },
+    total=False,
+)
+
+PrivateConnectionProvisioningStateTypeDef = TypedDict(
+    "PrivateConnectionProvisioningStateTypeDef",
+    {
+        "status": PrivateConnectionProvisioningStatusType,
+        "failureMessage": str,
+        "failureCause": PrivateConnectionProvisioningFailureCauseType,
     },
     total=False,
 )
@@ -1125,6 +1189,14 @@ class S3DestinationPropertiesTypeDef(
 ):
     pass
 
+S3InputFormatConfigTypeDef = TypedDict(
+    "S3InputFormatConfigTypeDef",
+    {
+        "s3InputFileType": S3InputFileTypeType,
+    },
+    total=False,
+)
+
 S3OutputFormatConfigTypeDef = TypedDict(
     "S3OutputFormatConfigTypeDef",
     {
@@ -1145,6 +1217,7 @@ _OptionalS3SourcePropertiesTypeDef = TypedDict(
     "_OptionalS3SourcePropertiesTypeDef",
     {
         "bucketPrefix": str,
+        "s3InputFormatConfig": "S3InputFormatConfigTypeDef",
     },
     total=False,
 )
@@ -1153,6 +1226,48 @@ class S3SourcePropertiesTypeDef(
     _RequiredS3SourcePropertiesTypeDef, _OptionalS3SourcePropertiesTypeDef
 ):
     pass
+
+SAPODataConnectorProfileCredentialsTypeDef = TypedDict(
+    "SAPODataConnectorProfileCredentialsTypeDef",
+    {
+        "basicAuthCredentials": "BasicAuthCredentialsTypeDef",
+        "oAuthCredentials": "OAuthCredentialsTypeDef",
+    },
+    total=False,
+)
+
+_RequiredSAPODataConnectorProfilePropertiesTypeDef = TypedDict(
+    "_RequiredSAPODataConnectorProfilePropertiesTypeDef",
+    {
+        "applicationHostUrl": str,
+        "applicationServicePath": str,
+        "portNumber": int,
+        "clientNumber": str,
+    },
+)
+_OptionalSAPODataConnectorProfilePropertiesTypeDef = TypedDict(
+    "_OptionalSAPODataConnectorProfilePropertiesTypeDef",
+    {
+        "logonLanguage": str,
+        "privateLinkServiceName": str,
+        "oAuthProperties": "OAuthPropertiesTypeDef",
+    },
+    total=False,
+)
+
+class SAPODataConnectorProfilePropertiesTypeDef(
+    _RequiredSAPODataConnectorProfilePropertiesTypeDef,
+    _OptionalSAPODataConnectorProfilePropertiesTypeDef,
+):
+    pass
+
+SAPODataSourcePropertiesTypeDef = TypedDict(
+    "SAPODataSourcePropertiesTypeDef",
+    {
+        "objectPath": str,
+    },
+    total=False,
+)
 
 SalesforceConnectorProfileCredentialsTypeDef = TypedDict(
     "SalesforceConnectorProfileCredentialsTypeDef",
@@ -1406,6 +1521,7 @@ SourceConnectorPropertiesTypeDef = TypedDict(
         "Trendmicro": "TrendmicroSourcePropertiesTypeDef",
         "Veeva": "VeevaSourcePropertiesTypeDef",
         "Zendesk": "ZendeskSourcePropertiesTypeDef",
+        "SAPOData": "SAPODataSourcePropertiesTypeDef",
     },
     total=False,
 )
@@ -1575,6 +1691,7 @@ _RequiredUpdateFlowRequestRequestTypeDef = TypedDict(
     {
         "flowName": str,
         "triggerConfig": "TriggerConfigTypeDef",
+        "sourceFlowConfig": "SourceFlowConfigTypeDef",
         "destinationFlowConfigList": List["DestinationFlowConfigTypeDef"],
         "tasks": List["TaskTypeDef"],
     },
@@ -1583,7 +1700,6 @@ _OptionalUpdateFlowRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateFlowRequestRequestTypeDef",
     {
         "description": str,
-        "sourceFlowConfig": "SourceFlowConfigTypeDef",
     },
     total=False,
 )
@@ -1656,12 +1772,27 @@ VeevaConnectorProfilePropertiesTypeDef = TypedDict(
     },
 )
 
-VeevaSourcePropertiesTypeDef = TypedDict(
-    "VeevaSourcePropertiesTypeDef",
+_RequiredVeevaSourcePropertiesTypeDef = TypedDict(
+    "_RequiredVeevaSourcePropertiesTypeDef",
     {
         "object": str,
     },
 )
+_OptionalVeevaSourcePropertiesTypeDef = TypedDict(
+    "_OptionalVeevaSourcePropertiesTypeDef",
+    {
+        "documentType": str,
+        "includeSourceFiles": bool,
+        "includeRenditions": bool,
+        "includeAllVersions": bool,
+    },
+    total=False,
+)
+
+class VeevaSourcePropertiesTypeDef(
+    _RequiredVeevaSourcePropertiesTypeDef, _OptionalVeevaSourcePropertiesTypeDef
+):
+    pass
 
 _RequiredZendeskConnectorProfileCredentialsTypeDef = TypedDict(
     "_RequiredZendeskConnectorProfileCredentialsTypeDef",

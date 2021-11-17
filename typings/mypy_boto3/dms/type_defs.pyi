@@ -20,6 +20,7 @@ from botocore.response import StreamingBody
 from .literals import (
     AuthMechanismValueType,
     AuthTypeValueType,
+    CannedAclForObjectsValueType,
     CharLengthSemanticsType,
     CompressionTypeValueType,
     DataFormatValueType,
@@ -35,10 +36,12 @@ from .literals import (
     NestingLevelValueType,
     ParquetVersionValueType,
     PluginNameValueType,
+    RedisAuthTypeValueType,
     RefreshSchemasStatusTypeValueType,
     ReloadOptionValueType,
     ReplicationEndpointTypeValueType,
     SafeguardPolicyType,
+    SslSecurityProtocolValueType,
     StartReplicationTaskTypeValueType,
     TargetDbTypeType,
 )
@@ -140,6 +143,7 @@ __all__ = (
     "EventSubscriptionTypeDef",
     "EventTypeDef",
     "FilterTypeDef",
+    "GcpMySQLSettingsTypeDef",
     "IBMDb2SettingsTypeDef",
     "ImportCertificateMessageRequestTypeDef",
     "ImportCertificateResponseTypeDef",
@@ -170,6 +174,7 @@ __all__ = (
     "PostgreSQLSettingsTypeDef",
     "RebootReplicationInstanceMessageRequestTypeDef",
     "RebootReplicationInstanceResponseTypeDef",
+    "RedisSettingsTypeDef",
     "RedshiftSettingsTypeDef",
     "RefreshSchemasMessageRequestTypeDef",
     "RefreshSchemasResponseTypeDef",
@@ -338,6 +343,8 @@ _OptionalCreateEndpointMessageRequestTypeDef = TypedDict(
         "IBMDb2Settings": "IBMDb2SettingsTypeDef",
         "ResourceIdentifier": str,
         "DocDbSettings": "DocDbSettingsTypeDef",
+        "RedisSettings": "RedisSettingsTypeDef",
+        "GcpMySQLSettings": "GcpMySQLSettingsTypeDef",
     },
     total=False,
 )
@@ -1179,6 +1186,8 @@ EndpointTypeDef = TypedDict(
         "MicrosoftSQLServerSettings": "MicrosoftSQLServerSettingsTypeDef",
         "IBMDb2Settings": "IBMDb2SettingsTypeDef",
         "DocDbSettings": "DocDbSettingsTypeDef",
+        "RedisSettings": "RedisSettingsTypeDef",
+        "GcpMySQLSettings": "GcpMySQLSettingsTypeDef",
     },
     total=False,
 )
@@ -1226,6 +1235,27 @@ FilterTypeDef = TypedDict(
         "Name": str,
         "Values": List[str],
     },
+)
+
+GcpMySQLSettingsTypeDef = TypedDict(
+    "GcpMySQLSettingsTypeDef",
+    {
+        "AfterConnectScript": str,
+        "CleanSourceMetadataOnMismatch": bool,
+        "DatabaseName": str,
+        "EventsPollInterval": int,
+        "TargetDbType": TargetDbTypeType,
+        "MaxFileSize": int,
+        "ParallelLoadThreads": int,
+        "Password": str,
+        "Port": int,
+        "ServerName": str,
+        "ServerTimezone": str,
+        "Username": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
+    },
+    total=False,
 )
 
 IBMDb2SettingsTypeDef = TypedDict(
@@ -1320,7 +1350,9 @@ ListTagsForResourceMessageRequestTypeDef = TypedDict(
     "ListTagsForResourceMessageRequestTypeDef",
     {
         "ResourceArn": str,
+        "ResourceArnList": List[str],
     },
+    total=False,
 )
 
 ListTagsForResourceResponseTypeDef = TypedDict(
@@ -1390,7 +1422,9 @@ _OptionalModifyEndpointMessageRequestTypeDef = TypedDict(
         "MicrosoftSQLServerSettings": "MicrosoftSQLServerSettingsTypeDef",
         "IBMDb2Settings": "IBMDb2SettingsTypeDef",
         "DocDbSettings": "DocDbSettingsTypeDef",
+        "RedisSettings": "RedisSettingsTypeDef",
         "ExactSettings": bool,
+        "GcpMySQLSettings": "GcpMySQLSettingsTypeDef",
     },
     total=False,
 )
@@ -1626,6 +1660,7 @@ OracleSettingsTypeDef = TypedDict(
         "AddSupplementalLogging": bool,
         "ArchivedLogDestId": int,
         "AdditionalArchivedLogDestId": int,
+        "ExtraArchivedLogDestIds": List[int],
         "AllowSelectNestedTables": bool,
         "ParallelAsmReadThreads": int,
         "ReadAheadBlocks": int,
@@ -1740,6 +1775,7 @@ _OptionalRebootReplicationInstanceMessageRequestTypeDef = TypedDict(
     "_OptionalRebootReplicationInstanceMessageRequestTypeDef",
     {
         "ForceFailover": bool,
+        "ForcePlannedFailover": bool,
     },
     total=False,
 )
@@ -1757,6 +1793,28 @@ RebootReplicationInstanceResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredRedisSettingsTypeDef = TypedDict(
+    "_RequiredRedisSettingsTypeDef",
+    {
+        "ServerName": str,
+        "Port": int,
+    },
+)
+_OptionalRedisSettingsTypeDef = TypedDict(
+    "_OptionalRedisSettingsTypeDef",
+    {
+        "SslSecurityProtocol": SslSecurityProtocolValueType,
+        "AuthType": RedisAuthTypeValueType,
+        "AuthUserName": str,
+        "AuthPassword": str,
+        "SslCaCertificateArn": str,
+    },
+    total=False,
+)
+
+class RedisSettingsTypeDef(_RequiredRedisSettingsTypeDef, _OptionalRedisSettingsTypeDef):
+    pass
 
 RedshiftSettingsTypeDef = TypedDict(
     "RedshiftSettingsTypeDef",
@@ -2071,6 +2129,15 @@ S3SettingsTypeDef = TypedDict(
         "CsvNoSupValue": str,
         "PreserveTransactions": bool,
         "CdcPath": str,
+        "UseTaskStartTimeForFullLoadTimestamp": bool,
+        "CannedAclForObjects": CannedAclForObjectsValueType,
+        "AddColumnName": bool,
+        "CdcMaxBatchInterval": int,
+        "CdcMinFileSize": int,
+        "CsvNullValue": str,
+        "IgnoreHeaderRows": int,
+        "MaxFileSize": int,
+        "Rfc4180": bool,
     },
     total=False,
 )
@@ -2246,6 +2313,7 @@ TagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+        "ResourceArn": str,
     },
     total=False,
 )

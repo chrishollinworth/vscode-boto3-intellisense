@@ -17,6 +17,8 @@ from typing import Any, Dict, List, Union
 
 from .literals import (
     BackfillErrorCodeType,
+    BlueprintRunStateType,
+    BlueprintStatusType,
     CatalogEncryptionModeType,
     CloudWatchEncryptionModeType,
     ColumnStatisticsTypeType,
@@ -86,6 +88,8 @@ __all__ = (
     "BatchDeleteTableResponseTypeDef",
     "BatchDeleteTableVersionRequestRequestTypeDef",
     "BatchDeleteTableVersionResponseTypeDef",
+    "BatchGetBlueprintsRequestRequestTypeDef",
+    "BatchGetBlueprintsResponseTypeDef",
     "BatchGetCrawlersRequestRequestTypeDef",
     "BatchGetCrawlersResponseTypeDef",
     "BatchGetDevEndpointsRequestRequestTypeDef",
@@ -107,6 +111,9 @@ __all__ = (
     "BatchUpdatePartitionRequestRequestTypeDef",
     "BatchUpdatePartitionResponseTypeDef",
     "BinaryColumnStatisticsDataTypeDef",
+    "BlueprintDetailsTypeDef",
+    "BlueprintRunTypeDef",
+    "BlueprintTypeDef",
     "BooleanColumnStatisticsDataTypeDef",
     "CancelMLTaskRunRequestRequestTypeDef",
     "CancelMLTaskRunResponseTypeDef",
@@ -137,6 +144,8 @@ __all__ = (
     "CrawlerNodeDetailsTypeDef",
     "CrawlerTargetsTypeDef",
     "CrawlerTypeDef",
+    "CreateBlueprintRequestRequestTypeDef",
+    "CreateBlueprintResponseTypeDef",
     "CreateClassifierRequestRequestTypeDef",
     "CreateConnectionRequestRequestTypeDef",
     "CreateCrawlerRequestRequestTypeDef",
@@ -176,6 +185,8 @@ __all__ = (
     "DateColumnStatisticsDataTypeDef",
     "DecimalColumnStatisticsDataTypeDef",
     "DecimalNumberTypeDef",
+    "DeleteBlueprintRequestRequestTypeDef",
+    "DeleteBlueprintResponseTypeDef",
     "DeleteClassifierRequestRequestTypeDef",
     "DeleteColumnStatisticsForPartitionRequestRequestTypeDef",
     "DeleteColumnStatisticsForTableRequestRequestTypeDef",
@@ -220,6 +231,12 @@ __all__ = (
     "FindMatchesMetricsTypeDef",
     "FindMatchesParametersTypeDef",
     "FindMatchesTaskRunPropertiesTypeDef",
+    "GetBlueprintRequestRequestTypeDef",
+    "GetBlueprintResponseTypeDef",
+    "GetBlueprintRunRequestRequestTypeDef",
+    "GetBlueprintRunResponseTypeDef",
+    "GetBlueprintRunsRequestRequestTypeDef",
+    "GetBlueprintRunsResponseTypeDef",
     "GetCatalogImportStatusRequestRequestTypeDef",
     "GetCatalogImportStatusResponseTypeDef",
     "GetClassifierRequestRequestTypeDef",
@@ -341,8 +358,11 @@ __all__ = (
     "JsonClassifierTypeDef",
     "KeySchemaElementTypeDef",
     "LabelingSetGenerationTaskRunPropertiesTypeDef",
+    "LastActiveDefinitionTypeDef",
     "LastCrawlInfoTypeDef",
     "LineageConfigurationTypeDef",
+    "ListBlueprintsRequestRequestTypeDef",
+    "ListBlueprintsResponseTypeDef",
     "ListCrawlersRequestRequestTypeDef",
     "ListCrawlersResponseTypeDef",
     "ListDevEndpointsRequestRequestTypeDef",
@@ -424,6 +444,8 @@ __all__ = (
     "SerDeInfoTypeDef",
     "SkewedInfoTypeDef",
     "SortCriterionTypeDef",
+    "StartBlueprintRunRequestRequestTypeDef",
+    "StartBlueprintRunResponseTypeDef",
     "StartCrawlerRequestRequestTypeDef",
     "StartCrawlerScheduleRequestRequestTypeDef",
     "StartExportLabelsTaskRunRequestRequestTypeDef",
@@ -467,6 +489,8 @@ __all__ = (
     "TriggerTypeDef",
     "TriggerUpdateTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateBlueprintRequestRequestTypeDef",
+    "UpdateBlueprintResponseTypeDef",
     "UpdateClassifierRequestRequestTypeDef",
     "UpdateColumnStatisticsForPartitionRequestRequestTypeDef",
     "UpdateColumnStatisticsForPartitionResponseTypeDef",
@@ -670,6 +694,36 @@ BatchDeleteTableVersionResponseTypeDef = TypedDict(
     "BatchDeleteTableVersionResponseTypeDef",
     {
         "Errors": List["TableVersionErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredBatchGetBlueprintsRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchGetBlueprintsRequestRequestTypeDef",
+    {
+        "Names": List[str],
+    },
+)
+_OptionalBatchGetBlueprintsRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchGetBlueprintsRequestRequestTypeDef",
+    {
+        "IncludeBlueprint": bool,
+        "IncludeParameterSpec": bool,
+    },
+    total=False,
+)
+
+class BatchGetBlueprintsRequestRequestTypeDef(
+    _RequiredBatchGetBlueprintsRequestRequestTypeDef,
+    _OptionalBatchGetBlueprintsRequestRequestTypeDef,
+):
+    pass
+
+BatchGetBlueprintsResponseTypeDef = TypedDict(
+    "BatchGetBlueprintsResponseTypeDef",
+    {
+        "Blueprints": List["BlueprintTypeDef"],
+        "MissingBlueprints": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -886,6 +940,49 @@ BinaryColumnStatisticsDataTypeDef = TypedDict(
         "AverageLength": float,
         "NumberOfNulls": int,
     },
+)
+
+BlueprintDetailsTypeDef = TypedDict(
+    "BlueprintDetailsTypeDef",
+    {
+        "BlueprintName": str,
+        "RunId": str,
+    },
+    total=False,
+)
+
+BlueprintRunTypeDef = TypedDict(
+    "BlueprintRunTypeDef",
+    {
+        "BlueprintName": str,
+        "RunId": str,
+        "WorkflowName": str,
+        "State": BlueprintRunStateType,
+        "StartedOn": datetime,
+        "CompletedOn": datetime,
+        "ErrorMessage": str,
+        "RollbackErrorMessage": str,
+        "Parameters": str,
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+BlueprintTypeDef = TypedDict(
+    "BlueprintTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "CreatedOn": datetime,
+        "LastModifiedOn": datetime,
+        "ParameterSpec": str,
+        "BlueprintLocation": str,
+        "BlueprintServiceLocation": str,
+        "Status": BlueprintStatusType,
+        "ErrorMessage": str,
+        "LastActiveDefinition": "LastActiveDefinitionTypeDef",
+    },
+    total=False,
 )
 
 BooleanColumnStatisticsDataTypeDef = TypedDict(
@@ -1275,6 +1372,35 @@ CrawlerTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateBlueprintRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBlueprintRequestRequestTypeDef",
+    {
+        "Name": str,
+        "BlueprintLocation": str,
+    },
+)
+_OptionalCreateBlueprintRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBlueprintRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateBlueprintRequestRequestTypeDef(
+    _RequiredCreateBlueprintRequestRequestTypeDef, _OptionalCreateBlueprintRequestRequestTypeDef
+):
+    pass
+
+CreateBlueprintResponseTypeDef = TypedDict(
+    "CreateBlueprintResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateClassifierRequestRequestTypeDef = TypedDict(
     "CreateClassifierRequestRequestTypeDef",
     {
@@ -1296,6 +1422,7 @@ _OptionalCreateConnectionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateConnectionRequestRequestTypeDef",
     {
         "CatalogId": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -1975,6 +2102,21 @@ DecimalNumberTypeDef = TypedDict(
     },
 )
 
+DeleteBlueprintRequestRequestTypeDef = TypedDict(
+    "DeleteBlueprintRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteBlueprintResponseTypeDef = TypedDict(
+    "DeleteBlueprintResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteClassifierRequestRequestTypeDef = TypedDict(
     "DeleteClassifierRequestRequestTypeDef",
     {
@@ -2523,6 +2665,79 @@ FindMatchesTaskRunPropertiesTypeDef = TypedDict(
         "JobRunId": str,
     },
     total=False,
+)
+
+_RequiredGetBlueprintRequestRequestTypeDef = TypedDict(
+    "_RequiredGetBlueprintRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalGetBlueprintRequestRequestTypeDef = TypedDict(
+    "_OptionalGetBlueprintRequestRequestTypeDef",
+    {
+        "IncludeBlueprint": bool,
+        "IncludeParameterSpec": bool,
+    },
+    total=False,
+)
+
+class GetBlueprintRequestRequestTypeDef(
+    _RequiredGetBlueprintRequestRequestTypeDef, _OptionalGetBlueprintRequestRequestTypeDef
+):
+    pass
+
+GetBlueprintResponseTypeDef = TypedDict(
+    "GetBlueprintResponseTypeDef",
+    {
+        "Blueprint": "BlueprintTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetBlueprintRunRequestRequestTypeDef = TypedDict(
+    "GetBlueprintRunRequestRequestTypeDef",
+    {
+        "BlueprintName": str,
+        "RunId": str,
+    },
+)
+
+GetBlueprintRunResponseTypeDef = TypedDict(
+    "GetBlueprintRunResponseTypeDef",
+    {
+        "BlueprintRun": "BlueprintRunTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetBlueprintRunsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetBlueprintRunsRequestRequestTypeDef",
+    {
+        "BlueprintName": str,
+    },
+)
+_OptionalGetBlueprintRunsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetBlueprintRunsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetBlueprintRunsRequestRequestTypeDef(
+    _RequiredGetBlueprintRunsRequestRequestTypeDef, _OptionalGetBlueprintRunsRequestRequestTypeDef
+):
+    pass
+
+GetBlueprintRunsResponseTypeDef = TypedDict(
+    "GetBlueprintRunsResponseTypeDef",
+    {
+        "BlueprintRuns": List["BlueprintRunTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetCatalogImportStatusRequestRequestTypeDef = TypedDict(
@@ -3985,6 +4200,18 @@ LabelingSetGenerationTaskRunPropertiesTypeDef = TypedDict(
     total=False,
 )
 
+LastActiveDefinitionTypeDef = TypedDict(
+    "LastActiveDefinitionTypeDef",
+    {
+        "Description": str,
+        "LastModifiedOn": datetime,
+        "ParameterSpec": str,
+        "BlueprintLocation": str,
+        "BlueprintServiceLocation": str,
+    },
+    total=False,
+)
+
 LastCrawlInfoTypeDef = TypedDict(
     "LastCrawlInfoTypeDef",
     {
@@ -4004,6 +4231,25 @@ LineageConfigurationTypeDef = TypedDict(
         "CrawlerLineageSettings": CrawlerLineageSettingsType,
     },
     total=False,
+)
+
+ListBlueprintsRequestRequestTypeDef = TypedDict(
+    "ListBlueprintsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+ListBlueprintsResponseTypeDef = TypedDict(
+    "ListBlueprintsResponseTypeDef",
+    {
+        "Blueprints": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListCrawlersRequestRequestTypeDef = TypedDict(
@@ -4759,6 +5005,8 @@ S3TargetTypeDef = TypedDict(
         "Exclusions": List[str],
         "ConnectionName": str,
         "SampleSize": int,
+        "EventQueueArn": str,
+        "DlqEventQueueArn": str,
     },
     total=False,
 )
@@ -4922,6 +5170,34 @@ SortCriterionTypeDef = TypedDict(
         "Sort": SortType,
     },
     total=False,
+)
+
+_RequiredStartBlueprintRunRequestRequestTypeDef = TypedDict(
+    "_RequiredStartBlueprintRunRequestRequestTypeDef",
+    {
+        "BlueprintName": str,
+        "RoleArn": str,
+    },
+)
+_OptionalStartBlueprintRunRequestRequestTypeDef = TypedDict(
+    "_OptionalStartBlueprintRunRequestRequestTypeDef",
+    {
+        "Parameters": str,
+    },
+    total=False,
+)
+
+class StartBlueprintRunRequestRequestTypeDef(
+    _RequiredStartBlueprintRunRequestRequestTypeDef, _OptionalStartBlueprintRunRequestRequestTypeDef
+):
+    pass
+
+StartBlueprintRunResponseTypeDef = TypedDict(
+    "StartBlueprintRunResponseTypeDef",
+    {
+        "RunId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 StartCrawlerRequestRequestTypeDef = TypedDict(
@@ -5406,6 +5682,34 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceArn": str,
         "TagsToRemove": List[str],
+    },
+)
+
+_RequiredUpdateBlueprintRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateBlueprintRequestRequestTypeDef",
+    {
+        "Name": str,
+        "BlueprintLocation": str,
+    },
+)
+_OptionalUpdateBlueprintRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateBlueprintRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateBlueprintRequestRequestTypeDef(
+    _RequiredUpdateBlueprintRequestRequestTypeDef, _OptionalUpdateBlueprintRequestRequestTypeDef
+):
+    pass
+
+UpdateBlueprintResponseTypeDef = TypedDict(
+    "UpdateBlueprintResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -5968,6 +6272,7 @@ WorkflowTypeDef = TypedDict(
         "LastRun": "WorkflowRunTypeDef",
         "Graph": "WorkflowGraphTypeDef",
         "MaxConcurrentRuns": int,
+        "BlueprintDetails": "BlueprintDetailsTypeDef",
     },
     total=False,
 )

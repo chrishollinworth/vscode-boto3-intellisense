@@ -197,6 +197,8 @@ __all__ = (
     "ResourceToImportTypeDef",
     "ResponseMetadataTypeDef",
     "RollbackConfigurationTypeDef",
+    "RollbackStackInputRequestTypeDef",
+    "RollbackStackOutputTypeDef",
     "RollbackTriggerTypeDef",
     "ServiceResourceEventRequestTypeDef",
     "ServiceResourceStackRequestTypeDef",
@@ -1192,6 +1194,7 @@ _OptionalExecuteChangeSetInputRequestTypeDef = TypedDict(
     {
         "StackName": str,
         "ClientRequestToken": str,
+        "DisableRollback": bool,
     },
     total=False,
 )
@@ -1872,6 +1875,34 @@ RollbackConfigurationTypeDef = TypedDict(
         "MonitoringTimeInMinutes": int,
     },
     total=False,
+)
+
+_RequiredRollbackStackInputRequestTypeDef = TypedDict(
+    "_RequiredRollbackStackInputRequestTypeDef",
+    {
+        "StackName": str,
+    },
+)
+_OptionalRollbackStackInputRequestTypeDef = TypedDict(
+    "_OptionalRollbackStackInputRequestTypeDef",
+    {
+        "RoleARN": str,
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class RollbackStackInputRequestTypeDef(
+    _RequiredRollbackStackInputRequestTypeDef, _OptionalRollbackStackInputRequestTypeDef
+):
+    pass
+
+RollbackStackOutputTypeDef = TypedDict(
+    "RollbackStackOutputTypeDef",
+    {
+        "StackId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 RollbackTriggerTypeDef = TypedDict(
@@ -2580,6 +2611,7 @@ _OptionalUpdateStackInputRequestTypeDef = TypedDict(
         "StackPolicyURL": str,
         "NotificationARNs": List[str],
         "Tags": List["TagTypeDef"],
+        "DisableRollback": bool,
         "ClientRequestToken": str,
     },
     total=False,
@@ -2607,6 +2639,7 @@ UpdateStackInputStackTypeDef = TypedDict(
         "StackPolicyURL": str,
         "NotificationARNs": List[str],
         "Tags": List["TagTypeDef"],
+        "DisableRollback": bool,
         "ClientRequestToken": str,
     },
     total=False,

@@ -6,9 +6,9 @@ Type annotations for translate service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_translate.literals import EncryptionKeyTypeType
+    from mypy_boto3_translate.literals import DirectionalityType
 
-    data: EncryptionKeyTypeType = "KMS"
+    data: DirectionalityType = "MULTI"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "DirectionalityType",
     "EncryptionKeyTypeType",
     "JobStatusType",
     "ListTerminologiesPaginatorName",
@@ -28,6 +29,7 @@ __all__ = (
     "TerminologyDataFormatType",
 )
 
+DirectionalityType = Literal["MULTI", "UNI"]
 EncryptionKeyTypeType = Literal["KMS"]
 JobStatusType = Literal[
     "COMPLETED",
@@ -42,4 +44,4 @@ ListTerminologiesPaginatorName = Literal["list_terminologies"]
 MergeStrategyType = Literal["OVERWRITE"]
 ParallelDataFormatType = Literal["CSV", "TMX", "TSV"]
 ParallelDataStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
-TerminologyDataFormatType = Literal["CSV", "TMX"]
+TerminologyDataFormatType = Literal["CSV", "TMX", "TSV"]

@@ -13,13 +13,18 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AgentStatusType,
     AtimeType,
     EndpointTypeType,
     GidType,
+    HdfsAuthenticationTypeType,
+    HdfsDataTransferProtectionType,
+    HdfsRpcProtectionType,
     LocationFilterNameType,
     LogLevelType,
     MtimeType,
@@ -61,6 +66,8 @@ __all__ = (
     "CreateLocationEfsResponseTypeDef",
     "CreateLocationFsxWindowsRequestRequestTypeDef",
     "CreateLocationFsxWindowsResponseTypeDef",
+    "CreateLocationHdfsRequestRequestTypeDef",
+    "CreateLocationHdfsResponseTypeDef",
     "CreateLocationNfsRequestRequestTypeDef",
     "CreateLocationNfsResponseTypeDef",
     "CreateLocationObjectStorageRequestRequestTypeDef",
@@ -80,6 +87,8 @@ __all__ = (
     "DescribeLocationEfsResponseTypeDef",
     "DescribeLocationFsxWindowsRequestRequestTypeDef",
     "DescribeLocationFsxWindowsResponseTypeDef",
+    "DescribeLocationHdfsRequestRequestTypeDef",
+    "DescribeLocationHdfsResponseTypeDef",
     "DescribeLocationNfsRequestRequestTypeDef",
     "DescribeLocationNfsResponseTypeDef",
     "DescribeLocationObjectStorageRequestRequestTypeDef",
@@ -94,6 +103,7 @@ __all__ = (
     "DescribeTaskResponseTypeDef",
     "Ec2ConfigTypeDef",
     "FilterRuleTypeDef",
+    "HdfsNameNodeTypeDef",
     "ListAgentsRequestRequestTypeDef",
     "ListAgentsResponseTypeDef",
     "ListLocationsRequestRequestTypeDef",
@@ -111,6 +121,7 @@ __all__ = (
     "OptionsTypeDef",
     "PaginatorConfigTypeDef",
     "PrivateLinkConfigTypeDef",
+    "QopConfigurationTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigTypeDef",
     "SmbMountOptionsTypeDef",
@@ -125,6 +136,7 @@ __all__ = (
     "TaskScheduleTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateAgentRequestRequestTypeDef",
+    "UpdateLocationHdfsRequestRequestTypeDef",
     "UpdateLocationNfsRequestRequestTypeDef",
     "UpdateLocationObjectStorageRequestRequestTypeDef",
     "UpdateLocationSmbRequestRequestTypeDef",
@@ -236,6 +248,45 @@ class CreateLocationFsxWindowsRequestRequestTypeDef(
 
 CreateLocationFsxWindowsResponseTypeDef = TypedDict(
     "CreateLocationFsxWindowsResponseTypeDef",
+    {
+        "LocationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocationHdfsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocationHdfsRequestRequestTypeDef",
+    {
+        "NameNodes": List["HdfsNameNodeTypeDef"],
+        "AuthenticationType": HdfsAuthenticationTypeType,
+        "AgentArns": List[str],
+    },
+)
+_OptionalCreateLocationHdfsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocationHdfsRequestRequestTypeDef",
+    {
+        "Subdirectory": str,
+        "BlockSize": int,
+        "ReplicationFactor": int,
+        "KmsKeyProviderUri": str,
+        "QopConfiguration": "QopConfigurationTypeDef",
+        "SimpleUser": str,
+        "KerberosPrincipal": str,
+        "KerberosKeytab": Union[bytes, IO[bytes], StreamingBody],
+        "KerberosKrb5Conf": Union[bytes, IO[bytes], StreamingBody],
+        "Tags": List["TagListEntryTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLocationHdfsRequestRequestTypeDef(
+    _RequiredCreateLocationHdfsRequestRequestTypeDef,
+    _OptionalCreateLocationHdfsRequestRequestTypeDef,
+):
+    pass
+
+CreateLocationHdfsResponseTypeDef = TypedDict(
+    "CreateLocationHdfsResponseTypeDef",
     {
         "LocationArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -387,6 +438,7 @@ _OptionalCreateTaskRequestRequestTypeDef = TypedDict(
         "Excludes": List["FilterRuleTypeDef"],
         "Schedule": "TaskScheduleTypeDef",
         "Tags": List["TagListEntryTypeDef"],
+        "Includes": List["FilterRuleTypeDef"],
     },
     total=False,
 )
@@ -480,6 +532,32 @@ DescribeLocationFsxWindowsResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "User": str,
         "Domain": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocationHdfsRequestRequestTypeDef = TypedDict(
+    "DescribeLocationHdfsRequestRequestTypeDef",
+    {
+        "LocationArn": str,
+    },
+)
+
+DescribeLocationHdfsResponseTypeDef = TypedDict(
+    "DescribeLocationHdfsResponseTypeDef",
+    {
+        "LocationArn": str,
+        "LocationUri": str,
+        "NameNodes": List["HdfsNameNodeTypeDef"],
+        "BlockSize": int,
+        "ReplicationFactor": int,
+        "KmsKeyProviderUri": str,
+        "QopConfiguration": "QopConfigurationTypeDef",
+        "AuthenticationType": HdfsAuthenticationTypeType,
+        "SimpleUser": str,
+        "KerberosPrincipal": str,
+        "AgentArns": List[str],
+        "CreationTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -616,6 +694,7 @@ DescribeTaskResponseTypeDef = TypedDict(
         "ErrorCode": str,
         "ErrorDetail": str,
         "CreationTime": datetime,
+        "Includes": List["FilterRuleTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -635,6 +714,14 @@ FilterRuleTypeDef = TypedDict(
         "Value": str,
     },
     total=False,
+)
+
+HdfsNameNodeTypeDef = TypedDict(
+    "HdfsNameNodeTypeDef",
+    {
+        "Hostname": str,
+        "Port": int,
+    },
 )
 
 ListAgentsRequestRequestTypeDef = TypedDict(
@@ -817,6 +904,15 @@ PrivateLinkConfigTypeDef = TypedDict(
     total=False,
 )
 
+QopConfigurationTypeDef = TypedDict(
+    "QopConfigurationTypeDef",
+    {
+        "RpcProtection": HdfsRpcProtectionType,
+        "DataTransferProtection": HdfsDataTransferProtectionType,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -854,6 +950,7 @@ _OptionalStartTaskExecutionRequestRequestTypeDef = TypedDict(
     {
         "OverrideOptions": "OptionsTypeDef",
         "Includes": List["FilterRuleTypeDef"],
+        "Excludes": List["FilterRuleTypeDef"],
     },
     total=False,
 )
@@ -975,6 +1072,37 @@ class UpdateAgentRequestRequestTypeDef(
 ):
     pass
 
+_RequiredUpdateLocationHdfsRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateLocationHdfsRequestRequestTypeDef",
+    {
+        "LocationArn": str,
+    },
+)
+_OptionalUpdateLocationHdfsRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateLocationHdfsRequestRequestTypeDef",
+    {
+        "Subdirectory": str,
+        "NameNodes": List["HdfsNameNodeTypeDef"],
+        "BlockSize": int,
+        "ReplicationFactor": int,
+        "KmsKeyProviderUri": str,
+        "QopConfiguration": "QopConfigurationTypeDef",
+        "AuthenticationType": HdfsAuthenticationTypeType,
+        "SimpleUser": str,
+        "KerberosPrincipal": str,
+        "KerberosKeytab": Union[bytes, IO[bytes], StreamingBody],
+        "KerberosKrb5Conf": Union[bytes, IO[bytes], StreamingBody],
+        "AgentArns": List[str],
+    },
+    total=False,
+)
+
+class UpdateLocationHdfsRequestRequestTypeDef(
+    _RequiredUpdateLocationHdfsRequestRequestTypeDef,
+    _OptionalUpdateLocationHdfsRequestRequestTypeDef,
+):
+    pass
+
 _RequiredUpdateLocationNfsRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateLocationNfsRequestRequestTypeDef",
     {
@@ -1067,6 +1195,7 @@ _OptionalUpdateTaskRequestRequestTypeDef = TypedDict(
         "Schedule": "TaskScheduleTypeDef",
         "Name": str,
         "CloudWatchLogGroupArn": str,
+        "Includes": List["FilterRuleTypeDef"],
     },
     total=False,
 )

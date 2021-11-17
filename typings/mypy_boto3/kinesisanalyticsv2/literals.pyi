@@ -63,7 +63,13 @@ LogLevelType = Literal["DEBUG", "ERROR", "INFO", "WARN"]
 MetricsLevelType = Literal["APPLICATION", "OPERATOR", "PARALLELISM", "TASK"]
 RecordFormatTypeType = Literal["CSV", "JSON"]
 RuntimeEnvironmentType = Literal[
-    "FLINK-1_11", "FLINK-1_6", "FLINK-1_8", "SQL-1_0", "ZEPPELIN-FLINK-1_0"
+    "FLINK-1_11",
+    "FLINK-1_13",
+    "FLINK-1_6",
+    "FLINK-1_8",
+    "SQL-1_0",
+    "ZEPPELIN-FLINK-1_0",
+    "ZEPPELIN-FLINK-2_0",
 ]
 SnapshotStatusType = Literal["CREATING", "DELETING", "FAILED", "READY"]
 UrlTypeType = Literal["FLINK_DASHBOARD_URL", "ZEPPELIN_UI_URL"]

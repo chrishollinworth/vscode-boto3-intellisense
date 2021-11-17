@@ -81,7 +81,13 @@ DocumentationPartTypeType = Literal[
     "RESPONSE_BODY",
     "RESPONSE_HEADER",
 ]
-DomainNameStatusType = Literal["AVAILABLE", "PENDING", "UPDATING"]
+DomainNameStatusType = Literal[
+    "AVAILABLE",
+    "PENDING",
+    "PENDING_CERTIFICATE_REIMPORT",
+    "PENDING_OWNERSHIP_VERIFICATION",
+    "UPDATING",
+]
 EndpointTypeType = Literal["EDGE", "PRIVATE", "REGIONAL"]
 GatewayResponseTypeType = Literal[
     "ACCESS_DENIED",
@@ -104,6 +110,7 @@ GatewayResponseTypeType = Literal[
     "THROTTLED",
     "UNAUTHORIZED",
     "UNSUPPORTED_MEDIA_TYPE",
+    "WAF_FILTERED",
 ]
 GetApiKeysPaginatorName = Literal["get_api_keys"]
 GetAuthorizersPaginatorName = Literal["get_authorizers"]

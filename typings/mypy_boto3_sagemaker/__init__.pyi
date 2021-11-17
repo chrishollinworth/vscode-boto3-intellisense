@@ -56,6 +56,7 @@ Usage::
         ListPipelineParametersForExecutionPaginator,
         ListPipelinesPaginator,
         ListProcessingJobsPaginator,
+        ListStudioLifecycleConfigsPaginator,
         ListSubscribedWorkteamsPaginator,
         ListTagsPaginator,
         ListTrainingJobsForHyperParameterTuningJobPaginator,
@@ -137,6 +138,7 @@ Usage::
     list_pipeline_parameters_for_execution_paginator: ListPipelineParametersForExecutionPaginator = client.get_paginator("list_pipeline_parameters_for_execution")
     list_pipelines_paginator: ListPipelinesPaginator = client.get_paginator("list_pipelines")
     list_processing_jobs_paginator: ListProcessingJobsPaginator = client.get_paginator("list_processing_jobs")
+    list_studio_lifecycle_configs_paginator: ListStudioLifecycleConfigsPaginator = client.get_paginator("list_studio_lifecycle_configs")
     list_subscribed_workteams_paginator: ListSubscribedWorkteamsPaginator = client.get_paginator("list_subscribed_workteams")
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
     list_training_jobs_paginator: ListTrainingJobsPaginator = client.get_paginator("list_training_jobs")
@@ -194,6 +196,7 @@ from .paginator import (
     ListPipelineParametersForExecutionPaginator,
     ListPipelinesPaginator,
     ListProcessingJobsPaginator,
+    ListStudioLifecycleConfigsPaginator,
     ListSubscribedWorkteamsPaginator,
     ListTagsPaginator,
     ListTrainingJobsForHyperParameterTuningJobPaginator,
@@ -275,6 +278,7 @@ __all__ = (
     "ListPipelineParametersForExecutionPaginator",
     "ListPipelinesPaginator",
     "ListProcessingJobsPaginator",
+    "ListStudioLifecycleConfigsPaginator",
     "ListSubscribedWorkteamsPaginator",
     "ListTagsPaginator",
     "ListTrainingJobsForHyperParameterTuningJobPaginator",

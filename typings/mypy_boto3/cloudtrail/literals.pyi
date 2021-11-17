@@ -30,7 +30,7 @@ __all__ = (
 )
 
 EventCategoryType = Literal["insight"]
-InsightTypeType = Literal["ApiCallRateInsight"]
+InsightTypeType = Literal["ApiCallRateInsight", "ApiErrorRateInsight"]
 ListPublicKeysPaginatorName = Literal["list_public_keys"]
 ListTagsPaginatorName = Literal["list_tags"]
 ListTrailsPaginatorName = Literal["list_trails"]

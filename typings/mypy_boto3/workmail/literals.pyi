@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "AccessControlRuleEffectType",
+    "DnsRecordVerificationStatusType",
     "EntityStateType",
     "FolderNameType",
     "ListAliasesPaginatorName",
@@ -40,6 +41,7 @@ __all__ = (
 )
 
 AccessControlRuleEffectType = Literal["ALLOW", "DENY"]
+DnsRecordVerificationStatusType = Literal["FAILED", "PENDING", "VERIFIED"]
 EntityStateType = Literal["DELETED", "DISABLED", "ENABLED"]
 FolderNameType = Literal["DELETED_ITEMS", "DRAFTS", "INBOX", "JUNK_EMAIL", "SENT_ITEMS"]
 ListAliasesPaginatorName = Literal["list_aliases"]

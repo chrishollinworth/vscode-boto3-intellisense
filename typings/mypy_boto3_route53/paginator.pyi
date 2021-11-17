@@ -49,7 +49,7 @@ __all__ = (
 
 class ListHealthChecksPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhealthcheckspaginator)
     """
 
@@ -57,13 +57,13 @@ class ListHealthChecksPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHealthChecksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListHealthChecks.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListHealthChecks.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhealthcheckspaginator)
         """
 
 class ListHostedZonesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListHostedZones)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListHostedZones)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhostedzonespaginator)
     """
 
@@ -71,13 +71,13 @@ class ListHostedZonesPaginator(Boto3Paginator):
         self, *, DelegationSetId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHostedZonesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListHostedZones.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListHostedZones.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhostedzonespaginator)
         """
 
 class ListQueryLoggingConfigsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listqueryloggingconfigspaginator)
     """
 
@@ -85,13 +85,13 @@ class ListQueryLoggingConfigsPaginator(Boto3Paginator):
         self, *, HostedZoneId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueryLoggingConfigsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listqueryloggingconfigspaginator)
         """
 
 class ListResourceRecordSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listresourcerecordsetspaginator)
     """
 
@@ -99,13 +99,13 @@ class ListResourceRecordSetsPaginator(Boto3Paginator):
         self, *, HostedZoneId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceRecordSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listresourcerecordsetspaginator)
         """
 
 class ListVPCAssociationAuthorizationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listvpcassociationauthorizationspaginator)
     """
 
@@ -117,6 +117,6 @@ class ListVPCAssociationAuthorizationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVPCAssociationAuthorizationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listvpcassociationauthorizationspaginator)
         """

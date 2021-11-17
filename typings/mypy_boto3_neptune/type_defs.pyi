@@ -1717,6 +1717,8 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "EnableIAMDatabaseAuthentication": bool,
         "CloudwatchLogsExportConfiguration": "CloudwatchLogsExportConfigurationTypeDef",
         "EngineVersion": str,
+        "AllowMajorVersionUpgrade": bool,
+        "DBInstanceParameterGroupName": str,
         "DeletionProtection": bool,
         "CopyTagsToSnapshot": bool,
     },

@@ -31,17 +31,31 @@ __all__ = (
     "DataRepositoryTaskTypeType",
     "DescribeBackupsPaginatorName",
     "DescribeFileSystemsPaginatorName",
+    "DiskIopsConfigurationModeType",
     "DriveCacheTypeType",
     "FileSystemLifecycleType",
     "FileSystemMaintenanceOperationType",
     "FileSystemTypeType",
     "FilterNameType",
+    "FlexCacheEndpointTypeType",
     "ListTagsForResourcePaginatorName",
     "LustreDeploymentTypeType",
+    "OntapDeploymentTypeType",
+    "OntapVolumeTypeType",
     "ReportFormatType",
     "ReportScopeType",
+    "ResourceTypeType",
+    "SecurityStyleType",
     "StatusType",
     "StorageTypeType",
+    "StorageVirtualMachineFilterNameType",
+    "StorageVirtualMachineLifecycleType",
+    "StorageVirtualMachineRootVolumeSecurityStyleType",
+    "StorageVirtualMachineSubtypeType",
+    "TieringPolicyNameType",
+    "VolumeFilterNameType",
+    "VolumeLifecycleType",
+    "VolumeTypeType",
     "WindowsAccessAuditLogLevelType",
     "WindowsDeploymentTypeType",
 )
@@ -69,19 +83,39 @@ DataRepositoryTaskLifecycleType = Literal[
 DataRepositoryTaskTypeType = Literal["EXPORT_TO_REPOSITORY"]
 DescribeBackupsPaginatorName = Literal["describe_backups"]
 DescribeFileSystemsPaginatorName = Literal["describe_file_systems"]
+DiskIopsConfigurationModeType = Literal["AUTOMATIC", "USER_PROVISIONED"]
 DriveCacheTypeType = Literal["NONE", "READ"]
 FileSystemLifecycleType = Literal[
     "AVAILABLE", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "UPDATING"
 ]
 FileSystemMaintenanceOperationType = Literal["BACKING_UP", "PATCHING"]
-FileSystemTypeType = Literal["LUSTRE", "WINDOWS"]
-FilterNameType = Literal["backup-type", "file-system-id", "file-system-type"]
+FileSystemTypeType = Literal["LUSTRE", "ONTAP", "WINDOWS"]
+FilterNameType = Literal["backup-type", "file-system-id", "file-system-type", "volume-id"]
+FlexCacheEndpointTypeType = Literal["CACHE", "NONE", "ORIGIN"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LustreDeploymentTypeType = Literal["PERSISTENT_1", "SCRATCH_1", "SCRATCH_2"]
+OntapDeploymentTypeType = Literal["MULTI_AZ_1"]
+OntapVolumeTypeType = Literal["DP", "LS", "RW"]
 ReportFormatType = Literal["REPORT_CSV_20191124"]
 ReportScopeType = Literal["FAILED_FILES_ONLY"]
+ResourceTypeType = Literal["FILE_SYSTEM", "VOLUME"]
+SecurityStyleType = Literal["MIXED", "NTFS", "UNIX"]
 StatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "PENDING", "UPDATED_OPTIMIZING"]
 StorageTypeType = Literal["HDD", "SSD"]
+StorageVirtualMachineFilterNameType = Literal["file-system-id"]
+StorageVirtualMachineLifecycleType = Literal[
+    "CREATED", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "PENDING"
+]
+StorageVirtualMachineRootVolumeSecurityStyleType = Literal["MIXED", "NTFS", "UNIX"]
+StorageVirtualMachineSubtypeType = Literal[
+    "DEFAULT", "DP_DESTINATION", "SYNC_DESTINATION", "SYNC_SOURCE"
+]
+TieringPolicyNameType = Literal["ALL", "AUTO", "NONE", "SNAPSHOT_ONLY"]
+VolumeFilterNameType = Literal["file-system-id", "storage-virtual-machine-id"]
+VolumeLifecycleType = Literal[
+    "CREATED", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "PENDING"
+]
+VolumeTypeType = Literal["ONTAP"]
 WindowsAccessAuditLogLevelType = Literal[
     "DISABLED", "FAILURE_ONLY", "SUCCESS_AND_FAILURE", "SUCCESS_ONLY"
 ]

@@ -19,6 +19,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     ActionTypeType,
+    AggregationTypeNameType,
     AuditCheckRunStatusType,
     AuditFindingSeverityType,
     AuditFrequencyType,
@@ -48,6 +49,7 @@ from .literals import (
     DynamoKeyTypeType,
     EventTypeType,
     FieldTypeType,
+    FleetMetricUnitType,
     IndexStatusType,
     JobExecutionFailureTypeType,
     JobExecutionStatusType,
@@ -69,6 +71,7 @@ from .literals import (
     ThingGroupIndexingModeType,
     ThingIndexingModeType,
     TopicRuleDestinationStatusType,
+    VerificationStateType,
     ViolationEventTypeType,
 )
 
@@ -90,6 +93,7 @@ __all__ = (
     "AddThingToBillingGroupRequestRequestTypeDef",
     "AddThingToThingGroupRequestRequestTypeDef",
     "AddThingsToThingGroupParamsTypeDef",
+    "AggregationTypeTypeDef",
     "AlertTargetTypeDef",
     "AllowedTypeDef",
     "AssetPropertyTimestampTypeDef",
@@ -128,6 +132,8 @@ __all__ = (
     "BehaviorTypeDef",
     "BillingGroupMetadataTypeDef",
     "BillingGroupPropertiesTypeDef",
+    "BucketTypeDef",
+    "BucketsAggregationTypeTypeDef",
     "CACertificateDescriptionTypeDef",
     "CACertificateTypeDef",
     "CancelAuditMitigationActionsTaskRequestRequestTypeDef",
@@ -163,6 +169,8 @@ __all__ = (
     "CreateDomainConfigurationResponseTypeDef",
     "CreateDynamicThingGroupRequestRequestTypeDef",
     "CreateDynamicThingGroupResponseTypeDef",
+    "CreateFleetMetricRequestRequestTypeDef",
+    "CreateFleetMetricResponseTypeDef",
     "CreateJobRequestRequestTypeDef",
     "CreateJobResponseTypeDef",
     "CreateJobTemplateRequestRequestTypeDef",
@@ -211,6 +219,7 @@ __all__ = (
     "DeleteDimensionRequestRequestTypeDef",
     "DeleteDomainConfigurationRequestRequestTypeDef",
     "DeleteDynamicThingGroupRequestRequestTypeDef",
+    "DeleteFleetMetricRequestRequestTypeDef",
     "DeleteJobExecutionRequestRequestTypeDef",
     "DeleteJobRequestRequestTypeDef",
     "DeleteJobTemplateRequestRequestTypeDef",
@@ -261,6 +270,8 @@ __all__ = (
     "DescribeEndpointRequestRequestTypeDef",
     "DescribeEndpointResponseTypeDef",
     "DescribeEventConfigurationsResponseTypeDef",
+    "DescribeFleetMetricRequestRequestTypeDef",
+    "DescribeFleetMetricResponseTypeDef",
     "DescribeIndexRequestRequestTypeDef",
     "DescribeIndexResponseTypeDef",
     "DescribeJobExecutionRequestRequestTypeDef",
@@ -314,8 +325,11 @@ __all__ = (
     "FieldTypeDef",
     "FileLocationTypeDef",
     "FirehoseActionTypeDef",
+    "FleetMetricNameAndArnTypeDef",
     "GetBehaviorModelTrainingSummariesRequestRequestTypeDef",
     "GetBehaviorModelTrainingSummariesResponseTypeDef",
+    "GetBucketsAggregationRequestRequestTypeDef",
+    "GetBucketsAggregationResponseTypeDef",
     "GetCardinalityRequestRequestTypeDef",
     "GetCardinalityResponseTypeDef",
     "GetEffectivePoliciesRequestRequestTypeDef",
@@ -400,6 +414,8 @@ __all__ = (
     "ListDimensionsResponseTypeDef",
     "ListDomainConfigurationsRequestRequestTypeDef",
     "ListDomainConfigurationsResponseTypeDef",
+    "ListFleetMetricsRequestRequestTypeDef",
+    "ListFleetMetricsResponseTypeDef",
     "ListIndicesRequestRequestTypeDef",
     "ListIndicesResponseTypeDef",
     "ListJobExecutionsForJobRequestRequestTypeDef",
@@ -487,6 +503,7 @@ __all__ = (
     "OTAUpdateFileTypeDef",
     "OTAUpdateInfoTypeDef",
     "OTAUpdateSummaryTypeDef",
+    "OpenSearchActionTypeDef",
     "OutgoingCertificateTypeDef",
     "PaginatorConfigTypeDef",
     "PercentPairTypeDef",
@@ -500,6 +517,7 @@ __all__ = (
     "PublishFindingToSnsParamsTypeDef",
     "PutAssetPropertyValueEntryTypeDef",
     "PutItemInputTypeDef",
+    "PutVerificationStateOnViolationRequestRequestTypeDef",
     "RateIncreaseCriteriaTypeDef",
     "RegisterCACertificateRequestRequestTypeDef",
     "RegisterCACertificateResponseTypeDef",
@@ -562,6 +580,7 @@ __all__ = (
     "TagTypeDef",
     "TaskStatisticsForAuditCheckTypeDef",
     "TaskStatisticsTypeDef",
+    "TermsAggregationTypeDef",
     "TestAuthorizationRequestRequestTypeDef",
     "TestAuthorizationResponseTypeDef",
     "TestInvokeAuthorizerRequestRequestTypeDef",
@@ -611,6 +630,7 @@ __all__ = (
     "UpdateDynamicThingGroupRequestRequestTypeDef",
     "UpdateDynamicThingGroupResponseTypeDef",
     "UpdateEventConfigurationsRequestRequestTypeDef",
+    "UpdateFleetMetricRequestRequestTypeDef",
     "UpdateIndexingConfigurationRequestRequestTypeDef",
     "UpdateJobRequestRequestTypeDef",
     "UpdateMitigationActionRequestRequestTypeDef",
@@ -701,6 +721,7 @@ ActionTypeDef = TypedDict(
         "timestream": "TimestreamActionTypeDef",
         "http": "HttpActionTypeDef",
         "kafka": "KafkaActionTypeDef",
+        "openSearch": "OpenSearchActionTypeDef",
     },
     total=False,
 )
@@ -714,6 +735,8 @@ ActiveViolationTypeDef = TypedDict(
         "behavior": "BehaviorTypeDef",
         "lastViolationValue": "MetricValueTypeDef",
         "violationEventAdditionalInfo": "ViolationEventAdditionalInfoTypeDef",
+        "verificationState": VerificationStateType,
+        "verificationStateDescription": str,
         "lastViolationTime": datetime,
         "violationStartTime": datetime,
     },
@@ -760,6 +783,23 @@ _OptionalAddThingsToThingGroupParamsTypeDef = TypedDict(
 class AddThingsToThingGroupParamsTypeDef(
     _RequiredAddThingsToThingGroupParamsTypeDef, _OptionalAddThingsToThingGroupParamsTypeDef
 ):
+    pass
+
+_RequiredAggregationTypeTypeDef = TypedDict(
+    "_RequiredAggregationTypeTypeDef",
+    {
+        "name": AggregationTypeNameType,
+    },
+)
+_OptionalAggregationTypeTypeDef = TypedDict(
+    "_OptionalAggregationTypeTypeDef",
+    {
+        "values": List[str],
+    },
+    total=False,
+)
+
+class AggregationTypeTypeDef(_RequiredAggregationTypeTypeDef, _OptionalAggregationTypeTypeDef):
     pass
 
 AlertTargetTypeDef = TypedDict(
@@ -1199,6 +1239,23 @@ BillingGroupPropertiesTypeDef = TypedDict(
     "BillingGroupPropertiesTypeDef",
     {
         "billingGroupDescription": str,
+    },
+    total=False,
+)
+
+BucketTypeDef = TypedDict(
+    "BucketTypeDef",
+    {
+        "keyValue": str,
+        "count": int,
+    },
+    total=False,
+)
+
+BucketsAggregationTypeTypeDef = TypedDict(
+    "BucketsAggregationTypeTypeDef",
+    {
+        "termsAggregation": "TermsAggregationTypeDef",
     },
     total=False,
 )
@@ -1687,6 +1744,42 @@ CreateDynamicThingGroupResponseTypeDef = TypedDict(
         "indexName": str,
         "queryString": str,
         "queryVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFleetMetricRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFleetMetricRequestRequestTypeDef",
+    {
+        "metricName": str,
+        "queryString": str,
+        "aggregationType": "AggregationTypeTypeDef",
+        "period": int,
+        "aggregationField": str,
+    },
+)
+_OptionalCreateFleetMetricRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFleetMetricRequestRequestTypeDef",
+    {
+        "description": str,
+        "queryVersion": str,
+        "indexName": str,
+        "unit": FleetMetricUnitType,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFleetMetricRequestRequestTypeDef(
+    _RequiredCreateFleetMetricRequestRequestTypeDef, _OptionalCreateFleetMetricRequestRequestTypeDef
+):
+    pass
+
+CreateFleetMetricResponseTypeDef = TypedDict(
+    "CreateFleetMetricResponseTypeDef",
+    {
+        "metricName": str,
+        "metricArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2384,6 +2477,25 @@ class DeleteDynamicThingGroupRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteFleetMetricRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteFleetMetricRequestRequestTypeDef",
+    {
+        "metricName": str,
+    },
+)
+_OptionalDeleteFleetMetricRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteFleetMetricRequestRequestTypeDef",
+    {
+        "expectedVersion": int,
+    },
+    total=False,
+)
+
+class DeleteFleetMetricRequestRequestTypeDef(
+    _RequiredDeleteFleetMetricRequestRequestTypeDef, _OptionalDeleteFleetMetricRequestRequestTypeDef
+):
+    pass
+
 _RequiredDeleteJobExecutionRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteJobExecutionRequestRequestTypeDef",
     {
@@ -2890,6 +3002,33 @@ DescribeEventConfigurationsResponseTypeDef = TypedDict(
         "eventConfigurations": Dict[EventTypeType, "ConfigurationTypeDef"],
         "creationDate": datetime,
         "lastModifiedDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetMetricRequestRequestTypeDef = TypedDict(
+    "DescribeFleetMetricRequestRequestTypeDef",
+    {
+        "metricName": str,
+    },
+)
+
+DescribeFleetMetricResponseTypeDef = TypedDict(
+    "DescribeFleetMetricResponseTypeDef",
+    {
+        "metricName": str,
+        "queryString": str,
+        "aggregationType": "AggregationTypeTypeDef",
+        "period": int,
+        "aggregationField": str,
+        "description": str,
+        "queryVersion": str,
+        "indexName": str,
+        "creationDate": datetime,
+        "lastModifiedDate": datetime,
+        "unit": FleetMetricUnitType,
+        "version": int,
+        "metricArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3452,6 +3591,15 @@ _OptionalFirehoseActionTypeDef = TypedDict(
 class FirehoseActionTypeDef(_RequiredFirehoseActionTypeDef, _OptionalFirehoseActionTypeDef):
     pass
 
+FleetMetricNameAndArnTypeDef = TypedDict(
+    "FleetMetricNameAndArnTypeDef",
+    {
+        "metricName": str,
+        "metricArn": str,
+    },
+    total=False,
+)
+
 GetBehaviorModelTrainingSummariesRequestRequestTypeDef = TypedDict(
     "GetBehaviorModelTrainingSummariesRequestRequestTypeDef",
     {
@@ -3467,6 +3615,38 @@ GetBehaviorModelTrainingSummariesResponseTypeDef = TypedDict(
     {
         "summaries": List["BehaviorModelTrainingSummaryTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetBucketsAggregationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetBucketsAggregationRequestRequestTypeDef",
+    {
+        "queryString": str,
+        "aggregationField": str,
+        "bucketsAggregationType": "BucketsAggregationTypeTypeDef",
+    },
+)
+_OptionalGetBucketsAggregationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetBucketsAggregationRequestRequestTypeDef",
+    {
+        "indexName": str,
+        "queryVersion": str,
+    },
+    total=False,
+)
+
+class GetBucketsAggregationRequestRequestTypeDef(
+    _RequiredGetBucketsAggregationRequestRequestTypeDef,
+    _OptionalGetBucketsAggregationRequestRequestTypeDef,
+):
+    pass
+
+GetBucketsAggregationResponseTypeDef = TypedDict(
+    "GetBucketsAggregationResponseTypeDef",
+    {
+        "totalCount": int,
+        "buckets": List["BucketTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4034,6 +4214,7 @@ ListActiveViolationsRequestRequestTypeDef = TypedDict(
         "securityProfileName": str,
         "behaviorCriteriaType": BehaviorCriteriaTypeType,
         "listSuppressedAlerts": bool,
+        "verificationState": VerificationStateType,
         "nextToken": str,
         "maxResults": int,
     },
@@ -4436,6 +4617,24 @@ ListDomainConfigurationsResponseTypeDef = TypedDict(
     {
         "domainConfigurations": List["DomainConfigurationSummaryTypeDef"],
         "nextMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListFleetMetricsRequestRequestTypeDef = TypedDict(
+    "ListFleetMetricsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListFleetMetricsResponseTypeDef = TypedDict(
+    "ListFleetMetricsResponseTypeDef",
+    {
+        "fleetMetrics": List["FleetMetricNameAndArnTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5294,6 +5493,7 @@ _OptionalListViolationEventsRequestRequestTypeDef = TypedDict(
         "securityProfileName": str,
         "behaviorCriteriaType": BehaviorCriteriaTypeType,
         "listSuppressedAlerts": bool,
+        "verificationState": VerificationStateType,
         "nextToken": str,
         "maxResults": int,
     },
@@ -5514,6 +5714,17 @@ OTAUpdateSummaryTypeDef = TypedDict(
     total=False,
 )
 
+OpenSearchActionTypeDef = TypedDict(
+    "OpenSearchActionTypeDef",
+    {
+        "roleArn": str,
+        "endpoint": str,
+        "index": str,
+        "type": str,
+        "id": str,
+    },
+)
+
 OutgoingCertificateTypeDef = TypedDict(
     "OutgoingCertificateTypeDef",
     {
@@ -5658,6 +5869,27 @@ PutItemInputTypeDef = TypedDict(
         "tableName": str,
     },
 )
+
+_RequiredPutVerificationStateOnViolationRequestRequestTypeDef = TypedDict(
+    "_RequiredPutVerificationStateOnViolationRequestRequestTypeDef",
+    {
+        "violationId": str,
+        "verificationState": VerificationStateType,
+    },
+)
+_OptionalPutVerificationStateOnViolationRequestRequestTypeDef = TypedDict(
+    "_OptionalPutVerificationStateOnViolationRequestRequestTypeDef",
+    {
+        "verificationStateDescription": str,
+    },
+    total=False,
+)
+
+class PutVerificationStateOnViolationRequestRequestTypeDef(
+    _RequiredPutVerificationStateOnViolationRequestRequestTypeDef,
+    _OptionalPutVerificationStateOnViolationRequestRequestTypeDef,
+):
+    pass
 
 RateIncreaseCriteriaTypeDef = TypedDict(
     "RateIncreaseCriteriaTypeDef",
@@ -6390,6 +6622,14 @@ TaskStatisticsTypeDef = TypedDict(
     total=False,
 )
 
+TermsAggregationTypeDef = TypedDict(
+    "TermsAggregationTypeDef",
+    {
+        "maxBuckets": int,
+    },
+    total=False,
+)
+
 _RequiredTestAuthorizationRequestRequestTypeDef = TypedDict(
     "_RequiredTestAuthorizationRequestRequestTypeDef",
     {
@@ -6474,6 +6714,7 @@ ThingConnectivityTypeDef = TypedDict(
     {
         "connected": bool,
         "timestamp": int,
+        "disconnectReason": str,
     },
     total=False,
 )
@@ -7033,6 +7274,33 @@ UpdateEventConfigurationsRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredUpdateFleetMetricRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFleetMetricRequestRequestTypeDef",
+    {
+        "metricName": str,
+        "indexName": str,
+    },
+)
+_OptionalUpdateFleetMetricRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFleetMetricRequestRequestTypeDef",
+    {
+        "queryString": str,
+        "aggregationType": "AggregationTypeTypeDef",
+        "period": int,
+        "aggregationField": str,
+        "description": str,
+        "queryVersion": str,
+        "unit": FleetMetricUnitType,
+        "expectedVersion": int,
+    },
+    total=False,
+)
+
+class UpdateFleetMetricRequestRequestTypeDef(
+    _RequiredUpdateFleetMetricRequestRequestTypeDef, _OptionalUpdateFleetMetricRequestRequestTypeDef
+):
+    pass
+
 UpdateIndexingConfigurationRequestRequestTypeDef = TypedDict(
     "UpdateIndexingConfigurationRequestRequestTypeDef",
     {
@@ -7377,6 +7645,8 @@ ViolationEventTypeDef = TypedDict(
         "metricValue": "MetricValueTypeDef",
         "violationEventAdditionalInfo": "ViolationEventAdditionalInfoTypeDef",
         "violationEventType": ViolationEventTypeType,
+        "verificationState": VerificationStateType,
+        "verificationStateDescription": str,
         "violationEventTime": datetime,
     },
     total=False,

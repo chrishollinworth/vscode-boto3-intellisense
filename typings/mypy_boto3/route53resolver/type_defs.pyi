@@ -16,6 +16,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     ActionType,
+    AutodefinedReverseFlagType,
     BlockResponseType,
     FirewallDomainListStatusType,
     FirewallDomainUpdateOperationType,
@@ -24,6 +25,7 @@ from .literals import (
     FirewallRuleGroupStatusType,
     IpAddressStatusType,
     MutationProtectionStatusType,
+    ResolverAutodefinedReverseStatusType,
     ResolverDNSSECValidationStatusType,
     ResolverEndpointDirectionType,
     ResolverEndpointStatusType,
@@ -106,6 +108,8 @@ __all__ = (
     "GetFirewallRuleGroupPolicyResponseTypeDef",
     "GetFirewallRuleGroupRequestRequestTypeDef",
     "GetFirewallRuleGroupResponseTypeDef",
+    "GetResolverConfigRequestRequestTypeDef",
+    "GetResolverConfigResponseTypeDef",
     "GetResolverDnssecConfigRequestRequestTypeDef",
     "GetResolverDnssecConfigResponseTypeDef",
     "GetResolverEndpointRequestRequestTypeDef",
@@ -139,6 +143,8 @@ __all__ = (
     "ListFirewallRuleGroupsResponseTypeDef",
     "ListFirewallRulesRequestRequestTypeDef",
     "ListFirewallRulesResponseTypeDef",
+    "ListResolverConfigsRequestRequestTypeDef",
+    "ListResolverConfigsResponseTypeDef",
     "ListResolverDnssecConfigsRequestRequestTypeDef",
     "ListResolverDnssecConfigsResponseTypeDef",
     "ListResolverEndpointIpAddressesRequestRequestTypeDef",
@@ -162,6 +168,7 @@ __all__ = (
     "PutResolverQueryLogConfigPolicyResponseTypeDef",
     "PutResolverRulePolicyRequestRequestTypeDef",
     "PutResolverRulePolicyResponseTypeDef",
+    "ResolverConfigTypeDef",
     "ResolverDnssecConfigTypeDef",
     "ResolverEndpointTypeDef",
     "ResolverQueryLogConfigAssociationTypeDef",
@@ -182,6 +189,8 @@ __all__ = (
     "UpdateFirewallRuleGroupAssociationResponseTypeDef",
     "UpdateFirewallRuleRequestRequestTypeDef",
     "UpdateFirewallRuleResponseTypeDef",
+    "UpdateResolverConfigRequestRequestTypeDef",
+    "UpdateResolverConfigResponseTypeDef",
     "UpdateResolverDnssecConfigRequestRequestTypeDef",
     "UpdateResolverDnssecConfigResponseTypeDef",
     "UpdateResolverEndpointRequestRequestTypeDef",
@@ -821,6 +830,21 @@ GetFirewallRuleGroupResponseTypeDef = TypedDict(
     },
 )
 
+GetResolverConfigRequestRequestTypeDef = TypedDict(
+    "GetResolverConfigRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
+)
+
+GetResolverConfigResponseTypeDef = TypedDict(
+    "GetResolverConfigResponseTypeDef",
+    {
+        "ResolverConfig": "ResolverConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetResolverDnssecConfigRequestRequestTypeDef = TypedDict(
     "GetResolverDnssecConfigRequestRequestTypeDef",
     {
@@ -1139,6 +1163,24 @@ ListFirewallRulesResponseTypeDef = TypedDict(
     },
 )
 
+ListResolverConfigsRequestRequestTypeDef = TypedDict(
+    "ListResolverConfigsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListResolverConfigsResponseTypeDef = TypedDict(
+    "ListResolverConfigsResponseTypeDef",
+    {
+        "NextToken": str,
+        "ResolverConfigs": List["ResolverConfigTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListResolverDnssecConfigsRequestRequestTypeDef = TypedDict(
     "ListResolverDnssecConfigsRequestRequestTypeDef",
     {
@@ -1381,6 +1423,17 @@ PutResolverRulePolicyResponseTypeDef = TypedDict(
         "ReturnValue": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ResolverConfigTypeDef = TypedDict(
+    "ResolverConfigTypeDef",
+    {
+        "Id": str,
+        "ResourceId": str,
+        "OwnerId": str,
+        "AutodefinedReverse": ResolverAutodefinedReverseStatusType,
+    },
+    total=False,
 )
 
 ResolverDnssecConfigTypeDef = TypedDict(
@@ -1637,6 +1690,22 @@ UpdateFirewallRuleResponseTypeDef = TypedDict(
     "UpdateFirewallRuleResponseTypeDef",
     {
         "FirewallRule": "FirewallRuleTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateResolverConfigRequestRequestTypeDef = TypedDict(
+    "UpdateResolverConfigRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+        "AutodefinedReverseFlag": AutodefinedReverseFlagType,
+    },
+)
+
+UpdateResolverConfigResponseTypeDef = TypedDict(
+    "UpdateResolverConfigResponseTypeDef",
+    {
+        "ResolverConfig": "ResolverConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

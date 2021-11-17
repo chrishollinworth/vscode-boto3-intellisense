@@ -601,6 +601,7 @@ _OptionalCreateDomainNameRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
         "securityPolicy": SecurityPolicyType,
         "mutualTlsAuthentication": "MutualTlsAuthenticationInputTypeDef",
+        "ownershipVerificationCertificateArn": str,
     },
     total=False,
 )
@@ -1089,6 +1090,7 @@ DomainNameResponseMetadataTypeDef = TypedDict(
         "securityPolicy": SecurityPolicyType,
         "tags": Dict[str, str],
         "mutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
+        "ownershipVerificationCertificateArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1112,6 +1114,7 @@ DomainNameTypeDef = TypedDict(
         "securityPolicy": SecurityPolicyType,
         "tags": Dict[str, str],
         "mutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
+        "ownershipVerificationCertificateArn": str,
     },
     total=False,
 )

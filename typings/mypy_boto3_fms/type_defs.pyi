@@ -962,6 +962,7 @@ PolicySummaryTypeDef = TypedDict(
         "ResourceType": str,
         "SecurityServiceType": SecurityServiceTypeType,
         "RemediationEnabled": bool,
+        "DeleteUnusedFMManagedResources": bool,
     },
     total=False,
 )
@@ -983,6 +984,7 @@ _OptionalPolicyTypeDef = TypedDict(
         "PolicyUpdateToken": str,
         "ResourceTypeList": List[str],
         "ResourceTags": List["ResourceTagTypeDef"],
+        "DeleteUnusedFMManagedResources": bool,
         "IncludeMap": Dict[CustomerPolicyScopeIdTypeType, List[str]],
         "ExcludeMap": Dict[CustomerPolicyScopeIdTypeType, List[str]],
     },

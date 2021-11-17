@@ -23,6 +23,7 @@ from .literals import (
     ReactionType,
     RecommendationCategoryType,
     RepositoryAssociationStateType,
+    SeverityType,
     TypeType,
     VendorNameType,
 )
@@ -78,6 +79,7 @@ __all__ = (
     "RepositoryTypeDef",
     "RequestMetadataTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleMetadataTypeDef",
     "S3BucketRepositoryTypeDef",
     "S3RepositoryDetailsTypeDef",
     "S3RepositoryTypeDef",
@@ -542,6 +544,8 @@ RecommendationSummaryTypeDef = TypedDict(
         "EndLine": int,
         "Description": str,
         "RecommendationCategory": RecommendationCategoryType,
+        "RuleMetadata": "RuleMetadataTypeDef",
+        "Severity": SeverityType,
     },
     total=False,
 )
@@ -627,6 +631,18 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RuleMetadataTypeDef = TypedDict(
+    "RuleMetadataTypeDef",
+    {
+        "RuleId": str,
+        "RuleName": str,
+        "ShortDescription": str,
+        "LongDescription": str,
+        "RuleTags": List[str],
+    },
+    total=False,
 )
 
 _RequiredS3BucketRepositoryTypeDef = TypedDict(

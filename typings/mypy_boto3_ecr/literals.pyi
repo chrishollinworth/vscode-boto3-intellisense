@@ -34,6 +34,8 @@ __all__ = (
     "LifecyclePolicyPreviewCompleteWaiterName",
     "LifecyclePolicyPreviewStatusType",
     "ListImagesPaginatorName",
+    "ReplicationStatusType",
+    "RepositoryFilterTypeType",
     "ScanStatusType",
     "TagStatusType",
 )
@@ -61,5 +63,7 @@ LayerFailureCodeType = Literal["InvalidLayerDigest", "MissingLayerDigest"]
 LifecyclePolicyPreviewCompleteWaiterName = Literal["lifecycle_policy_preview_complete"]
 LifecyclePolicyPreviewStatusType = Literal["COMPLETE", "EXPIRED", "FAILED", "IN_PROGRESS"]
 ListImagesPaginatorName = Literal["list_images"]
+ReplicationStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS"]
+RepositoryFilterTypeType = Literal["PREFIX_MATCH"]
 ScanStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS"]
 TagStatusType = Literal["ANY", "TAGGED", "UNTAGGED"]

@@ -19,6 +19,8 @@ from .literals import (
     ActivityStreamModeType,
     ActivityStreamStatusType,
     ApplyMethodType,
+    AutomationModeType,
+    CustomEngineVersionStatusType,
     DBProxyEndpointStatusType,
     DBProxyEndpointTargetRoleType,
     DBProxyStatusType,
@@ -79,6 +81,7 @@ __all__ = (
     "CopyOptionGroupResultTypeDef",
     "CreateCustomAvailabilityZoneMessageRequestTypeDef",
     "CreateCustomAvailabilityZoneResultTypeDef",
+    "CreateCustomDBEngineVersionMessageRequestTypeDef",
     "CreateDBClusterEndpointMessageRequestTypeDef",
     "CreateDBClusterMessageRequestTypeDef",
     "CreateDBClusterParameterGroupMessageRequestTypeDef",
@@ -131,6 +134,7 @@ __all__ = (
     "DBClusterSnapshotTypeDef",
     "DBClusterTypeDef",
     "DBEngineVersionMessageTypeDef",
+    "DBEngineVersionResponseMetadataTypeDef",
     "DBEngineVersionTypeDef",
     "DBInstanceAutomatedBackupMessageTypeDef",
     "DBInstanceAutomatedBackupTypeDef",
@@ -159,6 +163,7 @@ __all__ = (
     "DBSubnetGroupTypeDef",
     "DeleteCustomAvailabilityZoneMessageRequestTypeDef",
     "DeleteCustomAvailabilityZoneResultTypeDef",
+    "DeleteCustomDBEngineVersionMessageRequestTypeDef",
     "DeleteDBClusterEndpointMessageRequestTypeDef",
     "DeleteDBClusterMessageRequestTypeDef",
     "DeleteDBClusterParameterGroupMessageRequestTypeDef",
@@ -271,6 +276,7 @@ __all__ = (
     "ModifyCertificatesMessageRequestTypeDef",
     "ModifyCertificatesResultTypeDef",
     "ModifyCurrentDBClusterCapacityMessageRequestTypeDef",
+    "ModifyCustomDBEngineVersionMessageRequestTypeDef",
     "ModifyDBClusterEndpointMessageRequestTypeDef",
     "ModifyDBClusterMessageRequestTypeDef",
     "ModifyDBClusterParameterGroupMessageRequestTypeDef",
@@ -849,6 +855,32 @@ CreateCustomAvailabilityZoneResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateCustomDBEngineVersionMessageRequestTypeDef",
+    {
+        "Engine": str,
+        "EngineVersion": str,
+        "DatabaseInstallationFilesS3BucketName": str,
+        "KMSKeyId": str,
+        "Manifest": str,
+    },
+)
+_OptionalCreateCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateCustomDBEngineVersionMessageRequestTypeDef",
+    {
+        "DatabaseInstallationFilesS3Prefix": str,
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateCustomDBEngineVersionMessageRequestTypeDef(
+    _RequiredCreateCustomDBEngineVersionMessageRequestTypeDef,
+    _OptionalCreateCustomDBEngineVersionMessageRequestTypeDef,
+):
+    pass
+
 _RequiredCreateDBClusterEndpointMessageRequestTypeDef = TypedDict(
     "_RequiredCreateDBClusterEndpointMessageRequestTypeDef",
     {
@@ -1047,6 +1079,7 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "DeletionProtection": bool,
         "MaxAllocatedStorage": int,
         "EnableCustomerOwnedIp": bool,
+        "CustomIamInstanceProfile": str,
     },
     total=False,
 )
@@ -1096,6 +1129,7 @@ _OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
         "DomainIAMRoleName": str,
         "ReplicaMode": ReplicaModeType,
         "MaxAllocatedStorage": int,
+        "CustomIamInstanceProfile": str,
         "SourceRegion": str,
     },
     total=False,
@@ -1646,6 +1680,7 @@ DBClusterTypeDef = TypedDict(
         "DBClusterParameterGroup": str,
         "DBSubnetGroup": str,
         "Status": str,
+        "AutomaticRestartTime": datetime,
         "PercentProgress": str,
         "EarliestRestorableTime": datetime,
         "Endpoint": str,
@@ -1706,6 +1741,38 @@ DBEngineVersionMessageTypeDef = TypedDict(
     },
 )
 
+DBEngineVersionResponseMetadataTypeDef = TypedDict(
+    "DBEngineVersionResponseMetadataTypeDef",
+    {
+        "Engine": str,
+        "EngineVersion": str,
+        "DBParameterGroupFamily": str,
+        "DBEngineDescription": str,
+        "DBEngineVersionDescription": str,
+        "DefaultCharacterSet": "CharacterSetTypeDef",
+        "SupportedCharacterSets": List["CharacterSetTypeDef"],
+        "SupportedNcharCharacterSets": List["CharacterSetTypeDef"],
+        "ValidUpgradeTarget": List["UpgradeTargetTypeDef"],
+        "SupportedTimezones": List["TimezoneTypeDef"],
+        "ExportableLogTypes": List[str],
+        "SupportsLogExportsToCloudwatchLogs": bool,
+        "SupportsReadReplica": bool,
+        "SupportedEngineModes": List[str],
+        "SupportedFeatureNames": List[str],
+        "Status": str,
+        "SupportsParallelQuery": bool,
+        "SupportsGlobalDatabases": bool,
+        "MajorEngineVersion": str,
+        "DatabaseInstallationFilesS3BucketName": str,
+        "DatabaseInstallationFilesS3Prefix": str,
+        "DBEngineVersionArn": str,
+        "KMSKeyId": str,
+        "CreateTime": datetime,
+        "TagList": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBEngineVersionTypeDef = TypedDict(
     "DBEngineVersionTypeDef",
     {
@@ -1727,6 +1794,13 @@ DBEngineVersionTypeDef = TypedDict(
         "Status": str,
         "SupportsParallelQuery": bool,
         "SupportsGlobalDatabases": bool,
+        "MajorEngineVersion": str,
+        "DatabaseInstallationFilesS3BucketName": str,
+        "DatabaseInstallationFilesS3Prefix": str,
+        "DBEngineVersionArn": str,
+        "KMSKeyId": str,
+        "CreateTime": datetime,
+        "TagList": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1820,6 +1894,7 @@ DBInstanceTypeDef = TypedDict(
         "DBInstanceClass": str,
         "Engine": str,
         "DBInstanceStatus": str,
+        "AutomaticRestartTime": datetime,
         "MasterUsername": str,
         "DBName": str,
         "Endpoint": "EndpointTypeDef",
@@ -1887,6 +1962,9 @@ DBInstanceTypeDef = TypedDict(
         "ActivityStreamKinesisStreamName": str,
         "ActivityStreamMode": ActivityStreamModeType,
         "ActivityStreamEngineNativeAuditFieldsIncluded": bool,
+        "AutomationMode": AutomationModeType,
+        "ResumeFullAutomationModeTime": datetime,
+        "CustomIamInstanceProfile": str,
     },
     total=False,
 )
@@ -2137,6 +2215,14 @@ DeleteCustomAvailabilityZoneResultTypeDef = TypedDict(
     {
         "CustomAvailabilityZone": "CustomAvailabilityZoneTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
+    "DeleteCustomDBEngineVersionMessageRequestTypeDef",
+    {
+        "Engine": str,
+        "EngineVersion": str,
     },
 )
 
@@ -3484,6 +3570,28 @@ class ModifyCurrentDBClusterCapacityMessageRequestTypeDef(
 ):
     pass
 
+_RequiredModifyCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyCustomDBEngineVersionMessageRequestTypeDef",
+    {
+        "Engine": str,
+        "EngineVersion": str,
+    },
+)
+_OptionalModifyCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyCustomDBEngineVersionMessageRequestTypeDef",
+    {
+        "Description": str,
+        "Status": CustomEngineVersionStatusType,
+    },
+    total=False,
+)
+
+class ModifyCustomDBEngineVersionMessageRequestTypeDef(
+    _RequiredModifyCustomDBEngineVersionMessageRequestTypeDef,
+    _OptionalModifyCustomDBEngineVersionMessageRequestTypeDef,
+):
+    pass
+
 _RequiredModifyDBClusterEndpointMessageRequestTypeDef = TypedDict(
     "_RequiredModifyDBClusterEndpointMessageRequestTypeDef",
     {
@@ -3646,6 +3754,8 @@ _OptionalModifyDBInstanceMessageRequestTypeDef = TypedDict(
         "ReplicaMode": ReplicaModeType,
         "EnableCustomerOwnedIp": bool,
         "AwsBackupRecoveryPointArn": str,
+        "AutomationMode": AutomationModeType,
+        "ResumeFullAutomationModeMinutes": int,
     },
     total=False,
 )
@@ -4204,6 +4314,8 @@ PendingModifiedValuesTypeDef = TypedDict(
         "PendingCloudwatchLogsExports": "PendingCloudwatchLogsExportsTypeDef",
         "ProcessorFeatures": List["ProcessorFeatureTypeDef"],
         "IAMDatabaseAuthenticationEnabled": bool,
+        "AutomationMode": AutomationModeType,
+        "ResumeFullAutomationModeTime": datetime,
     },
     total=False,
 )
@@ -4747,6 +4859,7 @@ _OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
         "DBParameterGroupName": str,
         "DeletionProtection": bool,
         "EnableCustomerOwnedIp": bool,
+        "CustomIamInstanceProfile": str,
     },
     total=False,
 )
@@ -4877,6 +4990,7 @@ _OptionalRestoreDBInstanceToPointInTimeMessageRequestTypeDef = TypedDict(
         "MaxAllocatedStorage": int,
         "SourceDBInstanceAutomatedBackupsArn": str,
         "EnableCustomerOwnedIp": bool,
+        "CustomIamInstanceProfile": str,
     },
     total=False,
 )
@@ -4943,6 +5057,7 @@ ScalingConfigurationInfoTypeDef = TypedDict(
         "AutoPause": bool,
         "SecondsUntilAutoPause": int,
         "TimeoutAction": str,
+        "SecondsBeforeTimeout": int,
     },
     total=False,
 )
@@ -4955,6 +5070,7 @@ ScalingConfigurationTypeDef = TypedDict(
         "AutoPause": bool,
         "SecondsUntilAutoPause": int,
         "TimeoutAction": str,
+        "SecondsBeforeTimeout": int,
     },
     total=False,
 )

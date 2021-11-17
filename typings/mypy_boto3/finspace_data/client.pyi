@@ -47,7 +47,7 @@ class Exceptions:
 
 class FinSpaceDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/finspace-data.html#FinSpaceData.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/finspace-data.html#FinSpaceData.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html)
     """
 
@@ -61,7 +61,7 @@ class FinSpaceDataClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/finspace-data.html#FinSpaceData.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/finspace-data.html#FinSpaceData.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#can_paginate)
         """
     def create_changeset(
@@ -78,7 +78,7 @@ class FinSpaceDataClient(BaseClient):
         """
         Creates a new changeset in a FinSpace dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/finspace-data.html#FinSpaceData.Client.create_changeset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/finspace-data.html#FinSpaceData.Client.create_changeset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#create_changeset)
         """
     def generate_presigned_url(
@@ -91,7 +91,7 @@ class FinSpaceDataClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/finspace-data.html#FinSpaceData.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/finspace-data.html#FinSpaceData.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#generate_presigned_url)
         """
     def get_programmatic_access_credentials(
@@ -100,7 +100,7 @@ class FinSpaceDataClient(BaseClient):
         """
         Request programmatic credentials to use with Habanero SDK.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/finspace-data.html#FinSpaceData.Client.get_programmatic_access_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/finspace-data.html#FinSpaceData.Client.get_programmatic_access_credentials)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_programmatic_access_credentials)
         """
     def get_working_location(
@@ -110,6 +110,6 @@ class FinSpaceDataClient(BaseClient):
         A temporary Amazon S3 location to copy your files from a source location to
         stage or use as a scratch space in Habanero notebook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/finspace-data.html#FinSpaceData.Client.get_working_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/finspace-data.html#FinSpaceData.Client.get_working_location)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_working_location)
         """

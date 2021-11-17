@@ -6,9 +6,9 @@ Type annotations for lexv2-models service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lexv2_models.literals import BotAliasAvailableWaiterName
+    from mypy_boto3_lexv2_models.literals import AggregatedUtterancesFilterNameType
 
-    data: BotAliasAvailableWaiterName = "bot_alias_available"
+    data: AggregatedUtterancesFilterNameType = "Utterance"
     ```
 """
 import sys
@@ -19,6 +19,9 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AggregatedUtterancesFilterNameType",
+    "AggregatedUtterancesFilterOperatorType",
+    "AggregatedUtterancesSortAttributeType",
     "BotAliasAvailableWaiterName",
     "BotAliasStatusType",
     "BotAvailableWaiterName",
@@ -63,8 +66,12 @@ __all__ = (
     "SlotTypeSortAttributeType",
     "SlotValueResolutionStrategyType",
     "SortOrderType",
+    "TimeDimensionType",
 )
 
+AggregatedUtterancesFilterNameType = Literal["Utterance"]
+AggregatedUtterancesFilterOperatorType = Literal["CO", "EQ"]
+AggregatedUtterancesSortAttributeType = Literal["HitCount", "MissedCount"]
 BotAliasAvailableWaiterName = Literal["bot_alias_available"]
 BotAliasStatusType = Literal["Available", "Creating", "Deleting", "Failed"]
 BotAvailableWaiterName = Literal["bot_available"]
@@ -120,3 +127,4 @@ SlotTypeFilterOperatorType = Literal["CO", "EQ"]
 SlotTypeSortAttributeType = Literal["LastUpdatedDateTime", "SlotTypeName"]
 SlotValueResolutionStrategyType = Literal["OriginalValue", "TopResolution"]
 SortOrderType = Literal["Ascending", "Descending"]
+TimeDimensionType = Literal["Days", "Hours", "Weeks"]

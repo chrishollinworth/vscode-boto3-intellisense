@@ -55,7 +55,7 @@ class Exceptions:
 
 class MWAAClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html)
     """
 
@@ -69,14 +69,14 @@ class MWAAClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#can_paginate)
         """
     def create_cli_token(self, *, Name: str) -> CreateCliTokenResponseTypeDef:
         """
         Create a CLI token to use Airflow CLI.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.create_cli_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.create_cli_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#create_cli_token)
         """
     def create_environment(
@@ -106,7 +106,7 @@ class MWAAClient(BaseClient):
         """
         Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.create_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.create_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#create_environment)
         """
     def create_web_login_token(self, *, Name: str) -> CreateWebLoginTokenResponseTypeDef:
@@ -114,14 +114,14 @@ class MWAAClient(BaseClient):
         Create a JWT token to be used to login to Airflow Web UI with claims based
         Authentication.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.create_web_login_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.create_web_login_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#create_web_login_token)
         """
     def delete_environment(self, *, Name: str) -> Dict[str, Any]:
         """
         Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.delete_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#delete_environment)
         """
     def generate_presigned_url(
@@ -134,7 +134,7 @@ class MWAAClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#generate_presigned_url)
         """
     def get_environment(self, *, Name: str) -> GetEnvironmentOutputTypeDef:
@@ -142,7 +142,7 @@ class MWAAClient(BaseClient):
         Retrieves the details of an Amazon Managed Workflows for Apache Airflow (MWAA)
         environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.get_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#get_environment)
         """
     def list_environments(
@@ -151,7 +151,7 @@ class MWAAClient(BaseClient):
         """
         Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.list_environments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#list_environments)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceOutputTypeDef:
@@ -159,7 +159,7 @@ class MWAAClient(BaseClient):
         Lists the key-value tag pairs associated to the Amazon Managed Workflows for
         Apache Airflow (MWAA) environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#list_tags_for_resource)
         """
     def publish_metrics(
@@ -168,7 +168,7 @@ class MWAAClient(BaseClient):
         """
         An operation for publishing metrics from the customers to the Ops plane.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.publish_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.publish_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#publish_metrics)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
@@ -176,7 +176,7 @@ class MWAAClient(BaseClient):
         Associates key-value tag pairs to your Amazon Managed Workflows for Apache
         Airflow (MWAA) environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
@@ -184,7 +184,7 @@ class MWAAClient(BaseClient):
         Removes key-value tag pairs associated to your Amazon Managed Workflows for
         Apache Airflow (MWAA) environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#untag_resource)
         """
     def update_environment(
@@ -212,13 +212,13 @@ class MWAAClient(BaseClient):
         """
         Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Client.update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Client.update_environment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/client.html#update_environment)
         """
     def get_paginator(
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/mwaa.html#MWAA.Paginator.ListEnvironments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/mwaa.html#MWAA.Paginator.ListEnvironments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/paginators.html#listenvironmentspaginator)
         """

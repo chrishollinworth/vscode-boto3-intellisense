@@ -23,6 +23,7 @@ __all__ = (
     "DataSourceType",
     "DataTypeType",
     "DetectorVersionStatusType",
+    "EventIngestionType",
     "LanguageType",
     "ModelEndpointStatusType",
     "ModelInputDataFormatType",
@@ -32,6 +33,7 @@ __all__ = (
     "ModelVersionStatusType",
     "RuleExecutionModeType",
     "TrainingDataSourceEnumType",
+    "UnlabeledEventsTreatmentType",
 )
 
 AsyncJobStatusType = Literal[
@@ -45,12 +47,14 @@ AsyncJobStatusType = Literal[
 DataSourceType = Literal["EVENT", "EXTERNAL_MODEL_SCORE", "MODEL_SCORE"]
 DataTypeType = Literal["BOOLEAN", "FLOAT", "INTEGER", "STRING"]
 DetectorVersionStatusType = Literal["ACTIVE", "DRAFT", "INACTIVE"]
+EventIngestionType = Literal["DISABLED", "ENABLED"]
 LanguageType = Literal["DETECTORPL"]
 ModelEndpointStatusType = Literal["ASSOCIATED", "DISSOCIATED"]
 ModelInputDataFormatType = Literal["APPLICATION_JSON", "TEXT_CSV"]
 ModelOutputDataFormatType = Literal["APPLICATION_JSONLINES", "TEXT_CSV"]
 ModelSourceType = Literal["SAGEMAKER"]
-ModelTypeEnumType = Literal["ONLINE_FRAUD_INSIGHTS"]
+ModelTypeEnumType = Literal["ONLINE_FRAUD_INSIGHTS", "TRANSACTION_FRAUD_INSIGHTS"]
 ModelVersionStatusType = Literal["ACTIVE", "INACTIVE", "TRAINING_CANCELLED"]
 RuleExecutionModeType = Literal["ALL_MATCHED", "FIRST_MATCHED"]
-TrainingDataSourceEnumType = Literal["EXTERNAL_EVENTS"]
+TrainingDataSourceEnumType = Literal["EXTERNAL_EVENTS", "INGESTED_EVENTS"]
+UnlabeledEventsTreatmentType = Literal["FRAUD", "IGNORE", "LEGIT"]

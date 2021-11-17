@@ -29,6 +29,7 @@ from .literals import (
     HasLogicalRedundancyType,
     InterconnectStateType,
     LagStateType,
+    NniPartnerTypeType,
     VirtualInterfaceStateType,
 )
 
@@ -59,6 +60,8 @@ __all__ = (
     "BGPPeerTypeDef",
     "ConfirmConnectionRequestRequestTypeDef",
     "ConfirmConnectionResponseTypeDef",
+    "ConfirmCustomerAgreementRequestRequestTypeDef",
+    "ConfirmCustomerAgreementResponseTypeDef",
     "ConfirmPrivateVirtualInterfaceRequestRequestTypeDef",
     "ConfirmPrivateVirtualInterfaceResponseTypeDef",
     "ConfirmPublicVirtualInterfaceRequestRequestTypeDef",
@@ -83,6 +86,7 @@ __all__ = (
     "CreatePublicVirtualInterfaceRequestRequestTypeDef",
     "CreateTransitVirtualInterfaceRequestRequestTypeDef",
     "CreateTransitVirtualInterfaceResultTypeDef",
+    "CustomerAgreementTypeDef",
     "DeleteBGPPeerRequestRequestTypeDef",
     "DeleteBGPPeerResponseTypeDef",
     "DeleteConnectionRequestRequestTypeDef",
@@ -101,6 +105,7 @@ __all__ = (
     "DescribeConnectionLoaResponseTypeDef",
     "DescribeConnectionsOnInterconnectRequestRequestTypeDef",
     "DescribeConnectionsRequestRequestTypeDef",
+    "DescribeCustomerMetadataResponseTypeDef",
     "DescribeDirectConnectGatewayAssociationProposalsRequestRequestTypeDef",
     "DescribeDirectConnectGatewayAssociationProposalsResultTypeDef",
     "DescribeDirectConnectGatewayAssociationsRequestRequestTypeDef",
@@ -115,6 +120,8 @@ __all__ = (
     "DescribeInterconnectsRequestRequestTypeDef",
     "DescribeLagsRequestRequestTypeDef",
     "DescribeLoaRequestRequestTypeDef",
+    "DescribeRouterConfigurationRequestRequestTypeDef",
+    "DescribeRouterConfigurationResponseTypeDef",
     "DescribeTagsRequestRequestTypeDef",
     "DescribeTagsResponseTypeDef",
     "DescribeVirtualInterfacesRequestRequestTypeDef",
@@ -149,6 +156,7 @@ __all__ = (
     "ResourceTagTypeDef",
     "ResponseMetadataTypeDef",
     "RouteFilterPrefixTypeDef",
+    "RouterTypeTypeDef",
     "StartBgpFailoverTestRequestRequestTypeDef",
     "StartBgpFailoverTestResponseTypeDef",
     "StopBgpFailoverTestRequestRequestTypeDef",
@@ -159,6 +167,8 @@ __all__ = (
     "UpdateConnectionRequestRequestTypeDef",
     "UpdateDirectConnectGatewayAssociationRequestRequestTypeDef",
     "UpdateDirectConnectGatewayAssociationResultTypeDef",
+    "UpdateDirectConnectGatewayRequestRequestTypeDef",
+    "UpdateDirectConnectGatewayResponseTypeDef",
     "UpdateLagRequestRequestTypeDef",
     "UpdateVirtualInterfaceAttributesRequestRequestTypeDef",
     "VirtualGatewayTypeDef",
@@ -363,6 +373,22 @@ ConfirmConnectionResponseTypeDef = TypedDict(
     "ConfirmConnectionResponseTypeDef",
     {
         "connectionState": ConnectionStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ConfirmCustomerAgreementRequestRequestTypeDef = TypedDict(
+    "ConfirmCustomerAgreementRequestRequestTypeDef",
+    {
+        "agreementName": str,
+    },
+    total=False,
+)
+
+ConfirmCustomerAgreementResponseTypeDef = TypedDict(
+    "ConfirmCustomerAgreementResponseTypeDef",
+    {
+        "status": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -705,6 +731,15 @@ CreateTransitVirtualInterfaceResultTypeDef = TypedDict(
     },
 )
 
+CustomerAgreementTypeDef = TypedDict(
+    "CustomerAgreementTypeDef",
+    {
+        "agreementName": str,
+        "status": str,
+    },
+    total=False,
+)
+
 DeleteBGPPeerRequestRequestTypeDef = TypedDict(
     "DeleteBGPPeerRequestRequestTypeDef",
     {
@@ -858,6 +893,15 @@ DescribeConnectionsRequestRequestTypeDef = TypedDict(
         "connectionId": str,
     },
     total=False,
+)
+
+DescribeCustomerMetadataResponseTypeDef = TypedDict(
+    "DescribeCustomerMetadataResponseTypeDef",
+    {
+        "agreements": List["CustomerAgreementTypeDef"],
+        "nniPartnerType": NniPartnerTypeType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 DescribeDirectConnectGatewayAssociationProposalsRequestRequestTypeDef = TypedDict(
@@ -1015,6 +1059,37 @@ class DescribeLoaRequestRequestTypeDef(
     _RequiredDescribeLoaRequestRequestTypeDef, _OptionalDescribeLoaRequestRequestTypeDef
 ):
     pass
+
+_RequiredDescribeRouterConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeRouterConfigurationRequestRequestTypeDef",
+    {
+        "virtualInterfaceId": str,
+    },
+)
+_OptionalDescribeRouterConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeRouterConfigurationRequestRequestTypeDef",
+    {
+        "routerTypeIdentifier": str,
+    },
+    total=False,
+)
+
+class DescribeRouterConfigurationRequestRequestTypeDef(
+    _RequiredDescribeRouterConfigurationRequestRequestTypeDef,
+    _OptionalDescribeRouterConfigurationRequestRequestTypeDef,
+):
+    pass
+
+DescribeRouterConfigurationResponseTypeDef = TypedDict(
+    "DescribeRouterConfigurationResponseTypeDef",
+    {
+        "customerRouterConfig": str,
+        "router": "RouterTypeTypeDef",
+        "virtualInterfaceId": str,
+        "virtualInterfaceName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DescribeTagsRequestRequestTypeDef = TypedDict(
     "DescribeTagsRequestRequestTypeDef",
@@ -1502,6 +1577,19 @@ RouteFilterPrefixTypeDef = TypedDict(
     total=False,
 )
 
+RouterTypeTypeDef = TypedDict(
+    "RouterTypeTypeDef",
+    {
+        "vendor": str,
+        "platform": str,
+        "software": str,
+        "xsltTemplateName": str,
+        "xsltTemplateNameForMacSec": str,
+        "routerTypeIdentifier": str,
+    },
+    total=False,
+)
+
 _RequiredStartBgpFailoverTestRequestRequestTypeDef = TypedDict(
     "_RequiredStartBgpFailoverTestRequestRequestTypeDef",
     {
@@ -1613,6 +1701,22 @@ UpdateDirectConnectGatewayAssociationResultTypeDef = TypedDict(
     "UpdateDirectConnectGatewayAssociationResultTypeDef",
     {
         "directConnectGatewayAssociation": "DirectConnectGatewayAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateDirectConnectGatewayRequestRequestTypeDef = TypedDict(
+    "UpdateDirectConnectGatewayRequestRequestTypeDef",
+    {
+        "directConnectGatewayId": str,
+        "newDirectConnectGatewayName": str,
+    },
+)
+
+UpdateDirectConnectGatewayResponseTypeDef = TypedDict(
+    "UpdateDirectConnectGatewayResponseTypeDef",
+    {
+        "directConnectGateway": "DirectConnectGatewayTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

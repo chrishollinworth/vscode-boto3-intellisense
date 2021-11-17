@@ -25,6 +25,7 @@ from .literals import (
     LayerAvailabilityType,
     LayerFailureCodeType,
     LifecyclePolicyPreviewStatusType,
+    ReplicationStatusType,
     ScanStatusType,
     TagStatusType,
 )
@@ -58,6 +59,8 @@ __all__ = (
     "DeleteRepositoryPolicyResponseTypeDef",
     "DeleteRepositoryRequestRequestTypeDef",
     "DeleteRepositoryResponseTypeDef",
+    "DescribeImageReplicationStatusRequestRequestTypeDef",
+    "DescribeImageReplicationStatusResponseTypeDef",
     "DescribeImageScanFindingsRequestRequestTypeDef",
     "DescribeImageScanFindingsResponseTypeDef",
     "DescribeImagesFilterTypeDef",
@@ -81,6 +84,7 @@ __all__ = (
     "ImageDetailTypeDef",
     "ImageFailureTypeDef",
     "ImageIdentifierTypeDef",
+    "ImageReplicationStatusTypeDef",
     "ImageScanFindingTypeDef",
     "ImageScanFindingsSummaryTypeDef",
     "ImageScanFindingsTypeDef",
@@ -116,6 +120,7 @@ __all__ = (
     "ReplicationConfigurationTypeDef",
     "ReplicationDestinationTypeDef",
     "ReplicationRuleTypeDef",
+    "RepositoryFilterTypeDef",
     "RepositoryTypeDef",
     "ResponseMetadataTypeDef",
     "SetRepositoryPolicyRequestRequestTypeDef",
@@ -290,6 +295,7 @@ _RequiredCreateRepositoryRequestRequestTypeDef = TypedDict(
 _OptionalCreateRepositoryRequestRequestTypeDef = TypedDict(
     "_OptionalCreateRepositoryRequestRequestTypeDef",
     {
+        "registryId": str,
         "tags": List["TagTypeDef"],
         "imageTagMutability": ImageTagMutabilityType,
         "imageScanningConfiguration": "ImageScanningConfigurationTypeDef",
@@ -405,6 +411,37 @@ DeleteRepositoryResponseTypeDef = TypedDict(
     "DeleteRepositoryResponseTypeDef",
     {
         "repository": "RepositoryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeImageReplicationStatusRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeImageReplicationStatusRequestRequestTypeDef",
+    {
+        "repositoryName": str,
+        "imageId": "ImageIdentifierTypeDef",
+    },
+)
+_OptionalDescribeImageReplicationStatusRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeImageReplicationStatusRequestRequestTypeDef",
+    {
+        "registryId": str,
+    },
+    total=False,
+)
+
+class DescribeImageReplicationStatusRequestRequestTypeDef(
+    _RequiredDescribeImageReplicationStatusRequestRequestTypeDef,
+    _OptionalDescribeImageReplicationStatusRequestRequestTypeDef,
+):
+    pass
+
+DescribeImageReplicationStatusResponseTypeDef = TypedDict(
+    "DescribeImageReplicationStatusResponseTypeDef",
+    {
+        "repositoryName": str,
+        "imageId": "ImageIdentifierTypeDef",
+        "replicationStatuses": List["ImageReplicationStatusTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -719,6 +756,17 @@ ImageIdentifierTypeDef = TypedDict(
     {
         "imageDigest": str,
         "imageTag": str,
+    },
+    total=False,
+)
+
+ImageReplicationStatusTypeDef = TypedDict(
+    "ImageReplicationStatusTypeDef",
+    {
+        "region": str,
+        "registryId": str,
+        "status": ReplicationStatusType,
+        "failureCode": str,
     },
     total=False,
 )
@@ -1105,10 +1153,28 @@ ReplicationDestinationTypeDef = TypedDict(
     },
 )
 
-ReplicationRuleTypeDef = TypedDict(
-    "ReplicationRuleTypeDef",
+_RequiredReplicationRuleTypeDef = TypedDict(
+    "_RequiredReplicationRuleTypeDef",
     {
         "destinations": List["ReplicationDestinationTypeDef"],
+    },
+)
+_OptionalReplicationRuleTypeDef = TypedDict(
+    "_OptionalReplicationRuleTypeDef",
+    {
+        "repositoryFilters": List["RepositoryFilterTypeDef"],
+    },
+    total=False,
+)
+
+class ReplicationRuleTypeDef(_RequiredReplicationRuleTypeDef, _OptionalReplicationRuleTypeDef):
+    pass
+
+RepositoryFilterTypeDef = TypedDict(
+    "RepositoryFilterTypeDef",
+    {
+        "filter": str,
+        "filterType": Literal["PREFIX_MATCH"],
     },
 )
 

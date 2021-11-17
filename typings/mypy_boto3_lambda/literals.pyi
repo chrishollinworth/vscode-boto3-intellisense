@@ -6,9 +6,9 @@ Type annotations for lambda service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lambda.literals import CodeSigningPolicyType
+    from mypy_boto3_lambda.literals import ArchitectureType
 
-    data: CodeSigningPolicyType = "Enforce"
+    data: ArchitectureType = "arm64"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ArchitectureType",
     "CodeSigningPolicyType",
     "EndPointTypeType",
     "EventSourcePositionType",
@@ -50,6 +51,7 @@ __all__ = (
     "TracingModeType",
 )
 
+ArchitectureType = Literal["arm64", "x86_64"]
 CodeSigningPolicyType = Literal["Enforce", "Warn"]
 EndPointTypeType = Literal["KAFKA_BOOTSTRAP_SERVERS"]
 EventSourcePositionType = Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"]
@@ -108,6 +110,7 @@ RuntimeType = Literal[
     "python3.6",
     "python3.7",
     "python3.8",
+    "python3.9",
     "ruby2.5",
     "ruby2.7",
 ]

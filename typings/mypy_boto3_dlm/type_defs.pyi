@@ -40,9 +40,11 @@ __all__ = (
     "CreateLifecyclePolicyResponseTypeDef",
     "CreateRuleTypeDef",
     "CrossRegionCopyActionTypeDef",
+    "CrossRegionCopyDeprecateRuleTypeDef",
     "CrossRegionCopyRetainRuleTypeDef",
     "CrossRegionCopyRuleTypeDef",
     "DeleteLifecyclePolicyRequestRequestTypeDef",
+    "DeprecateRuleTypeDef",
     "EncryptionConfigurationTypeDef",
     "EventParametersTypeDef",
     "EventSourceTypeDef",
@@ -138,6 +140,15 @@ class CrossRegionCopyActionTypeDef(
 ):
     pass
 
+CrossRegionCopyDeprecateRuleTypeDef = TypedDict(
+    "CrossRegionCopyDeprecateRuleTypeDef",
+    {
+        "Interval": int,
+        "IntervalUnit": RetentionIntervalUnitValuesType,
+    },
+    total=False,
+)
+
 CrossRegionCopyRetainRuleTypeDef = TypedDict(
     "CrossRegionCopyRetainRuleTypeDef",
     {
@@ -161,6 +172,7 @@ _OptionalCrossRegionCopyRuleTypeDef = TypedDict(
         "CmkArn": str,
         "CopyTags": bool,
         "RetainRule": "CrossRegionCopyRetainRuleTypeDef",
+        "DeprecateRule": "CrossRegionCopyDeprecateRuleTypeDef",
     },
     total=False,
 )
@@ -175,6 +187,16 @@ DeleteLifecyclePolicyRequestRequestTypeDef = TypedDict(
     {
         "PolicyId": str,
     },
+)
+
+DeprecateRuleTypeDef = TypedDict(
+    "DeprecateRuleTypeDef",
+    {
+        "Count": int,
+        "Interval": int,
+        "IntervalUnit": RetentionIntervalUnitValuesType,
+    },
+    total=False,
 )
 
 _RequiredEncryptionConfigurationTypeDef = TypedDict(
@@ -377,6 +399,7 @@ ScheduleTypeDef = TypedDict(
         "FastRestoreRule": "FastRestoreRuleTypeDef",
         "CrossRegionCopyRules": List["CrossRegionCopyRuleTypeDef"],
         "ShareRules": List["ShareRuleTypeDef"],
+        "DeprecateRule": "DeprecateRuleTypeDef",
     },
     total=False,
 )

@@ -24,6 +24,9 @@ __all__ = (
     "EndpointTypeType",
     "FilterTypeType",
     "GidType",
+    "HdfsAuthenticationTypeType",
+    "HdfsDataTransferProtectionType",
+    "HdfsRpcProtectionType",
     "ListAgentsPaginatorName",
     "ListLocationsPaginatorName",
     "ListTagsForResourcePaginatorName",
@@ -57,6 +60,9 @@ AtimeType = Literal["BEST_EFFORT", "NONE"]
 EndpointTypeType = Literal["FIPS", "PRIVATE_LINK", "PUBLIC"]
 FilterTypeType = Literal["SIMPLE_PATTERN"]
 GidType = Literal["BOTH", "INT_VALUE", "NAME", "NONE"]
+HdfsAuthenticationTypeType = Literal["KERBEROS", "SIMPLE"]
+HdfsDataTransferProtectionType = Literal["AUTHENTICATION", "DISABLED", "INTEGRITY", "PRIVACY"]
+HdfsRpcProtectionType = Literal["AUTHENTICATION", "DISABLED", "INTEGRITY", "PRIVACY"]
 ListAgentsPaginatorName = Literal["list_agents"]
 ListLocationsPaginatorName = Literal["list_locations"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]

@@ -81,13 +81,26 @@ ConnectionCredentialsTypeDef = TypedDict(
     total=False,
 )
 
-CreateParticipantConnectionRequestRequestTypeDef = TypedDict(
-    "CreateParticipantConnectionRequestRequestTypeDef",
+_RequiredCreateParticipantConnectionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateParticipantConnectionRequestRequestTypeDef",
     {
         "Type": List[ConnectionTypeType],
         "ParticipantToken": str,
     },
 )
+_OptionalCreateParticipantConnectionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateParticipantConnectionRequestRequestTypeDef",
+    {
+        "ConnectParticipant": bool,
+    },
+    total=False,
+)
+
+class CreateParticipantConnectionRequestRequestTypeDef(
+    _RequiredCreateParticipantConnectionRequestRequestTypeDef,
+    _OptionalCreateParticipantConnectionRequestRequestTypeDef,
+):
+    pass
 
 CreateParticipantConnectionResponseTypeDef = TypedDict(
     "CreateParticipantConnectionResponseTypeDef",

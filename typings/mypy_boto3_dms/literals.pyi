@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AuthMechanismValueType",
     "AuthTypeValueType",
+    "CannedAclForObjectsValueType",
     "CharLengthSemanticsType",
     "CompressionTypeValueType",
     "DataFormatValueType",
@@ -50,6 +51,7 @@ __all__ = (
     "NestingLevelValueType",
     "ParquetVersionValueType",
     "PluginNameValueType",
+    "RedisAuthTypeValueType",
     "RefreshSchemasStatusTypeValueType",
     "ReleaseStatusValuesType",
     "ReloadOptionValueType",
@@ -62,6 +64,7 @@ __all__ = (
     "ReplicationTaskStoppedWaiterName",
     "SafeguardPolicyType",
     "SourceTypeType",
+    "SslSecurityProtocolValueType",
     "StartReplicationTaskTypeValueType",
     "TargetDbTypeType",
     "TestConnectionSucceedsWaiterName",
@@ -69,6 +72,16 @@ __all__ = (
 
 AuthMechanismValueType = Literal["default", "mongodb_cr", "scram_sha_1"]
 AuthTypeValueType = Literal["no", "password"]
+CannedAclForObjectsValueType = Literal[
+    "authenticated-read",
+    "aws-exec-read",
+    "bucket-owner-full-control",
+    "bucket-owner-read",
+    "none",
+    "private",
+    "public-read",
+    "public-read-write",
+]
 CharLengthSemanticsType = Literal["byte", "char", "default"]
 CompressionTypeValueType = Literal["gzip", "none"]
 DataFormatValueType = Literal["csv", "parquet"]
@@ -102,6 +115,7 @@ MigrationTypeValueType = Literal["cdc", "full-load", "full-load-and-cdc"]
 NestingLevelValueType = Literal["none", "one"]
 ParquetVersionValueType = Literal["parquet-1-0", "parquet-2-0"]
 PluginNameValueType = Literal["no-preference", "pglogical", "test-decoding"]
+RedisAuthTypeValueType = Literal["auth-role", "auth-token", "none"]
 RefreshSchemasStatusTypeValueType = Literal["failed", "refreshing", "successful"]
 ReleaseStatusValuesType = Literal["beta"]
 ReloadOptionValueType = Literal["data-reload", "validate-only"]
@@ -118,6 +132,7 @@ SafeguardPolicyType = Literal[
     "shared-automatic-truncation",
 ]
 SourceTypeType = Literal["replication-instance"]
+SslSecurityProtocolValueType = Literal["plaintext", "ssl-encryption"]
 StartReplicationTaskTypeValueType = Literal[
     "reload-target", "resume-processing", "start-replication"
 ]

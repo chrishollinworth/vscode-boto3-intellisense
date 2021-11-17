@@ -18,6 +18,7 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    DirectionalityType,
     JobStatusType,
     ParallelDataFormatType,
     ParallelDataStatusType,
@@ -184,19 +185,31 @@ GetParallelDataResponseTypeDef = TypedDict(
     },
 )
 
-GetTerminologyRequestRequestTypeDef = TypedDict(
-    "GetTerminologyRequestRequestTypeDef",
+_RequiredGetTerminologyRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTerminologyRequestRequestTypeDef",
     {
         "Name": str,
-        "TerminologyDataFormat": TerminologyDataFormatType,
     },
 )
+_OptionalGetTerminologyRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTerminologyRequestRequestTypeDef",
+    {
+        "TerminologyDataFormat": TerminologyDataFormatType,
+    },
+    total=False,
+)
+
+class GetTerminologyRequestRequestTypeDef(
+    _RequiredGetTerminologyRequestRequestTypeDef, _OptionalGetTerminologyRequestRequestTypeDef
+):
+    pass
 
 GetTerminologyResponseTypeDef = TypedDict(
     "GetTerminologyResponseTypeDef",
     {
         "TerminologyProperties": "TerminologyPropertiesTypeDef",
         "TerminologyDataLocation": "TerminologyDataLocationTypeDef",
+        "AuxiliaryDataLocation": "TerminologyDataLocationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -227,6 +240,7 @@ ImportTerminologyResponseTypeDef = TypedDict(
     "ImportTerminologyResponseTypeDef",
     {
         "TerminologyProperties": "TerminologyPropertiesTypeDef",
+        "AuxiliaryDataLocation": "TerminologyDataLocationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -304,12 +318,22 @@ ListTextTranslationJobsResponseTypeDef = TypedDict(
     },
 )
 
-OutputDataConfigTypeDef = TypedDict(
-    "OutputDataConfigTypeDef",
+_RequiredOutputDataConfigTypeDef = TypedDict(
+    "_RequiredOutputDataConfigTypeDef",
     {
         "S3Uri": str,
     },
 )
+_OptionalOutputDataConfigTypeDef = TypedDict(
+    "_OptionalOutputDataConfigTypeDef",
+    {
+        "EncryptionKey": "EncryptionKeyTypeDef",
+    },
+    total=False,
+)
+
+class OutputDataConfigTypeDef(_RequiredOutputDataConfigTypeDef, _OptionalOutputDataConfigTypeDef):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
@@ -441,13 +465,23 @@ TerminologyDataLocationTypeDef = TypedDict(
     },
 )
 
-TerminologyDataTypeDef = TypedDict(
-    "TerminologyDataTypeDef",
+_RequiredTerminologyDataTypeDef = TypedDict(
+    "_RequiredTerminologyDataTypeDef",
     {
         "File": Union[bytes, IO[bytes], StreamingBody],
         "Format": TerminologyDataFormatType,
     },
 )
+_OptionalTerminologyDataTypeDef = TypedDict(
+    "_OptionalTerminologyDataTypeDef",
+    {
+        "Directionality": DirectionalityType,
+    },
+    total=False,
+)
+
+class TerminologyDataTypeDef(_RequiredTerminologyDataTypeDef, _OptionalTerminologyDataTypeDef):
+    pass
 
 TerminologyPropertiesTypeDef = TypedDict(
     "TerminologyPropertiesTypeDef",
@@ -462,6 +496,10 @@ TerminologyPropertiesTypeDef = TypedDict(
         "TermCount": int,
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
+        "Directionality": DirectionalityType,
+        "Message": str,
+        "SkippedTermCount": int,
+        "Format": TerminologyDataFormatType,
     },
     total=False,
 )

@@ -99,6 +99,7 @@ _OptionalCreateDiscovererRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDiscovererRequestRequestTypeDef",
     {
         "Description": str,
+        "CrossAccount": bool,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -117,6 +118,7 @@ CreateDiscovererResponseTypeDef = TypedDict(
         "DiscovererId": str,
         "SourceArn": str,
         "State": DiscovererStateType,
+        "CrossAccount": bool,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -278,6 +280,7 @@ DescribeDiscovererResponseTypeDef = TypedDict(
         "DiscovererId": str,
         "SourceArn": str,
         "State": DiscovererStateType,
+        "CrossAccount": bool,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -344,6 +347,7 @@ DiscovererSummaryTypeDef = TypedDict(
         "DiscovererId": str,
         "SourceArn": str,
         "State": DiscovererStateType,
+        "CrossAccount": bool,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -785,6 +789,7 @@ _OptionalUpdateDiscovererRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateDiscovererRequestRequestTypeDef",
     {
         "Description": str,
+        "CrossAccount": bool,
     },
     total=False,
 )
@@ -802,6 +807,7 @@ UpdateDiscovererResponseTypeDef = TypedDict(
         "DiscovererId": str,
         "SourceArn": str,
         "State": DiscovererStateType,
+        "CrossAccount": bool,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

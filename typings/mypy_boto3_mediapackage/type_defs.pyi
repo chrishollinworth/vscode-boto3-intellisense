@@ -558,6 +558,7 @@ HlsPackageTypeDef = TypedDict(
         "AdTriggers": List[__AdTriggersElementType],
         "AdsOnDeliveryRestrictions": AdsOnDeliveryRestrictionsType,
         "Encryption": "HlsEncryptionTypeDef",
+        "IncludeDvbSubtitles": bool,
         "IncludeIframeOnlyStream": bool,
         "PlaylistType": PlaylistTypeType,
         "PlaylistWindowSeconds": int,

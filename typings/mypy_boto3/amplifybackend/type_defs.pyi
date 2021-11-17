@@ -739,6 +739,7 @@ class GetBackendRequestRequestTypeDef(
 GetBackendResponseTypeDef = TypedDict(
     "GetBackendResponseTypeDef",
     {
+        "AmplifyFeatureFlags": str,
         "AmplifyMetaConfig": str,
         "AppId": str,
         "AppName": str,

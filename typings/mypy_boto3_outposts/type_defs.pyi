@@ -6,20 +6,29 @@ Type annotations for outposts service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_outposts.type_defs import CreateOutpostInputRequestTypeDef
+    from mypy_boto3_outposts.type_defs import CreateOrderInputRequestTypeDef
 
-    data: CreateOutpostInputRequestTypeDef = {...}
+    data: CreateOrderInputRequestTypeDef = {...}
     ```
 """
 import sys
+from datetime import datetime
 from typing import Any, Dict, List
 
+from .literals import OrderStatusType, PaymentOptionType
+
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "CreateOrderInputRequestTypeDef",
+    "CreateOrderOutputTypeDef",
     "CreateOutpostInputRequestTypeDef",
     "CreateOutpostOutputTypeDef",
     "DeleteOutpostInputRequestTypeDef",
@@ -29,17 +38,49 @@ __all__ = (
     "GetOutpostInstanceTypesOutputTypeDef",
     "GetOutpostOutputTypeDef",
     "InstanceTypeItemTypeDef",
+    "LineItemRequestTypeDef",
+    "LineItemTypeDef",
     "ListOutpostsInputRequestTypeDef",
     "ListOutpostsOutputTypeDef",
     "ListSitesInputRequestTypeDef",
     "ListSitesOutputTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "OrderTypeDef",
     "OutpostTypeDef",
     "ResponseMetadataTypeDef",
     "SiteTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
+)
+
+_RequiredCreateOrderInputRequestTypeDef = TypedDict(
+    "_RequiredCreateOrderInputRequestTypeDef",
+    {
+        "OutpostIdentifier": str,
+        "LineItems": List["LineItemRequestTypeDef"],
+        "PaymentOption": PaymentOptionType,
+    },
+)
+_OptionalCreateOrderInputRequestTypeDef = TypedDict(
+    "_OptionalCreateOrderInputRequestTypeDef",
+    {
+        "PaymentTerm": Literal["THREE_YEARS"],
+    },
+    total=False,
+)
+
+class CreateOrderInputRequestTypeDef(
+    _RequiredCreateOrderInputRequestTypeDef, _OptionalCreateOrderInputRequestTypeDef
+):
+    pass
+
+CreateOrderOutputTypeDef = TypedDict(
+    "CreateOrderOutputTypeDef",
+    {
+        "Order": "OrderTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCreateOutpostInputRequestTypeDef = TypedDict(
@@ -142,6 +183,26 @@ InstanceTypeItemTypeDef = TypedDict(
     total=False,
 )
 
+LineItemRequestTypeDef = TypedDict(
+    "LineItemRequestTypeDef",
+    {
+        "CatalogItemId": str,
+        "Quantity": int,
+    },
+    total=False,
+)
+
+LineItemTypeDef = TypedDict(
+    "LineItemTypeDef",
+    {
+        "CatalogItemId": str,
+        "LineItemId": str,
+        "Quantity": int,
+        "Status": str,
+    },
+    total=False,
+)
+
 ListOutpostsInputRequestTypeDef = TypedDict(
     "ListOutpostsInputRequestTypeDef",
     {
@@ -194,6 +255,20 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+OrderTypeDef = TypedDict(
+    "OrderTypeDef",
+    {
+        "OutpostId": str,
+        "OrderId": str,
+        "Status": OrderStatusType,
+        "LineItems": List["LineItemTypeDef"],
+        "PaymentOption": PaymentOptionType,
+        "OrderSubmissionDate": datetime,
+        "OrderFulfilledDate": datetime,
+    },
+    total=False,
 )
 
 OutpostTypeDef = TypedDict(

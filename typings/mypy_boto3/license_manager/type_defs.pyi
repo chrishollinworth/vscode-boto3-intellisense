@@ -17,11 +17,13 @@ from typing import Any, Dict, List
 
 from .literals import (
     AllowedOperationType,
+    CheckoutTypeType,
     EntitlementDataUnitType,
     EntitlementUnitType,
     GrantStatusType,
     InventoryFilterConditionType,
     LicenseConfigurationStatusType,
+    LicenseConversionTaskStatusType,
     LicenseCountingTypeType,
     LicenseDeletionStatusType,
     LicenseStatusType,
@@ -59,6 +61,8 @@ __all__ = (
     "CreateGrantVersionResponseTypeDef",
     "CreateLicenseConfigurationRequestRequestTypeDef",
     "CreateLicenseConfigurationResponseTypeDef",
+    "CreateLicenseConversionTaskForResourceRequestRequestTypeDef",
+    "CreateLicenseConversionTaskForResourceResponseTypeDef",
     "CreateLicenseManagerReportGeneratorRequestRequestTypeDef",
     "CreateLicenseManagerReportGeneratorResponseTypeDef",
     "CreateLicenseRequestRequestTypeDef",
@@ -87,6 +91,8 @@ __all__ = (
     "GetGrantResponseTypeDef",
     "GetLicenseConfigurationRequestRequestTypeDef",
     "GetLicenseConfigurationResponseTypeDef",
+    "GetLicenseConversionTaskRequestRequestTypeDef",
+    "GetLicenseConversionTaskResponseTypeDef",
     "GetLicenseManagerReportGeneratorRequestRequestTypeDef",
     "GetLicenseManagerReportGeneratorResponseTypeDef",
     "GetLicenseRequestRequestTypeDef",
@@ -102,6 +108,8 @@ __all__ = (
     "LicenseConfigurationAssociationTypeDef",
     "LicenseConfigurationTypeDef",
     "LicenseConfigurationUsageTypeDef",
+    "LicenseConversionContextTypeDef",
+    "LicenseConversionTaskTypeDef",
     "LicenseOperationFailureTypeDef",
     "LicenseSpecificationTypeDef",
     "LicenseTypeDef",
@@ -114,6 +122,8 @@ __all__ = (
     "ListFailuresForLicenseConfigurationOperationsResponseTypeDef",
     "ListLicenseConfigurationsRequestRequestTypeDef",
     "ListLicenseConfigurationsResponseTypeDef",
+    "ListLicenseConversionTasksRequestRequestTypeDef",
+    "ListLicenseConversionTasksResponseTypeDef",
     "ListLicenseManagerReportGeneratorsRequestRequestTypeDef",
     "ListLicenseManagerReportGeneratorsResponseTypeDef",
     "ListLicenseSpecificationsForResourceRequestRequestTypeDef",
@@ -255,7 +265,7 @@ _RequiredCheckoutLicenseRequestRequestTypeDef = TypedDict(
     "_RequiredCheckoutLicenseRequestRequestTypeDef",
     {
         "ProductSKU": str,
-        "CheckoutType": Literal["PROVISIONAL"],
+        "CheckoutType": CheckoutTypeType,
         "KeyFingerprint": str,
         "Entitlements": List["EntitlementDataTypeDef"],
         "ClientToken": str,
@@ -278,13 +288,14 @@ class CheckoutLicenseRequestRequestTypeDef(
 CheckoutLicenseResponseTypeDef = TypedDict(
     "CheckoutLicenseResponseTypeDef",
     {
-        "CheckoutType": Literal["PROVISIONAL"],
+        "CheckoutType": CheckoutTypeType,
         "LicenseConsumptionToken": str,
         "EntitlementsAllowed": List["EntitlementDataTypeDef"],
         "SignedToken": str,
         "NodeId": str,
         "IssuedAt": str,
         "Expiration": str,
+        "LicenseArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -396,6 +407,23 @@ CreateLicenseConfigurationResponseTypeDef = TypedDict(
     "CreateLicenseConfigurationResponseTypeDef",
     {
         "LicenseConfigurationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateLicenseConversionTaskForResourceRequestRequestTypeDef = TypedDict(
+    "CreateLicenseConversionTaskForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "SourceLicenseContext": "LicenseConversionContextTypeDef",
+        "DestinationLicenseContext": "LicenseConversionContextTypeDef",
+    },
+)
+
+CreateLicenseConversionTaskForResourceResponseTypeDef = TypedDict(
+    "CreateLicenseConversionTaskForResourceResponseTypeDef",
+    {
+        "LicenseConversionTaskId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -809,6 +837,29 @@ GetLicenseConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+GetLicenseConversionTaskRequestRequestTypeDef = TypedDict(
+    "GetLicenseConversionTaskRequestRequestTypeDef",
+    {
+        "LicenseConversionTaskId": str,
+    },
+)
+
+GetLicenseConversionTaskResponseTypeDef = TypedDict(
+    "GetLicenseConversionTaskResponseTypeDef",
+    {
+        "LicenseConversionTaskId": str,
+        "ResourceArn": str,
+        "SourceLicenseContext": "LicenseConversionContextTypeDef",
+        "DestinationLicenseContext": "LicenseConversionContextTypeDef",
+        "StatusMessage": str,
+        "Status": LicenseConversionTaskStatusType,
+        "StartTime": datetime,
+        "LicenseConversionTime": datetime,
+        "EndTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetLicenseManagerReportGeneratorRequestRequestTypeDef = TypedDict(
     "GetLicenseManagerReportGeneratorRequestRequestTypeDef",
     {
@@ -1018,6 +1069,30 @@ LicenseConfigurationUsageTypeDef = TypedDict(
     total=False,
 )
 
+LicenseConversionContextTypeDef = TypedDict(
+    "LicenseConversionContextTypeDef",
+    {
+        "UsageOperation": str,
+    },
+    total=False,
+)
+
+LicenseConversionTaskTypeDef = TypedDict(
+    "LicenseConversionTaskTypeDef",
+    {
+        "LicenseConversionTaskId": str,
+        "ResourceArn": str,
+        "SourceLicenseContext": "LicenseConversionContextTypeDef",
+        "DestinationLicenseContext": "LicenseConversionContextTypeDef",
+        "Status": LicenseConversionTaskStatusType,
+        "StatusMessage": str,
+        "StartTime": datetime,
+        "LicenseConversionTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
+)
+
 LicenseOperationFailureTypeDef = TypedDict(
     "LicenseOperationFailureTypeDef",
     {
@@ -1176,6 +1251,25 @@ ListLicenseConfigurationsResponseTypeDef = TypedDict(
     "ListLicenseConfigurationsResponseTypeDef",
     {
         "LicenseConfigurations": List["LicenseConfigurationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListLicenseConversionTasksRequestRequestTypeDef = TypedDict(
+    "ListLicenseConversionTasksRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListLicenseConversionTasksResponseTypeDef = TypedDict(
+    "ListLicenseConversionTasksResponseTypeDef",
+    {
+        "LicenseConversionTasks": List["LicenseConversionTaskTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

@@ -24,12 +24,18 @@ else:
 __all__ = (
     "DeleteThingShadowRequestRequestTypeDef",
     "DeleteThingShadowResponseTypeDef",
+    "GetRetainedMessageRequestRequestTypeDef",
+    "GetRetainedMessageResponseTypeDef",
     "GetThingShadowRequestRequestTypeDef",
     "GetThingShadowResponseTypeDef",
     "ListNamedShadowsForThingRequestRequestTypeDef",
     "ListNamedShadowsForThingResponseTypeDef",
+    "ListRetainedMessagesRequestRequestTypeDef",
+    "ListRetainedMessagesResponseTypeDef",
+    "PaginatorConfigTypeDef",
     "PublishRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "RetainedMessageSummaryTypeDef",
     "UpdateThingShadowRequestRequestTypeDef",
     "UpdateThingShadowResponseTypeDef",
 )
@@ -57,6 +63,24 @@ DeleteThingShadowResponseTypeDef = TypedDict(
     "DeleteThingShadowResponseTypeDef",
     {
         "payload": bytes,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRetainedMessageRequestRequestTypeDef = TypedDict(
+    "GetRetainedMessageRequestRequestTypeDef",
+    {
+        "topic": str,
+    },
+)
+
+GetRetainedMessageResponseTypeDef = TypedDict(
+    "GetRetainedMessageResponseTypeDef",
+    {
+        "topic": str,
+        "payload": bytes,
+        "qos": int,
+        "lastModifiedTime": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -119,6 +143,34 @@ ListNamedShadowsForThingResponseTypeDef = TypedDict(
     },
 )
 
+ListRetainedMessagesRequestRequestTypeDef = TypedDict(
+    "ListRetainedMessagesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListRetainedMessagesResponseTypeDef = TypedDict(
+    "ListRetainedMessagesResponseTypeDef",
+    {
+        "retainedTopics": List["RetainedMessageSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
 _RequiredPublishRequestRequestTypeDef = TypedDict(
     "_RequiredPublishRequestRequestTypeDef",
     {
@@ -129,6 +181,7 @@ _OptionalPublishRequestRequestTypeDef = TypedDict(
     "_OptionalPublishRequestRequestTypeDef",
     {
         "qos": int,
+        "retain": bool,
         "payload": Union[bytes, IO[bytes], StreamingBody],
     },
     total=False,
@@ -148,6 +201,17 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RetainedMessageSummaryTypeDef = TypedDict(
+    "RetainedMessageSummaryTypeDef",
+    {
+        "topic": str,
+        "payloadSize": int,
+        "qos": int,
+        "lastModifiedTime": int,
+    },
+    total=False,
 )
 
 _RequiredUpdateThingShadowRequestRequestTypeDef = TypedDict(

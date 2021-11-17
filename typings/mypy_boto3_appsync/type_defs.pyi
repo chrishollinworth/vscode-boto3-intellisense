@@ -115,6 +115,7 @@ __all__ = (
     "ListTypesResponseTypeDef",
     "LogConfigTypeDef",
     "OpenIDConnectConfigTypeDef",
+    "OpenSearchServiceDataSourceConfigTypeDef",
     "PaginatorConfigTypeDef",
     "PipelineConfigTypeDef",
     "RdsHttpEndpointConfigTypeDef",
@@ -311,6 +312,7 @@ _OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
         "dynamodbConfig": "DynamodbDataSourceConfigTypeDef",
         "lambdaConfig": "LambdaDataSourceConfigTypeDef",
         "elasticsearchConfig": "ElasticsearchDataSourceConfigTypeDef",
+        "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
     },
@@ -460,6 +462,7 @@ DataSourceTypeDef = TypedDict(
         "dynamodbConfig": "DynamodbDataSourceConfigTypeDef",
         "lambdaConfig": "LambdaDataSourceConfigTypeDef",
         "elasticsearchConfig": "ElasticsearchDataSourceConfigTypeDef",
+        "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
     },
@@ -1039,6 +1042,14 @@ class OpenIDConnectConfigTypeDef(
 ):
     pass
 
+OpenSearchServiceDataSourceConfigTypeDef = TypedDict(
+    "OpenSearchServiceDataSourceConfigTypeDef",
+    {
+        "endpoint": str,
+        "awsRegion": str,
+    },
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -1223,6 +1234,7 @@ _OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
         "dynamodbConfig": "DynamodbDataSourceConfigTypeDef",
         "lambdaConfig": "LambdaDataSourceConfigTypeDef",
         "elasticsearchConfig": "ElasticsearchDataSourceConfigTypeDef",
+        "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
         "httpConfig": "HttpDataSourceConfigTypeDef",
         "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
     },

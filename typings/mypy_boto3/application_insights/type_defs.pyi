@@ -19,6 +19,7 @@ from .literals import (
     CloudWatchEventSourceType,
     ConfigurationEventResourceTypeType,
     ConfigurationEventStatusType,
+    DiscoveryTypeType,
     FeedbackValueType,
     LogFilterType,
     OsTypeType,
@@ -117,6 +118,8 @@ ApplicationInfoTypeDef = TypedDict(
         "OpsCenterEnabled": bool,
         "CWEMonitorEnabled": bool,
         "Remarks": str,
+        "AutoConfigEnabled": bool,
+        "DiscoveryType": DiscoveryTypeType,
     },
     total=False,
 )
@@ -134,27 +137,19 @@ ConfigurationEventTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
+CreateApplicationRequestRequestTypeDef = TypedDict(
+    "CreateApplicationRequestRequestTypeDef",
     {
         "ResourceGroupName": str,
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
         "OpsCenterEnabled": bool,
         "CWEMonitorEnabled": bool,
         "OpsItemSNSTopicArn": str,
         "Tags": List["TagTypeDef"],
+        "AutoConfigEnabled": bool,
+        "AutoCreate": bool,
     },
     total=False,
 )
-
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
 
 CreateApplicationResponseTypeDef = TypedDict(
     "CreateApplicationResponseTypeDef",
@@ -486,6 +481,7 @@ ListProblemsRequestRequestTypeDef = TypedDict(
         "EndTime": Union[datetime, str],
         "MaxResults": int,
         "NextToken": str,
+        "ComponentName": str,
     },
     total=False,
 )
@@ -495,6 +491,7 @@ ListProblemsResponseTypeDef = TypedDict(
     {
         "ProblemList": List["ProblemTypeDef"],
         "NextToken": str,
+        "ResourceGroupName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -590,6 +587,8 @@ ProblemTypeDef = TypedDict(
         "SeverityLevel": SeverityLevelType,
         "ResourceGroupName": str,
         "Feedback": Dict[Literal["INSIGHTS_FEEDBACK"], FeedbackValueType],
+        "RecurringCount": int,
+        "LastRecurrenceTime": datetime,
     },
     total=False,
 )
@@ -650,6 +649,7 @@ _OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
         "CWEMonitorEnabled": bool,
         "OpsItemSNSTopicArn": str,
         "RemoveSNSTopic": bool,
+        "AutoConfigEnabled": bool,
     },
     total=False,
 )
@@ -680,6 +680,7 @@ _OptionalUpdateComponentConfigurationRequestRequestTypeDef = TypedDict(
         "Monitor": bool,
         "Tier": TierType,
         "ComponentConfiguration": str,
+        "AutoConfigEnabled": bool,
     },
     total=False,
 )

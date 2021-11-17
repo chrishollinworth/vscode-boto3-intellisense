@@ -181,6 +181,7 @@ _OptionalCreateModelRequestRequestTypeDef = TypedDict(
         "DataPreProcessingConfiguration": "DataPreProcessingConfigurationTypeDef",
         "ServerSideKmsKeyId": str,
         "Tags": List["TagTypeDef"],
+        "OffCondition": str,
     },
     total=False,
 )
@@ -359,6 +360,7 @@ DescribeModelResponseTypeDef = TypedDict(
         "LastUpdatedTime": datetime,
         "CreatedAt": datetime,
         "ServerSideKmsKeyId": str,
+        "OffCondition": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

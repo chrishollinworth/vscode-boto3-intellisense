@@ -33,6 +33,7 @@ __all__ = (
     "ListForecastsPaginatorName",
     "ListPredictorBacktestExportJobsPaginatorName",
     "ListPredictorsPaginatorName",
+    "OptimizationMetricType",
     "ScalingTypeType",
 )
 
@@ -52,4 +53,5 @@ ListForecastExportJobsPaginatorName = Literal["list_forecast_export_jobs"]
 ListForecastsPaginatorName = Literal["list_forecasts"]
 ListPredictorBacktestExportJobsPaginatorName = Literal["list_predictor_backtest_export_jobs"]
 ListPredictorsPaginatorName = Literal["list_predictors"]
+OptimizationMetricType = Literal["AverageWeightedQuantileLoss", "MAPE", "MASE", "RMSE", "WAPE"]
 ScalingTypeType = Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]

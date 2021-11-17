@@ -53,6 +53,8 @@ __all__ = (
     "GetDocumentAnalysisResponseTypeDef",
     "GetDocumentTextDetectionRequestRequestTypeDef",
     "GetDocumentTextDetectionResponseTypeDef",
+    "GetExpenseAnalysisRequestRequestTypeDef",
+    "GetExpenseAnalysisResponseTypeDef",
     "HumanLoopActivationOutputTypeDef",
     "HumanLoopConfigTypeDef",
     "HumanLoopDataAttributesTypeDef",
@@ -68,6 +70,8 @@ __all__ = (
     "StartDocumentAnalysisResponseTypeDef",
     "StartDocumentTextDetectionRequestRequestTypeDef",
     "StartDocumentTextDetectionResponseTypeDef",
+    "StartExpenseAnalysisRequestRequestTypeDef",
+    "StartExpenseAnalysisResponseTypeDef",
     "WarningTypeDef",
 )
 
@@ -311,6 +315,41 @@ GetDocumentTextDetectionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetExpenseAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredGetExpenseAnalysisRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+_OptionalGetExpenseAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalGetExpenseAnalysisRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetExpenseAnalysisRequestRequestTypeDef(
+    _RequiredGetExpenseAnalysisRequestRequestTypeDef,
+    _OptionalGetExpenseAnalysisRequestRequestTypeDef,
+):
+    pass
+
+GetExpenseAnalysisResponseTypeDef = TypedDict(
+    "GetExpenseAnalysisResponseTypeDef",
+    {
+        "DocumentMetadata": "DocumentMetadataTypeDef",
+        "JobStatus": JobStatusType,
+        "NextToken": str,
+        "ExpenseDocuments": List["ExpenseDocumentTypeDef"],
+        "Warnings": List["WarningTypeDef"],
+        "StatusMessage": str,
+        "AnalyzeExpenseModelVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 HumanLoopActivationOutputTypeDef = TypedDict(
     "HumanLoopActivationOutputTypeDef",
     {
@@ -487,6 +526,38 @@ class StartDocumentTextDetectionRequestRequestTypeDef(
 
 StartDocumentTextDetectionResponseTypeDef = TypedDict(
     "StartDocumentTextDetectionResponseTypeDef",
+    {
+        "JobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredStartExpenseAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredStartExpenseAnalysisRequestRequestTypeDef",
+    {
+        "DocumentLocation": "DocumentLocationTypeDef",
+    },
+)
+_OptionalStartExpenseAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalStartExpenseAnalysisRequestRequestTypeDef",
+    {
+        "ClientRequestToken": str,
+        "JobTag": str,
+        "NotificationChannel": "NotificationChannelTypeDef",
+        "OutputConfig": "OutputConfigTypeDef",
+        "KMSKeyId": str,
+    },
+    total=False,
+)
+
+class StartExpenseAnalysisRequestRequestTypeDef(
+    _RequiredStartExpenseAnalysisRequestRequestTypeDef,
+    _OptionalStartExpenseAnalysisRequestRequestTypeDef,
+):
+    pass
+
+StartExpenseAnalysisResponseTypeDef = TypedDict(
+    "StartExpenseAnalysisResponseTypeDef",
     {
         "JobId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",

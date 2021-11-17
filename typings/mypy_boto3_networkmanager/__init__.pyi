@@ -13,6 +13,10 @@ Usage::
         GetDevicesPaginator,
         GetLinkAssociationsPaginator,
         GetLinksPaginator,
+        GetNetworkResourceCountsPaginator,
+        GetNetworkResourceRelationshipsPaginator,
+        GetNetworkResourcesPaginator,
+        GetNetworkTelemetryPaginator,
         GetSitesPaginator,
         GetTransitGatewayConnectPeerAssociationsPaginator,
         GetTransitGatewayRegistrationsPaginator,
@@ -30,6 +34,10 @@ Usage::
     get_devices_paginator: GetDevicesPaginator = client.get_paginator("get_devices")
     get_link_associations_paginator: GetLinkAssociationsPaginator = client.get_paginator("get_link_associations")
     get_links_paginator: GetLinksPaginator = client.get_paginator("get_links")
+    get_network_resource_counts_paginator: GetNetworkResourceCountsPaginator = client.get_paginator("get_network_resource_counts")
+    get_network_resource_relationships_paginator: GetNetworkResourceRelationshipsPaginator = client.get_paginator("get_network_resource_relationships")
+    get_network_resources_paginator: GetNetworkResourcesPaginator = client.get_paginator("get_network_resources")
+    get_network_telemetry_paginator: GetNetworkTelemetryPaginator = client.get_paginator("get_network_telemetry")
     get_sites_paginator: GetSitesPaginator = client.get_paginator("get_sites")
     get_transit_gateway_connect_peer_associations_paginator: GetTransitGatewayConnectPeerAssociationsPaginator = client.get_paginator("get_transit_gateway_connect_peer_associations")
     get_transit_gateway_registrations_paginator: GetTransitGatewayRegistrationsPaginator = client.get_paginator("get_transit_gateway_registrations")
@@ -43,6 +51,10 @@ from .paginator import (
     GetDevicesPaginator,
     GetLinkAssociationsPaginator,
     GetLinksPaginator,
+    GetNetworkResourceCountsPaginator,
+    GetNetworkResourceRelationshipsPaginator,
+    GetNetworkResourcesPaginator,
+    GetNetworkTelemetryPaginator,
     GetSitesPaginator,
     GetTransitGatewayConnectPeerAssociationsPaginator,
     GetTransitGatewayRegistrationsPaginator,
@@ -58,6 +70,10 @@ __all__ = (
     "GetDevicesPaginator",
     "GetLinkAssociationsPaginator",
     "GetLinksPaginator",
+    "GetNetworkResourceCountsPaginator",
+    "GetNetworkResourceRelationshipsPaginator",
+    "GetNetworkResourcesPaginator",
+    "GetNetworkTelemetryPaginator",
     "GetSitesPaginator",
     "GetTransitGatewayConnectPeerAssociationsPaginator",
     "GetTransitGatewayRegistrationsPaginator",

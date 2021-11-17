@@ -13,14 +13,16 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from .literals import (
     AccessTypeType,
     ChannelStateType,
     ModeType,
     OriginManifestTypeType,
+    PlaybackModeType,
     RelativePositionType,
+    ScheduleEntryTypeType,
     TypeType,
 )
 
@@ -38,12 +40,17 @@ __all__ = (
     "AdBreakTypeDef",
     "AdMarkerPassthroughTypeDef",
     "AlertTypeDef",
+    "AvailMatchingCriteriaTypeDef",
     "AvailSuppressionTypeDef",
     "BumperTypeDef",
     "CdnConfigurationTypeDef",
     "ChannelTypeDef",
+    "ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef",
+    "ConfigureLogsForPlaybackConfigurationResponseTypeDef",
     "CreateChannelRequestRequestTypeDef",
     "CreateChannelResponseTypeDef",
+    "CreatePrefetchScheduleRequestRequestTypeDef",
+    "CreatePrefetchScheduleResponseTypeDef",
     "CreateProgramRequestRequestTypeDef",
     "CreateProgramResponseTypeDef",
     "CreateSourceLocationRequestRequestTypeDef",
@@ -57,6 +64,7 @@ __all__ = (
     "DeleteChannelPolicyRequestRequestTypeDef",
     "DeleteChannelRequestRequestTypeDef",
     "DeletePlaybackConfigurationRequestRequestTypeDef",
+    "DeletePrefetchScheduleRequestRequestTypeDef",
     "DeleteProgramRequestRequestTypeDef",
     "DeleteSourceLocationRequestRequestTypeDef",
     "DeleteVodSourceRequestRequestTypeDef",
@@ -74,6 +82,8 @@ __all__ = (
     "GetChannelScheduleResponseTypeDef",
     "GetPlaybackConfigurationRequestRequestTypeDef",
     "GetPlaybackConfigurationResponseTypeDef",
+    "GetPrefetchScheduleRequestRequestTypeDef",
+    "GetPrefetchScheduleResponseTypeDef",
     "HlsConfigurationTypeDef",
     "HlsPlaylistSettingsTypeDef",
     "HttpConfigurationTypeDef",
@@ -84,6 +94,8 @@ __all__ = (
     "ListChannelsResponseTypeDef",
     "ListPlaybackConfigurationsRequestRequestTypeDef",
     "ListPlaybackConfigurationsResponseTypeDef",
+    "ListPrefetchSchedulesRequestRequestTypeDef",
+    "ListPrefetchSchedulesResponseTypeDef",
     "ListSourceLocationsRequestRequestTypeDef",
     "ListSourceLocationsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -91,9 +103,13 @@ __all__ = (
     "ListVodSourcesRequestRequestTypeDef",
     "ListVodSourcesResponseTypeDef",
     "LivePreRollConfigurationTypeDef",
+    "LogConfigurationTypeDef",
     "ManifestProcessingRulesTypeDef",
     "PaginatorConfigTypeDef",
     "PlaybackConfigurationTypeDef",
+    "PrefetchConsumptionTypeDef",
+    "PrefetchRetrievalTypeDef",
+    "PrefetchScheduleTypeDef",
     "PutChannelPolicyRequestRequestTypeDef",
     "PutPlaybackConfigurationRequestRequestTypeDef",
     "PutPlaybackConfigurationResponseTypeDef",
@@ -160,6 +176,14 @@ AlertTypeDef = TypedDict(
     },
 )
 
+AvailMatchingCriteriaTypeDef = TypedDict(
+    "AvailMatchingCriteriaTypeDef",
+    {
+        "DynamicVariable": str,
+        "Operator": Literal["EQUALS"],
+    },
+)
+
 AvailSuppressionTypeDef = TypedDict(
     "AvailSuppressionTypeDef",
     {
@@ -201,6 +225,7 @@ _OptionalChannelTypeDef = TypedDict(
     "_OptionalChannelTypeDef",
     {
         "CreationTime": datetime,
+        "FillerSlate": "SlateSourceTypeDef",
         "LastModifiedTime": datetime,
         "Tags": Dict[str, str],
     },
@@ -210,17 +235,35 @@ _OptionalChannelTypeDef = TypedDict(
 class ChannelTypeDef(_RequiredChannelTypeDef, _OptionalChannelTypeDef):
     pass
 
+ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef = TypedDict(
+    "ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef",
+    {
+        "PercentEnabled": int,
+        "PlaybackConfigurationName": str,
+    },
+)
+
+ConfigureLogsForPlaybackConfigurationResponseTypeDef = TypedDict(
+    "ConfigureLogsForPlaybackConfigurationResponseTypeDef",
+    {
+        "PercentEnabled": int,
+        "PlaybackConfigurationName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateChannelRequestRequestTypeDef = TypedDict(
     "_RequiredCreateChannelRequestRequestTypeDef",
     {
         "ChannelName": str,
         "Outputs": List["RequestOutputItemTypeDef"],
-        "PlaybackMode": Literal["LOOP"],
+        "PlaybackMode": PlaybackModeType,
     },
 )
 _OptionalCreateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalCreateChannelRequestRequestTypeDef",
     {
+        "FillerSlate": "SlateSourceTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -238,10 +281,47 @@ CreateChannelResponseTypeDef = TypedDict(
         "ChannelName": str,
         "ChannelState": ChannelStateType,
         "CreationTime": datetime,
+        "FillerSlate": "SlateSourceTypeDef",
         "LastModifiedTime": datetime,
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
         "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePrefetchScheduleRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePrefetchScheduleRequestRequestTypeDef",
+    {
+        "Consumption": "PrefetchConsumptionTypeDef",
+        "Name": str,
+        "PlaybackConfigurationName": str,
+        "Retrieval": "PrefetchRetrievalTypeDef",
+    },
+)
+_OptionalCreatePrefetchScheduleRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePrefetchScheduleRequestRequestTypeDef",
+    {
+        "StreamId": str,
+    },
+    total=False,
+)
+
+class CreatePrefetchScheduleRequestRequestTypeDef(
+    _RequiredCreatePrefetchScheduleRequestRequestTypeDef,
+    _OptionalCreatePrefetchScheduleRequestRequestTypeDef,
+):
+    pass
+
+CreatePrefetchScheduleResponseTypeDef = TypedDict(
+    "CreatePrefetchScheduleResponseTypeDef",
+    {
+        "Arn": str,
+        "Consumption": "PrefetchConsumptionTypeDef",
+        "Name": str,
+        "PlaybackConfigurationName": str,
+        "Retrieval": "PrefetchRetrievalTypeDef",
+        "StreamId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -277,6 +357,7 @@ CreateProgramResponseTypeDef = TypedDict(
         "ChannelName": str,
         "CreationTime": datetime,
         "ProgramName": str,
+        "ScheduledStartTime": datetime,
         "SourceLocationName": str,
         "VodSourceName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -415,6 +496,14 @@ DeletePlaybackConfigurationRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeletePrefetchScheduleRequestRequestTypeDef = TypedDict(
+    "DeletePrefetchScheduleRequestRequestTypeDef",
+    {
+        "Name": str,
+        "PlaybackConfigurationName": str,
+    },
+)
+
 DeleteProgramRequestRequestTypeDef = TypedDict(
     "DeleteProgramRequestRequestTypeDef",
     {
@@ -452,6 +541,7 @@ DescribeChannelResponseTypeDef = TypedDict(
         "ChannelName": str,
         "ChannelState": ChannelStateType,
         "CreationTime": datetime,
+        "FillerSlate": "SlateSourceTypeDef",
         "LastModifiedTime": datetime,
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
@@ -476,6 +566,7 @@ DescribeProgramResponseTypeDef = TypedDict(
         "ChannelName": str,
         "CreationTime": datetime,
         "ProgramName": str,
+        "ScheduledStartTime": datetime,
         "SourceLocationName": str,
         "VodSourceName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -590,6 +681,7 @@ GetPlaybackConfigurationResponseTypeDef = TypedDict(
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
+        "LogConfiguration": "LogConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
         "Name": str,
         "PersonalizationThresholdSeconds": int,
@@ -600,6 +692,27 @@ GetPlaybackConfigurationResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "TranscodeProfileName": str,
         "VideoContentSourceUrl": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetPrefetchScheduleRequestRequestTypeDef = TypedDict(
+    "GetPrefetchScheduleRequestRequestTypeDef",
+    {
+        "Name": str,
+        "PlaybackConfigurationName": str,
+    },
+)
+
+GetPrefetchScheduleResponseTypeDef = TypedDict(
+    "GetPrefetchScheduleResponseTypeDef",
+    {
+        "Arn": str,
+        "Consumption": "PrefetchConsumptionTypeDef",
+        "Name": str,
+        "PlaybackConfigurationName": str,
+        "Retrieval": "PrefetchRetrievalTypeDef",
+        "StreamId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -701,6 +814,37 @@ ListPlaybackConfigurationsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListPrefetchSchedulesRequestRequestTypeDef = TypedDict(
+    "_RequiredListPrefetchSchedulesRequestRequestTypeDef",
+    {
+        "PlaybackConfigurationName": str,
+    },
+)
+_OptionalListPrefetchSchedulesRequestRequestTypeDef = TypedDict(
+    "_OptionalListPrefetchSchedulesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "StreamId": str,
+    },
+    total=False,
+)
+
+class ListPrefetchSchedulesRequestRequestTypeDef(
+    _RequiredListPrefetchSchedulesRequestRequestTypeDef,
+    _OptionalListPrefetchSchedulesRequestRequestTypeDef,
+):
+    pass
+
+ListPrefetchSchedulesResponseTypeDef = TypedDict(
+    "ListPrefetchSchedulesResponseTypeDef",
+    {
+        "Items": List["PrefetchScheduleTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListSourceLocationsRequestRequestTypeDef = TypedDict(
     "ListSourceLocationsRequestRequestTypeDef",
     {
@@ -772,6 +916,13 @@ LivePreRollConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+LogConfigurationTypeDef = TypedDict(
+    "LogConfigurationTypeDef",
+    {
+        "PercentEnabled": int,
+    },
+)
+
 ManifestProcessingRulesTypeDef = TypedDict(
     "ManifestProcessingRulesTypeDef",
     {
@@ -801,6 +952,7 @@ PlaybackConfigurationTypeDef = TypedDict(
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
+        "LogConfiguration": "LogConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
         "Name": str,
         "PersonalizationThresholdSeconds": int,
@@ -814,6 +966,67 @@ PlaybackConfigurationTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredPrefetchConsumptionTypeDef = TypedDict(
+    "_RequiredPrefetchConsumptionTypeDef",
+    {
+        "EndTime": Union[datetime, str],
+    },
+)
+_OptionalPrefetchConsumptionTypeDef = TypedDict(
+    "_OptionalPrefetchConsumptionTypeDef",
+    {
+        "AvailMatchingCriteria": List["AvailMatchingCriteriaTypeDef"],
+        "StartTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class PrefetchConsumptionTypeDef(
+    _RequiredPrefetchConsumptionTypeDef, _OptionalPrefetchConsumptionTypeDef
+):
+    pass
+
+_RequiredPrefetchRetrievalTypeDef = TypedDict(
+    "_RequiredPrefetchRetrievalTypeDef",
+    {
+        "EndTime": Union[datetime, str],
+    },
+)
+_OptionalPrefetchRetrievalTypeDef = TypedDict(
+    "_OptionalPrefetchRetrievalTypeDef",
+    {
+        "DynamicVariables": Dict[str, str],
+        "StartTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class PrefetchRetrievalTypeDef(
+    _RequiredPrefetchRetrievalTypeDef, _OptionalPrefetchRetrievalTypeDef
+):
+    pass
+
+_RequiredPrefetchScheduleTypeDef = TypedDict(
+    "_RequiredPrefetchScheduleTypeDef",
+    {
+        "Arn": str,
+        "Consumption": "PrefetchConsumptionTypeDef",
+        "Name": str,
+        "PlaybackConfigurationName": str,
+        "Retrieval": "PrefetchRetrievalTypeDef",
+    },
+)
+_OptionalPrefetchScheduleTypeDef = TypedDict(
+    "_OptionalPrefetchScheduleTypeDef",
+    {
+        "StreamId": str,
+    },
+    total=False,
+)
+
+class PrefetchScheduleTypeDef(_RequiredPrefetchScheduleTypeDef, _OptionalPrefetchScheduleTypeDef):
+    pass
 
 PutChannelPolicyRequestRequestTypeDef = TypedDict(
     "PutChannelPolicyRequestRequestTypeDef",
@@ -855,6 +1068,7 @@ PutPlaybackConfigurationResponseTypeDef = TypedDict(
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
+        "LogConfiguration": "LogConfigurationTypeDef",
         "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
         "Name": str,
         "PersonalizationThresholdSeconds": int,
@@ -957,6 +1171,7 @@ _OptionalScheduleEntryTypeDef = TypedDict(
         "ApproximateDurationSeconds": int,
         "ApproximateStartTime": datetime,
         "ScheduleAdBreaks": List["ScheduleAdBreakTypeDef"],
+        "ScheduleEntryType": ScheduleEntryTypeType,
     },
     total=False,
 )
@@ -1050,6 +1265,7 @@ _OptionalTransitionTypeDef = TypedDict(
     "_OptionalTransitionTypeDef",
     {
         "RelativeProgram": str,
+        "ScheduledStartTimeMillis": int,
     },
     total=False,
 )
@@ -1080,6 +1296,7 @@ UpdateChannelResponseTypeDef = TypedDict(
         "ChannelName": str,
         "ChannelState": ChannelStateType,
         "CreationTime": datetime,
+        "FillerSlate": "SlateSourceTypeDef",
         "LastModifiedTime": datetime,
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,

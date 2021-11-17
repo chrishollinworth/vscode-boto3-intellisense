@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AsyncOperationNameType,
     BucketCannedACLType,
     BucketLocationConstraintType,
     ExpirationStatusType,
@@ -24,6 +25,7 @@ from .literals import (
     JobManifestFormatType,
     JobReportScopeType,
     JobStatusType,
+    MultiRegionAccessPointStatusType,
     NetworkOriginType,
     ObjectLambdaAllowedFeatureType,
     OperationNameType,
@@ -55,6 +57,10 @@ __all__ = (
     "AccessPointTypeDef",
     "AccountLevelTypeDef",
     "ActivityMetricsTypeDef",
+    "AsyncErrorDetailsTypeDef",
+    "AsyncOperationTypeDef",
+    "AsyncRequestParametersTypeDef",
+    "AsyncResponseDetailsTypeDef",
     "AwsLambdaTransformationTypeDef",
     "BucketLevelTypeDef",
     "CreateAccessPointForObjectLambdaRequestRequestTypeDef",
@@ -66,6 +72,9 @@ __all__ = (
     "CreateBucketResultTypeDef",
     "CreateJobRequestRequestTypeDef",
     "CreateJobResultTypeDef",
+    "CreateMultiRegionAccessPointInputTypeDef",
+    "CreateMultiRegionAccessPointRequestRequestTypeDef",
+    "CreateMultiRegionAccessPointResultTypeDef",
     "DeleteAccessPointForObjectLambdaRequestRequestTypeDef",
     "DeleteAccessPointPolicyForObjectLambdaRequestRequestTypeDef",
     "DeleteAccessPointPolicyRequestRequestTypeDef",
@@ -75,11 +84,17 @@ __all__ = (
     "DeleteBucketRequestRequestTypeDef",
     "DeleteBucketTaggingRequestRequestTypeDef",
     "DeleteJobTaggingRequestRequestTypeDef",
+    "DeleteMultiRegionAccessPointInputTypeDef",
+    "DeleteMultiRegionAccessPointRequestRequestTypeDef",
+    "DeleteMultiRegionAccessPointResultTypeDef",
     "DeletePublicAccessBlockRequestRequestTypeDef",
     "DeleteStorageLensConfigurationRequestRequestTypeDef",
     "DeleteStorageLensConfigurationTaggingRequestRequestTypeDef",
     "DescribeJobRequestRequestTypeDef",
     "DescribeJobResultTypeDef",
+    "DescribeMultiRegionAccessPointOperationRequestRequestTypeDef",
+    "DescribeMultiRegionAccessPointOperationResultTypeDef",
+    "EstablishedMultiRegionAccessPointPolicyTypeDef",
     "ExcludeTypeDef",
     "GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef",
     "GetAccessPointConfigurationForObjectLambdaResultTypeDef",
@@ -105,6 +120,12 @@ __all__ = (
     "GetBucketTaggingResultTypeDef",
     "GetJobTaggingRequestRequestTypeDef",
     "GetJobTaggingResultTypeDef",
+    "GetMultiRegionAccessPointPolicyRequestRequestTypeDef",
+    "GetMultiRegionAccessPointPolicyResultTypeDef",
+    "GetMultiRegionAccessPointPolicyStatusRequestRequestTypeDef",
+    "GetMultiRegionAccessPointPolicyStatusResultTypeDef",
+    "GetMultiRegionAccessPointRequestRequestTypeDef",
+    "GetMultiRegionAccessPointResultTypeDef",
     "GetPublicAccessBlockOutputTypeDef",
     "GetPublicAccessBlockRequestRequestTypeDef",
     "GetStorageLensConfigurationRequestRequestTypeDef",
@@ -133,11 +154,17 @@ __all__ = (
     "ListAccessPointsResultTypeDef",
     "ListJobsRequestRequestTypeDef",
     "ListJobsResultTypeDef",
+    "ListMultiRegionAccessPointsRequestRequestTypeDef",
+    "ListMultiRegionAccessPointsResultTypeDef",
     "ListRegionalBucketsRequestRequestTypeDef",
     "ListRegionalBucketsResultTypeDef",
     "ListStorageLensConfigurationEntryTypeDef",
     "ListStorageLensConfigurationsRequestRequestTypeDef",
     "ListStorageLensConfigurationsResultTypeDef",
+    "MultiRegionAccessPointPolicyDocumentTypeDef",
+    "MultiRegionAccessPointRegionalResponseTypeDef",
+    "MultiRegionAccessPointReportTypeDef",
+    "MultiRegionAccessPointsAsyncResponseTypeDef",
     "NoncurrentVersionExpirationTypeDef",
     "NoncurrentVersionTransitionTypeDef",
     "ObjectLambdaAccessPointTypeDef",
@@ -148,6 +175,7 @@ __all__ = (
     "PolicyStatusTypeDef",
     "PrefixLevelStorageMetricsTypeDef",
     "PrefixLevelTypeDef",
+    "ProposedMultiRegionAccessPointPolicyTypeDef",
     "PublicAccessBlockConfigurationTypeDef",
     "PutAccessPointConfigurationForObjectLambdaRequestRequestTypeDef",
     "PutAccessPointPolicyForObjectLambdaRequestRequestTypeDef",
@@ -156,9 +184,14 @@ __all__ = (
     "PutBucketPolicyRequestRequestTypeDef",
     "PutBucketTaggingRequestRequestTypeDef",
     "PutJobTaggingRequestRequestTypeDef",
+    "PutMultiRegionAccessPointPolicyInputTypeDef",
+    "PutMultiRegionAccessPointPolicyRequestRequestTypeDef",
+    "PutMultiRegionAccessPointPolicyResultTypeDef",
     "PutPublicAccessBlockRequestRequestTypeDef",
     "PutStorageLensConfigurationRequestRequestTypeDef",
     "PutStorageLensConfigurationTaggingRequestRequestTypeDef",
+    "RegionReportTypeDef",
+    "RegionTypeDef",
     "RegionalBucketTypeDef",
     "ResponseMetadataTypeDef",
     "S3AccessControlListTypeDef",
@@ -243,6 +276,49 @@ ActivityMetricsTypeDef = TypedDict(
     "ActivityMetricsTypeDef",
     {
         "IsEnabled": bool,
+    },
+    total=False,
+)
+
+AsyncErrorDetailsTypeDef = TypedDict(
+    "AsyncErrorDetailsTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+        "Resource": str,
+        "RequestId": str,
+    },
+    total=False,
+)
+
+AsyncOperationTypeDef = TypedDict(
+    "AsyncOperationTypeDef",
+    {
+        "CreationTime": datetime,
+        "Operation": AsyncOperationNameType,
+        "RequestTokenARN": str,
+        "RequestParameters": "AsyncRequestParametersTypeDef",
+        "RequestStatus": str,
+        "ResponseDetails": "AsyncResponseDetailsTypeDef",
+    },
+    total=False,
+)
+
+AsyncRequestParametersTypeDef = TypedDict(
+    "AsyncRequestParametersTypeDef",
+    {
+        "CreateMultiRegionAccessPointRequest": "CreateMultiRegionAccessPointInputTypeDef",
+        "DeleteMultiRegionAccessPointRequest": "DeleteMultiRegionAccessPointInputTypeDef",
+        "PutMultiRegionAccessPointPolicyRequest": "PutMultiRegionAccessPointPolicyInputTypeDef",
+    },
+    total=False,
+)
+
+AsyncResponseDetailsTypeDef = TypedDict(
+    "AsyncResponseDetailsTypeDef",
+    {
+        "MultiRegionAccessPointDetails": "MultiRegionAccessPointsAsyncResponseTypeDef",
+        "ErrorDetails": "AsyncErrorDetailsTypeDef",
     },
     total=False,
 )
@@ -402,6 +478,44 @@ CreateJobResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateMultiRegionAccessPointInputTypeDef = TypedDict(
+    "_RequiredCreateMultiRegionAccessPointInputTypeDef",
+    {
+        "Name": str,
+        "Regions": List["RegionTypeDef"],
+    },
+)
+_OptionalCreateMultiRegionAccessPointInputTypeDef = TypedDict(
+    "_OptionalCreateMultiRegionAccessPointInputTypeDef",
+    {
+        "PublicAccessBlock": "PublicAccessBlockConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class CreateMultiRegionAccessPointInputTypeDef(
+    _RequiredCreateMultiRegionAccessPointInputTypeDef,
+    _OptionalCreateMultiRegionAccessPointInputTypeDef,
+):
+    pass
+
+CreateMultiRegionAccessPointRequestRequestTypeDef = TypedDict(
+    "CreateMultiRegionAccessPointRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "ClientToken": str,
+        "Details": "CreateMultiRegionAccessPointInputTypeDef",
+    },
+)
+
+CreateMultiRegionAccessPointResultTypeDef = TypedDict(
+    "CreateMultiRegionAccessPointResultTypeDef",
+    {
+        "RequestTokenARN": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteAccessPointForObjectLambdaRequestRequestTypeDef = TypedDict(
     "DeleteAccessPointForObjectLambdaRequestRequestTypeDef",
     {
@@ -474,6 +588,30 @@ DeleteJobTaggingRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteMultiRegionAccessPointInputTypeDef = TypedDict(
+    "DeleteMultiRegionAccessPointInputTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteMultiRegionAccessPointRequestRequestTypeDef = TypedDict(
+    "DeleteMultiRegionAccessPointRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "ClientToken": str,
+        "Details": "DeleteMultiRegionAccessPointInputTypeDef",
+    },
+)
+
+DeleteMultiRegionAccessPointResultTypeDef = TypedDict(
+    "DeleteMultiRegionAccessPointResultTypeDef",
+    {
+        "RequestTokenARN": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeletePublicAccessBlockRequestRequestTypeDef = TypedDict(
     "DeletePublicAccessBlockRequestRequestTypeDef",
     {
@@ -511,6 +649,30 @@ DescribeJobResultTypeDef = TypedDict(
         "Job": "JobDescriptorTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DescribeMultiRegionAccessPointOperationRequestRequestTypeDef = TypedDict(
+    "DescribeMultiRegionAccessPointOperationRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "RequestTokenARN": str,
+    },
+)
+
+DescribeMultiRegionAccessPointOperationResultTypeDef = TypedDict(
+    "DescribeMultiRegionAccessPointOperationResultTypeDef",
+    {
+        "AsyncOperation": "AsyncOperationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+EstablishedMultiRegionAccessPointPolicyTypeDef = TypedDict(
+    "EstablishedMultiRegionAccessPointPolicyTypeDef",
+    {
+        "Policy": str,
+    },
+    total=False,
 )
 
 ExcludeTypeDef = TypedDict(
@@ -722,6 +884,54 @@ GetJobTaggingResultTypeDef = TypedDict(
     "GetJobTaggingResultTypeDef",
     {
         "Tags": List["S3TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMultiRegionAccessPointPolicyRequestRequestTypeDef = TypedDict(
+    "GetMultiRegionAccessPointPolicyRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Name": str,
+    },
+)
+
+GetMultiRegionAccessPointPolicyResultTypeDef = TypedDict(
+    "GetMultiRegionAccessPointPolicyResultTypeDef",
+    {
+        "Policy": "MultiRegionAccessPointPolicyDocumentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMultiRegionAccessPointPolicyStatusRequestRequestTypeDef = TypedDict(
+    "GetMultiRegionAccessPointPolicyStatusRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Name": str,
+    },
+)
+
+GetMultiRegionAccessPointPolicyStatusResultTypeDef = TypedDict(
+    "GetMultiRegionAccessPointPolicyStatusResultTypeDef",
+    {
+        "Established": "PolicyStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMultiRegionAccessPointRequestRequestTypeDef = TypedDict(
+    "GetMultiRegionAccessPointRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "Name": str,
+    },
+)
+
+GetMultiRegionAccessPointResultTypeDef = TypedDict(
+    "GetMultiRegionAccessPointResultTypeDef",
+    {
+        "AccessPoint": "MultiRegionAccessPointReportTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1078,6 +1288,36 @@ ListJobsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredListMultiRegionAccessPointsRequestRequestTypeDef = TypedDict(
+    "_RequiredListMultiRegionAccessPointsRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalListMultiRegionAccessPointsRequestRequestTypeDef = TypedDict(
+    "_OptionalListMultiRegionAccessPointsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListMultiRegionAccessPointsRequestRequestTypeDef(
+    _RequiredListMultiRegionAccessPointsRequestRequestTypeDef,
+    _OptionalListMultiRegionAccessPointsRequestRequestTypeDef,
+):
+    pass
+
+ListMultiRegionAccessPointsResultTypeDef = TypedDict(
+    "ListMultiRegionAccessPointsResultTypeDef",
+    {
+        "AccessPoints": List["MultiRegionAccessPointReportTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListRegionalBucketsRequestRequestTypeDef = TypedDict(
     "_RequiredListRegionalBucketsRequestRequestTypeDef",
     {
@@ -1158,6 +1398,45 @@ ListStorageLensConfigurationsResultTypeDef = TypedDict(
         "StorageLensConfigurationList": List["ListStorageLensConfigurationEntryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+MultiRegionAccessPointPolicyDocumentTypeDef = TypedDict(
+    "MultiRegionAccessPointPolicyDocumentTypeDef",
+    {
+        "Established": "EstablishedMultiRegionAccessPointPolicyTypeDef",
+        "Proposed": "ProposedMultiRegionAccessPointPolicyTypeDef",
+    },
+    total=False,
+)
+
+MultiRegionAccessPointRegionalResponseTypeDef = TypedDict(
+    "MultiRegionAccessPointRegionalResponseTypeDef",
+    {
+        "Name": str,
+        "RequestStatus": str,
+    },
+    total=False,
+)
+
+MultiRegionAccessPointReportTypeDef = TypedDict(
+    "MultiRegionAccessPointReportTypeDef",
+    {
+        "Name": str,
+        "Alias": str,
+        "CreatedAt": datetime,
+        "PublicAccessBlock": "PublicAccessBlockConfigurationTypeDef",
+        "Status": MultiRegionAccessPointStatusType,
+        "Regions": List["RegionReportTypeDef"],
+    },
+    total=False,
+)
+
+MultiRegionAccessPointsAsyncResponseTypeDef = TypedDict(
+    "MultiRegionAccessPointsAsyncResponseTypeDef",
+    {
+        "Regions": List["MultiRegionAccessPointRegionalResponseTypeDef"],
+    },
+    total=False,
 )
 
 NoncurrentVersionExpirationTypeDef = TypedDict(
@@ -1267,6 +1546,14 @@ PrefixLevelTypeDef = TypedDict(
     },
 )
 
+ProposedMultiRegionAccessPointPolicyTypeDef = TypedDict(
+    "ProposedMultiRegionAccessPointPolicyTypeDef",
+    {
+        "Policy": str,
+    },
+    total=False,
+)
+
 PublicAccessBlockConfigurationTypeDef = TypedDict(
     "PublicAccessBlockConfigurationTypeDef",
     {
@@ -1365,6 +1652,31 @@ PutJobTaggingRequestRequestTypeDef = TypedDict(
     },
 )
 
+PutMultiRegionAccessPointPolicyInputTypeDef = TypedDict(
+    "PutMultiRegionAccessPointPolicyInputTypeDef",
+    {
+        "Name": str,
+        "Policy": str,
+    },
+)
+
+PutMultiRegionAccessPointPolicyRequestRequestTypeDef = TypedDict(
+    "PutMultiRegionAccessPointPolicyRequestRequestTypeDef",
+    {
+        "AccountId": str,
+        "ClientToken": str,
+        "Details": "PutMultiRegionAccessPointPolicyInputTypeDef",
+    },
+)
+
+PutMultiRegionAccessPointPolicyResultTypeDef = TypedDict(
+    "PutMultiRegionAccessPointPolicyResultTypeDef",
+    {
+        "RequestTokenARN": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PutPublicAccessBlockRequestRequestTypeDef = TypedDict(
     "PutPublicAccessBlockRequestRequestTypeDef",
     {
@@ -1401,6 +1713,22 @@ PutStorageLensConfigurationTaggingRequestRequestTypeDef = TypedDict(
         "ConfigId": str,
         "AccountId": str,
         "Tags": List["StorageLensTagTypeDef"],
+    },
+)
+
+RegionReportTypeDef = TypedDict(
+    "RegionReportTypeDef",
+    {
+        "Bucket": str,
+        "Region": str,
+    },
+    total=False,
+)
+
+RegionTypeDef = TypedDict(
+    "RegionTypeDef",
+    {
+        "Bucket": str,
     },
 )
 

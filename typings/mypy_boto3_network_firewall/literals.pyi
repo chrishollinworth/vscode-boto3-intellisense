@@ -32,6 +32,7 @@ __all__ = (
     "PerObjectSyncStatusType",
     "ResourceStatusType",
     "RuleGroupTypeType",
+    "RuleOrderType",
     "StatefulActionType",
     "StatefulRuleDirectionType",
     "StatefulRuleProtocolType",
@@ -52,6 +53,7 @@ LogTypeType = Literal["ALERT", "FLOW"]
 PerObjectSyncStatusType = Literal["IN_SYNC", "PENDING"]
 ResourceStatusType = Literal["ACTIVE", "DELETING"]
 RuleGroupTypeType = Literal["STATEFUL", "STATELESS"]
+RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]
 StatefulActionType = Literal["ALERT", "DROP", "PASS"]
 StatefulRuleDirectionType = Literal["ANY", "FORWARD"]
 StatefulRuleProtocolType = Literal[

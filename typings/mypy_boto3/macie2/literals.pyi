@@ -21,7 +21,9 @@ else:
 __all__ = (
     "AdminStatusType",
     "AllowsUnencryptedObjectUploadsType",
+    "BucketMetadataErrorCodeType",
     "CurrencyType",
+    "DataIdentifierSeverityType",
     "DayOfWeekType",
     "DescribeBucketsPaginatorName",
     "EffectivePermissionType",
@@ -51,6 +53,7 @@ __all__ = (
     "ListMembersPaginatorName",
     "ListOrganizationAdminAccountsPaginatorName",
     "MacieStatusType",
+    "ManagedDataIdentifierSelectorType",
     "OrderByType",
     "RelationshipStatusType",
     "ScopeFilterKeyType",
@@ -76,7 +79,9 @@ __all__ = (
 
 AdminStatusType = Literal["DISABLING_IN_PROGRESS", "ENABLED"]
 AllowsUnencryptedObjectUploadsType = Literal["FALSE", "TRUE", "UNKNOWN"]
+BucketMetadataErrorCodeType = Literal["ACCESS_DENIED"]
 CurrencyType = Literal["USD"]
+DataIdentifierSeverityType = Literal["HIGH", "LOW", "MEDIUM"]
 DayOfWeekType = Literal[
     "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
 ]
@@ -121,6 +126,7 @@ ListJobsSortAttributeNameType = Literal["createdAt", "jobStatus", "jobType", "na
 ListMembersPaginatorName = Literal["list_members"]
 ListOrganizationAdminAccountsPaginatorName = Literal["list_organization_admin_accounts"]
 MacieStatusType = Literal["ENABLED", "PAUSED"]
+ManagedDataIdentifierSelectorType = Literal["ALL", "EXCLUDE", "INCLUDE", "NONE"]
 OrderByType = Literal["ASC", "DESC"]
 RelationshipStatusType = Literal[
     "AccountSuspended",

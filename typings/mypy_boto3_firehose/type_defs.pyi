@@ -6,9 +6,9 @@ Type annotations for firehose service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_firehose.type_defs import BufferingHintsTypeDef
+    from mypy_boto3_firehose.type_defs import AmazonopensearchserviceBufferingHintsTypeDef
 
-    data: BufferingHintsTypeDef = {...}
+    data: AmazonopensearchserviceBufferingHintsTypeDef = {...}
     ```
 """
 import sys
@@ -18,6 +18,8 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    AmazonopensearchserviceIndexRotationPeriodType,
+    AmazonopensearchserviceS3BackupModeType,
     CompressionFormatType,
     ContentEncodingType,
     DeliveryStreamEncryptionStatusType,
@@ -34,6 +36,7 @@ from .literals import (
     ParquetCompressionType,
     ParquetWriterVersionType,
     ProcessorParameterNameType,
+    ProcessorTypeType,
     RedshiftS3BackupModeType,
     S3BackupModeType,
     SplunkS3BackupModeType,
@@ -49,6 +52,11 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AmazonopensearchserviceBufferingHintsTypeDef",
+    "AmazonopensearchserviceDestinationConfigurationTypeDef",
+    "AmazonopensearchserviceDestinationDescriptionTypeDef",
+    "AmazonopensearchserviceDestinationUpdateTypeDef",
+    "AmazonopensearchserviceRetryOptionsTypeDef",
     "BufferingHintsTypeDef",
     "CloudWatchLoggingOptionsTypeDef",
     "CopyCommandTypeDef",
@@ -63,6 +71,7 @@ __all__ = (
     "DescribeDeliveryStreamOutputTypeDef",
     "DeserializerTypeDef",
     "DestinationDescriptionTypeDef",
+    "DynamicPartitioningConfigurationTypeDef",
     "ElasticsearchBufferingHintsTypeDef",
     "ElasticsearchDestinationConfigurationTypeDef",
     "ElasticsearchDestinationDescriptionTypeDef",
@@ -109,6 +118,7 @@ __all__ = (
     "RedshiftDestinationUpdateTypeDef",
     "RedshiftRetryOptionsTypeDef",
     "ResponseMetadataTypeDef",
+    "RetryOptionsTypeDef",
     "S3DestinationConfigurationTypeDef",
     "S3DestinationDescriptionTypeDef",
     "S3DestinationUpdateTypeDef",
@@ -127,6 +137,92 @@ __all__ = (
     "UpdateDestinationInputRequestTypeDef",
     "VpcConfigurationDescriptionTypeDef",
     "VpcConfigurationTypeDef",
+)
+
+AmazonopensearchserviceBufferingHintsTypeDef = TypedDict(
+    "AmazonopensearchserviceBufferingHintsTypeDef",
+    {
+        "IntervalInSeconds": int,
+        "SizeInMBs": int,
+    },
+    total=False,
+)
+
+_RequiredAmazonopensearchserviceDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredAmazonopensearchserviceDestinationConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "IndexName": str,
+        "S3Configuration": "S3DestinationConfigurationTypeDef",
+    },
+)
+_OptionalAmazonopensearchserviceDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalAmazonopensearchserviceDestinationConfigurationTypeDef",
+    {
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "TypeName": str,
+        "IndexRotationPeriod": AmazonopensearchserviceIndexRotationPeriodType,
+        "BufferingHints": "AmazonopensearchserviceBufferingHintsTypeDef",
+        "RetryOptions": "AmazonopensearchserviceRetryOptionsTypeDef",
+        "S3BackupMode": AmazonopensearchserviceS3BackupModeType,
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "VpcConfiguration": "VpcConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class AmazonopensearchserviceDestinationConfigurationTypeDef(
+    _RequiredAmazonopensearchserviceDestinationConfigurationTypeDef,
+    _OptionalAmazonopensearchserviceDestinationConfigurationTypeDef,
+):
+    pass
+
+AmazonopensearchserviceDestinationDescriptionTypeDef = TypedDict(
+    "AmazonopensearchserviceDestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "IndexName": str,
+        "TypeName": str,
+        "IndexRotationPeriod": AmazonopensearchserviceIndexRotationPeriodType,
+        "BufferingHints": "AmazonopensearchserviceBufferingHintsTypeDef",
+        "RetryOptions": "AmazonopensearchserviceRetryOptionsTypeDef",
+        "S3BackupMode": AmazonopensearchserviceS3BackupModeType,
+        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+        "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
+    },
+    total=False,
+)
+
+AmazonopensearchserviceDestinationUpdateTypeDef = TypedDict(
+    "AmazonopensearchserviceDestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "IndexName": str,
+        "TypeName": str,
+        "IndexRotationPeriod": AmazonopensearchserviceIndexRotationPeriodType,
+        "BufferingHints": "AmazonopensearchserviceBufferingHintsTypeDef",
+        "RetryOptions": "AmazonopensearchserviceRetryOptionsTypeDef",
+        "S3Update": "S3DestinationUpdateTypeDef",
+        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
+        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
+    },
+    total=False,
+)
+
+AmazonopensearchserviceRetryOptionsTypeDef = TypedDict(
+    "AmazonopensearchserviceRetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
 )
 
 BufferingHintsTypeDef = TypedDict(
@@ -182,6 +278,7 @@ _OptionalCreateDeliveryStreamInputRequestTypeDef = TypedDict(
         "ExtendedS3DestinationConfiguration": "ExtendedS3DestinationConfigurationTypeDef",
         "RedshiftDestinationConfiguration": "RedshiftDestinationConfigurationTypeDef",
         "ElasticsearchDestinationConfiguration": "ElasticsearchDestinationConfigurationTypeDef",
+        "AmazonopensearchserviceDestinationConfiguration": "AmazonopensearchserviceDestinationConfigurationTypeDef",
         "SplunkDestinationConfiguration": "SplunkDestinationConfigurationTypeDef",
         "HttpEndpointDestinationConfiguration": "HttpEndpointDestinationConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
@@ -345,6 +442,7 @@ _OptionalDestinationDescriptionTypeDef = TypedDict(
         "ExtendedS3DestinationDescription": "ExtendedS3DestinationDescriptionTypeDef",
         "RedshiftDestinationDescription": "RedshiftDestinationDescriptionTypeDef",
         "ElasticsearchDestinationDescription": "ElasticsearchDestinationDescriptionTypeDef",
+        "AmazonopensearchserviceDestinationDescription": "AmazonopensearchserviceDestinationDescriptionTypeDef",
         "SplunkDestinationDescription": "SplunkDestinationDescriptionTypeDef",
         "HttpEndpointDestinationDescription": "HttpEndpointDestinationDescriptionTypeDef",
     },
@@ -355,6 +453,15 @@ class DestinationDescriptionTypeDef(
     _RequiredDestinationDescriptionTypeDef, _OptionalDestinationDescriptionTypeDef
 ):
     pass
+
+DynamicPartitioningConfigurationTypeDef = TypedDict(
+    "DynamicPartitioningConfigurationTypeDef",
+    {
+        "RetryOptions": "RetryOptionsTypeDef",
+        "Enabled": bool,
+    },
+    total=False,
+)
 
 ElasticsearchBufferingHintsTypeDef = TypedDict(
     "ElasticsearchBufferingHintsTypeDef",
@@ -471,6 +578,7 @@ _OptionalExtendedS3DestinationConfigurationTypeDef = TypedDict(
         "S3BackupMode": S3BackupModeType,
         "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
         "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
+        "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
     },
     total=False,
 )
@@ -501,6 +609,7 @@ _OptionalExtendedS3DestinationDescriptionTypeDef = TypedDict(
         "S3BackupMode": S3BackupModeType,
         "S3BackupDescription": "S3DestinationDescriptionTypeDef",
         "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
+        "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
     },
     total=False,
 )
@@ -526,6 +635,7 @@ ExtendedS3DestinationUpdateTypeDef = TypedDict(
         "S3BackupMode": S3BackupModeType,
         "S3BackupUpdate": "S3DestinationUpdateTypeDef",
         "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
+        "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
     },
     total=False,
 )
@@ -818,7 +928,7 @@ ProcessorParameterTypeDef = TypedDict(
 _RequiredProcessorTypeDef = TypedDict(
     "_RequiredProcessorTypeDef",
     {
-        "Type": Literal["Lambda"],
+        "Type": ProcessorTypeType,
     },
 )
 _OptionalProcessorTypeDef = TypedDict(
@@ -975,6 +1085,14 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RetryOptionsTypeDef = TypedDict(
+    "RetryOptionsTypeDef",
+    {
+        "DurationInSeconds": int,
+    },
+    total=False,
 )
 
 _RequiredS3DestinationConfigurationTypeDef = TypedDict(
@@ -1213,6 +1331,7 @@ _OptionalUpdateDestinationInputRequestTypeDef = TypedDict(
         "ExtendedS3DestinationUpdate": "ExtendedS3DestinationUpdateTypeDef",
         "RedshiftDestinationUpdate": "RedshiftDestinationUpdateTypeDef",
         "ElasticsearchDestinationUpdate": "ElasticsearchDestinationUpdateTypeDef",
+        "AmazonopensearchserviceDestinationUpdate": "AmazonopensearchserviceDestinationUpdateTypeDef",
         "SplunkDestinationUpdate": "SplunkDestinationUpdateTypeDef",
         "HttpEndpointDestinationUpdate": "HttpEndpointDestinationUpdateTypeDef",
     },

@@ -242,6 +242,8 @@ __all__ = (
     "MultiplexStoppedWaiterName",
     "NetworkInputServerValidationType",
     "NielsenPcmToId3TaggingStateType",
+    "NielsenWatermarksCbetStepasideType",
+    "NielsenWatermarksDistributionTypesType",
     "OfferingDurationUnitsType",
     "OfferingTypeType",
     "PipelineIdType",
@@ -555,6 +557,7 @@ InputTypeType = Literal[
     "RTMP_PULL",
     "RTMP_PUSH",
     "RTP_PUSH",
+    "TS_FILE",
     "UDP_PUSH",
     "URL_PULL",
 ]
@@ -624,6 +627,8 @@ NetworkInputServerValidationType = Literal[
     "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME", "CHECK_CRYPTOGRAPHY_ONLY"
 ]
 NielsenPcmToId3TaggingStateType = Literal["DISABLED", "ENABLED"]
+NielsenWatermarksCbetStepasideType = Literal["DISABLED", "ENABLED"]
+NielsenWatermarksDistributionTypesType = Literal["FINAL_DISTRIBUTOR", "PROGRAM_CONTENT"]
 OfferingDurationUnitsType = Literal["MONTHS"]
 OfferingTypeType = Literal["NO_UPFRONT"]
 PipelineIdType = Literal["PIPELINE_0", "PIPELINE_1"]

@@ -22,6 +22,8 @@ __all__ = (
     "AccountStatusType",
     "AccountTypeType",
     "AppInstanceDataTypeType",
+    "ArtifactsStateType",
+    "AudioMuxTypeType",
     "BotTypeType",
     "CallingNameStatusType",
     "CapabilityType",
@@ -30,6 +32,7 @@ __all__ = (
     "ChannelMessageTypeType",
     "ChannelModeType",
     "ChannelPrivacyType",
+    "ContentMuxTypeType",
     "EmailStatusType",
     "ErrorCodeType",
     "GeoMatchLevelType",
@@ -63,12 +66,15 @@ __all__ = (
     "TranscribeRegionType",
     "TranscribeVocabularyFilterMethodType",
     "UserTypeType",
+    "VideoMuxTypeType",
     "VoiceConnectorAwsRegionType",
 )
 
 AccountStatusType = Literal["Active", "Suspended"]
 AccountTypeType = Literal["EnterpriseDirectory", "EnterpriseLWA", "EnterpriseOIDC", "Team"]
 AppInstanceDataTypeType = Literal["Channel", "ChannelMessage"]
+ArtifactsStateType = Literal["Disabled", "Enabled"]
+AudioMuxTypeType = Literal["AudioOnly", "AudioWithActiveSpeakerVideo"]
 BotTypeType = Literal["ChatBot"]
 CallingNameStatusType = Literal["Unassigned", "UpdateFailed", "UpdateInProgress", "UpdateSucceeded"]
 CapabilityType = Literal["SMS", "Voice"]
@@ -77,6 +83,7 @@ ChannelMessagePersistenceTypeType = Literal["NON_PERSISTENT", "PERSISTENT"]
 ChannelMessageTypeType = Literal["CONTROL", "STANDARD"]
 ChannelModeType = Literal["RESTRICTED", "UNRESTRICTED"]
 ChannelPrivacyType = Literal["PRIVATE", "PUBLIC"]
+ContentMuxTypeType = Literal["ContentOnly"]
 EmailStatusType = Literal["Failed", "NotSent", "Sent"]
 ErrorCodeType = Literal[
     "AccessDenied",
@@ -147,7 +154,7 @@ TranscribeLanguageCodeType = Literal[
 ]
 TranscribeMedicalLanguageCodeType = Literal["en-US"]
 TranscribeMedicalRegionType = Literal[
-    "ap-southeast-2", "ca-central-1", "eu-west-1", "us-east-1", "us-east-2", "us-west-2"
+    "ap-southeast-2", "auto", "ca-central-1", "eu-west-1", "us-east-1", "us-east-2", "us-west-2"
 ]
 TranscribeMedicalSpecialtyType = Literal[
     "CARDIOLOGY", "NEUROLOGY", "ONCOLOGY", "PRIMARYCARE", "RADIOLOGY", "UROLOGY"
@@ -157,6 +164,7 @@ TranscribeRegionType = Literal[
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-southeast-2",
+    "auto",
     "ca-central-1",
     "eu-central-1",
     "eu-west-1",
@@ -168,4 +176,5 @@ TranscribeRegionType = Literal[
 ]
 TranscribeVocabularyFilterMethodType = Literal["mask", "remove", "tag"]
 UserTypeType = Literal["PrivateUser", "SharedDevice"]
+VideoMuxTypeType = Literal["VideoOnly"]
 VoiceConnectorAwsRegionType = Literal["us-east-1", "us-west-2"]

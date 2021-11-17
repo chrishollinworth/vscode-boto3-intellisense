@@ -17,16 +17,27 @@ from typing import Any, Dict, List
 
 from .literals import (
     ConnectionStateType,
+    ConnectionStatusType,
+    ConnectionTypeType,
     CustomerGatewayAssociationStateType,
     DeviceStateType,
     GlobalNetworkStateType,
     LinkAssociationStateType,
     LinkStateType,
+    RouteAnalysisCompletionReasonCodeType,
+    RouteAnalysisCompletionResultCodeType,
+    RouteAnalysisStatusType,
+    RouteStateType,
+    RouteTypeType,
     SiteStateType,
     TransitGatewayConnectPeerAssociationStateType,
     TransitGatewayRegistrationStateType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -41,6 +52,7 @@ __all__ = (
     "AssociateTransitGatewayConnectPeerRequestRequestTypeDef",
     "AssociateTransitGatewayConnectPeerResponseTypeDef",
     "BandwidthTypeDef",
+    "ConnectionHealthTypeDef",
     "ConnectionTypeDef",
     "CreateConnectionRequestRequestTypeDef",
     "CreateConnectionResponseTypeDef",
@@ -84,6 +96,18 @@ __all__ = (
     "GetLinkAssociationsResponseTypeDef",
     "GetLinksRequestRequestTypeDef",
     "GetLinksResponseTypeDef",
+    "GetNetworkResourceCountsRequestRequestTypeDef",
+    "GetNetworkResourceCountsResponseTypeDef",
+    "GetNetworkResourceRelationshipsRequestRequestTypeDef",
+    "GetNetworkResourceRelationshipsResponseTypeDef",
+    "GetNetworkResourcesRequestRequestTypeDef",
+    "GetNetworkResourcesResponseTypeDef",
+    "GetNetworkRoutesRequestRequestTypeDef",
+    "GetNetworkRoutesResponseTypeDef",
+    "GetNetworkTelemetryRequestRequestTypeDef",
+    "GetNetworkTelemetryResponseTypeDef",
+    "GetRouteAnalysisRequestRequestTypeDef",
+    "GetRouteAnalysisResponseTypeDef",
     "GetSitesRequestRequestTypeDef",
     "GetSitesResponseTypeDef",
     "GetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef",
@@ -96,11 +120,27 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocationTypeDef",
+    "NetworkResourceCountTypeDef",
+    "NetworkResourceSummaryTypeDef",
+    "NetworkResourceTypeDef",
+    "NetworkRouteDestinationTypeDef",
+    "NetworkRouteTypeDef",
+    "NetworkTelemetryTypeDef",
     "PaginatorConfigTypeDef",
+    "PathComponentTypeDef",
     "RegisterTransitGatewayRequestRequestTypeDef",
     "RegisterTransitGatewayResponseTypeDef",
+    "RelationshipTypeDef",
     "ResponseMetadataTypeDef",
+    "RouteAnalysisCompletionTypeDef",
+    "RouteAnalysisEndpointOptionsSpecificationTypeDef",
+    "RouteAnalysisEndpointOptionsTypeDef",
+    "RouteAnalysisPathTypeDef",
+    "RouteAnalysisTypeDef",
+    "RouteTableIdentifierTypeDef",
     "SiteTypeDef",
+    "StartRouteAnalysisRequestRequestTypeDef",
+    "StartRouteAnalysisResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TransitGatewayConnectPeerAssociationTypeDef",
@@ -115,6 +155,8 @@ __all__ = (
     "UpdateGlobalNetworkResponseTypeDef",
     "UpdateLinkRequestRequestTypeDef",
     "UpdateLinkResponseTypeDef",
+    "UpdateNetworkResourceMetadataRequestRequestTypeDef",
+    "UpdateNetworkResourceMetadataResponseTypeDef",
     "UpdateSiteRequestRequestTypeDef",
     "UpdateSiteResponseTypeDef",
 )
@@ -210,6 +252,16 @@ BandwidthTypeDef = TypedDict(
     {
         "UploadSpeed": int,
         "DownloadSpeed": int,
+    },
+    total=False,
+)
+
+ConnectionHealthTypeDef = TypedDict(
+    "ConnectionHealthTypeDef",
+    {
+        "Type": ConnectionTypeType,
+        "Status": ConnectionStatusType,
+        "Timestamp": datetime,
     },
     total=False,
 )
@@ -731,6 +783,196 @@ GetLinksResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetNetworkResourceCountsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetNetworkResourceCountsRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+    },
+)
+_OptionalGetNetworkResourceCountsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetNetworkResourceCountsRequestRequestTypeDef",
+    {
+        "ResourceType": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetNetworkResourceCountsRequestRequestTypeDef(
+    _RequiredGetNetworkResourceCountsRequestRequestTypeDef,
+    _OptionalGetNetworkResourceCountsRequestRequestTypeDef,
+):
+    pass
+
+GetNetworkResourceCountsResponseTypeDef = TypedDict(
+    "GetNetworkResourceCountsResponseTypeDef",
+    {
+        "NetworkResourceCounts": List["NetworkResourceCountTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetNetworkResourceRelationshipsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetNetworkResourceRelationshipsRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+    },
+)
+_OptionalGetNetworkResourceRelationshipsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetNetworkResourceRelationshipsRequestRequestTypeDef",
+    {
+        "RegisteredGatewayArn": str,
+        "AwsRegion": str,
+        "AccountId": str,
+        "ResourceType": str,
+        "ResourceArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetNetworkResourceRelationshipsRequestRequestTypeDef(
+    _RequiredGetNetworkResourceRelationshipsRequestRequestTypeDef,
+    _OptionalGetNetworkResourceRelationshipsRequestRequestTypeDef,
+):
+    pass
+
+GetNetworkResourceRelationshipsResponseTypeDef = TypedDict(
+    "GetNetworkResourceRelationshipsResponseTypeDef",
+    {
+        "Relationships": List["RelationshipTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetNetworkResourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetNetworkResourcesRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+    },
+)
+_OptionalGetNetworkResourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetNetworkResourcesRequestRequestTypeDef",
+    {
+        "RegisteredGatewayArn": str,
+        "AwsRegion": str,
+        "AccountId": str,
+        "ResourceType": str,
+        "ResourceArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetNetworkResourcesRequestRequestTypeDef(
+    _RequiredGetNetworkResourcesRequestRequestTypeDef,
+    _OptionalGetNetworkResourcesRequestRequestTypeDef,
+):
+    pass
+
+GetNetworkResourcesResponseTypeDef = TypedDict(
+    "GetNetworkResourcesResponseTypeDef",
+    {
+        "NetworkResources": List["NetworkResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetNetworkRoutesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetNetworkRoutesRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+        "RouteTableIdentifier": "RouteTableIdentifierTypeDef",
+    },
+)
+_OptionalGetNetworkRoutesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetNetworkRoutesRequestRequestTypeDef",
+    {
+        "ExactCidrMatches": List[str],
+        "LongestPrefixMatches": List[str],
+        "SubnetOfMatches": List[str],
+        "SupernetOfMatches": List[str],
+        "PrefixListIds": List[str],
+        "States": List[RouteStateType],
+        "Types": List[RouteTypeType],
+        "DestinationFilters": Dict[str, List[str]],
+    },
+    total=False,
+)
+
+class GetNetworkRoutesRequestRequestTypeDef(
+    _RequiredGetNetworkRoutesRequestRequestTypeDef, _OptionalGetNetworkRoutesRequestRequestTypeDef
+):
+    pass
+
+GetNetworkRoutesResponseTypeDef = TypedDict(
+    "GetNetworkRoutesResponseTypeDef",
+    {
+        "RouteTableArn": str,
+        "RouteTableType": Literal["TRANSIT_GATEWAY_ROUTE_TABLE"],
+        "RouteTableTimestamp": datetime,
+        "NetworkRoutes": List["NetworkRouteTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetNetworkTelemetryRequestRequestTypeDef = TypedDict(
+    "_RequiredGetNetworkTelemetryRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+    },
+)
+_OptionalGetNetworkTelemetryRequestRequestTypeDef = TypedDict(
+    "_OptionalGetNetworkTelemetryRequestRequestTypeDef",
+    {
+        "RegisteredGatewayArn": str,
+        "AwsRegion": str,
+        "AccountId": str,
+        "ResourceType": str,
+        "ResourceArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetNetworkTelemetryRequestRequestTypeDef(
+    _RequiredGetNetworkTelemetryRequestRequestTypeDef,
+    _OptionalGetNetworkTelemetryRequestRequestTypeDef,
+):
+    pass
+
+GetNetworkTelemetryResponseTypeDef = TypedDict(
+    "GetNetworkTelemetryResponseTypeDef",
+    {
+        "NetworkTelemetry": List["NetworkTelemetryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRouteAnalysisRequestRequestTypeDef = TypedDict(
+    "GetRouteAnalysisRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+        "RouteAnalysisId": str,
+    },
+)
+
+GetRouteAnalysisResponseTypeDef = TypedDict(
+    "GetRouteAnalysisResponseTypeDef",
+    {
+        "RouteAnalysis": "RouteAnalysisTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetSitesRequestRequestTypeDef = TypedDict(
     "_RequiredGetSitesRequestRequestTypeDef",
     {
@@ -892,12 +1134,98 @@ LocationTypeDef = TypedDict(
     total=False,
 )
 
+NetworkResourceCountTypeDef = TypedDict(
+    "NetworkResourceCountTypeDef",
+    {
+        "ResourceType": str,
+        "Count": int,
+    },
+    total=False,
+)
+
+NetworkResourceSummaryTypeDef = TypedDict(
+    "NetworkResourceSummaryTypeDef",
+    {
+        "RegisteredGatewayArn": str,
+        "ResourceArn": str,
+        "ResourceType": str,
+        "Definition": str,
+        "NameTag": str,
+        "IsMiddlebox": bool,
+    },
+    total=False,
+)
+
+NetworkResourceTypeDef = TypedDict(
+    "NetworkResourceTypeDef",
+    {
+        "RegisteredGatewayArn": str,
+        "AwsRegion": str,
+        "AccountId": str,
+        "ResourceType": str,
+        "ResourceId": str,
+        "ResourceArn": str,
+        "Definition": str,
+        "DefinitionTimestamp": datetime,
+        "Tags": List["TagTypeDef"],
+        "Metadata": Dict[str, str],
+    },
+    total=False,
+)
+
+NetworkRouteDestinationTypeDef = TypedDict(
+    "NetworkRouteDestinationTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "ResourceType": str,
+        "ResourceId": str,
+    },
+    total=False,
+)
+
+NetworkRouteTypeDef = TypedDict(
+    "NetworkRouteTypeDef",
+    {
+        "DestinationCidrBlock": str,
+        "Destinations": List["NetworkRouteDestinationTypeDef"],
+        "PrefixListId": str,
+        "State": RouteStateType,
+        "Type": RouteTypeType,
+    },
+    total=False,
+)
+
+NetworkTelemetryTypeDef = TypedDict(
+    "NetworkTelemetryTypeDef",
+    {
+        "RegisteredGatewayArn": str,
+        "AwsRegion": str,
+        "AccountId": str,
+        "ResourceType": str,
+        "ResourceId": str,
+        "ResourceArn": str,
+        "Address": str,
+        "Health": "ConnectionHealthTypeDef",
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+PathComponentTypeDef = TypedDict(
+    "PathComponentTypeDef",
+    {
+        "Sequence": int,
+        "Resource": "NetworkResourceSummaryTypeDef",
+        "DestinationCidrBlock": str,
     },
     total=False,
 )
@@ -918,6 +1246,15 @@ RegisterTransitGatewayResponseTypeDef = TypedDict(
     },
 )
 
+RelationshipTypeDef = TypedDict(
+    "RelationshipTypeDef",
+    {
+        "From": str,
+        "To": str,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -927,6 +1264,70 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RouteAnalysisCompletionTypeDef = TypedDict(
+    "RouteAnalysisCompletionTypeDef",
+    {
+        "ResultCode": RouteAnalysisCompletionResultCodeType,
+        "ReasonCode": RouteAnalysisCompletionReasonCodeType,
+        "ReasonContext": Dict[str, str],
+    },
+    total=False,
+)
+
+RouteAnalysisEndpointOptionsSpecificationTypeDef = TypedDict(
+    "RouteAnalysisEndpointOptionsSpecificationTypeDef",
+    {
+        "TransitGatewayAttachmentArn": str,
+        "IpAddress": str,
+    },
+    total=False,
+)
+
+RouteAnalysisEndpointOptionsTypeDef = TypedDict(
+    "RouteAnalysisEndpointOptionsTypeDef",
+    {
+        "TransitGatewayAttachmentArn": str,
+        "TransitGatewayArn": str,
+        "IpAddress": str,
+    },
+    total=False,
+)
+
+RouteAnalysisPathTypeDef = TypedDict(
+    "RouteAnalysisPathTypeDef",
+    {
+        "CompletionStatus": "RouteAnalysisCompletionTypeDef",
+        "Path": List["PathComponentTypeDef"],
+    },
+    total=False,
+)
+
+RouteAnalysisTypeDef = TypedDict(
+    "RouteAnalysisTypeDef",
+    {
+        "GlobalNetworkId": str,
+        "OwnerAccountId": str,
+        "RouteAnalysisId": str,
+        "StartTimestamp": datetime,
+        "Status": RouteAnalysisStatusType,
+        "Source": "RouteAnalysisEndpointOptionsTypeDef",
+        "Destination": "RouteAnalysisEndpointOptionsTypeDef",
+        "IncludeReturnPath": bool,
+        "UseMiddleboxes": bool,
+        "ForwardPath": "RouteAnalysisPathTypeDef",
+        "ReturnPath": "RouteAnalysisPathTypeDef",
+    },
+    total=False,
+)
+
+RouteTableIdentifierTypeDef = TypedDict(
+    "RouteTableIdentifierTypeDef",
+    {
+        "TransitGatewayRouteTableArn": str,
+    },
+    total=False,
 )
 
 SiteTypeDef = TypedDict(
@@ -942,6 +1343,37 @@ SiteTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
     },
     total=False,
+)
+
+_RequiredStartRouteAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredStartRouteAnalysisRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+        "Source": "RouteAnalysisEndpointOptionsSpecificationTypeDef",
+        "Destination": "RouteAnalysisEndpointOptionsSpecificationTypeDef",
+    },
+)
+_OptionalStartRouteAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalStartRouteAnalysisRequestRequestTypeDef",
+    {
+        "IncludeReturnPath": bool,
+        "UseMiddleboxes": bool,
+    },
+    total=False,
+)
+
+class StartRouteAnalysisRequestRequestTypeDef(
+    _RequiredStartRouteAnalysisRequestRequestTypeDef,
+    _OptionalStartRouteAnalysisRequestRequestTypeDef,
+):
+    pass
+
+StartRouteAnalysisResponseTypeDef = TypedDict(
+    "StartRouteAnalysisResponseTypeDef",
+    {
+        "RouteAnalysis": "RouteAnalysisTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(
@@ -1120,6 +1552,24 @@ UpdateLinkResponseTypeDef = TypedDict(
     "UpdateLinkResponseTypeDef",
     {
         "Link": "LinkTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateNetworkResourceMetadataRequestRequestTypeDef = TypedDict(
+    "UpdateNetworkResourceMetadataRequestRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+        "ResourceArn": str,
+        "Metadata": Dict[str, str],
+    },
+)
+
+UpdateNetworkResourceMetadataResponseTypeDef = TypedDict(
+    "UpdateNetworkResourceMetadataResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "Metadata": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

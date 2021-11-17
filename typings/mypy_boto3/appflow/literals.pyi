@@ -36,7 +36,11 @@ __all__ = (
     "OperatorType",
     "PrefixFormatType",
     "PrefixTypeType",
+    "PrivateConnectionProvisioningFailureCauseType",
+    "PrivateConnectionProvisioningStatusType",
     "S3ConnectorOperatorType",
+    "S3InputFileTypeType",
+    "SAPODataConnectorOperatorType",
     "SalesforceConnectorOperatorType",
     "ScheduleFrequencyTypeType",
     "ServiceNowConnectorOperatorType",
@@ -66,6 +70,7 @@ ConnectorTypeType = Literal[
     "Marketo",
     "Redshift",
     "S3",
+    "SAPOData",
     "Salesforce",
     "Servicenow",
     "Singular",
@@ -192,9 +197,37 @@ OperatorType = Literal[
 ]
 PrefixFormatType = Literal["DAY", "HOUR", "MINUTE", "MONTH", "YEAR"]
 PrefixTypeType = Literal["FILENAME", "PATH", "PATH_AND_FILENAME"]
+PrivateConnectionProvisioningFailureCauseType = Literal[
+    "ACCESS_DENIED", "CONNECTOR_AUTHENTICATION", "CONNECTOR_SERVER", "INTERNAL_SERVER", "VALIDATION"
+]
+PrivateConnectionProvisioningStatusType = Literal["CREATED", "FAILED", "PENDING"]
 S3ConnectorOperatorType = Literal[
     "ADDITION",
     "BETWEEN",
+    "DIVISION",
+    "EQUAL_TO",
+    "GREATER_THAN",
+    "GREATER_THAN_OR_EQUAL_TO",
+    "LESS_THAN",
+    "LESS_THAN_OR_EQUAL_TO",
+    "MASK_ALL",
+    "MASK_FIRST_N",
+    "MASK_LAST_N",
+    "MULTIPLICATION",
+    "NOT_EQUAL_TO",
+    "NO_OP",
+    "PROJECTION",
+    "SUBTRACTION",
+    "VALIDATE_NON_NEGATIVE",
+    "VALIDATE_NON_NULL",
+    "VALIDATE_NON_ZERO",
+    "VALIDATE_NUMERIC",
+]
+S3InputFileTypeType = Literal["CSV", "JSON"]
+SAPODataConnectorOperatorType = Literal[
+    "ADDITION",
+    "BETWEEN",
+    "CONTAINS",
     "DIVISION",
     "EQUAL_TO",
     "GREATER_THAN",

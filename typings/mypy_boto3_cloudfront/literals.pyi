@@ -27,6 +27,7 @@ __all__ = (
     "DistributionDeployedWaiterName",
     "EventTypeType",
     "FormatType",
+    "FrameOptionsListType",
     "FunctionRuntimeType",
     "FunctionStageType",
     "GeoRestrictionTypeType",
@@ -47,6 +48,9 @@ __all__ = (
     "OriginRequestPolicyTypeType",
     "PriceClassType",
     "RealtimeMetricsSubscriptionStatusType",
+    "ReferrerPolicyListType",
+    "ResponseHeadersPolicyAccessControlAllowMethodsValuesType",
+    "ResponseHeadersPolicyTypeType",
     "SSLSupportMethodType",
     "SslProtocolType",
     "StreamingDistributionDeployedWaiterName",
@@ -61,6 +65,7 @@ CertificateSourceType = Literal["acm", "cloudfront", "iam"]
 DistributionDeployedWaiterName = Literal["distribution_deployed"]
 EventTypeType = Literal["origin-request", "origin-response", "viewer-request", "viewer-response"]
 FormatType = Literal["URLEncoded"]
+FrameOptionsListType = Literal["DENY", "SAMEORIGIN"]
 FunctionRuntimeType = Literal["cloudfront-js-1.0"]
 FunctionStageType = Literal["DEVELOPMENT", "LIVE"]
 GeoRestrictionTypeType = Literal["blacklist", "none", "whitelist"]
@@ -87,6 +92,20 @@ OriginRequestPolicyQueryStringBehaviorType = Literal["all", "none", "whitelist"]
 OriginRequestPolicyTypeType = Literal["custom", "managed"]
 PriceClassType = Literal["PriceClass_100", "PriceClass_200", "PriceClass_All"]
 RealtimeMetricsSubscriptionStatusType = Literal["Disabled", "Enabled"]
+ReferrerPolicyListType = Literal[
+    "no-referrer",
+    "no-referrer-when-downgrade",
+    "origin",
+    "origin-when-cross-origin",
+    "same-origin",
+    "strict-origin",
+    "strict-origin-when-cross-origin",
+    "unsafe-url",
+]
+ResponseHeadersPolicyAccessControlAllowMethodsValuesType = Literal[
+    "ALL", "DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"
+]
+ResponseHeadersPolicyTypeType = Literal["custom", "managed"]
 SSLSupportMethodType = Literal["sni-only", "static-ip", "vip"]
 SslProtocolType = Literal["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
 StreamingDistributionDeployedWaiterName = Literal["streaming_distribution_deployed"]

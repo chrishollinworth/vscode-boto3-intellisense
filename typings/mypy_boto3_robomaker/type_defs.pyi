@@ -17,6 +17,8 @@ from typing import Any, Dict, List
 
 from .literals import (
     ArchitectureType,
+    ComputeTypeType,
+    DataSourceTypeType,
     DeploymentJobErrorCodeType,
     DeploymentStatusType,
     ExitBehaviorType,
@@ -115,6 +117,7 @@ __all__ = (
     "DescribeWorldResponseTypeDef",
     "DescribeWorldTemplateRequestRequestTypeDef",
     "DescribeWorldTemplateResponseTypeDef",
+    "EnvironmentTypeDef",
     "FailedCreateSimulationJobRequestTypeDef",
     "FailureSummaryTypeDef",
     "FilterTypeDef",
@@ -280,6 +283,8 @@ ComputeResponseTypeDef = TypedDict(
     "ComputeResponseTypeDef",
     {
         "simulationUnitLimit": int,
+        "computeType": ComputeTypeType,
+        "gpuUnitLimit": int,
     },
     total=False,
 )
@@ -288,6 +293,8 @@ ComputeTypeDef = TypedDict(
     "ComputeTypeDef",
     {
         "simulationUnitLimit": int,
+        "computeType": ComputeTypeType,
+        "gpuUnitLimit": int,
     },
     total=False,
 )
@@ -365,14 +372,15 @@ _RequiredCreateRobotApplicationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateRobotApplicationRequestRequestTypeDef",
     {
         "name": str,
-        "sources": List["SourceConfigTypeDef"],
         "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
     },
 )
 _OptionalCreateRobotApplicationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateRobotApplicationRequestRequestTypeDef",
     {
+        "sources": List["SourceConfigTypeDef"],
         "tags": Dict[str, str],
+        "environment": "EnvironmentTypeDef",
     },
     total=False,
 )
@@ -394,6 +402,7 @@ CreateRobotApplicationResponseTypeDef = TypedDict(
         "lastUpdatedAt": datetime,
         "revisionId": str,
         "tags": Dict[str, str],
+        "environment": "EnvironmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -408,6 +417,8 @@ _OptionalCreateRobotApplicationVersionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateRobotApplicationVersionRequestRequestTypeDef",
     {
         "currentRevisionId": str,
+        "s3Etags": List[str],
+        "imageDigest": str,
     },
     total=False,
 )
@@ -428,6 +439,7 @@ CreateRobotApplicationVersionResponseTypeDef = TypedDict(
         "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
         "lastUpdatedAt": datetime,
         "revisionId": str,
+        "environment": "EnvironmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -470,7 +482,6 @@ _RequiredCreateSimulationApplicationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateSimulationApplicationRequestRequestTypeDef",
     {
         "name": str,
-        "sources": List["SourceConfigTypeDef"],
         "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
         "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
     },
@@ -478,8 +489,10 @@ _RequiredCreateSimulationApplicationRequestRequestTypeDef = TypedDict(
 _OptionalCreateSimulationApplicationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateSimulationApplicationRequestRequestTypeDef",
     {
+        "sources": List["SourceConfigTypeDef"],
         "renderingEngine": "RenderingEngineTypeDef",
         "tags": Dict[str, str],
+        "environment": "EnvironmentTypeDef",
     },
     total=False,
 )
@@ -503,6 +516,7 @@ CreateSimulationApplicationResponseTypeDef = TypedDict(
         "lastUpdatedAt": datetime,
         "revisionId": str,
         "tags": Dict[str, str],
+        "environment": "EnvironmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -517,6 +531,8 @@ _OptionalCreateSimulationApplicationVersionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateSimulationApplicationVersionRequestRequestTypeDef",
     {
         "currentRevisionId": str,
+        "s3Etags": List[str],
+        "imageDigest": str,
     },
     total=False,
 )
@@ -539,6 +555,7 @@ CreateSimulationApplicationVersionResponseTypeDef = TypedDict(
         "renderingEngine": "RenderingEngineTypeDef",
         "lastUpdatedAt": datetime,
         "revisionId": str,
+        "environment": "EnvironmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -699,14 +716,25 @@ CreateWorldTemplateResponseTypeDef = TypedDict(
     },
 )
 
-DataSourceConfigTypeDef = TypedDict(
-    "DataSourceConfigTypeDef",
+_RequiredDataSourceConfigTypeDef = TypedDict(
+    "_RequiredDataSourceConfigTypeDef",
     {
         "name": str,
         "s3Bucket": str,
         "s3Keys": List[str],
     },
 )
+_OptionalDataSourceConfigTypeDef = TypedDict(
+    "_OptionalDataSourceConfigTypeDef",
+    {
+        "type": DataSourceTypeType,
+        "destination": str,
+    },
+    total=False,
+)
+
+class DataSourceConfigTypeDef(_RequiredDataSourceConfigTypeDef, _OptionalDataSourceConfigTypeDef):
+    pass
 
 DataSourceTypeDef = TypedDict(
     "DataSourceTypeDef",
@@ -714,6 +742,8 @@ DataSourceTypeDef = TypedDict(
         "name": str,
         "s3Bucket": str,
         "s3Keys": List["S3KeyOutputTypeDef"],
+        "type": DataSourceTypeType,
+        "destination": str,
     },
     total=False,
 )
@@ -930,6 +960,8 @@ DescribeRobotApplicationResponseTypeDef = TypedDict(
         "revisionId": str,
         "lastUpdatedAt": datetime,
         "tags": Dict[str, str],
+        "environment": "EnvironmentTypeDef",
+        "imageDigest": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -991,6 +1023,8 @@ DescribeSimulationApplicationResponseTypeDef = TypedDict(
         "revisionId": str,
         "lastUpdatedAt": datetime,
         "tags": Dict[str, str],
+        "environment": "EnvironmentTypeDef",
+        "imageDigest": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1146,6 +1180,14 @@ DescribeWorldTemplateResponseTypeDef = TypedDict(
     },
 )
 
+EnvironmentTypeDef = TypedDict(
+    "EnvironmentTypeDef",
+    {
+        "uri": str,
+    },
+    total=False,
+)
+
 FailedCreateSimulationJobRequestTypeDef = TypedDict(
     "FailedCreateSimulationJobRequestTypeDef",
     {
@@ -1215,25 +1257,18 @@ GetWorldTemplateBodyResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredLaunchConfigTypeDef = TypedDict(
-    "_RequiredLaunchConfigTypeDef",
+LaunchConfigTypeDef = TypedDict(
+    "LaunchConfigTypeDef",
     {
         "packageName": str,
         "launchFile": str,
-    },
-)
-_OptionalLaunchConfigTypeDef = TypedDict(
-    "_OptionalLaunchConfigTypeDef",
-    {
         "environmentVariables": Dict[str, str],
         "portForwardingConfig": "PortForwardingConfigTypeDef",
         "streamUI": bool,
+        "command": List[str],
     },
     total=False,
 )
-
-class LaunchConfigTypeDef(_RequiredLaunchConfigTypeDef, _OptionalLaunchConfigTypeDef):
-    pass
 
 ListDeploymentJobsRequestRequestTypeDef = TypedDict(
     "ListDeploymentJobsRequestRequestTypeDef",
@@ -1770,6 +1805,7 @@ SimulationJobSummaryTypeDef = TypedDict(
         "simulationApplicationNames": List[str],
         "robotApplicationNames": List[str],
         "dataSourceNames": List[str],
+        "computeType": ComputeTypeType,
     },
     total=False,
 )
@@ -1955,14 +1991,15 @@ _RequiredUpdateRobotApplicationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateRobotApplicationRequestRequestTypeDef",
     {
         "application": str,
-        "sources": List["SourceConfigTypeDef"],
         "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
     },
 )
 _OptionalUpdateRobotApplicationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateRobotApplicationRequestRequestTypeDef",
     {
+        "sources": List["SourceConfigTypeDef"],
         "currentRevisionId": str,
+        "environment": "EnvironmentTypeDef",
     },
     total=False,
 )
@@ -1983,6 +2020,7 @@ UpdateRobotApplicationResponseTypeDef = TypedDict(
         "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
         "lastUpdatedAt": datetime,
         "revisionId": str,
+        "environment": "EnvironmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1991,7 +2029,6 @@ _RequiredUpdateSimulationApplicationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateSimulationApplicationRequestRequestTypeDef",
     {
         "application": str,
-        "sources": List["SourceConfigTypeDef"],
         "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
         "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
     },
@@ -1999,8 +2036,10 @@ _RequiredUpdateSimulationApplicationRequestRequestTypeDef = TypedDict(
 _OptionalUpdateSimulationApplicationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateSimulationApplicationRequestRequestTypeDef",
     {
+        "sources": List["SourceConfigTypeDef"],
         "renderingEngine": "RenderingEngineTypeDef",
         "currentRevisionId": str,
+        "environment": "EnvironmentTypeDef",
     },
     total=False,
 )
@@ -2023,6 +2062,7 @@ UpdateSimulationApplicationResponseTypeDef = TypedDict(
         "renderingEngine": "RenderingEngineTypeDef",
         "lastUpdatedAt": datetime,
         "revisionId": str,
+        "environment": "EnvironmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

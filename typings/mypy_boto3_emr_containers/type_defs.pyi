@@ -35,6 +35,7 @@ else:
 __all__ = (
     "CancelJobRunRequestRequestTypeDef",
     "CancelJobRunResponseTypeDef",
+    "CertificateTypeDef",
     "CloudWatchMonitoringConfigurationTypeDef",
     "ConfigurationOverridesTypeDef",
     "ConfigurationTypeDef",
@@ -93,6 +94,15 @@ CancelJobRunResponseTypeDef = TypedDict(
         "virtualClusterId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CertificateTypeDef = TypedDict(
+    "CertificateTypeDef",
+    {
+        "certificateArn": str,
+        "certificateData": str,
+    },
+    total=False,
 )
 
 _RequiredCloudWatchMonitoringConfigurationTypeDef = TypedDict(
@@ -178,13 +188,13 @@ _RequiredCreateManagedEndpointRequestRequestTypeDef = TypedDict(
         "type": str,
         "releaseLabel": str,
         "executionRoleArn": str,
-        "certificateArn": str,
         "clientToken": str,
     },
 )
 _OptionalCreateManagedEndpointRequestRequestTypeDef = TypedDict(
     "_OptionalCreateManagedEndpointRequestRequestTypeDef",
     {
+        "certificateArn": str,
         "configurationOverrides": "ConfigurationOverridesTypeDef",
         "tags": Dict[str, str],
     },
@@ -339,6 +349,7 @@ EndpointTypeDef = TypedDict(
         "releaseLabel": str,
         "executionRoleArn": str,
         "certificateArn": str,
+        "certificateAuthority": "CertificateTypeDef",
         "configurationOverrides": "ConfigurationOverridesTypeDef",
         "serverUrl": str,
         "createdAt": datetime,

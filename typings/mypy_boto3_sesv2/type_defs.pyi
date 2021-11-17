@@ -27,6 +27,7 @@ from .literals import (
     DeliverabilityTestStatusType,
     DimensionValueSourceType,
     DkimSigningAttributesOriginType,
+    DkimSigningKeyLengthType,
     DkimStatusType,
     EventTypeType,
     IdentityTypeType,
@@ -721,6 +722,9 @@ DkimAttributesTypeDef = TypedDict(
         "Status": DkimStatusType,
         "Tokens": List[str],
         "SigningAttributesOrigin": DkimSigningAttributesOriginType,
+        "NextSigningKeyLength": DkimSigningKeyLengthType,
+        "CurrentSigningKeyLength": DkimSigningKeyLengthType,
+        "LastKeyGenerationTimestamp": datetime,
     },
     total=False,
 )
@@ -730,7 +734,9 @@ DkimSigningAttributesTypeDef = TypedDict(
     {
         "DomainSigningSelector": str,
         "DomainSigningPrivateKey": str,
+        "NextSigningKeyLength": DkimSigningKeyLengthType,
     },
+    total=False,
 )
 
 DomainDeliverabilityCampaignTypeDef = TypedDict(

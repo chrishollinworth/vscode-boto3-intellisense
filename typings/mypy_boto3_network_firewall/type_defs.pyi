@@ -24,6 +24,7 @@ from .literals import (
     PerObjectSyncStatusType,
     ResourceStatusType,
     RuleGroupTypeType,
+    RuleOrderType,
     StatefulActionType,
     StatefulRuleDirectionType,
     StatefulRuleProtocolType,
@@ -105,7 +106,9 @@ __all__ = (
     "RuleVariablesTypeDef",
     "RulesSourceListTypeDef",
     "RulesSourceTypeDef",
+    "StatefulEngineOptionsTypeDef",
     "StatefulRuleGroupReferenceTypeDef",
+    "StatefulRuleOptionsTypeDef",
     "StatefulRuleTypeDef",
     "StatelessRuleGroupReferenceTypeDef",
     "StatelessRuleTypeDef",
@@ -554,6 +557,9 @@ _OptionalFirewallPolicyResponseTypeDef = TypedDict(
         "Description": str,
         "FirewallPolicyStatus": ResourceStatusType,
         "Tags": List["TagTypeDef"],
+        "ConsumedStatelessRuleCapacity": int,
+        "ConsumedStatefulRuleCapacity": int,
+        "NumberOfAssociations": int,
     },
     total=False,
 )
@@ -576,6 +582,8 @@ _OptionalFirewallPolicyTypeDef = TypedDict(
         "StatelessRuleGroupReferences": List["StatelessRuleGroupReferenceTypeDef"],
         "StatelessCustomActions": List["CustomActionTypeDef"],
         "StatefulRuleGroupReferences": List["StatefulRuleGroupReferenceTypeDef"],
+        "StatefulDefaultActions": List[str],
+        "StatefulEngineOptions": "StatefulEngineOptionsTypeDef",
     },
     total=False,
 )
@@ -854,6 +862,8 @@ _OptionalRuleGroupResponseTypeDef = TypedDict(
         "Capacity": int,
         "RuleGroupStatus": ResourceStatusType,
         "Tags": List["TagTypeDef"],
+        "ConsumedCapacity": int,
+        "NumberOfAssociations": int,
     },
     total=False,
 )
@@ -873,6 +883,7 @@ _OptionalRuleGroupTypeDef = TypedDict(
     "_OptionalRuleGroupTypeDef",
     {
         "RuleVariables": "RuleVariablesTypeDef",
+        "StatefulRuleOptions": "StatefulRuleOptionsTypeDef",
     },
     total=False,
 )
@@ -926,11 +937,39 @@ RulesSourceTypeDef = TypedDict(
     total=False,
 )
 
-StatefulRuleGroupReferenceTypeDef = TypedDict(
-    "StatefulRuleGroupReferenceTypeDef",
+StatefulEngineOptionsTypeDef = TypedDict(
+    "StatefulEngineOptionsTypeDef",
+    {
+        "RuleOrder": RuleOrderType,
+    },
+    total=False,
+)
+
+_RequiredStatefulRuleGroupReferenceTypeDef = TypedDict(
+    "_RequiredStatefulRuleGroupReferenceTypeDef",
     {
         "ResourceArn": str,
     },
+)
+_OptionalStatefulRuleGroupReferenceTypeDef = TypedDict(
+    "_OptionalStatefulRuleGroupReferenceTypeDef",
+    {
+        "Priority": int,
+    },
+    total=False,
+)
+
+class StatefulRuleGroupReferenceTypeDef(
+    _RequiredStatefulRuleGroupReferenceTypeDef, _OptionalStatefulRuleGroupReferenceTypeDef
+):
+    pass
+
+StatefulRuleOptionsTypeDef = TypedDict(
+    "StatefulRuleOptionsTypeDef",
+    {
+        "RuleOrder": RuleOrderType,
+    },
+    total=False,
 )
 
 StatefulRuleTypeDef = TypedDict(

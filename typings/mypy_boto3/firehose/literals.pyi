@@ -6,9 +6,9 @@ Type annotations for firehose service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_firehose.literals import CompressionFormatType
+    from mypy_boto3_firehose.literals import AmazonopensearchserviceIndexRotationPeriodType
 
-    data: CompressionFormatType = "GZIP"
+    data: AmazonopensearchserviceIndexRotationPeriodType = "NoRotation"
     ```
 """
 import sys
@@ -19,6 +19,8 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AmazonopensearchserviceIndexRotationPeriodType",
+    "AmazonopensearchserviceS3BackupModeType",
     "CompressionFormatType",
     "ContentEncodingType",
     "DeliveryStreamEncryptionStatusType",
@@ -42,6 +44,10 @@ __all__ = (
     "SplunkS3BackupModeType",
 )
 
+AmazonopensearchserviceIndexRotationPeriodType = Literal[
+    "NoRotation", "OneDay", "OneHour", "OneMonth", "OneWeek"
+]
+AmazonopensearchserviceS3BackupModeType = Literal["AllDocuments", "FailedDocumentsOnly"]
 CompressionFormatType = Literal["GZIP", "HADOOP_SNAPPY", "Snappy", "UNCOMPRESSED", "ZIP"]
 ContentEncodingType = Literal["GZIP", "NONE"]
 DeliveryStreamEncryptionStatusType = Literal[
@@ -81,9 +87,19 @@ OrcFormatVersionType = Literal["V0_11", "V0_12"]
 ParquetCompressionType = Literal["GZIP", "SNAPPY", "UNCOMPRESSED"]
 ParquetWriterVersionType = Literal["V1", "V2"]
 ProcessorParameterNameType = Literal[
-    "BufferIntervalInSeconds", "BufferSizeInMBs", "LambdaArn", "NumberOfRetries", "RoleArn"
+    "BufferIntervalInSeconds",
+    "BufferSizeInMBs",
+    "Delimiter",
+    "JsonParsingEngine",
+    "LambdaArn",
+    "MetadataExtractionQuery",
+    "NumberOfRetries",
+    "RoleArn",
+    "SubRecordType",
 ]
-ProcessorTypeType = Literal["Lambda"]
+ProcessorTypeType = Literal[
+    "AppendDelimiterToRecord", "Lambda", "MetadataExtraction", "RecordDeAggregation"
+]
 RedshiftS3BackupModeType = Literal["Disabled", "Enabled"]
 S3BackupModeType = Literal["Disabled", "Enabled"]
 SplunkS3BackupModeType = Literal["AllEvents", "FailedEventsOnly"]

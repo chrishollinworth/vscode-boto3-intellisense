@@ -1,22 +1,20 @@
 #upgrade python
 sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
-wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz
-tar -xf Python-3.9.6.tgz
-cd Python-3.9.6
-./configure --enable-optimizations
-make -j 4
-sudo make altinstall
-python3.9 --version
+# wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
+# tar -xf Python-3.9.7.tgz
+# cd Python-3.9.7
+# ./configure --enable-optimizations
+# make -j 4
+# sudo make altinstall
+# python3.9 --version
 
 sudo apt install -y python3-pip
-
 alias python='python3.9'
 pip3 install virtualenv
 virtualenv -p /usr/local/bin/python3.9 buildstubs_env
 source buildstubs_env/bin/activate
 pip3 install --upgrade boto3 botocore jinja2 pyparsing black mdformat isort
 
-# rm -rf mypy_boto3_builder
 git clone https://github.com/chrishollinworth/mypy_boto3_builder.git
 cd mypy_boto3_builder
 

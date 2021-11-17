@@ -29,6 +29,9 @@ from .literals import (
     ObjectTypeEnumType,
     RoleTypeType,
     SettingAttributeType,
+    ShareRequestActionType,
+    ShareRequestStatusType,
+    ShareRequestTypeType,
     SourceFrequencyType,
     SourceSetUpOptionType,
     SourceTypeType,
@@ -50,6 +53,7 @@ __all__ = (
     "AssessmentControlTypeDef",
     "AssessmentEvidenceFolderTypeDef",
     "AssessmentFrameworkMetadataTypeDef",
+    "AssessmentFrameworkShareRequestTypeDef",
     "AssessmentFrameworkTypeDef",
     "AssessmentMetadataItemTypeDef",
     "AssessmentMetadataTypeDef",
@@ -93,6 +97,7 @@ __all__ = (
     "DelegationMetadataTypeDef",
     "DelegationTypeDef",
     "DeleteAssessmentFrameworkRequestRequestTypeDef",
+    "DeleteAssessmentFrameworkShareRequestRequestTypeDef",
     "DeleteAssessmentReportRequestRequestTypeDef",
     "DeleteAssessmentRequestRequestTypeDef",
     "DeleteControlRequestRequestTypeDef",
@@ -129,6 +134,8 @@ __all__ = (
     "GetServicesInScopeResponseTypeDef",
     "GetSettingsRequestRequestTypeDef",
     "GetSettingsResponseTypeDef",
+    "ListAssessmentFrameworkShareRequestsRequestRequestTypeDef",
+    "ListAssessmentFrameworkShareRequestsResponseTypeDef",
     "ListAssessmentFrameworksRequestRequestTypeDef",
     "ListAssessmentFrameworksResponseTypeDef",
     "ListAssessmentReportsRequestRequestTypeDef",
@@ -156,6 +163,8 @@ __all__ = (
     "ServiceMetadataTypeDef",
     "SettingsTypeDef",
     "SourceKeywordTypeDef",
+    "StartAssessmentFrameworkShareRequestRequestTypeDef",
+    "StartAssessmentFrameworkShareResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "URLTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -166,6 +175,8 @@ __all__ = (
     "UpdateAssessmentFrameworkControlSetTypeDef",
     "UpdateAssessmentFrameworkRequestRequestTypeDef",
     "UpdateAssessmentFrameworkResponseTypeDef",
+    "UpdateAssessmentFrameworkShareRequestRequestTypeDef",
+    "UpdateAssessmentFrameworkShareResponseTypeDef",
     "UpdateAssessmentRequestRequestTypeDef",
     "UpdateAssessmentResponseTypeDef",
     "UpdateAssessmentStatusRequestRequestTypeDef",
@@ -266,6 +277,28 @@ AssessmentFrameworkMetadataTypeDef = TypedDict(
         "controlSetsCount": int,
         "createdAt": datetime,
         "lastUpdatedAt": datetime,
+    },
+    total=False,
+)
+
+AssessmentFrameworkShareRequestTypeDef = TypedDict(
+    "AssessmentFrameworkShareRequestTypeDef",
+    {
+        "id": str,
+        "frameworkId": str,
+        "frameworkName": str,
+        "frameworkDescription": str,
+        "status": ShareRequestStatusType,
+        "sourceAccount": str,
+        "destinationAccount": str,
+        "destinationRegion": str,
+        "expirationTime": datetime,
+        "creationTime": datetime,
+        "lastUpdated": datetime,
+        "comment": str,
+        "standardControlsCount": int,
+        "customControlsCount": int,
+        "complianceType": str,
     },
     total=False,
 )
@@ -799,6 +832,14 @@ DeleteAssessmentFrameworkRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
+    "DeleteAssessmentFrameworkShareRequestRequestTypeDef",
+    {
+        "requestId": str,
+        "requestType": ShareRequestTypeType,
+    },
+)
+
 DeleteAssessmentReportRequestRequestTypeDef = TypedDict(
     "DeleteAssessmentReportRequestRequestTypeDef",
     {
@@ -1179,6 +1220,36 @@ GetSettingsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListAssessmentFrameworkShareRequestsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAssessmentFrameworkShareRequestsRequestRequestTypeDef",
+    {
+        "requestType": ShareRequestTypeType,
+    },
+)
+_OptionalListAssessmentFrameworkShareRequestsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAssessmentFrameworkShareRequestsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListAssessmentFrameworkShareRequestsRequestRequestTypeDef(
+    _RequiredListAssessmentFrameworkShareRequestsRequestRequestTypeDef,
+    _OptionalListAssessmentFrameworkShareRequestsRequestRequestTypeDef,
+):
+    pass
+
+ListAssessmentFrameworkShareRequestsResponseTypeDef = TypedDict(
+    "ListAssessmentFrameworkShareRequestsResponseTypeDef",
+    {
+        "assessmentFrameworkShareRequests": List["AssessmentFrameworkShareRequestTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListAssessmentFrameworksRequestRequestTypeDef = TypedDict(
     "_RequiredListAssessmentFrameworksRequestRequestTypeDef",
     {
@@ -1463,6 +1534,36 @@ SourceKeywordTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredStartAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
+    "_RequiredStartAssessmentFrameworkShareRequestRequestTypeDef",
+    {
+        "frameworkId": str,
+        "destinationAccount": str,
+        "destinationRegion": str,
+    },
+)
+_OptionalStartAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
+    "_OptionalStartAssessmentFrameworkShareRequestRequestTypeDef",
+    {
+        "comment": str,
+    },
+    total=False,
+)
+
+class StartAssessmentFrameworkShareRequestRequestTypeDef(
+    _RequiredStartAssessmentFrameworkShareRequestRequestTypeDef,
+    _OptionalStartAssessmentFrameworkShareRequestRequestTypeDef,
+):
+    pass
+
+StartAssessmentFrameworkShareResponseTypeDef = TypedDict(
+    "StartAssessmentFrameworkShareResponseTypeDef",
+    {
+        "assessmentFrameworkShareRequest": "AssessmentFrameworkShareRequestTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -1585,6 +1686,23 @@ UpdateAssessmentFrameworkResponseTypeDef = TypedDict(
     "UpdateAssessmentFrameworkResponseTypeDef",
     {
         "framework": "FrameworkTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
+    "UpdateAssessmentFrameworkShareRequestRequestTypeDef",
+    {
+        "requestId": str,
+        "requestType": ShareRequestTypeType,
+        "action": ShareRequestActionType,
+    },
+)
+
+UpdateAssessmentFrameworkShareResponseTypeDef = TypedDict(
+    "UpdateAssessmentFrameworkShareResponseTypeDef",
+    {
+        "assessmentFrameworkShareRequest": "AssessmentFrameworkShareRequestTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

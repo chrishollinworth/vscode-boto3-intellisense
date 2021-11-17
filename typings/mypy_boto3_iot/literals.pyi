@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AbortActionType",
     "ActionTypeType",
+    "AggregationTypeNameType",
     "AlertTargetTypeType",
     "AuditCheckRunStatusType",
     "AuditFindingSeverityType",
@@ -56,6 +57,7 @@ __all__ = (
     "DynamoKeyTypeType",
     "EventTypeType",
     "FieldTypeType",
+    "FleetMetricUnitType",
     "GetBehaviorModelTrainingSummariesPaginatorName",
     "IndexStatusType",
     "JobExecutionFailureTypeType",
@@ -78,9 +80,11 @@ __all__ = (
     "ListDetectMitigationActionsTasksPaginatorName",
     "ListDimensionsPaginatorName",
     "ListDomainConfigurationsPaginatorName",
+    "ListFleetMetricsPaginatorName",
     "ListIndicesPaginatorName",
     "ListJobExecutionsForJobPaginatorName",
     "ListJobExecutionsForThingPaginatorName",
+    "ListJobTemplatesPaginatorName",
     "ListJobsPaginatorName",
     "ListMitigationActionsPaginatorName",
     "ListOTAUpdatesPaginatorName",
@@ -130,11 +134,13 @@ __all__ = (
     "ThingGroupIndexingModeType",
     "ThingIndexingModeType",
     "TopicRuleDestinationStatusType",
+    "VerificationStateType",
     "ViolationEventTypeType",
 )
 
 AbortActionType = Literal["CANCEL"]
 ActionTypeType = Literal["CONNECT", "PUBLISH", "RECEIVE", "SUBSCRIBE"]
+AggregationTypeNameType = Literal["Cardinality", "Percentiles", "Statistics"]
 AlertTargetTypeType = Literal["SNS"]
 AuditCheckRunStatusType = Literal[
     "CANCELED",
@@ -215,6 +221,35 @@ EventTypeType = Literal[
     "THING_TYPE_ASSOCIATION",
 ]
 FieldTypeType = Literal["Boolean", "Number", "String"]
+FleetMetricUnitType = Literal[
+    "Bits",
+    "Bits/Second",
+    "Bytes",
+    "Bytes/Second",
+    "Count",
+    "Count/Second",
+    "Gigabits",
+    "Gigabits/Second",
+    "Gigabytes",
+    "Gigabytes/Second",
+    "Kilobits",
+    "Kilobits/Second",
+    "Kilobytes",
+    "Kilobytes/Second",
+    "Megabits",
+    "Megabits/Second",
+    "Megabytes",
+    "Megabytes/Second",
+    "Microseconds",
+    "Milliseconds",
+    "None",
+    "Percent",
+    "Seconds",
+    "Terabits",
+    "Terabits/Second",
+    "Terabytes",
+    "Terabytes/Second",
+]
 GetBehaviorModelTrainingSummariesPaginatorName = Literal["get_behavior_model_training_summaries"]
 IndexStatusType = Literal["ACTIVE", "BUILDING", "REBUILDING"]
 JobExecutionFailureTypeType = Literal["ALL", "FAILED", "REJECTED", "TIMED_OUT"]
@@ -243,9 +278,11 @@ ListDetectMitigationActionsExecutionsPaginatorName = Literal[
 ListDetectMitigationActionsTasksPaginatorName = Literal["list_detect_mitigation_actions_tasks"]
 ListDimensionsPaginatorName = Literal["list_dimensions"]
 ListDomainConfigurationsPaginatorName = Literal["list_domain_configurations"]
+ListFleetMetricsPaginatorName = Literal["list_fleet_metrics"]
 ListIndicesPaginatorName = Literal["list_indices"]
 ListJobExecutionsForJobPaginatorName = Literal["list_job_executions_for_job"]
 ListJobExecutionsForThingPaginatorName = Literal["list_job_executions_for_thing"]
+ListJobTemplatesPaginatorName = Literal["list_job_templates"]
 ListJobsPaginatorName = Literal["list_jobs"]
 ListMitigationActionsPaginatorName = Literal["list_mitigation_actions"]
 ListOTAUpdatesPaginatorName = Literal["list_ota_updates"]
@@ -313,4 +350,5 @@ ThingConnectivityIndexingModeType = Literal["OFF", "STATUS"]
 ThingGroupIndexingModeType = Literal["OFF", "ON"]
 ThingIndexingModeType = Literal["OFF", "REGISTRY", "REGISTRY_AND_SHADOW"]
 TopicRuleDestinationStatusType = Literal["DELETING", "DISABLED", "ENABLED", "ERROR", "IN_PROGRESS"]
+VerificationStateType = Literal["BENIGN_POSITIVE", "FALSE_POSITIVE", "TRUE_POSITIVE", "UNKNOWN"]
 ViolationEventTypeType = Literal["alarm-cleared", "alarm-invalidated", "in-alarm"]

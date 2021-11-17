@@ -6,9 +6,9 @@ Type annotations for amp service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_amp.literals import ListWorkspacesPaginatorName
+    from mypy_boto3_amp.literals import AlertManagerDefinitionStatusCodeType
 
-    data: ListWorkspacesPaginatorName = "list_workspaces"
+    data: AlertManagerDefinitionStatusCodeType = "ACTIVE"
     ```
 """
 import sys
@@ -18,7 +18,24 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("ListWorkspacesPaginatorName", "WorkspaceStatusCodeType")
+__all__ = (
+    "AlertManagerDefinitionStatusCodeType",
+    "ListRuleGroupsNamespacesPaginatorName",
+    "ListWorkspacesPaginatorName",
+    "RuleGroupsNamespaceStatusCodeType",
+    "WorkspaceActiveWaiterName",
+    "WorkspaceDeletedWaiterName",
+    "WorkspaceStatusCodeType",
+)
 
+AlertManagerDefinitionStatusCodeType = Literal[
+    "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
+]
+ListRuleGroupsNamespacesPaginatorName = Literal["list_rule_groups_namespaces"]
 ListWorkspacesPaginatorName = Literal["list_workspaces"]
+RuleGroupsNamespaceStatusCodeType = Literal[
+    "ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
+]
+WorkspaceActiveWaiterName = Literal["workspace_active"]
+WorkspaceDeletedWaiterName = Literal["workspace_deleted"]
 WorkspaceStatusCodeType = Literal["ACTIVE", "CREATING", "CREATION_FAILED", "DELETING", "UPDATING"]

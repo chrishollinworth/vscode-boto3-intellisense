@@ -25,6 +25,7 @@ __all__ = (
     "EnvironmentStatusType",
     "EnvironmentTypeType",
     "ListEnvironmentsPaginatorName",
+    "ManagedCredentialsActionType",
     "ManagedCredentialsStatusType",
     "MemberPermissionsType",
     "PermissionsType",
@@ -40,6 +41,7 @@ EnvironmentStatusType = Literal[
 ]
 EnvironmentTypeType = Literal["ec2", "ssh"]
 ListEnvironmentsPaginatorName = Literal["list_environments"]
+ManagedCredentialsActionType = Literal["DISABLE", "ENABLE"]
 ManagedCredentialsStatusType = Literal[
     "DISABLED_BY_COLLABORATOR",
     "DISABLED_BY_DEFAULT",

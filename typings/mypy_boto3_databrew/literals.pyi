@@ -63,7 +63,9 @@ ListSchedulesPaginatorName = Literal["list_schedules"]
 LogSubscriptionType = Literal["DISABLE", "ENABLE"]
 OrderType = Literal["ASCENDING", "DESCENDING"]
 OrderedByType = Literal["LAST_MODIFIED_DATE"]
-OutputFormatType = Literal["AVRO", "CSV", "GLUEPARQUET", "JSON", "ORC", "PARQUET", "XML"]
+OutputFormatType = Literal[
+    "AVRO", "CSV", "GLUEPARQUET", "JSON", "ORC", "PARQUET", "TABLEAUHYPER", "XML"
+]
 ParameterTypeType = Literal["Datetime", "Number", "String"]
 SampleModeType = Literal["CUSTOM_ROWS", "FULL_DATASET"]
 SampleTypeType = Literal["FIRST_N", "LAST_N", "RANDOM"]

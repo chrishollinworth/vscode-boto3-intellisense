@@ -22,6 +22,7 @@ from .literals import (
     AppImageConfigSortKeyType,
     AppInstanceTypeType,
     AppNetworkAccessTypeType,
+    AppSecurityGroupManagementType,
     AppStatusType,
     AppTypeType,
     ArtifactSourceIdTypeType,
@@ -95,6 +96,7 @@ from .literals import (
     ListEdgePackagingJobsSortByType,
     ListWorkforcesSortByOptionsType,
     ListWorkteamsSortByOptionsType,
+    MetricSetSourceType,
     ModelApprovalStatusType,
     ModelCacheSettingType,
     ModelPackageGroupSortByType,
@@ -142,6 +144,8 @@ from .literals import (
     ResourceTypeType,
     RetentionTypeType,
     RootAccessType,
+    RStudioServerProAccessStatusType,
+    RStudioServerProUserGroupType,
     RuleEvaluationStatusType,
     S3DataDistributionType,
     S3DataTypeType,
@@ -161,6 +165,8 @@ from .literals import (
     SortTrialsByType,
     SplitTypeType,
     StepStatusType,
+    StudioLifecycleConfigAppTypeType,
+    StudioLifecycleConfigSortKeyType,
     TargetDeviceType,
     TargetPlatformAcceleratorType,
     TargetPlatformArchType,
@@ -177,6 +183,7 @@ from .literals import (
     UserProfileSortKeyType,
     UserProfileStatusType,
     VariantPropertyTypeType,
+    VariantStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -213,6 +220,10 @@ __all__ = (
     "AssociateTrialComponentRequestRequestTypeDef",
     "AssociateTrialComponentResponseTypeDef",
     "AssociationSummaryTypeDef",
+    "AsyncInferenceClientConfigTypeDef",
+    "AsyncInferenceConfigTypeDef",
+    "AsyncInferenceNotificationConfigTypeDef",
+    "AsyncInferenceOutputConfigTypeDef",
     "AthenaDatasetDefinitionTypeDef",
     "AutoMLCandidateStepTypeDef",
     "AutoMLCandidateTypeDef",
@@ -229,6 +240,10 @@ __all__ = (
     "AutoMLS3DataSourceTypeDef",
     "AutoMLSecurityConfigTypeDef",
     "AutoRollbackConfigTypeDef",
+    "BatchDescribeModelPackageErrorTypeDef",
+    "BatchDescribeModelPackageInputRequestTypeDef",
+    "BatchDescribeModelPackageOutputTypeDef",
+    "BatchDescribeModelPackageSummaryTypeDef",
     "BiasTypeDef",
     "BlueGreenUpdatePolicyTypeDef",
     "CacheHitResultTypeDef",
@@ -326,6 +341,8 @@ __all__ = (
     "CreateProcessingJobResponseTypeDef",
     "CreateProjectInputRequestTypeDef",
     "CreateProjectOutputTypeDef",
+    "CreateStudioLifecycleConfigRequestRequestTypeDef",
+    "CreateStudioLifecycleConfigResponseTypeDef",
     "CreateTrainingJobRequestRequestTypeDef",
     "CreateTrainingJobResponseTypeDef",
     "CreateTransformJobRequestRequestTypeDef",
@@ -390,6 +407,7 @@ __all__ = (
     "DeletePipelineRequestRequestTypeDef",
     "DeletePipelineResponseTypeDef",
     "DeleteProjectInputRequestTypeDef",
+    "DeleteStudioLifecycleConfigRequestRequestTypeDef",
     "DeleteTagsInputRequestTypeDef",
     "DeleteTrialComponentRequestRequestTypeDef",
     "DeleteTrialComponentResponseTypeDef",
@@ -478,6 +496,8 @@ __all__ = (
     "DescribeProcessingJobResponseTypeDef",
     "DescribeProjectInputRequestTypeDef",
     "DescribeProjectOutputTypeDef",
+    "DescribeStudioLifecycleConfigRequestRequestTypeDef",
+    "DescribeStudioLifecycleConfigResponseTypeDef",
     "DescribeSubscribedWorkteamRequestRequestTypeDef",
     "DescribeSubscribedWorkteamResponseTypeDef",
     "DescribeTrainingJobRequestRequestTypeDef",
@@ -502,6 +522,8 @@ __all__ = (
     "DisassociateTrialComponentRequestRequestTypeDef",
     "DisassociateTrialComponentResponseTypeDef",
     "DomainDetailsTypeDef",
+    "DomainSettingsForUpdateTypeDef",
+    "DomainSettingsTypeDef",
     "EdgeModelStatTypeDef",
     "EdgeModelSummaryTypeDef",
     "EdgeModelTypeDef",
@@ -663,6 +685,8 @@ __all__ = (
     "ListProcessingJobsResponseTypeDef",
     "ListProjectsInputRequestTypeDef",
     "ListProjectsOutputTypeDef",
+    "ListStudioLifecycleConfigsRequestRequestTypeDef",
+    "ListStudioLifecycleConfigsResponseTypeDef",
     "ListSubscribedWorkteamsRequestRequestTypeDef",
     "ListSubscribedWorkteamsResponseTypeDef",
     "ListTagsInputRequestTypeDef",
@@ -686,6 +710,7 @@ __all__ = (
     "MemberDefinitionTypeDef",
     "MetadataPropertiesTypeDef",
     "MetricDataTypeDef",
+    "MetricDatumTypeDef",
     "MetricDefinitionTypeDef",
     "MetricsSourceTypeDef",
     "ModelArtifactsTypeDef",
@@ -760,6 +785,8 @@ __all__ = (
     "ParameterTypeDef",
     "ParentHyperParameterTuningJobTypeDef",
     "ParentTypeDef",
+    "PendingDeploymentSummaryTypeDef",
+    "PendingProductionVariantSummaryTypeDef",
     "PipelineExecutionStepMetadataTypeDef",
     "PipelineExecutionStepTypeDef",
     "PipelineExecutionSummaryTypeDef",
@@ -780,6 +807,7 @@ __all__ = (
     "ProcessingS3OutputTypeDef",
     "ProcessingStoppingConditionTypeDef",
     "ProductionVariantCoreDumpConfigTypeDef",
+    "ProductionVariantStatusTypeDef",
     "ProductionVariantSummaryTypeDef",
     "ProductionVariantTypeDef",
     "ProfilerConfigForUpdateTypeDef",
@@ -787,12 +815,16 @@ __all__ = (
     "ProfilerRuleConfigurationTypeDef",
     "ProfilerRuleEvaluationStatusTypeDef",
     "ProjectSummaryTypeDef",
+    "ProjectTypeDef",
     "PropertyNameQueryTypeDef",
     "PropertyNameSuggestionTypeDef",
     "ProvisioningParameterTypeDef",
     "PublicWorkforceTaskPriceTypeDef",
     "PutModelPackageGroupPolicyInputRequestTypeDef",
     "PutModelPackageGroupPolicyOutputTypeDef",
+    "RStudioServerProAppSettingsTypeDef",
+    "RStudioServerProDomainSettingsForUpdateTypeDef",
+    "RStudioServerProDomainSettingsTypeDef",
     "RedshiftDatasetDefinitionTypeDef",
     "RegisterDevicesRequestRequestTypeDef",
     "RegisterModelStepMetadataTypeDef",
@@ -807,6 +839,8 @@ __all__ = (
     "ResourceSpecTypeDef",
     "ResponseMetadataTypeDef",
     "RetentionPolicyTypeDef",
+    "RetryPipelineExecutionRequestRequestTypeDef",
+    "RetryPipelineExecutionResponseTypeDef",
     "RetryStrategyTypeDef",
     "S3DataSourceTypeDef",
     "S3StorageConfigTypeDef",
@@ -822,6 +856,7 @@ __all__ = (
     "SendPipelineExecutionStepSuccessResponseTypeDef",
     "ServiceCatalogProvisionedProductDetailsTypeDef",
     "ServiceCatalogProvisioningDetailsTypeDef",
+    "ServiceCatalogProvisioningUpdateDetailsTypeDef",
     "SharingSettingsTypeDef",
     "ShuffleConfigTypeDef",
     "SourceAlgorithmSpecificationTypeDef",
@@ -844,6 +879,7 @@ __all__ = (
     "StopTrainingJobRequestRequestTypeDef",
     "StopTransformJobRequestRequestTypeDef",
     "StoppingConditionTypeDef",
+    "StudioLifecycleConfigDetailsTypeDef",
     "SubscribedWorkteamTypeDef",
     "SuggestionQueryTypeDef",
     "TagTypeDef",
@@ -916,6 +952,8 @@ __all__ = (
     "UpdatePipelineExecutionResponseTypeDef",
     "UpdatePipelineRequestRequestTypeDef",
     "UpdatePipelineResponseTypeDef",
+    "UpdateProjectInputRequestTypeDef",
+    "UpdateProjectOutputTypeDef",
     "UpdateTrainingJobRequestRequestTypeDef",
     "UpdateTrainingJobResponseTypeDef",
     "UpdateTrialComponentRequestRequestTypeDef",
@@ -1251,6 +1289,62 @@ AssociationSummaryTypeDef = TypedDict(
     total=False,
 )
 
+AsyncInferenceClientConfigTypeDef = TypedDict(
+    "AsyncInferenceClientConfigTypeDef",
+    {
+        "MaxConcurrentInvocationsPerInstance": int,
+    },
+    total=False,
+)
+
+_RequiredAsyncInferenceConfigTypeDef = TypedDict(
+    "_RequiredAsyncInferenceConfigTypeDef",
+    {
+        "OutputConfig": "AsyncInferenceOutputConfigTypeDef",
+    },
+)
+_OptionalAsyncInferenceConfigTypeDef = TypedDict(
+    "_OptionalAsyncInferenceConfigTypeDef",
+    {
+        "ClientConfig": "AsyncInferenceClientConfigTypeDef",
+    },
+    total=False,
+)
+
+class AsyncInferenceConfigTypeDef(
+    _RequiredAsyncInferenceConfigTypeDef, _OptionalAsyncInferenceConfigTypeDef
+):
+    pass
+
+AsyncInferenceNotificationConfigTypeDef = TypedDict(
+    "AsyncInferenceNotificationConfigTypeDef",
+    {
+        "SuccessTopic": str,
+        "ErrorTopic": str,
+    },
+    total=False,
+)
+
+_RequiredAsyncInferenceOutputConfigTypeDef = TypedDict(
+    "_RequiredAsyncInferenceOutputConfigTypeDef",
+    {
+        "S3OutputPath": str,
+    },
+)
+_OptionalAsyncInferenceOutputConfigTypeDef = TypedDict(
+    "_OptionalAsyncInferenceOutputConfigTypeDef",
+    {
+        "KmsKeyId": str,
+        "NotificationConfig": "AsyncInferenceNotificationConfigTypeDef",
+    },
+    total=False,
+)
+
+class AsyncInferenceOutputConfigTypeDef(
+    _RequiredAsyncInferenceOutputConfigTypeDef, _OptionalAsyncInferenceOutputConfigTypeDef
+):
+    pass
+
 _RequiredAthenaDatasetDefinitionTypeDef = TypedDict(
     "_RequiredAthenaDatasetDefinitionTypeDef",
     {
@@ -1468,6 +1562,56 @@ AutoRollbackConfigTypeDef = TypedDict(
     total=False,
 )
 
+BatchDescribeModelPackageErrorTypeDef = TypedDict(
+    "BatchDescribeModelPackageErrorTypeDef",
+    {
+        "ErrorCode": str,
+        "ErrorResponse": str,
+    },
+)
+
+BatchDescribeModelPackageInputRequestTypeDef = TypedDict(
+    "BatchDescribeModelPackageInputRequestTypeDef",
+    {
+        "ModelPackageArnList": List[str],
+    },
+)
+
+BatchDescribeModelPackageOutputTypeDef = TypedDict(
+    "BatchDescribeModelPackageOutputTypeDef",
+    {
+        "ModelPackageSummaries": Dict[str, "BatchDescribeModelPackageSummaryTypeDef"],
+        "BatchDescribeModelPackageErrorMap": Dict[str, "BatchDescribeModelPackageErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredBatchDescribeModelPackageSummaryTypeDef = TypedDict(
+    "_RequiredBatchDescribeModelPackageSummaryTypeDef",
+    {
+        "ModelPackageGroupName": str,
+        "ModelPackageArn": str,
+        "CreationTime": datetime,
+        "InferenceSpecification": "InferenceSpecificationTypeDef",
+        "ModelPackageStatus": ModelPackageStatusType,
+    },
+)
+_OptionalBatchDescribeModelPackageSummaryTypeDef = TypedDict(
+    "_OptionalBatchDescribeModelPackageSummaryTypeDef",
+    {
+        "ModelPackageVersion": int,
+        "ModelPackageDescription": str,
+        "ModelApprovalStatus": ModelApprovalStatusType,
+    },
+    total=False,
+)
+
+class BatchDescribeModelPackageSummaryTypeDef(
+    _RequiredBatchDescribeModelPackageSummaryTypeDef,
+    _OptionalBatchDescribeModelPackageSummaryTypeDef,
+):
+    pass
+
 BiasTypeDef = TypedDict(
     "BiasTypeDef",
     {
@@ -1525,6 +1669,7 @@ CandidatePropertiesTypeDef = TypedDict(
     "CandidatePropertiesTypeDef",
     {
         "CandidateArtifactLocations": "CandidateArtifactLocationsTypeDef",
+        "CandidateMetrics": List["MetricDatumTypeDef"],
     },
     total=False,
 )
@@ -2149,6 +2294,8 @@ _OptionalCreateDomainRequestRequestTypeDef = TypedDict(
         "AppNetworkAccessType": AppNetworkAccessTypeType,
         "HomeEfsFileSystemKmsKeyId": str,
         "KmsKeyId": str,
+        "AppSecurityGroupManagement": AppSecurityGroupManagementType,
+        "DomainSettings": "DomainSettingsTypeDef",
     },
     total=False,
 )
@@ -2206,6 +2353,7 @@ _OptionalCreateEndpointConfigInputRequestTypeDef = TypedDict(
         "DataCaptureConfig": "DataCaptureConfigTypeDef",
         "Tags": List["TagTypeDef"],
         "KmsKeyId": str,
+        "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
     },
     total=False,
 )
@@ -2234,6 +2382,7 @@ _RequiredCreateEndpointInputRequestTypeDef = TypedDict(
 _OptionalCreateEndpointInputRequestTypeDef = TypedDict(
     "_OptionalCreateEndpointInputRequestTypeDef",
     {
+        "DeploymentConfig": "DeploymentConfigTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -2640,6 +2789,7 @@ CreateModelPackageInputRequestTypeDef = TypedDict(
         "MetadataProperties": "MetadataPropertiesTypeDef",
         "ModelMetrics": "ModelMetricsTypeDef",
         "ClientToken": str,
+        "CustomerMetadataProperties": Dict[str, str],
     },
     total=False,
 )
@@ -2739,6 +2889,7 @@ _OptionalCreateNotebookInstanceInputRequestTypeDef = TypedDict(
         "DefaultCodeRepository": str,
         "AdditionalCodeRepositories": List[str],
         "RootAccess": RootAccessType,
+        "PlatformIdentifier": str,
     },
     total=False,
 )
@@ -2939,6 +3090,36 @@ CreateProjectOutputTypeDef = TypedDict(
     {
         "ProjectArn": str,
         "ProjectId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateStudioLifecycleConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateStudioLifecycleConfigRequestRequestTypeDef",
+    {
+        "StudioLifecycleConfigName": str,
+        "StudioLifecycleConfigContent": str,
+        "StudioLifecycleConfigAppType": StudioLifecycleConfigAppTypeType,
+    },
+)
+_OptionalCreateStudioLifecycleConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateStudioLifecycleConfigRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateStudioLifecycleConfigRequestRequestTypeDef(
+    _RequiredCreateStudioLifecycleConfigRequestRequestTypeDef,
+    _OptionalCreateStudioLifecycleConfigRequestRequestTypeDef,
+):
+    pass
+
+CreateStudioLifecycleConfigResponseTypeDef = TypedDict(
+    "CreateStudioLifecycleConfigResponseTypeDef",
+    {
+        "StudioLifecycleConfigArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3660,6 +3841,13 @@ DeleteProjectInputRequestTypeDef = TypedDict(
     },
 )
 
+DeleteStudioLifecycleConfigRequestRequestTypeDef = TypedDict(
+    "DeleteStudioLifecycleConfigRequestRequestTypeDef",
+    {
+        "StudioLifecycleConfigName": str,
+    },
+)
+
 DeleteTagsInputRequestTypeDef = TypedDict(
     "DeleteTagsInputRequestTypeDef",
     {
@@ -4073,6 +4261,7 @@ DescribeDeviceResponseTypeDef = TypedDict(
         "Models": List["EdgeModelTypeDef"],
         "MaxModels": int,
         "NextToken": str,
+        "AgentVersion": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4104,6 +4293,9 @@ DescribeDomainResponseTypeDef = TypedDict(
         "Url": str,
         "VpcId": str,
         "KmsKeyId": str,
+        "DomainSettings": "DomainSettingsTypeDef",
+        "AppSecurityGroupManagement": AppSecurityGroupManagementType,
+        "SecurityGroupIdForDomainBoundary": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4153,6 +4345,7 @@ DescribeEndpointConfigOutputTypeDef = TypedDict(
         "DataCaptureConfig": "DataCaptureConfigTypeDef",
         "KmsKeyId": str,
         "CreationTime": datetime,
+        "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4177,6 +4370,8 @@ DescribeEndpointOutputTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "LastDeploymentConfig": "DeploymentConfigTypeDef",
+        "AsyncInferenceConfig": "AsyncInferenceConfigTypeDef",
+        "PendingDeploymentSummary": "PendingDeploymentSummaryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4530,6 +4725,7 @@ DescribeModelPackageOutputTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
         "ApprovalDescription": str,
+        "CustomerMetadataProperties": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4633,6 +4829,7 @@ DescribeNotebookInstanceOutputTypeDef = TypedDict(
         "DefaultCodeRepository": str,
         "AdditionalCodeRepositories": List[str],
         "RootAccess": RootAccessType,
+        "PlatformIdentifier": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4758,6 +4955,28 @@ DescribeProjectOutputTypeDef = TypedDict(
         "ProjectStatus": ProjectStatusType,
         "CreatedBy": "UserContextTypeDef",
         "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeStudioLifecycleConfigRequestRequestTypeDef = TypedDict(
+    "DescribeStudioLifecycleConfigRequestRequestTypeDef",
+    {
+        "StudioLifecycleConfigName": str,
+    },
+)
+
+DescribeStudioLifecycleConfigResponseTypeDef = TypedDict(
+    "DescribeStudioLifecycleConfigResponseTypeDef",
+    {
+        "StudioLifecycleConfigArn": str,
+        "StudioLifecycleConfigName": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "StudioLifecycleConfigContent": str,
+        "StudioLifecycleConfigAppType": StudioLifecycleConfigAppTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5040,6 +5259,7 @@ _OptionalDeviceSummaryTypeDef = TypedDict(
         "RegistrationTime": datetime,
         "LatestHeartbeat": datetime,
         "Models": List["EdgeModelSummaryTypeDef"],
+        "AgentVersion": str,
     },
     total=False,
 )
@@ -5092,6 +5312,23 @@ DomainDetailsTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "Url": str,
+    },
+    total=False,
+)
+
+DomainSettingsForUpdateTypeDef = TypedDict(
+    "DomainSettingsForUpdateTypeDef",
+    {
+        "RStudioServerProDomainSettingsForUpdate": "RStudioServerProDomainSettingsForUpdateTypeDef",
+    },
+    total=False,
+)
+
+DomainSettingsTypeDef = TypedDict(
+    "DomainSettingsTypeDef",
+    {
+        "SecurityGroupIds": List[str],
+        "RStudioServerProDomainSettings": "RStudioServerProDomainSettingsTypeDef",
     },
     total=False,
 )
@@ -6007,6 +6244,7 @@ JupyterServerAppSettingsTypeDef = TypedDict(
     "JupyterServerAppSettingsTypeDef",
     {
         "DefaultResourceSpec": "ResourceSpecTypeDef",
+        "LifecycleConfigArns": List[str],
     },
     total=False,
 )
@@ -6016,6 +6254,7 @@ KernelGatewayAppSettingsTypeDef = TypedDict(
     {
         "DefaultResourceSpec": "ResourceSpecTypeDef",
         "CustomImages": List["CustomImageTypeDef"],
+        "LifecycleConfigArns": List[str],
     },
     total=False,
 )
@@ -7359,6 +7598,32 @@ ListProjectsOutputTypeDef = TypedDict(
     },
 )
 
+ListStudioLifecycleConfigsRequestRequestTypeDef = TypedDict(
+    "ListStudioLifecycleConfigsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "NameContains": str,
+        "AppTypeEquals": StudioLifecycleConfigAppTypeType,
+        "CreationTimeBefore": Union[datetime, str],
+        "CreationTimeAfter": Union[datetime, str],
+        "ModifiedTimeBefore": Union[datetime, str],
+        "ModifiedTimeAfter": Union[datetime, str],
+        "SortBy": StudioLifecycleConfigSortKeyType,
+        "SortOrder": SortOrderType,
+    },
+    total=False,
+)
+
+ListStudioLifecycleConfigsResponseTypeDef = TypedDict(
+    "ListStudioLifecycleConfigsResponseTypeDef",
+    {
+        "NextToken": str,
+        "StudioLifecycleConfigs": List["StudioLifecycleConfigDetailsTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListSubscribedWorkteamsRequestRequestTypeDef = TypedDict(
     "ListSubscribedWorkteamsRequestRequestTypeDef",
     {
@@ -7631,6 +7896,16 @@ MetricDataTypeDef = TypedDict(
         "MetricName": str,
         "Value": float,
         "Timestamp": datetime,
+    },
+    total=False,
+)
+
+MetricDatumTypeDef = TypedDict(
+    "MetricDatumTypeDef",
+    {
+        "MetricName": AutoMLMetricEnumType,
+        "Value": float,
+        "Set": MetricSetSourceType,
     },
     total=False,
 )
@@ -7942,6 +8217,7 @@ ModelPackageTypeDef = TypedDict(
         "LastModifiedBy": "UserContextTypeDef",
         "ApprovalDescription": str,
         "Tags": List["TagTypeDef"],
+        "CustomerMetadataProperties": Dict[str, str],
     },
     total=False,
 )
@@ -8600,6 +8876,52 @@ ParentTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPendingDeploymentSummaryTypeDef = TypedDict(
+    "_RequiredPendingDeploymentSummaryTypeDef",
+    {
+        "EndpointConfigName": str,
+    },
+)
+_OptionalPendingDeploymentSummaryTypeDef = TypedDict(
+    "_OptionalPendingDeploymentSummaryTypeDef",
+    {
+        "ProductionVariants": List["PendingProductionVariantSummaryTypeDef"],
+        "StartTime": datetime,
+    },
+    total=False,
+)
+
+class PendingDeploymentSummaryTypeDef(
+    _RequiredPendingDeploymentSummaryTypeDef, _OptionalPendingDeploymentSummaryTypeDef
+):
+    pass
+
+_RequiredPendingProductionVariantSummaryTypeDef = TypedDict(
+    "_RequiredPendingProductionVariantSummaryTypeDef",
+    {
+        "VariantName": str,
+    },
+)
+_OptionalPendingProductionVariantSummaryTypeDef = TypedDict(
+    "_OptionalPendingProductionVariantSummaryTypeDef",
+    {
+        "DeployedImages": List["DeployedImageTypeDef"],
+        "CurrentWeight": float,
+        "DesiredWeight": float,
+        "CurrentInstanceCount": int,
+        "DesiredInstanceCount": int,
+        "InstanceType": ProductionVariantInstanceTypeType,
+        "AcceleratorType": ProductionVariantAcceleratorTypeType,
+        "VariantStatus": List["ProductionVariantStatusTypeDef"],
+    },
+    total=False,
+)
+
+class PendingProductionVariantSummaryTypeDef(
+    _RequiredPendingProductionVariantSummaryTypeDef, _OptionalPendingProductionVariantSummaryTypeDef
+):
+    pass
+
 PipelineExecutionStepMetadataTypeDef = TypedDict(
     "PipelineExecutionStepMetadataTypeDef",
     {
@@ -8916,6 +9238,26 @@ class ProductionVariantCoreDumpConfigTypeDef(
 ):
     pass
 
+_RequiredProductionVariantStatusTypeDef = TypedDict(
+    "_RequiredProductionVariantStatusTypeDef",
+    {
+        "Status": VariantStatusType,
+    },
+)
+_OptionalProductionVariantStatusTypeDef = TypedDict(
+    "_OptionalProductionVariantStatusTypeDef",
+    {
+        "StatusMessage": str,
+        "StartTime": datetime,
+    },
+    total=False,
+)
+
+class ProductionVariantStatusTypeDef(
+    _RequiredProductionVariantStatusTypeDef, _OptionalProductionVariantStatusTypeDef
+):
+    pass
+
 _RequiredProductionVariantSummaryTypeDef = TypedDict(
     "_RequiredProductionVariantSummaryTypeDef",
     {
@@ -8930,6 +9272,7 @@ _OptionalProductionVariantSummaryTypeDef = TypedDict(
         "DesiredWeight": float,
         "CurrentInstanceCount": int,
         "DesiredInstanceCount": int,
+        "VariantStatus": List["ProductionVariantStatusTypeDef"],
     },
     total=False,
 )
@@ -9049,6 +9392,25 @@ _OptionalProjectSummaryTypeDef = TypedDict(
 class ProjectSummaryTypeDef(_RequiredProjectSummaryTypeDef, _OptionalProjectSummaryTypeDef):
     pass
 
+ProjectTypeDef = TypedDict(
+    "ProjectTypeDef",
+    {
+        "ProjectArn": str,
+        "ProjectName": str,
+        "ProjectId": str,
+        "ProjectDescription": str,
+        "ServiceCatalogProvisioningDetails": "ServiceCatalogProvisioningDetailsTypeDef",
+        "ServiceCatalogProvisionedProductDetails": "ServiceCatalogProvisionedProductDetailsTypeDef",
+        "ProjectStatus": ProjectStatusType,
+        "CreatedBy": "UserContextTypeDef",
+        "CreationTime": datetime,
+        "Tags": List["TagTypeDef"],
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+    },
+    total=False,
+)
+
 PropertyNameQueryTypeDef = TypedDict(
     "PropertyNameQueryTypeDef",
     {
@@ -9096,6 +9458,56 @@ PutModelPackageGroupPolicyOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+RStudioServerProAppSettingsTypeDef = TypedDict(
+    "RStudioServerProAppSettingsTypeDef",
+    {
+        "AccessStatus": RStudioServerProAccessStatusType,
+        "UserGroup": RStudioServerProUserGroupType,
+    },
+    total=False,
+)
+
+_RequiredRStudioServerProDomainSettingsForUpdateTypeDef = TypedDict(
+    "_RequiredRStudioServerProDomainSettingsForUpdateTypeDef",
+    {
+        "DomainExecutionRoleArn": str,
+    },
+)
+_OptionalRStudioServerProDomainSettingsForUpdateTypeDef = TypedDict(
+    "_OptionalRStudioServerProDomainSettingsForUpdateTypeDef",
+    {
+        "DefaultResourceSpec": "ResourceSpecTypeDef",
+    },
+    total=False,
+)
+
+class RStudioServerProDomainSettingsForUpdateTypeDef(
+    _RequiredRStudioServerProDomainSettingsForUpdateTypeDef,
+    _OptionalRStudioServerProDomainSettingsForUpdateTypeDef,
+):
+    pass
+
+_RequiredRStudioServerProDomainSettingsTypeDef = TypedDict(
+    "_RequiredRStudioServerProDomainSettingsTypeDef",
+    {
+        "DomainExecutionRoleArn": str,
+    },
+)
+_OptionalRStudioServerProDomainSettingsTypeDef = TypedDict(
+    "_OptionalRStudioServerProDomainSettingsTypeDef",
+    {
+        "RStudioConnectUrl": str,
+        "RStudioPackageManagerUrl": str,
+        "DefaultResourceSpec": "ResourceSpecTypeDef",
+    },
+    total=False,
+)
+
+class RStudioServerProDomainSettingsTypeDef(
+    _RequiredRStudioServerProDomainSettingsTypeDef, _OptionalRStudioServerProDomainSettingsTypeDef
+):
+    pass
 
 _RequiredRedshiftDatasetDefinitionTypeDef = TypedDict(
     "_RequiredRedshiftDatasetDefinitionTypeDef",
@@ -9246,6 +9658,7 @@ ResourceSpecTypeDef = TypedDict(
         "SageMakerImageArn": str,
         "SageMakerImageVersionArn": str,
         "InstanceType": AppInstanceTypeType,
+        "LifecycleConfigArn": str,
     },
     total=False,
 )
@@ -9267,6 +9680,22 @@ RetentionPolicyTypeDef = TypedDict(
         "HomeEfsFileSystem": RetentionTypeType,
     },
     total=False,
+)
+
+RetryPipelineExecutionRequestRequestTypeDef = TypedDict(
+    "RetryPipelineExecutionRequestRequestTypeDef",
+    {
+        "PipelineExecutionArn": str,
+        "ClientRequestToken": str,
+    },
+)
+
+RetryPipelineExecutionResponseTypeDef = TypedDict(
+    "RetryPipelineExecutionResponseTypeDef",
+    {
+        "PipelineExecutionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 RetryStrategyTypeDef = TypedDict(
@@ -9344,6 +9773,7 @@ SearchRecordTypeDef = TypedDict(
         "Pipeline": "PipelineTypeDef",
         "PipelineExecution": "PipelineExecutionTypeDef",
         "FeatureGroup": "FeatureGroupTypeDef",
+        "Project": "ProjectTypeDef",
     },
     total=False,
 )
@@ -9472,12 +9902,12 @@ _RequiredServiceCatalogProvisioningDetailsTypeDef = TypedDict(
     "_RequiredServiceCatalogProvisioningDetailsTypeDef",
     {
         "ProductId": str,
-        "ProvisioningArtifactId": str,
     },
 )
 _OptionalServiceCatalogProvisioningDetailsTypeDef = TypedDict(
     "_OptionalServiceCatalogProvisioningDetailsTypeDef",
     {
+        "ProvisioningArtifactId": str,
         "PathId": str,
         "ProvisioningParameters": List["ProvisioningParameterTypeDef"],
     },
@@ -9489,6 +9919,15 @@ class ServiceCatalogProvisioningDetailsTypeDef(
     _OptionalServiceCatalogProvisioningDetailsTypeDef,
 ):
     pass
+
+ServiceCatalogProvisioningUpdateDetailsTypeDef = TypedDict(
+    "ServiceCatalogProvisioningUpdateDetailsTypeDef",
+    {
+        "ProvisioningArtifactId": str,
+        "ProvisioningParameters": List["ProvisioningParameterTypeDef"],
+    },
+    total=False,
+)
 
 SharingSettingsTypeDef = TypedDict(
     "SharingSettingsTypeDef",
@@ -9678,6 +10117,18 @@ StoppingConditionTypeDef = TypedDict(
     total=False,
 )
 
+StudioLifecycleConfigDetailsTypeDef = TypedDict(
+    "StudioLifecycleConfigDetailsTypeDef",
+    {
+        "StudioLifecycleConfigArn": str,
+        "StudioLifecycleConfigName": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "StudioLifecycleConfigAppType": StudioLifecycleConfigAppTypeType,
+    },
+    total=False,
+)
+
 _RequiredSubscribedWorkteamTypeDef = TypedDict(
     "_RequiredSubscribedWorkteamTypeDef",
     {
@@ -9772,6 +10223,7 @@ _OptionalTrafficRoutingConfigTypeDef = TypedDict(
     "_OptionalTrafficRoutingConfigTypeDef",
     {
         "CanarySize": "CapacitySizeTypeDef",
+        "LinearStepSize": "CapacitySizeTypeDef",
     },
     total=False,
 )
@@ -10495,6 +10947,7 @@ _OptionalUpdateDomainRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateDomainRequestRequestTypeDef",
     {
         "DefaultUserSettings": "UserSettingsTypeDef",
+        "DomainSettingsForUpdate": "DomainSettingsForUpdateTypeDef",
     },
     total=False,
 )
@@ -10525,6 +10978,7 @@ _OptionalUpdateEndpointInputRequestTypeDef = TypedDict(
         "RetainAllVariantProperties": bool,
         "ExcludeRetainedVariantProperties": List["VariantPropertyTypeDef"],
         "DeploymentConfig": "DeploymentConfigTypeDef",
+        "RetainDeploymentConfig": bool,
     },
     total=False,
 )
@@ -10620,13 +11074,15 @@ _RequiredUpdateModelPackageInputRequestTypeDef = TypedDict(
     "_RequiredUpdateModelPackageInputRequestTypeDef",
     {
         "ModelPackageArn": str,
-        "ModelApprovalStatus": ModelApprovalStatusType,
     },
 )
 _OptionalUpdateModelPackageInputRequestTypeDef = TypedDict(
     "_OptionalUpdateModelPackageInputRequestTypeDef",
     {
+        "ModelApprovalStatus": ModelApprovalStatusType,
         "ApprovalDescription": str,
+        "CustomerMetadataProperties": Dict[str, str],
+        "CustomerMetadataPropertiesToRemove": List[str],
     },
     total=False,
 )
@@ -10767,6 +11223,35 @@ UpdatePipelineResponseTypeDef = TypedDict(
     "UpdatePipelineResponseTypeDef",
     {
         "PipelineArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateProjectInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateProjectInputRequestTypeDef",
+    {
+        "ProjectName": str,
+    },
+)
+_OptionalUpdateProjectInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateProjectInputRequestTypeDef",
+    {
+        "ProjectDescription": str,
+        "ServiceCatalogProvisioningUpdateDetails": "ServiceCatalogProvisioningUpdateDetailsTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateProjectInputRequestTypeDef(
+    _RequiredUpdateProjectInputRequestTypeDef, _OptionalUpdateProjectInputRequestTypeDef
+):
+    pass
+
+UpdateProjectOutputTypeDef = TypedDict(
+    "UpdateProjectOutputTypeDef",
+    {
+        "ProjectArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -10979,6 +11464,8 @@ UserSettingsTypeDef = TypedDict(
         "JupyterServerAppSettings": "JupyterServerAppSettingsTypeDef",
         "KernelGatewayAppSettings": "KernelGatewayAppSettingsTypeDef",
         "TensorBoardAppSettings": "TensorBoardAppSettingsTypeDef",
+        "RStudioServerProAppSettings": "RStudioServerProAppSettingsTypeDef",
+        "RSessionAppSettings": Dict[str, Any],
     },
     total=False,
 )

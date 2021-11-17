@@ -20,6 +20,7 @@ from .literals import (
     DimensionUnitType,
     DistanceUnitType,
     IntendedUseType,
+    PositionFilteringType,
     PricingPlanType,
     TravelModeType,
     VehicleWeightUnitType,
@@ -146,6 +147,7 @@ __all__ = (
     "SearchPlaceIndexForTextSummaryTypeDef",
     "StepTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TimeZoneTypeDef",
     "TruckDimensionsTypeDef",
     "TruckWeightTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -555,6 +557,7 @@ _OptionalCreateTrackerRequestRequestTypeDef = TypedDict(
     {
         "Description": str,
         "KmsKeyId": str,
+        "PositionFiltering": PositionFilteringType,
         "PricingPlanDataSource": str,
         "Tags": Dict[str, str],
     },
@@ -723,6 +726,7 @@ DescribeTrackerResponseTypeDef = TypedDict(
         "CreateTime": datetime,
         "Description": str,
         "KmsKeyId": str,
+        "PositionFiltering": PositionFilteringType,
         "PricingPlan": PricingPlanType,
         "PricingPlanDataSource": str,
         "Tags": Dict[str, str],
@@ -1279,6 +1283,7 @@ _OptionalPlaceTypeDef = TypedDict(
     {
         "AddressNumber": str,
         "Country": str,
+        "Interpolated": bool,
         "Label": str,
         "Municipality": str,
         "Neighborhood": str,
@@ -1286,6 +1291,7 @@ _OptionalPlaceTypeDef = TypedDict(
         "Region": str,
         "Street": str,
         "SubRegion": str,
+        "TimeZone": "TimeZoneTypeDef",
     },
     total=False,
 )
@@ -1326,16 +1332,30 @@ ResponseMetadataTypeDef = TypedDict(
 SearchForPositionResultTypeDef = TypedDict(
     "SearchForPositionResultTypeDef",
     {
+        "Distance": float,
         "Place": "PlaceTypeDef",
     },
 )
 
-SearchForTextResultTypeDef = TypedDict(
-    "SearchForTextResultTypeDef",
+_RequiredSearchForTextResultTypeDef = TypedDict(
+    "_RequiredSearchForTextResultTypeDef",
     {
         "Place": "PlaceTypeDef",
     },
 )
+_OptionalSearchForTextResultTypeDef = TypedDict(
+    "_OptionalSearchForTextResultTypeDef",
+    {
+        "Distance": float,
+        "Relevance": float,
+    },
+    total=False,
+)
+
+class SearchForTextResultTypeDef(
+    _RequiredSearchForTextResultTypeDef, _OptionalSearchForTextResultTypeDef
+):
+    pass
 
 _RequiredSearchPlaceIndexForPositionRequestRequestTypeDef = TypedDict(
     "_RequiredSearchPlaceIndexForPositionRequestRequestTypeDef",
@@ -1347,6 +1367,7 @@ _RequiredSearchPlaceIndexForPositionRequestRequestTypeDef = TypedDict(
 _OptionalSearchPlaceIndexForPositionRequestRequestTypeDef = TypedDict(
     "_OptionalSearchPlaceIndexForPositionRequestRequestTypeDef",
     {
+        "Language": str,
         "MaxResults": int,
     },
     total=False,
@@ -1377,6 +1398,7 @@ _RequiredSearchPlaceIndexForPositionSummaryTypeDef = TypedDict(
 _OptionalSearchPlaceIndexForPositionSummaryTypeDef = TypedDict(
     "_OptionalSearchPlaceIndexForPositionSummaryTypeDef",
     {
+        "Language": str,
         "MaxResults": int,
     },
     total=False,
@@ -1401,6 +1423,7 @@ _OptionalSearchPlaceIndexForTextRequestRequestTypeDef = TypedDict(
         "BiasPosition": List[float],
         "FilterBBox": List[float],
         "FilterCountries": List[str],
+        "Language": str,
         "MaxResults": int,
     },
     total=False,
@@ -1434,6 +1457,7 @@ _OptionalSearchPlaceIndexForTextSummaryTypeDef = TypedDict(
         "BiasPosition": List[float],
         "FilterBBox": List[float],
         "FilterCountries": List[str],
+        "Language": str,
         "MaxResults": int,
         "ResultBBox": List[float],
     },
@@ -1472,6 +1496,23 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "Tags": Dict[str, str],
     },
 )
+
+_RequiredTimeZoneTypeDef = TypedDict(
+    "_RequiredTimeZoneTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalTimeZoneTypeDef = TypedDict(
+    "_OptionalTimeZoneTypeDef",
+    {
+        "Offset": int,
+    },
+    total=False,
+)
+
+class TimeZoneTypeDef(_RequiredTimeZoneTypeDef, _OptionalTimeZoneTypeDef):
+    pass
 
 TruckDimensionsTypeDef = TypedDict(
     "TruckDimensionsTypeDef",
@@ -1635,6 +1676,7 @@ _OptionalUpdateTrackerRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateTrackerRequestRequestTypeDef",
     {
         "Description": str,
+        "PositionFiltering": PositionFilteringType,
         "PricingPlan": PricingPlanType,
         "PricingPlanDataSource": str,
     },

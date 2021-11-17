@@ -6,9 +6,9 @@ Type annotations for s3control service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_s3control.literals import BucketCannedACLType
+    from mypy_boto3_s3control.literals import AsyncOperationNameType
 
-    data: BucketCannedACLType = "authenticated-read"
+    data: AsyncOperationNameType = "CreateMultiRegionAccessPoint"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AsyncOperationNameType",
     "BucketCannedACLType",
     "BucketLocationConstraintType",
     "ExpirationStatusType",
@@ -29,6 +30,7 @@ __all__ = (
     "JobReportScopeType",
     "JobStatusType",
     "ListAccessPointsForObjectLambdaPaginatorName",
+    "MultiRegionAccessPointStatusType",
     "NetworkOriginType",
     "ObjectLambdaAllowedFeatureType",
     "ObjectLambdaTransformationConfigurationActionType",
@@ -48,6 +50,11 @@ __all__ = (
     "TransitionStorageClassType",
 )
 
+AsyncOperationNameType = Literal[
+    "CreateMultiRegionAccessPoint",
+    "DeleteMultiRegionAccessPoint",
+    "PutMultiRegionAccessPointPolicy",
+]
 BucketCannedACLType = Literal["authenticated-read", "private", "public-read", "public-read-write"]
 BucketLocationConstraintType = Literal[
     "EU",
@@ -84,6 +91,14 @@ JobStatusType = Literal[
     "Suspended",
 ]
 ListAccessPointsForObjectLambdaPaginatorName = Literal["list_access_points_for_object_lambda"]
+MultiRegionAccessPointStatusType = Literal[
+    "CREATING",
+    "DELETING",
+    "INCONSISTENT_ACROSS_REGIONS",
+    "PARTIALLY_CREATED",
+    "PARTIALLY_DELETED",
+    "READY",
+]
 NetworkOriginType = Literal["Internet", "VPC"]
 ObjectLambdaAllowedFeatureType = Literal["GetObject-PartNumber", "GetObject-Range"]
 ObjectLambdaTransformationConfigurationActionType = Literal["GetObject"]

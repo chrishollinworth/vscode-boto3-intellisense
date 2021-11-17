@@ -39,6 +39,7 @@ __all__ = (
     "ProtocolEnumType",
     "RedirectActionStatusCodeEnumType",
     "TargetDeregisteredWaiterName",
+    "TargetGroupIpAddressTypeEnumType",
     "TargetHealthReasonEnumType",
     "TargetHealthStateEnumType",
     "TargetInServiceWaiterName",
@@ -67,6 +68,7 @@ LoadBalancersDeletedWaiterName = Literal["load_balancers_deleted"]
 ProtocolEnumType = Literal["GENEVE", "HTTP", "HTTPS", "TCP", "TCP_UDP", "TLS", "UDP"]
 RedirectActionStatusCodeEnumType = Literal["HTTP_301", "HTTP_302"]
 TargetDeregisteredWaiterName = Literal["target_deregistered"]
+TargetGroupIpAddressTypeEnumType = Literal["ipv4", "ipv6"]
 TargetHealthReasonEnumType = Literal[
     "Elb.InitialHealthChecking",
     "Elb.InternalError",
@@ -85,4 +87,4 @@ TargetHealthStateEnumType = Literal[
     "draining", "healthy", "initial", "unavailable", "unhealthy", "unused"
 ]
 TargetInServiceWaiterName = Literal["target_in_service"]
-TargetTypeEnumType = Literal["instance", "ip", "lambda"]
+TargetTypeEnumType = Literal["alb", "instance", "ip", "lambda"]

@@ -6,9 +6,9 @@ Type annotations for nimble service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_nimble.literals import LaunchProfilePersonaType
+    from mypy_boto3_nimble.literals import LaunchProfileDeletedWaiterName
 
-    data: LaunchProfilePersonaType = "USER"
+    data: LaunchProfileDeletedWaiterName = "launch_profile_deleted"
     ```
 """
 import sys
@@ -19,8 +19,10 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "LaunchProfileDeletedWaiterName",
     "LaunchProfilePersonaType",
     "LaunchProfilePlatformType",
+    "LaunchProfileReadyWaiterName",
     "LaunchProfileStateType",
     "LaunchProfileStatusCodeType",
     "ListEulaAcceptancesPaginatorName",
@@ -33,27 +35,39 @@ __all__ = (
     "ListStudioMembersPaginatorName",
     "ListStudiosPaginatorName",
     "StreamingClipboardModeType",
+    "StreamingImageDeletedWaiterName",
     "StreamingImageEncryptionConfigurationKeyTypeType",
+    "StreamingImageReadyWaiterName",
     "StreamingImageStateType",
     "StreamingImageStatusCodeType",
     "StreamingInstanceTypeType",
+    "StreamingSessionDeletedWaiterName",
+    "StreamingSessionReadyWaiterName",
     "StreamingSessionStateType",
     "StreamingSessionStatusCodeType",
+    "StreamingSessionStoppedWaiterName",
+    "StreamingSessionStreamReadyWaiterName",
     "StreamingSessionStreamStateType",
     "StreamingSessionStreamStatusCodeType",
+    "StudioComponentDeletedWaiterName",
     "StudioComponentInitializationScriptRunContextType",
+    "StudioComponentReadyWaiterName",
     "StudioComponentStateType",
     "StudioComponentStatusCodeType",
     "StudioComponentSubtypeType",
     "StudioComponentTypeType",
+    "StudioDeletedWaiterName",
     "StudioEncryptionConfigurationKeyTypeType",
     "StudioPersonaType",
+    "StudioReadyWaiterName",
     "StudioStateType",
     "StudioStatusCodeType",
 )
 
+LaunchProfileDeletedWaiterName = Literal["launch_profile_deleted"]
 LaunchProfilePersonaType = Literal["USER"]
 LaunchProfilePlatformType = Literal["LINUX", "WINDOWS"]
+LaunchProfileReadyWaiterName = Literal["launch_profile_ready"]
 LaunchProfileStateType = Literal[
     "CREATE_FAILED",
     "CREATE_IN_PROGRESS",
@@ -89,7 +103,9 @@ ListStudioComponentsPaginatorName = Literal["list_studio_components"]
 ListStudioMembersPaginatorName = Literal["list_studio_members"]
 ListStudiosPaginatorName = Literal["list_studios"]
 StreamingClipboardModeType = Literal["DISABLED", "ENABLED"]
+StreamingImageDeletedWaiterName = Literal["streaming_image_deleted"]
 StreamingImageEncryptionConfigurationKeyTypeType = Literal["CUSTOMER_MANAGED_KEY"]
+StreamingImageReadyWaiterName = Literal["streaming_image_ready"]
 StreamingImageStateType = Literal[
     "CREATE_FAILED",
     "CREATE_IN_PROGRESS",
@@ -111,8 +127,20 @@ StreamingImageStatusCodeType = Literal[
 StreamingInstanceTypeType = Literal[
     "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.xlarge"
 ]
+StreamingSessionDeletedWaiterName = Literal["streaming_session_deleted"]
+StreamingSessionReadyWaiterName = Literal["streaming_session_ready"]
 StreamingSessionStateType = Literal[
-    "CREATE_FAILED", "CREATE_IN_PROGRESS", "DELETED", "DELETE_FAILED", "DELETE_IN_PROGRESS", "READY"
+    "CREATE_FAILED",
+    "CREATE_IN_PROGRESS",
+    "DELETED",
+    "DELETE_FAILED",
+    "DELETE_IN_PROGRESS",
+    "READY",
+    "START_FAILED",
+    "START_IN_PROGRESS",
+    "STOPPED",
+    "STOP_FAILED",
+    "STOP_IN_PROGRESS",
 ]
 StreamingSessionStatusCodeType = Literal[
     "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
@@ -126,7 +154,13 @@ StreamingSessionStatusCodeType = Literal[
     "STREAMING_SESSION_DELETED",
     "STREAMING_SESSION_DELETE_IN_PROGRESS",
     "STREAMING_SESSION_READY",
+    "STREAMING_SESSION_STARTED",
+    "STREAMING_SESSION_START_IN_PROGRESS",
+    "STREAMING_SESSION_STOPPED",
+    "STREAMING_SESSION_STOP_IN_PROGRESS",
 ]
+StreamingSessionStoppedWaiterName = Literal["streaming_session_stopped"]
+StreamingSessionStreamReadyWaiterName = Literal["streaming_session_stream_ready"]
 StreamingSessionStreamStateType = Literal[
     "CREATE_FAILED", "CREATE_IN_PROGRESS", "DELETED", "DELETE_FAILED", "DELETE_IN_PROGRESS", "READY"
 ]
@@ -138,9 +172,11 @@ StreamingSessionStreamStatusCodeType = Literal[
     "STREAM_DELETE_IN_PROGRESS",
     "STREAM_READY",
 ]
+StudioComponentDeletedWaiterName = Literal["studio_component_deleted"]
 StudioComponentInitializationScriptRunContextType = Literal[
     "SYSTEM_INITIALIZATION", "USER_INITIALIZATION"
 ]
+StudioComponentReadyWaiterName = Literal["studio_component_ready"]
 StudioComponentStateType = Literal[
     "CREATE_FAILED",
     "CREATE_IN_PROGRESS",
@@ -169,8 +205,10 @@ StudioComponentSubtypeType = Literal[
 StudioComponentTypeType = Literal[
     "ACTIVE_DIRECTORY", "COMPUTE_FARM", "CUSTOM", "LICENSE_SERVICE", "SHARED_FILE_SYSTEM"
 ]
+StudioDeletedWaiterName = Literal["studio_deleted"]
 StudioEncryptionConfigurationKeyTypeType = Literal["AWS_OWNED_KEY", "CUSTOMER_MANAGED_KEY"]
 StudioPersonaType = Literal["ADMINISTRATOR"]
+StudioReadyWaiterName = Literal["studio_ready"]
 StudioStateType = Literal[
     "CREATE_FAILED",
     "CREATE_IN_PROGRESS",

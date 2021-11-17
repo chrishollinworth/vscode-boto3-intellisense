@@ -34,6 +34,7 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "SuperuserParametersTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateEnvironmentRequestRequestTypeDef",
@@ -54,6 +55,8 @@ _OptionalCreateEnvironmentRequestRequestTypeDef = TypedDict(
         "tags": Dict[str, str],
         "federationMode": FederationModeType,
         "federationParameters": "FederationParametersTypeDef",
+        "superuserParameters": "SuperuserParametersTypeDef",
+        "dataBundles": List[str],
     },
     total=False,
 )
@@ -168,6 +171,15 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+SuperuserParametersTypeDef = TypedDict(
+    "SuperuserParametersTypeDef",
+    {
+        "emailAddress": str,
+        "firstName": str,
+        "lastName": str,
     },
 )
 

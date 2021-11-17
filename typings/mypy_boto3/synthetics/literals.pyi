@@ -23,6 +23,7 @@ __all__ = (
     "CanaryRunStateType",
     "CanaryStateReasonCodeType",
     "CanaryStateType",
+    "EncryptionModeType",
 )
 
 CanaryRunStateReasonCodeType = Literal["CANARY_FAILURE", "EXECUTION_FAILURE"]
@@ -39,3 +40,4 @@ CanaryStateType = Literal[
     "STOPPING",
     "UPDATING",
 ]
+EncryptionModeType = Literal["SSE_KMS", "SSE_S3"]

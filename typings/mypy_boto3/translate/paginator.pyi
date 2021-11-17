@@ -28,7 +28,7 @@ __all__ = ("ListTerminologiesPaginator",)
 
 class ListTerminologiesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/translate.html#Translate.Paginator.ListTerminologies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/paginators.html#listterminologiespaginator)
     """
 
@@ -36,6 +36,6 @@ class ListTerminologiesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTerminologiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/translate.html#Translate.Paginator.ListTerminologies.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/translate.html#Translate.Paginator.ListTerminologies.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/paginators.html#listterminologiespaginator)
         """

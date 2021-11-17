@@ -85,6 +85,7 @@ LocaleType = Literal[
     "fr-FR",
     "it-IT",
     "ja-JP",
+    "ko-KR",
 ]
 LogTypeType = Literal["AUDIO", "TEXT"]
 MergeStrategyType = Literal["FAIL_ON_CONFLICT", "OVERWRITE_LATEST"]

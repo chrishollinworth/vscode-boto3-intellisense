@@ -27,6 +27,7 @@ __all__ = (
     "GrantStatusType",
     "InventoryFilterConditionType",
     "LicenseConfigurationStatusType",
+    "LicenseConversionTaskStatusType",
     "LicenseCountingTypeType",
     "LicenseDeletionStatusType",
     "LicenseStatusType",
@@ -52,7 +53,7 @@ AllowedOperationType = Literal[
     "ExtendConsumptionLicense",
     "ListPurchasedLicenses",
 ]
-CheckoutTypeType = Literal["PROVISIONAL"]
+CheckoutTypeType = Literal["PERPETUAL", "PROVISIONAL"]
 DigitalSignatureMethodType = Literal["JWT_PS384"]
 EntitlementDataUnitType = Literal[
     "Bits",
@@ -125,6 +126,7 @@ GrantStatusType = Literal[
 ]
 InventoryFilterConditionType = Literal["BEGINS_WITH", "CONTAINS", "EQUALS", "NOT_EQUALS"]
 LicenseConfigurationStatusType = Literal["AVAILABLE", "DISABLED"]
+LicenseConversionTaskStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 LicenseCountingTypeType = Literal["Core", "Instance", "Socket", "vCPU"]
 LicenseDeletionStatusType = Literal["DELETED", "PENDING_DELETE"]
 LicenseStatusType = Literal[

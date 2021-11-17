@@ -23,10 +23,14 @@ from .literals import (
     CelebrityRecognitionSortByType,
     ContentClassifierType,
     ContentModerationSortByType,
+    DatasetStatusMessageCodeType,
+    DatasetStatusType,
+    DatasetTypeType,
     EmotionNameType,
     FaceAttributesType,
     FaceSearchSortByType,
     GenderTypeType,
+    KnownGenderTypeType,
     LabelDetectionSortByType,
     LandmarkTypeType,
     OrientationCorrectionType,
@@ -40,6 +44,7 @@ from .literals import (
     StreamProcessorStatusType,
     TechnicalCueTypeType,
     TextTypesType,
+    VideoColorRangeType,
     VideoJobStatusType,
 )
 
@@ -53,6 +58,7 @@ __all__ = (
     "AssetTypeDef",
     "AudioMetadataTypeDef",
     "BeardTypeDef",
+    "BlackFrameTypeDef",
     "BoundingBoxTypeDef",
     "CelebrityDetailTypeDef",
     "CelebrityRecognitionTypeDef",
@@ -66,6 +72,8 @@ __all__ = (
     "CoversBodyPartTypeDef",
     "CreateCollectionRequestRequestTypeDef",
     "CreateCollectionResponseTypeDef",
+    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetResponseTypeDef",
     "CreateProjectRequestRequestTypeDef",
     "CreateProjectResponseTypeDef",
     "CreateProjectVersionRequestRequestTypeDef",
@@ -73,8 +81,16 @@ __all__ = (
     "CreateStreamProcessorRequestRequestTypeDef",
     "CreateStreamProcessorResponseTypeDef",
     "CustomLabelTypeDef",
+    "DatasetChangesTypeDef",
+    "DatasetDescriptionTypeDef",
+    "DatasetLabelDescriptionTypeDef",
+    "DatasetLabelStatsTypeDef",
+    "DatasetMetadataTypeDef",
+    "DatasetSourceTypeDef",
+    "DatasetStatsTypeDef",
     "DeleteCollectionRequestRequestTypeDef",
     "DeleteCollectionResponseTypeDef",
+    "DeleteDatasetRequestRequestTypeDef",
     "DeleteFacesRequestRequestTypeDef",
     "DeleteFacesResponseTypeDef",
     "DeleteProjectRequestRequestTypeDef",
@@ -84,6 +100,8 @@ __all__ = (
     "DeleteStreamProcessorRequestRequestTypeDef",
     "DescribeCollectionRequestRequestTypeDef",
     "DescribeCollectionResponseTypeDef",
+    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetResponseTypeDef",
     "DescribeProjectVersionsRequestRequestTypeDef",
     "DescribeProjectVersionsResponseTypeDef",
     "DescribeProjectsRequestRequestTypeDef",
@@ -104,6 +122,8 @@ __all__ = (
     "DetectTextRequestRequestTypeDef",
     "DetectTextResponseTypeDef",
     "DetectionFilterTypeDef",
+    "DistributeDatasetEntriesRequestRequestTypeDef",
+    "DistributeDatasetTypeDef",
     "EmotionTypeDef",
     "EquipmentDetectionTypeDef",
     "EvaluationResultTypeDef",
@@ -146,11 +166,16 @@ __all__ = (
     "InstanceTypeDef",
     "KinesisDataStreamTypeDef",
     "KinesisVideoStreamTypeDef",
+    "KnownGenderTypeDef",
     "LabelDetectionTypeDef",
     "LabelTypeDef",
     "LandmarkTypeDef",
     "ListCollectionsRequestRequestTypeDef",
     "ListCollectionsResponseTypeDef",
+    "ListDatasetEntriesRequestRequestTypeDef",
+    "ListDatasetEntriesResponseTypeDef",
+    "ListDatasetLabelsRequestRequestTypeDef",
+    "ListDatasetLabelsResponseTypeDef",
     "ListFacesRequestRequestTypeDef",
     "ListFacesResponseTypeDef",
     "ListStreamProcessorsRequestRequestTypeDef",
@@ -230,6 +255,7 @@ __all__ = (
     "TrainingDataTypeDef",
     "UnindexedFaceTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateDatasetEntriesRequestRequestTypeDef",
     "ValidationDataTypeDef",
     "VideoMetadataTypeDef",
     "VideoTypeDef",
@@ -273,6 +299,15 @@ BeardTypeDef = TypedDict(
     total=False,
 )
 
+BlackFrameTypeDef = TypedDict(
+    "BlackFrameTypeDef",
+    {
+        "MaxPixelThreshold": float,
+        "MinCoveragePercentage": float,
+    },
+    total=False,
+)
+
 BoundingBoxTypeDef = TypedDict(
     "BoundingBoxTypeDef",
     {
@@ -293,6 +328,7 @@ CelebrityDetailTypeDef = TypedDict(
         "Confidence": float,
         "BoundingBox": "BoundingBoxTypeDef",
         "Face": "FaceDetailTypeDef",
+        "KnownGender": "KnownGenderTypeDef",
     },
     total=False,
 )
@@ -314,6 +350,7 @@ CelebrityTypeDef = TypedDict(
         "Id": str,
         "Face": "ComparedFaceTypeDef",
         "MatchConfidence": float,
+        "KnownGender": "KnownGenderTypeDef",
     },
     total=False,
 )
@@ -368,6 +405,8 @@ ComparedFaceTypeDef = TypedDict(
         "Landmarks": List["LandmarkTypeDef"],
         "Pose": "PoseTypeDef",
         "Quality": "ImageQualityTypeDef",
+        "Emotions": List["EmotionTypeDef"],
+        "Smile": "SmileTypeDef",
     },
     total=False,
 )
@@ -428,6 +467,34 @@ CreateCollectionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDatasetRequestRequestTypeDef",
+    {
+        "DatasetType": DatasetTypeType,
+        "ProjectArn": str,
+    },
+)
+_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDatasetRequestRequestTypeDef",
+    {
+        "DatasetSource": "DatasetSourceTypeDef",
+    },
+    total=False,
+)
+
+class CreateDatasetRequestRequestTypeDef(
+    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
+):
+    pass
+
+CreateDatasetResponseTypeDef = TypedDict(
+    "CreateDatasetResponseTypeDef",
+    {
+        "DatasetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateProjectRequestRequestTypeDef = TypedDict(
     "CreateProjectRequestRequestTypeDef",
     {
@@ -449,13 +516,13 @@ _RequiredCreateProjectVersionRequestRequestTypeDef = TypedDict(
         "ProjectArn": str,
         "VersionName": str,
         "OutputConfig": "OutputConfigTypeDef",
-        "TrainingData": "TrainingDataTypeDef",
-        "TestingData": "TestingDataTypeDef",
     },
 )
 _OptionalCreateProjectVersionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateProjectVersionRequestRequestTypeDef",
     {
+        "TrainingData": "TrainingDataTypeDef",
+        "TestingData": "TestingDataTypeDef",
         "Tags": Dict[str, str],
         "KmsKeyId": str,
     },
@@ -518,6 +585,77 @@ CustomLabelTypeDef = TypedDict(
     total=False,
 )
 
+DatasetChangesTypeDef = TypedDict(
+    "DatasetChangesTypeDef",
+    {
+        "GroundTruth": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+
+DatasetDescriptionTypeDef = TypedDict(
+    "DatasetDescriptionTypeDef",
+    {
+        "CreationTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+        "Status": DatasetStatusType,
+        "StatusMessage": str,
+        "StatusMessageCode": DatasetStatusMessageCodeType,
+        "DatasetStats": "DatasetStatsTypeDef",
+    },
+    total=False,
+)
+
+DatasetLabelDescriptionTypeDef = TypedDict(
+    "DatasetLabelDescriptionTypeDef",
+    {
+        "LabelName": str,
+        "LabelStats": "DatasetLabelStatsTypeDef",
+    },
+    total=False,
+)
+
+DatasetLabelStatsTypeDef = TypedDict(
+    "DatasetLabelStatsTypeDef",
+    {
+        "EntryCount": int,
+        "BoundingBoxCount": int,
+    },
+    total=False,
+)
+
+DatasetMetadataTypeDef = TypedDict(
+    "DatasetMetadataTypeDef",
+    {
+        "CreationTimestamp": datetime,
+        "DatasetType": DatasetTypeType,
+        "DatasetArn": str,
+        "Status": DatasetStatusType,
+        "StatusMessage": str,
+        "StatusMessageCode": DatasetStatusMessageCodeType,
+    },
+    total=False,
+)
+
+DatasetSourceTypeDef = TypedDict(
+    "DatasetSourceTypeDef",
+    {
+        "GroundTruthManifest": "GroundTruthManifestTypeDef",
+        "DatasetArn": str,
+    },
+    total=False,
+)
+
+DatasetStatsTypeDef = TypedDict(
+    "DatasetStatsTypeDef",
+    {
+        "LabeledEntries": int,
+        "TotalEntries": int,
+        "TotalLabels": int,
+        "ErrorEntries": int,
+    },
+    total=False,
+)
+
 DeleteCollectionRequestRequestTypeDef = TypedDict(
     "DeleteCollectionRequestRequestTypeDef",
     {
@@ -530,6 +668,13 @@ DeleteCollectionResponseTypeDef = TypedDict(
     {
         "StatusCode": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteDatasetRequestRequestTypeDef = TypedDict(
+    "DeleteDatasetRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
     },
 )
 
@@ -604,6 +749,21 @@ DescribeCollectionResponseTypeDef = TypedDict(
     },
 )
 
+DescribeDatasetRequestRequestTypeDef = TypedDict(
+    "DescribeDatasetRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
+    },
+)
+
+DescribeDatasetResponseTypeDef = TypedDict(
+    "DescribeDatasetResponseTypeDef",
+    {
+        "DatasetDescription": "DatasetDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribeProjectVersionsRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeProjectVersionsRequestRequestTypeDef",
     {
@@ -640,6 +800,7 @@ DescribeProjectsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "ProjectNames": List[str],
     },
     total=False,
 )
@@ -873,6 +1034,20 @@ DetectionFilterTypeDef = TypedDict(
     total=False,
 )
 
+DistributeDatasetEntriesRequestRequestTypeDef = TypedDict(
+    "DistributeDatasetEntriesRequestRequestTypeDef",
+    {
+        "Datasets": List["DistributeDatasetTypeDef"],
+    },
+)
+
+DistributeDatasetTypeDef = TypedDict(
+    "DistributeDatasetTypeDef",
+    {
+        "Arn": str,
+    },
+)
+
 EmotionTypeDef = TypedDict(
     "EmotionTypeDef",
     {
@@ -1020,6 +1195,7 @@ GetCelebrityInfoResponseTypeDef = TypedDict(
     {
         "Urls": List[str],
         "Name": str,
+        "KnownGender": "KnownGenderTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1414,6 +1590,14 @@ KinesisVideoStreamTypeDef = TypedDict(
     total=False,
 )
 
+KnownGenderTypeDef = TypedDict(
+    "KnownGenderTypeDef",
+    {
+        "Type": KnownGenderTypeType,
+    },
+    total=False,
+)
+
 LabelDetectionTypeDef = TypedDict(
     "LabelDetectionTypeDef",
     {
@@ -1459,6 +1643,69 @@ ListCollectionsResponseTypeDef = TypedDict(
         "CollectionIds": List[str],
         "NextToken": str,
         "FaceModelVersions": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDatasetEntriesRequestRequestTypeDef = TypedDict(
+    "_RequiredListDatasetEntriesRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
+    },
+)
+_OptionalListDatasetEntriesRequestRequestTypeDef = TypedDict(
+    "_OptionalListDatasetEntriesRequestRequestTypeDef",
+    {
+        "ContainsLabels": List[str],
+        "Labeled": bool,
+        "SourceRefContains": str,
+        "HasErrors": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListDatasetEntriesRequestRequestTypeDef(
+    _RequiredListDatasetEntriesRequestRequestTypeDef,
+    _OptionalListDatasetEntriesRequestRequestTypeDef,
+):
+    pass
+
+ListDatasetEntriesResponseTypeDef = TypedDict(
+    "ListDatasetEntriesResponseTypeDef",
+    {
+        "DatasetEntries": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDatasetLabelsRequestRequestTypeDef = TypedDict(
+    "_RequiredListDatasetLabelsRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
+    },
+)
+_OptionalListDatasetLabelsRequestRequestTypeDef = TypedDict(
+    "_OptionalListDatasetLabelsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListDatasetLabelsRequestRequestTypeDef(
+    _RequiredListDatasetLabelsRequestRequestTypeDef, _OptionalListDatasetLabelsRequestRequestTypeDef
+):
+    pass
+
+ListDatasetLabelsResponseTypeDef = TypedDict(
+    "ListDatasetLabelsResponseTypeDef",
+    {
+        "DatasetLabelDescriptions": List["DatasetLabelDescriptionTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1643,6 +1890,7 @@ ProjectDescriptionTypeDef = TypedDict(
         "ProjectArn": str,
         "CreationTimestamp": datetime,
         "Status": ProjectStatusType,
+        "Datasets": List["DatasetMetadataTypeDef"],
     },
     total=False,
 )
@@ -1829,6 +2077,9 @@ SegmentDetectionTypeDef = TypedDict(
         "DurationSMPTE": str,
         "TechnicalCueSegment": "TechnicalCueSegmentTypeDef",
         "ShotSegment": "ShotSegmentTypeDef",
+        "StartFrameNumber": int,
+        "EndFrameNumber": int,
+        "DurationFrames": int,
     },
     total=False,
 )
@@ -2120,6 +2371,7 @@ StartTechnicalCueDetectionFilterTypeDef = TypedDict(
     "StartTechnicalCueDetectionFilterTypeDef",
     {
         "MinSegmentConfidence": float,
+        "BlackFrame": "BlackFrameTypeDef",
     },
     total=False,
 )
@@ -2329,6 +2581,14 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateDatasetEntriesRequestRequestTypeDef = TypedDict(
+    "UpdateDatasetEntriesRequestRequestTypeDef",
+    {
+        "DatasetArn": str,
+        "Changes": "DatasetChangesTypeDef",
+    },
+)
+
 ValidationDataTypeDef = TypedDict(
     "ValidationDataTypeDef",
     {
@@ -2346,6 +2606,7 @@ VideoMetadataTypeDef = TypedDict(
         "FrameRate": float,
         "FrameHeight": int,
         "FrameWidth": int,
+        "ColorRange": VideoColorRangeType,
     },
     total=False,
 )

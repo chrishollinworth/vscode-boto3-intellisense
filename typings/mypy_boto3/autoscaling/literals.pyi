@@ -6,9 +6,9 @@ Type annotations for autoscaling service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_autoscaling.literals import DescribeAutoScalingGroupsPaginatorName
+    from mypy_boto3_autoscaling.literals import AcceleratorManufacturerType
 
-    data: DescribeAutoScalingGroupsPaginatorName = "describe_auto_scaling_groups"
+    data: AcceleratorManufacturerType = "amazon-web-services"
     ```
 """
 import sys
@@ -19,6 +19,12 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AcceleratorManufacturerType",
+    "AcceleratorNameType",
+    "AcceleratorTypeType",
+    "BareMetalType",
+    "BurstablePerformanceType",
+    "CpuManufacturerType",
     "DescribeAutoScalingGroupsPaginatorName",
     "DescribeAutoScalingInstancesPaginatorName",
     "DescribeLaunchConfigurationsPaginatorName",
@@ -29,10 +35,13 @@ __all__ = (
     "DescribeScalingActivitiesPaginatorName",
     "DescribeScheduledActionsPaginatorName",
     "DescribeTagsPaginatorName",
+    "InstanceGenerationType",
     "InstanceMetadataEndpointStateType",
     "InstanceMetadataHttpTokensStateType",
     "InstanceRefreshStatusType",
     "LifecycleStateType",
+    "LocalStorageType",
+    "LocalStorageTypeType",
     "MetricStatisticType",
     "MetricTypeType",
     "PredefinedLoadMetricTypeType",
@@ -46,6 +55,12 @@ __all__ = (
     "WarmPoolStatusType",
 )
 
+AcceleratorManufacturerType = Literal["amazon-web-services", "amd", "nvidia", "xilinx"]
+AcceleratorNameType = Literal["a100", "k80", "m60", "radeon-pro-v520", "t4", "v100", "vu9p"]
+AcceleratorTypeType = Literal["fpga", "gpu", "inference"]
+BareMetalType = Literal["excluded", "included", "required"]
+BurstablePerformanceType = Literal["excluded", "included", "required"]
+CpuManufacturerType = Literal["amazon-web-services", "amd", "intel"]
 DescribeAutoScalingGroupsPaginatorName = Literal["describe_auto_scaling_groups"]
 DescribeAutoScalingInstancesPaginatorName = Literal["describe_auto_scaling_instances"]
 DescribeLaunchConfigurationsPaginatorName = Literal["describe_launch_configurations"]
@@ -56,6 +71,7 @@ DescribePoliciesPaginatorName = Literal["describe_policies"]
 DescribeScalingActivitiesPaginatorName = Literal["describe_scaling_activities"]
 DescribeScheduledActionsPaginatorName = Literal["describe_scheduled_actions"]
 DescribeTagsPaginatorName = Literal["describe_tags"]
+InstanceGenerationType = Literal["current", "previous"]
 InstanceMetadataEndpointStateType = Literal["disabled", "enabled"]
 InstanceMetadataHttpTokensStateType = Literal["optional", "required"]
 InstanceRefreshStatusType = Literal[
@@ -85,6 +101,8 @@ LifecycleStateType = Literal[
     "Warmed:Terminating:Proceed",
     "Warmed:Terminating:Wait",
 ]
+LocalStorageType = Literal["excluded", "included", "required"]
+LocalStorageTypeType = Literal["hdd", "ssd"]
 MetricStatisticType = Literal["Average", "Maximum", "Minimum", "SampleCount", "Sum"]
 MetricTypeType = Literal[
     "ALBRequestCountPerTarget",

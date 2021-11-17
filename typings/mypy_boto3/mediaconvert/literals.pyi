@@ -64,8 +64,11 @@ __all__ = (
     "AvcIntraTelecineType",
     "AvcIntraUhdQualityTuningLevelType",
     "BillingTagsSourceType",
+    "BurnInSubtitleStylePassthroughType",
     "BurninSubtitleAlignmentType",
+    "BurninSubtitleApplyFontColorType",
     "BurninSubtitleBackgroundColorType",
+    "BurninSubtitleFallbackFontType",
     "BurninSubtitleFontColorType",
     "BurninSubtitleOutlineColorType",
     "BurninSubtitleShadowColorType",
@@ -77,12 +80,14 @@ __all__ = (
     "CmafEncryptionTypeType",
     "CmafImageBasedTrickPlayType",
     "CmafInitializationVectorInManifestType",
+    "CmafIntervalCadenceType",
     "CmafKeyProviderTypeType",
     "CmafManifestCompressionType",
     "CmafManifestDurationFormatType",
     "CmafMpdProfileType",
     "CmafPtsOffsetHandlingForBFramesType",
     "CmafSegmentControlType",
+    "CmafSegmentLengthControlType",
     "CmafStreamInfResolutionType",
     "CmafTargetDurationCompatibilityModeType",
     "CmafWriteDASHManifestType",
@@ -104,10 +109,12 @@ __all__ = (
     "DashIsoGroupAudioChannelConfigSchemeIdUriType",
     "DashIsoHbbtvComplianceType",
     "DashIsoImageBasedTrickPlayType",
+    "DashIsoIntervalCadenceType",
     "DashIsoMpdProfileType",
     "DashIsoPlaybackDeviceCompatibilityType",
     "DashIsoPtsOffsetHandlingForBFramesType",
     "DashIsoSegmentControlType",
+    "DashIsoSegmentLengthControlType",
     "DashIsoWriteSegmentTimelineInRepresentationType",
     "DecryptionModeType",
     "DeinterlaceAlgorithmType",
@@ -118,11 +125,14 @@ __all__ = (
     "DolbyVisionLevel6ModeType",
     "DolbyVisionProfileType",
     "DropFrameTimecodeType",
+    "DvbSubSubtitleFallbackFontType",
     "DvbSubtitleAlignmentType",
+    "DvbSubtitleApplyFontColorType",
     "DvbSubtitleBackgroundColorType",
     "DvbSubtitleFontColorType",
     "DvbSubtitleOutlineColorType",
     "DvbSubtitleShadowColorType",
+    "DvbSubtitleStylePassthroughType",
     "DvbSubtitleTeletextSpacingType",
     "DvbSubtitlingTypeType",
     "DvbddsHandlingType",
@@ -154,6 +164,7 @@ __all__ = (
     "EmbeddedTerminateCaptionsType",
     "F4vMoovPlacementType",
     "FileSourceConvert608To708Type",
+    "FileSourceTimeDeltaUnitsType",
     "FontScriptType",
     "H264AdaptiveQuantizationType",
     "H264CodecLevelType",
@@ -217,6 +228,7 @@ __all__ = (
     "HlsIFrameOnlyManifestType",
     "HlsImageBasedTrickPlayType",
     "HlsInitializationVectorInManifestType",
+    "HlsIntervalCadenceType",
     "HlsKeyProviderTypeType",
     "HlsManifestCompressionType",
     "HlsManifestDurationFormatType",
@@ -224,6 +236,7 @@ __all__ = (
     "HlsOutputSelectionType",
     "HlsProgramDateTimeType",
     "HlsSegmentControlType",
+    "HlsSegmentLengthControlType",
     "HlsStreamInfResolutionType",
     "HlsTargetDurationCompatibilityModeType",
     "HlsTimedMetadataId3FrameType",
@@ -231,6 +244,7 @@ __all__ = (
     "InputDeblockFilterType",
     "InputDenoiseFilterType",
     "InputFilterEnableType",
+    "InputPolicyType",
     "InputPsiControlType",
     "InputRotateType",
     "InputSampleRangeType",
@@ -247,6 +261,7 @@ __all__ = (
     "M2tsAudioBufferModelType",
     "M2tsAudioDurationType",
     "M2tsBufferModelType",
+    "M2tsDataPtsControlType",
     "M2tsEbpAudioIntervalType",
     "M2tsEbpPlacementType",
     "M2tsEsRateInPesType",
@@ -258,6 +273,7 @@ __all__ = (
     "M2tsSegmentationMarkersType",
     "M2tsSegmentationStyleType",
     "M3u8AudioDurationType",
+    "M3u8DataPtsControlType",
     "M3u8NielsenId3Type",
     "M3u8PcrControlType",
     "M3u8Scte35SourceType",
@@ -297,6 +313,7 @@ __all__ = (
     "Mpeg2TelecineType",
     "Mpeg2TemporalAdaptiveQuantizationType",
     "MsSmoothAudioDeduplicationType",
+    "MsSmoothFragmentLengthControlType",
     "MsSmoothManifestEncodingType",
     "MxfAfdSignalingType",
     "MxfProfileType",
@@ -454,12 +471,23 @@ AvcIntraSlowPalType = Literal["DISABLED", "ENABLED"]
 AvcIntraTelecineType = Literal["HARD", "NONE"]
 AvcIntraUhdQualityTuningLevelType = Literal["MULTI_PASS", "SINGLE_PASS"]
 BillingTagsSourceType = Literal["JOB", "JOB_TEMPLATE", "PRESET", "QUEUE"]
-BurninSubtitleAlignmentType = Literal["CENTERED", "LEFT"]
-BurninSubtitleBackgroundColorType = Literal["BLACK", "NONE", "WHITE"]
-BurninSubtitleFontColorType = Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"]
-BurninSubtitleOutlineColorType = Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"]
-BurninSubtitleShadowColorType = Literal["BLACK", "NONE", "WHITE"]
-BurninSubtitleTeletextSpacingType = Literal["FIXED_GRID", "PROPORTIONAL"]
+BurnInSubtitleStylePassthroughType = Literal["DISABLED", "ENABLED"]
+BurninSubtitleAlignmentType = Literal["AUTO", "CENTERED", "LEFT"]
+BurninSubtitleApplyFontColorType = Literal["ALL_TEXT", "WHITE_TEXT_ONLY"]
+BurninSubtitleBackgroundColorType = Literal["AUTO", "BLACK", "NONE", "WHITE"]
+BurninSubtitleFallbackFontType = Literal[
+    "BEST_MATCH",
+    "MONOSPACED_SANSSERIF",
+    "MONOSPACED_SERIF",
+    "PROPORTIONAL_SANSSERIF",
+    "PROPORTIONAL_SERIF",
+]
+BurninSubtitleFontColorType = Literal[
+    "AUTO", "BLACK", "BLUE", "GREEN", "HEX", "RED", "WHITE", "YELLOW"
+]
+BurninSubtitleOutlineColorType = Literal["AUTO", "BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"]
+BurninSubtitleShadowColorType = Literal["AUTO", "BLACK", "NONE", "WHITE"]
+BurninSubtitleTeletextSpacingType = Literal["AUTO", "FIXED_GRID", "PROPORTIONAL"]
 CaptionDestinationTypeType = Literal[
     "BURN_IN",
     "DVB_SUB",
@@ -493,14 +521,16 @@ CaptionSourceTypeType = Literal[
 CmafClientCacheType = Literal["DISABLED", "ENABLED"]
 CmafCodecSpecificationType = Literal["RFC_4281", "RFC_6381"]
 CmafEncryptionTypeType = Literal["AES_CTR", "SAMPLE_AES"]
-CmafImageBasedTrickPlayType = Literal["NONE", "THUMBNAIL", "THUMBNAIL_AND_FULLFRAME"]
+CmafImageBasedTrickPlayType = Literal["ADVANCED", "NONE", "THUMBNAIL", "THUMBNAIL_AND_FULLFRAME"]
 CmafInitializationVectorInManifestType = Literal["EXCLUDE", "INCLUDE"]
+CmafIntervalCadenceType = Literal["FOLLOW_CUSTOM", "FOLLOW_IFRAME"]
 CmafKeyProviderTypeType = Literal["SPEKE", "STATIC_KEY"]
 CmafManifestCompressionType = Literal["GZIP", "NONE"]
 CmafManifestDurationFormatType = Literal["FLOATING_POINT", "INTEGER"]
 CmafMpdProfileType = Literal["MAIN_PROFILE", "ON_DEMAND_PROFILE"]
 CmafPtsOffsetHandlingForBFramesType = Literal["MATCH_INITIAL_PTS", "ZERO_BASED"]
 CmafSegmentControlType = Literal["SEGMENTED_FILES", "SINGLE_FILE"]
+CmafSegmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
 CmafStreamInfResolutionType = Literal["EXCLUDE", "INCLUDE"]
 CmafTargetDurationCompatibilityModeType = Literal["LEGACY", "SPEC_COMPLIANT"]
 CmafWriteDASHManifestType = Literal["DISABLED", "ENABLED"]
@@ -531,11 +561,13 @@ DashIsoGroupAudioChannelConfigSchemeIdUriType = Literal[
     "DOLBY_CHANNEL_CONFIGURATION", "MPEG_CHANNEL_CONFIGURATION"
 ]
 DashIsoHbbtvComplianceType = Literal["HBBTV_1_5", "NONE"]
-DashIsoImageBasedTrickPlayType = Literal["NONE", "THUMBNAIL", "THUMBNAIL_AND_FULLFRAME"]
+DashIsoImageBasedTrickPlayType = Literal["ADVANCED", "NONE", "THUMBNAIL", "THUMBNAIL_AND_FULLFRAME"]
+DashIsoIntervalCadenceType = Literal["FOLLOW_CUSTOM", "FOLLOW_IFRAME"]
 DashIsoMpdProfileType = Literal["MAIN_PROFILE", "ON_DEMAND_PROFILE"]
 DashIsoPlaybackDeviceCompatibilityType = Literal["CENC_V1", "UNENCRYPTED_SEI"]
 DashIsoPtsOffsetHandlingForBFramesType = Literal["MATCH_INITIAL_PTS", "ZERO_BASED"]
 DashIsoSegmentControlType = Literal["SEGMENTED_FILES", "SINGLE_FILE"]
+DashIsoSegmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
 DashIsoWriteSegmentTimelineInRepresentationType = Literal["DISABLED", "ENABLED"]
 DecryptionModeType = Literal["AES_CBC", "AES_CTR", "AES_GCM"]
 DeinterlaceAlgorithmType = Literal["BLEND", "BLEND_TICKER", "INTERPOLATE", "INTERPOLATE_TICKER"]
@@ -546,12 +578,23 @@ DescribeEndpointsPaginatorName = Literal["describe_endpoints"]
 DolbyVisionLevel6ModeType = Literal["PASSTHROUGH", "RECALCULATE", "SPECIFY"]
 DolbyVisionProfileType = Literal["PROFILE_5"]
 DropFrameTimecodeType = Literal["DISABLED", "ENABLED"]
-DvbSubtitleAlignmentType = Literal["CENTERED", "LEFT"]
-DvbSubtitleBackgroundColorType = Literal["BLACK", "NONE", "WHITE"]
-DvbSubtitleFontColorType = Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"]
-DvbSubtitleOutlineColorType = Literal["BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"]
-DvbSubtitleShadowColorType = Literal["BLACK", "NONE", "WHITE"]
-DvbSubtitleTeletextSpacingType = Literal["FIXED_GRID", "PROPORTIONAL"]
+DvbSubSubtitleFallbackFontType = Literal[
+    "BEST_MATCH",
+    "MONOSPACED_SANSSERIF",
+    "MONOSPACED_SERIF",
+    "PROPORTIONAL_SANSSERIF",
+    "PROPORTIONAL_SERIF",
+]
+DvbSubtitleAlignmentType = Literal["AUTO", "CENTERED", "LEFT"]
+DvbSubtitleApplyFontColorType = Literal["ALL_TEXT", "WHITE_TEXT_ONLY"]
+DvbSubtitleBackgroundColorType = Literal["AUTO", "BLACK", "NONE", "WHITE"]
+DvbSubtitleFontColorType = Literal[
+    "AUTO", "BLACK", "BLUE", "GREEN", "HEX", "RED", "WHITE", "YELLOW"
+]
+DvbSubtitleOutlineColorType = Literal["AUTO", "BLACK", "BLUE", "GREEN", "RED", "WHITE", "YELLOW"]
+DvbSubtitleShadowColorType = Literal["AUTO", "BLACK", "NONE", "WHITE"]
+DvbSubtitleStylePassthroughType = Literal["DISABLED", "ENABLED"]
+DvbSubtitleTeletextSpacingType = Literal["AUTO", "FIXED_GRID", "PROPORTIONAL"]
 DvbSubtitlingTypeType = Literal["HEARING_IMPAIRED", "STANDARD"]
 DvbddsHandlingType = Literal["NONE", "NO_DISPLAY_WINDOW", "SPECIFIED"]
 Eac3AtmosBitstreamModeType = Literal["COMPLETE_MAIN"]
@@ -596,6 +639,7 @@ EmbeddedConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
 EmbeddedTerminateCaptionsType = Literal["DISABLED", "END_OF_INPUT"]
 F4vMoovPlacementType = Literal["NORMAL", "PROGRESSIVE_DOWNLOAD"]
 FileSourceConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
+FileSourceTimeDeltaUnitsType = Literal["MILLISECONDS", "SECONDS"]
 FontScriptType = Literal["AUTOMATIC", "HANS", "HANT"]
 H264AdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
 H264CodecLevelType = Literal[
@@ -622,12 +666,12 @@ H264CodecProfileType = Literal[
 ]
 H264DynamicSubGopType = Literal["ADAPTIVE", "STATIC"]
 H264EntropyEncodingType = Literal["CABAC", "CAVLC"]
-H264FieldEncodingType = Literal["FORCE_FIELD", "PAFF"]
+H264FieldEncodingType = Literal["FORCE_FIELD", "MBAFF", "PAFF"]
 H264FlickerAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 H264FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 H264FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
 H264GopBReferenceType = Literal["DISABLED", "ENABLED"]
-H264GopSizeUnitsType = Literal["FRAMES", "SECONDS"]
+H264GopSizeUnitsType = Literal["AUTO", "FRAMES", "SECONDS"]
 H264InterlaceModeType = Literal[
     "BOTTOM_FIELD", "FOLLOW_BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "PROGRESSIVE", "TOP_FIELD"
 ]
@@ -676,7 +720,7 @@ H265FlickerAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 H265FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 H265FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
 H265GopBReferenceType = Literal["DISABLED", "ENABLED"]
-H265GopSizeUnitsType = Literal["FRAMES", "SECONDS"]
+H265GopSizeUnitsType = Literal["AUTO", "FRAMES", "SECONDS"]
 H265InterlaceModeType = Literal[
     "BOTTOM_FIELD", "FOLLOW_BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "PROGRESSIVE", "TOP_FIELD"
 ]
@@ -710,8 +754,9 @@ HlsDescriptiveVideoServiceFlagType = Literal["DONT_FLAG", "FLAG"]
 HlsDirectoryStructureType = Literal["SINGLE_DIRECTORY", "SUBDIRECTORY_PER_STREAM"]
 HlsEncryptionTypeType = Literal["AES128", "SAMPLE_AES"]
 HlsIFrameOnlyManifestType = Literal["EXCLUDE", "INCLUDE"]
-HlsImageBasedTrickPlayType = Literal["NONE", "THUMBNAIL", "THUMBNAIL_AND_FULLFRAME"]
+HlsImageBasedTrickPlayType = Literal["ADVANCED", "NONE", "THUMBNAIL", "THUMBNAIL_AND_FULLFRAME"]
 HlsInitializationVectorInManifestType = Literal["EXCLUDE", "INCLUDE"]
+HlsIntervalCadenceType = Literal["FOLLOW_CUSTOM", "FOLLOW_IFRAME"]
 HlsKeyProviderTypeType = Literal["SPEKE", "STATIC_KEY"]
 HlsManifestCompressionType = Literal["GZIP", "NONE"]
 HlsManifestDurationFormatType = Literal["FLOATING_POINT", "INTEGER"]
@@ -719,6 +764,7 @@ HlsOfflineEncryptedType = Literal["DISABLED", "ENABLED"]
 HlsOutputSelectionType = Literal["MANIFESTS_AND_SEGMENTS", "SEGMENTS_ONLY"]
 HlsProgramDateTimeType = Literal["EXCLUDE", "INCLUDE"]
 HlsSegmentControlType = Literal["SEGMENTED_FILES", "SINGLE_FILE"]
+HlsSegmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
 HlsStreamInfResolutionType = Literal["EXCLUDE", "INCLUDE"]
 HlsTargetDurationCompatibilityModeType = Literal["LEGACY", "SPEC_COMPLIANT"]
 HlsTimedMetadataId3FrameType = Literal["NONE", "PRIV", "TDRL"]
@@ -726,6 +772,7 @@ ImscStylePassthroughType = Literal["DISABLED", "ENABLED"]
 InputDeblockFilterType = Literal["DISABLED", "ENABLED"]
 InputDenoiseFilterType = Literal["DISABLED", "ENABLED"]
 InputFilterEnableType = Literal["AUTO", "DISABLE", "FORCE"]
+InputPolicyType = Literal["ALLOWED", "DISALLOWED"]
 InputPsiControlType = Literal["IGNORE_PSI", "USE_PSI"]
 InputRotateType = Literal["AUTO", "DEGREES_180", "DEGREES_270", "DEGREES_90", "DEGREE_0"]
 InputSampleRangeType = Literal["FOLLOW", "FULL_RANGE", "LIMITED_RANGE"]
@@ -934,6 +981,7 @@ ListQueuesPaginatorName = Literal["list_queues"]
 M2tsAudioBufferModelType = Literal["ATSC", "DVB"]
 M2tsAudioDurationType = Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"]
 M2tsBufferModelType = Literal["MULTIPLEX", "NONE"]
+M2tsDataPtsControlType = Literal["ALIGN_TO_VIDEO", "AUTO"]
 M2tsEbpAudioIntervalType = Literal["VIDEO_AND_FIXED_INTERVALS", "VIDEO_INTERVAL"]
 M2tsEbpPlacementType = Literal["VIDEO_AND_AUDIO_PIDS", "VIDEO_PID"]
 M2tsEsRateInPesType = Literal["EXCLUDE", "INCLUDE"]
@@ -947,6 +995,7 @@ M2tsSegmentationMarkersType = Literal[
 ]
 M2tsSegmentationStyleType = Literal["MAINTAIN_CADENCE", "RESET_CADENCE"]
 M3u8AudioDurationType = Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"]
+M3u8DataPtsControlType = Literal["ALIGN_TO_VIDEO", "AUTO"]
 M3u8NielsenId3Type = Literal["INSERT", "NONE"]
 M3u8PcrControlType = Literal["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"]
 M3u8Scte35SourceType = Literal["NONE", "PASSTHROUGH"]
@@ -994,6 +1043,7 @@ Mpeg2SyntaxType = Literal["DEFAULT", "D_10"]
 Mpeg2TelecineType = Literal["HARD", "NONE", "SOFT"]
 Mpeg2TemporalAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 MsSmoothAudioDeduplicationType = Literal["COMBINE_DUPLICATE_STREAMS", "NONE"]
+MsSmoothFragmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
 MsSmoothManifestEncodingType = Literal["UTF16", "UTF8"]
 MxfAfdSignalingType = Literal["COPY_FROM_VIDEO", "NO_COPY"]
 MxfProfileType = Literal["D_10", "OP1A", "XAVC", "XDCAM"]

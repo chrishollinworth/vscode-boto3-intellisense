@@ -36,6 +36,7 @@ from .type_defs import (
     AnomalyMonitorTypeDef,
     AnomalySubscriptionTypeDef,
     CostCategoryRuleTypeDef,
+    CostCategorySplitChargeRuleTypeDef,
     CreateAnomalyMonitorResponseTypeDef,
     CreateAnomalySubscriptionResponseTypeDef,
     CreateCostCategoryDefinitionResponseTypeDef,
@@ -102,7 +103,7 @@ class Exceptions:
 
 class CostExplorerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html)
     """
 
@@ -116,7 +117,7 @@ class CostExplorerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#can_paginate)
         """
     def create_anomaly_monitor(
@@ -126,7 +127,7 @@ class CostExplorerClient(BaseClient):
         Creates a new cost anomaly detection monitor with the requested type and monitor
         specification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.create_anomaly_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.create_anomaly_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#create_anomaly_monitor)
         """
     def create_anomaly_subscription(
@@ -135,7 +136,7 @@ class CostExplorerClient(BaseClient):
         """
         Adds a subscription to a cost anomaly detection monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.create_anomaly_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.create_anomaly_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#create_anomaly_subscription)
         """
     def create_cost_category_definition(
@@ -144,26 +145,27 @@ class CostExplorerClient(BaseClient):
         Name: str,
         RuleVersion: Literal["CostCategoryExpression.v1"],
         Rules: List["CostCategoryRuleTypeDef"],
-        DefaultValue: str = None
+        DefaultValue: str = None,
+        SplitChargeRules: List["CostCategorySplitChargeRuleTypeDef"] = None
     ) -> CreateCostCategoryDefinitionResponseTypeDef:
         """
         Creates a new Cost Category with the requested name and rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.create_cost_category_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.create_cost_category_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#create_cost_category_definition)
         """
     def delete_anomaly_monitor(self, *, MonitorArn: str) -> Dict[str, Any]:
         """
         Deletes a cost anomaly monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.delete_anomaly_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.delete_anomaly_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#delete_anomaly_monitor)
         """
     def delete_anomaly_subscription(self, *, SubscriptionArn: str) -> Dict[str, Any]:
         """
         Deletes a cost anomaly subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.delete_anomaly_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.delete_anomaly_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#delete_anomaly_subscription)
         """
     def delete_cost_category_definition(
@@ -172,7 +174,7 @@ class CostExplorerClient(BaseClient):
         """
         Deletes a Cost Category.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.delete_cost_category_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.delete_cost_category_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#delete_cost_category_definition)
         """
     def describe_cost_category_definition(
@@ -182,7 +184,7 @@ class CostExplorerClient(BaseClient):
         Returns the name, ARN, rules, definition, and effective dates of a Cost Category
         that's defined in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.describe_cost_category_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.describe_cost_category_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#describe_cost_category_definition)
         """
     def generate_presigned_url(
@@ -195,7 +197,7 @@ class CostExplorerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#generate_presigned_url)
         """
     def get_anomalies(
@@ -209,10 +211,10 @@ class CostExplorerClient(BaseClient):
         MaxResults: int = None
     ) -> GetAnomaliesResponseTypeDef:
         """
-        Retrieves all of the cost anomalies detected on your account, during the time
-        period specified by the `DateInterval` object.
+        Retrieves all of the cost anomalies detected on your account during the time
+        period that's specified by the `DateInterval` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_anomalies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_anomalies)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_anomalies)
         """
     def get_anomaly_monitors(
@@ -221,7 +223,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves the cost anomaly monitor definitions for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_anomaly_monitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_anomaly_monitors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_anomaly_monitors)
         """
     def get_anomaly_subscriptions(
@@ -235,7 +237,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves the cost anomaly subscription objects for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_anomaly_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_anomaly_subscriptions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_anomaly_subscriptions)
         """
     def get_cost_and_usage(
@@ -251,7 +253,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves cost and usage metrics for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_and_usage)
         """
     def get_cost_and_usage_with_resources(
@@ -267,7 +269,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves cost and usage metrics with resources for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage_with_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage_with_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_and_usage_with_resources)
         """
     def get_cost_categories(
@@ -284,7 +286,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves an array of Cost Category names and values incurred cost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_cost_categories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_cost_categories)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_categories)
         """
     def get_cost_forecast(
@@ -300,7 +302,7 @@ class CostExplorerClient(BaseClient):
         Retrieves a forecast for how much Amazon Web Services predicts that you will
         spend over the forecast time period that you select, based on your past costs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_cost_forecast)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_cost_forecast)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_forecast)
         """
     def get_dimension_values(
@@ -319,7 +321,7 @@ class CostExplorerClient(BaseClient):
         Retrieves all available filter values for a specified filter over a period of
         time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_dimension_values)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_dimension_values)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_dimension_values)
         """
     def get_reservation_coverage(
@@ -337,7 +339,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves the reservation coverage for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_reservation_coverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_reservation_coverage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_reservation_coverage)
         """
     def get_reservation_purchase_recommendation(
@@ -357,7 +359,7 @@ class CostExplorerClient(BaseClient):
         """
         Gets recommendations for which reservations to purchase.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_reservation_purchase_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_reservation_purchase_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_reservation_purchase_recommendation)
         """
     def get_reservation_utilization(
@@ -374,7 +376,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves the reservation utilization for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_reservation_utilization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_reservation_utilization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_reservation_utilization)
         """
     def get_rightsizing_recommendation(
@@ -390,7 +392,7 @@ class CostExplorerClient(BaseClient):
         Creates recommendations that help you save cost by identifying idle and
         underutilized Amazon EC2 instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_rightsizing_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_rightsizing_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_rightsizing_recommendation)
         """
     def get_savings_plans_coverage(
@@ -408,7 +410,7 @@ class CostExplorerClient(BaseClient):
         """
         Retrieves the Savings Plans covered for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_savings_plans_coverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_savings_plans_coverage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_coverage)
         """
     def get_savings_plans_purchase_recommendation(
@@ -427,7 +429,7 @@ class CostExplorerClient(BaseClient):
         Retrieves your request parameters, Savings Plan Recommendations Summary and
         Details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_savings_plans_purchase_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_savings_plans_purchase_recommendation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_purchase_recommendation)
         """
     def get_savings_plans_utilization(
@@ -442,7 +444,7 @@ class CostExplorerClient(BaseClient):
         Retrieves the Savings Plans utilization for your account across date ranges with
         daily or monthly granularity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_utilization)
         """
     def get_savings_plans_utilization_details(
@@ -459,7 +461,7 @@ class CostExplorerClient(BaseClient):
         Retrieves attribute data along with aggregate utilization and savings data for a
         given time period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_utilization_details)
         """
     def get_tags(
@@ -476,7 +478,7 @@ class CostExplorerClient(BaseClient):
         """
         Queries for available tag keys and tag values for a specified period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_tags)
         """
     def get_usage_forecast(
@@ -492,7 +494,7 @@ class CostExplorerClient(BaseClient):
         Retrieves a forecast for how much Amazon Web Services predicts that you will use
         over the forecast time period that you select, based on your past usage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.get_usage_forecast)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.get_usage_forecast)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_usage_forecast)
         """
     def list_cost_category_definitions(
@@ -502,7 +504,7 @@ class CostExplorerClient(BaseClient):
         Returns the name, ARN, `NumberOfRules` and effective dates of all Cost
         Categories defined in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.list_cost_category_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.list_cost_category_definitions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#list_cost_category_definitions)
         """
     def provide_anomaly_feedback(
@@ -511,7 +513,7 @@ class CostExplorerClient(BaseClient):
         """
         Modifies the feedback property of a given cost anomaly.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.provide_anomaly_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.provide_anomaly_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#provide_anomaly_feedback)
         """
     def update_anomaly_monitor(
@@ -520,7 +522,7 @@ class CostExplorerClient(BaseClient):
         """
         Updates an existing cost anomaly monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.update_anomaly_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.update_anomaly_monitor)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#update_anomaly_monitor)
         """
     def update_anomaly_subscription(
@@ -536,7 +538,7 @@ class CostExplorerClient(BaseClient):
         """
         Updates an existing cost anomaly monitor subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.update_anomaly_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.update_anomaly_subscription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#update_anomaly_subscription)
         """
     def update_cost_category_definition(
@@ -545,11 +547,12 @@ class CostExplorerClient(BaseClient):
         CostCategoryArn: str,
         RuleVersion: Literal["CostCategoryExpression.v1"],
         Rules: List["CostCategoryRuleTypeDef"],
-        DefaultValue: str = None
+        DefaultValue: str = None,
+        SplitChargeRules: List["CostCategorySplitChargeRuleTypeDef"] = None
     ) -> UpdateCostCategoryDefinitionResponseTypeDef:
         """
         Updates an existing Cost Category.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ce.html#CostExplorer.Client.update_cost_category_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ce.html#CostExplorer.Client.update_cost_category_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#update_cost_category_definition)
         """

@@ -21,14 +21,19 @@ else:
 __all__ = (
     "BaseModelNameType",
     "CLMLanguageCodeType",
+    "CallAnalyticsJobStatusType",
     "LanguageCodeType",
     "MediaFormatType",
     "MedicalContentIdentificationTypeType",
     "ModelStatusType",
     "OutputLocationTypeType",
+    "ParticipantRoleType",
     "RedactionOutputType",
     "RedactionTypeType",
+    "SentimentValueType",
     "SpecialtyType",
+    "SubtitleFormatType",
+    "TranscriptFilterTypeType",
     "TranscriptionJobStatusType",
     "TypeType",
     "VocabularyFilterMethodType",
@@ -37,6 +42,7 @@ __all__ = (
 
 BaseModelNameType = Literal["NarrowBand", "WideBand"]
 CLMLanguageCodeType = Literal["en-AU", "en-GB", "en-US", "es-US", "hi-IN"]
+CallAnalyticsJobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED"]
 LanguageCodeType = Literal[
     "af-ZA",
     "ar-AE",
@@ -50,8 +56,10 @@ LanguageCodeType = Literal[
     "en-GB",
     "en-IE",
     "en-IN",
+    "en-NZ",
     "en-US",
     "en-WL",
+    "en-ZA",
     "es-ES",
     "es-US",
     "fa-IR",
@@ -72,16 +80,22 @@ LanguageCodeType = Literal[
     "ru-RU",
     "ta-IN",
     "te-IN",
+    "th-TH",
     "tr-TR",
     "zh-CN",
+    "zh-TW",
 ]
 MediaFormatType = Literal["amr", "flac", "mp3", "mp4", "ogg", "wav", "webm"]
 MedicalContentIdentificationTypeType = Literal["PHI"]
 ModelStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 OutputLocationTypeType = Literal["CUSTOMER_BUCKET", "SERVICE_BUCKET"]
+ParticipantRoleType = Literal["AGENT", "CUSTOMER"]
 RedactionOutputType = Literal["redacted", "redacted_and_unredacted"]
 RedactionTypeType = Literal["PII"]
+SentimentValueType = Literal["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]
 SpecialtyType = Literal["PRIMARYCARE"]
+SubtitleFormatType = Literal["srt", "vtt"]
+TranscriptFilterTypeType = Literal["EXACT"]
 TranscriptionJobStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "QUEUED"]
 TypeType = Literal["CONVERSATION", "DICTATION"]
 VocabularyFilterMethodType = Literal["mask", "remove", "tag"]

@@ -47,7 +47,7 @@ class Exceptions:
 
 class PIClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pi.html#PI.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pi.html#PI.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html)
     """
 
@@ -61,7 +61,7 @@ class PIClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pi.html#PI.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pi.html#PI.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#can_paginate)
         """
     def describe_dimension_keys(
@@ -82,7 +82,7 @@ class PIClient(BaseClient):
         """
         For a specific time period, retrieve the top `N` dimension keys for a metric.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pi.html#PI.Client.describe_dimension_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pi.html#PI.Client.describe_dimension_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#describe_dimension_keys)
         """
     def generate_presigned_url(
@@ -95,7 +95,7 @@ class PIClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pi.html#PI.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pi.html#PI.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#generate_presigned_url)
         """
     def get_dimension_key_details(
@@ -111,7 +111,7 @@ class PIClient(BaseClient):
         Get the attributes of the specified dimension group for a DB instance or data
         source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pi.html#PI.Client.get_dimension_key_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pi.html#PI.Client.get_dimension_key_details)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#get_dimension_key_details)
         """
     def get_resource_metrics(
@@ -130,6 +130,6 @@ class PIClient(BaseClient):
         Retrieve Performance Insights metrics for a set of data sources, over a time
         period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/pi.html#PI.Client.get_resource_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pi.html#PI.Client.get_resource_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/client.html#get_resource_metrics)
         """

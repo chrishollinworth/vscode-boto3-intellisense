@@ -19,6 +19,7 @@ from .literals import (
     AnalysisErrorTypeType,
     AssignmentStatusType,
     ColumnDataTypeType,
+    ColumnTagNameType,
     DashboardBehaviorType,
     DashboardErrorTypeType,
     DashboardUIStateType,
@@ -34,6 +35,7 @@ from .literals import (
     IngestionRequestSourceType,
     IngestionRequestTypeType,
     IngestionStatusType,
+    IngestionTypeType,
     InputColumnDataTypeType,
     JoinTypeType,
     MemberTypeType,
@@ -64,6 +66,7 @@ __all__ = (
     "ActiveIAMPolicyAssignmentTypeDef",
     "AdHocFilteringOptionTypeDef",
     "AmazonElasticsearchParametersTypeDef",
+    "AmazonOpenSearchParametersTypeDef",
     "AnalysisErrorTypeDef",
     "AnalysisSearchFilterTypeDef",
     "AnalysisSourceEntityTypeDef",
@@ -138,6 +141,7 @@ __all__ = (
     "DataSetSchemaTypeDef",
     "DataSetSummaryTypeDef",
     "DataSetTypeDef",
+    "DataSetUsageConfigurationTypeDef",
     "DataSourceCredentialsTypeDef",
     "DataSourceErrorInfoTypeDef",
     "DataSourceParametersTypeDef",
@@ -210,6 +214,8 @@ __all__ = (
     "DescribeIAMPolicyAssignmentResponseTypeDef",
     "DescribeIngestionRequestRequestTypeDef",
     "DescribeIngestionResponseTypeDef",
+    "DescribeIpRestrictionRequestRequestTypeDef",
+    "DescribeIpRestrictionResponseTypeDef",
     "DescribeNamespaceRequestRequestTypeDef",
     "DescribeNamespaceResponseTypeDef",
     "DescribeTemplateAliasRequestRequestTypeDef",
@@ -322,6 +328,7 @@ __all__ = (
     "RegisterUserResponseTypeDef",
     "RegisteredUserDashboardEmbeddingConfigurationTypeDef",
     "RegisteredUserEmbeddingExperienceConfigurationTypeDef",
+    "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
     "RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef",
     "RelationalTableTypeDef",
     "RenameColumnOperationTypeDef",
@@ -377,6 +384,7 @@ __all__ = (
     "TransformOperationTypeDef",
     "TwitterParametersTypeDef",
     "UIColorPaletteTypeDef",
+    "UntagColumnOperationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UntagResourceResponseTypeDef",
     "UpdateAccountCustomizationRequestRequestTypeDef",
@@ -409,6 +417,8 @@ __all__ = (
     "UpdateGroupResponseTypeDef",
     "UpdateIAMPolicyAssignmentRequestRequestTypeDef",
     "UpdateIAMPolicyAssignmentResponseTypeDef",
+    "UpdateIpRestrictionRequestRequestTypeDef",
+    "UpdateIpRestrictionResponseTypeDef",
     "UpdateTemplateAliasRequestRequestTypeDef",
     "UpdateTemplateAliasResponseTypeDef",
     "UpdateTemplatePermissionsRequestRequestTypeDef",
@@ -466,6 +476,13 @@ AdHocFilteringOptionTypeDef = TypedDict(
 
 AmazonElasticsearchParametersTypeDef = TypedDict(
     "AmazonElasticsearchParametersTypeDef",
+    {
+        "Domain": str,
+    },
+)
+
+AmazonOpenSearchParametersTypeDef = TypedDict(
+    "AmazonOpenSearchParametersTypeDef",
     {
         "Domain": str,
     },
@@ -842,6 +859,7 @@ _OptionalCreateDataSetRequestRequestTypeDef = TypedDict(
         "RowLevelPermissionTagConfiguration": "RowLevelPermissionTagConfigurationTypeDef",
         "ColumnLevelPermissionRules": List["ColumnLevelPermissionRuleTypeDef"],
         "Tags": List["TagTypeDef"],
+        "DataSetUsageConfiguration": "DataSetUsageConfigurationTypeDef",
     },
     total=False,
 )
@@ -1047,14 +1065,26 @@ CreateIAMPolicyAssignmentResponseTypeDef = TypedDict(
     },
 )
 
-CreateIngestionRequestRequestTypeDef = TypedDict(
-    "CreateIngestionRequestRequestTypeDef",
+_RequiredCreateIngestionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateIngestionRequestRequestTypeDef",
     {
         "DataSetId": str,
         "IngestionId": str,
         "AwsAccountId": str,
     },
 )
+_OptionalCreateIngestionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateIngestionRequestRequestTypeDef",
+    {
+        "IngestionType": IngestionTypeType,
+    },
+    total=False,
+)
+
+class CreateIngestionRequestRequestTypeDef(
+    _RequiredCreateIngestionRequestRequestTypeDef, _OptionalCreateIngestionRequestRequestTypeDef
+):
+    pass
 
 CreateIngestionResponseTypeDef = TypedDict(
     "CreateIngestionResponseTypeDef",
@@ -1438,6 +1468,16 @@ DataSetTypeDef = TypedDict(
         "RowLevelPermissionDataSet": "RowLevelPermissionDataSetTypeDef",
         "RowLevelPermissionTagConfiguration": "RowLevelPermissionTagConfigurationTypeDef",
         "ColumnLevelPermissionRules": List["ColumnLevelPermissionRuleTypeDef"],
+        "DataSetUsageConfiguration": "DataSetUsageConfigurationTypeDef",
+    },
+    total=False,
+)
+
+DataSetUsageConfigurationTypeDef = TypedDict(
+    "DataSetUsageConfigurationTypeDef",
+    {
+        "DisableUseAsDirectQuerySource": bool,
+        "DisableUseAsImportedSource": bool,
     },
     total=False,
 )
@@ -1483,6 +1523,7 @@ DataSourceParametersTypeDef = TypedDict(
         "SqlServerParameters": "SqlServerParametersTypeDef",
         "TeradataParameters": "TeradataParametersTypeDef",
         "TwitterParameters": "TwitterParametersTypeDef",
+        "AmazonOpenSearchParameters": "AmazonOpenSearchParametersTypeDef",
     },
     total=False,
 )
@@ -2229,6 +2270,25 @@ DescribeIngestionResponseTypeDef = TypedDict(
     "DescribeIngestionResponseTypeDef",
     {
         "Ingestion": "IngestionTypeDef",
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeIpRestrictionRequestRequestTypeDef = TypedDict(
+    "DescribeIpRestrictionRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+    },
+)
+
+DescribeIpRestrictionResponseTypeDef = TypedDict(
+    "DescribeIpRestrictionResponseTypeDef",
+    {
+        "AwsAccountId": str,
+        "IpRestrictionRuleMap": Dict[str, str],
+        "Enabled": bool,
         "RequestId": str,
         "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -3461,6 +3521,7 @@ LogicalTableSourceTypeDef = TypedDict(
     {
         "JoinInstruction": "JoinInstructionTypeDef",
         "PhysicalTableId": str,
+        "DataSetArn": str,
     },
     total=False,
 )
@@ -3712,6 +3773,15 @@ RegisteredUserEmbeddingExperienceConfigurationTypeDef = TypedDict(
     {
         "Dashboard": "RegisteredUserDashboardEmbeddingConfigurationTypeDef",
         "QuickSightConsole": "RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef",
+        "QSearchBar": "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
+    },
+    total=False,
+)
+
+RegisteredUserQSearchBarEmbeddingConfigurationTypeDef = TypedDict(
+    "RegisteredUserQSearchBarEmbeddingConfigurationTypeDef",
+    {
+        "InitialTopicId": str,
     },
     total=False,
 )
@@ -3795,6 +3865,7 @@ RowInfoTypeDef = TypedDict(
     {
         "RowsIngested": int,
         "RowsDropped": int,
+        "TotalRowsInDataset": int,
     },
     total=False,
 )
@@ -4314,6 +4385,7 @@ TransformOperationTypeDef = TypedDict(
         "RenameColumnOperation": "RenameColumnOperationTypeDef",
         "CastColumnTypeOperation": "CastColumnTypeOperationTypeDef",
         "TagColumnOperation": "TagColumnOperationTypeDef",
+        "UntagColumnOperation": "UntagColumnOperationTypeDef",
     },
     total=False,
 )
@@ -4347,6 +4419,14 @@ UIColorPaletteTypeDef = TypedDict(
         "MeasureForeground": str,
     },
     total=False,
+)
+
+UntagColumnOperationTypeDef = TypedDict(
+    "UntagColumnOperationTypeDef",
+    {
+        "ColumnName": str,
+        "TagNames": List[ColumnTagNameType],
+    },
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(
@@ -4643,6 +4723,7 @@ _OptionalUpdateDataSetRequestRequestTypeDef = TypedDict(
         "RowLevelPermissionDataSet": "RowLevelPermissionDataSetTypeDef",
         "RowLevelPermissionTagConfiguration": "RowLevelPermissionTagConfigurationTypeDef",
         "ColumnLevelPermissionRules": List["ColumnLevelPermissionRuleTypeDef"],
+        "DataSetUsageConfiguration": "DataSetUsageConfigurationTypeDef",
     },
     total=False,
 )
@@ -4851,6 +4932,37 @@ UpdateIAMPolicyAssignmentResponseTypeDef = TypedDict(
         "PolicyArn": str,
         "Identities": Dict[str, List[str]],
         "AssignmentStatus": AssignmentStatusType,
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateIpRestrictionRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateIpRestrictionRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+    },
+)
+_OptionalUpdateIpRestrictionRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateIpRestrictionRequestRequestTypeDef",
+    {
+        "IpRestrictionRuleMap": Dict[str, str],
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+class UpdateIpRestrictionRequestRequestTypeDef(
+    _RequiredUpdateIpRestrictionRequestRequestTypeDef,
+    _OptionalUpdateIpRestrictionRequestRequestTypeDef,
+):
+    pass
+
+UpdateIpRestrictionResponseTypeDef = TypedDict(
+    "UpdateIpRestrictionResponseTypeDef",
+    {
+        "AwsAccountId": str,
         "RequestId": str,
         "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",

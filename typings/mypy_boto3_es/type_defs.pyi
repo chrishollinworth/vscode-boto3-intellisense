@@ -21,6 +21,7 @@ from .literals import (
     DeploymentStatusType,
     DescribePackagesFilterNameType,
     DomainPackageStatusType,
+    EngineTypeType,
     ESPartitionInstanceTypeType,
     ESWarmPartitionInstanceTypeType,
     InboundCrossClusterSearchConnectionStatusCodeType,
@@ -140,6 +141,7 @@ __all__ = (
     "InstanceCountLimitsTypeDef",
     "InstanceLimitsTypeDef",
     "LimitsTypeDef",
+    "ListDomainNamesRequestRequestTypeDef",
     "ListDomainNamesResponseTypeDef",
     "ListDomainsForPackageRequestRequestTypeDef",
     "ListDomainsForPackageResponseTypeDef",
@@ -828,6 +830,7 @@ DomainInfoTypeDef = TypedDict(
     "DomainInfoTypeDef",
     {
         "DomainName": str,
+        "EngineType": EngineTypeType,
     },
     total=False,
 )
@@ -1163,6 +1166,14 @@ LimitsTypeDef = TypedDict(
         "StorageTypes": List["StorageTypeTypeDef"],
         "InstanceLimits": "InstanceLimitsTypeDef",
         "AdditionalLimits": List["AdditionalLimitTypeDef"],
+    },
+    total=False,
+)
+
+ListDomainNamesRequestRequestTypeDef = TypedDict(
+    "ListDomainNamesRequestRequestTypeDef",
+    {
+        "EngineType": EngineTypeType,
     },
     total=False,
 )

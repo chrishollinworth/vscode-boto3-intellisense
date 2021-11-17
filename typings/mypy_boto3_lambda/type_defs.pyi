@@ -18,6 +18,7 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    ArchitectureType,
     CodeSigningPolicyType,
     EventSourcePositionType,
     InvocationTypeType,
@@ -467,6 +468,7 @@ _OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
         "FileSystemConfigs": List["FileSystemConfigTypeDef"],
         "ImageConfig": "ImageConfigTypeDef",
         "CodeSigningConfigArn": str,
+        "Architectures": List[ArchitectureType],
     },
     total=False,
 )
@@ -733,6 +735,7 @@ FunctionConfigurationResponseMetadataTypeDef = TypedDict(
         "ImageConfigResponse": "ImageConfigResponseTypeDef",
         "SigningProfileVersionArn": str,
         "SigningJobArn": str,
+        "Architectures": List[ArchitectureType],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -771,6 +774,7 @@ FunctionConfigurationTypeDef = TypedDict(
         "ImageConfigResponse": "ImageConfigResponseTypeDef",
         "SigningProfileVersionArn": str,
         "SigningJobArn": str,
+        "Architectures": List[ArchitectureType],
     },
     total=False,
 )
@@ -982,6 +986,7 @@ GetLayerVersionResponseTypeDef = TypedDict(
         "Version": int,
         "CompatibleRuntimes": List[RuntimeType],
         "LicenseInfo": str,
+        "CompatibleArchitectures": List[ArchitectureType],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1157,6 +1162,7 @@ LayerVersionsListItemTypeDef = TypedDict(
         "CreatedDate": str,
         "CompatibleRuntimes": List[RuntimeType],
         "LicenseInfo": str,
+        "CompatibleArchitectures": List[ArchitectureType],
     },
     total=False,
 )
@@ -1331,6 +1337,7 @@ _OptionalListLayerVersionsRequestRequestTypeDef = TypedDict(
         "CompatibleRuntime": RuntimeType,
         "Marker": str,
         "MaxItems": int,
+        "CompatibleArchitecture": ArchitectureType,
     },
     total=False,
 )
@@ -1355,6 +1362,7 @@ ListLayersRequestRequestTypeDef = TypedDict(
         "CompatibleRuntime": RuntimeType,
         "Marker": str,
         "MaxItems": int,
+        "CompatibleArchitecture": ArchitectureType,
     },
     total=False,
 )
@@ -1496,6 +1504,7 @@ _OptionalPublishLayerVersionRequestRequestTypeDef = TypedDict(
         "Description": str,
         "CompatibleRuntimes": List[RuntimeType],
         "LicenseInfo": str,
+        "CompatibleArchitectures": List[ArchitectureType],
     },
     total=False,
 )
@@ -1517,6 +1526,7 @@ PublishLayerVersionResponseTypeDef = TypedDict(
         "Version": int,
         "CompatibleRuntimes": List[RuntimeType],
         "LicenseInfo": str,
+        "CompatibleArchitectures": List[ArchitectureType],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1816,6 +1826,7 @@ _OptionalUpdateFunctionCodeRequestRequestTypeDef = TypedDict(
         "Publish": bool,
         "DryRun": bool,
         "RevisionId": str,
+        "Architectures": List[ArchitectureType],
     },
     total=False,
 )

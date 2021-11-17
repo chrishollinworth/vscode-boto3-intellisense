@@ -57,6 +57,7 @@ from .literals import (
     SortOrderType,
     ThesaurusStatusType,
     UserContextPolicyType,
+    UserGroupResolutionModeType,
     WebCrawlerModeType,
 )
 
@@ -236,6 +237,7 @@ __all__ = (
     "UpdateThesaurusRequestRequestTypeDef",
     "UrlsTypeDef",
     "UserContextTypeDef",
+    "UserGroupResolutionConfigurationTypeDef",
     "UserTokenConfigurationTypeDef",
     "WebCrawlerConfigurationTypeDef",
     "WorkDocsConfigurationTypeDef",
@@ -588,6 +590,7 @@ _OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
         "RoleArn": str,
         "Tags": List["TagTypeDef"],
         "ClientToken": str,
+        "LanguageCode": str,
     },
     total=False,
 )
@@ -621,6 +624,7 @@ _OptionalCreateFaqRequestRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "FileFormat": FaqFileFormatType,
         "ClientToken": str,
+        "LanguageCode": str,
     },
     total=False,
 )
@@ -655,6 +659,7 @@ _OptionalCreateIndexRequestRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
         "UserContextPolicy": UserContextPolicyType,
+        "UserGroupResolutionConfiguration": "UserGroupResolutionConfigurationTypeDef",
     },
     total=False,
 )
@@ -771,6 +776,7 @@ DataSourceSummaryTypeDef = TypedDict(
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
         "Status": DataSourceStatusType,
+        "LanguageCode": str,
     },
     total=False,
 )
@@ -956,6 +962,7 @@ DescribeDataSourceResponseTypeDef = TypedDict(
         "Schedule": str,
         "RoleArn": str,
         "ErrorMessage": str,
+        "LanguageCode": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -982,6 +989,7 @@ DescribeFaqResponseTypeDef = TypedDict(
         "RoleArn": str,
         "ErrorMessage": str,
         "FileFormat": FaqFileFormatType,
+        "LanguageCode": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1011,6 +1019,7 @@ DescribeIndexResponseTypeDef = TypedDict(
         "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
         "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
         "UserContextPolicy": UserContextPolicyType,
+        "UserGroupResolutionConfiguration": "UserGroupResolutionConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1264,6 +1273,7 @@ FaqSummaryTypeDef = TypedDict(
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
         "FileFormat": FaqFileFormatType,
+        "LanguageCode": str,
     },
     total=False,
 )
@@ -2392,6 +2402,7 @@ _OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Schedule": str,
         "RoleArn": str,
+        "LanguageCode": str,
     },
     total=False,
 )
@@ -2417,6 +2428,7 @@ _OptionalUpdateIndexRequestRequestTypeDef = TypedDict(
         "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
         "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
         "UserContextPolicy": UserContextPolicyType,
+        "UserGroupResolutionConfiguration": "UserGroupResolutionConfigurationTypeDef",
     },
     total=False,
 )
@@ -2515,6 +2527,13 @@ UserContextTypeDef = TypedDict(
         "DataSourceGroups": List["DataSourceGroupTypeDef"],
     },
     total=False,
+)
+
+UserGroupResolutionConfigurationTypeDef = TypedDict(
+    "UserGroupResolutionConfigurationTypeDef",
+    {
+        "UserGroupResolutionMode": UserGroupResolutionModeType,
+    },
 )
 
 UserTokenConfigurationTypeDef = TypedDict(

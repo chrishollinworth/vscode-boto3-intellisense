@@ -233,16 +233,27 @@ CreateResponsePlanOutputTypeDef = TypedDict(
     },
 )
 
-CreateTimelineEventInputRequestTypeDef = TypedDict(
-    "CreateTimelineEventInputRequestTypeDef",
+_RequiredCreateTimelineEventInputRequestTypeDef = TypedDict(
+    "_RequiredCreateTimelineEventInputRequestTypeDef",
     {
-        "clientToken": str,
         "eventData": str,
         "eventTime": Union[datetime, str],
         "eventType": str,
         "incidentRecordArn": str,
     },
 )
+_OptionalCreateTimelineEventInputRequestTypeDef = TypedDict(
+    "_OptionalCreateTimelineEventInputRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class CreateTimelineEventInputRequestTypeDef(
+    _RequiredCreateTimelineEventInputRequestTypeDef, _OptionalCreateTimelineEventInputRequestTypeDef
+):
+    pass
 
 CreateTimelineEventOutputTypeDef = TypedDict(
     "CreateTimelineEventOutputTypeDef",
@@ -742,8 +753,8 @@ RelatedItemsUpdateTypeDef = TypedDict(
     total=False,
 )
 
-ReplicationSetTypeDef = TypedDict(
-    "ReplicationSetTypeDef",
+_RequiredReplicationSetTypeDef = TypedDict(
+    "_RequiredReplicationSetTypeDef",
     {
         "createdBy": str,
         "createdTime": datetime,
@@ -754,6 +765,16 @@ ReplicationSetTypeDef = TypedDict(
         "status": ReplicationSetStatusType,
     },
 )
+_OptionalReplicationSetTypeDef = TypedDict(
+    "_OptionalReplicationSetTypeDef",
+    {
+        "arn": str,
+    },
+    total=False,
+)
+
+class ReplicationSetTypeDef(_RequiredReplicationSetTypeDef, _OptionalReplicationSetTypeDef):
+    pass
 
 ResourcePolicyTypeDef = TypedDict(
     "ResourcePolicyTypeDef",
@@ -1021,7 +1042,6 @@ class UpdateResponsePlanInputRequestTypeDef(
 _RequiredUpdateTimelineEventInputRequestTypeDef = TypedDict(
     "_RequiredUpdateTimelineEventInputRequestTypeDef",
     {
-        "clientToken": str,
         "eventId": str,
         "incidentRecordArn": str,
     },
@@ -1029,6 +1049,7 @@ _RequiredUpdateTimelineEventInputRequestTypeDef = TypedDict(
 _OptionalUpdateTimelineEventInputRequestTypeDef = TypedDict(
     "_OptionalUpdateTimelineEventInputRequestTypeDef",
     {
+        "clientToken": str,
         "eventData": str,
         "eventTime": Union[datetime, str],
         "eventType": str,

@@ -23,6 +23,7 @@ __all__ = (
     "BodyParsingFallbackBehaviorType",
     "ComparisonOperatorType",
     "CountryCodeType",
+    "FailureReasonType",
     "FallbackBehaviorType",
     "FilterBehaviorType",
     "FilterRequirementType",
@@ -38,7 +39,7 @@ __all__ = (
     "TextTransformationTypeType",
 )
 
-ActionValueType = Literal["ALLOW", "BLOCK", "COUNT"]
+ActionValueType = Literal["ALLOW", "BLOCK", "CAPTCHA", "COUNT", "EXCLUDED_AS_COUNT"]
 BodyParsingFallbackBehaviorType = Literal["EVALUATE_AS_STRING", "MATCH", "NO_MATCH"]
 ComparisonOperatorType = Literal["EQ", "GE", "GT", "LE", "LT", "NE"]
 CountryCodeType = Literal[
@@ -292,6 +293,7 @@ CountryCodeType = Literal[
     "ZM",
     "ZW",
 ]
+FailureReasonType = Literal["TOKEN_EXPIRED", "TOKEN_MISSING"]
 FallbackBehaviorType = Literal["MATCH", "NO_MATCH"]
 FilterBehaviorType = Literal["DROP", "KEEP"]
 FilterRequirementType = Literal["MEETS_ALL", "MEETS_ANY"]

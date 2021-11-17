@@ -10,6 +10,7 @@ Usage::
         DataExchangeClient,
         ListDataSetRevisionsPaginator,
         ListDataSetsPaginator,
+        ListEventActionsPaginator,
         ListJobsPaginator,
         ListRevisionAssetsPaginator,
     )
@@ -21,6 +22,7 @@ Usage::
 
     list_data_set_revisions_paginator: ListDataSetRevisionsPaginator = client.get_paginator("list_data_set_revisions")
     list_data_sets_paginator: ListDataSetsPaginator = client.get_paginator("list_data_sets")
+    list_event_actions_paginator: ListEventActionsPaginator = client.get_paginator("list_event_actions")
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     list_revision_assets_paginator: ListRevisionAssetsPaginator = client.get_paginator("list_revision_assets")
     ```
@@ -29,6 +31,7 @@ from .client import DataExchangeClient
 from .paginator import (
     ListDataSetRevisionsPaginator,
     ListDataSetsPaginator,
+    ListEventActionsPaginator,
     ListJobsPaginator,
     ListRevisionAssetsPaginator,
 )
@@ -40,6 +43,7 @@ __all__ = (
     "DataExchangeClient",
     "ListDataSetRevisionsPaginator",
     "ListDataSetsPaginator",
+    "ListEventActionsPaginator",
     "ListJobsPaginator",
     "ListRevisionAssetsPaginator",
 )

@@ -23,6 +23,8 @@ __all__ = (
     "ActivityStreamStatusType",
     "ApplyMethodType",
     "AuthSchemeType",
+    "AutomationModeType",
+    "CustomEngineVersionStatusType",
     "DBClusterSnapshotAvailableWaiterName",
     "DBClusterSnapshotDeletedWaiterName",
     "DBInstanceAvailableWaiterName",
@@ -85,6 +87,8 @@ ActivityStreamModeType = Literal["async", "sync"]
 ActivityStreamStatusType = Literal["started", "starting", "stopped", "stopping"]
 ApplyMethodType = Literal["immediate", "pending-reboot"]
 AuthSchemeType = Literal["SECRETS"]
+AutomationModeType = Literal["all-paused", "full"]
+CustomEngineVersionStatusType = Literal["available", "inactive", "inactive-except-restore"]
 DBClusterSnapshotAvailableWaiterName = Literal["db_cluster_snapshot_available"]
 DBClusterSnapshotDeletedWaiterName = Literal["db_cluster_snapshot_deleted"]
 DBInstanceAvailableWaiterName = Literal["db_instance_available"]
@@ -157,6 +161,7 @@ FailoverStatusType = Literal["cancelling", "failing-over", "pending"]
 IAMAuthModeType = Literal["DISABLED", "REQUIRED"]
 ReplicaModeType = Literal["mounted", "open-read-only"]
 SourceTypeType = Literal[
+    "custom-engine-version",
     "db-cluster",
     "db-cluster-snapshot",
     "db-instance",

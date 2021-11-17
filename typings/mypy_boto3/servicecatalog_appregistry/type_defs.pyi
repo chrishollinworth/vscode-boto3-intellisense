@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import SyncActionType
+from .literals import ResourceGroupStateType, SyncActionType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -49,8 +49,11 @@ __all__ = (
     "DisassociateResourceResponseTypeDef",
     "GetApplicationRequestRequestTypeDef",
     "GetApplicationResponseTypeDef",
+    "GetAssociatedResourceRequestRequestTypeDef",
+    "GetAssociatedResourceResponseTypeDef",
     "GetAttributeGroupRequestRequestTypeDef",
     "GetAttributeGroupResponseTypeDef",
+    "IntegrationsTypeDef",
     "ListApplicationsRequestRequestTypeDef",
     "ListApplicationsResponseTypeDef",
     "ListAssociatedAttributeGroupsRequestRequestTypeDef",
@@ -62,7 +65,10 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "ResourceGroupTypeDef",
     "ResourceInfoTypeDef",
+    "ResourceIntegrationsTypeDef",
+    "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "SyncResourceRequestRequestTypeDef",
     "SyncResourceResponseTypeDef",
@@ -306,6 +312,24 @@ GetApplicationResponseTypeDef = TypedDict(
         "lastUpdateTime": datetime,
         "associatedResourceCount": int,
         "tags": Dict[str, str],
+        "integrations": "IntegrationsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetAssociatedResourceRequestRequestTypeDef = TypedDict(
+    "GetAssociatedResourceRequestRequestTypeDef",
+    {
+        "application": str,
+        "resourceType": Literal["CFN_STACK"],
+        "resource": str,
+    },
+)
+
+GetAssociatedResourceResponseTypeDef = TypedDict(
+    "GetAssociatedResourceResponseTypeDef",
+    {
+        "resource": "ResourceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -330,6 +354,14 @@ GetAttributeGroupResponseTypeDef = TypedDict(
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+IntegrationsTypeDef = TypedDict(
+    "IntegrationsTypeDef",
+    {
+        "resourceGroup": "ResourceGroupTypeDef",
+    },
+    total=False,
 )
 
 ListApplicationsRequestRequestTypeDef = TypedDict(
@@ -453,11 +485,40 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+ResourceGroupTypeDef = TypedDict(
+    "ResourceGroupTypeDef",
+    {
+        "state": ResourceGroupStateType,
+        "arn": str,
+        "errorMessage": str,
+    },
+    total=False,
+)
+
 ResourceInfoTypeDef = TypedDict(
     "ResourceInfoTypeDef",
     {
         "name": str,
         "arn": str,
+    },
+    total=False,
+)
+
+ResourceIntegrationsTypeDef = TypedDict(
+    "ResourceIntegrationsTypeDef",
+    {
+        "resourceGroup": "ResourceGroupTypeDef",
+    },
+    total=False,
+)
+
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
+    {
+        "name": str,
+        "arn": str,
+        "associationTime": datetime,
+        "integrations": "ResourceIntegrationsTypeDef",
     },
     total=False,
 )

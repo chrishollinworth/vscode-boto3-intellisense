@@ -26,6 +26,8 @@ __all__ = (
     "CostCategoryInheritedValueDimensionNameType",
     "CostCategoryRuleTypeType",
     "CostCategoryRuleVersionType",
+    "CostCategorySplitChargeMethodType",
+    "CostCategorySplitChargeRuleParameterTypeType",
     "CostCategoryStatusComponentType",
     "CostCategoryStatusType",
     "DimensionType",
@@ -58,6 +60,8 @@ ContextType = Literal["COST_AND_USAGE", "RESERVATIONS", "SAVINGS_PLANS"]
 CostCategoryInheritedValueDimensionNameType = Literal["LINKED_ACCOUNT_NAME", "TAG"]
 CostCategoryRuleTypeType = Literal["INHERITED_VALUE", "REGULAR"]
 CostCategoryRuleVersionType = Literal["CostCategoryExpression.v1"]
+CostCategorySplitChargeMethodType = Literal["EVEN", "FIXED", "PROPORTIONAL"]
+CostCategorySplitChargeRuleParameterTypeType = Literal["ALLOCATION_PERCENTAGES"]
 CostCategoryStatusComponentType = Literal["COST_EXPLORER"]
 CostCategoryStatusType = Literal["APPLIED", "PROCESSING"]
 DimensionType = Literal[

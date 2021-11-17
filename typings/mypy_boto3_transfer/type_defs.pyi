@@ -6,9 +6,9 @@ Type annotations for transfer service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_transfer.type_defs import CreateAccessRequestRequestTypeDef
+    from mypy_boto3_transfer.type_defs import CopyStepDetailsTypeDef
 
-    data: CreateAccessRequestRequestTypeDef = {...}
+    data: CopyStepDetailsTypeDef = {...}
     ```
 """
 import sys
@@ -16,49 +16,77 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    CustomStepStatusType,
     DomainType,
     EndpointTypeType,
+    ExecutionStatusType,
     HomeDirectoryTypeType,
     IdentityProviderTypeType,
+    OverwriteExistingType,
     ProtocolType,
     StateType,
+    WorkflowStepTypeType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "CopyStepDetailsTypeDef",
     "CreateAccessRequestRequestTypeDef",
     "CreateAccessResponseTypeDef",
     "CreateServerRequestRequestTypeDef",
     "CreateServerResponseTypeDef",
     "CreateUserRequestRequestTypeDef",
     "CreateUserResponseTypeDef",
+    "CreateWorkflowRequestRequestTypeDef",
+    "CreateWorkflowResponseTypeDef",
+    "CustomStepDetailsTypeDef",
     "DeleteAccessRequestRequestTypeDef",
     "DeleteServerRequestRequestTypeDef",
     "DeleteSshPublicKeyRequestRequestTypeDef",
+    "DeleteStepDetailsTypeDef",
     "DeleteUserRequestRequestTypeDef",
+    "DeleteWorkflowRequestRequestTypeDef",
     "DescribeAccessRequestRequestTypeDef",
     "DescribeAccessResponseTypeDef",
+    "DescribeExecutionRequestRequestTypeDef",
+    "DescribeExecutionResponseTypeDef",
     "DescribeSecurityPolicyRequestRequestTypeDef",
     "DescribeSecurityPolicyResponseTypeDef",
     "DescribeServerRequestRequestTypeDef",
     "DescribeServerResponseTypeDef",
     "DescribeUserRequestRequestTypeDef",
     "DescribeUserResponseTypeDef",
+    "DescribeWorkflowRequestRequestTypeDef",
+    "DescribeWorkflowResponseTypeDef",
     "DescribedAccessTypeDef",
+    "DescribedExecutionTypeDef",
     "DescribedSecurityPolicyTypeDef",
     "DescribedServerTypeDef",
     "DescribedUserTypeDef",
+    "DescribedWorkflowTypeDef",
+    "EfsFileLocationTypeDef",
     "EndpointDetailsTypeDef",
+    "ExecutionErrorTypeDef",
+    "ExecutionResultsTypeDef",
+    "ExecutionStepResultTypeDef",
+    "FileLocationTypeDef",
     "HomeDirectoryMapEntryTypeDef",
     "IdentityProviderDetailsTypeDef",
     "ImportSshPublicKeyRequestRequestTypeDef",
     "ImportSshPublicKeyResponseTypeDef",
+    "InputFileLocationTypeDef",
     "ListAccessesRequestRequestTypeDef",
     "ListAccessesResponseTypeDef",
+    "ListExecutionsRequestRequestTypeDef",
+    "ListExecutionsResponseTypeDef",
     "ListSecurityPoliciesRequestRequestTypeDef",
     "ListSecurityPoliciesResponseTypeDef",
     "ListServersRequestRequestTypeDef",
@@ -67,17 +95,28 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListUsersRequestRequestTypeDef",
     "ListUsersResponseTypeDef",
+    "ListWorkflowsRequestRequestTypeDef",
+    "ListWorkflowsResponseTypeDef",
     "ListedAccessTypeDef",
+    "ListedExecutionTypeDef",
     "ListedServerTypeDef",
     "ListedUserTypeDef",
+    "ListedWorkflowTypeDef",
+    "LoggingConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "PosixProfileTypeDef",
     "ProtocolDetailsTypeDef",
     "ResponseMetadataTypeDef",
+    "S3FileLocationTypeDef",
+    "S3InputFileLocationTypeDef",
+    "S3TagTypeDef",
+    "SendWorkflowStepStateRequestRequestTypeDef",
+    "ServiceMetadataTypeDef",
     "SshPublicKeyTypeDef",
     "StartServerRequestRequestTypeDef",
     "StopServerRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TagStepDetailsTypeDef",
     "TagTypeDef",
     "TestIdentityProviderRequestRequestTypeDef",
     "TestIdentityProviderResponseTypeDef",
@@ -88,6 +127,20 @@ __all__ = (
     "UpdateServerResponseTypeDef",
     "UpdateUserRequestRequestTypeDef",
     "UpdateUserResponseTypeDef",
+    "UserDetailsTypeDef",
+    "WorkflowDetailTypeDef",
+    "WorkflowDetailsTypeDef",
+    "WorkflowStepTypeDef",
+)
+
+CopyStepDetailsTypeDef = TypedDict(
+    "CopyStepDetailsTypeDef",
+    {
+        "Name": str,
+        "DestinationFileLocation": "InputFileLocationTypeDef",
+        "OverwriteExisting": OverwriteExistingType,
+    },
+    total=False,
 )
 
 _RequiredCreateAccessRequestRequestTypeDef = TypedDict(
@@ -138,6 +191,7 @@ CreateServerRequestRequestTypeDef = TypedDict(
         "Protocols": List[ProtocolType],
         "SecurityPolicyName": str,
         "Tags": List["TagTypeDef"],
+        "WorkflowDetails": "WorkflowDetailsTypeDef",
     },
     total=False,
 )
@@ -186,6 +240,45 @@ CreateUserResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateWorkflowRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateWorkflowRequestRequestTypeDef",
+    {
+        "Steps": List["WorkflowStepTypeDef"],
+    },
+)
+_OptionalCreateWorkflowRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateWorkflowRequestRequestTypeDef",
+    {
+        "Description": str,
+        "OnExceptionSteps": List["WorkflowStepTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateWorkflowRequestRequestTypeDef(
+    _RequiredCreateWorkflowRequestRequestTypeDef, _OptionalCreateWorkflowRequestRequestTypeDef
+):
+    pass
+
+CreateWorkflowResponseTypeDef = TypedDict(
+    "CreateWorkflowResponseTypeDef",
+    {
+        "WorkflowId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CustomStepDetailsTypeDef = TypedDict(
+    "CustomStepDetailsTypeDef",
+    {
+        "Name": str,
+        "Target": str,
+        "TimeoutSeconds": int,
+    },
+    total=False,
+)
+
 DeleteAccessRequestRequestTypeDef = TypedDict(
     "DeleteAccessRequestRequestTypeDef",
     {
@@ -210,11 +303,26 @@ DeleteSshPublicKeyRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteStepDetailsTypeDef = TypedDict(
+    "DeleteStepDetailsTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
 DeleteUserRequestRequestTypeDef = TypedDict(
     "DeleteUserRequestRequestTypeDef",
     {
         "ServerId": str,
         "UserName": str,
+    },
+)
+
+DeleteWorkflowRequestRequestTypeDef = TypedDict(
+    "DeleteWorkflowRequestRequestTypeDef",
+    {
+        "WorkflowId": str,
     },
 )
 
@@ -231,6 +339,23 @@ DescribeAccessResponseTypeDef = TypedDict(
     {
         "ServerId": str,
         "Access": "DescribedAccessTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeExecutionRequestRequestTypeDef = TypedDict(
+    "DescribeExecutionRequestRequestTypeDef",
+    {
+        "ExecutionId": str,
+        "WorkflowId": str,
+    },
+)
+
+DescribeExecutionResponseTypeDef = TypedDict(
+    "DescribeExecutionResponseTypeDef",
+    {
+        "WorkflowId": str,
+        "Execution": "DescribedExecutionTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -282,6 +407,21 @@ DescribeUserResponseTypeDef = TypedDict(
     },
 )
 
+DescribeWorkflowRequestRequestTypeDef = TypedDict(
+    "DescribeWorkflowRequestRequestTypeDef",
+    {
+        "WorkflowId": str,
+    },
+)
+
+DescribeWorkflowResponseTypeDef = TypedDict(
+    "DescribeWorkflowResponseTypeDef",
+    {
+        "Workflow": "DescribedWorkflowTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribedAccessTypeDef = TypedDict(
     "DescribedAccessTypeDef",
     {
@@ -292,6 +432,21 @@ DescribedAccessTypeDef = TypedDict(
         "PosixProfile": "PosixProfileTypeDef",
         "Role": str,
         "ExternalId": str,
+    },
+    total=False,
+)
+
+DescribedExecutionTypeDef = TypedDict(
+    "DescribedExecutionTypeDef",
+    {
+        "ExecutionId": str,
+        "InitialFileLocation": "FileLocationTypeDef",
+        "ServiceMetadata": "ServiceMetadataTypeDef",
+        "ExecutionRole": str,
+        "LoggingConfiguration": "LoggingConfigurationTypeDef",
+        "PosixProfile": "PosixProfileTypeDef",
+        "Status": ExecutionStatusType,
+        "Results": "ExecutionResultsTypeDef",
     },
     total=False,
 )
@@ -343,6 +498,7 @@ _OptionalDescribedServerTypeDef = TypedDict(
         "State": StateType,
         "Tags": List["TagTypeDef"],
         "UserCount": int,
+        "WorkflowDetails": "WorkflowDetailsTypeDef",
     },
     total=False,
 )
@@ -375,6 +531,38 @@ _OptionalDescribedUserTypeDef = TypedDict(
 class DescribedUserTypeDef(_RequiredDescribedUserTypeDef, _OptionalDescribedUserTypeDef):
     pass
 
+_RequiredDescribedWorkflowTypeDef = TypedDict(
+    "_RequiredDescribedWorkflowTypeDef",
+    {
+        "Arn": str,
+    },
+)
+_OptionalDescribedWorkflowTypeDef = TypedDict(
+    "_OptionalDescribedWorkflowTypeDef",
+    {
+        "Description": str,
+        "Steps": List["WorkflowStepTypeDef"],
+        "OnExceptionSteps": List["WorkflowStepTypeDef"],
+        "WorkflowId": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class DescribedWorkflowTypeDef(
+    _RequiredDescribedWorkflowTypeDef, _OptionalDescribedWorkflowTypeDef
+):
+    pass
+
+EfsFileLocationTypeDef = TypedDict(
+    "EfsFileLocationTypeDef",
+    {
+        "FileSystemId": str,
+        "Path": str,
+    },
+    total=False,
+)
+
 EndpointDetailsTypeDef = TypedDict(
     "EndpointDetailsTypeDef",
     {
@@ -383,6 +571,42 @@ EndpointDetailsTypeDef = TypedDict(
         "VpcEndpointId": str,
         "VpcId": str,
         "SecurityGroupIds": List[str],
+    },
+    total=False,
+)
+
+ExecutionErrorTypeDef = TypedDict(
+    "ExecutionErrorTypeDef",
+    {
+        "Type": Literal["PERMISSION_DENIED"],
+        "Message": str,
+    },
+)
+
+ExecutionResultsTypeDef = TypedDict(
+    "ExecutionResultsTypeDef",
+    {
+        "Steps": List["ExecutionStepResultTypeDef"],
+        "OnExceptionSteps": List["ExecutionStepResultTypeDef"],
+    },
+    total=False,
+)
+
+ExecutionStepResultTypeDef = TypedDict(
+    "ExecutionStepResultTypeDef",
+    {
+        "StepType": WorkflowStepTypeType,
+        "Outputs": str,
+        "Error": "ExecutionErrorTypeDef",
+    },
+    total=False,
+)
+
+FileLocationTypeDef = TypedDict(
+    "FileLocationTypeDef",
+    {
+        "S3FileLocation": "S3FileLocationTypeDef",
+        "EfsFileLocation": "EfsFileLocationTypeDef",
     },
     total=False,
 )
@@ -401,6 +625,7 @@ IdentityProviderDetailsTypeDef = TypedDict(
         "Url": str,
         "InvocationRole": str,
         "DirectoryId": str,
+        "Function": str,
     },
     total=False,
 )
@@ -422,6 +647,15 @@ ImportSshPublicKeyResponseTypeDef = TypedDict(
         "UserName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+InputFileLocationTypeDef = TypedDict(
+    "InputFileLocationTypeDef",
+    {
+        "S3FileLocation": "S3InputFileLocationTypeDef",
+        "EfsFileLocation": "EfsFileLocationTypeDef",
+    },
+    total=False,
 )
 
 _RequiredListAccessesRequestRequestTypeDef = TypedDict(
@@ -450,6 +684,36 @@ ListAccessesResponseTypeDef = TypedDict(
         "NextToken": str,
         "ServerId": str,
         "Accesses": List["ListedAccessTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListExecutionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListExecutionsRequestRequestTypeDef",
+    {
+        "WorkflowId": str,
+    },
+)
+_OptionalListExecutionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListExecutionsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListExecutionsRequestRequestTypeDef(
+    _RequiredListExecutionsRequestRequestTypeDef, _OptionalListExecutionsRequestRequestTypeDef
+):
+    pass
+
+ListExecutionsResponseTypeDef = TypedDict(
+    "ListExecutionsResponseTypeDef",
+    {
+        "NextToken": str,
+        "WorkflowId": str,
+        "Executions": List["ListedExecutionTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -551,6 +815,24 @@ ListUsersResponseTypeDef = TypedDict(
     },
 )
 
+ListWorkflowsRequestRequestTypeDef = TypedDict(
+    "ListWorkflowsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListWorkflowsResponseTypeDef = TypedDict(
+    "ListWorkflowsResponseTypeDef",
+    {
+        "NextToken": str,
+        "Workflows": List["ListedWorkflowTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListedAccessTypeDef = TypedDict(
     "ListedAccessTypeDef",
     {
@@ -558,6 +840,17 @@ ListedAccessTypeDef = TypedDict(
         "HomeDirectoryType": HomeDirectoryTypeType,
         "Role": str,
         "ExternalId": str,
+    },
+    total=False,
+)
+
+ListedExecutionTypeDef = TypedDict(
+    "ListedExecutionTypeDef",
+    {
+        "ExecutionId": str,
+        "InitialFileLocation": "FileLocationTypeDef",
+        "ServiceMetadata": "ServiceMetadataTypeDef",
+        "Status": ExecutionStatusType,
     },
     total=False,
 )
@@ -606,6 +899,25 @@ _OptionalListedUserTypeDef = TypedDict(
 class ListedUserTypeDef(_RequiredListedUserTypeDef, _OptionalListedUserTypeDef):
     pass
 
+ListedWorkflowTypeDef = TypedDict(
+    "ListedWorkflowTypeDef",
+    {
+        "WorkflowId": str,
+        "Description": str,
+        "Arn": str,
+    },
+    total=False,
+)
+
+LoggingConfigurationTypeDef = TypedDict(
+    "LoggingConfigurationTypeDef",
+    {
+        "LoggingRole": str,
+        "LogGroupName": str,
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -653,6 +965,51 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+S3FileLocationTypeDef = TypedDict(
+    "S3FileLocationTypeDef",
+    {
+        "Bucket": str,
+        "Key": str,
+        "VersionId": str,
+        "Etag": str,
+    },
+    total=False,
+)
+
+S3InputFileLocationTypeDef = TypedDict(
+    "S3InputFileLocationTypeDef",
+    {
+        "Bucket": str,
+        "Key": str,
+    },
+    total=False,
+)
+
+S3TagTypeDef = TypedDict(
+    "S3TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
+
+SendWorkflowStepStateRequestRequestTypeDef = TypedDict(
+    "SendWorkflowStepStateRequestRequestTypeDef",
+    {
+        "WorkflowId": str,
+        "ExecutionId": str,
+        "Token": str,
+        "Status": CustomStepStatusType,
+    },
+)
+
+ServiceMetadataTypeDef = TypedDict(
+    "ServiceMetadataTypeDef",
+    {
+        "UserDetails": "UserDetailsTypeDef",
+    },
+)
+
 SshPublicKeyTypeDef = TypedDict(
     "SshPublicKeyTypeDef",
     {
@@ -682,6 +1039,15 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "Arn": str,
         "Tags": List["TagTypeDef"],
     },
+)
+
+TagStepDetailsTypeDef = TypedDict(
+    "TagStepDetailsTypeDef",
+    {
+        "Name": str,
+        "Tags": List["S3TagTypeDef"],
+    },
+    total=False,
 )
 
 TagTypeDef = TypedDict(
@@ -786,6 +1152,7 @@ _OptionalUpdateServerRequestRequestTypeDef = TypedDict(
         "LoggingRole": str,
         "Protocols": List[ProtocolType],
         "SecurityPolicyName": str,
+        "WorkflowDetails": "WorkflowDetailsTypeDef",
     },
     total=False,
 )
@@ -835,4 +1202,49 @@ UpdateUserResponseTypeDef = TypedDict(
         "UserName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredUserDetailsTypeDef = TypedDict(
+    "_RequiredUserDetailsTypeDef",
+    {
+        "UserName": str,
+        "ServerId": str,
+    },
+)
+_OptionalUserDetailsTypeDef = TypedDict(
+    "_OptionalUserDetailsTypeDef",
+    {
+        "SessionId": str,
+    },
+    total=False,
+)
+
+class UserDetailsTypeDef(_RequiredUserDetailsTypeDef, _OptionalUserDetailsTypeDef):
+    pass
+
+WorkflowDetailTypeDef = TypedDict(
+    "WorkflowDetailTypeDef",
+    {
+        "WorkflowId": str,
+        "ExecutionRole": str,
+    },
+)
+
+WorkflowDetailsTypeDef = TypedDict(
+    "WorkflowDetailsTypeDef",
+    {
+        "OnUpload": List["WorkflowDetailTypeDef"],
+    },
+)
+
+WorkflowStepTypeDef = TypedDict(
+    "WorkflowStepTypeDef",
+    {
+        "Type": WorkflowStepTypeType,
+        "CopyStepDetails": "CopyStepDetailsTypeDef",
+        "CustomStepDetails": "CustomStepDetailsTypeDef",
+        "DeleteStepDetails": "DeleteStepDetailsTypeDef",
+        "TagStepDetails": "TagStepDetailsTypeDef",
+    },
+    total=False,
 )

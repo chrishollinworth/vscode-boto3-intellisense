@@ -6,9 +6,9 @@ Type annotations for autoscaling service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_autoscaling.type_defs import ActivitiesTypeTypeDef
+    from mypy_boto3_autoscaling.type_defs import AcceleratorCountRequestTypeDef
 
-    data: ActivitiesTypeTypeDef = {...}
+    data: AcceleratorCountRequestTypeDef = {...}
     ```
 """
 import sys
@@ -16,10 +16,19 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AcceleratorManufacturerType,
+    AcceleratorNameType,
+    AcceleratorTypeType,
+    BareMetalType,
+    BurstablePerformanceType,
+    CpuManufacturerType,
+    InstanceGenerationType,
     InstanceMetadataEndpointStateType,
     InstanceMetadataHttpTokensStateType,
     InstanceRefreshStatusType,
     LifecycleStateType,
+    LocalStorageType,
+    LocalStorageTypeType,
     MetricStatisticType,
     MetricTypeType,
     PredefinedLoadMetricTypeType,
@@ -41,6 +50,8 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AcceleratorCountRequestTypeDef",
+    "AcceleratorTotalMemoryMiBRequestTypeDef",
     "ActivitiesTypeTypeDef",
     "ActivityTypeDef",
     "ActivityTypeTypeDef",
@@ -54,6 +65,7 @@ __all__ = (
     "AutoScalingGroupsTypeTypeDef",
     "AutoScalingInstanceDetailsTypeDef",
     "AutoScalingInstancesTypeTypeDef",
+    "BaselineEbsBandwidthMbpsRequestTypeDef",
     "BatchDeleteScheduledActionAnswerTypeDef",
     "BatchDeleteScheduledActionTypeRequestTypeDef",
     "BatchPutScheduledUpdateGroupActionAnswerTypeDef",
@@ -97,6 +109,7 @@ __all__ = (
     "DescribeTerminationPolicyTypesAnswerTypeDef",
     "DescribeWarmPoolAnswerTypeDef",
     "DescribeWarmPoolTypeRequestTypeDef",
+    "DesiredConfigurationTypeDef",
     "DetachInstancesAnswerTypeDef",
     "DetachInstancesQueryRequestTypeDef",
     "DetachLoadBalancerTargetGroupsTypeRequestTypeDef",
@@ -120,6 +133,7 @@ __all__ = (
     "InstanceRefreshProgressDetailsTypeDef",
     "InstanceRefreshTypeDef",
     "InstanceRefreshWarmPoolProgressTypeDef",
+    "InstanceRequirementsTypeDef",
     "InstanceTypeDef",
     "InstancesDistributionTypeDef",
     "LaunchConfigurationNameTypeRequestTypeDef",
@@ -134,10 +148,13 @@ __all__ = (
     "LoadBalancerStateTypeDef",
     "LoadBalancerTargetGroupStateTypeDef",
     "LoadForecastTypeDef",
+    "MemoryGiBPerVCpuRequestTypeDef",
+    "MemoryMiBRequestTypeDef",
     "MetricCollectionTypeTypeDef",
     "MetricDimensionTypeDef",
     "MetricGranularityTypeTypeDef",
     "MixedInstancesPolicyTypeDef",
+    "NetworkInterfaceCountRequestTypeDef",
     "NotificationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "PoliciesTypeTypeDef",
@@ -175,8 +192,28 @@ __all__ = (
     "TagsTypeTypeDef",
     "TargetTrackingConfigurationTypeDef",
     "TerminateInstanceInAutoScalingGroupTypeRequestTypeDef",
+    "TotalLocalStorageGBRequestTypeDef",
     "UpdateAutoScalingGroupTypeRequestTypeDef",
+    "VCpuCountRequestTypeDef",
     "WarmPoolConfigurationTypeDef",
+)
+
+AcceleratorCountRequestTypeDef = TypedDict(
+    "AcceleratorCountRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
+AcceleratorTotalMemoryMiBRequestTypeDef = TypedDict(
+    "AcceleratorTotalMemoryMiBRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
 )
 
 ActivitiesTypeTypeDef = TypedDict(
@@ -281,6 +318,7 @@ AutoScalingGroupNamesTypeRequestTypeDef = TypedDict(
         "AutoScalingGroupNames": List[str],
         "NextToken": str,
         "MaxRecords": int,
+        "Filters": List["FilterTypeDef"],
     },
     total=False,
 )
@@ -324,6 +362,7 @@ _OptionalAutoScalingGroupTypeDef = TypedDict(
         "WarmPoolConfiguration": "WarmPoolConfigurationTypeDef",
         "WarmPoolSize": int,
         "Context": str,
+        "DesiredCapacityType": str,
     },
     total=False,
 )
@@ -374,6 +413,15 @@ AutoScalingInstancesTypeTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+BaselineEbsBandwidthMbpsRequestTypeDef = TypedDict(
+    "BaselineEbsBandwidthMbpsRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
 )
 
 BatchDeleteScheduledActionAnswerTypeDef = TypedDict(
@@ -507,6 +555,7 @@ _OptionalCreateAutoScalingGroupTypeRequestTypeDef = TypedDict(
         "ServiceLinkedRoleARN": str,
         "MaxInstanceLifetime": int,
         "Context": str,
+        "DesiredCapacityType": str,
     },
     total=False,
 )
@@ -949,6 +998,15 @@ class DescribeWarmPoolTypeRequestTypeDef(
 ):
     pass
 
+DesiredConfigurationTypeDef = TypedDict(
+    "DesiredConfigurationTypeDef",
+    {
+        "LaunchTemplate": "LaunchTemplateSpecificationTypeDef",
+        "MixedInstancesPolicy": "MixedInstancesPolicyTypeDef",
+    },
+    total=False,
+)
+
 DetachInstancesAnswerTypeDef = TypedDict(
     "DetachInstancesAnswerTypeDef",
     {
@@ -1232,6 +1290,8 @@ InstanceRefreshTypeDef = TypedDict(
         "PercentageComplete": int,
         "InstancesToUpdate": int,
         "ProgressDetails": "InstanceRefreshProgressDetailsTypeDef",
+        "Preferences": "RefreshPreferencesTypeDef",
+        "DesiredConfiguration": "DesiredConfigurationTypeDef",
     },
     total=False,
 )
@@ -1244,6 +1304,44 @@ InstanceRefreshWarmPoolProgressTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredInstanceRequirementsTypeDef = TypedDict(
+    "_RequiredInstanceRequirementsTypeDef",
+    {
+        "VCpuCount": "VCpuCountRequestTypeDef",
+        "MemoryMiB": "MemoryMiBRequestTypeDef",
+    },
+)
+_OptionalInstanceRequirementsTypeDef = TypedDict(
+    "_OptionalInstanceRequirementsTypeDef",
+    {
+        "CpuManufacturers": List[CpuManufacturerType],
+        "MemoryGiBPerVCpu": "MemoryGiBPerVCpuRequestTypeDef",
+        "ExcludedInstanceTypes": List[str],
+        "InstanceGenerations": List[InstanceGenerationType],
+        "SpotMaxPricePercentageOverLowestPrice": int,
+        "OnDemandMaxPricePercentageOverLowestPrice": int,
+        "BareMetal": BareMetalType,
+        "BurstablePerformance": BurstablePerformanceType,
+        "RequireHibernateSupport": bool,
+        "NetworkInterfaceCount": "NetworkInterfaceCountRequestTypeDef",
+        "LocalStorage": LocalStorageType,
+        "LocalStorageTypes": List[LocalStorageTypeType],
+        "TotalLocalStorageGB": "TotalLocalStorageGBRequestTypeDef",
+        "BaselineEbsBandwidthMbps": "BaselineEbsBandwidthMbpsRequestTypeDef",
+        "AcceleratorTypes": List[AcceleratorTypeType],
+        "AcceleratorCount": "AcceleratorCountRequestTypeDef",
+        "AcceleratorManufacturers": List[AcceleratorManufacturerType],
+        "AcceleratorNames": List[AcceleratorNameType],
+        "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBRequestTypeDef",
+    },
+    total=False,
+)
+
+class InstanceRequirementsTypeDef(
+    _RequiredInstanceRequirementsTypeDef, _OptionalInstanceRequirementsTypeDef
+):
+    pass
 
 _RequiredInstanceTypeDef = TypedDict(
     "_RequiredInstanceTypeDef",
@@ -1351,6 +1449,7 @@ LaunchTemplateOverridesTypeDef = TypedDict(
         "InstanceType": str,
         "WeightedCapacity": str,
         "LaunchTemplateSpecification": "LaunchTemplateSpecificationTypeDef",
+        "InstanceRequirements": "InstanceRequirementsTypeDef",
     },
     total=False,
 )
@@ -1441,6 +1540,32 @@ LoadForecastTypeDef = TypedDict(
     },
 )
 
+MemoryGiBPerVCpuRequestTypeDef = TypedDict(
+    "MemoryGiBPerVCpuRequestTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
+_RequiredMemoryMiBRequestTypeDef = TypedDict(
+    "_RequiredMemoryMiBRequestTypeDef",
+    {
+        "Min": int,
+    },
+)
+_OptionalMemoryMiBRequestTypeDef = TypedDict(
+    "_OptionalMemoryMiBRequestTypeDef",
+    {
+        "Max": int,
+    },
+    total=False,
+)
+
+class MemoryMiBRequestTypeDef(_RequiredMemoryMiBRequestTypeDef, _OptionalMemoryMiBRequestTypeDef):
+    pass
+
 MetricCollectionTypeTypeDef = TypedDict(
     "MetricCollectionTypeTypeDef",
     {
@@ -1470,6 +1595,15 @@ MixedInstancesPolicyTypeDef = TypedDict(
     {
         "LaunchTemplate": "LaunchTemplateTypeDef",
         "InstancesDistribution": "InstancesDistributionTypeDef",
+    },
+    total=False,
+)
+
+NetworkInterfaceCountRequestTypeDef = TypedDict(
+    "NetworkInterfaceCountRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
     },
     total=False,
 )
@@ -1793,6 +1927,7 @@ RefreshPreferencesTypeDef = TypedDict(
         "InstanceWarmup": int,
         "CheckpointPercentages": List[int],
         "CheckpointDelay": int,
+        "SkipMatching": bool,
     },
     total=False,
 )
@@ -1970,6 +2105,7 @@ _OptionalStartInstanceRefreshTypeRequestTypeDef = TypedDict(
     "_OptionalStartInstanceRefreshTypeRequestTypeDef",
     {
         "Strategy": Literal["Rolling"],
+        "DesiredConfiguration": "DesiredConfigurationTypeDef",
         "Preferences": "RefreshPreferencesTypeDef",
     },
     total=False,
@@ -2077,6 +2213,15 @@ TerminateInstanceInAutoScalingGroupTypeRequestTypeDef = TypedDict(
     },
 )
 
+TotalLocalStorageGBRequestTypeDef = TypedDict(
+    "TotalLocalStorageGBRequestTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
 _RequiredUpdateAutoScalingGroupTypeRequestTypeDef = TypedDict(
     "_RequiredUpdateAutoScalingGroupTypeRequestTypeDef",
     {
@@ -2104,6 +2249,7 @@ _OptionalUpdateAutoScalingGroupTypeRequestTypeDef = TypedDict(
         "MaxInstanceLifetime": int,
         "CapacityRebalance": bool,
         "Context": str,
+        "DesiredCapacityType": str,
     },
     total=False,
 )
@@ -2112,6 +2258,23 @@ class UpdateAutoScalingGroupTypeRequestTypeDef(
     _RequiredUpdateAutoScalingGroupTypeRequestTypeDef,
     _OptionalUpdateAutoScalingGroupTypeRequestTypeDef,
 ):
+    pass
+
+_RequiredVCpuCountRequestTypeDef = TypedDict(
+    "_RequiredVCpuCountRequestTypeDef",
+    {
+        "Min": int,
+    },
+)
+_OptionalVCpuCountRequestTypeDef = TypedDict(
+    "_OptionalVCpuCountRequestTypeDef",
+    {
+        "Max": int,
+    },
+    total=False,
+)
+
+class VCpuCountRequestTypeDef(_RequiredVCpuCountRequestTypeDef, _OptionalVCpuCountRequestTypeDef):
     pass
 
 WarmPoolConfigurationTypeDef = TypedDict(

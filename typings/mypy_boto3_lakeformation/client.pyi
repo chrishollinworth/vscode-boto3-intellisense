@@ -63,7 +63,7 @@ class Exceptions:
 
 class LakeFormationClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html)
     """
 
@@ -83,7 +83,7 @@ class LakeFormationClient(BaseClient):
         """
         Attaches one or more tags to an existing resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.add_lf_tags_to_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.add_lf_tags_to_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#add_lf_tags_to_resource)
         """
     def batch_grant_permissions(
@@ -92,7 +92,7 @@ class LakeFormationClient(BaseClient):
         """
         Batch operation to grant permissions to the principal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.batch_grant_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.batch_grant_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#batch_grant_permissions)
         """
     def batch_revoke_permissions(
@@ -101,14 +101,14 @@ class LakeFormationClient(BaseClient):
         """
         Batch operation to revoke permissions from the principal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.batch_revoke_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.batch_revoke_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#batch_revoke_permissions)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#can_paginate)
         """
     def create_lf_tag(
@@ -117,21 +117,21 @@ class LakeFormationClient(BaseClient):
         """
         Creates a tag with the specified name and values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.create_lf_tag)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.create_lf_tag)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#create_lf_tag)
         """
     def delete_lf_tag(self, *, TagKey: str, CatalogId: str = None) -> Dict[str, Any]:
         """
         Deletes the specified tag key name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.delete_lf_tag)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.delete_lf_tag)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#delete_lf_tag)
         """
     def deregister_resource(self, *, ResourceArn: str) -> Dict[str, Any]:
         """
         Deregisters the resource as managed by the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.deregister_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.deregister_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#deregister_resource)
         """
     def describe_resource(self, *, ResourceArn: str) -> DescribeResourceResponseTypeDef:
@@ -139,7 +139,7 @@ class LakeFormationClient(BaseClient):
         Retrieves the current data access role for the given resource registered in AWS
         Lake Formation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.describe_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.describe_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#describe_resource)
         """
     def generate_presigned_url(
@@ -152,7 +152,7 @@ class LakeFormationClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#generate_presigned_url)
         """
     def get_data_lake_settings(
@@ -162,7 +162,7 @@ class LakeFormationClient(BaseClient):
         Retrieves the list of the data lake administrators of a Lake Formation-managed
         data lake.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.get_data_lake_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.get_data_lake_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#get_data_lake_settings)
         """
     def get_effective_permissions_for_path(
@@ -177,14 +177,14 @@ class LakeFormationClient(BaseClient):
         Returns the Lake Formation permissions for a specified table or database
         resource located at a path in Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.get_effective_permissions_for_path)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.get_effective_permissions_for_path)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#get_effective_permissions_for_path)
         """
     def get_lf_tag(self, *, TagKey: str, CatalogId: str = None) -> GetLFTagResponseTypeDef:
         """
         Returns a tag definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.get_lf_tag)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.get_lf_tag)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#get_lf_tag)
         """
     def get_resource_lf_tags(
@@ -193,7 +193,7 @@ class LakeFormationClient(BaseClient):
         """
         Returns the tags applied to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.get_resource_lf_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.get_resource_lf_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#get_resource_lf_tags)
         """
     def grant_permissions(
@@ -209,7 +209,7 @@ class LakeFormationClient(BaseClient):
         Grants permissions to the principal to access metadata in the Data Catalog and
         data organized in underlying data storage such as Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.grant_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.grant_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#grant_permissions)
         """
     def list_lf_tags(
@@ -223,7 +223,7 @@ class LakeFormationClient(BaseClient):
         """
         Lists tags that the requester has permission to view.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.list_lf_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.list_lf_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#list_lf_tags)
         """
     def list_permissions(
@@ -240,7 +240,7 @@ class LakeFormationClient(BaseClient):
         Returns a list of the principal permissions on the resource, filtered by the
         permissions of the caller.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.list_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.list_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#list_permissions)
         """
     def list_resources(
@@ -253,7 +253,7 @@ class LakeFormationClient(BaseClient):
         """
         Lists the resources registered to be managed by the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.list_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.list_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#list_resources)
         """
     def put_data_lake_settings(
@@ -263,7 +263,7 @@ class LakeFormationClient(BaseClient):
         Sets the list of data lake administrators who have admin privileges on all
         resources managed by Lake Formation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.put_data_lake_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.put_data_lake_settings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#put_data_lake_settings)
         """
     def register_resource(
@@ -272,7 +272,7 @@ class LakeFormationClient(BaseClient):
         """
         Registers the resource as managed by the Data Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.register_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.register_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#register_resource)
         """
     def remove_lf_tags_from_resource(
@@ -285,7 +285,7 @@ class LakeFormationClient(BaseClient):
         """
         Removes a tag from the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.remove_lf_tags_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.remove_lf_tags_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#remove_lf_tags_from_resource)
         """
     def revoke_permissions(
@@ -301,7 +301,7 @@ class LakeFormationClient(BaseClient):
         Revokes permissions to the principal to access metadata in the Data Catalog and
         data organized in underlying data storage such as Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.revoke_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.revoke_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#revoke_permissions)
         """
     def search_databases_by_lf_tags(
@@ -315,7 +315,7 @@ class LakeFormationClient(BaseClient):
         """
         This operation allows a search on `DATABASE` resources by `TagCondition`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.search_databases_by_lf_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.search_databases_by_lf_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#search_databases_by_lf_tags)
         """
     def search_tables_by_lf_tags(
@@ -329,7 +329,7 @@ class LakeFormationClient(BaseClient):
         """
         This operation allows a search on `TABLE` resources by `LFTag` s.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.search_tables_by_lf_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.search_tables_by_lf_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#search_tables_by_lf_tags)
         """
     def update_lf_tag(
@@ -343,7 +343,7 @@ class LakeFormationClient(BaseClient):
         """
         Updates the list of possible values for the specified tag key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.update_lf_tag)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.update_lf_tag)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#update_lf_tag)
         """
     def update_resource(self, *, RoleArn: str, ResourceArn: str) -> Dict[str, Any]:
@@ -351,6 +351,6 @@ class LakeFormationClient(BaseClient):
         Updates the data access role used for vending access to the given (registered)
         resource in AWS Lake Formation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/lakeformation.html#LakeFormation.Client.update_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/lakeformation.html#LakeFormation.Client.update_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lakeformation/client.html#update_resource)
         """

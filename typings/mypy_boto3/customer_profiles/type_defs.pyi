@@ -97,6 +97,7 @@ __all__ = (
     "MatchingResponseTypeDef",
     "MergeProfilesRequestRequestTypeDef",
     "MergeProfilesResponseTypeDef",
+    "ObjectFilterTypeDef",
     "ObjectTypeFieldTypeDef",
     "ObjectTypeKeyTypeDef",
     "ProfileTypeDef",
@@ -771,6 +772,7 @@ _OptionalListProfileObjectsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "ObjectFilter": "ObjectFilterTypeDef",
     },
     total=False,
 )
@@ -862,6 +864,14 @@ MergeProfilesResponseTypeDef = TypedDict(
     {
         "Message": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ObjectFilterTypeDef = TypedDict(
+    "ObjectFilterTypeDef",
+    {
+        "KeyName": str,
+        "Values": List[str],
     },
 )
 

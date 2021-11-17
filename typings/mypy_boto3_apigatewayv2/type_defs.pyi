@@ -946,6 +946,7 @@ DomainNameConfigurationTypeDef = TypedDict(
         "EndpointType": EndpointTypeType,
         "HostedZoneId": str,
         "SecurityPolicy": SecurityPolicyType,
+        "OwnershipVerificationCertificateArn": str,
     },
     total=False,
 )

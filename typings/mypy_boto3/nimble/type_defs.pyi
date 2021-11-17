@@ -134,8 +134,12 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "ScriptParameterKeyValueTypeDef",
     "SharedFileSystemConfigurationTypeDef",
+    "StartStreamingSessionRequestRequestTypeDef",
+    "StartStreamingSessionResponseTypeDef",
     "StartStudioSSOConfigurationRepairRequestRequestTypeDef",
     "StartStudioSSOConfigurationRepairResponseTypeDef",
+    "StopStreamingSessionRequestRequestTypeDef",
+    "StopStreamingSessionResponseTypeDef",
     "StreamConfigurationCreateTypeDef",
     "StreamConfigurationTypeDef",
     "StreamingImageEncryptionConfigurationTypeDef",
@@ -161,6 +165,7 @@ __all__ = (
     "UpdateStudioComponentResponseTypeDef",
     "UpdateStudioRequestRequestTypeDef",
     "UpdateStudioResponseTypeDef",
+    "WaiterConfigTypeDef",
 )
 
 _RequiredAcceptEulasRequestRequestTypeDef = TypedDict(
@@ -298,6 +303,7 @@ _OptionalCreateStreamingSessionRequestRequestTypeDef = TypedDict(
         "clientToken": str,
         "ec2InstanceType": StreamingInstanceTypeType,
         "launchProfileId": str,
+        "ownedBy": str,
         "streamingImageId": str,
         "tags": Dict[str, str],
     },
@@ -854,6 +860,7 @@ LaunchProfileMembershipTypeDef = TypedDict(
         "identityStoreId": str,
         "persona": Literal["USER"],
         "principalId": str,
+        "sid": str,
     },
     total=False,
 )
@@ -1041,6 +1048,7 @@ _OptionalListStreamingSessionsRequestRequestTypeDef = TypedDict(
     {
         "createdBy": str,
         "nextToken": str,
+        "ownedBy": str,
         "sessionIds": str,
     },
     total=False,
@@ -1256,6 +1264,35 @@ SharedFileSystemConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredStartStreamingSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredStartStreamingSessionRequestRequestTypeDef",
+    {
+        "sessionId": str,
+        "studioId": str,
+    },
+)
+_OptionalStartStreamingSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalStartStreamingSessionRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class StartStreamingSessionRequestRequestTypeDef(
+    _RequiredStartStreamingSessionRequestRequestTypeDef,
+    _OptionalStartStreamingSessionRequestRequestTypeDef,
+):
+    pass
+
+StartStreamingSessionResponseTypeDef = TypedDict(
+    "StartStreamingSessionResponseTypeDef",
+    {
+        "session": "StreamingSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStartStudioSSOConfigurationRepairRequestRequestTypeDef = TypedDict(
     "_RequiredStartStudioSSOConfigurationRepairRequestRequestTypeDef",
     {
@@ -1284,6 +1321,35 @@ StartStudioSSOConfigurationRepairResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredStopStreamingSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredStopStreamingSessionRequestRequestTypeDef",
+    {
+        "sessionId": str,
+        "studioId": str,
+    },
+)
+_OptionalStopStreamingSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalStopStreamingSessionRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class StopStreamingSessionRequestRequestTypeDef(
+    _RequiredStopStreamingSessionRequestRequestTypeDef,
+    _OptionalStopStreamingSessionRequestRequestTypeDef,
+):
+    pass
+
+StopStreamingSessionResponseTypeDef = TypedDict(
+    "StopStreamingSessionResponseTypeDef",
+    {
+        "session": "StreamingSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStreamConfigurationCreateTypeDef = TypedDict(
     "_RequiredStreamConfigurationCreateTypeDef",
     {
@@ -1296,6 +1362,7 @@ _OptionalStreamConfigurationCreateTypeDef = TypedDict(
     "_OptionalStreamConfigurationCreateTypeDef",
     {
         "maxSessionLengthInMinutes": int,
+        "maxStoppedSessionLengthInMinutes": int,
     },
     total=False,
 )
@@ -1305,16 +1372,27 @@ class StreamConfigurationCreateTypeDef(
 ):
     pass
 
-StreamConfigurationTypeDef = TypedDict(
-    "StreamConfigurationTypeDef",
+_RequiredStreamConfigurationTypeDef = TypedDict(
+    "_RequiredStreamConfigurationTypeDef",
     {
         "clipboardMode": StreamingClipboardModeType,
         "ec2InstanceTypes": List[StreamingInstanceTypeType],
-        "maxSessionLengthInMinutes": int,
         "streamingImageIds": List[str],
+    },
+)
+_OptionalStreamConfigurationTypeDef = TypedDict(
+    "_OptionalStreamConfigurationTypeDef",
+    {
+        "maxSessionLengthInMinutes": int,
+        "maxStoppedSessionLengthInMinutes": int,
     },
     total=False,
 )
+
+class StreamConfigurationTypeDef(
+    _RequiredStreamConfigurationTypeDef, _OptionalStreamConfigurationTypeDef
+):
+    pass
 
 _RequiredStreamingImageEncryptionConfigurationTypeDef = TypedDict(
     "_RequiredStreamingImageEncryptionConfigurationTypeDef",
@@ -1362,6 +1440,7 @@ StreamingSessionStreamTypeDef = TypedDict(
         "createdAt": datetime,
         "createdBy": str,
         "expiresAt": datetime,
+        "ownedBy": str,
         "state": StreamingSessionStreamStateType,
         "statusCode": StreamingSessionStreamStatusCodeType,
         "streamId": str,
@@ -1378,10 +1457,16 @@ StreamingSessionTypeDef = TypedDict(
         "createdBy": str,
         "ec2InstanceType": str,
         "launchProfileId": str,
+        "ownedBy": str,
         "sessionId": str,
+        "startedAt": datetime,
+        "startedBy": str,
         "state": StreamingSessionStateType,
         "statusCode": StreamingSessionStatusCodeType,
         "statusMessage": str,
+        "stopAt": datetime,
+        "stoppedAt": datetime,
+        "stoppedBy": str,
         "streamingImageId": str,
         "tags": Dict[str, str],
         "terminateAt": datetime,
@@ -1479,6 +1564,7 @@ StudioMembershipTypeDef = TypedDict(
         "identityStoreId": str,
         "persona": Literal["ADMINISTRATOR"],
         "principalId": str,
+        "sid": str,
     },
     total=False,
 )
@@ -1694,4 +1780,13 @@ UpdateStudioResponseTypeDef = TypedDict(
         "studio": "StudioTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+WaiterConfigTypeDef = TypedDict(
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
 )

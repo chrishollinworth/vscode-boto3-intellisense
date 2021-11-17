@@ -37,6 +37,7 @@ __all__ = (
     "JobDefinitionTypeType",
     "JobStatusType",
     "ListJobsPaginatorName",
+    "ListSchedulingPoliciesPaginatorName",
     "LogDriverType",
     "PlatformCapabilityType",
     "ResourceTypeType",
@@ -63,6 +64,7 @@ JobStatusType = Literal[
     "FAILED", "PENDING", "RUNNABLE", "RUNNING", "STARTING", "SUBMITTED", "SUCCEEDED"
 ]
 ListJobsPaginatorName = Literal["list_jobs"]
+ListSchedulingPoliciesPaginatorName = Literal["list_scheduling_policies"]
 LogDriverType = Literal["awslogs", "fluentd", "gelf", "journald", "json-file", "splunk", "syslog"]
 PlatformCapabilityType = Literal["EC2", "FARGATE"]
 ResourceTypeType = Literal["GPU", "MEMORY", "VCPU"]

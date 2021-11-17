@@ -28,8 +28,12 @@ __all__ = (
 )
 
 ConfirmationStateType = Literal["Confirmed", "Denied", "None"]
-DialogActionTypeType = Literal["Close", "ConfirmIntent", "Delegate", "ElicitIntent", "ElicitSlot"]
-IntentStateType = Literal["Failed", "Fulfilled", "InProgress", "ReadyForFulfillment", "Waiting"]
+DialogActionTypeType = Literal[
+    "Close", "ConfirmIntent", "Delegate", "ElicitIntent", "ElicitSlot", "None"
+]
+IntentStateType = Literal[
+    "Failed", "Fulfilled", "FulfillmentInProgress", "InProgress", "ReadyForFulfillment", "Waiting"
+]
 MessageContentTypeType = Literal["CustomPayload", "ImageResponseCard", "PlainText", "SSML"]
 SentimentTypeType = Literal["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]
 ShapeType = Literal["List", "Scalar"]

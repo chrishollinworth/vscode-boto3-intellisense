@@ -44,7 +44,7 @@ class Exceptions:
 
 class S3OutpostsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/s3outposts.html#S3Outposts.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html)
     """
 
@@ -58,7 +58,7 @@ class S3OutpostsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/s3outposts.html#S3Outposts.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#can_paginate)
         """
     def create_endpoint(
@@ -74,7 +74,7 @@ class S3OutpostsClient(BaseClient):
         Amazon S3 on Outposts Access Points simplify managing data access at scale for
         shared datasets in S3 on Outposts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Client.create_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/s3outposts.html#S3Outposts.Client.create_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#create_endpoint)
         """
     def delete_endpoint(self, *, EndpointId: str, OutpostId: str) -> None:
@@ -82,7 +82,7 @@ class S3OutpostsClient(BaseClient):
         Amazon S3 on Outposts Access Points simplify managing data access at scale for
         shared datasets in S3 on Outposts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Client.delete_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/s3outposts.html#S3Outposts.Client.delete_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#delete_endpoint)
         """
     def generate_presigned_url(
@@ -95,7 +95,7 @@ class S3OutpostsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/s3outposts.html#S3Outposts.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#generate_presigned_url)
         """
     def list_endpoints(
@@ -105,11 +105,11 @@ class S3OutpostsClient(BaseClient):
         Amazon S3 on Outposts Access Points simplify managing data access at scale for
         shared datasets in S3 on Outposts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Client.list_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/s3outposts.html#S3Outposts.Client.list_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#list_endpoints)
         """
     def get_paginator(self, operation_name: Literal["list_endpoints"]) -> ListEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listendpointspaginator)
         """

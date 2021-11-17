@@ -29,6 +29,7 @@ __all__ = (
     "RecommendationCategoryType",
     "RepositoryAssociationStateType",
     "RepositoryAssociationSucceededWaiterName",
+    "SeverityType",
     "TypeType",
     "VendorNameType",
 )
@@ -45,6 +46,7 @@ ReactionType = Literal["ThumbsDown", "ThumbsUp"]
 RecommendationCategoryType = Literal[
     "AWSBestPractices",
     "AWSCloudFormationIssues",
+    "CodeInconsistencies",
     "CodeMaintenanceIssues",
     "ConcurrencyIssues",
     "DuplicateCode",
@@ -58,5 +60,6 @@ RepositoryAssociationStateType = Literal[
     "Associated", "Associating", "Disassociated", "Disassociating", "Failed"
 ]
 RepositoryAssociationSucceededWaiterName = Literal["repository_association_succeeded"]
+SeverityType = Literal["Critical", "High", "Info", "Low", "Medium"]
 TypeType = Literal["PullRequest", "RepositoryAnalysis"]
 VendorNameType = Literal["GitHub", "GitLab", "NativeS3"]

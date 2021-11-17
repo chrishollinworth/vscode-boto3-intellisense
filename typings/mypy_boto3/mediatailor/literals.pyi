@@ -25,13 +25,16 @@ __all__ = (
     "ListAlertsPaginatorName",
     "ListChannelsPaginatorName",
     "ListPlaybackConfigurationsPaginatorName",
+    "ListPrefetchSchedulesPaginatorName",
     "ListSourceLocationsPaginatorName",
     "ListVodSourcesPaginatorName",
     "MessageTypeType",
     "ModeType",
+    "OperatorType",
     "OriginManifestTypeType",
     "PlaybackModeType",
     "RelativePositionType",
+    "ScheduleEntryTypeType",
     "TypeType",
 )
 
@@ -41,11 +44,14 @@ GetChannelSchedulePaginatorName = Literal["get_channel_schedule"]
 ListAlertsPaginatorName = Literal["list_alerts"]
 ListChannelsPaginatorName = Literal["list_channels"]
 ListPlaybackConfigurationsPaginatorName = Literal["list_playback_configurations"]
+ListPrefetchSchedulesPaginatorName = Literal["list_prefetch_schedules"]
 ListSourceLocationsPaginatorName = Literal["list_source_locations"]
 ListVodSourcesPaginatorName = Literal["list_vod_sources"]
 MessageTypeType = Literal["SPLICE_INSERT"]
 ModeType = Literal["BEHIND_LIVE_EDGE", "OFF"]
+OperatorType = Literal["EQUALS"]
 OriginManifestTypeType = Literal["MULTI_PERIOD", "SINGLE_PERIOD"]
-PlaybackModeType = Literal["LOOP"]
+PlaybackModeType = Literal["LINEAR", "LOOP"]
 RelativePositionType = Literal["AFTER_PROGRAM", "BEFORE_PROGRAM"]
+ScheduleEntryTypeType = Literal["FILLER_SLATE", "PROGRAM"]
 TypeType = Literal["DASH", "HLS"]

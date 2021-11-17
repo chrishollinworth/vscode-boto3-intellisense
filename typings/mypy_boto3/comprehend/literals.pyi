@@ -6,9 +6,9 @@ Type annotations for comprehend service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_comprehend.literals import DocumentClassifierDataFormatType
+    from mypy_boto3_comprehend.literals import AugmentedManifestsDocumentTypeFormatType
 
-    data: DocumentClassifierDataFormatType = "AUGMENTED_MANIFEST"
+    data: AugmentedManifestsDocumentTypeFormatType = "PLAIN_TEXT_DOCUMENT"
     ```
 """
 import sys
@@ -19,8 +19,12 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AugmentedManifestsDocumentTypeFormatType",
     "DocumentClassifierDataFormatType",
     "DocumentClassifierModeType",
+    "DocumentReadActionType",
+    "DocumentReadFeatureTypesType",
+    "DocumentReadModeType",
     "EndpointStatusType",
     "EntityRecognizerDataFormatType",
     "EntityTypeType",
@@ -41,11 +45,18 @@ __all__ = (
     "PiiEntitiesDetectionModeType",
     "PiiEntityTypeType",
     "SentimentTypeType",
+    "SplitType",
     "SyntaxLanguageCodeType",
 )
 
+AugmentedManifestsDocumentTypeFormatType = Literal[
+    "PLAIN_TEXT_DOCUMENT", "SEMI_STRUCTURED_DOCUMENT"
+]
 DocumentClassifierDataFormatType = Literal["AUGMENTED_MANIFEST", "COMPREHEND_CSV"]
 DocumentClassifierModeType = Literal["MULTI_CLASS", "MULTI_LABEL"]
+DocumentReadActionType = Literal["TEXTRACT_ANALYZE_DOCUMENT", "TEXTRACT_DETECT_DOCUMENT_TEXT"]
+DocumentReadFeatureTypesType = Literal["FORMS", "TABLES"]
+DocumentReadModeType = Literal["FORCE_DOCUMENT_READ_ACTION", "SERVICE_DEFAULT"]
 EndpointStatusType = Literal["CREATING", "DELETING", "FAILED", "IN_SERVICE", "UPDATING"]
 EntityRecognizerDataFormatType = Literal["AUGMENTED_MANIFEST", "COMPREHEND_CSV"]
 EntityTypeType = Literal[
@@ -125,4 +136,5 @@ PiiEntityTypeType = Literal[
     "USERNAME",
 ]
 SentimentTypeType = Literal["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]
+SplitType = Literal["TEST", "TRAIN"]
 SyntaxLanguageCodeType = Literal["de", "en", "es", "fr", "it", "pt"]

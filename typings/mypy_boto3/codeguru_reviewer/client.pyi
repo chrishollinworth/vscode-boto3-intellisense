@@ -68,7 +68,7 @@ class Exceptions:
 
 class CodeGuruReviewerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html)
     """
 
@@ -89,14 +89,14 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.associate_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.associate_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#associate_repository)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#can_paginate)
         """
     def create_code_review(
@@ -110,14 +110,14 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.create_code_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.create_code_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#create_code_review)
         """
     def describe_code_review(self, *, CodeReviewArn: str) -> DescribeCodeReviewResponseTypeDef:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.describe_code_review)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.describe_code_review)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#describe_code_review)
         """
     def describe_recommendation_feedback(
@@ -126,7 +126,7 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.describe_recommendation_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.describe_recommendation_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#describe_recommendation_feedback)
         """
     def describe_repository_association(
@@ -135,7 +135,7 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.describe_repository_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.describe_repository_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#describe_repository_association)
         """
     def disassociate_repository(
@@ -144,7 +144,7 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.disassociate_repository)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.disassociate_repository)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#disassociate_repository)
         """
     def generate_presigned_url(
@@ -157,7 +157,7 @@ class CodeGuruReviewerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#generate_presigned_url)
         """
     def list_code_reviews(
@@ -173,7 +173,7 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_code_reviews)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_code_reviews)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#list_code_reviews)
         """
     def list_recommendation_feedback(
@@ -188,7 +188,7 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_recommendation_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_recommendation_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#list_recommendation_feedback)
         """
     def list_recommendations(
@@ -197,7 +197,7 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#list_recommendations)
         """
     def list_repository_associations(
@@ -213,14 +213,14 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_repository_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_repository_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#list_repository_associations)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#list_tags_for_resource)
         """
     def put_recommendation_feedback(
@@ -229,28 +229,28 @@ class CodeGuruReviewerClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.put_recommendation_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.put_recommendation_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#put_recommendation_feedback)
         """
     def tag_resource(self, *, resourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/client.html#untag_resource)
         """
     def get_paginator(
         self, operation_name: Literal["list_repository_associations"]
     ) -> ListRepositoryAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/paginators.html#listrepositoryassociationspaginator)
         """
     @overload
@@ -258,7 +258,7 @@ class CodeGuruReviewerClient(BaseClient):
         self, waiter_name: Literal["code_review_completed"]
     ) -> CodeReviewCompletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.CodeReviewCompleted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.CodeReviewCompleted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters.html#codereviewcompletedwaiter)
         """
     @overload
@@ -266,6 +266,6 @@ class CodeGuruReviewerClient(BaseClient):
         self, waiter_name: Literal["repository_association_succeeded"]
     ) -> RepositoryAssociationSucceededWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.RepositoryAssociationSucceeded)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.RepositoryAssociationSucceeded)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters.html#repositoryassociationsucceededwaiter)
         """

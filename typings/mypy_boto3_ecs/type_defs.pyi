@@ -24,7 +24,9 @@ from .literals import (
     CompatibilityType,
     ConnectivityType,
     ContainerConditionType,
+    ContainerInstanceFieldType,
     ContainerInstanceStatusType,
+    CPUArchitectureType,
     DeploymentControllerTypeType,
     DeploymentRolloutStateType,
     DesiredStatusType,
@@ -34,12 +36,14 @@ from .literals import (
     ExecuteCommandLoggingType,
     FirelensConfigurationTypeType,
     HealthStatusType,
+    InstanceHealthCheckStateType,
     IpcModeType,
     LaunchTypeType,
     LogDriverType,
     ManagedScalingStatusType,
     ManagedTerminationProtectionType,
     NetworkModeType,
+    OSFamilyType,
     PidModeType,
     PlacementConstraintTypeType,
     PlacementStrategyTypeType,
@@ -80,6 +84,7 @@ __all__ = (
     "ClusterTypeDef",
     "ContainerDefinitionTypeDef",
     "ContainerDependencyTypeDef",
+    "ContainerInstanceHealthStatusTypeDef",
     "ContainerInstanceTypeDef",
     "ContainerOverrideTypeDef",
     "ContainerStateChangeTypeDef",
@@ -147,6 +152,7 @@ __all__ = (
     "HostVolumePropertiesTypeDef",
     "InferenceAcceleratorOverrideTypeDef",
     "InferenceAcceleratorTypeDef",
+    "InstanceHealthCheckResultTypeDef",
     "KernelCapabilitiesTypeDef",
     "KeyValuePairTypeDef",
     "LinuxParametersTypeDef",
@@ -201,6 +207,7 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RunTaskRequestRequestTypeDef",
     "RunTaskResponseTypeDef",
+    "RuntimePlatformTypeDef",
     "ScaleTypeDef",
     "SecretTypeDef",
     "ServiceEventTypeDef",
@@ -465,6 +472,15 @@ ContainerDependencyTypeDef = TypedDict(
     },
 )
 
+ContainerInstanceHealthStatusTypeDef = TypedDict(
+    "ContainerInstanceHealthStatusTypeDef",
+    {
+        "overallStatus": InstanceHealthCheckStateType,
+        "details": List["InstanceHealthCheckResultTypeDef"],
+    },
+    total=False,
+)
+
 ContainerInstanceTypeDef = TypedDict(
     "ContainerInstanceTypeDef",
     {
@@ -485,6 +501,7 @@ ContainerInstanceTypeDef = TypedDict(
         "registeredAt": datetime,
         "attachments": List["AttachmentTypeDef"],
         "tags": List["TagTypeDef"],
+        "healthStatus": "ContainerInstanceHealthStatusTypeDef",
     },
     total=False,
 )
@@ -859,6 +876,7 @@ DeploymentTypeDef = TypedDict(
         "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
         "launchType": LaunchTypeType,
         "platformVersion": str,
+        "platformFamily": str,
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "rolloutState": DeploymentRolloutStateType,
         "rolloutStateReason": str,
@@ -959,7 +977,7 @@ _OptionalDescribeContainerInstancesRequestRequestTypeDef = TypedDict(
     "_OptionalDescribeContainerInstancesRequestRequestTypeDef",
     {
         "cluster": str,
-        "include": List[Literal["TAGS"]],
+        "include": List[ContainerInstanceFieldType],
     },
     total=False,
 )
@@ -1344,6 +1362,17 @@ InferenceAcceleratorTypeDef = TypedDict(
         "deviceName": str,
         "deviceType": str,
     },
+)
+
+InstanceHealthCheckResultTypeDef = TypedDict(
+    "InstanceHealthCheckResultTypeDef",
+    {
+        "type": Literal["CONTAINER_RUNTIME"],
+        "status": InstanceHealthCheckStateType,
+        "lastUpdated": datetime,
+        "lastStatusChange": datetime,
+    },
+    total=False,
 )
 
 KernelCapabilitiesTypeDef = TypedDict(
@@ -1887,6 +1916,7 @@ _OptionalRegisterTaskDefinitionRequestRequestTypeDef = TypedDict(
         "proxyConfiguration": "ProxyConfigurationTypeDef",
         "inferenceAccelerators": List["InferenceAcceleratorTypeDef"],
         "ephemeralStorage": "EphemeralStorageTypeDef",
+        "runtimePlatform": "RuntimePlatformTypeDef",
     },
     total=False,
 )
@@ -1988,6 +2018,15 @@ RunTaskResponseTypeDef = TypedDict(
     },
 )
 
+RuntimePlatformTypeDef = TypedDict(
+    "RuntimePlatformTypeDef",
+    {
+        "cpuArchitecture": CPUArchitectureType,
+        "operatingSystemFamily": OSFamilyType,
+    },
+    total=False,
+)
+
 ScaleTypeDef = TypedDict(
     "ScaleTypeDef",
     {
@@ -2041,6 +2080,7 @@ ServiceTypeDef = TypedDict(
         "launchType": LaunchTypeType,
         "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
         "platformVersion": str,
+        "platformFamily": str,
         "taskDefinition": str,
         "deploymentConfiguration": "DeploymentConfigurationTypeDef",
         "taskSets": List["TaskSetTypeDef"],
@@ -2275,6 +2315,7 @@ TaskDefinitionTypeDef = TypedDict(
         "requiresAttributes": List["AttributeTypeDef"],
         "placementConstraints": List["TaskDefinitionPlacementConstraintTypeDef"],
         "compatibilities": List[CompatibilityType],
+        "runtimePlatform": "RuntimePlatformTypeDef",
         "requiresCompatibilities": List[CompatibilityType],
         "cpu": str,
         "memory": str,
@@ -2323,6 +2364,7 @@ TaskSetTypeDef = TypedDict(
         "launchType": LaunchTypeType,
         "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
         "platformVersion": str,
+        "platformFamily": str,
         "networkConfiguration": "NetworkConfigurationTypeDef",
         "loadBalancers": List["LoadBalancerTypeDef"],
         "serviceRegistries": List["ServiceRegistryTypeDef"],
@@ -2359,6 +2401,7 @@ TaskTypeDef = TypedDict(
         "memory": str,
         "overrides": "TaskOverrideTypeDef",
         "platformVersion": str,
+        "platformFamily": str,
         "pullStartedAt": datetime,
         "pullStoppedAt": datetime,
         "startedAt": datetime,

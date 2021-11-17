@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import LookupAttributeKeyType, ReadWriteTypeType
+from .literals import InsightTypeType, LookupAttributeKeyType, ReadWriteTypeType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -328,7 +328,7 @@ GetTrailStatusResponseTypeDef = TypedDict(
 InsightSelectorTypeDef = TypedDict(
     "InsightSelectorTypeDef",
     {
-        "InsightType": Literal["ApiCallRateInsight"],
+        "InsightType": InsightTypeType,
     },
     total=False,
 )

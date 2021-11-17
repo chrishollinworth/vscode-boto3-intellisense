@@ -215,6 +215,8 @@ from .literals import (
     MultiplexStateType,
     NetworkInputServerValidationType,
     NielsenPcmToId3TaggingStateType,
+    NielsenWatermarksCbetStepasideType,
+    NielsenWatermarksDistributionTypesType,
     PipelineIdType,
     PreferredChannelPipelineType,
     ReservationCodecType,
@@ -294,6 +296,7 @@ __all__ = (
     "AudioSilenceFailoverSettingsTypeDef",
     "AudioTrackSelectionTypeDef",
     "AudioTrackTypeDef",
+    "AudioWatermarkSettingsTypeDef",
     "AutomaticInputFailoverSettingsTypeDef",
     "AvailBlankingTypeDef",
     "AvailConfigurationTypeDef",
@@ -325,6 +328,7 @@ __all__ = (
     "ChannelEgressEndpointTypeDef",
     "ChannelSummaryTypeDef",
     "ChannelTypeDef",
+    "ClaimDeviceRequestRequestTypeDef",
     "CreateChannelRequestRequestTypeDef",
     "CreateChannelResponseTypeDef",
     "CreateInputRequestRequestTypeDef",
@@ -490,7 +494,10 @@ __all__ = (
     "MultiplexTypeDef",
     "MultiplexVideoSettingsTypeDef",
     "NetworkInputSettingsTypeDef",
+    "NielsenCBETTypeDef",
     "NielsenConfigurationTypeDef",
+    "NielsenNaesIiNwTypeDef",
+    "NielsenWatermarksSettingsTypeDef",
     "OfferingTypeDef",
     "OutputDestinationSettingsTypeDef",
     "OutputDestinationTypeDef",
@@ -724,6 +731,7 @@ _OptionalAudioDescriptionTypeDef = TypedDict(
         "AudioNormalizationSettings": "AudioNormalizationSettingsTypeDef",
         "AudioType": AudioTypeType,
         "AudioTypeControl": AudioDescriptionAudioTypeControlType,
+        "AudioWatermarkingSettings": "AudioWatermarkSettingsTypeDef",
         "CodecSettings": "AudioCodecSettingsTypeDef",
         "LanguageCode": str,
         "LanguageCodeControl": AudioDescriptionLanguageCodeControlType,
@@ -850,6 +858,14 @@ AudioTrackTypeDef = TypedDict(
     {
         "Track": int,
     },
+)
+
+AudioWatermarkSettingsTypeDef = TypedDict(
+    "AudioWatermarkSettingsTypeDef",
+    {
+        "NielsenWatermarksSettings": "NielsenWatermarksSettingsTypeDef",
+    },
+    total=False,
 )
 
 _RequiredAutomaticInputFailoverSettingsTypeDef = TypedDict(
@@ -1228,6 +1244,14 @@ ChannelTypeDef = TypedDict(
         "State": ChannelStateType,
         "Tags": Dict[str, str],
         "Vpc": "VpcOutputSettingsDescriptionTypeDef",
+    },
+    total=False,
+)
+
+ClaimDeviceRequestRequestTypeDef = TypedDict(
+    "ClaimDeviceRequestRequestTypeDef",
+    {
+        "Id": str,
     },
     total=False,
 )
@@ -3393,11 +3417,38 @@ NetworkInputSettingsTypeDef = TypedDict(
     total=False,
 )
 
+NielsenCBETTypeDef = TypedDict(
+    "NielsenCBETTypeDef",
+    {
+        "CbetCheckDigitString": str,
+        "CbetStepaside": NielsenWatermarksCbetStepasideType,
+        "Csid": str,
+    },
+)
+
 NielsenConfigurationTypeDef = TypedDict(
     "NielsenConfigurationTypeDef",
     {
         "DistributorId": str,
         "NielsenPcmToId3Tagging": NielsenPcmToId3TaggingStateType,
+    },
+    total=False,
+)
+
+NielsenNaesIiNwTypeDef = TypedDict(
+    "NielsenNaesIiNwTypeDef",
+    {
+        "CheckDigitString": str,
+        "Sid": float,
+    },
+)
+
+NielsenWatermarksSettingsTypeDef = TypedDict(
+    "NielsenWatermarksSettingsTypeDef",
+    {
+        "NielsenCbetSettings": "NielsenCBETTypeDef",
+        "NielsenDistributionType": NielsenWatermarksDistributionTypesType,
+        "NielsenNaesIiNwSettings": "NielsenNaesIiNwTypeDef",
     },
     total=False,
 )

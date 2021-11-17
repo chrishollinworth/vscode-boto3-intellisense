@@ -21,6 +21,7 @@ else:
 __all__ = (
     "CertificateStateType",
     "CertificateTypeType",
+    "ClientAuthenticationStatusType",
     "ClientAuthenticationTypeType",
     "DescribeDirectoriesPaginatorName",
     "DescribeDomainControllersPaginatorName",
@@ -65,6 +66,7 @@ CertificateStateType = Literal[
     "Registering",
 ]
 CertificateTypeType = Literal["ClientCertAuth", "ClientLDAPS"]
+ClientAuthenticationStatusType = Literal["Disabled", "Enabled"]
 ClientAuthenticationTypeType = Literal["SmartCard"]
 DescribeDirectoriesPaginatorName = Literal["describe_directories"]
 DescribeDomainControllersPaginatorName = Literal["describe_domain_controllers"]

@@ -11,6 +11,7 @@ Usage::
         ListAlertsPaginator,
         ListChannelsPaginator,
         ListPlaybackConfigurationsPaginator,
+        ListPrefetchSchedulesPaginator,
         ListSourceLocationsPaginator,
         ListVodSourcesPaginator,
         MediaTailorClient,
@@ -25,6 +26,7 @@ Usage::
     list_alerts_paginator: ListAlertsPaginator = client.get_paginator("list_alerts")
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_playback_configurations_paginator: ListPlaybackConfigurationsPaginator = client.get_paginator("list_playback_configurations")
+    list_prefetch_schedules_paginator: ListPrefetchSchedulesPaginator = client.get_paginator("list_prefetch_schedules")
     list_source_locations_paginator: ListSourceLocationsPaginator = client.get_paginator("list_source_locations")
     list_vod_sources_paginator: ListVodSourcesPaginator = client.get_paginator("list_vod_sources")
     ```
@@ -35,6 +37,7 @@ from .paginator import (
     ListAlertsPaginator,
     ListChannelsPaginator,
     ListPlaybackConfigurationsPaginator,
+    ListPrefetchSchedulesPaginator,
     ListSourceLocationsPaginator,
     ListVodSourcesPaginator,
 )
@@ -47,6 +50,7 @@ __all__ = (
     "ListAlertsPaginator",
     "ListChannelsPaginator",
     "ListPlaybackConfigurationsPaginator",
+    "ListPrefetchSchedulesPaginator",
     "ListSourceLocationsPaginator",
     "ListVodSourcesPaginator",
     "MediaTailorClient",

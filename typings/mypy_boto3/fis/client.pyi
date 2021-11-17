@@ -54,7 +54,7 @@ class Exceptions:
 
 class FISClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html)
     """
 
@@ -68,7 +68,7 @@ class FISClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#can_paginate)
         """
     def create_experiment_template(
@@ -85,14 +85,14 @@ class FISClient(BaseClient):
         """
         Creates an experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.create_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.create_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#create_experiment_template)
         """
     def delete_experiment_template(self, *, id: str) -> DeleteExperimentTemplateResponseTypeDef:
         """
         Deletes the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.delete_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.delete_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#delete_experiment_template)
         """
     def generate_presigned_url(
@@ -105,28 +105,28 @@ class FISClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#generate_presigned_url)
         """
     def get_action(self, *, id: str) -> GetActionResponseTypeDef:
         """
         Gets information about the specified AWS FIS action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.get_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.get_action)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_action)
         """
     def get_experiment(self, *, id: str) -> GetExperimentResponseTypeDef:
         """
         Gets information about the specified experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.get_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.get_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_experiment)
         """
     def get_experiment_template(self, *, id: str) -> GetExperimentTemplateResponseTypeDef:
         """
         Gets information about the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.get_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.get_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#get_experiment_template)
         """
     def list_actions(
@@ -135,7 +135,7 @@ class FISClient(BaseClient):
         """
         Lists the available AWS FIS actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.list_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.list_actions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_actions)
         """
     def list_experiment_templates(
@@ -144,7 +144,7 @@ class FISClient(BaseClient):
         """
         Lists your experiment templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.list_experiment_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.list_experiment_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_experiment_templates)
         """
     def list_experiments(
@@ -153,14 +153,14 @@ class FISClient(BaseClient):
         """
         Lists your experiments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.list_experiments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.list_experiments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_experiments)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#list_tags_for_resource)
         """
     def start_experiment(
@@ -169,28 +169,28 @@ class FISClient(BaseClient):
         """
         Starts running an experiment from the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.start_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.start_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#start_experiment)
         """
     def stop_experiment(self, *, id: str) -> StopExperimentResponseTypeDef:
         """
         Stops the specified experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.stop_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.stop_experiment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#stop_experiment)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Applies the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str] = None) -> Dict[str, Any]:
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#untag_resource)
         """
     def update_experiment_template(
@@ -206,6 +206,6 @@ class FISClient(BaseClient):
         """
         Updates the specified experiment template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/fis.html#FIS.Client.update_experiment_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/fis.html#FIS.Client.update_experiment_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/client.html#update_experiment_template)
         """

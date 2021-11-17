@@ -9,9 +9,11 @@ Usage::
         Client,
         ConnectClient,
         GetMetricDataPaginator,
+        ListAgentStatusesPaginator,
         ListApprovedOriginsPaginator,
         ListBotsPaginator,
         ListContactFlowsPaginator,
+        ListContactReferencesPaginator,
         ListHoursOfOperationsPaginator,
         ListInstanceAttributesPaginator,
         ListInstanceStorageConfigsPaginator,
@@ -27,6 +29,7 @@ Usage::
         ListRoutingProfileQueuesPaginator,
         ListRoutingProfilesPaginator,
         ListSecurityKeysPaginator,
+        ListSecurityProfilePermissionsPaginator,
         ListSecurityProfilesPaginator,
         ListUseCasesPaginator,
         ListUserHierarchyGroupsPaginator,
@@ -39,9 +42,11 @@ Usage::
     session_client: ConnectClient = session.client("connect")
 
     get_metric_data_paginator: GetMetricDataPaginator = client.get_paginator("get_metric_data")
+    list_agent_statuses_paginator: ListAgentStatusesPaginator = client.get_paginator("list_agent_statuses")
     list_approved_origins_paginator: ListApprovedOriginsPaginator = client.get_paginator("list_approved_origins")
     list_bots_paginator: ListBotsPaginator = client.get_paginator("list_bots")
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
+    list_contact_references_paginator: ListContactReferencesPaginator = client.get_paginator("list_contact_references")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
     list_instance_storage_configs_paginator: ListInstanceStorageConfigsPaginator = client.get_paginator("list_instance_storage_configs")
@@ -57,6 +62,7 @@ Usage::
     list_routing_profile_queues_paginator: ListRoutingProfileQueuesPaginator = client.get_paginator("list_routing_profile_queues")
     list_routing_profiles_paginator: ListRoutingProfilesPaginator = client.get_paginator("list_routing_profiles")
     list_security_keys_paginator: ListSecurityKeysPaginator = client.get_paginator("list_security_keys")
+    list_security_profile_permissions_paginator: ListSecurityProfilePermissionsPaginator = client.get_paginator("list_security_profile_permissions")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
     list_use_cases_paginator: ListUseCasesPaginator = client.get_paginator("list_use_cases")
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
@@ -66,9 +72,11 @@ Usage::
 from .client import ConnectClient
 from .paginator import (
     GetMetricDataPaginator,
+    ListAgentStatusesPaginator,
     ListApprovedOriginsPaginator,
     ListBotsPaginator,
     ListContactFlowsPaginator,
+    ListContactReferencesPaginator,
     ListHoursOfOperationsPaginator,
     ListInstanceAttributesPaginator,
     ListInstancesPaginator,
@@ -84,6 +92,7 @@ from .paginator import (
     ListRoutingProfileQueuesPaginator,
     ListRoutingProfilesPaginator,
     ListSecurityKeysPaginator,
+    ListSecurityProfilePermissionsPaginator,
     ListSecurityProfilesPaginator,
     ListUseCasesPaginator,
     ListUserHierarchyGroupsPaginator,
@@ -96,9 +105,11 @@ __all__ = (
     "Client",
     "ConnectClient",
     "GetMetricDataPaginator",
+    "ListAgentStatusesPaginator",
     "ListApprovedOriginsPaginator",
     "ListBotsPaginator",
     "ListContactFlowsPaginator",
+    "ListContactReferencesPaginator",
     "ListHoursOfOperationsPaginator",
     "ListInstanceAttributesPaginator",
     "ListInstanceStorageConfigsPaginator",
@@ -114,6 +125,7 @@ __all__ = (
     "ListRoutingProfileQueuesPaginator",
     "ListRoutingProfilesPaginator",
     "ListSecurityKeysPaginator",
+    "ListSecurityProfilePermissionsPaginator",
     "ListSecurityProfilesPaginator",
     "ListUseCasesPaginator",
     "ListUserHierarchyGroupsPaginator",

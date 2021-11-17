@@ -34,6 +34,9 @@ __all__ = (
     "ObjectTypeEnumType",
     "RoleTypeType",
     "SettingAttributeType",
+    "ShareRequestActionType",
+    "ShareRequestStatusType",
+    "ShareRequestTypeType",
     "SourceFrequencyType",
     "SourceSetUpOptionType",
     "SourceTypeType",
@@ -71,6 +74,11 @@ SettingAttributeType = Literal[
     "IS_AWS_ORG_ENABLED",
     "SNS_TOPIC",
 ]
+ShareRequestActionType = Literal["ACCEPT", "DECLINE", "REVOKE"]
+ShareRequestStatusType = Literal[
+    "ACTIVE", "DECLINED", "EXPIRED", "EXPIRING", "FAILED", "REPLICATING", "REVOKED", "SHARED"
+]
+ShareRequestTypeType = Literal["RECEIVED", "SENT"]
 SourceFrequencyType = Literal["DAILY", "MONTHLY", "WEEKLY"]
 SourceSetUpOptionType = Literal["Procedural_Controls_Mapping", "System_Controls_Mapping"]
 SourceTypeType = Literal[

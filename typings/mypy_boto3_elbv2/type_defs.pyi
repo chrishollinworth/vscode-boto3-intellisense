@@ -25,6 +25,7 @@ from .literals import (
     LoadBalancerTypeEnumType,
     ProtocolEnumType,
     RedirectActionStatusCodeEnumType,
+    TargetGroupIpAddressTypeEnumType,
     TargetHealthReasonEnumType,
     TargetHealthStateEnumType,
     TargetTypeEnumType,
@@ -388,6 +389,7 @@ _OptionalCreateTargetGroupInputRequestTypeDef = TypedDict(
         "Matcher": "MatcherTypeDef",
         "TargetType": TargetTypeEnumType,
         "Tags": List["TagTypeDef"],
+        "IpAddressType": TargetGroupIpAddressTypeEnumType,
     },
     total=False,
 )
@@ -570,6 +572,7 @@ DescribeSSLPoliciesInputRequestTypeDef = TypedDict(
         "Names": List[str],
         "Marker": str,
         "PageSize": int,
+        "LoadBalancerType": LoadBalancerTypeEnumType,
     },
     total=False,
 )
@@ -1145,6 +1148,7 @@ SslPolicyTypeDef = TypedDict(
         "SslProtocols": List[str],
         "Ciphers": List["CipherTypeDef"],
         "Name": str,
+        "SupportedLoadBalancerTypes": List[str],
     },
     total=False,
 )
@@ -1253,6 +1257,7 @@ TargetGroupTypeDef = TypedDict(
         "LoadBalancerArns": List[str],
         "TargetType": TargetTypeEnumType,
         "ProtocolVersion": str,
+        "IpAddressType": TargetGroupIpAddressTypeEnumType,
     },
     total=False,
 )

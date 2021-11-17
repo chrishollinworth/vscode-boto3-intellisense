@@ -52,7 +52,9 @@ AuthorizerTypeType = Literal["JWT", "REQUEST"]
 ConnectionTypeType = Literal["INTERNET", "VPC_LINK"]
 ContentHandlingStrategyType = Literal["CONVERT_TO_BINARY", "CONVERT_TO_TEXT"]
 DeploymentStatusType = Literal["DEPLOYED", "FAILED", "PENDING"]
-DomainNameStatusType = Literal["AVAILABLE", "UPDATING"]
+DomainNameStatusType = Literal[
+    "AVAILABLE", "PENDING_CERTIFICATE_REIMPORT", "PENDING_OWNERSHIP_VERIFICATION", "UPDATING"
+]
 EndpointTypeType = Literal["EDGE", "REGIONAL"]
 GetApisPaginatorName = Literal["get_apis"]
 GetAuthorizersPaginatorName = Literal["get_authorizers"]

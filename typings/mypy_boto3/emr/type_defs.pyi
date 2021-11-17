@@ -74,6 +74,7 @@ __all__ = (
     "AutoScalingPolicyStateChangeReasonTypeDef",
     "AutoScalingPolicyStatusTypeDef",
     "AutoScalingPolicyTypeDef",
+    "AutoTerminationPolicyTypeDef",
     "BlockPublicAccessConfigurationMetadataTypeDef",
     "BlockPublicAccessConfigurationTypeDef",
     "BootstrapActionConfigTypeDef",
@@ -119,6 +120,8 @@ __all__ = (
     "Ec2InstanceAttributesTypeDef",
     "ExecutionEngineConfigTypeDef",
     "FailureDetailsTypeDef",
+    "GetAutoTerminationPolicyInputRequestTypeDef",
+    "GetAutoTerminationPolicyOutputTypeDef",
     "GetBlockPublicAccessConfigurationOutputTypeDef",
     "GetManagedScalingPolicyInputRequestTypeDef",
     "GetManagedScalingPolicyOutputTypeDef",
@@ -191,10 +194,12 @@ __all__ = (
     "PortRangeTypeDef",
     "PutAutoScalingPolicyInputRequestTypeDef",
     "PutAutoScalingPolicyOutputTypeDef",
+    "PutAutoTerminationPolicyInputRequestTypeDef",
     "PutBlockPublicAccessConfigurationInputRequestTypeDef",
     "PutManagedScalingPolicyInputRequestTypeDef",
     "ReleaseLabelFilterTypeDef",
     "RemoveAutoScalingPolicyInputRequestTypeDef",
+    "RemoveAutoTerminationPolicyInputRequestTypeDef",
     "RemoveManagedScalingPolicyInputRequestTypeDef",
     "RemoveTagsInputRequestTypeDef",
     "ResponseMetadataTypeDef",
@@ -341,6 +346,14 @@ AutoScalingPolicyTypeDef = TypedDict(
         "Constraints": "ScalingConstraintsTypeDef",
         "Rules": List["ScalingRuleTypeDef"],
     },
+)
+
+AutoTerminationPolicyTypeDef = TypedDict(
+    "AutoTerminationPolicyTypeDef",
+    {
+        "IdleTimeout": int,
+    },
+    total=False,
 )
 
 BlockPublicAccessConfigurationMetadataTypeDef = TypedDict(
@@ -594,7 +607,6 @@ _RequiredCreateStudioInputRequestTypeDef = TypedDict(
         "VpcId": str,
         "SubnetIds": List[str],
         "ServiceRole": str,
-        "UserRole": str,
         "WorkspaceSecurityGroupId": str,
         "EngineSecurityGroupId": str,
         "DefaultS3Location": str,
@@ -604,6 +616,9 @@ _OptionalCreateStudioInputRequestTypeDef = TypedDict(
     "_OptionalCreateStudioInputRequestTypeDef",
     {
         "Description": str,
+        "UserRole": str,
+        "IdpAuthUrl": str,
+        "IdpRelayStateParameterName": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -893,6 +908,21 @@ FailureDetailsTypeDef = TypedDict(
     total=False,
 )
 
+GetAutoTerminationPolicyInputRequestTypeDef = TypedDict(
+    "GetAutoTerminationPolicyInputRequestTypeDef",
+    {
+        "ClusterId": str,
+    },
+)
+
+GetAutoTerminationPolicyOutputTypeDef = TypedDict(
+    "GetAutoTerminationPolicyOutputTypeDef",
+    {
+        "AutoTerminationPolicy": "AutoTerminationPolicyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetBlockPublicAccessConfigurationOutputTypeDef = TypedDict(
     "GetBlockPublicAccessConfigurationOutputTypeDef",
     {
@@ -1094,6 +1124,7 @@ _OptionalInstanceGroupConfigTypeDef = TypedDict(
         "Configurations": List["ConfigurationTypeDef"],
         "EbsConfiguration": "EbsConfigurationTypeDef",
         "AutoScalingPolicy": "AutoScalingPolicyTypeDef",
+        "CustomAmiId": str,
     },
     total=False,
 )
@@ -1125,6 +1156,7 @@ _OptionalInstanceGroupDetailTypeDef = TypedDict(
         "StartDateTime": datetime,
         "ReadyDateTime": datetime,
         "EndDateTime": datetime,
+        "CustomAmiId": str,
     },
     total=False,
 )
@@ -1205,6 +1237,7 @@ InstanceGroupTypeDef = TypedDict(
         "EbsOptimized": bool,
         "ShrinkPolicy": "ShrinkPolicyTypeDef",
         "AutoScalingPolicy": "AutoScalingPolicyDescriptionTypeDef",
+        "CustomAmiId": str,
     },
     total=False,
 )
@@ -1262,6 +1295,7 @@ _OptionalInstanceTypeConfigTypeDef = TypedDict(
         "BidPriceAsPercentageOfOnDemandPrice": float,
         "EbsConfiguration": "EbsConfigurationTypeDef",
         "Configurations": List["ConfigurationTypeDef"],
+        "CustomAmiId": str,
     },
     total=False,
 )
@@ -1300,6 +1334,7 @@ InstanceTypeSpecificationTypeDef = TypedDict(
         "Configurations": List["ConfigurationTypeDef"],
         "EbsBlockDevices": List["EbsBlockDeviceTypeDef"],
         "EbsOptimized": bool,
+        "CustomAmiId": str,
     },
     total=False,
 )
@@ -1902,6 +1937,26 @@ PutAutoScalingPolicyOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredPutAutoTerminationPolicyInputRequestTypeDef = TypedDict(
+    "_RequiredPutAutoTerminationPolicyInputRequestTypeDef",
+    {
+        "ClusterId": str,
+    },
+)
+_OptionalPutAutoTerminationPolicyInputRequestTypeDef = TypedDict(
+    "_OptionalPutAutoTerminationPolicyInputRequestTypeDef",
+    {
+        "AutoTerminationPolicy": "AutoTerminationPolicyTypeDef",
+    },
+    total=False,
+)
+
+class PutAutoTerminationPolicyInputRequestTypeDef(
+    _RequiredPutAutoTerminationPolicyInputRequestTypeDef,
+    _OptionalPutAutoTerminationPolicyInputRequestTypeDef,
+):
+    pass
+
 PutBlockPublicAccessConfigurationInputRequestTypeDef = TypedDict(
     "PutBlockPublicAccessConfigurationInputRequestTypeDef",
     {
@@ -1931,6 +1986,13 @@ RemoveAutoScalingPolicyInputRequestTypeDef = TypedDict(
     {
         "ClusterId": str,
         "InstanceGroupId": str,
+    },
+)
+
+RemoveAutoTerminationPolicyInputRequestTypeDef = TypedDict(
+    "RemoveAutoTerminationPolicyInputRequestTypeDef",
+    {
+        "ClusterId": str,
     },
 )
 
@@ -1995,6 +2057,7 @@ _OptionalRunJobFlowInputRequestTypeDef = TypedDict(
         "StepConcurrencyLevel": int,
         "ManagedScalingPolicy": "ManagedScalingPolicyTypeDef",
         "PlacementGroupConfigs": List["PlacementGroupConfigTypeDef"],
+        "AutoTerminationPolicy": "AutoTerminationPolicyTypeDef",
     },
     total=False,
 )
@@ -2346,6 +2409,7 @@ StudioSummaryTypeDef = TypedDict(
         "VpcId": str,
         "Description": str,
         "Url": str,
+        "AuthMode": AuthModeType,
         "CreationTime": datetime,
     },
     total=False,
@@ -2368,6 +2432,8 @@ StudioTypeDef = TypedDict(
         "Url": str,
         "CreationTime": datetime,
         "DefaultS3Location": str,
+        "IdpAuthUrl": str,
+        "IdpRelayStateParameterName": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,

@@ -25,11 +25,13 @@ from .type_defs import (
     DocumentTypeDef,
     GetDocumentAnalysisResponseTypeDef,
     GetDocumentTextDetectionResponseTypeDef,
+    GetExpenseAnalysisResponseTypeDef,
     HumanLoopConfigTypeDef,
     NotificationChannelTypeDef,
     OutputConfigTypeDef,
     StartDocumentAnalysisResponseTypeDef,
     StartDocumentTextDetectionResponseTypeDef,
+    StartExpenseAnalysisResponseTypeDef,
 )
 
 __all__ = ("TextractClient",)
@@ -59,7 +61,7 @@ class Exceptions:
 
 class TextractClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html)
     """
 
@@ -79,21 +81,21 @@ class TextractClient(BaseClient):
         """
         Analyzes an input document for relationships between detected items.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.analyze_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.analyze_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#analyze_document)
         """
     def analyze_expense(self, *, Document: "DocumentTypeDef") -> AnalyzeExpenseResponseTypeDef:
         """
         Analyzes an input document for financially related relationships between text.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.analyze_expense)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.analyze_expense)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#analyze_expense)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#can_paginate)
         """
     def detect_document_text(
@@ -102,7 +104,7 @@ class TextractClient(BaseClient):
         """
         Detects text in the input document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.detect_document_text)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.detect_document_text)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#detect_document_text)
         """
     def generate_presigned_url(
@@ -115,7 +117,7 @@ class TextractClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#generate_presigned_url)
         """
     def get_document_analysis(
@@ -125,7 +127,7 @@ class TextractClient(BaseClient):
         Gets the results for an Amazon Textract asynchronous operation that analyzes
         text in a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.get_document_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.get_document_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_document_analysis)
         """
     def get_document_text_detection(
@@ -135,8 +137,18 @@ class TextractClient(BaseClient):
         Gets the results for an Amazon Textract asynchronous operation that detects text
         in a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.get_document_text_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.get_document_text_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_document_text_detection)
+        """
+    def get_expense_analysis(
+        self, *, JobId: str, MaxResults: int = None, NextToken: str = None
+    ) -> GetExpenseAnalysisResponseTypeDef:
+        """
+        Gets the results for an Amazon Textract asynchronous operation that analyzes
+        invoices and receipts.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.get_expense_analysis)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#get_expense_analysis)
         """
     def start_document_analysis(
         self,
@@ -153,7 +165,7 @@ class TextractClient(BaseClient):
         Starts the asynchronous analysis of an input document for relationships between
         detected items such as key-value pairs, tables, and selection elements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.start_document_analysis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.start_document_analysis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#start_document_analysis)
         """
     def start_document_text_detection(
@@ -169,6 +181,23 @@ class TextractClient(BaseClient):
         """
         Starts the asynchronous detection of text in a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/textract.html#Textract.Client.start_document_text_detection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.start_document_text_detection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#start_document_text_detection)
+        """
+    def start_expense_analysis(
+        self,
+        *,
+        DocumentLocation: "DocumentLocationTypeDef",
+        ClientRequestToken: str = None,
+        JobTag: str = None,
+        NotificationChannel: "NotificationChannelTypeDef" = None,
+        OutputConfig: "OutputConfigTypeDef" = None,
+        KMSKeyId: str = None
+    ) -> StartExpenseAnalysisResponseTypeDef:
+        """
+        Starts the asynchronous analysis of invoices or receipts for data like contact
+        information, items purchased, and vendor names.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/textract.html#Textract.Client.start_expense_analysis)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/client.html#start_expense_analysis)
         """

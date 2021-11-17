@@ -19,7 +19,9 @@ from botocore.response import StreamingBody
 
 from .literals import (
     ActionType,
+    AlignmentType,
     AttributeTypeType,
+    ButtonActionType,
     CampaignStatusType,
     ChannelTypeType,
     DeliveryStatusType,
@@ -30,6 +32,7 @@ from .literals import (
     FrequencyType,
     IncludeType,
     JobStatusType,
+    LayoutType,
     MessageTypeType,
     ModeType,
     OperatorType,
@@ -81,6 +84,7 @@ __all__ = (
     "CampaignEmailMessageTypeDef",
     "CampaignEventFilterTypeDef",
     "CampaignHookTypeDef",
+    "CampaignInAppMessageTypeDef",
     "CampaignLimitsTypeDef",
     "CampaignResponseTypeDef",
     "CampaignSmsMessageTypeDef",
@@ -90,6 +94,7 @@ __all__ = (
     "ChannelsResponseTypeDef",
     "ConditionTypeDef",
     "ConditionalSplitActivityTypeDef",
+    "ContactCenterActivityTypeDef",
     "CreateAppRequestRequestTypeDef",
     "CreateAppResponseTypeDef",
     "CreateApplicationRequestTypeDef",
@@ -101,6 +106,8 @@ __all__ = (
     "CreateExportJobResponseTypeDef",
     "CreateImportJobRequestRequestTypeDef",
     "CreateImportJobResponseTypeDef",
+    "CreateInAppTemplateRequestRequestTypeDef",
+    "CreateInAppTemplateResponseTypeDef",
     "CreateJourneyRequestRequestTypeDef",
     "CreateJourneyResponseTypeDef",
     "CreatePushTemplateRequestRequestTypeDef",
@@ -117,6 +124,7 @@ __all__ = (
     "CreateVoiceTemplateResponseTypeDef",
     "CustomDeliveryConfigurationTypeDef",
     "CustomMessageActivityTypeDef",
+    "DefaultButtonConfigurationTypeDef",
     "DefaultMessageTypeDef",
     "DefaultPushNotificationMessageTypeDef",
     "DefaultPushNotificationTemplateTypeDef",
@@ -146,6 +154,8 @@ __all__ = (
     "DeleteEventStreamResponseTypeDef",
     "DeleteGcmChannelRequestRequestTypeDef",
     "DeleteGcmChannelResponseTypeDef",
+    "DeleteInAppTemplateRequestRequestTypeDef",
+    "DeleteInAppTemplateResponseTypeDef",
     "DeleteJourneyRequestRequestTypeDef",
     "DeleteJourneyResponseTypeDef",
     "DeletePushTemplateRequestRequestTypeDef",
@@ -253,6 +263,10 @@ __all__ = (
     "GetImportJobResponseTypeDef",
     "GetImportJobsRequestRequestTypeDef",
     "GetImportJobsResponseTypeDef",
+    "GetInAppMessagesRequestRequestTypeDef",
+    "GetInAppMessagesResponseTypeDef",
+    "GetInAppTemplateRequestRequestTypeDef",
+    "GetInAppTemplateResponseTypeDef",
     "GetJourneyDateRangeKpiRequestRequestTypeDef",
     "GetJourneyDateRangeKpiResponseTypeDef",
     "GetJourneyExecutionActivityMetricsRequestRequestTypeDef",
@@ -294,7 +308,18 @@ __all__ = (
     "ImportJobResourceTypeDef",
     "ImportJobResponseTypeDef",
     "ImportJobsResponseTypeDef",
+    "InAppCampaignScheduleTypeDef",
+    "InAppMessageBodyConfigTypeDef",
+    "InAppMessageButtonTypeDef",
+    "InAppMessageCampaignTypeDef",
+    "InAppMessageContentTypeDef",
+    "InAppMessageHeaderConfigTypeDef",
+    "InAppMessageTypeDef",
+    "InAppMessagesResponseTypeDef",
+    "InAppTemplateRequestTypeDef",
+    "InAppTemplateResponseTypeDef",
     "ItemResponseTypeDef",
+    "JourneyChannelSettingsTypeDef",
     "JourneyCustomMessageTypeDef",
     "JourneyDateRangeKpiResponseTypeDef",
     "JourneyEmailMessageTypeDef",
@@ -327,6 +352,7 @@ __all__ = (
     "MultiConditionalSplitActivityTypeDef",
     "NumberValidateRequestTypeDef",
     "NumberValidateResponseTypeDef",
+    "OverrideButtonConfigurationTypeDef",
     "PhoneNumberValidateRequestRequestTypeDef",
     "PhoneNumberValidateResponseTypeDef",
     "PublicEndpointTypeDef",
@@ -382,6 +408,7 @@ __all__ = (
     "TagsModelTypeDef",
     "TemplateActiveVersionRequestTypeDef",
     "TemplateConfigurationTypeDef",
+    "TemplateCreateMessageBodyTypeDef",
     "TemplateResponseTypeDef",
     "TemplateTypeDef",
     "TemplateVersionResponseTypeDef",
@@ -416,6 +443,8 @@ __all__ = (
     "UpdateEndpointsBatchResponseTypeDef",
     "UpdateGcmChannelRequestRequestTypeDef",
     "UpdateGcmChannelResponseTypeDef",
+    "UpdateInAppTemplateRequestRequestTypeDef",
+    "UpdateInAppTemplateResponseTypeDef",
     "UpdateJourneyRequestRequestTypeDef",
     "UpdateJourneyResponseTypeDef",
     "UpdateJourneyStateRequestRequestTypeDef",
@@ -797,6 +826,7 @@ ActivityTypeDef = TypedDict(
         "RandomSplit": "RandomSplitActivityTypeDef",
         "SMS": "SMSMessageActivityTypeDef",
         "Wait": "WaitActivityTypeDef",
+        "ContactCenter": "ContactCenterActivityTypeDef",
     },
     total=False,
 )
@@ -1081,6 +1111,17 @@ CampaignHookTypeDef = TypedDict(
     total=False,
 )
 
+CampaignInAppMessageTypeDef = TypedDict(
+    "CampaignInAppMessageTypeDef",
+    {
+        "Body": str,
+        "Content": List["InAppMessageContentTypeDef"],
+        "CustomConfig": Dict[str, str],
+        "Layout": LayoutType,
+    },
+    total=False,
+)
+
 CampaignLimitsTypeDef = TypedDict(
     "CampaignLimitsTypeDef",
     {
@@ -1088,6 +1129,7 @@ CampaignLimitsTypeDef = TypedDict(
         "MaximumDuration": int,
         "MessagesPerSecond": int,
         "Total": int,
+        "Session": int,
     },
     total=False,
 )
@@ -1124,6 +1166,7 @@ _OptionalCampaignResponseTypeDef = TypedDict(
         "TreatmentDescription": str,
         "TreatmentName": str,
         "Version": int,
+        "Priority": int,
     },
     total=False,
 )
@@ -1210,6 +1253,14 @@ ConditionalSplitActivityTypeDef = TypedDict(
         "EvaluationWaitTime": "WaitTimeTypeDef",
         "FalseActivity": str,
         "TrueActivity": str,
+    },
+    total=False,
+)
+
+ContactCenterActivityTypeDef = TypedDict(
+    "ContactCenterActivityTypeDef",
+    {
+        "NextActivity": str,
     },
     total=False,
 )
@@ -1308,6 +1359,22 @@ CreateImportJobResponseTypeDef = TypedDict(
     "CreateImportJobResponseTypeDef",
     {
         "ImportJobResponse": "ImportJobResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateInAppTemplateRequestRequestTypeDef = TypedDict(
+    "CreateInAppTemplateRequestRequestTypeDef",
+    {
+        "InAppTemplateRequest": "InAppTemplateRequestTypeDef",
+        "TemplateName": str,
+    },
+)
+
+CreateInAppTemplateResponseTypeDef = TypedDict(
+    "CreateInAppTemplateResponseTypeDef",
+    {
+        "TemplateCreateMessageBody": "TemplateCreateMessageBodyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1474,6 +1541,29 @@ CustomMessageActivityTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDefaultButtonConfigurationTypeDef = TypedDict(
+    "_RequiredDefaultButtonConfigurationTypeDef",
+    {
+        "ButtonAction": ButtonActionType,
+        "Text": str,
+    },
+)
+_OptionalDefaultButtonConfigurationTypeDef = TypedDict(
+    "_OptionalDefaultButtonConfigurationTypeDef",
+    {
+        "BackgroundColor": str,
+        "BorderRadius": int,
+        "Link": str,
+        "TextColor": str,
+    },
+    total=False,
+)
+
+class DefaultButtonConfigurationTypeDef(
+    _RequiredDefaultButtonConfigurationTypeDef, _OptionalDefaultButtonConfigurationTypeDef
+):
+    pass
 
 DefaultMessageTypeDef = TypedDict(
     "DefaultMessageTypeDef",
@@ -1716,6 +1806,34 @@ DeleteGcmChannelResponseTypeDef = TypedDict(
     "DeleteGcmChannelResponseTypeDef",
     {
         "GCMChannelResponse": "GCMChannelResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteInAppTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteInAppTemplateRequestRequestTypeDef",
+    {
+        "TemplateName": str,
+    },
+)
+_OptionalDeleteInAppTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteInAppTemplateRequestRequestTypeDef",
+    {
+        "Version": str,
+    },
+    total=False,
+)
+
+class DeleteInAppTemplateRequestRequestTypeDef(
+    _RequiredDeleteInAppTemplateRequestRequestTypeDef,
+    _OptionalDeleteInAppTemplateRequestRequestTypeDef,
+):
+    pass
+
+DeleteInAppTemplateResponseTypeDef = TypedDict(
+    "DeleteInAppTemplateResponseTypeDef",
+    {
+        "MessageBody": "MessageBodyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3004,6 +3122,49 @@ GetImportJobsResponseTypeDef = TypedDict(
     },
 )
 
+GetInAppMessagesRequestRequestTypeDef = TypedDict(
+    "GetInAppMessagesRequestRequestTypeDef",
+    {
+        "ApplicationId": str,
+        "EndpointId": str,
+    },
+)
+
+GetInAppMessagesResponseTypeDef = TypedDict(
+    "GetInAppMessagesResponseTypeDef",
+    {
+        "InAppMessagesResponse": "InAppMessagesResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetInAppTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredGetInAppTemplateRequestRequestTypeDef",
+    {
+        "TemplateName": str,
+    },
+)
+_OptionalGetInAppTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalGetInAppTemplateRequestRequestTypeDef",
+    {
+        "Version": str,
+    },
+    total=False,
+)
+
+class GetInAppTemplateRequestRequestTypeDef(
+    _RequiredGetInAppTemplateRequestRequestTypeDef, _OptionalGetInAppTemplateRequestRequestTypeDef
+):
+    pass
+
+GetInAppTemplateResponseTypeDef = TypedDict(
+    "GetInAppTemplateResponseTypeDef",
+    {
+        "InAppTemplateResponse": "InAppTemplateResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetJourneyDateRangeKpiRequestRequestTypeDef = TypedDict(
     "_RequiredGetJourneyDateRangeKpiRequestRequestTypeDef",
     {
@@ -3538,11 +3699,145 @@ class ImportJobsResponseTypeDef(
 ):
     pass
 
+InAppCampaignScheduleTypeDef = TypedDict(
+    "InAppCampaignScheduleTypeDef",
+    {
+        "EndDate": str,
+        "EventFilter": "CampaignEventFilterTypeDef",
+        "QuietTime": "QuietTimeTypeDef",
+    },
+    total=False,
+)
+
+InAppMessageBodyConfigTypeDef = TypedDict(
+    "InAppMessageBodyConfigTypeDef",
+    {
+        "Alignment": AlignmentType,
+        "Body": str,
+        "TextColor": str,
+    },
+)
+
+InAppMessageButtonTypeDef = TypedDict(
+    "InAppMessageButtonTypeDef",
+    {
+        "Android": "OverrideButtonConfigurationTypeDef",
+        "DefaultConfig": "DefaultButtonConfigurationTypeDef",
+        "IOS": "OverrideButtonConfigurationTypeDef",
+        "Web": "OverrideButtonConfigurationTypeDef",
+    },
+    total=False,
+)
+
+InAppMessageCampaignTypeDef = TypedDict(
+    "InAppMessageCampaignTypeDef",
+    {
+        "CampaignId": str,
+        "DailyCap": int,
+        "InAppMessage": "InAppMessageTypeDef",
+        "Priority": int,
+        "Schedule": "InAppCampaignScheduleTypeDef",
+        "SessionCap": int,
+        "TotalCap": int,
+        "TreatmentId": str,
+    },
+    total=False,
+)
+
+InAppMessageContentTypeDef = TypedDict(
+    "InAppMessageContentTypeDef",
+    {
+        "BackgroundColor": str,
+        "BodyConfig": "InAppMessageBodyConfigTypeDef",
+        "HeaderConfig": "InAppMessageHeaderConfigTypeDef",
+        "ImageUrl": str,
+        "PrimaryBtn": "InAppMessageButtonTypeDef",
+        "SecondaryBtn": "InAppMessageButtonTypeDef",
+    },
+    total=False,
+)
+
+InAppMessageHeaderConfigTypeDef = TypedDict(
+    "InAppMessageHeaderConfigTypeDef",
+    {
+        "Alignment": AlignmentType,
+        "Header": str,
+        "TextColor": str,
+    },
+)
+
+InAppMessageTypeDef = TypedDict(
+    "InAppMessageTypeDef",
+    {
+        "Content": List["InAppMessageContentTypeDef"],
+        "CustomConfig": Dict[str, str],
+        "Layout": LayoutType,
+    },
+    total=False,
+)
+
+InAppMessagesResponseTypeDef = TypedDict(
+    "InAppMessagesResponseTypeDef",
+    {
+        "InAppMessageCampaigns": List["InAppMessageCampaignTypeDef"],
+    },
+    total=False,
+)
+
+InAppTemplateRequestTypeDef = TypedDict(
+    "InAppTemplateRequestTypeDef",
+    {
+        "Content": List["InAppMessageContentTypeDef"],
+        "CustomConfig": Dict[str, str],
+        "Layout": LayoutType,
+        "tags": Dict[str, str],
+        "TemplateDescription": str,
+    },
+    total=False,
+)
+
+_RequiredInAppTemplateResponseTypeDef = TypedDict(
+    "_RequiredInAppTemplateResponseTypeDef",
+    {
+        "CreationDate": str,
+        "LastModifiedDate": str,
+        "TemplateName": str,
+        "TemplateType": TemplateTypeType,
+    },
+)
+_OptionalInAppTemplateResponseTypeDef = TypedDict(
+    "_OptionalInAppTemplateResponseTypeDef",
+    {
+        "Arn": str,
+        "Content": List["InAppMessageContentTypeDef"],
+        "CustomConfig": Dict[str, str],
+        "Layout": LayoutType,
+        "tags": Dict[str, str],
+        "TemplateDescription": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+class InAppTemplateResponseTypeDef(
+    _RequiredInAppTemplateResponseTypeDef, _OptionalInAppTemplateResponseTypeDef
+):
+    pass
+
 ItemResponseTypeDef = TypedDict(
     "ItemResponseTypeDef",
     {
         "EndpointItemResponse": "EndpointItemResponseTypeDef",
         "EventsItemResponse": Dict[str, "EventItemResponseTypeDef"],
+    },
+    total=False,
+)
+
+JourneyChannelSettingsTypeDef = TypedDict(
+    "JourneyChannelSettingsTypeDef",
+    {
+        "ConnectCampaignArn": str,
+        "ConnectCampaignExecutionRoleArn": str,
     },
     total=False,
 )
@@ -3653,6 +3948,7 @@ _OptionalJourneyResponseTypeDef = TypedDict(
         "tags": Dict[str, str],
         "WaitForQuietTime": bool,
         "RefreshOnSegmentUpdate": bool,
+        "JourneyChannelSettings": "JourneyChannelSettingsTypeDef",
     },
     total=False,
 )
@@ -3839,6 +4135,7 @@ MessageConfigurationTypeDef = TypedDict(
         "EmailMessage": "CampaignEmailMessageTypeDef",
         "GCMMessage": "MessageTypeDef",
         "SMSMessage": "CampaignSmsMessageTypeDef",
+        "InAppMessage": "CampaignInAppMessageTypeDef",
     },
     total=False,
 )
@@ -3978,6 +4275,25 @@ NumberValidateResponseTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredOverrideButtonConfigurationTypeDef = TypedDict(
+    "_RequiredOverrideButtonConfigurationTypeDef",
+    {
+        "ButtonAction": ButtonActionType,
+    },
+)
+_OptionalOverrideButtonConfigurationTypeDef = TypedDict(
+    "_OptionalOverrideButtonConfigurationTypeDef",
+    {
+        "Link": str,
+    },
+    total=False,
+)
+
+class OverrideButtonConfigurationTypeDef(
+    _RequiredOverrideButtonConfigurationTypeDef, _OptionalOverrideButtonConfigurationTypeDef
+):
+    pass
 
 PhoneNumberValidateRequestRequestTypeDef = TypedDict(
     "PhoneNumberValidateRequestRequestTypeDef",
@@ -4688,6 +5004,16 @@ TemplateConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+TemplateCreateMessageBodyTypeDef = TypedDict(
+    "TemplateCreateMessageBodyTypeDef",
+    {
+        "Arn": str,
+        "Message": str,
+        "RequestID": str,
+    },
+    total=False,
+)
+
 _RequiredTemplateResponseTypeDef = TypedDict(
     "_RequiredTemplateResponseTypeDef",
     {
@@ -5047,6 +5373,36 @@ UpdateGcmChannelResponseTypeDef = TypedDict(
     "UpdateGcmChannelResponseTypeDef",
     {
         "GCMChannelResponse": "GCMChannelResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateInAppTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateInAppTemplateRequestRequestTypeDef",
+    {
+        "InAppTemplateRequest": "InAppTemplateRequestTypeDef",
+        "TemplateName": str,
+    },
+)
+_OptionalUpdateInAppTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateInAppTemplateRequestRequestTypeDef",
+    {
+        "CreateNewVersion": bool,
+        "Version": str,
+    },
+    total=False,
+)
+
+class UpdateInAppTemplateRequestRequestTypeDef(
+    _RequiredUpdateInAppTemplateRequestRequestTypeDef,
+    _OptionalUpdateInAppTemplateRequestRequestTypeDef,
+):
+    pass
+
+UpdateInAppTemplateResponseTypeDef = TypedDict(
+    "UpdateInAppTemplateResponseTypeDef",
+    {
+        "MessageBody": "MessageBodyTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5420,6 +5776,7 @@ WriteCampaignRequestTypeDef = TypedDict(
         "TemplateConfiguration": "TemplateConfigurationTypeDef",
         "TreatmentDescription": str,
         "TreatmentName": str,
+        "Priority": int,
     },
     total=False,
 )

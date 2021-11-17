@@ -29,6 +29,7 @@ __all__ = (
     "DomainPackageStatusType",
     "ESPartitionInstanceTypeType",
     "ESWarmPartitionInstanceTypeType",
+    "EngineTypeType",
     "GetUpgradeHistoryPaginatorName",
     "InboundCrossClusterSearchConnectionStatusCodeType",
     "ListElasticsearchInstanceTypesPaginatorName",
@@ -138,6 +139,7 @@ ESPartitionInstanceTypeType = Literal[
 ESWarmPartitionInstanceTypeType = Literal[
     "ultrawarm1.large.elasticsearch", "ultrawarm1.medium.elasticsearch"
 ]
+EngineTypeType = Literal["Elasticsearch", "OpenSearch"]
 GetUpgradeHistoryPaginatorName = Literal["get_upgrade_history"]
 InboundCrossClusterSearchConnectionStatusCodeType = Literal[
     "APPROVED", "DELETED", "DELETING", "PENDING_ACCEPTANCE", "REJECTED", "REJECTING"

@@ -23,6 +23,7 @@ __all__ = (
     "ListAssociatedAttributeGroupsPaginatorName",
     "ListAssociatedResourcesPaginatorName",
     "ListAttributeGroupsPaginatorName",
+    "ResourceGroupStateType",
     "ResourceTypeType",
     "SyncActionType",
 )
@@ -31,5 +32,8 @@ ListApplicationsPaginatorName = Literal["list_applications"]
 ListAssociatedAttributeGroupsPaginatorName = Literal["list_associated_attribute_groups"]
 ListAssociatedResourcesPaginatorName = Literal["list_associated_resources"]
 ListAttributeGroupsPaginatorName = Literal["list_attribute_groups"]
+ResourceGroupStateType = Literal[
+    "CREATE_COMPLETE", "CREATE_FAILED", "CREATING", "UPDATE_COMPLETE", "UPDATE_FAILED", "UPDATING"
+]
 ResourceTypeType = Literal["CFN_STACK"]
 SyncActionType = Literal["NO_ACTION", "START_SYNC"]

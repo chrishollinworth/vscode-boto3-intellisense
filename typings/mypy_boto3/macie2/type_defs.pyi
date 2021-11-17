@@ -18,6 +18,7 @@ from typing import Any, Dict, List
 from .literals import (
     AdminStatusType,
     AllowsUnencryptedObjectUploadsType,
+    DataIdentifierSeverityType,
     DayOfWeekType,
     EffectivePermissionType,
     EncryptionTypeType,
@@ -37,6 +38,7 @@ from .literals import (
     ListJobsFilterKeyType,
     ListJobsSortAttributeNameType,
     MacieStatusType,
+    ManagedDataIdentifierSelectorType,
     OrderByType,
     RelationshipStatusType,
     ScopeFilterKeyType,
@@ -189,12 +191,15 @@ __all__ = (
     "ListJobsFilterCriteriaTypeDef",
     "ListJobsFilterTermTypeDef",
     "ListJobsSortCriteriaTypeDef",
+    "ListManagedDataIdentifiersRequestRequestTypeDef",
+    "ListManagedDataIdentifiersResponseTypeDef",
     "ListMembersRequestRequestTypeDef",
     "ListMembersResponseTypeDef",
     "ListOrganizationAdminAccountsRequestRequestTypeDef",
     "ListOrganizationAdminAccountsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ManagedDataIdentifierSummaryTypeDef",
     "MatchingBucketTypeDef",
     "MatchingResourceTypeDef",
     "MemberTypeDef",
@@ -237,6 +242,7 @@ __all__ = (
     "SessionContextAttributesTypeDef",
     "SessionContextTypeDef",
     "SessionIssuerTypeDef",
+    "SeverityLevelTypeDef",
     "SeverityTypeDef",
     "SimpleCriterionForJobTypeDef",
     "SimpleScopeTermTypeDef",
@@ -480,6 +486,8 @@ BucketMetadataTypeDef = TypedDict(
         "bucketName": str,
         "classifiableObjectCount": int,
         "classifiableSizeInBytes": int,
+        "errorCode": Literal["ACCESS_DENIED"],
+        "errorMessage": str,
         "jobDetails": "JobDetailsTypeDef",
         "lastUpdated": datetime,
         "objectCount": int,
@@ -611,6 +619,8 @@ _OptionalCreateClassificationJobRequestRequestTypeDef = TypedDict(
         "customDataIdentifierIds": List[str],
         "description": str,
         "initialRun": bool,
+        "managedDataIdentifierIds": List[str],
+        "managedDataIdentifierSelector": ManagedDataIdentifierSelectorType,
         "samplingPercentage": int,
         "scheduleFrequency": "JobScheduleFrequencyTypeDef",
         "tags": Dict[str, str],
@@ -643,6 +653,7 @@ CreateCustomDataIdentifierRequestRequestTypeDef = TypedDict(
         "maximumMatchDistance": int,
         "name": str,
         "regex": str,
+        "severityLevels": List["SeverityLevelTypeDef"],
         "tags": Dict[str, str],
     },
     total=False,
@@ -918,6 +929,8 @@ DescribeClassificationJobResponseTypeDef = TypedDict(
         "jobType": JobTypeType,
         "lastRunErrorStatus": "LastRunErrorStatusTypeDef",
         "lastRunTime": datetime,
+        "managedDataIdentifierIds": List[str],
+        "managedDataIdentifierSelector": ManagedDataIdentifierSelectorType,
         "name": str,
         "s3JobDefinition": "S3JobDefinitionTypeDef",
         "samplingPercentage": int,
@@ -1139,6 +1152,7 @@ GetCustomDataIdentifierResponseTypeDef = TypedDict(
         "maximumMatchDistance": int,
         "name": str,
         "regex": str,
+        "severityLevels": List["SeverityLevelTypeDef"],
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1594,6 +1608,23 @@ ListJobsSortCriteriaTypeDef = TypedDict(
     total=False,
 )
 
+ListManagedDataIdentifiersRequestRequestTypeDef = TypedDict(
+    "ListManagedDataIdentifiersRequestRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListManagedDataIdentifiersResponseTypeDef = TypedDict(
+    "ListManagedDataIdentifiersResponseTypeDef",
+    {
+        "items": List["ManagedDataIdentifierSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListMembersRequestRequestTypeDef = TypedDict(
     "ListMembersRequestRequestTypeDef",
     {
@@ -1646,6 +1677,15 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ManagedDataIdentifierSummaryTypeDef = TypedDict(
+    "ManagedDataIdentifierSummaryTypeDef",
+    {
+        "category": SensitiveDataItemCategoryType,
+        "id": str,
+    },
+    total=False,
+)
+
 MatchingBucketTypeDef = TypedDict(
     "MatchingBucketTypeDef",
     {
@@ -1653,6 +1693,8 @@ MatchingBucketTypeDef = TypedDict(
         "bucketName": str,
         "classifiableObjectCount": int,
         "classifiableSizeInBytes": int,
+        "errorCode": Literal["ACCESS_DENIED"],
+        "errorMessage": str,
         "jobDetails": "JobDetailsTypeDef",
         "objectCount": int,
         "objectCountByEncryptionType": "ObjectCountByEncryptionTypeTypeDef",
@@ -2077,6 +2119,14 @@ SessionIssuerTypeDef = TypedDict(
         "userName": str,
     },
     total=False,
+)
+
+SeverityLevelTypeDef = TypedDict(
+    "SeverityLevelTypeDef",
+    {
+        "occurrencesThreshold": int,
+        "severity": DataIdentifierSeverityType,
+    },
 )
 
 SeverityTypeDef = TypedDict(

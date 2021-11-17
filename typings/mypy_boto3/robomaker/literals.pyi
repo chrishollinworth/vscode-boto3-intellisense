@@ -20,6 +20,8 @@ else:
 
 __all__ = (
     "ArchitectureType",
+    "ComputeTypeType",
+    "DataSourceTypeType",
     "DeploymentJobErrorCodeType",
     "DeploymentStatusType",
     "ExitBehaviorType",
@@ -53,6 +55,8 @@ __all__ = (
 )
 
 ArchitectureType = Literal["ARM64", "ARMHF", "X86_64"]
+ComputeTypeType = Literal["CPU", "GPU_AND_CPU"]
+DataSourceTypeType = Literal["Archive", "File", "Prefix"]
 DeploymentJobErrorCodeType = Literal[
     "BadLambdaAssociated",
     "BadPermissionError",
@@ -105,7 +109,7 @@ RobotDeploymentStepType = Literal[
     "Launching",
     "Validating",
 ]
-RobotSoftwareSuiteTypeType = Literal["ROS", "ROS2"]
+RobotSoftwareSuiteTypeType = Literal["General", "ROS", "ROS2"]
 RobotSoftwareSuiteVersionTypeType = Literal["Dashing", "Foxy", "Kinetic", "Melodic"]
 RobotStatusType = Literal[
     "Available", "Deploying", "Failed", "InSync", "NoResponse", "PendingNewDeployment", "Registered"
@@ -167,7 +171,7 @@ SimulationJobStatusType = Literal[
     "Terminated",
     "Terminating",
 ]
-SimulationSoftwareSuiteTypeType = Literal["Gazebo", "RosbagPlay"]
+SimulationSoftwareSuiteTypeType = Literal["Gazebo", "RosbagPlay", "SimulationRuntime"]
 UploadBehaviorType = Literal["UPLOAD_ON_TERMINATE", "UPLOAD_ROLLING_AUTO_REMOVE"]
 WorldExportJobErrorCodeType = Literal[
     "AccessDenied",

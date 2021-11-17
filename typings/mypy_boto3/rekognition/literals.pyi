@@ -24,15 +24,21 @@ __all__ = (
     "CelebrityRecognitionSortByType",
     "ContentClassifierType",
     "ContentModerationSortByType",
+    "DatasetStatusMessageCodeType",
+    "DatasetStatusType",
+    "DatasetTypeType",
     "DescribeProjectVersionsPaginatorName",
     "DescribeProjectsPaginatorName",
     "EmotionNameType",
     "FaceAttributesType",
     "FaceSearchSortByType",
     "GenderTypeType",
+    "KnownGenderTypeType",
     "LabelDetectionSortByType",
     "LandmarkTypeType",
     "ListCollectionsPaginatorName",
+    "ListDatasetEntriesPaginatorName",
+    "ListDatasetLabelsPaginatorName",
     "ListFacesPaginatorName",
     "ListStreamProcessorsPaginatorName",
     "OrientationCorrectionType",
@@ -48,6 +54,7 @@ __all__ = (
     "StreamProcessorStatusType",
     "TechnicalCueTypeType",
     "TextTypesType",
+    "VideoColorRangeType",
     "VideoJobStatusType",
 )
 
@@ -56,6 +63,17 @@ BodyPartType = Literal["FACE", "HEAD", "LEFT_HAND", "RIGHT_HAND"]
 CelebrityRecognitionSortByType = Literal["ID", "TIMESTAMP"]
 ContentClassifierType = Literal["FreeOfAdultContent", "FreeOfPersonallyIdentifiableInformation"]
 ContentModerationSortByType = Literal["NAME", "TIMESTAMP"]
+DatasetStatusMessageCodeType = Literal["CLIENT_ERROR", "SERVICE_ERROR", "SUCCESS"]
+DatasetStatusType = Literal[
+    "CREATE_COMPLETE",
+    "CREATE_FAILED",
+    "CREATE_IN_PROGRESS",
+    "DELETE_IN_PROGRESS",
+    "UPDATE_COMPLETE",
+    "UPDATE_FAILED",
+    "UPDATE_IN_PROGRESS",
+]
+DatasetTypeType = Literal["TEST", "TRAIN"]
 DescribeProjectVersionsPaginatorName = Literal["describe_project_versions"]
 DescribeProjectsPaginatorName = Literal["describe_projects"]
 EmotionNameType = Literal[
@@ -64,6 +82,7 @@ EmotionNameType = Literal[
 FaceAttributesType = Literal["ALL", "DEFAULT"]
 FaceSearchSortByType = Literal["INDEX", "TIMESTAMP"]
 GenderTypeType = Literal["Female", "Male"]
+KnownGenderTypeType = Literal["Female", "Male"]
 LabelDetectionSortByType = Literal["NAME", "TIMESTAMP"]
 LandmarkTypeType = Literal[
     "chinBottom",
@@ -98,6 +117,8 @@ LandmarkTypeType = Literal[
     "upperJawlineRight",
 ]
 ListCollectionsPaginatorName = Literal["list_collections"]
+ListDatasetEntriesPaginatorName = Literal["list_dataset_entries"]
+ListDatasetLabelsPaginatorName = Literal["list_dataset_labels"]
 ListFacesPaginatorName = Literal["list_faces"]
 ListStreamProcessorsPaginatorName = Literal["list_stream_processors"]
 OrientationCorrectionType = Literal["ROTATE_0", "ROTATE_180", "ROTATE_270", "ROTATE_90"]
@@ -129,6 +150,9 @@ ReasonType = Literal[
 ]
 SegmentTypeType = Literal["SHOT", "TECHNICAL_CUE"]
 StreamProcessorStatusType = Literal["FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING"]
-TechnicalCueTypeType = Literal["BlackFrames", "ColorBars", "EndCredits"]
+TechnicalCueTypeType = Literal[
+    "BlackFrames", "ColorBars", "Content", "EndCredits", "OpeningCredits", "Slate", "StudioLogo"
+]
 TextTypesType = Literal["LINE", "WORD"]
+VideoColorRangeType = Literal["FULL", "LIMITED"]
 VideoJobStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]

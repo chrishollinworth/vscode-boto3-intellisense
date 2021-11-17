@@ -6,9 +6,9 @@ Type annotations for synthetics service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_synthetics.type_defs import BaseScreenshotTypeDef
+    from mypy_boto3_synthetics.type_defs import ArtifactConfigInputTypeDef
 
-    data: BaseScreenshotTypeDef = {...}
+    data: ArtifactConfigInputTypeDef = {...}
     ```
 """
 import sys
@@ -17,7 +17,12 @@ from typing import IO, Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
-from .literals import CanaryRunStateReasonCodeType, CanaryRunStateType, CanaryStateType
+from .literals import (
+    CanaryRunStateReasonCodeType,
+    CanaryRunStateType,
+    CanaryStateType,
+    EncryptionModeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -29,6 +34,8 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ArtifactConfigInputTypeDef",
+    "ArtifactConfigOutputTypeDef",
     "BaseScreenshotTypeDef",
     "CanaryCodeInputTypeDef",
     "CanaryCodeOutputTypeDef",
@@ -60,6 +67,7 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "RuntimeVersionTypeDef",
+    "S3EncryptionConfigTypeDef",
     "StartCanaryRequestRequestTypeDef",
     "StopCanaryRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -69,6 +77,22 @@ __all__ = (
     "VisualReferenceOutputTypeDef",
     "VpcConfigInputTypeDef",
     "VpcConfigOutputTypeDef",
+)
+
+ArtifactConfigInputTypeDef = TypedDict(
+    "ArtifactConfigInputTypeDef",
+    {
+        "S3Encryption": "S3EncryptionConfigTypeDef",
+    },
+    total=False,
+)
+
+ArtifactConfigOutputTypeDef = TypedDict(
+    "ArtifactConfigOutputTypeDef",
+    {
+        "S3Encryption": "S3EncryptionConfigTypeDef",
+    },
+    total=False,
 )
 
 _RequiredBaseScreenshotTypeDef = TypedDict(
@@ -246,6 +270,7 @@ CanaryTypeDef = TypedDict(
         "VpcConfig": "VpcConfigOutputTypeDef",
         "VisualReference": "VisualReferenceOutputTypeDef",
         "Tags": Dict[str, str],
+        "ArtifactConfig": "ArtifactConfigOutputTypeDef",
     },
     total=False,
 )
@@ -269,6 +294,7 @@ _OptionalCreateCanaryRequestRequestTypeDef = TypedDict(
         "FailureRetentionPeriodInDays": int,
         "VpcConfig": "VpcConfigInputTypeDef",
         "Tags": Dict[str, str],
+        "ArtifactConfig": "ArtifactConfigInputTypeDef",
     },
     total=False,
 )
@@ -428,6 +454,15 @@ RuntimeVersionTypeDef = TypedDict(
     total=False,
 )
 
+S3EncryptionConfigTypeDef = TypedDict(
+    "S3EncryptionConfigTypeDef",
+    {
+        "EncryptionMode": EncryptionModeType,
+        "KmsKeyArn": str,
+    },
+    total=False,
+)
+
 StartCanaryRequestRequestTypeDef = TypedDict(
     "StartCanaryRequestRequestTypeDef",
     {
@@ -476,6 +511,8 @@ _OptionalUpdateCanaryRequestRequestTypeDef = TypedDict(
         "FailureRetentionPeriodInDays": int,
         "VpcConfig": "VpcConfigInputTypeDef",
         "VisualReference": "VisualReferenceInputTypeDef",
+        "ArtifactS3Location": str,
+        "ArtifactConfig": "ArtifactConfigInputTypeDef",
     },
     total=False,
 )

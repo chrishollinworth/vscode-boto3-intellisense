@@ -26,9 +26,11 @@ Usage::
         ListDetectMitigationActionsTasksPaginator,
         ListDimensionsPaginator,
         ListDomainConfigurationsPaginator,
+        ListFleetMetricsPaginator,
         ListIndicesPaginator,
         ListJobExecutionsForJobPaginator,
         ListJobExecutionsForThingPaginator,
+        ListJobTemplatesPaginator,
         ListJobsPaginator,
         ListMitigationActionsPaginator,
         ListOTAUpdatesPaginator,
@@ -85,9 +87,11 @@ Usage::
     list_detect_mitigation_actions_tasks_paginator: ListDetectMitigationActionsTasksPaginator = client.get_paginator("list_detect_mitigation_actions_tasks")
     list_dimensions_paginator: ListDimensionsPaginator = client.get_paginator("list_dimensions")
     list_domain_configurations_paginator: ListDomainConfigurationsPaginator = client.get_paginator("list_domain_configurations")
+    list_fleet_metrics_paginator: ListFleetMetricsPaginator = client.get_paginator("list_fleet_metrics")
     list_indices_paginator: ListIndicesPaginator = client.get_paginator("list_indices")
     list_job_executions_for_job_paginator: ListJobExecutionsForJobPaginator = client.get_paginator("list_job_executions_for_job")
     list_job_executions_for_thing_paginator: ListJobExecutionsForThingPaginator = client.get_paginator("list_job_executions_for_thing")
+    list_job_templates_paginator: ListJobTemplatesPaginator = client.get_paginator("list_job_templates")
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     list_mitigation_actions_paginator: ListMitigationActionsPaginator = client.get_paginator("list_mitigation_actions")
     list_ota_updates_paginator: ListOTAUpdatesPaginator = client.get_paginator("list_ota_updates")
@@ -141,10 +145,12 @@ from .paginator import (
     ListDetectMitigationActionsTasksPaginator,
     ListDimensionsPaginator,
     ListDomainConfigurationsPaginator,
+    ListFleetMetricsPaginator,
     ListIndicesPaginator,
     ListJobExecutionsForJobPaginator,
     ListJobExecutionsForThingPaginator,
     ListJobsPaginator,
+    ListJobTemplatesPaginator,
     ListMitigationActionsPaginator,
     ListOTAUpdatesPaginator,
     ListOutgoingCertificatesPaginator,
@@ -200,9 +206,11 @@ __all__ = (
     "ListDetectMitigationActionsTasksPaginator",
     "ListDimensionsPaginator",
     "ListDomainConfigurationsPaginator",
+    "ListFleetMetricsPaginator",
     "ListIndicesPaginator",
     "ListJobExecutionsForJobPaginator",
     "ListJobExecutionsForThingPaginator",
+    "ListJobTemplatesPaginator",
     "ListJobsPaginator",
     "ListMitigationActionsPaginator",
     "ListOTAUpdatesPaginator",

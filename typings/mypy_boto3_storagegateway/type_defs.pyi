@@ -150,6 +150,7 @@ __all__ = (
     "EndpointNetworkConfigurationTypeDef",
     "FileShareInfoTypeDef",
     "FileSystemAssociationInfoTypeDef",
+    "FileSystemAssociationStatusDetailTypeDef",
     "FileSystemAssociationSummaryTypeDef",
     "GatewayInfoTypeDef",
     "JoinDomainInputRequestTypeDef",
@@ -195,6 +196,7 @@ __all__ = (
     "RetrieveTapeRecoveryPointInputRequestTypeDef",
     "RetrieveTapeRecoveryPointOutputTypeDef",
     "SMBFileShareInfoTypeDef",
+    "SMBLocalGroupsTypeDef",
     "SetLocalConsolePasswordInputRequestTypeDef",
     "SetLocalConsolePasswordOutputTypeDef",
     "SetSMBGuestPasswordInputRequestTypeDef",
@@ -233,6 +235,8 @@ __all__ = (
     "UpdateSMBFileShareOutputTypeDef",
     "UpdateSMBFileShareVisibilityInputRequestTypeDef",
     "UpdateSMBFileShareVisibilityOutputTypeDef",
+    "UpdateSMBLocalGroupsInputRequestTypeDef",
+    "UpdateSMBLocalGroupsOutputTypeDef",
     "UpdateSMBSecurityStrategyInputRequestTypeDef",
     "UpdateSMBSecurityStrategyOutputTypeDef",
     "UpdateSnapshotScheduleInputRequestTypeDef",
@@ -626,6 +630,7 @@ _OptionalCreateNFSFileShareInputRequestTypeDef = TypedDict(
         "NotificationPolicy": str,
         "VPCEndpointDNSName": str,
         "BucketRegion": str,
+        "AuditDestinationARN": str,
     },
     total=False,
 )
@@ -1296,6 +1301,7 @@ DescribeSMBSettingsOutputTypeDef = TypedDict(
         "SMBGuestPasswordSet": bool,
         "SMBSecurityStrategy": SMBSecurityStrategyType,
         "FileSharesVisible": bool,
+        "SMBLocalGroups": "SMBLocalGroupsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1609,6 +1615,15 @@ FileSystemAssociationInfoTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "CacheAttributes": "CacheAttributesTypeDef",
         "EndpointNetworkConfiguration": "EndpointNetworkConfigurationTypeDef",
+        "FileSystemAssociationStatusDetails": List["FileSystemAssociationStatusDetailTypeDef"],
+    },
+    total=False,
+)
+
+FileSystemAssociationStatusDetailTypeDef = TypedDict(
+    "FileSystemAssociationStatusDetailTypeDef",
+    {
+        "ErrorCode": str,
     },
     total=False,
 )
@@ -1917,6 +1932,7 @@ NFSFileShareInfoTypeDef = TypedDict(
         "NotificationPolicy": str,
         "VPCEndpointDNSName": str,
         "BucketRegion": str,
+        "AuditDestinationARN": str,
     },
     total=False,
 )
@@ -2105,6 +2121,14 @@ SMBFileShareInfoTypeDef = TypedDict(
         "VPCEndpointDNSName": str,
         "BucketRegion": str,
         "OplocksEnabled": bool,
+    },
+    total=False,
+)
+
+SMBLocalGroupsTypeDef = TypedDict(
+    "SMBLocalGroupsTypeDef",
+    {
+        "GatewayAdmins": List[str],
     },
     total=False,
 )
@@ -2505,6 +2529,7 @@ _OptionalUpdateNFSFileShareInputRequestTypeDef = TypedDict(
         "FileShareName": str,
         "CacheAttributes": "CacheAttributesTypeDef",
         "NotificationPolicy": str,
+        "AuditDestinationARN": str,
     },
     total=False,
 )
@@ -2576,6 +2601,22 @@ UpdateSMBFileShareVisibilityInputRequestTypeDef = TypedDict(
 
 UpdateSMBFileShareVisibilityOutputTypeDef = TypedDict(
     "UpdateSMBFileShareVisibilityOutputTypeDef",
+    {
+        "GatewayARN": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateSMBLocalGroupsInputRequestTypeDef = TypedDict(
+    "UpdateSMBLocalGroupsInputRequestTypeDef",
+    {
+        "GatewayARN": str,
+        "SMBLocalGroups": "SMBLocalGroupsTypeDef",
+    },
+)
+
+UpdateSMBLocalGroupsOutputTypeDef = TypedDict(
+    "UpdateSMBLocalGroupsOutputTypeDef",
     {
         "GatewayARN": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",

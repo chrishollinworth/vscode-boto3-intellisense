@@ -45,7 +45,7 @@ __all__ = (
 
 class ServicesInactiveWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesinactivewaiter)
     """
 
@@ -58,13 +58,13 @@ class ServicesInactiveWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesInactive.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.ServicesInactive.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesinactivewaiter)
         """
 
 class ServicesStableWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesStable)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.ServicesStable)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesstablewaiter)
     """
 
@@ -77,13 +77,13 @@ class ServicesStableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.ServicesStable.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.ServicesStable.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#servicesstablewaiter)
         """
 
 class TasksRunningWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksRunning)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.TasksRunning)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksrunningwaiter)
     """
 
@@ -96,13 +96,13 @@ class TasksRunningWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksRunning.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.TasksRunning.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksrunningwaiter)
         """
 
 class TasksStoppedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksStopped)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.TasksStopped)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksstoppedwaiter)
     """
 
@@ -115,6 +115,6 @@ class TasksStoppedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/ecs.html#ECS.Waiter.TasksStopped.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ecs.html#ECS.Waiter.TasksStopped.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/waiters.html#tasksstoppedwaiter)
         """

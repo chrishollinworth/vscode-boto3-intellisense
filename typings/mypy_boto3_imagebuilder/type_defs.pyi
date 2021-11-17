@@ -43,6 +43,7 @@ __all__ = (
     "ComponentConfigurationTypeDef",
     "ComponentParameterDetailTypeDef",
     "ComponentParameterTypeDef",
+    "ComponentStateTypeDef",
     "ComponentSummaryTypeDef",
     "ComponentTypeDef",
     "ComponentVersionTypeDef",
@@ -120,6 +121,7 @@ __all__ = (
     "InfrastructureConfigurationTypeDef",
     "InstanceBlockDeviceMappingTypeDef",
     "InstanceConfigurationTypeDef",
+    "InstanceMetadataOptionsTypeDef",
     "LaunchPermissionConfigurationTypeDef",
     "LaunchTemplateConfigurationTypeDef",
     "ListComponentBuildVersionsRequestRequestTypeDef",
@@ -274,6 +276,15 @@ ComponentParameterTypeDef = TypedDict(
     },
 )
 
+ComponentStateTypeDef = TypedDict(
+    "ComponentStateTypeDef",
+    {
+        "status": Literal["DEPRECATED"],
+        "reason": str,
+    },
+    total=False,
+)
+
 ComponentSummaryTypeDef = TypedDict(
     "ComponentSummaryTypeDef",
     {
@@ -282,6 +293,7 @@ ComponentSummaryTypeDef = TypedDict(
         "version": str,
         "platform": PlatformType,
         "supportedOsVersions": List[str],
+        "state": "ComponentStateTypeDef",
         "type": ComponentTypeType,
         "owner": str,
         "description": str,
@@ -303,6 +315,7 @@ ComponentTypeDef = TypedDict(
         "type": ComponentTypeType,
         "platform": PlatformType,
         "supportedOsVersions": List[str],
+        "state": "ComponentStateTypeDef",
         "parameters": List["ComponentParameterDetailTypeDef"],
         "owner": str,
         "data": str,
@@ -646,6 +659,7 @@ _OptionalCreateInfrastructureConfigurationRequestRequestTypeDef = TypedDict(
         "terminateInstanceOnFailure": bool,
         "snsTopicArn": str,
         "resourceTags": Dict[str, str],
+        "instanceMetadataOptions": "InstanceMetadataOptionsTypeDef",
         "tags": Dict[str, str],
     },
     total=False,
@@ -848,6 +862,7 @@ EbsInstanceBlockDeviceSpecificationTypeDef = TypedDict(
         "snapshotId": str,
         "volumeSize": int,
         "volumeType": EbsVolumeTypeType,
+        "throughput": int,
     },
     total=False,
 )
@@ -1253,6 +1268,7 @@ InfrastructureConfigurationTypeDef = TypedDict(
         "dateCreated": str,
         "dateUpdated": str,
         "resourceTags": Dict[str, str],
+        "instanceMetadataOptions": "InstanceMetadataOptionsTypeDef",
         "tags": Dict[str, str],
     },
     total=False,
@@ -1274,6 +1290,15 @@ InstanceConfigurationTypeDef = TypedDict(
     {
         "image": str,
         "blockDeviceMappings": List["InstanceBlockDeviceMappingTypeDef"],
+    },
+    total=False,
+)
+
+InstanceMetadataOptionsTypeDef = TypedDict(
+    "InstanceMetadataOptionsTypeDef",
+    {
+        "httpTokens": str,
+        "httpPutResponseHopLimit": int,
     },
     total=False,
 )
@@ -1850,6 +1875,7 @@ _OptionalUpdateInfrastructureConfigurationRequestRequestTypeDef = TypedDict(
         "terminateInstanceOnFailure": bool,
         "snsTopicArn": str,
         "resourceTags": Dict[str, str],
+        "instanceMetadataOptions": "InstanceMetadataOptionsTypeDef",
     },
     total=False,
 )

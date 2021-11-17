@@ -6,9 +6,9 @@ Type annotations for ec2 service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_ec2.literals import AccountAttributeNameType
+    from mypy_boto3_ec2.literals import AcceleratorManufacturerType
 
-    data: AccountAttributeNameType = "default-vpc"
+    data: AcceleratorManufacturerType = "amazon-web-services"
     ```
 """
 import sys
@@ -19,6 +19,9 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AcceleratorManufacturerType",
+    "AcceleratorNameType",
+    "AcceleratorTypeType",
     "AccountAttributeNameType",
     "ActivityStatusType",
     "AddressAttributeNameType",
@@ -38,15 +41,18 @@ __all__ = (
     "AutoPlacementType",
     "AvailabilityZoneOptInStatusType",
     "AvailabilityZoneStateType",
+    "BareMetalType",
     "BatchStateType",
     "BgpStatusType",
     "BootModeTypeType",
     "BootModeValuesType",
     "BundleTaskCompleteWaiterName",
     "BundleTaskStateType",
+    "BurstablePerformanceType",
     "ByoipCidrStateType",
     "CancelBatchErrorCodeType",
     "CancelSpotInstanceRequestStateType",
+    "CapacityReservationFleetStateType",
     "CapacityReservationInstancePlatformType",
     "CapacityReservationPreferenceType",
     "CapacityReservationStateType",
@@ -68,6 +74,7 @@ __all__ = (
     "ConversionTaskDeletedWaiterName",
     "ConversionTaskStateType",
     "CopyTagsFromSourceType",
+    "CpuManufacturerType",
     "CurrencyCodeValuesType",
     "CustomerGatewayAvailableWaiterName",
     "DatafeedSubscriptionStateType",
@@ -78,6 +85,7 @@ __all__ = (
     "DeleteQueuedReservedInstancesErrorCodeType",
     "DescribeAddressesAttributePaginatorName",
     "DescribeByoipCidrsPaginatorName",
+    "DescribeCapacityReservationFleetsPaginatorName",
     "DescribeCapacityReservationsPaginatorName",
     "DescribeCarrierGatewaysPaginatorName",
     "DescribeClassicLinkInstancesPaginatorName",
@@ -155,6 +163,7 @@ __all__ = (
     "DescribeTransitGatewayRouteTablesPaginatorName",
     "DescribeTransitGatewayVpcAttachmentsPaginatorName",
     "DescribeTransitGatewaysPaginatorName",
+    "DescribeTrunkInterfaceAssociationsPaginatorName",
     "DescribeVolumeStatusPaginatorName",
     "DescribeVolumesModificationsPaginatorName",
     "DescribeVolumesPaginatorName",
@@ -167,6 +176,7 @@ __all__ = (
     "DescribeVpcEndpointsPaginatorName",
     "DescribeVpcPeeringConnectionsPaginatorName",
     "DescribeVpcsPaginatorName",
+    "DestinationFileFormatType",
     "DeviceTypeType",
     "DiskImageFormatType",
     "DiskTypeType",
@@ -190,9 +200,11 @@ __all__ = (
     "ExportTaskStateType",
     "FastSnapshotRestoreStateCodeType",
     "FleetActivityStatusType",
+    "FleetCapacityReservationTenancyType",
     "FleetCapacityReservationUsageStrategyType",
     "FleetEventTypeType",
     "FleetExcessCapacityTerminationPolicyType",
+    "FleetInstanceMatchCriteriaType",
     "FleetOnDemandAllocationStrategyType",
     "FleetReplacementStrategyType",
     "FleetStateCodeType",
@@ -200,16 +212,20 @@ __all__ = (
     "FlowLogsResourceTypeType",
     "FpgaImageAttributeNameType",
     "FpgaImageStateCodeType",
+    "GatewayAssociationStateType",
     "GatewayTypeType",
     "GetAssociatedIpv6PoolCidrsPaginatorName",
     "GetGroupsForCapacityReservationPaginatorName",
+    "GetInstanceTypesFromInstanceRequirementsPaginatorName",
     "GetManagedPrefixListAssociationsPaginatorName",
     "GetManagedPrefixListEntriesPaginatorName",
+    "GetSpotPlacementScoresPaginatorName",
     "GetTransitGatewayAttachmentPropagationsPaginatorName",
     "GetTransitGatewayMulticastDomainAssociationsPaginatorName",
     "GetTransitGatewayPrefixListReferencesPaginatorName",
     "GetTransitGatewayRouteTableAssociationsPaginatorName",
     "GetTransitGatewayRouteTablePropagationsPaginatorName",
+    "GetVpnConnectionDeviceTypesPaginatorName",
     "HostRecoveryType",
     "HostTenancyType",
     "HttpTokensStateType",
@@ -224,6 +240,7 @@ __all__ = (
     "InstanceAttributeNameType",
     "InstanceEventWindowStateType",
     "InstanceExistsWaiterName",
+    "InstanceGenerationType",
     "InstanceHealthStatusType",
     "InstanceInterruptionBehaviorType",
     "InstanceLifecycleType",
@@ -231,10 +248,12 @@ __all__ = (
     "InstanceMatchCriteriaType",
     "InstanceMetadataEndpointStateType",
     "InstanceMetadataOptionsStateType",
+    "InstanceMetadataProtocolStateType",
     "InstanceRunningWaiterName",
     "InstanceStateNameType",
     "InstanceStatusOkWaiterName",
     "InstanceStoppedWaiterName",
+    "InstanceStorageEncryptionSupportType",
     "InstanceTerminatedWaiterName",
     "InstanceTypeHypervisorType",
     "InstanceTypeType",
@@ -242,14 +261,18 @@ __all__ = (
     "InterfaceProtocolTypeType",
     "Ipv6SupportValueType",
     "KeyPairExistsWaiterName",
+    "KeyTypeType",
     "LaunchTemplateErrorCodeType",
     "LaunchTemplateHttpTokensStateType",
     "LaunchTemplateInstanceMetadataEndpointStateType",
     "LaunchTemplateInstanceMetadataOptionsStateType",
+    "LaunchTemplateInstanceMetadataProtocolIpv6Type",
     "ListingStateType",
     "ListingStatusType",
     "LocalGatewayRouteStateType",
     "LocalGatewayRouteTypeType",
+    "LocalStorageType",
+    "LocalStorageTypeType",
     "LocationTypeType",
     "LogDestinationTypeType",
     "MarketTypeType",
@@ -325,6 +348,7 @@ __all__ = (
     "SubnetStateType",
     "SummaryStatusType",
     "SystemStatusOkWaiterName",
+    "TargetCapacityUnitTypeType",
     "TelemetryStatusType",
     "TenancyType",
     "TrafficDirectionType",
@@ -382,6 +406,9 @@ __all__ = (
     "scopeType",
 )
 
+AcceleratorManufacturerType = Literal["amazon-web-services", "amd", "nvidia", "xilinx"]
+AcceleratorNameType = Literal["a100", "k80", "m60", "radeon-pro-v520", "t4", "v100", "vu9p"]
+AcceleratorTypeType = Literal["fpga", "gpu", "inference"]
 AccountAttributeNameType = Literal["default-vpc", "supported-platforms"]
 ActivityStatusType = Literal["error", "fulfilled", "pending_fulfillment", "pending_termination"]
 AddressAttributeNameType = Literal["domain-name"]
@@ -400,8 +427,8 @@ AllocationStrategyType = Literal[
 AllowsMultipleInstanceTypesType = Literal["off", "on"]
 AnalysisStatusType = Literal["failed", "running", "succeeded"]
 ApplianceModeSupportValueType = Literal["disable", "enable"]
-ArchitectureTypeType = Literal["arm64", "i386", "x86_64"]
-ArchitectureValuesType = Literal["arm64", "i386", "x86_64"]
+ArchitectureTypeType = Literal["arm64", "i386", "x86_64", "x86_64_mac"]
+ArchitectureValuesType = Literal["arm64", "i386", "x86_64", "x86_64_mac"]
 AssociatedNetworkTypeType = Literal["vpc"]
 AssociationStatusCodeType = Literal[
     "associated", "associating", "association-failed", "disassociated", "disassociating"
@@ -412,6 +439,7 @@ AutoAcceptSharedAttachmentsValueType = Literal["disable", "enable"]
 AutoPlacementType = Literal["off", "on"]
 AvailabilityZoneOptInStatusType = Literal["not-opted-in", "opt-in-not-required", "opted-in"]
 AvailabilityZoneStateType = Literal["available", "impaired", "information", "unavailable"]
+BareMetalType = Literal["excluded", "included", "required"]
 BatchStateType = Literal[
     "active",
     "cancelled",
@@ -428,6 +456,7 @@ BundleTaskCompleteWaiterName = Literal["bundle_task_complete"]
 BundleTaskStateType = Literal[
     "bundling", "cancelling", "complete", "failed", "pending", "storing", "waiting-for-shutdown"
 ]
+BurstablePerformanceType = Literal["excluded", "included", "required"]
 ByoipCidrStateType = Literal[
     "advertised",
     "deprovisioned",
@@ -445,6 +474,17 @@ CancelBatchErrorCodeType = Literal[
     "unexpectedError",
 ]
 CancelSpotInstanceRequestStateType = Literal["active", "cancelled", "closed", "completed", "open"]
+CapacityReservationFleetStateType = Literal[
+    "active",
+    "cancelled",
+    "cancelling",
+    "expired",
+    "expiring",
+    "failed",
+    "modifying",
+    "partially_fulfilled",
+    "submitted",
+]
 CapacityReservationInstancePlatformType = Literal[
     "Linux with SQL Server Enterprise",
     "Linux with SQL Server Standard",
@@ -482,6 +522,7 @@ ConversionTaskCompletedWaiterName = Literal["conversion_task_completed"]
 ConversionTaskDeletedWaiterName = Literal["conversion_task_deleted"]
 ConversionTaskStateType = Literal["active", "cancelled", "cancelling", "completed"]
 CopyTagsFromSourceType = Literal["volume"]
+CpuManufacturerType = Literal["amazon-web-services", "amd", "intel"]
 CurrencyCodeValuesType = Literal["USD"]
 CustomerGatewayAvailableWaiterName = Literal["customer_gateway_available"]
 DatafeedSubscriptionStateType = Literal["Active", "Inactive"]
@@ -496,6 +537,7 @@ DeleteQueuedReservedInstancesErrorCodeType = Literal[
 ]
 DescribeAddressesAttributePaginatorName = Literal["describe_addresses_attribute"]
 DescribeByoipCidrsPaginatorName = Literal["describe_byoip_cidrs"]
+DescribeCapacityReservationFleetsPaginatorName = Literal["describe_capacity_reservation_fleets"]
 DescribeCapacityReservationsPaginatorName = Literal["describe_capacity_reservations"]
 DescribeCarrierGatewaysPaginatorName = Literal["describe_carrier_gateways"]
 DescribeClassicLinkInstancesPaginatorName = Literal["describe_classic_link_instances"]
@@ -597,6 +639,7 @@ DescribeTransitGatewayVpcAttachmentsPaginatorName = Literal[
     "describe_transit_gateway_vpc_attachments"
 ]
 DescribeTransitGatewaysPaginatorName = Literal["describe_transit_gateways"]
+DescribeTrunkInterfaceAssociationsPaginatorName = Literal["describe_trunk_interface_associations"]
 DescribeVolumeStatusPaginatorName = Literal["describe_volume_status"]
 DescribeVolumesModificationsPaginatorName = Literal["describe_volumes_modifications"]
 DescribeVolumesPaginatorName = Literal["describe_volumes"]
@@ -615,6 +658,7 @@ DescribeVpcEndpointServicesPaginatorName = Literal["describe_vpc_endpoint_servic
 DescribeVpcEndpointsPaginatorName = Literal["describe_vpc_endpoints"]
 DescribeVpcPeeringConnectionsPaginatorName = Literal["describe_vpc_peering_connections"]
 DescribeVpcsPaginatorName = Literal["describe_vpcs"]
+DestinationFileFormatType = Literal["parquet", "plain-text"]
 DeviceTypeType = Literal["ebs", "instance-store"]
 DiskImageFormatType = Literal["RAW", "VHD", "VMDK"]
 DiskTypeType = Literal["hdd", "ssd"]
@@ -644,11 +688,13 @@ FastSnapshotRestoreStateCodeType = Literal[
 FleetActivityStatusType = Literal[
     "error", "fulfilled", "pending_fulfillment", "pending_termination"
 ]
+FleetCapacityReservationTenancyType = Literal["default"]
 FleetCapacityReservationUsageStrategyType = Literal["use-capacity-reservations-first"]
 FleetEventTypeType = Literal["fleet-change", "instance-change", "service-error"]
 FleetExcessCapacityTerminationPolicyType = Literal["no-termination", "termination"]
+FleetInstanceMatchCriteriaType = Literal["open"]
 FleetOnDemandAllocationStrategyType = Literal["lowest-price", "prioritized"]
-FleetReplacementStrategyType = Literal["launch"]
+FleetReplacementStrategyType = Literal["launch", "launch-before-terminate"]
 FleetStateCodeType = Literal[
     "active",
     "deleted",
@@ -662,11 +708,18 @@ FleetTypeType = Literal["instant", "maintain", "request"]
 FlowLogsResourceTypeType = Literal["NetworkInterface", "Subnet", "VPC"]
 FpgaImageAttributeNameType = Literal["description", "loadPermission", "name", "productCodes"]
 FpgaImageStateCodeType = Literal["available", "failed", "pending", "unavailable"]
+GatewayAssociationStateType = Literal[
+    "associated", "associating", "disassociating", "not-associated"
+]
 GatewayTypeType = Literal["ipsec.1"]
 GetAssociatedIpv6PoolCidrsPaginatorName = Literal["get_associated_ipv6_pool_cidrs"]
 GetGroupsForCapacityReservationPaginatorName = Literal["get_groups_for_capacity_reservation"]
+GetInstanceTypesFromInstanceRequirementsPaginatorName = Literal[
+    "get_instance_types_from_instance_requirements"
+]
 GetManagedPrefixListAssociationsPaginatorName = Literal["get_managed_prefix_list_associations"]
 GetManagedPrefixListEntriesPaginatorName = Literal["get_managed_prefix_list_entries"]
+GetSpotPlacementScoresPaginatorName = Literal["get_spot_placement_scores"]
 GetTransitGatewayAttachmentPropagationsPaginatorName = Literal[
     "get_transit_gateway_attachment_propagations"
 ]
@@ -682,6 +735,7 @@ GetTransitGatewayRouteTableAssociationsPaginatorName = Literal[
 GetTransitGatewayRouteTablePropagationsPaginatorName = Literal[
     "get_transit_gateway_route_table_propagations"
 ]
+GetVpnConnectionDeviceTypesPaginatorName = Literal["get_vpn_connection_device_types"]
 HostRecoveryType = Literal["off", "on"]
 HostTenancyType = Literal["dedicated", "host"]
 HttpTokensStateType = Literal["optional", "required"]
@@ -725,6 +779,7 @@ InstanceAttributeNameType = Literal[
 ]
 InstanceEventWindowStateType = Literal["active", "creating", "deleted", "deleting"]
 InstanceExistsWaiterName = Literal["instance_exists"]
+InstanceGenerationType = Literal["current", "previous"]
 InstanceHealthStatusType = Literal["healthy", "unhealthy"]
 InstanceInterruptionBehaviorType = Literal["hibernate", "stop", "terminate"]
 InstanceLifecycleType = Literal["on-demand", "spot"]
@@ -732,12 +787,14 @@ InstanceLifecycleTypeType = Literal["scheduled", "spot"]
 InstanceMatchCriteriaType = Literal["open", "targeted"]
 InstanceMetadataEndpointStateType = Literal["disabled", "enabled"]
 InstanceMetadataOptionsStateType = Literal["applied", "pending"]
+InstanceMetadataProtocolStateType = Literal["disabled", "enabled"]
 InstanceRunningWaiterName = Literal["instance_running"]
 InstanceStateNameType = Literal[
     "pending", "running", "shutting-down", "stopped", "stopping", "terminated"
 ]
 InstanceStatusOkWaiterName = Literal["instance_status_ok"]
 InstanceStoppedWaiterName = Literal["instance_stopped"]
+InstanceStorageEncryptionSupportType = Literal["required", "unsupported"]
 InstanceTerminatedWaiterName = Literal["instance_terminated"]
 InstanceTypeHypervisorType = Literal["nitro", "xen"]
 InstanceTypeType = Literal[
@@ -826,6 +883,15 @@ InstanceTypeType = Literal[
     "c6gn.large",
     "c6gn.medium",
     "c6gn.xlarge",
+    "c6i.12xlarge",
+    "c6i.16xlarge",
+    "c6i.24xlarge",
+    "c6i.2xlarge",
+    "c6i.32xlarge",
+    "c6i.4xlarge",
+    "c6i.8xlarge",
+    "c6i.large",
+    "c6i.xlarge",
     "cc1.4xlarge",
     "cc2.8xlarge",
     "cg1.4xlarge",
@@ -844,6 +910,7 @@ InstanceTypeType = Literal[
     "d3en.6xlarge",
     "d3en.8xlarge",
     "d3en.xlarge",
+    "dl1.24xlarge",
     "f1.16xlarge",
     "f1.2xlarge",
     "f1.4xlarge",
@@ -865,6 +932,14 @@ InstanceTypeType = Literal[
     "g4dn.8xlarge",
     "g4dn.metal",
     "g4dn.xlarge",
+    "g5.12xlarge",
+    "g5.16xlarge",
+    "g5.24xlarge",
+    "g5.2xlarge",
+    "g5.48xlarge",
+    "g5.4xlarge",
+    "g5.8xlarge",
+    "g5.xlarge",
     "h1.16xlarge",
     "h1.2xlarge",
     "h1.4xlarge",
@@ -988,6 +1063,15 @@ InstanceTypeType = Literal[
     "m6gd.medium",
     "m6gd.metal",
     "m6gd.xlarge",
+    "m6i.12xlarge",
+    "m6i.16xlarge",
+    "m6i.24xlarge",
+    "m6i.2xlarge",
+    "m6i.32xlarge",
+    "m6i.4xlarge",
+    "m6i.8xlarge",
+    "m6i.large",
+    "m6i.xlarge",
     "mac1.metal",
     "p2.16xlarge",
     "p2.8xlarge",
@@ -1125,6 +1209,9 @@ InstanceTypeType = Literal[
     "u-6tb1.metal",
     "u-9tb1.112xlarge",
     "u-9tb1.metal",
+    "vt1.24xlarge",
+    "vt1.3xlarge",
+    "vt1.6xlarge",
     "x1.16xlarge",
     "x1.32xlarge",
     "x1e.16xlarge",
@@ -1154,6 +1241,7 @@ InterfacePermissionTypeType = Literal["EIP-ASSOCIATE", "INSTANCE-ATTACH"]
 InterfaceProtocolTypeType = Literal["GRE", "VLAN"]
 Ipv6SupportValueType = Literal["disable", "enable"]
 KeyPairExistsWaiterName = Literal["key_pair_exists"]
+KeyTypeType = Literal["ed25519", "rsa"]
 LaunchTemplateErrorCodeType = Literal[
     "launchTemplateIdDoesNotExist",
     "launchTemplateIdMalformed",
@@ -1165,10 +1253,13 @@ LaunchTemplateErrorCodeType = Literal[
 LaunchTemplateHttpTokensStateType = Literal["optional", "required"]
 LaunchTemplateInstanceMetadataEndpointStateType = Literal["disabled", "enabled"]
 LaunchTemplateInstanceMetadataOptionsStateType = Literal["applied", "pending"]
+LaunchTemplateInstanceMetadataProtocolIpv6Type = Literal["disabled", "enabled"]
 ListingStateType = Literal["available", "cancelled", "pending", "sold"]
 ListingStatusType = Literal["active", "cancelled", "closed", "pending"]
 LocalGatewayRouteStateType = Literal["active", "blackhole", "deleted", "deleting", "pending"]
 LocalGatewayRouteTypeType = Literal["propagated", "static"]
+LocalStorageType = Literal["excluded", "included", "required"]
+LocalStorageTypeType = Literal["hdd", "ssd"]
 LocationTypeType = Literal["availability-zone", "availability-zone-id", "region"]
 LogDestinationTypeType = Literal["cloud-watch-logs", "s3"]
 MarketTypeType = Literal["spot"]
@@ -1229,7 +1320,7 @@ RecurringChargeFrequencyType = Literal["Hourly"]
 ReplaceRootVolumeTaskStateType = Literal[
     "failed", "failed-detached", "failing", "in-progress", "pending", "succeeded"
 ]
-ReplacementStrategyType = Literal["launch"]
+ReplacementStrategyType = Literal["launch", "launch-before-terminate"]
 ReportInstanceReasonCodesType = Literal[
     "instance-stuck-in-state",
     "not-accepting-credentials",
@@ -1249,6 +1340,8 @@ ReservedInstanceStateType = Literal[
 ResetFpgaImageAttributeNameType = Literal["loadPermission"]
 ResetImageAttributeNameType = Literal["launchPermission"]
 ResourceTypeType = Literal[
+    "capacity-reservation",
+    "carrier-gateway",
     "client-vpn-endpoint",
     "customer-gateway",
     "dedicated-host",
@@ -1267,15 +1360,24 @@ ResourceTypeType = Literal[
     "instance",
     "instance-event-window",
     "internet-gateway",
+    "ipv4pool-ec2",
+    "ipv6pool-ec2",
     "key-pair",
     "launch-template",
+    "local-gateway",
+    "local-gateway-route-table",
+    "local-gateway-route-table-virtual-interface-group-association",
     "local-gateway-route-table-vpc-association",
+    "local-gateway-virtual-interface",
+    "local-gateway-virtual-interface-group",
     "natgateway",
     "network-acl",
     "network-insights-analysis",
     "network-insights-path",
     "network-interface",
     "placement-group",
+    "prefix-list",
+    "replace-root-volume-task",
     "reserved-instances",
     "route-table",
     "security-group",
@@ -1294,6 +1396,8 @@ ResourceTypeType = Literal[
     "transit-gateway-route-table",
     "volume",
     "vpc",
+    "vpc-endpoint",
+    "vpc-endpoint-service",
     "vpc-flow-log",
     "vpc-peering-connection",
     "vpn-connection",
@@ -1347,6 +1451,7 @@ SubnetCidrReservationTypeType = Literal["explicit", "prefix"]
 SubnetStateType = Literal["available", "pending"]
 SummaryStatusType = Literal["impaired", "initializing", "insufficient-data", "not-applicable", "ok"]
 SystemStatusOkWaiterName = Literal["system_status_ok"]
+TargetCapacityUnitTypeType = Literal["memory-mib", "units", "vcpu"]
 TelemetryStatusType = Literal["DOWN", "UP"]
 TenancyType = Literal["dedicated", "default", "host"]
 TrafficDirectionType = Literal["egress", "ingress"]

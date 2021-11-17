@@ -6,9 +6,9 @@ Type annotations for appintegrations service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_appintegrations.type_defs import CreateEventIntegrationRequestRequestTypeDef
+    from mypy_boto3_appintegrations.type_defs import CreateDataIntegrationRequestRequestTypeDef
 
-    data: CreateEventIntegrationRequestRequestTypeDef = {...}
+    data: CreateDataIntegrationRequestRequestTypeDef = {...}
     ```
 """
 import sys
@@ -20,14 +20,25 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "CreateDataIntegrationRequestRequestTypeDef",
+    "CreateDataIntegrationResponseTypeDef",
     "CreateEventIntegrationRequestRequestTypeDef",
     "CreateEventIntegrationResponseTypeDef",
+    "DataIntegrationAssociationSummaryTypeDef",
+    "DataIntegrationSummaryTypeDef",
+    "DeleteDataIntegrationRequestRequestTypeDef",
     "DeleteEventIntegrationRequestRequestTypeDef",
     "EventFilterTypeDef",
     "EventIntegrationAssociationTypeDef",
     "EventIntegrationTypeDef",
+    "GetDataIntegrationRequestRequestTypeDef",
+    "GetDataIntegrationResponseTypeDef",
     "GetEventIntegrationRequestRequestTypeDef",
     "GetEventIntegrationResponseTypeDef",
+    "ListDataIntegrationAssociationsRequestRequestTypeDef",
+    "ListDataIntegrationAssociationsResponseTypeDef",
+    "ListDataIntegrationsRequestRequestTypeDef",
+    "ListDataIntegrationsResponseTypeDef",
     "ListEventIntegrationAssociationsRequestRequestTypeDef",
     "ListEventIntegrationAssociationsResponseTypeDef",
     "ListEventIntegrationsRequestRequestTypeDef",
@@ -35,9 +46,52 @@ __all__ = (
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "ScheduleConfigurationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateDataIntegrationRequestRequestTypeDef",
     "UpdateEventIntegrationRequestRequestTypeDef",
+)
+
+_RequiredCreateDataIntegrationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDataIntegrationRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateDataIntegrationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDataIntegrationRequestRequestTypeDef",
+    {
+        "Description": str,
+        "KmsKey": str,
+        "SourceURI": str,
+        "ScheduleConfig": "ScheduleConfigurationTypeDef",
+        "Tags": Dict[str, str],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateDataIntegrationRequestRequestTypeDef(
+    _RequiredCreateDataIntegrationRequestRequestTypeDef,
+    _OptionalCreateDataIntegrationRequestRequestTypeDef,
+):
+    pass
+
+CreateDataIntegrationResponseTypeDef = TypedDict(
+    "CreateDataIntegrationResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "KmsKey": str,
+        "SourceURI": str,
+        "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
+        "Tags": Dict[str, str],
+        "ClientToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCreateEventIntegrationRequestRequestTypeDef = TypedDict(
@@ -69,6 +123,33 @@ CreateEventIntegrationResponseTypeDef = TypedDict(
     {
         "EventIntegrationArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DataIntegrationAssociationSummaryTypeDef = TypedDict(
+    "DataIntegrationAssociationSummaryTypeDef",
+    {
+        "DataIntegrationAssociationArn": str,
+        "DataIntegrationArn": str,
+        "ClientId": str,
+    },
+    total=False,
+)
+
+DataIntegrationSummaryTypeDef = TypedDict(
+    "DataIntegrationSummaryTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
+        "SourceURI": str,
+    },
+    total=False,
+)
+
+DeleteDataIntegrationRequestRequestTypeDef = TypedDict(
+    "DeleteDataIntegrationRequestRequestTypeDef",
+    {
+        "DataIntegrationIdentifier": str,
     },
 )
 
@@ -112,6 +193,28 @@ EventIntegrationTypeDef = TypedDict(
     total=False,
 )
 
+GetDataIntegrationRequestRequestTypeDef = TypedDict(
+    "GetDataIntegrationRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+
+GetDataIntegrationResponseTypeDef = TypedDict(
+    "GetDataIntegrationResponseTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "KmsKey": str,
+        "SourceURI": str,
+        "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetEventIntegrationRequestRequestTypeDef = TypedDict(
     "GetEventIntegrationRequestRequestTypeDef",
     {
@@ -128,6 +231,54 @@ GetEventIntegrationResponseTypeDef = TypedDict(
         "EventBridgeBus": str,
         "EventFilter": "EventFilterTypeDef",
         "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListDataIntegrationAssociationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListDataIntegrationAssociationsRequestRequestTypeDef",
+    {
+        "DataIntegrationIdentifier": str,
+    },
+)
+_OptionalListDataIntegrationAssociationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListDataIntegrationAssociationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListDataIntegrationAssociationsRequestRequestTypeDef(
+    _RequiredListDataIntegrationAssociationsRequestRequestTypeDef,
+    _OptionalListDataIntegrationAssociationsRequestRequestTypeDef,
+):
+    pass
+
+ListDataIntegrationAssociationsResponseTypeDef = TypedDict(
+    "ListDataIntegrationAssociationsResponseTypeDef",
+    {
+        "DataIntegrationAssociations": List["DataIntegrationAssociationSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDataIntegrationsRequestRequestTypeDef = TypedDict(
+    "ListDataIntegrationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDataIntegrationsResponseTypeDef = TypedDict(
+    "ListDataIntegrationsResponseTypeDef",
+    {
+        "DataIntegrations": List["DataIntegrationSummaryTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -206,6 +357,16 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+ScheduleConfigurationTypeDef = TypedDict(
+    "ScheduleConfigurationTypeDef",
+    {
+        "FirstExecutionFrom": str,
+        "Object": str,
+        "ScheduleExpression": str,
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -221,6 +382,27 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "tagKeys": List[str],
     },
 )
+
+_RequiredUpdateDataIntegrationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDataIntegrationRequestRequestTypeDef",
+    {
+        "Identifier": str,
+    },
+)
+_OptionalUpdateDataIntegrationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDataIntegrationRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateDataIntegrationRequestRequestTypeDef(
+    _RequiredUpdateDataIntegrationRequestRequestTypeDef,
+    _OptionalUpdateDataIntegrationRequestRequestTypeDef,
+):
+    pass
 
 _RequiredUpdateEventIntegrationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateEventIntegrationRequestRequestTypeDef",

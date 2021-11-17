@@ -228,7 +228,7 @@ class Exceptions:
 
 class CodeDeployClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html)
     """
 
@@ -244,7 +244,7 @@ class CodeDeployClient(BaseClient):
         """
         Adds tags to on-premises instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.add_tags_to_on_premises_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.add_tags_to_on_premises_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#add_tags_to_on_premises_instances)
         """
     def batch_get_application_revisions(
@@ -253,7 +253,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about one or more application revisions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_application_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_application_revisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#batch_get_application_revisions)
         """
     def batch_get_applications(
@@ -262,7 +262,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about one or more applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#batch_get_applications)
         """
     def batch_get_deployment_groups(
@@ -271,7 +271,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about one or more deployment groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployment_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployment_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#batch_get_deployment_groups)
         """
     def batch_get_deployment_instances(
@@ -280,7 +280,7 @@ class CodeDeployClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployment_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployment_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#batch_get_deployment_instances)
         """
     def batch_get_deployment_targets(
@@ -289,7 +289,7 @@ class CodeDeployClient(BaseClient):
         """
         Returns an array of one or more targets associated with a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployment_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployment_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#batch_get_deployment_targets)
         """
     def batch_get_deployments(
@@ -298,7 +298,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about one or more deployments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_deployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#batch_get_deployments)
         """
     def batch_get_on_premises_instances(
@@ -307,14 +307,14 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about one or more on-premises instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_on_premises_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.batch_get_on_premises_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#batch_get_on_premises_instances)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#can_paginate)
         """
     def continue_deployment(
@@ -325,7 +325,7 @@ class CodeDeployClient(BaseClient):
         instances in the original environment to instances in the replacement
         environment without waiting for a specified wait time to elapse.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.continue_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.continue_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#continue_deployment)
         """
     def create_application(
@@ -338,7 +338,7 @@ class CodeDeployClient(BaseClient):
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.create_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#create_application)
         """
     def create_deployment(
@@ -358,7 +358,7 @@ class CodeDeployClient(BaseClient):
         """
         Deploys an application revision through the specified deployment group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.create_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.create_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#create_deployment)
         """
     def create_deployment_config(
@@ -372,7 +372,7 @@ class CodeDeployClient(BaseClient):
         """
         Creates a deployment configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.create_deployment_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.create_deployment_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#create_deployment_config)
         """
     def create_deployment_group(
@@ -400,21 +400,21 @@ class CodeDeployClient(BaseClient):
         """
         Creates a deployment group to which application revisions are deployed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.create_deployment_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.create_deployment_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#create_deployment_group)
         """
     def delete_application(self, *, applicationName: str) -> None:
         """
         Deletes an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.delete_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#delete_application)
         """
     def delete_deployment_config(self, *, deploymentConfigName: str) -> None:
         """
         Deletes a deployment configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.delete_deployment_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.delete_deployment_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#delete_deployment_config)
         """
     def delete_deployment_group(
@@ -423,7 +423,7 @@ class CodeDeployClient(BaseClient):
         """
         Deletes a deployment group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.delete_deployment_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.delete_deployment_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#delete_deployment_group)
         """
     def delete_git_hub_account_token(
@@ -432,21 +432,21 @@ class CodeDeployClient(BaseClient):
         """
         Deletes a GitHub account connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.delete_git_hub_account_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.delete_git_hub_account_token)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#delete_git_hub_account_token)
         """
     def delete_resources_by_external_id(self, *, externalId: str = None) -> Dict[str, Any]:
         """
         Deletes resources linked to an external ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.delete_resources_by_external_id)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.delete_resources_by_external_id)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#delete_resources_by_external_id)
         """
     def deregister_on_premises_instance(self, *, instanceName: str) -> None:
         """
         Deregisters an on-premises instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.deregister_on_premises_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.deregister_on_premises_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#deregister_on_premises_instance)
         """
     def generate_presigned_url(
@@ -459,14 +459,14 @@ class CodeDeployClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#generate_presigned_url)
         """
     def get_application(self, *, applicationName: str) -> GetApplicationOutputTypeDef:
         """
         Gets information about an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_application)
         """
     def get_application_revision(
@@ -475,14 +475,14 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about an application revision.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_application_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_application_revision)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_application_revision)
         """
     def get_deployment(self, *, deploymentId: str) -> GetDeploymentOutputTypeDef:
         """
         Gets information about a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_deployment)
         """
     def get_deployment_config(
@@ -491,7 +491,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about a deployment configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_deployment_config)
         """
     def get_deployment_group(
@@ -500,7 +500,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about a deployment group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_deployment_group)
         """
     def get_deployment_instance(
@@ -509,7 +509,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets information about an instance as part of a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_deployment_instance)
         """
     def get_deployment_target(
@@ -518,14 +518,14 @@ class CodeDeployClient(BaseClient):
         """
         Returns information about a deployment target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_deployment_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_deployment_target)
         """
     def get_on_premises_instance(self, *, instanceName: str) -> GetOnPremisesInstanceOutputTypeDef:
         """
         Gets information about an on-premises instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.get_on_premises_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.get_on_premises_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#get_on_premises_instance)
         """
     def list_application_revisions(
@@ -542,14 +542,14 @@ class CodeDeployClient(BaseClient):
         """
         Lists information about revisions for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_application_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_application_revisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_application_revisions)
         """
     def list_applications(self, *, nextToken: str = None) -> ListApplicationsOutputTypeDef:
         """
         Lists the applications registered with the IAM user or AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_applications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_applications)
         """
     def list_deployment_configs(
@@ -558,7 +558,7 @@ class CodeDeployClient(BaseClient):
         """
         Lists the deployment configurations with the IAM user or AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_deployment_configs)
         """
     def list_deployment_groups(
@@ -568,7 +568,7 @@ class CodeDeployClient(BaseClient):
         Lists the deployment groups for an application registered with the IAM user or
         AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_deployment_groups)
         """
     def list_deployment_instances(
@@ -582,7 +582,7 @@ class CodeDeployClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_deployment_instances)
         """
     def list_deployment_targets(
@@ -595,7 +595,7 @@ class CodeDeployClient(BaseClient):
         """
         Returns an array of target IDs that are associated a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_deployment_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_deployment_targets)
         """
     def list_deployments(
@@ -612,7 +612,7 @@ class CodeDeployClient(BaseClient):
         Lists the deployments in a deployment group for an application registered with
         the IAM user or AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_deployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_deployments)
         """
     def list_git_hub_account_token_names(
@@ -621,7 +621,7 @@ class CodeDeployClient(BaseClient):
         """
         Lists the names of stored connections to GitHub accounts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_git_hub_account_token_names)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_git_hub_account_token_names)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_git_hub_account_token_names)
         """
     def list_on_premises_instances(
@@ -634,7 +634,7 @@ class CodeDeployClient(BaseClient):
         """
         Gets a list of names for one or more on-premises instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_on_premises_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_on_premises_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_on_premises_instances)
         """
     def list_tags_for_resource(
@@ -644,7 +644,7 @@ class CodeDeployClient(BaseClient):
         Returns a list of tags for the resource identified by a specified Amazon
         Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#list_tags_for_resource)
         """
     def put_lifecycle_event_hook_execution_status(
@@ -657,7 +657,7 @@ class CodeDeployClient(BaseClient):
         """
         Sets the result of a Lambda validation function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.put_lifecycle_event_hook_execution_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.put_lifecycle_event_hook_execution_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#put_lifecycle_event_hook_execution_status)
         """
     def register_application_revision(
@@ -666,7 +666,7 @@ class CodeDeployClient(BaseClient):
         """
         Registers with AWS CodeDeploy a revision for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.register_application_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.register_application_revision)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#register_application_revision)
         """
     def register_on_premises_instance(
@@ -675,7 +675,7 @@ class CodeDeployClient(BaseClient):
         """
         Registers an on-premises instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.register_on_premises_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.register_on_premises_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#register_on_premises_instance)
         """
     def remove_tags_from_on_premises_instances(
@@ -684,7 +684,7 @@ class CodeDeployClient(BaseClient):
         """
         Removes one or more tags from one or more on-premises instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.remove_tags_from_on_premises_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.remove_tags_from_on_premises_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#remove_tags_from_on_premises_instances)
         """
     def skip_wait_time_for_instance_termination(self, *, deploymentId: str = None) -> None:
@@ -692,7 +692,7 @@ class CodeDeployClient(BaseClient):
         In a blue/green deployment, overrides any specified wait time and starts
         terminating instances immediately after the traffic routing is complete.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.skip_wait_time_for_instance_termination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.skip_wait_time_for_instance_termination)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#skip_wait_time_for_instance_termination)
         """
     def stop_deployment(
@@ -701,7 +701,7 @@ class CodeDeployClient(BaseClient):
         """
         Attempts to stop an ongoing deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.stop_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.stop_deployment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#stop_deployment)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
@@ -709,14 +709,14 @@ class CodeDeployClient(BaseClient):
         Associates the list of tags in the input `Tags` parameter with the resource
         identified by the `ResourceArn` input parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Disassociates a resource from a list of tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#untag_resource)
         """
     def update_application(
@@ -725,7 +725,7 @@ class CodeDeployClient(BaseClient):
         """
         Changes the name of an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.update_application)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#update_application)
         """
     def update_deployment_group(
@@ -753,7 +753,7 @@ class CodeDeployClient(BaseClient):
         """
         Changes information about a deployment group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Client.update_deployment_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Client.update_deployment_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/client.html#update_deployment_group)
         """
     @overload
@@ -761,7 +761,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_application_revisions"]
     ) -> ListApplicationRevisionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listapplicationrevisionspaginator)
         """
     @overload
@@ -769,7 +769,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listapplicationspaginator)
         """
     @overload
@@ -777,7 +777,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_deployment_configs"]
     ) -> ListDeploymentConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentconfigspaginator)
         """
     @overload
@@ -785,7 +785,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_deployment_groups"]
     ) -> ListDeploymentGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentgroupspaginator)
         """
     @overload
@@ -793,7 +793,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_deployment_instances"]
     ) -> ListDeploymentInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentinstancespaginator)
         """
     @overload
@@ -801,7 +801,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_deployment_targets"]
     ) -> ListDeploymentTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymenttargetspaginator)
         """
     @overload
@@ -809,7 +809,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_deployments"]
     ) -> ListDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listdeploymentspaginator)
         """
     @overload
@@ -817,7 +817,7 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_git_hub_account_token_names"]
     ) -> ListGitHubAccountTokenNamesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listgithubaccounttokennamespaginator)
         """
     @overload
@@ -825,13 +825,13 @@ class CodeDeployClient(BaseClient):
         self, operation_name: Literal["list_on_premises_instances"]
     ) -> ListOnPremisesInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/paginators.html#listonpremisesinstancespaginator)
         """
     def get_waiter(
         self, waiter_name: Literal["deployment_successful"]
     ) -> DeploymentSuccessfulWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.18.13/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codedeploy/waiters.html#deploymentsuccessfulwaiter)
         """

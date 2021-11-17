@@ -21,6 +21,7 @@ from .literals import (
     ContextType,
     CostCategoryInheritedValueDimensionNameType,
     CostCategoryRuleTypeType,
+    CostCategorySplitChargeMethodType,
     CostCategoryStatusType,
     DimensionType,
     FindingReasonCodeType,
@@ -63,6 +64,8 @@ __all__ = (
     "CostCategoryProcessingStatusTypeDef",
     "CostCategoryReferenceTypeDef",
     "CostCategoryRuleTypeDef",
+    "CostCategorySplitChargeRuleParameterTypeDef",
+    "CostCategorySplitChargeRuleTypeDef",
     "CostCategoryTypeDef",
     "CostCategoryValuesTypeDef",
     "CoverageByTimeTypeDef",
@@ -333,6 +336,35 @@ CostCategoryRuleTypeDef = TypedDict(
     total=False,
 )
 
+CostCategorySplitChargeRuleParameterTypeDef = TypedDict(
+    "CostCategorySplitChargeRuleParameterTypeDef",
+    {
+        "Type": Literal["ALLOCATION_PERCENTAGES"],
+        "Values": List[str],
+    },
+)
+
+_RequiredCostCategorySplitChargeRuleTypeDef = TypedDict(
+    "_RequiredCostCategorySplitChargeRuleTypeDef",
+    {
+        "Source": str,
+        "Targets": List[str],
+        "Method": CostCategorySplitChargeMethodType,
+    },
+)
+_OptionalCostCategorySplitChargeRuleTypeDef = TypedDict(
+    "_OptionalCostCategorySplitChargeRuleTypeDef",
+    {
+        "Parameters": List["CostCategorySplitChargeRuleParameterTypeDef"],
+    },
+    total=False,
+)
+
+class CostCategorySplitChargeRuleTypeDef(
+    _RequiredCostCategorySplitChargeRuleTypeDef, _OptionalCostCategorySplitChargeRuleTypeDef
+):
+    pass
+
 _RequiredCostCategoryTypeDef = TypedDict(
     "_RequiredCostCategoryTypeDef",
     {
@@ -347,6 +379,7 @@ _OptionalCostCategoryTypeDef = TypedDict(
     "_OptionalCostCategoryTypeDef",
     {
         "EffectiveEnd": str,
+        "SplitChargeRules": List["CostCategorySplitChargeRuleTypeDef"],
         "ProcessingStatus": List["CostCategoryProcessingStatusTypeDef"],
         "DefaultValue": str,
     },
@@ -458,6 +491,7 @@ _OptionalCreateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCostCategoryDefinitionRequestRequestTypeDef",
     {
         "DefaultValue": str,
+        "SplitChargeRules": List["CostCategorySplitChargeRuleTypeDef"],
     },
     total=False,
 )
@@ -1969,6 +2003,7 @@ _OptionalUpdateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateCostCategoryDefinitionRequestRequestTypeDef",
     {
         "DefaultValue": str,
+        "SplitChargeRules": List["CostCategorySplitChargeRuleTypeDef"],
     },
     total=False,
 )

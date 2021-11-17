@@ -6,9 +6,9 @@ Type annotations for transcribe service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_transcribe.type_defs import ContentRedactionTypeDef
+    from mypy_boto3_transcribe.type_defs import AbsoluteTimeRangeTypeDef
 
-    data: ContentRedactionTypeDef = {...}
+    data: AbsoluteTimeRangeTypeDef = {...}
     ```
 """
 import sys
@@ -17,12 +17,16 @@ from typing import Any, Dict, List
 
 from .literals import (
     BaseModelNameType,
+    CallAnalyticsJobStatusType,
     CLMLanguageCodeType,
     LanguageCodeType,
     MediaFormatType,
     ModelStatusType,
     OutputLocationTypeType,
+    ParticipantRoleType,
     RedactionOutputType,
+    SentimentValueType,
+    SubtitleFormatType,
     TranscriptionJobStatusType,
     TypeType,
     VocabularyFilterMethodType,
@@ -39,7 +43,15 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AbsoluteTimeRangeTypeDef",
+    "CallAnalyticsJobSettingsTypeDef",
+    "CallAnalyticsJobSummaryTypeDef",
+    "CallAnalyticsJobTypeDef",
+    "CategoryPropertiesTypeDef",
+    "ChannelDefinitionTypeDef",
     "ContentRedactionTypeDef",
+    "CreateCallAnalyticsCategoryRequestRequestTypeDef",
+    "CreateCallAnalyticsCategoryResponseTypeDef",
     "CreateLanguageModelRequestRequestTypeDef",
     "CreateLanguageModelResponseTypeDef",
     "CreateMedicalVocabularyRequestRequestTypeDef",
@@ -48,6 +60,8 @@ __all__ = (
     "CreateVocabularyFilterResponseTypeDef",
     "CreateVocabularyRequestRequestTypeDef",
     "CreateVocabularyResponseTypeDef",
+    "DeleteCallAnalyticsCategoryRequestRequestTypeDef",
+    "DeleteCallAnalyticsJobRequestRequestTypeDef",
     "DeleteLanguageModelRequestRequestTypeDef",
     "DeleteMedicalTranscriptionJobRequestRequestTypeDef",
     "DeleteMedicalVocabularyRequestRequestTypeDef",
@@ -56,6 +70,10 @@ __all__ = (
     "DeleteVocabularyRequestRequestTypeDef",
     "DescribeLanguageModelRequestRequestTypeDef",
     "DescribeLanguageModelResponseTypeDef",
+    "GetCallAnalyticsCategoryRequestRequestTypeDef",
+    "GetCallAnalyticsCategoryResponseTypeDef",
+    "GetCallAnalyticsJobRequestRequestTypeDef",
+    "GetCallAnalyticsJobResponseTypeDef",
     "GetMedicalTranscriptionJobRequestRequestTypeDef",
     "GetMedicalTranscriptionJobResponseTypeDef",
     "GetMedicalVocabularyRequestRequestTypeDef",
@@ -67,14 +85,22 @@ __all__ = (
     "GetVocabularyRequestRequestTypeDef",
     "GetVocabularyResponseTypeDef",
     "InputDataConfigTypeDef",
+    "InterruptionFilterTypeDef",
     "JobExecutionSettingsTypeDef",
+    "LanguageIdSettingsTypeDef",
     "LanguageModelTypeDef",
+    "ListCallAnalyticsCategoriesRequestRequestTypeDef",
+    "ListCallAnalyticsCategoriesResponseTypeDef",
+    "ListCallAnalyticsJobsRequestRequestTypeDef",
+    "ListCallAnalyticsJobsResponseTypeDef",
     "ListLanguageModelsRequestRequestTypeDef",
     "ListLanguageModelsResponseTypeDef",
     "ListMedicalTranscriptionJobsRequestRequestTypeDef",
     "ListMedicalTranscriptionJobsResponseTypeDef",
     "ListMedicalVocabulariesRequestRequestTypeDef",
     "ListMedicalVocabulariesResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ListTranscriptionJobsRequestRequestTypeDef",
     "ListTranscriptionJobsResponseTypeDef",
     "ListVocabulariesRequestRequestTypeDef",
@@ -87,15 +113,29 @@ __all__ = (
     "MedicalTranscriptionJobTypeDef",
     "MedicalTranscriptionSettingTypeDef",
     "ModelSettingsTypeDef",
+    "NonTalkTimeFilterTypeDef",
+    "RelativeTimeRangeTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleTypeDef",
+    "SentimentFilterTypeDef",
     "SettingsTypeDef",
+    "StartCallAnalyticsJobRequestRequestTypeDef",
+    "StartCallAnalyticsJobResponseTypeDef",
     "StartMedicalTranscriptionJobRequestRequestTypeDef",
     "StartMedicalTranscriptionJobResponseTypeDef",
     "StartTranscriptionJobRequestRequestTypeDef",
     "StartTranscriptionJobResponseTypeDef",
+    "SubtitlesOutputTypeDef",
+    "SubtitlesTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
+    "TranscriptFilterTypeDef",
     "TranscriptTypeDef",
     "TranscriptionJobSummaryTypeDef",
     "TranscriptionJobTypeDef",
+    "UntagResourceRequestRequestTypeDef",
+    "UpdateCallAnalyticsCategoryRequestRequestTypeDef",
+    "UpdateCallAnalyticsCategoryResponseTypeDef",
     "UpdateMedicalVocabularyRequestRequestTypeDef",
     "UpdateMedicalVocabularyResponseTypeDef",
     "UpdateVocabularyFilterRequestRequestTypeDef",
@@ -106,6 +146,87 @@ __all__ = (
     "VocabularyInfoTypeDef",
 )
 
+AbsoluteTimeRangeTypeDef = TypedDict(
+    "AbsoluteTimeRangeTypeDef",
+    {
+        "StartTime": int,
+        "EndTime": int,
+        "First": int,
+        "Last": int,
+    },
+    total=False,
+)
+
+CallAnalyticsJobSettingsTypeDef = TypedDict(
+    "CallAnalyticsJobSettingsTypeDef",
+    {
+        "VocabularyName": str,
+        "VocabularyFilterName": str,
+        "VocabularyFilterMethod": VocabularyFilterMethodType,
+        "LanguageModelName": str,
+        "ContentRedaction": "ContentRedactionTypeDef",
+        "LanguageOptions": List[LanguageCodeType],
+        "LanguageIdSettings": Dict[LanguageCodeType, "LanguageIdSettingsTypeDef"],
+    },
+    total=False,
+)
+
+CallAnalyticsJobSummaryTypeDef = TypedDict(
+    "CallAnalyticsJobSummaryTypeDef",
+    {
+        "CallAnalyticsJobName": str,
+        "CreationTime": datetime,
+        "StartTime": datetime,
+        "CompletionTime": datetime,
+        "LanguageCode": LanguageCodeType,
+        "CallAnalyticsJobStatus": CallAnalyticsJobStatusType,
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+CallAnalyticsJobTypeDef = TypedDict(
+    "CallAnalyticsJobTypeDef",
+    {
+        "CallAnalyticsJobName": str,
+        "CallAnalyticsJobStatus": CallAnalyticsJobStatusType,
+        "LanguageCode": LanguageCodeType,
+        "MediaSampleRateHertz": int,
+        "MediaFormat": MediaFormatType,
+        "Media": "MediaTypeDef",
+        "Transcript": "TranscriptTypeDef",
+        "StartTime": datetime,
+        "CreationTime": datetime,
+        "CompletionTime": datetime,
+        "FailureReason": str,
+        "DataAccessRoleArn": str,
+        "IdentifiedLanguageScore": float,
+        "Settings": "CallAnalyticsJobSettingsTypeDef",
+        "ChannelDefinitions": List["ChannelDefinitionTypeDef"],
+    },
+    total=False,
+)
+
+CategoryPropertiesTypeDef = TypedDict(
+    "CategoryPropertiesTypeDef",
+    {
+        "CategoryName": str,
+        "Rules": List["RuleTypeDef"],
+        "CreateTime": datetime,
+        "LastUpdateTime": datetime,
+    },
+    total=False,
+)
+
+ChannelDefinitionTypeDef = TypedDict(
+    "ChannelDefinitionTypeDef",
+    {
+        "ChannelId": int,
+        "ParticipantRole": ParticipantRoleType,
+    },
+    total=False,
+)
+
 ContentRedactionTypeDef = TypedDict(
     "ContentRedactionTypeDef",
     {
@@ -114,8 +235,24 @@ ContentRedactionTypeDef = TypedDict(
     },
 )
 
-CreateLanguageModelRequestRequestTypeDef = TypedDict(
-    "CreateLanguageModelRequestRequestTypeDef",
+CreateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "CreateCallAnalyticsCategoryRequestRequestTypeDef",
+    {
+        "CategoryName": str,
+        "Rules": List["RuleTypeDef"],
+    },
+)
+
+CreateCallAnalyticsCategoryResponseTypeDef = TypedDict(
+    "CreateCallAnalyticsCategoryResponseTypeDef",
+    {
+        "CategoryProperties": "CategoryPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLanguageModelRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLanguageModelRequestRequestTypeDef",
     {
         "LanguageCode": CLMLanguageCodeType,
         "BaseModelName": BaseModelNameType,
@@ -123,6 +260,19 @@ CreateLanguageModelRequestRequestTypeDef = TypedDict(
         "InputDataConfig": "InputDataConfigTypeDef",
     },
 )
+_OptionalCreateLanguageModelRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLanguageModelRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLanguageModelRequestRequestTypeDef(
+    _RequiredCreateLanguageModelRequestRequestTypeDef,
+    _OptionalCreateLanguageModelRequestRequestTypeDef,
+):
+    pass
 
 CreateLanguageModelResponseTypeDef = TypedDict(
     "CreateLanguageModelResponseTypeDef",
@@ -136,14 +286,27 @@ CreateLanguageModelResponseTypeDef = TypedDict(
     },
 )
 
-CreateMedicalVocabularyRequestRequestTypeDef = TypedDict(
-    "CreateMedicalVocabularyRequestRequestTypeDef",
+_RequiredCreateMedicalVocabularyRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMedicalVocabularyRequestRequestTypeDef",
     {
         "VocabularyName": str,
         "LanguageCode": LanguageCodeType,
         "VocabularyFileUri": str,
     },
 )
+_OptionalCreateMedicalVocabularyRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMedicalVocabularyRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateMedicalVocabularyRequestRequestTypeDef(
+    _RequiredCreateMedicalVocabularyRequestRequestTypeDef,
+    _OptionalCreateMedicalVocabularyRequestRequestTypeDef,
+):
+    pass
 
 CreateMedicalVocabularyResponseTypeDef = TypedDict(
     "CreateMedicalVocabularyResponseTypeDef",
@@ -169,6 +332,7 @@ _OptionalCreateVocabularyFilterRequestRequestTypeDef = TypedDict(
     {
         "Words": List[str],
         "VocabularyFilterFileUri": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -201,6 +365,7 @@ _OptionalCreateVocabularyRequestRequestTypeDef = TypedDict(
     {
         "Phrases": List[str],
         "VocabularyFileUri": str,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -219,6 +384,20 @@ CreateVocabularyResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "FailureReason": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "DeleteCallAnalyticsCategoryRequestRequestTypeDef",
+    {
+        "CategoryName": str,
+    },
+)
+
+DeleteCallAnalyticsJobRequestRequestTypeDef = TypedDict(
+    "DeleteCallAnalyticsJobRequestRequestTypeDef",
+    {
+        "CallAnalyticsJobName": str,
     },
 )
 
@@ -275,6 +454,36 @@ DescribeLanguageModelResponseTypeDef = TypedDict(
     "DescribeLanguageModelResponseTypeDef",
     {
         "LanguageModel": "LanguageModelTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "GetCallAnalyticsCategoryRequestRequestTypeDef",
+    {
+        "CategoryName": str,
+    },
+)
+
+GetCallAnalyticsCategoryResponseTypeDef = TypedDict(
+    "GetCallAnalyticsCategoryResponseTypeDef",
+    {
+        "CategoryProperties": "CategoryPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetCallAnalyticsJobRequestRequestTypeDef = TypedDict(
+    "GetCallAnalyticsJobRequestRequestTypeDef",
+    {
+        "CallAnalyticsJobName": str,
+    },
+)
+
+GetCallAnalyticsJobResponseTypeDef = TypedDict(
+    "GetCallAnalyticsJobResponseTypeDef",
+    {
+        "CallAnalyticsJob": "CallAnalyticsJobTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -385,11 +594,33 @@ _OptionalInputDataConfigTypeDef = TypedDict(
 class InputDataConfigTypeDef(_RequiredInputDataConfigTypeDef, _OptionalInputDataConfigTypeDef):
     pass
 
+InterruptionFilterTypeDef = TypedDict(
+    "InterruptionFilterTypeDef",
+    {
+        "Threshold": int,
+        "ParticipantRole": ParticipantRoleType,
+        "AbsoluteTimeRange": "AbsoluteTimeRangeTypeDef",
+        "RelativeTimeRange": "RelativeTimeRangeTypeDef",
+        "Negate": bool,
+    },
+    total=False,
+)
+
 JobExecutionSettingsTypeDef = TypedDict(
     "JobExecutionSettingsTypeDef",
     {
         "AllowDeferredExecution": bool,
         "DataAccessRoleArn": str,
+    },
+    total=False,
+)
+
+LanguageIdSettingsTypeDef = TypedDict(
+    "LanguageIdSettingsTypeDef",
+    {
+        "VocabularyName": str,
+        "VocabularyFilterName": str,
+        "LanguageModelName": str,
     },
     total=False,
 )
@@ -408,6 +639,45 @@ LanguageModelTypeDef = TypedDict(
         "InputDataConfig": "InputDataConfigTypeDef",
     },
     total=False,
+)
+
+ListCallAnalyticsCategoriesRequestRequestTypeDef = TypedDict(
+    "ListCallAnalyticsCategoriesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListCallAnalyticsCategoriesResponseTypeDef = TypedDict(
+    "ListCallAnalyticsCategoriesResponseTypeDef",
+    {
+        "NextToken": str,
+        "Categories": List["CategoryPropertiesTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCallAnalyticsJobsRequestRequestTypeDef = TypedDict(
+    "ListCallAnalyticsJobsRequestRequestTypeDef",
+    {
+        "Status": CallAnalyticsJobStatusType,
+        "JobNameContains": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListCallAnalyticsJobsResponseTypeDef = TypedDict(
+    "ListCallAnalyticsJobsResponseTypeDef",
+    {
+        "Status": CallAnalyticsJobStatusType,
+        "NextToken": str,
+        "CallAnalyticsJobSummaries": List["CallAnalyticsJobSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListLanguageModelsRequestRequestTypeDef = TypedDict(
@@ -468,6 +738,22 @@ ListMedicalVocabulariesResponseTypeDef = TypedDict(
         "Status": VocabularyStateType,
         "NextToken": str,
         "Vocabularies": List["VocabularyInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -537,6 +823,7 @@ MediaTypeDef = TypedDict(
     "MediaTypeDef",
     {
         "MediaFileUri": str,
+        "RedactedMediaFileUri": str,
     },
     total=False,
 )
@@ -585,6 +872,7 @@ MedicalTranscriptionJobTypeDef = TypedDict(
         "ContentIdentificationType": Literal["PHI"],
         "Specialty": Literal["PRIMARYCARE"],
         "Type": TypeType,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -610,6 +898,28 @@ ModelSettingsTypeDef = TypedDict(
     total=False,
 )
 
+NonTalkTimeFilterTypeDef = TypedDict(
+    "NonTalkTimeFilterTypeDef",
+    {
+        "Threshold": int,
+        "AbsoluteTimeRange": "AbsoluteTimeRangeTypeDef",
+        "RelativeTimeRange": "RelativeTimeRangeTypeDef",
+        "Negate": bool,
+    },
+    total=False,
+)
+
+RelativeTimeRangeTypeDef = TypedDict(
+    "RelativeTimeRangeTypeDef",
+    {
+        "StartPercentage": int,
+        "EndPercentage": int,
+        "First": int,
+        "Last": int,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -620,6 +930,37 @@ ResponseMetadataTypeDef = TypedDict(
         "RetryAttempts": int,
     },
 )
+
+RuleTypeDef = TypedDict(
+    "RuleTypeDef",
+    {
+        "NonTalkTimeFilter": "NonTalkTimeFilterTypeDef",
+        "InterruptionFilter": "InterruptionFilterTypeDef",
+        "TranscriptFilter": "TranscriptFilterTypeDef",
+        "SentimentFilter": "SentimentFilterTypeDef",
+    },
+    total=False,
+)
+
+_RequiredSentimentFilterTypeDef = TypedDict(
+    "_RequiredSentimentFilterTypeDef",
+    {
+        "Sentiments": List[SentimentValueType],
+    },
+)
+_OptionalSentimentFilterTypeDef = TypedDict(
+    "_OptionalSentimentFilterTypeDef",
+    {
+        "AbsoluteTimeRange": "AbsoluteTimeRangeTypeDef",
+        "RelativeTimeRange": "RelativeTimeRangeTypeDef",
+        "ParticipantRole": ParticipantRoleType,
+        "Negate": bool,
+    },
+    total=False,
+)
+
+class SentimentFilterTypeDef(_RequiredSentimentFilterTypeDef, _OptionalSentimentFilterTypeDef):
+    pass
 
 SettingsTypeDef = TypedDict(
     "SettingsTypeDef",
@@ -634,6 +975,39 @@ SettingsTypeDef = TypedDict(
         "VocabularyFilterMethod": VocabularyFilterMethodType,
     },
     total=False,
+)
+
+_RequiredStartCallAnalyticsJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartCallAnalyticsJobRequestRequestTypeDef",
+    {
+        "CallAnalyticsJobName": str,
+        "Media": "MediaTypeDef",
+        "DataAccessRoleArn": str,
+    },
+)
+_OptionalStartCallAnalyticsJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartCallAnalyticsJobRequestRequestTypeDef",
+    {
+        "OutputLocation": str,
+        "OutputEncryptionKMSKeyId": str,
+        "Settings": "CallAnalyticsJobSettingsTypeDef",
+        "ChannelDefinitions": List["ChannelDefinitionTypeDef"],
+    },
+    total=False,
+)
+
+class StartCallAnalyticsJobRequestRequestTypeDef(
+    _RequiredStartCallAnalyticsJobRequestRequestTypeDef,
+    _OptionalStartCallAnalyticsJobRequestRequestTypeDef,
+):
+    pass
+
+StartCallAnalyticsJobResponseTypeDef = TypedDict(
+    "StartCallAnalyticsJobResponseTypeDef",
+    {
+        "CallAnalyticsJob": "CallAnalyticsJobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredStartMedicalTranscriptionJobRequestRequestTypeDef = TypedDict(
@@ -654,8 +1028,10 @@ _OptionalStartMedicalTranscriptionJobRequestRequestTypeDef = TypedDict(
         "MediaFormat": MediaFormatType,
         "OutputKey": str,
         "OutputEncryptionKMSKeyId": str,
+        "KMSEncryptionContext": Dict[str, str],
         "Settings": "MedicalTranscriptionSettingTypeDef",
         "ContentIdentificationType": Literal["PHI"],
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -690,12 +1066,16 @@ _OptionalStartTranscriptionJobRequestRequestTypeDef = TypedDict(
         "OutputBucketName": str,
         "OutputKey": str,
         "OutputEncryptionKMSKeyId": str,
+        "KMSEncryptionContext": Dict[str, str],
         "Settings": "SettingsTypeDef",
         "ModelSettings": "ModelSettingsTypeDef",
         "JobExecutionSettings": "JobExecutionSettingsTypeDef",
         "ContentRedaction": "ContentRedactionTypeDef",
         "IdentifyLanguage": bool,
         "LanguageOptions": List[LanguageCodeType],
+        "Subtitles": "SubtitlesTypeDef",
+        "Tags": List["TagTypeDef"],
+        "LanguageIdSettings": Dict[LanguageCodeType, "LanguageIdSettingsTypeDef"],
     },
     total=False,
 )
@@ -713,6 +1093,60 @@ StartTranscriptionJobResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+SubtitlesOutputTypeDef = TypedDict(
+    "SubtitlesOutputTypeDef",
+    {
+        "Formats": List[SubtitleFormatType],
+        "SubtitleFileUris": List[str],
+    },
+    total=False,
+)
+
+SubtitlesTypeDef = TypedDict(
+    "SubtitlesTypeDef",
+    {
+        "Formats": List[SubtitleFormatType],
+    },
+    total=False,
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+)
+
+_RequiredTranscriptFilterTypeDef = TypedDict(
+    "_RequiredTranscriptFilterTypeDef",
+    {
+        "TranscriptFilterType": Literal["EXACT"],
+        "Targets": List[str],
+    },
+)
+_OptionalTranscriptFilterTypeDef = TypedDict(
+    "_OptionalTranscriptFilterTypeDef",
+    {
+        "AbsoluteTimeRange": "AbsoluteTimeRangeTypeDef",
+        "RelativeTimeRange": "RelativeTimeRangeTypeDef",
+        "ParticipantRole": ParticipantRoleType,
+        "Negate": bool,
+    },
+    total=False,
+)
+
+class TranscriptFilterTypeDef(_RequiredTranscriptFilterTypeDef, _OptionalTranscriptFilterTypeDef):
+    pass
 
 TranscriptTypeDef = TypedDict(
     "TranscriptTypeDef",
@@ -763,8 +1197,35 @@ TranscriptionJobTypeDef = TypedDict(
         "IdentifyLanguage": bool,
         "LanguageOptions": List[LanguageCodeType],
         "IdentifiedLanguageScore": float,
+        "Tags": List["TagTypeDef"],
+        "Subtitles": "SubtitlesOutputTypeDef",
+        "LanguageIdSettings": Dict[LanguageCodeType, "LanguageIdSettingsTypeDef"],
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
+)
+
+UpdateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
+    "UpdateCallAnalyticsCategoryRequestRequestTypeDef",
+    {
+        "CategoryName": str,
+        "Rules": List["RuleTypeDef"],
+    },
+)
+
+UpdateCallAnalyticsCategoryResponseTypeDef = TypedDict(
+    "UpdateCallAnalyticsCategoryResponseTypeDef",
+    {
+        "CategoryProperties": "CategoryPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredUpdateMedicalVocabularyRequestRequestTypeDef = TypedDict(

@@ -29,6 +29,7 @@ __all__ = (
     "StatusType",
     "ThroughputModeType",
     "TransitionToIARulesType",
+    "TransitionToPrimaryStorageClassRulesType",
 )
 
 DescribeFileSystemsPaginatorName = Literal["describe_file_systems"]
@@ -43,3 +44,4 @@ ThroughputModeType = Literal["bursting", "provisioned"]
 TransitionToIARulesType = Literal[
     "AFTER_14_DAYS", "AFTER_30_DAYS", "AFTER_60_DAYS", "AFTER_7_DAYS", "AFTER_90_DAYS"
 ]
+TransitionToPrimaryStorageClassRulesType = Literal["AFTER_1_ACCESS"]

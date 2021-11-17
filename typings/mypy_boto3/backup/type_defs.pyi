@@ -46,7 +46,11 @@ __all__ = (
     "BackupSelectionsListMemberTypeDef",
     "BackupVaultListMemberTypeDef",
     "CalculatedLifecycleTypeDef",
+    "ConditionParameterTypeDef",
     "ConditionTypeDef",
+    "ConditionsTypeDef",
+    "ControlInputParameterTypeDef",
+    "ControlScopeTypeDef",
     "CopyActionTypeDef",
     "CopyJobTypeDef",
     "CreateBackupPlanInputRequestTypeDef",
@@ -55,30 +59,45 @@ __all__ = (
     "CreateBackupSelectionOutputTypeDef",
     "CreateBackupVaultInputRequestTypeDef",
     "CreateBackupVaultOutputTypeDef",
+    "CreateFrameworkInputRequestTypeDef",
+    "CreateFrameworkOutputTypeDef",
+    "CreateReportPlanInputRequestTypeDef",
+    "CreateReportPlanOutputTypeDef",
     "DeleteBackupPlanInputRequestTypeDef",
     "DeleteBackupPlanOutputTypeDef",
     "DeleteBackupSelectionInputRequestTypeDef",
     "DeleteBackupVaultAccessPolicyInputRequestTypeDef",
     "DeleteBackupVaultInputRequestTypeDef",
+    "DeleteBackupVaultLockConfigurationInputRequestTypeDef",
     "DeleteBackupVaultNotificationsInputRequestTypeDef",
+    "DeleteFrameworkInputRequestTypeDef",
     "DeleteRecoveryPointInputRequestTypeDef",
+    "DeleteReportPlanInputRequestTypeDef",
     "DescribeBackupJobInputRequestTypeDef",
     "DescribeBackupJobOutputTypeDef",
     "DescribeBackupVaultInputRequestTypeDef",
     "DescribeBackupVaultOutputTypeDef",
     "DescribeCopyJobInputRequestTypeDef",
     "DescribeCopyJobOutputTypeDef",
+    "DescribeFrameworkInputRequestTypeDef",
+    "DescribeFrameworkOutputTypeDef",
     "DescribeGlobalSettingsOutputTypeDef",
     "DescribeProtectedResourceInputRequestTypeDef",
     "DescribeProtectedResourceOutputTypeDef",
     "DescribeRecoveryPointInputRequestTypeDef",
     "DescribeRecoveryPointOutputTypeDef",
     "DescribeRegionSettingsOutputTypeDef",
+    "DescribeReportJobInputRequestTypeDef",
+    "DescribeReportJobOutputTypeDef",
+    "DescribeReportPlanInputRequestTypeDef",
+    "DescribeReportPlanOutputTypeDef",
     "DescribeRestoreJobInputRequestTypeDef",
     "DescribeRestoreJobOutputTypeDef",
     "DisassociateRecoveryPointInputRequestTypeDef",
     "ExportBackupPlanTemplateInputRequestTypeDef",
     "ExportBackupPlanTemplateOutputTypeDef",
+    "FrameworkControlTypeDef",
+    "FrameworkTypeDef",
     "GetBackupPlanFromJSONInputRequestTypeDef",
     "GetBackupPlanFromJSONOutputTypeDef",
     "GetBackupPlanFromTemplateInputRequestTypeDef",
@@ -109,28 +128,42 @@ __all__ = (
     "ListBackupVaultsOutputTypeDef",
     "ListCopyJobsInputRequestTypeDef",
     "ListCopyJobsOutputTypeDef",
+    "ListFrameworksInputRequestTypeDef",
+    "ListFrameworksOutputTypeDef",
     "ListProtectedResourcesInputRequestTypeDef",
     "ListProtectedResourcesOutputTypeDef",
     "ListRecoveryPointsByBackupVaultInputRequestTypeDef",
     "ListRecoveryPointsByBackupVaultOutputTypeDef",
     "ListRecoveryPointsByResourceInputRequestTypeDef",
     "ListRecoveryPointsByResourceOutputTypeDef",
+    "ListReportJobsInputRequestTypeDef",
+    "ListReportJobsOutputTypeDef",
+    "ListReportPlansInputRequestTypeDef",
+    "ListReportPlansOutputTypeDef",
     "ListRestoreJobsInputRequestTypeDef",
     "ListRestoreJobsOutputTypeDef",
     "ListTagsInputRequestTypeDef",
     "ListTagsOutputTypeDef",
     "ProtectedResourceTypeDef",
     "PutBackupVaultAccessPolicyInputRequestTypeDef",
+    "PutBackupVaultLockConfigurationInputRequestTypeDef",
     "PutBackupVaultNotificationsInputRequestTypeDef",
     "RecoveryPointByBackupVaultTypeDef",
     "RecoveryPointByResourceTypeDef",
     "RecoveryPointCreatorTypeDef",
+    "ReportDeliveryChannelTypeDef",
+    "ReportDestinationTypeDef",
+    "ReportJobTypeDef",
+    "ReportPlanTypeDef",
+    "ReportSettingTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreJobsListMemberTypeDef",
     "StartBackupJobInputRequestTypeDef",
     "StartBackupJobOutputTypeDef",
     "StartCopyJobInputRequestTypeDef",
     "StartCopyJobOutputTypeDef",
+    "StartReportJobInputRequestTypeDef",
+    "StartReportJobOutputTypeDef",
     "StartRestoreJobInputRequestTypeDef",
     "StartRestoreJobOutputTypeDef",
     "StopBackupJobInputRequestTypeDef",
@@ -138,10 +171,14 @@ __all__ = (
     "UntagResourceInputRequestTypeDef",
     "UpdateBackupPlanInputRequestTypeDef",
     "UpdateBackupPlanOutputTypeDef",
+    "UpdateFrameworkInputRequestTypeDef",
+    "UpdateFrameworkOutputTypeDef",
     "UpdateGlobalSettingsInputRequestTypeDef",
     "UpdateRecoveryPointLifecycleInputRequestTypeDef",
     "UpdateRecoveryPointLifecycleOutputTypeDef",
     "UpdateRegionSettingsInputRequestTypeDef",
+    "UpdateReportPlanInputRequestTypeDef",
+    "UpdateReportPlanOutputTypeDef",
 )
 
 AdvancedBackupSettingTypeDef = TypedDict(
@@ -302,6 +339,8 @@ _OptionalBackupSelectionTypeDef = TypedDict(
     {
         "Resources": List[str],
         "ListOfTags": List["ConditionTypeDef"],
+        "NotResources": List[str],
+        "Conditions": "ConditionsTypeDef",
     },
     total=False,
 )
@@ -331,6 +370,10 @@ BackupVaultListMemberTypeDef = TypedDict(
         "EncryptionKeyArn": str,
         "CreatorRequestId": str,
         "NumberOfRecoveryPoints": int,
+        "Locked": bool,
+        "MinRetentionDays": int,
+        "MaxRetentionDays": int,
+        "LockDate": datetime,
     },
     total=False,
 )
@@ -344,6 +387,15 @@ CalculatedLifecycleTypeDef = TypedDict(
     total=False,
 )
 
+ConditionParameterTypeDef = TypedDict(
+    "ConditionParameterTypeDef",
+    {
+        "ConditionKey": str,
+        "ConditionValue": str,
+    },
+    total=False,
+)
+
 ConditionTypeDef = TypedDict(
     "ConditionTypeDef",
     {
@@ -351,6 +403,36 @@ ConditionTypeDef = TypedDict(
         "ConditionKey": str,
         "ConditionValue": str,
     },
+)
+
+ConditionsTypeDef = TypedDict(
+    "ConditionsTypeDef",
+    {
+        "StringEquals": List["ConditionParameterTypeDef"],
+        "StringNotEquals": List["ConditionParameterTypeDef"],
+        "StringLike": List["ConditionParameterTypeDef"],
+        "StringNotLike": List["ConditionParameterTypeDef"],
+    },
+    total=False,
+)
+
+ControlInputParameterTypeDef = TypedDict(
+    "ControlInputParameterTypeDef",
+    {
+        "ParameterName": str,
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+ControlScopeTypeDef = TypedDict(
+    "ControlScopeTypeDef",
+    {
+        "ComplianceResourceIds": List[str],
+        "ComplianceResourceTypes": List[str],
+        "Tags": Dict[str, str],
+    },
+    total=False,
 )
 
 _RequiredCopyActionTypeDef = TypedDict(
@@ -486,6 +568,70 @@ CreateBackupVaultOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateFrameworkInputRequestTypeDef = TypedDict(
+    "_RequiredCreateFrameworkInputRequestTypeDef",
+    {
+        "FrameworkName": str,
+        "FrameworkControls": List["FrameworkControlTypeDef"],
+    },
+)
+_OptionalCreateFrameworkInputRequestTypeDef = TypedDict(
+    "_OptionalCreateFrameworkInputRequestTypeDef",
+    {
+        "FrameworkDescription": str,
+        "IdempotencyToken": str,
+        "FrameworkTags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateFrameworkInputRequestTypeDef(
+    _RequiredCreateFrameworkInputRequestTypeDef, _OptionalCreateFrameworkInputRequestTypeDef
+):
+    pass
+
+CreateFrameworkOutputTypeDef = TypedDict(
+    "CreateFrameworkOutputTypeDef",
+    {
+        "FrameworkName": str,
+        "FrameworkArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateReportPlanInputRequestTypeDef = TypedDict(
+    "_RequiredCreateReportPlanInputRequestTypeDef",
+    {
+        "ReportPlanName": str,
+        "ReportDeliveryChannel": "ReportDeliveryChannelTypeDef",
+        "ReportSetting": "ReportSettingTypeDef",
+    },
+)
+_OptionalCreateReportPlanInputRequestTypeDef = TypedDict(
+    "_OptionalCreateReportPlanInputRequestTypeDef",
+    {
+        "ReportPlanDescription": str,
+        "ReportPlanTags": Dict[str, str],
+        "IdempotencyToken": str,
+    },
+    total=False,
+)
+
+class CreateReportPlanInputRequestTypeDef(
+    _RequiredCreateReportPlanInputRequestTypeDef, _OptionalCreateReportPlanInputRequestTypeDef
+):
+    pass
+
+CreateReportPlanOutputTypeDef = TypedDict(
+    "CreateReportPlanOutputTypeDef",
+    {
+        "ReportPlanName": str,
+        "ReportPlanArn": str,
+        "CreationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteBackupPlanInputRequestTypeDef = TypedDict(
     "DeleteBackupPlanInputRequestTypeDef",
     {
@@ -526,10 +672,24 @@ DeleteBackupVaultInputRequestTypeDef = TypedDict(
     },
 )
 
+DeleteBackupVaultLockConfigurationInputRequestTypeDef = TypedDict(
+    "DeleteBackupVaultLockConfigurationInputRequestTypeDef",
+    {
+        "BackupVaultName": str,
+    },
+)
+
 DeleteBackupVaultNotificationsInputRequestTypeDef = TypedDict(
     "DeleteBackupVaultNotificationsInputRequestTypeDef",
     {
         "BackupVaultName": str,
+    },
+)
+
+DeleteFrameworkInputRequestTypeDef = TypedDict(
+    "DeleteFrameworkInputRequestTypeDef",
+    {
+        "FrameworkName": str,
     },
 )
 
@@ -538,6 +698,13 @@ DeleteRecoveryPointInputRequestTypeDef = TypedDict(
     {
         "BackupVaultName": str,
         "RecoveryPointArn": str,
+    },
+)
+
+DeleteReportPlanInputRequestTypeDef = TypedDict(
+    "DeleteReportPlanInputRequestTypeDef",
+    {
+        "ReportPlanName": str,
     },
 )
 
@@ -591,6 +758,10 @@ DescribeBackupVaultOutputTypeDef = TypedDict(
         "CreationDate": datetime,
         "CreatorRequestId": str,
         "NumberOfRecoveryPoints": int,
+        "Locked": bool,
+        "MinRetentionDays": int,
+        "MaxRetentionDays": int,
+        "LockDate": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -606,6 +777,28 @@ DescribeCopyJobOutputTypeDef = TypedDict(
     "DescribeCopyJobOutputTypeDef",
     {
         "CopyJob": "CopyJobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFrameworkInputRequestTypeDef = TypedDict(
+    "DescribeFrameworkInputRequestTypeDef",
+    {
+        "FrameworkName": str,
+    },
+)
+
+DescribeFrameworkOutputTypeDef = TypedDict(
+    "DescribeFrameworkOutputTypeDef",
+    {
+        "FrameworkName": str,
+        "FrameworkArn": str,
+        "FrameworkDescription": str,
+        "FrameworkControls": List["FrameworkControlTypeDef"],
+        "CreationTime": datetime,
+        "DeploymentStatus": str,
+        "FrameworkStatus": str,
+        "IdempotencyToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -656,6 +849,7 @@ DescribeRecoveryPointOutputTypeDef = TypedDict(
         "CreatedBy": "RecoveryPointCreatorTypeDef",
         "IamRoleArn": str,
         "Status": RecoveryPointStatusType,
+        "StatusMessage": str,
         "CreationDate": datetime,
         "CompletionDate": datetime,
         "BackupSizeInBytes": int,
@@ -673,6 +867,36 @@ DescribeRegionSettingsOutputTypeDef = TypedDict(
     "DescribeRegionSettingsOutputTypeDef",
     {
         "ResourceTypeOptInPreference": Dict[str, bool],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReportJobInputRequestTypeDef = TypedDict(
+    "DescribeReportJobInputRequestTypeDef",
+    {
+        "ReportJobId": str,
+    },
+)
+
+DescribeReportJobOutputTypeDef = TypedDict(
+    "DescribeReportJobOutputTypeDef",
+    {
+        "ReportJob": "ReportJobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeReportPlanInputRequestTypeDef = TypedDict(
+    "DescribeReportPlanInputRequestTypeDef",
+    {
+        "ReportPlanName": str,
+    },
+)
+
+DescribeReportPlanOutputTypeDef = TypedDict(
+    "DescribeReportPlanOutputTypeDef",
+    {
+        "ReportPlan": "ReportPlanTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -725,6 +949,37 @@ ExportBackupPlanTemplateOutputTypeDef = TypedDict(
         "BackupPlanTemplateJson": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredFrameworkControlTypeDef = TypedDict(
+    "_RequiredFrameworkControlTypeDef",
+    {
+        "ControlName": str,
+    },
+)
+_OptionalFrameworkControlTypeDef = TypedDict(
+    "_OptionalFrameworkControlTypeDef",
+    {
+        "ControlInputParameters": List["ControlInputParameterTypeDef"],
+        "ControlScope": "ControlScopeTypeDef",
+    },
+    total=False,
+)
+
+class FrameworkControlTypeDef(_RequiredFrameworkControlTypeDef, _OptionalFrameworkControlTypeDef):
+    pass
+
+FrameworkTypeDef = TypedDict(
+    "FrameworkTypeDef",
+    {
+        "FrameworkName": str,
+        "FrameworkArn": str,
+        "FrameworkDescription": str,
+        "NumberOfControls": int,
+        "CreationTime": datetime,
+        "DeploymentStatus": str,
+    },
+    total=False,
 )
 
 GetBackupPlanFromJSONInputRequestTypeDef = TypedDict(
@@ -1047,6 +1302,24 @@ ListCopyJobsOutputTypeDef = TypedDict(
     },
 )
 
+ListFrameworksInputRequestTypeDef = TypedDict(
+    "ListFrameworksInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListFrameworksOutputTypeDef = TypedDict(
+    "ListFrameworksOutputTypeDef",
+    {
+        "Frameworks": List["FrameworkTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListProtectedResourcesInputRequestTypeDef = TypedDict(
     "ListProtectedResourcesInputRequestTypeDef",
     {
@@ -1126,6 +1399,46 @@ ListRecoveryPointsByResourceOutputTypeDef = TypedDict(
     {
         "NextToken": str,
         "RecoveryPoints": List["RecoveryPointByResourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListReportJobsInputRequestTypeDef = TypedDict(
+    "ListReportJobsInputRequestTypeDef",
+    {
+        "ByReportPlanName": str,
+        "ByCreationBefore": Union[datetime, str],
+        "ByCreationAfter": Union[datetime, str],
+        "ByStatus": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListReportJobsOutputTypeDef = TypedDict(
+    "ListReportJobsOutputTypeDef",
+    {
+        "ReportJobs": List["ReportJobTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListReportPlansInputRequestTypeDef = TypedDict(
+    "ListReportPlansInputRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListReportPlansOutputTypeDef = TypedDict(
+    "ListReportPlansOutputTypeDef",
+    {
+        "ReportPlans": List["ReportPlanTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1211,6 +1524,28 @@ class PutBackupVaultAccessPolicyInputRequestTypeDef(
 ):
     pass
 
+_RequiredPutBackupVaultLockConfigurationInputRequestTypeDef = TypedDict(
+    "_RequiredPutBackupVaultLockConfigurationInputRequestTypeDef",
+    {
+        "BackupVaultName": str,
+    },
+)
+_OptionalPutBackupVaultLockConfigurationInputRequestTypeDef = TypedDict(
+    "_OptionalPutBackupVaultLockConfigurationInputRequestTypeDef",
+    {
+        "MinRetentionDays": int,
+        "MaxRetentionDays": int,
+        "ChangeableForDays": int,
+    },
+    total=False,
+)
+
+class PutBackupVaultLockConfigurationInputRequestTypeDef(
+    _RequiredPutBackupVaultLockConfigurationInputRequestTypeDef,
+    _OptionalPutBackupVaultLockConfigurationInputRequestTypeDef,
+):
+    pass
+
 PutBackupVaultNotificationsInputRequestTypeDef = TypedDict(
     "PutBackupVaultNotificationsInputRequestTypeDef",
     {
@@ -1232,6 +1567,7 @@ RecoveryPointByBackupVaultTypeDef = TypedDict(
         "CreatedBy": "RecoveryPointCreatorTypeDef",
         "IamRoleArn": str,
         "Status": RecoveryPointStatusType,
+        "StatusMessage": str,
         "CreationDate": datetime,
         "CompletionDate": datetime,
         "BackupSizeInBytes": int,
@@ -1250,6 +1586,7 @@ RecoveryPointByResourceTypeDef = TypedDict(
         "RecoveryPointArn": str,
         "CreationDate": datetime,
         "Status": RecoveryPointStatusType,
+        "StatusMessage": str,
         "EncryptionKeyArn": str,
         "BackupSizeBytes": int,
         "BackupVaultName": str,
@@ -1267,6 +1604,84 @@ RecoveryPointCreatorTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredReportDeliveryChannelTypeDef = TypedDict(
+    "_RequiredReportDeliveryChannelTypeDef",
+    {
+        "S3BucketName": str,
+    },
+)
+_OptionalReportDeliveryChannelTypeDef = TypedDict(
+    "_OptionalReportDeliveryChannelTypeDef",
+    {
+        "S3KeyPrefix": str,
+        "Formats": List[str],
+    },
+    total=False,
+)
+
+class ReportDeliveryChannelTypeDef(
+    _RequiredReportDeliveryChannelTypeDef, _OptionalReportDeliveryChannelTypeDef
+):
+    pass
+
+ReportDestinationTypeDef = TypedDict(
+    "ReportDestinationTypeDef",
+    {
+        "S3BucketName": str,
+        "S3Keys": List[str],
+    },
+    total=False,
+)
+
+ReportJobTypeDef = TypedDict(
+    "ReportJobTypeDef",
+    {
+        "ReportJobId": str,
+        "ReportPlanArn": str,
+        "ReportTemplate": str,
+        "CreationTime": datetime,
+        "CompletionTime": datetime,
+        "Status": str,
+        "StatusMessage": str,
+        "ReportDestination": "ReportDestinationTypeDef",
+    },
+    total=False,
+)
+
+ReportPlanTypeDef = TypedDict(
+    "ReportPlanTypeDef",
+    {
+        "ReportPlanArn": str,
+        "ReportPlanName": str,
+        "ReportPlanDescription": str,
+        "ReportSetting": "ReportSettingTypeDef",
+        "ReportDeliveryChannel": "ReportDeliveryChannelTypeDef",
+        "DeploymentStatus": str,
+        "CreationTime": datetime,
+        "LastAttemptedExecutionTime": datetime,
+        "LastSuccessfulExecutionTime": datetime,
+    },
+    total=False,
+)
+
+_RequiredReportSettingTypeDef = TypedDict(
+    "_RequiredReportSettingTypeDef",
+    {
+        "ReportTemplate": str,
+    },
+)
+_OptionalReportSettingTypeDef = TypedDict(
+    "_OptionalReportSettingTypeDef",
+    {
+        "FrameworkArns": List[str],
+        "NumberOfFrameworks": int,
+    },
+    total=False,
+)
+
+class ReportSettingTypeDef(_RequiredReportSettingTypeDef, _OptionalReportSettingTypeDef):
+    pass
 
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
@@ -1367,6 +1782,33 @@ StartCopyJobOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredStartReportJobInputRequestTypeDef = TypedDict(
+    "_RequiredStartReportJobInputRequestTypeDef",
+    {
+        "ReportPlanName": str,
+    },
+)
+_OptionalStartReportJobInputRequestTypeDef = TypedDict(
+    "_OptionalStartReportJobInputRequestTypeDef",
+    {
+        "IdempotencyToken": str,
+    },
+    total=False,
+)
+
+class StartReportJobInputRequestTypeDef(
+    _RequiredStartReportJobInputRequestTypeDef, _OptionalStartReportJobInputRequestTypeDef
+):
+    pass
+
+StartReportJobOutputTypeDef = TypedDict(
+    "StartReportJobOutputTypeDef",
+    {
+        "ReportJobId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStartRestoreJobInputRequestTypeDef = TypedDict(
     "_RequiredStartRestoreJobInputRequestTypeDef",
     {
@@ -1440,6 +1882,37 @@ UpdateBackupPlanOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateFrameworkInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateFrameworkInputRequestTypeDef",
+    {
+        "FrameworkName": str,
+    },
+)
+_OptionalUpdateFrameworkInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateFrameworkInputRequestTypeDef",
+    {
+        "FrameworkDescription": str,
+        "FrameworkControls": List["FrameworkControlTypeDef"],
+        "IdempotencyToken": str,
+    },
+    total=False,
+)
+
+class UpdateFrameworkInputRequestTypeDef(
+    _RequiredUpdateFrameworkInputRequestTypeDef, _OptionalUpdateFrameworkInputRequestTypeDef
+):
+    pass
+
+UpdateFrameworkOutputTypeDef = TypedDict(
+    "UpdateFrameworkOutputTypeDef",
+    {
+        "FrameworkName": str,
+        "FrameworkArn": str,
+        "CreationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateGlobalSettingsInputRequestTypeDef = TypedDict(
     "UpdateGlobalSettingsInputRequestTypeDef",
     {
@@ -1486,4 +1959,36 @@ UpdateRegionSettingsInputRequestTypeDef = TypedDict(
         "ResourceTypeOptInPreference": Dict[str, bool],
     },
     total=False,
+)
+
+_RequiredUpdateReportPlanInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateReportPlanInputRequestTypeDef",
+    {
+        "ReportPlanName": str,
+    },
+)
+_OptionalUpdateReportPlanInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateReportPlanInputRequestTypeDef",
+    {
+        "ReportPlanDescription": str,
+        "ReportDeliveryChannel": "ReportDeliveryChannelTypeDef",
+        "ReportSetting": "ReportSettingTypeDef",
+        "IdempotencyToken": str,
+    },
+    total=False,
+)
+
+class UpdateReportPlanInputRequestTypeDef(
+    _RequiredUpdateReportPlanInputRequestTypeDef, _OptionalUpdateReportPlanInputRequestTypeDef
+):
+    pass
+
+UpdateReportPlanOutputTypeDef = TypedDict(
+    "UpdateReportPlanOutputTypeDef",
+    {
+        "ReportPlanName": str,
+        "ReportPlanArn": str,
+        "CreationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )

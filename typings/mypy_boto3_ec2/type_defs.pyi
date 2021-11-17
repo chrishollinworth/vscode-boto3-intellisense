@@ -6,9 +6,9 @@ Type annotations for ec2 service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_ec2.type_defs import AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef
+    from mypy_boto3_ec2.type_defs import AcceleratorCountRequestTypeDef
 
-    data: AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef = {...}
+    data: AcceleratorCountRequestTypeDef = {...}
     ```
 """
 import sys
@@ -18,6 +18,9 @@ from typing import IO, Any, Dict, List, Optional, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    AcceleratorManufacturerType,
+    AcceleratorNameType,
+    AcceleratorTypeType,
     AccountAttributeNameType,
     ActivityStatusType,
     AffinityType,
@@ -35,14 +38,17 @@ from .literals import (
     AutoPlacementType,
     AvailabilityZoneOptInStatusType,
     AvailabilityZoneStateType,
+    BareMetalType,
     BatchStateType,
     BgpStatusType,
     BootModeTypeType,
     BootModeValuesType,
     BundleTaskStateType,
+    BurstablePerformanceType,
     ByoipCidrStateType,
     CancelBatchErrorCodeType,
     CancelSpotInstanceRequestStateType,
+    CapacityReservationFleetStateType,
     CapacityReservationInstancePlatformType,
     CapacityReservationPreferenceType,
     CapacityReservationStateType,
@@ -58,12 +64,14 @@ from .literals import (
     ConnectionNotificationStateType,
     ConnectivityTypeType,
     ConversionTaskStateType,
+    CpuManufacturerType,
     DatafeedSubscriptionStateType,
     DefaultRouteTableAssociationValueType,
     DefaultRouteTablePropagationValueType,
     DefaultTargetCapacityTypeType,
     DeleteFleetErrorCodeType,
     DeleteQueuedReservedInstancesErrorCodeType,
+    DestinationFileFormatType,
     DeviceTypeType,
     DiskImageFormatType,
     DiskTypeType,
@@ -87,11 +95,13 @@ from .literals import (
     FleetEventTypeType,
     FleetExcessCapacityTerminationPolicyType,
     FleetOnDemandAllocationStrategyType,
+    FleetReplacementStrategyType,
     FleetStateCodeType,
     FleetTypeType,
     FlowLogsResourceTypeType,
     FpgaImageAttributeNameType,
     FpgaImageStateCodeType,
+    GatewayAssociationStateType,
     HostRecoveryType,
     HostTenancyType,
     HttpTokensStateType,
@@ -103,6 +113,7 @@ from .literals import (
     ImageTypeValuesType,
     InstanceAttributeNameType,
     InstanceEventWindowStateType,
+    InstanceGenerationType,
     InstanceHealthStatusType,
     InstanceInterruptionBehaviorType,
     InstanceLifecycleType,
@@ -110,20 +121,26 @@ from .literals import (
     InstanceMatchCriteriaType,
     InstanceMetadataEndpointStateType,
     InstanceMetadataOptionsStateType,
+    InstanceMetadataProtocolStateType,
     InstanceStateNameType,
+    InstanceStorageEncryptionSupportType,
     InstanceTypeHypervisorType,
     InstanceTypeType,
     InterfacePermissionTypeType,
     InterfaceProtocolTypeType,
     Ipv6SupportValueType,
+    KeyTypeType,
     LaunchTemplateErrorCodeType,
     LaunchTemplateHttpTokensStateType,
     LaunchTemplateInstanceMetadataEndpointStateType,
     LaunchTemplateInstanceMetadataOptionsStateType,
+    LaunchTemplateInstanceMetadataProtocolIpv6Type,
     ListingStateType,
     ListingStatusType,
     LocalGatewayRouteStateType,
     LocalGatewayRouteTypeType,
+    LocalStorageType,
+    LocalStorageTypeType,
     LocationTypeType,
     LogDestinationTypeType,
     MembershipTypeType,
@@ -150,6 +167,7 @@ from .literals import (
     PrincipalTypeType,
     ProductCodeValuesType,
     ProtocolType,
+    ReplacementStrategyType,
     ReplaceRootVolumeTaskStateType,
     ReportInstanceReasonCodesType,
     ReportStatusTypeType,
@@ -180,6 +198,7 @@ from .literals import (
     SubnetCidrReservationTypeType,
     SubnetStateType,
     SummaryStatusType,
+    TargetCapacityUnitTypeType,
     TelemetryStatusType,
     TenancyType,
     TrafficDirectionType,
@@ -234,6 +253,10 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AcceleratorCountRequestTypeDef",
+    "AcceleratorCountTypeDef",
+    "AcceleratorTotalMemoryMiBRequestTypeDef",
+    "AcceleratorTotalMemoryMiBTypeDef",
     "AcceptReservedInstancesExchangeQuoteRequestRequestTypeDef",
     "AcceptReservedInstancesExchangeQuoteResultTypeDef",
     "AcceptTransitGatewayMulticastDomainAssociationsRequestRequestTypeDef",
@@ -337,6 +360,8 @@ __all__ = (
     "AvailabilityZoneMessageTypeDef",
     "AvailabilityZoneTypeDef",
     "AvailableCapacityTypeDef",
+    "BaselineEbsBandwidthMbpsRequestTypeDef",
+    "BaselineEbsBandwidthMbpsTypeDef",
     "BlobAttributeValueTypeDef",
     "BlockDeviceMappingTypeDef",
     "BundleInstanceRequestRequestTypeDef",
@@ -346,6 +371,9 @@ __all__ = (
     "ByoipCidrTypeDef",
     "CancelBundleTaskRequestRequestTypeDef",
     "CancelBundleTaskResultTypeDef",
+    "CancelCapacityReservationFleetErrorTypeDef",
+    "CancelCapacityReservationFleetsRequestRequestTypeDef",
+    "CancelCapacityReservationFleetsResultTypeDef",
     "CancelCapacityReservationRequestRequestTypeDef",
     "CancelCapacityReservationResultTypeDef",
     "CancelConversionRequestRequestTypeDef",
@@ -362,6 +390,8 @@ __all__ = (
     "CancelSpotInstanceRequestsRequestRequestTypeDef",
     "CancelSpotInstanceRequestsResultTypeDef",
     "CancelledSpotInstanceRequestTypeDef",
+    "CapacityReservationFleetCancellationStateTypeDef",
+    "CapacityReservationFleetTypeDef",
     "CapacityReservationGroupTypeDef",
     "CapacityReservationOptionsRequestTypeDef",
     "CapacityReservationOptionsTypeDef",
@@ -410,6 +440,8 @@ __all__ = (
     "CopySnapshotResultTypeDef",
     "CpuOptionsRequestTypeDef",
     "CpuOptionsTypeDef",
+    "CreateCapacityReservationFleetRequestRequestTypeDef",
+    "CreateCapacityReservationFleetResultTypeDef",
     "CreateCapacityReservationRequestRequestTypeDef",
     "CreateCapacityReservationResultTypeDef",
     "CreateCarrierGatewayRequestRequestTypeDef",
@@ -718,6 +750,8 @@ __all__ = (
     "DescribeBundleTasksResultTypeDef",
     "DescribeByoipCidrsRequestRequestTypeDef",
     "DescribeByoipCidrsResultTypeDef",
+    "DescribeCapacityReservationFleetsRequestRequestTypeDef",
+    "DescribeCapacityReservationFleetsResultTypeDef",
     "DescribeCapacityReservationsRequestRequestTypeDef",
     "DescribeCapacityReservationsResultTypeDef",
     "DescribeCarrierGatewaysRequestRequestTypeDef",
@@ -962,6 +996,8 @@ __all__ = (
     "DescribeVpnConnectionsResultTypeDef",
     "DescribeVpnGatewaysRequestRequestTypeDef",
     "DescribeVpnGatewaysResultTypeDef",
+    "DestinationOptionsRequestTypeDef",
+    "DestinationOptionsResponseTypeDef",
     "DetachClassicLinkVpcRequestInstanceTypeDef",
     "DetachClassicLinkVpcRequestRequestTypeDef",
     "DetachClassicLinkVpcRequestVpcTypeDef",
@@ -1084,10 +1120,12 @@ __all__ = (
     "ExportToS3TaskTypeDef",
     "ExportTransitGatewayRoutesRequestRequestTypeDef",
     "ExportTransitGatewayRoutesResultTypeDef",
+    "FailedCapacityReservationFleetCancellationResultTypeDef",
     "FailedQueuedPurchaseDeletionTypeDef",
     "FederatedAuthenticationRequestTypeDef",
     "FederatedAuthenticationTypeDef",
     "FilterTypeDef",
+    "FleetCapacityReservationTypeDef",
     "FleetDataTypeDef",
     "FleetLaunchTemplateConfigRequestTypeDef",
     "FleetLaunchTemplateConfigTypeDef",
@@ -1131,6 +1169,8 @@ __all__ = (
     "GetGroupsForCapacityReservationResultTypeDef",
     "GetHostReservationPurchasePreviewRequestRequestTypeDef",
     "GetHostReservationPurchasePreviewResultTypeDef",
+    "GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef",
+    "GetInstanceTypesFromInstanceRequirementsResultTypeDef",
     "GetLaunchTemplateDataRequestRequestTypeDef",
     "GetLaunchTemplateDataResultTypeDef",
     "GetManagedPrefixListAssociationsRequestRequestTypeDef",
@@ -1144,6 +1184,8 @@ __all__ = (
     "GetReservedInstancesExchangeQuoteResultTypeDef",
     "GetSerialConsoleAccessStatusRequestRequestTypeDef",
     "GetSerialConsoleAccessStatusResultTypeDef",
+    "GetSpotPlacementScoresRequestRequestTypeDef",
+    "GetSpotPlacementScoresResultTypeDef",
     "GetSubnetCidrReservationsRequestRequestTypeDef",
     "GetSubnetCidrReservationsResultTypeDef",
     "GetTransitGatewayAttachmentPropagationsRequestRequestTypeDef",
@@ -1156,6 +1198,10 @@ __all__ = (
     "GetTransitGatewayRouteTableAssociationsResultTypeDef",
     "GetTransitGatewayRouteTablePropagationsRequestRequestTypeDef",
     "GetTransitGatewayRouteTablePropagationsResultTypeDef",
+    "GetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef",
+    "GetVpnConnectionDeviceSampleConfigurationResultTypeDef",
+    "GetVpnConnectionDeviceTypesRequestRequestTypeDef",
+    "GetVpnConnectionDeviceTypesResultTypeDef",
     "GpuDeviceInfoTypeDef",
     "GpuDeviceMemoryInfoTypeDef",
     "GpuInfoTypeDef",
@@ -1232,6 +1278,9 @@ __all__ = (
     "InstanceNetworkInterfaceSpecificationTypeDef",
     "InstanceNetworkInterfaceTypeDef",
     "InstancePrivateIpAddressTypeDef",
+    "InstanceRequirementsRequestTypeDef",
+    "InstanceRequirementsTypeDef",
+    "InstanceRequirementsWithMetadataRequestTypeDef",
     "InstanceSpecificationTypeDef",
     "InstanceStateChangeTypeDef",
     "InstanceStateTypeDef",
@@ -1242,6 +1291,7 @@ __all__ = (
     "InstanceStorageInfoTypeDef",
     "InstanceTagNotificationAttributeTypeDef",
     "InstanceTypeDef",
+    "InstanceTypeInfoFromInstanceRequirementsTypeDef",
     "InstanceTypeInfoTypeDef",
     "InstanceTypeOfferingTypeDef",
     "InstanceUsageTypeDef",
@@ -1318,11 +1368,17 @@ __all__ = (
     "LocalGatewayVirtualInterfaceGroupTypeDef",
     "LocalGatewayVirtualInterfaceTypeDef",
     "ManagedPrefixListTypeDef",
+    "MemoryGiBPerVCpuRequestTypeDef",
+    "MemoryGiBPerVCpuTypeDef",
     "MemoryInfoTypeDef",
+    "MemoryMiBRequestTypeDef",
+    "MemoryMiBTypeDef",
     "ModifyAddressAttributeRequestRequestTypeDef",
     "ModifyAddressAttributeResultTypeDef",
     "ModifyAvailabilityZoneGroupRequestRequestTypeDef",
     "ModifyAvailabilityZoneGroupResultTypeDef",
+    "ModifyCapacityReservationFleetRequestRequestTypeDef",
+    "ModifyCapacityReservationFleetResultTypeDef",
     "ModifyCapacityReservationRequestRequestTypeDef",
     "ModifyCapacityReservationResultTypeDef",
     "ModifyClientVpnEndpointRequestRequestTypeDef",
@@ -1430,6 +1486,8 @@ __all__ = (
     "NetworkInterfaceAssociationTypeDef",
     "NetworkInterfaceAttachmentChangesTypeDef",
     "NetworkInterfaceAttachmentTypeDef",
+    "NetworkInterfaceCountRequestTypeDef",
+    "NetworkInterfaceCountTypeDef",
     "NetworkInterfaceIpv6AddressTypeDef",
     "NetworkInterfacePermissionStateTypeDef",
     "NetworkInterfacePermissionTypeDef",
@@ -1546,6 +1604,7 @@ __all__ = (
     "RequestSpotInstancesRequestRequestTypeDef",
     "RequestSpotInstancesResultTypeDef",
     "RequestSpotLaunchSpecificationTypeDef",
+    "ReservationFleetInstanceSpecificationTypeDef",
     "ReservationResponseMetadataTypeDef",
     "ReservationTypeDef",
     "ReservationValueTypeDef",
@@ -1672,6 +1731,7 @@ __all__ = (
     "SpotMarketOptionsTypeDef",
     "SpotOptionsRequestTypeDef",
     "SpotOptionsTypeDef",
+    "SpotPlacementScoreTypeDef",
     "SpotPlacementTypeDef",
     "SpotPriceTypeDef",
     "StaleIpPermissionTypeDef",
@@ -1714,6 +1774,8 @@ __all__ = (
     "TerminateInstancesRequestInstanceTypeDef",
     "TerminateInstancesRequestRequestTypeDef",
     "TerminateInstancesResultTypeDef",
+    "TotalLocalStorageGBRequestTypeDef",
+    "TotalLocalStorageGBTypeDef",
     "TrafficMirrorFilterRuleTypeDef",
     "TrafficMirrorFilterTypeDef",
     "TrafficMirrorPortRangeRequestTypeDef",
@@ -1774,6 +1836,8 @@ __all__ = (
     "UserBucketTypeDef",
     "UserDataTypeDef",
     "UserIdGroupPairTypeDef",
+    "VCpuCountRangeRequestTypeDef",
+    "VCpuCountRangeTypeDef",
     "VCpuInfoTypeDef",
     "ValidationErrorTypeDef",
     "ValidationWarningTypeDef",
@@ -1802,6 +1866,7 @@ __all__ = (
     "VpcPeeringConnectionTypeDef",
     "VpcPeeringConnectionVpcInfoTypeDef",
     "VpcTypeDef",
+    "VpnConnectionDeviceTypeTypeDef",
     "VpnConnectionOptionsSpecificationTypeDef",
     "VpnConnectionOptionsTypeDef",
     "VpnConnectionTypeDef",
@@ -1811,6 +1876,42 @@ __all__ = (
     "WaiterConfigTypeDef",
     "WithdrawByoipCidrRequestRequestTypeDef",
     "WithdrawByoipCidrResultTypeDef",
+)
+
+AcceleratorCountRequestTypeDef = TypedDict(
+    "AcceleratorCountRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
+AcceleratorCountTypeDef = TypedDict(
+    "AcceleratorCountTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
+AcceleratorTotalMemoryMiBRequestTypeDef = TypedDict(
+    "AcceleratorTotalMemoryMiBRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
+AcceleratorTotalMemoryMiBTypeDef = TypedDict(
+    "AcceleratorTotalMemoryMiBTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
 )
 
 _RequiredAcceptReservedInstancesExchangeQuoteRequestRequestTypeDef = TypedDict(
@@ -3254,6 +3355,24 @@ AvailableCapacityTypeDef = TypedDict(
     total=False,
 )
 
+BaselineEbsBandwidthMbpsRequestTypeDef = TypedDict(
+    "BaselineEbsBandwidthMbpsRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
+BaselineEbsBandwidthMbpsTypeDef = TypedDict(
+    "BaselineEbsBandwidthMbpsTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
 BlobAttributeValueTypeDef = TypedDict(
     "BlobAttributeValueTypeDef",
     {
@@ -3359,6 +3478,44 @@ CancelBundleTaskResultTypeDef = TypedDict(
     "CancelBundleTaskResultTypeDef",
     {
         "BundleTask": "BundleTaskTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CancelCapacityReservationFleetErrorTypeDef = TypedDict(
+    "CancelCapacityReservationFleetErrorTypeDef",
+    {
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+_RequiredCancelCapacityReservationFleetsRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelCapacityReservationFleetsRequestRequestTypeDef",
+    {
+        "CapacityReservationFleetIds": List[str],
+    },
+)
+_OptionalCancelCapacityReservationFleetsRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelCapacityReservationFleetsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CancelCapacityReservationFleetsRequestRequestTypeDef(
+    _RequiredCancelCapacityReservationFleetsRequestRequestTypeDef,
+    _OptionalCancelCapacityReservationFleetsRequestRequestTypeDef,
+):
+    pass
+
+CancelCapacityReservationFleetsResultTypeDef = TypedDict(
+    "CancelCapacityReservationFleetsResultTypeDef",
+    {
+        "SuccessfulFleetCancellations": List["CapacityReservationFleetCancellationStateTypeDef"],
+        "FailedFleetCancellations": List["FailedCapacityReservationFleetCancellationResultTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3548,6 +3705,35 @@ CancelledSpotInstanceRequestTypeDef = TypedDict(
     total=False,
 )
 
+CapacityReservationFleetCancellationStateTypeDef = TypedDict(
+    "CapacityReservationFleetCancellationStateTypeDef",
+    {
+        "CurrentFleetState": CapacityReservationFleetStateType,
+        "PreviousFleetState": CapacityReservationFleetStateType,
+        "CapacityReservationFleetId": str,
+    },
+    total=False,
+)
+
+CapacityReservationFleetTypeDef = TypedDict(
+    "CapacityReservationFleetTypeDef",
+    {
+        "CapacityReservationFleetId": str,
+        "CapacityReservationFleetArn": str,
+        "State": CapacityReservationFleetStateType,
+        "TotalTargetCapacity": int,
+        "TotalFulfilledCapacity": float,
+        "Tenancy": Literal["default"],
+        "EndDate": datetime,
+        "CreateTime": datetime,
+        "InstanceMatchCriteria": Literal["open"],
+        "AllocationStrategy": str,
+        "InstanceTypeSpecifications": List["FleetCapacityReservationTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 CapacityReservationGroupTypeDef = TypedDict(
     "CapacityReservationGroupTypeDef",
     {
@@ -3632,6 +3818,7 @@ CapacityReservationTypeDef = TypedDict(
         "CreateDate": datetime,
         "Tags": List["TagTypeDef"],
         "OutpostArn": str,
+        "CapacityReservationFleetId": str,
     },
     total=False,
 )
@@ -4131,6 +4318,51 @@ CpuOptionsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCreateCapacityReservationFleetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCapacityReservationFleetRequestRequestTypeDef",
+    {
+        "InstanceTypeSpecifications": List["ReservationFleetInstanceSpecificationTypeDef"],
+        "TotalTargetCapacity": int,
+    },
+)
+_OptionalCreateCapacityReservationFleetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCapacityReservationFleetRequestRequestTypeDef",
+    {
+        "AllocationStrategy": str,
+        "ClientToken": str,
+        "Tenancy": Literal["default"],
+        "EndDate": Union[datetime, str],
+        "InstanceMatchCriteria": Literal["open"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateCapacityReservationFleetRequestRequestTypeDef(
+    _RequiredCreateCapacityReservationFleetRequestRequestTypeDef,
+    _OptionalCreateCapacityReservationFleetRequestRequestTypeDef,
+):
+    pass
+
+CreateCapacityReservationFleetResultTypeDef = TypedDict(
+    "CreateCapacityReservationFleetResultTypeDef",
+    {
+        "CapacityReservationFleetId": str,
+        "State": CapacityReservationFleetStateType,
+        "TotalTargetCapacity": int,
+        "TotalFulfilledCapacity": float,
+        "InstanceMatchCriteria": Literal["open"],
+        "AllocationStrategy": str,
+        "CreateTime": datetime,
+        "EndDate": datetime,
+        "Tenancy": Literal["default"],
+        "FleetCapacityReservations": List["FleetCapacityReservationTypeDef"],
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateCapacityReservationRequestRequestTypeDef = TypedDict(
     "_RequiredCreateCapacityReservationRequestRequestTypeDef",
     {
@@ -4519,6 +4751,7 @@ _OptionalCreateFlowLogsRequestRequestTypeDef = TypedDict(
         "LogFormat": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "MaxAggregationInterval": int,
+        "DestinationOptions": "DestinationOptionsRequestTypeDef",
     },
     total=False,
 )
@@ -4713,6 +4946,7 @@ _OptionalCreateKeyPairRequestRequestTypeDef = TypedDict(
     "_OptionalCreateKeyPairRequestRequestTypeDef",
     {
         "DryRun": bool,
+        "KeyType": KeyTypeType,
         "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
@@ -4733,6 +4967,7 @@ _OptionalCreateKeyPairRequestServiceResourceTypeDef = TypedDict(
     "_OptionalCreateKeyPairRequestServiceResourceTypeDef",
     {
         "DryRun": bool,
+        "KeyType": KeyTypeType,
         "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
@@ -5349,6 +5584,7 @@ _OptionalCreateRouteRequestRequestTypeDef = TypedDict(
         "CarrierGatewayId": str,
         "NetworkInterfaceId": str,
         "VpcPeeringConnectionId": str,
+        "CoreNetworkArn": str,
     },
     total=False,
 )
@@ -5375,6 +5611,7 @@ CreateRouteRequestRouteTableTypeDef = TypedDict(
         "CarrierGatewayId": str,
         "NetworkInterfaceId": str,
         "VpcPeeringConnectionId": str,
+        "CoreNetworkArn": str,
     },
     total=False,
 )
@@ -5702,8 +5939,8 @@ CreateSubnetCidrReservationResultTypeDef = TypedDict(
 _RequiredCreateSubnetRequestRequestTypeDef = TypedDict(
     "_RequiredCreateSubnetRequestRequestTypeDef",
     {
-        "VpcId": str,
         "CidrBlock": str,
+        "VpcId": str,
     },
 )
 _OptionalCreateSubnetRequestRequestTypeDef = TypedDict(
@@ -5727,8 +5964,8 @@ class CreateSubnetRequestRequestTypeDef(
 _RequiredCreateSubnetRequestServiceResourceTypeDef = TypedDict(
     "_RequiredCreateSubnetRequestServiceResourceTypeDef",
     {
-        "VpcId": str,
         "CidrBlock": str,
+        "VpcId": str,
     },
 )
 _OptionalCreateSubnetRequestServiceResourceTypeDef = TypedDict(
@@ -8678,6 +8915,27 @@ DescribeByoipCidrsResultTypeDef = TypedDict(
     },
 )
 
+DescribeCapacityReservationFleetsRequestRequestTypeDef = TypedDict(
+    "DescribeCapacityReservationFleetsRequestRequestTypeDef",
+    {
+        "CapacityReservationFleetIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeCapacityReservationFleetsResultTypeDef = TypedDict(
+    "DescribeCapacityReservationFleetsResultTypeDef",
+    {
+        "CapacityReservationFleets": List["CapacityReservationFleetTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeCapacityReservationsRequestRequestTypeDef = TypedDict(
     "DescribeCapacityReservationsRequestRequestTypeDef",
     {
@@ -11489,6 +11747,26 @@ DescribeVpnGatewaysResultTypeDef = TypedDict(
     },
 )
 
+DestinationOptionsRequestTypeDef = TypedDict(
+    "DestinationOptionsRequestTypeDef",
+    {
+        "FileFormat": DestinationFileFormatType,
+        "HiveCompatiblePartitions": bool,
+        "PerHourPartition": bool,
+    },
+    total=False,
+)
+
+DestinationOptionsResponseTypeDef = TypedDict(
+    "DestinationOptionsResponseTypeDef",
+    {
+        "FileFormat": DestinationFileFormatType,
+        "HiveCompatiblePartitions": bool,
+        "PerHourPartition": bool,
+    },
+    total=False,
+)
+
 _RequiredDetachClassicLinkVpcRequestInstanceTypeDef = TypedDict(
     "_RequiredDetachClassicLinkVpcRequestInstanceTypeDef",
     {
@@ -13060,6 +13338,15 @@ ExportTransitGatewayRoutesResultTypeDef = TypedDict(
     },
 )
 
+FailedCapacityReservationFleetCancellationResultTypeDef = TypedDict(
+    "FailedCapacityReservationFleetCancellationResultTypeDef",
+    {
+        "CapacityReservationFleetId": str,
+        "CancelCapacityReservationFleetError": "CancelCapacityReservationFleetErrorTypeDef",
+    },
+    total=False,
+)
+
 FailedQueuedPurchaseDeletionTypeDef = TypedDict(
     "FailedQueuedPurchaseDeletionTypeDef",
     {
@@ -13092,6 +13379,24 @@ FilterTypeDef = TypedDict(
     {
         "Name": str,
         "Values": List[str],
+    },
+    total=False,
+)
+
+FleetCapacityReservationTypeDef = TypedDict(
+    "FleetCapacityReservationTypeDef",
+    {
+        "CapacityReservationId": str,
+        "AvailabilityZoneId": str,
+        "InstanceType": InstanceTypeType,
+        "InstancePlatform": CapacityReservationInstancePlatformType,
+        "AvailabilityZone": str,
+        "TotalInstanceCount": int,
+        "FulfilledCapacity": float,
+        "EbsOptimized": bool,
+        "CreateDate": datetime,
+        "Weight": float,
+        "Priority": int,
     },
     total=False,
 )
@@ -13152,6 +13457,7 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
         "WeightedCapacity": float,
         "Priority": float,
         "Placement": "PlacementTypeDef",
+        "InstanceRequirements": "InstanceRequirementsRequestTypeDef",
     },
     total=False,
 )
@@ -13166,6 +13472,7 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
         "WeightedCapacity": float,
         "Priority": float,
         "Placement": "PlacementResponseTypeDef",
+        "InstanceRequirements": "InstanceRequirementsTypeDef",
     },
     total=False,
 )
@@ -13193,7 +13500,8 @@ FleetLaunchTemplateSpecificationTypeDef = TypedDict(
 FleetSpotCapacityRebalanceRequestTypeDef = TypedDict(
     "FleetSpotCapacityRebalanceRequestTypeDef",
     {
-        "ReplacementStrategy": Literal["launch"],
+        "ReplacementStrategy": FleetReplacementStrategyType,
+        "TerminationDelay": int,
     },
     total=False,
 )
@@ -13201,7 +13509,8 @@ FleetSpotCapacityRebalanceRequestTypeDef = TypedDict(
 FleetSpotCapacityRebalanceTypeDef = TypedDict(
     "FleetSpotCapacityRebalanceTypeDef",
     {
-        "ReplacementStrategy": Literal["launch"],
+        "ReplacementStrategy": FleetReplacementStrategyType,
+        "TerminationDelay": int,
     },
     total=False,
 )
@@ -13239,6 +13548,7 @@ FlowLogTypeDef = TypedDict(
         "LogFormat": str,
         "Tags": List["TagTypeDef"],
         "MaxAggregationInterval": int,
+        "DestinationOptions": "DestinationOptionsResponseTypeDef",
     },
     total=False,
 )
@@ -13639,6 +13949,39 @@ GetHostReservationPurchasePreviewResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef",
+    {
+        "ArchitectureTypes": List[ArchitectureTypeType],
+        "VirtualizationTypes": List[VirtualizationTypeType],
+        "InstanceRequirements": "InstanceRequirementsRequestTypeDef",
+    },
+)
+_OptionalGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef(
+    _RequiredGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef,
+    _OptionalGetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef,
+):
+    pass
+
+GetInstanceTypesFromInstanceRequirementsResultTypeDef = TypedDict(
+    "GetInstanceTypesFromInstanceRequirementsResultTypeDef",
+    {
+        "InstanceTypes": List["InstanceTypeInfoFromInstanceRequirementsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetLaunchTemplateDataRequestRequestTypeDef = TypedDict(
     "_RequiredGetLaunchTemplateDataRequestRequestTypeDef",
     {
@@ -13820,6 +14163,42 @@ GetSerialConsoleAccessStatusResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetSpotPlacementScoresRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSpotPlacementScoresRequestRequestTypeDef",
+    {
+        "TargetCapacity": int,
+    },
+)
+_OptionalGetSpotPlacementScoresRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSpotPlacementScoresRequestRequestTypeDef",
+    {
+        "InstanceTypes": List[str],
+        "TargetCapacityUnitType": TargetCapacityUnitTypeType,
+        "SingleAvailabilityZone": bool,
+        "RegionNames": List[str],
+        "InstanceRequirementsWithMetadata": "InstanceRequirementsWithMetadataRequestTypeDef",
+        "DryRun": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetSpotPlacementScoresRequestRequestTypeDef(
+    _RequiredGetSpotPlacementScoresRequestRequestTypeDef,
+    _OptionalGetSpotPlacementScoresRequestRequestTypeDef,
+):
+    pass
+
+GetSpotPlacementScoresResultTypeDef = TypedDict(
+    "GetSpotPlacementScoresResultTypeDef",
+    {
+        "SpotPlacementScores": List["SpotPlacementScoreTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetSubnetCidrReservationsRequestRequestTypeDef = TypedDict(
     "_RequiredGetSubnetCidrReservationsRequestRequestTypeDef",
     {
@@ -13997,6 +14376,55 @@ GetTransitGatewayRouteTablePropagationsResultTypeDef = TypedDict(
     "GetTransitGatewayRouteTablePropagationsResultTypeDef",
     {
         "TransitGatewayRouteTablePropagations": List["TransitGatewayRouteTablePropagationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredGetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef",
+    {
+        "VpnConnectionId": str,
+        "VpnConnectionDeviceTypeId": str,
+    },
+)
+_OptionalGetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalGetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef",
+    {
+        "InternetKeyExchangeVersion": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef(
+    _RequiredGetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef,
+    _OptionalGetVpnConnectionDeviceSampleConfigurationRequestRequestTypeDef,
+):
+    pass
+
+GetVpnConnectionDeviceSampleConfigurationResultTypeDef = TypedDict(
+    "GetVpnConnectionDeviceSampleConfigurationResultTypeDef",
+    {
+        "VpnConnectionDeviceSampleConfiguration": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetVpnConnectionDeviceTypesRequestRequestTypeDef = TypedDict(
+    "GetVpnConnectionDeviceTypesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+GetVpnConnectionDeviceTypesResultTypeDef = TypedDict(
+    "GetVpnConnectionDeviceTypesResultTypeDef",
+    {
+        "VpnConnectionDeviceTypes": List["VpnConnectionDeviceTypeTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -14347,6 +14775,8 @@ ImportImageRequestRequestTypeDef = TypedDict(
         "RoleName": str,
         "LicenseSpecifications": List["ImportImageLicenseConfigurationRequestTypeDef"],
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "UsageOperation": str,
+        "BootMode": BootModeValuesType,
     },
     total=False,
 )
@@ -14369,6 +14799,7 @@ ImportImageResultTypeDef = TypedDict(
         "StatusMessage": str,
         "LicenseSpecifications": List["ImportImageLicenseConfigurationResponseTypeDef"],
         "Tags": List["TagTypeDef"],
+        "UsageOperation": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -14391,6 +14822,8 @@ ImportImageTaskTypeDef = TypedDict(
         "StatusMessage": str,
         "Tags": List["TagTypeDef"],
         "LicenseSpecifications": List["ImportImageLicenseConfigurationResponseTypeDef"],
+        "UsageOperation": str,
+        "BootMode": BootModeValuesType,
     },
     total=False,
 )
@@ -14849,6 +15282,7 @@ InstanceMetadataOptionsRequestTypeDef = TypedDict(
         "HttpTokens": HttpTokensStateType,
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": InstanceMetadataEndpointStateType,
+        "HttpProtocolIpv6": InstanceMetadataProtocolStateType,
     },
     total=False,
 )
@@ -14860,6 +15294,7 @@ InstanceMetadataOptionsResponseTypeDef = TypedDict(
         "HttpTokens": HttpTokensStateType,
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": InstanceMetadataEndpointStateType,
+        "HttpProtocolIpv6": InstanceMetadataProtocolStateType,
     },
     total=False,
 )
@@ -14877,6 +15312,7 @@ InstanceNetworkInterfaceAssociationTypeDef = TypedDict(
     "InstanceNetworkInterfaceAssociationTypeDef",
     {
         "CarrierIp": str,
+        "CustomerOwnedIp": str,
         "IpOwnerId": str,
         "PublicDnsName": str,
         "PublicIp": str,
@@ -14955,6 +15391,82 @@ InstancePrivateIpAddressTypeDef = TypedDict(
         "Primary": bool,
         "PrivateDnsName": str,
         "PrivateIpAddress": str,
+    },
+    total=False,
+)
+
+_RequiredInstanceRequirementsRequestTypeDef = TypedDict(
+    "_RequiredInstanceRequirementsRequestTypeDef",
+    {
+        "VCpuCount": "VCpuCountRangeRequestTypeDef",
+        "MemoryMiB": "MemoryMiBRequestTypeDef",
+    },
+)
+_OptionalInstanceRequirementsRequestTypeDef = TypedDict(
+    "_OptionalInstanceRequirementsRequestTypeDef",
+    {
+        "CpuManufacturers": List[CpuManufacturerType],
+        "MemoryGiBPerVCpu": "MemoryGiBPerVCpuRequestTypeDef",
+        "ExcludedInstanceTypes": List[str],
+        "InstanceGenerations": List[InstanceGenerationType],
+        "SpotMaxPricePercentageOverLowestPrice": int,
+        "OnDemandMaxPricePercentageOverLowestPrice": int,
+        "BareMetal": BareMetalType,
+        "BurstablePerformance": BurstablePerformanceType,
+        "RequireHibernateSupport": bool,
+        "NetworkInterfaceCount": "NetworkInterfaceCountRequestTypeDef",
+        "LocalStorage": LocalStorageType,
+        "LocalStorageTypes": List[LocalStorageTypeType],
+        "TotalLocalStorageGB": "TotalLocalStorageGBRequestTypeDef",
+        "BaselineEbsBandwidthMbps": "BaselineEbsBandwidthMbpsRequestTypeDef",
+        "AcceleratorTypes": List[AcceleratorTypeType],
+        "AcceleratorCount": "AcceleratorCountRequestTypeDef",
+        "AcceleratorManufacturers": List[AcceleratorManufacturerType],
+        "AcceleratorNames": List[AcceleratorNameType],
+        "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBRequestTypeDef",
+    },
+    total=False,
+)
+
+class InstanceRequirementsRequestTypeDef(
+    _RequiredInstanceRequirementsRequestTypeDef, _OptionalInstanceRequirementsRequestTypeDef
+):
+    pass
+
+InstanceRequirementsTypeDef = TypedDict(
+    "InstanceRequirementsTypeDef",
+    {
+        "VCpuCount": "VCpuCountRangeTypeDef",
+        "MemoryMiB": "MemoryMiBTypeDef",
+        "CpuManufacturers": List[CpuManufacturerType],
+        "MemoryGiBPerVCpu": "MemoryGiBPerVCpuTypeDef",
+        "ExcludedInstanceTypes": List[str],
+        "InstanceGenerations": List[InstanceGenerationType],
+        "SpotMaxPricePercentageOverLowestPrice": int,
+        "OnDemandMaxPricePercentageOverLowestPrice": int,
+        "BareMetal": BareMetalType,
+        "BurstablePerformance": BurstablePerformanceType,
+        "RequireHibernateSupport": bool,
+        "NetworkInterfaceCount": "NetworkInterfaceCountTypeDef",
+        "LocalStorage": LocalStorageType,
+        "LocalStorageTypes": List[LocalStorageTypeType],
+        "TotalLocalStorageGB": "TotalLocalStorageGBTypeDef",
+        "BaselineEbsBandwidthMbps": "BaselineEbsBandwidthMbpsTypeDef",
+        "AcceleratorTypes": List[AcceleratorTypeType],
+        "AcceleratorCount": "AcceleratorCountTypeDef",
+        "AcceleratorManufacturers": List[AcceleratorManufacturerType],
+        "AcceleratorNames": List[AcceleratorNameType],
+        "AcceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBTypeDef",
+    },
+    total=False,
+)
+
+InstanceRequirementsWithMetadataRequestTypeDef = TypedDict(
+    "InstanceRequirementsWithMetadataRequestTypeDef",
+    {
+        "ArchitectureTypes": List[ArchitectureTypeType],
+        "VirtualizationTypes": List[VirtualizationTypeType],
+        "InstanceRequirements": "InstanceRequirementsRequestTypeDef",
     },
     total=False,
 )
@@ -15039,6 +15551,7 @@ InstanceStorageInfoTypeDef = TypedDict(
         "TotalSizeInGB": int,
         "Disks": List["DiskInfoTypeDef"],
         "NvmeSupport": EphemeralNvmeSupportType,
+        "EncryptionSupport": InstanceStorageEncryptionSupportType,
     },
     total=False,
 )
@@ -15106,6 +15619,17 @@ InstanceTypeDef = TypedDict(
         "MetadataOptions": "InstanceMetadataOptionsResponseTypeDef",
         "EnclaveOptions": "EnclaveOptionsTypeDef",
         "BootMode": BootModeValuesType,
+        "PlatformDetails": str,
+        "UsageOperation": str,
+        "UsageOperationUpdateTime": datetime,
+    },
+    total=False,
+)
+
+InstanceTypeInfoFromInstanceRequirementsTypeDef = TypedDict(
+    "InstanceTypeInfoFromInstanceRequirementsTypeDef",
+    {
+        "InstanceType": str,
     },
     total=False,
 )
@@ -15302,6 +15826,7 @@ KeyPairInfoTypeDef = TypedDict(
         "KeyPairId": str,
         "KeyFingerprint": str,
         "KeyName": str,
+        "KeyType": KeyTypeType,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -15342,6 +15867,8 @@ LaunchPermissionTypeDef = TypedDict(
     {
         "Group": Literal["all"],
         "UserId": str,
+        "OrganizationArn": str,
+        "OrganizationalUnitArn": str,
     },
     total=False,
 )
@@ -15577,6 +16104,7 @@ LaunchTemplateInstanceMetadataOptionsRequestTypeDef = TypedDict(
         "HttpTokens": LaunchTemplateHttpTokensStateType,
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": LaunchTemplateInstanceMetadataEndpointStateType,
+        "HttpProtocolIpv6": LaunchTemplateInstanceMetadataProtocolIpv6Type,
     },
     total=False,
 )
@@ -15588,6 +16116,7 @@ LaunchTemplateInstanceMetadataOptionsTypeDef = TypedDict(
         "HttpTokens": LaunchTemplateHttpTokensStateType,
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": LaunchTemplateInstanceMetadataEndpointStateType,
+        "HttpProtocolIpv6": LaunchTemplateInstanceMetadataProtocolIpv6Type,
     },
     total=False,
 )
@@ -15669,6 +16198,7 @@ LaunchTemplateOverridesTypeDef = TypedDict(
         "AvailabilityZone": str,
         "WeightedCapacity": float,
         "Priority": float,
+        "InstanceRequirements": "InstanceRequirementsTypeDef",
     },
     total=False,
 )
@@ -15967,10 +16497,54 @@ ManagedPrefixListTypeDef = TypedDict(
     total=False,
 )
 
+MemoryGiBPerVCpuRequestTypeDef = TypedDict(
+    "MemoryGiBPerVCpuRequestTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
+MemoryGiBPerVCpuTypeDef = TypedDict(
+    "MemoryGiBPerVCpuTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
 MemoryInfoTypeDef = TypedDict(
     "MemoryInfoTypeDef",
     {
         "SizeInMiB": int,
+    },
+    total=False,
+)
+
+_RequiredMemoryMiBRequestTypeDef = TypedDict(
+    "_RequiredMemoryMiBRequestTypeDef",
+    {
+        "Min": int,
+    },
+)
+_OptionalMemoryMiBRequestTypeDef = TypedDict(
+    "_OptionalMemoryMiBRequestTypeDef",
+    {
+        "Max": int,
+    },
+    total=False,
+)
+
+class MemoryMiBRequestTypeDef(_RequiredMemoryMiBRequestTypeDef, _OptionalMemoryMiBRequestTypeDef):
+    pass
+
+MemoryMiBTypeDef = TypedDict(
+    "MemoryMiBTypeDef",
+    {
+        "Min": int,
+        "Max": int,
     },
     total=False,
 )
@@ -16033,6 +16607,37 @@ ModifyAvailabilityZoneGroupResultTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyCapacityReservationFleetRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyCapacityReservationFleetRequestRequestTypeDef",
+    {
+        "CapacityReservationFleetId": str,
+    },
+)
+_OptionalModifyCapacityReservationFleetRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyCapacityReservationFleetRequestRequestTypeDef",
+    {
+        "TotalTargetCapacity": int,
+        "EndDate": Union[datetime, str],
+        "DryRun": bool,
+        "RemoveEndDate": bool,
+    },
+    total=False,
+)
+
+class ModifyCapacityReservationFleetRequestRequestTypeDef(
+    _RequiredModifyCapacityReservationFleetRequestRequestTypeDef,
+    _OptionalModifyCapacityReservationFleetRequestRequestTypeDef,
+):
+    pass
+
+ModifyCapacityReservationFleetResultTypeDef = TypedDict(
+    "ModifyCapacityReservationFleetResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredModifyCapacityReservationRequestRequestTypeDef = TypedDict(
     "_RequiredModifyCapacityReservationRequestRequestTypeDef",
     {
@@ -16047,6 +16652,7 @@ _OptionalModifyCapacityReservationRequestRequestTypeDef = TypedDict(
         "EndDateType": EndDateTypeType,
         "Accept": bool,
         "DryRun": bool,
+        "AdditionalInfo": str,
     },
     total=False,
 )
@@ -16287,6 +16893,8 @@ ModifyImageAttributeRequestImageTypeDef = TypedDict(
         "UserIds": List[str],
         "Value": str,
         "DryRun": bool,
+        "OrganizationArns": List[str],
+        "OrganizationalUnitArns": List[str],
     },
     total=False,
 )
@@ -16309,6 +16917,8 @@ _OptionalModifyImageAttributeRequestRequestTypeDef = TypedDict(
         "UserIds": List[str],
         "Value": str,
         "DryRun": bool,
+        "OrganizationArns": List[str],
+        "OrganizationalUnitArns": List[str],
     },
     total=False,
 )
@@ -16512,6 +17122,7 @@ _OptionalModifyInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": InstanceMetadataEndpointStateType,
         "DryRun": bool,
+        "HttpProtocolIpv6": InstanceMetadataProtocolStateType,
     },
     total=False,
 )
@@ -16598,6 +17209,7 @@ _OptionalModifyManagedPrefixListRequestRequestTypeDef = TypedDict(
         "PrefixListName": str,
         "AddEntries": List["AddPrefixListEntryTypeDef"],
         "RemoveEntries": List["RemovePrefixListEntryTypeDef"],
+        "MaxEntries": int,
     },
     total=False,
 )
@@ -16793,6 +17405,7 @@ _OptionalModifySubnetAttributeRequestRequestTypeDef = TypedDict(
         "MapPublicIpOnLaunch": "AttributeBooleanValueTypeDef",
         "MapCustomerOwnedIpOnLaunch": "AttributeBooleanValueTypeDef",
         "CustomerOwnedIpv4Pool": str,
+        "EnableDns64": "AttributeBooleanValueTypeDef",
     },
     total=False,
 )
@@ -17626,6 +18239,7 @@ NetworkInfoTypeDef = TypedDict(
         "EnaSupport": EnaSupportType,
         "EfaSupported": bool,
         "EfaInfo": "EfaInfoTypeDef",
+        "EncryptionInTransitSupported": bool,
     },
     total=False,
 )
@@ -17705,6 +18319,24 @@ NetworkInterfaceAttachmentTypeDef = TypedDict(
     total=False,
 )
 
+NetworkInterfaceCountRequestTypeDef = TypedDict(
+    "NetworkInterfaceCountRequestTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
+NetworkInterfaceCountTypeDef = TypedDict(
+    "NetworkInterfaceCountTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
 NetworkInterfaceIpv6AddressTypeDef = TypedDict(
     "NetworkInterfaceIpv6AddressTypeDef",
     {
@@ -17772,6 +18404,7 @@ NetworkInterfaceTypeDef = TypedDict(
         "SubnetId": str,
         "TagSet": List["TagTypeDef"],
         "VpcId": str,
+        "DenyAllIgwTraffic": bool,
     },
     total=False,
 )
@@ -18921,6 +19554,7 @@ _OptionalReplaceRouteRequestRequestTypeDef = TypedDict(
         "CarrierGatewayId": str,
         "NetworkInterfaceId": str,
         "VpcPeeringConnectionId": str,
+        "CoreNetworkArn": str,
     },
     total=False,
 )
@@ -18947,6 +19581,7 @@ ReplaceRouteRequestRouteTypeDef = TypedDict(
         "CarrierGatewayId": str,
         "NetworkInterfaceId": str,
         "VpcPeeringConnectionId": str,
+        "CoreNetworkArn": str,
     },
     total=False,
 )
@@ -19113,6 +19748,7 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
         "HibernationOptions": "LaunchTemplateHibernationOptionsRequestTypeDef",
         "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "LaunchTemplateEnclaveOptionsRequestTypeDef",
+        "InstanceRequirements": "InstanceRequirementsRequestTypeDef",
     },
     total=False,
 )
@@ -19191,6 +19827,20 @@ RequestSpotLaunchSpecificationTypeDef = TypedDict(
         "RamdiskId": str,
         "SubnetId": str,
         "UserData": str,
+    },
+    total=False,
+)
+
+ReservationFleetInstanceSpecificationTypeDef = TypedDict(
+    "ReservationFleetInstanceSpecificationTypeDef",
+    {
+        "InstanceType": InstanceTypeType,
+        "InstancePlatform": CapacityReservationInstancePlatformType,
+        "Weight": float,
+        "AvailabilityZone": str,
+        "AvailabilityZoneId": str,
+        "EbsOptimized": bool,
+        "Priority": int,
     },
     total=False,
 )
@@ -19623,6 +20273,7 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
         "HibernationOptions": "LaunchTemplateHibernationOptionsTypeDef",
         "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsTypeDef",
         "EnclaveOptions": "LaunchTemplateEnclaveOptionsTypeDef",
+        "InstanceRequirements": "InstanceRequirementsTypeDef",
     },
     total=False,
 )
@@ -19879,6 +20530,7 @@ RouteTypeDef = TypedDict(
         "Origin": RouteOriginType,
         "State": RouteStateType,
         "VpcPeeringConnectionId": str,
+        "CoreNetworkArn": str,
     },
     total=False,
 )
@@ -20292,12 +20944,12 @@ _RequiredSearchLocalGatewayRoutesRequestRequestTypeDef = TypedDict(
     "_RequiredSearchLocalGatewayRoutesRequestRequestTypeDef",
     {
         "LocalGatewayRouteTableId": str,
-        "Filters": List["FilterTypeDef"],
     },
 )
 _OptionalSearchLocalGatewayRoutesRequestRequestTypeDef = TypedDict(
     "_OptionalSearchLocalGatewayRoutesRequestRequestTypeDef",
     {
+        "Filters": List["FilterTypeDef"],
         "MaxResults": int,
         "NextToken": str,
         "DryRun": bool,
@@ -20805,7 +21457,8 @@ SnapshotTypeDef = TypedDict(
 SpotCapacityRebalanceTypeDef = TypedDict(
     "SpotCapacityRebalanceTypeDef",
     {
-        "ReplacementStrategy": Literal["launch"],
+        "ReplacementStrategy": ReplacementStrategyType,
+        "TerminationDelay": int,
     },
     total=False,
 )
@@ -20843,6 +21496,7 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
         "UserData": str,
         "WeightedCapacity": float,
         "TagSpecifications": List["SpotFleetTagSpecificationTypeDef"],
+        "InstanceRequirements": "InstanceRequirementsTypeDef",
     },
     total=False,
 )
@@ -20887,6 +21541,7 @@ _OptionalSpotFleetRequestConfigDataTypeDef = TypedDict(
         "LoadBalancersConfig": "LoadBalancersConfigTypeDef",
         "InstancePoolsToUseCount": int,
         "Context": str,
+        "TargetCapacityUnitType": TargetCapacityUnitTypeType,
         "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
@@ -21010,6 +21665,16 @@ SpotOptionsTypeDef = TypedDict(
         "SingleAvailabilityZone": bool,
         "MinTargetCapacity": int,
         "MaxTotalPrice": str,
+    },
+    total=False,
+)
+
+SpotPlacementScoreTypeDef = TypedDict(
+    "SpotPlacementScoreTypeDef",
+    {
+        "Region": str,
+        "AvailabilityZoneId": str,
+        "Score": int,
     },
     total=False,
 )
@@ -21299,6 +21964,7 @@ SubnetTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "SubnetArn": str,
         "OutpostArn": str,
+        "EnableDns64": bool,
     },
     total=False,
 )
@@ -21368,6 +22034,7 @@ _OptionalTargetCapacitySpecificationRequestTypeDef = TypedDict(
         "OnDemandTargetCapacity": int,
         "SpotTargetCapacity": int,
         "DefaultTargetCapacityType": DefaultTargetCapacityTypeType,
+        "TargetCapacityUnitType": TargetCapacityUnitTypeType,
     },
     total=False,
 )
@@ -21385,6 +22052,7 @@ TargetCapacitySpecificationTypeDef = TypedDict(
         "OnDemandTargetCapacity": int,
         "SpotTargetCapacity": int,
         "DefaultTargetCapacityType": DefaultTargetCapacityTypeType,
+        "TargetCapacityUnitType": TargetCapacityUnitTypeType,
     },
     total=False,
 )
@@ -21531,6 +22199,24 @@ TerminateInstancesResultTypeDef = TypedDict(
         "TerminatingInstances": List["InstanceStateChangeTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+TotalLocalStorageGBRequestTypeDef = TypedDict(
+    "TotalLocalStorageGBRequestTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
+)
+
+TotalLocalStorageGBTypeDef = TypedDict(
+    "TotalLocalStorageGBTypeDef",
+    {
+        "Min": float,
+        "Max": float,
+    },
+    total=False,
 )
 
 TrafficMirrorFilterRuleTypeDef = TypedDict(
@@ -22268,6 +22954,34 @@ UserIdGroupPairTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredVCpuCountRangeRequestTypeDef = TypedDict(
+    "_RequiredVCpuCountRangeRequestTypeDef",
+    {
+        "Min": int,
+    },
+)
+_OptionalVCpuCountRangeRequestTypeDef = TypedDict(
+    "_OptionalVCpuCountRangeRequestTypeDef",
+    {
+        "Max": int,
+    },
+    total=False,
+)
+
+class VCpuCountRangeRequestTypeDef(
+    _RequiredVCpuCountRangeRequestTypeDef, _OptionalVCpuCountRangeRequestTypeDef
+):
+    pass
+
+VCpuCountRangeTypeDef = TypedDict(
+    "VCpuCountRangeTypeDef",
+    {
+        "Min": int,
+        "Max": int,
+    },
+    total=False,
+)
+
 VCpuInfoTypeDef = TypedDict(
     "VCpuInfoTypeDef",
     {
@@ -22629,6 +23343,17 @@ VpcTypeDef = TypedDict(
     total=False,
 )
 
+VpnConnectionDeviceTypeTypeDef = TypedDict(
+    "VpnConnectionDeviceTypeTypeDef",
+    {
+        "VpnConnectionDeviceTypeId": str,
+        "Vendor": str,
+        "Platform": str,
+        "Software": str,
+    },
+    total=False,
+)
+
 VpnConnectionOptionsSpecificationTypeDef = TypedDict(
     "VpnConnectionOptionsSpecificationTypeDef",
     {
@@ -22670,6 +23395,9 @@ VpnConnectionTypeDef = TypedDict(
         "VpnConnectionId": str,
         "VpnGatewayId": str,
         "TransitGatewayId": str,
+        "CoreNetworkArn": str,
+        "CoreNetworkAttachmentArn": str,
+        "GatewayAssociationState": GatewayAssociationStateType,
         "Options": "VpnConnectionOptionsTypeDef",
         "Routes": List["VpnStaticRouteTypeDef"],
         "Tags": List["TagTypeDef"],

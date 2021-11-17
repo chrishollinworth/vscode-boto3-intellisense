@@ -59,8 +59,11 @@ __all__ = (
     "CreateComputeEnvironmentResponseTypeDef",
     "CreateJobQueueRequestRequestTypeDef",
     "CreateJobQueueResponseTypeDef",
+    "CreateSchedulingPolicyRequestRequestTypeDef",
+    "CreateSchedulingPolicyResponseTypeDef",
     "DeleteComputeEnvironmentRequestRequestTypeDef",
     "DeleteJobQueueRequestRequestTypeDef",
+    "DeleteSchedulingPolicyRequestRequestTypeDef",
     "DeregisterJobDefinitionRequestRequestTypeDef",
     "DescribeComputeEnvironmentsRequestRequestTypeDef",
     "DescribeComputeEnvironmentsResponseTypeDef",
@@ -70,11 +73,14 @@ __all__ = (
     "DescribeJobQueuesResponseTypeDef",
     "DescribeJobsRequestRequestTypeDef",
     "DescribeJobsResponseTypeDef",
+    "DescribeSchedulingPoliciesRequestRequestTypeDef",
+    "DescribeSchedulingPoliciesResponseTypeDef",
     "DeviceTypeDef",
     "EFSAuthorizationConfigTypeDef",
     "EFSVolumeConfigurationTypeDef",
     "Ec2ConfigurationTypeDef",
     "EvaluateOnExitTypeDef",
+    "FairsharePolicyTypeDef",
     "FargatePlatformConfigurationTypeDef",
     "HostTypeDef",
     "JobDefinitionTypeDef",
@@ -89,6 +95,8 @@ __all__ = (
     "LinuxParametersTypeDef",
     "ListJobsRequestRequestTypeDef",
     "ListJobsResponseTypeDef",
+    "ListSchedulingPoliciesRequestRequestTypeDef",
+    "ListSchedulingPoliciesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LogConfigurationTypeDef",
@@ -107,7 +115,10 @@ __all__ = (
     "ResourceRequirementTypeDef",
     "ResponseMetadataTypeDef",
     "RetryStrategyTypeDef",
+    "SchedulingPolicyDetailTypeDef",
+    "SchedulingPolicyListingDetailTypeDef",
     "SecretTypeDef",
+    "ShareAttributesTypeDef",
     "SubmitJobRequestRequestTypeDef",
     "SubmitJobResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -119,6 +130,7 @@ __all__ = (
     "UpdateComputeEnvironmentResponseTypeDef",
     "UpdateJobQueueRequestRequestTypeDef",
     "UpdateJobQueueResponseTypeDef",
+    "UpdateSchedulingPolicyRequestRequestTypeDef",
     "VolumeTypeDef",
 )
 
@@ -192,6 +204,7 @@ _RequiredComputeEnvironmentDetailTypeDef = TypedDict(
 _OptionalComputeEnvironmentDetailTypeDef = TypedDict(
     "_OptionalComputeEnvironmentDetailTypeDef",
     {
+        "unmanagedvCpus": int,
         "tags": Dict[str, str],
         "type": CETypeType,
         "state": CEStateType,
@@ -353,6 +366,7 @@ _OptionalCreateComputeEnvironmentRequestRequestTypeDef = TypedDict(
     "_OptionalCreateComputeEnvironmentRequestRequestTypeDef",
     {
         "state": CEStateType,
+        "unmanagedvCpus": int,
         "computeResources": "ComputeResourceTypeDef",
         "serviceRole": str,
         "tags": Dict[str, str],
@@ -387,6 +401,7 @@ _OptionalCreateJobQueueRequestRequestTypeDef = TypedDict(
     "_OptionalCreateJobQueueRequestRequestTypeDef",
     {
         "state": JQStateType,
+        "schedulingPolicyArn": str,
         "tags": Dict[str, str],
     },
     total=False,
@@ -406,6 +421,36 @@ CreateJobQueueResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateSchedulingPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSchedulingPolicyRequestRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+_OptionalCreateSchedulingPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSchedulingPolicyRequestRequestTypeDef",
+    {
+        "fairsharePolicy": "FairsharePolicyTypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateSchedulingPolicyRequestRequestTypeDef(
+    _RequiredCreateSchedulingPolicyRequestRequestTypeDef,
+    _OptionalCreateSchedulingPolicyRequestRequestTypeDef,
+):
+    pass
+
+CreateSchedulingPolicyResponseTypeDef = TypedDict(
+    "CreateSchedulingPolicyResponseTypeDef",
+    {
+        "name": str,
+        "arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteComputeEnvironmentRequestRequestTypeDef = TypedDict(
     "DeleteComputeEnvironmentRequestRequestTypeDef",
     {
@@ -417,6 +462,13 @@ DeleteJobQueueRequestRequestTypeDef = TypedDict(
     "DeleteJobQueueRequestRequestTypeDef",
     {
         "jobQueue": str,
+    },
+)
+
+DeleteSchedulingPolicyRequestRequestTypeDef = TypedDict(
+    "DeleteSchedulingPolicyRequestRequestTypeDef",
+    {
+        "arn": str,
     },
 )
 
@@ -497,6 +549,21 @@ DescribeJobsResponseTypeDef = TypedDict(
     "DescribeJobsResponseTypeDef",
     {
         "jobs": List["JobDetailTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSchedulingPoliciesRequestRequestTypeDef = TypedDict(
+    "DescribeSchedulingPoliciesRequestRequestTypeDef",
+    {
+        "arns": List[str],
+    },
+)
+
+DescribeSchedulingPoliciesResponseTypeDef = TypedDict(
+    "DescribeSchedulingPoliciesResponseTypeDef",
+    {
+        "schedulingPolicies": List["SchedulingPolicyDetailTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -586,6 +653,16 @@ _OptionalEvaluateOnExitTypeDef = TypedDict(
 class EvaluateOnExitTypeDef(_RequiredEvaluateOnExitTypeDef, _OptionalEvaluateOnExitTypeDef):
     pass
 
+FairsharePolicyTypeDef = TypedDict(
+    "FairsharePolicyTypeDef",
+    {
+        "shareDecaySeconds": int,
+        "computeReservation": int,
+        "shareDistribution": List["ShareAttributesTypeDef"],
+    },
+    total=False,
+)
+
 FargatePlatformConfigurationTypeDef = TypedDict(
     "FargatePlatformConfigurationTypeDef",
     {
@@ -615,6 +692,7 @@ _OptionalJobDefinitionTypeDef = TypedDict(
     "_OptionalJobDefinitionTypeDef",
     {
         "status": str,
+        "schedulingPriority": int,
         "parameters": Dict[str, str],
         "retryStrategy": "RetryStrategyTypeDef",
         "containerProperties": "ContainerPropertiesTypeDef",
@@ -654,6 +732,8 @@ _OptionalJobDetailTypeDef = TypedDict(
     "_OptionalJobDetailTypeDef",
     {
         "jobArn": str,
+        "shareIdentifier": str,
+        "schedulingPriority": int,
         "attempts": List["AttemptDetailTypeDef"],
         "statusReason": str,
         "createdAt": int,
@@ -689,6 +769,7 @@ _RequiredJobQueueDetailTypeDef = TypedDict(
 _OptionalJobQueueDetailTypeDef = TypedDict(
     "_OptionalJobQueueDetailTypeDef",
     {
+        "schedulingPolicyArn": str,
         "status": JQStatusType,
         "statusReason": str,
         "tags": Dict[str, str],
@@ -793,6 +874,24 @@ ListJobsResponseTypeDef = TypedDict(
     "ListJobsResponseTypeDef",
     {
         "jobSummaryList": List["JobSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSchedulingPoliciesRequestRequestTypeDef = TypedDict(
+    "ListSchedulingPoliciesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListSchedulingPoliciesResponseTypeDef = TypedDict(
+    "ListSchedulingPoliciesResponseTypeDef",
+    {
+        "schedulingPolicies": List["SchedulingPolicyListingDetailTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -955,6 +1054,7 @@ _OptionalRegisterJobDefinitionRequestRequestTypeDef = TypedDict(
     "_OptionalRegisterJobDefinitionRequestRequestTypeDef",
     {
         "parameters": Dict[str, str],
+        "schedulingPriority": int,
         "containerProperties": "ContainerPropertiesTypeDef",
         "nodeProperties": "NodePropertiesTypeDef",
         "retryStrategy": "RetryStrategyTypeDef",
@@ -1010,6 +1110,34 @@ RetryStrategyTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredSchedulingPolicyDetailTypeDef = TypedDict(
+    "_RequiredSchedulingPolicyDetailTypeDef",
+    {
+        "name": str,
+        "arn": str,
+    },
+)
+_OptionalSchedulingPolicyDetailTypeDef = TypedDict(
+    "_OptionalSchedulingPolicyDetailTypeDef",
+    {
+        "fairsharePolicy": "FairsharePolicyTypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class SchedulingPolicyDetailTypeDef(
+    _RequiredSchedulingPolicyDetailTypeDef, _OptionalSchedulingPolicyDetailTypeDef
+):
+    pass
+
+SchedulingPolicyListingDetailTypeDef = TypedDict(
+    "SchedulingPolicyListingDetailTypeDef",
+    {
+        "arn": str,
+    },
+)
+
 SecretTypeDef = TypedDict(
     "SecretTypeDef",
     {
@@ -1017,6 +1145,23 @@ SecretTypeDef = TypedDict(
         "valueFrom": str,
     },
 )
+
+_RequiredShareAttributesTypeDef = TypedDict(
+    "_RequiredShareAttributesTypeDef",
+    {
+        "shareIdentifier": str,
+    },
+)
+_OptionalShareAttributesTypeDef = TypedDict(
+    "_OptionalShareAttributesTypeDef",
+    {
+        "weightFactor": float,
+    },
+    total=False,
+)
+
+class ShareAttributesTypeDef(_RequiredShareAttributesTypeDef, _OptionalShareAttributesTypeDef):
+    pass
 
 _RequiredSubmitJobRequestRequestTypeDef = TypedDict(
     "_RequiredSubmitJobRequestRequestTypeDef",
@@ -1029,6 +1174,8 @@ _RequiredSubmitJobRequestRequestTypeDef = TypedDict(
 _OptionalSubmitJobRequestRequestTypeDef = TypedDict(
     "_OptionalSubmitJobRequestRequestTypeDef",
     {
+        "shareIdentifier": str,
+        "schedulingPriorityOverride": int,
         "arrayProperties": "ArrayPropertiesTypeDef",
         "dependsOn": List["JobDependencyTypeDef"],
         "parameters": Dict[str, str],
@@ -1118,6 +1265,7 @@ _OptionalUpdateComputeEnvironmentRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateComputeEnvironmentRequestRequestTypeDef",
     {
         "state": CEStateType,
+        "unmanagedvCpus": int,
         "computeResources": "ComputeResourceUpdateTypeDef",
         "serviceRole": str,
     },
@@ -1149,6 +1297,7 @@ _OptionalUpdateJobQueueRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateJobQueueRequestRequestTypeDef",
     {
         "state": JQStateType,
+        "schedulingPolicyArn": str,
         "priority": int,
         "computeEnvironmentOrder": List["ComputeEnvironmentOrderTypeDef"],
     },
@@ -1168,6 +1317,26 @@ UpdateJobQueueResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredUpdateSchedulingPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateSchedulingPolicyRequestRequestTypeDef",
+    {
+        "arn": str,
+    },
+)
+_OptionalUpdateSchedulingPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateSchedulingPolicyRequestRequestTypeDef",
+    {
+        "fairsharePolicy": "FairsharePolicyTypeDef",
+    },
+    total=False,
+)
+
+class UpdateSchedulingPolicyRequestRequestTypeDef(
+    _RequiredUpdateSchedulingPolicyRequestRequestTypeDef,
+    _OptionalUpdateSchedulingPolicyRequestRequestTypeDef,
+):
+    pass
 
 VolumeTypeDef = TypedDict(
     "VolumeTypeDef",

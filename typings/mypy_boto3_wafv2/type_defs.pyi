@@ -22,6 +22,7 @@ from .literals import (
     BodyParsingFallbackBehaviorType,
     ComparisonOperatorType,
     CountryCodeType,
+    FailureReasonType,
     FallbackBehaviorType,
     FilterBehaviorType,
     FilterRequirementType,
@@ -49,6 +50,9 @@ __all__ = (
     "AssociateWebACLRequestRequestTypeDef",
     "BlockActionTypeDef",
     "ByteMatchStatementTypeDef",
+    "CaptchaActionTypeDef",
+    "CaptchaConfigTypeDef",
+    "CaptchaResponseTypeDef",
     "CheckCapacityRequestRequestTypeDef",
     "CheckCapacityResponseTypeDef",
     "ConditionTypeDef",
@@ -88,6 +92,8 @@ __all__ = (
     "GetIPSetResponseTypeDef",
     "GetLoggingConfigurationRequestRequestTypeDef",
     "GetLoggingConfigurationResponseTypeDef",
+    "GetManagedRuleSetRequestRequestTypeDef",
+    "GetManagedRuleSetResponseTypeDef",
     "GetPermissionPolicyRequestRequestTypeDef",
     "GetPermissionPolicyResponseTypeDef",
     "GetRateBasedStatementManagedKeysRequestRequestTypeDef",
@@ -108,18 +114,23 @@ __all__ = (
     "IPSetReferenceStatementTypeDef",
     "IPSetSummaryTypeDef",
     "IPSetTypeDef",
+    "ImmunityTimePropertyTypeDef",
     "JsonBodyTypeDef",
     "JsonMatchPatternTypeDef",
     "LabelMatchStatementTypeDef",
     "LabelNameConditionTypeDef",
     "LabelSummaryTypeDef",
     "LabelTypeDef",
+    "ListAvailableManagedRuleGroupVersionsRequestRequestTypeDef",
+    "ListAvailableManagedRuleGroupVersionsResponseTypeDef",
     "ListAvailableManagedRuleGroupsRequestRequestTypeDef",
     "ListAvailableManagedRuleGroupsResponseTypeDef",
     "ListIPSetsRequestRequestTypeDef",
     "ListIPSetsResponseTypeDef",
     "ListLoggingConfigurationsRequestRequestTypeDef",
     "ListLoggingConfigurationsResponseTypeDef",
+    "ListManagedRuleSetsRequestRequestTypeDef",
+    "ListManagedRuleSetsResponseTypeDef",
     "ListRegexPatternSetsRequestRequestTypeDef",
     "ListRegexPatternSetsResponseTypeDef",
     "ListResourcesForWebACLRequestRequestTypeDef",
@@ -134,14 +145,21 @@ __all__ = (
     "LoggingFilterTypeDef",
     "ManagedRuleGroupStatementTypeDef",
     "ManagedRuleGroupSummaryTypeDef",
+    "ManagedRuleGroupVersionTypeDef",
+    "ManagedRuleSetSummaryTypeDef",
+    "ManagedRuleSetTypeDef",
+    "ManagedRuleSetVersionTypeDef",
     "NotStatementTypeDef",
     "OrStatementTypeDef",
     "OverrideActionTypeDef",
     "PutLoggingConfigurationRequestRequestTypeDef",
     "PutLoggingConfigurationResponseTypeDef",
+    "PutManagedRuleSetVersionsRequestRequestTypeDef",
+    "PutManagedRuleSetVersionsResponseTypeDef",
     "PutPermissionPolicyRequestRequestTypeDef",
     "RateBasedStatementManagedKeysIPSetTypeDef",
     "RateBasedStatementTypeDef",
+    "RegexMatchStatementTypeDef",
     "RegexPatternSetReferenceStatementTypeDef",
     "RegexPatternSetSummaryTypeDef",
     "RegexPatternSetTypeDef",
@@ -167,12 +185,15 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateIPSetRequestRequestTypeDef",
     "UpdateIPSetResponseTypeDef",
+    "UpdateManagedRuleSetVersionExpiryDateRequestRequestTypeDef",
+    "UpdateManagedRuleSetVersionExpiryDateResponseTypeDef",
     "UpdateRegexPatternSetRequestRequestTypeDef",
     "UpdateRegexPatternSetResponseTypeDef",
     "UpdateRuleGroupRequestRequestTypeDef",
     "UpdateRuleGroupResponseTypeDef",
     "UpdateWebACLRequestRequestTypeDef",
     "UpdateWebACLResponseTypeDef",
+    "VersionToPublishTypeDef",
     "VisibilityConfigTypeDef",
     "WebACLSummaryTypeDef",
     "WebACLTypeDef",
@@ -225,6 +246,32 @@ ByteMatchStatementTypeDef = TypedDict(
         "TextTransformations": List["TextTransformationTypeDef"],
         "PositionalConstraint": PositionalConstraintType,
     },
+)
+
+CaptchaActionTypeDef = TypedDict(
+    "CaptchaActionTypeDef",
+    {
+        "CustomRequestHandling": "CustomRequestHandlingTypeDef",
+    },
+    total=False,
+)
+
+CaptchaConfigTypeDef = TypedDict(
+    "CaptchaConfigTypeDef",
+    {
+        "ImmunityTimeProperty": "ImmunityTimePropertyTypeDef",
+    },
+    total=False,
+)
+
+CaptchaResponseTypeDef = TypedDict(
+    "CaptchaResponseTypeDef",
+    {
+        "ResponseCode": int,
+        "SolveTimestamp": int,
+        "FailureReason": FailureReasonType,
+    },
+    total=False,
 )
 
 CheckCapacityRequestRequestTypeDef = TypedDict(
@@ -371,6 +418,7 @@ _OptionalCreateWebACLRequestRequestTypeDef = TypedDict(
         "Rules": List["RuleTypeDef"],
         "Tags": List["TagTypeDef"],
         "CustomResponseBodies": Dict[str, "CustomResponseBodyTypeDef"],
+        "CaptchaConfig": "CaptchaConfigTypeDef",
     },
     total=False,
 )
@@ -508,18 +556,33 @@ DeleteWebACLRequestRequestTypeDef = TypedDict(
     },
 )
 
-DescribeManagedRuleGroupRequestRequestTypeDef = TypedDict(
-    "DescribeManagedRuleGroupRequestRequestTypeDef",
+_RequiredDescribeManagedRuleGroupRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeManagedRuleGroupRequestRequestTypeDef",
     {
         "VendorName": str,
         "Name": str,
         "Scope": ScopeType,
     },
 )
+_OptionalDescribeManagedRuleGroupRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeManagedRuleGroupRequestRequestTypeDef",
+    {
+        "VersionName": str,
+    },
+    total=False,
+)
+
+class DescribeManagedRuleGroupRequestRequestTypeDef(
+    _RequiredDescribeManagedRuleGroupRequestRequestTypeDef,
+    _OptionalDescribeManagedRuleGroupRequestRequestTypeDef,
+):
+    pass
 
 DescribeManagedRuleGroupResponseTypeDef = TypedDict(
     "DescribeManagedRuleGroupResponseTypeDef",
     {
+        "VersionName": str,
+        "SnsTopicArn": str,
         "Capacity": int,
         "Rules": List["RuleSummaryTypeDef"],
         "LabelNamespace": str,
@@ -637,6 +700,24 @@ GetLoggingConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+GetManagedRuleSetRequestRequestTypeDef = TypedDict(
+    "GetManagedRuleSetRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Scope": ScopeType,
+        "Id": str,
+    },
+)
+
+GetManagedRuleSetResponseTypeDef = TypedDict(
+    "GetManagedRuleSetResponseTypeDef",
+    {
+        "ManagedRuleSet": "ManagedRuleSetTypeDef",
+        "LockToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetPermissionPolicyRequestRequestTypeDef = TypedDict(
     "GetPermissionPolicyRequestRequestTypeDef",
     {
@@ -652,8 +733,8 @@ GetPermissionPolicyResponseTypeDef = TypedDict(
     },
 )
 
-GetRateBasedStatementManagedKeysRequestRequestTypeDef = TypedDict(
-    "GetRateBasedStatementManagedKeysRequestRequestTypeDef",
+_RequiredGetRateBasedStatementManagedKeysRequestRequestTypeDef = TypedDict(
+    "_RequiredGetRateBasedStatementManagedKeysRequestRequestTypeDef",
     {
         "Scope": ScopeType,
         "WebACLName": str,
@@ -661,6 +742,19 @@ GetRateBasedStatementManagedKeysRequestRequestTypeDef = TypedDict(
         "RuleName": str,
     },
 )
+_OptionalGetRateBasedStatementManagedKeysRequestRequestTypeDef = TypedDict(
+    "_OptionalGetRateBasedStatementManagedKeysRequestRequestTypeDef",
+    {
+        "RuleGroupRuleName": str,
+    },
+    total=False,
+)
+
+class GetRateBasedStatementManagedKeysRequestRequestTypeDef(
+    _RequiredGetRateBasedStatementManagedKeysRequestRequestTypeDef,
+    _OptionalGetRateBasedStatementManagedKeysRequestRequestTypeDef,
+):
+    pass
 
 GetRateBasedStatementManagedKeysResponseTypeDef = TypedDict(
     "GetRateBasedStatementManagedKeysResponseTypeDef",
@@ -846,6 +940,13 @@ _OptionalIPSetTypeDef = TypedDict(
 class IPSetTypeDef(_RequiredIPSetTypeDef, _OptionalIPSetTypeDef):
     pass
 
+ImmunityTimePropertyTypeDef = TypedDict(
+    "ImmunityTimePropertyTypeDef",
+    {
+        "ImmunityTime": int,
+    },
+)
+
 _RequiredJsonBodyTypeDef = TypedDict(
     "_RequiredJsonBodyTypeDef",
     {
@@ -900,6 +1001,38 @@ LabelTypeDef = TypedDict(
     "LabelTypeDef",
     {
         "Name": str,
+    },
+)
+
+_RequiredListAvailableManagedRuleGroupVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAvailableManagedRuleGroupVersionsRequestRequestTypeDef",
+    {
+        "VendorName": str,
+        "Name": str,
+        "Scope": ScopeType,
+    },
+)
+_OptionalListAvailableManagedRuleGroupVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAvailableManagedRuleGroupVersionsRequestRequestTypeDef",
+    {
+        "NextMarker": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+class ListAvailableManagedRuleGroupVersionsRequestRequestTypeDef(
+    _RequiredListAvailableManagedRuleGroupVersionsRequestRequestTypeDef,
+    _OptionalListAvailableManagedRuleGroupVersionsRequestRequestTypeDef,
+):
+    pass
+
+ListAvailableManagedRuleGroupVersionsResponseTypeDef = TypedDict(
+    "ListAvailableManagedRuleGroupVersionsResponseTypeDef",
+    {
+        "NextMarker": str,
+        "Versions": List["ManagedRuleGroupVersionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -962,21 +1095,62 @@ ListIPSetsResponseTypeDef = TypedDict(
     },
 )
 
-ListLoggingConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListLoggingConfigurationsRequestRequestTypeDef",
+_RequiredListLoggingConfigurationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListLoggingConfigurationsRequestRequestTypeDef",
     {
         "Scope": ScopeType,
+    },
+)
+_OptionalListLoggingConfigurationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListLoggingConfigurationsRequestRequestTypeDef",
+    {
         "NextMarker": str,
         "Limit": int,
     },
     total=False,
 )
 
+class ListLoggingConfigurationsRequestRequestTypeDef(
+    _RequiredListLoggingConfigurationsRequestRequestTypeDef,
+    _OptionalListLoggingConfigurationsRequestRequestTypeDef,
+):
+    pass
+
 ListLoggingConfigurationsResponseTypeDef = TypedDict(
     "ListLoggingConfigurationsResponseTypeDef",
     {
         "LoggingConfigurations": List["LoggingConfigurationTypeDef"],
         "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListManagedRuleSetsRequestRequestTypeDef = TypedDict(
+    "_RequiredListManagedRuleSetsRequestRequestTypeDef",
+    {
+        "Scope": ScopeType,
+    },
+)
+_OptionalListManagedRuleSetsRequestRequestTypeDef = TypedDict(
+    "_OptionalListManagedRuleSetsRequestRequestTypeDef",
+    {
+        "NextMarker": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+class ListManagedRuleSetsRequestRequestTypeDef(
+    _RequiredListManagedRuleSetsRequestRequestTypeDef,
+    _OptionalListManagedRuleSetsRequestRequestTypeDef,
+):
+    pass
+
+ListManagedRuleSetsResponseTypeDef = TypedDict(
+    "ListManagedRuleSetsResponseTypeDef",
+    {
+        "NextMarker": str,
+        "ManagedRuleSets": List["ManagedRuleSetSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1167,6 +1341,7 @@ _RequiredManagedRuleGroupStatementTypeDef = TypedDict(
 _OptionalManagedRuleGroupStatementTypeDef = TypedDict(
     "_OptionalManagedRuleGroupStatementTypeDef",
     {
+        "Version": str,
         "ExcludedRules": List["ExcludedRuleTypeDef"],
         "ScopeDownStatement": "StatementTypeDef",
     },
@@ -1188,6 +1363,63 @@ ManagedRuleGroupSummaryTypeDef = TypedDict(
     total=False,
 )
 
+ManagedRuleGroupVersionTypeDef = TypedDict(
+    "ManagedRuleGroupVersionTypeDef",
+    {
+        "Name": str,
+        "LastUpdateTimestamp": datetime,
+    },
+    total=False,
+)
+
+ManagedRuleSetSummaryTypeDef = TypedDict(
+    "ManagedRuleSetSummaryTypeDef",
+    {
+        "Name": str,
+        "Id": str,
+        "Description": str,
+        "LockToken": str,
+        "ARN": str,
+        "LabelNamespace": str,
+    },
+    total=False,
+)
+
+_RequiredManagedRuleSetTypeDef = TypedDict(
+    "_RequiredManagedRuleSetTypeDef",
+    {
+        "Name": str,
+        "Id": str,
+        "ARN": str,
+    },
+)
+_OptionalManagedRuleSetTypeDef = TypedDict(
+    "_OptionalManagedRuleSetTypeDef",
+    {
+        "Description": str,
+        "PublishedVersions": Dict[str, "ManagedRuleSetVersionTypeDef"],
+        "RecommendedVersion": str,
+        "LabelNamespace": str,
+    },
+    total=False,
+)
+
+class ManagedRuleSetTypeDef(_RequiredManagedRuleSetTypeDef, _OptionalManagedRuleSetTypeDef):
+    pass
+
+ManagedRuleSetVersionTypeDef = TypedDict(
+    "ManagedRuleSetVersionTypeDef",
+    {
+        "AssociatedRuleGroupArn": str,
+        "Capacity": int,
+        "ForecastedLifetime": int,
+        "PublishTimestamp": datetime,
+        "LastUpdateTimestamp": datetime,
+        "ExpiryTimestamp": datetime,
+    },
+    total=False,
+)
+
 NotStatementTypeDef = TypedDict(
     "NotStatementTypeDef",
     {
@@ -1198,7 +1430,7 @@ NotStatementTypeDef = TypedDict(
 OrStatementTypeDef = TypedDict(
     "OrStatementTypeDef",
     {
-        "Statements": List["StatementTypeDef"],
+        "Statements": List[Dict[str, Any]],
     },
 )
 
@@ -1222,6 +1454,38 @@ PutLoggingConfigurationResponseTypeDef = TypedDict(
     "PutLoggingConfigurationResponseTypeDef",
     {
         "LoggingConfiguration": "LoggingConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredPutManagedRuleSetVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutManagedRuleSetVersionsRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Scope": ScopeType,
+        "Id": str,
+        "LockToken": str,
+    },
+)
+_OptionalPutManagedRuleSetVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutManagedRuleSetVersionsRequestRequestTypeDef",
+    {
+        "RecommendedVersion": str,
+        "VersionsToPublish": Dict[str, "VersionToPublishTypeDef"],
+    },
+    total=False,
+)
+
+class PutManagedRuleSetVersionsRequestRequestTypeDef(
+    _RequiredPutManagedRuleSetVersionsRequestRequestTypeDef,
+    _OptionalPutManagedRuleSetVersionsRequestRequestTypeDef,
+):
+    pass
+
+PutManagedRuleSetVersionsResponseTypeDef = TypedDict(
+    "PutManagedRuleSetVersionsResponseTypeDef",
+    {
+        "NextLockToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1253,7 +1517,7 @@ _RequiredRateBasedStatementTypeDef = TypedDict(
 _OptionalRateBasedStatementTypeDef = TypedDict(
     "_OptionalRateBasedStatementTypeDef",
     {
-        "ScopeDownStatement": Dict[str, Any],
+        "ScopeDownStatement": "StatementTypeDef",
         "ForwardedIPConfig": "ForwardedIPConfigTypeDef",
     },
     total=False,
@@ -1263,6 +1527,15 @@ class RateBasedStatementTypeDef(
     _RequiredRateBasedStatementTypeDef, _OptionalRateBasedStatementTypeDef
 ):
     pass
+
+RegexMatchStatementTypeDef = TypedDict(
+    "RegexMatchStatementTypeDef",
+    {
+        "RegexString": str,
+        "FieldToMatch": "FieldToMatchTypeDef",
+        "TextTransformations": List["TextTransformationTypeDef"],
+    },
+)
 
 RegexPatternSetReferenceStatementTypeDef = TypedDict(
     "RegexPatternSetReferenceStatementTypeDef",
@@ -1322,6 +1595,7 @@ RuleActionTypeDef = TypedDict(
         "Block": "BlockActionTypeDef",
         "Allow": "AllowActionTypeDef",
         "Count": "CountActionTypeDef",
+        "Captcha": "CaptchaActionTypeDef",
     },
     total=False,
 )
@@ -1407,6 +1681,7 @@ _OptionalRuleTypeDef = TypedDict(
         "Action": "RuleActionTypeDef",
         "OverrideAction": "OverrideActionTypeDef",
         "RuleLabels": List["LabelTypeDef"],
+        "CaptchaConfig": "CaptchaConfigTypeDef",
     },
     total=False,
 )
@@ -1430,6 +1705,7 @@ _OptionalSampledHTTPRequestTypeDef = TypedDict(
         "RequestHeadersInserted": List["HTTPHeaderTypeDef"],
         "ResponseCodeSent": int,
         "Labels": List["LabelTypeDef"],
+        "CaptchaResponse": "CaptchaResponseTypeDef",
     },
     total=False,
 )
@@ -1488,6 +1764,7 @@ StatementTypeDef = TypedDict(
         "NotStatement": Dict[str, Any],
         "ManagedRuleGroupStatement": Dict[str, Any],
         "LabelMatchStatement": "LabelMatchStatementTypeDef",
+        "RegexMatchStatement": "RegexMatchStatementTypeDef",
     },
     total=False,
 )
@@ -1567,6 +1844,28 @@ class UpdateIPSetRequestRequestTypeDef(
 UpdateIPSetResponseTypeDef = TypedDict(
     "UpdateIPSetResponseTypeDef",
     {
+        "NextLockToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateManagedRuleSetVersionExpiryDateRequestRequestTypeDef = TypedDict(
+    "UpdateManagedRuleSetVersionExpiryDateRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Scope": ScopeType,
+        "Id": str,
+        "LockToken": str,
+        "VersionToExpire": str,
+        "ExpiryTimestamp": Union[datetime, str],
+    },
+)
+
+UpdateManagedRuleSetVersionExpiryDateResponseTypeDef = TypedDict(
+    "UpdateManagedRuleSetVersionExpiryDateResponseTypeDef",
+    {
+        "ExpiringVersion": str,
+        "ExpiryTimestamp": datetime,
         "NextLockToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1654,6 +1953,7 @@ _OptionalUpdateWebACLRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Rules": List["RuleTypeDef"],
         "CustomResponseBodies": Dict[str, "CustomResponseBodyTypeDef"],
+        "CaptchaConfig": "CaptchaConfigTypeDef",
     },
     total=False,
 )
@@ -1669,6 +1969,15 @@ UpdateWebACLResponseTypeDef = TypedDict(
         "NextLockToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VersionToPublishTypeDef = TypedDict(
+    "VersionToPublishTypeDef",
+    {
+        "AssociatedRuleGroupArn": str,
+        "ForecastedLifetime": int,
+    },
+    total=False,
 )
 
 VisibilityConfigTypeDef = TypedDict(
@@ -1713,6 +2022,7 @@ _OptionalWebACLTypeDef = TypedDict(
         "ManagedByFirewallManager": bool,
         "LabelNamespace": str,
         "CustomResponseBodies": Dict[str, "CustomResponseBodyTypeDef"],
+        "CaptchaConfig": "CaptchaConfigTypeDef",
     },
     total=False,
 )

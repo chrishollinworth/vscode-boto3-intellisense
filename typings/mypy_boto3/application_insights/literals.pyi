@@ -22,6 +22,7 @@ __all__ = (
     "CloudWatchEventSourceType",
     "ConfigurationEventResourceTypeType",
     "ConfigurationEventStatusType",
+    "DiscoveryTypeType",
     "FeedbackKeyType",
     "FeedbackValueType",
     "LogFilterType",
@@ -36,12 +37,13 @@ ConfigurationEventResourceTypeType = Literal[
     "CLOUDFORMATION", "CLOUDWATCH_ALARM", "CLOUDWATCH_LOG", "SSM_ASSOCIATION"
 ]
 ConfigurationEventStatusType = Literal["ERROR", "INFO", "WARN"]
+DiscoveryTypeType = Literal["ACCOUNT_BASED", "RESOURCE_GROUP_BASED"]
 FeedbackKeyType = Literal["INSIGHTS_FEEDBACK"]
 FeedbackValueType = Literal["NOT_SPECIFIED", "NOT_USEFUL", "USEFUL"]
 LogFilterType = Literal["ERROR", "INFO", "WARN"]
 OsTypeType = Literal["LINUX", "WINDOWS"]
 SeverityLevelType = Literal["High", "Low", "Medium"]
-StatusType = Literal["IGNORE", "PENDING", "RESOLVED"]
+StatusType = Literal["IGNORE", "PENDING", "RECURRING", "RESOLVED"]
 TierType = Literal[
     "CUSTOM",
     "DEFAULT",
@@ -53,6 +55,11 @@ TierType = Literal[
     "MYSQL",
     "ORACLE",
     "POSTGRESQL",
+    "SAP_HANA",
+    "SAP_HANA_HIGH_AVAILABILITY",
+    "SAP_HANA_MULTI_NODE",
+    "SAP_HANA_SINGLE_NODE",
     "SQL_SERVER",
     "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP",
+    "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE",
 ]

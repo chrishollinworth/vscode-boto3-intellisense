@@ -120,6 +120,7 @@ __all__ = (
     "StorageInfoTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TlsTypeDef",
+    "UnauthenticatedTypeDef",
     "UnprocessedScramSecretTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateBrokerCountRequestRequestTypeDef",
@@ -136,6 +137,8 @@ __all__ = (
     "UpdateConfigurationResponseTypeDef",
     "UpdateMonitoringRequestRequestTypeDef",
     "UpdateMonitoringResponseTypeDef",
+    "UpdateSecurityRequestRequestTypeDef",
+    "UpdateSecurityResponseTypeDef",
     "ZookeeperNodeInfoTypeDef",
 )
 
@@ -241,6 +244,7 @@ ClientAuthenticationTypeDef = TypedDict(
     {
         "Sasl": "SaslTypeDef",
         "Tls": "TlsTypeDef",
+        "Unauthenticated": "UnauthenticatedTypeDef",
     },
     total=False,
 )
@@ -889,6 +893,8 @@ MutableClusterInfoTypeDef = TypedDict(
         "KafkaVersion": str,
         "LoggingInfo": "LoggingInfoTypeDef",
         "InstanceType": str,
+        "ClientAuthentication": "ClientAuthenticationTypeDef",
+        "EncryptionInfo": "EncryptionInfoTypeDef",
     },
     total=False,
 )
@@ -1054,6 +1060,15 @@ TlsTypeDef = TypedDict(
     "TlsTypeDef",
     {
         "CertificateAuthorityArnList": List[str],
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+UnauthenticatedTypeDef = TypedDict(
+    "UnauthenticatedTypeDef",
+    {
+        "Enabled": bool,
     },
     total=False,
 )
@@ -1233,6 +1248,36 @@ class UpdateMonitoringRequestRequestTypeDef(
 
 UpdateMonitoringResponseTypeDef = TypedDict(
     "UpdateMonitoringResponseTypeDef",
+    {
+        "ClusterArn": str,
+        "ClusterOperationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateSecurityRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateSecurityRequestRequestTypeDef",
+    {
+        "ClusterArn": str,
+        "CurrentVersion": str,
+    },
+)
+_OptionalUpdateSecurityRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateSecurityRequestRequestTypeDef",
+    {
+        "ClientAuthentication": "ClientAuthenticationTypeDef",
+        "EncryptionInfo": "EncryptionInfoTypeDef",
+    },
+    total=False,
+)
+
+class UpdateSecurityRequestRequestTypeDef(
+    _RequiredUpdateSecurityRequestRequestTypeDef, _OptionalUpdateSecurityRequestRequestTypeDef
+):
+    pass
+
+UpdateSecurityResponseTypeDef = TypedDict(
+    "UpdateSecurityResponseTypeDef",
     {
         "ClusterArn": str,
         "ClusterOperationArn": str,

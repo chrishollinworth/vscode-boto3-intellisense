@@ -28,6 +28,7 @@ __all__ = (
     "ClusterActiveWaiterName",
     "ClusterDeletedWaiterName",
     "ClusterStatusType",
+    "ConnectorConfigProviderType",
     "DescribeAddonVersionsPaginatorName",
     "ErrorCodeType",
     "FargateProfileActiveWaiterName",
@@ -52,7 +53,14 @@ __all__ = (
     "configStatusType",
 )
 
-AMITypesType = Literal["AL2_ARM_64", "AL2_x86_64", "AL2_x86_64_GPU", "CUSTOM"]
+AMITypesType = Literal[
+    "AL2_ARM_64",
+    "AL2_x86_64",
+    "AL2_x86_64_GPU",
+    "BOTTLEROCKET_ARM_64",
+    "BOTTLEROCKET_x86_64",
+    "CUSTOM",
+]
 AddonActiveWaiterName = Literal["addon_active"]
 AddonDeletedWaiterName = Literal["addon_deleted"]
 AddonIssueCodeType = Literal[
@@ -62,6 +70,7 @@ AddonIssueCodeType = Literal[
     "ConfigurationConflict",
     "InsufficientNumberOfReplicas",
     "InternalFailure",
+    "K8sResourceNotFound",
     "UnsupportedAddonModification",
 ]
 AddonStatusType = Literal[
@@ -70,7 +79,10 @@ AddonStatusType = Literal[
 CapacityTypesType = Literal["ON_DEMAND", "SPOT"]
 ClusterActiveWaiterName = Literal["cluster_active"]
 ClusterDeletedWaiterName = Literal["cluster_deleted"]
-ClusterStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
+ClusterStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "PENDING", "UPDATING"]
+ConnectorConfigProviderType = Literal[
+    "AKS", "ANTHOS", "EC2", "EKS_ANYWHERE", "GKE", "OPENSHIFT", "OTHER", "RANCHER", "TANZU"
+]
 DescribeAddonVersionsPaginatorName = Literal["describe_addon_versions"]
 ErrorCodeType = Literal[
     "AccessDenied",
@@ -81,6 +93,7 @@ ErrorCodeType = Literal[
     "InsufficientFreeAddresses",
     "InsufficientNumberOfReplicas",
     "IpNotAvailable",
+    "K8sResourceNotFound",
     "NodeCreationFailure",
     "OperationNotPermitted",
     "PodEvictionFailure",

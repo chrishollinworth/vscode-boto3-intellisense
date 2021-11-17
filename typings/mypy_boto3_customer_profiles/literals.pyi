@@ -142,7 +142,9 @@ ServiceNowConnectorOperatorType = Literal[
     "VALIDATE_NUMERIC",
 ]
 SourceConnectorTypeType = Literal["Marketo", "S3", "Salesforce", "Servicenow", "Zendesk"]
-StandardIdentifierType = Literal["LOOKUP_ONLY", "NEW_ONLY", "PROFILE", "SECONDARY", "UNIQUE"]
+StandardIdentifierType = Literal[
+    "ASSET", "CASE", "LOOKUP_ONLY", "NEW_ONLY", "PROFILE", "SECONDARY", "UNIQUE"
+]
 TaskTypeType = Literal["Arithmetic", "Filter", "Map", "Mask", "Merge", "Truncate", "Validate"]
 TriggerTypeType = Literal["Event", "OnDemand", "Scheduled"]
 ZendeskConnectorOperatorType = Literal[

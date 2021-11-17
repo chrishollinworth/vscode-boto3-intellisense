@@ -3779,6 +3779,7 @@ MetricsAndOperatorTypeDef = TypedDict(
     {
         "Prefix": str,
         "Tags": List["TagTypeDef"],
+        "AccessPointArn": str,
     },
     total=False,
 )
@@ -3807,6 +3808,7 @@ MetricsFilterTypeDef = TypedDict(
     {
         "Prefix": str,
         "Tag": "TagTypeDef",
+        "AccessPointArn": str,
         "And": "MetricsAndOperatorTypeDef",
     },
     total=False,

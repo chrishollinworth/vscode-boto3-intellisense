@@ -56,6 +56,7 @@ from .literals import (
     LastResourceDataSyncStatusType,
     MaintenanceWindowExecutionStatusType,
     MaintenanceWindowResourceTypeType,
+    MaintenanceWindowTaskCutoffBehaviorType,
     MaintenanceWindowTaskTypeType,
     NotificationEventType,
     NotificationTypeType,
@@ -3032,6 +3033,7 @@ GetMaintenanceWindowTaskResultTypeDef = TypedDict(
         "LoggingInfo": "LoggingInfoTypeDef",
         "Name": str,
         "Description": str,
+        "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4184,6 +4186,7 @@ MaintenanceWindowTaskTypeDef = TypedDict(
         "MaxErrors": str,
         "Name": str,
         "Description": str,
+        "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
     },
     total=False,
 )
@@ -4881,6 +4884,7 @@ _OptionalRegisterTaskWithMaintenanceWindowRequestRequestTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "ClientToken": str,
+        "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
     },
     total=False,
 )
@@ -5264,8 +5268,10 @@ SessionTypeDef = TypedDict(
         "EndDate": datetime,
         "DocumentName": str,
         "Owner": str,
+        "Reason": str,
         "Details": str,
         "OutputUrl": "SessionManagerOutputUrlTypeDef",
+        "MaxSessionDuration": str,
     },
     total=False,
 )
@@ -5343,6 +5349,7 @@ _OptionalStartChangeRequestExecutionRequestRequestTypeDef = TypedDict(
         "Parameters": Dict[str, List[str]],
         "ChangeRequestName": str,
         "ClientToken": str,
+        "AutoApprove": bool,
         "Tags": List["TagTypeDef"],
         "ScheduledEndTime": Union[datetime, str],
         "ChangeDetails": str,
@@ -5374,6 +5381,7 @@ _OptionalStartSessionRequestRequestTypeDef = TypedDict(
     "_OptionalStartSessionRequestRequestTypeDef",
     {
         "DocumentName": str,
+        "Reason": str,
         "Parameters": Dict[str, List[str]],
     },
     total=False,
@@ -5752,6 +5760,7 @@ _OptionalUpdateMaintenanceWindowTaskRequestRequestTypeDef = TypedDict(
         "Name": str,
         "Description": str,
         "Replace": bool,
+        "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
     },
     total=False,
 )
@@ -5778,6 +5787,7 @@ UpdateMaintenanceWindowTaskResultTypeDef = TypedDict(
         "LoggingInfo": "LoggingInfoTypeDef",
         "Name": str,
         "Description": str,
+        "CutoffBehavior": MaintenanceWindowTaskCutoffBehaviorType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

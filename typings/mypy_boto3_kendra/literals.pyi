@@ -59,6 +59,7 @@ __all__ = (
     "SortOrderType",
     "ThesaurusStatusType",
     "UserContextPolicyType",
+    "UserGroupResolutionModeType",
     "WebCrawlerModeType",
 )
 
@@ -170,7 +171,7 @@ SalesforceStandardObjectNameType = Literal[
     "TASK",
     "USER",
 ]
-ScoreConfidenceType = Literal["HIGH", "LOW", "MEDIUM", "VERY_HIGH"]
+ScoreConfidenceType = Literal["HIGH", "LOW", "MEDIUM", "NOT_AVAILABLE", "VERY_HIGH"]
 ServiceNowAuthenticationTypeType = Literal["HTTP_BASIC", "OAUTH2"]
 ServiceNowBuildVersionTypeType = Literal["LONDON", "OTHERS"]
 SharePointVersionType = Literal["SHAREPOINT_2013", "SHAREPOINT_2016", "SHAREPOINT_ONLINE"]
@@ -179,4 +180,5 @@ ThesaurusStatusType = Literal[
     "ACTIVE", "ACTIVE_BUT_UPDATE_FAILED", "CREATING", "DELETING", "FAILED", "UPDATING"
 ]
 UserContextPolicyType = Literal["ATTRIBUTE_FILTER", "USER_TOKEN"]
+UserGroupResolutionModeType = Literal["AWS_SSO", "NONE"]
 WebCrawlerModeType = Literal["EVERYTHING", "HOST_ONLY", "SUBDOMAINS"]

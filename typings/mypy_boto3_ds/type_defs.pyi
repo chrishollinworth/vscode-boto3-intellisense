@@ -18,6 +18,7 @@ from typing import Any, Dict, List
 from .literals import (
     CertificateStateType,
     CertificateTypeType,
+    ClientAuthenticationStatusType,
     DirectoryEditionType,
     DirectorySizeType,
     DirectoryStageType,
@@ -59,6 +60,7 @@ __all__ = (
     "CancelSchemaExtensionRequestRequestTypeDef",
     "CertificateInfoTypeDef",
     "CertificateTypeDef",
+    "ClientAuthenticationSettingInfoTypeDef",
     "ClientCertAuthSettingsTypeDef",
     "ComputerTypeDef",
     "ConditionalForwarderTypeDef",
@@ -90,6 +92,8 @@ __all__ = (
     "DeregisterEventTopicRequestRequestTypeDef",
     "DescribeCertificateRequestRequestTypeDef",
     "DescribeCertificateResultTypeDef",
+    "DescribeClientAuthenticationSettingsRequestRequestTypeDef",
+    "DescribeClientAuthenticationSettingsResultTypeDef",
     "DescribeConditionalForwardersRequestRequestTypeDef",
     "DescribeConditionalForwardersResultTypeDef",
     "DescribeDirectoriesRequestRequestTypeDef",
@@ -272,6 +276,16 @@ CertificateTypeDef = TypedDict(
         "ExpiryDateTime": datetime,
         "Type": CertificateTypeType,
         "ClientCertAuthSettings": "ClientCertAuthSettingsTypeDef",
+    },
+    total=False,
+)
+
+ClientAuthenticationSettingInfoTypeDef = TypedDict(
+    "ClientAuthenticationSettingInfoTypeDef",
+    {
+        "Type": Literal["SmartCard"],
+        "Status": ClientAuthenticationStatusType,
+        "LastUpdatedDateTime": datetime,
     },
     total=False,
 )
@@ -623,6 +637,37 @@ DescribeCertificateResultTypeDef = TypedDict(
     "DescribeCertificateResultTypeDef",
     {
         "Certificate": "CertificateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeClientAuthenticationSettingsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeClientAuthenticationSettingsRequestRequestTypeDef",
+    {
+        "DirectoryId": str,
+    },
+)
+_OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef",
+    {
+        "Type": Literal["SmartCard"],
+        "NextToken": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+class DescribeClientAuthenticationSettingsRequestRequestTypeDef(
+    _RequiredDescribeClientAuthenticationSettingsRequestRequestTypeDef,
+    _OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef,
+):
+    pass
+
+DescribeClientAuthenticationSettingsResultTypeDef = TypedDict(
+    "DescribeClientAuthenticationSettingsResultTypeDef",
+    {
+        "ClientAuthenticationSettingsInfo": List["ClientAuthenticationSettingInfoTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

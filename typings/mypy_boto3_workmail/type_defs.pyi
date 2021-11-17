@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     AccessControlRuleEffectType,
+    DnsRecordVerificationStatusType,
     EntityStateType,
     FolderNameType,
     MailboxExportJobStateType,
@@ -55,6 +56,7 @@ __all__ = (
     "DeleteAliasRequestRequestTypeDef",
     "DeleteGroupRequestRequestTypeDef",
     "DeleteMailboxPermissionsRequestRequestTypeDef",
+    "DeleteMobileDeviceAccessOverrideRequestRequestTypeDef",
     "DeleteMobileDeviceAccessRuleRequestRequestTypeDef",
     "DeleteOrganizationRequestRequestTypeDef",
     "DeleteOrganizationResponseTypeDef",
@@ -62,8 +64,11 @@ __all__ = (
     "DeleteRetentionPolicyRequestRequestTypeDef",
     "DeleteUserRequestRequestTypeDef",
     "DeregisterFromWorkMailRequestRequestTypeDef",
+    "DeregisterMailDomainRequestRequestTypeDef",
     "DescribeGroupRequestRequestTypeDef",
     "DescribeGroupResponseTypeDef",
+    "DescribeInboundDmarcSettingsRequestRequestTypeDef",
+    "DescribeInboundDmarcSettingsResponseTypeDef",
     "DescribeMailboxExportJobRequestRequestTypeDef",
     "DescribeMailboxExportJobResponseTypeDef",
     "DescribeOrganizationRequestRequestTypeDef",
@@ -74,16 +79,21 @@ __all__ = (
     "DescribeUserResponseTypeDef",
     "DisassociateDelegateFromResourceRequestRequestTypeDef",
     "DisassociateMemberFromGroupRequestRequestTypeDef",
+    "DnsRecordTypeDef",
     "DomainTypeDef",
     "FolderConfigurationTypeDef",
     "GetAccessControlEffectRequestRequestTypeDef",
     "GetAccessControlEffectResponseTypeDef",
     "GetDefaultRetentionPolicyRequestRequestTypeDef",
     "GetDefaultRetentionPolicyResponseTypeDef",
+    "GetMailDomainRequestRequestTypeDef",
+    "GetMailDomainResponseTypeDef",
     "GetMailboxDetailsRequestRequestTypeDef",
     "GetMailboxDetailsResponseTypeDef",
     "GetMobileDeviceAccessEffectRequestRequestTypeDef",
     "GetMobileDeviceAccessEffectResponseTypeDef",
+    "GetMobileDeviceAccessOverrideRequestRequestTypeDef",
+    "GetMobileDeviceAccessOverrideResponseTypeDef",
     "GroupTypeDef",
     "ListAccessControlRulesRequestRequestTypeDef",
     "ListAccessControlRulesResponseTypeDef",
@@ -93,10 +103,14 @@ __all__ = (
     "ListGroupMembersResponseTypeDef",
     "ListGroupsRequestRequestTypeDef",
     "ListGroupsResponseTypeDef",
+    "ListMailDomainsRequestRequestTypeDef",
+    "ListMailDomainsResponseTypeDef",
     "ListMailboxExportJobsRequestRequestTypeDef",
     "ListMailboxExportJobsResponseTypeDef",
     "ListMailboxPermissionsRequestRequestTypeDef",
     "ListMailboxPermissionsResponseTypeDef",
+    "ListMobileDeviceAccessOverridesRequestRequestTypeDef",
+    "ListMobileDeviceAccessOverridesResponseTypeDef",
     "ListMobileDeviceAccessRulesRequestRequestTypeDef",
     "ListMobileDeviceAccessRulesResponseTypeDef",
     "ListOrganizationsRequestRequestTypeDef",
@@ -109,16 +123,21 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListUsersRequestRequestTypeDef",
     "ListUsersResponseTypeDef",
+    "MailDomainSummaryTypeDef",
     "MailboxExportJobTypeDef",
     "MemberTypeDef",
     "MobileDeviceAccessMatchedRuleTypeDef",
+    "MobileDeviceAccessOverrideTypeDef",
     "MobileDeviceAccessRuleTypeDef",
     "OrganizationSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "PermissionTypeDef",
     "PutAccessControlRuleRequestRequestTypeDef",
+    "PutInboundDmarcSettingsRequestRequestTypeDef",
     "PutMailboxPermissionsRequestRequestTypeDef",
+    "PutMobileDeviceAccessOverrideRequestRequestTypeDef",
     "PutRetentionPolicyRequestRequestTypeDef",
+    "RegisterMailDomainRequestRequestTypeDef",
     "RegisterToWorkMailRequestRequestTypeDef",
     "ResetPasswordRequestRequestTypeDef",
     "ResourceTypeDef",
@@ -128,6 +147,7 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateDefaultMailDomainRequestRequestTypeDef",
     "UpdateMailboxQuotaRequestRequestTypeDef",
     "UpdateMobileDeviceAccessRuleRequestRequestTypeDef",
     "UpdatePrimaryEmailAddressRequestRequestTypeDef",
@@ -363,6 +383,15 @@ DeleteMailboxPermissionsRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
+    "DeleteMobileDeviceAccessOverrideRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "UserId": str,
+        "DeviceId": str,
+    },
+)
+
 DeleteMobileDeviceAccessRuleRequestRequestTypeDef = TypedDict(
     "DeleteMobileDeviceAccessRuleRequestRequestTypeDef",
     {
@@ -433,6 +462,14 @@ DeregisterFromWorkMailRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeregisterMailDomainRequestRequestTypeDef = TypedDict(
+    "DeregisterMailDomainRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "DomainName": str,
+    },
+)
+
 DescribeGroupRequestRequestTypeDef = TypedDict(
     "DescribeGroupRequestRequestTypeDef",
     {
@@ -450,6 +487,21 @@ DescribeGroupResponseTypeDef = TypedDict(
         "State": EntityStateType,
         "EnabledDate": datetime,
         "DisabledDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeInboundDmarcSettingsRequestRequestTypeDef = TypedDict(
+    "DescribeInboundDmarcSettingsRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+
+DescribeInboundDmarcSettingsResponseTypeDef = TypedDict(
+    "DescribeInboundDmarcSettingsResponseTypeDef",
+    {
+        "Enforced": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -568,6 +620,16 @@ DisassociateMemberFromGroupRequestRequestTypeDef = TypedDict(
     },
 )
 
+DnsRecordTypeDef = TypedDict(
+    "DnsRecordTypeDef",
+    {
+        "Type": str,
+        "Hostname": str,
+        "Value": str,
+    },
+    total=False,
+)
+
 DomainTypeDef = TypedDict(
     "DomainTypeDef",
     {
@@ -634,6 +696,26 @@ GetDefaultRetentionPolicyResponseTypeDef = TypedDict(
     },
 )
 
+GetMailDomainRequestRequestTypeDef = TypedDict(
+    "GetMailDomainRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "DomainName": str,
+    },
+)
+
+GetMailDomainResponseTypeDef = TypedDict(
+    "GetMailDomainResponseTypeDef",
+    {
+        "Records": List["DnsRecordTypeDef"],
+        "IsTestDomain": bool,
+        "IsDefault": bool,
+        "OwnershipVerificationStatus": DnsRecordVerificationStatusType,
+        "DkimVerificationStatus": DnsRecordVerificationStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetMailboxDetailsRequestRequestTypeDef = TypedDict(
     "GetMailboxDetailsRequestRequestTypeDef",
     {
@@ -679,6 +761,28 @@ GetMobileDeviceAccessEffectResponseTypeDef = TypedDict(
     {
         "Effect": MobileDeviceAccessRuleEffectType,
         "MatchedRules": List["MobileDeviceAccessMatchedRuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
+    "GetMobileDeviceAccessOverrideRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "UserId": str,
+        "DeviceId": str,
+    },
+)
+
+GetMobileDeviceAccessOverrideResponseTypeDef = TypedDict(
+    "GetMobileDeviceAccessOverrideResponseTypeDef",
+    {
+        "UserId": str,
+        "DeviceId": str,
+        "Effect": MobileDeviceAccessRuleEffectType,
+        "Description": str,
+        "DateCreated": datetime,
+        "DateModified": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -800,6 +904,35 @@ ListGroupsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListMailDomainsRequestRequestTypeDef = TypedDict(
+    "_RequiredListMailDomainsRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+_OptionalListMailDomainsRequestRequestTypeDef = TypedDict(
+    "_OptionalListMailDomainsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListMailDomainsRequestRequestTypeDef(
+    _RequiredListMailDomainsRequestRequestTypeDef, _OptionalListMailDomainsRequestRequestTypeDef
+):
+    pass
+
+ListMailDomainsResponseTypeDef = TypedDict(
+    "ListMailDomainsResponseTypeDef",
+    {
+        "MailDomains": List["MailDomainSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListMailboxExportJobsRequestRequestTypeDef = TypedDict(
     "_RequiredListMailboxExportJobsRequestRequestTypeDef",
     {
@@ -856,6 +989,38 @@ ListMailboxPermissionsResponseTypeDef = TypedDict(
     "ListMailboxPermissionsResponseTypeDef",
     {
         "Permissions": List["PermissionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListMobileDeviceAccessOverridesRequestRequestTypeDef = TypedDict(
+    "_RequiredListMobileDeviceAccessOverridesRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+_OptionalListMobileDeviceAccessOverridesRequestRequestTypeDef = TypedDict(
+    "_OptionalListMobileDeviceAccessOverridesRequestRequestTypeDef",
+    {
+        "UserId": str,
+        "DeviceId": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListMobileDeviceAccessOverridesRequestRequestTypeDef(
+    _RequiredListMobileDeviceAccessOverridesRequestRequestTypeDef,
+    _OptionalListMobileDeviceAccessOverridesRequestRequestTypeDef,
+):
+    pass
+
+ListMobileDeviceAccessOverridesResponseTypeDef = TypedDict(
+    "ListMobileDeviceAccessOverridesResponseTypeDef",
+    {
+        "Overrides": List["MobileDeviceAccessOverrideTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -998,6 +1163,15 @@ ListUsersResponseTypeDef = TypedDict(
     },
 )
 
+MailDomainSummaryTypeDef = TypedDict(
+    "MailDomainSummaryTypeDef",
+    {
+        "DomainName": str,
+        "DefaultDomain": bool,
+    },
+    total=False,
+)
+
 MailboxExportJobTypeDef = TypedDict(
     "MailboxExportJobTypeDef",
     {
@@ -1032,6 +1206,19 @@ MobileDeviceAccessMatchedRuleTypeDef = TypedDict(
     {
         "MobileDeviceAccessRuleId": str,
         "Name": str,
+    },
+    total=False,
+)
+
+MobileDeviceAccessOverrideTypeDef = TypedDict(
+    "MobileDeviceAccessOverrideTypeDef",
+    {
+        "UserId": str,
+        "DeviceId": str,
+        "Effect": MobileDeviceAccessRuleEffectType,
+        "Description": str,
+        "DateCreated": datetime,
+        "DateModified": datetime,
     },
     total=False,
 )
@@ -1116,6 +1303,14 @@ class PutAccessControlRuleRequestRequestTypeDef(
 ):
     pass
 
+PutInboundDmarcSettingsRequestRequestTypeDef = TypedDict(
+    "PutInboundDmarcSettingsRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "Enforced": bool,
+    },
+)
+
 PutMailboxPermissionsRequestRequestTypeDef = TypedDict(
     "PutMailboxPermissionsRequestRequestTypeDef",
     {
@@ -1125,6 +1320,29 @@ PutMailboxPermissionsRequestRequestTypeDef = TypedDict(
         "PermissionValues": List[PermissionTypeType],
     },
 )
+
+_RequiredPutMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
+    "_RequiredPutMobileDeviceAccessOverrideRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "UserId": str,
+        "DeviceId": str,
+        "Effect": MobileDeviceAccessRuleEffectType,
+    },
+)
+_OptionalPutMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
+    "_OptionalPutMobileDeviceAccessOverrideRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class PutMobileDeviceAccessOverrideRequestRequestTypeDef(
+    _RequiredPutMobileDeviceAccessOverrideRequestRequestTypeDef,
+    _OptionalPutMobileDeviceAccessOverrideRequestRequestTypeDef,
+):
+    pass
 
 _RequiredPutRetentionPolicyRequestRequestTypeDef = TypedDict(
     "_RequiredPutRetentionPolicyRequestRequestTypeDef",
@@ -1146,6 +1364,27 @@ _OptionalPutRetentionPolicyRequestRequestTypeDef = TypedDict(
 class PutRetentionPolicyRequestRequestTypeDef(
     _RequiredPutRetentionPolicyRequestRequestTypeDef,
     _OptionalPutRetentionPolicyRequestRequestTypeDef,
+):
+    pass
+
+_RequiredRegisterMailDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredRegisterMailDomainRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "DomainName": str,
+    },
+)
+_OptionalRegisterMailDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalRegisterMailDomainRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class RegisterMailDomainRequestRequestTypeDef(
+    _RequiredRegisterMailDomainRequestRequestTypeDef,
+    _OptionalRegisterMailDomainRequestRequestTypeDef,
 ):
     pass
 
@@ -1247,6 +1486,14 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceARN": str,
         "TagKeys": List[str],
+    },
+)
+
+UpdateDefaultMailDomainRequestRequestTypeDef = TypedDict(
+    "UpdateDefaultMailDomainRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "DomainName": str,
     },
 )
 

@@ -69,7 +69,13 @@ AuthorizationTypeType = Literal["AWS_IAM"]
 ConflictDetectionTypeType = Literal["NONE", "VERSION"]
 ConflictHandlerTypeType = Literal["AUTOMERGE", "LAMBDA", "NONE", "OPTIMISTIC_CONCURRENCY"]
 DataSourceTypeType = Literal[
-    "AMAZON_DYNAMODB", "AMAZON_ELASTICSEARCH", "AWS_LAMBDA", "HTTP", "NONE", "RELATIONAL_DATABASE"
+    "AMAZON_DYNAMODB",
+    "AMAZON_ELASTICSEARCH",
+    "AMAZON_OPENSEARCH_SERVICE",
+    "AWS_LAMBDA",
+    "HTTP",
+    "NONE",
+    "RELATIONAL_DATABASE",
 ]
 DefaultActionType = Literal["ALLOW", "DENY"]
 FieldLogLevelType = Literal["ALL", "ERROR", "NONE"]

@@ -28,6 +28,7 @@ __all__ = (
     "DeliverabilityTestStatusType",
     "DimensionValueSourceType",
     "DkimSigningAttributesOriginType",
+    "DkimSigningKeyLengthType",
     "DkimStatusType",
     "EventTypeType",
     "IdentityTypeType",
@@ -67,6 +68,7 @@ DeliverabilityDashboardAccountStatusType = Literal["ACTIVE", "DISABLED", "PENDIN
 DeliverabilityTestStatusType = Literal["COMPLETED", "IN_PROGRESS"]
 DimensionValueSourceType = Literal["EMAIL_HEADER", "LINK_TAG", "MESSAGE_TAG"]
 DkimSigningAttributesOriginType = Literal["AWS_SES", "EXTERNAL"]
+DkimSigningKeyLengthType = Literal["RSA_1024_BIT", "RSA_2048_BIT"]
 DkimStatusType = Literal["FAILED", "NOT_STARTED", "PENDING", "SUCCESS", "TEMPORARY_FAILURE"]
 EventTypeType = Literal[
     "BOUNCE",

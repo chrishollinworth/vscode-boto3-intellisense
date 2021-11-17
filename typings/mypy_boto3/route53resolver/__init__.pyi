@@ -13,6 +13,7 @@ Usage::
         ListFirewallRuleGroupAssociationsPaginator,
         ListFirewallRuleGroupsPaginator,
         ListFirewallRulesPaginator,
+        ListResolverConfigsPaginator,
         ListResolverDnssecConfigsPaginator,
         ListResolverEndpointIpAddressesPaginator,
         ListResolverEndpointsPaginator,
@@ -35,6 +36,7 @@ Usage::
     list_firewall_rule_group_associations_paginator: ListFirewallRuleGroupAssociationsPaginator = client.get_paginator("list_firewall_rule_group_associations")
     list_firewall_rule_groups_paginator: ListFirewallRuleGroupsPaginator = client.get_paginator("list_firewall_rule_groups")
     list_firewall_rules_paginator: ListFirewallRulesPaginator = client.get_paginator("list_firewall_rules")
+    list_resolver_configs_paginator: ListResolverConfigsPaginator = client.get_paginator("list_resolver_configs")
     list_resolver_dnssec_configs_paginator: ListResolverDnssecConfigsPaginator = client.get_paginator("list_resolver_dnssec_configs")
     list_resolver_endpoint_ip_addresses_paginator: ListResolverEndpointIpAddressesPaginator = client.get_paginator("list_resolver_endpoint_ip_addresses")
     list_resolver_endpoints_paginator: ListResolverEndpointsPaginator = client.get_paginator("list_resolver_endpoints")
@@ -53,6 +55,7 @@ from .paginator import (
     ListFirewallRuleGroupAssociationsPaginator,
     ListFirewallRuleGroupsPaginator,
     ListFirewallRulesPaginator,
+    ListResolverConfigsPaginator,
     ListResolverDnssecConfigsPaginator,
     ListResolverEndpointIpAddressesPaginator,
     ListResolverEndpointsPaginator,
@@ -73,6 +76,7 @@ __all__ = (
     "ListFirewallRuleGroupAssociationsPaginator",
     "ListFirewallRuleGroupsPaginator",
     "ListFirewallRulesPaginator",
+    "ListResolverConfigsPaginator",
     "ListResolverDnssecConfigsPaginator",
     "ListResolverEndpointIpAddressesPaginator",
     "ListResolverEndpointsPaginator",
