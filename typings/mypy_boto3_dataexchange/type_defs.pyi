@@ -27,12 +27,17 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
     "ActionTypeDef",
+    "ApiGatewayApiAssetTypeDef",
     "AssetDestinationEntryTypeDef",
     "AssetDetailsTypeDef",
     "AssetEntryTypeDef",
@@ -73,6 +78,8 @@ __all__ = (
     "GetJobResponseTypeDef",
     "GetRevisionRequestRequestTypeDef",
     "GetRevisionResponseTypeDef",
+    "ImportAssetFromApiGatewayApiRequestDetailsTypeDef",
+    "ImportAssetFromApiGatewayApiResponseDetailsTypeDef",
     "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
     "ImportAssetFromSignedUrlRequestDetailsTypeDef",
     "ImportAssetFromSignedUrlResponseDetailsTypeDef",
@@ -105,6 +112,8 @@ __all__ = (
     "RevisionEntryTypeDef",
     "RevisionPublishedTypeDef",
     "S3SnapshotAssetTypeDef",
+    "SendApiAssetRequestRequestTypeDef",
+    "SendApiAssetResponseTypeDef",
     "StartJobRequestRequestTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -122,6 +131,22 @@ ActionTypeDef = TypedDict(
     "ActionTypeDef",
     {
         "ExportRevisionToS3": "AutoExportRevisionToS3RequestDetailsTypeDef",
+    },
+    total=False,
+)
+
+ApiGatewayApiAssetTypeDef = TypedDict(
+    "ApiGatewayApiAssetTypeDef",
+    {
+        "ApiDescription": str,
+        "ApiEndpoint": str,
+        "ApiId": str,
+        "ApiKey": str,
+        "ApiName": str,
+        "ApiSpecificationDownloadUrl": str,
+        "ApiSpecificationDownloadUrlExpiresAt": datetime,
+        "ProtocolType": Literal["REST"],
+        "Stage": str,
     },
     total=False,
 )
@@ -151,6 +176,7 @@ AssetDetailsTypeDef = TypedDict(
     {
         "S3SnapshotAsset": "S3SnapshotAssetTypeDef",
         "RedshiftDataShareAsset": "RedshiftDataShareAssetTypeDef",
+        "ApiGatewayApiAsset": "ApiGatewayApiAssetTypeDef",
     },
     total=False,
 )
@@ -692,6 +718,62 @@ GetRevisionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredImportAssetFromApiGatewayApiRequestDetailsTypeDef = TypedDict(
+    "_RequiredImportAssetFromApiGatewayApiRequestDetailsTypeDef",
+    {
+        "ApiId": str,
+        "ApiName": str,
+        "ApiSpecificationMd5Hash": str,
+        "DataSetId": str,
+        "ProtocolType": Literal["REST"],
+        "RevisionId": str,
+        "Stage": str,
+    },
+)
+_OptionalImportAssetFromApiGatewayApiRequestDetailsTypeDef = TypedDict(
+    "_OptionalImportAssetFromApiGatewayApiRequestDetailsTypeDef",
+    {
+        "ApiDescription": str,
+        "ApiKey": str,
+    },
+    total=False,
+)
+
+class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(
+    _RequiredImportAssetFromApiGatewayApiRequestDetailsTypeDef,
+    _OptionalImportAssetFromApiGatewayApiRequestDetailsTypeDef,
+):
+    pass
+
+_RequiredImportAssetFromApiGatewayApiResponseDetailsTypeDef = TypedDict(
+    "_RequiredImportAssetFromApiGatewayApiResponseDetailsTypeDef",
+    {
+        "ApiId": str,
+        "ApiName": str,
+        "ApiSpecificationMd5Hash": str,
+        "ApiSpecificationUploadUrl": str,
+        "ApiSpecificationUploadUrlExpiresAt": datetime,
+        "DataSetId": str,
+        "ProtocolType": Literal["REST"],
+        "RevisionId": str,
+        "Stage": str,
+    },
+)
+_OptionalImportAssetFromApiGatewayApiResponseDetailsTypeDef = TypedDict(
+    "_OptionalImportAssetFromApiGatewayApiResponseDetailsTypeDef",
+    {
+        "ApiDescription": str,
+        "ApiKey": str,
+    },
+    total=False,
+)
+
+class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(
+    _RequiredImportAssetFromApiGatewayApiResponseDetailsTypeDef,
+    _OptionalImportAssetFromApiGatewayApiResponseDetailsTypeDef,
+):
+    pass
+
 ImportAssetFromSignedUrlJobErrorDetailsTypeDef = TypedDict(
     "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
     {
@@ -988,6 +1070,7 @@ RequestDetailsTypeDef = TypedDict(
         "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlRequestDetailsTypeDef",
         "ImportAssetsFromS3": "ImportAssetsFromS3RequestDetailsTypeDef",
         "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
+        "ImportAssetFromApiGatewayApi": "ImportAssetFromApiGatewayApiRequestDetailsTypeDef",
     },
     total=False,
 )
@@ -1001,6 +1084,7 @@ ResponseDetailsTypeDef = TypedDict(
         "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlResponseDetailsTypeDef",
         "ImportAssetsFromS3": "ImportAssetsFromS3ResponseDetailsTypeDef",
         "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
+        "ImportAssetFromApiGatewayApi": "ImportAssetFromApiGatewayApiResponseDetailsTypeDef",
     },
     total=False,
 )
@@ -1070,6 +1154,40 @@ S3SnapshotAssetTypeDef = TypedDict(
     "S3SnapshotAssetTypeDef",
     {
         "Size": float,
+    },
+)
+
+_RequiredSendApiAssetRequestRequestTypeDef = TypedDict(
+    "_RequiredSendApiAssetRequestRequestTypeDef",
+    {
+        "AssetId": str,
+        "DataSetId": str,
+        "RevisionId": str,
+    },
+)
+_OptionalSendApiAssetRequestRequestTypeDef = TypedDict(
+    "_OptionalSendApiAssetRequestRequestTypeDef",
+    {
+        "Body": str,
+        "QueryStringParameters": Dict[str, str],
+        "RequestHeaders": Dict[str, str],
+        "Method": str,
+        "Path": str,
+    },
+    total=False,
+)
+
+class SendApiAssetRequestRequestTypeDef(
+    _RequiredSendApiAssetRequestRequestTypeDef, _OptionalSendApiAssetRequestRequestTypeDef
+):
+    pass
+
+SendApiAssetResponseTypeDef = TypedDict(
+    "SendApiAssetResponseTypeDef",
+    {
+        "Body": str,
+        "ResponseHeaders": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

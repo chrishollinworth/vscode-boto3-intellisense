@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import IngestionModeType, ObjectiveSensitivityType, TrainingModeType
+from .literals import DomainType, IngestionModeType, ObjectiveSensitivityType, TrainingModeType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -36,6 +36,10 @@ __all__ = (
     "BatchInferenceJobOutputTypeDef",
     "BatchInferenceJobSummaryTypeDef",
     "BatchInferenceJobTypeDef",
+    "BatchSegmentJobInputTypeDef",
+    "BatchSegmentJobOutputTypeDef",
+    "BatchSegmentJobSummaryTypeDef",
+    "BatchSegmentJobTypeDef",
     "CampaignConfigTypeDef",
     "CampaignSummaryTypeDef",
     "CampaignTypeDef",
@@ -44,6 +48,8 @@ __all__ = (
     "ContinuousHyperParameterRangeTypeDef",
     "CreateBatchInferenceJobRequestRequestTypeDef",
     "CreateBatchInferenceJobResponseTypeDef",
+    "CreateBatchSegmentJobRequestRequestTypeDef",
+    "CreateBatchSegmentJobResponseTypeDef",
     "CreateCampaignRequestRequestTypeDef",
     "CreateCampaignResponseTypeDef",
     "CreateDatasetExportJobRequestRequestTypeDef",
@@ -58,6 +64,8 @@ __all__ = (
     "CreateEventTrackerResponseTypeDef",
     "CreateFilterRequestRequestTypeDef",
     "CreateFilterResponseTypeDef",
+    "CreateRecommenderRequestRequestTypeDef",
+    "CreateRecommenderResponseTypeDef",
     "CreateSchemaRequestRequestTypeDef",
     "CreateSchemaResponseTypeDef",
     "CreateSolutionRequestRequestTypeDef",
@@ -85,12 +93,15 @@ __all__ = (
     "DeleteDatasetRequestRequestTypeDef",
     "DeleteEventTrackerRequestRequestTypeDef",
     "DeleteFilterRequestRequestTypeDef",
+    "DeleteRecommenderRequestRequestTypeDef",
     "DeleteSchemaRequestRequestTypeDef",
     "DeleteSolutionRequestRequestTypeDef",
     "DescribeAlgorithmRequestRequestTypeDef",
     "DescribeAlgorithmResponseTypeDef",
     "DescribeBatchInferenceJobRequestRequestTypeDef",
     "DescribeBatchInferenceJobResponseTypeDef",
+    "DescribeBatchSegmentJobRequestRequestTypeDef",
+    "DescribeBatchSegmentJobResponseTypeDef",
     "DescribeCampaignRequestRequestTypeDef",
     "DescribeCampaignResponseTypeDef",
     "DescribeDatasetExportJobRequestRequestTypeDef",
@@ -109,6 +120,8 @@ __all__ = (
     "DescribeFilterResponseTypeDef",
     "DescribeRecipeRequestRequestTypeDef",
     "DescribeRecipeResponseTypeDef",
+    "DescribeRecommenderRequestRequestTypeDef",
+    "DescribeRecommenderResponseTypeDef",
     "DescribeSchemaRequestRequestTypeDef",
     "DescribeSchemaResponseTypeDef",
     "DescribeSolutionRequestRequestTypeDef",
@@ -129,6 +142,8 @@ __all__ = (
     "IntegerHyperParameterRangeTypeDef",
     "ListBatchInferenceJobsRequestRequestTypeDef",
     "ListBatchInferenceJobsResponseTypeDef",
+    "ListBatchSegmentJobsRequestRequestTypeDef",
+    "ListBatchSegmentJobsResponseTypeDef",
     "ListCampaignsRequestRequestTypeDef",
     "ListCampaignsResponseTypeDef",
     "ListDatasetExportJobsRequestRequestTypeDef",
@@ -145,6 +160,8 @@ __all__ = (
     "ListFiltersResponseTypeDef",
     "ListRecipesRequestRequestTypeDef",
     "ListRecipesResponseTypeDef",
+    "ListRecommendersRequestRequestTypeDef",
+    "ListRecommendersResponseTypeDef",
     "ListSchemasRequestRequestTypeDef",
     "ListSchemasResponseTypeDef",
     "ListSolutionVersionsRequestRequestTypeDef",
@@ -155,6 +172,10 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "RecipeSummaryTypeDef",
     "RecipeTypeDef",
+    "RecommenderConfigTypeDef",
+    "RecommenderSummaryTypeDef",
+    "RecommenderTypeDef",
+    "RecommenderUpdateSummaryTypeDef",
     "ResponseMetadataTypeDef",
     "S3DataConfigTypeDef",
     "SolutionConfigTypeDef",
@@ -166,6 +187,8 @@ __all__ = (
     "TunedHPOParamsTypeDef",
     "UpdateCampaignRequestRequestTypeDef",
     "UpdateCampaignResponseTypeDef",
+    "UpdateRecommenderRequestRequestTypeDef",
+    "UpdateRecommenderResponseTypeDef",
 )
 
 _RequiredAlgorithmImageTypeDef = TypedDict(
@@ -267,6 +290,53 @@ BatchInferenceJobTypeDef = TypedDict(
         "jobInput": "BatchInferenceJobInputTypeDef",
         "jobOutput": "BatchInferenceJobOutputTypeDef",
         "batchInferenceJobConfig": "BatchInferenceJobConfigTypeDef",
+        "roleArn": str,
+        "status": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
+BatchSegmentJobInputTypeDef = TypedDict(
+    "BatchSegmentJobInputTypeDef",
+    {
+        "s3DataSource": "S3DataConfigTypeDef",
+    },
+)
+
+BatchSegmentJobOutputTypeDef = TypedDict(
+    "BatchSegmentJobOutputTypeDef",
+    {
+        "s3DataDestination": "S3DataConfigTypeDef",
+    },
+)
+
+BatchSegmentJobSummaryTypeDef = TypedDict(
+    "BatchSegmentJobSummaryTypeDef",
+    {
+        "batchSegmentJobArn": str,
+        "jobName": str,
+        "status": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "failureReason": str,
+        "solutionVersionArn": str,
+    },
+    total=False,
+)
+
+BatchSegmentJobTypeDef = TypedDict(
+    "BatchSegmentJobTypeDef",
+    {
+        "jobName": str,
+        "batchSegmentJobArn": str,
+        "filterArn": str,
+        "failureReason": str,
+        "solutionVersionArn": str,
+        "numResults": int,
+        "jobInput": "BatchSegmentJobInputTypeDef",
+        "jobOutput": "BatchSegmentJobOutputTypeDef",
         "roleArn": str,
         "status": str,
         "creationDateTime": datetime,
@@ -380,6 +450,39 @@ CreateBatchInferenceJobResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateBatchSegmentJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateBatchSegmentJobRequestRequestTypeDef",
+    {
+        "jobName": str,
+        "solutionVersionArn": str,
+        "jobInput": "BatchSegmentJobInputTypeDef",
+        "jobOutput": "BatchSegmentJobOutputTypeDef",
+        "roleArn": str,
+    },
+)
+_OptionalCreateBatchSegmentJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateBatchSegmentJobRequestRequestTypeDef",
+    {
+        "filterArn": str,
+        "numResults": int,
+    },
+    total=False,
+)
+
+class CreateBatchSegmentJobRequestRequestTypeDef(
+    _RequiredCreateBatchSegmentJobRequestRequestTypeDef,
+    _OptionalCreateBatchSegmentJobRequestRequestTypeDef,
+):
+    pass
+
+CreateBatchSegmentJobResponseTypeDef = TypedDict(
+    "CreateBatchSegmentJobResponseTypeDef",
+    {
+        "batchSegmentJobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateCampaignRequestRequestTypeDef = TypedDict(
     "_RequiredCreateCampaignRequestRequestTypeDef",
     {
@@ -451,6 +554,7 @@ _OptionalCreateDatasetGroupRequestRequestTypeDef = TypedDict(
     {
         "roleArn": str,
         "kmsKeyArn": str,
+        "domain": DomainType,
     },
     total=False,
 )
@@ -465,6 +569,7 @@ CreateDatasetGroupResponseTypeDef = TypedDict(
     "CreateDatasetGroupResponseTypeDef",
     {
         "datasetGroupArn": str,
+        "domain": DomainType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -539,13 +644,54 @@ CreateFilterResponseTypeDef = TypedDict(
     },
 )
 
-CreateSchemaRequestRequestTypeDef = TypedDict(
-    "CreateSchemaRequestRequestTypeDef",
+_RequiredCreateRecommenderRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRecommenderRequestRequestTypeDef",
+    {
+        "name": str,
+        "datasetGroupArn": str,
+        "recipeArn": str,
+    },
+)
+_OptionalCreateRecommenderRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRecommenderRequestRequestTypeDef",
+    {
+        "recommenderConfig": "RecommenderConfigTypeDef",
+    },
+    total=False,
+)
+
+class CreateRecommenderRequestRequestTypeDef(
+    _RequiredCreateRecommenderRequestRequestTypeDef, _OptionalCreateRecommenderRequestRequestTypeDef
+):
+    pass
+
+CreateRecommenderResponseTypeDef = TypedDict(
+    "CreateRecommenderResponseTypeDef",
+    {
+        "recommenderArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateSchemaRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSchemaRequestRequestTypeDef",
     {
         "name": str,
         "schema": str,
     },
 )
+_OptionalCreateSchemaRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSchemaRequestRequestTypeDef",
+    {
+        "domain": DomainType,
+    },
+    total=False,
+)
+
+class CreateSchemaRequestRequestTypeDef(
+    _RequiredCreateSchemaRequestRequestTypeDef, _OptionalCreateSchemaRequestRequestTypeDef
+):
+    pass
 
 CreateSchemaResponseTypeDef = TypedDict(
     "CreateSchemaResponseTypeDef",
@@ -669,6 +815,7 @@ DatasetGroupSummaryTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "failureReason": str,
+        "domain": DomainType,
     },
     total=False,
 )
@@ -684,6 +831,7 @@ DatasetGroupTypeDef = TypedDict(
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
         "failureReason": str,
+        "domain": DomainType,
     },
     total=False,
 )
@@ -724,6 +872,7 @@ DatasetSchemaSummaryTypeDef = TypedDict(
         "schemaArn": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "domain": DomainType,
     },
     total=False,
 )
@@ -736,6 +885,7 @@ DatasetSchemaTypeDef = TypedDict(
         "schema": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "domain": DomainType,
     },
     total=False,
 )
@@ -845,6 +995,13 @@ DeleteFilterRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteRecommenderRequestRequestTypeDef = TypedDict(
+    "DeleteRecommenderRequestRequestTypeDef",
+    {
+        "recommenderArn": str,
+    },
+)
+
 DeleteSchemaRequestRequestTypeDef = TypedDict(
     "DeleteSchemaRequestRequestTypeDef",
     {
@@ -885,6 +1042,21 @@ DescribeBatchInferenceJobResponseTypeDef = TypedDict(
     "DescribeBatchInferenceJobResponseTypeDef",
     {
         "batchInferenceJob": "BatchInferenceJobTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeBatchSegmentJobRequestRequestTypeDef = TypedDict(
+    "DescribeBatchSegmentJobRequestRequestTypeDef",
+    {
+        "batchSegmentJobArn": str,
+    },
+)
+
+DescribeBatchSegmentJobResponseTypeDef = TypedDict(
+    "DescribeBatchSegmentJobResponseTypeDef",
+    {
+        "batchSegmentJob": "BatchSegmentJobTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1020,6 +1192,21 @@ DescribeRecipeResponseTypeDef = TypedDict(
     "DescribeRecipeResponseTypeDef",
     {
         "recipe": "RecipeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeRecommenderRequestRequestTypeDef = TypedDict(
+    "DescribeRecommenderRequestRequestTypeDef",
+    {
+        "recommenderArn": str,
+    },
+)
+
+DescribeRecommenderResponseTypeDef = TypedDict(
+    "DescribeRecommenderResponseTypeDef",
+    {
+        "recommender": "RecommenderTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1222,6 +1409,25 @@ ListBatchInferenceJobsResponseTypeDef = TypedDict(
     },
 )
 
+ListBatchSegmentJobsRequestRequestTypeDef = TypedDict(
+    "ListBatchSegmentJobsRequestRequestTypeDef",
+    {
+        "solutionVersionArn": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListBatchSegmentJobsResponseTypeDef = TypedDict(
+    "ListBatchSegmentJobsResponseTypeDef",
+    {
+        "batchSegmentJobs": List["BatchSegmentJobSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCampaignsRequestRequestTypeDef = TypedDict(
     "ListCampaignsRequestRequestTypeDef",
     {
@@ -1360,6 +1566,7 @@ ListRecipesRequestRequestTypeDef = TypedDict(
         "recipeProvider": Literal["SERVICE"],
         "nextToken": str,
         "maxResults": int,
+        "domain": DomainType,
     },
     total=False,
 )
@@ -1368,6 +1575,25 @@ ListRecipesResponseTypeDef = TypedDict(
     "ListRecipesResponseTypeDef",
     {
         "recipes": List["RecipeSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListRecommendersRequestRequestTypeDef = TypedDict(
+    "ListRecommendersRequestRequestTypeDef",
+    {
+        "datasetGroupArn": str,
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListRecommendersResponseTypeDef = TypedDict(
+    "ListRecommendersResponseTypeDef",
+    {
+        "recommenders": List["RecommenderSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1456,6 +1682,7 @@ RecipeSummaryTypeDef = TypedDict(
         "status": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "domain": DomainType,
     },
     total=False,
 )
@@ -1472,6 +1699,58 @@ RecipeTypeDef = TypedDict(
         "creationDateTime": datetime,
         "recipeType": str,
         "lastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
+RecommenderConfigTypeDef = TypedDict(
+    "RecommenderConfigTypeDef",
+    {
+        "itemExplorationConfig": Dict[str, str],
+    },
+    total=False,
+)
+
+RecommenderSummaryTypeDef = TypedDict(
+    "RecommenderSummaryTypeDef",
+    {
+        "name": str,
+        "recommenderArn": str,
+        "datasetGroupArn": str,
+        "recipeArn": str,
+        "recommenderConfig": "RecommenderConfigTypeDef",
+        "status": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
+RecommenderTypeDef = TypedDict(
+    "RecommenderTypeDef",
+    {
+        "recommenderArn": str,
+        "datasetGroupArn": str,
+        "name": str,
+        "recipeArn": str,
+        "recommenderConfig": "RecommenderConfigTypeDef",
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "status": str,
+        "failureReason": str,
+        "latestRecommenderUpdate": "RecommenderUpdateSummaryTypeDef",
+    },
+    total=False,
+)
+
+RecommenderUpdateSummaryTypeDef = TypedDict(
+    "RecommenderUpdateSummaryTypeDef",
+    {
+        "recommenderConfig": "RecommenderConfigTypeDef",
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "status": str,
+        "failureReason": str,
     },
     total=False,
 )
@@ -1623,6 +1902,22 @@ UpdateCampaignResponseTypeDef = TypedDict(
     "UpdateCampaignResponseTypeDef",
     {
         "campaignArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateRecommenderRequestRequestTypeDef = TypedDict(
+    "UpdateRecommenderRequestRequestTypeDef",
+    {
+        "recommenderArn": str,
+        "recommenderConfig": "RecommenderConfigTypeDef",
+    },
+)
+
+UpdateRecommenderResponseTypeDef = TypedDict(
+    "UpdateRecommenderResponseTypeDef",
+    {
+        "recommenderArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

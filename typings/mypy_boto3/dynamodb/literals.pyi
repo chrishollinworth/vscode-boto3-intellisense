@@ -54,6 +54,7 @@ __all__ = (
     "ScanPaginatorName",
     "SelectType",
     "StreamViewTypeType",
+    "TableClassType",
     "TableExistsWaiterName",
     "TableNotExistsWaiterName",
     "TableStatusType",
@@ -129,6 +130,7 @@ ScalarAttributeTypeType = Literal["B", "N", "S"]
 ScanPaginatorName = Literal["scan"]
 SelectType = Literal["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "COUNT", "SPECIFIC_ATTRIBUTES"]
 StreamViewTypeType = Literal["KEYS_ONLY", "NEW_AND_OLD_IMAGES", "NEW_IMAGE", "OLD_IMAGE"]
+TableClassType = Literal["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
 TableExistsWaiterName = Literal["table_exists"]
 TableNotExistsWaiterName = Literal["table_not_exists"]
 TableStatusType = Literal[

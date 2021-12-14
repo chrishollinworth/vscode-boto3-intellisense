@@ -22,11 +22,13 @@ __all__ = (
     "BrokerAZDistributionType",
     "ClientBrokerType",
     "ClusterStateType",
+    "ClusterTypeType",
     "ConfigurationStateType",
     "EnhancedMonitoringType",
     "KafkaVersionStatusType",
     "ListClusterOperationsPaginatorName",
     "ListClustersPaginatorName",
+    "ListClustersV2PaginatorName",
     "ListConfigurationRevisionsPaginatorName",
     "ListConfigurationsPaginatorName",
     "ListKafkaVersionsPaginatorName",
@@ -47,6 +49,7 @@ ClusterStateType = Literal[
     "REBOOTING_BROKER",
     "UPDATING",
 ]
+ClusterTypeType = Literal["PROVISIONED", "SERVERLESS"]
 ConfigurationStateType = Literal["ACTIVE", "DELETE_FAILED", "DELETING"]
 EnhancedMonitoringType = Literal[
     "DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER", "PER_TOPIC_PER_PARTITION"
@@ -54,6 +57,7 @@ EnhancedMonitoringType = Literal[
 KafkaVersionStatusType = Literal["ACTIVE", "DEPRECATED"]
 ListClusterOperationsPaginatorName = Literal["list_cluster_operations"]
 ListClustersPaginatorName = Literal["list_clusters"]
+ListClustersV2PaginatorName = Literal["list_clusters_v2"]
 ListConfigurationRevisionsPaginatorName = Literal["list_configuration_revisions"]
 ListConfigurationsPaginatorName = Literal["list_configurations"]
 ListKafkaVersionsPaginatorName = Literal["list_kafka_versions"]

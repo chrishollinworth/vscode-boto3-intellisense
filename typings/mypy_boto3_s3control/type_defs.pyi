@@ -63,6 +63,7 @@ __all__ = (
     "AsyncResponseDetailsTypeDef",
     "AwsLambdaTransformationTypeDef",
     "BucketLevelTypeDef",
+    "CloudWatchMetricsTypeDef",
     "CreateAccessPointForObjectLambdaRequestRequestTypeDef",
     "CreateAccessPointForObjectLambdaResultTypeDef",
     "CreateAccessPointRequestRequestTypeDef",
@@ -349,6 +350,13 @@ BucketLevelTypeDef = TypedDict(
         "PrefixLevel": "PrefixLevelTypeDef",
     },
     total=False,
+)
+
+CloudWatchMetricsTypeDef = TypedDict(
+    "CloudWatchMetricsTypeDef",
+    {
+        "IsEnabled": bool,
+    },
 )
 
 CreateAccessPointForObjectLambdaRequestRequestTypeDef = TypedDict(
@@ -2021,7 +2029,9 @@ StorageLensDataExportTypeDef = TypedDict(
     "StorageLensDataExportTypeDef",
     {
         "S3BucketDestination": "S3BucketDestinationTypeDef",
+        "CloudWatchMetrics": "CloudWatchMetricsTypeDef",
     },
+    total=False,
 )
 
 StorageLensTagTypeDef = TypedDict(

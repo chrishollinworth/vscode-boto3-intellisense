@@ -8,7 +8,7 @@ Usage::
     ```python
     from mypy_boto3_dataexchange.literals import AssetTypeType
 
-    data: AssetTypeType = "REDSHIFT_DATA_SHARE"
+    data: AssetTypeType = "API_GATEWAY_API"
     ```
 """
 import sys
@@ -29,12 +29,13 @@ __all__ = (
     "ListJobsPaginatorName",
     "ListRevisionAssetsPaginatorName",
     "OriginType",
+    "ProtocolTypeType",
     "ServerSideEncryptionTypesType",
     "StateType",
     "TypeType",
 )
 
-AssetTypeType = Literal["REDSHIFT_DATA_SHARE", "S3_SNAPSHOT"]
+AssetTypeType = Literal["API_GATEWAY_API", "REDSHIFT_DATA_SHARE", "S3_SNAPSHOT"]
 CodeType = Literal[
     "ACCESS_DENIED_EXCEPTION",
     "INTERNAL_SERVER_EXCEPTION",
@@ -54,6 +55,7 @@ ListEventActionsPaginatorName = Literal["list_event_actions"]
 ListJobsPaginatorName = Literal["list_jobs"]
 ListRevisionAssetsPaginatorName = Literal["list_revision_assets"]
 OriginType = Literal["ENTITLED", "OWNED"]
+ProtocolTypeType = Literal["REST"]
 ServerSideEncryptionTypesType = Literal["AES256", "aws:kms"]
 StateType = Literal["CANCELLED", "COMPLETED", "ERROR", "IN_PROGRESS", "TIMED_OUT", "WAITING"]
 TypeType = Literal[
@@ -62,5 +64,6 @@ TypeType = Literal[
     "EXPORT_REVISIONS_TO_S3",
     "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
     "IMPORT_ASSETS_FROM_S3",
+    "IMPORT_ASSET_FROM_API_GATEWAY_API",
     "IMPORT_ASSET_FROM_SIGNED_URL",
 ]

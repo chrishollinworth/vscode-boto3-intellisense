@@ -234,6 +234,7 @@ from .type_defs import (
     RegisterPatchBaselineForPatchGroupResultTypeDef,
     RegisterTargetWithMaintenanceWindowResultTypeDef,
     RegisterTaskWithMaintenanceWindowResultTypeDef,
+    RegistrationMetadataItemTypeDef,
     RelatedOpsItemTypeDef,
     ResetServiceSettingResultTypeDef,
     ResourceDataSyncS3DestinationTypeDef,
@@ -404,7 +405,7 @@ class Exceptions:
 
 class SSMClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html)
     """
 
@@ -420,7 +421,7 @@ class SSMClient(BaseClient):
         """
         Adds or overwrites one or more tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.add_tags_to_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.add_tags_to_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#add_tags_to_resource)
         """
     def associate_ops_item_related_item(
@@ -429,21 +430,21 @@ class SSMClient(BaseClient):
         """
         Associates a related item to a Systems Manager OpsCenter OpsItem.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.associate_ops_item_related_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.associate_ops_item_related_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#associate_ops_item_related_item)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#can_paginate)
         """
     def cancel_command(self, *, CommandId: str, InstanceIds: List[str] = None) -> Dict[str, Any]:
         """
         Attempts to cancel the command specified by the Command ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.cancel_command)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.cancel_command)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#cancel_command)
         """
     def cancel_maintenance_window_execution(
@@ -453,7 +454,7 @@ class SSMClient(BaseClient):
         Stops a maintenance window execution that is already in progress and cancels any
         tasks in the window that haven't already starting running.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.cancel_maintenance_window_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.cancel_maintenance_window_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#cancel_maintenance_window_execution)
         """
     def create_activation(
@@ -464,14 +465,15 @@ class SSMClient(BaseClient):
         DefaultInstanceName: str = None,
         RegistrationLimit: int = None,
         ExpirationDate: Union[datetime, str] = None,
-        Tags: List["TagTypeDef"] = None
+        Tags: List["TagTypeDef"] = None,
+        RegistrationMetadata: List["RegistrationMetadataItemTypeDef"] = None
     ) -> CreateActivationResultTypeDef:
         """
         Generates an activation code and activation ID you can use to register your on-
-        premises server or virtual machine (VM) with Amazon Web Services Systems
-        Manager.
+        premises servers, edge devices, or virtual machine (VM) with Amazon Web Services
+        Systems Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_activation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_activation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_activation)
         """
     def create_association(
@@ -496,9 +498,9 @@ class SSMClient(BaseClient):
     ) -> CreateAssociationResultTypeDef:
         """
         A State Manager association defines the state that you want to maintain on your
-        instances.
+        managed nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_association)
         """
     def create_association_batch(
@@ -506,9 +508,9 @@ class SSMClient(BaseClient):
     ) -> CreateAssociationBatchResultTypeDef:
         """
         Associates the specified Amazon Web Services Systems Manager document (SSM
-        document) with the specified instances or targets.
+        document) with the specified managed nodes or targets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_association_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_association_batch)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_association_batch)
         """
     def create_document(
@@ -528,7 +530,7 @@ class SSMClient(BaseClient):
         """
         Creates a Amazon Web Services Systems Manager (SSM document).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_document)
         """
     def create_maintenance_window(
@@ -550,7 +552,7 @@ class SSMClient(BaseClient):
         """
         Creates a new maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_maintenance_window)
         """
     def create_ops_item(
@@ -575,7 +577,7 @@ class SSMClient(BaseClient):
         """
         Creates a new OpsItem.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_ops_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_ops_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_ops_item)
         """
     def create_ops_metadata(
@@ -590,7 +592,7 @@ class SSMClient(BaseClient):
         Systems Manager calls this API operation to specify information about the new
         application, including the application type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_ops_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_ops_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_ops_metadata)
         """
     def create_patch_baseline(
@@ -613,7 +615,7 @@ class SSMClient(BaseClient):
         """
         Creates a patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_patch_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_patch_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_patch_baseline)
         """
     def create_resource_data_sync(
@@ -628,14 +630,14 @@ class SSMClient(BaseClient):
         A resource data sync helps you view data from multiple sources in a single
         location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.create_resource_data_sync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.create_resource_data_sync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#create_resource_data_sync)
         """
     def delete_activation(self, *, ActivationId: str) -> Dict[str, Any]:
         """
         Deletes an activation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_activation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_activation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_activation)
         """
     def delete_association(
@@ -643,9 +645,9 @@ class SSMClient(BaseClient):
     ) -> Dict[str, Any]:
         """
         Disassociates the specified Amazon Web Services Systems Manager document (SSM
-        document) from the specified instance.
+        document) from the specified managed node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_association)
         """
     def delete_document(
@@ -653,9 +655,9 @@ class SSMClient(BaseClient):
     ) -> Dict[str, Any]:
         """
         Deletes the Amazon Web Services Systems Manager document (SSM document) and all
-        instance associations to the document.
+        managed node associations to the document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_document)
         """
     def delete_inventory(
@@ -670,56 +672,56 @@ class SSMClient(BaseClient):
         Delete a custom inventory type or the data associated with a custom Inventory
         type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_inventory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_inventory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_inventory)
         """
     def delete_maintenance_window(self, *, WindowId: str) -> DeleteMaintenanceWindowResultTypeDef:
         """
         Deletes a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_maintenance_window)
         """
     def delete_ops_metadata(self, *, OpsMetadataArn: str) -> Dict[str, Any]:
         """
         Delete OpsMetadata related to an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_ops_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_ops_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_ops_metadata)
         """
     def delete_parameter(self, *, Name: str) -> Dict[str, Any]:
         """
         Delete a parameter from the system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_parameter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_parameter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_parameter)
         """
     def delete_parameters(self, *, Names: List[str]) -> DeleteParametersResultTypeDef:
         """
         Delete a list of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_parameters)
         """
     def delete_patch_baseline(self, *, BaselineId: str) -> DeletePatchBaselineResultTypeDef:
         """
         Deletes a patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_patch_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_patch_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_patch_baseline)
         """
     def delete_resource_data_sync(self, *, SyncName: str, SyncType: str = None) -> Dict[str, Any]:
         """
         Deletes a resource data sync configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.delete_resource_data_sync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.delete_resource_data_sync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#delete_resource_data_sync)
         """
     def deregister_managed_instance(self, *, InstanceId: str) -> Dict[str, Any]:
         """
         Removes the server or virtual machine from the list of registered servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.deregister_managed_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.deregister_managed_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#deregister_managed_instance)
         """
     def deregister_patch_baseline_for_patch_group(
@@ -728,7 +730,7 @@ class SSMClient(BaseClient):
         """
         Removes a patch group from a patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.deregister_patch_baseline_for_patch_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.deregister_patch_baseline_for_patch_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#deregister_patch_baseline_for_patch_group)
         """
     def deregister_target_from_maintenance_window(
@@ -737,7 +739,7 @@ class SSMClient(BaseClient):
         """
         Removes a target from a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.deregister_target_from_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.deregister_target_from_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#deregister_target_from_maintenance_window)
         """
     def deregister_task_from_maintenance_window(
@@ -746,7 +748,7 @@ class SSMClient(BaseClient):
         """
         Removes a task from a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.deregister_task_from_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.deregister_task_from_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#deregister_task_from_maintenance_window)
         """
     def describe_activations(
@@ -759,10 +761,10 @@ class SSMClient(BaseClient):
         """
         Describes details about the activation, such as the date and time the activation
         was created, its expiration date, the Identity and Access Management (IAM) role
-        assigned to the instances in the activation, and the number of instances
+        assigned to the managed nodes in the activation, and the number of nodes
         registered by using this activation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_activations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_activations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_activations)
         """
     def describe_association(
@@ -774,9 +776,9 @@ class SSMClient(BaseClient):
         AssociationVersion: str = None
     ) -> DescribeAssociationResultTypeDef:
         """
-        Describes the association for the specified target or instance.
+        Describes the association for the specified target or managed node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_association)
         """
     def describe_association_execution_targets(
@@ -791,7 +793,7 @@ class SSMClient(BaseClient):
         """
         Views information about a specific execution of a specific association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_association_execution_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_association_execution_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_association_execution_targets)
         """
     def describe_association_executions(
@@ -805,7 +807,7 @@ class SSMClient(BaseClient):
         """
         Views all executions for a specific association ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_association_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_association_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_association_executions)
         """
     def describe_automation_executions(
@@ -818,7 +820,7 @@ class SSMClient(BaseClient):
         """
         Provides details about all active and terminated Automation executions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_automation_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_automation_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_automation_executions)
         """
     def describe_automation_step_executions(
@@ -834,7 +836,7 @@ class SSMClient(BaseClient):
         Information about all active and terminated step executions in an Automation
         workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_automation_step_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_automation_step_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_automation_step_executions)
         """
     def describe_available_patches(
@@ -847,7 +849,7 @@ class SSMClient(BaseClient):
         """
         Lists all patches eligible to be included in a patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_available_patches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_available_patches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_available_patches)
         """
     def describe_document(
@@ -857,7 +859,7 @@ class SSMClient(BaseClient):
         Describes the specified Amazon Web Services Systems Manager document (SSM
         document).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_document)
         """
     def describe_document_permission(
@@ -872,16 +874,16 @@ class SSMClient(BaseClient):
         Describes the permissions for a Amazon Web Services Systems Manager document
         (SSM document).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_document_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_document_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_document_permission)
         """
     def describe_effective_instance_associations(
         self, *, InstanceId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeEffectiveInstanceAssociationsResultTypeDef:
         """
-        All associations for the instance(s).
+        All associations for the managed node(s).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_effective_instance_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_effective_instance_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_effective_instance_associations)
         """
     def describe_effective_patches_for_patch_baseline(
@@ -891,16 +893,16 @@ class SSMClient(BaseClient):
         Retrieves the current effective patches (the patch and the approval state) for
         the specified patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_effective_patches_for_patch_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_effective_patches_for_patch_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_effective_patches_for_patch_baseline)
         """
     def describe_instance_associations_status(
         self, *, InstanceId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeInstanceAssociationsStatusResultTypeDef:
         """
-        The status of the associations for the instance(s).
+        The status of the associations for the managed node(s).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_instance_associations_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_instance_associations_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_instance_associations_status)
         """
     def describe_instance_information(
@@ -912,11 +914,11 @@ class SSMClient(BaseClient):
         NextToken: str = None
     ) -> DescribeInstanceInformationResultTypeDef:
         """
-        Describes one or more of your instances, including information about the
-        operating system platform, the version of SSM Agent installed on the instance,
-        instance status, and so on.
+        Describes one or more of your managed nodes, including information about the
+        operating system platform, the version of SSM Agent installed on the managed
+        node, node status, and so on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_instance_information)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_instance_information)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_instance_information)
         """
     def describe_instance_patch_states(
@@ -925,7 +927,7 @@ class SSMClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_instance_patch_states)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_instance_patch_states)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_instance_patch_states)
         """
     def describe_instance_patch_states_for_patch_group(
@@ -939,7 +941,7 @@ class SSMClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_instance_patch_states_for_patch_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_instance_patch_states_for_patch_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_instance_patch_states_for_patch_group)
         """
     def describe_instance_patches(
@@ -951,10 +953,10 @@ class SSMClient(BaseClient):
         MaxResults: int = None
     ) -> DescribeInstancePatchesResultTypeDef:
         """
-        Retrieves information about the patches on the specified instance and their
-        state relative to the patch baseline being used for the instance.
+        Retrieves information about the patches on the specified managed node and their
+        state relative to the patch baseline being used for the node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_instance_patches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_instance_patches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_instance_patches)
         """
     def describe_inventory_deletions(
@@ -963,7 +965,7 @@ class SSMClient(BaseClient):
         """
         Describes a specific delete inventory operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_inventory_deletions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_inventory_deletions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_inventory_deletions)
         """
     def describe_maintenance_window_execution_task_invocations(
@@ -979,7 +981,7 @@ class SSMClient(BaseClient):
         Retrieves the individual task executions (one per target) for a particular task
         run as part of a maintenance window execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_task_invocations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_task_invocations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_window_execution_task_invocations)
         """
     def describe_maintenance_window_execution_tasks(
@@ -993,7 +995,7 @@ class SSMClient(BaseClient):
         """
         For a given maintenance window execution, lists the tasks that were run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_window_execution_tasks)
         """
     def describe_maintenance_window_executions(
@@ -1007,7 +1009,7 @@ class SSMClient(BaseClient):
         """
         Lists the executions of a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_window_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_window_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_window_executions)
         """
     def describe_maintenance_window_schedule(
@@ -1023,7 +1025,7 @@ class SSMClient(BaseClient):
         """
         Retrieves information about upcoming executions of a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_window_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_window_schedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_window_schedule)
         """
     def describe_maintenance_window_targets(
@@ -1037,7 +1039,7 @@ class SSMClient(BaseClient):
         """
         Lists the targets registered with the maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_window_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_window_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_window_targets)
         """
     def describe_maintenance_window_tasks(
@@ -1051,7 +1053,7 @@ class SSMClient(BaseClient):
         """
         Lists the tasks in a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_window_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_window_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_window_tasks)
         """
     def describe_maintenance_windows(
@@ -1064,7 +1066,7 @@ class SSMClient(BaseClient):
         """
         Retrieves the maintenance windows in an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_windows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_windows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_windows)
         """
     def describe_maintenance_windows_for_target(
@@ -1076,10 +1078,10 @@ class SSMClient(BaseClient):
         NextToken: str = None
     ) -> DescribeMaintenanceWindowsForTargetResultTypeDef:
         """
-        Retrieves information about the maintenance window targets or tasks that an
-        instance is associated with.
+        Retrieves information about the maintenance window targets or tasks that a
+        managed node is associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_maintenance_windows_for_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_maintenance_windows_for_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_maintenance_windows_for_target)
         """
     def describe_ops_items(
@@ -1092,7 +1094,7 @@ class SSMClient(BaseClient):
         """
         Query a set of OpsItems.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_ops_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_ops_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_ops_items)
         """
     def describe_parameters(
@@ -1106,7 +1108,7 @@ class SSMClient(BaseClient):
         """
         Get information about a parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_parameters)
         """
     def describe_patch_baselines(
@@ -1119,7 +1121,7 @@ class SSMClient(BaseClient):
         """
         Lists the patch baselines in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_patch_baselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_patch_baselines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_patch_baselines)
         """
     def describe_patch_group_state(
@@ -1129,7 +1131,7 @@ class SSMClient(BaseClient):
         Returns high-level aggregated patch compliance state information for a patch
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_patch_group_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_patch_group_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_patch_group_state)
         """
     def describe_patch_groups(
@@ -1142,7 +1144,7 @@ class SSMClient(BaseClient):
         """
         Lists all patch groups that have been registered with patch baselines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_patch_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_patch_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_patch_groups)
         """
     def describe_patch_properties(
@@ -1158,7 +1160,7 @@ class SSMClient(BaseClient):
         Lists the properties of available patches organized by product, product family,
         classification, severity, and other properties of available patches.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_patch_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_patch_properties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_patch_properties)
         """
     def describe_sessions(
@@ -1173,7 +1175,7 @@ class SSMClient(BaseClient):
         Retrieves a list of all active sessions (both connected and disconnected) or
         terminated sessions from the past 30 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.describe_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.describe_sessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#describe_sessions)
         """
     def disassociate_ops_item_related_item(
@@ -1182,7 +1184,7 @@ class SSMClient(BaseClient):
         """
         Deletes the association between an OpsItem and a related item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.disassociate_ops_item_related_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.disassociate_ops_item_related_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#disassociate_ops_item_related_item)
         """
     def generate_presigned_url(
@@ -1195,7 +1197,7 @@ class SSMClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#generate_presigned_url)
         """
     def get_automation_execution(
@@ -1204,7 +1206,7 @@ class SSMClient(BaseClient):
         """
         Get detailed information about a particular Automation execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_automation_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_automation_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_automation_execution)
         """
     def get_calendar_state(
@@ -1214,7 +1216,7 @@ class SSMClient(BaseClient):
         Gets the state of a Amazon Web Services Systems Manager change calendar at the
         current time or a specified time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_calendar_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_calendar_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_calendar_state)
         """
     def get_command_invocation(
@@ -1224,15 +1226,15 @@ class SSMClient(BaseClient):
         Returns detailed information about command execution for an invocation or
         plugin.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_command_invocation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_command_invocation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_command_invocation)
         """
     def get_connection_status(self, *, Target: str) -> GetConnectionStatusResponseTypeDef:
         """
-        Retrieves the Session Manager connection status for an instance to determine
+        Retrieves the Session Manager connection status for a managed node to determine
         whether it is running and ready to receive Session Manager connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_connection_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_connection_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_connection_status)
         """
     def get_default_patch_baseline(
@@ -1241,7 +1243,7 @@ class SSMClient(BaseClient):
         """
         Retrieves the default patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_default_patch_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_default_patch_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_default_patch_baseline)
         """
     def get_deployable_patch_snapshot_for_instance(
@@ -1252,9 +1254,9 @@ class SSMClient(BaseClient):
         BaselineOverride: "BaselineOverrideTypeDef" = None
     ) -> GetDeployablePatchSnapshotForInstanceResultTypeDef:
         """
-        Retrieves the current snapshot for the patch baseline the instance uses.
+        Retrieves the current snapshot for the patch baseline the managed node uses.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_deployable_patch_snapshot_for_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_deployable_patch_snapshot_for_instance)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_deployable_patch_snapshot_for_instance)
         """
     def get_document(
@@ -1269,7 +1271,7 @@ class SSMClient(BaseClient):
         Gets the contents of the specified Amazon Web Services Systems Manager document
         (SSM document).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_document)
         """
     def get_inventory(
@@ -1284,7 +1286,7 @@ class SSMClient(BaseClient):
         """
         Query inventory information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_inventory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_inventory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_inventory)
         """
     def get_inventory_schema(
@@ -1300,14 +1302,14 @@ class SSMClient(BaseClient):
         Return a list of inventory type names for the account, or return a list of
         attribute names for a specific Inventory item type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_inventory_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_inventory_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_inventory_schema)
         """
     def get_maintenance_window(self, *, WindowId: str) -> GetMaintenanceWindowResultTypeDef:
         """
         Retrieves a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_maintenance_window)
         """
     def get_maintenance_window_execution(
@@ -1316,7 +1318,7 @@ class SSMClient(BaseClient):
         """
         Retrieves details about a specific a maintenance window execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_maintenance_window_execution)
         """
     def get_maintenance_window_execution_task(
@@ -1326,7 +1328,7 @@ class SSMClient(BaseClient):
         Retrieves the details about a specific task run as part of a maintenance window
         execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_maintenance_window_execution_task)
         """
     def get_maintenance_window_execution_task_invocation(
@@ -1335,7 +1337,7 @@ class SSMClient(BaseClient):
         """
         Retrieves information about a specific task running on a specific target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task_invocation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task_invocation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_maintenance_window_execution_task_invocation)
         """
     def get_maintenance_window_task(
@@ -1344,14 +1346,14 @@ class SSMClient(BaseClient):
         """
         Lists the tasks in a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_maintenance_window_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_maintenance_window_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_maintenance_window_task)
         """
     def get_ops_item(self, *, OpsItemId: str) -> GetOpsItemResponseTypeDef:
         """
         Get information about an OpsItem by using the ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_ops_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_ops_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_ops_item)
         """
     def get_ops_metadata(
@@ -1360,7 +1362,7 @@ class SSMClient(BaseClient):
         """
         View operational metadata related to an application in Application Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_ops_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_ops_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_ops_metadata)
         """
     def get_ops_summary(
@@ -1377,14 +1379,14 @@ class SSMClient(BaseClient):
         View a summary of operations metadata (OpsData) based on specified filters and
         aggregators.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_ops_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_ops_summary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_ops_summary)
         """
     def get_parameter(self, *, Name: str, WithDecryption: bool = None) -> GetParameterResultTypeDef:
         """
         Get information about a single parameter by specifying the parameter name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_parameter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_parameter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_parameter)
         """
     def get_parameter_history(
@@ -1398,7 +1400,7 @@ class SSMClient(BaseClient):
         """
         Retrieves the history of all changes to a parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_parameter_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_parameter_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_parameter_history)
         """
     def get_parameters(
@@ -1408,7 +1410,7 @@ class SSMClient(BaseClient):
         Get information about one or more parameters by specifying multiple parameter
         names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_parameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_parameters)
         """
     def get_parameters_by_path(
@@ -1424,14 +1426,14 @@ class SSMClient(BaseClient):
         """
         Retrieve information about one or more parameters in a specific hierarchy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_parameters_by_path)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_parameters_by_path)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_parameters_by_path)
         """
     def get_patch_baseline(self, *, BaselineId: str) -> GetPatchBaselineResultTypeDef:
         """
         Retrieves information about a patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_patch_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_patch_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_patch_baseline)
         """
     def get_patch_baseline_for_patch_group(
@@ -1440,14 +1442,14 @@ class SSMClient(BaseClient):
         """
         Retrieves the patch baseline that should be used for the specified patch group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_patch_baseline_for_patch_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_patch_baseline_for_patch_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_patch_baseline_for_patch_group)
         """
     def get_service_setting(self, *, SettingId: str) -> GetServiceSettingResultTypeDef:
         """
         `ServiceSetting` is an account-level setting for an Amazon Web Services service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.get_service_setting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.get_service_setting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#get_service_setting)
         """
     def label_parameter_version(
@@ -1457,7 +1459,7 @@ class SSMClient(BaseClient):
         A parameter label is a user-defined alias to help you manage different versions
         of a parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.label_parameter_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.label_parameter_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#label_parameter_version)
         """
     def list_association_versions(
@@ -1466,7 +1468,7 @@ class SSMClient(BaseClient):
         """
         Retrieves all versions of an association for a specific association ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_association_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_association_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_association_versions)
         """
     def list_associations(
@@ -1480,7 +1482,7 @@ class SSMClient(BaseClient):
         Returns all State Manager associations in the current Amazon Web Services
         account and Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_associations)
         """
     def list_command_invocations(
@@ -1494,9 +1496,9 @@ class SSMClient(BaseClient):
         Details: bool = None
     ) -> ListCommandInvocationsResultTypeDef:
         """
-        An invocation is copy of a command sent to a specific instance.
+        An invocation is copy of a command sent to a specific managed node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_command_invocations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_command_invocations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_command_invocations)
         """
     def list_commands(
@@ -1511,7 +1513,7 @@ class SSMClient(BaseClient):
         """
         Lists the commands requested by users of the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_commands)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_commands)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_commands)
         """
     def list_compliance_items(
@@ -1527,7 +1529,7 @@ class SSMClient(BaseClient):
         For a specified resource ID, this API operation returns a list of compliance
         statuses for different resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_compliance_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_compliance_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_compliance_items)
         """
     def list_compliance_summaries(
@@ -1541,7 +1543,7 @@ class SSMClient(BaseClient):
         Returns a summary count of compliant and non-compliant resources for a
         compliance type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_compliance_summaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_compliance_summaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_compliance_summaries)
         """
     def list_document_metadata_history(
@@ -1557,7 +1559,7 @@ class SSMClient(BaseClient):
         Information about approval reviews for a version of a change template in Change
         Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_document_metadata_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_document_metadata_history)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_document_metadata_history)
         """
     def list_document_versions(
@@ -1566,7 +1568,7 @@ class SSMClient(BaseClient):
         """
         List all versions for a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_document_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_document_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_document_versions)
         """
     def list_documents(
@@ -1581,7 +1583,7 @@ class SSMClient(BaseClient):
         Returns all Systems Manager (SSM) documents in the current Amazon Web Services
         account and Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_documents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_documents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_documents)
         """
     def list_inventory_entries(
@@ -1596,7 +1598,7 @@ class SSMClient(BaseClient):
         """
         A list of inventory items returned by the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_inventory_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_inventory_entries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_inventory_entries)
         """
     def list_ops_item_events(
@@ -1610,7 +1612,7 @@ class SSMClient(BaseClient):
         Returns a list of all OpsItem events in the current Amazon Web Services Region
         and Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_ops_item_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_ops_item_events)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_ops_item_events)
         """
     def list_ops_item_related_items(
@@ -1625,7 +1627,7 @@ class SSMClient(BaseClient):
         Lists all related-item resources associated with a Systems Manager OpsCenter
         OpsItem.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_ops_item_related_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_ops_item_related_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_ops_item_related_items)
         """
     def list_ops_metadata(
@@ -1639,7 +1641,7 @@ class SSMClient(BaseClient):
         Amazon Web Services Systems Manager calls this API operation when displaying all
         Application Manager OpsMetadata objects or blobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_ops_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_ops_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_ops_metadata)
         """
     def list_resource_compliance_summaries(
@@ -1652,7 +1654,7 @@ class SSMClient(BaseClient):
         """
         Returns a resource-level summary count.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_resource_compliance_summaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_resource_compliance_summaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_resource_compliance_summaries)
         """
     def list_resource_data_sync(
@@ -1661,7 +1663,7 @@ class SSMClient(BaseClient):
         """
         Lists your resource data sync configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_resource_data_sync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_resource_data_sync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_resource_data_sync)
         """
     def list_tags_for_resource(
@@ -1670,7 +1672,7 @@ class SSMClient(BaseClient):
         """
         Returns a list of the tags assigned to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#list_tags_for_resource)
         """
     def modify_document_permission(
@@ -1686,7 +1688,7 @@ class SSMClient(BaseClient):
         Shares a Amazon Web Services Systems Manager document (SSM document)publicly or
         privately.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.modify_document_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.modify_document_permission)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#modify_document_permission)
         """
     def put_compliance_items(
@@ -1704,16 +1706,16 @@ class SSMClient(BaseClient):
         Registers a compliance type and other compliance details on a designated
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.put_compliance_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.put_compliance_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#put_compliance_items)
         """
     def put_inventory(
         self, *, InstanceId: str, Items: List["InventoryItemTypeDef"]
     ) -> PutInventoryResultTypeDef:
         """
-        Bulk update custom inventory items on one more instance.
+        Bulk update custom inventory items on one or more managed nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.put_inventory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.put_inventory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#put_inventory)
         """
     def put_parameter(
@@ -1734,7 +1736,7 @@ class SSMClient(BaseClient):
         """
         Add a parameter to the system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.put_parameter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.put_parameter)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#put_parameter)
         """
     def register_default_patch_baseline(
@@ -1743,7 +1745,7 @@ class SSMClient(BaseClient):
         """
         Defines the default patch baseline for the relevant operating system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.register_default_patch_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.register_default_patch_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#register_default_patch_baseline)
         """
     def register_patch_baseline_for_patch_group(
@@ -1752,7 +1754,7 @@ class SSMClient(BaseClient):
         """
         Registers a patch baseline for a patch group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.register_patch_baseline_for_patch_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.register_patch_baseline_for_patch_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#register_patch_baseline_for_patch_group)
         """
     def register_target_with_maintenance_window(
@@ -1769,7 +1771,7 @@ class SSMClient(BaseClient):
         """
         Registers a target with a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.register_target_with_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.register_target_with_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#register_target_with_maintenance_window)
         """
     def register_task_with_maintenance_window(
@@ -1794,7 +1796,7 @@ class SSMClient(BaseClient):
         """
         Adds a new task to a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.register_task_with_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.register_task_with_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#register_task_with_maintenance_window)
         """
     def remove_tags_from_resource(
@@ -1803,21 +1805,21 @@ class SSMClient(BaseClient):
         """
         Removes tag keys from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.remove_tags_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.remove_tags_from_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#remove_tags_from_resource)
         """
     def reset_service_setting(self, *, SettingId: str) -> ResetServiceSettingResultTypeDef:
         """
         `ServiceSetting` is an account-level setting for an Amazon Web Services service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.reset_service_setting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.reset_service_setting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#reset_service_setting)
         """
     def resume_session(self, *, SessionId: str) -> ResumeSessionResponseTypeDef:
         """
-        Reconnects a session to an instance after it has been disconnected.
+        Reconnects a session to a managed node after it has been disconnected.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.resume_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.resume_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#resume_session)
         """
     def send_automation_signal(
@@ -1831,7 +1833,7 @@ class SSMClient(BaseClient):
         Sends a signal to an Automation execution to change the current behavior or
         status of the execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.send_automation_signal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.send_automation_signal)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#send_automation_signal)
         """
     def send_command(
@@ -1856,16 +1858,16 @@ class SSMClient(BaseClient):
         CloudWatchOutputConfig: "CloudWatchOutputConfigTypeDef" = None
     ) -> SendCommandResultTypeDef:
         """
-        Runs commands on one or more managed instances.
+        Runs commands on one or more managed nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.send_command)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.send_command)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#send_command)
         """
     def start_associations_once(self, *, AssociationIds: List[str]) -> Dict[str, Any]:
         """
         Runs an association immediately and only one time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.start_associations_once)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.start_associations_once)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#start_associations_once)
         """
     def start_automation_execution(
@@ -1887,7 +1889,7 @@ class SSMClient(BaseClient):
         """
         Initiates execution of an Automation runbook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.start_automation_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.start_automation_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#start_automation_execution)
         """
     def start_change_request_execution(
@@ -1908,7 +1910,7 @@ class SSMClient(BaseClient):
         """
         Creates a change request for Change Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.start_change_request_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.start_change_request_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#start_change_request_execution)
         """
     def start_session(
@@ -1920,10 +1922,10 @@ class SSMClient(BaseClient):
         Parameters: Dict[str, List[str]] = None
     ) -> StartSessionResponseTypeDef:
         """
-        Initiates a connection to a target (for example, an instance) for a Session
+        Initiates a connection to a target (for example, a managed node) for a Session
         Manager session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.start_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.start_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#start_session)
         """
     def stop_automation_execution(
@@ -1932,15 +1934,15 @@ class SSMClient(BaseClient):
         """
         Stop an Automation that is currently running.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.stop_automation_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.stop_automation_execution)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#stop_automation_execution)
         """
     def terminate_session(self, *, SessionId: str) -> TerminateSessionResponseTypeDef:
         """
         Permanently ends a session and closes the data connection between the Session
-        Manager client and SSM Agent on the instance.
+        Manager client and SSM Agent on the managed node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.terminate_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.terminate_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#terminate_session)
         """
     def unlabel_parameter_version(
@@ -1949,7 +1951,7 @@ class SSMClient(BaseClient):
         """
         Remove a label or labels from a parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.unlabel_parameter_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.unlabel_parameter_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#unlabel_parameter_version)
         """
     def update_association(
@@ -1976,7 +1978,7 @@ class SSMClient(BaseClient):
         """
         Updates an association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_association)
         """
     def update_association_status(
@@ -1984,9 +1986,9 @@ class SSMClient(BaseClient):
     ) -> UpdateAssociationStatusResultTypeDef:
         """
         Updates the status of the Amazon Web Services Systems Manager document (SSM
-        document) associated with the specified instance.
+        document) associated with the specified managed node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_association_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_association_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_association_status)
         """
     def update_document(
@@ -2004,7 +2006,7 @@ class SSMClient(BaseClient):
         """
         Updates one or more values for an SSM document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_document)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_document)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_document)
         """
     def update_document_default_version(
@@ -2013,7 +2015,7 @@ class SSMClient(BaseClient):
         """
         Set the default version of a document.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_document_default_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_document_default_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_document_default_version)
         """
     def update_document_metadata(
@@ -2023,7 +2025,7 @@ class SSMClient(BaseClient):
         Updates information related to approval reviews for a specific version of a
         change template in Change Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_document_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_document_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_document_metadata)
         """
     def update_maintenance_window(
@@ -2046,7 +2048,7 @@ class SSMClient(BaseClient):
         """
         Updates an existing maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_maintenance_window)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_maintenance_window)
         """
     def update_maintenance_window_target(
@@ -2063,7 +2065,7 @@ class SSMClient(BaseClient):
         """
         Modifies the target of an existing maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_maintenance_window_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_maintenance_window_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_maintenance_window_target)
         """
     def update_maintenance_window_task(
@@ -2088,15 +2090,15 @@ class SSMClient(BaseClient):
         """
         Modifies a task assigned to a maintenance window.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_maintenance_window_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_maintenance_window_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_maintenance_window_task)
         """
     def update_managed_instance_role(self, *, InstanceId: str, IamRole: str) -> Dict[str, Any]:
         """
         Changes the Identity and Access Management (IAM) role that is assigned to the
-        on-premises instance or virtual machines (VM).
+        on-premises server, edge device, or virtual machines (VM).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_managed_instance_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_managed_instance_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_managed_instance_role)
         """
     def update_ops_item(
@@ -2121,7 +2123,7 @@ class SSMClient(BaseClient):
         """
         Edit or change an OpsItem.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_ops_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_ops_item)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_ops_item)
         """
     def update_ops_metadata(
@@ -2135,7 +2137,7 @@ class SSMClient(BaseClient):
         Amazon Web Services Systems Manager calls this API operation when you edit
         OpsMetadata in Application Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_ops_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_ops_metadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_ops_metadata)
         """
     def update_patch_baseline(
@@ -2157,7 +2159,7 @@ class SSMClient(BaseClient):
         """
         Modifies an existing patch baseline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_patch_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_patch_baseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_patch_baseline)
         """
     def update_resource_data_sync(
@@ -2166,14 +2168,14 @@ class SSMClient(BaseClient):
         """
         Update a resource data sync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_resource_data_sync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_resource_data_sync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_resource_data_sync)
         """
     def update_service_setting(self, *, SettingId: str, SettingValue: str) -> Dict[str, Any]:
         """
         `ServiceSetting` is an account-level setting for an Amazon Web Services service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Client.update_service_setting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Client.update_service_setting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/client.html#update_service_setting)
         """
     @overload
@@ -2181,7 +2183,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_activations"]
     ) -> DescribeActivationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeactivationspaginator)
         """
     @overload
@@ -2189,7 +2191,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_association_execution_targets"]
     ) -> DescribeAssociationExecutionTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeassociationexecutiontargetspaginator)
         """
     @overload
@@ -2197,7 +2199,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_association_executions"]
     ) -> DescribeAssociationExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeassociationexecutionspaginator)
         """
     @overload
@@ -2205,7 +2207,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_automation_executions"]
     ) -> DescribeAutomationExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeautomationexecutionspaginator)
         """
     @overload
@@ -2213,7 +2215,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_automation_step_executions"]
     ) -> DescribeAutomationStepExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeautomationstepexecutionspaginator)
         """
     @overload
@@ -2221,7 +2223,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_available_patches"]
     ) -> DescribeAvailablePatchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeavailablepatchespaginator)
         """
     @overload
@@ -2229,7 +2231,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_effective_instance_associations"]
     ) -> DescribeEffectiveInstanceAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeeffectiveinstanceassociationspaginator)
         """
     @overload
@@ -2237,7 +2239,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_effective_patches_for_patch_baseline"]
     ) -> DescribeEffectivePatchesForPatchBaselinePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeeffectivepatchesforpatchbaselinepaginator)
         """
     @overload
@@ -2245,7 +2247,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_instance_associations_status"]
     ) -> DescribeInstanceAssociationsStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstanceassociationsstatuspaginator)
         """
     @overload
@@ -2253,7 +2255,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_instance_information"]
     ) -> DescribeInstanceInformationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstanceinformationpaginator)
         """
     @overload
@@ -2261,7 +2263,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_instance_patch_states"]
     ) -> DescribeInstancePatchStatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchstatespaginator)
         """
     @overload
@@ -2269,7 +2271,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_instance_patch_states_for_patch_group"]
     ) -> DescribeInstancePatchStatesForPatchGroupPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchstatesforpatchgrouppaginator)
         """
     @overload
@@ -2277,7 +2279,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_instance_patches"]
     ) -> DescribeInstancePatchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchespaginator)
         """
     @overload
@@ -2285,7 +2287,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_inventory_deletions"]
     ) -> DescribeInventoryDeletionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinventorydeletionspaginator)
         """
     @overload
@@ -2293,7 +2295,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_window_execution_task_invocations"]
     ) -> DescribeMaintenanceWindowExecutionTaskInvocationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutiontaskinvocationspaginator)
         """
     @overload
@@ -2301,7 +2303,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_window_execution_tasks"]
     ) -> DescribeMaintenanceWindowExecutionTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutiontaskspaginator)
         """
     @overload
@@ -2309,7 +2311,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_window_executions"]
     ) -> DescribeMaintenanceWindowExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutionspaginator)
         """
     @overload
@@ -2317,7 +2319,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_window_schedule"]
     ) -> DescribeMaintenanceWindowSchedulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowschedulepaginator)
         """
     @overload
@@ -2325,7 +2327,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_window_targets"]
     ) -> DescribeMaintenanceWindowTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowtargetspaginator)
         """
     @overload
@@ -2333,7 +2335,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_window_tasks"]
     ) -> DescribeMaintenanceWindowTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowtaskspaginator)
         """
     @overload
@@ -2341,7 +2343,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_windows"]
     ) -> DescribeMaintenanceWindowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowspaginator)
         """
     @overload
@@ -2349,7 +2351,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_maintenance_windows_for_target"]
     ) -> DescribeMaintenanceWindowsForTargetPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowsfortargetpaginator)
         """
     @overload
@@ -2357,7 +2359,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_ops_items"]
     ) -> DescribeOpsItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeopsitemspaginator)
         """
     @overload
@@ -2365,7 +2367,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_parameters"]
     ) -> DescribeParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeparameterspaginator)
         """
     @overload
@@ -2373,7 +2375,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_patch_baselines"]
     ) -> DescribePatchBaselinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchbaselinespaginator)
         """
     @overload
@@ -2381,7 +2383,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_patch_groups"]
     ) -> DescribePatchGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchgroupspaginator)
         """
     @overload
@@ -2389,7 +2391,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_patch_properties"]
     ) -> DescribePatchPropertiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchpropertiespaginator)
         """
     @overload
@@ -2397,13 +2399,13 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["describe_sessions"]
     ) -> DescribeSessionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describesessionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_inventory"]) -> GetInventoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.GetInventory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.GetInventory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getinventorypaginator)
         """
     @overload
@@ -2411,13 +2413,13 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["get_inventory_schema"]
     ) -> GetInventorySchemaPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getinventoryschemapaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_ops_summary"]) -> GetOpsSummaryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getopssummarypaginator)
         """
     @overload
@@ -2425,7 +2427,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["get_parameter_history"]
     ) -> GetParameterHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getparameterhistorypaginator)
         """
     @overload
@@ -2433,7 +2435,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["get_parameters_by_path"]
     ) -> GetParametersByPathPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getparametersbypathpaginator)
         """
     @overload
@@ -2441,7 +2443,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_association_versions"]
     ) -> ListAssociationVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listassociationversionspaginator)
         """
     @overload
@@ -2449,7 +2451,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_associations"]
     ) -> ListAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listassociationspaginator)
         """
     @overload
@@ -2457,13 +2459,13 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_command_invocations"]
     ) -> ListCommandInvocationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcommandinvocationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_commands"]) -> ListCommandsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListCommands)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListCommands)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcommandspaginator)
         """
     @overload
@@ -2471,7 +2473,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_compliance_items"]
     ) -> ListComplianceItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcomplianceitemspaginator)
         """
     @overload
@@ -2479,7 +2481,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_compliance_summaries"]
     ) -> ListComplianceSummariesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcompliancesummariespaginator)
         """
     @overload
@@ -2487,13 +2489,13 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_document_versions"]
     ) -> ListDocumentVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listdocumentversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_documents"]) -> ListDocumentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListDocuments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListDocuments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listdocumentspaginator)
         """
     @overload
@@ -2501,7 +2503,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_ops_item_events"]
     ) -> ListOpsItemEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListOpsItemEvents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListOpsItemEvents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsitemeventspaginator)
         """
     @overload
@@ -2509,7 +2511,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_ops_item_related_items"]
     ) -> ListOpsItemRelatedItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListOpsItemRelatedItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListOpsItemRelatedItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsitemrelateditemspaginator)
         """
     @overload
@@ -2517,7 +2519,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_ops_metadata"]
     ) -> ListOpsMetadataPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListOpsMetadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListOpsMetadata)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsmetadatapaginator)
         """
     @overload
@@ -2525,7 +2527,7 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_resource_compliance_summaries"]
     ) -> ListResourceComplianceSummariesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listresourcecompliancesummariespaginator)
         """
     @overload
@@ -2533,11 +2535,11 @@ class SSMClient(BaseClient):
         self, operation_name: Literal["list_resource_data_sync"]
     ) -> ListResourceDataSyncPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listresourcedatasyncpaginator)
         """
     def get_waiter(self, waiter_name: Literal["command_executed"]) -> CommandExecutedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html#commandexecutedwaiter)
         """

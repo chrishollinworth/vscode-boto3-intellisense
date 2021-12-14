@@ -14,6 +14,7 @@ Usage::
         ListProjectsPaginator,
         ListRecipeVersionsPaginator,
         ListRecipesPaginator,
+        ListRulesetsPaginator,
         ListSchedulesPaginator,
     )
 
@@ -28,6 +29,7 @@ Usage::
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     list_recipe_versions_paginator: ListRecipeVersionsPaginator = client.get_paginator("list_recipe_versions")
     list_recipes_paginator: ListRecipesPaginator = client.get_paginator("list_recipes")
+    list_rulesets_paginator: ListRulesetsPaginator = client.get_paginator("list_rulesets")
     list_schedules_paginator: ListSchedulesPaginator = client.get_paginator("list_schedules")
     ```
 """
@@ -39,6 +41,7 @@ from .paginator import (
     ListProjectsPaginator,
     ListRecipesPaginator,
     ListRecipeVersionsPaginator,
+    ListRulesetsPaginator,
     ListSchedulesPaginator,
 )
 
@@ -53,5 +56,6 @@ __all__ = (
     "ListProjectsPaginator",
     "ListRecipeVersionsPaginator",
     "ListRecipesPaginator",
+    "ListRulesetsPaginator",
     "ListSchedulesPaginator",
 )

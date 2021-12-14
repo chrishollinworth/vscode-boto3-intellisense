@@ -2634,6 +2634,7 @@ InputSettingsTypeDef = TypedDict(
         "FilterStrength": int,
         "InputFilter": InputFilterType,
         "NetworkInputSettings": "NetworkInputSettingsTypeDef",
+        "Scte35Pid": int,
         "Smpte2038DataPreference": Smpte2038DataPreferenceType,
         "SourceEndBehavior": InputSourceEndBehaviorType,
         "VideoSelector": "VideoSelectorTypeDef",

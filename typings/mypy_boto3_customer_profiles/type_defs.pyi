@@ -16,9 +16,12 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    ConflictResolvingModelType,
     DataPullModeType,
     FieldContentTypeType,
     GenderType,
+    IdentityResolutionJobStatusType,
+    JobScheduleDayOfTheWeekType,
     MarketoConnectorOperatorType,
     OperatorPropertiesKeysType,
     PartyTypeType,
@@ -41,7 +44,10 @@ __all__ = (
     "AddProfileKeyRequestRequestTypeDef",
     "AddProfileKeyResponseTypeDef",
     "AddressTypeDef",
+    "AutoMergingTypeDef",
+    "ConflictResolutionTypeDef",
     "ConnectorOperatorTypeDef",
+    "ConsolidationTypeDef",
     "CreateDomainRequestRequestTypeDef",
     "CreateDomainResponseTypeDef",
     "CreateProfileRequestRequestTypeDef",
@@ -59,10 +65,16 @@ __all__ = (
     "DeleteProfileRequestRequestTypeDef",
     "DeleteProfileResponseTypeDef",
     "DomainStatsTypeDef",
+    "ExportingConfigTypeDef",
+    "ExportingLocationTypeDef",
     "FieldSourceProfileIdsTypeDef",
     "FlowDefinitionTypeDef",
+    "GetAutoMergingPreviewRequestRequestTypeDef",
+    "GetAutoMergingPreviewResponseTypeDef",
     "GetDomainRequestRequestTypeDef",
     "GetDomainResponseTypeDef",
+    "GetIdentityResolutionJobRequestRequestTypeDef",
+    "GetIdentityResolutionJobResponseTypeDef",
     "GetIntegrationRequestRequestTypeDef",
     "GetIntegrationResponseTypeDef",
     "GetMatchesRequestRequestTypeDef",
@@ -71,12 +83,17 @@ __all__ = (
     "GetProfileObjectTypeResponseTypeDef",
     "GetProfileObjectTypeTemplateRequestRequestTypeDef",
     "GetProfileObjectTypeTemplateResponseTypeDef",
+    "IdentityResolutionJobTypeDef",
     "IncrementalPullConfigTypeDef",
+    "JobScheduleTypeDef",
+    "JobStatsTypeDef",
     "ListAccountIntegrationsRequestRequestTypeDef",
     "ListAccountIntegrationsResponseTypeDef",
     "ListDomainItemTypeDef",
     "ListDomainsRequestRequestTypeDef",
     "ListDomainsResponseTypeDef",
+    "ListIdentityResolutionJobsRequestRequestTypeDef",
+    "ListIdentityResolutionJobsResponseTypeDef",
     "ListIntegrationItemTypeDef",
     "ListIntegrationsRequestRequestTypeDef",
     "ListIntegrationsResponseTypeDef",
@@ -108,6 +125,8 @@ __all__ = (
     "PutProfileObjectTypeRequestRequestTypeDef",
     "PutProfileObjectTypeResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "S3ExportingConfigTypeDef",
+    "S3ExportingLocationTypeDef",
     "S3SourcePropertiesTypeDef",
     "SalesforceSourcePropertiesTypeDef",
     "ScheduledTriggerPropertiesTypeDef",
@@ -165,6 +184,43 @@ AddressTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAutoMergingTypeDef = TypedDict(
+    "_RequiredAutoMergingTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalAutoMergingTypeDef = TypedDict(
+    "_OptionalAutoMergingTypeDef",
+    {
+        "Consolidation": "ConsolidationTypeDef",
+        "ConflictResolution": "ConflictResolutionTypeDef",
+    },
+    total=False,
+)
+
+class AutoMergingTypeDef(_RequiredAutoMergingTypeDef, _OptionalAutoMergingTypeDef):
+    pass
+
+_RequiredConflictResolutionTypeDef = TypedDict(
+    "_RequiredConflictResolutionTypeDef",
+    {
+        "ConflictResolvingModel": ConflictResolvingModelType,
+    },
+)
+_OptionalConflictResolutionTypeDef = TypedDict(
+    "_OptionalConflictResolutionTypeDef",
+    {
+        "SourceName": str,
+    },
+    total=False,
+)
+
+class ConflictResolutionTypeDef(
+    _RequiredConflictResolutionTypeDef, _OptionalConflictResolutionTypeDef
+):
+    pass
+
 ConnectorOperatorTypeDef = TypedDict(
     "ConnectorOperatorTypeDef",
     {
@@ -175,6 +231,13 @@ ConnectorOperatorTypeDef = TypedDict(
         "Zendesk": ZendeskConnectorOperatorType,
     },
     total=False,
+)
+
+ConsolidationTypeDef = TypedDict(
+    "ConsolidationTypeDef",
+    {
+        "MatchingAttributesList": List[List[str]],
+    },
 )
 
 _RequiredCreateDomainRequestRequestTypeDef = TypedDict(
@@ -372,6 +435,22 @@ DomainStatsTypeDef = TypedDict(
     total=False,
 )
 
+ExportingConfigTypeDef = TypedDict(
+    "ExportingConfigTypeDef",
+    {
+        "S3Exporting": "S3ExportingConfigTypeDef",
+    },
+    total=False,
+)
+
+ExportingLocationTypeDef = TypedDict(
+    "ExportingLocationTypeDef",
+    {
+        "S3Exporting": "S3ExportingLocationTypeDef",
+    },
+    total=False,
+)
+
 FieldSourceProfileIdsTypeDef = TypedDict(
     "FieldSourceProfileIdsTypeDef",
     {
@@ -421,6 +500,26 @@ _OptionalFlowDefinitionTypeDef = TypedDict(
 class FlowDefinitionTypeDef(_RequiredFlowDefinitionTypeDef, _OptionalFlowDefinitionTypeDef):
     pass
 
+GetAutoMergingPreviewRequestRequestTypeDef = TypedDict(
+    "GetAutoMergingPreviewRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "Consolidation": "ConsolidationTypeDef",
+        "ConflictResolution": "ConflictResolutionTypeDef",
+    },
+)
+
+GetAutoMergingPreviewResponseTypeDef = TypedDict(
+    "GetAutoMergingPreviewResponseTypeDef",
+    {
+        "DomainName": str,
+        "NumberOfMatchesInSample": int,
+        "NumberOfProfilesInSample": int,
+        "NumberOfProfilesWillBeMerged": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetDomainRequestRequestTypeDef = TypedDict(
     "GetDomainRequestRequestTypeDef",
     {
@@ -440,6 +539,32 @@ GetDomainResponseTypeDef = TypedDict(
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
         "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetIdentityResolutionJobRequestRequestTypeDef = TypedDict(
+    "GetIdentityResolutionJobRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "JobId": str,
+    },
+)
+
+GetIdentityResolutionJobResponseTypeDef = TypedDict(
+    "GetIdentityResolutionJobResponseTypeDef",
+    {
+        "DomainName": str,
+        "JobId": str,
+        "Status": IdentityResolutionJobStatusType,
+        "Message": str,
+        "JobStartTime": datetime,
+        "JobEndTime": datetime,
+        "LastUpdatedAt": datetime,
+        "JobExpirationTime": datetime,
+        "AutoMerging": "AutoMergingTypeDef",
+        "ExportingLocation": "ExportingLocationTypeDef",
+        "JobStats": "JobStatsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -513,6 +638,7 @@ GetProfileObjectTypeResponseTypeDef = TypedDict(
         "ExpirationDays": int,
         "EncryptionKey": str,
         "AllowProfileCreation": bool,
+        "SourceLastUpdatedTimestampFormat": str,
         "Fields": Dict[str, "ObjectTypeFieldTypeDef"],
         "Keys": Dict[str, List["ObjectTypeKeyTypeDef"]],
         "CreatedAt": datetime,
@@ -536,16 +662,50 @@ GetProfileObjectTypeTemplateResponseTypeDef = TypedDict(
         "SourceName": str,
         "SourceObject": str,
         "AllowProfileCreation": bool,
+        "SourceLastUpdatedTimestampFormat": str,
         "Fields": Dict[str, "ObjectTypeFieldTypeDef"],
         "Keys": Dict[str, List["ObjectTypeKeyTypeDef"]],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
+IdentityResolutionJobTypeDef = TypedDict(
+    "IdentityResolutionJobTypeDef",
+    {
+        "DomainName": str,
+        "JobId": str,
+        "Status": IdentityResolutionJobStatusType,
+        "JobStartTime": datetime,
+        "JobEndTime": datetime,
+        "JobStats": "JobStatsTypeDef",
+        "ExportingLocation": "ExportingLocationTypeDef",
+        "Message": str,
+    },
+    total=False,
+)
+
 IncrementalPullConfigTypeDef = TypedDict(
     "IncrementalPullConfigTypeDef",
     {
         "DatetimeTypeFieldName": str,
+    },
+    total=False,
+)
+
+JobScheduleTypeDef = TypedDict(
+    "JobScheduleTypeDef",
+    {
+        "DayOfTheWeek": JobScheduleDayOfTheWeekType,
+        "Time": str,
+    },
+)
+
+JobStatsTypeDef = TypedDict(
+    "JobStatsTypeDef",
+    {
+        "NumberOfProfilesReviewed": int,
+        "NumberOfMatchesFound": int,
+        "NumberOfMergesDone": int,
     },
     total=False,
 )
@@ -612,6 +772,36 @@ ListDomainsResponseTypeDef = TypedDict(
     "ListDomainsResponseTypeDef",
     {
         "Items": List["ListDomainItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListIdentityResolutionJobsRequestRequestTypeDef = TypedDict(
+    "_RequiredListIdentityResolutionJobsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalListIdentityResolutionJobsRequestRequestTypeDef = TypedDict(
+    "_OptionalListIdentityResolutionJobsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListIdentityResolutionJobsRequestRequestTypeDef(
+    _RequiredListIdentityResolutionJobsRequestRequestTypeDef,
+    _OptionalListIdentityResolutionJobsRequestRequestTypeDef,
+):
+    pass
+
+ListIdentityResolutionJobsResponseTypeDef = TypedDict(
+    "ListIdentityResolutionJobsResponseTypeDef",
+    {
+        "IdentityResolutionJobsList": List["IdentityResolutionJobTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -819,21 +1009,37 @@ MatchItemTypeDef = TypedDict(
     {
         "MatchId": str,
         "ProfileIds": List[str],
+        "ConfidenceScore": float,
     },
     total=False,
 )
 
-MatchingRequestTypeDef = TypedDict(
-    "MatchingRequestTypeDef",
+_RequiredMatchingRequestTypeDef = TypedDict(
+    "_RequiredMatchingRequestTypeDef",
     {
         "Enabled": bool,
     },
 )
+_OptionalMatchingRequestTypeDef = TypedDict(
+    "_OptionalMatchingRequestTypeDef",
+    {
+        "JobSchedule": "JobScheduleTypeDef",
+        "AutoMerging": "AutoMergingTypeDef",
+        "ExportingConfig": "ExportingConfigTypeDef",
+    },
+    total=False,
+)
+
+class MatchingRequestTypeDef(_RequiredMatchingRequestTypeDef, _OptionalMatchingRequestTypeDef):
+    pass
 
 MatchingResponseTypeDef = TypedDict(
     "MatchingResponseTypeDef",
     {
         "Enabled": bool,
+        "JobSchedule": "JobScheduleTypeDef",
+        "AutoMerging": "AutoMergingTypeDef",
+        "ExportingConfig": "ExportingConfigTypeDef",
     },
     total=False,
 )
@@ -990,6 +1196,7 @@ _OptionalPutProfileObjectTypeRequestRequestTypeDef = TypedDict(
         "ExpirationDays": int,
         "EncryptionKey": str,
         "AllowProfileCreation": bool,
+        "SourceLastUpdatedTimestampFormat": str,
         "Fields": Dict[str, "ObjectTypeFieldTypeDef"],
         "Keys": Dict[str, List["ObjectTypeKeyTypeDef"]],
         "Tags": Dict[str, str],
@@ -1012,6 +1219,7 @@ PutProfileObjectTypeResponseTypeDef = TypedDict(
         "ExpirationDays": int,
         "EncryptionKey": str,
         "AllowProfileCreation": bool,
+        "SourceLastUpdatedTimestampFormat": str,
         "Fields": Dict[str, "ObjectTypeFieldTypeDef"],
         "Keys": Dict[str, List["ObjectTypeKeyTypeDef"]],
         "CreatedAt": datetime,
@@ -1030,6 +1238,34 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+_RequiredS3ExportingConfigTypeDef = TypedDict(
+    "_RequiredS3ExportingConfigTypeDef",
+    {
+        "S3BucketName": str,
+    },
+)
+_OptionalS3ExportingConfigTypeDef = TypedDict(
+    "_OptionalS3ExportingConfigTypeDef",
+    {
+        "S3KeyName": str,
+    },
+    total=False,
+)
+
+class S3ExportingConfigTypeDef(
+    _RequiredS3ExportingConfigTypeDef, _OptionalS3ExportingConfigTypeDef
+):
+    pass
+
+S3ExportingLocationTypeDef = TypedDict(
+    "S3ExportingLocationTypeDef",
+    {
+        "S3BucketName": str,
+        "S3KeyName": str,
+    },
+    total=False,
 )
 
 _RequiredS3SourcePropertiesTypeDef = TypedDict(

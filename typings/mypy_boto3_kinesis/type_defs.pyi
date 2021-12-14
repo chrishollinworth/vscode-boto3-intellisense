@@ -23,6 +23,7 @@ from .literals import (
     MetricsNameType,
     ShardFilterTypeType,
     ShardIteratorTypeType,
+    StreamModeType,
     StreamStatusType,
 )
 
@@ -100,6 +101,7 @@ __all__ = (
     "StopStreamEncryptionInputRequestTypeDef",
     "StreamDescriptionSummaryTypeDef",
     "StreamDescriptionTypeDef",
+    "StreamModeDetailsTypeDef",
     "SubscribeToShardEventStreamTypeDef",
     "SubscribeToShardEventTypeDef",
     "SubscribeToShardInputRequestTypeDef",
@@ -107,6 +109,7 @@ __all__ = (
     "TagTypeDef",
     "UpdateShardCountInputRequestTypeDef",
     "UpdateShardCountOutputTypeDef",
+    "UpdateStreamModeInputRequestTypeDef",
     "WaiterConfigTypeDef",
 )
 
@@ -148,13 +151,25 @@ ConsumerTypeDef = TypedDict(
     },
 )
 
-CreateStreamInputRequestTypeDef = TypedDict(
-    "CreateStreamInputRequestTypeDef",
+_RequiredCreateStreamInputRequestTypeDef = TypedDict(
+    "_RequiredCreateStreamInputRequestTypeDef",
     {
         "StreamName": str,
-        "ShardCount": int,
     },
 )
+_OptionalCreateStreamInputRequestTypeDef = TypedDict(
+    "_OptionalCreateStreamInputRequestTypeDef",
+    {
+        "ShardCount": int,
+        "StreamModeDetails": "StreamModeDetailsTypeDef",
+    },
+    total=False,
+)
+
+class CreateStreamInputRequestTypeDef(
+    _RequiredCreateStreamInputRequestTypeDef, _OptionalCreateStreamInputRequestTypeDef
+):
+    pass
 
 DecreaseStreamRetentionPeriodInputRequestTypeDef = TypedDict(
     "DecreaseStreamRetentionPeriodInputRequestTypeDef",
@@ -198,6 +213,8 @@ DescribeLimitsOutputTypeDef = TypedDict(
     {
         "ShardLimit": int,
         "OpenShardCount": int,
+        "OnDemandStreamCount": int,
+        "OnDemandStreamCountLimit": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -816,6 +833,7 @@ _RequiredStreamDescriptionSummaryTypeDef = TypedDict(
 _OptionalStreamDescriptionSummaryTypeDef = TypedDict(
     "_OptionalStreamDescriptionSummaryTypeDef",
     {
+        "StreamModeDetails": "StreamModeDetailsTypeDef",
         "EncryptionType": EncryptionTypeType,
         "KeyId": str,
         "ConsumerCount": int,
@@ -844,6 +862,7 @@ _RequiredStreamDescriptionTypeDef = TypedDict(
 _OptionalStreamDescriptionTypeDef = TypedDict(
     "_OptionalStreamDescriptionTypeDef",
     {
+        "StreamModeDetails": "StreamModeDetailsTypeDef",
         "EncryptionType": EncryptionTypeType,
         "KeyId": str,
     },
@@ -854,6 +873,13 @@ class StreamDescriptionTypeDef(
     _RequiredStreamDescriptionTypeDef, _OptionalStreamDescriptionTypeDef
 ):
     pass
+
+StreamModeDetailsTypeDef = TypedDict(
+    "StreamModeDetailsTypeDef",
+    {
+        "StreamMode": StreamModeType,
+    },
+)
 
 _RequiredSubscribeToShardEventStreamTypeDef = TypedDict(
     "_RequiredSubscribeToShardEventStreamTypeDef",
@@ -953,6 +979,14 @@ UpdateShardCountOutputTypeDef = TypedDict(
         "CurrentShardCount": int,
         "TargetShardCount": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateStreamModeInputRequestTypeDef = TypedDict(
+    "UpdateStreamModeInputRequestTypeDef",
+    {
+        "StreamARN": str,
+        "StreamModeDetails": "StreamModeDetailsTypeDef",
     },
 )
 

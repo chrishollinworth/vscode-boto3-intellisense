@@ -17,6 +17,8 @@ from typing import Any, Dict, List
 
 from .literals import (
     ResourceOwnerType,
+    ResourceRegionScopeFilterType,
+    ResourceRegionScopeType,
     ResourceShareAssociationStatusType,
     ResourceShareAssociationTypeType,
     ResourceShareFeatureSetType,
@@ -471,6 +473,7 @@ _OptionalListPendingInvitationResourcesRequestRequestTypeDef = TypedDict(
     {
         "nextToken": str,
         "maxResults": int,
+        "resourceRegionScope": ResourceRegionScopeFilterType,
     },
     total=False,
 )
@@ -577,6 +580,7 @@ ListResourceTypesRequestRequestTypeDef = TypedDict(
     {
         "nextToken": str,
         "maxResults": int,
+        "resourceRegionScope": ResourceRegionScopeFilterType,
     },
     total=False,
 )
@@ -605,6 +609,7 @@ _OptionalListResourcesRequestRequestTypeDef = TypedDict(
         "resourceShareArns": List[str],
         "nextToken": str,
         "maxResults": int,
+        "resourceRegionScope": ResourceRegionScopeFilterType,
     },
     total=False,
 )
@@ -781,6 +786,7 @@ ResourceTypeDef = TypedDict(
         "statusMessage": str,
         "creationTime": datetime,
         "lastUpdatedTime": datetime,
+        "resourceRegionScope": ResourceRegionScopeType,
     },
     total=False,
 )
@@ -801,6 +807,7 @@ ServiceNameAndResourceTypeTypeDef = TypedDict(
     {
         "resourceType": str,
         "serviceName": str,
+        "resourceRegionScope": ResourceRegionScopeType,
     },
     total=False,
 )

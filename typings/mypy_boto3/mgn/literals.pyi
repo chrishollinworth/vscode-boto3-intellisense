@@ -28,6 +28,7 @@ __all__ = (
     "DescribeJobsPaginatorName",
     "DescribeReplicationConfigurationTemplatesPaginatorName",
     "DescribeSourceServersPaginatorName",
+    "DescribeVcenterClientsPaginatorName",
     "FirstBootType",
     "InitiatedByType",
     "JobLogEventType",
@@ -40,6 +41,7 @@ __all__ = (
     "ReplicationConfigurationDefaultLargeStagingDiskTypeType",
     "ReplicationConfigurationEbsEncryptionType",
     "ReplicationConfigurationReplicatedDiskStagingDiskTypeType",
+    "ReplicationTypeType",
     "TargetInstanceTypeRightSizingMethodType",
 )
 
@@ -58,9 +60,11 @@ DataReplicationErrorStringType = Literal[
     "FAILED_TO_LAUNCH_REPLICATION_SERVER",
     "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
     "FAILED_TO_START_DATA_TRANSFER",
+    "LAST_SNAPSHOT_JOB_FAILED",
     "NOT_CONVERGING",
     "SNAPSHOTS_FAILURE",
     "UNSTABLE_NETWORK",
+    "UNSUPPORTED_VM_CONFIGURATION",
 ]
 DataReplicationInitiationStepNameType = Literal[
     "ATTACH_STAGING_DISKS",
@@ -86,7 +90,9 @@ DataReplicationStateType = Literal[
     "INITIAL_SYNC",
     "INITIATING",
     "PAUSED",
+    "PENDING_SNAPSHOT_SHIPPING",
     "RESCAN",
+    "SHIPPING_SNAPSHOT",
     "STALLED",
     "STOPPED",
 ]
@@ -96,6 +102,7 @@ DescribeReplicationConfigurationTemplatesPaginatorName = Literal[
     "describe_replication_configuration_templates"
 ]
 DescribeSourceServersPaginatorName = Literal["describe_source_servers"]
+DescribeVcenterClientsPaginatorName = Literal["describe_vcenter_clients"]
 FirstBootType = Literal["STOPPED", "SUCCEEDED", "UNKNOWN", "WAITING"]
 InitiatedByType = Literal["DIAGNOSTIC", "START_CUTOVER", "START_TEST", "TERMINATE"]
 JobLogEventType = Literal[
@@ -124,6 +131,7 @@ LifeCycleStateType = Literal[
     "CUTOVER",
     "CUTTING_OVER",
     "DISCONNECTED",
+    "DISCOVERED",
     "NOT_READY",
     "READY_FOR_CUTOVER",
     "READY_FOR_TEST",
@@ -136,4 +144,5 @@ ReplicationConfigurationEbsEncryptionType = Literal["CUSTOM", "DEFAULT"]
 ReplicationConfigurationReplicatedDiskStagingDiskTypeType = Literal[
     "AUTO", "GP2", "IO1", "SC1", "ST1", "STANDARD"
 ]
+ReplicationTypeType = Literal["AGENT_BASED", "SNAPSHOT_SHIPPING"]
 TargetInstanceTypeRightSizingMethodType = Literal["BASIC", "NONE"]

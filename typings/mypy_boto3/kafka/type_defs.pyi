@@ -20,6 +20,7 @@ from botocore.response import StreamingBody
 from .literals import (
     ClientBrokerType,
     ClusterStateType,
+    ClusterTypeType,
     ConfigurationStateType,
     EnhancedMonitoringType,
     KafkaVersionStatusType,
@@ -50,12 +51,16 @@ __all__ = (
     "ClusterOperationInfoTypeDef",
     "ClusterOperationStepInfoTypeDef",
     "ClusterOperationStepTypeDef",
+    "ClusterTypeDef",
     "CompatibleKafkaVersionTypeDef",
     "ConfigurationInfoTypeDef",
     "ConfigurationRevisionTypeDef",
     "ConfigurationTypeDef",
+    "ConnectivityInfoTypeDef",
     "CreateClusterRequestRequestTypeDef",
     "CreateClusterResponseTypeDef",
+    "CreateClusterV2RequestRequestTypeDef",
+    "CreateClusterV2ResponseTypeDef",
     "CreateConfigurationRequestRequestTypeDef",
     "CreateConfigurationResponseTypeDef",
     "DeleteClusterRequestRequestTypeDef",
@@ -66,6 +71,8 @@ __all__ = (
     "DescribeClusterOperationResponseTypeDef",
     "DescribeClusterRequestRequestTypeDef",
     "DescribeClusterResponseTypeDef",
+    "DescribeClusterV2RequestRequestTypeDef",
+    "DescribeClusterV2ResponseTypeDef",
     "DescribeConfigurationRequestRequestTypeDef",
     "DescribeConfigurationResponseTypeDef",
     "DescribeConfigurationRevisionRequestRequestTypeDef",
@@ -88,6 +95,8 @@ __all__ = (
     "ListClusterOperationsResponseTypeDef",
     "ListClustersRequestRequestTypeDef",
     "ListClustersResponseTypeDef",
+    "ListClustersV2RequestRequestTypeDef",
+    "ListClustersV2ResponseTypeDef",
     "ListConfigurationRevisionsRequestRequestTypeDef",
     "ListConfigurationRevisionsResponseTypeDef",
     "ListConfigurationsRequestRequestTypeDef",
@@ -110,12 +119,19 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PrometheusInfoTypeDef",
     "PrometheusTypeDef",
+    "ProvisionedRequestTypeDef",
+    "ProvisionedTypeDef",
+    "PublicAccessTypeDef",
     "RebootBrokerRequestRequestTypeDef",
     "RebootBrokerResponseTypeDef",
     "ResponseMetadataTypeDef",
     "S3TypeDef",
     "SaslTypeDef",
     "ScramTypeDef",
+    "ServerlessClientAuthenticationTypeDef",
+    "ServerlessRequestTypeDef",
+    "ServerlessSaslTypeDef",
+    "ServerlessTypeDef",
     "StateInfoTypeDef",
     "StorageInfoTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -135,10 +151,13 @@ __all__ = (
     "UpdateClusterKafkaVersionResponseTypeDef",
     "UpdateConfigurationRequestRequestTypeDef",
     "UpdateConfigurationResponseTypeDef",
+    "UpdateConnectivityRequestRequestTypeDef",
+    "UpdateConnectivityResponseTypeDef",
     "UpdateMonitoringRequestRequestTypeDef",
     "UpdateMonitoringResponseTypeDef",
     "UpdateSecurityRequestRequestTypeDef",
     "UpdateSecurityResponseTypeDef",
+    "VpcConfigTypeDef",
     "ZookeeperNodeInfoTypeDef",
 )
 
@@ -207,6 +226,7 @@ _OptionalBrokerNodeGroupInfoTypeDef = TypedDict(
         "BrokerAZDistribution": Literal["DEFAULT"],
         "SecurityGroups": List[str],
         "StorageInfo": "StorageInfoTypeDef",
+        "ConnectivityInfo": "ConnectivityInfoTypeDef",
     },
     total=False,
 )
@@ -326,6 +346,24 @@ ClusterOperationStepTypeDef = TypedDict(
     total=False,
 )
 
+ClusterTypeDef = TypedDict(
+    "ClusterTypeDef",
+    {
+        "ActiveOperationArn": str,
+        "ClusterType": ClusterTypeType,
+        "ClusterArn": str,
+        "ClusterName": str,
+        "CreationTime": datetime,
+        "CurrentVersion": str,
+        "State": ClusterStateType,
+        "StateInfo": "StateInfoTypeDef",
+        "Tags": Dict[str, str],
+        "Provisioned": "ProvisionedTypeDef",
+        "Serverless": "ServerlessTypeDef",
+    },
+    total=False,
+)
+
 CompatibleKafkaVersionTypeDef = TypedDict(
     "CompatibleKafkaVersionTypeDef",
     {
@@ -376,6 +414,14 @@ ConfigurationTypeDef = TypedDict(
     },
 )
 
+ConnectivityInfoTypeDef = TypedDict(
+    "ConnectivityInfoTypeDef",
+    {
+        "PublicAccess": "PublicAccessTypeDef",
+    },
+    total=False,
+)
+
 _RequiredCreateClusterRequestRequestTypeDef = TypedDict(
     "_RequiredCreateClusterRequestRequestTypeDef",
     {
@@ -410,6 +456,38 @@ CreateClusterResponseTypeDef = TypedDict(
         "ClusterArn": str,
         "ClusterName": str,
         "State": ClusterStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateClusterV2RequestRequestTypeDef = TypedDict(
+    "_RequiredCreateClusterV2RequestRequestTypeDef",
+    {
+        "ClusterName": str,
+    },
+)
+_OptionalCreateClusterV2RequestRequestTypeDef = TypedDict(
+    "_OptionalCreateClusterV2RequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "Provisioned": "ProvisionedRequestTypeDef",
+        "Serverless": "ServerlessRequestTypeDef",
+    },
+    total=False,
+)
+
+class CreateClusterV2RequestRequestTypeDef(
+    _RequiredCreateClusterV2RequestRequestTypeDef, _OptionalCreateClusterV2RequestRequestTypeDef
+):
+    pass
+
+CreateClusterV2ResponseTypeDef = TypedDict(
+    "CreateClusterV2ResponseTypeDef",
+    {
+        "ClusterArn": str,
+        "ClusterName": str,
+        "State": ClusterStateType,
+        "ClusterType": ClusterTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -518,6 +596,21 @@ DescribeClusterResponseTypeDef = TypedDict(
     "DescribeClusterResponseTypeDef",
     {
         "ClusterInfo": "ClusterInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeClusterV2RequestRequestTypeDef = TypedDict(
+    "DescribeClusterV2RequestRequestTypeDef",
+    {
+        "ClusterArn": str,
+    },
+)
+
+DescribeClusterV2ResponseTypeDef = TypedDict(
+    "DescribeClusterV2ResponseTypeDef",
+    {
+        "ClusterInfo": "ClusterTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -636,6 +729,9 @@ GetBootstrapBrokersResponseTypeDef = TypedDict(
         "BootstrapBrokerStringTls": str,
         "BootstrapBrokerStringSaslScram": str,
         "BootstrapBrokerStringSaslIam": str,
+        "BootstrapBrokerStringPublicTls": str,
+        "BootstrapBrokerStringPublicSaslScram": str,
+        "BootstrapBrokerStringPublicSaslIam": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -731,6 +827,26 @@ ListClustersResponseTypeDef = TypedDict(
     "ListClustersResponseTypeDef",
     {
         "ClusterInfoList": List["ClusterInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListClustersV2RequestRequestTypeDef = TypedDict(
+    "ListClustersV2RequestRequestTypeDef",
+    {
+        "ClusterNameFilter": str,
+        "ClusterTypeFilter": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListClustersV2ResponseTypeDef = TypedDict(
+    "ListClustersV2ResponseTypeDef",
+    {
+        "ClusterInfoList": List["ClusterTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -895,6 +1011,7 @@ MutableClusterInfoTypeDef = TypedDict(
         "InstanceType": str,
         "ClientAuthentication": "ClientAuthenticationTypeDef",
         "EncryptionInfo": "EncryptionInfoTypeDef",
+        "ConnectivityInfo": "ConnectivityInfoTypeDef",
     },
     total=False,
 )
@@ -968,6 +1085,65 @@ PrometheusTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredProvisionedRequestTypeDef = TypedDict(
+    "_RequiredProvisionedRequestTypeDef",
+    {
+        "BrokerNodeGroupInfo": "BrokerNodeGroupInfoTypeDef",
+        "KafkaVersion": str,
+        "NumberOfBrokerNodes": int,
+    },
+)
+_OptionalProvisionedRequestTypeDef = TypedDict(
+    "_OptionalProvisionedRequestTypeDef",
+    {
+        "ClientAuthentication": "ClientAuthenticationTypeDef",
+        "ConfigurationInfo": "ConfigurationInfoTypeDef",
+        "EncryptionInfo": "EncryptionInfoTypeDef",
+        "EnhancedMonitoring": EnhancedMonitoringType,
+        "OpenMonitoring": "OpenMonitoringInfoTypeDef",
+        "LoggingInfo": "LoggingInfoTypeDef",
+    },
+    total=False,
+)
+
+class ProvisionedRequestTypeDef(
+    _RequiredProvisionedRequestTypeDef, _OptionalProvisionedRequestTypeDef
+):
+    pass
+
+_RequiredProvisionedTypeDef = TypedDict(
+    "_RequiredProvisionedTypeDef",
+    {
+        "BrokerNodeGroupInfo": "BrokerNodeGroupInfoTypeDef",
+        "NumberOfBrokerNodes": int,
+    },
+)
+_OptionalProvisionedTypeDef = TypedDict(
+    "_OptionalProvisionedTypeDef",
+    {
+        "CurrentBrokerSoftwareInfo": "BrokerSoftwareInfoTypeDef",
+        "ClientAuthentication": "ClientAuthenticationTypeDef",
+        "EncryptionInfo": "EncryptionInfoTypeDef",
+        "EnhancedMonitoring": EnhancedMonitoringType,
+        "OpenMonitoring": "OpenMonitoringInfoTypeDef",
+        "LoggingInfo": "LoggingInfoTypeDef",
+        "ZookeeperConnectString": str,
+        "ZookeeperConnectStringTls": str,
+    },
+    total=False,
+)
+
+class ProvisionedTypeDef(_RequiredProvisionedTypeDef, _OptionalProvisionedTypeDef):
+    pass
+
+PublicAccessTypeDef = TypedDict(
+    "PublicAccessTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
+)
+
 RebootBrokerRequestRequestTypeDef = TypedDict(
     "RebootBrokerRequestRequestTypeDef",
     {
@@ -1030,6 +1206,58 @@ ScramTypeDef = TypedDict(
     },
     total=False,
 )
+
+ServerlessClientAuthenticationTypeDef = TypedDict(
+    "ServerlessClientAuthenticationTypeDef",
+    {
+        "Sasl": "ServerlessSaslTypeDef",
+    },
+    total=False,
+)
+
+_RequiredServerlessRequestTypeDef = TypedDict(
+    "_RequiredServerlessRequestTypeDef",
+    {
+        "VpcConfigs": List["VpcConfigTypeDef"],
+    },
+)
+_OptionalServerlessRequestTypeDef = TypedDict(
+    "_OptionalServerlessRequestTypeDef",
+    {
+        "ClientAuthentication": "ServerlessClientAuthenticationTypeDef",
+    },
+    total=False,
+)
+
+class ServerlessRequestTypeDef(
+    _RequiredServerlessRequestTypeDef, _OptionalServerlessRequestTypeDef
+):
+    pass
+
+ServerlessSaslTypeDef = TypedDict(
+    "ServerlessSaslTypeDef",
+    {
+        "Iam": "IamTypeDef",
+    },
+    total=False,
+)
+
+_RequiredServerlessTypeDef = TypedDict(
+    "_RequiredServerlessTypeDef",
+    {
+        "VpcConfigs": List["VpcConfigTypeDef"],
+    },
+)
+_OptionalServerlessTypeDef = TypedDict(
+    "_OptionalServerlessTypeDef",
+    {
+        "ClientAuthentication": "ServerlessClientAuthenticationTypeDef",
+    },
+    total=False,
+)
+
+class ServerlessTypeDef(_RequiredServerlessTypeDef, _OptionalServerlessTypeDef):
+    pass
 
 StateInfoTypeDef = TypedDict(
     "StateInfoTypeDef",
@@ -1224,6 +1452,24 @@ UpdateConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+UpdateConnectivityRequestRequestTypeDef = TypedDict(
+    "UpdateConnectivityRequestRequestTypeDef",
+    {
+        "ClusterArn": str,
+        "ConnectivityInfo": "ConnectivityInfoTypeDef",
+        "CurrentVersion": str,
+    },
+)
+
+UpdateConnectivityResponseTypeDef = TypedDict(
+    "UpdateConnectivityResponseTypeDef",
+    {
+        "ClusterArn": str,
+        "ClusterOperationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateMonitoringRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateMonitoringRequestRequestTypeDef",
     {
@@ -1284,6 +1530,23 @@ UpdateSecurityResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredVpcConfigTypeDef = TypedDict(
+    "_RequiredVpcConfigTypeDef",
+    {
+        "SubnetIds": List[str],
+    },
+)
+_OptionalVpcConfigTypeDef = TypedDict(
+    "_OptionalVpcConfigTypeDef",
+    {
+        "SecurityGroupIds": List[str],
+    },
+    total=False,
+)
+
+class VpcConfigTypeDef(_RequiredVpcConfigTypeDef, _OptionalVpcConfigTypeDef):
+    pass
 
 ZookeeperNodeInfoTypeDef = TypedDict(
     "ZookeeperNodeInfoTypeDef",

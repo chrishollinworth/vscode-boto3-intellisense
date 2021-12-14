@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AlarmTypeType,
     AnomalyDetectorStateValueType,
+    AnomalyDetectorTypeType,
     ComparisonOperatorType,
     HistoryItemTypeType,
     MetricStreamOutputFormatType,
@@ -101,6 +102,7 @@ __all__ = (
     "MetricDataQueryTypeDef",
     "MetricDataResultTypeDef",
     "MetricDatumTypeDef",
+    "MetricMathAnomalyDetectorTypeDef",
     "MetricStatTypeDef",
     "MetricStreamEntryTypeDef",
     "MetricStreamFilterTypeDef",
@@ -123,6 +125,7 @@ __all__ = (
     "ServiceResourceMetricRequestTypeDef",
     "SetAlarmStateInputAlarmTypeDef",
     "SetAlarmStateInputRequestTypeDef",
+    "SingleMetricAnomalyDetectorTypeDef",
     "StartMetricStreamsInputRequestTypeDef",
     "StatisticSetTypeDef",
     "StopMetricStreamsInputRequestTypeDef",
@@ -163,6 +166,8 @@ AnomalyDetectorTypeDef = TypedDict(
         "Stat": str,
         "Configuration": "AnomalyDetectorConfigurationTypeDef",
         "StateValue": AnomalyDetectorStateValueType,
+        "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
+        "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
     },
     total=False,
 )
@@ -229,27 +234,18 @@ DeleteAlarmsInputRequestTypeDef = TypedDict(
     },
 )
 
-_RequiredDeleteAnomalyDetectorInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteAnomalyDetectorInputRequestTypeDef",
+DeleteAnomalyDetectorInputRequestTypeDef = TypedDict(
+    "DeleteAnomalyDetectorInputRequestTypeDef",
     {
         "Namespace": str,
         "MetricName": str,
-        "Stat": str,
-    },
-)
-_OptionalDeleteAnomalyDetectorInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteAnomalyDetectorInputRequestTypeDef",
-    {
         "Dimensions": List["DimensionTypeDef"],
+        "Stat": str,
+        "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
+        "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
     },
     total=False,
 )
-
-class DeleteAnomalyDetectorInputRequestTypeDef(
-    _RequiredDeleteAnomalyDetectorInputRequestTypeDef,
-    _OptionalDeleteAnomalyDetectorInputRequestTypeDef,
-):
-    pass
 
 DeleteDashboardsInputRequestTypeDef = TypedDict(
     "DeleteDashboardsInputRequestTypeDef",
@@ -385,6 +381,7 @@ DescribeAnomalyDetectorsInputRequestTypeDef = TypedDict(
         "Namespace": str,
         "MetricName": str,
         "Dimensions": List["DimensionTypeDef"],
+        "AnomalyDetectorTypes": List[AnomalyDetectorTypeType],
     },
     total=False,
 )
@@ -919,6 +916,14 @@ _OptionalMetricDatumTypeDef = TypedDict(
 class MetricDatumTypeDef(_RequiredMetricDatumTypeDef, _OptionalMetricDatumTypeDef):
     pass
 
+MetricMathAnomalyDetectorTypeDef = TypedDict(
+    "MetricMathAnomalyDetectorTypeDef",
+    {
+        "MetricDataQueries": List["MetricDataQueryTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredMetricStatTypeDef = TypedDict(
     "_RequiredMetricStatTypeDef",
     {
@@ -991,27 +996,19 @@ PartialFailureTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredPutAnomalyDetectorInputRequestTypeDef = TypedDict(
-    "_RequiredPutAnomalyDetectorInputRequestTypeDef",
+PutAnomalyDetectorInputRequestTypeDef = TypedDict(
+    "PutAnomalyDetectorInputRequestTypeDef",
     {
         "Namespace": str,
         "MetricName": str,
-        "Stat": str,
-    },
-)
-_OptionalPutAnomalyDetectorInputRequestTypeDef = TypedDict(
-    "_OptionalPutAnomalyDetectorInputRequestTypeDef",
-    {
         "Dimensions": List["DimensionTypeDef"],
+        "Stat": str,
         "Configuration": "AnomalyDetectorConfigurationTypeDef",
+        "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
+        "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
     },
     total=False,
 )
-
-class PutAnomalyDetectorInputRequestTypeDef(
-    _RequiredPutAnomalyDetectorInputRequestTypeDef, _OptionalPutAnomalyDetectorInputRequestTypeDef
-):
-    pass
 
 _RequiredPutCompositeAlarmInputRequestTypeDef = TypedDict(
     "_RequiredPutCompositeAlarmInputRequestTypeDef",
@@ -1265,6 +1262,17 @@ class SetAlarmStateInputRequestTypeDef(
     _RequiredSetAlarmStateInputRequestTypeDef, _OptionalSetAlarmStateInputRequestTypeDef
 ):
     pass
+
+SingleMetricAnomalyDetectorTypeDef = TypedDict(
+    "SingleMetricAnomalyDetectorTypeDef",
+    {
+        "Namespace": str,
+        "MetricName": str,
+        "Dimensions": List["DimensionTypeDef"],
+        "Stat": str,
+    },
+    total=False,
+)
 
 StartMetricStreamsInputRequestTypeDef = TypedDict(
     "StartMetricStreamsInputRequestTypeDef",

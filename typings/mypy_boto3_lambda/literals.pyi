@@ -116,8 +116,10 @@ RuntimeType = Literal[
 ]
 SourceAccessTypeType = Literal[
     "BASIC_AUTH",
+    "CLIENT_CERTIFICATE_TLS_AUTH",
     "SASL_SCRAM_256_AUTH",
     "SASL_SCRAM_512_AUTH",
+    "SERVER_ROOT_CA_CERTIFICATE",
     "VIRTUAL_HOST",
     "VPC_SECURITY_GROUP",
     "VPC_SUBNET",

@@ -20,11 +20,15 @@ from .literals import (
     ChoiceReasonType,
     ChoiceStatusType,
     DifferenceStatusType,
+    ImportLensStatusType,
     LensStatusType,
+    LensStatusTypeType,
+    LensTypeType,
     NotificationTypeType,
     PermissionTypeType,
     RiskType,
     ShareInvitationActionType,
+    ShareResourceTypeType,
     ShareStatusType,
     WorkloadEnvironmentType,
     WorkloadImprovementStatusType,
@@ -41,19 +45,31 @@ __all__ = (
     "AssociateLensesInputRequestTypeDef",
     "ChoiceAnswerSummaryTypeDef",
     "ChoiceAnswerTypeDef",
+    "ChoiceContentTypeDef",
+    "ChoiceImprovementPlanTypeDef",
     "ChoiceTypeDef",
     "ChoiceUpdateTypeDef",
+    "CreateLensShareInputRequestTypeDef",
+    "CreateLensShareOutputTypeDef",
+    "CreateLensVersionInputRequestTypeDef",
+    "CreateLensVersionOutputTypeDef",
     "CreateMilestoneInputRequestTypeDef",
     "CreateMilestoneOutputTypeDef",
     "CreateWorkloadInputRequestTypeDef",
     "CreateWorkloadOutputTypeDef",
     "CreateWorkloadShareInputRequestTypeDef",
     "CreateWorkloadShareOutputTypeDef",
+    "DeleteLensInputRequestTypeDef",
+    "DeleteLensShareInputRequestTypeDef",
     "DeleteWorkloadInputRequestTypeDef",
     "DeleteWorkloadShareInputRequestTypeDef",
     "DisassociateLensesInputRequestTypeDef",
+    "ExportLensInputRequestTypeDef",
+    "ExportLensOutputTypeDef",
     "GetAnswerInputRequestTypeDef",
     "GetAnswerOutputTypeDef",
+    "GetLensInputRequestTypeDef",
+    "GetLensOutputTypeDef",
     "GetLensReviewInputRequestTypeDef",
     "GetLensReviewOutputTypeDef",
     "GetLensReviewReportInputRequestTypeDef",
@@ -64,11 +80,15 @@ __all__ = (
     "GetMilestoneOutputTypeDef",
     "GetWorkloadInputRequestTypeDef",
     "GetWorkloadOutputTypeDef",
+    "ImportLensInputRequestTypeDef",
+    "ImportLensOutputTypeDef",
     "ImprovementSummaryTypeDef",
     "LensReviewReportTypeDef",
     "LensReviewSummaryTypeDef",
     "LensReviewTypeDef",
+    "LensShareSummaryTypeDef",
     "LensSummaryTypeDef",
+    "LensTypeDef",
     "LensUpgradeSummaryTypeDef",
     "ListAnswersInputRequestTypeDef",
     "ListAnswersOutputTypeDef",
@@ -76,6 +96,8 @@ __all__ = (
     "ListLensReviewImprovementsOutputTypeDef",
     "ListLensReviewsInputRequestTypeDef",
     "ListLensReviewsOutputTypeDef",
+    "ListLensSharesInputRequestTypeDef",
+    "ListLensSharesOutputTypeDef",
     "ListLensesInputRequestTypeDef",
     "ListLensesOutputTypeDef",
     "ListMilestonesInputRequestTypeDef",
@@ -144,6 +166,7 @@ AnswerTypeDef = TypedDict(
         "QuestionDescription": str,
         "ImprovementPlanUrl": str,
         "HelpfulResourceUrl": str,
+        "HelpfulResourceDisplayText": str,
         "Choices": List["ChoiceTypeDef"],
         "SelectedChoices": List[str],
         "ChoiceAnswers": List["ChoiceAnswerTypeDef"],
@@ -184,12 +207,33 @@ ChoiceAnswerTypeDef = TypedDict(
     total=False,
 )
 
+ChoiceContentTypeDef = TypedDict(
+    "ChoiceContentTypeDef",
+    {
+        "DisplayText": str,
+        "Url": str,
+    },
+    total=False,
+)
+
+ChoiceImprovementPlanTypeDef = TypedDict(
+    "ChoiceImprovementPlanTypeDef",
+    {
+        "ChoiceId": str,
+        "DisplayText": str,
+        "ImprovementPlanUrl": str,
+    },
+    total=False,
+)
+
 ChoiceTypeDef = TypedDict(
     "ChoiceTypeDef",
     {
         "ChoiceId": str,
         "Title": str,
         "Description": str,
+        "HelpfulResource": "ChoiceContentTypeDef",
+        "ImprovementPlan": "ChoiceContentTypeDef",
     },
     total=False,
 )
@@ -211,6 +255,53 @@ _OptionalChoiceUpdateTypeDef = TypedDict(
 
 class ChoiceUpdateTypeDef(_RequiredChoiceUpdateTypeDef, _OptionalChoiceUpdateTypeDef):
     pass
+
+CreateLensShareInputRequestTypeDef = TypedDict(
+    "CreateLensShareInputRequestTypeDef",
+    {
+        "LensAlias": str,
+        "SharedWith": str,
+        "ClientRequestToken": str,
+    },
+)
+
+CreateLensShareOutputTypeDef = TypedDict(
+    "CreateLensShareOutputTypeDef",
+    {
+        "ShareId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLensVersionInputRequestTypeDef = TypedDict(
+    "_RequiredCreateLensVersionInputRequestTypeDef",
+    {
+        "LensAlias": str,
+        "LensVersion": str,
+        "ClientRequestToken": str,
+    },
+)
+_OptionalCreateLensVersionInputRequestTypeDef = TypedDict(
+    "_OptionalCreateLensVersionInputRequestTypeDef",
+    {
+        "IsMajorVersion": bool,
+    },
+    total=False,
+)
+
+class CreateLensVersionInputRequestTypeDef(
+    _RequiredCreateLensVersionInputRequestTypeDef, _OptionalCreateLensVersionInputRequestTypeDef
+):
+    pass
+
+CreateLensVersionOutputTypeDef = TypedDict(
+    "CreateLensVersionOutputTypeDef",
+    {
+        "LensArn": str,
+        "LensVersion": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 CreateMilestoneInputRequestTypeDef = TypedDict(
     "CreateMilestoneInputRequestTypeDef",
@@ -290,6 +381,24 @@ CreateWorkloadShareOutputTypeDef = TypedDict(
     },
 )
 
+DeleteLensInputRequestTypeDef = TypedDict(
+    "DeleteLensInputRequestTypeDef",
+    {
+        "LensAlias": str,
+        "ClientRequestToken": str,
+        "LensStatus": LensStatusTypeType,
+    },
+)
+
+DeleteLensShareInputRequestTypeDef = TypedDict(
+    "DeleteLensShareInputRequestTypeDef",
+    {
+        "ShareId": str,
+        "LensAlias": str,
+        "ClientRequestToken": str,
+    },
+)
+
 DeleteWorkloadInputRequestTypeDef = TypedDict(
     "DeleteWorkloadInputRequestTypeDef",
     {
@@ -312,6 +421,33 @@ DisassociateLensesInputRequestTypeDef = TypedDict(
     {
         "WorkloadId": str,
         "LensAliases": List[str],
+    },
+)
+
+_RequiredExportLensInputRequestTypeDef = TypedDict(
+    "_RequiredExportLensInputRequestTypeDef",
+    {
+        "LensAlias": str,
+    },
+)
+_OptionalExportLensInputRequestTypeDef = TypedDict(
+    "_OptionalExportLensInputRequestTypeDef",
+    {
+        "LensVersion": str,
+    },
+    total=False,
+)
+
+class ExportLensInputRequestTypeDef(
+    _RequiredExportLensInputRequestTypeDef, _OptionalExportLensInputRequestTypeDef
+):
+    pass
+
+ExportLensOutputTypeDef = TypedDict(
+    "ExportLensOutputTypeDef",
+    {
+        "LensJSON": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -342,7 +478,35 @@ GetAnswerOutputTypeDef = TypedDict(
         "WorkloadId": str,
         "MilestoneNumber": int,
         "LensAlias": str,
+        "LensArn": str,
         "Answer": "AnswerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetLensInputRequestTypeDef = TypedDict(
+    "_RequiredGetLensInputRequestTypeDef",
+    {
+        "LensAlias": str,
+    },
+)
+_OptionalGetLensInputRequestTypeDef = TypedDict(
+    "_OptionalGetLensInputRequestTypeDef",
+    {
+        "LensVersion": str,
+    },
+    total=False,
+)
+
+class GetLensInputRequestTypeDef(
+    _RequiredGetLensInputRequestTypeDef, _OptionalGetLensInputRequestTypeDef
+):
+    pass
+
+GetLensOutputTypeDef = TypedDict(
+    "GetLensOutputTypeDef",
+    {
+        "Lens": "LensTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -407,19 +571,34 @@ GetLensReviewReportOutputTypeDef = TypedDict(
     },
 )
 
-GetLensVersionDifferenceInputRequestTypeDef = TypedDict(
-    "GetLensVersionDifferenceInputRequestTypeDef",
+_RequiredGetLensVersionDifferenceInputRequestTypeDef = TypedDict(
+    "_RequiredGetLensVersionDifferenceInputRequestTypeDef",
     {
         "LensAlias": str,
-        "BaseLensVersion": str,
     },
 )
+_OptionalGetLensVersionDifferenceInputRequestTypeDef = TypedDict(
+    "_OptionalGetLensVersionDifferenceInputRequestTypeDef",
+    {
+        "BaseLensVersion": str,
+        "TargetLensVersion": str,
+    },
+    total=False,
+)
+
+class GetLensVersionDifferenceInputRequestTypeDef(
+    _RequiredGetLensVersionDifferenceInputRequestTypeDef,
+    _OptionalGetLensVersionDifferenceInputRequestTypeDef,
+):
+    pass
 
 GetLensVersionDifferenceOutputTypeDef = TypedDict(
     "GetLensVersionDifferenceOutputTypeDef",
     {
         "LensAlias": str,
+        "LensArn": str,
         "BaseLensVersion": str,
+        "TargetLensVersion": str,
         "LatestLensVersion": str,
         "VersionDifferences": "VersionDifferencesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -458,6 +637,36 @@ GetWorkloadOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredImportLensInputRequestTypeDef = TypedDict(
+    "_RequiredImportLensInputRequestTypeDef",
+    {
+        "JSONString": str,
+        "ClientRequestToken": str,
+    },
+)
+_OptionalImportLensInputRequestTypeDef = TypedDict(
+    "_OptionalImportLensInputRequestTypeDef",
+    {
+        "LensAlias": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class ImportLensInputRequestTypeDef(
+    _RequiredImportLensInputRequestTypeDef, _OptionalImportLensInputRequestTypeDef
+):
+    pass
+
+ImportLensOutputTypeDef = TypedDict(
+    "ImportLensOutputTypeDef",
+    {
+        "LensArn": str,
+        "Status": ImportLensStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ImprovementSummaryTypeDef = TypedDict(
     "ImprovementSummaryTypeDef",
     {
@@ -466,6 +675,7 @@ ImprovementSummaryTypeDef = TypedDict(
         "QuestionTitle": str,
         "Risk": RiskType,
         "ImprovementPlanUrl": str,
+        "ImprovementPlans": List["ChoiceImprovementPlanTypeDef"],
     },
     total=False,
 )
@@ -474,6 +684,7 @@ LensReviewReportTypeDef = TypedDict(
     "LensReviewReportTypeDef",
     {
         "LensAlias": str,
+        "LensArn": str,
         "Base64String": str,
     },
     total=False,
@@ -483,6 +694,7 @@ LensReviewSummaryTypeDef = TypedDict(
     "LensReviewSummaryTypeDef",
     {
         "LensAlias": str,
+        "LensArn": str,
         "LensVersion": str,
         "LensName": str,
         "LensStatus": LensStatusType,
@@ -496,6 +708,7 @@ LensReviewTypeDef = TypedDict(
     "LensReviewTypeDef",
     {
         "LensAlias": str,
+        "LensArn": str,
         "LensVersion": str,
         "LensName": str,
         "LensStatus": LensStatusType,
@@ -508,13 +721,42 @@ LensReviewTypeDef = TypedDict(
     total=False,
 )
 
+LensShareSummaryTypeDef = TypedDict(
+    "LensShareSummaryTypeDef",
+    {
+        "ShareId": str,
+        "SharedWith": str,
+        "Status": ShareStatusType,
+    },
+    total=False,
+)
+
 LensSummaryTypeDef = TypedDict(
     "LensSummaryTypeDef",
     {
+        "LensArn": str,
         "LensAlias": str,
-        "LensVersion": str,
         "LensName": str,
+        "LensType": LensTypeType,
         "Description": str,
+        "CreatedAt": datetime,
+        "UpdatedAt": datetime,
+        "LensVersion": str,
+        "Owner": str,
+        "LensStatus": LensStatusType,
+    },
+    total=False,
+)
+
+LensTypeDef = TypedDict(
+    "LensTypeDef",
+    {
+        "LensArn": str,
+        "LensVersion": str,
+        "Name": str,
+        "Description": str,
+        "Owner": str,
+        "ShareInvitationId": str,
     },
     total=False,
 )
@@ -525,6 +767,7 @@ LensUpgradeSummaryTypeDef = TypedDict(
         "WorkloadId": str,
         "WorkloadName": str,
         "LensAlias": str,
+        "LensArn": str,
         "CurrentLensVersion": str,
         "LatestLensVersion": str,
     },
@@ -560,6 +803,7 @@ ListAnswersOutputTypeDef = TypedDict(
         "WorkloadId": str,
         "MilestoneNumber": int,
         "LensAlias": str,
+        "LensArn": str,
         "AnswerSummaries": List["AnswerSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -596,6 +840,7 @@ ListLensReviewImprovementsOutputTypeDef = TypedDict(
         "WorkloadId": str,
         "MilestoneNumber": int,
         "LensAlias": str,
+        "LensArn": str,
         "ImprovementSummaries": List["ImprovementSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -634,11 +879,44 @@ ListLensReviewsOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredListLensSharesInputRequestTypeDef = TypedDict(
+    "_RequiredListLensSharesInputRequestTypeDef",
+    {
+        "LensAlias": str,
+    },
+)
+_OptionalListLensSharesInputRequestTypeDef = TypedDict(
+    "_OptionalListLensSharesInputRequestTypeDef",
+    {
+        "SharedWithPrefix": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListLensSharesInputRequestTypeDef(
+    _RequiredListLensSharesInputRequestTypeDef, _OptionalListLensSharesInputRequestTypeDef
+):
+    pass
+
+ListLensSharesOutputTypeDef = TypedDict(
+    "ListLensSharesOutputTypeDef",
+    {
+        "LensShareSummaries": List["LensShareSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListLensesInputRequestTypeDef = TypedDict(
     "ListLensesInputRequestTypeDef",
     {
         "NextToken": str,
         "MaxResults": int,
+        "LensType": LensTypeType,
+        "LensStatus": LensStatusTypeType,
+        "LensName": str,
     },
     total=False,
 )
@@ -705,6 +983,8 @@ ListShareInvitationsInputRequestTypeDef = TypedDict(
     "ListShareInvitationsInputRequestTypeDef",
     {
         "WorkloadNamePrefix": str,
+        "LensNamePrefix": str,
+        "ShareResourceType": ShareResourceTypeType,
         "NextToken": str,
         "MaxResults": int,
     },
@@ -820,6 +1100,7 @@ PillarDifferenceTypeDef = TypedDict(
     "PillarDifferenceTypeDef",
     {
         "PillarId": str,
+        "PillarName": str,
         "DifferenceStatus": DifferenceStatusType,
         "QuestionDifferences": List["QuestionDifferenceTypeDef"],
     },
@@ -865,8 +1146,11 @@ ShareInvitationSummaryTypeDef = TypedDict(
         "SharedBy": str,
         "SharedWith": str,
         "PermissionType": PermissionTypeType,
+        "ShareResourceType": ShareResourceTypeType,
         "WorkloadName": str,
         "WorkloadId": str,
+        "LensName": str,
+        "LensArn": str,
     },
     total=False,
 )
@@ -875,7 +1159,10 @@ ShareInvitationTypeDef = TypedDict(
     "ShareInvitationTypeDef",
     {
         "ShareInvitationId": str,
+        "ShareResourceType": ShareResourceTypeType,
         "WorkloadId": str,
+        "LensAlias": str,
+        "LensArn": str,
     },
     total=False,
 )
@@ -926,6 +1213,7 @@ UpdateAnswerOutputTypeDef = TypedDict(
     {
         "WorkloadId": str,
         "LensAlias": str,
+        "LensArn": str,
         "Answer": "AnswerTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

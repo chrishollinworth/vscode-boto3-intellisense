@@ -6,9 +6,9 @@ Type annotations for shield service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_shield.type_defs import AssociateDRTLogBucketRequestRequestTypeDef
+    from mypy_boto3_shield.type_defs import ApplicationLayerAutomaticResponseConfigurationTypeDef
 
-    data: AssociateDRTLogBucketRequestRequestTypeDef = {...}
+    data: ApplicationLayerAutomaticResponseConfigurationTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    ApplicationLayerAutomaticResponseStatusType,
     AttackLayerType,
     AttackPropertyIdentifierType,
     AutoRenewType,
@@ -34,6 +35,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ApplicationLayerAutomaticResponseConfigurationTypeDef",
     "AssociateDRTLogBucketRequestRequestTypeDef",
     "AssociateDRTRoleRequestRequestTypeDef",
     "AssociateHealthCheckRequestRequestTypeDef",
@@ -61,9 +63,11 @@ __all__ = (
     "DescribeProtectionRequestRequestTypeDef",
     "DescribeProtectionResponseTypeDef",
     "DescribeSubscriptionResponseTypeDef",
+    "DisableApplicationLayerAutomaticResponseRequestRequestTypeDef",
     "DisassociateDRTLogBucketRequestRequestTypeDef",
     "DisassociateHealthCheckRequestRequestTypeDef",
     "EmergencyContactTypeDef",
+    "EnableApplicationLayerAutomaticResponseRequestRequestTypeDef",
     "GetSubscriptionStateResponseTypeDef",
     "LimitTypeDef",
     "ListAttacksRequestRequestTypeDef",
@@ -84,6 +88,7 @@ __all__ = (
     "ProtectionGroupTypeDef",
     "ProtectionLimitsTypeDef",
     "ProtectionTypeDef",
+    "ResponseActionTypeDef",
     "ResponseMetadataTypeDef",
     "SubResourceSummaryTypeDef",
     "SubscriptionLimitsTypeDef",
@@ -94,9 +99,18 @@ __all__ = (
     "TagTypeDef",
     "TimeRangeTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateApplicationLayerAutomaticResponseRequestRequestTypeDef",
     "UpdateEmergencyContactSettingsRequestRequestTypeDef",
     "UpdateProtectionGroupRequestRequestTypeDef",
     "UpdateSubscriptionRequestRequestTypeDef",
+)
+
+ApplicationLayerAutomaticResponseConfigurationTypeDef = TypedDict(
+    "ApplicationLayerAutomaticResponseConfigurationTypeDef",
+    {
+        "Status": ApplicationLayerAutomaticResponseStatusType,
+        "Action": "ResponseActionTypeDef",
+    },
 )
 
 AssociateDRTLogBucketRequestRequestTypeDef = TypedDict(
@@ -366,6 +380,13 @@ DescribeSubscriptionResponseTypeDef = TypedDict(
     },
 )
 
+DisableApplicationLayerAutomaticResponseRequestRequestTypeDef = TypedDict(
+    "DisableApplicationLayerAutomaticResponseRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
 DisassociateDRTLogBucketRequestRequestTypeDef = TypedDict(
     "DisassociateDRTLogBucketRequestRequestTypeDef",
     {
@@ -398,6 +419,14 @@ _OptionalEmergencyContactTypeDef = TypedDict(
 
 class EmergencyContactTypeDef(_RequiredEmergencyContactTypeDef, _OptionalEmergencyContactTypeDef):
     pass
+
+EnableApplicationLayerAutomaticResponseRequestRequestTypeDef = TypedDict(
+    "EnableApplicationLayerAutomaticResponseRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Action": "ResponseActionTypeDef",
+    },
+)
 
 GetSubscriptionStateResponseTypeDef = TypedDict(
     "GetSubscriptionStateResponseTypeDef",
@@ -594,6 +623,16 @@ ProtectionTypeDef = TypedDict(
         "ResourceArn": str,
         "HealthCheckIds": List[str],
         "ProtectionArn": str,
+        "ApplicationLayerAutomaticResponseConfiguration": "ApplicationLayerAutomaticResponseConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ResponseActionTypeDef = TypedDict(
+    "ResponseActionTypeDef",
+    {
+        "Block": Dict[str, Any],
+        "Count": Dict[str, Any],
     },
     total=False,
 )
@@ -714,6 +753,14 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "ResourceARN": str,
         "TagKeys": List[str],
+    },
+)
+
+UpdateApplicationLayerAutomaticResponseRequestRequestTypeDef = TypedDict(
+    "UpdateApplicationLayerAutomaticResponseRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Action": "ResponseActionTypeDef",
     },
 )
 

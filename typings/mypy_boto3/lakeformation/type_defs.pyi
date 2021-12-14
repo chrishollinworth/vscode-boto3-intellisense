@@ -13,15 +13,22 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     ComparisonOperatorType,
     DataLakeResourceTypeType,
     FieldNameStringType,
+    OptimizerTypeType,
     PermissionType,
+    QueryStateStringType,
     ResourceShareTypeType,
     ResourceTypeType,
+    TransactionStatusFilterType,
+    TransactionStatusType,
+    TransactionTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -32,25 +39,39 @@ else:
 __all__ = (
     "AddLFTagsToResourceRequestRequestTypeDef",
     "AddLFTagsToResourceResponseTypeDef",
+    "AddObjectInputTypeDef",
     "BatchGrantPermissionsRequestRequestTypeDef",
     "BatchGrantPermissionsResponseTypeDef",
     "BatchPermissionsFailureEntryTypeDef",
     "BatchPermissionsRequestEntryTypeDef",
     "BatchRevokePermissionsRequestRequestTypeDef",
     "BatchRevokePermissionsResponseTypeDef",
+    "CancelTransactionRequestRequestTypeDef",
     "ColumnLFTagTypeDef",
     "ColumnWildcardTypeDef",
+    "CommitTransactionRequestRequestTypeDef",
+    "CommitTransactionResponseTypeDef",
+    "CreateDataCellsFilterRequestRequestTypeDef",
     "CreateLFTagRequestRequestTypeDef",
+    "DataCellsFilterResourceTypeDef",
+    "DataCellsFilterTypeDef",
     "DataLakePrincipalTypeDef",
     "DataLakeSettingsTypeDef",
     "DataLocationResourceTypeDef",
     "DatabaseResourceTypeDef",
+    "DeleteDataCellsFilterRequestRequestTypeDef",
     "DeleteLFTagRequestRequestTypeDef",
+    "DeleteObjectInputTypeDef",
+    "DeleteObjectsOnCancelRequestRequestTypeDef",
     "DeregisterResourceRequestRequestTypeDef",
     "DescribeResourceRequestRequestTypeDef",
     "DescribeResourceResponseTypeDef",
+    "DescribeTransactionRequestRequestTypeDef",
+    "DescribeTransactionResponseTypeDef",
     "DetailsMapTypeDef",
     "ErrorDetailTypeDef",
+    "ExecutionStatisticsTypeDef",
+    "ExtendTransactionRequestRequestTypeDef",
     "FilterConditionTypeDef",
     "GetDataLakeSettingsRequestRequestTypeDef",
     "GetDataLakeSettingsResponseTypeDef",
@@ -58,23 +79,43 @@ __all__ = (
     "GetEffectivePermissionsForPathResponseTypeDef",
     "GetLFTagRequestRequestTypeDef",
     "GetLFTagResponseTypeDef",
+    "GetQueryStateRequestRequestTypeDef",
+    "GetQueryStateResponseTypeDef",
+    "GetQueryStatisticsRequestRequestTypeDef",
+    "GetQueryStatisticsResponseTypeDef",
     "GetResourceLFTagsRequestRequestTypeDef",
     "GetResourceLFTagsResponseTypeDef",
+    "GetTableObjectsRequestRequestTypeDef",
+    "GetTableObjectsResponseTypeDef",
+    "GetWorkUnitResultsRequestRequestTypeDef",
+    "GetWorkUnitResultsResponseTypeDef",
+    "GetWorkUnitsRequestRequestTypeDef",
+    "GetWorkUnitsResponseTypeDef",
     "GrantPermissionsRequestRequestTypeDef",
     "LFTagErrorTypeDef",
     "LFTagKeyResourceTypeDef",
     "LFTagPairTypeDef",
     "LFTagPolicyResourceTypeDef",
     "LFTagTypeDef",
+    "ListDataCellsFilterRequestRequestTypeDef",
+    "ListDataCellsFilterResponseTypeDef",
     "ListLFTagsRequestRequestTypeDef",
     "ListLFTagsResponseTypeDef",
     "ListPermissionsRequestRequestTypeDef",
     "ListPermissionsResponseTypeDef",
     "ListResourcesRequestRequestTypeDef",
     "ListResourcesResponseTypeDef",
+    "ListTableStorageOptimizersRequestRequestTypeDef",
+    "ListTableStorageOptimizersResponseTypeDef",
+    "ListTransactionsRequestRequestTypeDef",
+    "ListTransactionsResponseTypeDef",
+    "PaginatorConfigTypeDef",
+    "PartitionObjectsTypeDef",
+    "PlanningStatisticsTypeDef",
     "PrincipalPermissionsTypeDef",
     "PrincipalResourcePermissionsTypeDef",
     "PutDataLakeSettingsRequestRequestTypeDef",
+    "QueryPlanningContextTypeDef",
     "RegisterResourceRequestRequestTypeDef",
     "RemoveLFTagsFromResourceRequestRequestTypeDef",
     "RemoveLFTagsFromResourceResponseTypeDef",
@@ -82,16 +123,30 @@ __all__ = (
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "RevokePermissionsRequestRequestTypeDef",
+    "RowFilterTypeDef",
     "SearchDatabasesByLFTagsRequestRequestTypeDef",
     "SearchDatabasesByLFTagsResponseTypeDef",
     "SearchTablesByLFTagsRequestRequestTypeDef",
     "SearchTablesByLFTagsResponseTypeDef",
+    "StartQueryPlanningRequestRequestTypeDef",
+    "StartQueryPlanningResponseTypeDef",
+    "StartTransactionRequestRequestTypeDef",
+    "StartTransactionResponseTypeDef",
+    "StorageOptimizerTypeDef",
+    "TableObjectTypeDef",
     "TableResourceTypeDef",
     "TableWithColumnsResourceTypeDef",
     "TaggedDatabaseTypeDef",
     "TaggedTableTypeDef",
+    "TransactionDescriptionTypeDef",
     "UpdateLFTagRequestRequestTypeDef",
     "UpdateResourceRequestRequestTypeDef",
+    "UpdateTableObjectsRequestRequestTypeDef",
+    "UpdateTableStorageOptimizerRequestRequestTypeDef",
+    "UpdateTableStorageOptimizerResponseTypeDef",
+    "VirtualObjectTypeDef",
+    "WorkUnitRangeTypeDef",
+    "WriteOperationTypeDef",
 )
 
 _RequiredAddLFTagsToResourceRequestRequestTypeDef = TypedDict(
@@ -122,6 +177,25 @@ AddLFTagsToResourceResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredAddObjectInputTypeDef = TypedDict(
+    "_RequiredAddObjectInputTypeDef",
+    {
+        "Uri": str,
+        "ETag": str,
+        "Size": int,
+    },
+)
+_OptionalAddObjectInputTypeDef = TypedDict(
+    "_OptionalAddObjectInputTypeDef",
+    {
+        "PartitionValues": List[str],
+    },
+    total=False,
+)
+
+class AddObjectInputTypeDef(_RequiredAddObjectInputTypeDef, _OptionalAddObjectInputTypeDef):
+    pass
 
 _RequiredBatchGrantPermissionsRequestRequestTypeDef = TypedDict(
     "_RequiredBatchGrantPermissionsRequestRequestTypeDef",
@@ -210,6 +284,13 @@ BatchRevokePermissionsResponseTypeDef = TypedDict(
     },
 )
 
+CancelTransactionRequestRequestTypeDef = TypedDict(
+    "CancelTransactionRequestRequestTypeDef",
+    {
+        "TransactionId": str,
+    },
+)
+
 ColumnLFTagTypeDef = TypedDict(
     "ColumnLFTagTypeDef",
     {
@@ -225,6 +306,28 @@ ColumnWildcardTypeDef = TypedDict(
         "ExcludedColumnNames": List[str],
     },
     total=False,
+)
+
+CommitTransactionRequestRequestTypeDef = TypedDict(
+    "CommitTransactionRequestRequestTypeDef",
+    {
+        "TransactionId": str,
+    },
+)
+
+CommitTransactionResponseTypeDef = TypedDict(
+    "CommitTransactionResponseTypeDef",
+    {
+        "TransactionStatus": TransactionStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateDataCellsFilterRequestRequestTypeDef = TypedDict(
+    "CreateDataCellsFilterRequestRequestTypeDef",
+    {
+        "TableData": "DataCellsFilterTypeDef",
+    },
 )
 
 _RequiredCreateLFTagRequestRequestTypeDef = TypedDict(
@@ -245,6 +348,39 @@ _OptionalCreateLFTagRequestRequestTypeDef = TypedDict(
 class CreateLFTagRequestRequestTypeDef(
     _RequiredCreateLFTagRequestRequestTypeDef, _OptionalCreateLFTagRequestRequestTypeDef
 ):
+    pass
+
+DataCellsFilterResourceTypeDef = TypedDict(
+    "DataCellsFilterResourceTypeDef",
+    {
+        "TableCatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Name": str,
+    },
+    total=False,
+)
+
+_RequiredDataCellsFilterTypeDef = TypedDict(
+    "_RequiredDataCellsFilterTypeDef",
+    {
+        "TableCatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Name": str,
+    },
+)
+_OptionalDataCellsFilterTypeDef = TypedDict(
+    "_OptionalDataCellsFilterTypeDef",
+    {
+        "RowFilter": "RowFilterTypeDef",
+        "ColumnNames": List[str],
+        "ColumnWildcard": "ColumnWildcardTypeDef",
+    },
+    total=False,
+)
+
+class DataCellsFilterTypeDef(_RequiredDataCellsFilterTypeDef, _OptionalDataCellsFilterTypeDef):
     pass
 
 DataLakePrincipalTypeDef = TypedDict(
@@ -302,6 +438,17 @@ _OptionalDatabaseResourceTypeDef = TypedDict(
 class DatabaseResourceTypeDef(_RequiredDatabaseResourceTypeDef, _OptionalDatabaseResourceTypeDef):
     pass
 
+DeleteDataCellsFilterRequestRequestTypeDef = TypedDict(
+    "DeleteDataCellsFilterRequestRequestTypeDef",
+    {
+        "TableCatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Name": str,
+    },
+    total=False,
+)
+
 _RequiredDeleteLFTagRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteLFTagRequestRequestTypeDef",
     {
@@ -318,6 +465,49 @@ _OptionalDeleteLFTagRequestRequestTypeDef = TypedDict(
 
 class DeleteLFTagRequestRequestTypeDef(
     _RequiredDeleteLFTagRequestRequestTypeDef, _OptionalDeleteLFTagRequestRequestTypeDef
+):
+    pass
+
+_RequiredDeleteObjectInputTypeDef = TypedDict(
+    "_RequiredDeleteObjectInputTypeDef",
+    {
+        "Uri": str,
+    },
+)
+_OptionalDeleteObjectInputTypeDef = TypedDict(
+    "_OptionalDeleteObjectInputTypeDef",
+    {
+        "ETag": str,
+        "PartitionValues": List[str],
+    },
+    total=False,
+)
+
+class DeleteObjectInputTypeDef(
+    _RequiredDeleteObjectInputTypeDef, _OptionalDeleteObjectInputTypeDef
+):
+    pass
+
+_RequiredDeleteObjectsOnCancelRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteObjectsOnCancelRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+        "TransactionId": str,
+        "Objects": List["VirtualObjectTypeDef"],
+    },
+)
+_OptionalDeleteObjectsOnCancelRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteObjectsOnCancelRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+    },
+    total=False,
+)
+
+class DeleteObjectsOnCancelRequestRequestTypeDef(
+    _RequiredDeleteObjectsOnCancelRequestRequestTypeDef,
+    _OptionalDeleteObjectsOnCancelRequestRequestTypeDef,
 ):
     pass
 
@@ -343,6 +533,21 @@ DescribeResourceResponseTypeDef = TypedDict(
     },
 )
 
+DescribeTransactionRequestRequestTypeDef = TypedDict(
+    "DescribeTransactionRequestRequestTypeDef",
+    {
+        "TransactionId": str,
+    },
+)
+
+DescribeTransactionResponseTypeDef = TypedDict(
+    "DescribeTransactionResponseTypeDef",
+    {
+        "TransactionDescription": "TransactionDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DetailsMapTypeDef = TypedDict(
     "DetailsMapTypeDef",
     {
@@ -356,6 +561,24 @@ ErrorDetailTypeDef = TypedDict(
     {
         "ErrorCode": str,
         "ErrorMessage": str,
+    },
+    total=False,
+)
+
+ExecutionStatisticsTypeDef = TypedDict(
+    "ExecutionStatisticsTypeDef",
+    {
+        "AverageExecutionTimeMillis": int,
+        "DataScannedBytes": int,
+        "WorkUnitsExecutedCount": int,
+    },
+    total=False,
+)
+
+ExtendTransactionRequestRequestTypeDef = TypedDict(
+    "ExtendTransactionRequestRequestTypeDef",
+    {
+        "TransactionId": str,
     },
     total=False,
 )
@@ -446,6 +669,39 @@ GetLFTagResponseTypeDef = TypedDict(
     },
 )
 
+GetQueryStateRequestRequestTypeDef = TypedDict(
+    "GetQueryStateRequestRequestTypeDef",
+    {
+        "QueryId": str,
+    },
+)
+
+GetQueryStateResponseTypeDef = TypedDict(
+    "GetQueryStateResponseTypeDef",
+    {
+        "Error": str,
+        "State": QueryStateStringType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetQueryStatisticsRequestRequestTypeDef = TypedDict(
+    "GetQueryStatisticsRequestRequestTypeDef",
+    {
+        "QueryId": str,
+    },
+)
+
+GetQueryStatisticsResponseTypeDef = TypedDict(
+    "GetQueryStatisticsResponseTypeDef",
+    {
+        "ExecutionStatistics": "ExecutionStatisticsTypeDef",
+        "PlanningStatistics": "PlanningStatisticsTypeDef",
+        "QuerySubmissionTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetResourceLFTagsRequestRequestTypeDef = TypedDict(
     "_RequiredGetResourceLFTagsRequestRequestTypeDef",
     {
@@ -472,6 +728,87 @@ GetResourceLFTagsResponseTypeDef = TypedDict(
         "LFTagOnDatabase": List["LFTagPairTypeDef"],
         "LFTagsOnTable": List["LFTagPairTypeDef"],
         "LFTagsOnColumns": List["ColumnLFTagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTableObjectsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTableObjectsRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+    },
+)
+_OptionalGetTableObjectsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTableObjectsRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "TransactionId": str,
+        "QueryAsOfTime": Union[datetime, str],
+        "PartitionPredicate": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetTableObjectsRequestRequestTypeDef(
+    _RequiredGetTableObjectsRequestRequestTypeDef, _OptionalGetTableObjectsRequestRequestTypeDef
+):
+    pass
+
+GetTableObjectsResponseTypeDef = TypedDict(
+    "GetTableObjectsResponseTypeDef",
+    {
+        "Objects": List["PartitionObjectsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetWorkUnitResultsRequestRequestTypeDef = TypedDict(
+    "GetWorkUnitResultsRequestRequestTypeDef",
+    {
+        "QueryId": str,
+        "WorkUnitId": int,
+        "WorkUnitToken": str,
+    },
+)
+
+GetWorkUnitResultsResponseTypeDef = TypedDict(
+    "GetWorkUnitResultsResponseTypeDef",
+    {
+        "ResultStream": StreamingBody,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetWorkUnitsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetWorkUnitsRequestRequestTypeDef",
+    {
+        "QueryId": str,
+    },
+)
+_OptionalGetWorkUnitsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetWorkUnitsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "PageSize": int,
+    },
+    total=False,
+)
+
+class GetWorkUnitsRequestRequestTypeDef(
+    _RequiredGetWorkUnitsRequestRequestTypeDef, _OptionalGetWorkUnitsRequestRequestTypeDef
+):
+    pass
+
+GetWorkUnitsResponseTypeDef = TypedDict(
+    "GetWorkUnitsResponseTypeDef",
+    {
+        "NextToken": str,
+        "QueryId": str,
+        "WorkUnitRanges": List["WorkUnitRangeTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -571,6 +908,25 @@ LFTagTypeDef = TypedDict(
     },
 )
 
+ListDataCellsFilterRequestRequestTypeDef = TypedDict(
+    "ListDataCellsFilterRequestRequestTypeDef",
+    {
+        "Table": "TableResourceTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListDataCellsFilterResponseTypeDef = TypedDict(
+    "ListDataCellsFilterResponseTypeDef",
+    {
+        "DataCellsFilters": List["DataCellsFilterTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListLFTagsRequestRequestTypeDef = TypedDict(
     "ListLFTagsRequestRequestTypeDef",
     {
@@ -600,6 +956,7 @@ ListPermissionsRequestRequestTypeDef = TypedDict(
         "Resource": "ResourceTypeDef",
         "NextToken": str,
         "MaxResults": int,
+        "IncludeRelated": str,
     },
     total=False,
 )
@@ -630,6 +987,89 @@ ListResourcesResponseTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredListTableStorageOptimizersRequestRequestTypeDef = TypedDict(
+    "_RequiredListTableStorageOptimizersRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+    },
+)
+_OptionalListTableStorageOptimizersRequestRequestTypeDef = TypedDict(
+    "_OptionalListTableStorageOptimizersRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "StorageOptimizerType": OptimizerTypeType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListTableStorageOptimizersRequestRequestTypeDef(
+    _RequiredListTableStorageOptimizersRequestRequestTypeDef,
+    _OptionalListTableStorageOptimizersRequestRequestTypeDef,
+):
+    pass
+
+ListTableStorageOptimizersResponseTypeDef = TypedDict(
+    "ListTableStorageOptimizersResponseTypeDef",
+    {
+        "StorageOptimizerList": List["StorageOptimizerTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTransactionsRequestRequestTypeDef = TypedDict(
+    "ListTransactionsRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "StatusFilter": TransactionStatusFilterType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListTransactionsResponseTypeDef = TypedDict(
+    "ListTransactionsResponseTypeDef",
+    {
+        "Transactions": List["TransactionDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
+PartitionObjectsTypeDef = TypedDict(
+    "PartitionObjectsTypeDef",
+    {
+        "PartitionValues": List[str],
+        "Objects": List["TableObjectTypeDef"],
+    },
+    total=False,
+)
+
+PlanningStatisticsTypeDef = TypedDict(
+    "PlanningStatisticsTypeDef",
+    {
+        "EstimatedDataToScanBytes": int,
+        "PlanningTimeMillis": int,
+        "QueueTimeMillis": int,
+        "WorkUnitsGeneratedCount": int,
+    },
+    total=False,
 )
 
 PrincipalPermissionsTypeDef = TypedDict(
@@ -670,6 +1110,28 @@ _OptionalPutDataLakeSettingsRequestRequestTypeDef = TypedDict(
 class PutDataLakeSettingsRequestRequestTypeDef(
     _RequiredPutDataLakeSettingsRequestRequestTypeDef,
     _OptionalPutDataLakeSettingsRequestRequestTypeDef,
+):
+    pass
+
+_RequiredQueryPlanningContextTypeDef = TypedDict(
+    "_RequiredQueryPlanningContextTypeDef",
+    {
+        "DatabaseName": str,
+    },
+)
+_OptionalQueryPlanningContextTypeDef = TypedDict(
+    "_OptionalQueryPlanningContextTypeDef",
+    {
+        "CatalogId": str,
+        "QueryAsOfTime": Union[datetime, str],
+        "QueryParameters": Dict[str, str],
+        "TransactionId": str,
+    },
+    total=False,
+)
+
+class QueryPlanningContextTypeDef(
+    _RequiredQueryPlanningContextTypeDef, _OptionalQueryPlanningContextTypeDef
 ):
     pass
 
@@ -740,6 +1202,7 @@ ResourceTypeDef = TypedDict(
         "Table": "TableResourceTypeDef",
         "TableWithColumns": "TableWithColumnsResourceTypeDef",
         "DataLocation": "DataLocationResourceTypeDef",
+        "DataCellsFilter": "DataCellsFilterResourceTypeDef",
         "LFTag": "LFTagKeyResourceTypeDef",
         "LFTagPolicy": "LFTagPolicyResourceTypeDef",
     },
@@ -778,6 +1241,15 @@ class RevokePermissionsRequestRequestTypeDef(
     _RequiredRevokePermissionsRequestRequestTypeDef, _OptionalRevokePermissionsRequestRequestTypeDef
 ):
     pass
+
+RowFilterTypeDef = TypedDict(
+    "RowFilterTypeDef",
+    {
+        "FilterExpression": str,
+        "AllRowsWildcard": Dict[str, Any],
+    },
+    total=False,
+)
 
 _RequiredSearchDatabasesByLFTagsRequestRequestTypeDef = TypedDict(
     "_RequiredSearchDatabasesByLFTagsRequestRequestTypeDef",
@@ -841,6 +1313,60 @@ SearchTablesByLFTagsResponseTypeDef = TypedDict(
     },
 )
 
+StartQueryPlanningRequestRequestTypeDef = TypedDict(
+    "StartQueryPlanningRequestRequestTypeDef",
+    {
+        "QueryPlanningContext": "QueryPlanningContextTypeDef",
+        "QueryString": str,
+    },
+)
+
+StartQueryPlanningResponseTypeDef = TypedDict(
+    "StartQueryPlanningResponseTypeDef",
+    {
+        "QueryId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartTransactionRequestRequestTypeDef = TypedDict(
+    "StartTransactionRequestRequestTypeDef",
+    {
+        "TransactionType": TransactionTypeType,
+    },
+    total=False,
+)
+
+StartTransactionResponseTypeDef = TypedDict(
+    "StartTransactionResponseTypeDef",
+    {
+        "TransactionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StorageOptimizerTypeDef = TypedDict(
+    "StorageOptimizerTypeDef",
+    {
+        "StorageOptimizerType": OptimizerTypeType,
+        "Config": Dict[str, str],
+        "ErrorMessage": str,
+        "Warnings": str,
+        "LastRunDetails": str,
+    },
+    total=False,
+)
+
+TableObjectTypeDef = TypedDict(
+    "TableObjectTypeDef",
+    {
+        "Uri": str,
+        "ETag": str,
+        "Size": int,
+    },
+    total=False,
+)
+
 _RequiredTableResourceTypeDef = TypedDict(
     "_RequiredTableResourceTypeDef",
     {
@@ -902,6 +1428,17 @@ TaggedTableTypeDef = TypedDict(
     total=False,
 )
 
+TransactionDescriptionTypeDef = TypedDict(
+    "TransactionDescriptionTypeDef",
+    {
+        "TransactionId": str,
+        "TransactionStatus": TransactionStatusType,
+        "TransactionStartTime": datetime,
+        "TransactionEndTime": datetime,
+    },
+    total=False,
+)
+
 _RequiredUpdateLFTagRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateLFTagRequestRequestTypeDef",
     {
@@ -929,4 +1466,92 @@ UpdateResourceRequestRequestTypeDef = TypedDict(
         "RoleArn": str,
         "ResourceArn": str,
     },
+)
+
+_RequiredUpdateTableObjectsRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTableObjectsRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+        "TransactionId": str,
+        "WriteOperations": List["WriteOperationTypeDef"],
+    },
+)
+_OptionalUpdateTableObjectsRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTableObjectsRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+    },
+    total=False,
+)
+
+class UpdateTableObjectsRequestRequestTypeDef(
+    _RequiredUpdateTableObjectsRequestRequestTypeDef,
+    _OptionalUpdateTableObjectsRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateTableStorageOptimizerRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTableStorageOptimizerRequestRequestTypeDef",
+    {
+        "DatabaseName": str,
+        "TableName": str,
+        "StorageOptimizerConfig": Dict[OptimizerTypeType, Dict[str, str]],
+    },
+)
+_OptionalUpdateTableStorageOptimizerRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTableStorageOptimizerRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+    },
+    total=False,
+)
+
+class UpdateTableStorageOptimizerRequestRequestTypeDef(
+    _RequiredUpdateTableStorageOptimizerRequestRequestTypeDef,
+    _OptionalUpdateTableStorageOptimizerRequestRequestTypeDef,
+):
+    pass
+
+UpdateTableStorageOptimizerResponseTypeDef = TypedDict(
+    "UpdateTableStorageOptimizerResponseTypeDef",
+    {
+        "Result": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredVirtualObjectTypeDef = TypedDict(
+    "_RequiredVirtualObjectTypeDef",
+    {
+        "Uri": str,
+    },
+)
+_OptionalVirtualObjectTypeDef = TypedDict(
+    "_OptionalVirtualObjectTypeDef",
+    {
+        "ETag": str,
+    },
+    total=False,
+)
+
+class VirtualObjectTypeDef(_RequiredVirtualObjectTypeDef, _OptionalVirtualObjectTypeDef):
+    pass
+
+WorkUnitRangeTypeDef = TypedDict(
+    "WorkUnitRangeTypeDef",
+    {
+        "WorkUnitIdMax": int,
+        "WorkUnitIdMin": int,
+        "WorkUnitToken": str,
+    },
+)
+
+WriteOperationTypeDef = TypedDict(
+    "WriteOperationTypeDef",
+    {
+        "AddObject": "AddObjectInputTypeDef",
+        "DeleteObject": "DeleteObjectInputTypeDef",
+    },
+    total=False,
 )

@@ -34,6 +34,7 @@ __all__ = (
     "ComputeLocationType",
     "ConfigurationStateType",
     "DetailedErrorCodeType",
+    "DisassociatedDataStorageStateType",
     "EncryptionTypeType",
     "ErrorCodeType",
     "ForwardingConfigStateType",
@@ -53,6 +54,8 @@ __all__ = (
     "ListPortalsPaginatorName",
     "ListProjectAssetsPaginatorName",
     "ListProjectsPaginatorName",
+    "ListTimeSeriesPaginatorName",
+    "ListTimeSeriesTypeType",
     "LoggingLevelType",
     "MonitorErrorCodeType",
     "PermissionType",
@@ -96,6 +99,7 @@ ConfigurationStateType = Literal["ACTIVE", "UPDATE_FAILED", "UPDATE_IN_PROGRESS"
 DetailedErrorCodeType = Literal[
     "INCOMPATIBLE_COMPUTE_LOCATION", "INCOMPATIBLE_FORWARDING_CONFIGURATION"
 ]
+DisassociatedDataStorageStateType = Literal["DISABLED", "ENABLED"]
 EncryptionTypeType = Literal["KMS_BASED_ENCRYPTION", "SITEWISE_DEFAULT_ENCRYPTION"]
 ErrorCodeType = Literal["INTERNAL_FAILURE", "VALIDATION_ERROR"]
 ForwardingConfigStateType = Literal["DISABLED", "ENABLED"]
@@ -115,6 +119,8 @@ ListGatewaysPaginatorName = Literal["list_gateways"]
 ListPortalsPaginatorName = Literal["list_portals"]
 ListProjectAssetsPaginatorName = Literal["list_project_assets"]
 ListProjectsPaginatorName = Literal["list_projects"]
+ListTimeSeriesPaginatorName = Literal["list_time_series"]
+ListTimeSeriesTypeType = Literal["ASSOCIATED", "DISASSOCIATED"]
 LoggingLevelType = Literal["ERROR", "INFO", "OFF"]
 MonitorErrorCodeType = Literal["INTERNAL_FAILURE", "LIMIT_EXCEEDED", "VALIDATION_ERROR"]
 PermissionType = Literal["ADMINISTRATOR", "VIEWER"]

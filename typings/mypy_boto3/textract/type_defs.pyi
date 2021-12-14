@@ -28,6 +28,10 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
@@ -37,6 +41,9 @@ __all__ = (
     "AnalyzeDocumentResponseTypeDef",
     "AnalyzeExpenseRequestRequestTypeDef",
     "AnalyzeExpenseResponseTypeDef",
+    "AnalyzeIDDetectionsTypeDef",
+    "AnalyzeIDRequestRequestTypeDef",
+    "AnalyzeIDResponseTypeDef",
     "BlockTypeDef",
     "BoundingBoxTypeDef",
     "DetectDocumentTextRequestRequestTypeDef",
@@ -58,8 +65,11 @@ __all__ = (
     "HumanLoopActivationOutputTypeDef",
     "HumanLoopConfigTypeDef",
     "HumanLoopDataAttributesTypeDef",
+    "IdentityDocumentFieldTypeDef",
+    "IdentityDocumentTypeDef",
     "LineItemFieldsTypeDef",
     "LineItemGroupTypeDef",
+    "NormalizedValueTypeDef",
     "NotificationChannelTypeDef",
     "OutputConfigTypeDef",
     "PointTypeDef",
@@ -118,6 +128,43 @@ AnalyzeExpenseResponseTypeDef = TypedDict(
     {
         "DocumentMetadata": "DocumentMetadataTypeDef",
         "ExpenseDocuments": List["ExpenseDocumentTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredAnalyzeIDDetectionsTypeDef = TypedDict(
+    "_RequiredAnalyzeIDDetectionsTypeDef",
+    {
+        "Text": str,
+    },
+)
+_OptionalAnalyzeIDDetectionsTypeDef = TypedDict(
+    "_OptionalAnalyzeIDDetectionsTypeDef",
+    {
+        "NormalizedValue": "NormalizedValueTypeDef",
+        "Confidence": float,
+    },
+    total=False,
+)
+
+class AnalyzeIDDetectionsTypeDef(
+    _RequiredAnalyzeIDDetectionsTypeDef, _OptionalAnalyzeIDDetectionsTypeDef
+):
+    pass
+
+AnalyzeIDRequestRequestTypeDef = TypedDict(
+    "AnalyzeIDRequestRequestTypeDef",
+    {
+        "DocumentPages": List["DocumentTypeDef"],
+    },
+)
+
+AnalyzeIDResponseTypeDef = TypedDict(
+    "AnalyzeIDResponseTypeDef",
+    {
+        "IdentityDocuments": List["IdentityDocumentTypeDef"],
+        "DocumentMetadata": "DocumentMetadataTypeDef",
+        "AnalyzeIDModelVersion": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -386,6 +433,24 @@ HumanLoopDataAttributesTypeDef = TypedDict(
     total=False,
 )
 
+IdentityDocumentFieldTypeDef = TypedDict(
+    "IdentityDocumentFieldTypeDef",
+    {
+        "Type": "AnalyzeIDDetectionsTypeDef",
+        "ValueDetection": "AnalyzeIDDetectionsTypeDef",
+    },
+    total=False,
+)
+
+IdentityDocumentTypeDef = TypedDict(
+    "IdentityDocumentTypeDef",
+    {
+        "DocumentIndex": int,
+        "IdentityDocumentFields": List["IdentityDocumentFieldTypeDef"],
+    },
+    total=False,
+)
+
 LineItemFieldsTypeDef = TypedDict(
     "LineItemFieldsTypeDef",
     {
@@ -399,6 +464,15 @@ LineItemGroupTypeDef = TypedDict(
     {
         "LineItemGroupIndex": int,
         "LineItems": List["LineItemFieldsTypeDef"],
+    },
+    total=False,
+)
+
+NormalizedValueTypeDef = TypedDict(
+    "NormalizedValueTypeDef",
+    {
+        "Value": str,
+        "ValueType": Literal["DATE"],
     },
     total=False,
 )

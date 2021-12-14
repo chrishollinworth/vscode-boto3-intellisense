@@ -10,10 +10,18 @@ Usage::
         EnvironmentDeployedWaiter,
         EnvironmentTemplateVersionRegisteredWaiter,
         ListEnvironmentAccountConnectionsPaginator,
+        ListEnvironmentOutputsPaginator,
+        ListEnvironmentProvisionedResourcesPaginator,
         ListEnvironmentTemplateVersionsPaginator,
         ListEnvironmentTemplatesPaginator,
         ListEnvironmentsPaginator,
+        ListRepositoriesPaginator,
+        ListRepositorySyncDefinitionsPaginator,
+        ListServiceInstanceOutputsPaginator,
+        ListServiceInstanceProvisionedResourcesPaginator,
         ListServiceInstancesPaginator,
+        ListServicePipelineOutputsPaginator,
+        ListServicePipelineProvisionedResourcesPaginator,
         ListServiceTemplateVersionsPaginator,
         ListServiceTemplatesPaginator,
         ListServicesPaginator,
@@ -42,10 +50,18 @@ Usage::
     service_updated_waiter: ServiceUpdatedWaiter = client.get_waiter("service_updated")
 
     list_environment_account_connections_paginator: ListEnvironmentAccountConnectionsPaginator = client.get_paginator("list_environment_account_connections")
+    list_environment_outputs_paginator: ListEnvironmentOutputsPaginator = client.get_paginator("list_environment_outputs")
+    list_environment_provisioned_resources_paginator: ListEnvironmentProvisionedResourcesPaginator = client.get_paginator("list_environment_provisioned_resources")
     list_environment_template_versions_paginator: ListEnvironmentTemplateVersionsPaginator = client.get_paginator("list_environment_template_versions")
     list_environment_templates_paginator: ListEnvironmentTemplatesPaginator = client.get_paginator("list_environment_templates")
     list_environments_paginator: ListEnvironmentsPaginator = client.get_paginator("list_environments")
+    list_repositories_paginator: ListRepositoriesPaginator = client.get_paginator("list_repositories")
+    list_repository_sync_definitions_paginator: ListRepositorySyncDefinitionsPaginator = client.get_paginator("list_repository_sync_definitions")
+    list_service_instance_outputs_paginator: ListServiceInstanceOutputsPaginator = client.get_paginator("list_service_instance_outputs")
+    list_service_instance_provisioned_resources_paginator: ListServiceInstanceProvisionedResourcesPaginator = client.get_paginator("list_service_instance_provisioned_resources")
     list_service_instances_paginator: ListServiceInstancesPaginator = client.get_paginator("list_service_instances")
+    list_service_pipeline_outputs_paginator: ListServicePipelineOutputsPaginator = client.get_paginator("list_service_pipeline_outputs")
+    list_service_pipeline_provisioned_resources_paginator: ListServicePipelineProvisionedResourcesPaginator = client.get_paginator("list_service_pipeline_provisioned_resources")
     list_service_template_versions_paginator: ListServiceTemplateVersionsPaginator = client.get_paginator("list_service_template_versions")
     list_service_templates_paginator: ListServiceTemplatesPaginator = client.get_paginator("list_service_templates")
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
@@ -55,10 +71,18 @@ Usage::
 from .client import ProtonClient
 from .paginator import (
     ListEnvironmentAccountConnectionsPaginator,
+    ListEnvironmentOutputsPaginator,
+    ListEnvironmentProvisionedResourcesPaginator,
     ListEnvironmentsPaginator,
     ListEnvironmentTemplatesPaginator,
     ListEnvironmentTemplateVersionsPaginator,
+    ListRepositoriesPaginator,
+    ListRepositorySyncDefinitionsPaginator,
+    ListServiceInstanceOutputsPaginator,
+    ListServiceInstanceProvisionedResourcesPaginator,
     ListServiceInstancesPaginator,
+    ListServicePipelineOutputsPaginator,
+    ListServicePipelineProvisionedResourcesPaginator,
     ListServicesPaginator,
     ListServiceTemplatesPaginator,
     ListServiceTemplateVersionsPaginator,
@@ -82,10 +106,18 @@ __all__ = (
     "EnvironmentDeployedWaiter",
     "EnvironmentTemplateVersionRegisteredWaiter",
     "ListEnvironmentAccountConnectionsPaginator",
+    "ListEnvironmentOutputsPaginator",
+    "ListEnvironmentProvisionedResourcesPaginator",
     "ListEnvironmentTemplateVersionsPaginator",
     "ListEnvironmentTemplatesPaginator",
     "ListEnvironmentsPaginator",
+    "ListRepositoriesPaginator",
+    "ListRepositorySyncDefinitionsPaginator",
+    "ListServiceInstanceOutputsPaginator",
+    "ListServiceInstanceProvisionedResourcesPaginator",
     "ListServiceInstancesPaginator",
+    "ListServicePipelineOutputsPaginator",
+    "ListServicePipelineProvisionedResourcesPaginator",
     "ListServiceTemplateVersionsPaginator",
     "ListServiceTemplatesPaginator",
     "ListServicesPaginator",

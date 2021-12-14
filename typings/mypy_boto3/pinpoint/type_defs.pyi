@@ -394,6 +394,9 @@ __all__ = (
     "SegmentsResponseTypeDef",
     "SendMessagesRequestRequestTypeDef",
     "SendMessagesResponseTypeDef",
+    "SendOTPMessageRequestParametersTypeDef",
+    "SendOTPMessageRequestRequestTypeDef",
+    "SendOTPMessageResponseTypeDef",
     "SendUsersMessageRequestTypeDef",
     "SendUsersMessageResponseTypeDef",
     "SendUsersMessagesRequestRequestTypeDef",
@@ -466,6 +469,10 @@ __all__ = (
     "UpdateVoiceChannelResponseTypeDef",
     "UpdateVoiceTemplateRequestRequestTypeDef",
     "UpdateVoiceTemplateResponseTypeDef",
+    "VerificationResponseTypeDef",
+    "VerifyOTPMessageRequestParametersTypeDef",
+    "VerifyOTPMessageRequestRequestTypeDef",
+    "VerifyOTPMessageResponseTypeDef",
     "VoiceChannelRequestTypeDef",
     "VoiceChannelResponseTypeDef",
     "VoiceMessageTypeDef",
@@ -4837,6 +4844,50 @@ SendMessagesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredSendOTPMessageRequestParametersTypeDef = TypedDict(
+    "_RequiredSendOTPMessageRequestParametersTypeDef",
+    {
+        "BrandName": str,
+        "Channel": str,
+        "DestinationIdentity": str,
+        "OriginationIdentity": str,
+        "ReferenceId": str,
+    },
+)
+_OptionalSendOTPMessageRequestParametersTypeDef = TypedDict(
+    "_OptionalSendOTPMessageRequestParametersTypeDef",
+    {
+        "AllowedAttempts": int,
+        "CodeLength": int,
+        "EntityId": str,
+        "Language": str,
+        "TemplateId": str,
+        "ValidityPeriod": int,
+    },
+    total=False,
+)
+
+class SendOTPMessageRequestParametersTypeDef(
+    _RequiredSendOTPMessageRequestParametersTypeDef, _OptionalSendOTPMessageRequestParametersTypeDef
+):
+    pass
+
+SendOTPMessageRequestRequestTypeDef = TypedDict(
+    "SendOTPMessageRequestRequestTypeDef",
+    {
+        "ApplicationId": str,
+        "SendOTPMessageRequestParameters": "SendOTPMessageRequestParametersTypeDef",
+    },
+)
+
+SendOTPMessageResponseTypeDef = TypedDict(
+    "SendOTPMessageResponseTypeDef",
+    {
+        "MessageResponse": "MessageResponseTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredSendUsersMessageRequestTypeDef = TypedDict(
     "_RequiredSendUsersMessageRequestTypeDef",
     {
@@ -5634,6 +5685,39 @@ UpdateVoiceTemplateResponseTypeDef = TypedDict(
     "UpdateVoiceTemplateResponseTypeDef",
     {
         "MessageBody": "MessageBodyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+VerificationResponseTypeDef = TypedDict(
+    "VerificationResponseTypeDef",
+    {
+        "Valid": bool,
+    },
+    total=False,
+)
+
+VerifyOTPMessageRequestParametersTypeDef = TypedDict(
+    "VerifyOTPMessageRequestParametersTypeDef",
+    {
+        "DestinationIdentity": str,
+        "Otp": str,
+        "ReferenceId": str,
+    },
+)
+
+VerifyOTPMessageRequestRequestTypeDef = TypedDict(
+    "VerifyOTPMessageRequestRequestTypeDef",
+    {
+        "ApplicationId": str,
+        "VerifyOTPMessageRequestParameters": "VerifyOTPMessageRequestParametersTypeDef",
+    },
+)
+
+VerifyOTPMessageResponseTypeDef = TypedDict(
+    "VerifyOTPMessageResponseTypeDef",
+    {
+        "VerificationResponse": "VerificationResponseTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

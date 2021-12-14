@@ -28,6 +28,8 @@ from .literals import (
     OperatorTypeType,
     ParameterApplyTypeType,
     PartnerIntegrationStatusType,
+    ReservedNodeExchangeActionTypeType,
+    ReservedNodeExchangeStatusTypeType,
     ReservedNodeOfferingTypeType,
     ScheduledActionFilterNameType,
     ScheduledActionStateType,
@@ -178,6 +180,8 @@ __all__ = (
     "DescribeOrderableClusterOptionsMessageRequestTypeDef",
     "DescribePartnersInputMessageRequestTypeDef",
     "DescribePartnersOutputMessageTypeDef",
+    "DescribeReservedNodeExchangeStatusInputMessageRequestTypeDef",
+    "DescribeReservedNodeExchangeStatusOutputMessageTypeDef",
     "DescribeReservedNodeOfferingsMessageRequestTypeDef",
     "DescribeReservedNodesMessageRequestTypeDef",
     "DescribeResizeMessageRequestTypeDef",
@@ -212,6 +216,8 @@ __all__ = (
     "EventTypeDef",
     "EventsMessageTypeDef",
     "GetClusterCredentialsMessageRequestTypeDef",
+    "GetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef",
+    "GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef",
     "GetReservedNodeExchangeOfferingsInputMessageRequestTypeDef",
     "GetReservedNodeExchangeOfferingsOutputMessageTypeDef",
     "HsmClientCertificateMessageTypeDef",
@@ -269,6 +275,8 @@ __all__ = (
     "RebootClusterResultTypeDef",
     "RecurringChargeTypeDef",
     "RejectDataShareMessageRequestTypeDef",
+    "ReservedNodeConfigurationOptionTypeDef",
+    "ReservedNodeExchangeStatusTypeDef",
     "ReservedNodeOfferingTypeDef",
     "ReservedNodeOfferingsMessageTypeDef",
     "ReservedNodeTypeDef",
@@ -799,6 +807,8 @@ ClusterTypeDef = TypedDict(
         "ClusterNamespaceArn": str,
         "TotalStorageCapacityInMegaBytes": int,
         "AquaConfiguration": "AquaConfigurationTypeDef",
+        "DefaultIamRoleArn": str,
+        "ReservedNodeExchangeStatus": "ReservedNodeExchangeStatusTypeDef",
     },
     total=False,
 )
@@ -918,6 +928,7 @@ _OptionalCreateClusterMessageRequestTypeDef = TypedDict(
         "SnapshotScheduleIdentifier": str,
         "AvailabilityZoneRelocation": bool,
         "AquaConfigurationStatus": AquaConfigurationStatusType,
+        "DefaultIamRoleArn": str,
     },
     total=False,
 )
@@ -1919,6 +1930,26 @@ DescribePartnersOutputMessageTypeDef = TypedDict(
     },
 )
 
+DescribeReservedNodeExchangeStatusInputMessageRequestTypeDef = TypedDict(
+    "DescribeReservedNodeExchangeStatusInputMessageRequestTypeDef",
+    {
+        "ReservedNodeId": str,
+        "ReservedNodeExchangeRequestId": str,
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+DescribeReservedNodeExchangeStatusOutputMessageTypeDef = TypedDict(
+    "DescribeReservedNodeExchangeStatusOutputMessageTypeDef",
+    {
+        "ReservedNodeExchangeStatusDetails": List["ReservedNodeExchangeStatusTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeReservedNodeOfferingsMessageRequestTypeDef = TypedDict(
     "DescribeReservedNodeOfferingsMessageRequestTypeDef",
     {
@@ -2343,6 +2374,38 @@ class GetClusterCredentialsMessageRequestTypeDef(
 ):
     pass
 
+_RequiredGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef = TypedDict(
+    "_RequiredGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef",
+    {
+        "ActionType": ReservedNodeExchangeActionTypeType,
+    },
+)
+_OptionalGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef = TypedDict(
+    "_OptionalGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef",
+    {
+        "ClusterIdentifier": str,
+        "SnapshotIdentifier": str,
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
+class GetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef(
+    _RequiredGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef,
+    _OptionalGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef,
+):
+    pass
+
+GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef = TypedDict(
+    "GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef",
+    {
+        "Marker": str,
+        "ReservedNodeConfigurationOptionList": List["ReservedNodeConfigurationOptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetReservedNodeExchangeOfferingsInputMessageRequestTypeDef = TypedDict(
     "_RequiredGetReservedNodeExchangeOfferingsInputMessageRequestTypeDef",
     {
@@ -2527,6 +2590,7 @@ _OptionalModifyClusterIamRolesMessageRequestTypeDef = TypedDict(
     {
         "AddIamRoles": List[str],
         "RemoveIamRoles": List[str],
+        "DefaultIamRoleArn": str,
     },
     total=False,
 )
@@ -3068,6 +3132,32 @@ RejectDataShareMessageRequestTypeDef = TypedDict(
     },
 )
 
+ReservedNodeConfigurationOptionTypeDef = TypedDict(
+    "ReservedNodeConfigurationOptionTypeDef",
+    {
+        "SourceReservedNode": "ReservedNodeTypeDef",
+        "TargetReservedNodeCount": int,
+        "TargetReservedNodeOffering": "ReservedNodeOfferingTypeDef",
+    },
+    total=False,
+)
+
+ReservedNodeExchangeStatusTypeDef = TypedDict(
+    "ReservedNodeExchangeStatusTypeDef",
+    {
+        "ReservedNodeExchangeRequestId": str,
+        "Status": ReservedNodeExchangeStatusTypeType,
+        "RequestTime": datetime,
+        "SourceReservedNodeId": str,
+        "SourceReservedNodeType": str,
+        "SourceReservedNodeCount": int,
+        "TargetReservedNodeOfferingId": str,
+        "TargetReservedNodeType": str,
+        "TargetReservedNodeCount": int,
+    },
+    total=False,
+)
+
 ReservedNodeOfferingTypeDef = TypedDict(
     "ReservedNodeOfferingTypeDef",
     {
@@ -3156,6 +3246,8 @@ _OptionalResizeClusterMessageRequestTypeDef = TypedDict(
         "NodeType": str,
         "NumberOfNodes": int,
         "Classic": bool,
+        "ReservedNodeId": str,
+        "TargetReservedNodeOfferingId": str,
     },
     total=False,
 )
@@ -3178,6 +3270,8 @@ _OptionalResizeClusterMessageTypeDef = TypedDict(
         "NodeType": str,
         "NumberOfNodes": int,
         "Classic": bool,
+        "ReservedNodeId": str,
+        "TargetReservedNodeOfferingId": str,
     },
     total=False,
 )
@@ -3274,6 +3368,9 @@ _OptionalRestoreFromClusterSnapshotMessageRequestTypeDef = TypedDict(
         "NumberOfNodes": int,
         "AvailabilityZoneRelocation": bool,
         "AquaConfigurationStatus": AquaConfigurationStatusType,
+        "DefaultIamRoleArn": str,
+        "ReservedNodeId": str,
+        "TargetReservedNodeOfferingId": str,
     },
     total=False,
 )

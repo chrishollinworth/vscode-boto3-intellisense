@@ -23,6 +23,7 @@ from .literals import (
     PolicyTypeType,
     ResourceTypeType,
     TypeType,
+    ValidatePolicyResourceTypeType,
 )
 from .paginator import (
     ListAccessPreviewFindingsPaginator,
@@ -86,7 +87,7 @@ class Exceptions:
 
 class AccessAnalyzerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html)
     """
 
@@ -103,21 +104,21 @@ class AccessAnalyzerClient(BaseClient):
         Retroactively applies the archive rule to existing findings that meet the
         archive rule criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.apply_archive_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.apply_archive_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#apply_archive_rule)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#can_paginate)
         """
     def cancel_policy_generation(self, *, jobId: str) -> Dict[str, Any]:
         """
         Cancels the requested policy generation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.cancel_policy_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.cancel_policy_generation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#cancel_policy_generation)
         """
     def create_access_preview(
@@ -131,7 +132,7 @@ class AccessAnalyzerClient(BaseClient):
         Creates an access preview that allows you to preview IAM Access Analyzer
         findings for your resource before deploying resource permissions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_access_preview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_access_preview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#create_access_preview)
         """
     def create_analyzer(
@@ -146,7 +147,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Creates an analyzer for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_analyzer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_analyzer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#create_analyzer)
         """
     def create_archive_rule(
@@ -160,14 +161,14 @@ class AccessAnalyzerClient(BaseClient):
         """
         Creates an archive rule for the specified analyzer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_archive_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_archive_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#create_archive_rule)
         """
     def delete_analyzer(self, *, analyzerName: str, clientToken: str = None) -> None:
         """
         Deletes the specified analyzer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_analyzer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_analyzer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#delete_analyzer)
         """
     def delete_archive_rule(
@@ -176,7 +177,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Deletes the specified archive rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_archive_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_archive_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#delete_archive_rule)
         """
     def generate_presigned_url(
@@ -189,7 +190,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#generate_presigned_url)
         """
     def get_access_preview(
@@ -198,7 +199,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves information about an access preview for the specified analyzer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_access_preview)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_access_preview)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#get_access_preview)
         """
     def get_analyzed_resource(
@@ -207,14 +208,14 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves information about a resource that was analyzed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzed_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzed_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#get_analyzed_resource)
         """
     def get_analyzer(self, *, analyzerName: str) -> GetAnalyzerResponseTypeDef:
         """
         Retrieves information about the specified analyzer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#get_analyzer)
         """
     def get_archive_rule(
@@ -223,14 +224,14 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves information about an archive rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_archive_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_archive_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#get_archive_rule)
         """
     def get_finding(self, *, analyzerArn: str, id: str) -> GetFindingResponseTypeDef:
         """
         Retrieves information about the specified finding.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_finding)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_finding)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#get_finding)
         """
     def get_generated_policy(
@@ -243,7 +244,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves the policy that was generated using `StartPolicyGeneration` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_generated_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_generated_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#get_generated_policy)
         """
     def list_access_preview_findings(
@@ -259,7 +260,7 @@ class AccessAnalyzerClient(BaseClient):
         Retrieves a list of access preview findings generated by the specified access
         preview.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_access_preview_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_access_preview_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_access_preview_findings)
         """
     def list_access_previews(
@@ -268,7 +269,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves a list of access previews for the specified analyzer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_access_previews)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_access_previews)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_access_previews)
         """
     def list_analyzed_resources(
@@ -283,7 +284,7 @@ class AccessAnalyzerClient(BaseClient):
         Retrieves a list of resources of the specified type that have been analyzed by
         the specified analyzer..
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzed_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzed_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_analyzed_resources)
         """
     def list_analyzers(
@@ -292,7 +293,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves a list of analyzers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_analyzers)
         """
     def list_archive_rules(
@@ -301,7 +302,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves a list of archive rules created for the specified analyzer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_archive_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_archive_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_archive_rules)
         """
     def list_findings(
@@ -316,7 +317,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Retrieves a list of findings generated by the specified analyzer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_findings)
         """
     def list_policy_generations(
@@ -325,14 +326,14 @@ class AccessAnalyzerClient(BaseClient):
         """
         Lists all of the policy generations requested in the last seven days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_policy_generations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_policy_generations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_policy_generations)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Retrieves a list of tags applied to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#list_tags_for_resource)
         """
     def start_policy_generation(
@@ -345,28 +346,28 @@ class AccessAnalyzerClient(BaseClient):
         """
         Starts the policy generation request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.start_policy_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.start_policy_generation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#start_policy_generation)
         """
     def start_resource_scan(self, *, analyzerArn: str, resourceArn: str) -> None:
         """
         Immediately starts a scan of the policies applied to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.start_resource_scan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.start_resource_scan)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#start_resource_scan)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Adds a tag to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes a tag from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#untag_resource)
         """
     def update_archive_rule(
@@ -380,7 +381,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Updates the criteria and values for the specified archive rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_archive_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_archive_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#update_archive_rule)
         """
     def update_findings(
@@ -395,7 +396,7 @@ class AccessAnalyzerClient(BaseClient):
         """
         Updates the status for the specified findings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_findings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#update_findings)
         """
     def validate_policy(
@@ -405,12 +406,13 @@ class AccessAnalyzerClient(BaseClient):
         policyType: PolicyTypeType,
         locale: LocaleType = None,
         maxResults: int = None,
-        nextToken: str = None
+        nextToken: str = None,
+        validatePolicyResourceType: ValidatePolicyResourceTypeType = None
     ) -> ValidatePolicyResponseTypeDef:
         """
         Requests the validation of a policy and returns a list of findings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Client.validate_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Client.validate_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/client.html#validate_policy)
         """
     @overload
@@ -418,7 +420,7 @@ class AccessAnalyzerClient(BaseClient):
         self, operation_name: Literal["list_access_preview_findings"]
     ) -> ListAccessPreviewFindingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAccessPreviewFindings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAccessPreviewFindings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#listaccesspreviewfindingspaginator)
         """
     @overload
@@ -426,7 +428,7 @@ class AccessAnalyzerClient(BaseClient):
         self, operation_name: Literal["list_access_previews"]
     ) -> ListAccessPreviewsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAccessPreviews)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAccessPreviews)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#listaccesspreviewspaginator)
         """
     @overload
@@ -434,13 +436,13 @@ class AccessAnalyzerClient(BaseClient):
         self, operation_name: Literal["list_analyzed_resources"]
     ) -> ListAnalyzedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#listanalyzedresourcespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_analyzers"]) -> ListAnalyzersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#listanalyzerspaginator)
         """
     @overload
@@ -448,13 +450,13 @@ class AccessAnalyzerClient(BaseClient):
         self, operation_name: Literal["list_archive_rules"]
     ) -> ListArchiveRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#listarchiverulespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_findings"]) -> ListFindingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#listfindingspaginator)
         """
     @overload
@@ -462,12 +464,12 @@ class AccessAnalyzerClient(BaseClient):
         self, operation_name: Literal["list_policy_generations"]
     ) -> ListPolicyGenerationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListPolicyGenerations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListPolicyGenerations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#listpolicygenerationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["validate_policy"]) -> ValidatePolicyPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ValidatePolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ValidatePolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/paginators.html#validatepolicypaginator)
         """

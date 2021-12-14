@@ -32,6 +32,7 @@ from .literals import (
     ReplicationConfigurationDefaultLargeStagingDiskTypeType,
     ReplicationConfigurationEbsEncryptionType,
     ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
+    ReplicationTypeType,
     TargetInstanceTypeRightSizingMethodType,
 )
 
@@ -53,6 +54,7 @@ __all__ = (
     "DeleteJobRequestRequestTypeDef",
     "DeleteReplicationConfigurationTemplateRequestRequestTypeDef",
     "DeleteSourceServerRequestRequestTypeDef",
+    "DeleteVcenterClientRequestRequestTypeDef",
     "DescribeJobLogItemsRequestRequestTypeDef",
     "DescribeJobLogItemsResponseTypeDef",
     "DescribeJobsRequestFiltersTypeDef",
@@ -63,6 +65,8 @@ __all__ = (
     "DescribeSourceServersRequestFiltersTypeDef",
     "DescribeSourceServersRequestRequestTypeDef",
     "DescribeSourceServersResponseTypeDef",
+    "DescribeVcenterClientsRequestRequestTypeDef",
+    "DescribeVcenterClientsResponseTypeDef",
     "DisconnectFromServiceRequestRequestTypeDef",
     "DiskTypeDef",
     "FinalizeCutoverRequestRequestTypeDef",
@@ -102,6 +106,7 @@ __all__ = (
     "SourceServerTypeDef",
     "StartCutoverRequestRequestTypeDef",
     "StartCutoverResponseTypeDef",
+    "StartReplicationRequestRequestTypeDef",
     "StartTestRequestRequestTypeDef",
     "StartTestResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -111,6 +116,8 @@ __all__ = (
     "UpdateLaunchConfigurationRequestRequestTypeDef",
     "UpdateReplicationConfigurationRequestRequestTypeDef",
     "UpdateReplicationConfigurationTemplateRequestRequestTypeDef",
+    "UpdateSourceServerReplicationTypeRequestRequestTypeDef",
+    "VcenterClientTypeDef",
 )
 
 CPUTypeDef = TypedDict(
@@ -197,6 +204,7 @@ DataReplicationInfoTypeDef = TypedDict(
         "dataReplicationState": DataReplicationStateType,
         "etaDateTime": str,
         "lagDuration": str,
+        "lastSnapshotDateTime": str,
         "replicatedDisks": List["DataReplicationInfoReplicatedDiskTypeDef"],
     },
     total=False,
@@ -239,6 +247,13 @@ DeleteSourceServerRequestRequestTypeDef = TypedDict(
     "DeleteSourceServerRequestRequestTypeDef",
     {
         "sourceServerID": str,
+    },
+)
+
+DeleteVcenterClientRequestRequestTypeDef = TypedDict(
+    "DeleteVcenterClientRequestRequestTypeDef",
+    {
+        "vcenterClientID": str,
     },
 )
 
@@ -345,6 +360,8 @@ DescribeSourceServersRequestFiltersTypeDef = TypedDict(
     "DescribeSourceServersRequestFiltersTypeDef",
     {
         "isArchived": bool,
+        "lifeCycleStates": List[LifeCycleStateType],
+        "replicationTypes": List[ReplicationTypeType],
         "sourceServerIDs": List[str],
     },
     total=False,
@@ -375,6 +392,24 @@ DescribeSourceServersResponseTypeDef = TypedDict(
     "DescribeSourceServersResponseTypeDef",
     {
         "items": List["SourceServerTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVcenterClientsRequestRequestTypeDef = TypedDict(
+    "DescribeVcenterClientsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+DescribeVcenterClientsResponseTypeDef = TypedDict(
+    "DescribeVcenterClientsResponseTypeDef",
+    {
+        "items": List["VcenterClientTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -423,6 +458,7 @@ IdentificationHintsTypeDef = TypedDict(
         "awsInstanceID": str,
         "fqdn": str,
         "hostname": str,
+        "vmPath": str,
         "vmWareUuid": str,
     },
     total=False,
@@ -778,9 +814,11 @@ SourceServerResponseMetadataTypeDef = TypedDict(
         "isArchived": bool,
         "launchedInstance": "LaunchedInstanceTypeDef",
         "lifeCycle": "LifeCycleTypeDef",
+        "replicationType": ReplicationTypeType,
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
         "tags": Dict[str, str],
+        "vcenterClientID": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -793,9 +831,11 @@ SourceServerTypeDef = TypedDict(
         "isArchived": bool,
         "launchedInstance": "LaunchedInstanceTypeDef",
         "lifeCycle": "LifeCycleTypeDef",
+        "replicationType": ReplicationTypeType,
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
         "tags": Dict[str, str],
+        "vcenterClientID": str,
     },
     total=False,
 )
@@ -824,6 +864,13 @@ StartCutoverResponseTypeDef = TypedDict(
     {
         "job": "JobTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StartReplicationRequestRequestTypeDef = TypedDict(
+    "StartReplicationRequestRequestTypeDef",
+    {
+        "sourceServerID": str,
     },
 )
 
@@ -987,3 +1034,26 @@ class UpdateReplicationConfigurationTemplateRequestRequestTypeDef(
     _OptionalUpdateReplicationConfigurationTemplateRequestRequestTypeDef,
 ):
     pass
+
+UpdateSourceServerReplicationTypeRequestRequestTypeDef = TypedDict(
+    "UpdateSourceServerReplicationTypeRequestRequestTypeDef",
+    {
+        "replicationType": ReplicationTypeType,
+        "sourceServerID": str,
+    },
+)
+
+VcenterClientTypeDef = TypedDict(
+    "VcenterClientTypeDef",
+    {
+        "arn": str,
+        "datacenterName": str,
+        "hostname": str,
+        "lastSeenDatetime": str,
+        "sourceServerTags": Dict[str, str],
+        "tags": Dict[str, str],
+        "vcenterClientID": str,
+        "vcenterUUID": str,
+    },
+    total=False,
+)

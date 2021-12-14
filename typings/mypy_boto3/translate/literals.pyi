@@ -26,6 +26,7 @@ __all__ = (
     "MergeStrategyType",
     "ParallelDataFormatType",
     "ParallelDataStatusType",
+    "ProfanityType",
     "TerminologyDataFormatType",
 )
 
@@ -44,4 +45,5 @@ ListTerminologiesPaginatorName = Literal["list_terminologies"]
 MergeStrategyType = Literal["OVERWRITE"]
 ParallelDataFormatType = Literal["CSV", "TMX", "TSV"]
 ParallelDataStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
+ProfanityType = Literal["MASK"]
 TerminologyDataFormatType = Literal["CSV", "TMX", "TSV"]

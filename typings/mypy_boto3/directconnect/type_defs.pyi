@@ -1444,6 +1444,7 @@ _OptionalNewPrivateVirtualInterfaceTypeDef = TypedDict(
         "virtualGatewayId": str,
         "directConnectGatewayId": str,
         "tags": List["TagTypeDef"],
+        "enableSiteLink": bool,
     },
     total=False,
 )
@@ -1535,6 +1536,7 @@ NewTransitVirtualInterfaceTypeDef = TypedDict(
         "addressFamily": AddressFamilyType,
         "directConnectGatewayId": str,
         "tags": List["TagTypeDef"],
+        "enableSiteLink": bool,
     },
     total=False,
 )
@@ -1752,6 +1754,8 @@ _OptionalUpdateVirtualInterfaceAttributesRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateVirtualInterfaceAttributesRequestRequestTypeDef",
     {
         "mtu": int,
+        "enableSiteLink": bool,
+        "virtualInterfaceName": str,
     },
     total=False,
 )
@@ -1807,6 +1811,7 @@ VirtualInterfaceResponseMetadataTypeDef = TypedDict(
         "awsDeviceV2": str,
         "awsLogicalDeviceId": str,
         "tags": List["TagTypeDef"],
+        "siteLinkEnabled": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1854,6 +1859,7 @@ VirtualInterfaceTypeDef = TypedDict(
         "awsDeviceV2": str,
         "awsLogicalDeviceId": str,
         "tags": List["TagTypeDef"],
+        "siteLinkEnabled": bool,
     },
     total=False,
 )

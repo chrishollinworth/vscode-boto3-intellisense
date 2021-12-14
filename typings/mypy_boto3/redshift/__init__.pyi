@@ -19,6 +19,9 @@ Usage::
         DescribeClusterTracksPaginator,
         DescribeClusterVersionsPaginator,
         DescribeClustersPaginator,
+        DescribeDataSharesForConsumerPaginator,
+        DescribeDataSharesForProducerPaginator,
+        DescribeDataSharesPaginator,
         DescribeDefaultClusterParametersPaginator,
         DescribeEndpointAccessPaginator,
         DescribeEndpointAuthorizationPaginator,
@@ -28,6 +31,7 @@ Usage::
         DescribeHsmConfigurationsPaginator,
         DescribeNodeConfigurationOptionsPaginator,
         DescribeOrderableClusterOptionsPaginator,
+        DescribeReservedNodeExchangeStatusPaginator,
         DescribeReservedNodeOfferingsPaginator,
         DescribeReservedNodesPaginator,
         DescribeScheduledActionsPaginator,
@@ -36,6 +40,7 @@ Usage::
         DescribeTableRestoreStatusPaginator,
         DescribeTagsPaginator,
         DescribeUsageLimitsPaginator,
+        GetReservedNodeExchangeConfigurationOptionsPaginator,
         GetReservedNodeExchangeOfferingsPaginator,
         RedshiftClient,
         SnapshotAvailableWaiter,
@@ -60,6 +65,9 @@ Usage::
     describe_cluster_tracks_paginator: DescribeClusterTracksPaginator = client.get_paginator("describe_cluster_tracks")
     describe_cluster_versions_paginator: DescribeClusterVersionsPaginator = client.get_paginator("describe_cluster_versions")
     describe_clusters_paginator: DescribeClustersPaginator = client.get_paginator("describe_clusters")
+    describe_data_shares_paginator: DescribeDataSharesPaginator = client.get_paginator("describe_data_shares")
+    describe_data_shares_for_consumer_paginator: DescribeDataSharesForConsumerPaginator = client.get_paginator("describe_data_shares_for_consumer")
+    describe_data_shares_for_producer_paginator: DescribeDataSharesForProducerPaginator = client.get_paginator("describe_data_shares_for_producer")
     describe_default_cluster_parameters_paginator: DescribeDefaultClusterParametersPaginator = client.get_paginator("describe_default_cluster_parameters")
     describe_endpoint_access_paginator: DescribeEndpointAccessPaginator = client.get_paginator("describe_endpoint_access")
     describe_endpoint_authorization_paginator: DescribeEndpointAuthorizationPaginator = client.get_paginator("describe_endpoint_authorization")
@@ -69,6 +77,7 @@ Usage::
     describe_hsm_configurations_paginator: DescribeHsmConfigurationsPaginator = client.get_paginator("describe_hsm_configurations")
     describe_node_configuration_options_paginator: DescribeNodeConfigurationOptionsPaginator = client.get_paginator("describe_node_configuration_options")
     describe_orderable_cluster_options_paginator: DescribeOrderableClusterOptionsPaginator = client.get_paginator("describe_orderable_cluster_options")
+    describe_reserved_node_exchange_status_paginator: DescribeReservedNodeExchangeStatusPaginator = client.get_paginator("describe_reserved_node_exchange_status")
     describe_reserved_node_offerings_paginator: DescribeReservedNodeOfferingsPaginator = client.get_paginator("describe_reserved_node_offerings")
     describe_reserved_nodes_paginator: DescribeReservedNodesPaginator = client.get_paginator("describe_reserved_nodes")
     describe_scheduled_actions_paginator: DescribeScheduledActionsPaginator = client.get_paginator("describe_scheduled_actions")
@@ -77,6 +86,7 @@ Usage::
     describe_table_restore_status_paginator: DescribeTableRestoreStatusPaginator = client.get_paginator("describe_table_restore_status")
     describe_tags_paginator: DescribeTagsPaginator = client.get_paginator("describe_tags")
     describe_usage_limits_paginator: DescribeUsageLimitsPaginator = client.get_paginator("describe_usage_limits")
+    get_reserved_node_exchange_configuration_options_paginator: GetReservedNodeExchangeConfigurationOptionsPaginator = client.get_paginator("get_reserved_node_exchange_configuration_options")
     get_reserved_node_exchange_offerings_paginator: GetReservedNodeExchangeOfferingsPaginator = client.get_paginator("get_reserved_node_exchange_offerings")
     ```
 """
@@ -91,6 +101,9 @@ from .paginator import (
     DescribeClusterSubnetGroupsPaginator,
     DescribeClusterTracksPaginator,
     DescribeClusterVersionsPaginator,
+    DescribeDataSharesForConsumerPaginator,
+    DescribeDataSharesForProducerPaginator,
+    DescribeDataSharesPaginator,
     DescribeDefaultClusterParametersPaginator,
     DescribeEndpointAccessPaginator,
     DescribeEndpointAuthorizationPaginator,
@@ -100,6 +113,7 @@ from .paginator import (
     DescribeHsmConfigurationsPaginator,
     DescribeNodeConfigurationOptionsPaginator,
     DescribeOrderableClusterOptionsPaginator,
+    DescribeReservedNodeExchangeStatusPaginator,
     DescribeReservedNodeOfferingsPaginator,
     DescribeReservedNodesPaginator,
     DescribeScheduledActionsPaginator,
@@ -108,6 +122,7 @@ from .paginator import (
     DescribeTableRestoreStatusPaginator,
     DescribeTagsPaginator,
     DescribeUsageLimitsPaginator,
+    GetReservedNodeExchangeConfigurationOptionsPaginator,
     GetReservedNodeExchangeOfferingsPaginator,
 )
 from .waiter import (
@@ -133,6 +148,9 @@ __all__ = (
     "DescribeClusterTracksPaginator",
     "DescribeClusterVersionsPaginator",
     "DescribeClustersPaginator",
+    "DescribeDataSharesForConsumerPaginator",
+    "DescribeDataSharesForProducerPaginator",
+    "DescribeDataSharesPaginator",
     "DescribeDefaultClusterParametersPaginator",
     "DescribeEndpointAccessPaginator",
     "DescribeEndpointAuthorizationPaginator",
@@ -142,6 +160,7 @@ __all__ = (
     "DescribeHsmConfigurationsPaginator",
     "DescribeNodeConfigurationOptionsPaginator",
     "DescribeOrderableClusterOptionsPaginator",
+    "DescribeReservedNodeExchangeStatusPaginator",
     "DescribeReservedNodeOfferingsPaginator",
     "DescribeReservedNodesPaginator",
     "DescribeScheduledActionsPaginator",
@@ -150,6 +169,7 @@ __all__ = (
     "DescribeTableRestoreStatusPaginator",
     "DescribeTagsPaginator",
     "DescribeUsageLimitsPaginator",
+    "GetReservedNodeExchangeConfigurationOptionsPaginator",
     "GetReservedNodeExchangeOfferingsPaginator",
     "RedshiftClient",
     "SnapshotAvailableWaiter",

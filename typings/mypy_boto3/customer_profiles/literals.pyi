@@ -6,9 +6,9 @@ Type annotations for customer-profiles service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_customer_profiles.literals import DataPullModeType
+    from mypy_boto3_customer_profiles.literals import ConflictResolvingModelType
 
-    data: DataPullModeType = "Complete"
+    data: ConflictResolvingModelType = "RECENCY"
     ```
 """
 import sys
@@ -19,9 +19,12 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ConflictResolvingModelType",
     "DataPullModeType",
     "FieldContentTypeType",
     "GenderType",
+    "IdentityResolutionJobStatusType",
+    "JobScheduleDayOfTheWeekType",
     "MarketoConnectorOperatorType",
     "OperatorPropertiesKeysType",
     "PartyTypeType",
@@ -35,9 +38,16 @@ __all__ = (
     "ZendeskConnectorOperatorType",
 )
 
+ConflictResolvingModelType = Literal["RECENCY", "SOURCE"]
 DataPullModeType = Literal["Complete", "Incremental"]
 FieldContentTypeType = Literal["EMAIL_ADDRESS", "NAME", "NUMBER", "PHONE_NUMBER", "STRING"]
 GenderType = Literal["FEMALE", "MALE", "UNSPECIFIED"]
+IdentityResolutionJobStatusType = Literal[
+    "COMPLETED", "FAILED", "FIND_MATCHING", "MERGING", "PARTIAL_SUCCESS", "PENDING", "PREPROCESSING"
+]
+JobScheduleDayOfTheWeekType = Literal[
+    "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
+]
 MarketoConnectorOperatorType = Literal[
     "ADDITION",
     "BETWEEN",

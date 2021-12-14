@@ -67,7 +67,7 @@ class Exceptions:
 
 class ManagedGrafanaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html)
     """
 
@@ -83,14 +83,14 @@ class ManagedGrafanaClient(BaseClient):
         """
         Assigns a Grafana Enterprise license to a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.associate_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.associate_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#associate_license)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#can_paginate)
         """
     def create_workspace(
@@ -112,21 +112,21 @@ class ManagedGrafanaClient(BaseClient):
         """
         Creates a *workspace*.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.create_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.create_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace)
         """
     def delete_workspace(self, *, workspaceId: str) -> DeleteWorkspaceResponseTypeDef:
         """
         Deletes an Amazon Managed Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace)
         """
     def describe_workspace(self, *, workspaceId: str) -> DescribeWorkspaceResponseTypeDef:
         """
         Displays information about one Amazon Managed Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace)
         """
     def describe_workspace_authentication(
@@ -136,7 +136,7 @@ class ManagedGrafanaClient(BaseClient):
         Displays information about the authentication methods used in one Amazon Managed
         Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_authentication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_authentication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace_authentication)
         """
     def disassociate_license(
@@ -145,7 +145,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Removes the Grafana Enterprise license from a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.disassociate_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.disassociate_license)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#disassociate_license)
         """
     def generate_presigned_url(
@@ -158,7 +158,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#generate_presigned_url)
         """
     def list_permissions(
@@ -175,7 +175,7 @@ class ManagedGrafanaClient(BaseClient):
         Lists the users and groups who have the Grafana `Admin` and `Editor` roles in
         this workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.list_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.list_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_permissions)
         """
     def list_workspaces(
@@ -185,7 +185,7 @@ class ManagedGrafanaClient(BaseClient):
         Returns a list of Amazon Managed Grafana workspaces in the account, with some
         information about each workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.list_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.list_workspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_workspaces)
         """
     def update_permissions(
@@ -194,7 +194,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Updates which users in a workspace have the Grafana `Admin` or `Editor` roles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.update_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.update_permissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_permissions)
         """
     def update_workspace(
@@ -215,7 +215,7 @@ class ManagedGrafanaClient(BaseClient):
         """
         Modifies an existing Amazon Managed Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.update_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.update_workspace)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace)
         """
     def update_workspace_authentication(
@@ -229,7 +229,7 @@ class ManagedGrafanaClient(BaseClient):
         Use this operation to define the identity provider (IdP) that this workspace
         authenticates users from, using SAML.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_authentication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_authentication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace_authentication)
         """
     @overload
@@ -237,12 +237,12 @@ class ManagedGrafanaClient(BaseClient):
         self, operation_name: Literal["list_permissions"]
     ) -> ListPermissionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listpermissionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_workspaces"]) -> ListWorkspacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspacespaginator)
         """

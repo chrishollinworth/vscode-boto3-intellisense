@@ -32,6 +32,7 @@ else:
 __all__ = (
     "AddPermissionInputRequestTypeDef",
     "AddPermissionInputTopicTypeDef",
+    "BatchResultErrorEntryTypeDef",
     "CheckIfPhoneNumberIsOptedOutInputRequestTypeDef",
     "CheckIfPhoneNumberIsOptedOutResponseTypeDef",
     "ConfirmSubscriptionInputRequestTypeDef",
@@ -86,6 +87,10 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PhoneNumberInformationTypeDef",
     "PlatformApplicationTypeDef",
+    "PublishBatchInputRequestTypeDef",
+    "PublishBatchRequestEntryTypeDef",
+    "PublishBatchResponseTypeDef",
+    "PublishBatchResultEntryTypeDef",
     "PublishInputPlatformEndpointTypeDef",
     "PublishInputRequestTypeDef",
     "PublishInputTopicTypeDef",
@@ -137,6 +142,27 @@ AddPermissionInputTopicTypeDef = TypedDict(
         "ActionName": List[str],
     },
 )
+
+_RequiredBatchResultErrorEntryTypeDef = TypedDict(
+    "_RequiredBatchResultErrorEntryTypeDef",
+    {
+        "Id": str,
+        "Code": str,
+        "SenderFault": bool,
+    },
+)
+_OptionalBatchResultErrorEntryTypeDef = TypedDict(
+    "_OptionalBatchResultErrorEntryTypeDef",
+    {
+        "Message": str,
+    },
+    total=False,
+)
+
+class BatchResultErrorEntryTypeDef(
+    _RequiredBatchResultErrorEntryTypeDef, _OptionalBatchResultErrorEntryTypeDef
+):
+    pass
 
 CheckIfPhoneNumberIsOptedOutInputRequestTypeDef = TypedDict(
     "CheckIfPhoneNumberIsOptedOutInputRequestTypeDef",
@@ -698,6 +724,57 @@ PlatformApplicationTypeDef = TypedDict(
     {
         "PlatformApplicationArn": str,
         "Attributes": Dict[str, str],
+    },
+    total=False,
+)
+
+PublishBatchInputRequestTypeDef = TypedDict(
+    "PublishBatchInputRequestTypeDef",
+    {
+        "TopicArn": str,
+        "PublishBatchRequestEntries": List["PublishBatchRequestEntryTypeDef"],
+    },
+)
+
+_RequiredPublishBatchRequestEntryTypeDef = TypedDict(
+    "_RequiredPublishBatchRequestEntryTypeDef",
+    {
+        "Id": str,
+        "Message": str,
+    },
+)
+_OptionalPublishBatchRequestEntryTypeDef = TypedDict(
+    "_OptionalPublishBatchRequestEntryTypeDef",
+    {
+        "Subject": str,
+        "MessageStructure": str,
+        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
+        "MessageDeduplicationId": str,
+        "MessageGroupId": str,
+    },
+    total=False,
+)
+
+class PublishBatchRequestEntryTypeDef(
+    _RequiredPublishBatchRequestEntryTypeDef, _OptionalPublishBatchRequestEntryTypeDef
+):
+    pass
+
+PublishBatchResponseTypeDef = TypedDict(
+    "PublishBatchResponseTypeDef",
+    {
+        "Successful": List["PublishBatchResultEntryTypeDef"],
+        "Failed": List["BatchResultErrorEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PublishBatchResultEntryTypeDef = TypedDict(
+    "PublishBatchResultEntryTypeDef",
+    {
+        "Id": str,
+        "MessageId": str,
+        "SequenceNumber": str,
     },
     total=False,
 )

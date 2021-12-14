@@ -1423,14 +1423,14 @@ ManagedRuleSetVersionTypeDef = TypedDict(
 NotStatementTypeDef = TypedDict(
     "NotStatementTypeDef",
     {
-        "Statement": "StatementTypeDef",
+        "Statement": Dict[str, Any],
     },
 )
 
 OrStatementTypeDef = TypedDict(
     "OrStatementTypeDef",
     {
-        "Statements": List[Dict[str, Any]],
+        "Statements": List["StatementTypeDef"],
     },
 )
 

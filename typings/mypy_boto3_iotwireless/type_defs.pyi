@@ -30,6 +30,7 @@ from .literals import (
     SigningAlgType,
     SupportedRfRegionType,
     WirelessDeviceEventType,
+    WirelessDeviceFrameInfoType,
     WirelessDeviceIdTypeType,
     WirelessDeviceTypeType,
     WirelessGatewayEventType,
@@ -111,6 +112,8 @@ __all__ = (
     "GetMulticastGroupResponseTypeDef",
     "GetMulticastGroupSessionRequestRequestTypeDef",
     "GetMulticastGroupSessionResponseTypeDef",
+    "GetNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    "GetNetworkAnalyzerConfigurationResponseTypeDef",
     "GetPartnerAccountRequestRequestTypeDef",
     "GetPartnerAccountResponseTypeDef",
     "GetResourceEventConfigurationRequestRequestTypeDef",
@@ -212,11 +215,13 @@ __all__ = (
     "TagTypeDef",
     "TestWirelessDeviceRequestRequestTypeDef",
     "TestWirelessDeviceResponseTypeDef",
+    "TraceContentTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDestinationRequestRequestTypeDef",
     "UpdateFuotaTaskRequestRequestTypeDef",
     "UpdateLogLevelsByResourceTypesRequestRequestTypeDef",
     "UpdateMulticastGroupRequestRequestTypeDef",
+    "UpdateNetworkAnalyzerConfigurationRequestRequestTypeDef",
     "UpdatePartnerAccountRequestRequestTypeDef",
     "UpdateResourceEventConfigurationRequestRequestTypeDef",
     "UpdateWirelessDeviceRequestRequestTypeDef",
@@ -874,6 +879,23 @@ GetMulticastGroupSessionResponseTypeDef = TypedDict(
     "GetMulticastGroupSessionResponseTypeDef",
     {
         "LoRaWAN": "LoRaWANMulticastSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetNetworkAnalyzerConfigurationRequestRequestTypeDef = TypedDict(
+    "GetNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    {
+        "ConfigurationName": str,
+    },
+)
+
+GetNetworkAnalyzerConfigurationResponseTypeDef = TypedDict(
+    "GetNetworkAnalyzerConfigurationResponseTypeDef",
+    {
+        "TraceContent": "TraceContentTypeDef",
+        "WirelessDevices": List[str],
+        "WirelessGateways": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1914,6 +1936,15 @@ TestWirelessDeviceResponseTypeDef = TypedDict(
     },
 )
 
+TraceContentTypeDef = TypedDict(
+    "TraceContentTypeDef",
+    {
+        "WirelessDeviceFrameInfo": WirelessDeviceFrameInfoType,
+        "LogLevel": LogLevelType,
+    },
+    total=False,
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -1996,6 +2027,30 @@ _OptionalUpdateMulticastGroupRequestRequestTypeDef = TypedDict(
 class UpdateMulticastGroupRequestRequestTypeDef(
     _RequiredUpdateMulticastGroupRequestRequestTypeDef,
     _OptionalUpdateMulticastGroupRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateNetworkAnalyzerConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    {
+        "ConfigurationName": str,
+    },
+)
+_OptionalUpdateNetworkAnalyzerConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    {
+        "TraceContent": "TraceContentTypeDef",
+        "WirelessDevicesToAdd": List[str],
+        "WirelessDevicesToRemove": List[str],
+        "WirelessGatewaysToAdd": List[str],
+        "WirelessGatewaysToRemove": List[str],
+    },
+    total=False,
+)
+
+class UpdateNetworkAnalyzerConfigurationRequestRequestTypeDef(
+    _RequiredUpdateNetworkAnalyzerConfigurationRequestRequestTypeDef,
+    _OptionalUpdateNetworkAnalyzerConfigurationRequestRequestTypeDef,
 ):
     pass
 

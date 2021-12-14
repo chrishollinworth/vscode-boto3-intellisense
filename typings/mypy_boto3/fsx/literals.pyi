@@ -29,23 +29,33 @@ __all__ = (
     "DataRepositoryTaskFilterNameType",
     "DataRepositoryTaskLifecycleType",
     "DataRepositoryTaskTypeType",
+    "DeleteOpenZFSVolumeOptionType",
     "DescribeBackupsPaginatorName",
     "DescribeFileSystemsPaginatorName",
     "DiskIopsConfigurationModeType",
     "DriveCacheTypeType",
+    "EventTypeType",
     "FileSystemLifecycleType",
     "FileSystemMaintenanceOperationType",
     "FileSystemTypeType",
     "FilterNameType",
     "FlexCacheEndpointTypeType",
     "ListTagsForResourcePaginatorName",
+    "LustreAccessAuditLogLevelType",
     "LustreDeploymentTypeType",
     "OntapDeploymentTypeType",
     "OntapVolumeTypeType",
+    "OpenZFSCopyStrategyType",
+    "OpenZFSDataCompressionTypeType",
+    "OpenZFSDeploymentTypeType",
+    "OpenZFSQuotaTypeType",
     "ReportFormatType",
     "ReportScopeType",
     "ResourceTypeType",
+    "RestoreOpenZFSVolumeOptionType",
     "SecurityStyleType",
+    "SnapshotFilterNameType",
+    "SnapshotLifecycleType",
     "StatusType",
     "StorageTypeType",
     "StorageVirtualMachineFilterNameType",
@@ -64,42 +74,59 @@ AdministrativeActionTypeType = Literal[
     "FILE_SYSTEM_ALIAS_ASSOCIATION",
     "FILE_SYSTEM_ALIAS_DISASSOCIATION",
     "FILE_SYSTEM_UPDATE",
+    "RELEASE_NFS_V3_LOCKS",
+    "SNAPSHOT_UPDATE",
     "STORAGE_OPTIMIZATION",
+    "VOLUME_UPDATE",
 ]
 AliasLifecycleType = Literal["AVAILABLE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"]
-AutoImportPolicyTypeType = Literal["NEW", "NEW_CHANGED", "NONE"]
+AutoImportPolicyTypeType = Literal["NEW", "NEW_CHANGED", "NEW_CHANGED_DELETED", "NONE"]
 BackupLifecycleType = Literal[
     "AVAILABLE", "COPYING", "CREATING", "DELETED", "FAILED", "PENDING", "TRANSFERRING"
 ]
 BackupTypeType = Literal["AUTOMATIC", "AWS_BACKUP", "USER_INITIATED"]
 DataCompressionTypeType = Literal["LZ4", "NONE"]
 DataRepositoryLifecycleType = Literal[
-    "AVAILABLE", "CREATING", "DELETING", "MISCONFIGURED", "UPDATING"
+    "AVAILABLE", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "UPDATING"
 ]
-DataRepositoryTaskFilterNameType = Literal["file-system-id", "task-lifecycle"]
+DataRepositoryTaskFilterNameType = Literal[
+    "data-repository-association-id", "file-system-id", "task-lifecycle"
+]
 DataRepositoryTaskLifecycleType = Literal[
     "CANCELED", "CANCELING", "EXECUTING", "FAILED", "PENDING", "SUCCEEDED"
 ]
-DataRepositoryTaskTypeType = Literal["EXPORT_TO_REPOSITORY"]
+DataRepositoryTaskTypeType = Literal["EXPORT_TO_REPOSITORY", "IMPORT_METADATA_FROM_REPOSITORY"]
+DeleteOpenZFSVolumeOptionType = Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]
 DescribeBackupsPaginatorName = Literal["describe_backups"]
 DescribeFileSystemsPaginatorName = Literal["describe_file_systems"]
 DiskIopsConfigurationModeType = Literal["AUTOMATIC", "USER_PROVISIONED"]
 DriveCacheTypeType = Literal["NONE", "READ"]
+EventTypeType = Literal["CHANGED", "DELETED", "NEW"]
 FileSystemLifecycleType = Literal[
     "AVAILABLE", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "UPDATING"
 ]
 FileSystemMaintenanceOperationType = Literal["BACKING_UP", "PATCHING"]
-FileSystemTypeType = Literal["LUSTRE", "ONTAP", "WINDOWS"]
-FilterNameType = Literal["backup-type", "file-system-id", "file-system-type", "volume-id"]
+FileSystemTypeType = Literal["LUSTRE", "ONTAP", "OPENZFS", "WINDOWS"]
+FilterNameType = Literal[
+    "backup-type", "data-repository-type", "file-system-id", "file-system-type", "volume-id"
+]
 FlexCacheEndpointTypeType = Literal["CACHE", "NONE", "ORIGIN"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
-LustreDeploymentTypeType = Literal["PERSISTENT_1", "SCRATCH_1", "SCRATCH_2"]
+LustreAccessAuditLogLevelType = Literal["DISABLED", "ERROR_ONLY", "WARN_ERROR", "WARN_ONLY"]
+LustreDeploymentTypeType = Literal["PERSISTENT_1", "PERSISTENT_2", "SCRATCH_1", "SCRATCH_2"]
 OntapDeploymentTypeType = Literal["MULTI_AZ_1"]
 OntapVolumeTypeType = Literal["DP", "LS", "RW"]
+OpenZFSCopyStrategyType = Literal["CLONE", "FULL_COPY"]
+OpenZFSDataCompressionTypeType = Literal["NONE", "ZSTD"]
+OpenZFSDeploymentTypeType = Literal["SINGLE_AZ_1"]
+OpenZFSQuotaTypeType = Literal["GROUP", "USER"]
 ReportFormatType = Literal["REPORT_CSV_20191124"]
 ReportScopeType = Literal["FAILED_FILES_ONLY"]
 ResourceTypeType = Literal["FILE_SYSTEM", "VOLUME"]
+RestoreOpenZFSVolumeOptionType = Literal["DELETE_CLONED_VOLUMES", "DELETE_INTERMEDIATE_SNAPSHOTS"]
 SecurityStyleType = Literal["MIXED", "NTFS", "UNIX"]
+SnapshotFilterNameType = Literal["file-system-id", "volume-id"]
+SnapshotLifecycleType = Literal["AVAILABLE", "CREATING", "DELETING", "PENDING"]
 StatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS", "PENDING", "UPDATED_OPTIMIZING"]
 StorageTypeType = Literal["HDD", "SSD"]
 StorageVirtualMachineFilterNameType = Literal["file-system-id"]
@@ -113,9 +140,9 @@ StorageVirtualMachineSubtypeType = Literal[
 TieringPolicyNameType = Literal["ALL", "AUTO", "NONE", "SNAPSHOT_ONLY"]
 VolumeFilterNameType = Literal["file-system-id", "storage-virtual-machine-id"]
 VolumeLifecycleType = Literal[
-    "CREATED", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "PENDING"
+    "AVAILABLE", "CREATED", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "PENDING"
 ]
-VolumeTypeType = Literal["ONTAP"]
+VolumeTypeType = Literal["ONTAP", "OPENZFS"]
 WindowsAccessAuditLogLevelType = Literal[
     "DISABLED", "FAILURE_ONLY", "SUCCESS_AND_FAILURE", "SUCCESS_ONLY"
 ]

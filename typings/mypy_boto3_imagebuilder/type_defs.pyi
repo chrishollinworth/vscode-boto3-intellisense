@@ -1308,6 +1308,8 @@ LaunchPermissionConfigurationTypeDef = TypedDict(
     {
         "userIds": List[str],
         "userGroups": List[str],
+        "organizationArns": List[str],
+        "organizationalUnitArns": List[str],
     },
     total=False,
 )

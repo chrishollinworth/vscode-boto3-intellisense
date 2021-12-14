@@ -19,6 +19,9 @@ from .literals import (
     AgentStatusStateType,
     AgentStatusTypeType,
     ChannelType,
+    ContactFlowModuleStateType,
+    ContactFlowModuleStatusType,
+    ContactFlowStateType,
     ContactFlowTypeType,
     ContactInitiationMethodType,
     CurrentMetricNameType,
@@ -76,11 +79,15 @@ __all__ = (
     "AttributeTypeDef",
     "ChatMessageTypeDef",
     "ChatStreamingConfigurationTypeDef",
+    "ContactFlowModuleSummaryTypeDef",
+    "ContactFlowModuleTypeDef",
     "ContactFlowSummaryTypeDef",
     "ContactFlowTypeDef",
     "ContactTypeDef",
     "CreateAgentStatusRequestRequestTypeDef",
     "CreateAgentStatusResponseTypeDef",
+    "CreateContactFlowModuleRequestRequestTypeDef",
+    "CreateContactFlowModuleResponseTypeDef",
     "CreateContactFlowRequestRequestTypeDef",
     "CreateContactFlowResponseTypeDef",
     "CreateHoursOfOperationRequestRequestTypeDef",
@@ -107,6 +114,8 @@ __all__ = (
     "CurrentMetricDataTypeDef",
     "CurrentMetricResultTypeDef",
     "CurrentMetricTypeDef",
+    "DeleteContactFlowModuleRequestRequestTypeDef",
+    "DeleteContactFlowRequestRequestTypeDef",
     "DeleteHoursOfOperationRequestRequestTypeDef",
     "DeleteInstanceRequestRequestTypeDef",
     "DeleteIntegrationAssociationRequestRequestTypeDef",
@@ -117,6 +126,8 @@ __all__ = (
     "DeleteUserRequestRequestTypeDef",
     "DescribeAgentStatusRequestRequestTypeDef",
     "DescribeAgentStatusResponseTypeDef",
+    "DescribeContactFlowModuleRequestRequestTypeDef",
+    "DescribeContactFlowModuleResponseTypeDef",
     "DescribeContactFlowRequestRequestTypeDef",
     "DescribeContactFlowResponseTypeDef",
     "DescribeContactRequestRequestTypeDef",
@@ -193,6 +204,8 @@ __all__ = (
     "ListApprovedOriginsResponseTypeDef",
     "ListBotsRequestRequestTypeDef",
     "ListBotsResponseTypeDef",
+    "ListContactFlowModulesRequestRequestTypeDef",
+    "ListContactFlowModulesResponseTypeDef",
     "ListContactFlowsRequestRequestTypeDef",
     "ListContactFlowsResponseTypeDef",
     "ListContactReferencesRequestRequestTypeDef",
@@ -286,6 +299,9 @@ __all__ = (
     "UpdateAgentStatusRequestRequestTypeDef",
     "UpdateContactAttributesRequestRequestTypeDef",
     "UpdateContactFlowContentRequestRequestTypeDef",
+    "UpdateContactFlowMetadataRequestRequestTypeDef",
+    "UpdateContactFlowModuleContentRequestRequestTypeDef",
+    "UpdateContactFlowModuleMetadataRequestRequestTypeDef",
     "UpdateContactFlowNameRequestRequestTypeDef",
     "UpdateContactRequestRequestTypeDef",
     "UpdateContactScheduleRequestRequestTypeDef",
@@ -494,6 +510,32 @@ ChatStreamingConfigurationTypeDef = TypedDict(
     },
 )
 
+ContactFlowModuleSummaryTypeDef = TypedDict(
+    "ContactFlowModuleSummaryTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "State": ContactFlowModuleStateType,
+    },
+    total=False,
+)
+
+ContactFlowModuleTypeDef = TypedDict(
+    "ContactFlowModuleTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Content": str,
+        "Description": str,
+        "State": ContactFlowModuleStateType,
+        "Status": ContactFlowModuleStatusType,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
 ContactFlowSummaryTypeDef = TypedDict(
     "ContactFlowSummaryTypeDef",
     {
@@ -501,6 +543,7 @@ ContactFlowSummaryTypeDef = TypedDict(
         "Arn": str,
         "Name": str,
         "ContactFlowType": ContactFlowTypeType,
+        "ContactFlowState": ContactFlowStateType,
     },
     total=False,
 )
@@ -512,6 +555,7 @@ ContactFlowTypeDef = TypedDict(
         "Id": str,
         "Name": str,
         "Type": ContactFlowTypeType,
+        "State": ContactFlowStateType,
         "Description": str,
         "Content": str,
         "Tags": Dict[str, str],
@@ -568,6 +612,39 @@ CreateAgentStatusResponseTypeDef = TypedDict(
     {
         "AgentStatusARN": str,
         "AgentStatusId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateContactFlowModuleRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateContactFlowModuleRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Name": str,
+        "Content": str,
+    },
+)
+_OptionalCreateContactFlowModuleRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateContactFlowModuleRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateContactFlowModuleRequestRequestTypeDef(
+    _RequiredCreateContactFlowModuleRequestRequestTypeDef,
+    _OptionalCreateContactFlowModuleRequestRequestTypeDef,
+):
+    pass
+
+CreateContactFlowModuleResponseTypeDef = TypedDict(
+    "CreateContactFlowModuleResponseTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -969,6 +1046,22 @@ CurrentMetricTypeDef = TypedDict(
     total=False,
 )
 
+DeleteContactFlowModuleRequestRequestTypeDef = TypedDict(
+    "DeleteContactFlowModuleRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactFlowModuleId": str,
+    },
+)
+
+DeleteContactFlowRequestRequestTypeDef = TypedDict(
+    "DeleteContactFlowRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactFlowId": str,
+    },
+)
+
 DeleteHoursOfOperationRequestRequestTypeDef = TypedDict(
     "DeleteHoursOfOperationRequestRequestTypeDef",
     {
@@ -1045,6 +1138,22 @@ DescribeAgentStatusResponseTypeDef = TypedDict(
     "DescribeAgentStatusResponseTypeDef",
     {
         "AgentStatus": "AgentStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeContactFlowModuleRequestRequestTypeDef = TypedDict(
+    "DescribeContactFlowModuleRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactFlowModuleId": str,
+    },
+)
+
+DescribeContactFlowModuleResponseTypeDef = TypedDict(
+    "DescribeContactFlowModuleResponseTypeDef",
+    {
+        "ContactFlowModule": "ContactFlowModuleTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1819,6 +1928,37 @@ ListBotsResponseTypeDef = TypedDict(
     "ListBotsResponseTypeDef",
     {
         "LexBots": List["LexBotConfigTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListContactFlowModulesRequestRequestTypeDef = TypedDict(
+    "_RequiredListContactFlowModulesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalListContactFlowModulesRequestRequestTypeDef = TypedDict(
+    "_OptionalListContactFlowModulesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "ContactFlowModuleState": ContactFlowModuleStateType,
+    },
+    total=False,
+)
+
+class ListContactFlowModulesRequestRequestTypeDef(
+    _RequiredListContactFlowModulesRequestRequestTypeDef,
+    _OptionalListContactFlowModulesRequestRequestTypeDef,
+):
+    pass
+
+ListContactFlowModulesResponseTypeDef = TypedDict(
+    "ListContactFlowModulesResponseTypeDef",
+    {
+        "ContactFlowModulesSummaryList": List["ContactFlowModuleSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -3026,6 +3166,61 @@ UpdateContactFlowContentRequestRequestTypeDef = TypedDict(
         "Content": str,
     },
 )
+
+_RequiredUpdateContactFlowMetadataRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateContactFlowMetadataRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactFlowId": str,
+    },
+)
+_OptionalUpdateContactFlowMetadataRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateContactFlowMetadataRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "ContactFlowState": ContactFlowStateType,
+    },
+    total=False,
+)
+
+class UpdateContactFlowMetadataRequestRequestTypeDef(
+    _RequiredUpdateContactFlowMetadataRequestRequestTypeDef,
+    _OptionalUpdateContactFlowMetadataRequestRequestTypeDef,
+):
+    pass
+
+UpdateContactFlowModuleContentRequestRequestTypeDef = TypedDict(
+    "UpdateContactFlowModuleContentRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactFlowModuleId": str,
+        "Content": str,
+    },
+)
+
+_RequiredUpdateContactFlowModuleMetadataRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateContactFlowModuleMetadataRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactFlowModuleId": str,
+    },
+)
+_OptionalUpdateContactFlowModuleMetadataRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateContactFlowModuleMetadataRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "State": ContactFlowModuleStateType,
+    },
+    total=False,
+)
+
+class UpdateContactFlowModuleMetadataRequestRequestTypeDef(
+    _RequiredUpdateContactFlowModuleMetadataRequestRequestTypeDef,
+    _OptionalUpdateContactFlowModuleMetadataRequestRequestTypeDef,
+):
+    pass
 
 _RequiredUpdateContactFlowNameRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateContactFlowNameRequestRequestTypeDef",

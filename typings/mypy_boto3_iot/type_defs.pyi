@@ -42,6 +42,7 @@ from .literals import (
     DayOfWeekType,
     DetectMitigationActionExecutionStatusType,
     DetectMitigationActionsTaskStatusType,
+    DeviceDefenderIndexingModeType,
     DimensionValueOperatorType,
     DomainConfigurationStatusType,
     DomainTypeType,
@@ -59,6 +60,7 @@ from .literals import (
     MessageFormatType,
     MitigationActionTypeType,
     ModelStatusType,
+    NamedShadowIndexingModeType,
     OTAUpdateStatusType,
     ProtocolType,
     ReportTypeType,
@@ -280,6 +282,8 @@ __all__ = (
     "DescribeJobResponseTypeDef",
     "DescribeJobTemplateRequestRequestTypeDef",
     "DescribeJobTemplateResponseTypeDef",
+    "DescribeManagedJobTemplateRequestRequestTypeDef",
+    "DescribeManagedJobTemplateResponseTypeDef",
     "DescribeMitigationActionRequestRequestTypeDef",
     "DescribeMitigationActionResponseTypeDef",
     "DescribeProvisioningTemplateRequestRequestTypeDef",
@@ -312,6 +316,7 @@ __all__ = (
     "DetectMitigationActionsTaskSummaryTypeDef",
     "DetectMitigationActionsTaskTargetTypeDef",
     "DisableTopicRuleRequestRequestTypeDef",
+    "DocumentParameterTypeDef",
     "DomainConfigurationSummaryTypeDef",
     "DynamoDBActionTypeDef",
     "DynamoDBv2ActionTypeDef",
@@ -426,6 +431,8 @@ __all__ = (
     "ListJobTemplatesResponseTypeDef",
     "ListJobsRequestRequestTypeDef",
     "ListJobsResponseTypeDef",
+    "ListManagedJobTemplatesRequestRequestTypeDef",
+    "ListManagedJobTemplatesResponseTypeDef",
     "ListMitigationActionsRequestRequestTypeDef",
     "ListMitigationActionsResponseTypeDef",
     "ListOTAUpdatesRequestRequestTypeDef",
@@ -492,6 +499,7 @@ __all__ = (
     "LogTargetTypeDef",
     "LoggingOptionsPayloadTypeDef",
     "MachineLearningDetectionConfigTypeDef",
+    "ManagedJobTemplateSummaryTypeDef",
     "MetricDimensionTypeDef",
     "MetricToRetainTypeDef",
     "MetricValueTypeDef",
@@ -1107,6 +1115,7 @@ AuthorizerDescriptionTypeDef = TypedDict(
         "creationDate": datetime,
         "lastModifiedDate": datetime,
         "signingDisabled": bool,
+        "enableCachingForHttp": bool,
     },
     total=False,
 )
@@ -1535,6 +1544,7 @@ _OptionalCreateAuthorizerRequestRequestTypeDef = TypedDict(
         "status": AuthorizerStatusType,
         "tags": List["TagTypeDef"],
         "signingDisabled": bool,
+        "enableCachingForHttp": bool,
     },
     total=False,
 )
@@ -1805,6 +1815,7 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
         "tags": List["TagTypeDef"],
         "namespaceId": str,
         "jobTemplateArn": str,
+        "documentParameters": Dict[str, str],
     },
     total=False,
 )
@@ -3119,6 +3130,40 @@ DescribeJobTemplateResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeManagedJobTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeManagedJobTemplateRequestRequestTypeDef",
+    {
+        "templateName": str,
+    },
+)
+_OptionalDescribeManagedJobTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeManagedJobTemplateRequestRequestTypeDef",
+    {
+        "templateVersion": str,
+    },
+    total=False,
+)
+
+class DescribeManagedJobTemplateRequestRequestTypeDef(
+    _RequiredDescribeManagedJobTemplateRequestRequestTypeDef,
+    _OptionalDescribeManagedJobTemplateRequestRequestTypeDef,
+):
+    pass
+
+DescribeManagedJobTemplateResponseTypeDef = TypedDict(
+    "DescribeManagedJobTemplateResponseTypeDef",
+    {
+        "templateName": str,
+        "templateArn": str,
+        "description": str,
+        "templateVersion": str,
+        "environments": List[str],
+        "documentParameters": List["DocumentParameterTypeDef"],
+        "document": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeMitigationActionRequestRequestTypeDef = TypedDict(
     "DescribeMitigationActionRequestRequestTypeDef",
     {
@@ -3447,6 +3492,18 @@ DisableTopicRuleRequestRequestTypeDef = TypedDict(
     {
         "ruleName": str,
     },
+)
+
+DocumentParameterTypeDef = TypedDict(
+    "DocumentParameterTypeDef",
+    {
+        "key": str,
+        "description": str,
+        "regex": str,
+        "example": str,
+        "optional": bool,
+    },
+    total=False,
 )
 
 DomainConfigurationSummaryTypeDef = TypedDict(
@@ -4149,6 +4206,7 @@ JobTypeDef = TypedDict(
         "timeoutConfig": "TimeoutConfigTypeDef",
         "namespaceId": str,
         "jobTemplateArn": str,
+        "documentParameters": Dict[str, str],
     },
     total=False,
 )
@@ -4756,6 +4814,25 @@ ListJobsResponseTypeDef = TypedDict(
     "ListJobsResponseTypeDef",
     {
         "jobs": List["JobSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListManagedJobTemplatesRequestRequestTypeDef = TypedDict(
+    "ListManagedJobTemplatesRequestRequestTypeDef",
+    {
+        "templateName": str,
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListManagedJobTemplatesResponseTypeDef = TypedDict(
+    "ListManagedJobTemplatesResponseTypeDef",
+    {
+        "managedJobTemplates": List["ManagedJobTemplateSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -5565,6 +5642,18 @@ MachineLearningDetectionConfigTypeDef = TypedDict(
     {
         "confidenceLevel": ConfidenceLevelType,
     },
+)
+
+ManagedJobTemplateSummaryTypeDef = TypedDict(
+    "ManagedJobTemplateSummaryTypeDef",
+    {
+        "templateArn": str,
+        "templateName": str,
+        "description": str,
+        "environments": List[str],
+        "templateVersion": str,
+    },
+    total=False,
 )
 
 _RequiredMetricDimensionTypeDef = TypedDict(
@@ -6728,6 +6817,7 @@ ThingDocumentTypeDef = TypedDict(
         "thingGroupNames": List[str],
         "attributes": Dict[str, str],
         "shadow": str,
+        "deviceDefender": str,
         "connectivity": "ThingConnectivityTypeDef",
     },
     total=False,
@@ -6794,6 +6884,8 @@ _OptionalThingIndexingConfigurationTypeDef = TypedDict(
     "_OptionalThingIndexingConfigurationTypeDef",
     {
         "thingConnectivityIndexingMode": ThingConnectivityIndexingModeType,
+        "deviceDefenderIndexingMode": DeviceDefenderIndexingModeType,
+        "namedShadowIndexingMode": NamedShadowIndexingModeType,
         "managedFields": List["FieldTypeDef"],
         "customFields": List["FieldTypeDef"],
     },
@@ -7069,6 +7161,7 @@ _OptionalUpdateAuthorizerRequestRequestTypeDef = TypedDict(
         "tokenKeyName": str,
         "tokenSigningPublicKeys": Dict[str, str],
         "status": AuthorizerStatusType,
+        "enableCachingForHttp": bool,
     },
     total=False,
 )

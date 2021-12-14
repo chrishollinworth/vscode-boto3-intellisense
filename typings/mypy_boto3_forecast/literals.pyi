@@ -35,10 +35,13 @@ __all__ = (
     "ListPredictorsPaginatorName",
     "OptimizationMetricType",
     "ScalingTypeType",
+    "StateType",
+    "TimePointGranularityType",
+    "TimeSeriesGranularityType",
 )
 
 AttributeTypeType = Literal["float", "geolocation", "integer", "string", "timestamp"]
-AutoMLOverrideStrategyType = Literal["LatencyOptimized"]
+AutoMLOverrideStrategyType = Literal["AccuracyOptimized", "LatencyOptimized"]
 DatasetTypeType = Literal["ITEM_METADATA", "RELATED_TIME_SERIES", "TARGET_TIME_SERIES"]
 DomainType = Literal[
     "CUSTOM", "EC2_CAPACITY", "INVENTORY_PLANNING", "METRICS", "RETAIL", "WEB_TRAFFIC", "WORK_FORCE"
@@ -55,3 +58,6 @@ ListPredictorBacktestExportJobsPaginatorName = Literal["list_predictor_backtest_
 ListPredictorsPaginatorName = Literal["list_predictors"]
 OptimizationMetricType = Literal["AverageWeightedQuantileLoss", "MAPE", "MASE", "RMSE", "WAPE"]
 ScalingTypeType = Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]
+StateType = Literal["Active", "Deleted"]
+TimePointGranularityType = Literal["ALL", "SPECIFIC"]
+TimeSeriesGranularityType = Literal["ALL", "SPECIFIC"]

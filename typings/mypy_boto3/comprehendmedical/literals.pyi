@@ -34,6 +34,11 @@ __all__ = (
     "RxNormEntityCategoryType",
     "RxNormEntityTypeType",
     "RxNormTraitNameType",
+    "SNOMEDCTAttributeTypeType",
+    "SNOMEDCTEntityCategoryType",
+    "SNOMEDCTEntityTypeType",
+    "SNOMEDCTRelationshipTypeType",
+    "SNOMEDCTTraitNameType",
 )
 
 AttributeNameType = Literal["DIAGNOSIS", "NEGATION", "SIGN", "SYMPTOM"]
@@ -47,12 +52,15 @@ EntitySubTypeType = Literal[
     "DIRECTION",
     "DOSAGE",
     "DURATION",
+    "DX_NAME",
     "EMAIL",
     "FORM",
     "FREQUENCY",
     "GENERIC_NAME",
+    "ID",
     "IDENTIFIER",
     "NAME",
+    "PHONE_OR_FAX",
     "PROCEDURE_NAME",
     "PROFESSION",
     "QUALITY",
@@ -62,6 +70,7 @@ EntitySubTypeType = Literal[
     "STRENGTH",
     "SYSTEM_ORGAN_SITE",
     "TEST_NAME",
+    "TEST_UNIT",
     "TEST_UNITS",
     "TEST_VALUE",
     "TIME_EXPRESSION",
@@ -120,6 +129,7 @@ RelationshipTypeType = Literal[
     "ROUTE_OR_MODE",
     "STRENGTH",
     "SYSTEM_ORGAN_SITE",
+    "TEST_UNIT",
     "TEST_UNITS",
     "TEST_VALUE",
     "WITH_DOSAGE",
@@ -130,3 +140,12 @@ RxNormAttributeTypeType = Literal[
 RxNormEntityCategoryType = Literal["MEDICATION"]
 RxNormEntityTypeType = Literal["BRAND_NAME", "GENERIC_NAME"]
 RxNormTraitNameType = Literal["NEGATION"]
+SNOMEDCTAttributeTypeType = Literal[
+    "ACUITY", "DIRECTION", "QUALITY", "SYSTEM_ORGAN_SITE", "TEST_UNIT", "TEST_VALUE"
+]
+SNOMEDCTEntityCategoryType = Literal["ANATOMY", "MEDICAL_CONDITION", "TEST_TREATMENT_PROCEDURE"]
+SNOMEDCTEntityTypeType = Literal["DX_NAME", "PROCEDURE_NAME", "TEST_NAME", "TREATMENT_NAME"]
+SNOMEDCTRelationshipTypeType = Literal[
+    "ACUITY", "DIRECTION", "QUALITY", "SYSTEM_ORGAN_SITE", "TEST_UNITS", "TEST_VALUE"
+]
+SNOMEDCTTraitNameType = Literal["DIAGNOSIS", "NEGATION", "SIGN", "SYMPTOM"]

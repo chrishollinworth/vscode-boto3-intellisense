@@ -27,11 +27,13 @@ from .literals import (
     ComputeLocationType,
     ConfigurationStateType,
     DetailedErrorCodeType,
+    DisassociatedDataStorageStateType,
     EncryptionTypeType,
     ErrorCodeType,
     ForwardingConfigStateType,
     IdentityTypeType,
     ListAssetsFilterType,
+    ListTimeSeriesTypeType,
     LoggingLevelType,
     MonitorErrorCodeType,
     PermissionType,
@@ -77,6 +79,7 @@ __all__ = (
     "AssetStatusTypeDef",
     "AssetSummaryTypeDef",
     "AssociateAssetsRequestRequestTypeDef",
+    "AssociateTimeSeriesToAssetPropertyRequestRequestTypeDef",
     "AssociatedAssetsSummaryTypeDef",
     "AttributeTypeDef",
     "BatchAssociateProjectAssetsRequestRequestTypeDef",
@@ -116,6 +119,7 @@ __all__ = (
     "DeletePortalRequestRequestTypeDef",
     "DeletePortalResponseTypeDef",
     "DeleteProjectRequestRequestTypeDef",
+    "DeleteTimeSeriesRequestRequestTypeDef",
     "DescribeAccessPolicyRequestRequestTypeDef",
     "DescribeAccessPolicyResponseTypeDef",
     "DescribeAssetModelRequestRequestTypeDef",
@@ -137,8 +141,11 @@ __all__ = (
     "DescribeProjectRequestRequestTypeDef",
     "DescribeProjectResponseTypeDef",
     "DescribeStorageConfigurationResponseTypeDef",
+    "DescribeTimeSeriesRequestRequestTypeDef",
+    "DescribeTimeSeriesResponseTypeDef",
     "DetailedErrorTypeDef",
     "DisassociateAssetsRequestRequestTypeDef",
+    "DisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef",
     "ErrorDetailsTypeDef",
     "ExpressionVariableTypeDef",
     "ForwardingConfigTypeDef",
@@ -185,6 +192,8 @@ __all__ = (
     "ListProjectsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTimeSeriesRequestRequestTypeDef",
+    "ListTimeSeriesResponseTypeDef",
     "LoggingOptionsTypeDef",
     "MeasurementProcessingConfigTypeDef",
     "MeasurementTypeDef",
@@ -210,8 +219,10 @@ __all__ = (
     "PutStorageConfigurationResponseTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
+    "RetentionPeriodTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TimeInNanosTypeDef",
+    "TimeSeriesSummaryTypeDef",
     "TransformProcessingConfigTypeDef",
     "TransformTypeDef",
     "TumblingWindowTypeDef",
@@ -618,6 +629,28 @@ _OptionalAssociateAssetsRequestRequestTypeDef = TypedDict(
 
 class AssociateAssetsRequestRequestTypeDef(
     _RequiredAssociateAssetsRequestRequestTypeDef, _OptionalAssociateAssetsRequestRequestTypeDef
+):
+    pass
+
+_RequiredAssociateTimeSeriesToAssetPropertyRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateTimeSeriesToAssetPropertyRequestRequestTypeDef",
+    {
+        "alias": str,
+        "assetId": str,
+        "propertyId": str,
+    },
+)
+_OptionalAssociateTimeSeriesToAssetPropertyRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateTimeSeriesToAssetPropertyRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class AssociateTimeSeriesToAssetPropertyRequestRequestTypeDef(
+    _RequiredAssociateTimeSeriesToAssetPropertyRequestRequestTypeDef,
+    _OptionalAssociateTimeSeriesToAssetPropertyRequestRequestTypeDef,
 ):
     pass
 
@@ -1171,6 +1204,17 @@ class DeleteProjectRequestRequestTypeDef(
 ):
     pass
 
+DeleteTimeSeriesRequestRequestTypeDef = TypedDict(
+    "DeleteTimeSeriesRequestRequestTypeDef",
+    {
+        "alias": str,
+        "assetId": str,
+        "propertyId": str,
+        "clientToken": str,
+    },
+    total=False,
+)
+
 DescribeAccessPolicyRequestRequestTypeDef = TypedDict(
     "DescribeAccessPolicyRequestRequestTypeDef",
     {
@@ -1395,8 +1439,35 @@ DescribeStorageConfigurationResponseTypeDef = TypedDict(
     {
         "storageType": StorageTypeType,
         "multiLayerStorage": "MultiLayerStorageTypeDef",
+        "disassociatedDataStorage": DisassociatedDataStorageStateType,
+        "retentionPeriod": "RetentionPeriodTypeDef",
         "configurationStatus": "ConfigurationStatusTypeDef",
         "lastUpdateDate": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTimeSeriesRequestRequestTypeDef = TypedDict(
+    "DescribeTimeSeriesRequestRequestTypeDef",
+    {
+        "alias": str,
+        "assetId": str,
+        "propertyId": str,
+    },
+    total=False,
+)
+
+DescribeTimeSeriesResponseTypeDef = TypedDict(
+    "DescribeTimeSeriesResponseTypeDef",
+    {
+        "assetId": str,
+        "propertyId": str,
+        "alias": str,
+        "timeSeriesId": str,
+        "dataType": PropertyDataTypeType,
+        "dataTypeSpec": str,
+        "timeSeriesCreationDate": datetime,
+        "timeSeriesLastUpdateDate": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1428,6 +1499,28 @@ _OptionalDisassociateAssetsRequestRequestTypeDef = TypedDict(
 class DisassociateAssetsRequestRequestTypeDef(
     _RequiredDisassociateAssetsRequestRequestTypeDef,
     _OptionalDisassociateAssetsRequestRequestTypeDef,
+):
+    pass
+
+_RequiredDisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef = TypedDict(
+    "_RequiredDisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef",
+    {
+        "alias": str,
+        "assetId": str,
+        "propertyId": str,
+    },
+)
+_OptionalDisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef = TypedDict(
+    "_OptionalDisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef",
+    {
+        "clientToken": str,
+    },
+    total=False,
+)
+
+class DisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef(
+    _RequiredDisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef,
+    _OptionalDisassociateTimeSeriesFromAssetPropertyRequestRequestTypeDef,
 ):
     pass
 
@@ -1964,6 +2057,27 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListTimeSeriesRequestRequestTypeDef = TypedDict(
+    "ListTimeSeriesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+        "assetId": str,
+        "aliasPrefix": str,
+        "timeSeriesType": ListTimeSeriesTypeType,
+    },
+    total=False,
+)
+
+ListTimeSeriesResponseTypeDef = TypedDict(
+    "ListTimeSeriesResponseTypeDef",
+    {
+        "TimeSeriesSummaries": List["TimeSeriesSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 LoggingOptionsTypeDef = TypedDict(
     "LoggingOptionsTypeDef",
     {
@@ -2230,6 +2344,8 @@ _OptionalPutStorageConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalPutStorageConfigurationRequestRequestTypeDef",
     {
         "multiLayerStorage": "MultiLayerStorageTypeDef",
+        "disassociatedDataStorage": DisassociatedDataStorageStateType,
+        "retentionPeriod": "RetentionPeriodTypeDef",
     },
     total=False,
 )
@@ -2245,6 +2361,8 @@ PutStorageConfigurationResponseTypeDef = TypedDict(
     {
         "storageType": StorageTypeType,
         "multiLayerStorage": "MultiLayerStorageTypeDef",
+        "disassociatedDataStorage": DisassociatedDataStorageStateType,
+        "retentionPeriod": "RetentionPeriodTypeDef",
         "configurationStatus": "ConfigurationStatusTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -2270,6 +2388,15 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RetentionPeriodTypeDef = TypedDict(
+    "RetentionPeriodTypeDef",
+    {
+        "numberOfDays": int,
+        "unlimited": bool,
+    },
+    total=False,
+)
+
 TagResourceRequestRequestTypeDef = TypedDict(
     "TagResourceRequestRequestTypeDef",
     {
@@ -2293,6 +2420,31 @@ _OptionalTimeInNanosTypeDef = TypedDict(
 )
 
 class TimeInNanosTypeDef(_RequiredTimeInNanosTypeDef, _OptionalTimeInNanosTypeDef):
+    pass
+
+_RequiredTimeSeriesSummaryTypeDef = TypedDict(
+    "_RequiredTimeSeriesSummaryTypeDef",
+    {
+        "timeSeriesId": str,
+        "dataType": PropertyDataTypeType,
+        "timeSeriesCreationDate": datetime,
+        "timeSeriesLastUpdateDate": datetime,
+    },
+)
+_OptionalTimeSeriesSummaryTypeDef = TypedDict(
+    "_OptionalTimeSeriesSummaryTypeDef",
+    {
+        "assetId": str,
+        "propertyId": str,
+        "alias": str,
+        "dataTypeSpec": str,
+    },
+    total=False,
+)
+
+class TimeSeriesSummaryTypeDef(
+    _RequiredTimeSeriesSummaryTypeDef, _OptionalTimeSeriesSummaryTypeDef
+):
     pass
 
 _RequiredTransformProcessingConfigTypeDef = TypedDict(

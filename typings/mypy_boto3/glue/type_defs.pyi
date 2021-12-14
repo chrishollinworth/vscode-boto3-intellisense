@@ -651,6 +651,7 @@ _OptionalBatchDeleteTableRequestRequestTypeDef = TypedDict(
     "_OptionalBatchDeleteTableRequestRequestTypeDef",
     {
         "CatalogId": str,
+        "TransactionId": str,
     },
     total=False,
 )
@@ -1842,6 +1843,7 @@ _OptionalCreateTableRequestRequestTypeDef = TypedDict(
     {
         "CatalogId": str,
         "PartitionIndexes": List["PartitionIndexTypeDef"],
+        "TransactionId": str,
     },
     total=False,
 )
@@ -2371,6 +2373,7 @@ _OptionalDeleteTableRequestRequestTypeDef = TypedDict(
     "_OptionalDeleteTableRequestRequestTypeDef",
     {
         "CatalogId": str,
+        "TransactionId": str,
     },
     total=False,
 )
@@ -3405,6 +3408,8 @@ _OptionalGetPartitionsRequestRequestTypeDef = TypedDict(
         "Segment": "SegmentTypeDef",
         "MaxResults": int,
         "ExcludeColumnSchema": bool,
+        "TransactionId": str,
+        "QueryAsOfTime": Union[datetime, str],
     },
     total=False,
 )
@@ -3645,6 +3650,8 @@ _OptionalGetTableRequestRequestTypeDef = TypedDict(
     "_OptionalGetTableRequestRequestTypeDef",
     {
         "CatalogId": str,
+        "TransactionId": str,
+        "QueryAsOfTime": Union[datetime, str],
     },
     total=False,
 )
@@ -3735,6 +3742,8 @@ _OptionalGetTablesRequestRequestTypeDef = TypedDict(
         "Expression": str,
         "NextToken": str,
         "MaxResults": int,
+        "TransactionId": str,
+        "QueryAsOfTime": Union[datetime, str],
     },
     total=False,
 )
@@ -6098,6 +6107,7 @@ _OptionalUpdateTableRequestRequestTypeDef = TypedDict(
     {
         "CatalogId": str,
         "SkipArchive": bool,
+        "TransactionId": str,
     },
     total=False,
 )

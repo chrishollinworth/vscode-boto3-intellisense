@@ -784,13 +784,26 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
-PutDestinationPolicyRequestRequestTypeDef = TypedDict(
-    "PutDestinationPolicyRequestRequestTypeDef",
+_RequiredPutDestinationPolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPutDestinationPolicyRequestRequestTypeDef",
     {
         "destinationName": str,
         "accessPolicy": str,
     },
 )
+_OptionalPutDestinationPolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPutDestinationPolicyRequestRequestTypeDef",
+    {
+        "forceUpdate": bool,
+    },
+    total=False,
+)
+
+class PutDestinationPolicyRequestRequestTypeDef(
+    _RequiredPutDestinationPolicyRequestRequestTypeDef,
+    _OptionalPutDestinationPolicyRequestRequestTypeDef,
+):
+    pass
 
 PutDestinationRequestRequestTypeDef = TypedDict(
     "PutDestinationRequestRequestTypeDef",

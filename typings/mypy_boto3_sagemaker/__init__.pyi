@@ -39,10 +39,13 @@ Usage::
         ListHyperParameterTuningJobsPaginator,
         ListImageVersionsPaginator,
         ListImagesPaginator,
+        ListInferenceRecommendationsJobsPaginator,
         ListLabelingJobsForWorkteamPaginator,
         ListLabelingJobsPaginator,
+        ListLineageGroupsPaginator,
         ListModelBiasJobDefinitionsPaginator,
         ListModelExplainabilityJobDefinitionsPaginator,
+        ListModelMetadataPaginator,
         ListModelPackageGroupsPaginator,
         ListModelPackagesPaginator,
         ListModelQualityJobDefinitionsPaginator,
@@ -121,10 +124,13 @@ Usage::
     list_hyper_parameter_tuning_jobs_paginator: ListHyperParameterTuningJobsPaginator = client.get_paginator("list_hyper_parameter_tuning_jobs")
     list_image_versions_paginator: ListImageVersionsPaginator = client.get_paginator("list_image_versions")
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
+    list_inference_recommendations_jobs_paginator: ListInferenceRecommendationsJobsPaginator = client.get_paginator("list_inference_recommendations_jobs")
     list_labeling_jobs_paginator: ListLabelingJobsPaginator = client.get_paginator("list_labeling_jobs")
     list_labeling_jobs_for_workteam_paginator: ListLabelingJobsForWorkteamPaginator = client.get_paginator("list_labeling_jobs_for_workteam")
+    list_lineage_groups_paginator: ListLineageGroupsPaginator = client.get_paginator("list_lineage_groups")
     list_model_bias_job_definitions_paginator: ListModelBiasJobDefinitionsPaginator = client.get_paginator("list_model_bias_job_definitions")
     list_model_explainability_job_definitions_paginator: ListModelExplainabilityJobDefinitionsPaginator = client.get_paginator("list_model_explainability_job_definitions")
+    list_model_metadata_paginator: ListModelMetadataPaginator = client.get_paginator("list_model_metadata")
     list_model_package_groups_paginator: ListModelPackageGroupsPaginator = client.get_paginator("list_model_package_groups")
     list_model_packages_paginator: ListModelPackagesPaginator = client.get_paginator("list_model_packages")
     list_model_quality_job_definitions_paginator: ListModelQualityJobDefinitionsPaginator = client.get_paginator("list_model_quality_job_definitions")
@@ -179,10 +185,13 @@ from .paginator import (
     ListHyperParameterTuningJobsPaginator,
     ListImagesPaginator,
     ListImageVersionsPaginator,
+    ListInferenceRecommendationsJobsPaginator,
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
+    ListLineageGroupsPaginator,
     ListModelBiasJobDefinitionsPaginator,
     ListModelExplainabilityJobDefinitionsPaginator,
+    ListModelMetadataPaginator,
     ListModelPackageGroupsPaginator,
     ListModelPackagesPaginator,
     ListModelQualityJobDefinitionsPaginator,
@@ -261,10 +270,13 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginator",
     "ListImageVersionsPaginator",
     "ListImagesPaginator",
+    "ListInferenceRecommendationsJobsPaginator",
     "ListLabelingJobsForWorkteamPaginator",
     "ListLabelingJobsPaginator",
+    "ListLineageGroupsPaginator",
     "ListModelBiasJobDefinitionsPaginator",
     "ListModelExplainabilityJobDefinitionsPaginator",
+    "ListModelMetadataPaginator",
     "ListModelPackageGroupsPaginator",
     "ListModelPackagesPaginator",
     "ListModelQualityJobDefinitionsPaginator",

@@ -10,6 +10,7 @@ Usage::
         KafkaClient,
         ListClusterOperationsPaginator,
         ListClustersPaginator,
+        ListClustersV2Paginator,
         ListConfigurationRevisionsPaginator,
         ListConfigurationsPaginator,
         ListKafkaVersionsPaginator,
@@ -24,6 +25,7 @@ Usage::
 
     list_cluster_operations_paginator: ListClusterOperationsPaginator = client.get_paginator("list_cluster_operations")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
+    list_clusters_v2_paginator: ListClustersV2Paginator = client.get_paginator("list_clusters_v2")
     list_configuration_revisions_paginator: ListConfigurationRevisionsPaginator = client.get_paginator("list_configuration_revisions")
     list_configurations_paginator: ListConfigurationsPaginator = client.get_paginator("list_configurations")
     list_kafka_versions_paginator: ListKafkaVersionsPaginator = client.get_paginator("list_kafka_versions")
@@ -35,6 +37,7 @@ from .client import KafkaClient
 from .paginator import (
     ListClusterOperationsPaginator,
     ListClustersPaginator,
+    ListClustersV2Paginator,
     ListConfigurationRevisionsPaginator,
     ListConfigurationsPaginator,
     ListKafkaVersionsPaginator,
@@ -49,6 +52,7 @@ __all__ = (
     "KafkaClient",
     "ListClusterOperationsPaginator",
     "ListClustersPaginator",
+    "ListClustersV2Paginator",
     "ListConfigurationRevisionsPaginator",
     "ListConfigurationsPaginator",
     "ListKafkaVersionsPaginator",

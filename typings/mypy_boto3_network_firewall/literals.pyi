@@ -29,7 +29,9 @@ __all__ = (
     "ListTagsForResourcePaginatorName",
     "LogDestinationTypeType",
     "LogTypeType",
+    "OverrideActionType",
     "PerObjectSyncStatusType",
+    "ResourceManagedStatusType",
     "ResourceStatusType",
     "RuleGroupTypeType",
     "RuleOrderType",
@@ -50,7 +52,9 @@ ListRuleGroupsPaginatorName = Literal["list_rule_groups"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LogDestinationTypeType = Literal["CloudWatchLogs", "KinesisDataFirehose", "S3"]
 LogTypeType = Literal["ALERT", "FLOW"]
+OverrideActionType = Literal["DROP_TO_ALERT"]
 PerObjectSyncStatusType = Literal["IN_SYNC", "PENDING"]
+ResourceManagedStatusType = Literal["ACCOUNT", "MANAGED"]
 ResourceStatusType = Literal["ACTIVE", "DELETING"]
 RuleGroupTypeType = Literal["STATEFUL", "STATELESS"]
 RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]

@@ -6,10 +6,12 @@ alexaforbusiness
 amp
 amplify
 amplifybackend
+amplifyuibuilder
 apigateway
 apigatewaymanagementapi
 apigatewayv2
 appconfig
+appconfigdata
 appflow
 appintegrations
 application_autoscaling
@@ -24,6 +26,7 @@ auditmanager
 autoscaling
 autoscaling_plans
 backup
+backup_gateway
 batch
 braket
 budgets
@@ -78,6 +81,7 @@ discovery
 dlm
 dms
 docdb
+drs
 ds
 dynamodb
 dynamodbstreams
@@ -99,6 +103,7 @@ emr
 emr_containers
 es
 events
+evidently
 finspace
 finspace_data
 firehose
@@ -125,6 +130,7 @@ identitystore
 imagebuilder
 importexport
 inspector
+inspector2
 iot
 iot_data
 iot_jobs_data
@@ -138,6 +144,7 @@ iotfleethub
 iotsecuretunneling
 iotsitewise
 iotthingsgraph
+iotwinmaker
 iotwireless
 ivs
 kafka
@@ -183,6 +190,7 @@ memorydb
 meteringmarketplace
 mgh
 mgn
+migrationhub_refactor_spaces
 migrationhub_config
 migrationhubstrategy
 mobile
@@ -213,6 +221,7 @@ qldb
 qldb_session
 quicksight
 ram
+rbin
 rds
 rds_data
 redshift
@@ -228,6 +237,7 @@ route53_recovery_control_config
 route53_recovery_readiness
 route53domains
 route53resolver
+rum
 s3
 s3control
 s3outposts
@@ -285,4 +295,5 @@ worklink
 workmail
 workmailmessageflow
 workspaces
+workspaces_web
 xray

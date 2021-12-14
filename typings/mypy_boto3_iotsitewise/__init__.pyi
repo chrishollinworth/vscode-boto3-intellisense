@@ -25,6 +25,7 @@ Usage::
         ListPortalsPaginator,
         ListProjectAssetsPaginator,
         ListProjectsPaginator,
+        ListTimeSeriesPaginator,
         PortalActiveWaiter,
         PortalNotExistsWaiter,
     )
@@ -54,6 +55,7 @@ Usage::
     list_portals_paginator: ListPortalsPaginator = client.get_paginator("list_portals")
     list_project_assets_paginator: ListProjectAssetsPaginator = client.get_paginator("list_project_assets")
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
+    list_time_series_paginator: ListTimeSeriesPaginator = client.get_paginator("list_time_series")
     ```
 """
 from .client import IoTSiteWiseClient
@@ -71,6 +73,7 @@ from .paginator import (
     ListPortalsPaginator,
     ListProjectAssetsPaginator,
     ListProjectsPaginator,
+    ListTimeSeriesPaginator,
 )
 from .waiter import (
     AssetActiveWaiter,
@@ -103,6 +106,7 @@ __all__ = (
     "ListPortalsPaginator",
     "ListProjectAssetsPaginator",
     "ListProjectsPaginator",
+    "ListTimeSeriesPaginator",
     "PortalActiveWaiter",
     "PortalNotExistsWaiter",
 )

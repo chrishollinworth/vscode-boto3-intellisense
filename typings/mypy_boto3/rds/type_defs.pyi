@@ -331,6 +331,8 @@ __all__ = (
     "PurchaseReservedDBInstancesOfferingMessageRequestTypeDef",
     "PurchaseReservedDBInstancesOfferingResultTypeDef",
     "RangeTypeDef",
+    "RebootDBClusterMessageRequestTypeDef",
+    "RebootDBClusterResultTypeDef",
     "RebootDBInstanceMessageRequestTypeDef",
     "RebootDBInstanceResultTypeDef",
     "RecurringChargeTypeDef",
@@ -946,6 +948,17 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "Domain": str,
         "DomainIAMRoleName": str,
         "EnableGlobalWriteForwarding": bool,
+        "DBClusterInstanceClass": str,
+        "AllocatedStorage": int,
+        "StorageType": str,
+        "Iops": int,
+        "PubliclyAccessible": bool,
+        "AutoMinorVersionUpgrade": bool,
+        "MonitoringInterval": int,
+        "MonitoringRoleArn": str,
+        "EnablePerformanceInsights": bool,
+        "PerformanceInsightsKMSKeyId": str,
+        "PerformanceInsightsRetentionPeriod": int,
         "SourceRegion": str,
     },
     total=False,
@@ -1080,6 +1093,7 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "MaxAllocatedStorage": int,
         "EnableCustomerOwnedIp": bool,
         "CustomIamInstanceProfile": str,
+        "BackupTarget": str,
     },
     total=False,
 )
@@ -1728,6 +1742,16 @@ DBClusterTypeDef = TypedDict(
         "GlobalWriteForwardingStatus": WriteForwardingStatusType,
         "GlobalWriteForwardingRequested": bool,
         "PendingModifiedValues": "ClusterPendingModifiedValuesTypeDef",
+        "DBClusterInstanceClass": str,
+        "StorageType": str,
+        "Iops": int,
+        "PubliclyAccessible": bool,
+        "AutoMinorVersionUpgrade": bool,
+        "MonitoringInterval": int,
+        "MonitoringRoleArn": str,
+        "PerformanceInsightsEnabled": bool,
+        "PerformanceInsightsKMSKeyId": str,
+        "PerformanceInsightsRetentionPeriod": int,
     },
     total=False,
 )
@@ -1845,6 +1869,7 @@ DBInstanceAutomatedBackupTypeDef = TypedDict(
         "DBInstanceAutomatedBackupsReplications": List[
             "DBInstanceAutomatedBackupsReplicationTypeDef"
         ],
+        "BackupTarget": str,
     },
     total=False,
 )
@@ -1965,6 +1990,7 @@ DBInstanceTypeDef = TypedDict(
         "AutomationMode": AutomationModeType,
         "ResumeFullAutomationModeTime": datetime,
         "CustomIamInstanceProfile": str,
+        "BackupTarget": str,
     },
     total=False,
 )
@@ -2177,6 +2203,7 @@ DBSnapshotTypeDef = TypedDict(
         "DbiResourceId": str,
         "TagList": List["TagTypeDef"],
         "OriginalSnapshotCreateTime": datetime,
+        "SnapshotTarget": str,
     },
     total=False,
 )
@@ -3646,6 +3673,16 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "EnableHttpEndpoint": bool,
         "CopyTagsToSnapshot": bool,
         "EnableGlobalWriteForwarding": bool,
+        "DBClusterInstanceClass": str,
+        "AllocatedStorage": int,
+        "StorageType": str,
+        "Iops": int,
+        "AutoMinorVersionUpgrade": bool,
+        "MonitoringInterval": int,
+        "MonitoringRoleArn": str,
+        "EnablePerformanceInsights": bool,
+        "PerformanceInsightsKMSKeyId": str,
+        "PerformanceInsightsRetentionPeriod": int,
     },
     total=False,
 )
@@ -4215,6 +4252,7 @@ OrderableDBInstanceOptionTypeDef = TypedDict(
         "OutpostCapable": bool,
         "SupportedActivityStreamModes": List[str],
         "SupportsGlobalDatabases": bool,
+        "SupportsClusters": bool,
     },
     total=False,
 )
@@ -4411,6 +4449,21 @@ RangeTypeDef = TypedDict(
         "Step": int,
     },
     total=False,
+)
+
+RebootDBClusterMessageRequestTypeDef = TypedDict(
+    "RebootDBClusterMessageRequestTypeDef",
+    {
+        "DBClusterIdentifier": str,
+    },
+)
+
+RebootDBClusterResultTypeDef = TypedDict(
+    "RebootDBClusterResultTypeDef",
+    {
+        "DBCluster": "DBClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredRebootDBInstanceMessageRequestTypeDef = TypedDict(
@@ -4757,6 +4810,10 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "CopyTagsToSnapshot": bool,
         "Domain": str,
         "DomainIAMRoleName": str,
+        "DBClusterInstanceClass": str,
+        "StorageType": str,
+        "Iops": int,
+        "PubliclyAccessible": bool,
     },
     total=False,
 )
@@ -4804,6 +4861,10 @@ _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
         "DomainIAMRoleName": str,
         "ScalingConfiguration": "ScalingConfigurationTypeDef",
         "EngineMode": str,
+        "DBClusterInstanceClass": str,
+        "StorageType": str,
+        "PubliclyAccessible": bool,
+        "Iops": int,
     },
     total=False,
 )
@@ -4860,6 +4921,7 @@ _OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
         "DeletionProtection": bool,
         "EnableCustomerOwnedIp": bool,
         "CustomIamInstanceProfile": str,
+        "BackupTarget": str,
     },
     total=False,
 )
@@ -4991,6 +5053,7 @@ _OptionalRestoreDBInstanceToPointInTimeMessageRequestTypeDef = TypedDict(
         "SourceDBInstanceAutomatedBackupsArn": str,
         "EnableCustomerOwnedIp": bool,
         "CustomIamInstanceProfile": str,
+        "BackupTarget": str,
     },
     total=False,
 )

@@ -51,7 +51,7 @@ class Exceptions:
 
 class MacieClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html)
     """
 
@@ -66,7 +66,7 @@ class MacieClient(BaseClient):
         Associates a specified AWS account with Amazon Macie Classic as a member
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.associate_member_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.associate_member_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#associate_member_account)
         """
     def associate_s3_resources(
@@ -76,21 +76,21 @@ class MacieClient(BaseClient):
         Associates specified S3 resources with Amazon Macie Classic for monitoring and
         data classification.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.associate_s3_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.associate_s3_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#associate_s3_resources)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#can_paginate)
         """
     def disassociate_member_account(self, *, memberAccountId: str) -> None:
         """
         Removes the specified member account from Amazon Macie Classic.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.disassociate_member_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.disassociate_member_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#disassociate_member_account)
         """
     def disassociate_s3_resources(
@@ -99,7 +99,7 @@ class MacieClient(BaseClient):
         """
         Removes specified S3 resources from being monitored by Amazon Macie Classic.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.disassociate_s3_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.disassociate_s3_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#disassociate_s3_resources)
         """
     def generate_presigned_url(
@@ -112,7 +112,7 @@ class MacieClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#generate_presigned_url)
         """
     def list_member_accounts(
@@ -122,7 +122,7 @@ class MacieClient(BaseClient):
         Lists all Amazon Macie Classic member accounts for the current Macie Classic
         administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.list_member_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.list_member_accounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#list_member_accounts)
         """
     def list_s3_resources(
@@ -131,7 +131,7 @@ class MacieClient(BaseClient):
         """
         Lists all the S3 resources associated with Amazon Macie Classic.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.list_s3_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.list_s3_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#list_s3_resources)
         """
     def update_s3_resources(
@@ -143,7 +143,7 @@ class MacieClient(BaseClient):
         """
         Updates the classification types for the specified S3 resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Client.update_s3_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Client.update_s3_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/client.html#update_s3_resources)
         """
     @overload
@@ -151,7 +151,7 @@ class MacieClient(BaseClient):
         self, operation_name: Literal["list_member_accounts"]
     ) -> ListMemberAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Paginator.ListMemberAccounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Paginator.ListMemberAccounts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/paginators.html#listmemberaccountspaginator)
         """
     @overload
@@ -159,6 +159,6 @@ class MacieClient(BaseClient):
         self, operation_name: Literal["list_s3_resources"]
     ) -> ListS3ResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/macie.html#Macie.Paginator.ListS3Resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/macie.html#Macie.Paginator.ListS3Resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie/paginators.html#lists3resourcespaginator)
         """

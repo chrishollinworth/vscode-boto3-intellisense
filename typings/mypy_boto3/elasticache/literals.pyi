@@ -27,6 +27,7 @@ __all__ = (
     "CacheClusterAvailableWaiterName",
     "CacheClusterDeletedWaiterName",
     "ChangeTypeType",
+    "DataTieringStatusType",
     "DescribeCacheClustersPaginatorName",
     "DescribeCacheEngineVersionsPaginatorName",
     "DescribeCacheParameterGroupsPaginatorName",
@@ -71,6 +72,7 @@ AutomaticFailoverStatusType = Literal["disabled", "disabling", "enabled", "enabl
 CacheClusterAvailableWaiterName = Literal["cache_cluster_available"]
 CacheClusterDeletedWaiterName = Literal["cache_cluster_deleted"]
 ChangeTypeType = Literal["immediate", "requires-reboot"]
+DataTieringStatusType = Literal["disabled", "enabled"]
 DescribeCacheClustersPaginatorName = Literal["describe_cache_clusters"]
 DescribeCacheEngineVersionsPaginatorName = Literal["describe_cache_engine_versions"]
 DescribeCacheParameterGroupsPaginatorName = Literal["describe_cache_parameter_groups"]

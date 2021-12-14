@@ -6,9 +6,9 @@ Type annotations for chime-sdk-meetings service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_chime_sdk_meetings.literals import TranscribeLanguageCodeType
+    from mypy_boto3_chime_sdk_meetings.literals import MeetingFeatureStatusType
 
-    data: TranscribeLanguageCodeType = "de-DE"
+    data: MeetingFeatureStatusType = "AVAILABLE"
     ```
 """
 import sys
@@ -19,15 +19,23 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "MeetingFeatureStatusType",
+    "TranscribeContentIdentificationTypeType",
+    "TranscribeContentRedactionTypeType",
     "TranscribeLanguageCodeType",
+    "TranscribeMedicalContentIdentificationTypeType",
     "TranscribeMedicalLanguageCodeType",
     "TranscribeMedicalRegionType",
     "TranscribeMedicalSpecialtyType",
     "TranscribeMedicalTypeType",
+    "TranscribePartialResultsStabilityType",
     "TranscribeRegionType",
     "TranscribeVocabularyFilterMethodType",
 )
 
+MeetingFeatureStatusType = Literal["AVAILABLE", "UNAVAILABLE"]
+TranscribeContentIdentificationTypeType = Literal["PII"]
+TranscribeContentRedactionTypeType = Literal["PII"]
 TranscribeLanguageCodeType = Literal[
     "de-DE",
     "en-AU",
@@ -42,6 +50,7 @@ TranscribeLanguageCodeType = Literal[
     "pt-BR",
     "zh-CN",
 ]
+TranscribeMedicalContentIdentificationTypeType = Literal["PHI"]
 TranscribeMedicalLanguageCodeType = Literal["en-US"]
 TranscribeMedicalRegionType = Literal[
     "ap-southeast-2", "auto", "ca-central-1", "eu-west-1", "us-east-1", "us-east-2", "us-west-2"
@@ -50,6 +59,7 @@ TranscribeMedicalSpecialtyType = Literal[
     "CARDIOLOGY", "NEUROLOGY", "ONCOLOGY", "PRIMARYCARE", "RADIOLOGY", "UROLOGY"
 ]
 TranscribeMedicalTypeType = Literal["CONVERSATION", "DICTATION"]
+TranscribePartialResultsStabilityType = Literal["high", "low", "medium"]
 TranscribeRegionType = Literal[
     "ap-northeast-1",
     "ap-northeast-2",

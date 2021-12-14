@@ -867,6 +867,7 @@ DescribeRegionSettingsOutputTypeDef = TypedDict(
     "DescribeRegionSettingsOutputTypeDef",
     {
         "ResourceTypeOptInPreference": Dict[str, bool],
+        "ResourceTypeManagementPreference": Dict[str, bool],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1957,6 +1958,7 @@ UpdateRegionSettingsInputRequestTypeDef = TypedDict(
     "UpdateRegionSettingsInputRequestTypeDef",
     {
         "ResourceTypeOptInPreference": Dict[str, bool],
+        "ResourceTypeManagementPreference": Dict[str, bool],
     },
     total=False,
 )

@@ -58,11 +58,15 @@ __all__ = (
     "RoomMembershipRoleType",
     "SipRuleTriggerTypeType",
     "SortOrderType",
+    "TranscribeContentIdentificationTypeType",
+    "TranscribeContentRedactionTypeType",
     "TranscribeLanguageCodeType",
+    "TranscribeMedicalContentIdentificationTypeType",
     "TranscribeMedicalLanguageCodeType",
     "TranscribeMedicalRegionType",
     "TranscribeMedicalSpecialtyType",
     "TranscribeMedicalTypeType",
+    "TranscribePartialResultsStabilityType",
     "TranscribeRegionType",
     "TranscribeVocabularyFilterMethodType",
     "UserTypeType",
@@ -138,6 +142,8 @@ RegistrationStatusType = Literal["Registered", "Suspended", "Unregistered"]
 RoomMembershipRoleType = Literal["Administrator", "Member"]
 SipRuleTriggerTypeType = Literal["RequestUriHostname", "ToPhoneNumber"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
+TranscribeContentIdentificationTypeType = Literal["PII"]
+TranscribeContentRedactionTypeType = Literal["PII"]
 TranscribeLanguageCodeType = Literal[
     "de-DE",
     "en-AU",
@@ -152,6 +158,7 @@ TranscribeLanguageCodeType = Literal[
     "pt-BR",
     "zh-CN",
 ]
+TranscribeMedicalContentIdentificationTypeType = Literal["PHI"]
 TranscribeMedicalLanguageCodeType = Literal["en-US"]
 TranscribeMedicalRegionType = Literal[
     "ap-southeast-2", "auto", "ca-central-1", "eu-west-1", "us-east-1", "us-east-2", "us-west-2"
@@ -160,6 +167,7 @@ TranscribeMedicalSpecialtyType = Literal[
     "CARDIOLOGY", "NEUROLOGY", "ONCOLOGY", "PRIMARYCARE", "RADIOLOGY", "UROLOGY"
 ]
 TranscribeMedicalTypeType = Literal["CONVERSATION", "DICTATION"]
+TranscribePartialResultsStabilityType = Literal["high", "low", "medium"]
 TranscribeRegionType = Literal[
     "ap-northeast-1",
     "ap-northeast-2",

@@ -26,6 +26,8 @@ __all__ = (
     "ListPrincipalsPaginatorName",
     "ListResourcesPaginatorName",
     "ResourceOwnerType",
+    "ResourceRegionScopeFilterType",
+    "ResourceRegionScopeType",
     "ResourceShareAssociationStatusType",
     "ResourceShareAssociationTypeType",
     "ResourceShareFeatureSetType",
@@ -41,6 +43,8 @@ GetResourceSharesPaginatorName = Literal["get_resource_shares"]
 ListPrincipalsPaginatorName = Literal["list_principals"]
 ListResourcesPaginatorName = Literal["list_resources"]
 ResourceOwnerType = Literal["OTHER-ACCOUNTS", "SELF"]
+ResourceRegionScopeFilterType = Literal["ALL", "GLOBAL", "REGIONAL"]
+ResourceRegionScopeType = Literal["GLOBAL", "REGIONAL"]
 ResourceShareAssociationStatusType = Literal[
     "ASSOCIATED", "ASSOCIATING", "DISASSOCIATED", "DISASSOCIATING", "FAILED"
 ]

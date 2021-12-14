@@ -18,6 +18,7 @@ from typing import IO, Any, Dict, List, Union
 from botocore.response import StreamingBody
 
 from .literals import (
+    ConditionOperatorType,
     ConfluenceAttachmentFieldNameType,
     ConfluenceBlogFieldNameType,
     ConfluencePageFieldNameType,
@@ -30,15 +31,20 @@ from .literals import (
     DataSourceTypeType,
     DocumentAttributeValueTypeType,
     DocumentStatusType,
+    EntityTypeType,
     ErrorCodeType,
+    ExperienceStatusType,
     FaqFileFormatType,
     FaqStatusType,
     HighlightTypeType,
     IndexEditionType,
     IndexStatusType,
+    IntervalType,
     KeyLocationType,
+    MetricTypeType,
     ModeType,
     OrderType,
+    PersonaType,
     PrincipalMappingStatusType,
     PrincipalTypeType,
     QueryIdentifiersEnclosingOptionType,
@@ -75,6 +81,10 @@ __all__ = (
     "AclConfigurationTypeDef",
     "AdditionalResultAttributeTypeDef",
     "AdditionalResultAttributeValueTypeDef",
+    "AssociateEntitiesToExperienceRequestRequestTypeDef",
+    "AssociateEntitiesToExperienceResponseTypeDef",
+    "AssociatePersonasToEntitiesRequestRequestTypeDef",
+    "AssociatePersonasToEntitiesResponseTypeDef",
     "AttributeFilterTypeDef",
     "AuthenticationConfigurationTypeDef",
     "BasicAuthenticationConfigurationTypeDef",
@@ -101,8 +111,11 @@ __all__ = (
     "ConfluenceSpaceConfigurationTypeDef",
     "ConfluenceSpaceToIndexFieldMappingTypeDef",
     "ConnectionConfigurationTypeDef",
+    "ContentSourceConfigurationTypeDef",
     "CreateDataSourceRequestRequestTypeDef",
     "CreateDataSourceResponseTypeDef",
+    "CreateExperienceRequestRequestTypeDef",
+    "CreateExperienceResponseTypeDef",
     "CreateFaqRequestRequestTypeDef",
     "CreateFaqResponseTypeDef",
     "CreateIndexRequestRequestTypeDef",
@@ -111,6 +124,7 @@ __all__ = (
     "CreateQuerySuggestionsBlockListResponseTypeDef",
     "CreateThesaurusRequestRequestTypeDef",
     "CreateThesaurusResponseTypeDef",
+    "CustomDocumentEnrichmentConfigurationTypeDef",
     "DataSourceConfigurationTypeDef",
     "DataSourceGroupTypeDef",
     "DataSourceSummaryTypeDef",
@@ -121,6 +135,7 @@ __all__ = (
     "DataSourceVpcConfigurationTypeDef",
     "DatabaseConfigurationTypeDef",
     "DeleteDataSourceRequestRequestTypeDef",
+    "DeleteExperienceRequestRequestTypeDef",
     "DeleteFaqRequestRequestTypeDef",
     "DeleteIndexRequestRequestTypeDef",
     "DeletePrincipalMappingRequestRequestTypeDef",
@@ -128,6 +143,8 @@ __all__ = (
     "DeleteThesaurusRequestRequestTypeDef",
     "DescribeDataSourceRequestRequestTypeDef",
     "DescribeDataSourceResponseTypeDef",
+    "DescribeExperienceRequestRequestTypeDef",
+    "DescribeExperienceResponseTypeDef",
     "DescribeFaqRequestRequestTypeDef",
     "DescribeFaqResponseTypeDef",
     "DescribeIndexRequestRequestTypeDef",
@@ -140,6 +157,12 @@ __all__ = (
     "DescribeQuerySuggestionsConfigResponseTypeDef",
     "DescribeThesaurusRequestRequestTypeDef",
     "DescribeThesaurusResponseTypeDef",
+    "DisassociateEntitiesFromExperienceRequestRequestTypeDef",
+    "DisassociateEntitiesFromExperienceResponseTypeDef",
+    "DisassociatePersonasFromEntitiesRequestRequestTypeDef",
+    "DisassociatePersonasFromEntitiesResponseTypeDef",
+    "DocumentAttributeConditionTypeDef",
+    "DocumentAttributeTargetTypeDef",
     "DocumentAttributeTypeDef",
     "DocumentAttributeValueCountPairTypeDef",
     "DocumentAttributeValueTypeDef",
@@ -148,26 +171,44 @@ __all__ = (
     "DocumentRelevanceConfigurationTypeDef",
     "DocumentTypeDef",
     "DocumentsMetadataConfigurationTypeDef",
+    "EntityConfigurationTypeDef",
+    "EntityDisplayDataTypeDef",
+    "EntityPersonaConfigurationTypeDef",
+    "ExperienceConfigurationTypeDef",
+    "ExperienceEndpointTypeDef",
+    "ExperienceEntitiesSummaryTypeDef",
+    "ExperiencesSummaryTypeDef",
     "FacetResultTypeDef",
     "FacetTypeDef",
+    "FailedEntityTypeDef",
     "FaqStatisticsTypeDef",
     "FaqSummaryTypeDef",
     "GetQuerySuggestionsRequestRequestTypeDef",
     "GetQuerySuggestionsResponseTypeDef",
+    "GetSnapshotsRequestRequestTypeDef",
+    "GetSnapshotsResponseTypeDef",
     "GoogleDriveConfigurationTypeDef",
     "GroupMembersTypeDef",
     "GroupOrderingIdSummaryTypeDef",
     "GroupSummaryTypeDef",
     "HierarchicalPrincipalTypeDef",
     "HighlightTypeDef",
+    "HookConfigurationTypeDef",
     "IndexConfigurationSummaryTypeDef",
     "IndexStatisticsTypeDef",
+    "InlineCustomDocumentEnrichmentConfigurationTypeDef",
     "JsonTokenTypeConfigurationTypeDef",
     "JwtTokenTypeConfigurationTypeDef",
     "ListDataSourceSyncJobsRequestRequestTypeDef",
     "ListDataSourceSyncJobsResponseTypeDef",
     "ListDataSourcesRequestRequestTypeDef",
     "ListDataSourcesResponseTypeDef",
+    "ListEntityPersonasRequestRequestTypeDef",
+    "ListEntityPersonasResponseTypeDef",
+    "ListExperienceEntitiesRequestRequestTypeDef",
+    "ListExperienceEntitiesResponseTypeDef",
+    "ListExperiencesRequestRequestTypeDef",
+    "ListExperiencesResponseTypeDef",
     "ListFaqsRequestRequestTypeDef",
     "ListFaqsResponseTypeDef",
     "ListGroupsOlderThanOrderingIdRequestRequestTypeDef",
@@ -184,6 +225,7 @@ __all__ = (
     "MemberUserTypeDef",
     "OneDriveConfigurationTypeDef",
     "OneDriveUsersTypeDef",
+    "PersonasSummaryTypeDef",
     "PrincipalTypeDef",
     "ProxyConfigurationTypeDef",
     "PutPrincipalMappingRequestRequestTypeDef",
@@ -231,6 +273,7 @@ __all__ = (
     "TimeRangeTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDataSourceRequestRequestTypeDef",
+    "UpdateExperienceRequestRequestTypeDef",
     "UpdateIndexRequestRequestTypeDef",
     "UpdateQuerySuggestionsBlockListRequestRequestTypeDef",
     "UpdateQuerySuggestionsConfigRequestRequestTypeDef",
@@ -238,6 +281,7 @@ __all__ = (
     "UrlsTypeDef",
     "UserContextTypeDef",
     "UserGroupResolutionConfigurationTypeDef",
+    "UserIdentityConfigurationTypeDef",
     "UserTokenConfigurationTypeDef",
     "WebCrawlerConfigurationTypeDef",
     "WorkDocsConfigurationTypeDef",
@@ -273,6 +317,40 @@ AdditionalResultAttributeValueTypeDef = TypedDict(
         "TextWithHighlightsValue": "TextWithHighlightsTypeDef",
     },
     total=False,
+)
+
+AssociateEntitiesToExperienceRequestRequestTypeDef = TypedDict(
+    "AssociateEntitiesToExperienceRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+        "EntityList": List["EntityConfigurationTypeDef"],
+    },
+)
+
+AssociateEntitiesToExperienceResponseTypeDef = TypedDict(
+    "AssociateEntitiesToExperienceResponseTypeDef",
+    {
+        "FailedEntityList": List["FailedEntityTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociatePersonasToEntitiesRequestRequestTypeDef = TypedDict(
+    "AssociatePersonasToEntitiesRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+        "Personas": List["EntityPersonaConfigurationTypeDef"],
+    },
+)
+
+AssociatePersonasToEntitiesResponseTypeDef = TypedDict(
+    "AssociatePersonasToEntitiesResponseTypeDef",
+    {
+        "FailedEntityList": List["FailedEntityTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AttributeFilterTypeDef = TypedDict(
@@ -386,6 +464,7 @@ _OptionalBatchPutDocumentRequestRequestTypeDef = TypedDict(
     "_OptionalBatchPutDocumentRequestRequestTypeDef",
     {
         "RoleArn": str,
+        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
     },
     total=False,
 )
@@ -573,6 +652,16 @@ ConnectionConfigurationTypeDef = TypedDict(
     },
 )
 
+ContentSourceConfigurationTypeDef = TypedDict(
+    "ContentSourceConfigurationTypeDef",
+    {
+        "DataSourceIds": List[str],
+        "FaqIds": List[str],
+        "DirectPutContent": bool,
+    },
+    total=False,
+)
+
 _RequiredCreateDataSourceRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDataSourceRequestRequestTypeDef",
     {
@@ -591,6 +680,7 @@ _OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "ClientToken": str,
         "LanguageCode": str,
+        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
     },
     total=False,
 )
@@ -602,6 +692,37 @@ class CreateDataSourceRequestRequestTypeDef(
 
 CreateDataSourceResponseTypeDef = TypedDict(
     "CreateDataSourceResponseTypeDef",
+    {
+        "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateExperienceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateExperienceRequestRequestTypeDef",
+    {
+        "Name": str,
+        "IndexId": str,
+    },
+)
+_OptionalCreateExperienceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateExperienceRequestRequestTypeDef",
+    {
+        "RoleArn": str,
+        "Configuration": "ExperienceConfigurationTypeDef",
+        "Description": str,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateExperienceRequestRequestTypeDef(
+    _RequiredCreateExperienceRequestRequestTypeDef, _OptionalCreateExperienceRequestRequestTypeDef
+):
+    pass
+
+CreateExperienceResponseTypeDef = TypedDict(
+    "CreateExperienceResponseTypeDef",
     {
         "Id": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -740,6 +861,17 @@ CreateThesaurusResponseTypeDef = TypedDict(
         "Id": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+CustomDocumentEnrichmentConfigurationTypeDef = TypedDict(
+    "CustomDocumentEnrichmentConfigurationTypeDef",
+    {
+        "InlineConfigurations": List["InlineCustomDocumentEnrichmentConfigurationTypeDef"],
+        "PreExtractionHookConfiguration": "HookConfigurationTypeDef",
+        "PostExtractionHookConfiguration": "HookConfigurationTypeDef",
+        "RoleArn": str,
+    },
+    total=False,
 )
 
 DataSourceConfigurationTypeDef = TypedDict(
@@ -886,6 +1018,14 @@ DeleteDataSourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteExperienceRequestRequestTypeDef = TypedDict(
+    "DeleteExperienceRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+    },
+)
+
 DeleteFaqRequestRequestTypeDef = TypedDict(
     "DeleteFaqRequestRequestTypeDef",
     {
@@ -963,6 +1103,33 @@ DescribeDataSourceResponseTypeDef = TypedDict(
         "RoleArn": str,
         "ErrorMessage": str,
         "LanguageCode": str,
+        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeExperienceRequestRequestTypeDef = TypedDict(
+    "DescribeExperienceRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+    },
+)
+
+DescribeExperienceResponseTypeDef = TypedDict(
+    "DescribeExperienceResponseTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+        "Name": str,
+        "Endpoints": List["ExperienceEndpointTypeDef"],
+        "Configuration": "ExperienceConfigurationTypeDef",
+        "CreatedAt": datetime,
+        "UpdatedAt": datetime,
+        "Description": str,
+        "Status": ExperienceStatusType,
+        "RoleArn": str,
+        "ErrorMessage": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1134,6 +1301,70 @@ DescribeThesaurusResponseTypeDef = TypedDict(
     },
 )
 
+DisassociateEntitiesFromExperienceRequestRequestTypeDef = TypedDict(
+    "DisassociateEntitiesFromExperienceRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+        "EntityList": List["EntityConfigurationTypeDef"],
+    },
+)
+
+DisassociateEntitiesFromExperienceResponseTypeDef = TypedDict(
+    "DisassociateEntitiesFromExperienceResponseTypeDef",
+    {
+        "FailedEntityList": List["FailedEntityTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DisassociatePersonasFromEntitiesRequestRequestTypeDef = TypedDict(
+    "DisassociatePersonasFromEntitiesRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+        "EntityIds": List[str],
+    },
+)
+
+DisassociatePersonasFromEntitiesResponseTypeDef = TypedDict(
+    "DisassociatePersonasFromEntitiesResponseTypeDef",
+    {
+        "FailedEntityList": List["FailedEntityTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDocumentAttributeConditionTypeDef = TypedDict(
+    "_RequiredDocumentAttributeConditionTypeDef",
+    {
+        "ConditionDocumentAttributeKey": str,
+        "Operator": ConditionOperatorType,
+    },
+)
+_OptionalDocumentAttributeConditionTypeDef = TypedDict(
+    "_OptionalDocumentAttributeConditionTypeDef",
+    {
+        "ConditionOnValue": "DocumentAttributeValueTypeDef",
+    },
+    total=False,
+)
+
+class DocumentAttributeConditionTypeDef(
+    _RequiredDocumentAttributeConditionTypeDef, _OptionalDocumentAttributeConditionTypeDef
+):
+    pass
+
+DocumentAttributeTargetTypeDef = TypedDict(
+    "DocumentAttributeTargetTypeDef",
+    {
+        "TargetDocumentAttributeKey": str,
+        "TargetDocumentAttributeValueDeletion": bool,
+        "TargetDocumentAttributeValue": "DocumentAttributeValueTypeDef",
+    },
+    total=False,
+)
+
 DocumentAttributeTypeDef = TypedDict(
     "DocumentAttributeTypeDef",
     {
@@ -1239,6 +1470,74 @@ DocumentsMetadataConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+EntityConfigurationTypeDef = TypedDict(
+    "EntityConfigurationTypeDef",
+    {
+        "EntityId": str,
+        "EntityType": EntityTypeType,
+    },
+)
+
+EntityDisplayDataTypeDef = TypedDict(
+    "EntityDisplayDataTypeDef",
+    {
+        "UserName": str,
+        "GroupName": str,
+        "IdentifiedUserName": str,
+        "FirstName": str,
+        "LastName": str,
+    },
+    total=False,
+)
+
+EntityPersonaConfigurationTypeDef = TypedDict(
+    "EntityPersonaConfigurationTypeDef",
+    {
+        "EntityId": str,
+        "Persona": PersonaType,
+    },
+)
+
+ExperienceConfigurationTypeDef = TypedDict(
+    "ExperienceConfigurationTypeDef",
+    {
+        "ContentSourceConfiguration": "ContentSourceConfigurationTypeDef",
+        "UserIdentityConfiguration": "UserIdentityConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ExperienceEndpointTypeDef = TypedDict(
+    "ExperienceEndpointTypeDef",
+    {
+        "EndpointType": Literal["HOME"],
+        "Endpoint": str,
+    },
+    total=False,
+)
+
+ExperienceEntitiesSummaryTypeDef = TypedDict(
+    "ExperienceEntitiesSummaryTypeDef",
+    {
+        "EntityId": str,
+        "EntityType": EntityTypeType,
+        "DisplayData": "EntityDisplayDataTypeDef",
+    },
+    total=False,
+)
+
+ExperiencesSummaryTypeDef = TypedDict(
+    "ExperiencesSummaryTypeDef",
+    {
+        "Name": str,
+        "Id": str,
+        "CreatedAt": datetime,
+        "Status": ExperienceStatusType,
+        "Endpoints": List["ExperienceEndpointTypeDef"],
+    },
+    total=False,
+)
+
 FacetResultTypeDef = TypedDict(
     "FacetResultTypeDef",
     {
@@ -1253,6 +1552,15 @@ FacetTypeDef = TypedDict(
     "FacetTypeDef",
     {
         "DocumentAttributeKey": str,
+    },
+    total=False,
+)
+
+FailedEntityTypeDef = TypedDict(
+    "FailedEntityTypeDef",
+    {
+        "EntityId": str,
+        "ErrorMessage": str,
     },
     total=False,
 )
@@ -1304,6 +1612,39 @@ GetQuerySuggestionsResponseTypeDef = TypedDict(
     {
         "QuerySuggestionsId": str,
         "Suggestions": List["SuggestionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetSnapshotsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSnapshotsRequestRequestTypeDef",
+    {
+        "IndexId": str,
+        "Interval": IntervalType,
+        "MetricType": MetricTypeType,
+    },
+)
+_OptionalGetSnapshotsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSnapshotsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetSnapshotsRequestRequestTypeDef(
+    _RequiredGetSnapshotsRequestRequestTypeDef, _OptionalGetSnapshotsRequestRequestTypeDef
+):
+    pass
+
+GetSnapshotsResponseTypeDef = TypedDict(
+    "GetSnapshotsResponseTypeDef",
+    {
+        "SnapShotTimeFilter": "TimeRangeTypeDef",
+        "SnapshotsDataHeader": List[str],
+        "SnapshotsData": List[List[str]],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1389,6 +1730,26 @@ _OptionalHighlightTypeDef = TypedDict(
 class HighlightTypeDef(_RequiredHighlightTypeDef, _OptionalHighlightTypeDef):
     pass
 
+_RequiredHookConfigurationTypeDef = TypedDict(
+    "_RequiredHookConfigurationTypeDef",
+    {
+        "LambdaArn": str,
+        "S3Bucket": str,
+    },
+)
+_OptionalHookConfigurationTypeDef = TypedDict(
+    "_OptionalHookConfigurationTypeDef",
+    {
+        "InvocationCondition": "DocumentAttributeConditionTypeDef",
+    },
+    total=False,
+)
+
+class HookConfigurationTypeDef(
+    _RequiredHookConfigurationTypeDef, _OptionalHookConfigurationTypeDef
+):
+    pass
+
 _RequiredIndexConfigurationSummaryTypeDef = TypedDict(
     "_RequiredIndexConfigurationSummaryTypeDef",
     {
@@ -1418,6 +1779,16 @@ IndexStatisticsTypeDef = TypedDict(
         "FaqStatistics": "FaqStatisticsTypeDef",
         "TextDocumentStatistics": "TextDocumentStatisticsTypeDef",
     },
+)
+
+InlineCustomDocumentEnrichmentConfigurationTypeDef = TypedDict(
+    "InlineCustomDocumentEnrichmentConfigurationTypeDef",
+    {
+        "Condition": "DocumentAttributeConditionTypeDef",
+        "Target": "DocumentAttributeTargetTypeDef",
+        "DocumentContentDeletion": bool,
+    },
+    total=False,
 )
 
 JsonTokenTypeConfigurationTypeDef = TypedDict(
@@ -1509,6 +1880,96 @@ ListDataSourcesResponseTypeDef = TypedDict(
     "ListDataSourcesResponseTypeDef",
     {
         "SummaryItems": List["DataSourceSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEntityPersonasRequestRequestTypeDef = TypedDict(
+    "_RequiredListEntityPersonasRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+    },
+)
+_OptionalListEntityPersonasRequestRequestTypeDef = TypedDict(
+    "_OptionalListEntityPersonasRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListEntityPersonasRequestRequestTypeDef(
+    _RequiredListEntityPersonasRequestRequestTypeDef,
+    _OptionalListEntityPersonasRequestRequestTypeDef,
+):
+    pass
+
+ListEntityPersonasResponseTypeDef = TypedDict(
+    "ListEntityPersonasResponseTypeDef",
+    {
+        "SummaryItems": List["PersonasSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListExperienceEntitiesRequestRequestTypeDef = TypedDict(
+    "_RequiredListExperienceEntitiesRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+    },
+)
+_OptionalListExperienceEntitiesRequestRequestTypeDef = TypedDict(
+    "_OptionalListExperienceEntitiesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListExperienceEntitiesRequestRequestTypeDef(
+    _RequiredListExperienceEntitiesRequestRequestTypeDef,
+    _OptionalListExperienceEntitiesRequestRequestTypeDef,
+):
+    pass
+
+ListExperienceEntitiesResponseTypeDef = TypedDict(
+    "ListExperienceEntitiesResponseTypeDef",
+    {
+        "SummaryItems": List["ExperienceEntitiesSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListExperiencesRequestRequestTypeDef = TypedDict(
+    "_RequiredListExperiencesRequestRequestTypeDef",
+    {
+        "IndexId": str,
+    },
+)
+_OptionalListExperiencesRequestRequestTypeDef = TypedDict(
+    "_OptionalListExperiencesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListExperiencesRequestRequestTypeDef(
+    _RequiredListExperiencesRequestRequestTypeDef, _OptionalListExperiencesRequestRequestTypeDef
+):
+    pass
+
+ListExperiencesResponseTypeDef = TypedDict(
+    "ListExperiencesResponseTypeDef",
+    {
+        "SummaryItems": List["ExperiencesSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1720,6 +2181,17 @@ OneDriveUsersTypeDef = TypedDict(
     {
         "OneDriveUserList": List[str],
         "OneDriveUserS3Path": "S3PathTypeDef",
+    },
+    total=False,
+)
+
+PersonasSummaryTypeDef = TypedDict(
+    "PersonasSummaryTypeDef",
+    {
+        "EntityId": str,
+        "Persona": PersonaType,
+        "CreatedAt": datetime,
+        "UpdatedAt": datetime,
     },
     total=False,
 )
@@ -2373,8 +2845,8 @@ ThesaurusSummaryTypeDef = TypedDict(
 TimeRangeTypeDef = TypedDict(
     "TimeRangeTypeDef",
     {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
+        "StartTime": datetime,
+        "EndTime": datetime,
     },
     total=False,
 )
@@ -2403,12 +2875,36 @@ _OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
         "Schedule": str,
         "RoleArn": str,
         "LanguageCode": str,
+        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
     },
     total=False,
 )
 
 class UpdateDataSourceRequestRequestTypeDef(
     _RequiredUpdateDataSourceRequestRequestTypeDef, _OptionalUpdateDataSourceRequestRequestTypeDef
+):
+    pass
+
+_RequiredUpdateExperienceRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateExperienceRequestRequestTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+    },
+)
+_OptionalUpdateExperienceRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateExperienceRequestRequestTypeDef",
+    {
+        "Name": str,
+        "RoleArn": str,
+        "Configuration": "ExperienceConfigurationTypeDef",
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateExperienceRequestRequestTypeDef(
+    _RequiredUpdateExperienceRequestRequestTypeDef, _OptionalUpdateExperienceRequestRequestTypeDef
 ):
     pass
 
@@ -2534,6 +3030,14 @@ UserGroupResolutionConfigurationTypeDef = TypedDict(
     {
         "UserGroupResolutionMode": UserGroupResolutionModeType,
     },
+)
+
+UserIdentityConfigurationTypeDef = TypedDict(
+    "UserIdentityConfigurationTypeDef",
+    {
+        "IdentityAttributeName": str,
+    },
+    total=False,
 )
 
 UserTokenConfigurationTypeDef = TypedDict(

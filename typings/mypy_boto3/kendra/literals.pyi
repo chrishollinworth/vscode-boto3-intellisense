@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "AdditionalResultAttributeValueTypeType",
+    "ConditionOperatorType",
     "ConfluenceAttachmentFieldNameType",
     "ConfluenceBlogFieldNameType",
     "ConfluencePageFieldNameType",
@@ -32,15 +33,21 @@ __all__ = (
     "DatabaseEngineTypeType",
     "DocumentAttributeValueTypeType",
     "DocumentStatusType",
+    "EndpointTypeType",
+    "EntityTypeType",
     "ErrorCodeType",
+    "ExperienceStatusType",
     "FaqFileFormatType",
     "FaqStatusType",
     "HighlightTypeType",
     "IndexEditionType",
     "IndexStatusType",
+    "IntervalType",
     "KeyLocationType",
+    "MetricTypeType",
     "ModeType",
     "OrderType",
+    "PersonaType",
     "PrincipalMappingStatusType",
     "PrincipalTypeType",
     "QueryIdentifiersEnclosingOptionType",
@@ -64,6 +71,19 @@ __all__ = (
 )
 
 AdditionalResultAttributeValueTypeType = Literal["TEXT_WITH_HIGHLIGHTS_VALUE"]
+ConditionOperatorType = Literal[
+    "BeginsWith",
+    "Contains",
+    "Equals",
+    "Exists",
+    "GreaterThan",
+    "GreaterThanOrEquals",
+    "LessThan",
+    "LessThanOrEquals",
+    "NotContains",
+    "NotEquals",
+    "NotExists",
+]
 ConfluenceAttachmentFieldNameType = Literal[
     "AUTHOR",
     "CONTENT_TYPE",
@@ -131,15 +151,30 @@ DocumentAttributeValueTypeType = Literal[
 DocumentStatusType = Literal[
     "FAILED", "INDEXED", "NOT_FOUND", "PROCESSING", "UPDATED", "UPDATE_FAILED"
 ]
+EndpointTypeType = Literal["HOME"]
+EntityTypeType = Literal["GROUP", "USER"]
 ErrorCodeType = Literal["InternalError", "InvalidRequest"]
+ExperienceStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED"]
 FaqFileFormatType = Literal["CSV", "CSV_WITH_HEADER", "JSON"]
 FaqStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 HighlightTypeType = Literal["STANDARD", "THESAURUS_SYNONYM"]
 IndexEditionType = Literal["DEVELOPER_EDITION", "ENTERPRISE_EDITION"]
 IndexStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "SYSTEM_UPDATING", "UPDATING"]
+IntervalType = Literal[
+    "ONE_MONTH_AGO", "ONE_WEEK_AGO", "THIS_MONTH", "THIS_WEEK", "TWO_MONTHS_AGO", "TWO_WEEKS_AGO"
+]
 KeyLocationType = Literal["SECRET_MANAGER", "URL"]
+MetricTypeType = Literal[
+    "AGG_QUERY_DOC_METRICS",
+    "DOCS_BY_CLICK_COUNT",
+    "QUERIES_BY_COUNT",
+    "QUERIES_BY_ZERO_CLICK_RATE",
+    "QUERIES_BY_ZERO_RESULT_RATE",
+    "TREND_QUERY_DOC_METRICS",
+]
 ModeType = Literal["ENABLED", "LEARN_ONLY"]
 OrderType = Literal["ASCENDING", "DESCENDING"]
+PersonaType = Literal["OWNER", "VIEWER"]
 PrincipalMappingStatusType = Literal["DELETED", "DELETING", "FAILED", "PROCESSING", "SUCCEEDED"]
 PrincipalTypeType = Literal["GROUP", "USER"]
 QueryIdentifiersEnclosingOptionType = Literal["DOUBLE_QUOTES", "NONE"]

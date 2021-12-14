@@ -134,14 +134,19 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PlaceGeometryTypeDef",
     "PlaceTypeDef",
+    "PositionalAccuracyTypeDef",
     "PutGeofenceRequestRequestTypeDef",
     "PutGeofenceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "SearchForPositionResultTypeDef",
+    "SearchForSuggestionsResultTypeDef",
     "SearchForTextResultTypeDef",
     "SearchPlaceIndexForPositionRequestRequestTypeDef",
     "SearchPlaceIndexForPositionResponseTypeDef",
     "SearchPlaceIndexForPositionSummaryTypeDef",
+    "SearchPlaceIndexForSuggestionsRequestRequestTypeDef",
+    "SearchPlaceIndexForSuggestionsResponseTypeDef",
+    "SearchPlaceIndexForSuggestionsSummaryTypeDef",
     "SearchPlaceIndexForTextRequestRequestTypeDef",
     "SearchPlaceIndexForTextResponseTypeDef",
     "SearchPlaceIndexForTextSummaryTypeDef",
@@ -748,7 +753,9 @@ _RequiredDevicePositionTypeDef = TypedDict(
 _OptionalDevicePositionTypeDef = TypedDict(
     "_OptionalDevicePositionTypeDef",
     {
+        "Accuracy": "PositionalAccuracyTypeDef",
         "DeviceId": str,
+        "PositionProperties": Dict[str, str],
     },
     total=False,
 )
@@ -756,14 +763,27 @@ _OptionalDevicePositionTypeDef = TypedDict(
 class DevicePositionTypeDef(_RequiredDevicePositionTypeDef, _OptionalDevicePositionTypeDef):
     pass
 
-DevicePositionUpdateTypeDef = TypedDict(
-    "DevicePositionUpdateTypeDef",
+_RequiredDevicePositionUpdateTypeDef = TypedDict(
+    "_RequiredDevicePositionUpdateTypeDef",
     {
         "DeviceId": str,
         "Position": List[float],
         "SampleTime": Union[datetime, str],
     },
 )
+_OptionalDevicePositionUpdateTypeDef = TypedDict(
+    "_OptionalDevicePositionUpdateTypeDef",
+    {
+        "Accuracy": "PositionalAccuracyTypeDef",
+        "PositionProperties": Dict[str, str],
+    },
+    total=False,
+)
+
+class DevicePositionUpdateTypeDef(
+    _RequiredDevicePositionUpdateTypeDef, _OptionalDevicePositionUpdateTypeDef
+):
+    pass
 
 DisassociateTrackerConsumerRequestRequestTypeDef = TypedDict(
     "DisassociateTrackerConsumerRequestRequestTypeDef",
@@ -824,8 +844,10 @@ GetDevicePositionRequestRequestTypeDef = TypedDict(
 GetDevicePositionResponseTypeDef = TypedDict(
     "GetDevicePositionResponseTypeDef",
     {
+        "Accuracy": "PositionalAccuracyTypeDef",
         "DeviceId": str,
         "Position": List[float],
+        "PositionProperties": Dict[str, str],
         "ReceivedTime": datetime,
         "SampleTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -972,14 +994,28 @@ class ListDevicePositionsRequestRequestTypeDef(
 ):
     pass
 
-ListDevicePositionsResponseEntryTypeDef = TypedDict(
-    "ListDevicePositionsResponseEntryTypeDef",
+_RequiredListDevicePositionsResponseEntryTypeDef = TypedDict(
+    "_RequiredListDevicePositionsResponseEntryTypeDef",
     {
         "DeviceId": str,
         "Position": List[float],
         "SampleTime": datetime,
     },
 )
+_OptionalListDevicePositionsResponseEntryTypeDef = TypedDict(
+    "_OptionalListDevicePositionsResponseEntryTypeDef",
+    {
+        "Accuracy": "PositionalAccuracyTypeDef",
+        "PositionProperties": Dict[str, str],
+    },
+    total=False,
+)
+
+class ListDevicePositionsResponseEntryTypeDef(
+    _RequiredListDevicePositionsResponseEntryTypeDef,
+    _OptionalListDevicePositionsResponseEntryTypeDef,
+):
+    pass
 
 ListDevicePositionsResponseTypeDef = TypedDict(
     "ListDevicePositionsResponseTypeDef",
@@ -1299,6 +1335,13 @@ _OptionalPlaceTypeDef = TypedDict(
 class PlaceTypeDef(_RequiredPlaceTypeDef, _OptionalPlaceTypeDef):
     pass
 
+PositionalAccuracyTypeDef = TypedDict(
+    "PositionalAccuracyTypeDef",
+    {
+        "Horizontal": float,
+    },
+)
+
 PutGeofenceRequestRequestTypeDef = TypedDict(
     "PutGeofenceRequestRequestTypeDef",
     {
@@ -1334,6 +1377,13 @@ SearchForPositionResultTypeDef = TypedDict(
     {
         "Distance": float,
         "Place": "PlaceTypeDef",
+    },
+)
+
+SearchForSuggestionsResultTypeDef = TypedDict(
+    "SearchForSuggestionsResultTypeDef",
+    {
+        "Text": str,
     },
 )
 
@@ -1407,6 +1457,65 @@ _OptionalSearchPlaceIndexForPositionSummaryTypeDef = TypedDict(
 class SearchPlaceIndexForPositionSummaryTypeDef(
     _RequiredSearchPlaceIndexForPositionSummaryTypeDef,
     _OptionalSearchPlaceIndexForPositionSummaryTypeDef,
+):
+    pass
+
+_RequiredSearchPlaceIndexForSuggestionsRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchPlaceIndexForSuggestionsRequestRequestTypeDef",
+    {
+        "IndexName": str,
+        "Text": str,
+    },
+)
+_OptionalSearchPlaceIndexForSuggestionsRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchPlaceIndexForSuggestionsRequestRequestTypeDef",
+    {
+        "BiasPosition": List[float],
+        "FilterBBox": List[float],
+        "FilterCountries": List[str],
+        "Language": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class SearchPlaceIndexForSuggestionsRequestRequestTypeDef(
+    _RequiredSearchPlaceIndexForSuggestionsRequestRequestTypeDef,
+    _OptionalSearchPlaceIndexForSuggestionsRequestRequestTypeDef,
+):
+    pass
+
+SearchPlaceIndexForSuggestionsResponseTypeDef = TypedDict(
+    "SearchPlaceIndexForSuggestionsResponseTypeDef",
+    {
+        "Results": List["SearchForSuggestionsResultTypeDef"],
+        "Summary": "SearchPlaceIndexForSuggestionsSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSearchPlaceIndexForSuggestionsSummaryTypeDef = TypedDict(
+    "_RequiredSearchPlaceIndexForSuggestionsSummaryTypeDef",
+    {
+        "DataSource": str,
+        "Text": str,
+    },
+)
+_OptionalSearchPlaceIndexForSuggestionsSummaryTypeDef = TypedDict(
+    "_OptionalSearchPlaceIndexForSuggestionsSummaryTypeDef",
+    {
+        "BiasPosition": List[float],
+        "FilterBBox": List[float],
+        "FilterCountries": List[str],
+        "Language": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class SearchPlaceIndexForSuggestionsSummaryTypeDef(
+    _RequiredSearchPlaceIndexForSuggestionsSummaryTypeDef,
+    _OptionalSearchPlaceIndexForSuggestionsSummaryTypeDef,
 ):
     pass
 

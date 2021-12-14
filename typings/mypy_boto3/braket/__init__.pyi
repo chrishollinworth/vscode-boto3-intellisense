@@ -9,6 +9,7 @@ Usage::
         BraketClient,
         Client,
         SearchDevicesPaginator,
+        SearchJobsPaginator,
         SearchQuantumTasksPaginator,
     )
 
@@ -18,12 +19,19 @@ Usage::
     session_client: BraketClient = session.client("braket")
 
     search_devices_paginator: SearchDevicesPaginator = client.get_paginator("search_devices")
+    search_jobs_paginator: SearchJobsPaginator = client.get_paginator("search_jobs")
     search_quantum_tasks_paginator: SearchQuantumTasksPaginator = client.get_paginator("search_quantum_tasks")
     ```
 """
 from .client import BraketClient
-from .paginator import SearchDevicesPaginator, SearchQuantumTasksPaginator
+from .paginator import SearchDevicesPaginator, SearchJobsPaginator, SearchQuantumTasksPaginator
 
 Client = BraketClient
 
-__all__ = ("BraketClient", "Client", "SearchDevicesPaginator", "SearchQuantumTasksPaginator")
+__all__ = (
+    "BraketClient",
+    "Client",
+    "SearchDevicesPaginator",
+    "SearchJobsPaginator",
+    "SearchQuantumTasksPaginator",
+)

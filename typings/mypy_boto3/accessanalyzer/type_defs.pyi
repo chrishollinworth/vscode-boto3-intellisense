@@ -34,6 +34,7 @@ from .literals import (
     ResourceTypeType,
     TypeType,
     ValidatePolicyFindingTypeType,
+    ValidatePolicyResourceTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -1353,6 +1354,7 @@ _OptionalValidatePolicyRequestRequestTypeDef = TypedDict(
         "locale": LocaleType,
         "maxResults": int,
         "nextToken": str,
+        "validatePolicyResourceType": ValidatePolicyResourceTypeType,
     },
     total=False,
 )

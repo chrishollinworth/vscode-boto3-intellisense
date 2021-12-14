@@ -1231,6 +1231,7 @@ DescribeGatewayInformationOutputTypeDef = TypedDict(
         "DeprecationDate": str,
         "GatewayCapacity": GatewayCapacityType,
         "SupportedGatewayCapacities": List[GatewayCapacityType],
+        "HostEnvironmentId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1649,6 +1650,8 @@ GatewayInfoTypeDef = TypedDict(
         "GatewayName": str,
         "Ec2InstanceId": str,
         "Ec2InstanceRegion": str,
+        "HostEnvironment": HostEnvironmentType,
+        "HostEnvironmentId": str,
     },
     total=False,
 )

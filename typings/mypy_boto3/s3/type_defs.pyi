@@ -1266,6 +1266,7 @@ CreateBucketRequestBucketTypeDef = TypedDict(
         "GrantWrite": str,
         "GrantWriteACP": str,
         "ObjectLockEnabledForBucket": bool,
+        "ObjectOwnership": ObjectOwnershipType,
     },
     total=False,
 )
@@ -1287,6 +1288,7 @@ _OptionalCreateBucketRequestRequestTypeDef = TypedDict(
         "GrantWrite": str,
         "GrantWriteACP": str,
         "ObjectLockEnabledForBucket": bool,
+        "ObjectOwnership": ObjectOwnershipType,
     },
     total=False,
 )
@@ -1313,6 +1315,7 @@ _OptionalCreateBucketRequestServiceResourceTypeDef = TypedDict(
         "GrantWrite": str,
         "GrantWriteACP": str,
         "ObjectLockEnabledForBucket": bool,
+        "ObjectOwnership": ObjectOwnershipType,
     },
     total=False,
 )
@@ -3349,6 +3352,8 @@ LifecycleRuleAndOperatorTypeDef = TypedDict(
     {
         "Prefix": str,
         "Tags": List["TagTypeDef"],
+        "ObjectSizeGreaterThan": int,
+        "ObjectSizeLessThan": int,
     },
     total=False,
 )
@@ -3358,6 +3363,8 @@ LifecycleRuleFilterTypeDef = TypedDict(
     {
         "Prefix": str,
         "Tag": "TagTypeDef",
+        "ObjectSizeGreaterThan": int,
+        "ObjectSizeLessThan": int,
         "And": "LifecycleRuleAndOperatorTypeDef",
     },
     total=False,
@@ -3855,6 +3862,7 @@ NoncurrentVersionExpirationTypeDef = TypedDict(
     "NoncurrentVersionExpirationTypeDef",
     {
         "NoncurrentDays": int,
+        "NewerNoncurrentVersions": int,
     },
     total=False,
 )
@@ -3864,6 +3872,7 @@ NoncurrentVersionTransitionTypeDef = TypedDict(
     {
         "NoncurrentDays": int,
         "StorageClass": TransitionStorageClassType,
+        "NewerNoncurrentVersions": int,
     },
     total=False,
 )
@@ -3902,6 +3911,7 @@ NotificationConfigurationResponseMetadataTypeDef = TypedDict(
         "TopicConfigurations": List["TopicConfigurationTypeDef"],
         "QueueConfigurations": List["QueueConfigurationTypeDef"],
         "LambdaFunctionConfigurations": List["LambdaFunctionConfigurationTypeDef"],
+        "EventBridgeConfiguration": Dict[str, Any],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3912,6 +3922,7 @@ NotificationConfigurationTypeDef = TypedDict(
         "TopicConfigurations": List["TopicConfigurationTypeDef"],
         "QueueConfigurations": List["QueueConfigurationTypeDef"],
         "LambdaFunctionConfigurations": List["LambdaFunctionConfigurationTypeDef"],
+        "EventBridgeConfiguration": Dict[str, Any],
     },
     total=False,
 )
@@ -4535,6 +4546,7 @@ _OptionalPutBucketNotificationConfigurationRequestBucketNotificationTypeDef = Ty
     "_OptionalPutBucketNotificationConfigurationRequestBucketNotificationTypeDef",
     {
         "ExpectedBucketOwner": str,
+        "SkipDestinationValidation": bool,
     },
     total=False,
 )
@@ -4556,6 +4568,7 @@ _OptionalPutBucketNotificationConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketNotificationConfigurationRequestRequestTypeDef",
     {
         "ExpectedBucketOwner": str,
+        "SkipDestinationValidation": bool,
     },
     total=False,
 )

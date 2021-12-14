@@ -17,8 +17,18 @@ from typing import IO, Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
-from .literals import DatasetStatusType, ModelHostingStatusType, ModelStatusType
+from .literals import (
+    DatasetStatusType,
+    ModelHostingStatusType,
+    ModelPackagingJobStatusType,
+    ModelStatusType,
+    TargetPlatformArchType,
+)
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -43,6 +53,8 @@ __all__ = (
     "DeleteProjectResponseTypeDef",
     "DescribeDatasetRequestRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
+    "DescribeModelPackagingJobRequestRequestTypeDef",
+    "DescribeModelPackagingJobResponseTypeDef",
     "DescribeModelRequestRequestTypeDef",
     "DescribeModelResponseTypeDef",
     "DescribeProjectRequestRequestTypeDef",
@@ -50,10 +62,14 @@ __all__ = (
     "DetectAnomaliesRequestRequestTypeDef",
     "DetectAnomaliesResponseTypeDef",
     "DetectAnomalyResultTypeDef",
+    "GreengrassConfigurationTypeDef",
+    "GreengrassOutputDetailsTypeDef",
     "ImageSourceTypeDef",
     "InputS3ObjectTypeDef",
     "ListDatasetEntriesRequestRequestTypeDef",
     "ListDatasetEntriesResponseTypeDef",
+    "ListModelPackagingJobsRequestRequestTypeDef",
+    "ListModelPackagingJobsResponseTypeDef",
     "ListModelsRequestRequestTypeDef",
     "ListModelsResponseTypeDef",
     "ListProjectsRequestRequestTypeDef",
@@ -62,6 +78,10 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ModelDescriptionTypeDef",
     "ModelMetadataTypeDef",
+    "ModelPackagingConfigurationTypeDef",
+    "ModelPackagingDescriptionTypeDef",
+    "ModelPackagingJobMetadataTypeDef",
+    "ModelPackagingOutputDetailsTypeDef",
     "ModelPerformanceTypeDef",
     "OutputConfigTypeDef",
     "OutputS3ObjectTypeDef",
@@ -70,12 +90,15 @@ __all__ = (
     "ProjectMetadataTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
+    "StartModelPackagingJobRequestRequestTypeDef",
+    "StartModelPackagingJobResponseTypeDef",
     "StartModelRequestRequestTypeDef",
     "StartModelResponseTypeDef",
     "StopModelRequestRequestTypeDef",
     "StopModelResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TargetPlatformTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDatasetEntriesRequestRequestTypeDef",
     "UpdateDatasetEntriesResponseTypeDef",
@@ -311,6 +334,22 @@ DescribeDatasetResponseTypeDef = TypedDict(
     },
 )
 
+DescribeModelPackagingJobRequestRequestTypeDef = TypedDict(
+    "DescribeModelPackagingJobRequestRequestTypeDef",
+    {
+        "ProjectName": str,
+        "JobName": str,
+    },
+)
+
+DescribeModelPackagingJobResponseTypeDef = TypedDict(
+    "DescribeModelPackagingJobResponseTypeDef",
+    {
+        "ModelPackagingDescription": "ModelPackagingDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeModelRequestRequestTypeDef = TypedDict(
     "DescribeModelRequestRequestTypeDef",
     {
@@ -366,6 +405,41 @@ DetectAnomalyResultTypeDef = TypedDict(
         "Source": "ImageSourceTypeDef",
         "IsAnomalous": bool,
         "Confidence": float,
+    },
+    total=False,
+)
+
+_RequiredGreengrassConfigurationTypeDef = TypedDict(
+    "_RequiredGreengrassConfigurationTypeDef",
+    {
+        "CompilerOptions": str,
+        "S3OutputLocation": "S3LocationTypeDef",
+        "ComponentName": str,
+    },
+)
+_OptionalGreengrassConfigurationTypeDef = TypedDict(
+    "_OptionalGreengrassConfigurationTypeDef",
+    {
+        "TargetDevice": Literal["jetson_xavier"],
+        "TargetPlatform": "TargetPlatformTypeDef",
+        "ComponentVersion": str,
+        "ComponentDescription": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class GreengrassConfigurationTypeDef(
+    _RequiredGreengrassConfigurationTypeDef, _OptionalGreengrassConfigurationTypeDef
+):
+    pass
+
+GreengrassOutputDetailsTypeDef = TypedDict(
+    "GreengrassOutputDetailsTypeDef",
+    {
+        "ComponentVersionArn": str,
+        "ComponentName": str,
+        "ComponentVersion": str,
     },
     total=False,
 )
@@ -427,6 +501,36 @@ ListDatasetEntriesResponseTypeDef = TypedDict(
     "ListDatasetEntriesResponseTypeDef",
     {
         "DatasetEntries": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListModelPackagingJobsRequestRequestTypeDef = TypedDict(
+    "_RequiredListModelPackagingJobsRequestRequestTypeDef",
+    {
+        "ProjectName": str,
+    },
+)
+_OptionalListModelPackagingJobsRequestRequestTypeDef = TypedDict(
+    "_OptionalListModelPackagingJobsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListModelPackagingJobsRequestRequestTypeDef(
+    _RequiredListModelPackagingJobsRequestRequestTypeDef,
+    _OptionalListModelPackagingJobsRequestRequestTypeDef,
+):
+    pass
+
+ListModelPackagingJobsResponseTypeDef = TypedDict(
+    "ListModelPackagingJobsResponseTypeDef",
+    {
+        "ModelPackagingJobs": List["ModelPackagingJobMetadataTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -527,6 +631,55 @@ ModelMetadataTypeDef = TypedDict(
     total=False,
 )
 
+ModelPackagingConfigurationTypeDef = TypedDict(
+    "ModelPackagingConfigurationTypeDef",
+    {
+        "Greengrass": "GreengrassConfigurationTypeDef",
+    },
+)
+
+ModelPackagingDescriptionTypeDef = TypedDict(
+    "ModelPackagingDescriptionTypeDef",
+    {
+        "JobName": str,
+        "ProjectName": str,
+        "ModelVersion": str,
+        "ModelPackagingConfiguration": "ModelPackagingConfigurationTypeDef",
+        "ModelPackagingJobDescription": str,
+        "ModelPackagingMethod": str,
+        "ModelPackagingOutputDetails": "ModelPackagingOutputDetailsTypeDef",
+        "Status": ModelPackagingJobStatusType,
+        "StatusMessage": str,
+        "CreationTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+ModelPackagingJobMetadataTypeDef = TypedDict(
+    "ModelPackagingJobMetadataTypeDef",
+    {
+        "JobName": str,
+        "ProjectName": str,
+        "ModelVersion": str,
+        "ModelPackagingJobDescription": str,
+        "ModelPackagingMethod": str,
+        "Status": ModelPackagingJobStatusType,
+        "StatusMessage": str,
+        "CreationTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+ModelPackagingOutputDetailsTypeDef = TypedDict(
+    "ModelPackagingOutputDetailsTypeDef",
+    {
+        "Greengrass": "GreengrassOutputDetailsTypeDef",
+    },
+    total=False,
+)
+
 ModelPerformanceTypeDef = TypedDict(
     "ModelPerformanceTypeDef",
     {
@@ -611,6 +764,38 @@ _OptionalS3LocationTypeDef = TypedDict(
 class S3LocationTypeDef(_RequiredS3LocationTypeDef, _OptionalS3LocationTypeDef):
     pass
 
+_RequiredStartModelPackagingJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartModelPackagingJobRequestRequestTypeDef",
+    {
+        "ProjectName": str,
+        "ModelVersion": str,
+        "Configuration": "ModelPackagingConfigurationTypeDef",
+    },
+)
+_OptionalStartModelPackagingJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartModelPackagingJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "Description": str,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class StartModelPackagingJobRequestRequestTypeDef(
+    _RequiredStartModelPackagingJobRequestRequestTypeDef,
+    _OptionalStartModelPackagingJobRequestRequestTypeDef,
+):
+    pass
+
+StartModelPackagingJobResponseTypeDef = TypedDict(
+    "StartModelPackagingJobResponseTypeDef",
+    {
+        "JobName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStartModelRequestRequestTypeDef = TypedDict(
     "_RequiredStartModelRequestRequestTypeDef",
     {
@@ -681,6 +866,15 @@ TagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+    },
+)
+
+TargetPlatformTypeDef = TypedDict(
+    "TargetPlatformTypeDef",
+    {
+        "Os": Literal["LINUX"],
+        "Arch": TargetPlatformArchType,
+        "Accelerator": Literal["NVIDIA"],
     },
 )
 

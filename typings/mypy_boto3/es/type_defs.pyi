@@ -116,6 +116,7 @@ __all__ = (
     "DomainInfoTypeDef",
     "DomainInformationTypeDef",
     "DomainPackageDetailsTypeDef",
+    "DryRunResultsTypeDef",
     "DurationTypeDef",
     "EBSOptionsStatusTypeDef",
     "EBSOptionsTypeDef",
@@ -867,6 +868,15 @@ DomainPackageDetailsTypeDef = TypedDict(
         "PackageVersion": str,
         "ReferencePath": str,
         "ErrorDetails": "ErrorDetailsTypeDef",
+    },
+    total=False,
+)
+
+DryRunResultsTypeDef = TypedDict(
+    "DryRunResultsTypeDef",
+    {
+        "DeploymentType": str,
+        "Message": str,
     },
     total=False,
 )
@@ -1688,6 +1698,7 @@ _OptionalUpdateElasticsearchDomainConfigRequestRequestTypeDef = TypedDict(
         "NodeToNodeEncryptionOptions": "NodeToNodeEncryptionOptionsTypeDef",
         "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsTypeDef",
+        "DryRun": bool,
     },
     total=False,
 )
@@ -1702,6 +1713,7 @@ UpdateElasticsearchDomainConfigResponseTypeDef = TypedDict(
     "UpdateElasticsearchDomainConfigResponseTypeDef",
     {
         "DomainConfig": "ElasticsearchDomainConfigTypeDef",
+        "DryRunResults": "DryRunResultsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

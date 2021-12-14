@@ -59,12 +59,16 @@ __all__ = (
     "ListRoutingControlsResponseTypeDef",
     "ListSafetyRulesRequestRequestTypeDef",
     "ListSafetyRulesResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "NewAssertionRuleTypeDef",
     "NewGatingRuleTypeDef",
     "ResponseMetadataTypeDef",
     "RoutingControlTypeDef",
     "RuleConfigTypeDef",
     "RuleTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateControlPanelRequestRequestTypeDef",
     "UpdateControlPanelResponseTypeDef",
     "UpdateRoutingControlRequestRequestTypeDef",
@@ -139,6 +143,7 @@ _OptionalCreateClusterRequestRequestTypeDef = TypedDict(
     "_OptionalCreateClusterRequestRequestTypeDef",
     {
         "ClientToken": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -167,6 +172,7 @@ _OptionalCreateControlPanelRequestRequestTypeDef = TypedDict(
     "_OptionalCreateControlPanelRequestRequestTypeDef",
     {
         "ClientToken": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -221,6 +227,7 @@ CreateSafetyRuleRequestRequestTypeDef = TypedDict(
         "AssertionRule": "NewAssertionRuleTypeDef",
         "ClientToken": str,
         "GatingRule": "NewGatingRuleTypeDef",
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -472,6 +479,21 @@ ListSafetyRulesResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 NewAssertionRuleTypeDef = TypedDict(
     "NewAssertionRuleTypeDef",
     {
@@ -533,6 +555,22 @@ RuleTypeDef = TypedDict(
         "GATING": "GatingRuleTypeDef",
     },
     total=False,
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "Tags": Dict[str, str],
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "TagKeys": List[str],
+    },
 )
 
 UpdateControlPanelRequestRequestTypeDef = TypedDict(

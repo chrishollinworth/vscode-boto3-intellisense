@@ -49,7 +49,7 @@ __all__ = (
 
 class GetDedicatedIpsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#getdedicatedipspaginator)
     """
 
@@ -57,13 +57,13 @@ class GetDedicatedIpsPaginator(Boto3Paginator):
         self, *, PoolName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDedicatedIpsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#getdedicatedipspaginator)
         """
 
 class ListConfigurationSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listconfigurationsetspaginator)
     """
 
@@ -71,13 +71,13 @@ class ListConfigurationSetsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigurationSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listconfigurationsetspaginator)
         """
 
 class ListDedicatedIpPoolsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listdedicatedippoolspaginator)
     """
 
@@ -85,13 +85,13 @@ class ListDedicatedIpPoolsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDedicatedIpPoolsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listdedicatedippoolspaginator)
         """
 
 class ListDeliverabilityTestReportsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listdeliverabilitytestreportspaginator)
     """
 
@@ -99,13 +99,13 @@ class ListDeliverabilityTestReportsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeliverabilityTestReportsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listdeliverabilitytestreportspaginator)
         """
 
 class ListEmailIdentitiesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listemailidentitiespaginator)
     """
 
@@ -113,6 +113,6 @@ class ListEmailIdentitiesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEmailIdentitiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/paginators.html#listemailidentitiespaginator)
         """

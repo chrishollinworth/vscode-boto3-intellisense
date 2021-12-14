@@ -23,6 +23,7 @@ from .literals import (
     AcceleratorTypeType,
     AccountAttributeNameType,
     ActivityStatusType,
+    AddressFamilyType,
     AffinityType,
     AllocationStateType,
     AllocationStrategyType,
@@ -91,6 +92,7 @@ from .literals import (
     ExportEnvironmentType,
     ExportTaskStateType,
     FastSnapshotRestoreStateCodeType,
+    FindingsFoundType,
     FleetActivityStatusType,
     FleetEventTypeType,
     FleetExcessCapacityTerminationPolicyType,
@@ -102,6 +104,7 @@ from .literals import (
     FpgaImageAttributeNameType,
     FpgaImageStateCodeType,
     GatewayAssociationStateType,
+    HostnameTypeType,
     HostRecoveryType,
     HostTenancyType,
     HttpTokensStateType,
@@ -128,6 +131,17 @@ from .literals import (
     InstanceTypeType,
     InterfacePermissionTypeType,
     InterfaceProtocolTypeType,
+    IpamAddressHistoryResourceTypeType,
+    IpamComplianceStatusType,
+    IpamManagementStateType,
+    IpamOverlapStatusType,
+    IpamPoolAllocationResourceTypeType,
+    IpamPoolCidrStateType,
+    IpamPoolStateType,
+    IpamResourceTypeType,
+    IpamScopeStateType,
+    IpamScopeTypeType,
+    IpamStateType,
     Ipv6SupportValueType,
     KeyTypeType,
     LaunchTemplateErrorCodeType,
@@ -194,6 +208,7 @@ from .literals import (
     StaticSourcesSupportValueType,
     StatusType,
     StatusTypeType,
+    StorageTierType,
     SubnetCidrBlockStateCodeType,
     SubnetCidrReservationTypeType,
     SubnetStateType,
@@ -201,6 +216,7 @@ from .literals import (
     TargetCapacityUnitTypeType,
     TelemetryStatusType,
     TenancyType,
+    TieringOperationStatusType,
     TrafficDirectionType,
     TrafficMirrorFilterRuleFieldType,
     TrafficMirrorRuleActionType,
@@ -270,9 +286,13 @@ __all__ = (
     "AcceptVpcPeeringConnectionRequestRequestTypeDef",
     "AcceptVpcPeeringConnectionRequestVpcPeeringConnectionTypeDef",
     "AcceptVpcPeeringConnectionResultTypeDef",
+    "AccessScopeAnalysisFindingTypeDef",
+    "AccessScopePathRequestTypeDef",
+    "AccessScopePathTypeDef",
     "AccountAttributeTypeDef",
     "AccountAttributeValueTypeDef",
     "ActiveInstanceTypeDef",
+    "AddIpamOperatingRegionTypeDef",
     "AddPrefixListEntryTypeDef",
     "AddressAttributeTypeDef",
     "AddressTypeDef",
@@ -282,6 +302,8 @@ __all__ = (
     "AllocateAddressResultTypeDef",
     "AllocateHostsRequestRequestTypeDef",
     "AllocateHostsResultTypeDef",
+    "AllocateIpamPoolCidrRequestRequestTypeDef",
+    "AllocateIpamPoolCidrResultTypeDef",
     "AllowedPrincipalTypeDef",
     "AlternatePathHintTypeDef",
     "AnalysisAclRuleTypeDef",
@@ -479,6 +501,12 @@ __all__ = (
     "CreateInternetGatewayRequestRequestTypeDef",
     "CreateInternetGatewayRequestServiceResourceTypeDef",
     "CreateInternetGatewayResultTypeDef",
+    "CreateIpamPoolRequestRequestTypeDef",
+    "CreateIpamPoolResultTypeDef",
+    "CreateIpamRequestRequestTypeDef",
+    "CreateIpamResultTypeDef",
+    "CreateIpamScopeRequestRequestTypeDef",
+    "CreateIpamScopeResultTypeDef",
     "CreateKeyPairRequestRequestTypeDef",
     "CreateKeyPairRequestServiceResourceTypeDef",
     "CreateLaunchTemplateRequestRequestTypeDef",
@@ -499,6 +527,8 @@ __all__ = (
     "CreateNetworkAclRequestServiceResourceTypeDef",
     "CreateNetworkAclRequestVpcTypeDef",
     "CreateNetworkAclResultTypeDef",
+    "CreateNetworkInsightsAccessScopeRequestRequestTypeDef",
+    "CreateNetworkInsightsAccessScopeResultTypeDef",
     "CreateNetworkInsightsPathRequestRequestTypeDef",
     "CreateNetworkInsightsPathResultTypeDef",
     "CreateNetworkInterfacePermissionRequestRequestTypeDef",
@@ -510,6 +540,8 @@ __all__ = (
     "CreatePlacementGroupRequestRequestTypeDef",
     "CreatePlacementGroupRequestServiceResourceTypeDef",
     "CreatePlacementGroupResultTypeDef",
+    "CreatePublicIpv4PoolRequestRequestTypeDef",
+    "CreatePublicIpv4PoolResultTypeDef",
     "CreateReplaceRootVolumeTaskRequestRequestTypeDef",
     "CreateReplaceRootVolumeTaskResultTypeDef",
     "CreateReservedInstancesListingRequestRequestTypeDef",
@@ -634,6 +666,12 @@ __all__ = (
     "DeleteInstanceEventWindowResultTypeDef",
     "DeleteInternetGatewayRequestInternetGatewayTypeDef",
     "DeleteInternetGatewayRequestRequestTypeDef",
+    "DeleteIpamPoolRequestRequestTypeDef",
+    "DeleteIpamPoolResultTypeDef",
+    "DeleteIpamRequestRequestTypeDef",
+    "DeleteIpamResultTypeDef",
+    "DeleteIpamScopeRequestRequestTypeDef",
+    "DeleteIpamScopeResultTypeDef",
     "DeleteKeyPairRequestKeyPairInfoTypeDef",
     "DeleteKeyPairRequestKeyPairTypeDef",
     "DeleteKeyPairRequestRequestTypeDef",
@@ -655,6 +693,10 @@ __all__ = (
     "DeleteNetworkAclEntryRequestRequestTypeDef",
     "DeleteNetworkAclRequestNetworkAclTypeDef",
     "DeleteNetworkAclRequestRequestTypeDef",
+    "DeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef",
+    "DeleteNetworkInsightsAccessScopeAnalysisResultTypeDef",
+    "DeleteNetworkInsightsAccessScopeRequestRequestTypeDef",
+    "DeleteNetworkInsightsAccessScopeResultTypeDef",
     "DeleteNetworkInsightsAnalysisRequestRequestTypeDef",
     "DeleteNetworkInsightsAnalysisResultTypeDef",
     "DeleteNetworkInsightsPathRequestRequestTypeDef",
@@ -665,6 +707,8 @@ __all__ = (
     "DeleteNetworkInterfaceRequestRequestTypeDef",
     "DeletePlacementGroupRequestPlacementGroupTypeDef",
     "DeletePlacementGroupRequestRequestTypeDef",
+    "DeletePublicIpv4PoolRequestRequestTypeDef",
+    "DeletePublicIpv4PoolResultTypeDef",
     "DeleteQueuedReservedInstancesErrorTypeDef",
     "DeleteQueuedReservedInstancesRequestRequestTypeDef",
     "DeleteQueuedReservedInstancesResultTypeDef",
@@ -727,6 +771,10 @@ __all__ = (
     "DeleteVpnGatewayRequestRequestTypeDef",
     "DeprovisionByoipCidrRequestRequestTypeDef",
     "DeprovisionByoipCidrResultTypeDef",
+    "DeprovisionIpamPoolCidrRequestRequestTypeDef",
+    "DeprovisionIpamPoolCidrResultTypeDef",
+    "DeprovisionPublicIpv4PoolCidrRequestRequestTypeDef",
+    "DeprovisionPublicIpv4PoolCidrResultTypeDef",
     "DeregisterImageRequestImageTypeDef",
     "DeregisterImageRequestRequestTypeDef",
     "DeregisterInstanceEventNotificationAttributesRequestRequestTypeDef",
@@ -839,6 +887,12 @@ __all__ = (
     "DescribeInstancesResultTypeDef",
     "DescribeInternetGatewaysRequestRequestTypeDef",
     "DescribeInternetGatewaysResultTypeDef",
+    "DescribeIpamPoolsRequestRequestTypeDef",
+    "DescribeIpamPoolsResultTypeDef",
+    "DescribeIpamScopesRequestRequestTypeDef",
+    "DescribeIpamScopesResultTypeDef",
+    "DescribeIpamsRequestRequestTypeDef",
+    "DescribeIpamsResultTypeDef",
     "DescribeIpv6PoolsRequestRequestTypeDef",
     "DescribeIpv6PoolsResultTypeDef",
     "DescribeKeyPairsRequestRequestTypeDef",
@@ -867,6 +921,10 @@ __all__ = (
     "DescribeNatGatewaysResultTypeDef",
     "DescribeNetworkAclsRequestRequestTypeDef",
     "DescribeNetworkAclsResultTypeDef",
+    "DescribeNetworkInsightsAccessScopeAnalysesRequestRequestTypeDef",
+    "DescribeNetworkInsightsAccessScopeAnalysesResultTypeDef",
+    "DescribeNetworkInsightsAccessScopesRequestRequestTypeDef",
+    "DescribeNetworkInsightsAccessScopesResultTypeDef",
     "DescribeNetworkInsightsAnalysesRequestRequestTypeDef",
     "DescribeNetworkInsightsAnalysesResultTypeDef",
     "DescribeNetworkInsightsPathsRequestRequestTypeDef",
@@ -913,6 +971,8 @@ __all__ = (
     "DescribeSnapshotAttributeRequestRequestTypeDef",
     "DescribeSnapshotAttributeRequestSnapshotTypeDef",
     "DescribeSnapshotAttributeResultTypeDef",
+    "DescribeSnapshotTierStatusRequestRequestTypeDef",
+    "DescribeSnapshotTierStatusResultTypeDef",
     "DescribeSnapshotsRequestRequestTypeDef",
     "DescribeSnapshotsResultTypeDef",
     "DescribeSpotDatafeedSubscriptionRequestRequestTypeDef",
@@ -1025,6 +1085,8 @@ __all__ = (
     "DisableFastSnapshotRestoresResultTypeDef",
     "DisableImageDeprecationRequestRequestTypeDef",
     "DisableImageDeprecationResultTypeDef",
+    "DisableIpamOrganizationAdminAccountRequestRequestTypeDef",
+    "DisableIpamOrganizationAdminAccountResultTypeDef",
     "DisableSerialConsoleAccessRequestRequestTypeDef",
     "DisableSerialConsoleAccessResultTypeDef",
     "DisableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
@@ -1090,6 +1152,8 @@ __all__ = (
     "EnableFastSnapshotRestoresResultTypeDef",
     "EnableImageDeprecationRequestRequestTypeDef",
     "EnableImageDeprecationResultTypeDef",
+    "EnableIpamOrganizationAdminAccountRequestRequestTypeDef",
+    "EnableIpamOrganizationAdminAccountResultTypeDef",
     "EnableSerialConsoleAccessRequestRequestTypeDef",
     "EnableSerialConsoleAccessResultTypeDef",
     "EnableTransitGatewayRouteTablePropagationRequestRequestTypeDef",
@@ -1171,12 +1235,24 @@ __all__ = (
     "GetHostReservationPurchasePreviewResultTypeDef",
     "GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef",
     "GetInstanceTypesFromInstanceRequirementsResultTypeDef",
+    "GetIpamAddressHistoryRequestRequestTypeDef",
+    "GetIpamAddressHistoryResultTypeDef",
+    "GetIpamPoolAllocationsRequestRequestTypeDef",
+    "GetIpamPoolAllocationsResultTypeDef",
+    "GetIpamPoolCidrsRequestRequestTypeDef",
+    "GetIpamPoolCidrsResultTypeDef",
+    "GetIpamResourceCidrsRequestRequestTypeDef",
+    "GetIpamResourceCidrsResultTypeDef",
     "GetLaunchTemplateDataRequestRequestTypeDef",
     "GetLaunchTemplateDataResultTypeDef",
     "GetManagedPrefixListAssociationsRequestRequestTypeDef",
     "GetManagedPrefixListAssociationsResultTypeDef",
     "GetManagedPrefixListEntriesRequestRequestTypeDef",
     "GetManagedPrefixListEntriesResultTypeDef",
+    "GetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef",
+    "GetNetworkInsightsAccessScopeAnalysisFindingsResultTypeDef",
+    "GetNetworkInsightsAccessScopeContentRequestRequestTypeDef",
+    "GetNetworkInsightsAccessScopeContentResultTypeDef",
     "GetPasswordDataRequestInstanceTypeDef",
     "GetPasswordDataRequestRequestTypeDef",
     "GetPasswordDataResultTypeDef",
@@ -1300,6 +1376,17 @@ __all__ = (
     "InternetGatewayTypeDef",
     "IpPermissionTypeDef",
     "IpRangeTypeDef",
+    "IpamAddressHistoryRecordTypeDef",
+    "IpamCidrAuthorizationContextTypeDef",
+    "IpamOperatingRegionTypeDef",
+    "IpamPoolAllocationTypeDef",
+    "IpamPoolCidrFailureReasonTypeDef",
+    "IpamPoolCidrTypeDef",
+    "IpamPoolTypeDef",
+    "IpamResourceCidrTypeDef",
+    "IpamResourceTagTypeDef",
+    "IpamScopeTypeDef",
+    "IpamTypeDef",
     "Ipv4PrefixSpecificationRequestTypeDef",
     "Ipv4PrefixSpecificationResponseTypeDef",
     "Ipv4PrefixSpecificationTypeDef",
@@ -1345,6 +1432,8 @@ __all__ = (
     "LaunchTemplateOverridesTypeDef",
     "LaunchTemplatePlacementRequestTypeDef",
     "LaunchTemplatePlacementTypeDef",
+    "LaunchTemplatePrivateDnsNameOptionsRequestTypeDef",
+    "LaunchTemplatePrivateDnsNameOptionsTypeDef",
     "LaunchTemplateSpecificationTypeDef",
     "LaunchTemplateSpotMarketOptionsRequestTypeDef",
     "LaunchTemplateSpotMarketOptionsTypeDef",
@@ -1356,6 +1445,8 @@ __all__ = (
     "LaunchTemplatesMonitoringTypeDef",
     "LicenseConfigurationRequestTypeDef",
     "LicenseConfigurationTypeDef",
+    "ListSnapshotsInRecycleBinRequestRequestTypeDef",
+    "ListSnapshotsInRecycleBinResultTypeDef",
     "LoadBalancersConfigTypeDef",
     "LoadPermissionModificationsTypeDef",
     "LoadPermissionRequestTypeDef",
@@ -1411,18 +1502,30 @@ __all__ = (
     "ModifyInstanceMetadataOptionsResultTypeDef",
     "ModifyInstancePlacementRequestRequestTypeDef",
     "ModifyInstancePlacementResultTypeDef",
+    "ModifyIpamPoolRequestRequestTypeDef",
+    "ModifyIpamPoolResultTypeDef",
+    "ModifyIpamRequestRequestTypeDef",
+    "ModifyIpamResourceCidrRequestRequestTypeDef",
+    "ModifyIpamResourceCidrResultTypeDef",
+    "ModifyIpamResultTypeDef",
+    "ModifyIpamScopeRequestRequestTypeDef",
+    "ModifyIpamScopeResultTypeDef",
     "ModifyLaunchTemplateRequestRequestTypeDef",
     "ModifyLaunchTemplateResultTypeDef",
     "ModifyManagedPrefixListRequestRequestTypeDef",
     "ModifyManagedPrefixListResultTypeDef",
     "ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTypeDef",
     "ModifyNetworkInterfaceAttributeRequestRequestTypeDef",
+    "ModifyPrivateDnsNameOptionsRequestRequestTypeDef",
+    "ModifyPrivateDnsNameOptionsResultTypeDef",
     "ModifyReservedInstancesRequestRequestTypeDef",
     "ModifyReservedInstancesResultTypeDef",
     "ModifySecurityGroupRulesRequestRequestTypeDef",
     "ModifySecurityGroupRulesResultTypeDef",
     "ModifySnapshotAttributeRequestRequestTypeDef",
     "ModifySnapshotAttributeRequestSnapshotTypeDef",
+    "ModifySnapshotTierRequestRequestTypeDef",
+    "ModifySnapshotTierResultTypeDef",
     "ModifySpotFleetRequestRequestRequestTypeDef",
     "ModifySpotFleetRequestResponseTypeDef",
     "ModifySubnetAttributeRequestRequestTypeDef",
@@ -1473,6 +1576,8 @@ __all__ = (
     "MonitoringTypeDef",
     "MoveAddressToVpcRequestRequestTypeDef",
     "MoveAddressToVpcResultTypeDef",
+    "MoveByoipCidrToIpamRequestRequestTypeDef",
+    "MoveByoipCidrToIpamResultTypeDef",
     "MovingAddressStatusTypeDef",
     "NatGatewayAddressTypeDef",
     "NatGatewayTypeDef",
@@ -1481,6 +1586,9 @@ __all__ = (
     "NetworkAclTypeDef",
     "NetworkCardInfoTypeDef",
     "NetworkInfoTypeDef",
+    "NetworkInsightsAccessScopeAnalysisTypeDef",
+    "NetworkInsightsAccessScopeContentTypeDef",
+    "NetworkInsightsAccessScopeTypeDef",
     "NetworkInsightsAnalysisTypeDef",
     "NetworkInsightsPathTypeDef",
     "NetworkInterfaceAssociationTypeDef",
@@ -1496,8 +1604,12 @@ __all__ = (
     "NewDhcpConfigurationTypeDef",
     "OnDemandOptionsRequestTypeDef",
     "OnDemandOptionsTypeDef",
+    "PacketHeaderStatementRequestTypeDef",
+    "PacketHeaderStatementTypeDef",
     "PaginatorConfigTypeDef",
     "PathComponentTypeDef",
+    "PathStatementRequestTypeDef",
+    "PathStatementTypeDef",
     "PciIdTypeDef",
     "PeeringAttachmentStatusTypeDef",
     "PeeringConnectionOptionsRequestTypeDef",
@@ -1531,12 +1643,19 @@ __all__ = (
     "PrincipalIdFormatTypeDef",
     "PrivateDnsDetailsTypeDef",
     "PrivateDnsNameConfigurationTypeDef",
+    "PrivateDnsNameOptionsOnLaunchTypeDef",
+    "PrivateDnsNameOptionsRequestTypeDef",
+    "PrivateDnsNameOptionsResponseTypeDef",
     "PrivateIpAddressSpecificationTypeDef",
     "ProcessorInfoTypeDef",
     "ProductCodeTypeDef",
     "PropagatingVgwTypeDef",
     "ProvisionByoipCidrRequestRequestTypeDef",
     "ProvisionByoipCidrResultTypeDef",
+    "ProvisionIpamPoolCidrRequestRequestTypeDef",
+    "ProvisionIpamPoolCidrResultTypeDef",
+    "ProvisionPublicIpv4PoolCidrRequestRequestTypeDef",
+    "ProvisionPublicIpv4PoolCidrResultTypeDef",
     "ProvisionedBandwidthTypeDef",
     "PtrUpdateStatusTypeDef",
     "PublicIpv4PoolRangeTypeDef",
@@ -1580,6 +1699,9 @@ __all__ = (
     "ReleaseAddressRequestVpcAddressTypeDef",
     "ReleaseHostsRequestRequestTypeDef",
     "ReleaseHostsResultTypeDef",
+    "ReleaseIpamPoolAllocationRequestRequestTypeDef",
+    "ReleaseIpamPoolAllocationResultTypeDef",
+    "RemoveIpamOperatingRegionTypeDef",
     "RemovePrefixListEntryTypeDef",
     "ReplaceIamInstanceProfileAssociationRequestRequestTypeDef",
     "ReplaceIamInstanceProfileAssociationResultTypeDef",
@@ -1598,6 +1720,7 @@ __all__ = (
     "ReplaceTransitGatewayRouteResultTypeDef",
     "ReportInstanceStatusRequestInstanceTypeDef",
     "ReportInstanceStatusRequestRequestTypeDef",
+    "RequestIpamResourceTagTypeDef",
     "RequestLaunchTemplateDataTypeDef",
     "RequestSpotFleetRequestRequestTypeDef",
     "RequestSpotFleetResponseTypeDef",
@@ -1631,6 +1754,8 @@ __all__ = (
     "ResetNetworkInterfaceAttributeRequestRequestTypeDef",
     "ResetSnapshotAttributeRequestRequestTypeDef",
     "ResetSnapshotAttributeRequestSnapshotTypeDef",
+    "ResourceStatementRequestTypeDef",
+    "ResourceStatementTypeDef",
     "ResponseErrorTypeDef",
     "ResponseLaunchTemplateDataTypeDef",
     "ResponseMetadataTypeDef",
@@ -1638,6 +1763,10 @@ __all__ = (
     "RestoreAddressToClassicResultTypeDef",
     "RestoreManagedPrefixListVersionRequestRequestTypeDef",
     "RestoreManagedPrefixListVersionResultTypeDef",
+    "RestoreSnapshotFromRecycleBinRequestRequestTypeDef",
+    "RestoreSnapshotFromRecycleBinResultTypeDef",
+    "RestoreSnapshotTierRequestRequestTypeDef",
+    "RestoreSnapshotTierResultTypeDef",
     "RevokeClientVpnIngressRequestRequestTypeDef",
     "RevokeClientVpnIngressResultTypeDef",
     "RevokeSecurityGroupEgressRequestRequestTypeDef",
@@ -1714,8 +1843,10 @@ __all__ = (
     "SnapshotDetailTypeDef",
     "SnapshotDiskContainerTypeDef",
     "SnapshotInfoTypeDef",
+    "SnapshotRecycleBinInfoTypeDef",
     "SnapshotResponseMetadataTypeDef",
     "SnapshotTaskDetailTypeDef",
+    "SnapshotTierStatusTypeDef",
     "SnapshotTypeDef",
     "SpotCapacityRebalanceTypeDef",
     "SpotDatafeedSubscriptionTypeDef",
@@ -1739,6 +1870,8 @@ __all__ = (
     "StartInstancesRequestInstanceTypeDef",
     "StartInstancesRequestRequestTypeDef",
     "StartInstancesResultTypeDef",
+    "StartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef",
+    "StartNetworkInsightsAccessScopeAnalysisResultTypeDef",
     "StartNetworkInsightsAnalysisRequestRequestTypeDef",
     "StartNetworkInsightsAnalysisResultTypeDef",
     "StartVpcEndpointServicePrivateDnsVerificationRequestRequestTypeDef",
@@ -1774,6 +1907,8 @@ __all__ = (
     "TerminateInstancesRequestInstanceTypeDef",
     "TerminateInstancesRequestRequestTypeDef",
     "TerminateInstancesResultTypeDef",
+    "ThroughResourcesStatementRequestTypeDef",
+    "ThroughResourcesStatementTypeDef",
     "TotalLocalStorageGBRequestTypeDef",
     "TotalLocalStorageGBTypeDef",
     "TrafficMirrorFilterRuleTypeDef",
@@ -2072,6 +2207,37 @@ AcceptVpcPeeringConnectionResultTypeDef = TypedDict(
     },
 )
 
+AccessScopeAnalysisFindingTypeDef = TypedDict(
+    "AccessScopeAnalysisFindingTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysisId": str,
+        "NetworkInsightsAccessScopeId": str,
+        "FindingId": str,
+        "FindingComponents": List["PathComponentTypeDef"],
+    },
+    total=False,
+)
+
+AccessScopePathRequestTypeDef = TypedDict(
+    "AccessScopePathRequestTypeDef",
+    {
+        "Source": "PathStatementRequestTypeDef",
+        "Destination": "PathStatementRequestTypeDef",
+        "ThroughResources": List["ThroughResourcesStatementRequestTypeDef"],
+    },
+    total=False,
+)
+
+AccessScopePathTypeDef = TypedDict(
+    "AccessScopePathTypeDef",
+    {
+        "Source": "PathStatementTypeDef",
+        "Destination": "PathStatementTypeDef",
+        "ThroughResources": List["ThroughResourcesStatementTypeDef"],
+    },
+    total=False,
+)
+
 AccountAttributeTypeDef = TypedDict(
     "AccountAttributeTypeDef",
     {
@@ -2096,6 +2262,14 @@ ActiveInstanceTypeDef = TypedDict(
         "InstanceType": str,
         "SpotInstanceRequestId": str,
         "InstanceHealth": InstanceHealthStatusType,
+    },
+    total=False,
+)
+
+AddIpamOperatingRegionTypeDef = TypedDict(
+    "AddIpamOperatingRegionTypeDef",
+    {
+        "RegionName": str,
     },
     total=False,
 )
@@ -2241,6 +2415,40 @@ AllocateHostsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredAllocateIpamPoolCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredAllocateIpamPoolCidrRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+    },
+)
+_OptionalAllocateIpamPoolCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalAllocateIpamPoolCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Cidr": str,
+        "NetmaskLength": int,
+        "ClientToken": str,
+        "Description": str,
+        "PreviewNextCidr": bool,
+        "DisallowedCidrs": List[str],
+    },
+    total=False,
+)
+
+class AllocateIpamPoolCidrRequestRequestTypeDef(
+    _RequiredAllocateIpamPoolCidrRequestRequestTypeDef,
+    _OptionalAllocateIpamPoolCidrRequestRequestTypeDef,
+):
+    pass
+
+AllocateIpamPoolCidrResultTypeDef = TypedDict(
+    "AllocateIpamPoolCidrResultTypeDef",
+    {
+        "IpamPoolAllocation": "IpamPoolAllocationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 AllowedPrincipalTypeDef = TypedDict(
     "AllowedPrincipalTypeDef",
     {
@@ -2277,6 +2485,7 @@ AnalysisComponentTypeDef = TypedDict(
     {
         "Id": str,
         "Arn": str,
+        "Name": str,
     },
     total=False,
 )
@@ -2817,6 +3026,10 @@ _OptionalAssociateVpcCidrBlockRequestRequestTypeDef = TypedDict(
         "Ipv6CidrBlockNetworkBorderGroup": str,
         "Ipv6Pool": str,
         "Ipv6CidrBlock": str,
+        "Ipv4IpamPoolId": str,
+        "Ipv4NetmaskLength": int,
+        "Ipv6IpamPoolId": str,
+        "Ipv6NetmaskLength": int,
     },
     total=False,
 )
@@ -4553,6 +4766,7 @@ _OptionalCreateDefaultSubnetRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDefaultSubnetRequestRequestTypeDef",
     {
         "DryRun": bool,
+        "Ipv6Native": bool,
     },
     total=False,
 )
@@ -4936,6 +5150,96 @@ CreateInternetGatewayResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateIpamPoolRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateIpamPoolRequestRequestTypeDef",
+    {
+        "IpamScopeId": str,
+    },
+)
+_OptionalCreateIpamPoolRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateIpamPoolRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Locale": str,
+        "SourceIpamPoolId": str,
+        "Description": str,
+        "AddressFamily": AddressFamilyType,
+        "AutoImport": bool,
+        "PubliclyAdvertisable": bool,
+        "AllocationMinNetmaskLength": int,
+        "AllocationMaxNetmaskLength": int,
+        "AllocationDefaultNetmaskLength": int,
+        "AllocationResourceTags": List["RequestIpamResourceTagTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+        "AwsService": Literal["ec2"],
+    },
+    total=False,
+)
+
+class CreateIpamPoolRequestRequestTypeDef(
+    _RequiredCreateIpamPoolRequestRequestTypeDef, _OptionalCreateIpamPoolRequestRequestTypeDef
+):
+    pass
+
+CreateIpamPoolResultTypeDef = TypedDict(
+    "CreateIpamPoolResultTypeDef",
+    {
+        "IpamPool": "IpamPoolTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateIpamRequestRequestTypeDef = TypedDict(
+    "CreateIpamRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+        "OperatingRegions": List["AddIpamOperatingRegionTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+CreateIpamResultTypeDef = TypedDict(
+    "CreateIpamResultTypeDef",
+    {
+        "Ipam": "IpamTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateIpamScopeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateIpamScopeRequestRequestTypeDef",
+    {
+        "IpamId": str,
+    },
+)
+_OptionalCreateIpamScopeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateIpamScopeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateIpamScopeRequestRequestTypeDef(
+    _RequiredCreateIpamScopeRequestRequestTypeDef, _OptionalCreateIpamScopeRequestRequestTypeDef
+):
+    pass
+
+CreateIpamScopeResultTypeDef = TypedDict(
+    "CreateIpamScopeResultTypeDef",
+    {
+        "IpamScope": "IpamScopeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateKeyPairRequestRequestTypeDef = TypedDict(
     "_RequiredCreateKeyPairRequestRequestTypeDef",
     {
@@ -5284,6 +5588,38 @@ CreateNetworkAclResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateNetworkInsightsAccessScopeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNetworkInsightsAccessScopeRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+)
+_OptionalCreateNetworkInsightsAccessScopeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNetworkInsightsAccessScopeRequestRequestTypeDef",
+    {
+        "MatchPaths": List["AccessScopePathRequestTypeDef"],
+        "ExcludePaths": List["AccessScopePathRequestTypeDef"],
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class CreateNetworkInsightsAccessScopeRequestRequestTypeDef(
+    _RequiredCreateNetworkInsightsAccessScopeRequestRequestTypeDef,
+    _OptionalCreateNetworkInsightsAccessScopeRequestRequestTypeDef,
+):
+    pass
+
+CreateNetworkInsightsAccessScopeResultTypeDef = TypedDict(
+    "CreateNetworkInsightsAccessScopeResultTypeDef",
+    {
+        "NetworkInsightsAccessScope": "NetworkInsightsAccessScopeTypeDef",
+        "NetworkInsightsAccessScopeContent": "NetworkInsightsAccessScopeContentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateNetworkInsightsPathRequestRequestTypeDef = TypedDict(
     "_RequiredCreateNetworkInsightsPathRequestRequestTypeDef",
     {
@@ -5477,6 +5813,23 @@ CreatePlacementGroupResultTypeDef = TypedDict(
     "CreatePlacementGroupResultTypeDef",
     {
         "PlacementGroup": "PlacementGroupTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreatePublicIpv4PoolRequestRequestTypeDef = TypedDict(
+    "CreatePublicIpv4PoolRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+CreatePublicIpv4PoolResultTypeDef = TypedDict(
+    "CreatePublicIpv4PoolResultTypeDef",
+    {
+        "PoolId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5939,7 +6292,6 @@ CreateSubnetCidrReservationResultTypeDef = TypedDict(
 _RequiredCreateSubnetRequestRequestTypeDef = TypedDict(
     "_RequiredCreateSubnetRequestRequestTypeDef",
     {
-        "CidrBlock": str,
         "VpcId": str,
     },
 )
@@ -5949,9 +6301,11 @@ _OptionalCreateSubnetRequestRequestTypeDef = TypedDict(
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "AvailabilityZone": str,
         "AvailabilityZoneId": str,
+        "CidrBlock": str,
         "Ipv6CidrBlock": str,
         "OutpostArn": str,
         "DryRun": bool,
+        "Ipv6Native": bool,
     },
     total=False,
 )
@@ -5964,7 +6318,6 @@ class CreateSubnetRequestRequestTypeDef(
 _RequiredCreateSubnetRequestServiceResourceTypeDef = TypedDict(
     "_RequiredCreateSubnetRequestServiceResourceTypeDef",
     {
-        "CidrBlock": str,
         "VpcId": str,
     },
 )
@@ -5974,9 +6327,11 @@ _OptionalCreateSubnetRequestServiceResourceTypeDef = TypedDict(
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "AvailabilityZone": str,
         "AvailabilityZoneId": str,
+        "CidrBlock": str,
         "Ipv6CidrBlock": str,
         "OutpostArn": str,
         "DryRun": bool,
+        "Ipv6Native": bool,
     },
     total=False,
 )
@@ -5987,29 +6342,20 @@ class CreateSubnetRequestServiceResourceTypeDef(
 ):
     pass
 
-_RequiredCreateSubnetRequestVpcTypeDef = TypedDict(
-    "_RequiredCreateSubnetRequestVpcTypeDef",
-    {
-        "CidrBlock": str,
-    },
-)
-_OptionalCreateSubnetRequestVpcTypeDef = TypedDict(
-    "_OptionalCreateSubnetRequestVpcTypeDef",
+CreateSubnetRequestVpcTypeDef = TypedDict(
+    "CreateSubnetRequestVpcTypeDef",
     {
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "AvailabilityZone": str,
         "AvailabilityZoneId": str,
+        "CidrBlock": str,
         "Ipv6CidrBlock": str,
         "OutpostArn": str,
         "DryRun": bool,
+        "Ipv6Native": bool,
     },
     total=False,
 )
-
-class CreateSubnetRequestVpcTypeDef(
-    _RequiredCreateSubnetRequestVpcTypeDef, _OptionalCreateSubnetRequestVpcTypeDef
-):
-    pass
 
 CreateSubnetResultTypeDef = TypedDict(
     "CreateSubnetResultTypeDef",
@@ -6920,18 +7266,17 @@ CreateVpcPeeringConnectionResultTypeDef = TypedDict(
     },
 )
 
-_RequiredCreateVpcRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcRequestRequestTypeDef",
+CreateVpcRequestRequestTypeDef = TypedDict(
+    "CreateVpcRequestRequestTypeDef",
     {
         "CidrBlock": str,
-    },
-)
-_OptionalCreateVpcRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcRequestRequestTypeDef",
-    {
         "AmazonProvidedIpv6CidrBlock": bool,
         "Ipv6Pool": str,
         "Ipv6CidrBlock": str,
+        "Ipv4IpamPoolId": str,
+        "Ipv4NetmaskLength": int,
+        "Ipv6IpamPoolId": str,
+        "Ipv6NetmaskLength": int,
         "DryRun": bool,
         "InstanceTenancy": TenancyType,
         "Ipv6CidrBlockNetworkBorderGroup": str,
@@ -6940,23 +7285,17 @@ _OptionalCreateVpcRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
-class CreateVpcRequestRequestTypeDef(
-    _RequiredCreateVpcRequestRequestTypeDef, _OptionalCreateVpcRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateVpcRequestServiceResourceTypeDef = TypedDict(
-    "_RequiredCreateVpcRequestServiceResourceTypeDef",
+CreateVpcRequestServiceResourceTypeDef = TypedDict(
+    "CreateVpcRequestServiceResourceTypeDef",
     {
         "CidrBlock": str,
-    },
-)
-_OptionalCreateVpcRequestServiceResourceTypeDef = TypedDict(
-    "_OptionalCreateVpcRequestServiceResourceTypeDef",
-    {
         "AmazonProvidedIpv6CidrBlock": bool,
         "Ipv6Pool": str,
         "Ipv6CidrBlock": str,
+        "Ipv4IpamPoolId": str,
+        "Ipv4NetmaskLength": int,
+        "Ipv6IpamPoolId": str,
+        "Ipv6NetmaskLength": int,
         "DryRun": bool,
         "InstanceTenancy": TenancyType,
         "Ipv6CidrBlockNetworkBorderGroup": str,
@@ -6964,11 +7303,6 @@ _OptionalCreateVpcRequestServiceResourceTypeDef = TypedDict(
     },
     total=False,
 )
-
-class CreateVpcRequestServiceResourceTypeDef(
-    _RequiredCreateVpcRequestServiceResourceTypeDef, _OptionalCreateVpcRequestServiceResourceTypeDef
-):
-    pass
 
 CreateVpcResultTypeDef = TypedDict(
     "CreateVpcResultTypeDef",
@@ -7408,6 +7742,87 @@ class DeleteInternetGatewayRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteIpamPoolRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteIpamPoolRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+    },
+)
+_OptionalDeleteIpamPoolRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteIpamPoolRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteIpamPoolRequestRequestTypeDef(
+    _RequiredDeleteIpamPoolRequestRequestTypeDef, _OptionalDeleteIpamPoolRequestRequestTypeDef
+):
+    pass
+
+DeleteIpamPoolResultTypeDef = TypedDict(
+    "DeleteIpamPoolResultTypeDef",
+    {
+        "IpamPool": "IpamPoolTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteIpamRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteIpamRequestRequestTypeDef",
+    {
+        "IpamId": str,
+    },
+)
+_OptionalDeleteIpamRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteIpamRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteIpamRequestRequestTypeDef(
+    _RequiredDeleteIpamRequestRequestTypeDef, _OptionalDeleteIpamRequestRequestTypeDef
+):
+    pass
+
+DeleteIpamResultTypeDef = TypedDict(
+    "DeleteIpamResultTypeDef",
+    {
+        "Ipam": "IpamTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteIpamScopeRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteIpamScopeRequestRequestTypeDef",
+    {
+        "IpamScopeId": str,
+    },
+)
+_OptionalDeleteIpamScopeRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteIpamScopeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteIpamScopeRequestRequestTypeDef(
+    _RequiredDeleteIpamScopeRequestRequestTypeDef, _OptionalDeleteIpamScopeRequestRequestTypeDef
+):
+    pass
+
+DeleteIpamScopeResultTypeDef = TypedDict(
+    "DeleteIpamScopeResultTypeDef",
+    {
+        "IpamScope": "IpamScopeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteKeyPairRequestKeyPairInfoTypeDef = TypedDict(
     "DeleteKeyPairRequestKeyPairInfoTypeDef",
     {
@@ -7692,6 +8107,62 @@ class DeleteNetworkAclRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysisId": str,
+    },
+)
+_OptionalDeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef(
+    _RequiredDeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef,
+    _OptionalDeleteNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef,
+):
+    pass
+
+DeleteNetworkInsightsAccessScopeAnalysisResultTypeDef = TypedDict(
+    "DeleteNetworkInsightsAccessScopeAnalysisResultTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysisId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeleteNetworkInsightsAccessScopeRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteNetworkInsightsAccessScopeRequestRequestTypeDef",
+    {
+        "NetworkInsightsAccessScopeId": str,
+    },
+)
+_OptionalDeleteNetworkInsightsAccessScopeRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteNetworkInsightsAccessScopeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeleteNetworkInsightsAccessScopeRequestRequestTypeDef(
+    _RequiredDeleteNetworkInsightsAccessScopeRequestRequestTypeDef,
+    _OptionalDeleteNetworkInsightsAccessScopeRequestRequestTypeDef,
+):
+    pass
+
+DeleteNetworkInsightsAccessScopeResultTypeDef = TypedDict(
+    "DeleteNetworkInsightsAccessScopeResultTypeDef",
+    {
+        "NetworkInsightsAccessScopeId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteNetworkInsightsAnalysisRequestRequestTypeDef",
     {
@@ -7832,6 +8303,34 @@ class DeletePlacementGroupRequestRequestTypeDef(
     _OptionalDeletePlacementGroupRequestRequestTypeDef,
 ):
     pass
+
+_RequiredDeletePublicIpv4PoolRequestRequestTypeDef = TypedDict(
+    "_RequiredDeletePublicIpv4PoolRequestRequestTypeDef",
+    {
+        "PoolId": str,
+    },
+)
+_OptionalDeletePublicIpv4PoolRequestRequestTypeDef = TypedDict(
+    "_OptionalDeletePublicIpv4PoolRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeletePublicIpv4PoolRequestRequestTypeDef(
+    _RequiredDeletePublicIpv4PoolRequestRequestTypeDef,
+    _OptionalDeletePublicIpv4PoolRequestRequestTypeDef,
+):
+    pass
+
+DeletePublicIpv4PoolResultTypeDef = TypedDict(
+    "DeletePublicIpv4PoolResultTypeDef",
+    {
+        "ReturnValue": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DeleteQueuedReservedInstancesErrorTypeDef = TypedDict(
     "DeleteQueuedReservedInstancesErrorTypeDef",
@@ -8678,6 +9177,65 @@ DeprovisionByoipCidrResultTypeDef = TypedDict(
     "DeprovisionByoipCidrResultTypeDef",
     {
         "ByoipCidr": "ByoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeprovisionIpamPoolCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredDeprovisionIpamPoolCidrRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+    },
+)
+_OptionalDeprovisionIpamPoolCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalDeprovisionIpamPoolCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Cidr": str,
+    },
+    total=False,
+)
+
+class DeprovisionIpamPoolCidrRequestRequestTypeDef(
+    _RequiredDeprovisionIpamPoolCidrRequestRequestTypeDef,
+    _OptionalDeprovisionIpamPoolCidrRequestRequestTypeDef,
+):
+    pass
+
+DeprovisionIpamPoolCidrResultTypeDef = TypedDict(
+    "DeprovisionIpamPoolCidrResultTypeDef",
+    {
+        "IpamPoolCidr": "IpamPoolCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeprovisionPublicIpv4PoolCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredDeprovisionPublicIpv4PoolCidrRequestRequestTypeDef",
+    {
+        "PoolId": str,
+        "Cidr": str,
+    },
+)
+_OptionalDeprovisionPublicIpv4PoolCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalDeprovisionPublicIpv4PoolCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DeprovisionPublicIpv4PoolCidrRequestRequestTypeDef(
+    _RequiredDeprovisionPublicIpv4PoolCidrRequestRequestTypeDef,
+    _OptionalDeprovisionPublicIpv4PoolCidrRequestRequestTypeDef,
+):
+    pass
+
+DeprovisionPublicIpv4PoolCidrResultTypeDef = TypedDict(
+    "DeprovisionPublicIpv4PoolCidrResultTypeDef",
+    {
+        "PoolId": str,
+        "DeprovisionedAddresses": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -9965,6 +10523,69 @@ DescribeInternetGatewaysResultTypeDef = TypedDict(
     },
 )
 
+DescribeIpamPoolsRequestRequestTypeDef = TypedDict(
+    "DescribeIpamPoolsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "IpamPoolIds": List[str],
+    },
+    total=False,
+)
+
+DescribeIpamPoolsResultTypeDef = TypedDict(
+    "DescribeIpamPoolsResultTypeDef",
+    {
+        "NextToken": str,
+        "IpamPools": List["IpamPoolTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeIpamScopesRequestRequestTypeDef = TypedDict(
+    "DescribeIpamScopesRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "IpamScopeIds": List[str],
+    },
+    total=False,
+)
+
+DescribeIpamScopesResultTypeDef = TypedDict(
+    "DescribeIpamScopesResultTypeDef",
+    {
+        "NextToken": str,
+        "IpamScopes": List["IpamScopeTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeIpamsRequestRequestTypeDef = TypedDict(
+    "DescribeIpamsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "IpamIds": List[str],
+    },
+    total=False,
+)
+
+DescribeIpamsResultTypeDef = TypedDict(
+    "DescribeIpamsResultTypeDef",
+    {
+        "NextToken": str,
+        "Ipams": List["IpamTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeIpv6PoolsRequestRequestTypeDef = TypedDict(
     "DescribeIpv6PoolsRequestRequestTypeDef",
     {
@@ -10261,6 +10882,51 @@ DescribeNetworkAclsResultTypeDef = TypedDict(
     "DescribeNetworkAclsResultTypeDef",
     {
         "NetworkAcls": List["NetworkAclTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkInsightsAccessScopeAnalysesRequestRequestTypeDef = TypedDict(
+    "DescribeNetworkInsightsAccessScopeAnalysesRequestRequestTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysisIds": List[str],
+        "NetworkInsightsAccessScopeId": str,
+        "AnalysisStartTimeBegin": Union[datetime, str],
+        "AnalysisStartTimeEnd": Union[datetime, str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "DryRun": bool,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeNetworkInsightsAccessScopeAnalysesResultTypeDef = TypedDict(
+    "DescribeNetworkInsightsAccessScopeAnalysesResultTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalyses": List["NetworkInsightsAccessScopeAnalysisTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNetworkInsightsAccessScopesRequestRequestTypeDef = TypedDict(
+    "DescribeNetworkInsightsAccessScopesRequestRequestTypeDef",
+    {
+        "NetworkInsightsAccessScopeIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "DryRun": bool,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeNetworkInsightsAccessScopesResultTypeDef = TypedDict(
+    "DescribeNetworkInsightsAccessScopesResultTypeDef",
+    {
+        "NetworkInsightsAccessScopes": List["NetworkInsightsAccessScopeTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -10798,6 +11464,26 @@ DescribeSnapshotAttributeResultTypeDef = TypedDict(
         "CreateVolumePermissions": List["CreateVolumePermissionTypeDef"],
         "ProductCodes": List["ProductCodeTypeDef"],
         "SnapshotId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeSnapshotTierStatusRequestRequestTypeDef = TypedDict(
+    "DescribeSnapshotTierStatusRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "DryRun": bool,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeSnapshotTierStatusResultTypeDef = TypedDict(
+    "DescribeSnapshotTierStatusResultTypeDef",
+    {
+        "SnapshotTierStatuses": List["SnapshotTierStatusTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -12166,6 +12852,34 @@ DisableImageDeprecationResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDisableIpamOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableIpamOrganizationAdminAccountRequestRequestTypeDef",
+    {
+        "DelegatedAdminAccountId": str,
+    },
+)
+_OptionalDisableIpamOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableIpamOrganizationAdminAccountRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableIpamOrganizationAdminAccountRequestRequestTypeDef(
+    _RequiredDisableIpamOrganizationAdminAccountRequestRequestTypeDef,
+    _OptionalDisableIpamOrganizationAdminAccountRequestRequestTypeDef,
+):
+    pass
+
+DisableIpamOrganizationAdminAccountResultTypeDef = TypedDict(
+    "DisableIpamOrganizationAdminAccountResultTypeDef",
+    {
+        "Success": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DisableSerialConsoleAccessRequestRequestTypeDef = TypedDict(
     "DisableSerialConsoleAccessRequestRequestTypeDef",
     {
@@ -12903,6 +13617,34 @@ EnableImageDeprecationResultTypeDef = TypedDict(
     "EnableImageDeprecationResultTypeDef",
     {
         "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredEnableIpamOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableIpamOrganizationAdminAccountRequestRequestTypeDef",
+    {
+        "DelegatedAdminAccountId": str,
+    },
+)
+_OptionalEnableIpamOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableIpamOrganizationAdminAccountRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableIpamOrganizationAdminAccountRequestRequestTypeDef(
+    _RequiredEnableIpamOrganizationAdminAccountRequestRequestTypeDef,
+    _OptionalEnableIpamOrganizationAdminAccountRequestRequestTypeDef,
+):
+    pass
+
+EnableIpamOrganizationAdminAccountResultTypeDef = TypedDict(
+    "EnableIpamOrganizationAdminAccountResultTypeDef",
+    {
+        "Success": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -13982,6 +14724,142 @@ GetInstanceTypesFromInstanceRequirementsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredGetIpamAddressHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredGetIpamAddressHistoryRequestRequestTypeDef",
+    {
+        "Cidr": str,
+        "IpamScopeId": str,
+    },
+)
+_OptionalGetIpamAddressHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalGetIpamAddressHistoryRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "VpcId": str,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetIpamAddressHistoryRequestRequestTypeDef(
+    _RequiredGetIpamAddressHistoryRequestRequestTypeDef,
+    _OptionalGetIpamAddressHistoryRequestRequestTypeDef,
+):
+    pass
+
+GetIpamAddressHistoryResultTypeDef = TypedDict(
+    "GetIpamAddressHistoryResultTypeDef",
+    {
+        "HistoryRecords": List["IpamAddressHistoryRecordTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetIpamPoolAllocationsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetIpamPoolAllocationsRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+    },
+)
+_OptionalGetIpamPoolAllocationsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetIpamPoolAllocationsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "IpamPoolAllocationId": str,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetIpamPoolAllocationsRequestRequestTypeDef(
+    _RequiredGetIpamPoolAllocationsRequestRequestTypeDef,
+    _OptionalGetIpamPoolAllocationsRequestRequestTypeDef,
+):
+    pass
+
+GetIpamPoolAllocationsResultTypeDef = TypedDict(
+    "GetIpamPoolAllocationsResultTypeDef",
+    {
+        "IpamPoolAllocations": List["IpamPoolAllocationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetIpamPoolCidrsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetIpamPoolCidrsRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+    },
+)
+_OptionalGetIpamPoolCidrsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetIpamPoolCidrsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetIpamPoolCidrsRequestRequestTypeDef(
+    _RequiredGetIpamPoolCidrsRequestRequestTypeDef, _OptionalGetIpamPoolCidrsRequestRequestTypeDef
+):
+    pass
+
+GetIpamPoolCidrsResultTypeDef = TypedDict(
+    "GetIpamPoolCidrsResultTypeDef",
+    {
+        "IpamPoolCidrs": List["IpamPoolCidrTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetIpamResourceCidrsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetIpamResourceCidrsRequestRequestTypeDef",
+    {
+        "IpamScopeId": str,
+    },
+)
+_OptionalGetIpamResourceCidrsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetIpamResourceCidrsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "IpamPoolId": str,
+        "ResourceId": str,
+        "ResourceType": IpamResourceTypeType,
+        "ResourceTag": "RequestIpamResourceTagTypeDef",
+        "ResourceOwner": str,
+    },
+    total=False,
+)
+
+class GetIpamResourceCidrsRequestRequestTypeDef(
+    _RequiredGetIpamResourceCidrsRequestRequestTypeDef,
+    _OptionalGetIpamResourceCidrsRequestRequestTypeDef,
+):
+    pass
+
+GetIpamResourceCidrsResultTypeDef = TypedDict(
+    "GetIpamResourceCidrsResultTypeDef",
+    {
+        "NextToken": str,
+        "IpamResourceCidrs": List["IpamResourceCidrTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetLaunchTemplateDataRequestRequestTypeDef = TypedDict(
     "_RequiredGetLaunchTemplateDataRequestRequestTypeDef",
     {
@@ -14069,6 +14947,67 @@ GetManagedPrefixListEntriesResultTypeDef = TypedDict(
     {
         "Entries": List["PrefixListEntryTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysisId": str,
+    },
+)
+_OptionalGetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef(
+    _RequiredGetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef,
+    _OptionalGetNetworkInsightsAccessScopeAnalysisFindingsRequestRequestTypeDef,
+):
+    pass
+
+GetNetworkInsightsAccessScopeAnalysisFindingsResultTypeDef = TypedDict(
+    "GetNetworkInsightsAccessScopeAnalysisFindingsResultTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysisId": str,
+        "AnalysisStatus": AnalysisStatusType,
+        "AnalysisFindings": List["AccessScopeAnalysisFindingTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetNetworkInsightsAccessScopeContentRequestRequestTypeDef = TypedDict(
+    "_RequiredGetNetworkInsightsAccessScopeContentRequestRequestTypeDef",
+    {
+        "NetworkInsightsAccessScopeId": str,
+    },
+)
+_OptionalGetNetworkInsightsAccessScopeContentRequestRequestTypeDef = TypedDict(
+    "_OptionalGetNetworkInsightsAccessScopeContentRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetNetworkInsightsAccessScopeContentRequestRequestTypeDef(
+    _RequiredGetNetworkInsightsAccessScopeContentRequestRequestTypeDef,
+    _OptionalGetNetworkInsightsAccessScopeContentRequestRequestTypeDef,
+):
+    pass
+
+GetNetworkInsightsAccessScopeContentResultTypeDef = TypedDict(
+    "GetNetworkInsightsAccessScopeContentResultTypeDef",
+    {
+        "NetworkInsightsAccessScopeContent": "NetworkInsightsAccessScopeContentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -15622,6 +16561,8 @@ InstanceTypeDef = TypedDict(
         "PlatformDetails": str,
         "UsageOperation": str,
         "UsageOperationUpdateTime": datetime,
+        "PrivateDnsNameOptions": "PrivateDnsNameOptionsResponseTypeDef",
+        "Ipv6Address": str,
     },
     total=False,
 )
@@ -15731,6 +16672,170 @@ IpRangeTypeDef = TypedDict(
     {
         "CidrIp": str,
         "Description": str,
+    },
+    total=False,
+)
+
+IpamAddressHistoryRecordTypeDef = TypedDict(
+    "IpamAddressHistoryRecordTypeDef",
+    {
+        "ResourceOwnerId": str,
+        "ResourceRegion": str,
+        "ResourceType": IpamAddressHistoryResourceTypeType,
+        "ResourceId": str,
+        "ResourceCidr": str,
+        "ResourceName": str,
+        "ResourceComplianceStatus": IpamComplianceStatusType,
+        "ResourceOverlapStatus": IpamOverlapStatusType,
+        "VpcId": str,
+        "SampledStartTime": datetime,
+        "SampledEndTime": datetime,
+    },
+    total=False,
+)
+
+IpamCidrAuthorizationContextTypeDef = TypedDict(
+    "IpamCidrAuthorizationContextTypeDef",
+    {
+        "Message": str,
+        "Signature": str,
+    },
+    total=False,
+)
+
+IpamOperatingRegionTypeDef = TypedDict(
+    "IpamOperatingRegionTypeDef",
+    {
+        "RegionName": str,
+    },
+    total=False,
+)
+
+IpamPoolAllocationTypeDef = TypedDict(
+    "IpamPoolAllocationTypeDef",
+    {
+        "Cidr": str,
+        "IpamPoolAllocationId": str,
+        "Description": str,
+        "ResourceId": str,
+        "ResourceType": IpamPoolAllocationResourceTypeType,
+        "ResourceRegion": str,
+        "ResourceOwner": str,
+    },
+    total=False,
+)
+
+IpamPoolCidrFailureReasonTypeDef = TypedDict(
+    "IpamPoolCidrFailureReasonTypeDef",
+    {
+        "Code": Literal["cidr-not-available"],
+        "Message": str,
+    },
+    total=False,
+)
+
+IpamPoolCidrTypeDef = TypedDict(
+    "IpamPoolCidrTypeDef",
+    {
+        "Cidr": str,
+        "State": IpamPoolCidrStateType,
+        "FailureReason": "IpamPoolCidrFailureReasonTypeDef",
+    },
+    total=False,
+)
+
+IpamPoolTypeDef = TypedDict(
+    "IpamPoolTypeDef",
+    {
+        "OwnerId": str,
+        "IpamPoolId": str,
+        "SourceIpamPoolId": str,
+        "IpamPoolArn": str,
+        "IpamScopeArn": str,
+        "IpamScopeType": IpamScopeTypeType,
+        "IpamArn": str,
+        "IpamRegion": str,
+        "Locale": str,
+        "PoolDepth": int,
+        "State": IpamPoolStateType,
+        "StateMessage": str,
+        "Description": str,
+        "AutoImport": bool,
+        "PubliclyAdvertisable": bool,
+        "AddressFamily": AddressFamilyType,
+        "AllocationMinNetmaskLength": int,
+        "AllocationMaxNetmaskLength": int,
+        "AllocationDefaultNetmaskLength": int,
+        "AllocationResourceTags": List["IpamResourceTagTypeDef"],
+        "Tags": List["TagTypeDef"],
+        "AwsService": Literal["ec2"],
+    },
+    total=False,
+)
+
+IpamResourceCidrTypeDef = TypedDict(
+    "IpamResourceCidrTypeDef",
+    {
+        "IpamId": str,
+        "IpamScopeId": str,
+        "IpamPoolId": str,
+        "ResourceRegion": str,
+        "ResourceOwnerId": str,
+        "ResourceId": str,
+        "ResourceName": str,
+        "ResourceCidr": str,
+        "ResourceType": IpamResourceTypeType,
+        "ResourceTags": List["IpamResourceTagTypeDef"],
+        "IpUsage": float,
+        "ComplianceStatus": IpamComplianceStatusType,
+        "ManagementState": IpamManagementStateType,
+        "OverlapStatus": IpamOverlapStatusType,
+        "VpcId": str,
+    },
+    total=False,
+)
+
+IpamResourceTagTypeDef = TypedDict(
+    "IpamResourceTagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+IpamScopeTypeDef = TypedDict(
+    "IpamScopeTypeDef",
+    {
+        "OwnerId": str,
+        "IpamScopeId": str,
+        "IpamScopeArn": str,
+        "IpamArn": str,
+        "IpamRegion": str,
+        "IpamScopeType": IpamScopeTypeType,
+        "IsDefault": bool,
+        "Description": str,
+        "PoolCount": int,
+        "State": IpamScopeStateType,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+IpamTypeDef = TypedDict(
+    "IpamTypeDef",
+    {
+        "OwnerId": str,
+        "IpamId": str,
+        "IpamArn": str,
+        "IpamRegion": str,
+        "PublicDefaultScopeId": str,
+        "PrivateDefaultScopeId": str,
+        "ScopeCount": int,
+        "Description": str,
+        "OperatingRegions": List["IpamOperatingRegionTypeDef"],
+        "State": IpamStateType,
+        "Tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -16233,6 +17338,26 @@ LaunchTemplatePlacementTypeDef = TypedDict(
     total=False,
 )
 
+LaunchTemplatePrivateDnsNameOptionsRequestTypeDef = TypedDict(
+    "LaunchTemplatePrivateDnsNameOptionsRequestTypeDef",
+    {
+        "HostnameType": HostnameTypeType,
+        "EnableResourceNameDnsARecord": bool,
+        "EnableResourceNameDnsAAAARecord": bool,
+    },
+    total=False,
+)
+
+LaunchTemplatePrivateDnsNameOptionsTypeDef = TypedDict(
+    "LaunchTemplatePrivateDnsNameOptionsTypeDef",
+    {
+        "HostnameType": HostnameTypeType,
+        "EnableResourceNameDnsARecord": bool,
+        "EnableResourceNameDnsAAAARecord": bool,
+    },
+    total=False,
+)
+
 LaunchTemplateSpecificationTypeDef = TypedDict(
     "LaunchTemplateSpecificationTypeDef",
     {
@@ -16344,6 +17469,26 @@ LicenseConfigurationTypeDef = TypedDict(
         "LicenseConfigurationArn": str,
     },
     total=False,
+)
+
+ListSnapshotsInRecycleBinRequestRequestTypeDef = TypedDict(
+    "ListSnapshotsInRecycleBinRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "SnapshotIds": List[str],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+ListSnapshotsInRecycleBinResultTypeDef = TypedDict(
+    "ListSnapshotsInRecycleBinResultTypeDef",
+    {
+        "Snapshots": List["SnapshotRecycleBinInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 LoadBalancersConfigTypeDef = TypedDict(
@@ -17175,6 +18320,132 @@ ModifyInstancePlacementResultTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyIpamPoolRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyIpamPoolRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+    },
+)
+_OptionalModifyIpamPoolRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyIpamPoolRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+        "AutoImport": bool,
+        "AllocationMinNetmaskLength": int,
+        "AllocationMaxNetmaskLength": int,
+        "AllocationDefaultNetmaskLength": int,
+        "ClearAllocationDefaultNetmaskLength": bool,
+        "AddAllocationResourceTags": List["RequestIpamResourceTagTypeDef"],
+        "RemoveAllocationResourceTags": List["RequestIpamResourceTagTypeDef"],
+    },
+    total=False,
+)
+
+class ModifyIpamPoolRequestRequestTypeDef(
+    _RequiredModifyIpamPoolRequestRequestTypeDef, _OptionalModifyIpamPoolRequestRequestTypeDef
+):
+    pass
+
+ModifyIpamPoolResultTypeDef = TypedDict(
+    "ModifyIpamPoolResultTypeDef",
+    {
+        "IpamPool": "IpamPoolTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyIpamRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyIpamRequestRequestTypeDef",
+    {
+        "IpamId": str,
+    },
+)
+_OptionalModifyIpamRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyIpamRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+        "AddOperatingRegions": List["AddIpamOperatingRegionTypeDef"],
+        "RemoveOperatingRegions": List["RemoveIpamOperatingRegionTypeDef"],
+    },
+    total=False,
+)
+
+class ModifyIpamRequestRequestTypeDef(
+    _RequiredModifyIpamRequestRequestTypeDef, _OptionalModifyIpamRequestRequestTypeDef
+):
+    pass
+
+_RequiredModifyIpamResourceCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyIpamResourceCidrRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+        "ResourceCidr": str,
+        "ResourceRegion": str,
+        "CurrentIpamScopeId": str,
+        "Monitored": bool,
+    },
+)
+_OptionalModifyIpamResourceCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyIpamResourceCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "DestinationIpamScopeId": str,
+    },
+    total=False,
+)
+
+class ModifyIpamResourceCidrRequestRequestTypeDef(
+    _RequiredModifyIpamResourceCidrRequestRequestTypeDef,
+    _OptionalModifyIpamResourceCidrRequestRequestTypeDef,
+):
+    pass
+
+ModifyIpamResourceCidrResultTypeDef = TypedDict(
+    "ModifyIpamResourceCidrResultTypeDef",
+    {
+        "IpamResourceCidr": "IpamResourceCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ModifyIpamResultTypeDef = TypedDict(
+    "ModifyIpamResultTypeDef",
+    {
+        "Ipam": "IpamTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyIpamScopeRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyIpamScopeRequestRequestTypeDef",
+    {
+        "IpamScopeId": str,
+    },
+)
+_OptionalModifyIpamScopeRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyIpamScopeRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Description": str,
+    },
+    total=False,
+)
+
+class ModifyIpamScopeRequestRequestTypeDef(
+    _RequiredModifyIpamScopeRequestRequestTypeDef, _OptionalModifyIpamScopeRequestRequestTypeDef
+):
+    pass
+
+ModifyIpamScopeResultTypeDef = TypedDict(
+    "ModifyIpamScopeResultTypeDef",
+    {
+        "IpamScope": "IpamScopeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ModifyLaunchTemplateRequestRequestTypeDef = TypedDict(
     "ModifyLaunchTemplateRequestRequestTypeDef",
     {
@@ -17263,6 +18534,26 @@ class ModifyNetworkInterfaceAttributeRequestRequestTypeDef(
     _OptionalModifyNetworkInterfaceAttributeRequestRequestTypeDef,
 ):
     pass
+
+ModifyPrivateDnsNameOptionsRequestRequestTypeDef = TypedDict(
+    "ModifyPrivateDnsNameOptionsRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "InstanceId": str,
+        "PrivateDnsHostnameType": HostnameTypeType,
+        "EnableResourceNameDnsARecord": bool,
+        "EnableResourceNameDnsAAAARecord": bool,
+    },
+    total=False,
+)
+
+ModifyPrivateDnsNameOptionsResultTypeDef = TypedDict(
+    "ModifyPrivateDnsNameOptionsResultTypeDef",
+    {
+        "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredModifyReservedInstancesRequestRequestTypeDef = TypedDict(
     "_RequiredModifyReservedInstancesRequestRequestTypeDef",
@@ -17360,6 +18651,36 @@ ModifySnapshotAttributeRequestSnapshotTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredModifySnapshotTierRequestRequestTypeDef = TypedDict(
+    "_RequiredModifySnapshotTierRequestRequestTypeDef",
+    {
+        "SnapshotId": str,
+    },
+)
+_OptionalModifySnapshotTierRequestRequestTypeDef = TypedDict(
+    "_OptionalModifySnapshotTierRequestRequestTypeDef",
+    {
+        "StorageTier": Literal["archive"],
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifySnapshotTierRequestRequestTypeDef(
+    _RequiredModifySnapshotTierRequestRequestTypeDef,
+    _OptionalModifySnapshotTierRequestRequestTypeDef,
+):
+    pass
+
+ModifySnapshotTierResultTypeDef = TypedDict(
+    "ModifySnapshotTierResultTypeDef",
+    {
+        "SnapshotId": str,
+        "TieringStartTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredModifySpotFleetRequestRequestRequestTypeDef = TypedDict(
     "_RequiredModifySpotFleetRequestRequestRequestTypeDef",
     {
@@ -17406,6 +18727,11 @@ _OptionalModifySubnetAttributeRequestRequestTypeDef = TypedDict(
         "MapCustomerOwnedIpOnLaunch": "AttributeBooleanValueTypeDef",
         "CustomerOwnedIpv4Pool": str,
         "EnableDns64": "AttributeBooleanValueTypeDef",
+        "PrivateDnsHostnameTypeOnLaunch": HostnameTypeType,
+        "EnableResourceNameDnsARecordOnLaunch": "AttributeBooleanValueTypeDef",
+        "EnableResourceNameDnsAAAARecordOnLaunch": "AttributeBooleanValueTypeDef",
+        "EnableLniAtDeviceIndex": int,
+        "DisableLniAtDeviceIndex": "AttributeBooleanValueTypeDef",
     },
     total=False,
 )
@@ -18137,6 +19463,25 @@ MoveAddressToVpcResultTypeDef = TypedDict(
     },
 )
 
+MoveByoipCidrToIpamRequestRequestTypeDef = TypedDict(
+    "MoveByoipCidrToIpamRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Cidr": str,
+        "IpamPoolId": str,
+        "IpamPoolOwner": str,
+    },
+    total=False,
+)
+
+MoveByoipCidrToIpamResultTypeDef = TypedDict(
+    "MoveByoipCidrToIpamResultTypeDef",
+    {
+        "ByoipCidr": "ByoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 MovingAddressStatusTypeDef = TypedDict(
     "MovingAddressStatusTypeDef",
     {
@@ -18244,6 +19589,46 @@ NetworkInfoTypeDef = TypedDict(
     total=False,
 )
 
+NetworkInsightsAccessScopeAnalysisTypeDef = TypedDict(
+    "NetworkInsightsAccessScopeAnalysisTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysisId": str,
+        "NetworkInsightsAccessScopeAnalysisArn": str,
+        "NetworkInsightsAccessScopeId": str,
+        "Status": AnalysisStatusType,
+        "StatusMessage": str,
+        "WarningMessage": str,
+        "StartDate": datetime,
+        "EndDate": datetime,
+        "FindingsFound": FindingsFoundType,
+        "AnalyzedEniCount": int,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+NetworkInsightsAccessScopeContentTypeDef = TypedDict(
+    "NetworkInsightsAccessScopeContentTypeDef",
+    {
+        "NetworkInsightsAccessScopeId": str,
+        "MatchPaths": List["AccessScopePathTypeDef"],
+        "ExcludePaths": List["AccessScopePathTypeDef"],
+    },
+    total=False,
+)
+
+NetworkInsightsAccessScopeTypeDef = TypedDict(
+    "NetworkInsightsAccessScopeTypeDef",
+    {
+        "NetworkInsightsAccessScopeId": str,
+        "NetworkInsightsAccessScopeArn": str,
+        "CreatedDate": datetime,
+        "UpdatedDate": datetime,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 NetworkInsightsAnalysisTypeDef = TypedDict(
     "NetworkInsightsAnalysisTypeDef",
     {
@@ -18254,6 +19639,7 @@ NetworkInsightsAnalysisTypeDef = TypedDict(
         "StartDate": datetime,
         "Status": AnalysisStatusType,
         "StatusMessage": str,
+        "WarningMessage": str,
         "NetworkPathFound": bool,
         "ForwardPathComponents": List["PathComponentTypeDef"],
         "ReturnPathComponents": List["PathComponentTypeDef"],
@@ -18405,6 +19791,8 @@ NetworkInterfaceTypeDef = TypedDict(
         "TagSet": List["TagTypeDef"],
         "VpcId": str,
         "DenyAllIgwTraffic": bool,
+        "Ipv6Native": bool,
+        "Ipv6Address": str,
     },
     total=False,
 )
@@ -18444,6 +19832,34 @@ OnDemandOptionsTypeDef = TypedDict(
     total=False,
 )
 
+PacketHeaderStatementRequestTypeDef = TypedDict(
+    "PacketHeaderStatementRequestTypeDef",
+    {
+        "SourceAddresses": List[str],
+        "DestinationAddresses": List[str],
+        "SourcePorts": List[str],
+        "DestinationPorts": List[str],
+        "SourcePrefixLists": List[str],
+        "DestinationPrefixLists": List[str],
+        "Protocols": List[ProtocolType],
+    },
+    total=False,
+)
+
+PacketHeaderStatementTypeDef = TypedDict(
+    "PacketHeaderStatementTypeDef",
+    {
+        "SourceAddresses": List[str],
+        "DestinationAddresses": List[str],
+        "SourcePorts": List[str],
+        "DestinationPorts": List[str],
+        "SourcePrefixLists": List[str],
+        "DestinationPrefixLists": List[str],
+        "Protocols": List[ProtocolType],
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -18459,6 +19875,7 @@ PathComponentTypeDef = TypedDict(
     {
         "SequenceNumber": int,
         "AclRule": "AnalysisAclRuleTypeDef",
+        "AttachedTo": "AnalysisComponentTypeDef",
         "Component": "AnalysisComponentTypeDef",
         "DestinationVpc": "AnalysisComponentTypeDef",
         "OutboundHeader": "AnalysisPacketHeaderTypeDef",
@@ -18468,6 +19885,24 @@ PathComponentTypeDef = TypedDict(
         "SourceVpc": "AnalysisComponentTypeDef",
         "Subnet": "AnalysisComponentTypeDef",
         "Vpc": "AnalysisComponentTypeDef",
+    },
+    total=False,
+)
+
+PathStatementRequestTypeDef = TypedDict(
+    "PathStatementRequestTypeDef",
+    {
+        "PacketHeaderStatement": "PacketHeaderStatementRequestTypeDef",
+        "ResourceStatement": "ResourceStatementRequestTypeDef",
+    },
+    total=False,
+)
+
+PathStatementTypeDef = TypedDict(
+    "PathStatementTypeDef",
+    {
+        "PacketHeaderStatement": "PacketHeaderStatementTypeDef",
+        "ResourceStatement": "ResourceStatementTypeDef",
     },
     total=False,
 )
@@ -18774,6 +20209,36 @@ PrivateDnsNameConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+PrivateDnsNameOptionsOnLaunchTypeDef = TypedDict(
+    "PrivateDnsNameOptionsOnLaunchTypeDef",
+    {
+        "HostnameType": HostnameTypeType,
+        "EnableResourceNameDnsARecord": bool,
+        "EnableResourceNameDnsAAAARecord": bool,
+    },
+    total=False,
+)
+
+PrivateDnsNameOptionsRequestTypeDef = TypedDict(
+    "PrivateDnsNameOptionsRequestTypeDef",
+    {
+        "HostnameType": HostnameTypeType,
+        "EnableResourceNameDnsARecord": bool,
+        "EnableResourceNameDnsAAAARecord": bool,
+    },
+    total=False,
+)
+
+PrivateDnsNameOptionsResponseTypeDef = TypedDict(
+    "PrivateDnsNameOptionsResponseTypeDef",
+    {
+        "HostnameType": HostnameTypeType,
+        "EnableResourceNameDnsARecord": bool,
+        "EnableResourceNameDnsAAAARecord": bool,
+    },
+    total=False,
+)
+
 PrivateIpAddressSpecificationTypeDef = TypedDict(
     "PrivateIpAddressSpecificationTypeDef",
     {
@@ -18838,6 +20303,67 @@ ProvisionByoipCidrResultTypeDef = TypedDict(
     "ProvisionByoipCidrResultTypeDef",
     {
         "ByoipCidr": "ByoipCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredProvisionIpamPoolCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredProvisionIpamPoolCidrRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+    },
+)
+_OptionalProvisionIpamPoolCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalProvisionIpamPoolCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "Cidr": str,
+        "CidrAuthorizationContext": "IpamCidrAuthorizationContextTypeDef",
+    },
+    total=False,
+)
+
+class ProvisionIpamPoolCidrRequestRequestTypeDef(
+    _RequiredProvisionIpamPoolCidrRequestRequestTypeDef,
+    _OptionalProvisionIpamPoolCidrRequestRequestTypeDef,
+):
+    pass
+
+ProvisionIpamPoolCidrResultTypeDef = TypedDict(
+    "ProvisionIpamPoolCidrResultTypeDef",
+    {
+        "IpamPoolCidr": "IpamPoolCidrTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredProvisionPublicIpv4PoolCidrRequestRequestTypeDef = TypedDict(
+    "_RequiredProvisionPublicIpv4PoolCidrRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+        "PoolId": str,
+        "NetmaskLength": int,
+    },
+)
+_OptionalProvisionPublicIpv4PoolCidrRequestRequestTypeDef = TypedDict(
+    "_OptionalProvisionPublicIpv4PoolCidrRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ProvisionPublicIpv4PoolCidrRequestRequestTypeDef(
+    _RequiredProvisionPublicIpv4PoolCidrRequestRequestTypeDef,
+    _OptionalProvisionPublicIpv4PoolCidrRequestRequestTypeDef,
+):
+    pass
+
+ProvisionPublicIpv4PoolCidrResultTypeDef = TypedDict(
+    "ProvisionPublicIpv4PoolCidrResultTypeDef",
+    {
+        "PoolId": str,
+        "PoolAddressRange": "PublicIpv4PoolRangeTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -19390,6 +20916,44 @@ ReleaseHostsResultTypeDef = TypedDict(
     },
 )
 
+_RequiredReleaseIpamPoolAllocationRequestRequestTypeDef = TypedDict(
+    "_RequiredReleaseIpamPoolAllocationRequestRequestTypeDef",
+    {
+        "IpamPoolId": str,
+        "Cidr": str,
+    },
+)
+_OptionalReleaseIpamPoolAllocationRequestRequestTypeDef = TypedDict(
+    "_OptionalReleaseIpamPoolAllocationRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "IpamPoolAllocationId": str,
+    },
+    total=False,
+)
+
+class ReleaseIpamPoolAllocationRequestRequestTypeDef(
+    _RequiredReleaseIpamPoolAllocationRequestRequestTypeDef,
+    _OptionalReleaseIpamPoolAllocationRequestRequestTypeDef,
+):
+    pass
+
+ReleaseIpamPoolAllocationResultTypeDef = TypedDict(
+    "ReleaseIpamPoolAllocationResultTypeDef",
+    {
+        "Success": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RemoveIpamOperatingRegionTypeDef = TypedDict(
+    "RemoveIpamOperatingRegionTypeDef",
+    {
+        "RegionName": str,
+    },
+    total=False,
+)
+
 RemovePrefixListEntryTypeDef = TypedDict(
     "RemovePrefixListEntryTypeDef",
     {
@@ -19716,6 +21280,15 @@ class ReportInstanceStatusRequestRequestTypeDef(
 ):
     pass
 
+RequestIpamResourceTagTypeDef = TypedDict(
+    "RequestIpamResourceTagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
 RequestLaunchTemplateDataTypeDef = TypedDict(
     "RequestLaunchTemplateDataTypeDef",
     {
@@ -19749,6 +21322,7 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
         "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "LaunchTemplateEnclaveOptionsRequestTypeDef",
         "InstanceRequirements": "InstanceRequirementsRequestTypeDef",
+        "PrivateDnsNameOptions": "LaunchTemplatePrivateDnsNameOptionsRequestTypeDef",
     },
     total=False,
 )
@@ -20232,6 +21806,24 @@ class ResetSnapshotAttributeRequestSnapshotTypeDef(
 ):
     pass
 
+ResourceStatementRequestTypeDef = TypedDict(
+    "ResourceStatementRequestTypeDef",
+    {
+        "Resources": List[str],
+        "ResourceTypes": List[str],
+    },
+    total=False,
+)
+
+ResourceStatementTypeDef = TypedDict(
+    "ResourceStatementTypeDef",
+    {
+        "Resources": List[str],
+        "ResourceTypes": List[str],
+    },
+    total=False,
+)
+
 ResponseErrorTypeDef = TypedDict(
     "ResponseErrorTypeDef",
     {
@@ -20274,6 +21866,7 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
         "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsTypeDef",
         "EnclaveOptions": "LaunchTemplateEnclaveOptionsTypeDef",
         "InstanceRequirements": "InstanceRequirementsTypeDef",
+        "PrivateDnsNameOptions": "LaunchTemplatePrivateDnsNameOptionsTypeDef",
     },
     total=False,
 )
@@ -20344,6 +21937,76 @@ RestoreManagedPrefixListVersionResultTypeDef = TypedDict(
     "RestoreManagedPrefixListVersionResultTypeDef",
     {
         "PrefixList": "ManagedPrefixListTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRestoreSnapshotFromRecycleBinRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreSnapshotFromRecycleBinRequestRequestTypeDef",
+    {
+        "SnapshotId": str,
+    },
+)
+_OptionalRestoreSnapshotFromRecycleBinRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreSnapshotFromRecycleBinRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RestoreSnapshotFromRecycleBinRequestRequestTypeDef(
+    _RequiredRestoreSnapshotFromRecycleBinRequestRequestTypeDef,
+    _OptionalRestoreSnapshotFromRecycleBinRequestRequestTypeDef,
+):
+    pass
+
+RestoreSnapshotFromRecycleBinResultTypeDef = TypedDict(
+    "RestoreSnapshotFromRecycleBinResultTypeDef",
+    {
+        "SnapshotId": str,
+        "OutpostArn": str,
+        "Description": str,
+        "Encrypted": bool,
+        "OwnerId": str,
+        "Progress": str,
+        "StartTime": datetime,
+        "State": SnapshotStateType,
+        "VolumeId": str,
+        "VolumeSize": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRestoreSnapshotTierRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreSnapshotTierRequestRequestTypeDef",
+    {
+        "SnapshotId": str,
+    },
+)
+_OptionalRestoreSnapshotTierRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreSnapshotTierRequestRequestTypeDef",
+    {
+        "TemporaryRestoreDays": int,
+        "PermanentRestore": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RestoreSnapshotTierRequestRequestTypeDef(
+    _RequiredRestoreSnapshotTierRequestRequestTypeDef,
+    _OptionalRestoreSnapshotTierRequestRequestTypeDef,
+):
+    pass
+
+RestoreSnapshotTierResultTypeDef = TypedDict(
+    "RestoreSnapshotTierResultTypeDef",
+    {
+        "SnapshotId": str,
+        "RestoreStartTime": datetime,
+        "RestoreDuration": int,
+        "IsPermanentRestore": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -20587,6 +22250,7 @@ _OptionalRunInstancesRequestRequestTypeDef = TypedDict(
         "LicenseSpecifications": List["LicenseConfigurationRequestTypeDef"],
         "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
+        "PrivateDnsNameOptions": "PrivateDnsNameOptionsRequestTypeDef",
     },
     total=False,
 )
@@ -20641,6 +22305,7 @@ _OptionalRunInstancesRequestServiceResourceTypeDef = TypedDict(
         "LicenseSpecifications": List["LicenseConfigurationRequestTypeDef"],
         "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
+        "PrivateDnsNameOptions": "PrivateDnsNameOptionsRequestTypeDef",
     },
     total=False,
 )
@@ -20695,6 +22360,7 @@ _OptionalRunInstancesRequestSubnetTypeDef = TypedDict(
         "LicenseSpecifications": List["LicenseConfigurationRequestTypeDef"],
         "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
+        "PrivateDnsNameOptions": "PrivateDnsNameOptionsRequestTypeDef",
     },
     total=False,
 )
@@ -21392,6 +23058,18 @@ SnapshotInfoTypeDef = TypedDict(
     total=False,
 )
 
+SnapshotRecycleBinInfoTypeDef = TypedDict(
+    "SnapshotRecycleBinInfoTypeDef",
+    {
+        "SnapshotId": str,
+        "RecycleBinEnterTime": datetime,
+        "RecycleBinExitTime": datetime,
+        "Description": str,
+        "VolumeId": str,
+    },
+    total=False,
+)
+
 SnapshotResponseMetadataTypeDef = TypedDict(
     "SnapshotResponseMetadataTypeDef",
     {
@@ -21410,6 +23088,8 @@ SnapshotResponseMetadataTypeDef = TypedDict(
         "OwnerAlias": str,
         "OutpostArn": str,
         "Tags": List["TagTypeDef"],
+        "StorageTier": StorageTierType,
+        "RestoreExpiryTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -21432,6 +23112,25 @@ SnapshotTaskDetailTypeDef = TypedDict(
     total=False,
 )
 
+SnapshotTierStatusTypeDef = TypedDict(
+    "SnapshotTierStatusTypeDef",
+    {
+        "SnapshotId": str,
+        "VolumeId": str,
+        "Status": SnapshotStateType,
+        "OwnerId": str,
+        "Tags": List["TagTypeDef"],
+        "StorageTier": StorageTierType,
+        "LastTieringStartTime": datetime,
+        "LastTieringProgress": int,
+        "LastTieringOperationStatus": TieringOperationStatusType,
+        "LastTieringOperationStatusDetail": str,
+        "ArchivalCompleteTime": datetime,
+        "RestoreExpiryTime": datetime,
+    },
+    total=False,
+)
+
 SnapshotTypeDef = TypedDict(
     "SnapshotTypeDef",
     {
@@ -21450,6 +23149,8 @@ SnapshotTypeDef = TypedDict(
         "OwnerAlias": str,
         "OutpostArn": str,
         "Tags": List["TagTypeDef"],
+        "StorageTier": StorageTierType,
+        "RestoreExpiryTime": datetime,
     },
     total=False,
 )
@@ -21764,6 +23465,36 @@ StartInstancesResultTypeDef = TypedDict(
     },
 )
 
+_RequiredStartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef = TypedDict(
+    "_RequiredStartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef",
+    {
+        "NetworkInsightsAccessScopeId": str,
+        "ClientToken": str,
+    },
+)
+_OptionalStartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef = TypedDict(
+    "_OptionalStartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
+    },
+    total=False,
+)
+
+class StartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef(
+    _RequiredStartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef,
+    _OptionalStartNetworkInsightsAccessScopeAnalysisRequestRequestTypeDef,
+):
+    pass
+
+StartNetworkInsightsAccessScopeAnalysisResultTypeDef = TypedDict(
+    "StartNetworkInsightsAccessScopeAnalysisResultTypeDef",
+    {
+        "NetworkInsightsAccessScopeAnalysis": "NetworkInsightsAccessScopeAnalysisTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStartNetworkInsightsAnalysisRequestRequestTypeDef = TypedDict(
     "_RequiredStartNetworkInsightsAnalysisRequestRequestTypeDef",
     {
@@ -21952,6 +23683,7 @@ SubnetTypeDef = TypedDict(
         "AvailableIpAddressCount": int,
         "CidrBlock": str,
         "DefaultForAz": bool,
+        "EnableLniAtDeviceIndex": int,
         "MapPublicIpOnLaunch": bool,
         "MapCustomerOwnedIpOnLaunch": bool,
         "CustomerOwnedIpv4Pool": str,
@@ -21965,6 +23697,8 @@ SubnetTypeDef = TypedDict(
         "SubnetArn": str,
         "OutpostArn": str,
         "EnableDns64": bool,
+        "Ipv6Native": bool,
+        "PrivateDnsNameOptionsOnLaunch": "PrivateDnsNameOptionsOnLaunchTypeDef",
     },
     total=False,
 )
@@ -22199,6 +23933,22 @@ TerminateInstancesResultTypeDef = TypedDict(
         "TerminatingInstances": List["InstanceStateChangeTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ThroughResourcesStatementRequestTypeDef = TypedDict(
+    "ThroughResourcesStatementRequestTypeDef",
+    {
+        "ResourceStatement": "ResourceStatementRequestTypeDef",
+    },
+    total=False,
+)
+
+ThroughResourcesStatementTypeDef = TypedDict(
+    "ThroughResourcesStatementTypeDef",
+    {
+        "ResourceStatement": "ResourceStatementTypeDef",
+    },
+    total=False,
 )
 
 TotalLocalStorageGBRequestTypeDef = TypedDict(

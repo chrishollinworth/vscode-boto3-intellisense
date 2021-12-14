@@ -37,7 +37,7 @@ class Exceptions:
 
 class AccountClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/account.html#Account.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/account.html#Account.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html)
     """
 
@@ -51,7 +51,7 @@ class AccountClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/account.html#Account.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/account.html#Account.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#can_paginate)
         """
     def delete_alternate_contact(
@@ -60,7 +60,7 @@ class AccountClient(BaseClient):
         """
         Deletes the specified alternate contact from an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/account.html#Account.Client.delete_alternate_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/account.html#Account.Client.delete_alternate_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#delete_alternate_contact)
         """
     def generate_presigned_url(
@@ -73,7 +73,7 @@ class AccountClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/account.html#Account.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/account.html#Account.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#generate_presigned_url)
         """
     def get_alternate_contact(
@@ -83,7 +83,7 @@ class AccountClient(BaseClient):
         Retrieves the specified alternate contact attached to an Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/account.html#Account.Client.get_alternate_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/account.html#Account.Client.get_alternate_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#get_alternate_contact)
         """
     def put_alternate_contact(
@@ -100,6 +100,6 @@ class AccountClient(BaseClient):
         Modifies the specified alternate contact attached to an Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/account.html#Account.Client.put_alternate_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/account.html#Account.Client.put_alternate_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/client.html#put_alternate_contact)
         """

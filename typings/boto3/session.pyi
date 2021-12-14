@@ -21,10 +21,12 @@ from mypy_boto3_alexaforbusiness.client import AlexaForBusinessClient
 from mypy_boto3_amp.client import PrometheusServiceClient
 from mypy_boto3_amplify.client import AmplifyClient
 from mypy_boto3_amplifybackend.client import AmplifyBackendClient
+from mypy_boto3_amplifyuibuilder.client import AmplifyUIBuilderClient
 from mypy_boto3_apigateway.client import APIGatewayClient
 from mypy_boto3_apigatewaymanagementapi.client import ApiGatewayManagementApiClient
 from mypy_boto3_apigatewayv2.client import ApiGatewayV2Client
 from mypy_boto3_appconfig.client import AppConfigClient
+from mypy_boto3_appconfigdata.client import AppConfigDataClient
 from mypy_boto3_appflow.client import AppflowClient
 from mypy_boto3_appintegrations.client import AppIntegrationsServiceClient
 from mypy_boto3_application_autoscaling.client import ApplicationAutoScalingClient
@@ -39,6 +41,7 @@ from mypy_boto3_auditmanager.client import AuditManagerClient
 from mypy_boto3_autoscaling.client import AutoScalingClient
 from mypy_boto3_autoscaling_plans.client import AutoScalingPlansClient
 from mypy_boto3_backup.client import BackupClient
+from mypy_boto3_backup_gateway.client import BackupGatewayClient
 from mypy_boto3_batch.client import BatchClient
 from mypy_boto3_braket.client import BraketClient
 from mypy_boto3_budgets.client import BudgetsClient
@@ -95,6 +98,7 @@ from mypy_boto3_discovery.client import ApplicationDiscoveryServiceClient
 from mypy_boto3_dlm.client import DLMClient
 from mypy_boto3_dms.client import DatabaseMigrationServiceClient
 from mypy_boto3_docdb.client import DocDBClient
+from mypy_boto3_drs.client import drsClient
 from mypy_boto3_ds.client import DirectoryServiceClient
 from mypy_boto3_dynamodb.client import DynamoDBClient
 from mypy_boto3_dynamodb.service_resource import DynamoDBServiceResource
@@ -118,6 +122,7 @@ from mypy_boto3_emr.client import EMRClient
 from mypy_boto3_emr_containers.client import EMRContainersClient
 from mypy_boto3_es.client import ElasticsearchServiceClient
 from mypy_boto3_events.client import EventBridgeClient
+from mypy_boto3_evidently.client import CloudWatchEvidentlyClient
 from mypy_boto3_finspace.client import finspaceClient
 from mypy_boto3_finspace_data.client import FinSpaceDataClient
 from mypy_boto3_firehose.client import FirehoseClient
@@ -145,6 +150,7 @@ from mypy_boto3_iam.service_resource import IAMServiceResource
 from mypy_boto3_identitystore.client import IdentityStoreClient
 from mypy_boto3_imagebuilder.client import imagebuilderClient
 from mypy_boto3_importexport.client import ImportExportClient
+from mypy_boto3_inspector2.client import Inspector2Client
 from mypy_boto3_inspector.client import InspectorClient
 from mypy_boto3_iot1click_devices.client import IoT1ClickDevicesServiceClient
 from mypy_boto3_iot1click_projects.client import IoT1ClickProjectsClient
@@ -159,6 +165,7 @@ from mypy_boto3_iotfleethub.client import IoTFleetHubClient
 from mypy_boto3_iotsecuretunneling.client import IoTSecureTunnelingClient
 from mypy_boto3_iotsitewise.client import IoTSiteWiseClient
 from mypy_boto3_iotthingsgraph.client import IoTThingsGraphClient
+from mypy_boto3_iottwinmaker.client import IoTTwinMakerClient
 from mypy_boto3_iotwireless.client import IoTWirelessClient
 from mypy_boto3_ivs.client import IVSClient
 from mypy_boto3_kafka.client import KafkaClient
@@ -204,6 +211,7 @@ from mypy_boto3_memorydb.client import MemoryDBClient
 from mypy_boto3_meteringmarketplace.client import MarketplaceMeteringClient
 from mypy_boto3_mgh.client import MigrationHubClient
 from mypy_boto3_mgn.client import mgnClient
+from mypy_boto3_migration_hub_refactor_spaces.client import MigrationHubRefactorSpacesClient
 from mypy_boto3_migrationhub_config.client import MigrationHubConfigClient
 from mypy_boto3_migrationhubstrategy.client import MigrationHubStrategyRecommendationsClient
 from mypy_boto3_mobile.client import MobileClient
@@ -235,6 +243,7 @@ from mypy_boto3_qldb.client import QLDBClient
 from mypy_boto3_qldb_session.client import QLDBSessionClient
 from mypy_boto3_quicksight.client import QuickSightClient
 from mypy_boto3_ram.client import RAMClient
+from mypy_boto3_rbin.client import RecycleBinClient
 from mypy_boto3_rds.client import RDSClient
 from mypy_boto3_rds_data.client import RDSDataServiceClient
 from mypy_boto3_redshift.client import RedshiftClient
@@ -250,6 +259,7 @@ from mypy_boto3_route53_recovery_control_config.client import Route53RecoveryCon
 from mypy_boto3_route53_recovery_readiness.client import Route53RecoveryReadinessClient
 from mypy_boto3_route53domains.client import Route53DomainsClient
 from mypy_boto3_route53resolver.client import Route53ResolverClient
+from mypy_boto3_rum.client import CloudWatchRUMClient
 from mypy_boto3_s3.client import S3Client
 from mypy_boto3_s3.service_resource import S3ServiceResource
 from mypy_boto3_s3control.client import S3ControlClient
@@ -309,6 +319,7 @@ from mypy_boto3_worklink.client import WorkLinkClient
 from mypy_boto3_workmail.client import WorkMailClient
 from mypy_boto3_workmailmessageflow.client import WorkMailMessageFlowClient
 from mypy_boto3_workspaces.client import WorkSpacesClient
+from mypy_boto3_workspaces_web.client import WorkSpacesWebClient
 from mypy_boto3_xray.client import XRayClient
 
 if sys.version_info >= (3, 8):
@@ -465,6 +476,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["amplifyuibuilder"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> AmplifyUIBuilderClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["apigateway"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -518,6 +543,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> AppConfigClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["appconfigdata"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> AppConfigDataClient: ...
     @overload
     def client(
         self,
@@ -714,6 +753,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> BackupClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["backup-gateway"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> BackupGatewayClient: ...
     @overload
     def client(
         self,
@@ -1473,6 +1526,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["drs"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> drsClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["ds"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -1764,6 +1831,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> EventBridgeClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["evidently"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> CloudWatchEvidentlyClient: ...
     @overload
     def client(
         self,
@@ -2131,6 +2212,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["inspector2"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> Inspector2Client: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["iot"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -2310,6 +2405,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> IoTThingsGraphClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["iottwinmaker"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> IoTTwinMakerClient: ...
     @overload
     def client(
         self,
@@ -2943,6 +3052,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["migration-hub-refactor-spaces"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> MigrationHubRefactorSpacesClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["migrationhub-config"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -3363,6 +3486,20 @@ class Session:
     @overload
     def client(
         self,
+        service_name: Literal["rbin"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> RecycleBinClient: ...
+    @overload
+    def client(
+        self,
         service_name: Literal["rds"],
         region_name: Optional[str] = None,
         api_version: Optional[str] = None,
@@ -3570,6 +3707,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> Route53ResolverClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["rum"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> CloudWatchRUMClient: ...
     @overload
     def client(
         self,
@@ -4368,6 +4519,20 @@ class Session:
         aws_session_token: Optional[str] = None,
         config: Optional[Config] = None,
     ) -> WorkSpacesClient: ...
+    @overload
+    def client(
+        self,
+        service_name: Literal["workspaces-web"],
+        region_name: Optional[str] = None,
+        api_version: Optional[str] = None,
+        use_ssl: Optional[bool] = None,
+        verify: Union[bool, str, None] = None,
+        endpoint_url: Optional[str] = None,
+        aws_access_key_id: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_session_token: Optional[str] = None,
+        config: Optional[Config] = None,
+    ) -> WorkSpacesWebClient: ...
     @overload
     def client(
         self,

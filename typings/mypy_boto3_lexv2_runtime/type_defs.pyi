@@ -23,6 +23,7 @@ from .literals import (
     MessageContentTypeType,
     SentimentTypeType,
     ShapeType,
+    StyleTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -122,6 +123,7 @@ _OptionalDialogActionTypeDef = TypedDict(
     "_OptionalDialogActionTypeDef",
     {
         "slotToElicit": str,
+        "slotElicitationStyle": StyleTypeType,
     },
     total=False,
 )

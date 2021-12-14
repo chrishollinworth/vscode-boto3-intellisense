@@ -26,15 +26,28 @@ __all__ = (
     "EnvironmentDeployedWaiterName",
     "EnvironmentTemplateVersionRegisteredWaiterName",
     "ListEnvironmentAccountConnectionsPaginatorName",
+    "ListEnvironmentOutputsPaginatorName",
+    "ListEnvironmentProvisionedResourcesPaginatorName",
     "ListEnvironmentTemplateVersionsPaginatorName",
     "ListEnvironmentTemplatesPaginatorName",
     "ListEnvironmentsPaginatorName",
+    "ListRepositoriesPaginatorName",
+    "ListRepositorySyncDefinitionsPaginatorName",
+    "ListServiceInstanceOutputsPaginatorName",
+    "ListServiceInstanceProvisionedResourcesPaginatorName",
     "ListServiceInstancesPaginatorName",
+    "ListServicePipelineOutputsPaginatorName",
+    "ListServicePipelineProvisionedResourcesPaginatorName",
     "ListServiceTemplateVersionsPaginatorName",
     "ListServiceTemplatesPaginatorName",
     "ListServicesPaginatorName",
     "ListTagsForResourcePaginatorName",
+    "ProvisionedResourceEngineType",
     "ProvisioningType",
+    "RepositoryProviderType",
+    "RepositorySyncStatusType",
+    "ResourceDeploymentStatusType",
+    "ResourceSyncStatusType",
     "ServiceCreatedWaiterName",
     "ServiceDeletedWaiterName",
     "ServiceInstanceDeployedWaiterName",
@@ -42,6 +55,8 @@ __all__ = (
     "ServiceStatusType",
     "ServiceTemplateVersionRegisteredWaiterName",
     "ServiceUpdatedWaiterName",
+    "SyncTypeType",
+    "TemplateTypeType",
     "TemplateVersionStatusType",
 )
 
@@ -63,15 +78,32 @@ EnvironmentAccountConnectionStatusType = Literal["CONNECTED", "PENDING", "REJECT
 EnvironmentDeployedWaiterName = Literal["environment_deployed"]
 EnvironmentTemplateVersionRegisteredWaiterName = Literal["environment_template_version_registered"]
 ListEnvironmentAccountConnectionsPaginatorName = Literal["list_environment_account_connections"]
+ListEnvironmentOutputsPaginatorName = Literal["list_environment_outputs"]
+ListEnvironmentProvisionedResourcesPaginatorName = Literal["list_environment_provisioned_resources"]
 ListEnvironmentTemplateVersionsPaginatorName = Literal["list_environment_template_versions"]
 ListEnvironmentTemplatesPaginatorName = Literal["list_environment_templates"]
 ListEnvironmentsPaginatorName = Literal["list_environments"]
+ListRepositoriesPaginatorName = Literal["list_repositories"]
+ListRepositorySyncDefinitionsPaginatorName = Literal["list_repository_sync_definitions"]
+ListServiceInstanceOutputsPaginatorName = Literal["list_service_instance_outputs"]
+ListServiceInstanceProvisionedResourcesPaginatorName = Literal[
+    "list_service_instance_provisioned_resources"
+]
 ListServiceInstancesPaginatorName = Literal["list_service_instances"]
+ListServicePipelineOutputsPaginatorName = Literal["list_service_pipeline_outputs"]
+ListServicePipelineProvisionedResourcesPaginatorName = Literal[
+    "list_service_pipeline_provisioned_resources"
+]
 ListServiceTemplateVersionsPaginatorName = Literal["list_service_template_versions"]
 ListServiceTemplatesPaginatorName = Literal["list_service_templates"]
 ListServicesPaginatorName = Literal["list_services"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
+ProvisionedResourceEngineType = Literal["CLOUDFORMATION", "TERRAFORM"]
 ProvisioningType = Literal["CUSTOMER_MANAGED"]
+RepositoryProviderType = Literal["BITBUCKET", "GITHUB", "GITHUB_ENTERPRISE"]
+RepositorySyncStatusType = Literal["FAILED", "INITIATED", "IN_PROGRESS", "QUEUED", "SUCCEEDED"]
+ResourceDeploymentStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
+ResourceSyncStatusType = Literal["FAILED", "INITIATED", "IN_PROGRESS", "SUCCEEDED"]
 ServiceCreatedWaiterName = Literal["service_created"]
 ServiceDeletedWaiterName = Literal["service_deleted"]
 ServiceInstanceDeployedWaiterName = Literal["service_instance_deployed"]
@@ -94,6 +126,8 @@ ServiceStatusType = Literal[
 ]
 ServiceTemplateVersionRegisteredWaiterName = Literal["service_template_version_registered"]
 ServiceUpdatedWaiterName = Literal["service_updated"]
+SyncTypeType = Literal["TEMPLATE_SYNC"]
+TemplateTypeType = Literal["ENVIRONMENT", "SERVICE"]
 TemplateVersionStatusType = Literal[
     "DRAFT", "PUBLISHED", "REGISTRATION_FAILED", "REGISTRATION_IN_PROGRESS"
 ]

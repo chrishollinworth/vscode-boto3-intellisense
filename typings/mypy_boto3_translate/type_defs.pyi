@@ -76,6 +76,7 @@ __all__ = (
     "TextTranslationJobPropertiesTypeDef",
     "TranslateTextRequestRequestTypeDef",
     "TranslateTextResponseTypeDef",
+    "TranslationSettingsTypeDef",
     "UpdateParallelDataRequestRequestTypeDef",
     "UpdateParallelDataResponseTypeDef",
 )
@@ -413,6 +414,7 @@ _OptionalStartTextTranslationJobRequestRequestTypeDef = TypedDict(
         "JobName": str,
         "TerminologyNames": List[str],
         "ParallelDataNames": List[str],
+        "Settings": "TranslationSettingsTypeDef",
     },
     total=False,
 )
@@ -532,6 +534,7 @@ TextTranslationJobPropertiesTypeDef = TypedDict(
         "InputDataConfig": "InputDataConfigTypeDef",
         "OutputDataConfig": "OutputDataConfigTypeDef",
         "DataAccessRoleArn": str,
+        "Settings": "TranslationSettingsTypeDef",
     },
     total=False,
 )
@@ -548,6 +551,7 @@ _OptionalTranslateTextRequestRequestTypeDef = TypedDict(
     "_OptionalTranslateTextRequestRequestTypeDef",
     {
         "TerminologyNames": List[str],
+        "Settings": "TranslationSettingsTypeDef",
     },
     total=False,
 )
@@ -564,8 +568,17 @@ TranslateTextResponseTypeDef = TypedDict(
         "SourceLanguageCode": str,
         "TargetLanguageCode": str,
         "AppliedTerminologies": List["AppliedTerminologyTypeDef"],
+        "AppliedSettings": "TranslationSettingsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+TranslationSettingsTypeDef = TypedDict(
+    "TranslationSettingsTypeDef",
+    {
+        "Profanity": Literal["MASK"],
+    },
+    total=False,
 )
 
 _RequiredUpdateParallelDataRequestRequestTypeDef = TypedDict(

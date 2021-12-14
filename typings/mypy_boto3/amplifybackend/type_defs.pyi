@@ -16,6 +16,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     AdditionalConstraintsElementType,
+    AuthenticatedElementType,
     AuthResourcesType,
     DeliveryMethodType,
     MFAModeType,
@@ -27,6 +28,7 @@ from .literals import (
     ResolutionStrategyType,
     SignInMethodType,
     StatusType,
+    UnAuthenticatedElementType,
 )
 
 if sys.version_info >= (3, 8):
@@ -46,6 +48,7 @@ __all__ = (
     "BackendAuthAppleProviderConfigTypeDef",
     "BackendAuthSocialProviderConfigTypeDef",
     "BackendJobRespObjTypeDef",
+    "BackendStoragePermissionsTypeDef",
     "CloneBackendRequestRequestTypeDef",
     "CloneBackendResponseTypeDef",
     "CreateBackendAPIRequestRequestTypeDef",
@@ -63,6 +66,9 @@ __all__ = (
     "CreateBackendConfigResponseTypeDef",
     "CreateBackendRequestRequestTypeDef",
     "CreateBackendResponseTypeDef",
+    "CreateBackendStorageRequestRequestTypeDef",
+    "CreateBackendStorageResourceConfigTypeDef",
+    "CreateBackendStorageResponseTypeDef",
     "CreateTokenRequestRequestTypeDef",
     "CreateTokenResponseTypeDef",
     "DeleteBackendAPIRequestRequestTypeDef",
@@ -71,6 +77,8 @@ __all__ = (
     "DeleteBackendAuthResponseTypeDef",
     "DeleteBackendRequestRequestTypeDef",
     "DeleteBackendResponseTypeDef",
+    "DeleteBackendStorageRequestRequestTypeDef",
+    "DeleteBackendStorageResponseTypeDef",
     "DeleteTokenRequestRequestTypeDef",
     "DeleteTokenResponseTypeDef",
     "EmailSettingsTypeDef",
@@ -86,12 +94,19 @@ __all__ = (
     "GetBackendJobResponseTypeDef",
     "GetBackendRequestRequestTypeDef",
     "GetBackendResponseTypeDef",
+    "GetBackendStorageRequestRequestTypeDef",
+    "GetBackendStorageResourceConfigTypeDef",
+    "GetBackendStorageResponseTypeDef",
     "GetTokenRequestRequestTypeDef",
     "GetTokenResponseTypeDef",
     "ImportBackendAuthRequestRequestTypeDef",
     "ImportBackendAuthResponseTypeDef",
+    "ImportBackendStorageRequestRequestTypeDef",
+    "ImportBackendStorageResponseTypeDef",
     "ListBackendJobsRequestRequestTypeDef",
     "ListBackendJobsResponseTypeDef",
+    "ListS3BucketsRequestRequestTypeDef",
+    "ListS3BucketsResponseTypeDef",
     "LoginAuthConfigReqObjTypeDef",
     "PaginatorConfigTypeDef",
     "RemoveAllBackendsRequestRequestTypeDef",
@@ -99,6 +114,7 @@ __all__ = (
     "RemoveBackendConfigRequestRequestTypeDef",
     "RemoveBackendConfigResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "S3BucketInfoTypeDef",
     "SettingsTypeDef",
     "SmsSettingsTypeDef",
     "SocialProviderSettingsTypeDef",
@@ -117,6 +133,9 @@ __all__ = (
     "UpdateBackendConfigResponseTypeDef",
     "UpdateBackendJobRequestRequestTypeDef",
     "UpdateBackendJobResponseTypeDef",
+    "UpdateBackendStorageRequestRequestTypeDef",
+    "UpdateBackendStorageResourceConfigTypeDef",
+    "UpdateBackendStorageResponseTypeDef",
 )
 
 BackendAPIAppSyncAuthSettingsTypeDef = TypedDict(
@@ -206,6 +225,25 @@ _OptionalBackendJobRespObjTypeDef = TypedDict(
 
 class BackendJobRespObjTypeDef(
     _RequiredBackendJobRespObjTypeDef, _OptionalBackendJobRespObjTypeDef
+):
+    pass
+
+_RequiredBackendStoragePermissionsTypeDef = TypedDict(
+    "_RequiredBackendStoragePermissionsTypeDef",
+    {
+        "Authenticated": List[AuthenticatedElementType],
+    },
+)
+_OptionalBackendStoragePermissionsTypeDef = TypedDict(
+    "_OptionalBackendStoragePermissionsTypeDef",
+    {
+        "UnAuthenticated": List[UnAuthenticatedElementType],
+    },
+    total=False,
+)
+
+class BackendStoragePermissionsTypeDef(
+    _RequiredBackendStoragePermissionsTypeDef, _OptionalBackendStoragePermissionsTypeDef
 ):
     pass
 
@@ -479,6 +517,48 @@ CreateBackendResponseTypeDef = TypedDict(
     },
 )
 
+CreateBackendStorageRequestRequestTypeDef = TypedDict(
+    "CreateBackendStorageRequestRequestTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "ResourceConfig": "CreateBackendStorageResourceConfigTypeDef",
+        "ResourceName": str,
+    },
+)
+
+_RequiredCreateBackendStorageResourceConfigTypeDef = TypedDict(
+    "_RequiredCreateBackendStorageResourceConfigTypeDef",
+    {
+        "Permissions": "BackendStoragePermissionsTypeDef",
+        "ServiceName": Literal["S3"],
+    },
+)
+_OptionalCreateBackendStorageResourceConfigTypeDef = TypedDict(
+    "_OptionalCreateBackendStorageResourceConfigTypeDef",
+    {
+        "BucketName": str,
+    },
+    total=False,
+)
+
+class CreateBackendStorageResourceConfigTypeDef(
+    _RequiredCreateBackendStorageResourceConfigTypeDef,
+    _OptionalCreateBackendStorageResourceConfigTypeDef,
+):
+    pass
+
+CreateBackendStorageResponseTypeDef = TypedDict(
+    "CreateBackendStorageResponseTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "JobId": str,
+        "Status": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CreateTokenRequestRequestTypeDef = TypedDict(
     "CreateTokenRequestRequestTypeDef",
     {
@@ -569,6 +649,27 @@ DeleteBackendResponseTypeDef = TypedDict(
         "Error": str,
         "JobId": str,
         "Operation": str,
+        "Status": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteBackendStorageRequestRequestTypeDef = TypedDict(
+    "DeleteBackendStorageRequestRequestTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "ResourceName": str,
+        "ServiceName": Literal["S3"],
+    },
+)
+
+DeleteBackendStorageResponseTypeDef = TypedDict(
+    "DeleteBackendStorageResponseTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "JobId": str,
         "Status": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -750,6 +851,47 @@ GetBackendResponseTypeDef = TypedDict(
     },
 )
 
+GetBackendStorageRequestRequestTypeDef = TypedDict(
+    "GetBackendStorageRequestRequestTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "ResourceName": str,
+    },
+)
+
+_RequiredGetBackendStorageResourceConfigTypeDef = TypedDict(
+    "_RequiredGetBackendStorageResourceConfigTypeDef",
+    {
+        "Imported": bool,
+        "ServiceName": Literal["S3"],
+    },
+)
+_OptionalGetBackendStorageResourceConfigTypeDef = TypedDict(
+    "_OptionalGetBackendStorageResourceConfigTypeDef",
+    {
+        "BucketName": str,
+        "Permissions": "BackendStoragePermissionsTypeDef",
+    },
+    total=False,
+)
+
+class GetBackendStorageResourceConfigTypeDef(
+    _RequiredGetBackendStorageResourceConfigTypeDef, _OptionalGetBackendStorageResourceConfigTypeDef
+):
+    pass
+
+GetBackendStorageResponseTypeDef = TypedDict(
+    "GetBackendStorageResponseTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "ResourceConfig": "GetBackendStorageResourceConfigTypeDef",
+        "ResourceName": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetTokenRequestRequestTypeDef = TypedDict(
     "GetTokenRequestRequestTypeDef",
     {
@@ -805,6 +947,39 @@ ImportBackendAuthResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredImportBackendStorageRequestRequestTypeDef = TypedDict(
+    "_RequiredImportBackendStorageRequestRequestTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "ServiceName": Literal["S3"],
+    },
+)
+_OptionalImportBackendStorageRequestRequestTypeDef = TypedDict(
+    "_OptionalImportBackendStorageRequestRequestTypeDef",
+    {
+        "BucketName": str,
+    },
+    total=False,
+)
+
+class ImportBackendStorageRequestRequestTypeDef(
+    _RequiredImportBackendStorageRequestRequestTypeDef,
+    _OptionalImportBackendStorageRequestRequestTypeDef,
+):
+    pass
+
+ImportBackendStorageResponseTypeDef = TypedDict(
+    "ImportBackendStorageResponseTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "JobId": str,
+        "Status": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListBackendJobsRequestRequestTypeDef = TypedDict(
     "_RequiredListBackendJobsRequestRequestTypeDef",
     {
@@ -833,6 +1008,23 @@ ListBackendJobsResponseTypeDef = TypedDict(
     "ListBackendJobsResponseTypeDef",
     {
         "Jobs": List["BackendJobRespObjTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListS3BucketsRequestRequestTypeDef = TypedDict(
+    "ListS3BucketsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListS3BucketsResponseTypeDef = TypedDict(
+    "ListS3BucketsResponseTypeDef",
+    {
+        "Buckets": List["S3BucketInfoTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -914,6 +1106,15 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+S3BucketInfoTypeDef = TypedDict(
+    "S3BucketInfoTypeDef",
+    {
+        "CreationDate": str,
+        "Name": str,
+    },
+    total=False,
 )
 
 SettingsTypeDef = TypedDict(
@@ -1146,6 +1347,35 @@ UpdateBackendJobResponseTypeDef = TypedDict(
         "Operation": str,
         "Status": str,
         "UpdateTime": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateBackendStorageRequestRequestTypeDef = TypedDict(
+    "UpdateBackendStorageRequestRequestTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "ResourceConfig": "UpdateBackendStorageResourceConfigTypeDef",
+        "ResourceName": str,
+    },
+)
+
+UpdateBackendStorageResourceConfigTypeDef = TypedDict(
+    "UpdateBackendStorageResourceConfigTypeDef",
+    {
+        "Permissions": "BackendStoragePermissionsTypeDef",
+        "ServiceName": Literal["S3"],
+    },
+)
+
+UpdateBackendStorageResponseTypeDef = TypedDict(
+    "UpdateBackendStorageResponseTypeDef",
+    {
+        "AppId": str,
+        "BackendEnvironmentName": str,
+        "JobId": str,
+        "Status": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

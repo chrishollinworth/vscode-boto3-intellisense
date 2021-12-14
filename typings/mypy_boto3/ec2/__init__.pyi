@@ -44,6 +44,9 @@ Usage::
         DescribeInstanceTypesPaginator,
         DescribeInstancesPaginator,
         DescribeInternetGatewaysPaginator,
+        DescribeIpamPoolsPaginator,
+        DescribeIpamScopesPaginator,
+        DescribeIpamsPaginator,
         DescribeIpv6PoolsPaginator,
         DescribeLaunchTemplateVersionsPaginator,
         DescribeLaunchTemplatesPaginator,
@@ -57,6 +60,8 @@ Usage::
         DescribeMovingAddressesPaginator,
         DescribeNatGatewaysPaginator,
         DescribeNetworkAclsPaginator,
+        DescribeNetworkInsightsAccessScopeAnalysesPaginator,
+        DescribeNetworkInsightsAccessScopesPaginator,
         DescribeNetworkInsightsAnalysesPaginator,
         DescribeNetworkInsightsPathsPaginator,
         DescribeNetworkInterfacePermissionsPaginator,
@@ -72,6 +77,7 @@ Usage::
         DescribeScheduledInstancesPaginator,
         DescribeSecurityGroupRulesPaginator,
         DescribeSecurityGroupsPaginator,
+        DescribeSnapshotTierStatusPaginator,
         DescribeSnapshotsPaginator,
         DescribeSpotFleetInstancesPaginator,
         DescribeSpotFleetRequestsPaginator,
@@ -112,6 +118,10 @@ Usage::
         GetAssociatedIpv6PoolCidrsPaginator,
         GetGroupsForCapacityReservationPaginator,
         GetInstanceTypesFromInstanceRequirementsPaginator,
+        GetIpamAddressHistoryPaginator,
+        GetIpamPoolAllocationsPaginator,
+        GetIpamPoolCidrsPaginator,
+        GetIpamResourceCidrsPaginator,
         GetManagedPrefixListAssociationsPaginator,
         GetManagedPrefixListEntriesPaginator,
         GetSpotPlacementScoresPaginator,
@@ -128,7 +138,9 @@ Usage::
         InstanceStatusOkWaiter,
         InstanceStoppedWaiter,
         InstanceTerminatedWaiter,
+        InternetGatewayExistsWaiter,
         KeyPairExistsWaiter,
+        ListSnapshotsInRecycleBinPaginator,
         NatGatewayAvailableWaiter,
         NetworkInterfaceAvailableWaiter,
         PasswordDataAvailableWaiter,
@@ -173,6 +185,7 @@ Usage::
     instance_status_ok_waiter: InstanceStatusOkWaiter = client.get_waiter("instance_status_ok")
     instance_stopped_waiter: InstanceStoppedWaiter = client.get_waiter("instance_stopped")
     instance_terminated_waiter: InstanceTerminatedWaiter = client.get_waiter("instance_terminated")
+    internet_gateway_exists_waiter: InternetGatewayExistsWaiter = client.get_waiter("internet_gateway_exists")
     key_pair_exists_waiter: KeyPairExistsWaiter = client.get_waiter("key_pair_exists")
     nat_gateway_available_waiter: NatGatewayAvailableWaiter = client.get_waiter("nat_gateway_available")
     network_interface_available_waiter: NetworkInterfaceAvailableWaiter = client.get_waiter("network_interface_available")
@@ -224,6 +237,9 @@ Usage::
     describe_instance_types_paginator: DescribeInstanceTypesPaginator = client.get_paginator("describe_instance_types")
     describe_instances_paginator: DescribeInstancesPaginator = client.get_paginator("describe_instances")
     describe_internet_gateways_paginator: DescribeInternetGatewaysPaginator = client.get_paginator("describe_internet_gateways")
+    describe_ipam_pools_paginator: DescribeIpamPoolsPaginator = client.get_paginator("describe_ipam_pools")
+    describe_ipam_scopes_paginator: DescribeIpamScopesPaginator = client.get_paginator("describe_ipam_scopes")
+    describe_ipams_paginator: DescribeIpamsPaginator = client.get_paginator("describe_ipams")
     describe_ipv6_pools_paginator: DescribeIpv6PoolsPaginator = client.get_paginator("describe_ipv6_pools")
     describe_launch_template_versions_paginator: DescribeLaunchTemplateVersionsPaginator = client.get_paginator("describe_launch_template_versions")
     describe_launch_templates_paginator: DescribeLaunchTemplatesPaginator = client.get_paginator("describe_launch_templates")
@@ -237,6 +253,8 @@ Usage::
     describe_moving_addresses_paginator: DescribeMovingAddressesPaginator = client.get_paginator("describe_moving_addresses")
     describe_nat_gateways_paginator: DescribeNatGatewaysPaginator = client.get_paginator("describe_nat_gateways")
     describe_network_acls_paginator: DescribeNetworkAclsPaginator = client.get_paginator("describe_network_acls")
+    describe_network_insights_access_scope_analyses_paginator: DescribeNetworkInsightsAccessScopeAnalysesPaginator = client.get_paginator("describe_network_insights_access_scope_analyses")
+    describe_network_insights_access_scopes_paginator: DescribeNetworkInsightsAccessScopesPaginator = client.get_paginator("describe_network_insights_access_scopes")
     describe_network_insights_analyses_paginator: DescribeNetworkInsightsAnalysesPaginator = client.get_paginator("describe_network_insights_analyses")
     describe_network_insights_paths_paginator: DescribeNetworkInsightsPathsPaginator = client.get_paginator("describe_network_insights_paths")
     describe_network_interface_permissions_paginator: DescribeNetworkInterfacePermissionsPaginator = client.get_paginator("describe_network_interface_permissions")
@@ -252,6 +270,7 @@ Usage::
     describe_scheduled_instances_paginator: DescribeScheduledInstancesPaginator = client.get_paginator("describe_scheduled_instances")
     describe_security_group_rules_paginator: DescribeSecurityGroupRulesPaginator = client.get_paginator("describe_security_group_rules")
     describe_security_groups_paginator: DescribeSecurityGroupsPaginator = client.get_paginator("describe_security_groups")
+    describe_snapshot_tier_status_paginator: DescribeSnapshotTierStatusPaginator = client.get_paginator("describe_snapshot_tier_status")
     describe_snapshots_paginator: DescribeSnapshotsPaginator = client.get_paginator("describe_snapshots")
     describe_spot_fleet_instances_paginator: DescribeSpotFleetInstancesPaginator = client.get_paginator("describe_spot_fleet_instances")
     describe_spot_fleet_requests_paginator: DescribeSpotFleetRequestsPaginator = client.get_paginator("describe_spot_fleet_requests")
@@ -288,6 +307,10 @@ Usage::
     get_associated_ipv6_pool_cidrs_paginator: GetAssociatedIpv6PoolCidrsPaginator = client.get_paginator("get_associated_ipv6_pool_cidrs")
     get_groups_for_capacity_reservation_paginator: GetGroupsForCapacityReservationPaginator = client.get_paginator("get_groups_for_capacity_reservation")
     get_instance_types_from_instance_requirements_paginator: GetInstanceTypesFromInstanceRequirementsPaginator = client.get_paginator("get_instance_types_from_instance_requirements")
+    get_ipam_address_history_paginator: GetIpamAddressHistoryPaginator = client.get_paginator("get_ipam_address_history")
+    get_ipam_pool_allocations_paginator: GetIpamPoolAllocationsPaginator = client.get_paginator("get_ipam_pool_allocations")
+    get_ipam_pool_cidrs_paginator: GetIpamPoolCidrsPaginator = client.get_paginator("get_ipam_pool_cidrs")
+    get_ipam_resource_cidrs_paginator: GetIpamResourceCidrsPaginator = client.get_paginator("get_ipam_resource_cidrs")
     get_managed_prefix_list_associations_paginator: GetManagedPrefixListAssociationsPaginator = client.get_paginator("get_managed_prefix_list_associations")
     get_managed_prefix_list_entries_paginator: GetManagedPrefixListEntriesPaginator = client.get_paginator("get_managed_prefix_list_entries")
     get_spot_placement_scores_paginator: GetSpotPlacementScoresPaginator = client.get_paginator("get_spot_placement_scores")
@@ -297,6 +320,7 @@ Usage::
     get_transit_gateway_route_table_associations_paginator: GetTransitGatewayRouteTableAssociationsPaginator = client.get_paginator("get_transit_gateway_route_table_associations")
     get_transit_gateway_route_table_propagations_paginator: GetTransitGatewayRouteTablePropagationsPaginator = client.get_paginator("get_transit_gateway_route_table_propagations")
     get_vpn_connection_device_types_paginator: GetVpnConnectionDeviceTypesPaginator = client.get_paginator("get_vpn_connection_device_types")
+    list_snapshots_in_recycle_bin_paginator: ListSnapshotsInRecycleBinPaginator = client.get_paginator("list_snapshots_in_recycle_bin")
     search_local_gateway_routes_paginator: SearchLocalGatewayRoutesPaginator = client.get_paginator("search_local_gateway_routes")
     search_transit_gateway_multicast_groups_paginator: SearchTransitGatewayMulticastGroupsPaginator = client.get_paginator("search_transit_gateway_multicast_groups")
     ```
@@ -335,6 +359,9 @@ from .paginator import (
     DescribeInstanceTypeOfferingsPaginator,
     DescribeInstanceTypesPaginator,
     DescribeInternetGatewaysPaginator,
+    DescribeIpamPoolsPaginator,
+    DescribeIpamScopesPaginator,
+    DescribeIpamsPaginator,
     DescribeIpv6PoolsPaginator,
     DescribeLaunchTemplatesPaginator,
     DescribeLaunchTemplateVersionsPaginator,
@@ -348,6 +375,8 @@ from .paginator import (
     DescribeMovingAddressesPaginator,
     DescribeNatGatewaysPaginator,
     DescribeNetworkAclsPaginator,
+    DescribeNetworkInsightsAccessScopeAnalysesPaginator,
+    DescribeNetworkInsightsAccessScopesPaginator,
     DescribeNetworkInsightsAnalysesPaginator,
     DescribeNetworkInsightsPathsPaginator,
     DescribeNetworkInterfacePermissionsPaginator,
@@ -364,6 +393,7 @@ from .paginator import (
     DescribeSecurityGroupRulesPaginator,
     DescribeSecurityGroupsPaginator,
     DescribeSnapshotsPaginator,
+    DescribeSnapshotTierStatusPaginator,
     DescribeSpotFleetInstancesPaginator,
     DescribeSpotFleetRequestsPaginator,
     DescribeSpotInstanceRequestsPaginator,
@@ -399,6 +429,10 @@ from .paginator import (
     GetAssociatedIpv6PoolCidrsPaginator,
     GetGroupsForCapacityReservationPaginator,
     GetInstanceTypesFromInstanceRequirementsPaginator,
+    GetIpamAddressHistoryPaginator,
+    GetIpamPoolAllocationsPaginator,
+    GetIpamPoolCidrsPaginator,
+    GetIpamResourceCidrsPaginator,
     GetManagedPrefixListAssociationsPaginator,
     GetManagedPrefixListEntriesPaginator,
     GetSpotPlacementScoresPaginator,
@@ -408,6 +442,7 @@ from .paginator import (
     GetTransitGatewayRouteTableAssociationsPaginator,
     GetTransitGatewayRouteTablePropagationsPaginator,
     GetVpnConnectionDeviceTypesPaginator,
+    ListSnapshotsInRecycleBinPaginator,
     SearchLocalGatewayRoutesPaginator,
     SearchTransitGatewayMulticastGroupsPaginator,
 )
@@ -427,6 +462,7 @@ from .waiter import (
     InstanceStatusOkWaiter,
     InstanceStoppedWaiter,
     InstanceTerminatedWaiter,
+    InternetGatewayExistsWaiter,
     KeyPairExistsWaiter,
     NatGatewayAvailableWaiter,
     NetworkInterfaceAvailableWaiter,
@@ -490,6 +526,9 @@ __all__ = (
     "DescribeInstanceTypesPaginator",
     "DescribeInstancesPaginator",
     "DescribeInternetGatewaysPaginator",
+    "DescribeIpamPoolsPaginator",
+    "DescribeIpamScopesPaginator",
+    "DescribeIpamsPaginator",
     "DescribeIpv6PoolsPaginator",
     "DescribeLaunchTemplateVersionsPaginator",
     "DescribeLaunchTemplatesPaginator",
@@ -503,6 +542,8 @@ __all__ = (
     "DescribeMovingAddressesPaginator",
     "DescribeNatGatewaysPaginator",
     "DescribeNetworkAclsPaginator",
+    "DescribeNetworkInsightsAccessScopeAnalysesPaginator",
+    "DescribeNetworkInsightsAccessScopesPaginator",
     "DescribeNetworkInsightsAnalysesPaginator",
     "DescribeNetworkInsightsPathsPaginator",
     "DescribeNetworkInterfacePermissionsPaginator",
@@ -518,6 +559,7 @@ __all__ = (
     "DescribeScheduledInstancesPaginator",
     "DescribeSecurityGroupRulesPaginator",
     "DescribeSecurityGroupsPaginator",
+    "DescribeSnapshotTierStatusPaginator",
     "DescribeSnapshotsPaginator",
     "DescribeSpotFleetInstancesPaginator",
     "DescribeSpotFleetRequestsPaginator",
@@ -558,6 +600,10 @@ __all__ = (
     "GetAssociatedIpv6PoolCidrsPaginator",
     "GetGroupsForCapacityReservationPaginator",
     "GetInstanceTypesFromInstanceRequirementsPaginator",
+    "GetIpamAddressHistoryPaginator",
+    "GetIpamPoolAllocationsPaginator",
+    "GetIpamPoolCidrsPaginator",
+    "GetIpamResourceCidrsPaginator",
     "GetManagedPrefixListAssociationsPaginator",
     "GetManagedPrefixListEntriesPaginator",
     "GetSpotPlacementScoresPaginator",
@@ -574,7 +620,9 @@ __all__ = (
     "InstanceStatusOkWaiter",
     "InstanceStoppedWaiter",
     "InstanceTerminatedWaiter",
+    "InternetGatewayExistsWaiter",
     "KeyPairExistsWaiter",
+    "ListSnapshotsInRecycleBinPaginator",
     "NatGatewayAvailableWaiter",
     "NetworkInterfaceAvailableWaiter",
     "PasswordDataAvailableWaiter",

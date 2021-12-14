@@ -82,7 +82,7 @@ EmotionNameType = Literal[
 FaceAttributesType = Literal["ALL", "DEFAULT"]
 FaceSearchSortByType = Literal["INDEX", "TIMESTAMP"]
 GenderTypeType = Literal["Female", "Male"]
-KnownGenderTypeType = Literal["Female", "Male"]
+KnownGenderTypeType = Literal["Female", "Male", "Nonbinary", "Unlisted"]
 LabelDetectionSortByType = Literal["NAME", "TIMESTAMP"]
 LandmarkTypeType = Literal[
     "chinBottom",

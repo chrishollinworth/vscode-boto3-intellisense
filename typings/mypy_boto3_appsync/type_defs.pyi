@@ -20,6 +20,7 @@ from .literals import (
     ApiCacheStatusType,
     ApiCacheTypeType,
     ApiCachingBehaviorType,
+    AssociationStatusType,
     AuthenticationTypeType,
     ConflictDetectionTypeType,
     ConflictHandlerTypeType,
@@ -43,8 +44,11 @@ else:
 
 __all__ = (
     "AdditionalAuthenticationProviderTypeDef",
+    "ApiAssociationTypeDef",
     "ApiCacheTypeDef",
     "ApiKeyTypeDef",
+    "AssociateApiRequestRequestTypeDef",
+    "AssociateApiResponseTypeDef",
     "AuthorizationConfigTypeDef",
     "AwsIamConfigTypeDef",
     "CachingConfigTypeDef",
@@ -55,6 +59,8 @@ __all__ = (
     "CreateApiKeyResponseTypeDef",
     "CreateDataSourceRequestRequestTypeDef",
     "CreateDataSourceResponseTypeDef",
+    "CreateDomainNameRequestRequestTypeDef",
+    "CreateDomainNameResponseTypeDef",
     "CreateFunctionRequestRequestTypeDef",
     "CreateFunctionResponseTypeDef",
     "CreateGraphqlApiRequestRequestTypeDef",
@@ -67,19 +73,26 @@ __all__ = (
     "DeleteApiCacheRequestRequestTypeDef",
     "DeleteApiKeyRequestRequestTypeDef",
     "DeleteDataSourceRequestRequestTypeDef",
+    "DeleteDomainNameRequestRequestTypeDef",
     "DeleteFunctionRequestRequestTypeDef",
     "DeleteGraphqlApiRequestRequestTypeDef",
     "DeleteResolverRequestRequestTypeDef",
     "DeleteTypeRequestRequestTypeDef",
     "DeltaSyncConfigTypeDef",
+    "DisassociateApiRequestRequestTypeDef",
+    "DomainNameConfigTypeDef",
     "DynamodbDataSourceConfigTypeDef",
     "ElasticsearchDataSourceConfigTypeDef",
     "FlushApiCacheRequestRequestTypeDef",
     "FunctionConfigurationTypeDef",
+    "GetApiAssociationRequestRequestTypeDef",
+    "GetApiAssociationResponseTypeDef",
     "GetApiCacheRequestRequestTypeDef",
     "GetApiCacheResponseTypeDef",
     "GetDataSourceRequestRequestTypeDef",
     "GetDataSourceResponseTypeDef",
+    "GetDomainNameRequestRequestTypeDef",
+    "GetDomainNameResponseTypeDef",
     "GetFunctionRequestRequestTypeDef",
     "GetFunctionResponseTypeDef",
     "GetGraphqlApiRequestRequestTypeDef",
@@ -101,6 +114,8 @@ __all__ = (
     "ListApiKeysResponseTypeDef",
     "ListDataSourcesRequestRequestTypeDef",
     "ListDataSourcesResponseTypeDef",
+    "ListDomainNamesRequestRequestTypeDef",
+    "ListDomainNamesResponseTypeDef",
     "ListFunctionsRequestRequestTypeDef",
     "ListFunctionsResponseTypeDef",
     "ListGraphqlApisRequestRequestTypeDef",
@@ -134,6 +149,8 @@ __all__ = (
     "UpdateApiKeyResponseTypeDef",
     "UpdateDataSourceRequestRequestTypeDef",
     "UpdateDataSourceResponseTypeDef",
+    "UpdateDomainNameRequestRequestTypeDef",
+    "UpdateDomainNameResponseTypeDef",
     "UpdateFunctionRequestRequestTypeDef",
     "UpdateFunctionResponseTypeDef",
     "UpdateGraphqlApiRequestRequestTypeDef",
@@ -152,6 +169,17 @@ AdditionalAuthenticationProviderTypeDef = TypedDict(
         "openIDConnectConfig": "OpenIDConnectConfigTypeDef",
         "userPoolConfig": "CognitoUserPoolConfigTypeDef",
         "lambdaAuthorizerConfig": "LambdaAuthorizerConfigTypeDef",
+    },
+    total=False,
+)
+
+ApiAssociationTypeDef = TypedDict(
+    "ApiAssociationTypeDef",
+    {
+        "domainName": str,
+        "apiId": str,
+        "associationStatus": AssociationStatusType,
+        "deploymentDetail": str,
     },
     total=False,
 )
@@ -178,6 +206,22 @@ ApiKeyTypeDef = TypedDict(
         "deletes": int,
     },
     total=False,
+)
+
+AssociateApiRequestRequestTypeDef = TypedDict(
+    "AssociateApiRequestRequestTypeDef",
+    {
+        "domainName": str,
+        "apiId": str,
+    },
+)
+
+AssociateApiResponseTypeDef = TypedDict(
+    "AssociateApiResponseTypeDef",
+    {
+        "apiAssociation": "ApiAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredAuthorizationConfigTypeDef = TypedDict(
@@ -328,6 +372,34 @@ CreateDataSourceResponseTypeDef = TypedDict(
     "CreateDataSourceResponseTypeDef",
     {
         "dataSource": "DataSourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateDomainNameRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDomainNameRequestRequestTypeDef",
+    {
+        "domainName": str,
+        "certificateArn": str,
+    },
+)
+_OptionalCreateDomainNameRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDomainNameRequestRequestTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class CreateDomainNameRequestRequestTypeDef(
+    _RequiredCreateDomainNameRequestRequestTypeDef, _OptionalCreateDomainNameRequestRequestTypeDef
+):
+    pass
+
+CreateDomainNameResponseTypeDef = TypedDict(
+    "CreateDomainNameResponseTypeDef",
+    {
+        "domainNameConfig": "DomainNameConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -492,6 +564,13 @@ DeleteDataSourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteDomainNameRequestRequestTypeDef = TypedDict(
+    "DeleteDomainNameRequestRequestTypeDef",
+    {
+        "domainName": str,
+    },
+)
+
 DeleteFunctionRequestRequestTypeDef = TypedDict(
     "DeleteFunctionRequestRequestTypeDef",
     {
@@ -530,6 +609,25 @@ DeltaSyncConfigTypeDef = TypedDict(
         "baseTableTTL": int,
         "deltaSyncTableName": str,
         "deltaSyncTableTTL": int,
+    },
+    total=False,
+)
+
+DisassociateApiRequestRequestTypeDef = TypedDict(
+    "DisassociateApiRequestRequestTypeDef",
+    {
+        "domainName": str,
+    },
+)
+
+DomainNameConfigTypeDef = TypedDict(
+    "DomainNameConfigTypeDef",
+    {
+        "domainName": str,
+        "description": str,
+        "certificateArn": str,
+        "appsyncDomainName": str,
+        "hostedZoneId": str,
     },
     total=False,
 )
@@ -587,6 +685,21 @@ FunctionConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+GetApiAssociationRequestRequestTypeDef = TypedDict(
+    "GetApiAssociationRequestRequestTypeDef",
+    {
+        "domainName": str,
+    },
+)
+
+GetApiAssociationResponseTypeDef = TypedDict(
+    "GetApiAssociationResponseTypeDef",
+    {
+        "apiAssociation": "ApiAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetApiCacheRequestRequestTypeDef = TypedDict(
     "GetApiCacheRequestRequestTypeDef",
     {
@@ -614,6 +727,21 @@ GetDataSourceResponseTypeDef = TypedDict(
     "GetDataSourceResponseTypeDef",
     {
         "dataSource": "DataSourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetDomainNameRequestRequestTypeDef = TypedDict(
+    "GetDomainNameRequestRequestTypeDef",
+    {
+        "domainName": str,
+    },
+)
+
+GetDomainNameResponseTypeDef = TypedDict(
+    "GetDomainNameResponseTypeDef",
+    {
+        "domainNameConfig": "DomainNameConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -845,6 +973,24 @@ ListDataSourcesResponseTypeDef = TypedDict(
     "ListDataSourcesResponseTypeDef",
     {
         "dataSources": List["DataSourceTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListDomainNamesRequestRequestTypeDef = TypedDict(
+    "ListDomainNamesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListDomainNamesResponseTypeDef = TypedDict(
+    "ListDomainNamesResponseTypeDef",
+    {
+        "domainNameConfigs": List["DomainNameConfigTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1250,6 +1396,33 @@ UpdateDataSourceResponseTypeDef = TypedDict(
     "UpdateDataSourceResponseTypeDef",
     {
         "dataSource": "DataSourceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateDomainNameRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateDomainNameRequestRequestTypeDef",
+    {
+        "domainName": str,
+    },
+)
+_OptionalUpdateDomainNameRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateDomainNameRequestRequestTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class UpdateDomainNameRequestRequestTypeDef(
+    _RequiredUpdateDomainNameRequestRequestTypeDef, _OptionalUpdateDomainNameRequestRequestTypeDef
+):
+    pass
+
+UpdateDomainNameResponseTypeDef = TypedDict(
+    "UpdateDomainNameResponseTypeDef",
+    {
+        "domainNameConfig": "DomainNameConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

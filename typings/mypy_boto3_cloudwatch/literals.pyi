@@ -22,6 +22,7 @@ __all__ = (
     "AlarmExistsWaiterName",
     "AlarmTypeType",
     "AnomalyDetectorStateValueType",
+    "AnomalyDetectorTypeType",
     "ComparisonOperatorType",
     "CompositeAlarmExistsWaiterName",
     "DescribeAlarmHistoryPaginatorName",
@@ -42,6 +43,7 @@ __all__ = (
 AlarmExistsWaiterName = Literal["alarm_exists"]
 AlarmTypeType = Literal["CompositeAlarm", "MetricAlarm"]
 AnomalyDetectorStateValueType = Literal["PENDING_TRAINING", "TRAINED", "TRAINED_INSUFFICIENT_DATA"]
+AnomalyDetectorTypeType = Literal["METRIC_MATH", "SINGLE_METRIC"]
 ComparisonOperatorType = Literal[
     "GreaterThanOrEqualToThreshold",
     "GreaterThanThreshold",

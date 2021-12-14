@@ -23,11 +23,15 @@ __all__ = (
     "ChoiceReasonType",
     "ChoiceStatusType",
     "DifferenceStatusType",
+    "ImportLensStatusType",
     "LensStatusType",
+    "LensStatusTypeType",
+    "LensTypeType",
     "NotificationTypeType",
     "PermissionTypeType",
     "RiskType",
     "ShareInvitationActionType",
+    "ShareResourceTypeType",
     "ShareStatusType",
     "WorkloadEnvironmentType",
     "WorkloadImprovementStatusType",
@@ -41,11 +45,15 @@ ChoiceReasonType = Literal[
 ]
 ChoiceStatusType = Literal["NOT_APPLICABLE", "SELECTED", "UNSELECTED"]
 DifferenceStatusType = Literal["DELETED", "NEW", "UPDATED"]
-LensStatusType = Literal["CURRENT", "DEPRECATED", "NOT_CURRENT"]
+ImportLensStatusType = Literal["COMPLETE", "ERROR", "IN_PROGRESS"]
+LensStatusType = Literal["CURRENT", "DELETED", "DEPRECATED", "NOT_CURRENT", "UNSHARED"]
+LensStatusTypeType = Literal["ALL", "DRAFT", "PUBLISHED"]
+LensTypeType = Literal["AWS_OFFICIAL", "CUSTOM_SELF", "CUSTOM_SHARED"]
 NotificationTypeType = Literal["LENS_VERSION_DEPRECATED", "LENS_VERSION_UPGRADED"]
 PermissionTypeType = Literal["CONTRIBUTOR", "READONLY"]
 RiskType = Literal["HIGH", "MEDIUM", "NONE", "NOT_APPLICABLE", "UNANSWERED"]
 ShareInvitationActionType = Literal["ACCEPT", "REJECT"]
+ShareResourceTypeType = Literal["LENS", "WORKLOAD"]
 ShareStatusType = Literal["ACCEPTED", "EXPIRED", "PENDING", "REJECTED", "REVOKED"]
 WorkloadEnvironmentType = Literal["PREPRODUCTION", "PRODUCTION"]
 WorkloadImprovementStatusType = Literal[

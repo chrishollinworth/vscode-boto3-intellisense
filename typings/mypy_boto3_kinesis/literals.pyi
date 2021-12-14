@@ -30,6 +30,7 @@ __all__ = (
     "ShardFilterTypeType",
     "ShardIteratorTypeType",
     "StreamExistsWaiterName",
+    "StreamModeType",
     "StreamNotExistsWaiterName",
     "StreamStatusType",
 )
@@ -63,5 +64,6 @@ ShardIteratorTypeType = Literal[
     "AFTER_SEQUENCE_NUMBER", "AT_SEQUENCE_NUMBER", "AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"
 ]
 StreamExistsWaiterName = Literal["stream_exists"]
+StreamModeType = Literal["ON_DEMAND", "PROVISIONED"]
 StreamNotExistsWaiterName = Literal["stream_not_exists"]
 StreamStatusType = Literal["ACTIVE", "CREATING", "DELETING", "UPDATING"]

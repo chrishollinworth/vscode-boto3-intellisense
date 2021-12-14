@@ -233,6 +233,7 @@ __all__ = (
     "DescribeUserRequestRequestTypeDef",
     "DescribeUserResponseTypeDef",
     "ErrorInfoTypeDef",
+    "ExasolParametersTypeDef",
     "ExportToCSVOptionTypeDef",
     "FieldFolderTypeDef",
     "FilterOperationTypeDef",
@@ -260,6 +261,7 @@ __all__ = (
     "JiraParametersTypeDef",
     "JoinInstructionTypeDef",
     "JoinKeyPropertiesTypeDef",
+    "LinkSharingConfigurationTypeDef",
     "ListAnalysesRequestRequestTypeDef",
     "ListAnalysesResponseTypeDef",
     "ListDashboardVersionsRequestRequestTypeDef",
@@ -442,6 +444,7 @@ AccountCustomizationTypeDef = TypedDict(
     "AccountCustomizationTypeDef",
     {
         "DefaultTheme": str,
+        "DefaultEmailCustomizationTemplate": str,
     },
     total=False,
 )
@@ -1524,6 +1527,7 @@ DataSourceParametersTypeDef = TypedDict(
         "TeradataParameters": "TeradataParametersTypeDef",
         "TwitterParameters": "TwitterParametersTypeDef",
         "AmazonOpenSearchParameters": "AmazonOpenSearchParametersTypeDef",
+        "ExasolParameters": "ExasolParametersTypeDef",
     },
     total=False,
 )
@@ -2050,6 +2054,7 @@ DescribeDashboardPermissionsResponseTypeDef = TypedDict(
         "Permissions": List["ResourcePermissionTypeDef"],
         "Status": int,
         "RequestId": str,
+        "LinkSharingConfiguration": "LinkSharingConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2481,6 +2486,14 @@ ErrorInfoTypeDef = TypedDict(
     total=False,
 )
 
+ExasolParametersTypeDef = TypedDict(
+    "ExasolParametersTypeDef",
+    {
+        "Host": str,
+        "Port": int,
+    },
+)
+
 ExportToCSVOptionTypeDef = TypedDict(
     "ExportToCSVOptionTypeDef",
     {
@@ -2820,6 +2833,14 @@ JoinKeyPropertiesTypeDef = TypedDict(
     "JoinKeyPropertiesTypeDef",
     {
         "UniqueKey": bool,
+    },
+    total=False,
+)
+
+LinkSharingConfigurationTypeDef = TypedDict(
+    "LinkSharingConfigurationTypeDef",
+    {
+        "Permissions": List["ResourcePermissionTypeDef"],
     },
     total=False,
 )
@@ -4591,6 +4612,8 @@ _OptionalUpdateDashboardPermissionsRequestRequestTypeDef = TypedDict(
     {
         "GrantPermissions": List["ResourcePermissionTypeDef"],
         "RevokePermissions": List["ResourcePermissionTypeDef"],
+        "GrantLinkPermissions": List["ResourcePermissionTypeDef"],
+        "RevokeLinkPermissions": List["ResourcePermissionTypeDef"],
     },
     total=False,
 )
@@ -4609,6 +4632,7 @@ UpdateDashboardPermissionsResponseTypeDef = TypedDict(
         "Permissions": List["ResourcePermissionTypeDef"],
         "RequestId": str,
         "Status": int,
+        "LinkSharingConfiguration": "LinkSharingConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

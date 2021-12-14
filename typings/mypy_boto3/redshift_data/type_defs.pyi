@@ -56,7 +56,6 @@ __all__ = (
 _RequiredBatchExecuteStatementInputRequestTypeDef = TypedDict(
     "_RequiredBatchExecuteStatementInputRequestTypeDef",
     {
-        "ClusterIdentifier": str,
         "Database": str,
         "Sqls": List[str],
     },
@@ -64,6 +63,7 @@ _RequiredBatchExecuteStatementInputRequestTypeDef = TypedDict(
 _OptionalBatchExecuteStatementInputRequestTypeDef = TypedDict(
     "_OptionalBatchExecuteStatementInputRequestTypeDef",
     {
+        "ClusterIdentifier": str,
         "DbUser": str,
         "SecretArn": str,
         "StatementName": str,
@@ -161,13 +161,13 @@ DescribeStatementResponseTypeDef = TypedDict(
 _RequiredDescribeTableRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeTableRequestRequestTypeDef",
     {
-        "ClusterIdentifier": str,
         "Database": str,
     },
 )
 _OptionalDescribeTableRequestRequestTypeDef = TypedDict(
     "_OptionalDescribeTableRequestRequestTypeDef",
     {
+        "ClusterIdentifier": str,
         "ConnectedDatabase": str,
         "DbUser": str,
         "MaxResults": int,
@@ -197,7 +197,6 @@ DescribeTableResponseTypeDef = TypedDict(
 _RequiredExecuteStatementInputRequestTypeDef = TypedDict(
     "_RequiredExecuteStatementInputRequestTypeDef",
     {
-        "ClusterIdentifier": str,
         "Database": str,
         "Sql": str,
     },
@@ -205,6 +204,7 @@ _RequiredExecuteStatementInputRequestTypeDef = TypedDict(
 _OptionalExecuteStatementInputRequestTypeDef = TypedDict(
     "_OptionalExecuteStatementInputRequestTypeDef",
     {
+        "ClusterIdentifier": str,
         "DbUser": str,
         "Parameters": List["SqlParameterTypeDef"],
         "SecretArn": str,
@@ -279,13 +279,13 @@ GetStatementResultResponseTypeDef = TypedDict(
 _RequiredListDatabasesRequestRequestTypeDef = TypedDict(
     "_RequiredListDatabasesRequestRequestTypeDef",
     {
-        "ClusterIdentifier": str,
         "Database": str,
     },
 )
 _OptionalListDatabasesRequestRequestTypeDef = TypedDict(
     "_OptionalListDatabasesRequestRequestTypeDef",
     {
+        "ClusterIdentifier": str,
         "DbUser": str,
         "MaxResults": int,
         "NextToken": str,
@@ -311,13 +311,13 @@ ListDatabasesResponseTypeDef = TypedDict(
 _RequiredListSchemasRequestRequestTypeDef = TypedDict(
     "_RequiredListSchemasRequestRequestTypeDef",
     {
-        "ClusterIdentifier": str,
         "Database": str,
     },
 )
 _OptionalListSchemasRequestRequestTypeDef = TypedDict(
     "_OptionalListSchemasRequestRequestTypeDef",
     {
+        "ClusterIdentifier": str,
         "ConnectedDatabase": str,
         "DbUser": str,
         "MaxResults": int,
@@ -366,13 +366,13 @@ ListStatementsResponseTypeDef = TypedDict(
 _RequiredListTablesRequestRequestTypeDef = TypedDict(
     "_RequiredListTablesRequestRequestTypeDef",
     {
-        "ClusterIdentifier": str,
         "Database": str,
     },
 )
 _OptionalListTablesRequestRequestTypeDef = TypedDict(
     "_OptionalListTablesRequestRequestTypeDef",
     {
+        "ClusterIdentifier": str,
         "ConnectedDatabase": str,
         "DbUser": str,
         "MaxResults": int,

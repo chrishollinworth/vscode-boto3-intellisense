@@ -18,9 +18,16 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("DimensionValueTypeType", "MeasureValueTypeType", "TableStatusType", "TimeUnitType")
+__all__ = (
+    "DimensionValueTypeType",
+    "MeasureValueTypeType",
+    "S3EncryptionOptionType",
+    "TableStatusType",
+    "TimeUnitType",
+)
 
 DimensionValueTypeType = Literal["VARCHAR"]
-MeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "VARCHAR"]
+MeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "MULTI", "TIMESTAMP", "VARCHAR"]
+S3EncryptionOptionType = Literal["SSE_KMS", "SSE_S3"]
 TableStatusType = Literal["ACTIVE", "DELETING"]
 TimeUnitType = Literal["MICROSECONDS", "MILLISECONDS", "NANOSECONDS", "SECONDS"]

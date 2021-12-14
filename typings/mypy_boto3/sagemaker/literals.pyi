@@ -62,6 +62,7 @@ __all__ = (
     "DetailedAlgorithmStatusType",
     "DetailedModelPackageStatusType",
     "DirectInternetAccessType",
+    "DirectionType",
     "DomainStatusType",
     "EdgePackagingJobStatusType",
     "EdgePresetDeploymentStatusType",
@@ -103,6 +104,7 @@ __all__ = (
     "InstanceTypeType",
     "JoinSourceType",
     "LabelingJobStatusType",
+    "LineageTypeType",
     "ListActionsPaginatorName",
     "ListAlgorithmsPaginatorName",
     "ListAppImageConfigsPaginatorName",
@@ -131,11 +133,15 @@ __all__ = (
     "ListHyperParameterTuningJobsPaginatorName",
     "ListImageVersionsPaginatorName",
     "ListImagesPaginatorName",
+    "ListInferenceRecommendationsJobsPaginatorName",
+    "ListInferenceRecommendationsJobsSortByType",
     "ListLabelingJobsForWorkteamPaginatorName",
     "ListLabelingJobsForWorkteamSortByOptionsType",
     "ListLabelingJobsPaginatorName",
+    "ListLineageGroupsPaginatorName",
     "ListModelBiasJobDefinitionsPaginatorName",
     "ListModelExplainabilityJobDefinitionsPaginatorName",
+    "ListModelMetadataPaginatorName",
     "ListModelPackageGroupsPaginatorName",
     "ListModelPackagesPaginatorName",
     "ListModelQualityJobDefinitionsPaginatorName",
@@ -165,6 +171,7 @@ __all__ = (
     "MetricSetSourceType",
     "ModelApprovalStatusType",
     "ModelCacheSettingType",
+    "ModelMetadataFilterTypeType",
     "ModelPackageGroupSortByType",
     "ModelPackageGroupStatusType",
     "ModelPackageSortByType",
@@ -210,6 +217,8 @@ __all__ = (
     "ProjectStatusType",
     "RStudioServerProAccessStatusType",
     "RStudioServerProUserGroupType",
+    "RecommendationJobStatusType",
+    "RecommendationJobTypeType",
     "RecordWrapperType",
     "RedshiftResultCompressionTypeType",
     "RedshiftResultFormatType",
@@ -231,6 +240,7 @@ __all__ = (
     "SortByType",
     "SortContextsByType",
     "SortExperimentsByType",
+    "SortLineageGroupsByType",
     "SortOrderType",
     "SortPipelineExecutionsByType",
     "SortPipelinesByType",
@@ -245,6 +255,7 @@ __all__ = (
     "TargetPlatformArchType",
     "TargetPlatformOsType",
     "TrafficRoutingConfigTypeType",
+    "TrafficTypeType",
     "TrainingInputModeType",
     "TrainingInstanceTypeType",
     "TrainingJobCompletedOrStoppedWaiterName",
@@ -378,6 +389,7 @@ DataDistributionTypeType = Literal["FullyReplicated", "ShardedByS3Key"]
 DetailedAlgorithmStatusType = Literal["Completed", "Failed", "InProgress", "NotStarted"]
 DetailedModelPackageStatusType = Literal["Completed", "Failed", "InProgress", "NotStarted"]
 DirectInternetAccessType = Literal["Disabled", "Enabled"]
+DirectionType = Literal["Ascendants", "Both", "Descendants"]
 DomainStatusType = Literal[
     "Delete_Failed", "Deleting", "Failed", "InService", "Pending", "Update_Failed", "Updating"
 ]
@@ -506,6 +518,7 @@ JoinSourceType = Literal["Input", "None"]
 LabelingJobStatusType = Literal[
     "Completed", "Failed", "InProgress", "Initializing", "Stopped", "Stopping"
 ]
+LineageTypeType = Literal["Action", "Artifact", "Context", "TrialComponent"]
 ListActionsPaginatorName = Literal["list_actions"]
 ListAlgorithmsPaginatorName = Literal["list_algorithms"]
 ListAppImageConfigsPaginatorName = Literal["list_app_image_configs"]
@@ -536,13 +549,17 @@ ListHumanTaskUisPaginatorName = Literal["list_human_task_uis"]
 ListHyperParameterTuningJobsPaginatorName = Literal["list_hyper_parameter_tuning_jobs"]
 ListImageVersionsPaginatorName = Literal["list_image_versions"]
 ListImagesPaginatorName = Literal["list_images"]
+ListInferenceRecommendationsJobsPaginatorName = Literal["list_inference_recommendations_jobs"]
+ListInferenceRecommendationsJobsSortByType = Literal["CreationTime", "Name", "Status"]
 ListLabelingJobsForWorkteamPaginatorName = Literal["list_labeling_jobs_for_workteam"]
 ListLabelingJobsForWorkteamSortByOptionsType = Literal["CreationTime"]
 ListLabelingJobsPaginatorName = Literal["list_labeling_jobs"]
+ListLineageGroupsPaginatorName = Literal["list_lineage_groups"]
 ListModelBiasJobDefinitionsPaginatorName = Literal["list_model_bias_job_definitions"]
 ListModelExplainabilityJobDefinitionsPaginatorName = Literal[
     "list_model_explainability_job_definitions"
 ]
+ListModelMetadataPaginatorName = Literal["list_model_metadata"]
 ListModelPackageGroupsPaginatorName = Literal["list_model_package_groups"]
 ListModelPackagesPaginatorName = Literal["list_model_packages"]
 ListModelQualityJobDefinitionsPaginatorName = Literal["list_model_quality_job_definitions"]
@@ -576,6 +593,7 @@ ListWorkteamsSortByOptionsType = Literal["CreateDate", "Name"]
 MetricSetSourceType = Literal["Test", "Train", "Validation"]
 ModelApprovalStatusType = Literal["Approved", "PendingManualApproval", "Rejected"]
 ModelCacheSettingType = Literal["Disabled", "Enabled"]
+ModelMetadataFilterTypeType = Literal["Domain", "Framework", "FrameworkVersion", "Task"]
 ModelPackageGroupSortByType = Literal["CreationTime", "Name"]
 ModelPackageGroupStatusType = Literal[
     "Completed", "DeleteFailed", "Deleting", "Failed", "InProgress", "Pending"
@@ -775,6 +793,10 @@ ProjectStatusType = Literal[
 ]
 RStudioServerProAccessStatusType = Literal["DISABLED", "ENABLED"]
 RStudioServerProUserGroupType = Literal["R_STUDIO_ADMIN", "R_STUDIO_USER"]
+RecommendationJobStatusType = Literal[
+    "COMPLETED", "FAILED", "IN_PROGRESS", "PENDING", "STOPPED", "STOPPING"
+]
+RecommendationJobTypeType = Literal["Advanced", "Default"]
 RecordWrapperType = Literal["None", "RecordIO"]
 RedshiftResultCompressionTypeType = Literal["BZIP2", "GZIP", "None", "SNAPPY", "ZSTD"]
 RedshiftResultFormatType = Literal["CSV", "PARQUET"]
@@ -829,6 +851,7 @@ SortAssociationsByType = Literal[
 SortByType = Literal["CreationTime", "Name", "Status"]
 SortContextsByType = Literal["CreationTime", "Name"]
 SortExperimentsByType = Literal["CreationTime", "Name"]
+SortLineageGroupsByType = Literal["CreationTime", "Name"]
 SortOrderType = Literal["Ascending", "Descending"]
 SortPipelineExecutionsByType = Literal["CreationTime", "PipelineExecutionArn"]
 SortPipelinesByType = Literal["CreationTime", "Name"]
@@ -840,6 +863,7 @@ StudioLifecycleConfigAppTypeType = Literal["JupyterServer", "KernelGateway"]
 StudioLifecycleConfigSortKeyType = Literal["CreationTime", "LastModifiedTime", "Name"]
 TargetDeviceType = Literal[
     "aisage",
+    "amba_cv2",
     "amba_cv22",
     "amba_cv25",
     "coreml",
@@ -875,6 +899,7 @@ TargetPlatformAcceleratorType = Literal["INTEL_GRAPHICS", "MALI", "NVIDIA"]
 TargetPlatformArchType = Literal["ARM64", "ARM_EABI", "ARM_EABIHF", "X86", "X86_64"]
 TargetPlatformOsType = Literal["ANDROID", "LINUX"]
 TrafficRoutingConfigTypeType = Literal["ALL_AT_ONCE", "CANARY", "LINEAR"]
+TrafficTypeType = Literal["PHASES"]
 TrainingInputModeType = Literal["FastFile", "File", "Pipe"]
 TrainingInstanceTypeType = Literal[
     "ml.c4.2xlarge",

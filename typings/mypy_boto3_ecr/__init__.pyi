@@ -9,6 +9,7 @@ Usage::
         Client,
         DescribeImageScanFindingsPaginator,
         DescribeImagesPaginator,
+        DescribePullThroughCacheRulesPaginator,
         DescribeRepositoriesPaginator,
         ECRClient,
         GetLifecyclePolicyPreviewPaginator,
@@ -27,6 +28,7 @@ Usage::
 
     describe_image_scan_findings_paginator: DescribeImageScanFindingsPaginator = client.get_paginator("describe_image_scan_findings")
     describe_images_paginator: DescribeImagesPaginator = client.get_paginator("describe_images")
+    describe_pull_through_cache_rules_paginator: DescribePullThroughCacheRulesPaginator = client.get_paginator("describe_pull_through_cache_rules")
     describe_repositories_paginator: DescribeRepositoriesPaginator = client.get_paginator("describe_repositories")
     get_lifecycle_policy_preview_paginator: GetLifecyclePolicyPreviewPaginator = client.get_paginator("get_lifecycle_policy_preview")
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
@@ -36,6 +38,7 @@ from .client import ECRClient
 from .paginator import (
     DescribeImageScanFindingsPaginator,
     DescribeImagesPaginator,
+    DescribePullThroughCacheRulesPaginator,
     DescribeRepositoriesPaginator,
     GetLifecyclePolicyPreviewPaginator,
     ListImagesPaginator,
@@ -48,6 +51,7 @@ __all__ = (
     "Client",
     "DescribeImageScanFindingsPaginator",
     "DescribeImagesPaginator",
+    "DescribePullThroughCacheRulesPaginator",
     "DescribeRepositoriesPaginator",
     "ECRClient",
     "GetLifecyclePolicyPreviewPaginator",

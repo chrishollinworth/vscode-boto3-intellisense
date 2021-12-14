@@ -25,6 +25,7 @@ __all__ = (
     "MessageContentTypeType",
     "SentimentTypeType",
     "ShapeType",
+    "StyleTypeType",
 )
 
 ConfirmationStateType = Literal["Confirmed", "Denied", "None"]
@@ -37,3 +38,4 @@ IntentStateType = Literal[
 MessageContentTypeType = Literal["CustomPayload", "ImageResponseCard", "PlainText", "SSML"]
 SentimentTypeType = Literal["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]
 ShapeType = Literal["List", "Scalar"]
+StyleTypeType = Literal["Default", "SpellByLetter", "SpellByWord"]

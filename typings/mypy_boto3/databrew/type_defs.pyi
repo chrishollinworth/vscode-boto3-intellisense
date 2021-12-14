@@ -6,9 +6,9 @@ Type annotations for databrew service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_databrew.type_defs import BatchDeleteRecipeVersionRequestRequestTypeDef
+    from mypy_boto3_databrew.type_defs import AllowedStatisticsTypeDef
 
-    data: BatchDeleteRecipeVersionRequestRequestTypeDef = {...}
+    data: AllowedStatisticsTypeDef = {...}
     ```
 """
 import sys
@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    AnalyticsModeType,
     CompressionFormatType,
     EncryptionModeType,
     InputFormatType,
@@ -29,6 +30,8 @@ from .literals import (
     SampleTypeType,
     SessionStatusType,
     SourceType,
+    ThresholdTypeType,
+    ThresholdUnitType,
 )
 
 if sys.version_info >= (3, 8):
@@ -41,6 +44,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AllowedStatisticsTypeDef",
     "BatchDeleteRecipeVersionRequestRequestTypeDef",
     "BatchDeleteRecipeVersionResponseTypeDef",
     "ColumnSelectorTypeDef",
@@ -56,6 +60,8 @@ __all__ = (
     "CreateRecipeJobResponseTypeDef",
     "CreateRecipeRequestRequestTypeDef",
     "CreateRecipeResponseTypeDef",
+    "CreateRulesetRequestRequestTypeDef",
+    "CreateRulesetResponseTypeDef",
     "CreateScheduleRequestRequestTypeDef",
     "CreateScheduleResponseTypeDef",
     "CsvOptionsTypeDef",
@@ -76,6 +82,8 @@ __all__ = (
     "DeleteProjectResponseTypeDef",
     "DeleteRecipeVersionRequestRequestTypeDef",
     "DeleteRecipeVersionResponseTypeDef",
+    "DeleteRulesetRequestRequestTypeDef",
+    "DeleteRulesetResponseTypeDef",
     "DeleteScheduleRequestRequestTypeDef",
     "DeleteScheduleResponseTypeDef",
     "DescribeDatasetRequestRequestTypeDef",
@@ -88,8 +96,11 @@ __all__ = (
     "DescribeProjectResponseTypeDef",
     "DescribeRecipeRequestRequestTypeDef",
     "DescribeRecipeResponseTypeDef",
+    "DescribeRulesetRequestRequestTypeDef",
+    "DescribeRulesetResponseTypeDef",
     "DescribeScheduleRequestRequestTypeDef",
     "DescribeScheduleResponseTypeDef",
+    "EntityDetectorConfigurationTypeDef",
     "ExcelOptionsTypeDef",
     "FilesLimitTypeDef",
     "FilterExpressionTypeDef",
@@ -111,10 +122,13 @@ __all__ = (
     "ListRecipeVersionsResponseTypeDef",
     "ListRecipesRequestRequestTypeDef",
     "ListRecipesResponseTypeDef",
+    "ListRulesetsRequestRequestTypeDef",
+    "ListRulesetsResponseTypeDef",
     "ListSchedulesRequestRequestTypeDef",
     "ListSchedulesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MetadataTypeDef",
     "OutputFormatOptionsTypeDef",
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
@@ -129,6 +143,8 @@ __all__ = (
     "RecipeTypeDef",
     "RecipeVersionErrorDetailTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleTypeDef",
+    "RulesetItemTypeDef",
     "S3LocationTypeDef",
     "S3TableOutputOptionsTypeDef",
     "SampleTypeDef",
@@ -144,6 +160,7 @@ __all__ = (
     "StopJobRunRequestRequestTypeDef",
     "StopJobRunResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "ThresholdTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDatasetRequestRequestTypeDef",
     "UpdateDatasetResponseTypeDef",
@@ -155,9 +172,19 @@ __all__ = (
     "UpdateRecipeJobResponseTypeDef",
     "UpdateRecipeRequestRequestTypeDef",
     "UpdateRecipeResponseTypeDef",
+    "UpdateRulesetRequestRequestTypeDef",
+    "UpdateRulesetResponseTypeDef",
     "UpdateScheduleRequestRequestTypeDef",
     "UpdateScheduleResponseTypeDef",
+    "ValidationConfigurationTypeDef",
     "ViewFrameTypeDef",
+)
+
+AllowedStatisticsTypeDef = TypedDict(
+    "AllowedStatisticsTypeDef",
+    {
+        "Statistics": List[str],
+    },
 )
 
 BatchDeleteRecipeVersionRequestRequestTypeDef = TypedDict(
@@ -274,6 +301,7 @@ _OptionalCreateProfileJobRequestRequestTypeDef = TypedDict(
         "MaxCapacity": int,
         "MaxRetries": int,
         "Configuration": "ProfileConfigurationTypeDef",
+        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
         "Tags": Dict[str, str],
         "Timeout": int,
         "JobSample": "JobSampleTypeDef",
@@ -394,6 +422,36 @@ CreateRecipeResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateRulesetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
+        "TargetArn": str,
+        "Rules": List["RuleTypeDef"],
+    },
+)
+_OptionalCreateRulesetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateRulesetRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateRulesetRequestRequestTypeDef(
+    _RequiredCreateRulesetRequestRequestTypeDef, _OptionalCreateRulesetRequestRequestTypeDef
+):
+    pass
+
+CreateRulesetResponseTypeDef = TypedDict(
+    "CreateRulesetResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateScheduleRequestRequestTypeDef = TypedDict(
     "_RequiredCreateScheduleRequestRequestTypeDef",
     {
@@ -488,13 +546,14 @@ _RequiredDatabaseInputDefinitionTypeDef = TypedDict(
     "_RequiredDatabaseInputDefinitionTypeDef",
     {
         "GlueConnectionName": str,
-        "DatabaseTableName": str,
     },
 )
 _OptionalDatabaseInputDefinitionTypeDef = TypedDict(
     "_OptionalDatabaseInputDefinitionTypeDef",
     {
+        "DatabaseTableName": str,
         "TempDirectory": "S3LocationTypeDef",
+        "QueryString": str,
     },
     total=False,
 )
@@ -669,6 +728,21 @@ DeleteRecipeVersionResponseTypeDef = TypedDict(
     },
 )
 
+DeleteRulesetRequestRequestTypeDef = TypedDict(
+    "DeleteRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteRulesetResponseTypeDef = TypedDict(
+    "DeleteRulesetResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteScheduleRequestRequestTypeDef = TypedDict(
     "DeleteScheduleRequestRequestTypeDef",
     {
@@ -737,6 +811,7 @@ DescribeJobResponseTypeDef = TypedDict(
         "DatabaseOutputs": List["DatabaseOutputTypeDef"],
         "ProjectName": str,
         "ProfileConfiguration": "ProfileConfigurationTypeDef",
+        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
         "RecipeReference": "RecipeReferenceTypeDef",
         "ResourceArn": str,
         "RoleArn": str,
@@ -765,6 +840,7 @@ DescribeJobRunResponseTypeDef = TypedDict(
         "ExecutionTime": int,
         "JobName": str,
         "ProfileConfiguration": "ProfileConfigurationTypeDef",
+        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
         "RunId": str,
         "State": JobRunStateType,
         "LogSubscription": LogSubscriptionType,
@@ -847,6 +923,30 @@ DescribeRecipeResponseTypeDef = TypedDict(
     },
 )
 
+DescribeRulesetRequestRequestTypeDef = TypedDict(
+    "DescribeRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DescribeRulesetResponseTypeDef = TypedDict(
+    "DescribeRulesetResponseTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "TargetArn": str,
+        "Rules": List["RuleTypeDef"],
+        "CreateDate": datetime,
+        "CreatedBy": str,
+        "LastModifiedBy": str,
+        "LastModifiedDate": datetime,
+        "ResourceArn": str,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeScheduleRequestRequestTypeDef = TypedDict(
     "DescribeScheduleRequestRequestTypeDef",
     {
@@ -869,6 +969,25 @@ DescribeScheduleResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredEntityDetectorConfigurationTypeDef = TypedDict(
+    "_RequiredEntityDetectorConfigurationTypeDef",
+    {
+        "EntityTypes": List[str],
+    },
+)
+_OptionalEntityDetectorConfigurationTypeDef = TypedDict(
+    "_OptionalEntityDetectorConfigurationTypeDef",
+    {
+        "AllowedStatistics": List["AllowedStatisticsTypeDef"],
+    },
+    total=False,
+)
+
+class EntityDetectorConfigurationTypeDef(
+    _RequiredEntityDetectorConfigurationTypeDef, _OptionalEntityDetectorConfigurationTypeDef
+):
+    pass
 
 ExcelOptionsTypeDef = TypedDict(
     "ExcelOptionsTypeDef",
@@ -922,6 +1041,7 @@ InputTypeDef = TypedDict(
         "S3InputDefinition": "S3LocationTypeDef",
         "DataCatalogInputDefinition": "DataCatalogInputDefinitionTypeDef",
         "DatabaseInputDefinition": "DatabaseInputDefinitionTypeDef",
+        "Metadata": "MetadataTypeDef",
     },
     total=False,
 )
@@ -946,6 +1066,7 @@ JobRunTypeDef = TypedDict(
         "StartedBy": str,
         "StartedOn": datetime,
         "JobSample": "JobSampleTypeDef",
+        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
     },
     total=False,
 )
@@ -990,6 +1111,7 @@ _OptionalJobTypeDef = TypedDict(
         "Timeout": int,
         "Tags": Dict[str, str],
         "JobSample": "JobSampleTypeDef",
+        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
     },
     total=False,
 )
@@ -1139,6 +1261,25 @@ ListRecipesResponseTypeDef = TypedDict(
     },
 )
 
+ListRulesetsRequestRequestTypeDef = TypedDict(
+    "ListRulesetsRequestRequestTypeDef",
+    {
+        "TargetArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListRulesetsResponseTypeDef = TypedDict(
+    "ListRulesetsResponseTypeDef",
+    {
+        "Rulesets": List["RulesetItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListSchedulesRequestRequestTypeDef = TypedDict(
     "ListSchedulesRequestRequestTypeDef",
     {
@@ -1171,6 +1312,14 @@ ListTagsForResourceResponseTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+MetadataTypeDef = TypedDict(
+    "MetadataTypeDef",
+    {
+        "SourceArn": str,
+    },
+    total=False,
 )
 
 OutputFormatOptionsTypeDef = TypedDict(
@@ -1228,6 +1377,7 @@ ProfileConfigurationTypeDef = TypedDict(
         "DatasetStatisticsConfiguration": "StatisticsConfigurationTypeDef",
         "ProfileColumns": List["ColumnSelectorTypeDef"],
         "ColumnStatisticsConfigurations": List["ColumnStatisticsConfigurationTypeDef"],
+        "EntityDetectorConfiguration": "EntityDetectorConfigurationTypeDef",
     },
     total=False,
 )
@@ -1387,6 +1537,53 @@ ResponseMetadataTypeDef = TypedDict(
         "RetryAttempts": int,
     },
 )
+
+_RequiredRuleTypeDef = TypedDict(
+    "_RequiredRuleTypeDef",
+    {
+        "Name": str,
+        "CheckExpression": str,
+    },
+)
+_OptionalRuleTypeDef = TypedDict(
+    "_OptionalRuleTypeDef",
+    {
+        "Disabled": bool,
+        "SubstitutionMap": Dict[str, str],
+        "Threshold": "ThresholdTypeDef",
+        "ColumnSelectors": List["ColumnSelectorTypeDef"],
+    },
+    total=False,
+)
+
+class RuleTypeDef(_RequiredRuleTypeDef, _OptionalRuleTypeDef):
+    pass
+
+_RequiredRulesetItemTypeDef = TypedDict(
+    "_RequiredRulesetItemTypeDef",
+    {
+        "Name": str,
+        "TargetArn": str,
+    },
+)
+_OptionalRulesetItemTypeDef = TypedDict(
+    "_OptionalRulesetItemTypeDef",
+    {
+        "AccountId": str,
+        "CreatedBy": str,
+        "CreateDate": datetime,
+        "Description": str,
+        "LastModifiedBy": str,
+        "LastModifiedDate": datetime,
+        "ResourceArn": str,
+        "RuleCount": int,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class RulesetItemTypeDef(_RequiredRulesetItemTypeDef, _OptionalRulesetItemTypeDef):
+    pass
 
 _RequiredS3LocationTypeDef = TypedDict(
     "_RequiredS3LocationTypeDef",
@@ -1573,6 +1770,24 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredThresholdTypeDef = TypedDict(
+    "_RequiredThresholdTypeDef",
+    {
+        "Value": float,
+    },
+)
+_OptionalThresholdTypeDef = TypedDict(
+    "_OptionalThresholdTypeDef",
+    {
+        "Type": ThresholdTypeType,
+        "Unit": ThresholdUnitType,
+    },
+    total=False,
+)
+
+class ThresholdTypeDef(_RequiredThresholdTypeDef, _OptionalThresholdTypeDef):
+    pass
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -1628,6 +1843,7 @@ _OptionalUpdateProfileJobRequestRequestTypeDef = TypedDict(
         "LogSubscription": LogSubscriptionType,
         "MaxCapacity": int,
         "MaxRetries": int,
+        "ValidationConfigurations": List["ValidationConfigurationTypeDef"],
         "Timeout": int,
         "JobSample": "JobSampleTypeDef",
     },
@@ -1740,6 +1956,34 @@ UpdateRecipeResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateRulesetRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateRulesetRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Rules": List["RuleTypeDef"],
+    },
+)
+_OptionalUpdateRulesetRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateRulesetRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateRulesetRequestRequestTypeDef(
+    _RequiredUpdateRulesetRequestRequestTypeDef, _OptionalUpdateRulesetRequestRequestTypeDef
+):
+    pass
+
+UpdateRulesetResponseTypeDef = TypedDict(
+    "UpdateRulesetResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateScheduleRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateScheduleRequestRequestTypeDef",
     {
@@ -1768,6 +2012,25 @@ UpdateScheduleResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredValidationConfigurationTypeDef = TypedDict(
+    "_RequiredValidationConfigurationTypeDef",
+    {
+        "RulesetArn": str,
+    },
+)
+_OptionalValidationConfigurationTypeDef = TypedDict(
+    "_OptionalValidationConfigurationTypeDef",
+    {
+        "ValidationMode": Literal["CHECK_ALL"],
+    },
+    total=False,
+)
+
+class ValidationConfigurationTypeDef(
+    _RequiredValidationConfigurationTypeDef, _OptionalValidationConfigurationTypeDef
+):
+    pass
+
 _RequiredViewFrameTypeDef = TypedDict(
     "_RequiredViewFrameTypeDef",
     {
@@ -1779,6 +2042,9 @@ _OptionalViewFrameTypeDef = TypedDict(
     {
         "ColumnRange": int,
         "HiddenColumns": List[str],
+        "StartRowIndex": int,
+        "RowRange": int,
+        "Analytics": AnalyticsModeType,
     },
     total=False,
 )

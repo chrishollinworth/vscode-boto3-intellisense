@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     ActionType,
+    ApplicationAttributeType,
     AuthenticationTypeType,
     FleetAttributeType,
     FleetErrorCodeType,
@@ -51,9 +52,13 @@ else:
 
 __all__ = (
     "AccessEndpointTypeDef",
+    "AppBlockTypeDef",
+    "ApplicationFleetAssociationTypeDef",
     "ApplicationSettingsResponseTypeDef",
     "ApplicationSettingsTypeDef",
     "ApplicationTypeDef",
+    "AssociateApplicationFleetRequestRequestTypeDef",
+    "AssociateApplicationFleetResultTypeDef",
     "AssociateFleetRequestRequestTypeDef",
     "BatchAssociateUserStackRequestRequestTypeDef",
     "BatchAssociateUserStackResultTypeDef",
@@ -63,6 +68,10 @@ __all__ = (
     "ComputeCapacityTypeDef",
     "CopyImageRequestRequestTypeDef",
     "CopyImageResponseTypeDef",
+    "CreateAppBlockRequestRequestTypeDef",
+    "CreateAppBlockResultTypeDef",
+    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationResultTypeDef",
     "CreateDirectoryConfigRequestRequestTypeDef",
     "CreateDirectoryConfigResultTypeDef",
     "CreateFleetRequestRequestTypeDef",
@@ -79,6 +88,8 @@ __all__ = (
     "CreateUpdatedImageResultTypeDef",
     "CreateUsageReportSubscriptionResultTypeDef",
     "CreateUserRequestRequestTypeDef",
+    "DeleteAppBlockRequestRequestTypeDef",
+    "DeleteApplicationRequestRequestTypeDef",
     "DeleteDirectoryConfigRequestRequestTypeDef",
     "DeleteFleetRequestRequestTypeDef",
     "DeleteImageBuilderRequestRequestTypeDef",
@@ -88,6 +99,12 @@ __all__ = (
     "DeleteImageResultTypeDef",
     "DeleteStackRequestRequestTypeDef",
     "DeleteUserRequestRequestTypeDef",
+    "DescribeAppBlocksRequestRequestTypeDef",
+    "DescribeAppBlocksResultTypeDef",
+    "DescribeApplicationFleetAssociationsRequestRequestTypeDef",
+    "DescribeApplicationFleetAssociationsResultTypeDef",
+    "DescribeApplicationsRequestRequestTypeDef",
+    "DescribeApplicationsResultTypeDef",
     "DescribeDirectoryConfigsRequestRequestTypeDef",
     "DescribeDirectoryConfigsResultTypeDef",
     "DescribeFleetsRequestRequestTypeDef",
@@ -110,6 +127,7 @@ __all__ = (
     "DescribeUsersResultTypeDef",
     "DirectoryConfigTypeDef",
     "DisableUserRequestRequestTypeDef",
+    "DisassociateApplicationFleetRequestRequestTypeDef",
     "DisassociateFleetRequestRequestTypeDef",
     "DomainJoinInfoTypeDef",
     "EnableUserRequestRequestTypeDef",
@@ -132,6 +150,8 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "ResourceErrorTypeDef",
     "ResponseMetadataTypeDef",
+    "S3LocationTypeDef",
+    "ScriptDetailsTypeDef",
     "ServiceAccountCredentialsTypeDef",
     "SessionTypeDef",
     "SharedImagePermissionsTypeDef",
@@ -146,6 +166,8 @@ __all__ = (
     "StorageConnectorTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateApplicationRequestRequestTypeDef",
+    "UpdateApplicationResultTypeDef",
     "UpdateDirectoryConfigRequestRequestTypeDef",
     "UpdateDirectoryConfigResultTypeDef",
     "UpdateFleetRequestRequestTypeDef",
@@ -178,6 +200,36 @@ _OptionalAccessEndpointTypeDef = TypedDict(
 
 class AccessEndpointTypeDef(_RequiredAccessEndpointTypeDef, _OptionalAccessEndpointTypeDef):
     pass
+
+_RequiredAppBlockTypeDef = TypedDict(
+    "_RequiredAppBlockTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+        "SetupScriptDetails": "ScriptDetailsTypeDef",
+    },
+)
+_OptionalAppBlockTypeDef = TypedDict(
+    "_OptionalAppBlockTypeDef",
+    {
+        "Description": str,
+        "DisplayName": str,
+        "SourceS3Location": "S3LocationTypeDef",
+        "CreatedTime": datetime,
+    },
+    total=False,
+)
+
+class AppBlockTypeDef(_RequiredAppBlockTypeDef, _OptionalAppBlockTypeDef):
+    pass
+
+ApplicationFleetAssociationTypeDef = TypedDict(
+    "ApplicationFleetAssociationTypeDef",
+    {
+        "FleetName": str,
+        "ApplicationArn": str,
+    },
+)
 
 ApplicationSettingsResponseTypeDef = TypedDict(
     "ApplicationSettingsResponseTypeDef",
@@ -218,8 +270,32 @@ ApplicationTypeDef = TypedDict(
         "LaunchParameters": str,
         "Enabled": bool,
         "Metadata": Dict[str, str],
+        "WorkingDirectory": str,
+        "Description": str,
+        "Arn": str,
+        "AppBlockArn": str,
+        "IconS3Location": "S3LocationTypeDef",
+        "Platforms": List[PlatformTypeType],
+        "InstanceFamilies": List[str],
+        "CreatedTime": datetime,
     },
     total=False,
+)
+
+AssociateApplicationFleetRequestRequestTypeDef = TypedDict(
+    "AssociateApplicationFleetRequestRequestTypeDef",
+    {
+        "FleetName": str,
+        "ApplicationArn": str,
+    },
+)
+
+AssociateApplicationFleetResultTypeDef = TypedDict(
+    "AssociateApplicationFleetResultTypeDef",
+    {
+        "ApplicationFleetAssociation": "ApplicationFleetAssociationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AssociateFleetRequestRequestTypeDef = TypedDict(
@@ -317,6 +393,73 @@ CopyImageResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateAppBlockRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAppBlockRequestRequestTypeDef",
+    {
+        "Name": str,
+        "SourceS3Location": "S3LocationTypeDef",
+        "SetupScriptDetails": "ScriptDetailsTypeDef",
+    },
+)
+_OptionalCreateAppBlockRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAppBlockRequestRequestTypeDef",
+    {
+        "Description": str,
+        "DisplayName": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateAppBlockRequestRequestTypeDef(
+    _RequiredCreateAppBlockRequestRequestTypeDef, _OptionalCreateAppBlockRequestRequestTypeDef
+):
+    pass
+
+CreateAppBlockResultTypeDef = TypedDict(
+    "CreateAppBlockResultTypeDef",
+    {
+        "AppBlock": "AppBlockTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateApplicationRequestRequestTypeDef",
+    {
+        "Name": str,
+        "IconS3Location": "S3LocationTypeDef",
+        "LaunchPath": str,
+        "Platforms": List[PlatformTypeType],
+        "InstanceFamilies": List[str],
+        "AppBlockArn": str,
+    },
+)
+_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateApplicationRequestRequestTypeDef",
+    {
+        "DisplayName": str,
+        "Description": str,
+        "WorkingDirectory": str,
+        "LaunchParameters": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateApplicationRequestRequestTypeDef(
+    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
+):
+    pass
+
+CreateApplicationResultTypeDef = TypedDict(
+    "CreateApplicationResultTypeDef",
+    {
+        "Application": "ApplicationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateDirectoryConfigRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDirectoryConfigRequestRequestTypeDef",
     {
@@ -351,7 +494,6 @@ _RequiredCreateFleetRequestRequestTypeDef = TypedDict(
     {
         "Name": str,
         "InstanceType": str,
-        "ComputeCapacity": "ComputeCapacityTypeDef",
     },
 )
 _OptionalCreateFleetRequestRequestTypeDef = TypedDict(
@@ -360,6 +502,7 @@ _OptionalCreateFleetRequestRequestTypeDef = TypedDict(
         "ImageName": str,
         "ImageArn": str,
         "FleetType": FleetTypeType,
+        "ComputeCapacity": "ComputeCapacityTypeDef",
         "VpcConfig": "VpcConfigTypeDef",
         "MaxUserDurationInSeconds": int,
         "DisconnectTimeoutInSeconds": int,
@@ -371,6 +514,9 @@ _OptionalCreateFleetRequestRequestTypeDef = TypedDict(
         "IdleDisconnectTimeoutInSeconds": int,
         "IamRoleArn": str,
         "StreamView": StreamViewType,
+        "Platform": PlatformTypeType,
+        "MaxConcurrentSessions": int,
+        "UsbDeviceFilterStrings": List[str],
     },
     total=False,
 )
@@ -589,6 +735,20 @@ class CreateUserRequestRequestTypeDef(
 ):
     pass
 
+DeleteAppBlockRequestRequestTypeDef = TypedDict(
+    "DeleteAppBlockRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteApplicationRequestRequestTypeDef = TypedDict(
+    "DeleteApplicationRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
 DeleteDirectoryConfigRequestRequestTypeDef = TypedDict(
     "DeleteDirectoryConfigRequestRequestTypeDef",
     {
@@ -653,6 +813,64 @@ DeleteUserRequestRequestTypeDef = TypedDict(
     {
         "UserName": str,
         "AuthenticationType": AuthenticationTypeType,
+    },
+)
+
+DescribeAppBlocksRequestRequestTypeDef = TypedDict(
+    "DescribeAppBlocksRequestRequestTypeDef",
+    {
+        "Arns": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeAppBlocksResultTypeDef = TypedDict(
+    "DescribeAppBlocksResultTypeDef",
+    {
+        "AppBlocks": List["AppBlockTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicationFleetAssociationsRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationFleetAssociationsRequestRequestTypeDef",
+    {
+        "FleetName": str,
+        "ApplicationArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeApplicationFleetAssociationsResultTypeDef = TypedDict(
+    "DescribeApplicationFleetAssociationsResultTypeDef",
+    {
+        "ApplicationFleetAssociations": List["ApplicationFleetAssociationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeApplicationsRequestRequestTypeDef = TypedDict(
+    "DescribeApplicationsRequestRequestTypeDef",
+    {
+        "Arns": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeApplicationsResultTypeDef = TypedDict(
+    "DescribeApplicationsResultTypeDef",
+    {
+        "Applications": List["ApplicationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -910,6 +1128,14 @@ DisableUserRequestRequestTypeDef = TypedDict(
     },
 )
 
+DisassociateApplicationFleetRequestRequestTypeDef = TypedDict(
+    "DisassociateApplicationFleetRequestRequestTypeDef",
+    {
+        "FleetName": str,
+        "ApplicationArn": str,
+    },
+)
+
 DisassociateFleetRequestRequestTypeDef = TypedDict(
     "DisassociateFleetRequestRequestTypeDef",
     {
@@ -979,6 +1205,9 @@ _OptionalFleetTypeDef = TypedDict(
         "IdleDisconnectTimeoutInSeconds": int,
         "IamRoleArn": str,
         "StreamView": StreamViewType,
+        "Platform": PlatformTypeType,
+        "MaxConcurrentSessions": int,
+        "UsbDeviceFilterStrings": List[str],
     },
     total=False,
 )
@@ -1200,6 +1429,33 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+S3LocationTypeDef = TypedDict(
+    "S3LocationTypeDef",
+    {
+        "S3Bucket": str,
+        "S3Key": str,
+    },
+)
+
+_RequiredScriptDetailsTypeDef = TypedDict(
+    "_RequiredScriptDetailsTypeDef",
+    {
+        "ScriptS3Location": "S3LocationTypeDef",
+        "ExecutablePath": str,
+        "TimeoutInSeconds": int,
+    },
+)
+_OptionalScriptDetailsTypeDef = TypedDict(
+    "_OptionalScriptDetailsTypeDef",
+    {
+        "ExecutableParameters": str,
+    },
+    total=False,
+)
+
+class ScriptDetailsTypeDef(_RequiredScriptDetailsTypeDef, _OptionalScriptDetailsTypeDef):
+    pass
+
 ServiceAccountCredentialsTypeDef = TypedDict(
     "ServiceAccountCredentialsTypeDef",
     {
@@ -1368,6 +1624,40 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateApplicationRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateApplicationRequestRequestTypeDef",
+    {
+        "DisplayName": str,
+        "Description": str,
+        "IconS3Location": "S3LocationTypeDef",
+        "LaunchPath": str,
+        "WorkingDirectory": str,
+        "LaunchParameters": str,
+        "AppBlockArn": str,
+        "AttributesToDelete": List[ApplicationAttributeType],
+    },
+    total=False,
+)
+
+class UpdateApplicationRequestRequestTypeDef(
+    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
+):
+    pass
+
+UpdateApplicationResultTypeDef = TypedDict(
+    "UpdateApplicationResultTypeDef",
+    {
+        "Application": "ApplicationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateDirectoryConfigRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateDirectoryConfigRequestRequestTypeDef",
     {
@@ -1417,6 +1707,9 @@ UpdateFleetRequestRequestTypeDef = TypedDict(
         "AttributesToDelete": List[FleetAttributeType],
         "IamRoleArn": str,
         "StreamView": StreamViewType,
+        "Platform": PlatformTypeType,
+        "MaxConcurrentSessions": int,
+        "UsbDeviceFilterStrings": List[str],
     },
     total=False,
 )

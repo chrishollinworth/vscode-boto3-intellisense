@@ -36,6 +36,7 @@ __all__ = (
     "SigningAlgType",
     "SupportedRfRegionType",
     "WirelessDeviceEventType",
+    "WirelessDeviceFrameInfoType",
     "WirelessDeviceIdTypeType",
     "WirelessDeviceTypeType",
     "WirelessGatewayEventType",
@@ -84,6 +85,7 @@ PartnerTypeType = Literal["Sidewalk"]
 SigningAlgType = Literal["Ed25519", "P256r1"]
 SupportedRfRegionType = Literal["AS923-1", "AU915", "EU868", "US915"]
 WirelessDeviceEventType = Literal["Downlink_Data", "Join", "Registration", "Rejoin", "Uplink_Data"]
+WirelessDeviceFrameInfoType = Literal["DISABLED", "ENABLED"]
 WirelessDeviceIdTypeType = Literal[
     "DevEui", "SidewalkManufacturingSn", "ThingName", "WirelessDeviceId"
 ]

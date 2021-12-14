@@ -20,9 +20,12 @@ from .literals import (
     CountryCodeType,
     DomainAvailabilityType,
     ExtraParamNameType,
+    ListDomainsAttributeNameType,
     OperationStatusType,
     OperationTypeType,
+    OperatorType,
     ReachabilityStatusType,
+    SortOrderType,
     TransferableType,
 )
 
@@ -42,10 +45,13 @@ __all__ = (
     "CheckDomainTransferabilityRequestRequestTypeDef",
     "CheckDomainTransferabilityResponseTypeDef",
     "ContactDetailTypeDef",
+    "DeleteDomainRequestRequestTypeDef",
+    "DeleteDomainResponseTypeDef",
     "DeleteTagsForDomainRequestRequestTypeDef",
     "DisableDomainAutoRenewRequestRequestTypeDef",
     "DisableDomainTransferLockRequestRequestTypeDef",
     "DisableDomainTransferLockResponseTypeDef",
+    "DomainPriceTypeDef",
     "DomainSuggestionTypeDef",
     "DomainSummaryTypeDef",
     "DomainTransferabilityTypeDef",
@@ -53,6 +59,7 @@ __all__ = (
     "EnableDomainTransferLockRequestRequestTypeDef",
     "EnableDomainTransferLockResponseTypeDef",
     "ExtraParamTypeDef",
+    "FilterConditionTypeDef",
     "GetContactReachabilityStatusRequestRequestTypeDef",
     "GetContactReachabilityStatusResponseTypeDef",
     "GetDomainDetailRequestRequestTypeDef",
@@ -65,11 +72,14 @@ __all__ = (
     "ListDomainsResponseTypeDef",
     "ListOperationsRequestRequestTypeDef",
     "ListOperationsResponseTypeDef",
+    "ListPricesRequestRequestTypeDef",
+    "ListPricesResponseTypeDef",
     "ListTagsForDomainRequestRequestTypeDef",
     "ListTagsForDomainResponseTypeDef",
     "NameserverTypeDef",
     "OperationSummaryTypeDef",
     "PaginatorConfigTypeDef",
+    "PriceWithCurrencyTypeDef",
     "RegisterDomainRequestRequestTypeDef",
     "RegisterDomainResponseTypeDef",
     "RejectDomainTransferFromAnotherAwsAccountRequestRequestTypeDef",
@@ -81,6 +91,7 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RetrieveDomainAuthCodeRequestRequestTypeDef",
     "RetrieveDomainAuthCodeResponseTypeDef",
+    "SortConditionTypeDef",
     "TagTypeDef",
     "TransferDomainRequestRequestTypeDef",
     "TransferDomainResponseTypeDef",
@@ -217,6 +228,21 @@ ContactDetailTypeDef = TypedDict(
     total=False,
 )
 
+DeleteDomainRequestRequestTypeDef = TypedDict(
+    "DeleteDomainRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+
+DeleteDomainResponseTypeDef = TypedDict(
+    "DeleteDomainResponseTypeDef",
+    {
+        "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteTagsForDomainRequestRequestTypeDef = TypedDict(
     "DeleteTagsForDomainRequestRequestTypeDef",
     {
@@ -245,6 +271,19 @@ DisableDomainTransferLockResponseTypeDef = TypedDict(
         "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DomainPriceTypeDef = TypedDict(
+    "DomainPriceTypeDef",
+    {
+        "Name": str,
+        "RegistrationPrice": "PriceWithCurrencyTypeDef",
+        "TransferPrice": "PriceWithCurrencyTypeDef",
+        "RenewalPrice": "PriceWithCurrencyTypeDef",
+        "ChangeOwnershipPrice": "PriceWithCurrencyTypeDef",
+        "RestorationPrice": "PriceWithCurrencyTypeDef",
+    },
+    total=False,
 )
 
 DomainSuggestionTypeDef = TypedDict(
@@ -310,6 +349,15 @@ ExtraParamTypeDef = TypedDict(
     {
         "Name": ExtraParamNameType,
         "Value": str,
+    },
+)
+
+FilterConditionTypeDef = TypedDict(
+    "FilterConditionTypeDef",
+    {
+        "Name": ListDomainsAttributeNameType,
+        "Operator": OperatorType,
+        "Values": List[str],
     },
 )
 
@@ -405,6 +453,8 @@ GetOperationDetailResponseTypeDef = TypedDict(
 ListDomainsRequestRequestTypeDef = TypedDict(
     "ListDomainsRequestRequestTypeDef",
     {
+        "FilterConditions": List["FilterConditionTypeDef"],
+        "SortCondition": "SortConditionTypeDef",
         "Marker": str,
         "MaxItems": int,
     },
@@ -434,6 +484,25 @@ ListOperationsResponseTypeDef = TypedDict(
     "ListOperationsResponseTypeDef",
     {
         "Operations": List["OperationSummaryTypeDef"],
+        "NextPageMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPricesRequestRequestTypeDef = TypedDict(
+    "ListPricesRequestRequestTypeDef",
+    {
+        "Tld": str,
+        "Marker": str,
+        "MaxItems": int,
+    },
+    total=False,
+)
+
+ListPricesResponseTypeDef = TypedDict(
+    "ListPricesResponseTypeDef",
+    {
+        "Prices": List["DomainPriceTypeDef"],
         "NextPageMarker": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -489,6 +558,14 @@ PaginatorConfigTypeDef = TypedDict(
         "StartingToken": str,
     },
     total=False,
+)
+
+PriceWithCurrencyTypeDef = TypedDict(
+    "PriceWithCurrencyTypeDef",
+    {
+        "Price": float,
+        "Currency": str,
+    },
 )
 
 _RequiredRegisterDomainRequestRequestTypeDef = TypedDict(
@@ -610,6 +687,14 @@ RetrieveDomainAuthCodeResponseTypeDef = TypedDict(
     {
         "AuthCode": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SortConditionTypeDef = TypedDict(
+    "SortConditionTypeDef",
+    {
+        "Name": ListDomainsAttributeNameType,
+        "SortOrder": SortOrderType,
     },
 )
 

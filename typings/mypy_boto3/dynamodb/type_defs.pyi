@@ -49,6 +49,7 @@ from .literals import (
     SSEStatusType,
     SSETypeType,
     StreamViewTypeType,
+    TableClassType,
     TableStatusType,
     TimeToLiveStatusType,
 )
@@ -225,6 +226,7 @@ __all__ = (
     "StreamSpecificationTypeDef",
     "TableAutoScalingDescriptionTypeDef",
     "TableBatchWriterRequestTypeDef",
+    "TableClassSummaryTypeDef",
     "TableDescriptionTypeDef",
     "TagResourceInputRequestTypeDef",
     "TagTypeDef",
@@ -449,17 +451,31 @@ BackupSummaryTypeDef = TypedDict(
     total=False,
 )
 
-BatchExecuteStatementInputRequestTypeDef = TypedDict(
-    "BatchExecuteStatementInputRequestTypeDef",
+_RequiredBatchExecuteStatementInputRequestTypeDef = TypedDict(
+    "_RequiredBatchExecuteStatementInputRequestTypeDef",
     {
         "Statements": List["BatchStatementRequestTypeDef"],
     },
 )
+_OptionalBatchExecuteStatementInputRequestTypeDef = TypedDict(
+    "_OptionalBatchExecuteStatementInputRequestTypeDef",
+    {
+        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
+    },
+    total=False,
+)
+
+class BatchExecuteStatementInputRequestTypeDef(
+    _RequiredBatchExecuteStatementInputRequestTypeDef,
+    _OptionalBatchExecuteStatementInputRequestTypeDef,
+):
+    pass
 
 BatchExecuteStatementOutputTypeDef = TypedDict(
     "BatchExecuteStatementOutputTypeDef",
     {
         "Responses": List["BatchStatementResponseTypeDef"],
+        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -887,6 +903,7 @@ _OptionalCreateReplicationGroupMemberActionTypeDef = TypedDict(
         "KMSMasterKeyId": str,
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexTypeDef"],
+        "TableClassOverride": TableClassType,
     },
     total=False,
 )
@@ -915,6 +932,7 @@ _OptionalCreateTableInputRequestTypeDef = TypedDict(
         "StreamSpecification": "StreamSpecificationTypeDef",
         "SSESpecification": "SSESpecificationTypeDef",
         "Tags": List["TagTypeDef"],
+        "TableClass": TableClassType,
     },
     total=False,
 )
@@ -942,6 +960,7 @@ _OptionalCreateTableInputServiceResourceTypeDef = TypedDict(
         "StreamSpecification": "StreamSpecificationTypeDef",
         "SSESpecification": "SSESpecificationTypeDef",
         "Tags": List["TagTypeDef"],
+        "TableClass": TableClassType,
     },
     total=False,
 )
@@ -1471,6 +1490,7 @@ _OptionalExecuteStatementInputRequestTypeDef = TypedDict(
         ],
         "ConsistentRead": bool,
         "NextToken": str,
+        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
     },
     total=False,
 )
@@ -1505,6 +1525,7 @@ ExecuteStatementOutputTypeDef = TypedDict(
             ]
         ],
         "NextToken": str,
+        "ConsumedCapacity": "ConsumedCapacityTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1519,6 +1540,7 @@ _OptionalExecuteTransactionInputRequestTypeDef = TypedDict(
     "_OptionalExecuteTransactionInputRequestTypeDef",
     {
         "ClientRequestToken": str,
+        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
     },
     total=False,
 )
@@ -1532,6 +1554,7 @@ ExecuteTransactionOutputTypeDef = TypedDict(
     "ExecuteTransactionOutputTypeDef",
     {
         "Responses": List["ItemResponseTypeDef"],
+        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2761,6 +2784,7 @@ ReplicaDescriptionTypeDef = TypedDict(
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexDescriptionTypeDef"],
         "ReplicaInaccessibleDateTime": datetime,
+        "ReplicaTableClassSummary": "TableClassSummaryTypeDef",
     },
     total=False,
 )
@@ -2876,6 +2900,7 @@ _OptionalReplicaSettingsDescriptionTypeDef = TypedDict(
         "ReplicaGlobalSecondaryIndexSettings": List[
             "ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef"
         ],
+        "ReplicaTableClassSummary": "TableClassSummaryTypeDef",
     },
     total=False,
 )
@@ -2899,6 +2924,7 @@ _OptionalReplicaSettingsUpdateTypeDef = TypedDict(
         "ReplicaGlobalSecondaryIndexSettingsUpdate": List[
             "ReplicaGlobalSecondaryIndexSettingsUpdateTypeDef"
         ],
+        "ReplicaTableClass": TableClassType,
     },
     total=False,
 )
@@ -3312,6 +3338,15 @@ TableBatchWriterRequestTypeDef = TypedDict(
     total=False,
 )
 
+TableClassSummaryTypeDef = TypedDict(
+    "TableClassSummaryTypeDef",
+    {
+        "TableClass": TableClassType,
+        "LastUpdateDateTime": datetime,
+    },
+    total=False,
+)
+
 TableDescriptionTypeDef = TypedDict(
     "TableDescriptionTypeDef",
     {
@@ -3336,6 +3371,7 @@ TableDescriptionTypeDef = TypedDict(
         "RestoreSummary": "RestoreSummaryTypeDef",
         "SSEDescription": "SSEDescriptionTypeDef",
         "ArchivalSummary": "ArchivalSummaryTypeDef",
+        "TableClassSummary": "TableClassSummaryTypeDef",
     },
     total=False,
 )
@@ -3732,6 +3768,7 @@ _OptionalUpdateReplicationGroupMemberActionTypeDef = TypedDict(
         "KMSMasterKeyId": str,
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexTypeDef"],
+        "TableClassOverride": TableClassType,
     },
     total=False,
 )
@@ -3758,6 +3795,7 @@ _OptionalUpdateTableInputRequestTypeDef = TypedDict(
         "StreamSpecification": "StreamSpecificationTypeDef",
         "SSESpecification": "SSESpecificationTypeDef",
         "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
+        "TableClass": TableClassType,
     },
     total=False,
 )
@@ -3777,6 +3815,7 @@ UpdateTableInputTableTypeDef = TypedDict(
         "StreamSpecification": "StreamSpecificationTypeDef",
         "SSESpecification": "SSESpecificationTypeDef",
         "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
+        "TableClass": TableClassType,
     },
     total=False,
 )

@@ -26,7 +26,9 @@ from .literals import (
     LayerFailureCodeType,
     LifecyclePolicyPreviewStatusType,
     ReplicationStatusType,
+    ScanFrequencyType,
     ScanStatusType,
+    ScanTypeType,
     TagStatusType,
 )
 
@@ -42,18 +44,28 @@ else:
 __all__ = (
     "AttributeTypeDef",
     "AuthorizationDataTypeDef",
+    "AwsEcrContainerImageDetailsTypeDef",
     "BatchCheckLayerAvailabilityRequestRequestTypeDef",
     "BatchCheckLayerAvailabilityResponseTypeDef",
     "BatchDeleteImageRequestRequestTypeDef",
     "BatchDeleteImageResponseTypeDef",
     "BatchGetImageRequestRequestTypeDef",
     "BatchGetImageResponseTypeDef",
+    "BatchGetRepositoryScanningConfigurationRequestRequestTypeDef",
+    "BatchGetRepositoryScanningConfigurationResponseTypeDef",
     "CompleteLayerUploadRequestRequestTypeDef",
     "CompleteLayerUploadResponseTypeDef",
+    "CreatePullThroughCacheRuleRequestRequestTypeDef",
+    "CreatePullThroughCacheRuleResponseTypeDef",
     "CreateRepositoryRequestRequestTypeDef",
     "CreateRepositoryResponseTypeDef",
+    "CvssScoreAdjustmentTypeDef",
+    "CvssScoreDetailsTypeDef",
+    "CvssScoreTypeDef",
     "DeleteLifecyclePolicyRequestRequestTypeDef",
     "DeleteLifecyclePolicyResponseTypeDef",
+    "DeletePullThroughCacheRuleRequestRequestTypeDef",
+    "DeletePullThroughCacheRuleResponseTypeDef",
     "DeleteRegistryPolicyResponseTypeDef",
     "DeleteRepositoryPolicyRequestRequestTypeDef",
     "DeleteRepositoryPolicyResponseTypeDef",
@@ -66,10 +78,13 @@ __all__ = (
     "DescribeImagesFilterTypeDef",
     "DescribeImagesRequestRequestTypeDef",
     "DescribeImagesResponseTypeDef",
+    "DescribePullThroughCacheRulesRequestRequestTypeDef",
+    "DescribePullThroughCacheRulesResponseTypeDef",
     "DescribeRegistryResponseTypeDef",
     "DescribeRepositoriesRequestRequestTypeDef",
     "DescribeRepositoriesResponseTypeDef",
     "EncryptionConfigurationTypeDef",
+    "EnhancedImageScanFindingTypeDef",
     "GetAuthorizationTokenRequestRequestTypeDef",
     "GetAuthorizationTokenResponseTypeDef",
     "GetDownloadUrlForLayerRequestRequestTypeDef",
@@ -79,6 +94,7 @@ __all__ = (
     "GetLifecyclePolicyRequestRequestTypeDef",
     "GetLifecyclePolicyResponseTypeDef",
     "GetRegistryPolicyResponseTypeDef",
+    "GetRegistryScanningConfigurationResponseTypeDef",
     "GetRepositoryPolicyRequestRequestTypeDef",
     "GetRepositoryPolicyResponseTypeDef",
     "ImageDetailTypeDef",
@@ -104,7 +120,9 @@ __all__ = (
     "ListImagesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "PackageVulnerabilityDetailsTypeDef",
     "PaginatorConfigTypeDef",
+    "PullThroughCacheRuleTypeDef",
     "PutImageRequestRequestTypeDef",
     "PutImageResponseTypeDef",
     "PutImageScanningConfigurationRequestRequestTypeDef",
@@ -115,14 +133,26 @@ __all__ = (
     "PutLifecyclePolicyResponseTypeDef",
     "PutRegistryPolicyRequestRequestTypeDef",
     "PutRegistryPolicyResponseTypeDef",
+    "PutRegistryScanningConfigurationRequestRequestTypeDef",
+    "PutRegistryScanningConfigurationResponseTypeDef",
     "PutReplicationConfigurationRequestRequestTypeDef",
     "PutReplicationConfigurationResponseTypeDef",
+    "RecommendationTypeDef",
+    "RegistryScanningConfigurationTypeDef",
+    "RegistryScanningRuleTypeDef",
+    "RemediationTypeDef",
     "ReplicationConfigurationTypeDef",
     "ReplicationDestinationTypeDef",
     "ReplicationRuleTypeDef",
     "RepositoryFilterTypeDef",
+    "RepositoryScanningConfigurationFailureTypeDef",
+    "RepositoryScanningConfigurationTypeDef",
     "RepositoryTypeDef",
+    "ResourceDetailsTypeDef",
+    "ResourceTypeDef",
     "ResponseMetadataTypeDef",
+    "ScanningRepositoryFilterTypeDef",
+    "ScoreDetailsTypeDef",
     "SetRepositoryPolicyRequestRequestTypeDef",
     "SetRepositoryPolicyResponseTypeDef",
     "StartImageScanRequestRequestTypeDef",
@@ -134,6 +164,7 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UploadLayerPartRequestRequestTypeDef",
     "UploadLayerPartResponseTypeDef",
+    "VulnerablePackageTypeDef",
     "WaiterConfigTypeDef",
 )
 
@@ -160,6 +191,21 @@ AuthorizationDataTypeDef = TypedDict(
         "authorizationToken": str,
         "expiresAt": datetime,
         "proxyEndpoint": str,
+    },
+    total=False,
+)
+
+AwsEcrContainerImageDetailsTypeDef = TypedDict(
+    "AwsEcrContainerImageDetailsTypeDef",
+    {
+        "architecture": str,
+        "author": str,
+        "imageHash": str,
+        "imageTags": List[str],
+        "platform": str,
+        "pushedAt": datetime,
+        "registry": str,
+        "repositoryName": str,
     },
     total=False,
 )
@@ -253,6 +299,22 @@ BatchGetImageResponseTypeDef = TypedDict(
     },
 )
 
+BatchGetRepositoryScanningConfigurationRequestRequestTypeDef = TypedDict(
+    "BatchGetRepositoryScanningConfigurationRequestRequestTypeDef",
+    {
+        "repositoryNames": List[str],
+    },
+)
+
+BatchGetRepositoryScanningConfigurationResponseTypeDef = TypedDict(
+    "BatchGetRepositoryScanningConfigurationResponseTypeDef",
+    {
+        "scanningConfigurations": List["RepositoryScanningConfigurationTypeDef"],
+        "failures": List["RepositoryScanningConfigurationFailureTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCompleteLayerUploadRequestRequestTypeDef = TypedDict(
     "_RequiredCompleteLayerUploadRequestRequestTypeDef",
     {
@@ -282,6 +344,38 @@ CompleteLayerUploadResponseTypeDef = TypedDict(
         "repositoryName": str,
         "uploadId": str,
         "layerDigest": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreatePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredCreatePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+        "upstreamRegistryUrl": str,
+    },
+)
+_OptionalCreatePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalCreatePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "registryId": str,
+    },
+    total=False,
+)
+
+class CreatePullThroughCacheRuleRequestRequestTypeDef(
+    _RequiredCreatePullThroughCacheRuleRequestRequestTypeDef,
+    _OptionalCreatePullThroughCacheRuleRequestRequestTypeDef,
+):
+    pass
+
+CreatePullThroughCacheRuleResponseTypeDef = TypedDict(
+    "CreatePullThroughCacheRuleResponseTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+        "upstreamRegistryUrl": str,
+        "createdAt": datetime,
+        "registryId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -317,6 +411,38 @@ CreateRepositoryResponseTypeDef = TypedDict(
     },
 )
 
+CvssScoreAdjustmentTypeDef = TypedDict(
+    "CvssScoreAdjustmentTypeDef",
+    {
+        "metric": str,
+        "reason": str,
+    },
+    total=False,
+)
+
+CvssScoreDetailsTypeDef = TypedDict(
+    "CvssScoreDetailsTypeDef",
+    {
+        "adjustments": List["CvssScoreAdjustmentTypeDef"],
+        "score": float,
+        "scoreSource": str,
+        "scoringVector": str,
+        "version": str,
+    },
+    total=False,
+)
+
+CvssScoreTypeDef = TypedDict(
+    "CvssScoreTypeDef",
+    {
+        "baseScore": float,
+        "scoringVector": str,
+        "source": str,
+        "version": str,
+    },
+    total=False,
+)
+
 _RequiredDeleteLifecyclePolicyRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteLifecyclePolicyRequestRequestTypeDef",
     {
@@ -344,6 +470,37 @@ DeleteLifecyclePolicyResponseTypeDef = TypedDict(
         "repositoryName": str,
         "lifecyclePolicyText": str,
         "lastEvaluatedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDeletePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_RequiredDeletePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+    },
+)
+_OptionalDeletePullThroughCacheRuleRequestRequestTypeDef = TypedDict(
+    "_OptionalDeletePullThroughCacheRuleRequestRequestTypeDef",
+    {
+        "registryId": str,
+    },
+    total=False,
+)
+
+class DeletePullThroughCacheRuleRequestRequestTypeDef(
+    _RequiredDeletePullThroughCacheRuleRequestRequestTypeDef,
+    _OptionalDeletePullThroughCacheRuleRequestRequestTypeDef,
+):
+    pass
+
+DeletePullThroughCacheRuleResponseTypeDef = TypedDict(
+    "DeletePullThroughCacheRuleResponseTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+        "upstreamRegistryUrl": str,
+        "createdAt": datetime,
+        "registryId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -522,6 +679,26 @@ DescribeImagesResponseTypeDef = TypedDict(
     },
 )
 
+DescribePullThroughCacheRulesRequestRequestTypeDef = TypedDict(
+    "DescribePullThroughCacheRulesRequestRequestTypeDef",
+    {
+        "registryId": str,
+        "ecrRepositoryPrefixes": List[str],
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+DescribePullThroughCacheRulesResponseTypeDef = TypedDict(
+    "DescribePullThroughCacheRulesResponseTypeDef",
+    {
+        "pullThroughCacheRules": List["PullThroughCacheRuleTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeRegistryResponseTypeDef = TypedDict(
     "DescribeRegistryResponseTypeDef",
     {
@@ -569,6 +746,28 @@ class EncryptionConfigurationTypeDef(
     _RequiredEncryptionConfigurationTypeDef, _OptionalEncryptionConfigurationTypeDef
 ):
     pass
+
+EnhancedImageScanFindingTypeDef = TypedDict(
+    "EnhancedImageScanFindingTypeDef",
+    {
+        "awsAccountId": str,
+        "description": str,
+        "findingArn": str,
+        "firstObservedAt": datetime,
+        "lastObservedAt": datetime,
+        "packageVulnerabilityDetails": "PackageVulnerabilityDetailsTypeDef",
+        "remediation": "RemediationTypeDef",
+        "resources": List["ResourceTypeDef"],
+        "score": float,
+        "scoreDetails": "ScoreDetailsTypeDef",
+        "severity": str,
+        "status": str,
+        "title": str,
+        "type": str,
+        "updatedAt": datetime,
+    },
+    total=False,
+)
 
 GetAuthorizationTokenRequestRequestTypeDef = TypedDict(
     "GetAuthorizationTokenRequestRequestTypeDef",
@@ -694,6 +893,15 @@ GetRegistryPolicyResponseTypeDef = TypedDict(
     },
 )
 
+GetRegistryScanningConfigurationResponseTypeDef = TypedDict(
+    "GetRegistryScanningConfigurationResponseTypeDef",
+    {
+        "registryId": str,
+        "scanningConfiguration": "RegistryScanningConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetRepositoryPolicyRequestRequestTypeDef = TypedDict(
     "_RequiredGetRepositoryPolicyRequestRequestTypeDef",
     {
@@ -798,8 +1006,9 @@ ImageScanFindingsTypeDef = TypedDict(
     {
         "imageScanCompletedAt": datetime,
         "vulnerabilitySourceUpdatedAt": datetime,
-        "findings": List["ImageScanFindingTypeDef"],
         "findingSeverityCounts": Dict[FindingSeverityType, int],
+        "findings": List["ImageScanFindingTypeDef"],
+        "enhancedFindings": List["EnhancedImageScanFindingTypeDef"],
     },
     total=False,
 )
@@ -973,12 +1182,40 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+PackageVulnerabilityDetailsTypeDef = TypedDict(
+    "PackageVulnerabilityDetailsTypeDef",
+    {
+        "cvss": List["CvssScoreTypeDef"],
+        "referenceUrls": List[str],
+        "relatedVulnerabilities": List[str],
+        "source": str,
+        "sourceUrl": str,
+        "vendorCreatedAt": datetime,
+        "vendorSeverity": str,
+        "vendorUpdatedAt": datetime,
+        "vulnerabilityId": str,
+        "vulnerablePackages": List["VulnerablePackageTypeDef"],
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+PullThroughCacheRuleTypeDef = TypedDict(
+    "PullThroughCacheRuleTypeDef",
+    {
+        "ecrRepositoryPrefix": str,
+        "upstreamRegistryUrl": str,
+        "createdAt": datetime,
+        "registryId": str,
     },
     total=False,
 )
@@ -1123,6 +1360,23 @@ PutRegistryPolicyResponseTypeDef = TypedDict(
     },
 )
 
+PutRegistryScanningConfigurationRequestRequestTypeDef = TypedDict(
+    "PutRegistryScanningConfigurationRequestRequestTypeDef",
+    {
+        "scanType": ScanTypeType,
+        "rules": List["RegistryScanningRuleTypeDef"],
+    },
+    total=False,
+)
+
+PutRegistryScanningConfigurationResponseTypeDef = TypedDict(
+    "PutRegistryScanningConfigurationResponseTypeDef",
+    {
+        "registryScanningConfiguration": "RegistryScanningConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PutReplicationConfigurationRequestRequestTypeDef = TypedDict(
     "PutReplicationConfigurationRequestRequestTypeDef",
     {
@@ -1136,6 +1390,40 @@ PutReplicationConfigurationResponseTypeDef = TypedDict(
         "replicationConfiguration": "ReplicationConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+RecommendationTypeDef = TypedDict(
+    "RecommendationTypeDef",
+    {
+        "url": str,
+        "text": str,
+    },
+    total=False,
+)
+
+RegistryScanningConfigurationTypeDef = TypedDict(
+    "RegistryScanningConfigurationTypeDef",
+    {
+        "scanType": ScanTypeType,
+        "rules": List["RegistryScanningRuleTypeDef"],
+    },
+    total=False,
+)
+
+RegistryScanningRuleTypeDef = TypedDict(
+    "RegistryScanningRuleTypeDef",
+    {
+        "scanFrequency": ScanFrequencyType,
+        "repositoryFilters": List["ScanningRepositoryFilterTypeDef"],
+    },
+)
+
+RemediationTypeDef = TypedDict(
+    "RemediationTypeDef",
+    {
+        "recommendation": "RecommendationTypeDef",
+    },
+    total=False,
 )
 
 ReplicationConfigurationTypeDef = TypedDict(
@@ -1178,6 +1466,28 @@ RepositoryFilterTypeDef = TypedDict(
     },
 )
 
+RepositoryScanningConfigurationFailureTypeDef = TypedDict(
+    "RepositoryScanningConfigurationFailureTypeDef",
+    {
+        "repositoryName": str,
+        "failureCode": Literal["REPOSITORY_NOT_FOUND"],
+        "failureReason": str,
+    },
+    total=False,
+)
+
+RepositoryScanningConfigurationTypeDef = TypedDict(
+    "RepositoryScanningConfigurationTypeDef",
+    {
+        "repositoryArn": str,
+        "repositoryName": str,
+        "scanOnPush": bool,
+        "scanFrequency": ScanFrequencyType,
+        "appliedScanFilters": List["ScanningRepositoryFilterTypeDef"],
+    },
+    total=False,
+)
+
 RepositoryTypeDef = TypedDict(
     "RepositoryTypeDef",
     {
@@ -1193,6 +1503,25 @@ RepositoryTypeDef = TypedDict(
     total=False,
 )
 
+ResourceDetailsTypeDef = TypedDict(
+    "ResourceDetailsTypeDef",
+    {
+        "awsEcrContainerImage": "AwsEcrContainerImageDetailsTypeDef",
+    },
+    total=False,
+)
+
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
+    {
+        "details": "ResourceDetailsTypeDef",
+        "id": str,
+        "tags": Dict[str, str],
+        "type": str,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1202,6 +1531,22 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+ScanningRepositoryFilterTypeDef = TypedDict(
+    "ScanningRepositoryFilterTypeDef",
+    {
+        "filter": str,
+        "filterType": Literal["WILDCARD"],
+    },
+)
+
+ScoreDetailsTypeDef = TypedDict(
+    "ScoreDetailsTypeDef",
+    {
+        "cvss": "CvssScoreDetailsTypeDef",
+    },
+    total=False,
 )
 
 _RequiredSetRepositoryPolicyRequestRequestTypeDef = TypedDict(
@@ -1356,6 +1701,21 @@ UploadLayerPartResponseTypeDef = TypedDict(
         "lastByteReceived": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VulnerablePackageTypeDef = TypedDict(
+    "VulnerablePackageTypeDef",
+    {
+        "arch": str,
+        "epoch": int,
+        "filePath": str,
+        "name": str,
+        "packageManager": str,
+        "release": str,
+        "sourceLayerHash": str,
+        "version": str,
+    },
+    total=False,
 )
 
 WaiterConfigTypeDef = TypedDict(

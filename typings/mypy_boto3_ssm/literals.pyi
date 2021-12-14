@@ -147,6 +147,7 @@ __all__ = (
     "SessionStateType",
     "SessionStatusType",
     "SignalTypeType",
+    "SourceTypeType",
     "StepExecutionFilterKeyType",
     "StopTypeType",
 )
@@ -463,7 +464,7 @@ PatchPropertyType = Literal[
 ]
 PatchSetType = Literal["APPLICATION", "OS"]
 PingStatusType = Literal["ConnectionLost", "Inactive", "Online"]
-PlatformTypeType = Literal["Linux", "Windows"]
+PlatformTypeType = Literal["Linux", "MacOS", "Windows"]
 RebootOptionType = Literal["NoReboot", "RebootIfNeeded"]
 ResourceDataSyncS3FormatType = Literal["JsonSerDe"]
 ResourceTypeForTaggingType = Literal[
@@ -485,6 +486,7 @@ SessionStatusType = Literal[
     "Connected", "Connecting", "Disconnected", "Failed", "Terminated", "Terminating"
 ]
 SignalTypeType = Literal["Approve", "Reject", "Resume", "StartStep", "StopStep"]
+SourceTypeType = Literal["AWS::EC2::Instance", "AWS::IoT::Thing", "AWS::SSM::ManagedInstance"]
 StepExecutionFilterKeyType = Literal[
     "Action",
     "StartTimeAfter",

@@ -58,6 +58,7 @@ from .literals import (
     DetailedAlgorithmStatusType,
     DetailedModelPackageStatusType,
     DirectInternetAccessType,
+    DirectionType,
     DomainStatusType,
     EdgePackagingJobStatusType,
     EdgePresetDeploymentStatusType,
@@ -91,14 +92,17 @@ from .literals import (
     InstanceTypeType,
     JoinSourceType,
     LabelingJobStatusType,
+    LineageTypeType,
     ListCompilationJobsSortByType,
     ListDeviceFleetsSortByType,
     ListEdgePackagingJobsSortByType,
+    ListInferenceRecommendationsJobsSortByType,
     ListWorkforcesSortByOptionsType,
     ListWorkteamsSortByOptionsType,
     MetricSetSourceType,
     ModelApprovalStatusType,
     ModelCacheSettingType,
+    ModelMetadataFilterTypeType,
     ModelPackageGroupSortByType,
     ModelPackageGroupStatusType,
     ModelPackageSortByType,
@@ -137,6 +141,8 @@ from .literals import (
     ProjectSortByType,
     ProjectSortOrderType,
     ProjectStatusType,
+    RecommendationJobStatusType,
+    RecommendationJobTypeType,
     RecordWrapperType,
     RedshiftResultCompressionTypeType,
     RedshiftResultFormatType,
@@ -158,6 +164,7 @@ from .literals import (
     SortByType,
     SortContextsByType,
     SortExperimentsByType,
+    SortLineageGroupsByType,
     SortOrderType,
     SortPipelineExecutionsByType,
     SortPipelinesByType,
@@ -202,6 +209,7 @@ __all__ = (
     "AddAssociationResponseTypeDef",
     "AddTagsInputRequestTypeDef",
     "AddTagsOutputTypeDef",
+    "AdditionalInferenceSpecificationDefinitionTypeDef",
     "AgentVersionTypeDef",
     "AlarmTypeDef",
     "AlgorithmSpecificationTypeDef",
@@ -255,9 +263,11 @@ __all__ = (
     "CaptureOptionTypeDef",
     "CategoricalParameterRangeSpecificationTypeDef",
     "CategoricalParameterRangeTypeDef",
+    "CategoricalParameterTypeDef",
     "ChannelSpecificationTypeDef",
     "ChannelTypeDef",
     "CheckpointConfigTypeDef",
+    "ClarifyCheckStepMetadataTypeDef",
     "CodeRepositorySummaryTypeDef",
     "CognitoConfigTypeDef",
     "CognitoMemberDefinitionTypeDef",
@@ -311,6 +321,8 @@ __all__ = (
     "CreateImageResponseTypeDef",
     "CreateImageVersionRequestRequestTypeDef",
     "CreateImageVersionResponseTypeDef",
+    "CreateInferenceRecommendationsJobRequestRequestTypeDef",
+    "CreateInferenceRecommendationsJobResponseTypeDef",
     "CreateLabelingJobRequestRequestTypeDef",
     "CreateLabelingJobResponseTypeDef",
     "CreateModelBiasJobDefinitionRequestRequestTypeDef",
@@ -466,8 +478,12 @@ __all__ = (
     "DescribeImageResponseTypeDef",
     "DescribeImageVersionRequestRequestTypeDef",
     "DescribeImageVersionResponseTypeDef",
+    "DescribeInferenceRecommendationsJobRequestRequestTypeDef",
+    "DescribeInferenceRecommendationsJobResponseTypeDef",
     "DescribeLabelingJobRequestRequestTypeDef",
     "DescribeLabelingJobResponseTypeDef",
+    "DescribeLineageGroupRequestRequestTypeDef",
+    "DescribeLineageGroupResponseTypeDef",
     "DescribeModelBiasJobDefinitionRequestRequestTypeDef",
     "DescribeModelBiasJobDefinitionResponseTypeDef",
     "DescribeModelExplainabilityJobDefinitionRequestRequestTypeDef",
@@ -524,16 +540,26 @@ __all__ = (
     "DomainDetailsTypeDef",
     "DomainSettingsForUpdateTypeDef",
     "DomainSettingsTypeDef",
+    "DriftCheckBaselinesTypeDef",
+    "DriftCheckBiasTypeDef",
+    "DriftCheckExplainabilityTypeDef",
+    "DriftCheckModelDataQualityTypeDef",
+    "DriftCheckModelQualityTypeDef",
     "EdgeModelStatTypeDef",
     "EdgeModelSummaryTypeDef",
     "EdgeModelTypeDef",
     "EdgeOutputConfigTypeDef",
     "EdgePackagingJobSummaryTypeDef",
     "EdgePresetDeploymentOutputTypeDef",
+    "EdgeTypeDef",
     "EndpointConfigSummaryTypeDef",
+    "EndpointInputConfigurationTypeDef",
     "EndpointInputTypeDef",
+    "EndpointOutputConfigurationTypeDef",
     "EndpointSummaryTypeDef",
     "EndpointTypeDef",
+    "EnvironmentParameterRangesTypeDef",
+    "EnvironmentParameterTypeDef",
     "ExperimentConfigTypeDef",
     "ExperimentSourceTypeDef",
     "ExperimentSummaryTypeDef",
@@ -542,6 +568,7 @@ __all__ = (
     "FeatureDefinitionTypeDef",
     "FeatureGroupSummaryTypeDef",
     "FeatureGroupTypeDef",
+    "FileSourceTypeDef",
     "FileSystemConfigTypeDef",
     "FileSystemDataSourceTypeDef",
     "FilterTypeDef",
@@ -551,6 +578,8 @@ __all__ = (
     "FlowDefinitionSummaryTypeDef",
     "GetDeviceFleetReportRequestRequestTypeDef",
     "GetDeviceFleetReportResponseTypeDef",
+    "GetLineageGroupPolicyRequestRequestTypeDef",
+    "GetLineageGroupPolicyResponseTypeDef",
     "GetModelPackageGroupPolicyInputRequestTypeDef",
     "GetModelPackageGroupPolicyOutputTypeDef",
     "GetSagemakerServicecatalogPortfolioStatusOutputTypeDef",
@@ -576,6 +605,8 @@ __all__ = (
     "ImageTypeDef",
     "ImageVersionTypeDef",
     "InferenceExecutionConfigTypeDef",
+    "InferenceRecommendationTypeDef",
+    "InferenceRecommendationsJobTypeDef",
     "InferenceSpecificationTypeDef",
     "InputConfigTypeDef",
     "IntegerParameterRangeSpecificationTypeDef",
@@ -599,6 +630,7 @@ __all__ = (
     "LabelingJobStoppingConditionsTypeDef",
     "LabelingJobSummaryTypeDef",
     "LambdaStepMetadataTypeDef",
+    "LineageGroupSummaryTypeDef",
     "ListActionsRequestRequestTypeDef",
     "ListActionsResponseTypeDef",
     "ListAlgorithmsInputRequestTypeDef",
@@ -649,14 +681,20 @@ __all__ = (
     "ListImageVersionsResponseTypeDef",
     "ListImagesRequestRequestTypeDef",
     "ListImagesResponseTypeDef",
+    "ListInferenceRecommendationsJobsRequestRequestTypeDef",
+    "ListInferenceRecommendationsJobsResponseTypeDef",
     "ListLabelingJobsForWorkteamRequestRequestTypeDef",
     "ListLabelingJobsForWorkteamResponseTypeDef",
     "ListLabelingJobsRequestRequestTypeDef",
     "ListLabelingJobsResponseTypeDef",
+    "ListLineageGroupsRequestRequestTypeDef",
+    "ListLineageGroupsResponseTypeDef",
     "ListModelBiasJobDefinitionsRequestRequestTypeDef",
     "ListModelBiasJobDefinitionsResponseTypeDef",
     "ListModelExplainabilityJobDefinitionsRequestRequestTypeDef",
     "ListModelExplainabilityJobDefinitionsResponseTypeDef",
+    "ListModelMetadataRequestRequestTypeDef",
+    "ListModelMetadataResponseTypeDef",
     "ListModelPackageGroupsInputRequestTypeDef",
     "ListModelPackageGroupsOutputTypeDef",
     "ListModelPackagesInputRequestTypeDef",
@@ -718,6 +756,7 @@ __all__ = (
     "ModelBiasBaselineConfigTypeDef",
     "ModelBiasJobInputTypeDef",
     "ModelClientConfigTypeDef",
+    "ModelConfigurationTypeDef",
     "ModelDataQualityTypeDef",
     "ModelDeployConfigTypeDef",
     "ModelDeployResultTypeDef",
@@ -725,6 +764,11 @@ __all__ = (
     "ModelExplainabilityAppSpecificationTypeDef",
     "ModelExplainabilityBaselineConfigTypeDef",
     "ModelExplainabilityJobInputTypeDef",
+    "ModelInputTypeDef",
+    "ModelLatencyThresholdTypeDef",
+    "ModelMetadataFilterTypeDef",
+    "ModelMetadataSearchExpressionTypeDef",
+    "ModelMetadataSummaryTypeDef",
     "ModelMetricsTypeDef",
     "ModelPackageContainerDefinitionTypeDef",
     "ModelPackageGroupSummaryTypeDef",
@@ -787,6 +831,7 @@ __all__ = (
     "ParentTypeDef",
     "PendingDeploymentSummaryTypeDef",
     "PendingProductionVariantSummaryTypeDef",
+    "PhaseTypeDef",
     "PipelineExecutionStepMetadataTypeDef",
     "PipelineExecutionStepTypeDef",
     "PipelineExecutionSummaryTypeDef",
@@ -807,6 +852,7 @@ __all__ = (
     "ProcessingS3OutputTypeDef",
     "ProcessingStoppingConditionTypeDef",
     "ProductionVariantCoreDumpConfigTypeDef",
+    "ProductionVariantServerlessConfigTypeDef",
     "ProductionVariantStatusTypeDef",
     "ProductionVariantSummaryTypeDef",
     "ProductionVariantTypeDef",
@@ -822,9 +868,17 @@ __all__ = (
     "PublicWorkforceTaskPriceTypeDef",
     "PutModelPackageGroupPolicyInputRequestTypeDef",
     "PutModelPackageGroupPolicyOutputTypeDef",
+    "QualityCheckStepMetadataTypeDef",
+    "QueryFiltersTypeDef",
+    "QueryLineageRequestRequestTypeDef",
+    "QueryLineageResponseTypeDef",
     "RStudioServerProAppSettingsTypeDef",
     "RStudioServerProDomainSettingsForUpdateTypeDef",
     "RStudioServerProDomainSettingsTypeDef",
+    "RecommendationJobInputConfigTypeDef",
+    "RecommendationJobResourceLimitTypeDef",
+    "RecommendationJobStoppingConditionsTypeDef",
+    "RecommendationMetricsTypeDef",
     "RedshiftDatasetDefinitionTypeDef",
     "RegisterDevicesRequestRequestTypeDef",
     "RegisterModelStepMetadataTypeDef",
@@ -870,6 +924,7 @@ __all__ = (
     "StopCompilationJobRequestRequestTypeDef",
     "StopEdgePackagingJobRequestRequestTypeDef",
     "StopHyperParameterTuningJobRequestRequestTypeDef",
+    "StopInferenceRecommendationsJobRequestRequestTypeDef",
     "StopLabelingJobRequestRequestTypeDef",
     "StopMonitoringScheduleRequestRequestTypeDef",
     "StopNotebookInstanceInputRequestTypeDef",
@@ -886,6 +941,7 @@ __all__ = (
     "TargetPlatformTypeDef",
     "TensorBoardAppSettingsTypeDef",
     "TensorBoardOutputConfigTypeDef",
+    "TrafficPatternTypeDef",
     "TrafficRoutingConfigTypeDef",
     "TrainingJobDefinitionTypeDef",
     "TrainingJobStatusCountersTypeDef",
@@ -970,6 +1026,7 @@ __all__ = (
     "UserProfileDetailsTypeDef",
     "UserSettingsTypeDef",
     "VariantPropertyTypeDef",
+    "VertexTypeDef",
     "VpcConfigTypeDef",
     "WaiterConfigTypeDef",
     "WorkforceTypeDef",
@@ -1052,6 +1109,31 @@ AddTagsOutputTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredAdditionalInferenceSpecificationDefinitionTypeDef = TypedDict(
+    "_RequiredAdditionalInferenceSpecificationDefinitionTypeDef",
+    {
+        "Name": str,
+        "Containers": List["ModelPackageContainerDefinitionTypeDef"],
+    },
+)
+_OptionalAdditionalInferenceSpecificationDefinitionTypeDef = TypedDict(
+    "_OptionalAdditionalInferenceSpecificationDefinitionTypeDef",
+    {
+        "Description": str,
+        "SupportedTransformInstanceTypes": List[TransformInstanceTypeType],
+        "SupportedRealtimeInferenceInstanceTypes": List[ProductionVariantInstanceTypeType],
+        "SupportedContentTypes": List[str],
+        "SupportedResponseMIMETypes": List[str],
+    },
+    total=False,
+)
+
+class AdditionalInferenceSpecificationDefinitionTypeDef(
+    _RequiredAdditionalInferenceSpecificationDefinitionTypeDef,
+    _OptionalAdditionalInferenceSpecificationDefinitionTypeDef,
+):
+    pass
 
 AgentVersionTypeDef = TypedDict(
     "AgentVersionTypeDef",
@@ -1616,6 +1698,8 @@ BiasTypeDef = TypedDict(
     "BiasTypeDef",
     {
         "Report": "MetricsSourceTypeDef",
+        "PreTrainingReport": "MetricsSourceTypeDef",
+        "PostTrainingReport": "MetricsSourceTypeDef",
     },
     total=False,
 )
@@ -1713,6 +1797,14 @@ CategoricalParameterRangeTypeDef = TypedDict(
     },
 )
 
+CategoricalParameterTypeDef = TypedDict(
+    "CategoricalParameterTypeDef",
+    {
+        "Name": str,
+        "Value": List[str],
+    },
+)
+
 _RequiredChannelSpecificationTypeDef = TypedDict(
     "_RequiredChannelSpecificationTypeDef",
     {
@@ -1774,6 +1866,21 @@ _OptionalCheckpointConfigTypeDef = TypedDict(
 
 class CheckpointConfigTypeDef(_RequiredCheckpointConfigTypeDef, _OptionalCheckpointConfigTypeDef):
     pass
+
+ClarifyCheckStepMetadataTypeDef = TypedDict(
+    "ClarifyCheckStepMetadataTypeDef",
+    {
+        "CheckType": str,
+        "BaselineUsedForDriftCheckConstraints": str,
+        "CalculatedBaselineConstraints": str,
+        "ModelPackageGroupName": str,
+        "ViolationReport": str,
+        "CheckJobArn": str,
+        "SkipCheck": bool,
+        "RegisterNewBaseline": bool,
+    },
+    total=False,
+)
 
 _RequiredCodeRepositorySummaryTypeDef = TypedDict(
     "_RequiredCodeRepositorySummaryTypeDef",
@@ -1869,6 +1976,7 @@ ContainerDefinitionTypeDef = TypedDict(
         "ModelDataUrl": str,
         "Environment": Dict[str, str],
         "ModelPackageName": str,
+        "InferenceSpecificationName": str,
         "MultiModelConfig": "MultiModelConfigTypeDef",
     },
     total=False,
@@ -2159,7 +2267,6 @@ _RequiredCreateCompilationJobRequestRequestTypeDef = TypedDict(
     {
         "CompilationJobName": str,
         "RoleArn": str,
-        "InputConfig": "InputConfigTypeDef",
         "OutputConfig": "OutputConfigTypeDef",
         "StoppingCondition": "StoppingConditionTypeDef",
     },
@@ -2167,6 +2274,8 @@ _RequiredCreateCompilationJobRequestRequestTypeDef = TypedDict(
 _OptionalCreateCompilationJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateCompilationJobRequestRequestTypeDef",
     {
+        "ModelPackageVersionArn": str,
+        "InputConfig": "InputConfigTypeDef",
         "VpcConfig": "NeoVpcConfigTypeDef",
         "Tags": List["TagTypeDef"],
     },
@@ -2605,6 +2714,39 @@ CreateImageVersionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateInferenceRecommendationsJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateInferenceRecommendationsJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "JobType": RecommendationJobTypeType,
+        "RoleArn": str,
+        "InputConfig": "RecommendationJobInputConfigTypeDef",
+    },
+)
+_OptionalCreateInferenceRecommendationsJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateInferenceRecommendationsJobRequestRequestTypeDef",
+    {
+        "JobDescription": str,
+        "StoppingConditions": "RecommendationJobStoppingConditionsTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateInferenceRecommendationsJobRequestRequestTypeDef(
+    _RequiredCreateInferenceRecommendationsJobRequestRequestTypeDef,
+    _OptionalCreateInferenceRecommendationsJobRequestRequestTypeDef,
+):
+    pass
+
+CreateInferenceRecommendationsJobResponseTypeDef = TypedDict(
+    "CreateInferenceRecommendationsJobResponseTypeDef",
+    {
+        "JobArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateLabelingJobRequestRequestTypeDef = TypedDict(
     "_RequiredCreateLabelingJobRequestRequestTypeDef",
     {
@@ -2790,6 +2932,13 @@ CreateModelPackageInputRequestTypeDef = TypedDict(
         "ModelMetrics": "ModelMetricsTypeDef",
         "ClientToken": str,
         "CustomerMetadataProperties": Dict[str, str],
+        "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
+        "Domain": str,
+        "Task": str,
+        "SamplePayloadUrl": str,
+        "AdditionalInferenceSpecifications": List[
+            "AdditionalInferenceSpecificationDefinitionTypeDef"
+        ],
     },
     total=False,
 )
@@ -3973,6 +4122,7 @@ DescribeActionResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
         "MetadataProperties": "MetadataPropertiesTypeDef",
+        "LineageGroupArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4069,6 +4219,7 @@ DescribeArtifactResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
         "MetadataProperties": "MetadataPropertiesTypeDef",
+        "LineageGroupArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4144,6 +4295,7 @@ DescribeCompilationJobResponseTypeDef = TypedDict(
         "CompilationEndTime": datetime,
         "StoppingCondition": "StoppingConditionTypeDef",
         "InferenceImage": str,
+        "ModelPackageVersionArn": str,
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "FailureReason": str,
@@ -4177,6 +4329,7 @@ DescribeContextResponseTypeDef = TypedDict(
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
+        "LineageGroupArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4571,6 +4724,33 @@ DescribeImageVersionResponseTypeDef = TypedDict(
     },
 )
 
+DescribeInferenceRecommendationsJobRequestRequestTypeDef = TypedDict(
+    "DescribeInferenceRecommendationsJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+    },
+)
+
+DescribeInferenceRecommendationsJobResponseTypeDef = TypedDict(
+    "DescribeInferenceRecommendationsJobResponseTypeDef",
+    {
+        "JobName": str,
+        "JobDescription": str,
+        "JobType": RecommendationJobTypeType,
+        "JobArn": str,
+        "RoleArn": str,
+        "Status": RecommendationJobStatusType,
+        "CreationTime": datetime,
+        "CompletionTime": datetime,
+        "LastModifiedTime": datetime,
+        "FailureReason": str,
+        "InputConfig": "RecommendationJobInputConfigTypeDef",
+        "StoppingConditions": "RecommendationJobStoppingConditionsTypeDef",
+        "InferenceRecommendations": List["InferenceRecommendationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeLabelingJobRequestRequestTypeDef = TypedDict(
     "DescribeLabelingJobRequestRequestTypeDef",
     {
@@ -4599,6 +4779,28 @@ DescribeLabelingJobResponseTypeDef = TypedDict(
         "HumanTaskConfig": "HumanTaskConfigTypeDef",
         "Tags": List["TagTypeDef"],
         "LabelingJobOutput": "LabelingJobOutputTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLineageGroupRequestRequestTypeDef = TypedDict(
+    "DescribeLineageGroupRequestRequestTypeDef",
+    {
+        "LineageGroupName": str,
+    },
+)
+
+DescribeLineageGroupResponseTypeDef = TypedDict(
+    "DescribeLineageGroupResponseTypeDef",
+    {
+        "LineageGroupName": str,
+        "LineageGroupArn": str,
+        "DisplayName": str,
+        "Description": str,
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4726,6 +4928,13 @@ DescribeModelPackageOutputTypeDef = TypedDict(
         "LastModifiedBy": "UserContextTypeDef",
         "ApprovalDescription": str,
         "CustomerMetadataProperties": Dict[str, str],
+        "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
+        "Domain": str,
+        "Task": str,
+        "SamplePayloadUrl": str,
+        "AdditionalInferenceSpecifications": List[
+            "AdditionalInferenceSpecificationDefinitionTypeDef"
+        ],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5110,6 +5319,7 @@ DescribeTrialComponentResponseTypeDef = TypedDict(
         "OutputArtifacts": Dict[str, "TrialComponentArtifactTypeDef"],
         "MetadataProperties": "MetadataPropertiesTypeDef",
         "Metrics": List["TrialComponentMetricSummaryTypeDef"],
+        "LineageGroupArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5333,6 +5543,54 @@ DomainSettingsTypeDef = TypedDict(
     total=False,
 )
 
+DriftCheckBaselinesTypeDef = TypedDict(
+    "DriftCheckBaselinesTypeDef",
+    {
+        "Bias": "DriftCheckBiasTypeDef",
+        "Explainability": "DriftCheckExplainabilityTypeDef",
+        "ModelQuality": "DriftCheckModelQualityTypeDef",
+        "ModelDataQuality": "DriftCheckModelDataQualityTypeDef",
+    },
+    total=False,
+)
+
+DriftCheckBiasTypeDef = TypedDict(
+    "DriftCheckBiasTypeDef",
+    {
+        "ConfigFile": "FileSourceTypeDef",
+        "PreTrainingConstraints": "MetricsSourceTypeDef",
+        "PostTrainingConstraints": "MetricsSourceTypeDef",
+    },
+    total=False,
+)
+
+DriftCheckExplainabilityTypeDef = TypedDict(
+    "DriftCheckExplainabilityTypeDef",
+    {
+        "Constraints": "MetricsSourceTypeDef",
+        "ConfigFile": "FileSourceTypeDef",
+    },
+    total=False,
+)
+
+DriftCheckModelDataQualityTypeDef = TypedDict(
+    "DriftCheckModelDataQualityTypeDef",
+    {
+        "Statistics": "MetricsSourceTypeDef",
+        "Constraints": "MetricsSourceTypeDef",
+    },
+    total=False,
+)
+
+DriftCheckModelQualityTypeDef = TypedDict(
+    "DriftCheckModelQualityTypeDef",
+    {
+        "Statistics": "MetricsSourceTypeDef",
+        "Constraints": "MetricsSourceTypeDef",
+    },
+    total=False,
+)
+
 EdgeModelStatTypeDef = TypedDict(
     "EdgeModelStatTypeDef",
     {
@@ -5437,6 +5695,16 @@ class EdgePresetDeploymentOutputTypeDef(
 ):
     pass
 
+EdgeTypeDef = TypedDict(
+    "EdgeTypeDef",
+    {
+        "SourceArn": str,
+        "DestinationArn": str,
+        "AssociationType": AssociationEdgeTypeType,
+    },
+    total=False,
+)
+
 EndpointConfigSummaryTypeDef = TypedDict(
     "EndpointConfigSummaryTypeDef",
     {
@@ -5445,6 +5713,26 @@ EndpointConfigSummaryTypeDef = TypedDict(
         "CreationTime": datetime,
     },
 )
+
+_RequiredEndpointInputConfigurationTypeDef = TypedDict(
+    "_RequiredEndpointInputConfigurationTypeDef",
+    {
+        "InstanceType": ProductionVariantInstanceTypeType,
+    },
+)
+_OptionalEndpointInputConfigurationTypeDef = TypedDict(
+    "_OptionalEndpointInputConfigurationTypeDef",
+    {
+        "InferenceSpecificationName": str,
+        "EnvironmentParameterRanges": "EnvironmentParameterRangesTypeDef",
+    },
+    total=False,
+)
+
+class EndpointInputConfigurationTypeDef(
+    _RequiredEndpointInputConfigurationTypeDef, _OptionalEndpointInputConfigurationTypeDef
+):
+    pass
 
 _RequiredEndpointInputTypeDef = TypedDict(
     "_RequiredEndpointInputTypeDef",
@@ -5470,6 +5758,16 @@ _OptionalEndpointInputTypeDef = TypedDict(
 
 class EndpointInputTypeDef(_RequiredEndpointInputTypeDef, _OptionalEndpointInputTypeDef):
     pass
+
+EndpointOutputConfigurationTypeDef = TypedDict(
+    "EndpointOutputConfigurationTypeDef",
+    {
+        "EndpointName": str,
+        "VariantName": str,
+        "InstanceType": ProductionVariantInstanceTypeType,
+        "InitialInstanceCount": int,
+    },
+)
 
 EndpointSummaryTypeDef = TypedDict(
     "EndpointSummaryTypeDef",
@@ -5507,6 +5805,23 @@ _OptionalEndpointTypeDef = TypedDict(
 
 class EndpointTypeDef(_RequiredEndpointTypeDef, _OptionalEndpointTypeDef):
     pass
+
+EnvironmentParameterRangesTypeDef = TypedDict(
+    "EnvironmentParameterRangesTypeDef",
+    {
+        "CategoricalParameterRanges": List["CategoricalParameterTypeDef"],
+    },
+    total=False,
+)
+
+EnvironmentParameterTypeDef = TypedDict(
+    "EnvironmentParameterTypeDef",
+    {
+        "Key": str,
+        "ValueType": str,
+        "Value": str,
+    },
+)
 
 ExperimentConfigTypeDef = TypedDict(
     "ExperimentConfigTypeDef",
@@ -5624,6 +5939,24 @@ FeatureGroupTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredFileSourceTypeDef = TypedDict(
+    "_RequiredFileSourceTypeDef",
+    {
+        "S3Uri": str,
+    },
+)
+_OptionalFileSourceTypeDef = TypedDict(
+    "_OptionalFileSourceTypeDef",
+    {
+        "ContentType": str,
+        "ContentDigest": str,
+    },
+    total=False,
+)
+
+class FileSourceTypeDef(_RequiredFileSourceTypeDef, _OptionalFileSourceTypeDef):
+    pass
 
 FileSystemConfigTypeDef = TypedDict(
     "FileSystemConfigTypeDef",
@@ -5763,6 +6096,22 @@ GetDeviceFleetReportResponseTypeDef = TypedDict(
         "DeviceStats": "DeviceStatsTypeDef",
         "AgentVersions": List["AgentVersionTypeDef"],
         "ModelStats": List["EdgeModelStatTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetLineageGroupPolicyRequestRequestTypeDef = TypedDict(
+    "GetLineageGroupPolicyRequestRequestTypeDef",
+    {
+        "LineageGroupName": str,
+    },
+)
+
+GetLineageGroupPolicyResponseTypeDef = TypedDict(
+    "GetLineageGroupPolicyResponseTypeDef",
+    {
+        "LineageGroupArn": str,
+        "ResourcePolicy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -6170,6 +6519,42 @@ InferenceExecutionConfigTypeDef = TypedDict(
     },
 )
 
+InferenceRecommendationTypeDef = TypedDict(
+    "InferenceRecommendationTypeDef",
+    {
+        "Metrics": "RecommendationMetricsTypeDef",
+        "EndpointConfiguration": "EndpointOutputConfigurationTypeDef",
+        "ModelConfiguration": "ModelConfigurationTypeDef",
+    },
+)
+
+_RequiredInferenceRecommendationsJobTypeDef = TypedDict(
+    "_RequiredInferenceRecommendationsJobTypeDef",
+    {
+        "JobName": str,
+        "JobDescription": str,
+        "JobType": RecommendationJobTypeType,
+        "JobArn": str,
+        "Status": RecommendationJobStatusType,
+        "CreationTime": datetime,
+        "RoleArn": str,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalInferenceRecommendationsJobTypeDef = TypedDict(
+    "_OptionalInferenceRecommendationsJobTypeDef",
+    {
+        "CompletionTime": datetime,
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+class InferenceRecommendationsJobTypeDef(
+    _RequiredInferenceRecommendationsJobTypeDef, _OptionalInferenceRecommendationsJobTypeDef
+):
+    pass
+
 _RequiredInferenceSpecificationTypeDef = TypedDict(
     "_RequiredInferenceSpecificationTypeDef",
     {
@@ -6500,6 +6885,18 @@ LambdaStepMetadataTypeDef = TypedDict(
     {
         "Arn": str,
         "OutputParameters": List["OutputParameterTypeDef"],
+    },
+    total=False,
+)
+
+LineageGroupSummaryTypeDef = TypedDict(
+    "LineageGroupSummaryTypeDef",
+    {
+        "LineageGroupArn": str,
+        "LineageGroupName": str,
+        "DisplayName": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
     },
     total=False,
 )
@@ -7123,6 +7520,32 @@ ListImagesResponseTypeDef = TypedDict(
     },
 )
 
+ListInferenceRecommendationsJobsRequestRequestTypeDef = TypedDict(
+    "ListInferenceRecommendationsJobsRequestRequestTypeDef",
+    {
+        "CreationTimeAfter": Union[datetime, str],
+        "CreationTimeBefore": Union[datetime, str],
+        "LastModifiedTimeAfter": Union[datetime, str],
+        "LastModifiedTimeBefore": Union[datetime, str],
+        "NameContains": str,
+        "StatusEquals": RecommendationJobStatusType,
+        "SortBy": ListInferenceRecommendationsJobsSortByType,
+        "SortOrder": SortOrderType,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListInferenceRecommendationsJobsResponseTypeDef = TypedDict(
+    "ListInferenceRecommendationsJobsResponseTypeDef",
+    {
+        "InferenceRecommendationsJobs": List["InferenceRecommendationsJobTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListLabelingJobsForWorkteamRequestRequestTypeDef = TypedDict(
     "_RequiredListLabelingJobsForWorkteamRequestRequestTypeDef",
     {
@@ -7184,6 +7607,28 @@ ListLabelingJobsResponseTypeDef = TypedDict(
     },
 )
 
+ListLineageGroupsRequestRequestTypeDef = TypedDict(
+    "ListLineageGroupsRequestRequestTypeDef",
+    {
+        "CreatedAfter": Union[datetime, str],
+        "CreatedBefore": Union[datetime, str],
+        "SortBy": SortLineageGroupsByType,
+        "SortOrder": SortOrderType,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListLineageGroupsResponseTypeDef = TypedDict(
+    "ListLineageGroupsResponseTypeDef",
+    {
+        "LineageGroupSummaries": List["LineageGroupSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListModelBiasJobDefinitionsRequestRequestTypeDef = TypedDict(
     "ListModelBiasJobDefinitionsRequestRequestTypeDef",
     {
@@ -7227,6 +7672,25 @@ ListModelExplainabilityJobDefinitionsResponseTypeDef = TypedDict(
     "ListModelExplainabilityJobDefinitionsResponseTypeDef",
     {
         "JobDefinitionSummaries": List["MonitoringJobDefinitionSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListModelMetadataRequestRequestTypeDef = TypedDict(
+    "ListModelMetadataRequestRequestTypeDef",
+    {
+        "SearchExpression": "ModelMetadataSearchExpressionTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListModelMetadataResponseTypeDef = TypedDict(
+    "ListModelMetadataResponseTypeDef",
+    {
+        "ModelMetadataSummaries": List["ModelMetadataSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -7989,6 +8453,15 @@ ModelClientConfigTypeDef = TypedDict(
     total=False,
 )
 
+ModelConfigurationTypeDef = TypedDict(
+    "ModelConfigurationTypeDef",
+    {
+        "InferenceSpecificationName": str,
+        "EnvironmentParameters": List["EnvironmentParameterTypeDef"],
+    },
+    total=False,
+)
+
 ModelDataQualityTypeDef = TypedDict(
     "ModelDataQualityTypeDef",
     {
@@ -8060,6 +8533,49 @@ ModelExplainabilityJobInputTypeDef = TypedDict(
     },
 )
 
+ModelInputTypeDef = TypedDict(
+    "ModelInputTypeDef",
+    {
+        "DataInputConfig": str,
+    },
+)
+
+ModelLatencyThresholdTypeDef = TypedDict(
+    "ModelLatencyThresholdTypeDef",
+    {
+        "Percentile": str,
+        "ValueInMilliseconds": int,
+    },
+    total=False,
+)
+
+ModelMetadataFilterTypeDef = TypedDict(
+    "ModelMetadataFilterTypeDef",
+    {
+        "Name": ModelMetadataFilterTypeType,
+        "Value": str,
+    },
+)
+
+ModelMetadataSearchExpressionTypeDef = TypedDict(
+    "ModelMetadataSearchExpressionTypeDef",
+    {
+        "Filters": List["ModelMetadataFilterTypeDef"],
+    },
+    total=False,
+)
+
+ModelMetadataSummaryTypeDef = TypedDict(
+    "ModelMetadataSummaryTypeDef",
+    {
+        "Domain": str,
+        "Framework": str,
+        "Task": str,
+        "Model": str,
+        "FrameworkVersion": str,
+    },
+)
+
 ModelMetricsTypeDef = TypedDict(
     "ModelMetricsTypeDef",
     {
@@ -8085,6 +8601,10 @@ _OptionalModelPackageContainerDefinitionTypeDef = TypedDict(
         "ModelDataUrl": str,
         "ProductId": str,
         "Environment": Dict[str, str],
+        "ModelInput": "ModelInputTypeDef",
+        "Framework": str,
+        "FrameworkVersion": str,
+        "NearestModelName": str,
     },
     total=False,
 )
@@ -8216,8 +8736,15 @@ ModelPackageTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
         "ApprovalDescription": str,
+        "Domain": str,
+        "Task": str,
+        "SamplePayloadUrl": str,
+        "AdditionalInferenceSpecifications": List[
+            "AdditionalInferenceSpecificationDefinitionTypeDef"
+        ],
         "Tags": List["TagTypeDef"],
         "CustomerMetadataProperties": Dict[str, str],
+        "DriftCheckBaselines": "DriftCheckBaselinesTypeDef",
     },
     total=False,
 )
@@ -8913,6 +9440,8 @@ _OptionalPendingProductionVariantSummaryTypeDef = TypedDict(
         "InstanceType": ProductionVariantInstanceTypeType,
         "AcceleratorType": ProductionVariantAcceleratorTypeType,
         "VariantStatus": List["ProductionVariantStatusTypeDef"],
+        "CurrentServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
+        "DesiredServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
     },
     total=False,
 )
@@ -8921,6 +9450,16 @@ class PendingProductionVariantSummaryTypeDef(
     _RequiredPendingProductionVariantSummaryTypeDef, _OptionalPendingProductionVariantSummaryTypeDef
 ):
     pass
+
+PhaseTypeDef = TypedDict(
+    "PhaseTypeDef",
+    {
+        "InitialNumberOfUsers": int,
+        "SpawnRate": int,
+        "DurationInSeconds": int,
+    },
+    total=False,
+)
 
 PipelineExecutionStepMetadataTypeDef = TypedDict(
     "PipelineExecutionStepMetadataTypeDef",
@@ -8934,6 +9473,8 @@ PipelineExecutionStepMetadataTypeDef = TypedDict(
         "Condition": "ConditionStepMetadataTypeDef",
         "Callback": "CallbackStepMetadataTypeDef",
         "Lambda": "LambdaStepMetadataTypeDef",
+        "QualityCheck": "QualityCheckStepMetadataTypeDef",
+        "ClarifyCheck": "ClarifyCheckStepMetadataTypeDef",
     },
     total=False,
 )
@@ -8946,6 +9487,7 @@ PipelineExecutionStepTypeDef = TypedDict(
         "EndTime": datetime,
         "StepStatus": StepStatusType,
         "CacheHitResult": "CacheHitResultTypeDef",
+        "AttemptCount": int,
         "FailureReason": str,
         "Metadata": "PipelineExecutionStepMetadataTypeDef",
     },
@@ -9238,6 +9780,14 @@ class ProductionVariantCoreDumpConfigTypeDef(
 ):
     pass
 
+ProductionVariantServerlessConfigTypeDef = TypedDict(
+    "ProductionVariantServerlessConfigTypeDef",
+    {
+        "MemorySizeInMB": int,
+        "MaxConcurrency": int,
+    },
+)
+
 _RequiredProductionVariantStatusTypeDef = TypedDict(
     "_RequiredProductionVariantStatusTypeDef",
     {
@@ -9273,6 +9823,8 @@ _OptionalProductionVariantSummaryTypeDef = TypedDict(
         "CurrentInstanceCount": int,
         "DesiredInstanceCount": int,
         "VariantStatus": List["ProductionVariantStatusTypeDef"],
+        "CurrentServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
+        "DesiredServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
     },
     total=False,
 )
@@ -9287,16 +9839,17 @@ _RequiredProductionVariantTypeDef = TypedDict(
     {
         "VariantName": str,
         "ModelName": str,
-        "InitialInstanceCount": int,
-        "InstanceType": ProductionVariantInstanceTypeType,
     },
 )
 _OptionalProductionVariantTypeDef = TypedDict(
     "_OptionalProductionVariantTypeDef",
     {
+        "InitialInstanceCount": int,
+        "InstanceType": ProductionVariantInstanceTypeType,
         "InitialVariantWeight": float,
         "AcceleratorType": ProductionVariantAcceleratorTypeType,
         "CoreDumpConfig": "ProductionVariantCoreDumpConfigTypeDef",
+        "ServerlessConfig": "ProductionVariantServerlessConfigTypeDef",
     },
     total=False,
 )
@@ -9459,6 +10012,71 @@ PutModelPackageGroupPolicyOutputTypeDef = TypedDict(
     },
 )
 
+QualityCheckStepMetadataTypeDef = TypedDict(
+    "QualityCheckStepMetadataTypeDef",
+    {
+        "CheckType": str,
+        "BaselineUsedForDriftCheckStatistics": str,
+        "BaselineUsedForDriftCheckConstraints": str,
+        "CalculatedBaselineStatistics": str,
+        "CalculatedBaselineConstraints": str,
+        "ModelPackageGroupName": str,
+        "ViolationReport": str,
+        "CheckJobArn": str,
+        "SkipCheck": bool,
+        "RegisterNewBaseline": bool,
+    },
+    total=False,
+)
+
+QueryFiltersTypeDef = TypedDict(
+    "QueryFiltersTypeDef",
+    {
+        "Types": List[str],
+        "LineageTypes": List[LineageTypeType],
+        "CreatedBefore": Union[datetime, str],
+        "CreatedAfter": Union[datetime, str],
+        "ModifiedBefore": Union[datetime, str],
+        "ModifiedAfter": Union[datetime, str],
+        "Properties": Dict[str, str],
+    },
+    total=False,
+)
+
+_RequiredQueryLineageRequestRequestTypeDef = TypedDict(
+    "_RequiredQueryLineageRequestRequestTypeDef",
+    {
+        "StartArns": List[str],
+    },
+)
+_OptionalQueryLineageRequestRequestTypeDef = TypedDict(
+    "_OptionalQueryLineageRequestRequestTypeDef",
+    {
+        "Direction": DirectionType,
+        "IncludeEdges": bool,
+        "Filters": "QueryFiltersTypeDef",
+        "MaxDepth": int,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class QueryLineageRequestRequestTypeDef(
+    _RequiredQueryLineageRequestRequestTypeDef, _OptionalQueryLineageRequestRequestTypeDef
+):
+    pass
+
+QueryLineageResponseTypeDef = TypedDict(
+    "QueryLineageResponseTypeDef",
+    {
+        "Vertices": List["VertexTypeDef"],
+        "Edges": List["EdgeTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 RStudioServerProAppSettingsTypeDef = TypedDict(
     "RStudioServerProAppSettingsTypeDef",
     {
@@ -9508,6 +10126,56 @@ class RStudioServerProDomainSettingsTypeDef(
     _RequiredRStudioServerProDomainSettingsTypeDef, _OptionalRStudioServerProDomainSettingsTypeDef
 ):
     pass
+
+_RequiredRecommendationJobInputConfigTypeDef = TypedDict(
+    "_RequiredRecommendationJobInputConfigTypeDef",
+    {
+        "ModelPackageVersionArn": str,
+    },
+)
+_OptionalRecommendationJobInputConfigTypeDef = TypedDict(
+    "_OptionalRecommendationJobInputConfigTypeDef",
+    {
+        "JobDurationInSeconds": int,
+        "TrafficPattern": "TrafficPatternTypeDef",
+        "ResourceLimit": "RecommendationJobResourceLimitTypeDef",
+        "EndpointConfigurations": List["EndpointInputConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+class RecommendationJobInputConfigTypeDef(
+    _RequiredRecommendationJobInputConfigTypeDef, _OptionalRecommendationJobInputConfigTypeDef
+):
+    pass
+
+RecommendationJobResourceLimitTypeDef = TypedDict(
+    "RecommendationJobResourceLimitTypeDef",
+    {
+        "MaxNumberOfTests": int,
+        "MaxParallelOfTests": int,
+    },
+    total=False,
+)
+
+RecommendationJobStoppingConditionsTypeDef = TypedDict(
+    "RecommendationJobStoppingConditionsTypeDef",
+    {
+        "MaxInvocations": int,
+        "ModelLatencyThresholds": List["ModelLatencyThresholdTypeDef"],
+    },
+    total=False,
+)
+
+RecommendationMetricsTypeDef = TypedDict(
+    "RecommendationMetricsTypeDef",
+    {
+        "CostPerHour": float,
+        "CostPerInference": float,
+        "MaxInvocations": int,
+        "ModelLatency": int,
+    },
+)
 
 _RequiredRedshiftDatasetDefinitionTypeDef = TypedDict(
     "_RequiredRedshiftDatasetDefinitionTypeDef",
@@ -10050,6 +10718,13 @@ StopHyperParameterTuningJobRequestRequestTypeDef = TypedDict(
     },
 )
 
+StopInferenceRecommendationsJobRequestRequestTypeDef = TypedDict(
+    "StopInferenceRecommendationsJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+    },
+)
+
 StopLabelingJobRequestRequestTypeDef = TypedDict(
     "StopLabelingJobRequestRequestTypeDef",
     {
@@ -10211,6 +10886,15 @@ class TensorBoardOutputConfigTypeDef(
     _RequiredTensorBoardOutputConfigTypeDef, _OptionalTensorBoardOutputConfigTypeDef
 ):
     pass
+
+TrafficPatternTypeDef = TypedDict(
+    "TrafficPatternTypeDef",
+    {
+        "TrafficType": Literal["PHASES"],
+        "Phases": List["PhaseTypeDef"],
+    },
+    total=False,
+)
 
 _RequiredTrafficRoutingConfigTypeDef = TypedDict(
     "_RequiredTrafficRoutingConfigTypeDef",
@@ -10658,6 +11342,7 @@ TrialComponentTypeDef = TypedDict(
         "Metrics": List["TrialComponentMetricSummaryTypeDef"],
         "MetadataProperties": "MetadataPropertiesTypeDef",
         "SourceDetail": "TrialComponentSourceDetailTypeDef",
+        "LineageGroupArn": str,
         "Tags": List["TagTypeDef"],
         "Parents": List["ParentTypeDef"],
     },
@@ -11083,6 +11768,9 @@ _OptionalUpdateModelPackageInputRequestTypeDef = TypedDict(
         "ApprovalDescription": str,
         "CustomerMetadataProperties": Dict[str, str],
         "CustomerMetadataPropertiesToRemove": List[str],
+        "AdditionalInferenceSpecificationsToAdd": List[
+            "AdditionalInferenceSpecificationDefinitionTypeDef"
+        ],
     },
     total=False,
 )
@@ -11475,6 +12163,16 @@ VariantPropertyTypeDef = TypedDict(
     {
         "VariantPropertyType": VariantPropertyTypeType,
     },
+)
+
+VertexTypeDef = TypedDict(
+    "VertexTypeDef",
+    {
+        "Arn": str,
+        "Type": str,
+        "LineageType": LineageTypeType,
+    },
+    total=False,
 )
 
 VpcConfigTypeDef = TypedDict(

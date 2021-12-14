@@ -49,6 +49,7 @@ __all__ = (
     "DetectMitigationActionExecutionStatusType",
     "DetectMitigationActionsTaskStatusType",
     "DeviceCertificateUpdateActionType",
+    "DeviceDefenderIndexingModeType",
     "DimensionTypeType",
     "DimensionValueOperatorType",
     "DomainConfigurationStatusType",
@@ -121,6 +122,7 @@ __all__ = (
     "MessageFormatType",
     "MitigationActionTypeType",
     "ModelStatusType",
+    "NamedShadowIndexingModeType",
     "OTAUpdateStatusType",
     "PolicyTemplateNameType",
     "ProtocolType",
@@ -201,6 +203,7 @@ DetectMitigationActionExecutionStatusType = Literal[
 ]
 DetectMitigationActionsTaskStatusType = Literal["CANCELED", "FAILED", "IN_PROGRESS", "SUCCESSFUL"]
 DeviceCertificateUpdateActionType = Literal["DEACTIVATE"]
+DeviceDefenderIndexingModeType = Literal["OFF", "VIOLATIONS"]
 DimensionTypeType = Literal["TOPIC_FILTER"]
 DimensionValueOperatorType = Literal["IN", "NOT_IN"]
 DomainConfigurationStatusType = Literal["DISABLED", "ENABLED"]
@@ -326,6 +329,7 @@ MitigationActionTypeType = Literal[
     "UPDATE_DEVICE_CERTIFICATE",
 ]
 ModelStatusType = Literal["ACTIVE", "EXPIRED", "PENDING_BUILD"]
+NamedShadowIndexingModeType = Literal["OFF", "ON"]
 OTAUpdateStatusType = Literal[
     "CREATE_COMPLETE", "CREATE_FAILED", "CREATE_IN_PROGRESS", "CREATE_PENDING"
 ]

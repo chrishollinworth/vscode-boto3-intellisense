@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AnomalySeverityType,
     AnomalyStatusType,
+    AnomalyTypeType,
     CloudWatchMetricDataStatusCodeType,
     CloudWatchMetricsStatType,
     CostEstimationServiceResourceStateType,
@@ -47,6 +48,7 @@ __all__ = (
     "AddNotificationChannelRequestRequestTypeDef",
     "AddNotificationChannelResponseTypeDef",
     "AnomalyReportedTimeRangeTypeDef",
+    "AnomalyResourceTypeDef",
     "AnomalySourceDetailsTypeDef",
     "AnomalyTimeRangeTypeDef",
     "CloudFormationCollectionFilterTypeDef",
@@ -109,6 +111,14 @@ __all__ = (
     "OpsCenterIntegrationConfigTypeDef",
     "OpsCenterIntegrationTypeDef",
     "PaginatorConfigTypeDef",
+    "PerformanceInsightsMetricDimensionGroupTypeDef",
+    "PerformanceInsightsMetricQueryTypeDef",
+    "PerformanceInsightsMetricsDetailTypeDef",
+    "PerformanceInsightsReferenceComparisonValuesTypeDef",
+    "PerformanceInsightsReferenceDataTypeDef",
+    "PerformanceInsightsReferenceMetricTypeDef",
+    "PerformanceInsightsReferenceScalarTypeDef",
+    "PerformanceInsightsStatTypeDef",
     "PredictionTimeRangeTypeDef",
     "ProactiveAnomalySummaryTypeDef",
     "ProactiveAnomalyTypeDef",
@@ -146,12 +156,17 @@ __all__ = (
     "SnsChannelConfigTypeDef",
     "StartCostEstimationRequestRequestTypeDef",
     "StartTimeRangeTypeDef",
+    "TagCollectionFilterTypeDef",
+    "TagCollectionTypeDef",
+    "TagCostEstimationResourceCollectionFilterTypeDef",
+    "TagHealthTypeDef",
     "TimestampMetricValuePairTypeDef",
     "UpdateCloudFormationCollectionFilterTypeDef",
     "UpdateResourceCollectionFilterTypeDef",
     "UpdateResourceCollectionRequestRequestTypeDef",
     "UpdateServiceIntegrationConfigTypeDef",
     "UpdateServiceIntegrationRequestRequestTypeDef",
+    "UpdateTagCollectionFilterTypeDef",
 )
 
 AccountHealthTypeDef = TypedDict(
@@ -206,10 +221,20 @@ class AnomalyReportedTimeRangeTypeDef(
 ):
     pass
 
+AnomalyResourceTypeDef = TypedDict(
+    "AnomalyResourceTypeDef",
+    {
+        "Name": str,
+        "Type": str,
+    },
+    total=False,
+)
+
 AnomalySourceDetailsTypeDef = TypedDict(
     "AnomalySourceDetailsTypeDef",
     {
         "CloudWatchMetrics": List["CloudWatchMetricsDetailTypeDef"],
+        "PerformanceInsightsMetrics": List["PerformanceInsightsMetricsDetailTypeDef"],
     },
     total=False,
 )
@@ -300,6 +325,7 @@ CostEstimationResourceCollectionFilterTypeDef = TypedDict(
     "CostEstimationResourceCollectionFilterTypeDef",
     {
         "CloudFormation": "CloudFormationCostEstimationResourceCollectionFilterTypeDef",
+        "Tags": List["TagCostEstimationResourceCollectionFilterTypeDef"],
     },
     total=False,
 )
@@ -537,6 +563,7 @@ DescribeResourceCollectionHealthResponseTypeDef = TypedDict(
         "CloudFormation": List["CloudFormationHealthTypeDef"],
         "Service": List["ServiceHealthTypeDef"],
         "NextToken": str,
+        "Tags": List["TagHealthTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -939,6 +966,82 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+PerformanceInsightsMetricDimensionGroupTypeDef = TypedDict(
+    "PerformanceInsightsMetricDimensionGroupTypeDef",
+    {
+        "Group": str,
+        "Dimensions": List[str],
+        "Limit": int,
+    },
+    total=False,
+)
+
+PerformanceInsightsMetricQueryTypeDef = TypedDict(
+    "PerformanceInsightsMetricQueryTypeDef",
+    {
+        "Metric": str,
+        "GroupBy": "PerformanceInsightsMetricDimensionGroupTypeDef",
+        "Filter": Dict[str, str],
+    },
+    total=False,
+)
+
+PerformanceInsightsMetricsDetailTypeDef = TypedDict(
+    "PerformanceInsightsMetricsDetailTypeDef",
+    {
+        "MetricDisplayName": str,
+        "Unit": str,
+        "MetricQuery": "PerformanceInsightsMetricQueryTypeDef",
+        "ReferenceData": List["PerformanceInsightsReferenceDataTypeDef"],
+        "StatsAtAnomaly": List["PerformanceInsightsStatTypeDef"],
+        "StatsAtBaseline": List["PerformanceInsightsStatTypeDef"],
+    },
+    total=False,
+)
+
+PerformanceInsightsReferenceComparisonValuesTypeDef = TypedDict(
+    "PerformanceInsightsReferenceComparisonValuesTypeDef",
+    {
+        "ReferenceScalar": "PerformanceInsightsReferenceScalarTypeDef",
+        "ReferenceMetric": "PerformanceInsightsReferenceMetricTypeDef",
+    },
+    total=False,
+)
+
+PerformanceInsightsReferenceDataTypeDef = TypedDict(
+    "PerformanceInsightsReferenceDataTypeDef",
+    {
+        "Name": str,
+        "ComparisonValues": "PerformanceInsightsReferenceComparisonValuesTypeDef",
+    },
+    total=False,
+)
+
+PerformanceInsightsReferenceMetricTypeDef = TypedDict(
+    "PerformanceInsightsReferenceMetricTypeDef",
+    {
+        "MetricQuery": "PerformanceInsightsMetricQueryTypeDef",
+    },
+    total=False,
+)
+
+PerformanceInsightsReferenceScalarTypeDef = TypedDict(
+    "PerformanceInsightsReferenceScalarTypeDef",
+    {
+        "Value": float,
+    },
+    total=False,
+)
+
+PerformanceInsightsStatTypeDef = TypedDict(
+    "PerformanceInsightsStatTypeDef",
+    {
+        "Type": str,
+        "Value": float,
+    },
+    total=False,
+)
+
 _RequiredPredictionTimeRangeTypeDef = TypedDict(
     "_RequiredPredictionTimeRangeTypeDef",
     {
@@ -1005,6 +1108,7 @@ ProactiveInsightSummaryTypeDef = TypedDict(
         "PredictionTimeRange": "PredictionTimeRangeTypeDef",
         "ResourceCollection": "ResourceCollectionTypeDef",
         "ServiceCollection": "ServiceCollectionTypeDef",
+        "AssociatedResourceArns": List[str],
     },
     total=False,
 )
@@ -1060,6 +1164,11 @@ ReactiveAnomalySummaryTypeDef = TypedDict(
         "SourceDetails": "AnomalySourceDetailsTypeDef",
         "AssociatedInsightId": str,
         "ResourceCollection": "ResourceCollectionTypeDef",
+        "Type": AnomalyTypeType,
+        "Name": str,
+        "Description": str,
+        "CausalAnomalyId": str,
+        "AnomalyResources": List["AnomalyResourceTypeDef"],
     },
     total=False,
 )
@@ -1075,6 +1184,11 @@ ReactiveAnomalyTypeDef = TypedDict(
         "SourceDetails": "AnomalySourceDetailsTypeDef",
         "AssociatedInsightId": str,
         "ResourceCollection": "ResourceCollectionTypeDef",
+        "Type": AnomalyTypeType,
+        "Name": str,
+        "Description": str,
+        "CausalAnomalyId": str,
+        "AnomalyResources": List["AnomalyResourceTypeDef"],
     },
     total=False,
 )
@@ -1089,6 +1203,7 @@ ReactiveInsightSummaryTypeDef = TypedDict(
         "InsightTimeRange": "InsightTimeRangeTypeDef",
         "ResourceCollection": "ResourceCollectionTypeDef",
         "ServiceCollection": "ServiceCollectionTypeDef",
+        "AssociatedResourceArns": List[str],
     },
     total=False,
 )
@@ -1145,6 +1260,7 @@ RecommendationRelatedAnomalyTypeDef = TypedDict(
     {
         "Resources": List["RecommendationRelatedAnomalyResourceTypeDef"],
         "SourceDetails": List["RecommendationRelatedAnomalySourceDetailTypeDef"],
+        "AnomalyId": str,
     },
     total=False,
 )
@@ -1200,6 +1316,7 @@ ResourceCollectionFilterTypeDef = TypedDict(
     "ResourceCollectionFilterTypeDef",
     {
         "CloudFormation": "CloudFormationCollectionFilterTypeDef",
+        "Tags": List["TagCollectionFilterTypeDef"],
     },
     total=False,
 )
@@ -1208,6 +1325,7 @@ ResourceCollectionTypeDef = TypedDict(
     "ResourceCollectionTypeDef",
     {
         "CloudFormation": "CloudFormationCollectionTypeDef",
+        "Tags": List["TagCollectionTypeDef"],
     },
     total=False,
 )
@@ -1394,6 +1512,40 @@ StartTimeRangeTypeDef = TypedDict(
     total=False,
 )
 
+TagCollectionFilterTypeDef = TypedDict(
+    "TagCollectionFilterTypeDef",
+    {
+        "AppBoundaryKey": str,
+        "TagValues": List[str],
+    },
+)
+
+TagCollectionTypeDef = TypedDict(
+    "TagCollectionTypeDef",
+    {
+        "AppBoundaryKey": str,
+        "TagValues": List[str],
+    },
+)
+
+TagCostEstimationResourceCollectionFilterTypeDef = TypedDict(
+    "TagCostEstimationResourceCollectionFilterTypeDef",
+    {
+        "AppBoundaryKey": str,
+        "TagValues": List[str],
+    },
+)
+
+TagHealthTypeDef = TypedDict(
+    "TagHealthTypeDef",
+    {
+        "AppBoundaryKey": str,
+        "TagValue": str,
+        "Insight": "InsightHealthTypeDef",
+    },
+    total=False,
+)
+
 TimestampMetricValuePairTypeDef = TypedDict(
     "TimestampMetricValuePairTypeDef",
     {
@@ -1415,6 +1567,7 @@ UpdateResourceCollectionFilterTypeDef = TypedDict(
     "UpdateResourceCollectionFilterTypeDef",
     {
         "CloudFormation": "UpdateCloudFormationCollectionFilterTypeDef",
+        "Tags": List["UpdateTagCollectionFilterTypeDef"],
     },
     total=False,
 )
@@ -1439,5 +1592,13 @@ UpdateServiceIntegrationRequestRequestTypeDef = TypedDict(
     "UpdateServiceIntegrationRequestRequestTypeDef",
     {
         "ServiceIntegration": "UpdateServiceIntegrationConfigTypeDef",
+    },
+)
+
+UpdateTagCollectionFilterTypeDef = TypedDict(
+    "UpdateTagCollectionFilterTypeDef",
+    {
+        "AppBoundaryKey": str,
+        "TagValues": List[str],
     },
 )

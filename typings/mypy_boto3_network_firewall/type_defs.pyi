@@ -22,6 +22,7 @@ from .literals import (
     LogDestinationTypeType,
     LogTypeType,
     PerObjectSyncStatusType,
+    ResourceManagedStatusType,
     ResourceStatusType,
     RuleGroupTypeType,
     RuleOrderType,
@@ -32,6 +33,10 @@ from .literals import (
     TCPFlagType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -67,6 +72,8 @@ __all__ = (
     "DescribeLoggingConfigurationResponseTypeDef",
     "DescribeResourcePolicyRequestRequestTypeDef",
     "DescribeResourcePolicyResponseTypeDef",
+    "DescribeRuleGroupMetadataRequestRequestTypeDef",
+    "DescribeRuleGroupMetadataResponseTypeDef",
     "DescribeRuleGroupRequestRequestTypeDef",
     "DescribeRuleGroupResponseTypeDef",
     "DimensionTypeDef",
@@ -107,6 +114,7 @@ __all__ = (
     "RulesSourceListTypeDef",
     "RulesSourceTypeDef",
     "StatefulEngineOptionsTypeDef",
+    "StatefulRuleGroupOverrideTypeDef",
     "StatefulRuleGroupReferenceTypeDef",
     "StatefulRuleOptionsTypeDef",
     "StatefulRuleTypeDef",
@@ -465,6 +473,29 @@ DescribeResourcePolicyResponseTypeDef = TypedDict(
     },
 )
 
+DescribeRuleGroupMetadataRequestRequestTypeDef = TypedDict(
+    "DescribeRuleGroupMetadataRequestRequestTypeDef",
+    {
+        "RuleGroupName": str,
+        "RuleGroupArn": str,
+        "Type": RuleGroupTypeType,
+    },
+    total=False,
+)
+
+DescribeRuleGroupMetadataResponseTypeDef = TypedDict(
+    "DescribeRuleGroupMetadataResponseTypeDef",
+    {
+        "RuleGroupArn": str,
+        "RuleGroupName": str,
+        "Description": str,
+        "Type": RuleGroupTypeType,
+        "Capacity": int,
+        "StatefulRuleOptions": "StatefulRuleOptionsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeRuleGroupRequestRequestTypeDef = TypedDict(
     "DescribeRuleGroupRequestRequestTypeDef",
     {
@@ -696,6 +727,7 @@ ListRuleGroupsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "Scope": ResourceManagedStatusType,
     },
     total=False,
 )
@@ -945,6 +977,14 @@ StatefulEngineOptionsTypeDef = TypedDict(
     total=False,
 )
 
+StatefulRuleGroupOverrideTypeDef = TypedDict(
+    "StatefulRuleGroupOverrideTypeDef",
+    {
+        "Action": Literal["DROP_TO_ALERT"],
+    },
+    total=False,
+)
+
 _RequiredStatefulRuleGroupReferenceTypeDef = TypedDict(
     "_RequiredStatefulRuleGroupReferenceTypeDef",
     {
@@ -955,6 +995,7 @@ _OptionalStatefulRuleGroupReferenceTypeDef = TypedDict(
     "_OptionalStatefulRuleGroupReferenceTypeDef",
     {
         "Priority": int,
+        "Override": "StatefulRuleGroupOverrideTypeDef",
     },
     total=False,
 )

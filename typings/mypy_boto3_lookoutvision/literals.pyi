@@ -21,10 +21,16 @@ else:
 __all__ = (
     "DatasetStatusType",
     "ListDatasetEntriesPaginatorName",
+    "ListModelPackagingJobsPaginatorName",
     "ListModelsPaginatorName",
     "ListProjectsPaginatorName",
     "ModelHostingStatusType",
+    "ModelPackagingJobStatusType",
     "ModelStatusType",
+    "TargetDeviceType",
+    "TargetPlatformAcceleratorType",
+    "TargetPlatformArchType",
+    "TargetPlatformOsType",
 )
 
 DatasetStatusType = Literal[
@@ -40,11 +46,13 @@ DatasetStatusType = Literal[
     "UPDATE_IN_PROGRESS",
 ]
 ListDatasetEntriesPaginatorName = Literal["list_dataset_entries"]
+ListModelPackagingJobsPaginatorName = Literal["list_model_packaging_jobs"]
 ListModelsPaginatorName = Literal["list_models"]
 ListProjectsPaginatorName = Literal["list_projects"]
 ModelHostingStatusType = Literal[
     "HOSTED", "HOSTING_FAILED", "STARTING_HOSTING", "STOPPING_HOSTING", "SYSTEM_UPDATING"
 ]
+ModelPackagingJobStatusType = Literal["CREATED", "FAILED", "RUNNING", "SUCCEEDED"]
 ModelStatusType = Literal[
     "DELETING",
     "HOSTED",
@@ -56,3 +64,7 @@ ModelStatusType = Literal[
     "TRAINING",
     "TRAINING_FAILED",
 ]
+TargetDeviceType = Literal["jetson_xavier"]
+TargetPlatformAcceleratorType = Literal["NVIDIA"]
+TargetPlatformArchType = Literal["ARM64", "X86_64"]
+TargetPlatformOsType = Literal["LINUX"]

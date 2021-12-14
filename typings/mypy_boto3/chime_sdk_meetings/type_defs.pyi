@@ -15,10 +15,12 @@ import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    MeetingFeatureStatusType,
     TranscribeLanguageCodeType,
     TranscribeMedicalRegionType,
     TranscribeMedicalSpecialtyType,
     TranscribeMedicalTypeType,
+    TranscribePartialResultsStabilityType,
     TranscribeRegionType,
     TranscribeVocabularyFilterMethodType,
 )
@@ -34,6 +36,7 @@ else:
 
 __all__ = (
     "AttendeeTypeDef",
+    "AudioFeaturesTypeDef",
     "BatchCreateAttendeeRequestRequestTypeDef",
     "BatchCreateAttendeeResponseTypeDef",
     "CreateAttendeeErrorTypeDef",
@@ -55,6 +58,7 @@ __all__ = (
     "ListAttendeesRequestRequestTypeDef",
     "ListAttendeesResponseTypeDef",
     "MediaPlacementTypeDef",
+    "MeetingFeaturesConfigurationTypeDef",
     "MeetingTypeDef",
     "NotificationsConfigurationTypeDef",
     "ResponseMetadataTypeDef",
@@ -69,6 +73,14 @@ AttendeeTypeDef = TypedDict(
         "ExternalUserId": str,
         "AttendeeId": str,
         "JoinToken": str,
+    },
+    total=False,
+)
+
+AudioFeaturesTypeDef = TypedDict(
+    "AudioFeaturesTypeDef",
+    {
+        "EchoReduction": MeetingFeatureStatusType,
     },
     total=False,
 )
@@ -136,6 +148,7 @@ _OptionalCreateMeetingRequestRequestTypeDef = TypedDict(
     {
         "MeetingHostId": str,
         "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
+        "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
     },
     total=False,
 )
@@ -166,6 +179,7 @@ _OptionalCreateMeetingWithAttendeesRequestRequestTypeDef = TypedDict(
     "_OptionalCreateMeetingWithAttendeesRequestRequestTypeDef",
     {
         "MeetingHostId": str,
+        "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
         "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
     },
     total=False,
@@ -215,6 +229,7 @@ _OptionalEngineTranscribeMedicalSettingsTypeDef = TypedDict(
     {
         "VocabularyName": str,
         "Region": TranscribeMedicalRegionType,
+        "ContentIdentificationType": Literal["PHI"],
     },
     total=False,
 )
@@ -237,6 +252,12 @@ _OptionalEngineTranscribeSettingsTypeDef = TypedDict(
         "VocabularyFilterName": str,
         "VocabularyName": str,
         "Region": TranscribeRegionType,
+        "EnablePartialResultsStabilization": bool,
+        "PartialResultsStability": TranscribePartialResultsStabilityType,
+        "ContentIdentificationType": Literal["PII"],
+        "ContentRedactionType": Literal["PII"],
+        "PiiEntityTypes": str,
+        "LanguageModelName": str,
     },
     total=False,
 )
@@ -321,6 +342,14 @@ MediaPlacementTypeDef = TypedDict(
     total=False,
 )
 
+MeetingFeaturesConfigurationTypeDef = TypedDict(
+    "MeetingFeaturesConfigurationTypeDef",
+    {
+        "Audio": "AudioFeaturesTypeDef",
+    },
+    total=False,
+)
+
 MeetingTypeDef = TypedDict(
     "MeetingTypeDef",
     {
@@ -329,6 +358,7 @@ MeetingTypeDef = TypedDict(
         "ExternalMeetingId": str,
         "MediaRegion": str,
         "MediaPlacement": "MediaPlacementTypeDef",
+        "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
     },
     total=False,
 )

@@ -20,7 +20,13 @@ from .literals import (
     DeploymentUpdateTypeType,
     EnvironmentAccountConnectionRequesterAccountTypeType,
     EnvironmentAccountConnectionStatusType,
+    ProvisionedResourceEngineType,
+    RepositoryProviderType,
+    RepositorySyncStatusType,
+    ResourceDeploymentStatusType,
+    ResourceSyncStatusType,
     ServiceStatusType,
+    TemplateTypeType,
     TemplateVersionStatusType,
 )
 
@@ -53,12 +59,16 @@ __all__ = (
     "CreateEnvironmentTemplateOutputTypeDef",
     "CreateEnvironmentTemplateVersionInputRequestTypeDef",
     "CreateEnvironmentTemplateVersionOutputTypeDef",
+    "CreateRepositoryInputRequestTypeDef",
+    "CreateRepositoryOutputTypeDef",
     "CreateServiceInputRequestTypeDef",
     "CreateServiceOutputTypeDef",
     "CreateServiceTemplateInputRequestTypeDef",
     "CreateServiceTemplateOutputTypeDef",
     "CreateServiceTemplateVersionInputRequestTypeDef",
     "CreateServiceTemplateVersionOutputTypeDef",
+    "CreateTemplateSyncConfigInputRequestTypeDef",
+    "CreateTemplateSyncConfigOutputTypeDef",
     "DeleteEnvironmentAccountConnectionInputRequestTypeDef",
     "DeleteEnvironmentAccountConnectionOutputTypeDef",
     "DeleteEnvironmentInputRequestTypeDef",
@@ -67,12 +77,16 @@ __all__ = (
     "DeleteEnvironmentTemplateOutputTypeDef",
     "DeleteEnvironmentTemplateVersionInputRequestTypeDef",
     "DeleteEnvironmentTemplateVersionOutputTypeDef",
+    "DeleteRepositoryInputRequestTypeDef",
+    "DeleteRepositoryOutputTypeDef",
     "DeleteServiceInputRequestTypeDef",
     "DeleteServiceOutputTypeDef",
     "DeleteServiceTemplateInputRequestTypeDef",
     "DeleteServiceTemplateOutputTypeDef",
     "DeleteServiceTemplateVersionInputRequestTypeDef",
     "DeleteServiceTemplateVersionOutputTypeDef",
+    "DeleteTemplateSyncConfigInputRequestTypeDef",
+    "DeleteTemplateSyncConfigOutputTypeDef",
     "EnvironmentAccountConnectionSummaryTypeDef",
     "EnvironmentAccountConnectionTypeDef",
     "EnvironmentSummaryTypeDef",
@@ -91,6 +105,10 @@ __all__ = (
     "GetEnvironmentTemplateOutputTypeDef",
     "GetEnvironmentTemplateVersionInputRequestTypeDef",
     "GetEnvironmentTemplateVersionOutputTypeDef",
+    "GetRepositoryInputRequestTypeDef",
+    "GetRepositoryOutputTypeDef",
+    "GetRepositorySyncStatusInputRequestTypeDef",
+    "GetRepositorySyncStatusOutputTypeDef",
     "GetServiceInputRequestTypeDef",
     "GetServiceInstanceInputRequestTypeDef",
     "GetServiceInstanceOutputTypeDef",
@@ -99,16 +117,36 @@ __all__ = (
     "GetServiceTemplateOutputTypeDef",
     "GetServiceTemplateVersionInputRequestTypeDef",
     "GetServiceTemplateVersionOutputTypeDef",
+    "GetTemplateSyncConfigInputRequestTypeDef",
+    "GetTemplateSyncConfigOutputTypeDef",
+    "GetTemplateSyncStatusInputRequestTypeDef",
+    "GetTemplateSyncStatusOutputTypeDef",
     "ListEnvironmentAccountConnectionsInputRequestTypeDef",
     "ListEnvironmentAccountConnectionsOutputTypeDef",
+    "ListEnvironmentOutputsInputRequestTypeDef",
+    "ListEnvironmentOutputsOutputTypeDef",
+    "ListEnvironmentProvisionedResourcesInputRequestTypeDef",
+    "ListEnvironmentProvisionedResourcesOutputTypeDef",
     "ListEnvironmentTemplateVersionsInputRequestTypeDef",
     "ListEnvironmentTemplateVersionsOutputTypeDef",
     "ListEnvironmentTemplatesInputRequestTypeDef",
     "ListEnvironmentTemplatesOutputTypeDef",
     "ListEnvironmentsInputRequestTypeDef",
     "ListEnvironmentsOutputTypeDef",
+    "ListRepositoriesInputRequestTypeDef",
+    "ListRepositoriesOutputTypeDef",
+    "ListRepositorySyncDefinitionsInputRequestTypeDef",
+    "ListRepositorySyncDefinitionsOutputTypeDef",
+    "ListServiceInstanceOutputsInputRequestTypeDef",
+    "ListServiceInstanceOutputsOutputTypeDef",
+    "ListServiceInstanceProvisionedResourcesInputRequestTypeDef",
+    "ListServiceInstanceProvisionedResourcesOutputTypeDef",
     "ListServiceInstancesInputRequestTypeDef",
     "ListServiceInstancesOutputTypeDef",
+    "ListServicePipelineOutputsInputRequestTypeDef",
+    "ListServicePipelineOutputsOutputTypeDef",
+    "ListServicePipelineProvisionedResourcesInputRequestTypeDef",
+    "ListServicePipelineProvisionedResourcesOutputTypeDef",
     "ListServiceTemplateVersionsInputRequestTypeDef",
     "ListServiceTemplateVersionsOutputTypeDef",
     "ListServiceTemplatesInputRequestTypeDef",
@@ -117,10 +155,23 @@ __all__ = (
     "ListServicesOutputTypeDef",
     "ListTagsForResourceInputRequestTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "NotifyResourceDeploymentStatusChangeInputRequestTypeDef",
+    "OutputTypeDef",
     "PaginatorConfigTypeDef",
+    "ProvisionedResourceTypeDef",
     "RejectEnvironmentAccountConnectionInputRequestTypeDef",
     "RejectEnvironmentAccountConnectionOutputTypeDef",
+    "RepositoryBranchInputTypeDef",
+    "RepositoryBranchTypeDef",
+    "RepositorySummaryTypeDef",
+    "RepositorySyncAttemptTypeDef",
+    "RepositorySyncDefinitionTypeDef",
+    "RepositorySyncEventTypeDef",
+    "RepositoryTypeDef",
+    "ResourceSyncAttemptTypeDef",
+    "ResourceSyncEventTypeDef",
     "ResponseMetadataTypeDef",
+    "RevisionTypeDef",
     "S3ObjectSourceTypeDef",
     "ServiceInstanceSummaryTypeDef",
     "ServiceInstanceTypeDef",
@@ -133,6 +184,7 @@ __all__ = (
     "ServiceTypeDef",
     "TagResourceInputRequestTypeDef",
     "TagTypeDef",
+    "TemplateSyncConfigTypeDef",
     "TemplateVersionSourceInputTypeDef",
     "UntagResourceInputRequestTypeDef",
     "UpdateAccountSettingsInputRequestTypeDef",
@@ -155,6 +207,8 @@ __all__ = (
     "UpdateServiceTemplateOutputTypeDef",
     "UpdateServiceTemplateVersionInputRequestTypeDef",
     "UpdateServiceTemplateVersionOutputTypeDef",
+    "UpdateTemplateSyncConfigInputRequestTypeDef",
+    "UpdateTemplateSyncConfigOutputTypeDef",
     "WaiterConfigTypeDef",
 )
 
@@ -176,6 +230,7 @@ AcceptEnvironmentAccountConnectionOutputTypeDef = TypedDict(
 AccountSettingsTypeDef = TypedDict(
     "AccountSettingsTypeDef",
     {
+        "pipelineProvisioningRepository": "RepositoryBranchTypeDef",
         "pipelineServiceRoleArn": str,
     },
     total=False,
@@ -255,6 +310,7 @@ _OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
     "_OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef",
     {
         "clientToken": str,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -288,6 +344,7 @@ _OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
         "description": str,
         "environmentAccountConnectionId": str,
         "protonServiceRoleArn": str,
+        "provisioningRepository": "RepositoryBranchInputTypeDef",
         "tags": List["TagTypeDef"],
         "templateMinorVersion": str,
     },
@@ -367,6 +424,35 @@ CreateEnvironmentTemplateVersionOutputTypeDef = TypedDict(
     "CreateEnvironmentTemplateVersionOutputTypeDef",
     {
         "environmentTemplateVersion": "EnvironmentTemplateVersionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateRepositoryInputRequestTypeDef = TypedDict(
+    "_RequiredCreateRepositoryInputRequestTypeDef",
+    {
+        "connectionArn": str,
+        "name": str,
+        "provider": RepositoryProviderType,
+    },
+)
+_OptionalCreateRepositoryInputRequestTypeDef = TypedDict(
+    "_OptionalCreateRepositoryInputRequestTypeDef",
+    {
+        "encryptionKey": str,
+    },
+    total=False,
+)
+
+class CreateRepositoryInputRequestTypeDef(
+    _RequiredCreateRepositoryInputRequestTypeDef, _OptionalCreateRepositoryInputRequestTypeDef
+):
+    pass
+
+CreateRepositoryOutputTypeDef = TypedDict(
+    "CreateRepositoryOutputTypeDef",
+    {
+        "repository": "RepositoryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -471,6 +557,38 @@ CreateServiceTemplateVersionOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateTemplateSyncConfigInputRequestTypeDef = TypedDict(
+    "_RequiredCreateTemplateSyncConfigInputRequestTypeDef",
+    {
+        "branch": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "templateName": str,
+        "templateType": TemplateTypeType,
+    },
+)
+_OptionalCreateTemplateSyncConfigInputRequestTypeDef = TypedDict(
+    "_OptionalCreateTemplateSyncConfigInputRequestTypeDef",
+    {
+        "subdirectory": str,
+    },
+    total=False,
+)
+
+class CreateTemplateSyncConfigInputRequestTypeDef(
+    _RequiredCreateTemplateSyncConfigInputRequestTypeDef,
+    _OptionalCreateTemplateSyncConfigInputRequestTypeDef,
+):
+    pass
+
+CreateTemplateSyncConfigOutputTypeDef = TypedDict(
+    "CreateTemplateSyncConfigOutputTypeDef",
+    {
+        "templateSyncConfig": "TemplateSyncConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
     "DeleteEnvironmentAccountConnectionInputRequestTypeDef",
     {
@@ -533,6 +651,22 @@ DeleteEnvironmentTemplateVersionOutputTypeDef = TypedDict(
     },
 )
 
+DeleteRepositoryInputRequestTypeDef = TypedDict(
+    "DeleteRepositoryInputRequestTypeDef",
+    {
+        "name": str,
+        "provider": RepositoryProviderType,
+    },
+)
+
+DeleteRepositoryOutputTypeDef = TypedDict(
+    "DeleteRepositoryOutputTypeDef",
+    {
+        "repository": "RepositoryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteServiceInputRequestTypeDef = TypedDict(
     "DeleteServiceInputRequestTypeDef",
     {
@@ -576,6 +710,22 @@ DeleteServiceTemplateVersionOutputTypeDef = TypedDict(
     "DeleteServiceTemplateVersionOutputTypeDef",
     {
         "serviceTemplateVersion": "ServiceTemplateVersionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteTemplateSyncConfigInputRequestTypeDef = TypedDict(
+    "DeleteTemplateSyncConfigInputRequestTypeDef",
+    {
+        "templateName": str,
+        "templateType": TemplateTypeType,
+    },
+)
+
+DeleteTemplateSyncConfigOutputTypeDef = TypedDict(
+    "DeleteTemplateSyncConfigOutputTypeDef",
+    {
+        "templateSyncConfig": "TemplateSyncConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -780,6 +930,7 @@ _OptionalEnvironmentTypeDef = TypedDict(
         "environmentAccountId": str,
         "protonServiceRoleArn": str,
         "provisioning": Literal["CUSTOMER_MANAGED"],
+        "provisioningRepository": "RepositoryBranchTypeDef",
         "spec": str,
     },
     total=False,
@@ -858,6 +1009,40 @@ GetEnvironmentTemplateVersionOutputTypeDef = TypedDict(
     },
 )
 
+GetRepositoryInputRequestTypeDef = TypedDict(
+    "GetRepositoryInputRequestTypeDef",
+    {
+        "name": str,
+        "provider": RepositoryProviderType,
+    },
+)
+
+GetRepositoryOutputTypeDef = TypedDict(
+    "GetRepositoryOutputTypeDef",
+    {
+        "repository": "RepositoryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetRepositorySyncStatusInputRequestTypeDef = TypedDict(
+    "GetRepositorySyncStatusInputRequestTypeDef",
+    {
+        "branch": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "syncType": Literal["TEMPLATE_SYNC"],
+    },
+)
+
+GetRepositorySyncStatusOutputTypeDef = TypedDict(
+    "GetRepositorySyncStatusOutputTypeDef",
+    {
+        "latestSync": "RepositorySyncAttemptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetServiceInputRequestTypeDef = TypedDict(
     "GetServiceInputRequestTypeDef",
     {
@@ -921,6 +1106,41 @@ GetServiceTemplateVersionOutputTypeDef = TypedDict(
     },
 )
 
+GetTemplateSyncConfigInputRequestTypeDef = TypedDict(
+    "GetTemplateSyncConfigInputRequestTypeDef",
+    {
+        "templateName": str,
+        "templateType": TemplateTypeType,
+    },
+)
+
+GetTemplateSyncConfigOutputTypeDef = TypedDict(
+    "GetTemplateSyncConfigOutputTypeDef",
+    {
+        "templateSyncConfig": "TemplateSyncConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTemplateSyncStatusInputRequestTypeDef = TypedDict(
+    "GetTemplateSyncStatusInputRequestTypeDef",
+    {
+        "templateName": str,
+        "templateType": TemplateTypeType,
+        "templateVersion": str,
+    },
+)
+
+GetTemplateSyncStatusOutputTypeDef = TypedDict(
+    "GetTemplateSyncStatusOutputTypeDef",
+    {
+        "desiredState": "RevisionTypeDef",
+        "latestSuccessfulSync": "ResourceSyncAttemptTypeDef",
+        "latestSync": "ResourceSyncAttemptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListEnvironmentAccountConnectionsInputRequestTypeDef = TypedDict(
     "_RequiredListEnvironmentAccountConnectionsInputRequestTypeDef",
     {
@@ -949,6 +1169,64 @@ ListEnvironmentAccountConnectionsOutputTypeDef = TypedDict(
     {
         "environmentAccountConnections": List["EnvironmentAccountConnectionSummaryTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEnvironmentOutputsInputRequestTypeDef = TypedDict(
+    "_RequiredListEnvironmentOutputsInputRequestTypeDef",
+    {
+        "environmentName": str,
+    },
+)
+_OptionalListEnvironmentOutputsInputRequestTypeDef = TypedDict(
+    "_OptionalListEnvironmentOutputsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListEnvironmentOutputsInputRequestTypeDef(
+    _RequiredListEnvironmentOutputsInputRequestTypeDef,
+    _OptionalListEnvironmentOutputsInputRequestTypeDef,
+):
+    pass
+
+ListEnvironmentOutputsOutputTypeDef = TypedDict(
+    "ListEnvironmentOutputsOutputTypeDef",
+    {
+        "nextToken": str,
+        "outputs": List["OutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEnvironmentProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_RequiredListEnvironmentProvisionedResourcesInputRequestTypeDef",
+    {
+        "environmentName": str,
+    },
+)
+_OptionalListEnvironmentProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_OptionalListEnvironmentProvisionedResourcesInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListEnvironmentProvisionedResourcesInputRequestTypeDef(
+    _RequiredListEnvironmentProvisionedResourcesInputRequestTypeDef,
+    _OptionalListEnvironmentProvisionedResourcesInputRequestTypeDef,
+):
+    pass
+
+ListEnvironmentProvisionedResourcesOutputTypeDef = TypedDict(
+    "ListEnvironmentProvisionedResourcesOutputTypeDef",
+    {
+        "nextToken": str,
+        "provisionedResources": List["ProvisionedResourceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1021,6 +1299,115 @@ ListEnvironmentsOutputTypeDef = TypedDict(
     },
 )
 
+ListRepositoriesInputRequestTypeDef = TypedDict(
+    "ListRepositoriesInputRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListRepositoriesOutputTypeDef = TypedDict(
+    "ListRepositoriesOutputTypeDef",
+    {
+        "nextToken": str,
+        "repositories": List["RepositorySummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListRepositorySyncDefinitionsInputRequestTypeDef = TypedDict(
+    "_RequiredListRepositorySyncDefinitionsInputRequestTypeDef",
+    {
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "syncType": Literal["TEMPLATE_SYNC"],
+    },
+)
+_OptionalListRepositorySyncDefinitionsInputRequestTypeDef = TypedDict(
+    "_OptionalListRepositorySyncDefinitionsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListRepositorySyncDefinitionsInputRequestTypeDef(
+    _RequiredListRepositorySyncDefinitionsInputRequestTypeDef,
+    _OptionalListRepositorySyncDefinitionsInputRequestTypeDef,
+):
+    pass
+
+ListRepositorySyncDefinitionsOutputTypeDef = TypedDict(
+    "ListRepositorySyncDefinitionsOutputTypeDef",
+    {
+        "nextToken": str,
+        "syncDefinitions": List["RepositorySyncDefinitionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListServiceInstanceOutputsInputRequestTypeDef = TypedDict(
+    "_RequiredListServiceInstanceOutputsInputRequestTypeDef",
+    {
+        "serviceInstanceName": str,
+        "serviceName": str,
+    },
+)
+_OptionalListServiceInstanceOutputsInputRequestTypeDef = TypedDict(
+    "_OptionalListServiceInstanceOutputsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListServiceInstanceOutputsInputRequestTypeDef(
+    _RequiredListServiceInstanceOutputsInputRequestTypeDef,
+    _OptionalListServiceInstanceOutputsInputRequestTypeDef,
+):
+    pass
+
+ListServiceInstanceOutputsOutputTypeDef = TypedDict(
+    "ListServiceInstanceOutputsOutputTypeDef",
+    {
+        "nextToken": str,
+        "outputs": List["OutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListServiceInstanceProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_RequiredListServiceInstanceProvisionedResourcesInputRequestTypeDef",
+    {
+        "serviceInstanceName": str,
+        "serviceName": str,
+    },
+)
+_OptionalListServiceInstanceProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_OptionalListServiceInstanceProvisionedResourcesInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListServiceInstanceProvisionedResourcesInputRequestTypeDef(
+    _RequiredListServiceInstanceProvisionedResourcesInputRequestTypeDef,
+    _OptionalListServiceInstanceProvisionedResourcesInputRequestTypeDef,
+):
+    pass
+
+ListServiceInstanceProvisionedResourcesOutputTypeDef = TypedDict(
+    "ListServiceInstanceProvisionedResourcesOutputTypeDef",
+    {
+        "nextToken": str,
+        "provisionedResources": List["ProvisionedResourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListServiceInstancesInputRequestTypeDef = TypedDict(
     "ListServiceInstancesInputRequestTypeDef",
     {
@@ -1036,6 +1423,64 @@ ListServiceInstancesOutputTypeDef = TypedDict(
     {
         "nextToken": str,
         "serviceInstances": List["ServiceInstanceSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListServicePipelineOutputsInputRequestTypeDef = TypedDict(
+    "_RequiredListServicePipelineOutputsInputRequestTypeDef",
+    {
+        "serviceName": str,
+    },
+)
+_OptionalListServicePipelineOutputsInputRequestTypeDef = TypedDict(
+    "_OptionalListServicePipelineOutputsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListServicePipelineOutputsInputRequestTypeDef(
+    _RequiredListServicePipelineOutputsInputRequestTypeDef,
+    _OptionalListServicePipelineOutputsInputRequestTypeDef,
+):
+    pass
+
+ListServicePipelineOutputsOutputTypeDef = TypedDict(
+    "ListServicePipelineOutputsOutputTypeDef",
+    {
+        "nextToken": str,
+        "outputs": List["OutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListServicePipelineProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_RequiredListServicePipelineProvisionedResourcesInputRequestTypeDef",
+    {
+        "serviceName": str,
+    },
+)
+_OptionalListServicePipelineProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_OptionalListServicePipelineProvisionedResourcesInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListServicePipelineProvisionedResourcesInputRequestTypeDef(
+    _RequiredListServicePipelineProvisionedResourcesInputRequestTypeDef,
+    _OptionalListServicePipelineProvisionedResourcesInputRequestTypeDef,
+):
+    pass
+
+ListServicePipelineProvisionedResourcesOutputTypeDef = TypedDict(
+    "ListServicePipelineProvisionedResourcesOutputTypeDef",
+    {
+        "nextToken": str,
+        "provisionedResources": List["ProvisionedResourceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1136,12 +1581,54 @@ ListTagsForResourceOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef = TypedDict(
+    "_RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef",
+    {
+        "resourceArn": str,
+        "status": ResourceDeploymentStatusType,
+    },
+)
+_OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef = TypedDict(
+    "_OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef",
+    {
+        "deploymentId": str,
+        "outputs": List["OutputTypeDef"],
+        "statusMessage": str,
+    },
+    total=False,
+)
+
+class NotifyResourceDeploymentStatusChangeInputRequestTypeDef(
+    _RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef,
+    _OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef,
+):
+    pass
+
+OutputTypeDef = TypedDict(
+    "OutputTypeDef",
+    {
+        "key": str,
+        "valueString": str,
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
         "MaxItems": int,
         "PageSize": int,
         "StartingToken": str,
+    },
+    total=False,
+)
+
+ProvisionedResourceTypeDef = TypedDict(
+    "ProvisionedResourceTypeDef",
+    {
+        "identifier": str,
+        "name": str,
+        "provisioningEngine": ProvisionedResourceEngineType,
     },
     total=False,
 )
@@ -1161,6 +1648,127 @@ RejectEnvironmentAccountConnectionOutputTypeDef = TypedDict(
     },
 )
 
+RepositoryBranchInputTypeDef = TypedDict(
+    "RepositoryBranchInputTypeDef",
+    {
+        "branch": str,
+        "name": str,
+        "provider": RepositoryProviderType,
+    },
+)
+
+RepositoryBranchTypeDef = TypedDict(
+    "RepositoryBranchTypeDef",
+    {
+        "arn": str,
+        "branch": str,
+        "name": str,
+        "provider": RepositoryProviderType,
+    },
+)
+
+RepositorySummaryTypeDef = TypedDict(
+    "RepositorySummaryTypeDef",
+    {
+        "arn": str,
+        "name": str,
+        "provider": RepositoryProviderType,
+    },
+)
+
+RepositorySyncAttemptTypeDef = TypedDict(
+    "RepositorySyncAttemptTypeDef",
+    {
+        "events": List["RepositorySyncEventTypeDef"],
+        "startedAt": datetime,
+        "status": RepositorySyncStatusType,
+    },
+)
+
+RepositorySyncDefinitionTypeDef = TypedDict(
+    "RepositorySyncDefinitionTypeDef",
+    {
+        "branch": str,
+        "directory": str,
+        "parent": str,
+        "target": str,
+    },
+)
+
+_RequiredRepositorySyncEventTypeDef = TypedDict(
+    "_RequiredRepositorySyncEventTypeDef",
+    {
+        "event": str,
+        "time": datetime,
+        "type": str,
+    },
+)
+_OptionalRepositorySyncEventTypeDef = TypedDict(
+    "_OptionalRepositorySyncEventTypeDef",
+    {
+        "externalId": str,
+    },
+    total=False,
+)
+
+class RepositorySyncEventTypeDef(
+    _RequiredRepositorySyncEventTypeDef, _OptionalRepositorySyncEventTypeDef
+):
+    pass
+
+_RequiredRepositoryTypeDef = TypedDict(
+    "_RequiredRepositoryTypeDef",
+    {
+        "arn": str,
+        "connectionArn": str,
+        "name": str,
+        "provider": RepositoryProviderType,
+    },
+)
+_OptionalRepositoryTypeDef = TypedDict(
+    "_OptionalRepositoryTypeDef",
+    {
+        "encryptionKey": str,
+    },
+    total=False,
+)
+
+class RepositoryTypeDef(_RequiredRepositoryTypeDef, _OptionalRepositoryTypeDef):
+    pass
+
+ResourceSyncAttemptTypeDef = TypedDict(
+    "ResourceSyncAttemptTypeDef",
+    {
+        "events": List["ResourceSyncEventTypeDef"],
+        "initialRevision": "RevisionTypeDef",
+        "startedAt": datetime,
+        "status": ResourceSyncStatusType,
+        "target": str,
+        "targetRevision": "RevisionTypeDef",
+    },
+)
+
+_RequiredResourceSyncEventTypeDef = TypedDict(
+    "_RequiredResourceSyncEventTypeDef",
+    {
+        "event": str,
+        "time": datetime,
+        "type": str,
+    },
+)
+_OptionalResourceSyncEventTypeDef = TypedDict(
+    "_OptionalResourceSyncEventTypeDef",
+    {
+        "externalId": str,
+    },
+    total=False,
+)
+
+class ResourceSyncEventTypeDef(
+    _RequiredResourceSyncEventTypeDef, _OptionalResourceSyncEventTypeDef
+):
+    pass
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1169,6 +1777,17 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+RevisionTypeDef = TypedDict(
+    "RevisionTypeDef",
+    {
+        "branch": str,
+        "directory": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "sha": str,
     },
 )
 
@@ -1434,6 +2053,29 @@ TagTypeDef = TypedDict(
     },
 )
 
+_RequiredTemplateSyncConfigTypeDef = TypedDict(
+    "_RequiredTemplateSyncConfigTypeDef",
+    {
+        "branch": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "templateName": str,
+        "templateType": TemplateTypeType,
+    },
+)
+_OptionalTemplateSyncConfigTypeDef = TypedDict(
+    "_OptionalTemplateSyncConfigTypeDef",
+    {
+        "subdirectory": str,
+    },
+    total=False,
+)
+
+class TemplateSyncConfigTypeDef(
+    _RequiredTemplateSyncConfigTypeDef, _OptionalTemplateSyncConfigTypeDef
+):
+    pass
+
 TemplateVersionSourceInputTypeDef = TypedDict(
     "TemplateVersionSourceInputTypeDef",
     {
@@ -1453,6 +2095,7 @@ UntagResourceInputRequestTypeDef = TypedDict(
 UpdateAccountSettingsInputRequestTypeDef = TypedDict(
     "UpdateAccountSettingsInputRequestTypeDef",
     {
+        "pipelineProvisioningRepository": "RepositoryBranchInputTypeDef",
         "pipelineServiceRoleArn": str,
     },
     total=False,
@@ -1495,6 +2138,7 @@ _OptionalUpdateEnvironmentInputRequestTypeDef = TypedDict(
         "description": str,
         "environmentAccountConnectionId": str,
         "protonServiceRoleArn": str,
+        "provisioningRepository": "RepositoryBranchInputTypeDef",
         "spec": str,
         "templateMajorVersion": str,
         "templateMinorVersion": str,
@@ -1723,6 +2367,38 @@ UpdateServiceTemplateVersionOutputTypeDef = TypedDict(
     "UpdateServiceTemplateVersionOutputTypeDef",
     {
         "serviceTemplateVersion": "ServiceTemplateVersionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateTemplateSyncConfigInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateTemplateSyncConfigInputRequestTypeDef",
+    {
+        "branch": str,
+        "repositoryName": str,
+        "repositoryProvider": RepositoryProviderType,
+        "templateName": str,
+        "templateType": TemplateTypeType,
+    },
+)
+_OptionalUpdateTemplateSyncConfigInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateTemplateSyncConfigInputRequestTypeDef",
+    {
+        "subdirectory": str,
+    },
+    total=False,
+)
+
+class UpdateTemplateSyncConfigInputRequestTypeDef(
+    _RequiredUpdateTemplateSyncConfigInputRequestTypeDef,
+    _OptionalUpdateTemplateSyncConfigInputRequestTypeDef,
+):
+    pass
+
+UpdateTemplateSyncConfigOutputTypeDef = TypedDict(
+    "UpdateTemplateSyncConfigOutputTypeDef",
+    {
+        "templateSyncConfig": "TemplateSyncConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

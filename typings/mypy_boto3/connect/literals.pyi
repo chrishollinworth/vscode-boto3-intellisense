@@ -23,6 +23,9 @@ __all__ = (
     "AgentStatusTypeType",
     "ChannelType",
     "ComparisonType",
+    "ContactFlowModuleStateType",
+    "ContactFlowModuleStatusType",
+    "ContactFlowStateType",
     "ContactFlowTypeType",
     "ContactInitiationMethodType",
     "CurrentMetricNameType",
@@ -40,6 +43,7 @@ __all__ = (
     "ListAgentStatusesPaginatorName",
     "ListApprovedOriginsPaginatorName",
     "ListBotsPaginatorName",
+    "ListContactFlowModulesPaginatorName",
     "ListContactFlowsPaginatorName",
     "ListContactReferencesPaginatorName",
     "ListHoursOfOperationsPaginatorName",
@@ -83,6 +87,9 @@ AgentStatusStateType = Literal["DISABLED", "ENABLED"]
 AgentStatusTypeType = Literal["CUSTOM", "OFFLINE", "ROUTABLE"]
 ChannelType = Literal["CHAT", "TASK", "VOICE"]
 ComparisonType = Literal["LT"]
+ContactFlowModuleStateType = Literal["ACTIVE", "ARCHIVED"]
+ContactFlowModuleStatusType = Literal["PUBLISHED", "SAVED"]
+ContactFlowStateType = Literal["ACTIVE", "ARCHIVED"]
 ContactFlowTypeType = Literal[
     "AGENT_HOLD",
     "AGENT_TRANSFER",
@@ -171,6 +178,7 @@ LexVersionType = Literal["V1", "V2"]
 ListAgentStatusesPaginatorName = Literal["list_agent_statuses"]
 ListApprovedOriginsPaginatorName = Literal["list_approved_origins"]
 ListBotsPaginatorName = Literal["list_bots"]
+ListContactFlowModulesPaginatorName = Literal["list_contact_flow_modules"]
 ListContactFlowsPaginatorName = Literal["list_contact_flows"]
 ListContactReferencesPaginatorName = Literal["list_contact_references"]
 ListHoursOfOperationsPaginatorName = Literal["list_hours_of_operations"]

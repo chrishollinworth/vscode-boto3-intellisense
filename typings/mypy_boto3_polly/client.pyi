@@ -80,7 +80,7 @@ class Exceptions:
 
 class PollyClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html)
     """
 
@@ -94,7 +94,7 @@ class PollyClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#can_paginate)
         """
     def delete_lexicon(self, *, Name: str) -> Dict[str, Any]:
@@ -102,7 +102,7 @@ class PollyClient(BaseClient):
         Deletes the specified pronunciation lexicon stored in an Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.delete_lexicon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.delete_lexicon)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#delete_lexicon)
         """
     def describe_voices(
@@ -117,7 +117,7 @@ class PollyClient(BaseClient):
         Returns the list of voices that are available for use when requesting speech
         synthesis.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.describe_voices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.describe_voices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#describe_voices)
         """
     def generate_presigned_url(
@@ -130,7 +130,7 @@ class PollyClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#generate_presigned_url)
         """
     def get_lexicon(self, *, Name: str) -> GetLexiconOutputTypeDef:
@@ -138,14 +138,14 @@ class PollyClient(BaseClient):
         Returns the content of the specified pronunciation lexicon stored in an Amazon
         Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.get_lexicon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.get_lexicon)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#get_lexicon)
         """
     def get_speech_synthesis_task(self, *, TaskId: str) -> GetSpeechSynthesisTaskOutputTypeDef:
         """
         Retrieves a specific SpeechSynthesisTask object based on its TaskID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.get_speech_synthesis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.get_speech_synthesis_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#get_speech_synthesis_task)
         """
     def list_lexicons(self, *, NextToken: str = None) -> ListLexiconsOutputTypeDef:
@@ -153,7 +153,7 @@ class PollyClient(BaseClient):
         Returns a list of pronunciation lexicons stored in an Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.list_lexicons)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.list_lexicons)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#list_lexicons)
         """
     def list_speech_synthesis_tasks(
@@ -162,14 +162,14 @@ class PollyClient(BaseClient):
         """
         Returns a list of SpeechSynthesisTask objects ordered by their creation date.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.list_speech_synthesis_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.list_speech_synthesis_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#list_speech_synthesis_tasks)
         """
     def put_lexicon(self, *, Name: str, Content: str) -> Dict[str, Any]:
         """
         Stores a pronunciation lexicon in an Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.put_lexicon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.put_lexicon)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#put_lexicon)
         """
     def start_speech_synthesis_task(
@@ -192,7 +192,7 @@ class PollyClient(BaseClient):
         Allows the creation of an asynchronous synthesis task, by starting a new
         `SpeechSynthesisTask`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.start_speech_synthesis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.start_speech_synthesis_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#start_speech_synthesis_task)
         """
     def synthesize_speech(
@@ -211,19 +211,19 @@ class PollyClient(BaseClient):
         """
         Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Client.synthesize_speech)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Client.synthesize_speech)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/client.html#synthesize_speech)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_voices"]) -> DescribeVoicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Paginator.DescribeVoices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#describevoicespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_lexicons"]) -> ListLexiconsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Paginator.ListLexicons)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Paginator.ListLexicons)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listlexiconspaginator)
         """
     @overload
@@ -231,6 +231,6 @@ class PollyClient(BaseClient):
         self, operation_name: Literal["list_speech_synthesis_tasks"]
     ) -> ListSpeechSynthesisTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/paginators.html#listspeechsynthesistaskspaginator)
         """

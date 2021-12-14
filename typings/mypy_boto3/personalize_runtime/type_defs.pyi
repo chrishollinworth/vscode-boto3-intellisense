@@ -61,30 +61,20 @@ GetPersonalizedRankingResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredGetRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRecommendationsRequestRequestTypeDef",
+GetRecommendationsRequestRequestTypeDef = TypedDict(
+    "GetRecommendationsRequestRequestTypeDef",
     {
         "campaignArn": str,
-    },
-)
-_OptionalGetRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRecommendationsRequestRequestTypeDef",
-    {
         "itemId": str,
         "userId": str,
         "numResults": int,
         "context": Dict[str, str],
         "filterArn": str,
         "filterValues": Dict[str, str],
+        "recommenderArn": str,
     },
     total=False,
 )
-
-class GetRecommendationsRequestRequestTypeDef(
-    _RequiredGetRecommendationsRequestRequestTypeDef,
-    _OptionalGetRecommendationsRequestRequestTypeDef,
-):
-    pass
 
 GetRecommendationsResponseTypeDef = TypedDict(
     "GetRecommendationsResponseTypeDef",

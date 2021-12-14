@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AnomalySeverityType",
     "AnomalyStatusType",
+    "AnomalyTypeType",
     "CloudWatchMetricDataStatusCodeType",
     "CloudWatchMetricsStatType",
     "CostEstimationServiceResourceStateType",
@@ -53,6 +54,7 @@ __all__ = (
 
 AnomalySeverityType = Literal["HIGH", "LOW", "MEDIUM"]
 AnomalyStatusType = Literal["CLOSED", "ONGOING"]
+AnomalyTypeType = Literal["CAUSAL", "CONTEXTUAL"]
 CloudWatchMetricDataStatusCodeType = Literal["Complete", "InternalError", "PartialData"]
 CloudWatchMetricsStatType = Literal[
     "Average", "Maximum", "Minimum", "SampleCount", "Sum", "p50", "p90", "p99"
@@ -102,7 +104,7 @@ OptInStatusType = Literal["DISABLED", "ENABLED"]
 OrganizationResourceCollectionTypeType = Literal[
     "AWS_ACCOUNT", "AWS_CLOUD_FORMATION", "AWS_SERVICE"
 ]
-ResourceCollectionTypeType = Literal["AWS_CLOUD_FORMATION", "AWS_SERVICE"]
+ResourceCollectionTypeType = Literal["AWS_CLOUD_FORMATION", "AWS_SERVICE", "AWS_TAGS"]
 SearchInsightsPaginatorName = Literal["search_insights"]
 SearchOrganizationInsightsPaginatorName = Literal["search_organization_insights"]
 ServiceNameType = Literal[

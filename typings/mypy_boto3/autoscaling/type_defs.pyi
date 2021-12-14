@@ -151,8 +151,11 @@ __all__ = (
     "MemoryGiBPerVCpuRequestTypeDef",
     "MemoryMiBRequestTypeDef",
     "MetricCollectionTypeTypeDef",
+    "MetricDataQueryTypeDef",
     "MetricDimensionTypeDef",
     "MetricGranularityTypeTypeDef",
+    "MetricStatTypeDef",
+    "MetricTypeDef",
     "MixedInstancesPolicyTypeDef",
     "NetworkInterfaceCountRequestTypeDef",
     "NotificationConfigurationTypeDef",
@@ -161,6 +164,9 @@ __all__ = (
     "PolicyARNTypeTypeDef",
     "PredefinedMetricSpecificationTypeDef",
     "PredictiveScalingConfigurationTypeDef",
+    "PredictiveScalingCustomizedCapacityMetricTypeDef",
+    "PredictiveScalingCustomizedLoadMetricTypeDef",
+    "PredictiveScalingCustomizedScalingMetricTypeDef",
     "PredictiveScalingMetricSpecificationTypeDef",
     "PredictiveScalingPredefinedLoadMetricTypeDef",
     "PredictiveScalingPredefinedMetricPairTypeDef",
@@ -1574,6 +1580,26 @@ MetricCollectionTypeTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredMetricDataQueryTypeDef = TypedDict(
+    "_RequiredMetricDataQueryTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalMetricDataQueryTypeDef = TypedDict(
+    "_OptionalMetricDataQueryTypeDef",
+    {
+        "Expression": str,
+        "MetricStat": "MetricStatTypeDef",
+        "Label": str,
+        "ReturnData": bool,
+    },
+    total=False,
+)
+
+class MetricDataQueryTypeDef(_RequiredMetricDataQueryTypeDef, _OptionalMetricDataQueryTypeDef):
+    pass
+
 MetricDimensionTypeDef = TypedDict(
     "MetricDimensionTypeDef",
     {
@@ -1589,6 +1615,42 @@ MetricGranularityTypeTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredMetricStatTypeDef = TypedDict(
+    "_RequiredMetricStatTypeDef",
+    {
+        "Metric": "MetricTypeDef",
+        "Stat": str,
+    },
+)
+_OptionalMetricStatTypeDef = TypedDict(
+    "_OptionalMetricStatTypeDef",
+    {
+        "Unit": str,
+    },
+    total=False,
+)
+
+class MetricStatTypeDef(_RequiredMetricStatTypeDef, _OptionalMetricStatTypeDef):
+    pass
+
+_RequiredMetricTypeDef = TypedDict(
+    "_RequiredMetricTypeDef",
+    {
+        "Namespace": str,
+        "MetricName": str,
+    },
+)
+_OptionalMetricTypeDef = TypedDict(
+    "_OptionalMetricTypeDef",
+    {
+        "Dimensions": List["MetricDimensionTypeDef"],
+    },
+    total=False,
+)
+
+class MetricTypeDef(_RequiredMetricTypeDef, _OptionalMetricTypeDef):
+    pass
 
 MixedInstancesPolicyTypeDef = TypedDict(
     "MixedInstancesPolicyTypeDef",
@@ -1687,6 +1749,27 @@ class PredictiveScalingConfigurationTypeDef(
 ):
     pass
 
+PredictiveScalingCustomizedCapacityMetricTypeDef = TypedDict(
+    "PredictiveScalingCustomizedCapacityMetricTypeDef",
+    {
+        "MetricDataQueries": List["MetricDataQueryTypeDef"],
+    },
+)
+
+PredictiveScalingCustomizedLoadMetricTypeDef = TypedDict(
+    "PredictiveScalingCustomizedLoadMetricTypeDef",
+    {
+        "MetricDataQueries": List["MetricDataQueryTypeDef"],
+    },
+)
+
+PredictiveScalingCustomizedScalingMetricTypeDef = TypedDict(
+    "PredictiveScalingCustomizedScalingMetricTypeDef",
+    {
+        "MetricDataQueries": List["MetricDataQueryTypeDef"],
+    },
+)
+
 _RequiredPredictiveScalingMetricSpecificationTypeDef = TypedDict(
     "_RequiredPredictiveScalingMetricSpecificationTypeDef",
     {
@@ -1699,6 +1782,9 @@ _OptionalPredictiveScalingMetricSpecificationTypeDef = TypedDict(
         "PredefinedMetricPairSpecification": "PredictiveScalingPredefinedMetricPairTypeDef",
         "PredefinedScalingMetricSpecification": "PredictiveScalingPredefinedScalingMetricTypeDef",
         "PredefinedLoadMetricSpecification": "PredictiveScalingPredefinedLoadMetricTypeDef",
+        "CustomizedScalingMetricSpecification": "PredictiveScalingCustomizedScalingMetricTypeDef",
+        "CustomizedLoadMetricSpecification": "PredictiveScalingCustomizedLoadMetricTypeDef",
+        "CustomizedCapacityMetricSpecification": "PredictiveScalingCustomizedCapacityMetricTypeDef",
     },
     total=False,
 )

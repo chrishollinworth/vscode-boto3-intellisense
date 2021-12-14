@@ -55,7 +55,6 @@ TierType = Literal[
     "MYSQL",
     "ORACLE",
     "POSTGRESQL",
-    "SAP_HANA",
     "SAP_HANA_HIGH_AVAILABILITY",
     "SAP_HANA_MULTI_NODE",
     "SAP_HANA_SINGLE_NODE",

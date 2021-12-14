@@ -27,6 +27,8 @@ __all__ = (
     "CreateSuiteDefinitionResponseTypeDef",
     "DeleteSuiteDefinitionRequestRequestTypeDef",
     "DeviceUnderTestTypeDef",
+    "GetEndpointRequestRequestTypeDef",
+    "GetEndpointResponseTypeDef",
     "GetSuiteDefinitionRequestRequestTypeDef",
     "GetSuiteDefinitionResponseTypeDef",
     "GetSuiteRunReportRequestRequestTypeDef",
@@ -90,6 +92,23 @@ DeviceUnderTestTypeDef = TypedDict(
         "certificateArn": str,
     },
     total=False,
+)
+
+GetEndpointRequestRequestTypeDef = TypedDict(
+    "GetEndpointRequestRequestTypeDef",
+    {
+        "thingArn": str,
+        "certificateArn": str,
+    },
+    total=False,
+)
+
+GetEndpointResponseTypeDef = TypedDict(
+    "GetEndpointResponseTypeDef",
+    {
+        "endpoint": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredGetSuiteDefinitionRequestRequestTypeDef = TypedDict(
@@ -311,6 +330,7 @@ SuiteRunConfigurationTypeDef = TypedDict(
     {
         "primaryDevice": "DeviceUnderTestTypeDef",
         "selectedTestList": List[str],
+        "parallelRun": bool,
     },
     total=False,
 )

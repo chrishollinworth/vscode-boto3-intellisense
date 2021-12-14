@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AdditionalConstraintsElementType",
     "AuthResourcesType",
+    "AuthenticatedElementType",
     "DeliveryMethodType",
     "ListBackendJobsPaginatorName",
     "MFAModeType",
@@ -30,15 +31,18 @@ __all__ = (
     "OAuthScopesElementType",
     "RequiredSignUpAttributesElementType",
     "ResolutionStrategyType",
+    "ServiceNameType",
     "ServiceType",
     "SignInMethodType",
     "StatusType",
+    "UnAuthenticatedElementType",
 )
 
 AdditionalConstraintsElementType = Literal[
     "REQUIRE_DIGIT", "REQUIRE_LOWERCASE", "REQUIRE_SYMBOL", "REQUIRE_UPPERCASE"
 ]
 AuthResourcesType = Literal["IDENTITY_POOL_AND_USER_POOL", "USER_POOL_ONLY"]
+AuthenticatedElementType = Literal["CREATE_AND_UPDATE", "DELETE", "READ"]
 DeliveryMethodType = Literal["EMAIL", "SMS"]
 ListBackendJobsPaginatorName = Literal["list_backend_jobs"]
 MFAModeType = Literal["OFF", "ON", "OPTIONAL"]
@@ -68,6 +72,8 @@ RequiredSignUpAttributesElementType = Literal[
     "ZONE_INFO",
 ]
 ResolutionStrategyType = Literal["AUTOMERGE", "LAMBDA", "NONE", "OPTIMISTIC_CONCURRENCY"]
+ServiceNameType = Literal["S3"]
 ServiceType = Literal["COGNITO"]
 SignInMethodType = Literal["EMAIL", "EMAIL_AND_PHONE_NUMBER", "PHONE_NUMBER", "USERNAME"]
 StatusType = Literal["LATEST", "STALE"]
+UnAuthenticatedElementType = Literal["CREATE_AND_UPDATE", "DELETE", "READ"]

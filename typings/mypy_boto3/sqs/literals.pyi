@@ -60,5 +60,6 @@ QueueAttributeNameType = Literal[
     "ReceiveMessageWaitTimeSeconds",
     "RedriveAllowPolicy",
     "RedrivePolicy",
+    "SqsManagedSseEnabled",
     "VisibilityTimeout",
 ]

@@ -124,6 +124,12 @@ CompressionTypeType = Literal["BZIP2", "GZIP", "NONE"]
 DeleteMarkerReplicationStatusType = Literal["Disabled", "Enabled"]
 EncodingTypeType = Literal["url"]
 EventType = Literal[
+    "s3:IntelligentTiering",
+    "s3:LifecycleExpiration:*",
+    "s3:LifecycleExpiration:Delete",
+    "s3:LifecycleExpiration:DeleteMarkerCreated",
+    "s3:LifecycleTransition",
+    "s3:ObjectAcl:Put",
     "s3:ObjectCreated:*",
     "s3:ObjectCreated:CompleteMultipartUpload",
     "s3:ObjectCreated:Copy",
@@ -134,7 +140,11 @@ EventType = Literal[
     "s3:ObjectRemoved:DeleteMarkerCreated",
     "s3:ObjectRestore:*",
     "s3:ObjectRestore:Completed",
+    "s3:ObjectRestore:Delete",
     "s3:ObjectRestore:Post",
+    "s3:ObjectTagging:*",
+    "s3:ObjectTagging:Delete",
+    "s3:ObjectTagging:Put",
     "s3:ReducedRedundancyLostObject",
     "s3:Replication:*",
     "s3:Replication:OperationFailedReplication",
@@ -191,10 +201,11 @@ ObjectLockLegalHoldStatusType = Literal["OFF", "ON"]
 ObjectLockModeType = Literal["COMPLIANCE", "GOVERNANCE"]
 ObjectLockRetentionModeType = Literal["COMPLIANCE", "GOVERNANCE"]
 ObjectNotExistsWaiterName = Literal["object_not_exists"]
-ObjectOwnershipType = Literal["BucketOwnerPreferred", "ObjectWriter"]
+ObjectOwnershipType = Literal["BucketOwnerEnforced", "BucketOwnerPreferred", "ObjectWriter"]
 ObjectStorageClassType = Literal[
     "DEEP_ARCHIVE",
     "GLACIER",
+    "GLACIER_IR",
     "INTELLIGENT_TIERING",
     "ONEZONE_IA",
     "OUTPOSTS",
@@ -221,6 +232,7 @@ StorageClassAnalysisSchemaVersionType = Literal["V_1"]
 StorageClassType = Literal[
     "DEEP_ARCHIVE",
     "GLACIER",
+    "GLACIER_IR",
     "INTELLIGENT_TIERING",
     "ONEZONE_IA",
     "OUTPOSTS",
@@ -231,6 +243,6 @@ StorageClassType = Literal[
 TaggingDirectiveType = Literal["COPY", "REPLACE"]
 TierType = Literal["Bulk", "Expedited", "Standard"]
 TransitionStorageClassType = Literal[
-    "DEEP_ARCHIVE", "GLACIER", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA"
+    "DEEP_ARCHIVE", "GLACIER", "GLACIER_IR", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA"
 ]
 TypeType = Literal["AmazonCustomerByEmail", "CanonicalUser", "Group"]

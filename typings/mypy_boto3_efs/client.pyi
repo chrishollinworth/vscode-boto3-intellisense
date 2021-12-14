@@ -91,7 +91,7 @@ class Exceptions:
 
 class EFSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html)
     """
 
@@ -105,7 +105,7 @@ class EFSClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#can_paginate)
         """
     def create_access_point(
@@ -120,7 +120,7 @@ class EFSClient(BaseClient):
         """
         Creates an EFS access point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.create_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.create_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#create_access_point)
         """
     def create_file_system(
@@ -139,7 +139,7 @@ class EFSClient(BaseClient):
         """
         Creates a new, empty file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.create_file_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.create_file_system)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#create_file_system)
         """
     def create_mount_target(
@@ -153,49 +153,49 @@ class EFSClient(BaseClient):
         """
         Creates a mount target for a file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.create_mount_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.create_mount_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#create_mount_target)
         """
     def create_tags(self, *, FileSystemId: str, Tags: List["TagTypeDef"]) -> None:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.create_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#create_tags)
         """
     def delete_access_point(self, *, AccessPointId: str) -> None:
         """
         Deletes the specified access point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.delete_access_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.delete_access_point)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#delete_access_point)
         """
     def delete_file_system(self, *, FileSystemId: str) -> None:
         """
         Deletes a file system, permanently severing access to its contents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.delete_file_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.delete_file_system)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#delete_file_system)
         """
     def delete_file_system_policy(self, *, FileSystemId: str) -> None:
         """
         Deletes the `FileSystemPolicy` for the specified file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.delete_file_system_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.delete_file_system_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#delete_file_system_policy)
         """
     def delete_mount_target(self, *, MountTargetId: str) -> None:
         """
         Deletes the specified mount target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.delete_mount_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.delete_mount_target)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#delete_mount_target)
         """
     def delete_tags(self, *, FileSystemId: str, TagKeys: List[str]) -> None:
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.delete_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#delete_tags)
         """
     def describe_access_points(
@@ -210,7 +210,7 @@ class EFSClient(BaseClient):
         Returns the description of a specific Amazon EFS access point if the
         `AccessPointId` is provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_access_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_access_points)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_access_points)
         """
     def describe_account_preferences(
@@ -221,14 +221,14 @@ class EFSClient(BaseClient):
         associated with the user making the request, in the current Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_account_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_account_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_account_preferences)
         """
     def describe_backup_policy(self, *, FileSystemId: str) -> BackupPolicyDescriptionTypeDef:
         """
         Returns the backup policy for the specified EFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_backup_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_backup_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_backup_policy)
         """
     def describe_file_system_policy(
@@ -237,7 +237,7 @@ class EFSClient(BaseClient):
         """
         Returns the `FileSystemPolicy` for the specified EFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_file_system_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_file_system_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_file_system_policy)
         """
     def describe_file_systems(
@@ -252,7 +252,7 @@ class EFSClient(BaseClient):
         Returns the description of a specific Amazon EFS file system if either the file
         system `CreationToken` or the `FileSystemId` is provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_file_systems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_file_systems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_file_systems)
         """
     def describe_lifecycle_configuration(
@@ -262,7 +262,7 @@ class EFSClient(BaseClient):
         Returns the current `LifecycleConfiguration` object for the specified Amazon EFS
         file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_lifecycle_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_lifecycle_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_lifecycle_configuration)
         """
     def describe_mount_target_security_groups(
@@ -271,7 +271,7 @@ class EFSClient(BaseClient):
         """
         Returns the security groups currently in effect for a mount target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_mount_target_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_mount_target_security_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_mount_target_security_groups)
         """
     def describe_mount_targets(
@@ -287,7 +287,7 @@ class EFSClient(BaseClient):
         Returns the descriptions of all the current mount targets, or a specific mount
         target, for a file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_mount_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_mount_targets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_mount_targets)
         """
     def describe_tags(
@@ -296,7 +296,7 @@ class EFSClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.describe_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.describe_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#describe_tags)
         """
     def generate_presigned_url(
@@ -309,7 +309,7 @@ class EFSClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#generate_presigned_url)
         """
     def list_tags_for_resource(
@@ -318,7 +318,7 @@ class EFSClient(BaseClient):
         """
         Lists all tags for a top-level EFS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#list_tags_for_resource)
         """
     def modify_mount_target_security_groups(
@@ -327,7 +327,7 @@ class EFSClient(BaseClient):
         """
         Modifies the set of security groups in effect for a mount target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.modify_mount_target_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.modify_mount_target_security_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#modify_mount_target_security_groups)
         """
     def put_account_preferences(
@@ -338,7 +338,7 @@ class EFSClient(BaseClient):
         Services Region to use long 17 character (63 bit) or short 8 character (32 bit)
         resource IDs for new EFS file system and mount target resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.put_account_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.put_account_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#put_account_preferences)
         """
     def put_backup_policy(
@@ -347,7 +347,7 @@ class EFSClient(BaseClient):
         """
         Updates the file system's backup policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.put_backup_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.put_backup_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#put_backup_policy)
         """
     def put_file_system_policy(
@@ -356,7 +356,7 @@ class EFSClient(BaseClient):
         """
         Applies an Amazon EFS `FileSystemPolicy` to an Amazon EFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.put_file_system_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.put_file_system_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#put_file_system_policy)
         """
     def put_lifecycle_configuration(
@@ -365,21 +365,21 @@ class EFSClient(BaseClient):
         """
         Enables lifecycle management by creating a new `LifecycleConfiguration` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.put_lifecycle_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.put_lifecycle_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#put_lifecycle_configuration)
         """
     def tag_resource(self, *, ResourceId: str, Tags: List["TagTypeDef"]) -> None:
         """
         Creates a tag for an EFS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceId: str, TagKeys: List[str]) -> None:
         """
         Removes tags from an EFS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#untag_resource)
         """
     def update_file_system(
@@ -393,7 +393,7 @@ class EFSClient(BaseClient):
         Updates the throughput mode or the amount of provisioned throughput of an
         existing file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Client.update_file_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Client.update_file_system)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/client.html#update_file_system)
         """
     @overload
@@ -401,7 +401,7 @@ class EFSClient(BaseClient):
         self, operation_name: Literal["describe_file_systems"]
     ) -> DescribeFileSystemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Paginator.DescribeFileSystems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Paginator.DescribeFileSystems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/paginators.html#describefilesystemspaginator)
         """
     @overload
@@ -409,12 +409,12 @@ class EFSClient(BaseClient):
         self, operation_name: Literal["describe_mount_targets"]
     ) -> DescribeMountTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Paginator.DescribeMountTargets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Paginator.DescribeMountTargets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/paginators.html#describemounttargetspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_tags"]) -> DescribeTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/efs.html#EFS.Paginator.DescribeTags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/efs.html#EFS.Paginator.DescribeTags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/paginators.html#describetagspaginator)
         """

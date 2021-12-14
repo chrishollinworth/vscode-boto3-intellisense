@@ -80,6 +80,8 @@ __all__ = (
     "EventSourceMappingConfigurationResponseMetadataTypeDef",
     "EventSourceMappingConfigurationTypeDef",
     "FileSystemConfigTypeDef",
+    "FilterCriteriaTypeDef",
+    "FilterTypeDef",
     "FunctionCodeLocationTypeDef",
     "FunctionCodeTypeDef",
     "FunctionConfigurationResponseMetadataTypeDef",
@@ -416,6 +418,7 @@ _OptionalCreateEventSourceMappingRequestRequestTypeDef = TypedDict(
         "EventSourceArn": str,
         "Enabled": bool,
         "BatchSize": int,
+        "FilterCriteria": "FilterCriteriaTypeDef",
         "MaximumBatchingWindowInSeconds": int,
         "ParallelizationFactor": int,
         "StartingPosition": EventSourcePositionType,
@@ -622,6 +625,7 @@ EventSourceMappingConfigurationResponseMetadataTypeDef = TypedDict(
         "MaximumBatchingWindowInSeconds": int,
         "ParallelizationFactor": int,
         "EventSourceArn": str,
+        "FilterCriteria": "FilterCriteriaTypeDef",
         "FunctionArn": str,
         "LastModified": datetime,
         "LastProcessingResult": str,
@@ -651,6 +655,7 @@ EventSourceMappingConfigurationTypeDef = TypedDict(
         "MaximumBatchingWindowInSeconds": int,
         "ParallelizationFactor": int,
         "EventSourceArn": str,
+        "FilterCriteria": "FilterCriteriaTypeDef",
         "FunctionArn": str,
         "LastModified": datetime,
         "LastProcessingResult": str,
@@ -676,6 +681,22 @@ FileSystemConfigTypeDef = TypedDict(
         "Arn": str,
         "LocalMountPath": str,
     },
+)
+
+FilterCriteriaTypeDef = TypedDict(
+    "FilterCriteriaTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "Pattern": str,
+    },
+    total=False,
 )
 
 FunctionCodeLocationTypeDef = TypedDict(
@@ -1790,6 +1811,7 @@ _OptionalUpdateEventSourceMappingRequestRequestTypeDef = TypedDict(
         "FunctionName": str,
         "Enabled": bool,
         "BatchSize": int,
+        "FilterCriteria": "FilterCriteriaTypeDef",
         "MaximumBatchingWindowInSeconds": int,
         "DestinationConfig": "DestinationConfigTypeDef",
         "MaximumRecordAgeInSeconds": int,

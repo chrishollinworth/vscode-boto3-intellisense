@@ -22,9 +22,19 @@ __all__ = (
     "ComparisonOperatorType",
     "DataLakeResourceTypeType",
     "FieldNameStringType",
+    "GetWorkUnitsPaginatorName",
+    "ListDataCellsFilterPaginatorName",
+    "ListLFTagsPaginatorName",
+    "OptimizerTypeType",
     "PermissionType",
+    "QueryStateStringType",
     "ResourceShareTypeType",
     "ResourceTypeType",
+    "SearchDatabasesByLFTagsPaginatorName",
+    "SearchTablesByLFTagsPaginatorName",
+    "TransactionStatusFilterType",
+    "TransactionStatusType",
+    "TransactionTypeType",
 )
 
 ComparisonOperatorType = Literal[
@@ -41,6 +51,10 @@ DataLakeResourceTypeType = Literal[
     "TABLE",
 ]
 FieldNameStringType = Literal["LAST_MODIFIED", "RESOURCE_ARN", "ROLE_ARN"]
+GetWorkUnitsPaginatorName = Literal["get_work_units"]
+ListDataCellsFilterPaginatorName = Literal["list_data_cells_filter"]
+ListLFTagsPaginatorName = Literal["list_lf_tags"]
+OptimizerTypeType = Literal["ALL", "COMPACTION", "GARBAGE_COLLECTION"]
 PermissionType = Literal[
     "ALL",
     "ALTER",
@@ -58,5 +72,11 @@ PermissionType = Literal[
     "INSERT",
     "SELECT",
 ]
+QueryStateStringType = Literal["ERROR", "EXPIRED", "FINISHED", "PENDING", "WORKUNITS_AVAILABLE"]
 ResourceShareTypeType = Literal["ALL", "FOREIGN"]
 ResourceTypeType = Literal["DATABASE", "TABLE"]
+SearchDatabasesByLFTagsPaginatorName = Literal["search_databases_by_lf_tags"]
+SearchTablesByLFTagsPaginatorName = Literal["search_tables_by_lf_tags"]
+TransactionStatusFilterType = Literal["ABORTED", "ACTIVE", "ALL", "COMMITTED", "COMPLETED"]
+TransactionStatusType = Literal["ABORTED", "ACTIVE", "COMMITTED", "COMMIT_IN_PROGRESS"]
+TransactionTypeType = Literal["READ_AND_WRITE", "READ_ONLY"]

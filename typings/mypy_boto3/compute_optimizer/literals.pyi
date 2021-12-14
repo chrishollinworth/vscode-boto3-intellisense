@@ -20,9 +20,12 @@ else:
 
 __all__ = (
     "CpuVendorArchitectureType",
+    "CurrencyType",
+    "CurrentPerformanceRiskType",
     "EBSFilterNameType",
     "EBSFindingType",
     "EBSMetricNameType",
+    "EnhancedInfrastructureMetricsType",
     "EnrollmentFilterNameType",
     "ExportableAutoScalingGroupFieldType",
     "ExportableInstanceFieldType",
@@ -45,12 +48,16 @@ __all__ = (
     "MetricNameType",
     "MetricStatisticType",
     "PlatformDifferenceType",
+    "RecommendationPreferenceNameType",
     "RecommendationSourceTypeType",
     "ResourceTypeType",
+    "ScopeNameType",
     "StatusType",
 )
 
 CpuVendorArchitectureType = Literal["AWS_ARM64", "CURRENT"]
+CurrencyType = Literal["CNY", "USD"]
+CurrentPerformanceRiskType = Literal["High", "Low", "Medium", "VeryLow"]
 EBSFilterNameType = Literal["Finding"]
 EBSFindingType = Literal["NotOptimized", "Optimized"]
 EBSMetricNameType = Literal[
@@ -59,6 +66,7 @@ EBSMetricNameType = Literal[
     "VolumeWriteBytesPerSecond",
     "VolumeWriteOpsPerSecond",
 ]
+EnhancedInfrastructureMetricsType = Literal["Active", "Inactive"]
 EnrollmentFilterNameType = Literal["Status"]
 ExportableAutoScalingGroupFieldType = Literal[
     "AccountId",
@@ -71,10 +79,13 @@ ExportableAutoScalingGroupFieldType = Literal[
     "CurrentMemory",
     "CurrentNetwork",
     "CurrentOnDemandPrice",
+    "CurrentPerformanceRisk",
     "CurrentStandardOneYearNoUpfrontReservedPrice",
     "CurrentStandardThreeYearNoUpfrontReservedPrice",
     "CurrentStorage",
     "CurrentVCpus",
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
     "Finding",
     "LastRefreshTimestamp",
     "LookbackPeriodInDays",
@@ -82,12 +93,15 @@ ExportableAutoScalingGroupFieldType = Literal[
     "RecommendationOptionsConfigurationInstanceType",
     "RecommendationOptionsConfigurationMaxSize",
     "RecommendationOptionsConfigurationMinSize",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsValue",
     "RecommendationOptionsMemory",
     "RecommendationOptionsNetwork",
     "RecommendationOptionsOnDemandPrice",
     "RecommendationOptionsPerformanceRisk",
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+    "RecommendationOptionsSavingsOpportunityPercentage",
     "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
     "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
     "RecommendationOptionsStorage",
@@ -113,16 +127,21 @@ ExportableInstanceFieldType = Literal[
     "CurrentMemory",
     "CurrentNetwork",
     "CurrentOnDemandPrice",
+    "CurrentPerformanceRisk",
     "CurrentStandardOneYearNoUpfrontReservedPrice",
     "CurrentStandardThreeYearNoUpfrontReservedPrice",
     "CurrentStorage",
     "CurrentVCpus",
+    "EffectiveRecommendationPreferencesCpuVendorArchitectures",
+    "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
     "Finding",
     "FindingReasonCodes",
     "InstanceArn",
     "InstanceName",
     "LastRefreshTimestamp",
     "LookbackPeriodInDays",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsValue",
     "RecommendationOptionsInstanceType",
     "RecommendationOptionsMemory",
     "RecommendationOptionsNetwork",
@@ -131,6 +150,7 @@ ExportableInstanceFieldType = Literal[
     "RecommendationOptionsPlatformDifferences",
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+    "RecommendationOptionsSavingsOpportunityPercentage",
     "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
     "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
     "RecommendationOptionsStorage",
@@ -158,6 +178,7 @@ ExportableLambdaFunctionFieldType = Literal[
     "CurrentConfigurationTimeout",
     "CurrentCostAverage",
     "CurrentCostTotal",
+    "CurrentPerformanceRisk",
     "Finding",
     "FindingReasonCodes",
     "FunctionArn",
@@ -168,9 +189,12 @@ ExportableLambdaFunctionFieldType = Literal[
     "RecommendationOptionsConfigurationMemorySize",
     "RecommendationOptionsCostHigh",
     "RecommendationOptionsCostLow",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsValue",
     "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
     "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
     "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
+    "RecommendationOptionsSavingsOpportunityPercentage",
     "UtilizationMetricsDurationAverage",
     "UtilizationMetricsDurationMaximum",
     "UtilizationMetricsMemoryAverage",
@@ -185,6 +209,7 @@ ExportableVolumeFieldType = Literal[
     "CurrentConfigurationVolumeSize",
     "CurrentConfigurationVolumeType",
     "CurrentMonthlyPrice",
+    "CurrentPerformanceRisk",
     "Finding",
     "LastRefreshTimestamp",
     "LookbackPeriodInDays",
@@ -194,8 +219,11 @@ ExportableVolumeFieldType = Literal[
     "RecommendationOptionsConfigurationVolumeBurstThroughput",
     "RecommendationOptionsConfigurationVolumeSize",
     "RecommendationOptionsConfigurationVolumeType",
+    "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+    "RecommendationOptionsEstimatedMonthlySavingsValue",
     "RecommendationOptionsMonthlyPrice",
     "RecommendationOptionsPerformanceRisk",
+    "RecommendationOptionsSavingsOpportunityPercentage",
     "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
     "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
     "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
@@ -260,8 +288,10 @@ PlatformDifferenceType = Literal[
     "StorageInterface",
     "VirtualizationType",
 ]
+RecommendationPreferenceNameType = Literal["EnhancedInfrastructureMetrics"]
 RecommendationSourceTypeType = Literal[
     "AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction"
 ]
 ResourceTypeType = Literal["AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction"]
+ScopeNameType = Literal["AccountId", "Organization", "ResourceArn"]
 StatusType = Literal["Active", "Failed", "Inactive", "Pending"]

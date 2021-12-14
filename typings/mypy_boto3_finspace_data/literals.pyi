@@ -20,25 +20,57 @@ else:
 
 __all__ = (
     "ChangeTypeType",
-    "ChangesetStatusType",
+    "ColumnDataTypeType",
+    "DataViewStatusType",
+    "DatasetKindType",
+    "DatasetStatusType",
     "ErrorCategoryType",
-    "FormatTypeType",
-    "SourceTypeType",
+    "IngestionStatusType",
+    "ListChangesetsPaginatorName",
+    "ListDataViewsPaginatorName",
+    "ListDatasetsPaginatorName",
     "locationTypeType",
 )
 
 ChangeTypeType = Literal["APPEND", "MODIFY", "REPLACE"]
-ChangesetStatusType = Literal["FAILED", "PENDING", "RUNNING", "STOP_REQUESTED", "SUCCESS"]
-ErrorCategoryType = Literal[
-    "A_user_recoverable_error_has_occurred",
-    "An_internal_error_has_occurred",
-    "Cancelled",
-    "Missing_required_permission_to_perform_this_request",
-    "One_or_more_inputs_to_this_request_were_not_found",
-    "Service_limits_have_been_exceeded",
-    "The_inputs_to_this_request_are_invalid",
-    "The_system_temporarily_lacks_sufficient_resources_to_process_the_request",
+ColumnDataTypeType = Literal[
+    "BIGINT",
+    "BINARY",
+    "BOOLEAN",
+    "CHAR",
+    "DATE",
+    "DATETIME",
+    "DOUBLE",
+    "FLOAT",
+    "INTEGER",
+    "SMALLINT",
+    "STRING",
+    "TINYINT",
 ]
-FormatTypeType = Literal["CSV", "JSON", "PARQUET", "XML"]
-SourceTypeType = Literal["S3"]
+DataViewStatusType = Literal[
+    "CANCELLED",
+    "FAILED",
+    "FAILED_CLEANUP_FAILED",
+    "PENDING",
+    "RUNNING",
+    "STARTING",
+    "SUCCESS",
+    "TIMEOUT",
+]
+DatasetKindType = Literal["NON_TABULAR", "TABULAR"]
+DatasetStatusType = Literal["FAILED", "PENDING", "RUNNING", "SUCCESS"]
+ErrorCategoryType = Literal[
+    "ACCESS_DENIED",
+    "CANCELLED",
+    "INTERNAL_SERVICE_EXCEPTION",
+    "RESOURCE_NOT_FOUND",
+    "SERVICE_QUOTA_EXCEEDED",
+    "THROTTLING",
+    "USER_RECOVERABLE",
+    "VALIDATION",
+]
+IngestionStatusType = Literal["FAILED", "PENDING", "RUNNING", "STOP_REQUESTED", "SUCCESS"]
+ListChangesetsPaginatorName = Literal["list_changesets"]
+ListDataViewsPaginatorName = Literal["list_data_views"]
+ListDatasetsPaginatorName = Literal["list_datasets"]
 locationTypeType = Literal["INGESTION", "SAGEMAKER"]

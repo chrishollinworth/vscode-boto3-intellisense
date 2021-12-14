@@ -17,8 +17,11 @@ from typing import Any, Dict, List, Union
 
 from .literals import (
     CpuVendorArchitectureType,
+    CurrencyType,
+    CurrentPerformanceRiskType,
     EBSFindingType,
     EBSMetricNameType,
+    EnhancedInfrastructureMetricsType,
     ExportableAutoScalingGroupFieldType,
     ExportableInstanceFieldType,
     ExportableLambdaFunctionFieldType,
@@ -40,6 +43,7 @@ from .literals import (
     PlatformDifferenceType,
     RecommendationSourceTypeType,
     ResourceTypeType,
+    ScopeNameType,
     StatusType,
 )
 
@@ -57,11 +61,15 @@ __all__ = (
     "AutoScalingGroupConfigurationTypeDef",
     "AutoScalingGroupRecommendationOptionTypeDef",
     "AutoScalingGroupRecommendationTypeDef",
+    "CurrentPerformanceRiskRatingsTypeDef",
+    "DeleteRecommendationPreferencesRequestRequestTypeDef",
     "DescribeRecommendationExportJobsRequestRequestTypeDef",
     "DescribeRecommendationExportJobsResponseTypeDef",
     "EBSFilterTypeDef",
     "EBSUtilizationMetricTypeDef",
+    "EffectiveRecommendationPreferencesTypeDef",
     "EnrollmentFilterTypeDef",
+    "EstimatedMonthlySavingsTypeDef",
     "ExportAutoScalingGroupRecommendationsRequestRequestTypeDef",
     "ExportAutoScalingGroupRecommendationsResponseTypeDef",
     "ExportDestinationTypeDef",
@@ -80,12 +88,16 @@ __all__ = (
     "GetEC2InstanceRecommendationsResponseTypeDef",
     "GetEC2RecommendationProjectedMetricsRequestRequestTypeDef",
     "GetEC2RecommendationProjectedMetricsResponseTypeDef",
+    "GetEffectiveRecommendationPreferencesRequestRequestTypeDef",
+    "GetEffectiveRecommendationPreferencesResponseTypeDef",
     "GetEnrollmentStatusResponseTypeDef",
     "GetEnrollmentStatusesForOrganizationRequestRequestTypeDef",
     "GetEnrollmentStatusesForOrganizationResponseTypeDef",
     "GetLambdaFunctionRecommendationsRequestRequestTypeDef",
     "GetLambdaFunctionRecommendationsResponseTypeDef",
     "GetRecommendationErrorTypeDef",
+    "GetRecommendationPreferencesRequestRequestTypeDef",
+    "GetRecommendationPreferencesResponseTypeDef",
     "GetRecommendationSummariesRequestRequestTypeDef",
     "GetRecommendationSummariesResponseTypeDef",
     "InstanceRecommendationOptionTypeDef",
@@ -97,8 +109,10 @@ __all__ = (
     "LambdaFunctionRecommendationTypeDef",
     "LambdaFunctionUtilizationMetricTypeDef",
     "ProjectedMetricTypeDef",
+    "PutRecommendationPreferencesRequestRequestTypeDef",
     "ReasonCodeSummaryTypeDef",
     "RecommendationExportJobTypeDef",
+    "RecommendationPreferencesDetailTypeDef",
     "RecommendationPreferencesTypeDef",
     "RecommendationSourceTypeDef",
     "RecommendationSummaryTypeDef",
@@ -106,6 +120,8 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "S3DestinationConfigTypeDef",
     "S3DestinationTypeDef",
+    "SavingsOpportunityTypeDef",
+    "ScopeTypeDef",
     "SummaryTypeDef",
     "UpdateEnrollmentStatusRequestRequestTypeDef",
     "UpdateEnrollmentStatusResponseTypeDef",
@@ -144,6 +160,7 @@ AutoScalingGroupRecommendationOptionTypeDef = TypedDict(
         "projectedUtilizationMetrics": List["UtilizationMetricTypeDef"],
         "performanceRisk": float,
         "rank": int,
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
     },
     total=False,
 )
@@ -160,9 +177,43 @@ AutoScalingGroupRecommendationTypeDef = TypedDict(
         "currentConfiguration": "AutoScalingGroupConfigurationTypeDef",
         "recommendationOptions": List["AutoScalingGroupRecommendationOptionTypeDef"],
         "lastRefreshTimestamp": datetime,
+        "currentPerformanceRisk": CurrentPerformanceRiskType,
+        "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
     },
     total=False,
 )
+
+CurrentPerformanceRiskRatingsTypeDef = TypedDict(
+    "CurrentPerformanceRiskRatingsTypeDef",
+    {
+        "high": int,
+        "medium": int,
+        "low": int,
+        "veryLow": int,
+    },
+    total=False,
+)
+
+_RequiredDeleteRecommendationPreferencesRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteRecommendationPreferencesRequestRequestTypeDef",
+    {
+        "resourceType": ResourceTypeType,
+        "recommendationPreferenceNames": List[Literal["EnhancedInfrastructureMetrics"]],
+    },
+)
+_OptionalDeleteRecommendationPreferencesRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteRecommendationPreferencesRequestRequestTypeDef",
+    {
+        "scope": "ScopeTypeDef",
+    },
+    total=False,
+)
+
+class DeleteRecommendationPreferencesRequestRequestTypeDef(
+    _RequiredDeleteRecommendationPreferencesRequestRequestTypeDef,
+    _OptionalDeleteRecommendationPreferencesRequestRequestTypeDef,
+):
+    pass
 
 DescribeRecommendationExportJobsRequestRequestTypeDef = TypedDict(
     "DescribeRecommendationExportJobsRequestRequestTypeDef",
@@ -203,11 +254,29 @@ EBSUtilizationMetricTypeDef = TypedDict(
     total=False,
 )
 
+EffectiveRecommendationPreferencesTypeDef = TypedDict(
+    "EffectiveRecommendationPreferencesTypeDef",
+    {
+        "cpuVendorArchitectures": List[CpuVendorArchitectureType],
+        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+    },
+    total=False,
+)
+
 EnrollmentFilterTypeDef = TypedDict(
     "EnrollmentFilterTypeDef",
     {
         "name": Literal["Status"],
         "values": List[str],
+    },
+    total=False,
+)
+
+EstimatedMonthlySavingsTypeDef = TypedDict(
+    "EstimatedMonthlySavingsTypeDef",
+    {
+        "currency": CurrencyType,
+        "value": float,
     },
     total=False,
 )
@@ -463,6 +532,21 @@ GetEC2RecommendationProjectedMetricsResponseTypeDef = TypedDict(
     },
 )
 
+GetEffectiveRecommendationPreferencesRequestRequestTypeDef = TypedDict(
+    "GetEffectiveRecommendationPreferencesRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+GetEffectiveRecommendationPreferencesResponseTypeDef = TypedDict(
+    "GetEffectiveRecommendationPreferencesResponseTypeDef",
+    {
+        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetEnrollmentStatusResponseTypeDef = TypedDict(
     "GetEnrollmentStatusResponseTypeDef",
     {
@@ -525,6 +609,37 @@ GetRecommendationErrorTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredGetRecommendationPreferencesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetRecommendationPreferencesRequestRequestTypeDef",
+    {
+        "resourceType": ResourceTypeType,
+    },
+)
+_OptionalGetRecommendationPreferencesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetRecommendationPreferencesRequestRequestTypeDef",
+    {
+        "scope": "ScopeTypeDef",
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class GetRecommendationPreferencesRequestRequestTypeDef(
+    _RequiredGetRecommendationPreferencesRequestRequestTypeDef,
+    _OptionalGetRecommendationPreferencesRequestRequestTypeDef,
+):
+    pass
+
+GetRecommendationPreferencesResponseTypeDef = TypedDict(
+    "GetRecommendationPreferencesResponseTypeDef",
+    {
+        "nextToken": str,
+        "recommendationPreferencesDetails": List["RecommendationPreferencesDetailTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetRecommendationSummariesRequestRequestTypeDef = TypedDict(
     "GetRecommendationSummariesRequestRequestTypeDef",
     {
@@ -552,6 +667,7 @@ InstanceRecommendationOptionTypeDef = TypedDict(
         "platformDifferences": List[PlatformDifferenceType],
         "performanceRisk": float,
         "rank": int,
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
     },
     total=False,
 )
@@ -570,6 +686,8 @@ InstanceRecommendationTypeDef = TypedDict(
         "recommendationOptions": List["InstanceRecommendationOptionTypeDef"],
         "recommendationSources": List["RecommendationSourceTypeDef"],
         "lastRefreshTimestamp": datetime,
+        "currentPerformanceRisk": CurrentPerformanceRiskType,
+        "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
     },
     total=False,
 )
@@ -599,6 +717,7 @@ LambdaFunctionMemoryRecommendationOptionTypeDef = TypedDict(
         "rank": int,
         "memorySize": int,
         "projectedUtilizationMetrics": List["LambdaFunctionMemoryProjectedMetricTypeDef"],
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
     },
     total=False,
 )
@@ -626,6 +745,7 @@ LambdaFunctionRecommendationTypeDef = TypedDict(
         "finding": LambdaFunctionRecommendationFindingType,
         "findingReasonCodes": List[LambdaFunctionRecommendationFindingReasonCodeType],
         "memorySizeRecommendationOptions": List["LambdaFunctionMemoryRecommendationOptionTypeDef"],
+        "currentPerformanceRisk": CurrentPerformanceRiskType,
     },
     total=False,
 )
@@ -650,6 +770,27 @@ ProjectedMetricTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPutRecommendationPreferencesRequestRequestTypeDef = TypedDict(
+    "_RequiredPutRecommendationPreferencesRequestRequestTypeDef",
+    {
+        "resourceType": ResourceTypeType,
+    },
+)
+_OptionalPutRecommendationPreferencesRequestRequestTypeDef = TypedDict(
+    "_OptionalPutRecommendationPreferencesRequestRequestTypeDef",
+    {
+        "scope": "ScopeTypeDef",
+        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+    },
+    total=False,
+)
+
+class PutRecommendationPreferencesRequestRequestTypeDef(
+    _RequiredPutRecommendationPreferencesRequestRequestTypeDef,
+    _OptionalPutRecommendationPreferencesRequestRequestTypeDef,
+):
+    pass
+
 ReasonCodeSummaryTypeDef = TypedDict(
     "ReasonCodeSummaryTypeDef",
     {
@@ -669,6 +810,16 @@ RecommendationExportJobTypeDef = TypedDict(
         "creationTimestamp": datetime,
         "lastUpdatedTimestamp": datetime,
         "failureReason": str,
+    },
+    total=False,
+)
+
+RecommendationPreferencesDetailTypeDef = TypedDict(
+    "RecommendationPreferencesDetailTypeDef",
+    {
+        "scope": "ScopeTypeDef",
+        "resourceType": ResourceTypeType,
+        "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
     },
     total=False,
 )
@@ -696,6 +847,8 @@ RecommendationSummaryTypeDef = TypedDict(
         "summaries": List["SummaryTypeDef"],
         "recommendationResourceType": RecommendationSourceTypeType,
         "accountId": str,
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "currentPerformanceRiskRatings": "CurrentPerformanceRiskRatingsTypeDef",
     },
     total=False,
 )
@@ -736,6 +889,24 @@ S3DestinationTypeDef = TypedDict(
         "bucket": str,
         "key": str,
         "metadataKey": str,
+    },
+    total=False,
+)
+
+SavingsOpportunityTypeDef = TypedDict(
+    "SavingsOpportunityTypeDef",
+    {
+        "savingsOpportunityPercentage": float,
+        "estimatedMonthlySavings": "EstimatedMonthlySavingsTypeDef",
+    },
+    total=False,
+)
+
+ScopeTypeDef = TypedDict(
+    "ScopeTypeDef",
+    {
+        "name": ScopeNameType,
+        "value": str,
     },
     total=False,
 )
@@ -808,6 +979,7 @@ VolumeRecommendationOptionTypeDef = TypedDict(
         "configuration": "VolumeConfigurationTypeDef",
         "performanceRisk": float,
         "rank": int,
+        "savingsOpportunity": "SavingsOpportunityTypeDef",
     },
     total=False,
 )
@@ -823,6 +995,7 @@ VolumeRecommendationTypeDef = TypedDict(
         "lookBackPeriodInDays": float,
         "volumeRecommendationOptions": List["VolumeRecommendationOptionTypeDef"],
         "lastRefreshTimestamp": datetime,
+        "currentPerformanceRisk": CurrentPerformanceRiskType,
     },
     total=False,
 )

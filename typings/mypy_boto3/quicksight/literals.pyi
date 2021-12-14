@@ -126,6 +126,7 @@ DataSourceTypeType = Literal[
     "AURORA",
     "AURORA_POSTGRESQL",
     "AWS_IOT_ANALYTICS",
+    "EXASOL",
     "GITHUB",
     "JIRA",
     "MARIADB",

@@ -151,7 +151,7 @@ class Exceptions:
 
 class Route53ResolverClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html)
     """
 
@@ -176,7 +176,7 @@ class Route53ResolverClient(BaseClient):
         Associates a  FirewallRuleGroup with a VPC, to provide DNS filtering for the
         VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.associate_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.associate_firewall_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_firewall_rule_group)
         """
     def associate_resolver_endpoint_ip_address(
@@ -185,7 +185,7 @@ class Route53ResolverClient(BaseClient):
         """
         Adds IP addresses to an inbound or an outbound Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_endpoint_ip_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_endpoint_ip_address)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_resolver_endpoint_ip_address)
         """
     def associate_resolver_query_log_config(
@@ -194,7 +194,7 @@ class Route53ResolverClient(BaseClient):
         """
         Associates an Amazon VPC with a specified query logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_query_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_resolver_query_log_config)
         """
     def associate_resolver_rule(
@@ -203,14 +203,14 @@ class Route53ResolverClient(BaseClient):
         """
         Associates a Resolver rule with a VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_resolver_rule)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#can_paginate)
         """
     def create_firewall_domain_list(
@@ -219,7 +219,7 @@ class Route53ResolverClient(BaseClient):
         """
         Creates an empty firewall domain list for use in DNS Firewall rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_domain_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_domain_list)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_firewall_domain_list)
         """
     def create_firewall_rule(
@@ -240,7 +240,7 @@ class Route53ResolverClient(BaseClient):
         Creates a single DNS Firewall rule in the specified rule group, using the
         specified domain list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_firewall_rule)
         """
     def create_firewall_rule_group(
@@ -250,7 +250,7 @@ class Route53ResolverClient(BaseClient):
         Creates an empty DNS Firewall rule group for filtering DNS network traffic in a
         VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_firewall_rule_group)
         """
     def create_resolver_endpoint(
@@ -266,7 +266,7 @@ class Route53ResolverClient(BaseClient):
         """
         Creates a Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_resolver_endpoint)
         """
     def create_resolver_query_log_config(
@@ -281,7 +281,7 @@ class Route53ResolverClient(BaseClient):
         Creates a Resolver query logging configuration, which defines where you want
         Resolver to save DNS query logs that originate in your VPCs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_query_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_resolver_query_log_config)
         """
     def create_resolver_rule(
@@ -300,7 +300,7 @@ class Route53ResolverClient(BaseClient):
         the queries pass through, one domain name that you want to forward to your
         network, and the IP addresses of the DNS resolvers in your network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_resolver_rule)
         """
     def delete_firewall_domain_list(
@@ -309,7 +309,7 @@ class Route53ResolverClient(BaseClient):
         """
         Deletes the specified domain list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_domain_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_domain_list)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_firewall_domain_list)
         """
     def delete_firewall_rule(
@@ -318,7 +318,7 @@ class Route53ResolverClient(BaseClient):
         """
         Deletes the specified firewall rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_firewall_rule)
         """
     def delete_firewall_rule_group(
@@ -327,7 +327,7 @@ class Route53ResolverClient(BaseClient):
         """
         Deletes the specified firewall rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_firewall_rule_group)
         """
     def delete_resolver_endpoint(
@@ -336,7 +336,7 @@ class Route53ResolverClient(BaseClient):
         """
         Deletes a Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_resolver_endpoint)
         """
     def delete_resolver_query_log_config(
@@ -345,14 +345,14 @@ class Route53ResolverClient(BaseClient):
         """
         Deletes a query logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_query_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_resolver_query_log_config)
         """
     def delete_resolver_rule(self, *, ResolverRuleId: str) -> DeleteResolverRuleResponseTypeDef:
         """
         Deletes a Resolver rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_resolver_rule)
         """
     def disassociate_firewall_rule_group(
@@ -362,7 +362,7 @@ class Route53ResolverClient(BaseClient):
         Disassociates a  FirewallRuleGroup from a VPC, to remove DNS filtering from the
         VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_firewall_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_firewall_rule_group)
         """
     def disassociate_resolver_endpoint_ip_address(
@@ -371,7 +371,7 @@ class Route53ResolverClient(BaseClient):
         """
         Removes IP addresses from an inbound or an outbound Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_endpoint_ip_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_endpoint_ip_address)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_resolver_endpoint_ip_address)
         """
     def disassociate_resolver_query_log_config(
@@ -380,7 +380,7 @@ class Route53ResolverClient(BaseClient):
         """
         Disassociates a VPC from a query logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_query_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_resolver_query_log_config)
         """
     def disassociate_resolver_rule(
@@ -389,7 +389,7 @@ class Route53ResolverClient(BaseClient):
         """
         Removes the association between a specified Resolver rule and a specified VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_resolver_rule)
         """
     def generate_presigned_url(
@@ -402,7 +402,7 @@ class Route53ResolverClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#generate_presigned_url)
         """
     def get_firewall_config(self, *, ResourceId: str) -> GetFirewallConfigResponseTypeDef:
@@ -410,7 +410,7 @@ class Route53ResolverClient(BaseClient):
         Retrieves the configuration of the firewall behavior provided by DNS Firewall
         for a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_config)
         """
     def get_firewall_domain_list(
@@ -419,7 +419,7 @@ class Route53ResolverClient(BaseClient):
         """
         Retrieves the specified firewall domain list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_domain_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_domain_list)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_domain_list)
         """
     def get_firewall_rule_group(
@@ -428,7 +428,7 @@ class Route53ResolverClient(BaseClient):
         """
         Retrieves the specified firewall rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_rule_group)
         """
     def get_firewall_rule_group_association(
@@ -438,7 +438,7 @@ class Route53ResolverClient(BaseClient):
         Retrieves a firewall rule group association, which enables DNS filtering for a
         VPC with one rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_rule_group_association)
         """
     def get_firewall_rule_group_policy(
@@ -448,7 +448,7 @@ class Route53ResolverClient(BaseClient):
         Returns the Identity and Access Management (Amazon Web Services IAM) policy for
         sharing the specified rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_rule_group_policy)
         """
     def get_resolver_config(self, *, ResourceId: str) -> GetResolverConfigResponseTypeDef:
@@ -456,7 +456,7 @@ class Route53ResolverClient(BaseClient):
         Retrieves the behavior configuration of Route 53 Resolver behavior for a single
         VPC from Amazon Virtual Private Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_config)
         """
     def get_resolver_dnssec_config(
@@ -465,7 +465,7 @@ class Route53ResolverClient(BaseClient):
         """
         Gets DNSSEC validation information for a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_dnssec_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_dnssec_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_dnssec_config)
         """
     def get_resolver_endpoint(
@@ -476,7 +476,7 @@ class Route53ResolverClient(BaseClient):
         inbound or an outbound Resolver endpoint, and the current status of the
         endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_endpoint)
         """
     def get_resolver_query_log_config(
@@ -487,7 +487,7 @@ class Route53ResolverClient(BaseClient):
         the number of VPCs that the configuration is logging queries for and the
         location that logs are sent to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_query_log_config)
         """
     def get_resolver_query_log_config_association(
@@ -497,7 +497,7 @@ class Route53ResolverClient(BaseClient):
         Gets information about a specified association between a Resolver query logging
         configuration and an Amazon VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_query_log_config_association)
         """
     def get_resolver_query_log_config_policy(
@@ -506,7 +506,7 @@ class Route53ResolverClient(BaseClient):
         """
         Gets information about a query logging policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_query_log_config_policy)
         """
     def get_resolver_rule(self, *, ResolverRuleId: str) -> GetResolverRuleResponseTypeDef:
@@ -515,7 +515,7 @@ class Route53ResolverClient(BaseClient):
         the rule forwards DNS queries for and the ID of the outbound Resolver endpoint
         that the rule is associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_rule)
         """
     def get_resolver_rule_association(
@@ -525,14 +525,14 @@ class Route53ResolverClient(BaseClient):
         Gets information about an association between a specified Resolver rule and a
         VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_rule_association)
         """
     def get_resolver_rule_policy(self, *, Arn: str) -> GetResolverRulePolicyResponseTypeDef:
         """
         Gets information about the Resolver rule policy for a specified rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_rule_policy)
         """
     def import_firewall_domains(
@@ -542,7 +542,7 @@ class Route53ResolverClient(BaseClient):
         Imports domain names from a file into a domain list, for use in a DNS firewall
         rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.import_firewall_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.import_firewall_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#import_firewall_domains)
         """
     def list_firewall_configs(
@@ -551,7 +551,7 @@ class Route53ResolverClient(BaseClient):
         """
         Retrieves the firewall configurations that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_configs)
         """
     def list_firewall_domain_lists(
@@ -560,7 +560,7 @@ class Route53ResolverClient(BaseClient):
         """
         Retrieves the firewall domain lists that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_domain_lists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_domain_lists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_domain_lists)
         """
     def list_firewall_domains(
@@ -570,7 +570,7 @@ class Route53ResolverClient(BaseClient):
         Retrieves the domains that you have defined for the specified firewall domain
         list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_domains)
         """
     def list_firewall_rule_group_associations(
@@ -586,7 +586,7 @@ class Route53ResolverClient(BaseClient):
         """
         Retrieves the firewall rule group associations that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rule_group_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rule_group_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_rule_group_associations)
         """
     def list_firewall_rule_groups(
@@ -596,7 +596,7 @@ class Route53ResolverClient(BaseClient):
         Retrieves the minimal high-level information for the rule groups that you have
         defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rule_groups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_rule_groups)
         """
     def list_firewall_rules(
@@ -612,7 +612,7 @@ class Route53ResolverClient(BaseClient):
         Retrieves the firewall rules that you have defined for the specified firewall
         rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_rules)
         """
     def list_resolver_configs(
@@ -621,7 +621,7 @@ class Route53ResolverClient(BaseClient):
         """
         Retrieves the Resolver configurations that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_configs)
         """
     def list_resolver_dnssec_configs(
@@ -635,7 +635,7 @@ class Route53ResolverClient(BaseClient):
         Lists the configurations for DNSSEC validation that are associated with the
         current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_dnssec_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_dnssec_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_dnssec_configs)
         """
     def list_resolver_endpoint_ip_addresses(
@@ -644,7 +644,7 @@ class Route53ResolverClient(BaseClient):
         """
         Gets the IP addresses for a specified Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_endpoint_ip_addresses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_endpoint_ip_addresses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_endpoint_ip_addresses)
         """
     def list_resolver_endpoints(
@@ -658,7 +658,7 @@ class Route53ResolverClient(BaseClient):
         Lists all the Resolver endpoints that were created using the current Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_endpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_endpoints)
         """
     def list_resolver_query_log_config_associations(
@@ -674,7 +674,7 @@ class Route53ResolverClient(BaseClient):
         Lists information about associations between Amazon VPCs and query logging
         configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_query_log_config_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_query_log_config_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_query_log_config_associations)
         """
     def list_resolver_query_log_configs(
@@ -689,7 +689,7 @@ class Route53ResolverClient(BaseClient):
         """
         Lists information about the specified query logging configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_query_log_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_query_log_configs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_query_log_configs)
         """
     def list_resolver_rule_associations(
@@ -703,7 +703,7 @@ class Route53ResolverClient(BaseClient):
         Lists the associations that were created between Resolver rules and VPCs using
         the current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_rule_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_rule_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_rule_associations)
         """
     def list_resolver_rules(
@@ -717,7 +717,7 @@ class Route53ResolverClient(BaseClient):
         Lists the Resolver rules that were created using the current Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_rules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_rules)
         """
     def list_tags_for_resource(
@@ -726,7 +726,7 @@ class Route53ResolverClient(BaseClient):
         """
         Lists the tags that you associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_tags_for_resource)
         """
     def put_firewall_rule_group_policy(
@@ -736,7 +736,7 @@ class Route53ResolverClient(BaseClient):
         Attaches an Identity and Access Management (Amazon Web Services IAM) policy for
         sharing the rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.put_firewall_rule_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.put_firewall_rule_group_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#put_firewall_rule_group_policy)
         """
     def put_resolver_query_log_config_policy(
@@ -748,7 +748,7 @@ class Route53ResolverClient(BaseClient):
         the operations that you want the account to be able to perform on the
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.put_resolver_query_log_config_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.put_resolver_query_log_config_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#put_resolver_query_log_config_policy)
         """
     def put_resolver_rule_policy(
@@ -759,21 +759,21 @@ class Route53ResolverClient(BaseClient):
         account, the account that you want to share the rule with, and the operations
         that you want the account to be able to perform on the rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.put_resolver_rule_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.put_resolver_rule_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#put_resolver_rule_policy)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds one or more tags to a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes one or more tags from a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#untag_resource)
         """
     def update_firewall_config(
@@ -783,7 +783,7 @@ class Route53ResolverClient(BaseClient):
         Updates the configuration of the firewall behavior provided by DNS Firewall for
         a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_config)
         """
     def update_firewall_domains(
@@ -796,7 +796,7 @@ class Route53ResolverClient(BaseClient):
         """
         Updates the firewall domain list from an array of domain specifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_domains)
         """
     def update_firewall_rule(
@@ -815,7 +815,7 @@ class Route53ResolverClient(BaseClient):
         """
         Updates the specified firewall rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_rule)
         """
     def update_firewall_rule_group_association(
@@ -829,7 +829,7 @@ class Route53ResolverClient(BaseClient):
         """
         Changes the association of a  FirewallRuleGroup with a VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_rule_group_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_rule_group_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_rule_group_association)
         """
     def update_resolver_config(
@@ -839,7 +839,7 @@ class Route53ResolverClient(BaseClient):
         Updates the behavior configuration of Route 53 Resolver behavior for a single
         VPC from Amazon Virtual Private Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_config)
         """
     def update_resolver_dnssec_config(
@@ -848,7 +848,7 @@ class Route53ResolverClient(BaseClient):
         """
         Updates an existing DNSSEC validation configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_dnssec_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_dnssec_config)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_dnssec_config)
         """
     def update_resolver_endpoint(
@@ -857,7 +857,7 @@ class Route53ResolverClient(BaseClient):
         """
         Updates the name of an inbound or an outbound Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_endpoint)
         """
     def update_resolver_rule(
@@ -866,7 +866,7 @@ class Route53ResolverClient(BaseClient):
         """
         Updates settings for a specified Resolver rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_rule)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_rule)
         """
     @overload
@@ -874,7 +874,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_firewall_configs"]
     ) -> ListFirewallConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallconfigspaginator)
         """
     @overload
@@ -882,7 +882,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_firewall_domain_lists"]
     ) -> ListFirewallDomainListsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomainLists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomainLists)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewalldomainlistspaginator)
         """
     @overload
@@ -890,7 +890,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_firewall_domains"]
     ) -> ListFirewallDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewalldomainspaginator)
         """
     @overload
@@ -898,7 +898,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_firewall_rule_group_associations"]
     ) -> ListFirewallRuleGroupAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroupAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroupAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallrulegroupassociationspaginator)
         """
     @overload
@@ -906,7 +906,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_firewall_rule_groups"]
     ) -> ListFirewallRuleGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroups)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallrulegroupspaginator)
         """
     @overload
@@ -914,7 +914,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_firewall_rules"]
     ) -> ListFirewallRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallrulespaginator)
         """
     @overload
@@ -922,7 +922,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_configs"]
     ) -> ListResolverConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverconfigspaginator)
         """
     @overload
@@ -930,7 +930,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_dnssec_configs"]
     ) -> ListResolverDnssecConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverDnssecConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverDnssecConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverdnssecconfigspaginator)
         """
     @overload
@@ -938,7 +938,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_endpoint_ip_addresses"]
     ) -> ListResolverEndpointIpAddressesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverendpointipaddressespaginator)
         """
     @overload
@@ -946,7 +946,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_endpoints"]
     ) -> ListResolverEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverendpointspaginator)
         """
     @overload
@@ -954,7 +954,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_query_log_config_associations"]
     ) -> ListResolverQueryLogConfigAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverquerylogconfigassociationspaginator)
         """
     @overload
@@ -962,7 +962,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_query_log_configs"]
     ) -> ListResolverQueryLogConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverquerylogconfigspaginator)
         """
     @overload
@@ -970,7 +970,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_rule_associations"]
     ) -> ListResolverRuleAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverruleassociationspaginator)
         """
     @overload
@@ -978,7 +978,7 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_resolver_rules"]
     ) -> ListResolverRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverrulespaginator)
         """
     @overload
@@ -986,6 +986,6 @@ class Route53ResolverClient(BaseClient):
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listtagsforresourcepaginator)
         """

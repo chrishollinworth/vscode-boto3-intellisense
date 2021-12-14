@@ -6,9 +6,9 @@ Type annotations for forecast service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_forecast.type_defs import CategoricalParameterRangeTypeDef
+    from mypy_boto3_forecast.type_defs import AdditionalDatasetTypeDef
 
-    data: CategoricalParameterRangeTypeDef = {...}
+    data: AdditionalDatasetTypeDef = {...}
     ```
 """
 import sys
@@ -17,12 +17,16 @@ from typing import Any, Dict, List
 
 from .literals import (
     AttributeTypeType,
+    AutoMLOverrideStrategyType,
     DatasetTypeType,
     DomainType,
     EvaluationTypeType,
     FilterConditionStringType,
     OptimizationMetricType,
     ScalingTypeType,
+    StateType,
+    TimePointGranularityType,
+    TimeSeriesGranularityType,
 )
 
 if sys.version_info >= (3, 8):
@@ -35,14 +39,22 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AdditionalDatasetTypeDef",
+    "AttributeConfigTypeDef",
     "CategoricalParameterRangeTypeDef",
     "ContinuousParameterRangeTypeDef",
+    "CreateAutoPredictorRequestRequestTypeDef",
+    "CreateAutoPredictorResponseTypeDef",
     "CreateDatasetGroupRequestRequestTypeDef",
     "CreateDatasetGroupResponseTypeDef",
     "CreateDatasetImportJobRequestRequestTypeDef",
     "CreateDatasetImportJobResponseTypeDef",
     "CreateDatasetRequestRequestTypeDef",
     "CreateDatasetResponseTypeDef",
+    "CreateExplainabilityExportRequestRequestTypeDef",
+    "CreateExplainabilityExportResponseTypeDef",
+    "CreateExplainabilityRequestRequestTypeDef",
+    "CreateExplainabilityResponseTypeDef",
     "CreateForecastExportJobRequestRequestTypeDef",
     "CreateForecastExportJobResponseTypeDef",
     "CreateForecastRequestRequestTypeDef",
@@ -51,6 +63,7 @@ __all__ = (
     "CreatePredictorBacktestExportJobResponseTypeDef",
     "CreatePredictorRequestRequestTypeDef",
     "CreatePredictorResponseTypeDef",
+    "DataConfigTypeDef",
     "DataDestinationTypeDef",
     "DataSourceTypeDef",
     "DatasetGroupSummaryTypeDef",
@@ -59,17 +72,25 @@ __all__ = (
     "DeleteDatasetGroupRequestRequestTypeDef",
     "DeleteDatasetImportJobRequestRequestTypeDef",
     "DeleteDatasetRequestRequestTypeDef",
+    "DeleteExplainabilityExportRequestRequestTypeDef",
+    "DeleteExplainabilityRequestRequestTypeDef",
     "DeleteForecastExportJobRequestRequestTypeDef",
     "DeleteForecastRequestRequestTypeDef",
     "DeletePredictorBacktestExportJobRequestRequestTypeDef",
     "DeletePredictorRequestRequestTypeDef",
     "DeleteResourceTreeRequestRequestTypeDef",
+    "DescribeAutoPredictorRequestRequestTypeDef",
+    "DescribeAutoPredictorResponseTypeDef",
     "DescribeDatasetGroupRequestRequestTypeDef",
     "DescribeDatasetGroupResponseTypeDef",
     "DescribeDatasetImportJobRequestRequestTypeDef",
     "DescribeDatasetImportJobResponseTypeDef",
     "DescribeDatasetRequestRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
+    "DescribeExplainabilityExportRequestRequestTypeDef",
+    "DescribeExplainabilityExportResponseTypeDef",
+    "DescribeExplainabilityRequestRequestTypeDef",
+    "DescribeExplainabilityResponseTypeDef",
     "DescribeForecastExportJobRequestRequestTypeDef",
     "DescribeForecastExportJobResponseTypeDef",
     "DescribeForecastRequestRequestTypeDef",
@@ -82,6 +103,10 @@ __all__ = (
     "ErrorMetricTypeDef",
     "EvaluationParametersTypeDef",
     "EvaluationResultTypeDef",
+    "ExplainabilityConfigTypeDef",
+    "ExplainabilityExportSummaryTypeDef",
+    "ExplainabilityInfoTypeDef",
+    "ExplainabilitySummaryTypeDef",
     "FeaturizationConfigTypeDef",
     "FeaturizationMethodTypeDef",
     "FeaturizationTypeDef",
@@ -99,6 +124,10 @@ __all__ = (
     "ListDatasetImportJobsResponseTypeDef",
     "ListDatasetsRequestRequestTypeDef",
     "ListDatasetsResponseTypeDef",
+    "ListExplainabilitiesRequestRequestTypeDef",
+    "ListExplainabilitiesResponseTypeDef",
+    "ListExplainabilityExportsRequestRequestTypeDef",
+    "ListExplainabilityExportsResponseTypeDef",
     "ListForecastExportJobsRequestRequestTypeDef",
     "ListForecastExportJobsResponseTypeDef",
     "ListForecastsRequestRequestTypeDef",
@@ -116,6 +145,7 @@ __all__ = (
     "PredictorExecutionDetailsTypeDef",
     "PredictorExecutionTypeDef",
     "PredictorSummaryTypeDef",
+    "ReferencePredictorSummaryTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigTypeDef",
     "SchemaAttributeTypeDef",
@@ -130,6 +160,33 @@ __all__ = (
     "UpdateDatasetGroupRequestRequestTypeDef",
     "WeightedQuantileLossTypeDef",
     "WindowSummaryTypeDef",
+)
+
+_RequiredAdditionalDatasetTypeDef = TypedDict(
+    "_RequiredAdditionalDatasetTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalAdditionalDatasetTypeDef = TypedDict(
+    "_OptionalAdditionalDatasetTypeDef",
+    {
+        "Configuration": Dict[str, List[str]],
+    },
+    total=False,
+)
+
+class AdditionalDatasetTypeDef(
+    _RequiredAdditionalDatasetTypeDef, _OptionalAdditionalDatasetTypeDef
+):
+    pass
+
+AttributeConfigTypeDef = TypedDict(
+    "AttributeConfigTypeDef",
+    {
+        "AttributeName": str,
+        "Transformations": Dict[str, str],
+    },
 )
 
 CategoricalParameterRangeTypeDef = TypedDict(
@@ -160,6 +217,43 @@ class ContinuousParameterRangeTypeDef(
     _RequiredContinuousParameterRangeTypeDef, _OptionalContinuousParameterRangeTypeDef
 ):
     pass
+
+_RequiredCreateAutoPredictorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAutoPredictorRequestRequestTypeDef",
+    {
+        "PredictorName": str,
+    },
+)
+_OptionalCreateAutoPredictorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAutoPredictorRequestRequestTypeDef",
+    {
+        "ForecastHorizon": int,
+        "ForecastTypes": List[str],
+        "ForecastDimensions": List[str],
+        "ForecastFrequency": str,
+        "DataConfig": "DataConfigTypeDef",
+        "EncryptionConfig": "EncryptionConfigTypeDef",
+        "ReferencePredictorArn": str,
+        "OptimizationMetric": OptimizationMetricType,
+        "ExplainPredictor": bool,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAutoPredictorRequestRequestTypeDef(
+    _RequiredCreateAutoPredictorRequestRequestTypeDef,
+    _OptionalCreateAutoPredictorRequestRequestTypeDef,
+):
+    pass
+
+CreateAutoPredictorResponseTypeDef = TypedDict(
+    "CreateAutoPredictorResponseTypeDef",
+    {
+        "PredictorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredCreateDatasetGroupRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDatasetGroupRequestRequestTypeDef",
@@ -253,6 +347,71 @@ CreateDatasetResponseTypeDef = TypedDict(
     "CreateDatasetResponseTypeDef",
     {
         "DatasetArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateExplainabilityExportRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateExplainabilityExportRequestRequestTypeDef",
+    {
+        "ExplainabilityExportName": str,
+        "ExplainabilityArn": str,
+        "Destination": "DataDestinationTypeDef",
+    },
+)
+_OptionalCreateExplainabilityExportRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateExplainabilityExportRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateExplainabilityExportRequestRequestTypeDef(
+    _RequiredCreateExplainabilityExportRequestRequestTypeDef,
+    _OptionalCreateExplainabilityExportRequestRequestTypeDef,
+):
+    pass
+
+CreateExplainabilityExportResponseTypeDef = TypedDict(
+    "CreateExplainabilityExportResponseTypeDef",
+    {
+        "ExplainabilityExportArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateExplainabilityRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateExplainabilityRequestRequestTypeDef",
+    {
+        "ExplainabilityName": str,
+        "ResourceArn": str,
+        "ExplainabilityConfig": "ExplainabilityConfigTypeDef",
+    },
+)
+_OptionalCreateExplainabilityRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateExplainabilityRequestRequestTypeDef",
+    {
+        "DataSource": "DataSourceTypeDef",
+        "Schema": "SchemaTypeDef",
+        "EnableVisualization": bool,
+        "StartDateTime": str,
+        "EndDateTime": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateExplainabilityRequestRequestTypeDef(
+    _RequiredCreateExplainabilityRequestRequestTypeDef,
+    _OptionalCreateExplainabilityRequestRequestTypeDef,
+):
+    pass
+
+CreateExplainabilityResponseTypeDef = TypedDict(
+    "CreateExplainabilityResponseTypeDef",
+    {
+        "ExplainabilityArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -361,7 +520,7 @@ _OptionalCreatePredictorRequestRequestTypeDef = TypedDict(
         "AlgorithmArn": str,
         "ForecastTypes": List[str],
         "PerformAutoML": bool,
-        "AutoMLOverrideStrategy": Literal["LatencyOptimized"],
+        "AutoMLOverrideStrategy": AutoMLOverrideStrategyType,
         "PerformHPO": bool,
         "TrainingParameters": Dict[str, str],
         "EvaluationParameters": "EvaluationParametersTypeDef",
@@ -385,6 +544,24 @@ CreatePredictorResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredDataConfigTypeDef = TypedDict(
+    "_RequiredDataConfigTypeDef",
+    {
+        "DatasetGroupArn": str,
+    },
+)
+_OptionalDataConfigTypeDef = TypedDict(
+    "_OptionalDataConfigTypeDef",
+    {
+        "AttributeConfigs": List["AttributeConfigTypeDef"],
+        "AdditionalDatasets": List["AdditionalDatasetTypeDef"],
+    },
+    total=False,
+)
+
+class DataConfigTypeDef(_RequiredDataConfigTypeDef, _OptionalDataConfigTypeDef):
+    pass
 
 DataDestinationTypeDef = TypedDict(
     "DataDestinationTypeDef",
@@ -459,6 +636,20 @@ DeleteDatasetRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteExplainabilityExportRequestRequestTypeDef = TypedDict(
+    "DeleteExplainabilityExportRequestRequestTypeDef",
+    {
+        "ExplainabilityExportArn": str,
+    },
+)
+
+DeleteExplainabilityRequestRequestTypeDef = TypedDict(
+    "DeleteExplainabilityRequestRequestTypeDef",
+    {
+        "ExplainabilityArn": str,
+    },
+)
+
 DeleteForecastExportJobRequestRequestTypeDef = TypedDict(
     "DeleteForecastExportJobRequestRequestTypeDef",
     {
@@ -491,6 +682,36 @@ DeleteResourceTreeRequestRequestTypeDef = TypedDict(
     "DeleteResourceTreeRequestRequestTypeDef",
     {
         "ResourceArn": str,
+    },
+)
+
+DescribeAutoPredictorRequestRequestTypeDef = TypedDict(
+    "DescribeAutoPredictorRequestRequestTypeDef",
+    {
+        "PredictorArn": str,
+    },
+)
+
+DescribeAutoPredictorResponseTypeDef = TypedDict(
+    "DescribeAutoPredictorResponseTypeDef",
+    {
+        "PredictorArn": str,
+        "PredictorName": str,
+        "ForecastHorizon": int,
+        "ForecastTypes": List[str],
+        "ForecastFrequency": str,
+        "DatasetImportJobArns": List[str],
+        "DataConfig": "DataConfigTypeDef",
+        "EncryptionConfig": "EncryptionConfigTypeDef",
+        "ReferencePredictorSummary": "ReferencePredictorSummaryTypeDef",
+        "EstimatedTimeRemainingInMinutes": int,
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "OptimizationMetric": OptimizationMetricType,
+        "ExplainabilityInfo": "ExplainabilityInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -561,6 +782,56 @@ DescribeDatasetResponseTypeDef = TypedDict(
         "DataFrequency": str,
         "Schema": "SchemaTypeDef",
         "EncryptionConfig": "EncryptionConfigTypeDef",
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeExplainabilityExportRequestRequestTypeDef = TypedDict(
+    "DescribeExplainabilityExportRequestRequestTypeDef",
+    {
+        "ExplainabilityExportArn": str,
+    },
+)
+
+DescribeExplainabilityExportResponseTypeDef = TypedDict(
+    "DescribeExplainabilityExportResponseTypeDef",
+    {
+        "ExplainabilityExportArn": str,
+        "ExplainabilityExportName": str,
+        "ExplainabilityArn": str,
+        "Destination": "DataDestinationTypeDef",
+        "Message": str,
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeExplainabilityRequestRequestTypeDef = TypedDict(
+    "DescribeExplainabilityRequestRequestTypeDef",
+    {
+        "ExplainabilityArn": str,
+    },
+)
+
+DescribeExplainabilityResponseTypeDef = TypedDict(
+    "DescribeExplainabilityResponseTypeDef",
+    {
+        "ExplainabilityArn": str,
+        "ExplainabilityName": str,
+        "ResourceArn": str,
+        "ExplainabilityConfig": "ExplainabilityConfigTypeDef",
+        "EnableVisualization": bool,
+        "DataSource": "DataSourceTypeDef",
+        "Schema": "SchemaTypeDef",
+        "StartDateTime": str,
+        "EndDateTime": str,
+        "EstimatedTimeRemainingInMinutes": int,
+        "Message": str,
         "Status": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
@@ -649,10 +920,11 @@ DescribePredictorResponseTypeDef = TypedDict(
         "PredictorArn": str,
         "PredictorName": str,
         "AlgorithmArn": str,
+        "AutoMLAlgorithmArns": List[str],
         "ForecastHorizon": int,
         "ForecastTypes": List[str],
         "PerformAutoML": bool,
-        "AutoMLOverrideStrategy": Literal["LatencyOptimized"],
+        "AutoMLOverrideStrategy": AutoMLOverrideStrategyType,
         "PerformHPO": bool,
         "TrainingParameters": Dict[str, str],
         "EvaluationParameters": "EvaluationParametersTypeDef",
@@ -662,8 +934,8 @@ DescribePredictorResponseTypeDef = TypedDict(
         "EncryptionConfig": "EncryptionConfigTypeDef",
         "PredictorExecutionDetails": "PredictorExecutionDetailsTypeDef",
         "EstimatedTimeRemainingInMinutes": int,
+        "IsAutoPredictor": bool,
         "DatasetImportJobArns": List[str],
-        "AutoMLAlgorithmArns": List[str],
         "Status": str,
         "Message": str,
         "CreationTime": datetime,
@@ -707,6 +979,52 @@ EvaluationResultTypeDef = TypedDict(
     {
         "AlgorithmArn": str,
         "TestWindows": List["WindowSummaryTypeDef"],
+    },
+    total=False,
+)
+
+ExplainabilityConfigTypeDef = TypedDict(
+    "ExplainabilityConfigTypeDef",
+    {
+        "TimeSeriesGranularity": TimeSeriesGranularityType,
+        "TimePointGranularity": TimePointGranularityType,
+    },
+)
+
+ExplainabilityExportSummaryTypeDef = TypedDict(
+    "ExplainabilityExportSummaryTypeDef",
+    {
+        "ExplainabilityExportArn": str,
+        "ExplainabilityExportName": str,
+        "Destination": "DataDestinationTypeDef",
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+    },
+    total=False,
+)
+
+ExplainabilityInfoTypeDef = TypedDict(
+    "ExplainabilityInfoTypeDef",
+    {
+        "ExplainabilityArn": str,
+        "Status": str,
+    },
+    total=False,
+)
+
+ExplainabilitySummaryTypeDef = TypedDict(
+    "ExplainabilitySummaryTypeDef",
+    {
+        "ExplainabilityArn": str,
+        "ExplainabilityName": str,
+        "ResourceArn": str,
+        "ExplainabilityConfig": "ExplainabilityConfigTypeDef",
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
     },
     total=False,
 )
@@ -796,6 +1114,7 @@ ForecastSummaryTypeDef = TypedDict(
         "ForecastArn": str,
         "ForecastName": str,
         "PredictorArn": str,
+        "CreatedUsingAutoPredictor": bool,
         "DatasetGroupArn": str,
         "Status": str,
         "Message": str,
@@ -816,7 +1135,8 @@ GetAccuracyMetricsResponseTypeDef = TypedDict(
     "GetAccuracyMetricsResponseTypeDef",
     {
         "PredictorEvaluationResults": List["EvaluationResultTypeDef"],
-        "AutoMLOverrideStrategy": Literal["LatencyOptimized"],
+        "IsAutoPredictor": bool,
+        "AutoMLOverrideStrategy": AutoMLOverrideStrategyType,
         "OptimizationMetric": OptimizationMetricType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -918,6 +1238,44 @@ ListDatasetsResponseTypeDef = TypedDict(
     "ListDatasetsResponseTypeDef",
     {
         "Datasets": List["DatasetSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListExplainabilitiesRequestRequestTypeDef = TypedDict(
+    "ListExplainabilitiesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListExplainabilitiesResponseTypeDef = TypedDict(
+    "ListExplainabilitiesResponseTypeDef",
+    {
+        "Explainabilities": List["ExplainabilitySummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListExplainabilityExportsRequestRequestTypeDef = TypedDict(
+    "ListExplainabilityExportsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListExplainabilityExportsResponseTypeDef = TypedDict(
+    "ListExplainabilityExportsResponseTypeDef",
+    {
+        "ExplainabilityExports": List["ExplainabilityExportSummaryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1082,10 +1440,21 @@ PredictorSummaryTypeDef = TypedDict(
         "PredictorArn": str,
         "PredictorName": str,
         "DatasetGroupArn": str,
+        "IsAutoPredictor": bool,
+        "ReferencePredictorSummary": "ReferencePredictorSummaryTypeDef",
         "Status": str,
         "Message": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+    },
+    total=False,
+)
+
+ReferencePredictorSummaryTypeDef = TypedDict(
+    "ReferencePredictorSummaryTypeDef",
+    {
+        "Arn": str,
+        "State": StateType,
     },
     total=False,
 )

@@ -78,6 +78,9 @@ __all__ = (
     "BatchImportEvidenceToAssessmentControlResponseTypeDef",
     "ChangeLogTypeDef",
     "ControlCommentTypeDef",
+    "ControlDomainInsightsTypeDef",
+    "ControlInsightsMetadataByAssessmentItemTypeDef",
+    "ControlInsightsMetadataItemTypeDef",
     "ControlMappingSourceTypeDef",
     "ControlMetadataTypeDef",
     "ControlSetTypeDef",
@@ -104,6 +107,7 @@ __all__ = (
     "DeregisterAccountResponseTypeDef",
     "DeregisterOrganizationAdminAccountRequestRequestTypeDef",
     "DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef",
+    "EvidenceInsightsTypeDef",
     "EvidenceTypeDef",
     "FrameworkMetadataTypeDef",
     "FrameworkTypeDef",
@@ -130,10 +134,17 @@ __all__ = (
     "GetEvidenceFoldersByAssessmentResponseTypeDef",
     "GetEvidenceRequestRequestTypeDef",
     "GetEvidenceResponseTypeDef",
+    "GetInsightsByAssessmentRequestRequestTypeDef",
+    "GetInsightsByAssessmentResponseTypeDef",
+    "GetInsightsResponseTypeDef",
     "GetOrganizationAdminAccountResponseTypeDef",
     "GetServicesInScopeResponseTypeDef",
     "GetSettingsRequestRequestTypeDef",
     "GetSettingsResponseTypeDef",
+    "InsightsByAssessmentTypeDef",
+    "InsightsTypeDef",
+    "ListAssessmentControlInsightsByControlDomainRequestRequestTypeDef",
+    "ListAssessmentControlInsightsByControlDomainResponseTypeDef",
     "ListAssessmentFrameworkShareRequestsRequestRequestTypeDef",
     "ListAssessmentFrameworkShareRequestsResponseTypeDef",
     "ListAssessmentFrameworksRequestRequestTypeDef",
@@ -142,6 +153,12 @@ __all__ = (
     "ListAssessmentReportsResponseTypeDef",
     "ListAssessmentsRequestRequestTypeDef",
     "ListAssessmentsResponseTypeDef",
+    "ListControlDomainInsightsByAssessmentRequestRequestTypeDef",
+    "ListControlDomainInsightsByAssessmentResponseTypeDef",
+    "ListControlDomainInsightsRequestRequestTypeDef",
+    "ListControlDomainInsightsResponseTypeDef",
+    "ListControlInsightsByControlDomainRequestRequestTypeDef",
+    "ListControlInsightsByControlDomainResponseTypeDef",
     "ListControlsRequestRequestTypeDef",
     "ListControlsResponseTypeDef",
     "ListKeywordsForDataSourceRequestRequestTypeDef",
@@ -556,6 +573,42 @@ ControlCommentTypeDef = TypedDict(
     total=False,
 )
 
+ControlDomainInsightsTypeDef = TypedDict(
+    "ControlDomainInsightsTypeDef",
+    {
+        "name": str,
+        "id": str,
+        "controlsCountByNoncompliantEvidence": int,
+        "totalControlsCount": int,
+        "evidenceInsights": "EvidenceInsightsTypeDef",
+        "lastUpdated": datetime,
+    },
+    total=False,
+)
+
+ControlInsightsMetadataByAssessmentItemTypeDef = TypedDict(
+    "ControlInsightsMetadataByAssessmentItemTypeDef",
+    {
+        "name": str,
+        "id": str,
+        "evidenceInsights": "EvidenceInsightsTypeDef",
+        "controlSetName": str,
+        "lastUpdated": datetime,
+    },
+    total=False,
+)
+
+ControlInsightsMetadataItemTypeDef = TypedDict(
+    "ControlInsightsMetadataItemTypeDef",
+    {
+        "name": str,
+        "id": str,
+        "evidenceInsights": "EvidenceInsightsTypeDef",
+        "lastUpdated": datetime,
+    },
+    total=False,
+)
+
 ControlMappingSourceTypeDef = TypedDict(
     "ControlMappingSourceTypeDef",
     {
@@ -886,6 +939,16 @@ DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef = TypedDict(
     },
 )
 
+EvidenceInsightsTypeDef = TypedDict(
+    "EvidenceInsightsTypeDef",
+    {
+        "noncompliantEvidenceCount": int,
+        "compliantEvidenceCount": int,
+        "inconclusiveEvidenceCount": int,
+    },
+    total=False,
+)
+
 EvidenceTypeDef = TypedDict(
     "EvidenceTypeDef",
     {
@@ -1188,6 +1251,29 @@ GetEvidenceResponseTypeDef = TypedDict(
     },
 )
 
+GetInsightsByAssessmentRequestRequestTypeDef = TypedDict(
+    "GetInsightsByAssessmentRequestRequestTypeDef",
+    {
+        "assessmentId": str,
+    },
+)
+
+GetInsightsByAssessmentResponseTypeDef = TypedDict(
+    "GetInsightsByAssessmentResponseTypeDef",
+    {
+        "insights": "InsightsByAssessmentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetInsightsResponseTypeDef = TypedDict(
+    "GetInsightsResponseTypeDef",
+    {
+        "insights": "InsightsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetOrganizationAdminAccountResponseTypeDef = TypedDict(
     "GetOrganizationAdminAccountResponseTypeDef",
     {
@@ -1216,6 +1302,64 @@ GetSettingsResponseTypeDef = TypedDict(
     "GetSettingsResponseTypeDef",
     {
         "settings": "SettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+InsightsByAssessmentTypeDef = TypedDict(
+    "InsightsByAssessmentTypeDef",
+    {
+        "noncompliantEvidenceCount": int,
+        "compliantEvidenceCount": int,
+        "inconclusiveEvidenceCount": int,
+        "assessmentControlsCountByNoncompliantEvidence": int,
+        "totalAssessmentControlsCount": int,
+        "lastUpdated": datetime,
+    },
+    total=False,
+)
+
+InsightsTypeDef = TypedDict(
+    "InsightsTypeDef",
+    {
+        "activeAssessmentsCount": int,
+        "noncompliantEvidenceCount": int,
+        "compliantEvidenceCount": int,
+        "inconclusiveEvidenceCount": int,
+        "assessmentControlsCountByNoncompliantEvidence": int,
+        "totalAssessmentControlsCount": int,
+        "lastUpdated": datetime,
+    },
+    total=False,
+)
+
+_RequiredListAssessmentControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredListAssessmentControlInsightsByControlDomainRequestRequestTypeDef",
+    {
+        "controlDomainId": str,
+        "assessmentId": str,
+    },
+)
+_OptionalListAssessmentControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalListAssessmentControlInsightsByControlDomainRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListAssessmentControlInsightsByControlDomainRequestRequestTypeDef(
+    _RequiredListAssessmentControlInsightsByControlDomainRequestRequestTypeDef,
+    _OptionalListAssessmentControlInsightsByControlDomainRequestRequestTypeDef,
+):
+    pass
+
+ListAssessmentControlInsightsByControlDomainResponseTypeDef = TypedDict(
+    "ListAssessmentControlInsightsByControlDomainResponseTypeDef",
+    {
+        "controlInsightsByAssessment": List["ControlInsightsMetadataByAssessmentItemTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1301,6 +1445,7 @@ ListAssessmentReportsResponseTypeDef = TypedDict(
 ListAssessmentsRequestRequestTypeDef = TypedDict(
     "ListAssessmentsRequestRequestTypeDef",
     {
+        "status": AssessmentStatusType,
         "nextToken": str,
         "maxResults": int,
     },
@@ -1311,6 +1456,84 @@ ListAssessmentsResponseTypeDef = TypedDict(
     "ListAssessmentsResponseTypeDef",
     {
         "assessmentMetadata": List["AssessmentMetadataItemTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListControlDomainInsightsByAssessmentRequestRequestTypeDef = TypedDict(
+    "_RequiredListControlDomainInsightsByAssessmentRequestRequestTypeDef",
+    {
+        "assessmentId": str,
+    },
+)
+_OptionalListControlDomainInsightsByAssessmentRequestRequestTypeDef = TypedDict(
+    "_OptionalListControlDomainInsightsByAssessmentRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListControlDomainInsightsByAssessmentRequestRequestTypeDef(
+    _RequiredListControlDomainInsightsByAssessmentRequestRequestTypeDef,
+    _OptionalListControlDomainInsightsByAssessmentRequestRequestTypeDef,
+):
+    pass
+
+ListControlDomainInsightsByAssessmentResponseTypeDef = TypedDict(
+    "ListControlDomainInsightsByAssessmentResponseTypeDef",
+    {
+        "controlDomainInsights": List["ControlDomainInsightsTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListControlDomainInsightsRequestRequestTypeDef = TypedDict(
+    "ListControlDomainInsightsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListControlDomainInsightsResponseTypeDef = TypedDict(
+    "ListControlDomainInsightsResponseTypeDef",
+    {
+        "controlDomainInsights": List["ControlDomainInsightsTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
+    "_RequiredListControlInsightsByControlDomainRequestRequestTypeDef",
+    {
+        "controlDomainId": str,
+    },
+)
+_OptionalListControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
+    "_OptionalListControlInsightsByControlDomainRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListControlInsightsByControlDomainRequestRequestTypeDef(
+    _RequiredListControlInsightsByControlDomainRequestRequestTypeDef,
+    _OptionalListControlInsightsByControlDomainRequestRequestTypeDef,
+):
+    pass
+
+ListControlInsightsByControlDomainResponseTypeDef = TypedDict(
+    "ListControlInsightsByControlDomainResponseTypeDef",
+    {
+        "controlInsightsMetadata": List["ControlInsightsMetadataItemTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

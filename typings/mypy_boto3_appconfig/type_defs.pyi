@@ -129,6 +129,7 @@ ConfigurationProfileSummaryTypeDef = TypedDict(
         "Name": str,
         "LocationUri": str,
         "ValidatorTypes": List[ValidatorTypeType],
+        "Type": str,
     },
     total=False,
 )
@@ -143,6 +144,7 @@ ConfigurationProfileTypeDef = TypedDict(
         "LocationUri": str,
         "RetrievalRoleArn": str,
         "Validators": List["ValidatorTypeDef"],
+        "Type": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -201,6 +203,7 @@ _OptionalCreateConfigurationProfileRequestRequestTypeDef = TypedDict(
         "RetrievalRoleArn": str,
         "Validators": List["ValidatorTypeDef"],
         "Tags": Dict[str, str],
+        "Type": str,
     },
     total=False,
 )
@@ -583,6 +586,7 @@ _OptionalListConfigurationProfilesRequestRequestTypeDef = TypedDict(
     {
         "MaxResults": int,
         "NextToken": str,
+        "Type": str,
     },
     total=False,
 )
@@ -672,14 +676,22 @@ ListTagsForResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-MonitorTypeDef = TypedDict(
-    "MonitorTypeDef",
+_RequiredMonitorTypeDef = TypedDict(
+    "_RequiredMonitorTypeDef",
     {
         "AlarmArn": str,
+    },
+)
+_OptionalMonitorTypeDef = TypedDict(
+    "_OptionalMonitorTypeDef",
+    {
         "AlarmRoleArn": str,
     },
     total=False,
 )
+
+class MonitorTypeDef(_RequiredMonitorTypeDef, _OptionalMonitorTypeDef):
+    pass
 
 ResourceTagsTypeDef = TypedDict(
     "ResourceTagsTypeDef",

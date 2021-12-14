@@ -9,6 +9,7 @@ Usage::
         Client,
         ListDomainsPaginator,
         ListOperationsPaginator,
+        ListPricesPaginator,
         Route53DomainsClient,
         ViewBillingPaginator,
     )
@@ -20,11 +21,17 @@ Usage::
 
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     list_operations_paginator: ListOperationsPaginator = client.get_paginator("list_operations")
+    list_prices_paginator: ListPricesPaginator = client.get_paginator("list_prices")
     view_billing_paginator: ViewBillingPaginator = client.get_paginator("view_billing")
     ```
 """
 from .client import Route53DomainsClient
-from .paginator import ListDomainsPaginator, ListOperationsPaginator, ViewBillingPaginator
+from .paginator import (
+    ListDomainsPaginator,
+    ListOperationsPaginator,
+    ListPricesPaginator,
+    ViewBillingPaginator,
+)
 
 Client = Route53DomainsClient
 
@@ -32,6 +39,7 @@ __all__ = (
     "Client",
     "ListDomainsPaginator",
     "ListOperationsPaginator",
+    "ListPricesPaginator",
     "Route53DomainsClient",
     "ViewBillingPaginator",
 )

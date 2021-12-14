@@ -48,7 +48,7 @@ class Exceptions:
 
 class PricingClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/client.html)
     """
 
@@ -62,7 +62,7 @@ class PricingClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/client.html#can_paginate)
         """
     def describe_services(
@@ -76,7 +76,7 @@ class PricingClient(BaseClient):
         """
         Returns the metadata for one service or a list of the metadata for all services.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Client.describe_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Client.describe_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/client.html#describe_services)
         """
     def generate_presigned_url(
@@ -89,7 +89,7 @@ class PricingClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/client.html#generate_presigned_url)
         """
     def get_attribute_values(
@@ -98,7 +98,7 @@ class PricingClient(BaseClient):
         """
         Returns a list of attribute values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Client.get_attribute_values)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Client.get_attribute_values)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/client.html#get_attribute_values)
         """
     def get_products(
@@ -113,7 +113,7 @@ class PricingClient(BaseClient):
         """
         Returns a list of all products that match the filter criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Client.get_products)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Client.get_products)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/client.html#get_products)
         """
     @overload
@@ -121,7 +121,7 @@ class PricingClient(BaseClient):
         self, operation_name: Literal["describe_services"]
     ) -> DescribeServicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#describeservicespaginator)
         """
     @overload
@@ -129,12 +129,12 @@ class PricingClient(BaseClient):
         self, operation_name: Literal["get_attribute_values"]
     ) -> GetAttributeValuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#getattributevaluespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_products"]) -> GetProductsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/pricing.html#Pricing.Paginator.GetProducts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/pricing.html#Pricing.Paginator.GetProducts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/paginators.html#getproductspaginator)
         """

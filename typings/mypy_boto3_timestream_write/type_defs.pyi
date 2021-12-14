@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import MeasureValueTypeType, TableStatusType, TimeUnitType
+from .literals import MeasureValueTypeType, S3EncryptionOptionType, TableStatusType, TimeUnitType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -47,9 +47,14 @@ __all__ = (
     "ListTablesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MagneticStoreRejectedDataLocationTypeDef",
+    "MagneticStoreWritePropertiesTypeDef",
+    "MeasureValueTypeDef",
     "RecordTypeDef",
+    "RecordsIngestedTypeDef",
     "ResponseMetadataTypeDef",
     "RetentionPropertiesTypeDef",
+    "S3ConfigurationTypeDef",
     "TableTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
@@ -59,6 +64,7 @@ __all__ = (
     "UpdateTableRequestRequestTypeDef",
     "UpdateTableResponseTypeDef",
     "WriteRecordsRequestRequestTypeDef",
+    "WriteRecordsResponseTypeDef",
 )
 
 _RequiredCreateDatabaseRequestRequestTypeDef = TypedDict(
@@ -101,6 +107,7 @@ _OptionalCreateTableRequestRequestTypeDef = TypedDict(
     {
         "RetentionProperties": "RetentionPropertiesTypeDef",
         "Tags": List["TagTypeDef"],
+        "MagneticStoreWriteProperties": "MagneticStoreWritePropertiesTypeDef",
     },
     total=False,
 )
@@ -263,6 +270,42 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+MagneticStoreRejectedDataLocationTypeDef = TypedDict(
+    "MagneticStoreRejectedDataLocationTypeDef",
+    {
+        "S3Configuration": "S3ConfigurationTypeDef",
+    },
+    total=False,
+)
+
+_RequiredMagneticStoreWritePropertiesTypeDef = TypedDict(
+    "_RequiredMagneticStoreWritePropertiesTypeDef",
+    {
+        "EnableMagneticStoreWrites": bool,
+    },
+)
+_OptionalMagneticStoreWritePropertiesTypeDef = TypedDict(
+    "_OptionalMagneticStoreWritePropertiesTypeDef",
+    {
+        "MagneticStoreRejectedDataLocation": "MagneticStoreRejectedDataLocationTypeDef",
+    },
+    total=False,
+)
+
+class MagneticStoreWritePropertiesTypeDef(
+    _RequiredMagneticStoreWritePropertiesTypeDef, _OptionalMagneticStoreWritePropertiesTypeDef
+):
+    pass
+
+MeasureValueTypeDef = TypedDict(
+    "MeasureValueTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+        "Type": MeasureValueTypeType,
+    },
+)
+
 RecordTypeDef = TypedDict(
     "RecordTypeDef",
     {
@@ -273,6 +316,17 @@ RecordTypeDef = TypedDict(
         "Time": str,
         "TimeUnit": TimeUnitType,
         "Version": int,
+        "MeasureValues": List["MeasureValueTypeDef"],
+    },
+    total=False,
+)
+
+RecordsIngestedTypeDef = TypedDict(
+    "RecordsIngestedTypeDef",
+    {
+        "Total": int,
+        "MemoryStore": int,
+        "MagneticStore": int,
     },
     total=False,
 )
@@ -296,6 +350,17 @@ RetentionPropertiesTypeDef = TypedDict(
     },
 )
 
+S3ConfigurationTypeDef = TypedDict(
+    "S3ConfigurationTypeDef",
+    {
+        "BucketName": str,
+        "ObjectKeyPrefix": str,
+        "EncryptionOption": S3EncryptionOptionType,
+        "KmsKeyId": str,
+    },
+    total=False,
+)
+
 TableTypeDef = TypedDict(
     "TableTypeDef",
     {
@@ -306,6 +371,7 @@ TableTypeDef = TypedDict(
         "RetentionProperties": "RetentionPropertiesTypeDef",
         "CreationTime": datetime,
         "LastUpdatedTime": datetime,
+        "MagneticStoreWriteProperties": "MagneticStoreWritePropertiesTypeDef",
     },
     total=False,
 )
@@ -350,14 +416,26 @@ UpdateDatabaseResponseTypeDef = TypedDict(
     },
 )
 
-UpdateTableRequestRequestTypeDef = TypedDict(
-    "UpdateTableRequestRequestTypeDef",
+_RequiredUpdateTableRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTableRequestRequestTypeDef",
     {
         "DatabaseName": str,
         "TableName": str,
-        "RetentionProperties": "RetentionPropertiesTypeDef",
     },
 )
+_OptionalUpdateTableRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTableRequestRequestTypeDef",
+    {
+        "RetentionProperties": "RetentionPropertiesTypeDef",
+        "MagneticStoreWriteProperties": "MagneticStoreWritePropertiesTypeDef",
+    },
+    total=False,
+)
+
+class UpdateTableRequestRequestTypeDef(
+    _RequiredUpdateTableRequestRequestTypeDef, _OptionalUpdateTableRequestRequestTypeDef
+):
+    pass
 
 UpdateTableResponseTypeDef = TypedDict(
     "UpdateTableResponseTypeDef",
@@ -387,3 +465,11 @@ class WriteRecordsRequestRequestTypeDef(
     _RequiredWriteRecordsRequestRequestTypeDef, _OptionalWriteRecordsRequestRequestTypeDef
 ):
     pass
+
+WriteRecordsResponseTypeDef = TypedDict(
+    "WriteRecordsResponseTypeDef",
+    {
+        "RecordsIngested": "RecordsIngestedTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)

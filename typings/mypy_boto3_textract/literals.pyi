@@ -27,6 +27,7 @@ __all__ = (
     "RelationshipTypeType",
     "SelectionStatusType",
     "TextTypeType",
+    "ValueTypeType",
 )
 
 BlockTypeType = Literal[
@@ -39,3 +40,4 @@ JobStatusType = Literal["FAILED", "IN_PROGRESS", "PARTIAL_SUCCESS", "SUCCEEDED"]
 RelationshipTypeType = Literal["CHILD", "COMPLEX_FEATURES", "VALUE"]
 SelectionStatusType = Literal["NOT_SELECTED", "SELECTED"]
 TextTypeType = Literal["HANDWRITING", "PRINTED"]
+ValueTypeType = Literal["DATE"]

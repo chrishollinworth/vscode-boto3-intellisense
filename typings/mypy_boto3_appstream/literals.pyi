@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AccessEndpointTypeType",
     "ActionType",
+    "ApplicationAttributeType",
     "AuthenticationTypeType",
     "DescribeDirectoryConfigsPaginatorName",
     "DescribeFleetsPaginatorName",
@@ -67,6 +68,7 @@ ActionType = Literal[
     "FILE_UPLOAD",
     "PRINTING_TO_LOCAL_DEVICE",
 ]
+ApplicationAttributeType = Literal["LAUNCH_PARAMETERS", "WORKING_DIRECTORY"]
 AuthenticationTypeType = Literal["API", "SAML", "USERPOOL"]
 DescribeDirectoryConfigsPaginatorName = Literal["describe_directory_configs"]
 DescribeFleetsPaginatorName = Literal["describe_fleets"]
@@ -77,7 +79,11 @@ DescribeStacksPaginatorName = Literal["describe_stacks"]
 DescribeUserStackAssociationsPaginatorName = Literal["describe_user_stack_associations"]
 DescribeUsersPaginatorName = Literal["describe_users"]
 FleetAttributeType = Literal[
-    "DOMAIN_JOIN_INFO", "IAM_ROLE_ARN", "VPC_CONFIGURATION", "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+    "DOMAIN_JOIN_INFO",
+    "IAM_ROLE_ARN",
+    "USB_DEVICE_FILTER_STRINGS",
+    "VPC_CONFIGURATION",
+    "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
 ]
 FleetErrorCodeType = Literal[
     "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
@@ -114,7 +120,7 @@ FleetErrorCodeType = Literal[
 FleetStartedWaiterName = Literal["fleet_started"]
 FleetStateType = Literal["RUNNING", "STARTING", "STOPPED", "STOPPING"]
 FleetStoppedWaiterName = Literal["fleet_stopped"]
-FleetTypeType = Literal["ALWAYS_ON", "ON_DEMAND"]
+FleetTypeType = Literal["ALWAYS_ON", "ELASTIC", "ON_DEMAND"]
 ImageBuilderStateChangeReasonCodeType = Literal["IMAGE_UNAVAILABLE", "INTERNAL_ERROR"]
 ImageBuilderStateType = Literal[
     "DELETING",

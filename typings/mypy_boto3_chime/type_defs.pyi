@@ -53,6 +53,7 @@ from .literals import (
     TranscribeMedicalRegionType,
     TranscribeMedicalSpecialtyType,
     TranscribeMedicalTypeType,
+    TranscribePartialResultsStabilityType,
     TranscribeRegionType,
     TranscribeVocabularyFilterMethodType,
     UserTypeType,
@@ -2376,6 +2377,7 @@ _OptionalEngineTranscribeMedicalSettingsTypeDef = TypedDict(
     {
         "VocabularyName": str,
         "Region": TranscribeMedicalRegionType,
+        "ContentIdentificationType": Literal["PHI"],
     },
     total=False,
 )
@@ -2398,6 +2400,12 @@ _OptionalEngineTranscribeSettingsTypeDef = TypedDict(
         "VocabularyFilterName": str,
         "VocabularyName": str,
         "Region": TranscribeRegionType,
+        "EnablePartialResultsStabilization": bool,
+        "PartialResultsStability": TranscribePartialResultsStabilityType,
+        "ContentIdentificationType": Literal["PII"],
+        "ContentRedactionType": Literal["PII"],
+        "PiiEntityTypes": str,
+        "LanguageModelName": str,
     },
     total=False,
 )

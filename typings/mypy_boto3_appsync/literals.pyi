@@ -22,6 +22,7 @@ __all__ = (
     "ApiCacheStatusType",
     "ApiCacheTypeType",
     "ApiCachingBehaviorType",
+    "AssociationStatusType",
     "AuthenticationTypeType",
     "AuthorizationTypeType",
     "ConflictDetectionTypeType",
@@ -62,6 +63,7 @@ ApiCacheTypeType = Literal[
     "XLARGE",
 ]
 ApiCachingBehaviorType = Literal["FULL_REQUEST_CACHING", "PER_RESOLVER_CACHING"]
+AssociationStatusType = Literal["FAILED", "PROCESSING", "SUCCESS"]
 AuthenticationTypeType = Literal[
     "AMAZON_COGNITO_USER_POOLS", "API_KEY", "AWS_IAM", "AWS_LAMBDA", "OPENID_CONNECT"
 ]

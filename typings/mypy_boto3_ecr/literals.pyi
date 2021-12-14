@@ -21,6 +21,7 @@ else:
 __all__ = (
     "DescribeImageScanFindingsPaginatorName",
     "DescribeImagesPaginatorName",
+    "DescribePullThroughCacheRulesPaginatorName",
     "DescribeRepositoriesPaginatorName",
     "EncryptionTypeType",
     "FindingSeverityType",
@@ -36,12 +37,17 @@ __all__ = (
     "ListImagesPaginatorName",
     "ReplicationStatusType",
     "RepositoryFilterTypeType",
+    "ScanFrequencyType",
     "ScanStatusType",
+    "ScanTypeType",
+    "ScanningConfigurationFailureCodeType",
+    "ScanningRepositoryFilterTypeType",
     "TagStatusType",
 )
 
 DescribeImageScanFindingsPaginatorName = Literal["describe_image_scan_findings"]
 DescribeImagesPaginatorName = Literal["describe_images"]
+DescribePullThroughCacheRulesPaginatorName = Literal["describe_pull_through_cache_rules"]
 DescribeRepositoriesPaginatorName = Literal["describe_repositories"]
 EncryptionTypeType = Literal["AES256", "KMS"]
 FindingSeverityType = Literal["CRITICAL", "HIGH", "INFORMATIONAL", "LOW", "MEDIUM", "UNDEFINED"]
@@ -65,5 +71,18 @@ LifecyclePolicyPreviewStatusType = Literal["COMPLETE", "EXPIRED", "FAILED", "IN_
 ListImagesPaginatorName = Literal["list_images"]
 ReplicationStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS"]
 RepositoryFilterTypeType = Literal["PREFIX_MATCH"]
-ScanStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS"]
+ScanFrequencyType = Literal["CONTINUOUS_SCAN", "MANUAL", "SCAN_ON_PUSH"]
+ScanStatusType = Literal[
+    "ACTIVE",
+    "COMPLETE",
+    "FAILED",
+    "FINDINGS_UNAVAILABLE",
+    "IN_PROGRESS",
+    "PENDING",
+    "SCAN_ELIGIBILITY_EXPIRED",
+    "UNSUPPORTED_IMAGE",
+]
+ScanTypeType = Literal["BASIC", "ENHANCED"]
+ScanningConfigurationFailureCodeType = Literal["REPOSITORY_NOT_FOUND"]
+ScanningRepositoryFilterTypeType = Literal["WILDCARD"]
 TagStatusType = Literal["ANY", "TAGGED", "UNTAGGED"]

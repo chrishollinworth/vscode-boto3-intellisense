@@ -174,6 +174,7 @@ __all__ = (
     "ListTypesInputRequestTypeDef",
     "ListTypesOutputTypeDef",
     "LoggingConfigTypeDef",
+    "ManagedExecutionTypeDef",
     "ModuleInfoTypeDef",
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
@@ -587,6 +588,7 @@ _OptionalCreateStackSetInputRequestTypeDef = TypedDict(
         "AutoDeployment": "AutoDeploymentTypeDef",
         "CallAs": CallAsType,
         "ClientRequestToken": str,
+        "ManagedExecution": "ManagedExecutionTypeDef",
     },
     total=False,
 )
@@ -1280,12 +1282,14 @@ _RequiredImportStacksToStackSetInputRequestTypeDef = TypedDict(
     "_RequiredImportStacksToStackSetInputRequestTypeDef",
     {
         "StackSetName": str,
-        "StackIds": List[str],
     },
 )
 _OptionalImportStacksToStackSetInputRequestTypeDef = TypedDict(
     "_OptionalImportStacksToStackSetInputRequestTypeDef",
     {
+        "StackIds": List[str],
+        "StackIdsUrl": str,
+        "OrganizationalUnitIds": List[str],
         "OperationPreferences": "StackSetOperationPreferencesTypeDef",
         "OperationId": str,
         "CallAs": CallAsType,
@@ -1616,6 +1620,14 @@ LoggingConfigTypeDef = TypedDict(
         "LogRoleArn": str,
         "LogGroupName": str,
     },
+)
+
+ManagedExecutionTypeDef = TypedDict(
+    "ManagedExecutionTypeDef",
+    {
+        "Active": bool,
+    },
+    total=False,
 )
 
 ModuleInfoTypeDef = TypedDict(
@@ -2368,6 +2380,7 @@ StackSetSummaryTypeDef = TypedDict(
         "PermissionModel": PermissionModelsType,
         "DriftStatus": StackDriftStatusType,
         "LastDriftCheckTimestamp": datetime,
+        "ManagedExecution": "ManagedExecutionTypeDef",
     },
     total=False,
 )
@@ -2390,6 +2403,7 @@ StackSetTypeDef = TypedDict(
         "AutoDeployment": "AutoDeploymentTypeDef",
         "PermissionModel": PermissionModelsType,
         "OrganizationalUnitIds": List[str],
+        "ManagedExecution": "ManagedExecutionTypeDef",
     },
     total=False,
 )
@@ -2713,6 +2727,7 @@ _OptionalUpdateStackSetInputRequestTypeDef = TypedDict(
         "Accounts": List[str],
         "Regions": List[str],
         "CallAs": CallAsType,
+        "ManagedExecution": "ManagedExecutionTypeDef",
     },
     total=False,
 )

@@ -6,9 +6,9 @@ Type annotations for databrew service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_databrew.literals import CompressionFormatType
+    from mypy_boto3_databrew.literals import AnalyticsModeType
 
-    data: CompressionFormatType = "BROTLI"
+    data: AnalyticsModeType = "DISABLE"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AnalyticsModeType",
     "CompressionFormatType",
     "DatabaseOutputModeType",
     "EncryptionModeType",
@@ -31,6 +32,7 @@ __all__ = (
     "ListProjectsPaginatorName",
     "ListRecipeVersionsPaginatorName",
     "ListRecipesPaginatorName",
+    "ListRulesetsPaginatorName",
     "ListSchedulesPaginatorName",
     "LogSubscriptionType",
     "OrderType",
@@ -41,8 +43,12 @@ __all__ = (
     "SampleTypeType",
     "SessionStatusType",
     "SourceType",
+    "ThresholdTypeType",
+    "ThresholdUnitType",
+    "ValidationModeType",
 )
 
+AnalyticsModeType = Literal["DISABLE", "ENABLE"]
 CompressionFormatType = Literal[
     "BROTLI", "BZIP2", "DEFLATE", "GZIP", "LZ4", "LZO", "SNAPPY", "ZLIB", "ZSTD"
 ]
@@ -59,6 +65,7 @@ ListJobsPaginatorName = Literal["list_jobs"]
 ListProjectsPaginatorName = Literal["list_projects"]
 ListRecipeVersionsPaginatorName = Literal["list_recipe_versions"]
 ListRecipesPaginatorName = Literal["list_recipes"]
+ListRulesetsPaginatorName = Literal["list_rulesets"]
 ListSchedulesPaginatorName = Literal["list_schedules"]
 LogSubscriptionType = Literal["DISABLE", "ENABLE"]
 OrderType = Literal["ASCENDING", "DESCENDING"]
@@ -82,3 +89,8 @@ SessionStatusType = Literal[
     "UPDATING",
 ]
 SourceType = Literal["DATA-CATALOG", "DATABASE", "S3"]
+ThresholdTypeType = Literal[
+    "GREATER_THAN", "GREATER_THAN_OR_EQUAL", "LESS_THAN", "LESS_THAN_OR_EQUAL"
+]
+ThresholdUnitType = Literal["COUNT", "PERCENTAGE"]
+ValidationModeType = Literal["CHECK_ALL"]

@@ -38,6 +38,9 @@ __all__ = (
     "DescribeClusterTracksPaginatorName",
     "DescribeClusterVersionsPaginatorName",
     "DescribeClustersPaginatorName",
+    "DescribeDataSharesForConsumerPaginatorName",
+    "DescribeDataSharesForProducerPaginatorName",
+    "DescribeDataSharesPaginatorName",
     "DescribeDefaultClusterParametersPaginatorName",
     "DescribeEndpointAccessPaginatorName",
     "DescribeEndpointAuthorizationPaginatorName",
@@ -47,6 +50,7 @@ __all__ = (
     "DescribeHsmConfigurationsPaginatorName",
     "DescribeNodeConfigurationOptionsPaginatorName",
     "DescribeOrderableClusterOptionsPaginatorName",
+    "DescribeReservedNodeExchangeStatusPaginatorName",
     "DescribeReservedNodeOfferingsPaginatorName",
     "DescribeReservedNodesPaginatorName",
     "DescribeScheduledActionsPaginatorName",
@@ -55,12 +59,15 @@ __all__ = (
     "DescribeTableRestoreStatusPaginatorName",
     "DescribeTagsPaginatorName",
     "DescribeUsageLimitsPaginatorName",
+    "GetReservedNodeExchangeConfigurationOptionsPaginatorName",
     "GetReservedNodeExchangeOfferingsPaginatorName",
     "ModeType",
     "NodeConfigurationOptionsFilterNameType",
     "OperatorTypeType",
     "ParameterApplyTypeType",
     "PartnerIntegrationStatusType",
+    "ReservedNodeExchangeActionTypeType",
+    "ReservedNodeExchangeStatusTypeType",
     "ReservedNodeOfferingTypeType",
     "ScheduleStateType",
     "ScheduledActionFilterNameType",
@@ -100,6 +107,9 @@ DescribeClusterSubnetGroupsPaginatorName = Literal["describe_cluster_subnet_grou
 DescribeClusterTracksPaginatorName = Literal["describe_cluster_tracks"]
 DescribeClusterVersionsPaginatorName = Literal["describe_cluster_versions"]
 DescribeClustersPaginatorName = Literal["describe_clusters"]
+DescribeDataSharesForConsumerPaginatorName = Literal["describe_data_shares_for_consumer"]
+DescribeDataSharesForProducerPaginatorName = Literal["describe_data_shares_for_producer"]
+DescribeDataSharesPaginatorName = Literal["describe_data_shares"]
 DescribeDefaultClusterParametersPaginatorName = Literal["describe_default_cluster_parameters"]
 DescribeEndpointAccessPaginatorName = Literal["describe_endpoint_access"]
 DescribeEndpointAuthorizationPaginatorName = Literal["describe_endpoint_authorization"]
@@ -109,6 +119,7 @@ DescribeHsmClientCertificatesPaginatorName = Literal["describe_hsm_client_certif
 DescribeHsmConfigurationsPaginatorName = Literal["describe_hsm_configurations"]
 DescribeNodeConfigurationOptionsPaginatorName = Literal["describe_node_configuration_options"]
 DescribeOrderableClusterOptionsPaginatorName = Literal["describe_orderable_cluster_options"]
+DescribeReservedNodeExchangeStatusPaginatorName = Literal["describe_reserved_node_exchange_status"]
 DescribeReservedNodeOfferingsPaginatorName = Literal["describe_reserved_node_offerings"]
 DescribeReservedNodesPaginatorName = Literal["describe_reserved_nodes"]
 DescribeScheduledActionsPaginatorName = Literal["describe_scheduled_actions"]
@@ -117,6 +128,9 @@ DescribeSnapshotSchedulesPaginatorName = Literal["describe_snapshot_schedules"]
 DescribeTableRestoreStatusPaginatorName = Literal["describe_table_restore_status"]
 DescribeTagsPaginatorName = Literal["describe_tags"]
 DescribeUsageLimitsPaginatorName = Literal["describe_usage_limits"]
+GetReservedNodeExchangeConfigurationOptionsPaginatorName = Literal[
+    "get_reserved_node_exchange_configuration_options"
+]
 GetReservedNodeExchangeOfferingsPaginatorName = Literal["get_reserved_node_exchange_offerings"]
 ModeType = Literal["high-performance", "standard"]
 NodeConfigurationOptionsFilterNameType = Literal[
@@ -125,6 +139,10 @@ NodeConfigurationOptionsFilterNameType = Literal[
 OperatorTypeType = Literal["between", "eq", "ge", "gt", "in", "le", "lt"]
 ParameterApplyTypeType = Literal["dynamic", "static"]
 PartnerIntegrationStatusType = Literal["Active", "ConnectionFailure", "Inactive", "RuntimeFailure"]
+ReservedNodeExchangeActionTypeType = Literal["resize-cluster", "restore-cluster"]
+ReservedNodeExchangeStatusTypeType = Literal[
+    "FAILED", "IN_PROGRESS", "PENDING", "REQUESTED", "RETRYING", "SUCCEEDED"
+]
 ReservedNodeOfferingTypeType = Literal["Regular", "Upgradable"]
 ScheduleStateType = Literal["ACTIVE", "FAILED", "MODIFYING"]
 ScheduledActionFilterNameType = Literal["cluster-identifier", "iam-role"]

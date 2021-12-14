@@ -9,9 +9,8 @@ sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-
 # python3.9 --version
 
 sudo apt install -y python3-pip
-alias python='python3.9'
 pip3 install virtualenv
-virtualenv -p /usr/local/bin/python3.9 buildstubs_env
+virtualenv buildstubs_env
 source buildstubs_env/bin/activate
 pip3 install --upgrade boto3 botocore jinja2 pyparsing black mdformat isort
 

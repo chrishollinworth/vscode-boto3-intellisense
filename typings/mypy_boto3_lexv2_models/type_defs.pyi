@@ -18,10 +18,12 @@ from typing import Any, Dict, List
 from .literals import (
     AggregatedUtterancesFilterOperatorType,
     AggregatedUtterancesSortAttributeType,
+    AssociatedTranscriptFilterNameType,
     BotAliasStatusType,
     BotFilterOperatorType,
     BotLocaleFilterOperatorType,
     BotLocaleStatusType,
+    BotRecommendationStatusType,
     BotStatusType,
     EffectType,
     ExportFilterOperatorType,
@@ -32,14 +34,18 @@ from .literals import (
     IntentSortAttributeType,
     MergeStrategyType,
     ObfuscationSettingTypeType,
+    SearchOrderType,
     SlotConstraintType,
     SlotFilterOperatorType,
     SlotSortAttributeType,
+    SlotTypeCategoryType,
+    SlotTypeFilterNameType,
     SlotTypeFilterOperatorType,
     SlotTypeSortAttributeType,
     SlotValueResolutionStrategyType,
     SortOrderType,
     TimeDimensionType,
+    VoiceEngineType,
 )
 
 if sys.version_info >= (3, 8):
@@ -55,6 +61,8 @@ __all__ = (
     "AggregatedUtterancesFilterTypeDef",
     "AggregatedUtterancesSortByTypeDef",
     "AggregatedUtterancesSummaryTypeDef",
+    "AssociatedTranscriptFilterTypeDef",
+    "AssociatedTranscriptTypeDef",
     "AudioLogDestinationTypeDef",
     "AudioLogSettingTypeDef",
     "BotAliasHistoryEventTypeDef",
@@ -69,6 +77,9 @@ __all__ = (
     "BotLocaleImportSpecificationTypeDef",
     "BotLocaleSortByTypeDef",
     "BotLocaleSummaryTypeDef",
+    "BotRecommendationResultStatisticsTypeDef",
+    "BotRecommendationResultsTypeDef",
+    "BotRecommendationSummaryTypeDef",
     "BotSortByTypeDef",
     "BotSummaryTypeDef",
     "BotVersionLocaleDetailsTypeDef",
@@ -107,6 +118,7 @@ __all__ = (
     "CreateUploadUrlResponseTypeDef",
     "CustomPayloadTypeDef",
     "DataPrivacyTypeDef",
+    "DateRangeFilterTypeDef",
     "DeleteBotAliasRequestRequestTypeDef",
     "DeleteBotAliasResponseTypeDef",
     "DeleteBotLocaleRequestRequestTypeDef",
@@ -131,6 +143,8 @@ __all__ = (
     "DescribeBotAliasResponseTypeDef",
     "DescribeBotLocaleRequestRequestTypeDef",
     "DescribeBotLocaleResponseTypeDef",
+    "DescribeBotRecommendationRequestRequestTypeDef",
+    "DescribeBotRecommendationResponseTypeDef",
     "DescribeBotRequestRequestTypeDef",
     "DescribeBotResponseTypeDef",
     "DescribeBotVersionRequestRequestTypeDef",
@@ -148,14 +162,18 @@ __all__ = (
     "DescribeSlotTypeRequestRequestTypeDef",
     "DescribeSlotTypeResponseTypeDef",
     "DialogCodeHookSettingsTypeDef",
+    "EncryptionSettingTypeDef",
     "ExportFilterTypeDef",
     "ExportResourceSpecificationTypeDef",
     "ExportSortByTypeDef",
     "ExportSummaryTypeDef",
+    "ExternalSourceSettingTypeDef",
     "FulfillmentCodeHookSettingsTypeDef",
     "FulfillmentStartResponseSpecificationTypeDef",
     "FulfillmentUpdateResponseSpecificationTypeDef",
     "FulfillmentUpdatesSpecificationTypeDef",
+    "GrammarSlotTypeSettingTypeDef",
+    "GrammarSlotTypeSourceTypeDef",
     "ImageResponseCardTypeDef",
     "ImportFilterTypeDef",
     "ImportResourceSpecificationTypeDef",
@@ -166,15 +184,19 @@ __all__ = (
     "IntentConfirmationSettingTypeDef",
     "IntentFilterTypeDef",
     "IntentSortByTypeDef",
+    "IntentStatisticsTypeDef",
     "IntentSummaryTypeDef",
     "KendraConfigurationTypeDef",
     "LambdaCodeHookTypeDef",
+    "LexTranscriptFilterTypeDef",
     "ListAggregatedUtterancesRequestRequestTypeDef",
     "ListAggregatedUtterancesResponseTypeDef",
     "ListBotAliasesRequestRequestTypeDef",
     "ListBotAliasesResponseTypeDef",
     "ListBotLocalesRequestRequestTypeDef",
     "ListBotLocalesResponseTypeDef",
+    "ListBotRecommendationsRequestRequestTypeDef",
+    "ListBotRecommendationsResponseTypeDef",
     "ListBotVersionsRequestRequestTypeDef",
     "ListBotVersionsResponseTypeDef",
     "ListBotsRequestRequestTypeDef",
@@ -189,6 +211,8 @@ __all__ = (
     "ListImportsResponseTypeDef",
     "ListIntentsRequestRequestTypeDef",
     "ListIntentsResponseTypeDef",
+    "ListRecommendedIntentsRequestRequestTypeDef",
+    "ListRecommendedIntentsResponseTypeDef",
     "ListSlotTypesRequestRequestTypeDef",
     "ListSlotTypesResponseTypeDef",
     "ListSlotsRequestRequestTypeDef",
@@ -200,17 +224,22 @@ __all__ = (
     "MultipleValuesSettingTypeDef",
     "ObfuscationSettingTypeDef",
     "OutputContextTypeDef",
+    "PathFormatTypeDef",
     "PlainTextMessageTypeDef",
     "PostFulfillmentStatusSpecificationTypeDef",
     "PrincipalTypeDef",
     "PromptSpecificationTypeDef",
+    "RecommendedIntentSummaryTypeDef",
     "RelativeAggregationDurationTypeDef",
     "ResponseMetadataTypeDef",
     "ResponseSpecificationTypeDef",
     "S3BucketLogDestinationTypeDef",
+    "S3BucketTranscriptSourceTypeDef",
     "SSMLMessageTypeDef",
     "SampleUtteranceTypeDef",
     "SampleValueTypeDef",
+    "SearchAssociatedTranscriptsRequestRequestTypeDef",
+    "SearchAssociatedTranscriptsResponseTypeDef",
     "SentimentAnalysisSettingsTypeDef",
     "SlotDefaultValueSpecificationTypeDef",
     "SlotDefaultValueTypeDef",
@@ -220,22 +249,29 @@ __all__ = (
     "SlotSummaryTypeDef",
     "SlotTypeFilterTypeDef",
     "SlotTypeSortByTypeDef",
+    "SlotTypeStatisticsTypeDef",
     "SlotTypeSummaryTypeDef",
     "SlotTypeValueTypeDef",
     "SlotValueElicitationSettingTypeDef",
     "SlotValueRegexFilterTypeDef",
     "SlotValueSelectionSettingTypeDef",
+    "StartBotRecommendationRequestRequestTypeDef",
+    "StartBotRecommendationResponseTypeDef",
     "StartImportRequestRequestTypeDef",
     "StartImportResponseTypeDef",
     "StillWaitingResponseSpecificationTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TextLogDestinationTypeDef",
     "TextLogSettingTypeDef",
+    "TranscriptFilterTypeDef",
+    "TranscriptSourceSettingTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateBotAliasRequestRequestTypeDef",
     "UpdateBotAliasResponseTypeDef",
     "UpdateBotLocaleRequestRequestTypeDef",
     "UpdateBotLocaleResponseTypeDef",
+    "UpdateBotRecommendationRequestRequestTypeDef",
+    "UpdateBotRecommendationResponseTypeDef",
     "UpdateBotRequestRequestTypeDef",
     "UpdateBotResponseTypeDef",
     "UpdateExportRequestRequestTypeDef",
@@ -280,6 +316,22 @@ AggregatedUtterancesSummaryTypeDef = TypedDict(
         "utteranceFirstRecordedInAggregationDuration": datetime,
         "utteranceLastRecordedInAggregationDuration": datetime,
         "containsDataFromDeletedResources": bool,
+    },
+    total=False,
+)
+
+AssociatedTranscriptFilterTypeDef = TypedDict(
+    "AssociatedTranscriptFilterTypeDef",
+    {
+        "name": AssociatedTranscriptFilterNameType,
+        "values": List[str],
+    },
+)
+
+AssociatedTranscriptTypeDef = TypedDict(
+    "AssociatedTranscriptTypeDef",
+    {
+        "transcript": str,
     },
     total=False,
 )
@@ -450,6 +502,46 @@ BotLocaleSummaryTypeDef = TypedDict(
     },
     total=False,
 )
+
+BotRecommendationResultStatisticsTypeDef = TypedDict(
+    "BotRecommendationResultStatisticsTypeDef",
+    {
+        "intents": "IntentStatisticsTypeDef",
+        "slotTypes": "SlotTypeStatisticsTypeDef",
+    },
+    total=False,
+)
+
+BotRecommendationResultsTypeDef = TypedDict(
+    "BotRecommendationResultsTypeDef",
+    {
+        "botLocaleExportUrl": str,
+        "associatedTranscriptsUrl": str,
+        "statistics": "BotRecommendationResultStatisticsTypeDef",
+    },
+    total=False,
+)
+
+_RequiredBotRecommendationSummaryTypeDef = TypedDict(
+    "_RequiredBotRecommendationSummaryTypeDef",
+    {
+        "botRecommendationStatus": BotRecommendationStatusType,
+        "botRecommendationId": str,
+    },
+)
+_OptionalBotRecommendationSummaryTypeDef = TypedDict(
+    "_OptionalBotRecommendationSummaryTypeDef",
+    {
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
+class BotRecommendationSummaryTypeDef(
+    _RequiredBotRecommendationSummaryTypeDef, _OptionalBotRecommendationSummaryTypeDef
+):
+    pass
 
 BotSortByTypeDef = TypedDict(
     "BotSortByTypeDef",
@@ -929,7 +1021,6 @@ _RequiredCreateSlotTypeRequestRequestTypeDef = TypedDict(
     "_RequiredCreateSlotTypeRequestRequestTypeDef",
     {
         "slotTypeName": str,
-        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
         "botId": str,
         "botVersion": str,
         "localeId": str,
@@ -940,7 +1031,9 @@ _OptionalCreateSlotTypeRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "slotTypeValues": List["SlotTypeValueTypeDef"],
+        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
         "parentSlotTypeSignature": str,
+        "externalSourceSetting": "ExternalSourceSettingTypeDef",
     },
     total=False,
 )
@@ -963,6 +1056,7 @@ CreateSlotTypeResponseTypeDef = TypedDict(
         "botVersion": str,
         "localeId": str,
         "creationDateTime": datetime,
+        "externalSourceSetting": "ExternalSourceSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -987,6 +1081,14 @@ DataPrivacyTypeDef = TypedDict(
     "DataPrivacyTypeDef",
     {
         "childDirected": bool,
+    },
+)
+
+DateRangeFilterTypeDef = TypedDict(
+    "DateRangeFilterTypeDef",
+    {
+        "startDateTime": datetime,
+        "endDateTime": datetime,
     },
 )
 
@@ -1306,6 +1408,35 @@ DescribeBotLocaleResponseTypeDef = TypedDict(
         "lastUpdatedDateTime": datetime,
         "lastBuildSubmittedDateTime": datetime,
         "botLocaleHistoryEvents": List["BotLocaleHistoryEventTypeDef"],
+        "recommendedActions": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeBotRecommendationRequestRequestTypeDef = TypedDict(
+    "DescribeBotRecommendationRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationId": str,
+    },
+)
+
+DescribeBotRecommendationResponseTypeDef = TypedDict(
+    "DescribeBotRecommendationResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationStatus": BotRecommendationStatusType,
+        "botRecommendationId": str,
+        "failureReasons": List[str],
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
+        "encryptionSetting": "EncryptionSettingTypeDef",
+        "botRecommendationResults": "BotRecommendationResultsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1510,6 +1641,7 @@ DescribeSlotTypeResponseTypeDef = TypedDict(
         "localeId": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "externalSourceSetting": "ExternalSourceSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1519,6 +1651,16 @@ DialogCodeHookSettingsTypeDef = TypedDict(
     {
         "enabled": bool,
     },
+)
+
+EncryptionSettingTypeDef = TypedDict(
+    "EncryptionSettingTypeDef",
+    {
+        "kmsKeyArn": str,
+        "botLocaleExportPassword": str,
+        "associatedTranscriptsPassword": str,
+    },
+    total=False,
 )
 
 ExportFilterTypeDef = TypedDict(
@@ -1556,6 +1698,14 @@ ExportSummaryTypeDef = TypedDict(
         "exportStatus": ExportStatusType,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
+ExternalSourceSettingTypeDef = TypedDict(
+    "ExternalSourceSettingTypeDef",
+    {
+        "grammarSlotTypeSetting": "GrammarSlotTypeSettingTypeDef",
     },
     total=False,
 )
@@ -1640,6 +1790,34 @@ _OptionalFulfillmentUpdatesSpecificationTypeDef = TypedDict(
 
 class FulfillmentUpdatesSpecificationTypeDef(
     _RequiredFulfillmentUpdatesSpecificationTypeDef, _OptionalFulfillmentUpdatesSpecificationTypeDef
+):
+    pass
+
+GrammarSlotTypeSettingTypeDef = TypedDict(
+    "GrammarSlotTypeSettingTypeDef",
+    {
+        "source": "GrammarSlotTypeSourceTypeDef",
+    },
+    total=False,
+)
+
+_RequiredGrammarSlotTypeSourceTypeDef = TypedDict(
+    "_RequiredGrammarSlotTypeSourceTypeDef",
+    {
+        "s3BucketName": str,
+        "s3ObjectKey": str,
+    },
+)
+_OptionalGrammarSlotTypeSourceTypeDef = TypedDict(
+    "_OptionalGrammarSlotTypeSourceTypeDef",
+    {
+        "kmsKeyArn": str,
+    },
+    total=False,
+)
+
+class GrammarSlotTypeSourceTypeDef(
+    _RequiredGrammarSlotTypeSourceTypeDef, _OptionalGrammarSlotTypeSourceTypeDef
 ):
     pass
 
@@ -1767,6 +1945,14 @@ IntentSortByTypeDef = TypedDict(
     },
 )
 
+IntentStatisticsTypeDef = TypedDict(
+    "IntentStatisticsTypeDef",
+    {
+        "discoveredIntentCount": int,
+    },
+    total=False,
+)
+
 IntentSummaryTypeDef = TypedDict(
     "IntentSummaryTypeDef",
     {
@@ -1807,6 +1993,14 @@ LambdaCodeHookTypeDef = TypedDict(
         "lambdaARN": str,
         "codeHookInterfaceVersion": str,
     },
+)
+
+LexTranscriptFilterTypeDef = TypedDict(
+    "LexTranscriptFilterTypeDef",
+    {
+        "dateRangeFilter": "DateRangeFilterTypeDef",
+    },
+    total=False,
 )
 
 _RequiredListAggregatedUtterancesRequestRequestTypeDef = TypedDict(
@@ -1913,6 +2107,41 @@ ListBotLocalesResponseTypeDef = TypedDict(
         "botVersion": str,
         "nextToken": str,
         "botLocaleSummaries": List["BotLocaleSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListBotRecommendationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListBotRecommendationsRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+_OptionalListBotRecommendationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListBotRecommendationsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListBotRecommendationsRequestRequestTypeDef(
+    _RequiredListBotRecommendationsRequestRequestTypeDef,
+    _OptionalListBotRecommendationsRequestRequestTypeDef,
+):
+    pass
+
+ListBotRecommendationsResponseTypeDef = TypedDict(
+    "ListBotRecommendationsResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationSummaries": List["BotRecommendationSummaryTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2116,6 +2345,43 @@ ListIntentsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListRecommendedIntentsRequestRequestTypeDef = TypedDict(
+    "_RequiredListRecommendedIntentsRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationId": str,
+    },
+)
+_OptionalListRecommendedIntentsRequestRequestTypeDef = TypedDict(
+    "_OptionalListRecommendedIntentsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListRecommendedIntentsRequestRequestTypeDef(
+    _RequiredListRecommendedIntentsRequestRequestTypeDef,
+    _OptionalListRecommendedIntentsRequestRequestTypeDef,
+):
+    pass
+
+ListRecommendedIntentsResponseTypeDef = TypedDict(
+    "ListRecommendedIntentsResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationId": str,
+        "summaryList": List["RecommendedIntentSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListSlotTypesRequestRequestTypeDef = TypedDict(
     "_RequiredListSlotTypesRequestRequestTypeDef",
     {
@@ -2257,6 +2523,14 @@ OutputContextTypeDef = TypedDict(
     },
 )
 
+PathFormatTypeDef = TypedDict(
+    "PathFormatTypeDef",
+    {
+        "objectPrefixes": List[str],
+    },
+    total=False,
+)
+
 PlainTextMessageTypeDef = TypedDict(
     "PlainTextMessageTypeDef",
     {
@@ -2302,6 +2576,16 @@ class PromptSpecificationTypeDef(
     _RequiredPromptSpecificationTypeDef, _OptionalPromptSpecificationTypeDef
 ):
     pass
+
+RecommendedIntentSummaryTypeDef = TypedDict(
+    "RecommendedIntentSummaryTypeDef",
+    {
+        "intentId": str,
+        "intentName": str,
+        "sampleUtterancesCount": int,
+    },
+    total=False,
+)
 
 RelativeAggregationDurationTypeDef = TypedDict(
     "RelativeAggregationDurationTypeDef",
@@ -2361,6 +2645,28 @@ class S3BucketLogDestinationTypeDef(
 ):
     pass
 
+_RequiredS3BucketTranscriptSourceTypeDef = TypedDict(
+    "_RequiredS3BucketTranscriptSourceTypeDef",
+    {
+        "s3BucketName": str,
+        "transcriptFormat": Literal["Lex"],
+    },
+)
+_OptionalS3BucketTranscriptSourceTypeDef = TypedDict(
+    "_OptionalS3BucketTranscriptSourceTypeDef",
+    {
+        "pathFormat": "PathFormatTypeDef",
+        "transcriptFilter": "TranscriptFilterTypeDef",
+        "kmsKeyArn": str,
+    },
+    total=False,
+)
+
+class S3BucketTranscriptSourceTypeDef(
+    _RequiredS3BucketTranscriptSourceTypeDef, _OptionalS3BucketTranscriptSourceTypeDef
+):
+    pass
+
 SSMLMessageTypeDef = TypedDict(
     "SSMLMessageTypeDef",
     {
@@ -2379,6 +2685,46 @@ SampleValueTypeDef = TypedDict(
     "SampleValueTypeDef",
     {
         "value": str,
+    },
+)
+
+_RequiredSearchAssociatedTranscriptsRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchAssociatedTranscriptsRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationId": str,
+        "filters": List["AssociatedTranscriptFilterTypeDef"],
+    },
+)
+_OptionalSearchAssociatedTranscriptsRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchAssociatedTranscriptsRequestRequestTypeDef",
+    {
+        "searchOrder": SearchOrderType,
+        "maxResults": int,
+        "nextIndex": int,
+    },
+    total=False,
+)
+
+class SearchAssociatedTranscriptsRequestRequestTypeDef(
+    _RequiredSearchAssociatedTranscriptsRequestRequestTypeDef,
+    _OptionalSearchAssociatedTranscriptsRequestRequestTypeDef,
+):
+    pass
+
+SearchAssociatedTranscriptsResponseTypeDef = TypedDict(
+    "SearchAssociatedTranscriptsResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationId": str,
+        "nextIndex": int,
+        "associatedTranscripts": List["AssociatedTranscriptTypeDef"],
+        "totalResults": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -2445,7 +2791,7 @@ SlotSummaryTypeDef = TypedDict(
 SlotTypeFilterTypeDef = TypedDict(
     "SlotTypeFilterTypeDef",
     {
-        "name": Literal["SlotTypeName"],
+        "name": SlotTypeFilterNameType,
         "values": List[str],
         "operator": SlotTypeFilterOperatorType,
     },
@@ -2459,6 +2805,14 @@ SlotTypeSortByTypeDef = TypedDict(
     },
 )
 
+SlotTypeStatisticsTypeDef = TypedDict(
+    "SlotTypeStatisticsTypeDef",
+    {
+        "discoveredSlotTypeCount": int,
+    },
+    total=False,
+)
+
 SlotTypeSummaryTypeDef = TypedDict(
     "SlotTypeSummaryTypeDef",
     {
@@ -2467,6 +2821,7 @@ SlotTypeSummaryTypeDef = TypedDict(
         "description": str,
         "parentSlotTypeSignature": str,
         "lastUpdatedDateTime": datetime,
+        "slotTypeCategory": SlotTypeCategoryType,
     },
     total=False,
 )
@@ -2527,6 +2882,44 @@ class SlotValueSelectionSettingTypeDef(
     _RequiredSlotValueSelectionSettingTypeDef, _OptionalSlotValueSelectionSettingTypeDef
 ):
     pass
+
+_RequiredStartBotRecommendationRequestRequestTypeDef = TypedDict(
+    "_RequiredStartBotRecommendationRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
+    },
+)
+_OptionalStartBotRecommendationRequestRequestTypeDef = TypedDict(
+    "_OptionalStartBotRecommendationRequestRequestTypeDef",
+    {
+        "encryptionSetting": "EncryptionSettingTypeDef",
+    },
+    total=False,
+)
+
+class StartBotRecommendationRequestRequestTypeDef(
+    _RequiredStartBotRecommendationRequestRequestTypeDef,
+    _OptionalStartBotRecommendationRequestRequestTypeDef,
+):
+    pass
+
+StartBotRecommendationResponseTypeDef = TypedDict(
+    "StartBotRecommendationResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationStatus": BotRecommendationStatusType,
+        "botRecommendationId": str,
+        "creationDateTime": datetime,
+        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
+        "encryptionSetting": "EncryptionSettingTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredStartImportRequestRequestTypeDef = TypedDict(
     "_RequiredStartImportRequestRequestTypeDef",
@@ -2604,6 +2997,22 @@ TextLogSettingTypeDef = TypedDict(
         "enabled": bool,
         "destination": "TextLogDestinationTypeDef",
     },
+)
+
+TranscriptFilterTypeDef = TypedDict(
+    "TranscriptFilterTypeDef",
+    {
+        "lexTranscriptFilter": "LexTranscriptFilterTypeDef",
+    },
+    total=False,
+)
+
+TranscriptSourceSettingTypeDef = TypedDict(
+    "TranscriptSourceSettingTypeDef",
+    {
+        "s3BucketTranscriptSource": "S3BucketTranscriptSourceTypeDef",
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(
@@ -2694,6 +3103,34 @@ UpdateBotLocaleResponseTypeDef = TypedDict(
         "failureReasons": List[str],
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "recommendedActions": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateBotRecommendationRequestRequestTypeDef = TypedDict(
+    "UpdateBotRecommendationRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationId": str,
+        "encryptionSetting": "EncryptionSettingTypeDef",
+    },
+)
+
+UpdateBotRecommendationResponseTypeDef = TypedDict(
+    "UpdateBotRecommendationResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "botRecommendationStatus": BotRecommendationStatusType,
+        "botRecommendationId": str,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
+        "encryptionSetting": "EncryptionSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2910,7 +3347,6 @@ _RequiredUpdateSlotTypeRequestRequestTypeDef = TypedDict(
     {
         "slotTypeId": str,
         "slotTypeName": str,
-        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
         "botId": str,
         "botVersion": str,
         "localeId": str,
@@ -2921,7 +3357,9 @@ _OptionalUpdateSlotTypeRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "slotTypeValues": List["SlotTypeValueTypeDef"],
+        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
         "parentSlotTypeSignature": str,
+        "externalSourceSetting": "ExternalSourceSettingTypeDef",
     },
     total=False,
 )
@@ -2945,6 +3383,7 @@ UpdateSlotTypeResponseTypeDef = TypedDict(
         "localeId": str,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "externalSourceSetting": "ExternalSourceSettingTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2956,12 +3395,22 @@ UtteranceAggregationDurationTypeDef = TypedDict(
     },
 )
 
-VoiceSettingsTypeDef = TypedDict(
-    "VoiceSettingsTypeDef",
+_RequiredVoiceSettingsTypeDef = TypedDict(
+    "_RequiredVoiceSettingsTypeDef",
     {
         "voiceId": str,
     },
 )
+_OptionalVoiceSettingsTypeDef = TypedDict(
+    "_OptionalVoiceSettingsTypeDef",
+    {
+        "engine": VoiceEngineType,
+    },
+    total=False,
+)
+
+class VoiceSettingsTypeDef(_RequiredVoiceSettingsTypeDef, _OptionalVoiceSettingsTypeDef):
+    pass
 
 _RequiredWaitAndContinueSpecificationTypeDef = TypedDict(
     "_RequiredWaitAndContinueSpecificationTypeDef",

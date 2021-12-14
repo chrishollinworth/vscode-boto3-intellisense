@@ -22,6 +22,7 @@ __all__ = (
     "AggregatedUtterancesFilterNameType",
     "AggregatedUtterancesFilterOperatorType",
     "AggregatedUtterancesSortAttributeType",
+    "AssociatedTranscriptFilterNameType",
     "BotAliasAvailableWaiterName",
     "BotAliasStatusType",
     "BotAvailableWaiterName",
@@ -36,6 +37,7 @@ __all__ = (
     "BotLocaleFilterOperatorType",
     "BotLocaleSortAttributeType",
     "BotLocaleStatusType",
+    "BotRecommendationStatusType",
     "BotSortAttributeType",
     "BotStatusType",
     "BotVersionAvailableWaiterName",
@@ -57,21 +59,26 @@ __all__ = (
     "IntentSortAttributeType",
     "MergeStrategyType",
     "ObfuscationSettingTypeType",
+    "SearchOrderType",
     "SlotConstraintType",
     "SlotFilterNameType",
     "SlotFilterOperatorType",
     "SlotSortAttributeType",
+    "SlotTypeCategoryType",
     "SlotTypeFilterNameType",
     "SlotTypeFilterOperatorType",
     "SlotTypeSortAttributeType",
     "SlotValueResolutionStrategyType",
     "SortOrderType",
     "TimeDimensionType",
+    "TranscriptFormatType",
+    "VoiceEngineType",
 )
 
 AggregatedUtterancesFilterNameType = Literal["Utterance"]
 AggregatedUtterancesFilterOperatorType = Literal["CO", "EQ"]
 AggregatedUtterancesSortAttributeType = Literal["HitCount", "MissedCount"]
+AssociatedTranscriptFilterNameType = Literal["IntentId", "SlotTypeId"]
 BotAliasAvailableWaiterName = Literal["bot_alias_available"]
 BotAliasStatusType = Literal["Available", "Creating", "Deleting", "Failed"]
 BotAvailableWaiterName = Literal["bot_available"]
@@ -93,7 +100,11 @@ BotLocaleStatusType = Literal[
     "Failed",
     "Importing",
     "NotBuilt",
+    "Processing",
     "ReadyExpressTesting",
+]
+BotRecommendationStatusType = Literal[
+    "Available", "Deleted", "Deleting", "Downloading", "Failed", "Processing", "Updating"
 ]
 BotSortAttributeType = Literal["BotName"]
 BotStatusType = Literal[
@@ -116,15 +127,19 @@ ImportStatusType = Literal["Completed", "Deleting", "Failed", "InProgress"]
 IntentFilterNameType = Literal["IntentName"]
 IntentFilterOperatorType = Literal["CO", "EQ"]
 IntentSortAttributeType = Literal["IntentName", "LastUpdatedDateTime"]
-MergeStrategyType = Literal["FailOnConflict", "Overwrite"]
+MergeStrategyType = Literal["Append", "FailOnConflict", "Overwrite"]
 ObfuscationSettingTypeType = Literal["DefaultObfuscation", "None"]
+SearchOrderType = Literal["Ascending", "Descending"]
 SlotConstraintType = Literal["Optional", "Required"]
 SlotFilterNameType = Literal["SlotName"]
 SlotFilterOperatorType = Literal["CO", "EQ"]
 SlotSortAttributeType = Literal["LastUpdatedDateTime", "SlotName"]
-SlotTypeFilterNameType = Literal["SlotTypeName"]
+SlotTypeCategoryType = Literal["Custom", "Extended", "ExternalGrammar"]
+SlotTypeFilterNameType = Literal["ExternalSourceType", "SlotTypeName"]
 SlotTypeFilterOperatorType = Literal["CO", "EQ"]
 SlotTypeSortAttributeType = Literal["LastUpdatedDateTime", "SlotTypeName"]
 SlotValueResolutionStrategyType = Literal["OriginalValue", "TopResolution"]
 SortOrderType = Literal["Ascending", "Descending"]
 TimeDimensionType = Literal["Days", "Hours", "Weeks"]
+TranscriptFormatType = Literal["Lex"]
+VoiceEngineType = Literal["neural", "standard"]

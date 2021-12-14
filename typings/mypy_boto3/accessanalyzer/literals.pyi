@@ -45,6 +45,7 @@ __all__ = (
     "TypeType",
     "ValidatePolicyFindingTypeType",
     "ValidatePolicyPaginatorName",
+    "ValidatePolicyResourceTypeType",
 )
 
 AccessPreviewStatusReasonCodeType = Literal["INTERNAL_ERROR", "INVALID_CONFIGURATION"]
@@ -106,3 +107,9 @@ ResourceTypeType = Literal[
 TypeType = Literal["ACCOUNT", "ORGANIZATION"]
 ValidatePolicyFindingTypeType = Literal["ERROR", "SECURITY_WARNING", "SUGGESTION", "WARNING"]
 ValidatePolicyPaginatorName = Literal["validate_policy"]
+ValidatePolicyResourceTypeType = Literal[
+    "AWS::S3::AccessPoint",
+    "AWS::S3::Bucket",
+    "AWS::S3::MultiRegionAccessPoint",
+    "AWS::S3ObjectLambda::AccessPoint",
+]

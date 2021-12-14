@@ -88,6 +88,7 @@ from .literals import (
     SessionStateType,
     SessionStatusType,
     SignalTypeType,
+    SourceTypeType,
     StepExecutionFilterKeyType,
     StopTypeType,
 )
@@ -430,6 +431,7 @@ __all__ = (
     "RegisterTargetWithMaintenanceWindowResultTypeDef",
     "RegisterTaskWithMaintenanceWindowRequestRequestTypeDef",
     "RegisterTaskWithMaintenanceWindowResultTypeDef",
+    "RegistrationMetadataItemTypeDef",
     "RelatedOpsItemTypeDef",
     "RemoveTagsFromResourceRequestRequestTypeDef",
     "ResetServiceSettingRequestRequestTypeDef",
@@ -1067,6 +1069,7 @@ _OptionalCreateActivationRequestRequestTypeDef = TypedDict(
         "RegistrationLimit": int,
         "ExpirationDate": Union[datetime, str],
         "Tags": List["TagTypeDef"],
+        "RegistrationMetadata": List["RegistrationMetadataItemTypeDef"],
     },
     total=False,
 )
@@ -3391,6 +3394,8 @@ InstanceInformationTypeDef = TypedDict(
         "LastAssociationExecutionDate": datetime,
         "LastSuccessfulAssociationExecutionDate": datetime,
         "AssociationOverview": "InstanceAggregatedAssociationOverviewTypeDef",
+        "SourceId": str,
+        "SourceType": SourceTypeType,
     },
     total=False,
 )
@@ -4900,6 +4905,14 @@ RegisterTaskWithMaintenanceWindowResultTypeDef = TypedDict(
     {
         "WindowTaskId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RegistrationMetadataItemTypeDef = TypedDict(
+    "RegistrationMetadataItemTypeDef",
+    {
+        "Key": str,
+        "Value": str,
     },
 )
 

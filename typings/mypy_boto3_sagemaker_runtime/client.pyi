@@ -29,14 +29,16 @@ class BotocoreClientError(BaseException):
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
+    InternalDependencyException: Type[BotocoreClientError]
     InternalFailure: Type[BotocoreClientError]
     ModelError: Type[BotocoreClientError]
+    ModelNotReadyException: Type[BotocoreClientError]
     ServiceUnavailable: Type[BotocoreClientError]
     ValidationError: Type[BotocoreClientError]
 
 class SageMakerRuntimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/client.html)
     """
 
@@ -50,7 +52,7 @@ class SageMakerRuntimeClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/client.html#can_paginate)
         """
     def generate_presigned_url(
@@ -63,7 +65,7 @@ class SageMakerRuntimeClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/client.html#generate_presigned_url)
         """
     def invoke_endpoint(
@@ -84,7 +86,7 @@ class SageMakerRuntimeClient(BaseClient):
         services, your client applications use this API to get inferences from the model
         hosted at the specified endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/client.html#invoke_endpoint)
         """
     def invoke_endpoint_async(
@@ -101,6 +103,6 @@ class SageMakerRuntimeClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint_async)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint_async)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/client.html#invoke_endpoint_async)
         """

@@ -38,18 +38,22 @@ from .paginator import (
 )
 from .type_defs import (
     AdditionalAuthenticationProviderTypeDef,
+    AssociateApiResponseTypeDef,
     CachingConfigTypeDef,
     CreateApiCacheResponseTypeDef,
     CreateApiKeyResponseTypeDef,
     CreateDataSourceResponseTypeDef,
+    CreateDomainNameResponseTypeDef,
     CreateFunctionResponseTypeDef,
     CreateGraphqlApiResponseTypeDef,
     CreateResolverResponseTypeDef,
     CreateTypeResponseTypeDef,
     DynamodbDataSourceConfigTypeDef,
     ElasticsearchDataSourceConfigTypeDef,
+    GetApiAssociationResponseTypeDef,
     GetApiCacheResponseTypeDef,
     GetDataSourceResponseTypeDef,
+    GetDomainNameResponseTypeDef,
     GetFunctionResponseTypeDef,
     GetGraphqlApiResponseTypeDef,
     GetIntrospectionSchemaResponseTypeDef,
@@ -61,6 +65,7 @@ from .type_defs import (
     LambdaDataSourceConfigTypeDef,
     ListApiKeysResponseTypeDef,
     ListDataSourcesResponseTypeDef,
+    ListDomainNamesResponseTypeDef,
     ListFunctionsResponseTypeDef,
     ListGraphqlApisResponseTypeDef,
     ListResolversByFunctionResponseTypeDef,
@@ -77,6 +82,7 @@ from .type_defs import (
     UpdateApiCacheResponseTypeDef,
     UpdateApiKeyResponseTypeDef,
     UpdateDataSourceResponseTypeDef,
+    UpdateDomainNameResponseTypeDef,
     UpdateFunctionResponseTypeDef,
     UpdateGraphqlApiResponseTypeDef,
     UpdateResolverResponseTypeDef,
@@ -113,7 +119,7 @@ class Exceptions:
 
 class AppSyncClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html)
     """
 
@@ -123,11 +129,18 @@ class AppSyncClient(BaseClient):
         """
         AppSyncClient exceptions.
         """
+    def associate_api(self, *, domainName: str, apiId: str) -> AssociateApiResponseTypeDef:
+        """
+        Maps an endpoint to your custom domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.associate_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#associate_api)
+        """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#can_paginate)
         """
     def create_api_cache(
@@ -143,17 +156,16 @@ class AppSyncClient(BaseClient):
         """
         Creates a cache for the GraphQL API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.create_api_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_api_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_api_cache)
         """
     def create_api_key(
         self, *, apiId: str, description: str = None, expires: int = None
     ) -> CreateApiKeyResponseTypeDef:
         """
-        Creates a unique key that you can distribute to clients who are executing your
-        API.
+        Creates a unique key that you can distribute to clients who invoke your API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.create_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_api_key)
         """
     def create_data_source(
@@ -174,8 +186,17 @@ class AppSyncClient(BaseClient):
         """
         Creates a `DataSource` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.create_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_data_source)
+        """
+    def create_domain_name(
+        self, *, domainName: str, certificateArn: str, description: str = None
+    ) -> CreateDomainNameResponseTypeDef:
+        """
+        Creates a custom `DomainName` object.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_domain_name)
         """
     def create_function(
         self,
@@ -192,7 +213,7 @@ class AppSyncClient(BaseClient):
         """
         Creates a `Function` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.create_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_function)
         """
     def create_graphql_api(
@@ -211,7 +232,7 @@ class AppSyncClient(BaseClient):
         """
         Creates a `GraphqlApi` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.create_graphql_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_graphql_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_graphql_api)
         """
     def create_resolver(
@@ -231,7 +252,7 @@ class AppSyncClient(BaseClient):
         """
         Creates a `Resolver` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.create_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_resolver)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_resolver)
         """
     def create_type(
@@ -240,63 +261,77 @@ class AppSyncClient(BaseClient):
         """
         Creates a `Type` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.create_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.create_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#create_type)
         """
     def delete_api_cache(self, *, apiId: str) -> Dict[str, Any]:
         """
         Deletes an `ApiCache` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.delete_api_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_api_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_api_cache)
         """
     def delete_api_key(self, *, apiId: str, id: str) -> Dict[str, Any]:
         """
         Deletes an API key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.delete_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_api_key)
         """
     def delete_data_source(self, *, apiId: str, name: str) -> Dict[str, Any]:
         """
         Deletes a `DataSource` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.delete_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_data_source)
+        """
+    def delete_domain_name(self, *, domainName: str) -> Dict[str, Any]:
+        """
+        Deletes a custom `DomainName` object.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_domain_name)
         """
     def delete_function(self, *, apiId: str, functionId: str) -> Dict[str, Any]:
         """
         Deletes a `Function` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.delete_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_function)
         """
     def delete_graphql_api(self, *, apiId: str) -> Dict[str, Any]:
         """
         Deletes a `GraphqlApi` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.delete_graphql_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_graphql_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_graphql_api)
         """
     def delete_resolver(self, *, apiId: str, typeName: str, fieldName: str) -> Dict[str, Any]:
         """
         Deletes a `Resolver` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.delete_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_resolver)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_resolver)
         """
     def delete_type(self, *, apiId: str, typeName: str) -> Dict[str, Any]:
         """
         Deletes a `Type` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.delete_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.delete_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#delete_type)
+        """
+    def disassociate_api(self, *, domainName: str) -> Dict[str, Any]:
+        """
+        Removes an `ApiAssociation` object from a custom domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.disassociate_api)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#disassociate_api)
         """
     def flush_api_cache(self, *, apiId: str) -> Dict[str, Any]:
         """
         Flushes an `ApiCache` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.flush_api_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.flush_api_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#flush_api_cache)
         """
     def generate_presigned_url(
@@ -309,35 +344,49 @@ class AppSyncClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#generate_presigned_url)
+        """
+    def get_api_association(self, *, domainName: str) -> GetApiAssociationResponseTypeDef:
+        """
+        Retrieves an `ApiAssociation` object.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_api_association)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_api_association)
         """
     def get_api_cache(self, *, apiId: str) -> GetApiCacheResponseTypeDef:
         """
         Retrieves an `ApiCache` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_api_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_api_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_api_cache)
         """
     def get_data_source(self, *, apiId: str, name: str) -> GetDataSourceResponseTypeDef:
         """
         Retrieves a `DataSource` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_data_source)
+        """
+    def get_domain_name(self, *, domainName: str) -> GetDomainNameResponseTypeDef:
+        """
+        Retrieves a custom `DomainName` object.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_domain_name)
         """
     def get_function(self, *, apiId: str, functionId: str) -> GetFunctionResponseTypeDef:
         """
         Get a `Function` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_function)
         """
     def get_graphql_api(self, *, apiId: str) -> GetGraphqlApiResponseTypeDef:
         """
         Retrieves a `GraphqlApi` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_graphql_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_graphql_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_graphql_api)
         """
     def get_introspection_schema(
@@ -346,7 +395,7 @@ class AppSyncClient(BaseClient):
         """
         Retrieves the introspection schema for a GraphQL API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_introspection_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_introspection_schema)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_introspection_schema)
         """
     def get_resolver(
@@ -355,14 +404,14 @@ class AppSyncClient(BaseClient):
         """
         Retrieves a `Resolver` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_resolver)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_resolver)
         """
     def get_schema_creation_status(self, *, apiId: str) -> GetSchemaCreationStatusResponseTypeDef:
         """
         Retrieves the current status of a schema creation operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_schema_creation_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_schema_creation_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_schema_creation_status)
         """
     def get_type(
@@ -371,7 +420,7 @@ class AppSyncClient(BaseClient):
         """
         Retrieves a `Type` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.get_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.get_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#get_type)
         """
     def list_api_keys(
@@ -380,7 +429,7 @@ class AppSyncClient(BaseClient):
         """
         Lists the API keys for a given API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_api_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_api_keys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_api_keys)
         """
     def list_data_sources(
@@ -389,8 +438,17 @@ class AppSyncClient(BaseClient):
         """
         Lists the data sources for a given API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_data_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_data_sources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_data_sources)
+        """
+    def list_domain_names(
+        self, *, nextToken: str = None, maxResults: int = None
+    ) -> ListDomainNamesResponseTypeDef:
+        """
+        Lists multiple custom domain names.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_domain_names)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_domain_names)
         """
     def list_functions(
         self, *, apiId: str, nextToken: str = None, maxResults: int = None
@@ -398,7 +456,7 @@ class AppSyncClient(BaseClient):
         """
         List multiple functions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_functions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_functions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_functions)
         """
     def list_graphql_apis(
@@ -407,7 +465,7 @@ class AppSyncClient(BaseClient):
         """
         Lists your GraphQL APIs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_graphql_apis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_graphql_apis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_graphql_apis)
         """
     def list_resolvers(
@@ -416,7 +474,7 @@ class AppSyncClient(BaseClient):
         """
         Lists the resolvers for a given API and type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_resolvers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_resolvers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_resolvers)
         """
     def list_resolvers_by_function(
@@ -425,14 +483,14 @@ class AppSyncClient(BaseClient):
         """
         List the resolvers that are associated with a specific function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_resolvers_by_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_resolvers_by_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_resolvers_by_function)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_tags_for_resource)
         """
     def list_types(
@@ -446,7 +504,7 @@ class AppSyncClient(BaseClient):
         """
         Lists the types for a given API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.list_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.list_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#list_types)
         """
     def start_schema_creation(
@@ -455,21 +513,21 @@ class AppSyncClient(BaseClient):
         """
         Adds a new schema to your GraphQL API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.start_schema_creation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.start_schema_creation)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#start_schema_creation)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
         Tags a resource with user-supplied tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Untags a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#untag_resource)
         """
     def update_api_cache(
@@ -483,7 +541,7 @@ class AppSyncClient(BaseClient):
         """
         Updates the cache for the GraphQL API.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.update_api_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_api_cache)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_api_cache)
         """
     def update_api_key(
@@ -492,7 +550,7 @@ class AppSyncClient(BaseClient):
         """
         Updates an API key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.update_api_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_api_key)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_api_key)
         """
     def update_data_source(
@@ -513,8 +571,17 @@ class AppSyncClient(BaseClient):
         """
         Updates a `DataSource` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.update_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_data_source)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_data_source)
+        """
+    def update_domain_name(
+        self, *, domainName: str, description: str = None
+    ) -> UpdateDomainNameResponseTypeDef:
+        """
+        Updates a custom `DomainName` object.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_domain_name)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_domain_name)
         """
     def update_function(
         self,
@@ -532,7 +599,7 @@ class AppSyncClient(BaseClient):
         """
         Updates a `Function` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.update_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_function)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_function)
         """
     def update_graphql_api(
@@ -551,7 +618,7 @@ class AppSyncClient(BaseClient):
         """
         Updates a `GraphqlApi` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.update_graphql_api)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_graphql_api)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_graphql_api)
         """
     def update_resolver(
@@ -571,7 +638,7 @@ class AppSyncClient(BaseClient):
         """
         Updates a `Resolver` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.update_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_resolver)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_resolver)
         """
     def update_type(
@@ -580,13 +647,13 @@ class AppSyncClient(BaseClient):
         """
         Updates a `Type` object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Client.update_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Client.update_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/client.html#update_type)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_api_keys"]) -> ListApiKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listapikeyspaginator)
         """
     @overload
@@ -594,13 +661,13 @@ class AppSyncClient(BaseClient):
         self, operation_name: Literal["list_data_sources"]
     ) -> ListDataSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listdatasourcespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_functions"]) -> ListFunctionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listfunctionspaginator)
         """
     @overload
@@ -608,13 +675,13 @@ class AppSyncClient(BaseClient):
         self, operation_name: Literal["list_graphql_apis"]
     ) -> ListGraphqlApisPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listgraphqlapispaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_resolvers"]) -> ListResolversPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listresolverspaginator)
         """
     @overload
@@ -622,12 +689,12 @@ class AppSyncClient(BaseClient):
         self, operation_name: Literal["list_resolvers_by_function"]
     ) -> ListResolversByFunctionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listresolversbyfunctionpaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_types"]) -> ListTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/appsync.html#AppSync.Paginator.ListTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appsync.html#AppSync.Paginator.ListTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/paginators.html#listtypespaginator)
         """

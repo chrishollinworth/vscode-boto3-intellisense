@@ -104,6 +104,7 @@ __all__ = (
     "ShipmentTypeDef",
     "ShippingDetailsTypeDef",
     "SnowconeDeviceConfigurationTypeDef",
+    "TGWOnDeviceServiceConfigurationTypeDef",
     "TargetOnDeviceServiceTypeDef",
     "TaxDocumentsTypeDef",
     "UpdateClusterRequestRequestTypeDef",
@@ -419,6 +420,7 @@ DescribeReturnShippingLabelResultTypeDef = TypedDict(
     {
         "Status": ShippingLabelStatusType,
         "ExpirationDate": datetime,
+        "ReturnShippingLabelURI": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -740,6 +742,7 @@ OnDeviceServiceConfigurationTypeDef = TypedDict(
     "OnDeviceServiceConfigurationTypeDef",
     {
         "NFSOnDeviceService": "NFSOnDeviceServiceConfigurationTypeDef",
+        "TGWOnDeviceService": "TGWOnDeviceServiceConfigurationTypeDef",
     },
     total=False,
 )
@@ -798,6 +801,15 @@ SnowconeDeviceConfigurationTypeDef = TypedDict(
     "SnowconeDeviceConfigurationTypeDef",
     {
         "WirelessConnection": "WirelessConnectionTypeDef",
+    },
+    total=False,
+)
+
+TGWOnDeviceServiceConfigurationTypeDef = TypedDict(
+    "TGWOnDeviceServiceConfigurationTypeDef",
+    {
+        "StorageLimit": int,
+        "StorageUnit": Literal["TB"],
     },
     total=False,
 )

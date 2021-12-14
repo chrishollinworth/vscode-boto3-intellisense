@@ -6,9 +6,9 @@ Type annotations for shield service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_shield.literals import AttackLayerType
+    from mypy_boto3_shield.literals import ApplicationLayerAutomaticResponseStatusType
 
-    data: AttackLayerType = "APPLICATION"
+    data: ApplicationLayerAutomaticResponseStatusType = "DISABLED"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ApplicationLayerAutomaticResponseStatusType",
     "AttackLayerType",
     "AttackPropertyIdentifierType",
     "AutoRenewType",
@@ -33,6 +34,7 @@ __all__ = (
     "UnitType",
 )
 
+ApplicationLayerAutomaticResponseStatusType = Literal["DISABLED", "ENABLED"]
 AttackLayerType = Literal["APPLICATION", "NETWORK"]
 AttackPropertyIdentifierType = Literal[
     "DESTINATION_URL",

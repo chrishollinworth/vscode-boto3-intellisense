@@ -60,7 +60,7 @@ __all__ = (
 
 class ServiceResourceVaultsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.vaults)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.vaults)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#serviceresourcevaultscollection)
     """
 
@@ -93,7 +93,7 @@ class ServiceResourceVaultsCollection(ResourceCollection):
 
 class AccountVaultsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Account.vaults)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Account.vaults)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#accountvaultscollection)
     """
 
@@ -126,7 +126,7 @@ class AccountVaultsCollection(ResourceCollection):
 
 class VaultCompletedJobsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.completed_jobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.completed_jobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultcompletedjobscollection)
     """
 
@@ -164,7 +164,7 @@ class VaultCompletedJobsCollection(ResourceCollection):
 
 class VaultFailedJobsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.failed_jobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.failed_jobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultfailedjobscollection)
     """
 
@@ -202,7 +202,7 @@ class VaultFailedJobsCollection(ResourceCollection):
 
 class VaultJobsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.jobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.jobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultjobscollection)
     """
 
@@ -240,7 +240,7 @@ class VaultJobsCollection(ResourceCollection):
 
 class VaultJobsInProgressCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.jobs_in_progress)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.jobs_in_progress)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultjobsinprogresscollection)
     """
 
@@ -278,7 +278,7 @@ class VaultJobsInProgressCollection(ResourceCollection):
 
 class VaultMultipartUplaodsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.multipart_uplaods)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.multipart_uplaods)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultmultipartuplaodscollection)
     """
 
@@ -311,7 +311,7 @@ class VaultMultipartUplaodsCollection(ResourceCollection):
 
 class VaultMultipartUploadsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.multipart_uploads)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.multipart_uploads)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultmultipartuploadscollection)
     """
 
@@ -344,7 +344,7 @@ class VaultMultipartUploadsCollection(ResourceCollection):
 
 class VaultSucceededJobsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.succeeded_jobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.succeeded_jobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultsucceededjobscollection)
     """
 
@@ -382,7 +382,7 @@ class VaultSucceededJobsCollection(ResourceCollection):
 
 class Job(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Job)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Job)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#job)
     """
 
@@ -414,21 +414,21 @@ class Job(Boto3ServiceResource):
         """
         Creates a Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Job.Vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Job.Vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#jobvault-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Job.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Job.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#jobget_available_subresources-method)
         """
     def get_output(self, *, range: str = None) -> GetJobOutputOutputTypeDef:
         """
         This operation downloads the output of the job you initiated using  InitiateJob.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Job.get_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Job.get_output)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#jobget_output-method)
         """
     def load(self) -> None:
@@ -436,7 +436,7 @@ class Job(Boto3ServiceResource):
         Calls :py:meth:`Glacier.Client.describe_job` to update the attributes of the Job
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Job.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Job.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#jobload-method)
         """
     def reload(self) -> None:
@@ -444,7 +444,7 @@ class Job(Boto3ServiceResource):
         Calls :py:meth:`Glacier.Client.describe_job` to update the attributes of the Job
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Job.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Job.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#jobreload-method)
         """
 
@@ -452,7 +452,7 @@ _Job = Job
 
 class MultipartUpload(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#multipartupload)
     """
 
@@ -468,14 +468,14 @@ class MultipartUpload(Boto3ServiceResource):
         """
         Creates a Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.MultipartUpload.Vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.MultipartUpload.Vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#multipartuploadvault-method)
         """
     def abort(self) -> None:
         """
         This operation aborts a multipart upload identified by the upload ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.MultipartUpload.abort)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.MultipartUpload.abort)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#multipartuploadabort-method)
         """
     def complete(
@@ -486,14 +486,14 @@ class MultipartUpload(Boto3ServiceResource):
         archive parts have been uploaded and that Glacier can now assemble the archive
         from the uploaded parts.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.MultipartUpload.complete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.MultipartUpload.complete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#multipartuploadcomplete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.MultipartUpload.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.MultipartUpload.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#multipartuploadget_available_subresources-method)
         """
     def parts(self, *, marker: str = None, limit: str = None) -> ListPartsOutputTypeDef:
@@ -501,7 +501,7 @@ class MultipartUpload(Boto3ServiceResource):
         This operation lists the parts of an archive that have been uploaded in a
         specific multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.MultipartUpload.parts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.MultipartUpload.parts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#multipartuploadparts-method)
         """
     def upload_part(
@@ -514,7 +514,7 @@ class MultipartUpload(Boto3ServiceResource):
         """
         This operation uploads a part of an archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.MultipartUpload.upload_part)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.MultipartUpload.upload_part)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#multipartuploadupload_part-method)
         """
 
@@ -522,7 +522,7 @@ _MultipartUpload = MultipartUpload
 
 class Notification(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Notification)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Notification)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#notification)
     """
 
@@ -534,21 +534,21 @@ class Notification(Boto3ServiceResource):
         """
         Creates a Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Notification.Vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Notification.Vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#notificationvault-method)
         """
     def delete(self) -> None:
         """
         This operation deletes the notification configuration set for a vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Notification.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Notification.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#notificationdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Notification.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Notification.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#notificationget_available_subresources-method)
         """
     def load(self) -> None:
@@ -556,7 +556,7 @@ class Notification(Boto3ServiceResource):
         Calls :py:meth:`Glacier.Client.get_vault_notifications` to update the attributes
         of the Notification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Notification.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Notification.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#notificationload-method)
         """
     def reload(self) -> None:
@@ -564,7 +564,7 @@ class Notification(Boto3ServiceResource):
         Calls :py:meth:`Glacier.Client.get_vault_notifications` to update the attributes
         of the Notification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Notification.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Notification.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#notificationreload-method)
         """
     def set(self, *, vaultNotificationConfig: "VaultNotificationConfigTypeDef" = None) -> None:
@@ -572,7 +572,7 @@ class Notification(Boto3ServiceResource):
         This operation configures notifications that will be sent when specific events
         happen to a vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Notification.set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Notification.set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#notificationset-method)
         """
 
@@ -580,7 +580,7 @@ _Notification = Notification
 
 class Account(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Account)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Account)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#account)
     """
 
@@ -590,21 +590,21 @@ class Account(Boto3ServiceResource):
         """
         Creates a Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Account.Vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Account.Vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#accountvault-method)
         """
     def create_vault(self, *, vaultName: str) -> "_Vault":
         """
         This operation creates a new vault with the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Account.create_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Account.create_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#accountcreate_vault-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Account.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Account.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#accountget_available_subresources-method)
         """
 
@@ -612,7 +612,7 @@ _Account = Account
 
 class Archive(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Archive)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Archive)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#archive)
     """
 
@@ -623,21 +623,21 @@ class Archive(Boto3ServiceResource):
         """
         Creates a Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Archive.Vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Archive.Vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#archivevault-method)
         """
     def delete(self) -> None:
         """
         This operation deletes an archive from a vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Archive.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Archive.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#archivedelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Archive.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Archive.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#archiveget_available_subresources-method)
         """
     def initiate_archive_retrieval(self, *, jobParameters: "JobParametersTypeDef" = None) -> _Job:
@@ -645,7 +645,7 @@ class Archive(Boto3ServiceResource):
         This operation initiates a job of the specified type, which can be a select, an
         archival retrieval, or a vault retrieval.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Archive.initiate_archive_retrieval)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Archive.initiate_archive_retrieval)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#archiveinitiate_archive_retrieval-method)
         """
 
@@ -653,7 +653,7 @@ _Archive = Archive
 
 class Vault(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Vault)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Vault)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vault)
     """
 
@@ -676,56 +676,56 @@ class Vault(Boto3ServiceResource):
         """
         Creates a Account resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.Account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.Account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultaccount-method)
         """
     def Archive(self, id: str) -> _Archive:
         """
         Creates a Archive resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.Archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.Archive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultarchive-method)
         """
     def Job(self, id: str) -> _Job:
         """
         Creates a Job resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.Job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.Job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultjob-method)
         """
     def MultipartUpload(self, id: str) -> _MultipartUpload:
         """
         Creates a MultipartUpload resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.MultipartUpload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.MultipartUpload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultmultipartupload-method)
         """
     def Notification(self) -> _Notification:
         """
         Creates a Notification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.Notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.Notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultnotification-method)
         """
     def create(self) -> CreateVaultOutputTypeDef:
         """
         This operation creates a new vault with the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.create)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.create)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultcreate-method)
         """
     def delete(self) -> None:
         """
         This operation deletes a vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultget_available_subresources-method)
         """
     def initiate_inventory_retrieval(self, *, jobParameters: "JobParametersTypeDef" = None) -> _Job:
@@ -733,7 +733,7 @@ class Vault(Boto3ServiceResource):
         This operation initiates a job of the specified type, which can be a select, an
         archival retrieval, or a vault retrieval.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.initiate_inventory_retrieval)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.initiate_inventory_retrieval)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultinitiate_inventory_retrieval-method)
         """
     def initiate_multipart_upload(
@@ -742,7 +742,7 @@ class Vault(Boto3ServiceResource):
         """
         This operation initiates a multipart upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.initiate_multipart_upload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.initiate_multipart_upload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultinitiate_multipart_upload-method)
         """
     def load(self) -> None:
@@ -750,7 +750,7 @@ class Vault(Boto3ServiceResource):
         Calls :py:meth:`Glacier.Client.describe_vault` to update the attributes of the
         Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultload-method)
         """
     def reload(self) -> None:
@@ -758,7 +758,7 @@ class Vault(Boto3ServiceResource):
         Calls :py:meth:`Glacier.Client.describe_vault` to update the attributes of the
         Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultreload-method)
         """
     def upload_archive(
@@ -771,7 +771,7 @@ class Vault(Boto3ServiceResource):
         """
         This operation adds an archive to a vault.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.Vault.upload_archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.Vault.upload_archive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#vaultupload_archive-method)
         """
 
@@ -782,7 +782,7 @@ class GlacierResourceMeta(ResourceMeta):
 
 class GlacierServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html)
     """
 
@@ -792,55 +792,55 @@ class GlacierServiceResource(Boto3ServiceResource):
         """
         Creates a Account resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourceaccount-method)
         """
     def Archive(self, account_id: str, vault_name: str, id: str) -> _Archive:
         """
         Creates a Archive resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Archive)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourcearchive-method)
         """
     def Job(self, account_id: str, vault_name: str, id: str) -> _Job:
         """
         Creates a Job resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourcejob-method)
         """
     def MultipartUpload(self, account_id: str, vault_name: str, id: str) -> _MultipartUpload:
         """
         Creates a MultipartUpload resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourcemultipartupload-method)
         """
     def Notification(self, account_id: str, vault_name: str) -> _Notification:
         """
         Creates a Notification resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Notification)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Notification)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourcenotification-method)
         """
     def Vault(self, account_id: str, name: str) -> _Vault:
         """
         Creates a Vault resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.Vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.Vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourcevault-method)
         """
     def create_vault(self, *, accountId: str, vaultName: str) -> _Vault:
         """
         This operation creates a new vault with the specified name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.create_vault)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.create_vault)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourcecreate_vault-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.7/reference/services/glacier.html#Glacier.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/glacier.html#Glacier.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_glacier/service_resource.html#glacierserviceresourceget_available_subresources-method)
         """

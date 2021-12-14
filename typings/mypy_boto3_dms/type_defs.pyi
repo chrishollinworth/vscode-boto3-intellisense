@@ -2138,6 +2138,7 @@ S3SettingsTypeDef = TypedDict(
         "IgnoreHeaderRows": int,
         "MaxFileSize": int,
         "Rfc4180": bool,
+        "DatePartitionTimezone": str,
     },
     total=False,
 )

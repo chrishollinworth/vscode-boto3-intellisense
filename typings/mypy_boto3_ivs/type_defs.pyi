@@ -6,9 +6,9 @@ Type annotations for ivs service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_ivs.type_defs import BatchErrorTypeDef
+    from mypy_boto3_ivs.type_defs import AudioConfigurationTypeDef
 
-    data: BatchErrorTypeDef = {...}
+    data: AudioConfigurationTypeDef = {...}
     ```
 """
 import sys
@@ -29,6 +29,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AudioConfigurationTypeDef",
     "BatchErrorTypeDef",
     "BatchGetChannelRequestRequestTypeDef",
     "BatchGetChannelResponseTypeDef",
@@ -57,8 +58,11 @@ __all__ = (
     "GetStreamKeyResponseTypeDef",
     "GetStreamRequestRequestTypeDef",
     "GetStreamResponseTypeDef",
+    "GetStreamSessionRequestRequestTypeDef",
+    "GetStreamSessionResponseTypeDef",
     "ImportPlaybackKeyPairRequestRequestTypeDef",
     "ImportPlaybackKeyPairResponseTypeDef",
+    "IngestConfigurationTypeDef",
     "ListChannelsRequestRequestTypeDef",
     "ListChannelsResponseTypeDef",
     "ListPlaybackKeyPairsRequestRequestTypeDef",
@@ -67,6 +71,8 @@ __all__ = (
     "ListRecordingConfigurationsResponseTypeDef",
     "ListStreamKeysRequestRequestTypeDef",
     "ListStreamKeysResponseTypeDef",
+    "ListStreamSessionsRequestRequestTypeDef",
+    "ListStreamSessionsResponseTypeDef",
     "ListStreamsRequestRequestTypeDef",
     "ListStreamsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -80,14 +86,30 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "S3DestinationConfigurationTypeDef",
     "StopStreamRequestRequestTypeDef",
+    "StreamEventTypeDef",
+    "StreamFiltersTypeDef",
     "StreamKeySummaryTypeDef",
     "StreamKeyTypeDef",
+    "StreamSessionSummaryTypeDef",
+    "StreamSessionTypeDef",
     "StreamSummaryTypeDef",
     "StreamTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateChannelRequestRequestTypeDef",
     "UpdateChannelResponseTypeDef",
+    "VideoConfigurationTypeDef",
+)
+
+AudioConfigurationTypeDef = TypedDict(
+    "AudioConfigurationTypeDef",
+    {
+        "channels": int,
+        "codec": str,
+        "sampleRate": int,
+        "targetBitrate": int,
+    },
+    total=False,
 )
 
 BatchErrorTypeDef = TypedDict(
@@ -350,6 +372,33 @@ GetStreamResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetStreamSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetStreamSessionRequestRequestTypeDef",
+    {
+        "channelArn": str,
+    },
+)
+_OptionalGetStreamSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetStreamSessionRequestRequestTypeDef",
+    {
+        "streamId": str,
+    },
+    total=False,
+)
+
+class GetStreamSessionRequestRequestTypeDef(
+    _RequiredGetStreamSessionRequestRequestTypeDef, _OptionalGetStreamSessionRequestRequestTypeDef
+):
+    pass
+
+GetStreamSessionResponseTypeDef = TypedDict(
+    "GetStreamSessionResponseTypeDef",
+    {
+        "streamSession": "StreamSessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredImportPlaybackKeyPairRequestRequestTypeDef = TypedDict(
     "_RequiredImportPlaybackKeyPairRequestRequestTypeDef",
     {
@@ -377,6 +426,15 @@ ImportPlaybackKeyPairResponseTypeDef = TypedDict(
         "keyPair": "PlaybackKeyPairTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+IngestConfigurationTypeDef = TypedDict(
+    "IngestConfigurationTypeDef",
+    {
+        "audio": "AudioConfigurationTypeDef",
+        "video": "VideoConfigurationTypeDef",
+    },
+    total=False,
 )
 
 ListChannelsRequestRequestTypeDef = TypedDict(
@@ -464,9 +522,40 @@ ListStreamKeysResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListStreamSessionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListStreamSessionsRequestRequestTypeDef",
+    {
+        "channelArn": str,
+    },
+)
+_OptionalListStreamSessionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListStreamSessionsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListStreamSessionsRequestRequestTypeDef(
+    _RequiredListStreamSessionsRequestRequestTypeDef,
+    _OptionalListStreamSessionsRequestRequestTypeDef,
+):
+    pass
+
+ListStreamSessionsResponseTypeDef = TypedDict(
+    "ListStreamSessionsResponseTypeDef",
+    {
+        "nextToken": str,
+        "streamSessions": List["StreamSessionSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListStreamsRequestRequestTypeDef = TypedDict(
     "ListStreamsRequestRequestTypeDef",
     {
+        "filterBy": "StreamFiltersTypeDef",
         "maxResults": int,
         "nextToken": str,
     },
@@ -605,6 +694,24 @@ StopStreamRequestRequestTypeDef = TypedDict(
     },
 )
 
+StreamEventTypeDef = TypedDict(
+    "StreamEventTypeDef",
+    {
+        "eventTime": datetime,
+        "name": str,
+        "type": str,
+    },
+    total=False,
+)
+
+StreamFiltersTypeDef = TypedDict(
+    "StreamFiltersTypeDef",
+    {
+        "health": StreamHealthType,
+    },
+    total=False,
+)
+
 StreamKeySummaryTypeDef = TypedDict(
     "StreamKeySummaryTypeDef",
     {
@@ -626,6 +733,31 @@ StreamKeyTypeDef = TypedDict(
     total=False,
 )
 
+StreamSessionSummaryTypeDef = TypedDict(
+    "StreamSessionSummaryTypeDef",
+    {
+        "endTime": datetime,
+        "hasErrorEvent": bool,
+        "startTime": datetime,
+        "streamId": str,
+    },
+    total=False,
+)
+
+StreamSessionTypeDef = TypedDict(
+    "StreamSessionTypeDef",
+    {
+        "channel": "ChannelTypeDef",
+        "endTime": datetime,
+        "ingestConfiguration": "IngestConfigurationTypeDef",
+        "recordingConfiguration": "RecordingConfigurationTypeDef",
+        "startTime": datetime,
+        "streamId": str,
+        "truncatedEvents": List["StreamEventTypeDef"],
+    },
+    total=False,
+)
+
 StreamSummaryTypeDef = TypedDict(
     "StreamSummaryTypeDef",
     {
@@ -633,6 +765,7 @@ StreamSummaryTypeDef = TypedDict(
         "health": StreamHealthType,
         "startTime": datetime,
         "state": StreamStateType,
+        "streamId": str,
         "viewerCount": int,
     },
     total=False,
@@ -646,6 +779,7 @@ StreamTypeDef = TypedDict(
         "playbackUrl": str,
         "startTime": datetime,
         "state": StreamStateType,
+        "streamId": str,
         "viewerCount": int,
     },
     total=False,
@@ -696,4 +830,19 @@ UpdateChannelResponseTypeDef = TypedDict(
         "channel": "ChannelTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VideoConfigurationTypeDef = TypedDict(
+    "VideoConfigurationTypeDef",
+    {
+        "avcLevel": str,
+        "avcProfile": str,
+        "codec": str,
+        "encoder": str,
+        "targetBitrate": int,
+        "targetFramerate": int,
+        "videoHeight": int,
+        "videoWidth": int,
+    },
+    total=False,
 )
