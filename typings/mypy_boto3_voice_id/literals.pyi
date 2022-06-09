@@ -27,6 +27,11 @@ __all__ = (
     "FraudDetectionDecisionType",
     "FraudDetectionReasonType",
     "FraudsterRegistrationJobStatusType",
+    "ListDomainsPaginatorName",
+    "ListFraudsterRegistrationJobsPaginatorName",
+    "ListSpeakerEnrollmentJobsPaginatorName",
+    "ListSpeakersPaginatorName",
+    "ServerSideEncryptionUpdateStatusType",
     "SpeakerEnrollmentJobStatusType",
     "SpeakerStatusType",
     "StreamingStatusType",
@@ -36,6 +41,7 @@ AuthenticationDecisionType = Literal[
     "ACCEPT",
     "NOT_ENOUGH_SPEECH",
     "REJECT",
+    "SPEAKER_EXPIRED",
     "SPEAKER_ID_NOT_PROVIDED",
     "SPEAKER_NOT_ENROLLED",
     "SPEAKER_OPTED_OUT",
@@ -49,6 +55,11 @@ FraudDetectionReasonType = Literal["KNOWN_FRAUDSTER"]
 FraudsterRegistrationJobStatusType = Literal[
     "COMPLETED", "COMPLETED_WITH_ERRORS", "FAILED", "IN_PROGRESS", "SUBMITTED"
 ]
+ListDomainsPaginatorName = Literal["list_domains"]
+ListFraudsterRegistrationJobsPaginatorName = Literal["list_fraudster_registration_jobs"]
+ListSpeakerEnrollmentJobsPaginatorName = Literal["list_speaker_enrollment_jobs"]
+ListSpeakersPaginatorName = Literal["list_speakers"]
+ServerSideEncryptionUpdateStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 SpeakerEnrollmentJobStatusType = Literal[
     "COMPLETED", "COMPLETED_WITH_ERRORS", "FAILED", "IN_PROGRESS", "SUBMITTED"
 ]

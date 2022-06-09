@@ -23,6 +23,7 @@ __all__ = (
     "ErrorCauseType",
     "ExportStatusType",
     "LedgerStateType",
+    "OutputFormatType",
     "PermissionsModeType",
     "S3ObjectEncryptionTypeType",
     "StreamStatusType",
@@ -32,6 +33,7 @@ EncryptionStatusType = Literal["ENABLED", "KMS_KEY_INACCESSIBLE", "UPDATING"]
 ErrorCauseType = Literal["IAM_PERMISSION_REVOKED", "KINESIS_STREAM_NOT_FOUND"]
 ExportStatusType = Literal["CANCELLED", "COMPLETED", "IN_PROGRESS"]
 LedgerStateType = Literal["ACTIVE", "CREATING", "DELETED", "DELETING"]
+OutputFormatType = Literal["ION_BINARY", "ION_TEXT", "JSON"]
 PermissionsModeType = Literal["ALLOW_ALL", "STANDARD"]
 S3ObjectEncryptionTypeType = Literal["NO_ENCRYPTION", "SSE_KMS", "SSE_S3"]
 StreamStatusType = Literal["ACTIVE", "CANCELED", "COMPLETED", "FAILED", "IMPAIRED"]

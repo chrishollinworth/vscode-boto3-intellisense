@@ -19,6 +19,9 @@ from .literals import (
     LaunchProfilePlatformType,
     LaunchProfileStateType,
     LaunchProfileStatusCodeType,
+    LaunchProfileValidationStateType,
+    LaunchProfileValidationStatusCodeType,
+    LaunchProfileValidationTypeType,
     StreamingClipboardModeType,
     StreamingImageStateType,
     StreamingImageStatusCodeType,
@@ -141,9 +144,11 @@ __all__ = (
     "StopStreamingSessionRequestRequestTypeDef",
     "StopStreamingSessionResponseTypeDef",
     "StreamConfigurationCreateTypeDef",
+    "StreamConfigurationSessionStorageTypeDef",
     "StreamConfigurationTypeDef",
     "StreamingImageEncryptionConfigurationTypeDef",
     "StreamingImageTypeDef",
+    "StreamingSessionStorageRootTypeDef",
     "StreamingSessionStreamTypeDef",
     "StreamingSessionTypeDef",
     "StudioComponentConfigurationTypeDef",
@@ -165,6 +170,7 @@ __all__ = (
     "UpdateStudioComponentResponseTypeDef",
     "UpdateStudioRequestRequestTypeDef",
     "UpdateStudioResponseTypeDef",
+    "ValidationResultTypeDef",
     "WaiterConfigTypeDef",
 )
 
@@ -884,6 +890,7 @@ LaunchProfileTypeDef = TypedDict(
         "tags": Dict[str, str],
         "updatedAt": datetime,
         "updatedBy": str,
+        "validationResults": List["ValidationResultTypeDef"],
     },
     total=False,
 )
@@ -987,7 +994,7 @@ _OptionalListLaunchProfilesRequestRequestTypeDef = TypedDict(
         "maxResults": int,
         "nextToken": str,
         "principalId": str,
-        "states": List[str],
+        "states": List[LaunchProfileStateType],
     },
     total=False,
 )
@@ -1080,8 +1087,8 @@ _OptionalListStudioComponentsRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
-        "states": List[str],
-        "types": List[str],
+        "states": List[StudioComponentStateType],
+        "types": List[StudioComponentTypeType],
     },
     total=False,
 )
@@ -1363,12 +1370,33 @@ _OptionalStreamConfigurationCreateTypeDef = TypedDict(
     {
         "maxSessionLengthInMinutes": int,
         "maxStoppedSessionLengthInMinutes": int,
+        "sessionStorage": "StreamConfigurationSessionStorageTypeDef",
     },
     total=False,
 )
 
 class StreamConfigurationCreateTypeDef(
     _RequiredStreamConfigurationCreateTypeDef, _OptionalStreamConfigurationCreateTypeDef
+):
+    pass
+
+_RequiredStreamConfigurationSessionStorageTypeDef = TypedDict(
+    "_RequiredStreamConfigurationSessionStorageTypeDef",
+    {
+        "mode": List[Literal["UPLOAD"]],
+    },
+)
+_OptionalStreamConfigurationSessionStorageTypeDef = TypedDict(
+    "_OptionalStreamConfigurationSessionStorageTypeDef",
+    {
+        "root": "StreamingSessionStorageRootTypeDef",
+    },
+    total=False,
+)
+
+class StreamConfigurationSessionStorageTypeDef(
+    _RequiredStreamConfigurationSessionStorageTypeDef,
+    _OptionalStreamConfigurationSessionStorageTypeDef,
 ):
     pass
 
@@ -1385,6 +1413,7 @@ _OptionalStreamConfigurationTypeDef = TypedDict(
     {
         "maxSessionLengthInMinutes": int,
         "maxStoppedSessionLengthInMinutes": int,
+        "sessionStorage": "StreamConfigurationSessionStorageTypeDef",
     },
     total=False,
 )
@@ -1430,6 +1459,15 @@ StreamingImageTypeDef = TypedDict(
         "statusMessage": str,
         "streamingImageId": str,
         "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+StreamingSessionStorageRootTypeDef = TypedDict(
+    "StreamingSessionStorageRootTypeDef",
+    {
+        "linux": str,
+        "windows": str,
     },
     total=False,
 )
@@ -1779,6 +1817,16 @@ UpdateStudioResponseTypeDef = TypedDict(
     {
         "studio": "StudioTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ValidationResultTypeDef = TypedDict(
+    "ValidationResultTypeDef",
+    {
+        "state": LaunchProfileValidationStateType,
+        "statusCode": LaunchProfileValidationStatusCodeType,
+        "statusMessage": str,
+        "type": LaunchProfileValidationTypeType,
     },
 )
 

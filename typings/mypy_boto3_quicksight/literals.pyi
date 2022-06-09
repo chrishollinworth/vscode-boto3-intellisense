@@ -39,6 +39,8 @@ __all__ = (
     "FolderTypeType",
     "GeoSpatialCountryCodeType",
     "GeoSpatialDataRoleType",
+    "GroupFilterAttributeType",
+    "GroupFilterOperatorType",
     "IdentityStoreType",
     "IdentityTypeType",
     "IngestionErrorTypeType",
@@ -155,6 +157,8 @@ GeoSpatialCountryCodeType = Literal["US"]
 GeoSpatialDataRoleType = Literal[
     "CITY", "COUNTRY", "COUNTY", "LATITUDE", "LONGITUDE", "POSTCODE", "STATE"
 ]
+GroupFilterAttributeType = Literal["GROUP_NAME"]
+GroupFilterOperatorType = Literal["StartsWith"]
 IdentityStoreType = Literal["QUICKSIGHT"]
 IdentityTypeType = Literal["IAM", "QUICKSIGHT"]
 IngestionErrorTypeType = Literal[

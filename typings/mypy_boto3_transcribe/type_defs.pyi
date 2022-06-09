@@ -24,6 +24,7 @@ from .literals import (
     ModelStatusType,
     OutputLocationTypeType,
     ParticipantRoleType,
+    PiiEntityTypeType,
     RedactionOutputType,
     SentimentValueType,
     SubtitleFormatType,
@@ -87,6 +88,7 @@ __all__ = (
     "InputDataConfigTypeDef",
     "InterruptionFilterTypeDef",
     "JobExecutionSettingsTypeDef",
+    "LanguageCodeItemTypeDef",
     "LanguageIdSettingsTypeDef",
     "LanguageModelTypeDef",
     "ListCallAnalyticsCategoriesRequestRequestTypeDef",
@@ -227,13 +229,23 @@ ChannelDefinitionTypeDef = TypedDict(
     total=False,
 )
 
-ContentRedactionTypeDef = TypedDict(
-    "ContentRedactionTypeDef",
+_RequiredContentRedactionTypeDef = TypedDict(
+    "_RequiredContentRedactionTypeDef",
     {
         "RedactionType": Literal["PII"],
         "RedactionOutput": RedactionOutputType,
     },
 )
+_OptionalContentRedactionTypeDef = TypedDict(
+    "_OptionalContentRedactionTypeDef",
+    {
+        "PiiEntityTypes": List[PiiEntityTypeType],
+    },
+    total=False,
+)
+
+class ContentRedactionTypeDef(_RequiredContentRedactionTypeDef, _OptionalContentRedactionTypeDef):
+    pass
 
 CreateCallAnalyticsCategoryRequestRequestTypeDef = TypedDict(
     "CreateCallAnalyticsCategoryRequestRequestTypeDef",
@@ -615,6 +627,15 @@ JobExecutionSettingsTypeDef = TypedDict(
     total=False,
 )
 
+LanguageCodeItemTypeDef = TypedDict(
+    "LanguageCodeItemTypeDef",
+    {
+        "LanguageCode": LanguageCodeType,
+        "DurationInSeconds": float,
+    },
+    total=False,
+)
+
 LanguageIdSettingsTypeDef = TypedDict(
     "LanguageIdSettingsTypeDef",
     {
@@ -982,7 +1003,6 @@ _RequiredStartCallAnalyticsJobRequestRequestTypeDef = TypedDict(
     {
         "CallAnalyticsJobName": str,
         "Media": "MediaTypeDef",
-        "DataAccessRoleArn": str,
     },
 )
 _OptionalStartCallAnalyticsJobRequestRequestTypeDef = TypedDict(
@@ -990,6 +1010,7 @@ _OptionalStartCallAnalyticsJobRequestRequestTypeDef = TypedDict(
     {
         "OutputLocation": str,
         "OutputEncryptionKMSKeyId": str,
+        "DataAccessRoleArn": str,
         "Settings": "CallAnalyticsJobSettingsTypeDef",
         "ChannelDefinitions": List["ChannelDefinitionTypeDef"],
     },
@@ -1072,6 +1093,7 @@ _OptionalStartTranscriptionJobRequestRequestTypeDef = TypedDict(
         "JobExecutionSettings": "JobExecutionSettingsTypeDef",
         "ContentRedaction": "ContentRedactionTypeDef",
         "IdentifyLanguage": bool,
+        "IdentifyMultipleLanguages": bool,
         "LanguageOptions": List[LanguageCodeType],
         "Subtitles": "SubtitlesTypeDef",
         "Tags": List["TagTypeDef"],
@@ -1099,6 +1121,7 @@ SubtitlesOutputTypeDef = TypedDict(
     {
         "Formats": List[SubtitleFormatType],
         "SubtitleFileUris": List[str],
+        "OutputStartIndex": int,
     },
     total=False,
 )
@@ -1107,6 +1130,7 @@ SubtitlesTypeDef = TypedDict(
     "SubtitlesTypeDef",
     {
         "Formats": List[SubtitleFormatType],
+        "OutputStartIndex": int,
     },
     total=False,
 )
@@ -1171,7 +1195,9 @@ TranscriptionJobSummaryTypeDef = TypedDict(
         "ContentRedaction": "ContentRedactionTypeDef",
         "ModelSettings": "ModelSettingsTypeDef",
         "IdentifyLanguage": bool,
+        "IdentifyMultipleLanguages": bool,
         "IdentifiedLanguageScore": float,
+        "LanguageCodes": List["LanguageCodeItemTypeDef"],
     },
     total=False,
 )
@@ -1195,8 +1221,10 @@ TranscriptionJobTypeDef = TypedDict(
         "JobExecutionSettings": "JobExecutionSettingsTypeDef",
         "ContentRedaction": "ContentRedactionTypeDef",
         "IdentifyLanguage": bool,
+        "IdentifyMultipleLanguages": bool,
         "LanguageOptions": List[LanguageCodeType],
         "IdentifiedLanguageScore": float,
+        "LanguageCodes": List["LanguageCodeItemTypeDef"],
         "Tags": List["TagTypeDef"],
         "Subtitles": "SubtitlesOutputTypeDef",
         "LanguageIdSettings": Dict[LanguageCodeType, "LanguageIdSettingsTypeDef"],

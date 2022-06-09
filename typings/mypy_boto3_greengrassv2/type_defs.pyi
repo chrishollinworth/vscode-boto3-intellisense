@@ -34,6 +34,7 @@ from .literals import (
     LambdaInputPayloadEncodingTypeType,
     LambdaIsolationModeType,
     RecipeOutputFormatType,
+    VendorGuidanceType,
 )
 
 if sys.version_info >= (3, 8):
@@ -48,6 +49,8 @@ else:
 __all__ = (
     "AssociateClientDeviceWithCoreDeviceEntryTypeDef",
     "AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef",
+    "AssociateServiceRoleToAccountRequestRequestTypeDef",
+    "AssociateServiceRoleToAccountResponseTypeDef",
     "AssociatedClientDeviceTypeDef",
     "BatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef",
     "BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef",
@@ -65,6 +68,7 @@ __all__ = (
     "ComponentRunWithTypeDef",
     "ComponentTypeDef",
     "ComponentVersionListItemTypeDef",
+    "ConnectivityInfoTypeDef",
     "CoreDeviceTypeDef",
     "CreateComponentVersionRequestRequestTypeDef",
     "CreateComponentVersionResponseTypeDef",
@@ -72,6 +76,7 @@ __all__ = (
     "CreateDeploymentResponseTypeDef",
     "DeleteComponentRequestRequestTypeDef",
     "DeleteCoreDeviceRequestRequestTypeDef",
+    "DeleteDeploymentRequestRequestTypeDef",
     "DeploymentComponentUpdatePolicyTypeDef",
     "DeploymentConfigurationValidationPolicyTypeDef",
     "DeploymentIoTJobConfigurationTypeDef",
@@ -81,15 +86,19 @@ __all__ = (
     "DescribeComponentResponseTypeDef",
     "DisassociateClientDeviceFromCoreDeviceEntryTypeDef",
     "DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef",
+    "DisassociateServiceRoleFromAccountResponseTypeDef",
     "EffectiveDeploymentTypeDef",
     "GetComponentRequestRequestTypeDef",
     "GetComponentResponseTypeDef",
     "GetComponentVersionArtifactRequestRequestTypeDef",
     "GetComponentVersionArtifactResponseTypeDef",
+    "GetConnectivityInfoRequestRequestTypeDef",
+    "GetConnectivityInfoResponseTypeDef",
     "GetCoreDeviceRequestRequestTypeDef",
     "GetCoreDeviceResponseTypeDef",
     "GetDeploymentRequestRequestTypeDef",
     "GetDeploymentResponseTypeDef",
+    "GetServiceRoleForAccountResponseTypeDef",
     "InstalledComponentTypeDef",
     "IoTJobAbortConfigTypeDef",
     "IoTJobAbortCriteriaTypeDef",
@@ -128,6 +137,8 @@ __all__ = (
     "SystemResourceLimitsTypeDef",
     "TagResourceRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateConnectivityInfoRequestRequestTypeDef",
+    "UpdateConnectivityInfoResponseTypeDef",
 )
 
 AssociateClientDeviceWithCoreDeviceEntryTypeDef = TypedDict(
@@ -145,6 +156,21 @@ AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef = TypedDict(
         "message": str,
     },
     total=False,
+)
+
+AssociateServiceRoleToAccountRequestRequestTypeDef = TypedDict(
+    "AssociateServiceRoleToAccountRequestRequestTypeDef",
+    {
+        "roleArn": str,
+    },
+)
+
+AssociateServiceRoleToAccountResponseTypeDef = TypedDict(
+    "AssociateServiceRoleToAccountResponseTypeDef",
+    {
+        "associatedAt": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 AssociatedClientDeviceTypeDef = TypedDict(
@@ -233,6 +259,8 @@ CloudComponentStatusTypeDef = TypedDict(
         "componentState": CloudComponentStateType,
         "message": str,
         "errors": Dict[str, str],
+        "vendorGuidance": VendorGuidanceType,
+        "vendorGuidanceMessage": str,
     },
     total=False,
 )
@@ -327,6 +355,17 @@ ComponentVersionListItemTypeDef = TypedDict(
     total=False,
 )
 
+ConnectivityInfoTypeDef = TypedDict(
+    "ConnectivityInfoTypeDef",
+    {
+        "id": str,
+        "hostAddress": str,
+        "portNumber": int,
+        "metadata": str,
+    },
+    total=False,
+)
+
 CoreDeviceTypeDef = TypedDict(
     "CoreDeviceTypeDef",
     {
@@ -405,6 +444,13 @@ DeleteCoreDeviceRequestRequestTypeDef = TypedDict(
     "DeleteCoreDeviceRequestRequestTypeDef",
     {
         "coreDeviceThingName": str,
+    },
+)
+
+DeleteDeploymentRequestRequestTypeDef = TypedDict(
+    "DeleteDeploymentRequestRequestTypeDef",
+    {
+        "deploymentId": str,
     },
 )
 
@@ -499,6 +545,14 @@ DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef = TypedDict(
     total=False,
 )
 
+DisassociateServiceRoleFromAccountResponseTypeDef = TypedDict(
+    "DisassociateServiceRoleFromAccountResponseTypeDef",
+    {
+        "disassociatedAt": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredEffectiveDeploymentTypeDef = TypedDict(
     "_RequiredEffectiveDeploymentTypeDef",
     {
@@ -571,6 +625,22 @@ GetComponentVersionArtifactResponseTypeDef = TypedDict(
     },
 )
 
+GetConnectivityInfoRequestRequestTypeDef = TypedDict(
+    "GetConnectivityInfoRequestRequestTypeDef",
+    {
+        "thingName": str,
+    },
+)
+
+GetConnectivityInfoResponseTypeDef = TypedDict(
+    "GetConnectivityInfoResponseTypeDef",
+    {
+        "connectivityInfo": List["ConnectivityInfoTypeDef"],
+        "message": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetCoreDeviceRequestRequestTypeDef = TypedDict(
     "GetCoreDeviceRequestRequestTypeDef",
     {
@@ -615,6 +685,15 @@ GetDeploymentResponseTypeDef = TypedDict(
         "creationTimestamp": datetime,
         "isLatestForTarget": bool,
         "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetServiceRoleForAccountResponseTypeDef = TypedDict(
+    "GetServiceRoleForAccountResponseTypeDef",
+    {
+        "associatedAt": str,
+        "roleArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1003,6 +1082,7 @@ ResolveComponentCandidatesRequestRequestTypeDef = TypedDict(
         "platform": "ComponentPlatformTypeDef",
         "componentCandidates": List["ComponentCandidateTypeDef"],
     },
+    total=False,
 )
 
 ResolveComponentCandidatesResponseTypeDef = TypedDict(
@@ -1020,6 +1100,8 @@ ResolvedComponentVersionTypeDef = TypedDict(
         "componentName": str,
         "componentVersion": str,
         "recipe": bytes,
+        "vendorGuidance": VendorGuidanceType,
+        "message": str,
     },
     total=False,
 )
@@ -1057,5 +1139,22 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     {
         "resourceArn": str,
         "tagKeys": List[str],
+    },
+)
+
+UpdateConnectivityInfoRequestRequestTypeDef = TypedDict(
+    "UpdateConnectivityInfoRequestRequestTypeDef",
+    {
+        "thingName": str,
+        "connectivityInfo": List["ConnectivityInfoTypeDef"],
+    },
+)
+
+UpdateConnectivityInfoResponseTypeDef = TypedDict(
+    "UpdateConnectivityInfoResponseTypeDef",
+    {
+        "version": str,
+        "message": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

@@ -29,6 +29,10 @@ __all__ = (
     "AssetRelationshipTypeType",
     "AssetStateType",
     "AuthModeType",
+    "BatchEntryCompletionStatusType",
+    "BatchGetAssetPropertyAggregatesErrorCodeType",
+    "BatchGetAssetPropertyValueErrorCodeType",
+    "BatchGetAssetPropertyValueHistoryErrorCodeType",
     "BatchPutAssetPropertyValueErrorCodeType",
     "CapabilitySyncStatusType",
     "ComputeLocationType",
@@ -82,6 +86,16 @@ AssetNotExistsWaiterName = Literal["asset_not_exists"]
 AssetRelationshipTypeType = Literal["HIERARCHY"]
 AssetStateType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
 AuthModeType = Literal["IAM", "SSO"]
+BatchEntryCompletionStatusType = Literal["ERROR", "SUCCESS"]
+BatchGetAssetPropertyAggregatesErrorCodeType = Literal[
+    "AccessDeniedException", "InvalidRequestException", "ResourceNotFoundException"
+]
+BatchGetAssetPropertyValueErrorCodeType = Literal[
+    "AccessDeniedException", "InvalidRequestException", "ResourceNotFoundException"
+]
+BatchGetAssetPropertyValueHistoryErrorCodeType = Literal[
+    "AccessDeniedException", "InvalidRequestException", "ResourceNotFoundException"
+]
 BatchPutAssetPropertyValueErrorCodeType = Literal[
     "AccessDeniedException",
     "ConflictingOperationException",

@@ -151,6 +151,7 @@ __all__ = (
     "HlsMediaStoreStorageClassType",
     "HlsModeType",
     "HlsOutputSelectionType",
+    "HlsProgramDateTimeClockType",
     "HlsProgramDateTimeType",
     "HlsRedundantManifestType",
     "HlsScte35SourceTypeType",
@@ -224,6 +225,7 @@ __all__ = (
     "M3u8PcrControlType",
     "M3u8Scte35BehaviorType",
     "M3u8TimedMetadataBehaviorType",
+    "MaintenanceDayType",
     "MotionGraphicsInsertionType",
     "Mp2CodingModeType",
     "Mpeg2AdaptiveQuantizationType",
@@ -511,6 +513,7 @@ HlsModeType = Literal["LIVE", "VOD"]
 HlsOutputSelectionType = Literal[
     "MANIFESTS_AND_SEGMENTS", "SEGMENTS_ONLY", "VARIANT_MANIFESTS_AND_SEGMENTS"
 ]
+HlsProgramDateTimeClockType = Literal["INITIALIZE_FROM_OUTPUT_TIMECODE", "SYSTEM_CLOCK"]
 HlsProgramDateTimeType = Literal["EXCLUDE", "INCLUDE"]
 HlsRedundantManifestType = Literal["DISABLED", "ENABLED"]
 HlsScte35SourceTypeType = Literal["MANIFEST", "SEGMENTS"]
@@ -597,6 +600,9 @@ M3u8NielsenId3BehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
 M3u8PcrControlType = Literal["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"]
 M3u8Scte35BehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
 M3u8TimedMetadataBehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
+MaintenanceDayType = Literal[
+    "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
+]
 MotionGraphicsInsertionType = Literal["DISABLED", "ENABLED"]
 Mp2CodingModeType = Literal["CODING_MODE_1_0", "CODING_MODE_2_0"]
 Mpeg2AdaptiveQuantizationType = Literal["AUTO", "HIGH", "LOW", "MEDIUM", "OFF"]

@@ -585,6 +585,8 @@ AssociationDescriptionTypeDef = TypedDict(
         "ApplyOnlyAtCronInterval": bool,
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
+        "ScheduleOffset": int,
+        "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
 )
@@ -689,6 +691,8 @@ AssociationTypeDef = TypedDict(
         "Overview": "AssociationOverviewTypeDef",
         "ScheduleExpression": str,
         "AssociationName": str,
+        "ScheduleOffset": int,
+        "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
 )
@@ -713,6 +717,8 @@ AssociationVersionInfoTypeDef = TypedDict(
         "ApplyOnlyAtCronInterval": bool,
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
+        "ScheduleOffset": int,
+        "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
 )
@@ -1112,6 +1118,8 @@ _OptionalCreateAssociationBatchRequestEntryTypeDef = TypedDict(
         "ApplyOnlyAtCronInterval": bool,
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
+        "ScheduleOffset": int,
+        "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
 )
@@ -1162,6 +1170,8 @@ _OptionalCreateAssociationRequestRequestTypeDef = TypedDict(
         "ApplyOnlyAtCronInterval": bool,
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
+        "ScheduleOffset": int,
+        "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
 )
@@ -2506,6 +2516,8 @@ DocumentDescriptionTypeDef = TypedDict(
         "ApprovedVersion": str,
         "PendingReviewVersion": str,
         "ReviewStatus": ReviewStatusType,
+        "Category": List[str],
+        "CategoryEnum": List[str],
     },
     total=False,
 )
@@ -5140,6 +5152,7 @@ _OptionalRunbookTypeDef = TypedDict(
         "Parameters": Dict[str, List[str]],
         "TargetParameterName": str,
         "Targets": List["TargetTypeDef"],
+        "TargetMaps": List[Dict[str, List[str]]],
         "MaxConcurrency": str,
         "MaxErrors": str,
         "TargetLocations": List["TargetLocationTypeDef"],
@@ -5559,6 +5572,8 @@ _OptionalUpdateAssociationRequestRequestTypeDef = TypedDict(
         "ApplyOnlyAtCronInterval": bool,
         "CalendarNames": List[str],
         "TargetLocations": List["TargetLocationTypeDef"],
+        "ScheduleOffset": int,
+        "TargetMaps": List[Dict[str, List[str]]],
     },
     total=False,
 )

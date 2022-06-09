@@ -30,6 +30,7 @@ __all__ = (
     "ListTableMetadataPaginatorName",
     "ListTagsForResourcePaginatorName",
     "QueryExecutionStateType",
+    "S3AclOptionType",
     "StatementTypeType",
     "WorkGroupStateType",
 )
@@ -45,5 +46,6 @@ ListQueryExecutionsPaginatorName = Literal["list_query_executions"]
 ListTableMetadataPaginatorName = Literal["list_table_metadata"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 QueryExecutionStateType = Literal["CANCELLED", "FAILED", "QUEUED", "RUNNING", "SUCCEEDED"]
+S3AclOptionType = Literal["BUCKET_OWNER_FULL_CONTROL"]
 StatementTypeType = Literal["DDL", "DML", "UTILITY"]
 WorkGroupStateType = Literal["DISABLED", "ENABLED"]

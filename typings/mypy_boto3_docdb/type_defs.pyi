@@ -426,6 +426,8 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "AutoMinorVersionUpgrade": bool,
         "Tags": List["TagTypeDef"],
         "PromotionTier": int,
+        "EnablePerformanceInsights": bool,
+        "PerformanceInsightsKMSKeyId": str,
     },
     total=False,
 )
@@ -1391,6 +1393,8 @@ _OptionalModifyDBInstanceMessageRequestTypeDef = TypedDict(
         "NewDBInstanceIdentifier": str,
         "CACertificateIdentifier": str,
         "PromotionTier": int,
+        "EnablePerformanceInsights": bool,
+        "PerformanceInsightsKMSKeyId": str,
     },
     total=False,
 )

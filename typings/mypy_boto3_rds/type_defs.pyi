@@ -79,8 +79,6 @@ __all__ = (
     "CopyDBSnapshotResultTypeDef",
     "CopyOptionGroupMessageRequestTypeDef",
     "CopyOptionGroupResultTypeDef",
-    "CreateCustomAvailabilityZoneMessageRequestTypeDef",
-    "CreateCustomAvailabilityZoneResultTypeDef",
     "CreateCustomDBEngineVersionMessageRequestTypeDef",
     "CreateDBClusterEndpointMessageRequestTypeDef",
     "CreateDBClusterMessageRequestTypeDef",
@@ -111,8 +109,6 @@ __all__ = (
     "CreateGlobalClusterResultTypeDef",
     "CreateOptionGroupMessageRequestTypeDef",
     "CreateOptionGroupResultTypeDef",
-    "CustomAvailabilityZoneMessageTypeDef",
-    "CustomAvailabilityZoneTypeDef",
     "DBClusterBacktrackMessageTypeDef",
     "DBClusterBacktrackResponseMetadataTypeDef",
     "DBClusterBacktrackTypeDef",
@@ -161,8 +157,6 @@ __all__ = (
     "DBSnapshotTypeDef",
     "DBSubnetGroupMessageTypeDef",
     "DBSubnetGroupTypeDef",
-    "DeleteCustomAvailabilityZoneMessageRequestTypeDef",
-    "DeleteCustomAvailabilityZoneResultTypeDef",
     "DeleteCustomDBEngineVersionMessageRequestTypeDef",
     "DeleteDBClusterEndpointMessageRequestTypeDef",
     "DeleteDBClusterMessageRequestTypeDef",
@@ -187,11 +181,9 @@ __all__ = (
     "DeleteEventSubscriptionResultTypeDef",
     "DeleteGlobalClusterMessageRequestTypeDef",
     "DeleteGlobalClusterResultTypeDef",
-    "DeleteInstallationMediaMessageRequestTypeDef",
     "DeleteOptionGroupMessageRequestTypeDef",
     "DeregisterDBProxyTargetsRequestRequestTypeDef",
     "DescribeCertificatesMessageRequestTypeDef",
-    "DescribeCustomAvailabilityZonesMessageRequestTypeDef",
     "DescribeDBClusterBacktracksMessageRequestTypeDef",
     "DescribeDBClusterEndpointsMessageRequestTypeDef",
     "DescribeDBClusterParameterGroupsMessageRequestTypeDef",
@@ -230,7 +222,6 @@ __all__ = (
     "DescribeEventsMessageRequestTypeDef",
     "DescribeExportTasksMessageRequestTypeDef",
     "DescribeGlobalClustersMessageRequestTypeDef",
-    "DescribeInstallationMediaMessageRequestTypeDef",
     "DescribeOptionGroupOptionsMessageRequestTypeDef",
     "DescribeOptionGroupsMessageRequestTypeDef",
     "DescribeOrderableDBInstanceOptionsMessageRequestTypeDef",
@@ -266,11 +257,6 @@ __all__ = (
     "GlobalClusterTypeDef",
     "GlobalClustersMessageTypeDef",
     "IPRangeTypeDef",
-    "ImportInstallationMediaMessageRequestTypeDef",
-    "InstallationMediaFailureCauseTypeDef",
-    "InstallationMediaMessageTypeDef",
-    "InstallationMediaResponseMetadataTypeDef",
-    "InstallationMediaTypeDef",
     "ListTagsForResourceMessageRequestTypeDef",
     "MinimumEngineVersionPerAllowedValueTypeDef",
     "ModifyCertificatesMessageRequestTypeDef",
@@ -370,6 +356,8 @@ __all__ = (
     "RevokeDBSecurityGroupIngressResultTypeDef",
     "ScalingConfigurationInfoTypeDef",
     "ScalingConfigurationTypeDef",
+    "ServerlessV2ScalingConfigurationInfoTypeDef",
+    "ServerlessV2ScalingConfigurationTypeDef",
     "SourceRegionMessageTypeDef",
     "SourceRegionTypeDef",
     "StartActivityStreamRequestRequestTypeDef",
@@ -400,7 +388,6 @@ __all__ = (
     "ValidDBInstanceModificationsMessageTypeDef",
     "ValidStorageOptionsTypeDef",
     "VpcSecurityGroupMembershipTypeDef",
-    "VpnDetailsTypeDef",
     "WaiterConfigTypeDef",
 )
 
@@ -827,36 +814,6 @@ CopyOptionGroupResultTypeDef = TypedDict(
     },
 )
 
-_RequiredCreateCustomAvailabilityZoneMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateCustomAvailabilityZoneMessageRequestTypeDef",
-    {
-        "CustomAvailabilityZoneName": str,
-    },
-)
-_OptionalCreateCustomAvailabilityZoneMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateCustomAvailabilityZoneMessageRequestTypeDef",
-    {
-        "ExistingVpnId": str,
-        "NewVpnTunnelName": str,
-        "VpnTunnelOriginatorIP": str,
-    },
-    total=False,
-)
-
-class CreateCustomAvailabilityZoneMessageRequestTypeDef(
-    _RequiredCreateCustomAvailabilityZoneMessageRequestTypeDef,
-    _OptionalCreateCustomAvailabilityZoneMessageRequestTypeDef,
-):
-    pass
-
-CreateCustomAvailabilityZoneResultTypeDef = TypedDict(
-    "CreateCustomAvailabilityZoneResultTypeDef",
-    {
-        "CustomAvailabilityZone": "CustomAvailabilityZoneTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 _RequiredCreateCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
     "_RequiredCreateCustomDBEngineVersionMessageRequestTypeDef",
     {
@@ -959,6 +916,7 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "EnablePerformanceInsights": bool,
         "PerformanceInsightsKMSKeyId": str,
         "PerformanceInsightsRetentionPeriod": int,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
         "SourceRegion": str,
     },
     total=False,
@@ -1094,6 +1052,7 @@ _OptionalCreateDBInstanceMessageRequestTypeDef = TypedDict(
         "EnableCustomerOwnedIp": bool,
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -1144,6 +1103,7 @@ _OptionalCreateDBInstanceReadReplicaMessageRequestTypeDef = TypedDict(
         "ReplicaMode": ReplicaModeType,
         "MaxAllocatedStorage": int,
         "CustomIamInstanceProfile": str,
+        "NetworkType": str,
         "SourceRegion": str,
     },
     total=False,
@@ -1440,26 +1400,6 @@ CreateOptionGroupResultTypeDef = TypedDict(
     },
 )
 
-CustomAvailabilityZoneMessageTypeDef = TypedDict(
-    "CustomAvailabilityZoneMessageTypeDef",
-    {
-        "Marker": str,
-        "CustomAvailabilityZones": List["CustomAvailabilityZoneTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomAvailabilityZoneTypeDef = TypedDict(
-    "CustomAvailabilityZoneTypeDef",
-    {
-        "CustomAvailabilityZoneId": str,
-        "CustomAvailabilityZoneName": str,
-        "CustomAvailabilityZoneStatus": str,
-        "VpnDetails": "VpnDetailsTypeDef",
-    },
-    total=False,
-)
-
 DBClusterBacktrackMessageTypeDef = TypedDict(
     "DBClusterBacktrackMessageTypeDef",
     {
@@ -1752,6 +1692,7 @@ DBClusterTypeDef = TypedDict(
         "PerformanceInsightsEnabled": bool,
         "PerformanceInsightsKMSKeyId": str,
         "PerformanceInsightsRetentionPeriod": int,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationInfoTypeDef",
     },
     total=False,
 )
@@ -1793,6 +1734,7 @@ DBEngineVersionResponseMetadataTypeDef = TypedDict(
         "KMSKeyId": str,
         "CreateTime": datetime,
         "TagList": List["TagTypeDef"],
+        "SupportsBabelfish": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1825,6 +1767,7 @@ DBEngineVersionTypeDef = TypedDict(
         "KMSKeyId": str,
         "CreateTime": datetime,
         "TagList": List["TagTypeDef"],
+        "SupportsBabelfish": bool,
     },
     total=False,
 )
@@ -1991,6 +1934,7 @@ DBInstanceTypeDef = TypedDict(
         "ResumeFullAutomationModeTime": datetime,
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -2226,23 +2170,9 @@ DBSubnetGroupTypeDef = TypedDict(
         "SubnetGroupStatus": str,
         "Subnets": List["SubnetTypeDef"],
         "DBSubnetGroupArn": str,
+        "SupportedNetworkTypes": List[str],
     },
     total=False,
-)
-
-DeleteCustomAvailabilityZoneMessageRequestTypeDef = TypedDict(
-    "DeleteCustomAvailabilityZoneMessageRequestTypeDef",
-    {
-        "CustomAvailabilityZoneId": str,
-    },
-)
-
-DeleteCustomAvailabilityZoneResultTypeDef = TypedDict(
-    "DeleteCustomAvailabilityZoneResultTypeDef",
-    {
-        "CustomAvailabilityZone": "CustomAvailabilityZoneTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
 )
 
 DeleteCustomDBEngineVersionMessageRequestTypeDef = TypedDict(
@@ -2452,13 +2382,6 @@ DeleteGlobalClusterResultTypeDef = TypedDict(
     },
 )
 
-DeleteInstallationMediaMessageRequestTypeDef = TypedDict(
-    "DeleteInstallationMediaMessageRequestTypeDef",
-    {
-        "InstallationMediaId": str,
-    },
-)
-
 DeleteOptionGroupMessageRequestTypeDef = TypedDict(
     "DeleteOptionGroupMessageRequestTypeDef",
     {
@@ -2492,17 +2415,6 @@ DescribeCertificatesMessageRequestTypeDef = TypedDict(
     "DescribeCertificatesMessageRequestTypeDef",
     {
         "CertificateIdentifier": str,
-        "Filters": List["FilterTypeDef"],
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeCustomAvailabilityZonesMessageRequestTypeDef = TypedDict(
-    "DescribeCustomAvailabilityZonesMessageRequestTypeDef",
-    {
-        "CustomAvailabilityZoneId": str,
         "Filters": List["FilterTypeDef"],
         "MaxRecords": int,
         "Marker": str,
@@ -3017,17 +2929,6 @@ DescribeGlobalClustersMessageRequestTypeDef = TypedDict(
     total=False,
 )
 
-DescribeInstallationMediaMessageRequestTypeDef = TypedDict(
-    "DescribeInstallationMediaMessageRequestTypeDef",
-    {
-        "InstallationMediaId": str,
-        "Filters": List["FilterTypeDef"],
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
 _RequiredDescribeOptionGroupOptionsMessageRequestTypeDef = TypedDict(
     "_RequiredDescribeOptionGroupOptionsMessageRequestTypeDef",
     {
@@ -3471,64 +3372,6 @@ IPRangeTypeDef = TypedDict(
     total=False,
 )
 
-ImportInstallationMediaMessageRequestTypeDef = TypedDict(
-    "ImportInstallationMediaMessageRequestTypeDef",
-    {
-        "CustomAvailabilityZoneId": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "EngineInstallationMediaPath": str,
-        "OSInstallationMediaPath": str,
-    },
-)
-
-InstallationMediaFailureCauseTypeDef = TypedDict(
-    "InstallationMediaFailureCauseTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-InstallationMediaMessageTypeDef = TypedDict(
-    "InstallationMediaMessageTypeDef",
-    {
-        "Marker": str,
-        "InstallationMedia": List["InstallationMediaTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InstallationMediaResponseMetadataTypeDef = TypedDict(
-    "InstallationMediaResponseMetadataTypeDef",
-    {
-        "InstallationMediaId": str,
-        "CustomAvailabilityZoneId": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "EngineInstallationMediaPath": str,
-        "OSInstallationMediaPath": str,
-        "Status": str,
-        "FailureCause": "InstallationMediaFailureCauseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InstallationMediaTypeDef = TypedDict(
-    "InstallationMediaTypeDef",
-    {
-        "InstallationMediaId": str,
-        "CustomAvailabilityZoneId": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "EngineInstallationMediaPath": str,
-        "OSInstallationMediaPath": str,
-        "Status": str,
-        "FailureCause": "InstallationMediaFailureCauseTypeDef",
-    },
-    total=False,
-)
-
 _RequiredListTagsForResourceMessageRequestTypeDef = TypedDict(
     "_RequiredListTagsForResourceMessageRequestTypeDef",
     {
@@ -3683,6 +3526,7 @@ _OptionalModifyDBClusterMessageRequestTypeDef = TypedDict(
         "EnablePerformanceInsights": bool,
         "PerformanceInsightsKMSKeyId": str,
         "PerformanceInsightsRetentionPeriod": int,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
     },
     total=False,
 )
@@ -3793,6 +3637,7 @@ _OptionalModifyDBInstanceMessageRequestTypeDef = TypedDict(
         "AwsBackupRecoveryPointArn": str,
         "AutomationMode": AutomationModeType,
         "ResumeFullAutomationModeMinutes": int,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -4253,6 +4098,7 @@ OrderableDBInstanceOptionTypeDef = TypedDict(
         "SupportedActivityStreamModes": List[str],
         "SupportsGlobalDatabases": bool,
         "SupportsClusters": bool,
+        "SupportedNetworkTypes": List[str],
     },
     total=False,
 )
@@ -4762,6 +4608,7 @@ _OptionalRestoreDBClusterFromS3MessageRequestTypeDef = TypedDict(
         "CopyTagsToSnapshot": bool,
         "Domain": str,
         "DomainIAMRoleName": str,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
     },
     total=False,
 )
@@ -4814,6 +4661,7 @@ _OptionalRestoreDBClusterFromSnapshotMessageRequestTypeDef = TypedDict(
         "StorageType": str,
         "Iops": int,
         "PubliclyAccessible": bool,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
     },
     total=False,
 )
@@ -4865,6 +4713,7 @@ _OptionalRestoreDBClusterToPointInTimeMessageRequestTypeDef = TypedDict(
         "StorageType": str,
         "PubliclyAccessible": bool,
         "Iops": int,
+        "ServerlessV2ScalingConfiguration": "ServerlessV2ScalingConfigurationTypeDef",
     },
     total=False,
 )
@@ -4922,6 +4771,7 @@ _OptionalRestoreDBInstanceFromDBSnapshotMessageRequestTypeDef = TypedDict(
         "EnableCustomerOwnedIp": bool,
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -4992,6 +4842,7 @@ _OptionalRestoreDBInstanceFromS3MessageRequestTypeDef = TypedDict(
         "UseDefaultProcessorFeatures": bool,
         "DeletionProtection": bool,
         "MaxAllocatedStorage": int,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -5054,6 +4905,7 @@ _OptionalRestoreDBInstanceToPointInTimeMessageRequestTypeDef = TypedDict(
         "EnableCustomerOwnedIp": bool,
         "CustomIamInstanceProfile": str,
         "BackupTarget": str,
+        "NetworkType": str,
     },
     total=False,
 )
@@ -5134,6 +4986,24 @@ ScalingConfigurationTypeDef = TypedDict(
         "SecondsUntilAutoPause": int,
         "TimeoutAction": str,
         "SecondsBeforeTimeout": int,
+    },
+    total=False,
+)
+
+ServerlessV2ScalingConfigurationInfoTypeDef = TypedDict(
+    "ServerlessV2ScalingConfigurationInfoTypeDef",
+    {
+        "MinCapacity": float,
+        "MaxCapacity": float,
+    },
+    total=False,
+)
+
+ServerlessV2ScalingConfigurationTypeDef = TypedDict(
+    "ServerlessV2ScalingConfigurationTypeDef",
+    {
+        "MinCapacity": float,
+        "MaxCapacity": float,
     },
     total=False,
 )
@@ -5423,6 +5293,7 @@ UpgradeTargetTypeDef = TypedDict(
         "SupportedEngineModes": List[str],
         "SupportsParallelQuery": bool,
         "SupportsGlobalDatabases": bool,
+        "SupportsBabelfish": bool,
     },
     total=False,
 )
@@ -5477,19 +5348,6 @@ VpcSecurityGroupMembershipTypeDef = TypedDict(
     {
         "VpcSecurityGroupId": str,
         "Status": str,
-    },
-    total=False,
-)
-
-VpnDetailsTypeDef = TypedDict(
-    "VpnDetailsTypeDef",
-    {
-        "VpnId": str,
-        "VpnTunnelOriginatorIP": str,
-        "VpnGatewayIp": str,
-        "VpnPSK": str,
-        "VpnName": str,
-        "VpnState": str,
     },
     total=False,
 )

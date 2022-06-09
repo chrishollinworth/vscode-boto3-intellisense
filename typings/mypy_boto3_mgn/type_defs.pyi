@@ -15,6 +15,7 @@ import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    BootModeType,
     ChangeServerLifeCycleStateSourceServerLifecycleStateType,
     DataReplicationErrorStringType,
     DataReplicationInitiationStepNameType,
@@ -297,25 +298,15 @@ DescribeJobsRequestFiltersTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredDescribeJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeJobsRequestRequestTypeDef",
+DescribeJobsRequestRequestTypeDef = TypedDict(
+    "DescribeJobsRequestRequestTypeDef",
     {
         "filters": "DescribeJobsRequestFiltersTypeDef",
-    },
-)
-_OptionalDescribeJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeJobsRequestRequestTypeDef",
-    {
         "maxResults": int,
         "nextToken": str,
     },
     total=False,
 )
-
-class DescribeJobsRequestRequestTypeDef(
-    _RequiredDescribeJobsRequestRequestTypeDef, _OptionalDescribeJobsRequestRequestTypeDef
-):
-    pass
 
 DescribeJobsResponseTypeDef = TypedDict(
     "DescribeJobsResponseTypeDef",
@@ -326,26 +317,15 @@ DescribeJobsResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredDescribeReplicationConfigurationTemplatesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
-    {
-        "replicationConfigurationTemplateIDs": List[str],
-    },
-)
-_OptionalDescribeReplicationConfigurationTemplatesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
+DescribeReplicationConfigurationTemplatesRequestRequestTypeDef = TypedDict(
+    "DescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
     {
         "maxResults": int,
         "nextToken": str,
+        "replicationConfigurationTemplateIDs": List[str],
     },
     total=False,
 )
-
-class DescribeReplicationConfigurationTemplatesRequestRequestTypeDef(
-    _RequiredDescribeReplicationConfigurationTemplatesRequestRequestTypeDef,
-    _OptionalDescribeReplicationConfigurationTemplatesRequestRequestTypeDef,
-):
-    pass
 
 DescribeReplicationConfigurationTemplatesResponseTypeDef = TypedDict(
     "DescribeReplicationConfigurationTemplatesResponseTypeDef",
@@ -367,26 +347,15 @@ DescribeSourceServersRequestFiltersTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredDescribeSourceServersRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeSourceServersRequestRequestTypeDef",
+DescribeSourceServersRequestRequestTypeDef = TypedDict(
+    "DescribeSourceServersRequestRequestTypeDef",
     {
         "filters": "DescribeSourceServersRequestFiltersTypeDef",
-    },
-)
-_OptionalDescribeSourceServersRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeSourceServersRequestRequestTypeDef",
-    {
         "maxResults": int,
         "nextToken": str,
     },
     total=False,
 )
-
-class DescribeSourceServersRequestRequestTypeDef(
-    _RequiredDescribeSourceServersRequestRequestTypeDef,
-    _OptionalDescribeSourceServersRequestRequestTypeDef,
-):
-    pass
 
 DescribeSourceServersResponseTypeDef = TypedDict(
     "DescribeSourceServersResponseTypeDef",
@@ -512,6 +481,7 @@ class JobTypeDef(_RequiredJobTypeDef, _OptionalJobTypeDef):
 LaunchConfigurationTypeDef = TypedDict(
     "LaunchConfigurationTypeDef",
     {
+        "bootMode": BootModeType,
         "copyPrivateIp": bool,
         "copyTags": bool,
         "ec2LaunchTemplateID": str,
@@ -692,6 +662,7 @@ ReplicationConfigurationReplicatedDiskTypeDef = TypedDict(
         "iops": int,
         "isBootDisk": bool,
         "stagingDiskType": ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
+        "throughput": int,
     },
     total=False,
 )
@@ -954,6 +925,7 @@ _RequiredUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
 _OptionalUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateLaunchConfigurationRequestRequestTypeDef",
     {
+        "bootMode": BootModeType,
         "copyPrivateIp": bool,
         "copyTags": bool,
         "launchDisposition": LaunchDispositionType,

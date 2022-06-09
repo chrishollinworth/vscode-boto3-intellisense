@@ -44,8 +44,12 @@ __all__ = (
     "AuthenticationDescriptionTypeDef",
     "AuthenticationSummaryTypeDef",
     "AwsSsoAuthenticationTypeDef",
+    "CreateWorkspaceApiKeyRequestRequestTypeDef",
+    "CreateWorkspaceApiKeyResponseTypeDef",
     "CreateWorkspaceRequestRequestTypeDef",
     "CreateWorkspaceResponseTypeDef",
+    "DeleteWorkspaceApiKeyRequestRequestTypeDef",
+    "DeleteWorkspaceApiKeyResponseTypeDef",
     "DeleteWorkspaceRequestRequestTypeDef",
     "DeleteWorkspaceResponseTypeDef",
     "DescribeWorkspaceAuthenticationRequestRequestTypeDef",
@@ -57,6 +61,8 @@ __all__ = (
     "IdpMetadataTypeDef",
     "ListPermissionsRequestRequestTypeDef",
     "ListPermissionsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "ListWorkspacesRequestRequestTypeDef",
     "ListWorkspacesResponseTypeDef",
     "PaginatorConfigTypeDef",
@@ -65,6 +71,8 @@ __all__ = (
     "RoleValuesTypeDef",
     "SamlAuthenticationTypeDef",
     "SamlConfigurationTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateErrorTypeDef",
     "UpdateInstructionTypeDef",
     "UpdatePermissionsRequestRequestTypeDef",
@@ -154,6 +162,26 @@ AwsSsoAuthenticationTypeDef = TypedDict(
     total=False,
 )
 
+CreateWorkspaceApiKeyRequestRequestTypeDef = TypedDict(
+    "CreateWorkspaceApiKeyRequestRequestTypeDef",
+    {
+        "keyName": str,
+        "keyRole": str,
+        "secondsToLive": int,
+        "workspaceId": str,
+    },
+)
+
+CreateWorkspaceApiKeyResponseTypeDef = TypedDict(
+    "CreateWorkspaceApiKeyResponseTypeDef",
+    {
+        "key": str,
+        "keyName": str,
+        "workspaceId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateWorkspaceRequestRequestTypeDef = TypedDict(
     "_RequiredCreateWorkspaceRequestRequestTypeDef",
     {
@@ -168,6 +196,7 @@ _OptionalCreateWorkspaceRequestRequestTypeDef = TypedDict(
         "clientToken": str,
         "organizationRoleName": str,
         "stackSetName": str,
+        "tags": Dict[str, str],
         "workspaceDataSources": List[DataSourceTypeType],
         "workspaceDescription": str,
         "workspaceName": str,
@@ -187,6 +216,23 @@ CreateWorkspaceResponseTypeDef = TypedDict(
     "CreateWorkspaceResponseTypeDef",
     {
         "workspace": "WorkspaceDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteWorkspaceApiKeyRequestRequestTypeDef = TypedDict(
+    "DeleteWorkspaceApiKeyRequestRequestTypeDef",
+    {
+        "keyName": str,
+        "workspaceId": str,
+    },
+)
+
+DeleteWorkspaceApiKeyResponseTypeDef = TypedDict(
+    "DeleteWorkspaceApiKeyResponseTypeDef",
+    {
+        "keyName": str,
+        "workspaceId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -293,6 +339,21 @@ ListPermissionsResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListWorkspacesRequestRequestTypeDef = TypedDict(
     "ListWorkspacesRequestRequestTypeDef",
     {
@@ -389,6 +450,22 @@ class SamlConfigurationTypeDef(
     _RequiredSamlConfigurationTypeDef, _OptionalSamlConfigurationTypeDef
 ):
     pass
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": Dict[str, str],
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
+    },
+)
 
 UpdateErrorTypeDef = TypedDict(
     "UpdateErrorTypeDef",
@@ -525,6 +602,7 @@ _OptionalWorkspaceDescriptionTypeDef = TypedDict(
         "organizationalUnits": List[str],
         "permissionType": PermissionTypeType,
         "stackSetName": str,
+        "tags": Dict[str, str],
         "workspaceRoleArn": str,
     },
     total=False,
@@ -553,6 +631,7 @@ _OptionalWorkspaceSummaryTypeDef = TypedDict(
         "description": str,
         "name": str,
         "notificationDestinations": List[Literal["SNS"]],
+        "tags": Dict[str, str],
     },
     total=False,
 )

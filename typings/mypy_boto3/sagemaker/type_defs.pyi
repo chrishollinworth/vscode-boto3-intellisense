@@ -31,10 +31,12 @@ from .literals import (
     AthenaResultCompressionTypeType,
     AthenaResultFormatType,
     AuthModeType,
+    AutoMLChannelTypeType,
     AutoMLJobObjectiveTypeType,
     AutoMLJobSecondaryStatusType,
     AutoMLJobStatusType,
     AutoMLMetricEnumType,
+    AutoMLMetricExtendedEnumType,
     AutoMLS3DataTypeType,
     AutoMLSortByType,
     AutoMLSortOrderType,
@@ -233,11 +235,13 @@ __all__ = (
     "AsyncInferenceNotificationConfigTypeDef",
     "AsyncInferenceOutputConfigTypeDef",
     "AthenaDatasetDefinitionTypeDef",
+    "AutoMLCandidateGenerationConfigTypeDef",
     "AutoMLCandidateStepTypeDef",
     "AutoMLCandidateTypeDef",
     "AutoMLChannelTypeDef",
     "AutoMLContainerDefinitionTypeDef",
     "AutoMLDataSourceTypeDef",
+    "AutoMLDataSplitConfigTypeDef",
     "AutoMLJobArtifactsTypeDef",
     "AutoMLJobCompletionCriteriaTypeDef",
     "AutoMLJobConfigTypeDef",
@@ -545,6 +549,7 @@ __all__ = (
     "DriftCheckExplainabilityTypeDef",
     "DriftCheckModelDataQualityTypeDef",
     "DriftCheckModelQualityTypeDef",
+    "EMRStepMetadataTypeDef",
     "EdgeModelStatTypeDef",
     "EdgeModelSummaryTypeDef",
     "EdgeModelTypeDef",
@@ -565,6 +570,7 @@ __all__ = (
     "ExperimentSummaryTypeDef",
     "ExperimentTypeDef",
     "ExplainabilityTypeDef",
+    "FailStepMetadataTypeDef",
     "FeatureDefinitionTypeDef",
     "FeatureGroupSummaryTypeDef",
     "FeatureGroupTypeDef",
@@ -609,6 +615,7 @@ __all__ = (
     "InferenceRecommendationsJobTypeDef",
     "InferenceSpecificationTypeDef",
     "InputConfigTypeDef",
+    "InstanceMetadataServiceConfigurationTypeDef",
     "IntegerParameterRangeSpecificationTypeDef",
     "IntegerParameterRangeTypeDef",
     "JupyterServerAppSettingsTypeDef",
@@ -824,6 +831,7 @@ __all__ = (
     "OutputDataConfigTypeDef",
     "OutputParameterTypeDef",
     "PaginatorConfigTypeDef",
+    "ParallelismConfigurationTypeDef",
     "ParameterRangeTypeDef",
     "ParameterRangesTypeDef",
     "ParameterTypeDef",
@@ -832,6 +840,7 @@ __all__ = (
     "PendingDeploymentSummaryTypeDef",
     "PendingProductionVariantSummaryTypeDef",
     "PhaseTypeDef",
+    "PipelineDefinitionS3LocationTypeDef",
     "PipelineExecutionStepMetadataTypeDef",
     "PipelineExecutionStepTypeDef",
     "PipelineExecutionSummaryTypeDef",
@@ -872,10 +881,13 @@ __all__ = (
     "QueryFiltersTypeDef",
     "QueryLineageRequestRequestTypeDef",
     "QueryLineageResponseTypeDef",
+    "RSessionAppSettingsTypeDef",
     "RStudioServerProAppSettingsTypeDef",
     "RStudioServerProDomainSettingsForUpdateTypeDef",
     "RStudioServerProDomainSettingsTypeDef",
+    "RecommendationJobCompiledOutputConfigTypeDef",
     "RecommendationJobInputConfigTypeDef",
+    "RecommendationJobOutputConfigTypeDef",
     "RecommendationJobResourceLimitTypeDef",
     "RecommendationJobStoppingConditionsTypeDef",
     "RecommendationMetricsTypeDef",
@@ -1452,6 +1464,14 @@ class AthenaDatasetDefinitionTypeDef(
 ):
     pass
 
+AutoMLCandidateGenerationConfigTypeDef = TypedDict(
+    "AutoMLCandidateGenerationConfigTypeDef",
+    {
+        "FeatureSpecificationS3Uri": str,
+    },
+    total=False,
+)
+
 AutoMLCandidateStepTypeDef = TypedDict(
     "AutoMLCandidateStepTypeDef",
     {
@@ -1498,6 +1518,8 @@ _OptionalAutoMLChannelTypeDef = TypedDict(
     "_OptionalAutoMLChannelTypeDef",
     {
         "CompressionType": CompressionTypeType,
+        "ContentType": str,
+        "ChannelType": AutoMLChannelTypeType,
     },
     total=False,
 )
@@ -1532,6 +1554,14 @@ AutoMLDataSourceTypeDef = TypedDict(
     },
 )
 
+AutoMLDataSplitConfigTypeDef = TypedDict(
+    "AutoMLDataSplitConfigTypeDef",
+    {
+        "ValidationFraction": float,
+    },
+    total=False,
+)
+
 AutoMLJobArtifactsTypeDef = TypedDict(
     "AutoMLJobArtifactsTypeDef",
     {
@@ -1556,6 +1586,8 @@ AutoMLJobConfigTypeDef = TypedDict(
     {
         "CompletionCriteria": "AutoMLJobCompletionCriteriaTypeDef",
         "SecurityConfig": "AutoMLSecurityConfigTypeDef",
+        "DataSplitConfig": "AutoMLDataSplitConfigTypeDef",
+        "CandidateGenerationConfig": "AutoMLCandidateGenerationConfigTypeDef",
     },
     total=False,
 )
@@ -1742,12 +1774,24 @@ CallbackStepMetadataTypeDef = TypedDict(
     total=False,
 )
 
-CandidateArtifactLocationsTypeDef = TypedDict(
-    "CandidateArtifactLocationsTypeDef",
+_RequiredCandidateArtifactLocationsTypeDef = TypedDict(
+    "_RequiredCandidateArtifactLocationsTypeDef",
     {
         "Explainability": str,
     },
 )
+_OptionalCandidateArtifactLocationsTypeDef = TypedDict(
+    "_OptionalCandidateArtifactLocationsTypeDef",
+    {
+        "ModelInsights": str,
+    },
+    total=False,
+)
+
+class CandidateArtifactLocationsTypeDef(
+    _RequiredCandidateArtifactLocationsTypeDef, _OptionalCandidateArtifactLocationsTypeDef
+):
+    pass
 
 CandidatePropertiesTypeDef = TypedDict(
     "CandidatePropertiesTypeDef",
@@ -2728,6 +2772,7 @@ _OptionalCreateInferenceRecommendationsJobRequestRequestTypeDef = TypedDict(
     {
         "JobDescription": str,
         "StoppingConditions": "RecommendationJobStoppingConditionsTypeDef",
+        "OutputConfig": "RecommendationJobOutputConfigTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -3039,6 +3084,7 @@ _OptionalCreateNotebookInstanceInputRequestTypeDef = TypedDict(
         "AdditionalCodeRepositories": List[str],
         "RootAccess": RootAccessType,
         "PlatformIdentifier": str,
+        "InstanceMetadataServiceConfiguration": "InstanceMetadataServiceConfigurationTypeDef",
     },
     total=False,
 )
@@ -3090,7 +3136,6 @@ _RequiredCreatePipelineRequestRequestTypeDef = TypedDict(
     "_RequiredCreatePipelineRequestRequestTypeDef",
     {
         "PipelineName": str,
-        "PipelineDefinition": str,
         "ClientRequestToken": str,
         "RoleArn": str,
     },
@@ -3099,8 +3144,11 @@ _OptionalCreatePipelineRequestRequestTypeDef = TypedDict(
     "_OptionalCreatePipelineRequestRequestTypeDef",
     {
         "PipelineDisplayName": str,
+        "PipelineDefinition": str,
+        "PipelineDefinitionS3Location": "PipelineDefinitionS3LocationTypeDef",
         "PipelineDescription": str,
         "Tags": List["TagTypeDef"],
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
     },
     total=False,
 )
@@ -5039,6 +5087,7 @@ DescribeNotebookInstanceOutputTypeDef = TypedDict(
         "AdditionalCodeRepositories": List[str],
         "RootAccess": RootAccessType,
         "PlatformIdentifier": str,
+        "InstanceMetadataServiceConfiguration": "InstanceMetadataServiceConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5080,6 +5129,7 @@ DescribePipelineExecutionResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedBy": "UserContextTypeDef",
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5106,6 +5156,7 @@ DescribePipelineResponseTypeDef = TypedDict(
         "LastRunTime": datetime,
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedBy": "UserContextTypeDef",
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -5591,6 +5642,17 @@ DriftCheckModelQualityTypeDef = TypedDict(
     total=False,
 )
 
+EMRStepMetadataTypeDef = TypedDict(
+    "EMRStepMetadataTypeDef",
+    {
+        "ClusterId": str,
+        "StepId": str,
+        "StepName": str,
+        "LogFilePath": str,
+    },
+    total=False,
+)
+
 EdgeModelStatTypeDef = TypedDict(
     "EdgeModelStatTypeDef",
     {
@@ -5884,6 +5946,14 @@ ExplainabilityTypeDef = TypedDict(
     "ExplainabilityTypeDef",
     {
         "Report": "MetricsSourceTypeDef",
+    },
+    total=False,
+)
+
+FailStepMetadataTypeDef = TypedDict(
+    "FailStepMetadataTypeDef",
+    {
+        "ErrorMessage": str,
     },
     total=False,
 )
@@ -6595,6 +6665,13 @@ _OptionalInputConfigTypeDef = TypedDict(
 
 class InputConfigTypeDef(_RequiredInputConfigTypeDef, _OptionalInputConfigTypeDef):
     pass
+
+InstanceMetadataServiceConfigurationTypeDef = TypedDict(
+    "InstanceMetadataServiceConfigurationTypeDef",
+    {
+        "MinimumInstanceMetadataServiceVersion": str,
+    },
+)
 
 IntegerParameterRangeSpecificationTypeDef = TypedDict(
     "IntegerParameterRangeSpecificationTypeDef",
@@ -8370,6 +8447,7 @@ MetricDatumTypeDef = TypedDict(
         "MetricName": AutoMLMetricEnumType,
         "Value": float,
         "Set": MetricSetSourceType,
+        "StandardMetricName": AutoMLMetricExtendedEnumType,
     },
     total=False,
 )
@@ -9358,6 +9436,13 @@ PaginatorConfigTypeDef = TypedDict(
     total=False,
 )
 
+ParallelismConfigurationTypeDef = TypedDict(
+    "ParallelismConfigurationTypeDef",
+    {
+        "MaxParallelExecutionSteps": int,
+    },
+)
+
 ParameterRangeTypeDef = TypedDict(
     "ParameterRangeTypeDef",
     {
@@ -9461,6 +9546,26 @@ PhaseTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredPipelineDefinitionS3LocationTypeDef = TypedDict(
+    "_RequiredPipelineDefinitionS3LocationTypeDef",
+    {
+        "Bucket": str,
+        "ObjectKey": str,
+    },
+)
+_OptionalPipelineDefinitionS3LocationTypeDef = TypedDict(
+    "_OptionalPipelineDefinitionS3LocationTypeDef",
+    {
+        "VersionId": str,
+    },
+    total=False,
+)
+
+class PipelineDefinitionS3LocationTypeDef(
+    _RequiredPipelineDefinitionS3LocationTypeDef, _OptionalPipelineDefinitionS3LocationTypeDef
+):
+    pass
+
 PipelineExecutionStepMetadataTypeDef = TypedDict(
     "PipelineExecutionStepMetadataTypeDef",
     {
@@ -9475,6 +9580,8 @@ PipelineExecutionStepMetadataTypeDef = TypedDict(
         "Lambda": "LambdaStepMetadataTypeDef",
         "QualityCheck": "QualityCheckStepMetadataTypeDef",
         "ClarifyCheck": "ClarifyCheckStepMetadataTypeDef",
+        "EMR": "EMRStepMetadataTypeDef",
+        "Fail": "FailStepMetadataTypeDef",
     },
     total=False,
 )
@@ -9483,6 +9590,8 @@ PipelineExecutionStepTypeDef = TypedDict(
     "PipelineExecutionStepTypeDef",
     {
         "StepName": str,
+        "StepDisplayName": str,
+        "StepDescription": str,
         "StartTime": datetime,
         "EndTime": datetime,
         "StepStatus": StepStatusType,
@@ -9502,6 +9611,7 @@ PipelineExecutionSummaryTypeDef = TypedDict(
         "PipelineExecutionStatus": PipelineExecutionStatusType,
         "PipelineExecutionDescription": str,
         "PipelineExecutionDisplayName": str,
+        "PipelineExecutionFailureReason": str,
     },
     total=False,
 )
@@ -9520,6 +9630,7 @@ PipelineExecutionTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedBy": "UserContextTypeDef",
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
         "PipelineParameters": List["ParameterTypeDef"],
     },
     total=False,
@@ -9563,6 +9674,7 @@ PipelineTypeDef = TypedDict(
         "LastRunTime": datetime,
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedBy": "UserContextTypeDef",
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -10077,6 +10189,15 @@ QueryLineageResponseTypeDef = TypedDict(
     },
 )
 
+RSessionAppSettingsTypeDef = TypedDict(
+    "RSessionAppSettingsTypeDef",
+    {
+        "DefaultResourceSpec": "ResourceSpecTypeDef",
+        "CustomImages": List["CustomImageTypeDef"],
+    },
+    total=False,
+)
+
 RStudioServerProAppSettingsTypeDef = TypedDict(
     "RStudioServerProAppSettingsTypeDef",
     {
@@ -10127,6 +10248,14 @@ class RStudioServerProDomainSettingsTypeDef(
 ):
     pass
 
+RecommendationJobCompiledOutputConfigTypeDef = TypedDict(
+    "RecommendationJobCompiledOutputConfigTypeDef",
+    {
+        "S3OutputUri": str,
+    },
+    total=False,
+)
+
 _RequiredRecommendationJobInputConfigTypeDef = TypedDict(
     "_RequiredRecommendationJobInputConfigTypeDef",
     {
@@ -10140,6 +10269,7 @@ _OptionalRecommendationJobInputConfigTypeDef = TypedDict(
         "TrafficPattern": "TrafficPatternTypeDef",
         "ResourceLimit": "RecommendationJobResourceLimitTypeDef",
         "EndpointConfigurations": List["EndpointInputConfigurationTypeDef"],
+        "VolumeKmsKeyId": str,
     },
     total=False,
 )
@@ -10148,6 +10278,15 @@ class RecommendationJobInputConfigTypeDef(
     _RequiredRecommendationJobInputConfigTypeDef, _OptionalRecommendationJobInputConfigTypeDef
 ):
     pass
+
+RecommendationJobOutputConfigTypeDef = TypedDict(
+    "RecommendationJobOutputConfigTypeDef",
+    {
+        "KmsKeyId": str,
+        "CompiledOutputConfig": "RecommendationJobCompiledOutputConfigTypeDef",
+    },
+    total=False,
+)
 
 RecommendationJobResourceLimitTypeDef = TypedDict(
     "RecommendationJobResourceLimitTypeDef",
@@ -10350,13 +10489,26 @@ RetentionPolicyTypeDef = TypedDict(
     total=False,
 )
 
-RetryPipelineExecutionRequestRequestTypeDef = TypedDict(
-    "RetryPipelineExecutionRequestRequestTypeDef",
+_RequiredRetryPipelineExecutionRequestRequestTypeDef = TypedDict(
+    "_RequiredRetryPipelineExecutionRequestRequestTypeDef",
     {
         "PipelineExecutionArn": str,
         "ClientRequestToken": str,
     },
 )
+_OptionalRetryPipelineExecutionRequestRequestTypeDef = TypedDict(
+    "_OptionalRetryPipelineExecutionRequestRequestTypeDef",
+    {
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class RetryPipelineExecutionRequestRequestTypeDef(
+    _RequiredRetryPipelineExecutionRequestRequestTypeDef,
+    _OptionalRetryPipelineExecutionRequestRequestTypeDef,
+):
+    pass
 
 RetryPipelineExecutionResponseTypeDef = TypedDict(
     "RetryPipelineExecutionResponseTypeDef",
@@ -10672,6 +10824,7 @@ _OptionalStartPipelineExecutionRequestRequestTypeDef = TypedDict(
         "PipelineExecutionDisplayName": str,
         "PipelineParameters": List["ParameterTypeDef"],
         "PipelineExecutionDescription": str,
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
     },
     total=False,
 )
@@ -11825,6 +11978,7 @@ _OptionalUpdateNotebookInstanceInputRequestTypeDef = TypedDict(
         "DisassociateDefaultCodeRepository": bool,
         "DisassociateAdditionalCodeRepositories": bool,
         "RootAccess": RootAccessType,
+        "InstanceMetadataServiceConfiguration": "InstanceMetadataServiceConfigurationTypeDef",
     },
     total=False,
 )
@@ -11867,6 +12021,7 @@ _OptionalUpdatePipelineExecutionRequestRequestTypeDef = TypedDict(
     {
         "PipelineExecutionDescription": str,
         "PipelineExecutionDisplayName": str,
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
     },
     total=False,
 )
@@ -11896,8 +12051,10 @@ _OptionalUpdatePipelineRequestRequestTypeDef = TypedDict(
     {
         "PipelineDisplayName": str,
         "PipelineDefinition": str,
+        "PipelineDefinitionS3Location": "PipelineDefinitionS3LocationTypeDef",
         "PipelineDescription": str,
         "RoleArn": str,
+        "ParallelismConfiguration": "ParallelismConfigurationTypeDef",
     },
     total=False,
 )
@@ -12153,7 +12310,7 @@ UserSettingsTypeDef = TypedDict(
         "KernelGatewayAppSettings": "KernelGatewayAppSettingsTypeDef",
         "TensorBoardAppSettings": "TensorBoardAppSettingsTypeDef",
         "RStudioServerProAppSettings": "RStudioServerProAppSettingsTypeDef",
-        "RSessionAppSettings": Dict[str, Any],
+        "RSessionAppSettings": "RSessionAppSettingsTypeDef",
     },
     total=False,
 )

@@ -6,9 +6,9 @@ Type annotations for athena service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_athena.type_defs import BatchGetNamedQueryInputRequestTypeDef
+    from mypy_boto3_athena.type_defs import AclConfigurationTypeDef
 
-    data: BatchGetNamedQueryInputRequestTypeDef = {...}
+    data: AclConfigurationTypeDef = {...}
     ```
 """
 import sys
@@ -25,11 +25,17 @@ from .literals import (
 )
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AclConfigurationTypeDef",
+    "AthenaErrorTypeDef",
     "BatchGetNamedQueryInputRequestTypeDef",
     "BatchGetNamedQueryOutputTypeDef",
     "BatchGetQueryExecutionInputRequestTypeDef",
@@ -109,12 +115,31 @@ __all__ = (
     "UnprocessedQueryExecutionIdTypeDef",
     "UntagResourceInputRequestTypeDef",
     "UpdateDataCatalogInputRequestTypeDef",
+    "UpdateNamedQueryInputRequestTypeDef",
     "UpdatePreparedStatementInputRequestTypeDef",
     "UpdateWorkGroupInputRequestTypeDef",
     "WorkGroupConfigurationTypeDef",
     "WorkGroupConfigurationUpdatesTypeDef",
     "WorkGroupSummaryTypeDef",
     "WorkGroupTypeDef",
+)
+
+AclConfigurationTypeDef = TypedDict(
+    "AclConfigurationTypeDef",
+    {
+        "S3AclOption": Literal["BUCKET_OWNER_FULL_CONTROL"],
+    },
+)
+
+AthenaErrorTypeDef = TypedDict(
+    "AthenaErrorTypeDef",
+    {
+        "ErrorCategory": int,
+        "ErrorType": int,
+        "Retryable": bool,
+        "ErrorMessage": str,
+    },
+    total=False,
 )
 
 BatchGetNamedQueryInputRequestTypeDef = TypedDict(
@@ -843,6 +868,7 @@ QueryExecutionStatusTypeDef = TypedDict(
         "StateChangeReason": str,
         "SubmissionDateTime": datetime,
         "CompletionDateTime": datetime,
+        "AthenaError": "AthenaErrorTypeDef",
     },
     total=False,
 )
@@ -879,6 +905,8 @@ ResultConfigurationTypeDef = TypedDict(
     {
         "OutputLocation": str,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "ExpectedBucketOwner": str,
+        "AclConfiguration": "AclConfigurationTypeDef",
     },
     total=False,
 )
@@ -890,6 +918,10 @@ ResultConfigurationUpdatesTypeDef = TypedDict(
         "RemoveOutputLocation": bool,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
         "RemoveEncryptionConfiguration": bool,
+        "ExpectedBucketOwner": str,
+        "RemoveExpectedBucketOwner": bool,
+        "AclConfiguration": "AclConfigurationTypeDef",
+        "RemoveAclConfiguration": bool,
     },
     total=False,
 )
@@ -1041,6 +1073,27 @@ _OptionalUpdateDataCatalogInputRequestTypeDef = TypedDict(
 
 class UpdateDataCatalogInputRequestTypeDef(
     _RequiredUpdateDataCatalogInputRequestTypeDef, _OptionalUpdateDataCatalogInputRequestTypeDef
+):
+    pass
+
+_RequiredUpdateNamedQueryInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateNamedQueryInputRequestTypeDef",
+    {
+        "NamedQueryId": str,
+        "Name": str,
+        "QueryString": str,
+    },
+)
+_OptionalUpdateNamedQueryInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateNamedQueryInputRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class UpdateNamedQueryInputRequestTypeDef(
+    _RequiredUpdateNamedQueryInputRequestTypeDef, _OptionalUpdateNamedQueryInputRequestTypeDef
 ):
     pass
 

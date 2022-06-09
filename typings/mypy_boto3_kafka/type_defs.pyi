@@ -120,6 +120,7 @@ __all__ = (
     "PrometheusInfoTypeDef",
     "PrometheusTypeDef",
     "ProvisionedRequestTypeDef",
+    "ProvisionedThroughputTypeDef",
     "ProvisionedTypeDef",
     "PublicAccessTypeDef",
     "RebootBrokerRequestRequestTypeDef",
@@ -195,13 +196,25 @@ BatchDisassociateScramSecretResponseTypeDef = TypedDict(
     },
 )
 
-BrokerEBSVolumeInfoTypeDef = TypedDict(
-    "BrokerEBSVolumeInfoTypeDef",
+_RequiredBrokerEBSVolumeInfoTypeDef = TypedDict(
+    "_RequiredBrokerEBSVolumeInfoTypeDef",
     {
         "KafkaBrokerNodeId": str,
-        "VolumeSizeGB": int,
     },
 )
+_OptionalBrokerEBSVolumeInfoTypeDef = TypedDict(
+    "_OptionalBrokerEBSVolumeInfoTypeDef",
+    {
+        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
+        "VolumeSizeGB": int,
+    },
+    total=False,
+)
+
+class BrokerEBSVolumeInfoTypeDef(
+    _RequiredBrokerEBSVolumeInfoTypeDef, _OptionalBrokerEBSVolumeInfoTypeDef
+):
+    pass
 
 BrokerLogsTypeDef = TypedDict(
     "BrokerLogsTypeDef",
@@ -659,6 +672,7 @@ DescribeConfigurationRevisionResponseTypeDef = TypedDict(
 EBSStorageInfoTypeDef = TypedDict(
     "EBSStorageInfoTypeDef",
     {
+        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
         "VolumeSize": int,
     },
     total=False,
@@ -1110,6 +1124,15 @@ class ProvisionedRequestTypeDef(
     _RequiredProvisionedRequestTypeDef, _OptionalProvisionedRequestTypeDef
 ):
     pass
+
+ProvisionedThroughputTypeDef = TypedDict(
+    "ProvisionedThroughputTypeDef",
+    {
+        "Enabled": bool,
+        "VolumeThroughput": int,
+    },
+    total=False,
+)
 
 _RequiredProvisionedTypeDef = TypedDict(
     "_RequiredProvisionedTypeDef",

@@ -6,9 +6,9 @@ Type annotations for mq service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mq.type_defs import AvailabilityZoneTypeDef
+    from mypy_boto3_mq.type_defs import ActionRequiredTypeDef
 
-    data: AvailabilityZoneTypeDef = {...}
+    data: ActionRequiredTypeDef = {...}
     ```
 """
 import sys
@@ -32,6 +32,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ActionRequiredTypeDef",
     "AvailabilityZoneTypeDef",
     "BrokerEngineTypeTypeDef",
     "BrokerInstanceOptionTypeDef",
@@ -93,6 +94,15 @@ __all__ = (
     "UserSummaryTypeDef",
     "UserTypeDef",
     "WeeklyStartTimeTypeDef",
+)
+
+ActionRequiredTypeDef = TypedDict(
+    "ActionRequiredTypeDef",
+    {
+        "ActionRequiredCode": str,
+        "ActionRequiredInfo": str,
+    },
+    total=False,
 )
 
 AvailabilityZoneTypeDef = TypedDict(
@@ -435,6 +445,7 @@ DescribeBrokerRequestRequestTypeDef = TypedDict(
 DescribeBrokerResponseTypeDef = TypedDict(
     "DescribeBrokerResponseTypeDef",
     {
+        "ActionsRequired": List["ActionRequiredTypeDef"],
         "AuthenticationStrategy": AuthenticationStrategyType,
         "AutoMinorVersionUpgrade": bool,
         "BrokerArn": str,

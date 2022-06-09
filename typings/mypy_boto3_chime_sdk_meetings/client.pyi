@@ -17,6 +17,8 @@ from typing import Any, Dict, List, Type
 from botocore.client import BaseClient, ClientMeta
 
 from .type_defs import (
+    AttendeeCapabilitiesTypeDef,
+    AttendeeIdItemTypeDef,
     BatchCreateAttendeeResponseTypeDef,
     CreateAttendeeRequestItemTypeDef,
     CreateAttendeeResponseTypeDef,
@@ -28,12 +30,14 @@ from .type_defs import (
     MeetingFeaturesConfigurationTypeDef,
     NotificationsConfigurationTypeDef,
     TranscriptionConfigurationTypeDef,
+    UpdateAttendeeCapabilitiesResponseTypeDef,
 )
 
 __all__ = ("ChimeSDKMeetingsClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -41,20 +45,24 @@ class BotocoreClientError(BaseException):
 class Exceptions:
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
     ForbiddenException: Type[BotocoreClientError]
     LimitExceededException: Type[BotocoreClientError]
     NotFoundException: Type[BotocoreClientError]
+    ServiceFailureException: Type[BotocoreClientError]
     ServiceUnavailableException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
     UnauthorizedException: Type[BotocoreClientError]
     UnprocessableEntityException: Type[BotocoreClientError]
 
 class ChimeSDKMeetingsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -66,23 +74,41 @@ class ChimeSDKMeetingsClient(BaseClient):
         """
         Creates up to 100 attendees for an active Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.batch_create_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.batch_create_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#batch_create_attendee)
+        """
+    def batch_update_attendee_capabilities_except(
+        self,
+        *,
+        MeetingId: str,
+        ExcludedAttendeeIds: List["AttendeeIdItemTypeDef"],
+        Capabilities: "AttendeeCapabilitiesTypeDef"
+    ) -> None:
+        """
+        Updates `AttendeeCapabilities` except the capabilities listed in an
+        `ExcludedAttendeeIds` table.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.batch_update_attendee_capabilities_except)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#batch_update_attendee_capabilities_except)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#can_paginate)
         """
     def create_attendee(
-        self, *, MeetingId: str, ExternalUserId: str
+        self,
+        *,
+        MeetingId: str,
+        ExternalUserId: str,
+        Capabilities: "AttendeeCapabilitiesTypeDef" = None
     ) -> CreateAttendeeResponseTypeDef:
         """
         Creates a new attendee for an active Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.create_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.create_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#create_attendee)
         """
     def create_meeting(
@@ -93,13 +119,14 @@ class ChimeSDKMeetingsClient(BaseClient):
         ExternalMeetingId: str,
         MeetingHostId: str = None,
         NotificationsConfiguration: "NotificationsConfigurationTypeDef" = None,
-        MeetingFeatures: "MeetingFeaturesConfigurationTypeDef" = None
+        MeetingFeatures: "MeetingFeaturesConfigurationTypeDef" = None,
+        PrimaryMeetingId: str = None
     ) -> CreateMeetingResponseTypeDef:
         """
         Creates a new Amazon Chime SDK meeting in the specified media Region with no
         initial attendees.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.create_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.create_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#create_meeting)
         """
     def create_meeting_with_attendees(
@@ -111,13 +138,14 @@ class ChimeSDKMeetingsClient(BaseClient):
         Attendees: List["CreateAttendeeRequestItemTypeDef"],
         MeetingHostId: str = None,
         MeetingFeatures: "MeetingFeaturesConfigurationTypeDef" = None,
-        NotificationsConfiguration: "NotificationsConfigurationTypeDef" = None
+        NotificationsConfiguration: "NotificationsConfigurationTypeDef" = None,
+        PrimaryMeetingId: str = None
     ) -> CreateMeetingWithAttendeesResponseTypeDef:
         """
         Creates a new Amazon Chime SDK meeting in the specified media Region, with
         attendees.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.create_meeting_with_attendees)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.create_meeting_with_attendees)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#create_meeting_with_attendees)
         """
     def delete_attendee(self, *, MeetingId: str, AttendeeId: str) -> None:
@@ -125,14 +153,14 @@ class ChimeSDKMeetingsClient(BaseClient):
         Deletes an attendee from the specified Amazon Chime SDK meeting and deletes
         their `JoinToken`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.delete_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.delete_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#delete_attendee)
         """
     def delete_meeting(self, *, MeetingId: str) -> None:
         """
         Deletes the specified Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.delete_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.delete_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#delete_meeting)
         """
     def generate_presigned_url(
@@ -145,7 +173,7 @@ class ChimeSDKMeetingsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#generate_presigned_url)
         """
     def get_attendee(self, *, MeetingId: str, AttendeeId: str) -> GetAttendeeResponseTypeDef:
@@ -153,14 +181,14 @@ class ChimeSDKMeetingsClient(BaseClient):
         Gets the Amazon Chime SDK attendee details for a specified meeting ID and
         attendee ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.get_attendee)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.get_attendee)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#get_attendee)
         """
     def get_meeting(self, *, MeetingId: str) -> GetMeetingResponseTypeDef:
         """
         Gets the Amazon Chime SDK meeting details for the specified meeting ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.get_meeting)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.get_meeting)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#get_meeting)
         """
     def list_attendees(
@@ -169,7 +197,7 @@ class ChimeSDKMeetingsClient(BaseClient):
         """
         Lists the attendees for the specified Amazon Chime SDK meeting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.list_attendees)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.list_attendees)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#list_attendees)
         """
     def start_meeting_transcription(
@@ -178,13 +206,22 @@ class ChimeSDKMeetingsClient(BaseClient):
         """
         Starts transcription for the specified `meetingId` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.start_meeting_transcription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.start_meeting_transcription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#start_meeting_transcription)
         """
     def stop_meeting_transcription(self, *, MeetingId: str) -> None:
         """
         Stops transcription for the specified `meetingId` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.stop_meeting_transcription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.stop_meeting_transcription)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#stop_meeting_transcription)
+        """
+    def update_attendee_capabilities(
+        self, *, MeetingId: str, AttendeeId: str, Capabilities: "AttendeeCapabilitiesTypeDef"
+    ) -> UpdateAttendeeCapabilitiesResponseTypeDef:
+        """
+        The capabilties that you want to update.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/chime-sdk-meetings.html#ChimeSDKMeetings.Client.update_attendee_capabilities)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/client.html#update_attendee_capabilities)
         """

@@ -37,7 +37,7 @@ ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 MeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "MULTI", "VARCHAR"]
 QueryPaginatorName = Literal["query"]
 S3EncryptionOptionType = Literal["SSE_KMS", "SSE_S3"]
-ScalarMeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "VARCHAR"]
+ScalarMeasureValueTypeType = Literal["BIGINT", "BOOLEAN", "DOUBLE", "TIMESTAMP", "VARCHAR"]
 ScalarTypeType = Literal[
     "BIGINT",
     "BOOLEAN",

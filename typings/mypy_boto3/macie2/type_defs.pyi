@@ -569,6 +569,7 @@ ClassificationDetailsTypeDef = TypedDict(
         "detailedResultsLocation": str,
         "jobArn": str,
         "jobId": str,
+        "originType": Literal["SENSITIVE_DATA_DISCOVERY_JOB"],
         "result": "ClassificationResultTypeDef",
     },
     total=False,
@@ -643,21 +644,32 @@ CreateClassificationJobResponseTypeDef = TypedDict(
     },
 )
 
-CreateCustomDataIdentifierRequestRequestTypeDef = TypedDict(
-    "CreateCustomDataIdentifierRequestRequestTypeDef",
+_RequiredCreateCustomDataIdentifierRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCustomDataIdentifierRequestRequestTypeDef",
+    {
+        "name": str,
+        "regex": str,
+    },
+)
+_OptionalCreateCustomDataIdentifierRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCustomDataIdentifierRequestRequestTypeDef",
     {
         "clientToken": str,
         "description": str,
         "ignoreWords": List[str],
         "keywords": List[str],
         "maximumMatchDistance": int,
-        "name": str,
-        "regex": str,
         "severityLevels": List["SeverityLevelTypeDef"],
         "tags": Dict[str, str],
     },
     total=False,
 )
+
+class CreateCustomDataIdentifierRequestRequestTypeDef(
+    _RequiredCreateCustomDataIdentifierRequestRequestTypeDef,
+    _OptionalCreateCustomDataIdentifierRequestRequestTypeDef,
+):
+    pass
 
 CreateCustomDataIdentifierResponseTypeDef = TypedDict(
     "CreateCustomDataIdentifierResponseTypeDef",

@@ -6,9 +6,9 @@ Type annotations for amplifyuibuilder service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_amplifyuibuilder.type_defs import ComponentBindingPropertiesValuePropertiesTypeDef
+    from mypy_boto3_amplifyuibuilder.type_defs import ActionParametersTypeDef
 
-    data: ComponentBindingPropertiesValuePropertiesTypeDef = {...}
+    data: ActionParametersTypeDef = {...}
     ```
 """
 import sys
@@ -27,11 +27,13 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "ActionParametersTypeDef",
     "ComponentBindingPropertiesValuePropertiesTypeDef",
     "ComponentBindingPropertiesValueTypeDef",
     "ComponentChildTypeDef",
     "ComponentConditionPropertyTypeDef",
     "ComponentDataConfigurationTypeDef",
+    "ComponentEventTypeDef",
     "ComponentPropertyBindingPropertiesTypeDef",
     "ComponentPropertyTypeDef",
     "ComponentSummaryTypeDef",
@@ -61,6 +63,7 @@ __all__ = (
     "ListComponentsResponseTypeDef",
     "ListThemesRequestRequestTypeDef",
     "ListThemesResponseTypeDef",
+    "MutationActionSetStateParameterTypeDef",
     "PaginatorConfigTypeDef",
     "PredicateTypeDef",
     "RefreshTokenRequestBodyTypeDef",
@@ -78,6 +81,22 @@ __all__ = (
     "UpdateThemeDataTypeDef",
     "UpdateThemeRequestRequestTypeDef",
     "UpdateThemeResponseTypeDef",
+)
+
+ActionParametersTypeDef = TypedDict(
+    "ActionParametersTypeDef",
+    {
+        "anchor": "ComponentPropertyTypeDef",
+        "fields": Dict[str, "ComponentPropertyTypeDef"],
+        "global": "ComponentPropertyTypeDef",
+        "id": "ComponentPropertyTypeDef",
+        "model": str,
+        "state": "MutationActionSetStateParameterTypeDef",
+        "target": "ComponentPropertyTypeDef",
+        "type": "ComponentPropertyTypeDef",
+        "url": "ComponentPropertyTypeDef",
+    },
+    total=False,
 )
 
 ComponentBindingPropertiesValuePropertiesTypeDef = TypedDict(
@@ -116,6 +135,8 @@ _OptionalComponentChildTypeDef = TypedDict(
     "_OptionalComponentChildTypeDef",
     {
         "children": List[Dict[str, Any]],
+        "events": Dict[str, "ComponentEventTypeDef"],
+        "sourceId": str,
     },
     total=False,
 )
@@ -126,12 +147,13 @@ class ComponentChildTypeDef(_RequiredComponentChildTypeDef, _OptionalComponentCh
 ComponentConditionPropertyTypeDef = TypedDict(
     "ComponentConditionPropertyTypeDef",
     {
-        "else": Dict[str, Any],
+        "else": "ComponentPropertyTypeDef",
         "field": str,
         "operand": str,
+        "operandType": str,
         "operator": str,
         "property": str,
-        "then": Dict[str, Any],
+        "then": "ComponentPropertyTypeDef",
     },
     total=False,
 )
@@ -156,6 +178,16 @@ class ComponentDataConfigurationTypeDef(
     _RequiredComponentDataConfigurationTypeDef, _OptionalComponentDataConfigurationTypeDef
 ):
     pass
+
+ComponentEventTypeDef = TypedDict(
+    "ComponentEventTypeDef",
+    {
+        "action": str,
+        "bindingEvent": str,
+        "parameters": "ActionParametersTypeDef",
+    },
+    total=False,
+)
 
 _RequiredComponentPropertyBindingPropertiesTypeDef = TypedDict(
     "_RequiredComponentPropertyBindingPropertiesTypeDef",
@@ -183,6 +215,7 @@ ComponentPropertyTypeDef = TypedDict(
         "bindingProperties": "ComponentPropertyBindingPropertiesTypeDef",
         "bindings": Dict[str, "FormBindingElementTypeDef"],
         "collectionBindingProperties": "ComponentPropertyBindingPropertiesTypeDef",
+        "componentName": str,
         "concat": List[Dict[str, Any]],
         "condition": Dict[str, Any],
         "configured": bool,
@@ -190,6 +223,7 @@ ComponentPropertyTypeDef = TypedDict(
         "event": str,
         "importedValue": str,
         "model": str,
+        "property": str,
         "type": str,
         "userAttribute": str,
         "value": str,
@@ -228,7 +262,9 @@ _OptionalComponentTypeDef = TypedDict(
     {
         "children": List["ComponentChildTypeDef"],
         "collectionProperties": Dict[str, "ComponentDataConfigurationTypeDef"],
+        "events": Dict[str, "ComponentEventTypeDef"],
         "modifiedAt": datetime,
+        "schemaVersion": str,
         "sourceId": str,
         "tags": Dict[str, str],
     },
@@ -263,6 +299,8 @@ _OptionalCreateComponentDataTypeDef = TypedDict(
     {
         "children": List["ComponentChildTypeDef"],
         "collectionProperties": Dict[str, "ComponentDataConfigurationTypeDef"],
+        "events": Dict[str, "ComponentEventTypeDef"],
+        "schemaVersion": str,
         "sourceId": str,
         "tags": Dict[str, str],
     },
@@ -395,34 +433,60 @@ ExchangeCodeForTokenResponseTypeDef = TypedDict(
     },
 )
 
-ExportComponentsRequestRequestTypeDef = TypedDict(
-    "ExportComponentsRequestRequestTypeDef",
+_RequiredExportComponentsRequestRequestTypeDef = TypedDict(
+    "_RequiredExportComponentsRequestRequestTypeDef",
     {
         "appId": str,
         "environmentName": str,
     },
 )
+_OptionalExportComponentsRequestRequestTypeDef = TypedDict(
+    "_OptionalExportComponentsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ExportComponentsRequestRequestTypeDef(
+    _RequiredExportComponentsRequestRequestTypeDef, _OptionalExportComponentsRequestRequestTypeDef
+):
+    pass
 
 ExportComponentsResponseTypeDef = TypedDict(
     "ExportComponentsResponseTypeDef",
     {
         "entities": List["ComponentTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
-ExportThemesRequestRequestTypeDef = TypedDict(
-    "ExportThemesRequestRequestTypeDef",
+_RequiredExportThemesRequestRequestTypeDef = TypedDict(
+    "_RequiredExportThemesRequestRequestTypeDef",
     {
         "appId": str,
         "environmentName": str,
     },
 )
+_OptionalExportThemesRequestRequestTypeDef = TypedDict(
+    "_OptionalExportThemesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ExportThemesRequestRequestTypeDef(
+    _RequiredExportThemesRequestRequestTypeDef, _OptionalExportThemesRequestRequestTypeDef
+):
+    pass
 
 ExportThemesResponseTypeDef = TypedDict(
     "ExportThemesResponseTypeDef",
     {
         "entities": List["ThemeTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -526,6 +590,15 @@ ListThemesResponseTypeDef = TypedDict(
         "entities": List["ThemeSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+MutationActionSetStateParameterTypeDef = TypedDict(
+    "MutationActionSetStateParameterTypeDef",
+    {
+        "componentName": str,
+        "property": str,
+        "set": "ComponentPropertyTypeDef",
     },
 )
 
@@ -653,10 +726,12 @@ UpdateComponentDataTypeDef = TypedDict(
         "children": List["ComponentChildTypeDef"],
         "collectionProperties": Dict[str, "ComponentDataConfigurationTypeDef"],
         "componentType": str,
+        "events": Dict[str, "ComponentEventTypeDef"],
         "id": str,
         "name": str,
         "overrides": Dict[str, Dict[str, str]],
         "properties": Dict[str, "ComponentPropertyTypeDef"],
+        "schemaVersion": str,
         "sourceId": str,
         "variants": List["ComponentVariantTypeDef"],
     },

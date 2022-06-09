@@ -15,7 +15,9 @@ import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    BuildTypeType,
     ComponentTypeType,
+    DiskImageFormatType,
     EbsVolumeTypeType,
     ImageStatusType,
     ImageTypeType,
@@ -83,6 +85,9 @@ __all__ = (
     "DistributionConfigurationTypeDef",
     "DistributionTypeDef",
     "EbsInstanceBlockDeviceSpecificationTypeDef",
+    "FastLaunchConfigurationTypeDef",
+    "FastLaunchLaunchTemplateSpecificationTypeDef",
+    "FastLaunchSnapshotConfigurationTypeDef",
     "FilterTypeDef",
     "GetComponentPolicyRequestRequestTypeDef",
     "GetComponentPolicyResponseTypeDef",
@@ -117,6 +122,8 @@ __all__ = (
     "ImageVersionTypeDef",
     "ImportComponentRequestRequestTypeDef",
     "ImportComponentResponseTypeDef",
+    "ImportVmImageRequestRequestTypeDef",
+    "ImportVmImageResponseTypeDef",
     "InfrastructureConfigurationSummaryTypeDef",
     "InfrastructureConfigurationTypeDef",
     "InstanceBlockDeviceMappingTypeDef",
@@ -159,6 +166,7 @@ __all__ = (
     "PutImageRecipePolicyRequestRequestTypeDef",
     "PutImageRecipePolicyResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "S3ExportConfigurationTypeDef",
     "S3LogsTypeDef",
     "ScheduleTypeDef",
     "StartImagePipelineExecutionRequestRequestTypeDef",
@@ -845,6 +853,8 @@ _OptionalDistributionTypeDef = TypedDict(
         "containerDistributionConfiguration": "ContainerDistributionConfigurationTypeDef",
         "licenseConfigurationArns": List[str],
         "launchTemplateConfigurations": List["LaunchTemplateConfigurationTypeDef"],
+        "s3ExportConfiguration": "S3ExportConfigurationTypeDef",
+        "fastLaunchConfigurations": List["FastLaunchConfigurationTypeDef"],
     },
     total=False,
 )
@@ -863,6 +873,46 @@ EbsInstanceBlockDeviceSpecificationTypeDef = TypedDict(
         "volumeSize": int,
         "volumeType": EbsVolumeTypeType,
         "throughput": int,
+    },
+    total=False,
+)
+
+_RequiredFastLaunchConfigurationTypeDef = TypedDict(
+    "_RequiredFastLaunchConfigurationTypeDef",
+    {
+        "enabled": bool,
+    },
+)
+_OptionalFastLaunchConfigurationTypeDef = TypedDict(
+    "_OptionalFastLaunchConfigurationTypeDef",
+    {
+        "snapshotConfiguration": "FastLaunchSnapshotConfigurationTypeDef",
+        "maxParallelLaunches": int,
+        "launchTemplate": "FastLaunchLaunchTemplateSpecificationTypeDef",
+        "accountId": str,
+    },
+    total=False,
+)
+
+class FastLaunchConfigurationTypeDef(
+    _RequiredFastLaunchConfigurationTypeDef, _OptionalFastLaunchConfigurationTypeDef
+):
+    pass
+
+FastLaunchLaunchTemplateSpecificationTypeDef = TypedDict(
+    "FastLaunchLaunchTemplateSpecificationTypeDef",
+    {
+        "launchTemplateId": str,
+        "launchTemplateName": str,
+        "launchTemplateVersion": str,
+    },
+    total=False,
+)
+
+FastLaunchSnapshotConfigurationTypeDef = TypedDict(
+    "FastLaunchSnapshotConfigurationTypeDef",
+    {
+        "targetResourceCount": int,
     },
     total=False,
 )
@@ -1143,6 +1193,7 @@ ImageSummaryTypeDef = TypedDict(
         "dateCreated": str,
         "outputResources": "OutputResourcesTypeDef",
         "tags": Dict[str, str],
+        "buildType": BuildTypeType,
     },
     total=False,
 )
@@ -1177,6 +1228,7 @@ ImageTypeDef = TypedDict(
         "dateCreated": str,
         "outputResources": "OutputResourcesTypeDef",
         "tags": Dict[str, str],
+        "buildType": BuildTypeType,
     },
     total=False,
 )
@@ -1192,6 +1244,7 @@ ImageVersionTypeDef = TypedDict(
         "osVersion": str,
         "owner": str,
         "dateCreated": str,
+        "buildType": BuildTypeType,
     },
     total=False,
 )
@@ -1231,6 +1284,41 @@ ImportComponentResponseTypeDef = TypedDict(
         "requestId": str,
         "clientToken": str,
         "componentBuildVersionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredImportVmImageRequestRequestTypeDef = TypedDict(
+    "_RequiredImportVmImageRequestRequestTypeDef",
+    {
+        "name": str,
+        "semanticVersion": str,
+        "platform": PlatformType,
+        "vmImportTaskId": str,
+        "clientToken": str,
+    },
+)
+_OptionalImportVmImageRequestRequestTypeDef = TypedDict(
+    "_OptionalImportVmImageRequestRequestTypeDef",
+    {
+        "description": str,
+        "osVersion": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class ImportVmImageRequestRequestTypeDef(
+    _RequiredImportVmImageRequestRequestTypeDef, _OptionalImportVmImageRequestRequestTypeDef
+):
+    pass
+
+ImportVmImageResponseTypeDef = TypedDict(
+    "ImportVmImageResponseTypeDef",
+    {
+        "requestId": str,
+        "imageArn": str,
+        "clientToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1716,6 +1804,27 @@ ResponseMetadataTypeDef = TypedDict(
         "RetryAttempts": int,
     },
 )
+
+_RequiredS3ExportConfigurationTypeDef = TypedDict(
+    "_RequiredS3ExportConfigurationTypeDef",
+    {
+        "roleName": str,
+        "diskImageFormat": DiskImageFormatType,
+        "s3Bucket": str,
+    },
+)
+_OptionalS3ExportConfigurationTypeDef = TypedDict(
+    "_OptionalS3ExportConfigurationTypeDef",
+    {
+        "s3Prefix": str,
+    },
+    total=False,
+)
+
+class S3ExportConfigurationTypeDef(
+    _RequiredS3ExportConfigurationTypeDef, _OptionalS3ExportConfigurationTypeDef
+):
+    pass
 
 S3LogsTypeDef = TypedDict(
     "S3LogsTypeDef",

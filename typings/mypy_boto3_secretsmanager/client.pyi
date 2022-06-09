@@ -56,6 +56,7 @@ __all__ = ("SecretsManagerClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -77,11 +78,12 @@ class Exceptions:
 
 class SecretsManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -91,7 +93,7 @@ class SecretsManagerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#can_paginate)
         """
     def cancel_rotate_secret(self, *, SecretId: str) -> CancelRotateSecretResponseTypeDef:
@@ -99,7 +101,7 @@ class SecretsManagerClient(BaseClient):
         Turns off automatic rotation, and if a rotation is currently in progress,
         cancels the rotation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.cancel_rotate_secret)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.cancel_rotate_secret)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#cancel_rotate_secret)
         """
     def create_secret(
@@ -118,14 +120,14 @@ class SecretsManagerClient(BaseClient):
         """
         Creates a new secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.create_secret)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.create_secret)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#create_secret)
         """
     def delete_resource_policy(self, *, SecretId: str) -> DeleteResourcePolicyResponseTypeDef:
         """
         Deletes the resource-based permission policy attached to the secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.delete_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#delete_resource_policy)
         """
     def delete_secret(
@@ -138,14 +140,14 @@ class SecretsManagerClient(BaseClient):
         """
         Deletes a secret and all of its versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.delete_secret)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.delete_secret)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#delete_secret)
         """
     def describe_secret(self, *, SecretId: str) -> DescribeSecretResponseTypeDef:
         """
         Retrieves the details of a secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.describe_secret)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.describe_secret)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#describe_secret)
         """
     def generate_presigned_url(
@@ -158,7 +160,7 @@ class SecretsManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#generate_presigned_url)
         """
     def get_random_password(
@@ -176,7 +178,7 @@ class SecretsManagerClient(BaseClient):
         """
         Generates a random password.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.get_random_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.get_random_password)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#get_random_password)
         """
     def get_resource_policy(self, *, SecretId: str) -> GetResourcePolicyResponseTypeDef:
@@ -184,7 +186,7 @@ class SecretsManagerClient(BaseClient):
         Retrieves the JSON text of the resource-based policy document attached to the
         secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.get_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#get_resource_policy)
         """
     def get_secret_value(
@@ -194,7 +196,7 @@ class SecretsManagerClient(BaseClient):
         Retrieves the contents of the encrypted fields `SecretString` or `SecretBinary`
         from the specified version of a secret, whichever contains content.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.get_secret_value)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.get_secret_value)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#get_secret_value)
         """
     def list_secret_version_ids(
@@ -206,9 +208,9 @@ class SecretsManagerClient(BaseClient):
         IncludeDeprecated: bool = None
     ) -> ListSecretVersionIdsResponseTypeDef:
         """
-        Lists the versions for a secret.
+        Lists the versions of a secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.list_secret_version_ids)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.list_secret_version_ids)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#list_secret_version_ids)
         """
     def list_secrets(
@@ -220,10 +222,9 @@ class SecretsManagerClient(BaseClient):
         SortOrder: SortOrderTypeType = None
     ) -> ListSecretsResponseTypeDef:
         """
-        Lists the secrets that are stored by Secrets Manager in the Amazon Web Services
-        account.
+        .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.list_secrets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.list_secrets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#list_secrets)
         """
     def put_resource_policy(
@@ -232,7 +233,7 @@ class SecretsManagerClient(BaseClient):
         """
         Attaches a resource-based permission policy to a secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.put_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#put_resource_policy)
         """
     def put_secret_value(
@@ -248,7 +249,7 @@ class SecretsManagerClient(BaseClient):
         Creates a new version with a new encrypted secret value and attaches it to the
         secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.put_secret_value)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.put_secret_value)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#put_secret_value)
         """
     def remove_regions_from_replication(
@@ -258,7 +259,7 @@ class SecretsManagerClient(BaseClient):
         For a secret that is replicated to other Regions, deletes the secret replicas
         from the Regions you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.remove_regions_from_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.remove_regions_from_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#remove_regions_from_replication)
         """
     def replicate_secret_to_regions(
@@ -271,7 +272,7 @@ class SecretsManagerClient(BaseClient):
         """
         Replicates the secret to a new Regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.replicate_secret_to_regions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.replicate_secret_to_regions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#replicate_secret_to_regions)
         """
     def restore_secret(self, *, SecretId: str) -> RestoreSecretResponseTypeDef:
@@ -279,7 +280,7 @@ class SecretsManagerClient(BaseClient):
         Cancels the scheduled deletion of a secret by removing the `DeletedDate` time
         stamp.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.restore_secret)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.restore_secret)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#restore_secret)
         """
     def rotate_secret(
@@ -288,12 +289,13 @@ class SecretsManagerClient(BaseClient):
         SecretId: str,
         ClientRequestToken: str = None,
         RotationLambdaARN: str = None,
-        RotationRules: "RotationRulesTypeTypeDef" = None
+        RotationRules: "RotationRulesTypeTypeDef" = None,
+        RotateImmediately: bool = None
     ) -> RotateSecretResponseTypeDef:
         """
         Configures and starts the asynchronous process of rotating the secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.rotate_secret)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.rotate_secret)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#rotate_secret)
         """
     def stop_replication_to_replica(
@@ -303,21 +305,21 @@ class SecretsManagerClient(BaseClient):
         Removes the link between the replica secret and the primary secret and promotes
         the replica to a primary secret in the replica Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.stop_replication_to_replica)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.stop_replication_to_replica)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#stop_replication_to_replica)
         """
     def tag_resource(self, *, SecretId: str, Tags: List["TagTypeDef"]) -> None:
         """
         Attaches tags to a secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#tag_resource)
         """
     def untag_resource(self, *, SecretId: str, TagKeys: List[str]) -> None:
         """
         Removes specific tags from a secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#untag_resource)
         """
     def update_secret(
@@ -333,7 +335,7 @@ class SecretsManagerClient(BaseClient):
         """
         Modifies the details of a secret, including metadata and the secret value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.update_secret)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.update_secret)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#update_secret)
         """
     def update_secret_version_stage(
@@ -347,7 +349,7 @@ class SecretsManagerClient(BaseClient):
         """
         Modifies the staging labels attached to a version of a secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.update_secret_version_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.update_secret_version_stage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#update_secret_version_stage)
         """
     def validate_resource_policy(
@@ -357,11 +359,11 @@ class SecretsManagerClient(BaseClient):
         Validates that a resource policy does not grant a wide range of principals
         access to your secret.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Client.validate_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Client.validate_resource_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/client.html#validate_resource_policy)
         """
     def get_paginator(self, operation_name: Literal["list_secrets"]) -> ListSecretsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/paginators.html#listsecretspaginator)
         """

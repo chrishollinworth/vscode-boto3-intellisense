@@ -48,6 +48,7 @@ from .literals import (
     AudioSelectorTypeType,
     AudioTypeControlType,
     Av1AdaptiveQuantizationType,
+    Av1BitDepthType,
     Av1FramerateControlType,
     Av1FramerateConversionAlgorithmType,
     Av1SpatialAdaptiveQuantizationType,
@@ -93,8 +94,10 @@ from .literals import (
     CmfcAudioTrackTypeType,
     CmfcDescriptiveVideoServiceFlagType,
     CmfcIFrameOnlyManifestType,
+    CmfcKlvMetadataType,
     CmfcScte35EsamType,
     CmfcScte35SourceType,
+    CmfcTimedMetadataType,
     ColorMetadataType,
     ColorSpaceConversionType,
     ColorSpaceType,
@@ -117,6 +120,8 @@ from .literals import (
     DeinterlacerModeType,
     DescribeEndpointsModeType,
     DolbyVisionLevel6ModeType,
+    DolbyVisionMappingType,
+    DolbyVisionProfileType,
     DropFrameTimecodeType,
     DvbddsHandlingType,
     DvbSubSubtitleFallbackFontType,
@@ -154,6 +159,7 @@ from .literals import (
     Eac3SurroundModeType,
     EmbeddedConvert608To708Type,
     EmbeddedTerminateCaptionsType,
+    EmbeddedTimecodeOverrideType,
     F4vMoovPlacementType,
     FileSourceConvert608To708Type,
     FileSourceTimeDeltaUnitsType,
@@ -212,6 +218,7 @@ from .literals import (
     HlsAudioOnlyHeaderType,
     HlsAudioTrackTypeType,
     HlsCaptionLanguageSettingType,
+    HlsCaptionSegmentLengthControlType,
     HlsClientCacheType,
     HlsCodecSpecificationType,
     HlsDescriptiveVideoServiceFlagType,
@@ -232,6 +239,7 @@ from .literals import (
     HlsStreamInfResolutionType,
     HlsTargetDurationCompatibilityModeType,
     HlsTimedMetadataId3FrameType,
+    ImscAccessibilitySubsType,
     ImscStylePassthroughType,
     InputDeblockFilterType,
     InputDenoiseFilterType,
@@ -254,6 +262,7 @@ from .literals import (
     M2tsEbpPlacementType,
     M2tsEsRateInPesType,
     M2tsForceTsVideoEbpOrderType,
+    M2tsKlvMetadataType,
     M2tsNielsenId3Type,
     M2tsPcrControlType,
     M2tsRateModeType,
@@ -279,8 +288,10 @@ from .literals import (
     MpdAccessibilityCaptionHintsType,
     MpdAudioDurationType,
     MpdCaptionContainerTypeType,
+    MpdKlvMetadataType,
     MpdScte35EsamType,
     MpdScte35SourceType,
+    MpdTimedMetadataType,
     Mpeg2AdaptiveQuantizationType,
     Mpeg2CodecLevelType,
     Mpeg2CodecProfileType,
@@ -309,11 +320,13 @@ from .literals import (
     NielsenActiveWatermarkProcessTypeType,
     NielsenSourceWatermarkStatusTypeType,
     NielsenUniqueTicPerAudioTrackTypeType,
+    NoiseFilterPostTemporalSharpeningStrengthType,
     NoiseFilterPostTemporalSharpeningType,
     NoiseReducerFilterType,
     OrderType,
     OutputGroupTypeType,
     OutputSdtType,
+    PadVideoType,
     PresetListByType,
     PricingPlanType,
     ProresChromaSamplingType,
@@ -328,8 +341,10 @@ from .literals import (
     QueueListByType,
     QueueStatusType,
     RenewalTypeType,
+    RequiredFlagType,
     ReservationPlanStatusType,
     RespondToAfdType,
+    RuleTypeType,
     S3ObjectCannedAclType,
     S3ServerSideEncryptionTypeType,
     SampleRangeConversionType,
@@ -364,6 +379,7 @@ from .literals import (
     Vp9QualityTuningLevelType,
     WatermarkingStrengthType,
     WavFormatType,
+    WebvttAccessibilitySubsType,
     WebvttStylePassthroughType,
     Xavc4kIntraCbgProfileClassType,
     Xavc4kIntraVbrProfileClassType,
@@ -401,6 +417,7 @@ __all__ = (
     "Ac3SettingsTypeDef",
     "AccelerationSettingsTypeDef",
     "AiffSettingsTypeDef",
+    "AllowedRenditionSizeTypeDef",
     "AncillarySourceSettingsTypeDef",
     "AssociateCertificateRequestRequestTypeDef",
     "AudioChannelTaggingSettingsTypeDef",
@@ -409,6 +426,7 @@ __all__ = (
     "AudioNormalizationSettingsTypeDef",
     "AudioSelectorGroupTypeDef",
     "AudioSelectorTypeDef",
+    "AutomatedAbrRuleTypeDef",
     "AutomatedAbrSettingsTypeDef",
     "AutomatedEncodingSettingsTypeDef",
     "Av1QvbrSettingsTypeDef",
@@ -471,6 +489,7 @@ __all__ = (
     "F4vSettingsTypeDef",
     "FileGroupSettingsTypeDef",
     "FileSourceSettingsTypeDef",
+    "ForceIncludeRenditionSizeTypeDef",
     "FrameCaptureSettingsTypeDef",
     "GetJobRequestRequestTypeDef",
     "GetJobResponseTypeDef",
@@ -502,6 +521,7 @@ __all__ = (
     "InputDecryptionSettingsTypeDef",
     "InputTemplateTypeDef",
     "InputTypeDef",
+    "InputVideoGeneratorTypeDef",
     "InsertableImageTypeDef",
     "JobMessagesTypeDef",
     "JobSettingsTypeDef",
@@ -522,6 +542,8 @@ __all__ = (
     "M2tsScte35EsamTypeDef",
     "M2tsSettingsTypeDef",
     "M3u8SettingsTypeDef",
+    "MinBottomRenditionSizeTypeDef",
+    "MinTopRenditionSizeTypeDef",
     "MotionImageInserterTypeDef",
     "MotionImageInsertionFramerateTypeDef",
     "MotionImageInsertionOffsetTypeDef",
@@ -661,6 +683,16 @@ AiffSettingsTypeDef = TypedDict(
     total=False,
 )
 
+AllowedRenditionSizeTypeDef = TypedDict(
+    "AllowedRenditionSizeTypeDef",
+    {
+        "Height": int,
+        "Required": RequiredFlagType,
+        "Width": int,
+    },
+    total=False,
+)
+
 AncillarySourceSettingsTypeDef = TypedDict(
     "AncillarySourceSettingsTypeDef",
     {
@@ -761,12 +793,25 @@ AudioSelectorTypeDef = TypedDict(
     total=False,
 )
 
+AutomatedAbrRuleTypeDef = TypedDict(
+    "AutomatedAbrRuleTypeDef",
+    {
+        "AllowedRenditions": List["AllowedRenditionSizeTypeDef"],
+        "ForceIncludeRenditions": List["ForceIncludeRenditionSizeTypeDef"],
+        "MinBottomRenditionSize": "MinBottomRenditionSizeTypeDef",
+        "MinTopRenditionSize": "MinTopRenditionSizeTypeDef",
+        "Type": RuleTypeType,
+    },
+    total=False,
+)
+
 AutomatedAbrSettingsTypeDef = TypedDict(
     "AutomatedAbrSettingsTypeDef",
     {
         "MaxAbrBitrate": int,
         "MaxRenditions": int,
         "MinAbrBitrate": int,
+        "Rules": List["AutomatedAbrRuleTypeDef"],
     },
     total=False,
 )
@@ -792,6 +837,7 @@ Av1SettingsTypeDef = TypedDict(
     "Av1SettingsTypeDef",
     {
         "AdaptiveQuantization": Av1AdaptiveQuantizationType,
+        "BitDepth": Av1BitDepthType,
         "FramerateControl": Av1FramerateControlType,
         "FramerateConversionAlgorithm": Av1FramerateConversionAlgorithmType,
         "FramerateDenominator": int,
@@ -1032,8 +1078,10 @@ CmfcSettingsTypeDef = TypedDict(
         "AudioTrackType": CmfcAudioTrackTypeType,
         "DescriptiveVideoServiceFlag": CmfcDescriptiveVideoServiceFlagType,
         "IFrameOnlyManifest": CmfcIFrameOnlyManifestType,
+        "KlvMetadata": CmfcKlvMetadataType,
         "Scte35Esam": CmfcScte35EsamType,
         "Scte35Source": CmfcScte35SourceType,
+        "TimedMetadata": CmfcTimedMetadataType,
     },
     total=False,
 )
@@ -1337,7 +1385,8 @@ DolbyVisionTypeDef = TypedDict(
     {
         "L6Metadata": "DolbyVisionLevel6MetadataTypeDef",
         "L6Mode": DolbyVisionLevel6ModeType,
-        "Profile": Literal["PROFILE_5"],
+        "Mapping": DolbyVisionMappingType,
+        "Profile": DolbyVisionProfileType,
     },
     total=False,
 )
@@ -1553,6 +1602,15 @@ FileSourceSettingsTypeDef = TypedDict(
         "SourceFile": str,
         "TimeDelta": int,
         "TimeDeltaUnits": FileSourceTimeDeltaUnitsType,
+    },
+    total=False,
+)
+
+ForceIncludeRenditionSizeTypeDef = TypedDict(
+    "ForceIncludeRenditionSizeTypeDef",
+    {
+        "Height": int,
+        "Width": int,
     },
     total=False,
 )
@@ -1821,6 +1879,7 @@ HlsGroupSettingsTypeDef = TypedDict(
         "BaseUrl": str,
         "CaptionLanguageMappings": List["HlsCaptionLanguageMappingTypeDef"],
         "CaptionLanguageSetting": HlsCaptionLanguageSettingType,
+        "CaptionSegmentLengthControl": HlsCaptionSegmentLengthControlType,
         "ClientCache": HlsClientCacheType,
         "CodecSpecification": HlsCodecSpecificationType,
         "Destination": str,
@@ -1916,6 +1975,7 @@ ImageInserterTypeDef = TypedDict(
 ImscDestinationSettingsTypeDef = TypedDict(
     "ImscDestinationSettingsTypeDef",
     {
+        "Accessibility": ImscAccessibilitySubsType,
         "StylePassthrough": ImscStylePassthroughType,
     },
     total=False,
@@ -1950,6 +2010,7 @@ InputTemplateTypeDef = TypedDict(
         "Crop": "RectangleTypeDef",
         "DeblockFilter": InputDeblockFilterType,
         "DenoiseFilter": InputDenoiseFilterType,
+        "DolbyVisionMetadataXml": str,
         "FilterEnable": InputFilterEnableType,
         "FilterStrength": int,
         "ImageInserter": "ImageInserterTypeDef",
@@ -1975,6 +2036,7 @@ InputTypeDef = TypedDict(
         "DeblockFilter": InputDeblockFilterType,
         "DecryptionSettings": "InputDecryptionSettingsTypeDef",
         "DenoiseFilter": InputDenoiseFilterType,
+        "DolbyVisionMetadataXml": str,
         "FileInput": str,
         "FilterEnable": InputFilterEnableType,
         "FilterStrength": int,
@@ -1987,7 +2049,16 @@ InputTypeDef = TypedDict(
         "SupplementalImps": List[str],
         "TimecodeSource": InputTimecodeSourceType,
         "TimecodeStart": str,
+        "VideoGenerator": "InputVideoGeneratorTypeDef",
         "VideoSelector": "VideoSelectorTypeDef",
+    },
+    total=False,
+)
+
+InputVideoGeneratorTypeDef = TypedDict(
+    "InputVideoGeneratorTypeDef",
+    {
+        "Duration": int,
     },
     total=False,
 )
@@ -2271,6 +2342,7 @@ M2tsSettingsTypeDef = TypedDict(
         "EsRateInPes": M2tsEsRateInPesType,
         "ForceTsVideoEbpOrder": M2tsForceTsVideoEbpOrderType,
         "FragmentTime": float,
+        "KlvMetadata": M2tsKlvMetadataType,
         "MaxPcrInterval": int,
         "MinEbpInterval": int,
         "NielsenId3": M2tsNielsenId3Type,
@@ -2318,6 +2390,24 @@ M3u8SettingsTypeDef = TypedDict(
         "TimedMetadataPid": int,
         "TransportStreamId": int,
         "VideoPid": int,
+    },
+    total=False,
+)
+
+MinBottomRenditionSizeTypeDef = TypedDict(
+    "MinBottomRenditionSizeTypeDef",
+    {
+        "Height": int,
+        "Width": int,
+    },
+    total=False,
+)
+
+MinTopRenditionSizeTypeDef = TypedDict(
+    "MinTopRenditionSizeTypeDef",
+    {
+        "Height": int,
+        "Width": int,
     },
     total=False,
 )
@@ -2406,8 +2496,10 @@ MpdSettingsTypeDef = TypedDict(
         "AccessibilityCaptionHints": MpdAccessibilityCaptionHintsType,
         "AudioDuration": MpdAudioDurationType,
         "CaptionContainerType": MpdCaptionContainerTypeType,
+        "KlvMetadata": MpdKlvMetadataType,
         "Scte35Esam": MpdScte35EsamType,
         "Scte35Source": MpdScte35SourceType,
+        "TimedMetadata": MpdTimedMetadataType,
     },
     total=False,
 )
@@ -2563,6 +2655,7 @@ NoiseReducerTemporalFilterSettingsTypeDef = TypedDict(
     {
         "AggressiveMode": int,
         "PostTemporalSharpening": NoiseFilterPostTemporalSharpeningType,
+        "PostTemporalSharpeningStrength": NoiseFilterPostTemporalSharpeningStrengthType,
         "Speed": int,
         "Strength": int,
     },
@@ -3215,7 +3308,9 @@ VideoSelectorTypeDef = TypedDict(
         "AlphaBehavior": AlphaBehaviorType,
         "ColorSpace": ColorSpaceType,
         "ColorSpaceUsage": ColorSpaceUsageType,
+        "EmbeddedTimecodeOverride": EmbeddedTimecodeOverrideType,
         "Hdr10Metadata": "Hdr10MetadataTypeDef",
+        "PadVideo": PadVideoType,
         "Pid": int,
         "ProgramNumber": int,
         "Rotate": InputRotateType,
@@ -3288,6 +3383,7 @@ WavSettingsTypeDef = TypedDict(
 WebvttDestinationSettingsTypeDef = TypedDict(
     "WebvttDestinationSettingsTypeDef",
     {
+        "Accessibility": WebvttAccessibilitySubsType,
         "StylePassthrough": WebvttStylePassthroughType,
     },
     total=False,

@@ -67,6 +67,7 @@ __all__ = ("Route53DomainsClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -82,11 +83,12 @@ class Exceptions:
 
 class Route53DomainsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -99,14 +101,14 @@ class Route53DomainsClient(BaseClient):
         Accepts the transfer of a domain from another Amazon Web Services account to the
         currentAmazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.accept_domain_transfer_from_another_aws_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.accept_domain_transfer_from_another_aws_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#accept_domain_transfer_from_another_aws_account)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#can_paginate)
         """
     def cancel_domain_transfer_to_another_aws_account(
@@ -116,7 +118,7 @@ class Route53DomainsClient(BaseClient):
         Cancels the transfer of a domain from the current Amazon Web Services account to
         another Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.cancel_domain_transfer_to_another_aws_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.cancel_domain_transfer_to_another_aws_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#cancel_domain_transfer_to_another_aws_account)
         """
     def check_domain_availability(
@@ -125,7 +127,7 @@ class Route53DomainsClient(BaseClient):
         """
         This operation checks the availability of one domain name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.check_domain_availability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.check_domain_availability)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#check_domain_availability)
         """
     def check_domain_transferability(
@@ -134,21 +136,21 @@ class Route53DomainsClient(BaseClient):
         """
         Checks whether a domain name can be transferred to Amazon Route 53.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.check_domain_transferability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.check_domain_transferability)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#check_domain_transferability)
         """
     def delete_domain(self, *, DomainName: str) -> DeleteDomainResponseTypeDef:
         """
         This operation deletes the specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.delete_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.delete_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#delete_domain)
         """
     def delete_tags_for_domain(self, *, DomainName: str, TagsToDelete: List[str]) -> Dict[str, Any]:
         """
         This operation deletes the specified tags for a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.delete_tags_for_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.delete_tags_for_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#delete_tags_for_domain)
         """
     def disable_domain_auto_renew(self, *, DomainName: str) -> Dict[str, Any]:
@@ -156,7 +158,7 @@ class Route53DomainsClient(BaseClient):
         This operation disables automatic renewal of domain registration for the
         specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.disable_domain_auto_renew)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.disable_domain_auto_renew)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#disable_domain_auto_renew)
         """
     def disable_domain_transfer_lock(
@@ -166,7 +168,7 @@ class Route53DomainsClient(BaseClient):
         This operation removes the transfer lock on the domain (specifically the
         `clientTransferProhibited` status) to allow domain transfers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.disable_domain_transfer_lock)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.disable_domain_transfer_lock)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#disable_domain_transfer_lock)
         """
     def enable_domain_auto_renew(self, *, DomainName: str) -> Dict[str, Any]:
@@ -174,7 +176,7 @@ class Route53DomainsClient(BaseClient):
         This operation configures Amazon Route 53 to automatically renew the specified
         domain before the domain registration expires.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.enable_domain_auto_renew)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.enable_domain_auto_renew)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#enable_domain_auto_renew)
         """
     def enable_domain_transfer_lock(
@@ -184,7 +186,7 @@ class Route53DomainsClient(BaseClient):
         This operation sets the transfer lock on the domain (specifically the
         `clientTransferProhibited` status) to prevent domain transfers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.enable_domain_transfer_lock)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.enable_domain_transfer_lock)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#enable_domain_transfer_lock)
         """
     def generate_presigned_url(
@@ -197,7 +199,7 @@ class Route53DomainsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#generate_presigned_url)
         """
     def get_contact_reachability_status(
@@ -208,7 +210,7 @@ class Route53DomainsClient(BaseClient):
         registrant contact is valid, such as registering a new domain, this operation
         returns information about whether the registrant contact has responded.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.get_contact_reachability_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.get_contact_reachability_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#get_contact_reachability_status)
         """
     def get_domain_detail(self, *, DomainName: str) -> GetDomainDetailResponseTypeDef:
@@ -216,7 +218,7 @@ class Route53DomainsClient(BaseClient):
         This operation returns detailed information about a specified domain that is
         associated with the current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.get_domain_detail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.get_domain_detail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#get_domain_detail)
         """
     def get_domain_suggestions(
@@ -225,14 +227,14 @@ class Route53DomainsClient(BaseClient):
         """
         The GetDomainSuggestions operation returns a list of suggested domain names.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.get_domain_suggestions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.get_domain_suggestions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#get_domain_suggestions)
         """
     def get_operation_detail(self, *, OperationId: str) -> GetOperationDetailResponseTypeDef:
         """
         This operation returns the current status of an operation that is not completed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.get_operation_detail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.get_operation_detail)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#get_operation_detail)
         """
     def list_domains(
@@ -247,7 +249,7 @@ class Route53DomainsClient(BaseClient):
         This operation returns all the domain names registered with Amazon Route 53 for
         the current Amazon Web Services account if no filtering conditions are used.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.list_domains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#list_domains)
         """
     def list_operations(
@@ -262,7 +264,7 @@ class Route53DomainsClient(BaseClient):
         that have ever been performed on domains that were registered by the current
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.list_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.list_operations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#list_operations)
         """
     def list_prices(
@@ -274,7 +276,7 @@ class Route53DomainsClient(BaseClient):
         restoration See also: `AWS API Documentation
         <https://docs.aws.amazon.com/goto/WebAPI/route53domains-2014-05-1...`.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.list_prices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.list_prices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#list_prices)
         """
     def list_tags_for_domain(self, *, DomainName: str) -> ListTagsForDomainResponseTypeDef:
@@ -282,7 +284,7 @@ class Route53DomainsClient(BaseClient):
         This operation returns all of the tags that are associated with the specified
         domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.list_tags_for_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.list_tags_for_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#list_tags_for_domain)
         """
     def register_domain(
@@ -302,7 +304,7 @@ class Route53DomainsClient(BaseClient):
         """
         This operation registers a domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.register_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.register_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#register_domain)
         """
     def reject_domain_transfer_from_another_aws_account(
@@ -312,7 +314,7 @@ class Route53DomainsClient(BaseClient):
         Rejects the transfer of a domain from another Amazon Web Services account to the
         current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.reject_domain_transfer_from_another_aws_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.reject_domain_transfer_from_another_aws_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#reject_domain_transfer_from_another_aws_account)
         """
     def renew_domain(
@@ -321,7 +323,7 @@ class Route53DomainsClient(BaseClient):
         """
         This operation renews a domain for the specified number of years.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.renew_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.renew_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#renew_domain)
         """
     def resend_contact_reachability_email(
@@ -333,7 +335,7 @@ class Route53DomainsClient(BaseClient):
         resends the confirmation email to the current email address for the registrant
         contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.resend_contact_reachability_email)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.resend_contact_reachability_email)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#resend_contact_reachability_email)
         """
     def retrieve_domain_auth_code(
@@ -342,7 +344,7 @@ class Route53DomainsClient(BaseClient):
         """
         This operation returns the AuthCode for the domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.retrieve_domain_auth_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.retrieve_domain_auth_code)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#retrieve_domain_auth_code)
         """
     def transfer_domain(
@@ -364,7 +366,7 @@ class Route53DomainsClient(BaseClient):
         """
         Transfers a domain from another registrar to Amazon Route 53.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.transfer_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.transfer_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#transfer_domain)
         """
     def transfer_domain_to_another_aws_account(
@@ -374,7 +376,7 @@ class Route53DomainsClient(BaseClient):
         Transfers a domain from the current Amazon Web Services account to another
         Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.transfer_domain_to_another_aws_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.transfer_domain_to_another_aws_account)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#transfer_domain_to_another_aws_account)
         """
     def update_domain_contact(
@@ -388,7 +390,7 @@ class Route53DomainsClient(BaseClient):
         """
         This operation updates the contact information for a particular domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#update_domain_contact)
         """
     def update_domain_contact_privacy(
@@ -402,7 +404,7 @@ class Route53DomainsClient(BaseClient):
         """
         This operation updates the specified domain contact's privacy setting.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact_privacy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact_privacy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#update_domain_contact_privacy)
         """
     def update_domain_nameservers(
@@ -412,7 +414,7 @@ class Route53DomainsClient(BaseClient):
         This operation replaces the current set of name servers for the domain with the
         specified set of name servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.update_domain_nameservers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.update_domain_nameservers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#update_domain_nameservers)
         """
     def update_tags_for_domain(
@@ -421,7 +423,7 @@ class Route53DomainsClient(BaseClient):
         """
         This operation adds or updates tags for a specified domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.update_tags_for_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.update_tags_for_domain)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#update_tags_for_domain)
         """
     def view_billing(
@@ -438,30 +440,30 @@ class Route53DomainsClient(BaseClient):
         //docs.aws.amazon.com/goto/WebAPI/route53domains-2014-05-15/ViewBilling>`_
         **Request Syntax** response = client.view_billing( ...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Client.view_billing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Client.view_billing)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/client.html#view_billing)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#listdomainspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_operations"]) -> ListOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#listoperationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_prices"]) -> ListPricesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Paginator.ListPrices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Paginator.ListPrices)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#listpricespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["view_billing"]) -> ViewBillingPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53domains/paginators.html#viewbillingpaginator)
         """

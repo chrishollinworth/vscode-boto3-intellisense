@@ -23,6 +23,17 @@ __all__ = (
     "BackupVaultEventType",
     "ConditionTypeType",
     "CopyJobStateType",
+    "ListBackupJobsPaginatorName",
+    "ListBackupPlanTemplatesPaginatorName",
+    "ListBackupPlanVersionsPaginatorName",
+    "ListBackupPlansPaginatorName",
+    "ListBackupSelectionsPaginatorName",
+    "ListBackupVaultsPaginatorName",
+    "ListCopyJobsPaginatorName",
+    "ListProtectedResourcesPaginatorName",
+    "ListRecoveryPointsByBackupVaultPaginatorName",
+    "ListRecoveryPointsByResourcePaginatorName",
+    "ListRestoreJobsPaginatorName",
     "RecoveryPointStatusType",
     "RestoreJobStatusType",
     "StorageClassType",
@@ -47,9 +58,22 @@ BackupVaultEventType = Literal[
     "RESTORE_JOB_FAILED",
     "RESTORE_JOB_STARTED",
     "RESTORE_JOB_SUCCESSFUL",
+    "S3_BACKUP_OBJECT_FAILED",
+    "S3_RESTORE_OBJECT_FAILED",
 ]
 ConditionTypeType = Literal["STRINGEQUALS"]
 CopyJobStateType = Literal["COMPLETED", "CREATED", "FAILED", "RUNNING"]
+ListBackupJobsPaginatorName = Literal["list_backup_jobs"]
+ListBackupPlanTemplatesPaginatorName = Literal["list_backup_plan_templates"]
+ListBackupPlanVersionsPaginatorName = Literal["list_backup_plan_versions"]
+ListBackupPlansPaginatorName = Literal["list_backup_plans"]
+ListBackupSelectionsPaginatorName = Literal["list_backup_selections"]
+ListBackupVaultsPaginatorName = Literal["list_backup_vaults"]
+ListCopyJobsPaginatorName = Literal["list_copy_jobs"]
+ListProtectedResourcesPaginatorName = Literal["list_protected_resources"]
+ListRecoveryPointsByBackupVaultPaginatorName = Literal["list_recovery_points_by_backup_vault"]
+ListRecoveryPointsByResourcePaginatorName = Literal["list_recovery_points_by_resource"]
+ListRestoreJobsPaginatorName = Literal["list_restore_jobs"]
 RecoveryPointStatusType = Literal["COMPLETED", "DELETING", "EXPIRED", "PARTIAL"]
 RestoreJobStatusType = Literal["ABORTED", "COMPLETED", "FAILED", "PENDING", "RUNNING"]
 StorageClassType = Literal["COLD", "DELETED", "WARM"]

@@ -32,6 +32,7 @@ Usage::
         ListJobExecutionsForThingPaginator,
         ListJobTemplatesPaginator,
         ListJobsPaginator,
+        ListMetricValuesPaginator,
         ListMitigationActionsPaginator,
         ListOTAUpdatesPaginator,
         ListOutgoingCertificatesPaginator,
@@ -93,6 +94,7 @@ Usage::
     list_job_executions_for_thing_paginator: ListJobExecutionsForThingPaginator = client.get_paginator("list_job_executions_for_thing")
     list_job_templates_paginator: ListJobTemplatesPaginator = client.get_paginator("list_job_templates")
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
+    list_metric_values_paginator: ListMetricValuesPaginator = client.get_paginator("list_metric_values")
     list_mitigation_actions_paginator: ListMitigationActionsPaginator = client.get_paginator("list_mitigation_actions")
     list_ota_updates_paginator: ListOTAUpdatesPaginator = client.get_paginator("list_ota_updates")
     list_outgoing_certificates_paginator: ListOutgoingCertificatesPaginator = client.get_paginator("list_outgoing_certificates")
@@ -151,6 +153,7 @@ from .paginator import (
     ListJobExecutionsForThingPaginator,
     ListJobsPaginator,
     ListJobTemplatesPaginator,
+    ListMetricValuesPaginator,
     ListMitigationActionsPaginator,
     ListOTAUpdatesPaginator,
     ListOutgoingCertificatesPaginator,
@@ -212,6 +215,7 @@ __all__ = (
     "ListJobExecutionsForThingPaginator",
     "ListJobTemplatesPaginator",
     "ListJobsPaginator",
+    "ListMetricValuesPaginator",
     "ListMitigationActionsPaginator",
     "ListOTAUpdatesPaginator",
     "ListOutgoingCertificatesPaginator",

@@ -91,6 +91,7 @@ LifecycleStateType = Literal[
     "Terminating",
     "Terminating:Proceed",
     "Terminating:Wait",
+    "Warmed:Hibernated",
     "Warmed:Pending",
     "Warmed:Pending:Proceed",
     "Warmed:Pending:Wait",
@@ -142,5 +143,5 @@ ScalingActivityStatusCodeType = Literal[
     "WaitingForSpotInstanceId",
     "WaitingForSpotInstanceRequestId",
 ]
-WarmPoolStateType = Literal["Running", "Stopped"]
+WarmPoolStateType = Literal["Hibernated", "Running", "Stopped"]
 WarmPoolStatusType = Literal["PendingDelete"]

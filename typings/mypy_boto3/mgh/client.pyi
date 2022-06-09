@@ -49,6 +49,7 @@ __all__ = ("MigrationHubClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -68,11 +69,12 @@ class Exceptions:
 
 class MigrationHubClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -90,7 +92,7 @@ class MigrationHubClient(BaseClient):
         Associates a created artifact of an AWS cloud resource, the target receiving the
         migration, with the migration task performed by a migration tool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.associate_created_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.associate_created_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#associate_created_artifact)
         """
     def associate_discovered_resource(
@@ -105,14 +107,14 @@ class MigrationHubClient(BaseClient):
         Associates a discovered resource ID from Application Discovery Service with a
         migration task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.associate_discovered_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.associate_discovered_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#associate_discovered_resource)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#can_paginate)
         """
     def create_progress_update_stream(
@@ -123,7 +125,7 @@ class MigrationHubClient(BaseClient):
         control as well as a namespace for migration task names that is implicitly
         linked to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.create_progress_update_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.create_progress_update_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#create_progress_update_stream)
         """
     def delete_progress_update_stream(
@@ -133,7 +135,7 @@ class MigrationHubClient(BaseClient):
         Deletes a progress update stream, including all of its tasks, which was
         previously created as an AWS resource used for access control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.delete_progress_update_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.delete_progress_update_stream)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#delete_progress_update_stream)
         """
     def describe_application_state(
@@ -142,7 +144,7 @@ class MigrationHubClient(BaseClient):
         """
         Gets the migration status of an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.describe_application_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.describe_application_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#describe_application_state)
         """
     def describe_migration_task(
@@ -151,7 +153,7 @@ class MigrationHubClient(BaseClient):
         """
         Retrieves a list of all attributes associated with a specific migration task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.describe_migration_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.describe_migration_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#describe_migration_task)
         """
     def disassociate_created_artifact(
@@ -166,7 +168,7 @@ class MigrationHubClient(BaseClient):
         Disassociates a created artifact of an AWS resource with a migration task
         performed by a migration tool that was previously associated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.disassociate_created_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.disassociate_created_artifact)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#disassociate_created_artifact)
         """
     def disassociate_discovered_resource(
@@ -181,7 +183,7 @@ class MigrationHubClient(BaseClient):
         Disassociate an Application Discovery Service discovered resource from a
         migration task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.disassociate_discovered_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.disassociate_discovered_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#disassociate_discovered_resource)
         """
     def generate_presigned_url(
@@ -194,7 +196,7 @@ class MigrationHubClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#generate_presigned_url)
         """
     def import_migration_task(
@@ -204,7 +206,7 @@ class MigrationHubClient(BaseClient):
         Registers a new migration task which represents a server, database, etc., being
         migrated to AWS by a migration tool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.import_migration_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.import_migration_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#import_migration_task)
         """
     def list_application_states(
@@ -213,7 +215,7 @@ class MigrationHubClient(BaseClient):
         """
         Lists all the migration statuses for your applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.list_application_states)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.list_application_states)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#list_application_states)
         """
     def list_created_artifacts(
@@ -228,7 +230,7 @@ class MigrationHubClient(BaseClient):
         Lists the created artifacts attached to a given migration task in an update
         stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.list_created_artifacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.list_created_artifacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#list_created_artifacts)
         """
     def list_discovered_resources(
@@ -242,7 +244,7 @@ class MigrationHubClient(BaseClient):
         """
         Lists discovered resources associated with the given `MigrationTask` .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.list_discovered_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.list_discovered_resources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#list_discovered_resources)
         """
     def list_migration_tasks(
@@ -252,7 +254,7 @@ class MigrationHubClient(BaseClient):
         Lists all, or filtered by resource name, migration tasks associated with the
         user account making this call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.list_migration_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.list_migration_tasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#list_migration_tasks)
         """
     def list_progress_update_streams(
@@ -261,7 +263,7 @@ class MigrationHubClient(BaseClient):
         """
         Lists progress update streams associated with the user account making this call.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.list_progress_update_streams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.list_progress_update_streams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#list_progress_update_streams)
         """
     def notify_application_state(
@@ -275,7 +277,7 @@ class MigrationHubClient(BaseClient):
         """
         Sets the migration state of an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.notify_application_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.notify_application_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#notify_application_state)
         """
     def notify_migration_task_state(
@@ -292,7 +294,7 @@ class MigrationHubClient(BaseClient):
         Notifies Migration Hub of the current status, progress, or other detail
         regarding a migration task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.notify_migration_task_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.notify_migration_task_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#notify_migration_task_state)
         """
     def put_resource_attributes(
@@ -306,7 +308,7 @@ class MigrationHubClient(BaseClient):
         """
         .
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Client.put_resource_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Client.put_resource_attributes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/client.html#put_resource_attributes)
         """
     @overload
@@ -314,7 +316,7 @@ class MigrationHubClient(BaseClient):
         self, operation_name: Literal["list_application_states"]
     ) -> ListApplicationStatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listapplicationstatespaginator)
         """
     @overload
@@ -322,7 +324,7 @@ class MigrationHubClient(BaseClient):
         self, operation_name: Literal["list_created_artifacts"]
     ) -> ListCreatedArtifactsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listcreatedartifactspaginator)
         """
     @overload
@@ -330,7 +332,7 @@ class MigrationHubClient(BaseClient):
         self, operation_name: Literal["list_discovered_resources"]
     ) -> ListDiscoveredResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listdiscoveredresourcespaginator)
         """
     @overload
@@ -338,7 +340,7 @@ class MigrationHubClient(BaseClient):
         self, operation_name: Literal["list_migration_tasks"]
     ) -> ListMigrationTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listmigrationtaskspaginator)
         """
     @overload
@@ -346,6 +348,6 @@ class MigrationHubClient(BaseClient):
         self, operation_name: Literal["list_progress_update_streams"]
     ) -> ListProgressUpdateStreamsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgh/paginators.html#listprogressupdatestreamspaginator)
         """

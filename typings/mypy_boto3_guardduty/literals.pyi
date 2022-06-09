@@ -47,7 +47,7 @@ __all__ = (
 
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
 DataSourceStatusType = Literal["DISABLED", "ENABLED"]
-DataSourceType = Literal["CLOUD_TRAIL", "DNS_LOGS", "FLOW_LOGS", "S3_LOGS"]
+DataSourceType = Literal["CLOUD_TRAIL", "DNS_LOGS", "FLOW_LOGS", "KUBERNETES_AUDIT_LOGS", "S3_LOGS"]
 DestinationTypeType = Literal["S3"]
 DetectorStatusType = Literal["DISABLED", "ENABLED"]
 FeedbackType = Literal["NOT_USEFUL", "USEFUL"]

@@ -3675,6 +3675,7 @@ LoggingConfigurationTypeDef = TypedDict(
     "LoggingConfigurationTypeDef",
     {
         "EnableSIPLogs": bool,
+        "EnableMediaMetricLogs": bool,
     },
     total=False,
 )

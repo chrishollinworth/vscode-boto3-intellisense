@@ -33,8 +33,10 @@ __all__ = (
     "ServiceNowConnectorOperatorType",
     "SourceConnectorTypeType",
     "StandardIdentifierType",
+    "StatusType",
     "TaskTypeType",
     "TriggerTypeType",
+    "WorkflowTypeType",
     "ZendeskConnectorOperatorType",
 )
 
@@ -153,10 +155,14 @@ ServiceNowConnectorOperatorType = Literal[
 ]
 SourceConnectorTypeType = Literal["Marketo", "S3", "Salesforce", "Servicenow", "Zendesk"]
 StandardIdentifierType = Literal[
-    "ASSET", "CASE", "LOOKUP_ONLY", "NEW_ONLY", "PROFILE", "SECONDARY", "UNIQUE"
+    "ASSET", "CASE", "LOOKUP_ONLY", "NEW_ONLY", "ORDER", "PROFILE", "SECONDARY", "UNIQUE"
+]
+StatusType = Literal[
+    "CANCELLED", "COMPLETE", "FAILED", "IN_PROGRESS", "NOT_STARTED", "RETRY", "SPLIT"
 ]
 TaskTypeType = Literal["Arithmetic", "Filter", "Map", "Mask", "Merge", "Truncate", "Validate"]
 TriggerTypeType = Literal["Event", "OnDemand", "Scheduled"]
+WorkflowTypeType = Literal["APPFLOW_INTEGRATION"]
 ZendeskConnectorOperatorType = Literal[
     "ADDITION",
     "DIVISION",

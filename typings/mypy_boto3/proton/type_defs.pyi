@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    ComponentDeploymentUpdateTypeType,
     DeploymentStatusType,
     DeploymentUpdateTypeType,
     EnvironmentAccountConnectionRequesterAccountTypeType,
@@ -43,6 +44,8 @@ __all__ = (
     "AcceptEnvironmentAccountConnectionInputRequestTypeDef",
     "AcceptEnvironmentAccountConnectionOutputTypeDef",
     "AccountSettingsTypeDef",
+    "CancelComponentDeploymentInputRequestTypeDef",
+    "CancelComponentDeploymentOutputTypeDef",
     "CancelEnvironmentDeploymentInputRequestTypeDef",
     "CancelEnvironmentDeploymentOutputTypeDef",
     "CancelServiceInstanceDeploymentInputRequestTypeDef",
@@ -51,6 +54,10 @@ __all__ = (
     "CancelServicePipelineDeploymentOutputTypeDef",
     "CompatibleEnvironmentTemplateInputTypeDef",
     "CompatibleEnvironmentTemplateTypeDef",
+    "ComponentSummaryTypeDef",
+    "ComponentTypeDef",
+    "CreateComponentInputRequestTypeDef",
+    "CreateComponentOutputTypeDef",
     "CreateEnvironmentAccountConnectionInputRequestTypeDef",
     "CreateEnvironmentAccountConnectionOutputTypeDef",
     "CreateEnvironmentInputRequestTypeDef",
@@ -69,6 +76,8 @@ __all__ = (
     "CreateServiceTemplateVersionOutputTypeDef",
     "CreateTemplateSyncConfigInputRequestTypeDef",
     "CreateTemplateSyncConfigOutputTypeDef",
+    "DeleteComponentInputRequestTypeDef",
+    "DeleteComponentOutputTypeDef",
     "DeleteEnvironmentAccountConnectionInputRequestTypeDef",
     "DeleteEnvironmentAccountConnectionOutputTypeDef",
     "DeleteEnvironmentInputRequestTypeDef",
@@ -97,6 +106,8 @@ __all__ = (
     "EnvironmentTemplateVersionTypeDef",
     "EnvironmentTypeDef",
     "GetAccountSettingsOutputTypeDef",
+    "GetComponentInputRequestTypeDef",
+    "GetComponentOutputTypeDef",
     "GetEnvironmentAccountConnectionInputRequestTypeDef",
     "GetEnvironmentAccountConnectionOutputTypeDef",
     "GetEnvironmentInputRequestTypeDef",
@@ -121,6 +132,12 @@ __all__ = (
     "GetTemplateSyncConfigOutputTypeDef",
     "GetTemplateSyncStatusInputRequestTypeDef",
     "GetTemplateSyncStatusOutputTypeDef",
+    "ListComponentOutputsInputRequestTypeDef",
+    "ListComponentOutputsOutputTypeDef",
+    "ListComponentProvisionedResourcesInputRequestTypeDef",
+    "ListComponentProvisionedResourcesOutputTypeDef",
+    "ListComponentsInputRequestTypeDef",
+    "ListComponentsOutputTypeDef",
     "ListEnvironmentAccountConnectionsInputRequestTypeDef",
     "ListEnvironmentAccountConnectionsOutputTypeDef",
     "ListEnvironmentOutputsInputRequestTypeDef",
@@ -189,6 +206,8 @@ __all__ = (
     "UntagResourceInputRequestTypeDef",
     "UpdateAccountSettingsInputRequestTypeDef",
     "UpdateAccountSettingsOutputTypeDef",
+    "UpdateComponentInputRequestTypeDef",
+    "UpdateComponentOutputTypeDef",
     "UpdateEnvironmentAccountConnectionInputRequestTypeDef",
     "UpdateEnvironmentAccountConnectionOutputTypeDef",
     "UpdateEnvironmentInputRequestTypeDef",
@@ -234,6 +253,21 @@ AccountSettingsTypeDef = TypedDict(
         "pipelineServiceRoleArn": str,
     },
     total=False,
+)
+
+CancelComponentDeploymentInputRequestTypeDef = TypedDict(
+    "CancelComponentDeploymentInputRequestTypeDef",
+    {
+        "componentName": str,
+    },
+)
+
+CancelComponentDeploymentOutputTypeDef = TypedDict(
+    "CancelComponentDeploymentOutputTypeDef",
+    {
+        "component": "ComponentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 CancelEnvironmentDeploymentInputRequestTypeDef = TypedDict(
@@ -298,6 +332,94 @@ CompatibleEnvironmentTemplateTypeDef = TypedDict(
     },
 )
 
+_RequiredComponentSummaryTypeDef = TypedDict(
+    "_RequiredComponentSummaryTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "deploymentStatus": DeploymentStatusType,
+        "environmentName": str,
+        "lastModifiedAt": datetime,
+        "name": str,
+    },
+)
+_OptionalComponentSummaryTypeDef = TypedDict(
+    "_OptionalComponentSummaryTypeDef",
+    {
+        "deploymentStatusMessage": str,
+        "lastDeploymentAttemptedAt": datetime,
+        "lastDeploymentSucceededAt": datetime,
+        "serviceInstanceName": str,
+        "serviceName": str,
+    },
+    total=False,
+)
+
+class ComponentSummaryTypeDef(_RequiredComponentSummaryTypeDef, _OptionalComponentSummaryTypeDef):
+    pass
+
+_RequiredComponentTypeDef = TypedDict(
+    "_RequiredComponentTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "deploymentStatus": DeploymentStatusType,
+        "environmentName": str,
+        "lastModifiedAt": datetime,
+        "name": str,
+    },
+)
+_OptionalComponentTypeDef = TypedDict(
+    "_OptionalComponentTypeDef",
+    {
+        "deploymentStatusMessage": str,
+        "description": str,
+        "lastDeploymentAttemptedAt": datetime,
+        "lastDeploymentSucceededAt": datetime,
+        "serviceInstanceName": str,
+        "serviceName": str,
+        "serviceSpec": str,
+    },
+    total=False,
+)
+
+class ComponentTypeDef(_RequiredComponentTypeDef, _OptionalComponentTypeDef):
+    pass
+
+_RequiredCreateComponentInputRequestTypeDef = TypedDict(
+    "_RequiredCreateComponentInputRequestTypeDef",
+    {
+        "manifest": str,
+        "name": str,
+        "templateFile": str,
+    },
+)
+_OptionalCreateComponentInputRequestTypeDef = TypedDict(
+    "_OptionalCreateComponentInputRequestTypeDef",
+    {
+        "description": str,
+        "environmentName": str,
+        "serviceInstanceName": str,
+        "serviceName": str,
+        "serviceSpec": str,
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateComponentInputRequestTypeDef(
+    _RequiredCreateComponentInputRequestTypeDef, _OptionalCreateComponentInputRequestTypeDef
+):
+    pass
+
+CreateComponentOutputTypeDef = TypedDict(
+    "CreateComponentOutputTypeDef",
+    {
+        "component": "ComponentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
     "_RequiredCreateEnvironmentAccountConnectionInputRequestTypeDef",
     {
@@ -310,6 +432,7 @@ _OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
     "_OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef",
     {
         "clientToken": str,
+        "componentRoleArn": str,
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -341,6 +464,7 @@ _RequiredCreateEnvironmentInputRequestTypeDef = TypedDict(
 _OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
     "_OptionalCreateEnvironmentInputRequestTypeDef",
     {
+        "componentRoleArn": str,
         "description": str,
         "environmentAccountConnectionId": str,
         "protonServiceRoleArn": str,
@@ -440,6 +564,7 @@ _OptionalCreateRepositoryInputRequestTypeDef = TypedDict(
     "_OptionalCreateRepositoryInputRequestTypeDef",
     {
         "encryptionKey": str,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -538,6 +663,7 @@ _OptionalCreateServiceTemplateVersionInputRequestTypeDef = TypedDict(
         "clientToken": str,
         "description": str,
         "majorVersion": str,
+        "supportedComponentSources": List[Literal["DIRECTLY_DEFINED"]],
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -585,6 +711,21 @@ CreateTemplateSyncConfigOutputTypeDef = TypedDict(
     "CreateTemplateSyncConfigOutputTypeDef",
     {
         "templateSyncConfig": "TemplateSyncConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteComponentInputRequestTypeDef = TypedDict(
+    "DeleteComponentInputRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+
+DeleteComponentOutputTypeDef = TypedDict(
+    "DeleteComponentOutputTypeDef",
+    {
+        "component": "ComponentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -730,8 +871,8 @@ DeleteTemplateSyncConfigOutputTypeDef = TypedDict(
     },
 )
 
-EnvironmentAccountConnectionSummaryTypeDef = TypedDict(
-    "EnvironmentAccountConnectionSummaryTypeDef",
+_RequiredEnvironmentAccountConnectionSummaryTypeDef = TypedDict(
+    "_RequiredEnvironmentAccountConnectionSummaryTypeDef",
     {
         "arn": str,
         "environmentAccountId": str,
@@ -743,10 +884,23 @@ EnvironmentAccountConnectionSummaryTypeDef = TypedDict(
         "roleArn": str,
         "status": EnvironmentAccountConnectionStatusType,
     },
+)
+_OptionalEnvironmentAccountConnectionSummaryTypeDef = TypedDict(
+    "_OptionalEnvironmentAccountConnectionSummaryTypeDef",
+    {
+        "componentRoleArn": str,
+    },
+    total=False,
 )
 
-EnvironmentAccountConnectionTypeDef = TypedDict(
-    "EnvironmentAccountConnectionTypeDef",
+class EnvironmentAccountConnectionSummaryTypeDef(
+    _RequiredEnvironmentAccountConnectionSummaryTypeDef,
+    _OptionalEnvironmentAccountConnectionSummaryTypeDef,
+):
+    pass
+
+_RequiredEnvironmentAccountConnectionTypeDef = TypedDict(
+    "_RequiredEnvironmentAccountConnectionTypeDef",
     {
         "arn": str,
         "environmentAccountId": str,
@@ -759,6 +913,18 @@ EnvironmentAccountConnectionTypeDef = TypedDict(
         "status": EnvironmentAccountConnectionStatusType,
     },
 )
+_OptionalEnvironmentAccountConnectionTypeDef = TypedDict(
+    "_OptionalEnvironmentAccountConnectionTypeDef",
+    {
+        "componentRoleArn": str,
+    },
+    total=False,
+)
+
+class EnvironmentAccountConnectionTypeDef(
+    _RequiredEnvironmentAccountConnectionTypeDef, _OptionalEnvironmentAccountConnectionTypeDef
+):
+    pass
 
 _RequiredEnvironmentSummaryTypeDef = TypedDict(
     "_RequiredEnvironmentSummaryTypeDef",
@@ -777,6 +943,7 @@ _RequiredEnvironmentSummaryTypeDef = TypedDict(
 _OptionalEnvironmentSummaryTypeDef = TypedDict(
     "_OptionalEnvironmentSummaryTypeDef",
     {
+        "componentRoleArn": str,
         "deploymentStatusMessage": str,
         "description": str,
         "environmentAccountConnectionId": str,
@@ -924,6 +1091,7 @@ _RequiredEnvironmentTypeDef = TypedDict(
 _OptionalEnvironmentTypeDef = TypedDict(
     "_OptionalEnvironmentTypeDef",
     {
+        "componentRoleArn": str,
         "deploymentStatusMessage": str,
         "description": str,
         "environmentAccountConnectionId": str,
@@ -943,6 +1111,21 @@ GetAccountSettingsOutputTypeDef = TypedDict(
     "GetAccountSettingsOutputTypeDef",
     {
         "accountSettings": "AccountSettingsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetComponentInputRequestTypeDef = TypedDict(
+    "GetComponentInputRequestTypeDef",
+    {
+        "name": str,
+    },
+)
+
+GetComponentOutputTypeDef = TypedDict(
+    "GetComponentOutputTypeDef",
+    {
+        "component": "ComponentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1137,6 +1320,85 @@ GetTemplateSyncStatusOutputTypeDef = TypedDict(
         "desiredState": "RevisionTypeDef",
         "latestSuccessfulSync": "ResourceSyncAttemptTypeDef",
         "latestSync": "ResourceSyncAttemptTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListComponentOutputsInputRequestTypeDef = TypedDict(
+    "_RequiredListComponentOutputsInputRequestTypeDef",
+    {
+        "componentName": str,
+    },
+)
+_OptionalListComponentOutputsInputRequestTypeDef = TypedDict(
+    "_OptionalListComponentOutputsInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListComponentOutputsInputRequestTypeDef(
+    _RequiredListComponentOutputsInputRequestTypeDef,
+    _OptionalListComponentOutputsInputRequestTypeDef,
+):
+    pass
+
+ListComponentOutputsOutputTypeDef = TypedDict(
+    "ListComponentOutputsOutputTypeDef",
+    {
+        "nextToken": str,
+        "outputs": List["OutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListComponentProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_RequiredListComponentProvisionedResourcesInputRequestTypeDef",
+    {
+        "componentName": str,
+    },
+)
+_OptionalListComponentProvisionedResourcesInputRequestTypeDef = TypedDict(
+    "_OptionalListComponentProvisionedResourcesInputRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListComponentProvisionedResourcesInputRequestTypeDef(
+    _RequiredListComponentProvisionedResourcesInputRequestTypeDef,
+    _OptionalListComponentProvisionedResourcesInputRequestTypeDef,
+):
+    pass
+
+ListComponentProvisionedResourcesOutputTypeDef = TypedDict(
+    "ListComponentProvisionedResourcesOutputTypeDef",
+    {
+        "nextToken": str,
+        "provisionedResources": List["ProvisionedResourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListComponentsInputRequestTypeDef = TypedDict(
+    "ListComponentsInputRequestTypeDef",
+    {
+        "environmentName": str,
+        "maxResults": int,
+        "nextToken": str,
+        "serviceInstanceName": str,
+        "serviceName": str,
+    },
+    total=False,
+)
+
+ListComponentsOutputTypeDef = TypedDict(
+    "ListComponentsOutputTypeDef",
+    {
+        "components": List["ComponentSummaryTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2000,6 +2262,7 @@ _OptionalServiceTemplateVersionTypeDef = TypedDict(
         "recommendedMinorVersion": str,
         "schema": str,
         "statusMessage": str,
+        "supportedComponentSources": List[Literal["DIRECTLY_DEFINED"]],
     },
     total=False,
 )
@@ -2109,13 +2372,58 @@ UpdateAccountSettingsOutputTypeDef = TypedDict(
     },
 )
 
-UpdateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "UpdateEnvironmentAccountConnectionInputRequestTypeDef",
+_RequiredUpdateComponentInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateComponentInputRequestTypeDef",
     {
-        "id": str,
-        "roleArn": str,
+        "deploymentType": ComponentDeploymentUpdateTypeType,
+        "name": str,
     },
 )
+_OptionalUpdateComponentInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateComponentInputRequestTypeDef",
+    {
+        "description": str,
+        "serviceInstanceName": str,
+        "serviceName": str,
+        "serviceSpec": str,
+        "templateFile": str,
+    },
+    total=False,
+)
+
+class UpdateComponentInputRequestTypeDef(
+    _RequiredUpdateComponentInputRequestTypeDef, _OptionalUpdateComponentInputRequestTypeDef
+):
+    pass
+
+UpdateComponentOutputTypeDef = TypedDict(
+    "UpdateComponentOutputTypeDef",
+    {
+        "component": "ComponentTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
+    "_RequiredUpdateEnvironmentAccountConnectionInputRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+_OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
+    "_OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef",
+    {
+        "componentRoleArn": str,
+        "roleArn": str,
+    },
+    total=False,
+)
+
+class UpdateEnvironmentAccountConnectionInputRequestTypeDef(
+    _RequiredUpdateEnvironmentAccountConnectionInputRequestTypeDef,
+    _OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef,
+):
+    pass
 
 UpdateEnvironmentAccountConnectionOutputTypeDef = TypedDict(
     "UpdateEnvironmentAccountConnectionOutputTypeDef",
@@ -2135,6 +2443,7 @@ _RequiredUpdateEnvironmentInputRequestTypeDef = TypedDict(
 _OptionalUpdateEnvironmentInputRequestTypeDef = TypedDict(
     "_OptionalUpdateEnvironmentInputRequestTypeDef",
     {
+        "componentRoleArn": str,
         "description": str,
         "environmentAccountConnectionId": str,
         "protonServiceRoleArn": str,
@@ -2353,6 +2662,7 @@ _OptionalUpdateServiceTemplateVersionInputRequestTypeDef = TypedDict(
         "compatibleEnvironmentTemplates": List["CompatibleEnvironmentTemplateInputTypeDef"],
         "description": str,
         "status": TemplateVersionStatusType,
+        "supportedComponentSources": List[Literal["DIRECTLY_DEFINED"]],
     },
     total=False,
 )

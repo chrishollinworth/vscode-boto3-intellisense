@@ -18,7 +18,15 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("DetailStatusType", "ServiceTypeType")
+__all__ = ("DetailStatusType", "FeatureStatusType", "ServiceTypeType")
 
 DetailStatusType = Literal["AVAILABLE", "PROCESSING", "UNAVAILABLE"]
-ServiceTypeType = Literal["RDS"]
+FeatureStatusType = Literal[
+    "DISABLED",
+    "DISABLED_PENDING_REBOOT",
+    "ENABLED",
+    "ENABLED_PENDING_REBOOT",
+    "UNKNOWN",
+    "UNSUPPORTED",
+]
+ServiceTypeType = Literal["DOCDB", "RDS"]

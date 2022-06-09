@@ -20,6 +20,7 @@ from .literals import (
     ContentStatusType,
     KnowledgeBaseStatusType,
     KnowledgeBaseTypeType,
+    RecommendationSourceTypeType,
     RelevanceLevelType,
 )
 
@@ -94,7 +95,10 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "QueryAssistantRequestRequestTypeDef",
     "QueryAssistantResponseTypeDef",
+    "QueryRecommendationTriggerDataTypeDef",
     "RecommendationDataTypeDef",
+    "RecommendationTriggerDataTypeDef",
+    "RecommendationTriggerTypeDef",
     "RemoveKnowledgeBaseTemplateUriRequestRequestTypeDef",
     "RenderingConfigurationTypeDef",
     "ResponseMetadataTypeDef",
@@ -631,6 +635,7 @@ GetRecommendationsResponseTypeDef = TypedDict(
     "GetRecommendationsResponseTypeDef",
     {
         "recommendations": List["RecommendationDataTypeDef"],
+        "triggers": List["RecommendationTriggerTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -901,6 +906,14 @@ QueryAssistantResponseTypeDef = TypedDict(
     },
 )
 
+QueryRecommendationTriggerDataTypeDef = TypedDict(
+    "QueryRecommendationTriggerDataTypeDef",
+    {
+        "text": str,
+    },
+    total=False,
+)
+
 _RequiredRecommendationDataTypeDef = TypedDict(
     "_RequiredRecommendationDataTypeDef",
     {
@@ -913,6 +926,7 @@ _OptionalRecommendationDataTypeDef = TypedDict(
     {
         "relevanceLevel": RelevanceLevelType,
         "relevanceScore": float,
+        "type": Literal["KNOWLEDGE_CONTENT"],
     },
     total=False,
 )
@@ -921,6 +935,25 @@ class RecommendationDataTypeDef(
     _RequiredRecommendationDataTypeDef, _OptionalRecommendationDataTypeDef
 ):
     pass
+
+RecommendationTriggerDataTypeDef = TypedDict(
+    "RecommendationTriggerDataTypeDef",
+    {
+        "query": "QueryRecommendationTriggerDataTypeDef",
+    },
+    total=False,
+)
+
+RecommendationTriggerTypeDef = TypedDict(
+    "RecommendationTriggerTypeDef",
+    {
+        "data": "RecommendationTriggerDataTypeDef",
+        "id": str,
+        "recommendationIds": List[str],
+        "source": RecommendationSourceTypeType,
+        "type": Literal["QUERY"],
+    },
+)
 
 RemoveKnowledgeBaseTemplateUriRequestRequestTypeDef = TypedDict(
     "RemoveKnowledgeBaseTemplateUriRequestRequestTypeDef",

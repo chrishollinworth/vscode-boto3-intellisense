@@ -37,9 +37,11 @@ EngineType = Literal["neural", "standard"]
 GenderType = Literal["Female", "Male"]
 LanguageCodeType = Literal[
     "arb",
+    "ca-ES",
     "cmn-CN",
     "cy-GB",
     "da-DK",
+    "de-AT",
     "de-DE",
     "en-AU",
     "en-GB",
@@ -78,6 +80,7 @@ VoiceIdType = Literal[
     "Aditi",
     "Amy",
     "Aria",
+    "Arlet",
     "Astrid",
     "Ayanda",
     "Bianca",
@@ -98,6 +101,7 @@ VoiceIdType = Literal[
     "Geraint",
     "Giorgio",
     "Gwyneth",
+    "Hannah",
     "Hans",
     "Ines",
     "Ivy",

@@ -35,10 +35,12 @@ __all__ = (
     "AthenaResultCompressionTypeType",
     "AthenaResultFormatType",
     "AuthModeType",
+    "AutoMLChannelTypeType",
     "AutoMLJobObjectiveTypeType",
     "AutoMLJobSecondaryStatusType",
     "AutoMLJobStatusType",
     "AutoMLMetricEnumType",
+    "AutoMLMetricExtendedEnumType",
     "AutoMLS3DataTypeType",
     "AutoMLSortByType",
     "AutoMLSortOrderType",
@@ -291,6 +293,14 @@ AppInstanceTypeType = Literal[
     "ml.g4dn.4xlarge",
     "ml.g4dn.8xlarge",
     "ml.g4dn.xlarge",
+    "ml.g5.12xlarge",
+    "ml.g5.16xlarge",
+    "ml.g5.24xlarge",
+    "ml.g5.2xlarge",
+    "ml.g5.48xlarge",
+    "ml.g5.4xlarge",
+    "ml.g5.8xlarge",
+    "ml.g5.xlarge",
     "ml.m5.12xlarge",
     "ml.m5.16xlarge",
     "ml.m5.24xlarge",
@@ -340,6 +350,7 @@ AssociationEdgeTypeType = Literal["AssociatedWith", "ContributedTo", "DerivedFro
 AthenaResultCompressionTypeType = Literal["GZIP", "SNAPPY", "ZLIB"]
 AthenaResultFormatType = Literal["AVRO", "JSON", "ORC", "PARQUET", "TEXTFILE"]
 AuthModeType = Literal["IAM", "SSO"]
+AutoMLChannelTypeType = Literal["training", "validation"]
 AutoMLJobObjectiveTypeType = Literal["Maximize", "Minimize"]
 AutoMLJobSecondaryStatusType = Literal[
     "AnalyzingData",
@@ -350,9 +361,11 @@ AutoMLJobSecondaryStatusType = Literal[
     "Failed",
     "FeatureEngineering",
     "GeneratingExplainabilityReport",
+    "GeneratingModelInsightsReport",
     "MaxAutoMLJobRuntimeReached",
     "MaxCandidatesReached",
     "ModelDeploymentError",
+    "ModelInsightsError",
     "ModelTuning",
     "Starting",
     "Stopped",
@@ -360,6 +373,22 @@ AutoMLJobSecondaryStatusType = Literal[
 ]
 AutoMLJobStatusType = Literal["Completed", "Failed", "InProgress", "Stopped", "Stopping"]
 AutoMLMetricEnumType = Literal["AUC", "Accuracy", "F1", "F1macro", "MSE"]
+AutoMLMetricExtendedEnumType = Literal[
+    "AUC",
+    "Accuracy",
+    "BalancedAccuracy",
+    "F1",
+    "F1macro",
+    "LogLoss",
+    "MAE",
+    "MSE",
+    "Precision",
+    "PrecisionMacro",
+    "R2",
+    "RMSE",
+    "Recall",
+    "RecallMacro",
+]
 AutoMLS3DataTypeType = Literal["ManifestFile", "S3Prefix"]
 AutoMLSortByType = Literal["CreationTime", "Name", "Status"]
 AutoMLSortOrderType = Literal["Ascending", "Descending"]
@@ -472,6 +501,14 @@ InstanceTypeType = Literal[
     "ml.g4dn.4xlarge",
     "ml.g4dn.8xlarge",
     "ml.g4dn.xlarge",
+    "ml.g5.12xlarge",
+    "ml.g5.16xlarge",
+    "ml.g5.24xlarge",
+    "ml.g5.2xlarge",
+    "ml.g5.48xlarge",
+    "ml.g5.4xlarge",
+    "ml.g5.8xlarge",
+    "ml.g5.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",
@@ -895,7 +932,7 @@ TargetDeviceType = Literal[
     "x86_win32",
     "x86_win64",
 ]
-TargetPlatformAcceleratorType = Literal["INTEL_GRAPHICS", "MALI", "NVIDIA"]
+TargetPlatformAcceleratorType = Literal["INTEL_GRAPHICS", "MALI", "NNA", "NVIDIA"]
 TargetPlatformArchType = Literal["ARM64", "ARM_EABI", "ARM_EABIHF", "X86", "X86_64"]
 TargetPlatformOsType = Literal["ANDROID", "LINUX"]
 TrafficRoutingConfigTypeType = Literal["ALL_AT_ONCE", "CANARY", "LINEAR"]
@@ -922,6 +959,14 @@ TrainingInstanceTypeType = Literal[
     "ml.g4dn.4xlarge",
     "ml.g4dn.8xlarge",
     "ml.g4dn.xlarge",
+    "ml.g5.12xlarge",
+    "ml.g5.16xlarge",
+    "ml.g5.24xlarge",
+    "ml.g5.2xlarge",
+    "ml.g5.48xlarge",
+    "ml.g5.4xlarge",
+    "ml.g5.8xlarge",
+    "ml.g5.xlarge",
     "ml.m4.10xlarge",
     "ml.m4.16xlarge",
     "ml.m4.2xlarge",

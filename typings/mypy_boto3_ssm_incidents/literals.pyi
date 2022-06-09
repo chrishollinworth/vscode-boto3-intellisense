@@ -32,13 +32,23 @@ __all__ = (
     "SortOrderType",
     "SsmTargetAccountType",
     "TimelineEventSortType",
+    "VariableTypeType",
     "WaitForReplicationSetActiveWaiterName",
     "WaitForReplicationSetDeletedWaiterName",
 )
 
 GetResourcePoliciesPaginatorName = Literal["get_resource_policies"]
 IncidentRecordStatusType = Literal["OPEN", "RESOLVED"]
-ItemTypeType = Literal["ANALYSIS", "ATTACHMENT", "INCIDENT", "METRIC", "OTHER", "PARENT"]
+ItemTypeType = Literal[
+    "ANALYSIS",
+    "ATTACHMENT",
+    "AUTOMATION",
+    "INCIDENT",
+    "INVOLVED_RESOURCE",
+    "METRIC",
+    "OTHER",
+    "PARENT",
+]
 ListIncidentRecordsPaginatorName = Literal["list_incident_records"]
 ListRelatedItemsPaginatorName = Literal["list_related_items"]
 ListReplicationSetsPaginatorName = Literal["list_replication_sets"]
@@ -49,5 +59,6 @@ ReplicationSetStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
 SsmTargetAccountType = Literal["IMPACTED_ACCOUNT", "RESPONSE_PLAN_OWNER_ACCOUNT"]
 TimelineEventSortType = Literal["EVENT_TIME"]
+VariableTypeType = Literal["INCIDENT_RECORD_ARN", "INVOLVED_RESOURCES"]
 WaitForReplicationSetActiveWaiterName = Literal["wait_for_replication_set_active"]
 WaitForReplicationSetDeletedWaiterName = Literal["wait_for_replication_set_deleted"]

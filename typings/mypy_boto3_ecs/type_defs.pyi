@@ -2610,6 +2610,10 @@ _OptionalUpdateServiceRequestRequestTypeDef = TypedDict(
         "forceNewDeployment": bool,
         "healthCheckGracePeriodSeconds": int,
         "enableExecuteCommand": bool,
+        "enableECSManagedTags": bool,
+        "loadBalancers": List["LoadBalancerTypeDef"],
+        "propagateTags": PropagateTagsType,
+        "serviceRegistries": List["ServiceRegistryTypeDef"],
     },
     total=False,
 )

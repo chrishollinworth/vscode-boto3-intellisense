@@ -412,7 +412,6 @@ DetectAnomalyResultTypeDef = TypedDict(
 _RequiredGreengrassConfigurationTypeDef = TypedDict(
     "_RequiredGreengrassConfigurationTypeDef",
     {
-        "CompilerOptions": str,
         "S3OutputLocation": "S3LocationTypeDef",
         "ComponentName": str,
     },
@@ -420,6 +419,7 @@ _RequiredGreengrassConfigurationTypeDef = TypedDict(
 _OptionalGreengrassConfigurationTypeDef = TypedDict(
     "_OptionalGreengrassConfigurationTypeDef",
     {
+        "CompilerOptions": str,
         "TargetDevice": Literal["jetson_xavier"],
         "TargetPlatform": "TargetPlatformTypeDef",
         "ComponentVersion": str,

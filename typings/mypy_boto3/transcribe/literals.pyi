@@ -28,6 +28,7 @@ __all__ = (
     "ModelStatusType",
     "OutputLocationTypeType",
     "ParticipantRoleType",
+    "PiiEntityTypeType",
     "RedactionOutputType",
     "RedactionTypeType",
     "SentimentValueType",
@@ -90,6 +91,20 @@ MedicalContentIdentificationTypeType = Literal["PHI"]
 ModelStatusType = Literal["COMPLETED", "FAILED", "IN_PROGRESS"]
 OutputLocationTypeType = Literal["CUSTOMER_BUCKET", "SERVICE_BUCKET"]
 ParticipantRoleType = Literal["AGENT", "CUSTOMER"]
+PiiEntityTypeType = Literal[
+    "ADDRESS",
+    "ALL",
+    "BANK_ACCOUNT_NUMBER",
+    "BANK_ROUTING",
+    "CREDIT_DEBIT_CVV",
+    "CREDIT_DEBIT_EXPIRY",
+    "CREDIT_DEBIT_NUMBER",
+    "EMAIL",
+    "NAME",
+    "PHONE",
+    "PIN",
+    "SSN",
+]
 RedactionOutputType = Literal["redacted", "redacted_and_unredacted"]
 RedactionTypeType = Literal["PII"]
 SentimentValueType = Literal["MIXED", "NEGATIVE", "NEUTRAL", "POSITIVE"]

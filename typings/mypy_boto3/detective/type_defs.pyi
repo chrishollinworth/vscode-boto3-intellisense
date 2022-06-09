@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import MemberDisabledReasonType, MemberStatusType
+from .literals import InvitationTypeType, MemberDisabledReasonType, MemberStatusType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -25,6 +25,7 @@ else:
 __all__ = (
     "AcceptInvitationRequestRequestTypeDef",
     "AccountTypeDef",
+    "AdministratorTypeDef",
     "CreateGraphRequestRequestTypeDef",
     "CreateGraphResponseTypeDef",
     "CreateMembersRequestRequestTypeDef",
@@ -32,7 +33,10 @@ __all__ = (
     "DeleteGraphRequestRequestTypeDef",
     "DeleteMembersRequestRequestTypeDef",
     "DeleteMembersResponseTypeDef",
+    "DescribeOrganizationConfigurationRequestRequestTypeDef",
+    "DescribeOrganizationConfigurationResponseTypeDef",
     "DisassociateMembershipRequestRequestTypeDef",
+    "EnableOrganizationAdminAccountRequestRequestTypeDef",
     "GetMembersRequestRequestTypeDef",
     "GetMembersResponseTypeDef",
     "GraphTypeDef",
@@ -42,6 +46,8 @@ __all__ = (
     "ListInvitationsResponseTypeDef",
     "ListMembersRequestRequestTypeDef",
     "ListMembersResponseTypeDef",
+    "ListOrganizationAdminAccountsRequestRequestTypeDef",
+    "ListOrganizationAdminAccountsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MemberDetailTypeDef",
@@ -51,6 +57,7 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "UnprocessedAccountTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateOrganizationConfigurationRequestRequestTypeDef",
 )
 
 AcceptInvitationRequestRequestTypeDef = TypedDict(
@@ -66,6 +73,16 @@ AccountTypeDef = TypedDict(
         "AccountId": str,
         "EmailAddress": str,
     },
+)
+
+AdministratorTypeDef = TypedDict(
+    "AdministratorTypeDef",
+    {
+        "AccountId": str,
+        "GraphArn": str,
+        "DelegationTime": datetime,
+    },
+    total=False,
 )
 
 CreateGraphRequestRequestTypeDef = TypedDict(
@@ -138,10 +155,32 @@ DeleteMembersResponseTypeDef = TypedDict(
     },
 )
 
+DescribeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeOrganizationConfigurationRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+    },
+)
+
+DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
+    "DescribeOrganizationConfigurationResponseTypeDef",
+    {
+        "AutoEnable": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DisassociateMembershipRequestRequestTypeDef = TypedDict(
     "DisassociateMembershipRequestRequestTypeDef",
     {
         "GraphArn": str,
+    },
+)
+
+EnableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
+    "EnableOrganizationAdminAccountRequestRequestTypeDef",
+    {
+        "AccountId": str,
     },
 )
 
@@ -236,6 +275,24 @@ ListMembersResponseTypeDef = TypedDict(
     },
 )
 
+ListOrganizationAdminAccountsRequestRequestTypeDef = TypedDict(
+    "ListOrganizationAdminAccountsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
+    "ListOrganizationAdminAccountsResponseTypeDef",
+    {
+        "Administrators": List["AdministratorTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -267,6 +324,7 @@ MemberDetailTypeDef = TypedDict(
         "VolumeUsageUpdatedTime": datetime,
         "PercentOfGraphUtilization": float,
         "PercentOfGraphUtilizationUpdatedTime": datetime,
+        "InvitationType": InvitationTypeType,
     },
     total=False,
 )
@@ -321,3 +379,23 @@ UntagResourceRequestRequestTypeDef = TypedDict(
         "TagKeys": List[str],
     },
 )
+
+_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef",
+    {
+        "GraphArn": str,
+    },
+)
+_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef",
+    {
+        "AutoEnable": bool,
+    },
+    total=False,
+)
+
+class UpdateOrganizationConfigurationRequestRequestTypeDef(
+    _RequiredUpdateOrganizationConfigurationRequestRequestTypeDef,
+    _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef,
+):
+    pass

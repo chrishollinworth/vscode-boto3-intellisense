@@ -54,7 +54,7 @@ CompressionFormatType = Literal[
 ]
 DatabaseOutputModeType = Literal["NEW_TABLE"]
 EncryptionModeType = Literal["SSE-KMS", "SSE-S3"]
-InputFormatType = Literal["CSV", "EXCEL", "JSON", "PARQUET"]
+InputFormatType = Literal["CSV", "EXCEL", "JSON", "ORC", "PARQUET"]
 JobRunStateType = Literal[
     "FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING", "SUCCEEDED", "TIMEOUT"
 ]

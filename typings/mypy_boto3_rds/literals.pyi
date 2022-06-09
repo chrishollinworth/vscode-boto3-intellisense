@@ -36,7 +36,6 @@ __all__ = (
     "DBSnapshotCompletedWaiterName",
     "DBSnapshotDeletedWaiterName",
     "DescribeCertificatesPaginatorName",
-    "DescribeCustomAvailabilityZonesPaginatorName",
     "DescribeDBClusterBacktracksPaginatorName",
     "DescribeDBClusterEndpointsPaginatorName",
     "DescribeDBClusterParameterGroupsPaginatorName",
@@ -62,7 +61,6 @@ __all__ = (
     "DescribeEventsPaginatorName",
     "DescribeExportTasksPaginatorName",
     "DescribeGlobalClustersPaginatorName",
-    "DescribeInstallationMediaPaginatorName",
     "DescribeOptionGroupOptionsPaginatorName",
     "DescribeOptionGroupsPaginatorName",
     "DescribeOrderableDBInstanceOptionsPaginatorName",
@@ -117,7 +115,6 @@ DBSnapshotAvailableWaiterName = Literal["db_snapshot_available"]
 DBSnapshotCompletedWaiterName = Literal["db_snapshot_completed"]
 DBSnapshotDeletedWaiterName = Literal["db_snapshot_deleted"]
 DescribeCertificatesPaginatorName = Literal["describe_certificates"]
-DescribeCustomAvailabilityZonesPaginatorName = Literal["describe_custom_availability_zones"]
 DescribeDBClusterBacktracksPaginatorName = Literal["describe_db_cluster_backtracks"]
 DescribeDBClusterEndpointsPaginatorName = Literal["describe_db_cluster_endpoints"]
 DescribeDBClusterParameterGroupsPaginatorName = Literal["describe_db_cluster_parameter_groups"]
@@ -145,7 +142,6 @@ DescribeEventSubscriptionsPaginatorName = Literal["describe_event_subscriptions"
 DescribeEventsPaginatorName = Literal["describe_events"]
 DescribeExportTasksPaginatorName = Literal["describe_export_tasks"]
 DescribeGlobalClustersPaginatorName = Literal["describe_global_clusters"]
-DescribeInstallationMediaPaginatorName = Literal["describe_installation_media"]
 DescribeOptionGroupOptionsPaginatorName = Literal["describe_option_group_options"]
 DescribeOptionGroupsPaginatorName = Literal["describe_option_groups"]
 DescribeOrderableDBInstanceOptionsPaginatorName = Literal["describe_orderable_db_instance_options"]
@@ -166,6 +162,7 @@ SourceTypeType = Literal[
     "db-cluster-snapshot",
     "db-instance",
     "db-parameter-group",
+    "db-proxy",
     "db-security-group",
     "db-snapshot",
 ]

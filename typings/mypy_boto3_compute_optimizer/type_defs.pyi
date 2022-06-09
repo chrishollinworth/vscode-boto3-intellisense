@@ -29,6 +29,8 @@ from .literals import (
     FilterNameType,
     FindingReasonCodeType,
     FindingType,
+    InferredWorkloadTypesPreferenceType,
+    InferredWorkloadTypeType,
     InstanceRecommendationFindingReasonCodeType,
     JobFilterNameType,
     JobStatusType,
@@ -40,7 +42,9 @@ from .literals import (
     LambdaFunctionRecommendationFindingType,
     MetricNameType,
     MetricStatisticType,
+    MigrationEffortType,
     PlatformDifferenceType,
+    RecommendationPreferenceNameType,
     RecommendationSourceTypeType,
     ResourceTypeType,
     ScopeNameType,
@@ -161,6 +165,7 @@ AutoScalingGroupRecommendationOptionTypeDef = TypedDict(
         "performanceRisk": float,
         "rank": int,
         "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "migrationEffort": MigrationEffortType,
     },
     total=False,
 )
@@ -179,6 +184,7 @@ AutoScalingGroupRecommendationTypeDef = TypedDict(
         "lastRefreshTimestamp": datetime,
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
+        "inferredWorkloadTypes": List[InferredWorkloadTypeType],
     },
     total=False,
 )
@@ -198,7 +204,7 @@ _RequiredDeleteRecommendationPreferencesRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteRecommendationPreferencesRequestRequestTypeDef",
     {
         "resourceType": ResourceTypeType,
-        "recommendationPreferenceNames": List[Literal["EnhancedInfrastructureMetrics"]],
+        "recommendationPreferenceNames": List[RecommendationPreferenceNameType],
     },
 )
 _OptionalDeleteRecommendationPreferencesRequestRequestTypeDef = TypedDict(
@@ -259,6 +265,7 @@ EffectiveRecommendationPreferencesTypeDef = TypedDict(
     {
         "cpuVendorArchitectures": List[CpuVendorArchitectureType],
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+        "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
     },
     total=False,
 )
@@ -668,6 +675,7 @@ InstanceRecommendationOptionTypeDef = TypedDict(
         "performanceRisk": float,
         "rank": int,
         "savingsOpportunity": "SavingsOpportunityTypeDef",
+        "migrationEffort": MigrationEffortType,
     },
     total=False,
 )
@@ -688,6 +696,7 @@ InstanceRecommendationTypeDef = TypedDict(
         "lastRefreshTimestamp": datetime,
         "currentPerformanceRisk": CurrentPerformanceRiskType,
         "effectiveRecommendationPreferences": "EffectiveRecommendationPreferencesTypeDef",
+        "inferredWorkloadTypes": List[InferredWorkloadTypeType],
     },
     total=False,
 )
@@ -781,6 +790,7 @@ _OptionalPutRecommendationPreferencesRequestRequestTypeDef = TypedDict(
     {
         "scope": "ScopeTypeDef",
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+        "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
     },
     total=False,
 )
@@ -820,6 +830,7 @@ RecommendationPreferencesDetailTypeDef = TypedDict(
         "scope": "ScopeTypeDef",
         "resourceType": ResourceTypeType,
         "enhancedInfrastructureMetrics": EnhancedInfrastructureMetricsType,
+        "inferredWorkloadTypes": InferredWorkloadTypesPreferenceType,
     },
     total=False,
 )

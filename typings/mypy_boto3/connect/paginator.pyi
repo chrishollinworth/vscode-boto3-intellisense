@@ -17,6 +17,7 @@ Usage::
         ListContactFlowModulesPaginator,
         ListContactFlowsPaginator,
         ListContactReferencesPaginator,
+        ListDefaultVocabulariesPaginator,
         ListHoursOfOperationsPaginator,
         ListInstanceAttributesPaginator,
         ListInstanceStorageConfigsPaginator,
@@ -25,6 +26,7 @@ Usage::
         ListLambdaFunctionsPaginator,
         ListLexBotsPaginator,
         ListPhoneNumbersPaginator,
+        ListPhoneNumbersV2Paginator,
         ListPromptsPaginator,
         ListQueueQuickConnectsPaginator,
         ListQueuesPaginator,
@@ -34,9 +36,13 @@ Usage::
         ListSecurityKeysPaginator,
         ListSecurityProfilePermissionsPaginator,
         ListSecurityProfilesPaginator,
+        ListTaskTemplatesPaginator,
         ListUseCasesPaginator,
         ListUserHierarchyGroupsPaginator,
         ListUsersPaginator,
+        SearchAvailablePhoneNumbersPaginator,
+        SearchUsersPaginator,
+        SearchVocabulariesPaginator,
     )
 
     client: ConnectClient = boto3.client("connect")
@@ -48,6 +54,7 @@ Usage::
     list_contact_flow_modules_paginator: ListContactFlowModulesPaginator = client.get_paginator("list_contact_flow_modules")
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
     list_contact_references_paginator: ListContactReferencesPaginator = client.get_paginator("list_contact_references")
+    list_default_vocabularies_paginator: ListDefaultVocabulariesPaginator = client.get_paginator("list_default_vocabularies")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
     list_instance_storage_configs_paginator: ListInstanceStorageConfigsPaginator = client.get_paginator("list_instance_storage_configs")
@@ -56,6 +63,7 @@ Usage::
     list_lambda_functions_paginator: ListLambdaFunctionsPaginator = client.get_paginator("list_lambda_functions")
     list_lex_bots_paginator: ListLexBotsPaginator = client.get_paginator("list_lex_bots")
     list_phone_numbers_paginator: ListPhoneNumbersPaginator = client.get_paginator("list_phone_numbers")
+    list_phone_numbers_v2_paginator: ListPhoneNumbersV2Paginator = client.get_paginator("list_phone_numbers_v2")
     list_prompts_paginator: ListPromptsPaginator = client.get_paginator("list_prompts")
     list_queue_quick_connects_paginator: ListQueueQuickConnectsPaginator = client.get_paginator("list_queue_quick_connects")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
@@ -65,9 +73,13 @@ Usage::
     list_security_keys_paginator: ListSecurityKeysPaginator = client.get_paginator("list_security_keys")
     list_security_profile_permissions_paginator: ListSecurityProfilePermissionsPaginator = client.get_paginator("list_security_profile_permissions")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
+    list_task_templates_paginator: ListTaskTemplatesPaginator = client.get_paginator("list_task_templates")
     list_use_cases_paginator: ListUseCasesPaginator = client.get_paginator("list_use_cases")
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
+    search_available_phone_numbers_paginator: SearchAvailablePhoneNumbersPaginator = client.get_paginator("search_available_phone_numbers")
+    search_users_paginator: SearchUsersPaginator = client.get_paginator("search_users")
+    search_vocabularies_paginator: SearchVocabulariesPaginator = client.get_paginator("search_vocabularies")
     ```
 """
 from datetime import datetime
@@ -88,6 +100,9 @@ from .literals import (
     QueueTypeType,
     QuickConnectTypeType,
     ReferenceTypeType,
+    TaskTemplateStatusType,
+    VocabularyLanguageCodeType,
+    VocabularyStateType,
 )
 from .type_defs import (
     FiltersTypeDef,
@@ -99,6 +114,7 @@ from .type_defs import (
     ListContactFlowModulesResponseTypeDef,
     ListContactFlowsResponseTypeDef,
     ListContactReferencesResponseTypeDef,
+    ListDefaultVocabulariesResponseTypeDef,
     ListHoursOfOperationsResponseTypeDef,
     ListInstanceAttributesResponseTypeDef,
     ListInstancesResponseTypeDef,
@@ -107,6 +123,7 @@ from .type_defs import (
     ListLambdaFunctionsResponseTypeDef,
     ListLexBotsResponseTypeDef,
     ListPhoneNumbersResponseTypeDef,
+    ListPhoneNumbersV2ResponseTypeDef,
     ListPromptsResponseTypeDef,
     ListQueueQuickConnectsResponseTypeDef,
     ListQueuesResponseTypeDef,
@@ -116,10 +133,16 @@ from .type_defs import (
     ListSecurityKeysResponseTypeDef,
     ListSecurityProfilePermissionsResponseTypeDef,
     ListSecurityProfilesResponseTypeDef,
+    ListTaskTemplatesResponseTypeDef,
     ListUseCasesResponseTypeDef,
     ListUserHierarchyGroupsResponseTypeDef,
     ListUsersResponseTypeDef,
     PaginatorConfigTypeDef,
+    SearchAvailablePhoneNumbersResponseTypeDef,
+    SearchUsersResponseTypeDef,
+    SearchVocabulariesResponseTypeDef,
+    UserSearchCriteriaTypeDef,
+    UserSearchFilterTypeDef,
 )
 
 __all__ = (
@@ -130,6 +153,7 @@ __all__ = (
     "ListContactFlowModulesPaginator",
     "ListContactFlowsPaginator",
     "ListContactReferencesPaginator",
+    "ListDefaultVocabulariesPaginator",
     "ListHoursOfOperationsPaginator",
     "ListInstanceAttributesPaginator",
     "ListInstanceStorageConfigsPaginator",
@@ -138,6 +162,7 @@ __all__ = (
     "ListLambdaFunctionsPaginator",
     "ListLexBotsPaginator",
     "ListPhoneNumbersPaginator",
+    "ListPhoneNumbersV2Paginator",
     "ListPromptsPaginator",
     "ListQueueQuickConnectsPaginator",
     "ListQueuesPaginator",
@@ -147,14 +172,18 @@ __all__ = (
     "ListSecurityKeysPaginator",
     "ListSecurityProfilePermissionsPaginator",
     "ListSecurityProfilesPaginator",
+    "ListTaskTemplatesPaginator",
     "ListUseCasesPaginator",
     "ListUserHierarchyGroupsPaginator",
     "ListUsersPaginator",
+    "SearchAvailablePhoneNumbersPaginator",
+    "SearchUsersPaginator",
+    "SearchVocabulariesPaginator",
 )
 
 class GetMetricDataPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.GetMetricData)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.GetMetricData)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#getmetricdatapaginator)
     """
 
@@ -170,13 +199,13 @@ class GetMetricDataPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetMetricDataResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.GetMetricData.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.GetMetricData.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#getmetricdatapaginator)
         """
 
 class ListAgentStatusesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListAgentStatuses)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListAgentStatuses)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listagentstatusespaginator)
     """
 
@@ -188,13 +217,13 @@ class ListAgentStatusesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAgentStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListAgentStatuses.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListAgentStatuses.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listagentstatusespaginator)
         """
 
 class ListApprovedOriginsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listapprovedoriginspaginator)
     """
 
@@ -202,13 +231,13 @@ class ListApprovedOriginsPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApprovedOriginsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listapprovedoriginspaginator)
         """
 
 class ListBotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListBots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListBots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listbotspaginator)
     """
 
@@ -220,13 +249,13 @@ class ListBotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBotsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListBots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListBots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listbotspaginator)
         """
 
 class ListContactFlowModulesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListContactFlowModules)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListContactFlowModules)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowmodulespaginator)
     """
 
@@ -238,13 +267,13 @@ class ListContactFlowModulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContactFlowModulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListContactFlowModules.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListContactFlowModules.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowmodulespaginator)
         """
 
 class ListContactFlowsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListContactFlows)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListContactFlows)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowspaginator)
     """
 
@@ -256,13 +285,13 @@ class ListContactFlowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContactFlowsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListContactFlows.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListContactFlows.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactflowspaginator)
         """
 
 class ListContactReferencesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListContactReferences)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListContactReferences)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactreferencespaginator)
     """
 
@@ -275,13 +304,31 @@ class ListContactReferencesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContactReferencesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListContactReferences.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListContactReferences.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listcontactreferencespaginator)
+        """
+
+class ListDefaultVocabulariesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListDefaultVocabularies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listdefaultvocabulariespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        InstanceId: str,
+        LanguageCode: VocabularyLanguageCodeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListDefaultVocabulariesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListDefaultVocabularies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listdefaultvocabulariespaginator)
         """
 
 class ListHoursOfOperationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listhoursofoperationspaginator)
     """
 
@@ -289,13 +336,13 @@ class ListHoursOfOperationsPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHoursOfOperationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listhoursofoperationspaginator)
         """
 
 class ListInstanceAttributesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstanceattributespaginator)
     """
 
@@ -303,13 +350,13 @@ class ListInstanceAttributesPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceAttributesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstanceattributespaginator)
         """
 
 class ListInstanceStorageConfigsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancestorageconfigspaginator)
     """
 
@@ -321,13 +368,13 @@ class ListInstanceStorageConfigsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceStorageConfigsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancestorageconfigspaginator)
         """
 
 class ListInstancesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListInstances)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListInstances)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancespaginator)
     """
 
@@ -335,13 +382,13 @@ class ListInstancesPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstancesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListInstances.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListInstances.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listinstancespaginator)
         """
 
 class ListIntegrationAssociationsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listintegrationassociationspaginator)
     """
 
@@ -353,13 +400,13 @@ class ListIntegrationAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIntegrationAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listintegrationassociationspaginator)
         """
 
 class ListLambdaFunctionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlambdafunctionspaginator)
     """
 
@@ -367,13 +414,13 @@ class ListLambdaFunctionsPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLambdaFunctionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlambdafunctionspaginator)
         """
 
 class ListLexBotsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListLexBots)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListLexBots)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlexbotspaginator)
     """
 
@@ -381,13 +428,13 @@ class ListLexBotsPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLexBotsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListLexBots.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListLexBots.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listlexbotspaginator)
         """
 
 class ListPhoneNumbersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumberspaginator)
     """
 
@@ -400,13 +447,33 @@ class ListPhoneNumbersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPhoneNumbersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumberspaginator)
+        """
+
+class ListPhoneNumbersV2Paginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListPhoneNumbersV2)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumbersv2paginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        TargetArn: str = None,
+        PhoneNumberCountryCodes: List[PhoneNumberCountryCodeType] = None,
+        PhoneNumberTypes: List[PhoneNumberTypeType] = None,
+        PhoneNumberPrefix: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListPhoneNumbersV2ResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListPhoneNumbersV2.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listphonenumbersv2paginator)
         """
 
 class ListPromptsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListPrompts)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListPrompts)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listpromptspaginator)
     """
 
@@ -414,13 +481,13 @@ class ListPromptsPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPromptsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListPrompts.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListPrompts.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listpromptspaginator)
         """
 
 class ListQueueQuickConnectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuequickconnectspaginator)
     """
 
@@ -428,13 +495,13 @@ class ListQueueQuickConnectsPaginator(Boto3Paginator):
         self, *, InstanceId: str, QueueId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueueQuickConnectsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuequickconnectspaginator)
         """
 
 class ListQueuesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListQueues)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListQueues)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuespaginator)
     """
 
@@ -446,13 +513,13 @@ class ListQueuesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueuesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListQueues.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListQueues.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listqueuespaginator)
         """
 
 class ListQuickConnectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListQuickConnects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListQuickConnects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listquickconnectspaginator)
     """
 
@@ -464,13 +531,13 @@ class ListQuickConnectsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQuickConnectsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListQuickConnects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListQuickConnects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listquickconnectspaginator)
         """
 
 class ListRoutingProfileQueuesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilequeuespaginator)
     """
 
@@ -482,13 +549,13 @@ class ListRoutingProfileQueuesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRoutingProfileQueuesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilequeuespaginator)
         """
 
 class ListRoutingProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilespaginator)
     """
 
@@ -496,13 +563,13 @@ class ListRoutingProfilesPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRoutingProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listroutingprofilespaginator)
         """
 
 class ListSecurityKeysPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListSecurityKeys)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListSecurityKeys)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecuritykeyspaginator)
     """
 
@@ -510,13 +577,13 @@ class ListSecurityKeysPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityKeysResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListSecurityKeys.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListSecurityKeys.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecuritykeyspaginator)
         """
 
 class ListSecurityProfilePermissionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListSecurityProfilePermissions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListSecurityProfilePermissions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilepermissionspaginator)
     """
 
@@ -528,13 +595,13 @@ class ListSecurityProfilePermissionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityProfilePermissionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListSecurityProfilePermissions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListSecurityProfilePermissions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilepermissionspaginator)
         """
 
 class ListSecurityProfilesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilespaginator)
     """
 
@@ -542,13 +609,32 @@ class ListSecurityProfilesPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listsecurityprofilespaginator)
+        """
+
+class ListTaskTemplatesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListTaskTemplates)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtasktemplatespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        InstanceId: str,
+        Status: TaskTemplateStatusType = None,
+        Name: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListTaskTemplatesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListTaskTemplates.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listtasktemplatespaginator)
         """
 
 class ListUseCasesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListUseCases)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListUseCases)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listusecasespaginator)
     """
 
@@ -560,13 +646,13 @@ class ListUseCasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUseCasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListUseCases.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListUseCases.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listusecasespaginator)
         """
 
 class ListUserHierarchyGroupsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserhierarchygroupspaginator)
     """
 
@@ -574,13 +660,13 @@ class ListUserHierarchyGroupsPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserHierarchyGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserhierarchygroupspaginator)
         """
 
 class ListUsersPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListUsers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListUsers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserspaginator)
     """
 
@@ -588,6 +674,65 @@ class ListUsersPaginator(Boto3Paginator):
         self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/connect.html#Connect.Paginator.ListUsers.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.ListUsers.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#listuserspaginator)
+        """
+
+class SearchAvailablePhoneNumbersPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.SearchAvailablePhoneNumbers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchavailablephonenumberspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        TargetArn: str,
+        PhoneNumberCountryCode: PhoneNumberCountryCodeType,
+        PhoneNumberType: PhoneNumberTypeType,
+        PhoneNumberPrefix: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[SearchAvailablePhoneNumbersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.SearchAvailablePhoneNumbers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchavailablephonenumberspaginator)
+        """
+
+class SearchUsersPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.SearchUsers)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchuserspaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        InstanceId: str = None,
+        SearchFilter: "UserSearchFilterTypeDef" = None,
+        SearchCriteria: "UserSearchCriteriaTypeDef" = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[SearchUsersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.SearchUsers.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchuserspaginator)
+        """
+
+class SearchVocabulariesPaginator(Boto3Paginator):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.SearchVocabularies)
+    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchvocabulariespaginator)
+    """
+
+    def paginate(
+        self,
+        *,
+        InstanceId: str,
+        State: VocabularyStateType = None,
+        NameStartsWith: str = None,
+        LanguageCode: VocabularyLanguageCodeType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[SearchVocabulariesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/connect.html#Connect.Paginator.SearchVocabularies.paginate)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connect/paginators.html#searchvocabulariespaginator)
         """

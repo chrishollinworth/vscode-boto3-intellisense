@@ -168,6 +168,8 @@ __all__ = (
     "ListSolutionVersionsResponseTypeDef",
     "ListSolutionsRequestRequestTypeDef",
     "ListSolutionsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "OptimizationObjectiveTypeDef",
     "PaginatorConfigTypeDef",
     "RecipeSummaryTypeDef",
@@ -183,8 +185,15 @@ __all__ = (
     "SolutionTypeDef",
     "SolutionVersionSummaryTypeDef",
     "SolutionVersionTypeDef",
+    "StartRecommenderRequestRequestTypeDef",
+    "StartRecommenderResponseTypeDef",
+    "StopRecommenderRequestRequestTypeDef",
+    "StopRecommenderResponseTypeDef",
     "StopSolutionVersionCreationRequestRequestTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "TagTypeDef",
     "TunedHPOParamsTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateCampaignRequestRequestTypeDef",
     "UpdateCampaignResponseTypeDef",
     "UpdateRecommenderRequestRequestTypeDef",
@@ -432,6 +441,7 @@ _OptionalCreateBatchInferenceJobRequestRequestTypeDef = TypedDict(
         "filterArn": str,
         "numResults": int,
         "batchInferenceJobConfig": "BatchInferenceJobConfigTypeDef",
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -465,6 +475,7 @@ _OptionalCreateBatchSegmentJobRequestRequestTypeDef = TypedDict(
     {
         "filterArn": str,
         "numResults": int,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -495,6 +506,7 @@ _OptionalCreateCampaignRequestRequestTypeDef = TypedDict(
     {
         "minProvisionedTPS": int,
         "campaignConfig": "CampaignConfigTypeDef",
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -525,6 +537,7 @@ _OptionalCreateDatasetExportJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDatasetExportJobRequestRequestTypeDef",
     {
         "ingestionMode": IngestionModeType,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -555,6 +568,7 @@ _OptionalCreateDatasetGroupRequestRequestTypeDef = TypedDict(
         "roleArn": str,
         "kmsKeyArn": str,
         "domain": DomainType,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -574,8 +588,8 @@ CreateDatasetGroupResponseTypeDef = TypedDict(
     },
 )
 
-CreateDatasetImportJobRequestRequestTypeDef = TypedDict(
-    "CreateDatasetImportJobRequestRequestTypeDef",
+_RequiredCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDatasetImportJobRequestRequestTypeDef",
     {
         "jobName": str,
         "datasetArn": str,
@@ -583,6 +597,19 @@ CreateDatasetImportJobRequestRequestTypeDef = TypedDict(
         "roleArn": str,
     },
 )
+_OptionalCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDatasetImportJobRequestRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDatasetImportJobRequestRequestTypeDef(
+    _RequiredCreateDatasetImportJobRequestRequestTypeDef,
+    _OptionalCreateDatasetImportJobRequestRequestTypeDef,
+):
+    pass
 
 CreateDatasetImportJobResponseTypeDef = TypedDict(
     "CreateDatasetImportJobResponseTypeDef",
@@ -592,8 +619,8 @@ CreateDatasetImportJobResponseTypeDef = TypedDict(
     },
 )
 
-CreateDatasetRequestRequestTypeDef = TypedDict(
-    "CreateDatasetRequestRequestTypeDef",
+_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateDatasetRequestRequestTypeDef",
     {
         "name": str,
         "schemaArn": str,
@@ -601,6 +628,18 @@ CreateDatasetRequestRequestTypeDef = TypedDict(
         "datasetType": str,
     },
 )
+_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateDatasetRequestRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateDatasetRequestRequestTypeDef(
+    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
+):
+    pass
 
 CreateDatasetResponseTypeDef = TypedDict(
     "CreateDatasetResponseTypeDef",
@@ -610,13 +649,26 @@ CreateDatasetResponseTypeDef = TypedDict(
     },
 )
 
-CreateEventTrackerRequestRequestTypeDef = TypedDict(
-    "CreateEventTrackerRequestRequestTypeDef",
+_RequiredCreateEventTrackerRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEventTrackerRequestRequestTypeDef",
     {
         "name": str,
         "datasetGroupArn": str,
     },
 )
+_OptionalCreateEventTrackerRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEventTrackerRequestRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateEventTrackerRequestRequestTypeDef(
+    _RequiredCreateEventTrackerRequestRequestTypeDef,
+    _OptionalCreateEventTrackerRequestRequestTypeDef,
+):
+    pass
 
 CreateEventTrackerResponseTypeDef = TypedDict(
     "CreateEventTrackerResponseTypeDef",
@@ -627,14 +679,26 @@ CreateEventTrackerResponseTypeDef = TypedDict(
     },
 )
 
-CreateFilterRequestRequestTypeDef = TypedDict(
-    "CreateFilterRequestRequestTypeDef",
+_RequiredCreateFilterRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFilterRequestRequestTypeDef",
     {
         "name": str,
         "datasetGroupArn": str,
         "filterExpression": str,
     },
 )
+_OptionalCreateFilterRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFilterRequestRequestTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateFilterRequestRequestTypeDef(
+    _RequiredCreateFilterRequestRequestTypeDef, _OptionalCreateFilterRequestRequestTypeDef
+):
+    pass
 
 CreateFilterResponseTypeDef = TypedDict(
     "CreateFilterResponseTypeDef",
@@ -656,6 +720,7 @@ _OptionalCreateRecommenderRequestRequestTypeDef = TypedDict(
     "_OptionalCreateRecommenderRequestRequestTypeDef",
     {
         "recommenderConfig": "RecommenderConfigTypeDef",
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -716,6 +781,7 @@ _OptionalCreateSolutionRequestRequestTypeDef = TypedDict(
         "recipeArn": str,
         "eventType": str,
         "solutionConfig": "SolutionConfigTypeDef",
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -743,6 +809,7 @@ _OptionalCreateSolutionVersionRequestRequestTypeDef = TypedDict(
     "_OptionalCreateSolutionVersionRequestRequestTypeDef",
     {
         "trainingMode": TrainingModeType,
+        "tags": List["TagTypeDef"],
     },
     total=False,
 )
@@ -1655,6 +1722,21 @@ ListSolutionsResponseTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 OptimizationObjectiveTypeDef = TypedDict(
     "OptimizationObjectiveTypeDef",
     {
@@ -1707,6 +1789,7 @@ RecommenderConfigTypeDef = TypedDict(
     "RecommenderConfigTypeDef",
     {
         "itemExplorationConfig": Dict[str, str],
+        "minRecommendationRequestsPerSecond": int,
     },
     total=False,
 )
@@ -1739,6 +1822,7 @@ RecommenderTypeDef = TypedDict(
         "status": str,
         "failureReason": str,
         "latestRecommenderUpdate": "RecommenderUpdateSummaryTypeDef",
+        "modelMetrics": Dict[str, float],
     },
     total=False,
 )
@@ -1862,10 +1946,56 @@ SolutionVersionTypeDef = TypedDict(
     total=False,
 )
 
+StartRecommenderRequestRequestTypeDef = TypedDict(
+    "StartRecommenderRequestRequestTypeDef",
+    {
+        "recommenderArn": str,
+    },
+)
+
+StartRecommenderResponseTypeDef = TypedDict(
+    "StartRecommenderResponseTypeDef",
+    {
+        "recommenderArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+StopRecommenderRequestRequestTypeDef = TypedDict(
+    "StopRecommenderRequestRequestTypeDef",
+    {
+        "recommenderArn": str,
+    },
+)
+
+StopRecommenderResponseTypeDef = TypedDict(
+    "StopRecommenderResponseTypeDef",
+    {
+        "recommenderArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StopSolutionVersionCreationRequestRequestTypeDef = TypedDict(
     "StopSolutionVersionCreationRequestRequestTypeDef",
     {
         "solutionVersionArn": str,
+    },
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": List["TagTypeDef"],
+    },
+)
+
+TagTypeDef = TypedDict(
+    "TagTypeDef",
+    {
+        "tagKey": str,
+        "tagValue": str,
     },
 )
 
@@ -1875,6 +2005,14 @@ TunedHPOParamsTypeDef = TypedDict(
         "algorithmHyperParameters": Dict[str, str],
     },
     total=False,
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
+    },
 )
 
 _RequiredUpdateCampaignRequestRequestTypeDef = TypedDict(

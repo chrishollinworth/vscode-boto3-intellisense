@@ -26,6 +26,7 @@ __all__ = (
     "ListPackagingGroupsPaginatorName",
     "ManifestLayoutType",
     "ProfileType",
+    "ScteMarkersSourceType",
     "SegmentTemplateFormatType",
     "StreamOrderType",
     "__PeriodTriggersElementType",
@@ -38,6 +39,7 @@ ListPackagingConfigurationsPaginatorName = Literal["list_packaging_configuration
 ListPackagingGroupsPaginatorName = Literal["list_packaging_groups"]
 ManifestLayoutType = Literal["COMPACT", "FULL"]
 ProfileType = Literal["HBBTV_1_5", "NONE"]
+ScteMarkersSourceType = Literal["MANIFEST", "SEGMENTS"]
 SegmentTemplateFormatType = Literal[
     "NUMBER_WITH_DURATION", "NUMBER_WITH_TIMELINE", "TIME_WITH_TIMELINE"
 ]

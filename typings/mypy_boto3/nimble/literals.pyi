@@ -25,6 +25,9 @@ __all__ = (
     "LaunchProfileReadyWaiterName",
     "LaunchProfileStateType",
     "LaunchProfileStatusCodeType",
+    "LaunchProfileValidationStateType",
+    "LaunchProfileValidationStatusCodeType",
+    "LaunchProfileValidationTypeType",
     "ListEulaAcceptancesPaginatorName",
     "ListEulasPaginatorName",
     "ListLaunchProfileMembersPaginatorName",
@@ -46,6 +49,7 @@ __all__ = (
     "StreamingSessionStateType",
     "StreamingSessionStatusCodeType",
     "StreamingSessionStoppedWaiterName",
+    "StreamingSessionStorageModeType",
     "StreamingSessionStreamReadyWaiterName",
     "StreamingSessionStreamStateType",
     "StreamingSessionStreamStatusCodeType",
@@ -93,6 +97,30 @@ LaunchProfileStatusCodeType = Literal[
     "STREAMING_IMAGE_NOT_FOUND",
     "STREAMING_IMAGE_NOT_READY",
 ]
+LaunchProfileValidationStateType = Literal[
+    "VALIDATION_FAILED",
+    "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+    "VALIDATION_IN_PROGRESS",
+    "VALIDATION_NOT_STARTED",
+    "VALIDATION_SUCCESS",
+]
+LaunchProfileValidationStatusCodeType = Literal[
+    "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+    "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
+    "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
+    "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
+    "VALIDATION_FAILED_SUBNET_NOT_FOUND",
+    "VALIDATION_FAILED_UNAUTHORIZED",
+    "VALIDATION_IN_PROGRESS",
+    "VALIDATION_NOT_STARTED",
+    "VALIDATION_SUCCESS",
+]
+LaunchProfileValidationTypeType = Literal[
+    "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
+    "VALIDATE_NETWORK_ACL_ASSOCIATION",
+    "VALIDATE_SECURITY_GROUP_ASSOCIATION",
+    "VALIDATE_SUBNET_ASSOCIATION",
+]
 ListEulaAcceptancesPaginatorName = Literal["list_eula_acceptances"]
 ListEulasPaginatorName = Literal["list_eulas"]
 ListLaunchProfileMembersPaginatorName = Literal["list_launch_profile_members"]
@@ -117,6 +145,7 @@ StreamingImageStateType = Literal[
     "UPDATE_IN_PROGRESS",
 ]
 StreamingImageStatusCodeType = Literal[
+    "ACCESS_DENIED",
     "INTERNAL_ERROR",
     "STREAMING_IMAGE_CREATE_IN_PROGRESS",
     "STREAMING_IMAGE_DELETED",
@@ -144,6 +173,7 @@ StreamingSessionStateType = Literal[
 ]
 StreamingSessionStatusCodeType = Literal[
     "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
+    "AMI_VALIDATION_ERROR",
     "DECRYPT_STREAMING_IMAGE_ERROR",
     "INITIALIZATION_SCRIPT_ERROR",
     "INSUFFICIENT_CAPACITY",
@@ -160,6 +190,7 @@ StreamingSessionStatusCodeType = Literal[
     "STREAMING_SESSION_STOP_IN_PROGRESS",
 ]
 StreamingSessionStoppedWaiterName = Literal["streaming_session_stopped"]
+StreamingSessionStorageModeType = Literal["UPLOAD"]
 StreamingSessionStreamReadyWaiterName = Literal["streaming_session_stream_ready"]
 StreamingSessionStreamStateType = Literal[
     "CREATE_FAILED", "CREATE_IN_PROGRESS", "DELETED", "DELETE_FAILED", "DELETE_IN_PROGRESS", "READY"

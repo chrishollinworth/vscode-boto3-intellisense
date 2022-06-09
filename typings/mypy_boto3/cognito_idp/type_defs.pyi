@@ -277,6 +277,7 @@ __all__ = (
     "UpdateUserPoolDomainRequestRequestTypeDef",
     "UpdateUserPoolDomainResponseTypeDef",
     "UpdateUserPoolRequestRequestTypeDef",
+    "UserAttributeUpdateSettingsTypeTypeDef",
     "UserContextDataTypeTypeDef",
     "UserImportJobTypeTypeDef",
     "UserPoolAddOnsTypeTypeDef",
@@ -1205,6 +1206,7 @@ _OptionalCreateUserPoolClientRequestRequestTypeDef = TypedDict(
         "AnalyticsConfiguration": "AnalyticsConfigurationTypeTypeDef",
         "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
         "EnableTokenRevocation": bool,
+        "EnablePropagateAdditionalUserContextData": bool,
     },
     total=False,
 )
@@ -1272,6 +1274,7 @@ _OptionalCreateUserPoolRequestRequestTypeDef = TypedDict(
         "VerificationMessageTemplate": "VerificationMessageTemplateTypeTypeDef",
         "SmsAuthenticationMessage": str,
         "MfaConfiguration": UserPoolMfaTypeType,
+        "UserAttributeUpdateSettings": "UserAttributeUpdateSettingsTypeTypeDef",
         "DeviceConfiguration": "DeviceConfigurationTypeTypeDef",
         "EmailConfiguration": "EmailConfigurationTypeTypeDef",
         "SmsConfiguration": "SmsConfigurationTypeTypeDef",
@@ -2679,6 +2682,7 @@ _OptionalSmsConfigurationTypeTypeDef = TypedDict(
     "_OptionalSmsConfigurationTypeTypeDef",
     {
         "ExternalId": str,
+        "SnsRegion": str,
     },
     total=False,
 )
@@ -2975,6 +2979,7 @@ _OptionalUpdateUserPoolClientRequestRequestTypeDef = TypedDict(
         "AnalyticsConfiguration": "AnalyticsConfigurationTypeTypeDef",
         "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
         "EnableTokenRevocation": bool,
+        "EnablePropagateAdditionalUserContextData": bool,
     },
     total=False,
 )
@@ -3027,6 +3032,7 @@ _OptionalUpdateUserPoolRequestRequestTypeDef = TypedDict(
         "EmailVerificationSubject": str,
         "VerificationMessageTemplate": "VerificationMessageTemplateTypeTypeDef",
         "SmsAuthenticationMessage": str,
+        "UserAttributeUpdateSettings": "UserAttributeUpdateSettingsTypeTypeDef",
         "MfaConfiguration": UserPoolMfaTypeType,
         "DeviceConfiguration": "DeviceConfigurationTypeTypeDef",
         "EmailConfiguration": "EmailConfigurationTypeTypeDef",
@@ -3044,9 +3050,18 @@ class UpdateUserPoolRequestRequestTypeDef(
 ):
     pass
 
+UserAttributeUpdateSettingsTypeTypeDef = TypedDict(
+    "UserAttributeUpdateSettingsTypeTypeDef",
+    {
+        "AttributesRequireVerificationBeforeUpdate": List[VerifiedAttributeTypeType],
+    },
+    total=False,
+)
+
 UserContextDataTypeTypeDef = TypedDict(
     "UserContextDataTypeTypeDef",
     {
+        "IpAddress": str,
         "EncodedData": str,
     },
     total=False,
@@ -3115,6 +3130,7 @@ UserPoolClientTypeTypeDef = TypedDict(
         "AnalyticsConfiguration": "AnalyticsConfigurationTypeTypeDef",
         "PreventUserExistenceErrors": PreventUserExistenceErrorTypesType,
         "EnableTokenRevocation": bool,
+        "EnablePropagateAdditionalUserContextData": bool,
     },
     total=False,
 )
@@ -3159,6 +3175,7 @@ UserPoolTypeTypeDef = TypedDict(
         "EmailVerificationSubject": str,
         "VerificationMessageTemplate": "VerificationMessageTemplateTypeTypeDef",
         "SmsAuthenticationMessage": str,
+        "UserAttributeUpdateSettings": "UserAttributeUpdateSettingsTypeTypeDef",
         "MfaConfiguration": UserPoolMfaTypeType,
         "DeviceConfiguration": "DeviceConfigurationTypeTypeDef",
         "EstimatedNumberOfUsers": int,

@@ -37,6 +37,7 @@ __all__ = (
     "LogTypeType",
     "OptionStateType",
     "OutboundCrossClusterSearchConnectionStatusCodeType",
+    "OverallChangeStatusType",
     "PackageStatusType",
     "PackageTypeType",
     "ReservedElasticsearchInstancePaymentOptionType",
@@ -158,6 +159,7 @@ OutboundCrossClusterSearchConnectionStatusCodeType = Literal[
     "VALIDATING",
     "VALIDATION_FAILED",
 ]
+OverallChangeStatusType = Literal["COMPLETED", "FAILED", "PENDING", "PROCESSING"]
 PackageStatusType = Literal[
     "AVAILABLE",
     "COPYING",

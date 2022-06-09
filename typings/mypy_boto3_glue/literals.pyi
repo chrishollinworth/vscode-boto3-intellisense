@@ -6,9 +6,9 @@ Type annotations for glue service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_glue.literals import BackfillErrorCodeType
+    from mypy_boto3_glue.literals import AggFunctionType
 
-    data: BackfillErrorCodeType = "ENCRYPTED_PARTITION_ERROR"
+    data: AggFunctionType = "avg"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "AggFunctionType",
     "BackfillErrorCodeType",
     "BlueprintRunStateType",
     "BlueprintStatusType",
@@ -27,6 +28,7 @@ __all__ = (
     "ColumnStatisticsTypeType",
     "ComparatorType",
     "CompatibilityType",
+    "CompressionTypeType",
     "ConnectionPropertyKeyType",
     "ConnectionTypeType",
     "CrawlStateType",
@@ -37,6 +39,9 @@ __all__ = (
     "DeleteBehaviorType",
     "EnableHybridValuesType",
     "ExistConditionType",
+    "FilterLogicalOperatorType",
+    "FilterOperationType",
+    "FilterValueTypeType",
     "GetClassifiersPaginatorName",
     "GetConnectionsPaginatorName",
     "GetCrawlerMetricsPaginatorName",
@@ -53,8 +58,11 @@ __all__ = (
     "GetTablesPaginatorName",
     "GetTriggersPaginatorName",
     "GetUserDefinedFunctionsPaginatorName",
+    "GlueRecordTypeType",
+    "JDBCDataTypeType",
     "JobBookmarksEncryptionModeType",
     "JobRunStateType",
+    "JoinTypeType",
     "LanguageType",
     "LastCrawlStatusType",
     "ListRegistriesPaginatorName",
@@ -64,9 +72,13 @@ __all__ = (
     "LogicalType",
     "MLUserDataEncryptionModeStringType",
     "NodeTypeType",
+    "ParquetCompressionTypeType",
     "PartitionIndexStatusType",
     "PermissionType",
+    "PermissionTypeType",
+    "PiiTypeType",
     "PrincipalTypeType",
+    "QuoteCharType",
     "RecrawlBehaviorType",
     "RegistryStatusType",
     "ResourceShareTypeType",
@@ -76,8 +88,13 @@ __all__ = (
     "SchemaDiffTypeType",
     "SchemaStatusType",
     "SchemaVersionStatusType",
+    "SeparatorType",
+    "SessionStatusType",
     "SortDirectionTypeType",
     "SortType",
+    "StartingPositionType",
+    "StatementStateType",
+    "TargetFormatType",
     "TaskRunSortColumnTypeType",
     "TaskStatusTypeType",
     "TaskTypeType",
@@ -86,11 +103,30 @@ __all__ = (
     "TransformTypeType",
     "TriggerStateType",
     "TriggerTypeType",
+    "UnionTypeType",
     "UpdateBehaviorType",
+    "UpdateCatalogBehaviorType",
     "WorkerTypeType",
     "WorkflowRunStatusType",
 )
 
+AggFunctionType = Literal[
+    "avg",
+    "count",
+    "countDistinct",
+    "first",
+    "kurtosis",
+    "last",
+    "max",
+    "min",
+    "skewness",
+    "stddev_pop",
+    "stddev_samp",
+    "sum",
+    "sumDistinct",
+    "var_pop",
+    "var_samp",
+]
 BackfillErrorCodeType = Literal[
     "ENCRYPTED_PARTITION_ERROR",
     "INTERNAL_ERROR",
@@ -111,6 +147,7 @@ ComparatorType = Literal[
 CompatibilityType = Literal[
     "BACKWARD", "BACKWARD_ALL", "DISABLED", "FORWARD", "FORWARD_ALL", "FULL", "FULL_ALL", "NONE"
 ]
+CompressionTypeType = Literal["bzip2", "gzip"]
 ConnectionPropertyKeyType = Literal[
     "CONFIG_FILES",
     "CONNECTION_URL",
@@ -148,10 +185,13 @@ CrawlStateType = Literal["CANCELLED", "CANCELLING", "FAILED", "RUNNING", "SUCCEE
 CrawlerLineageSettingsType = Literal["DISABLE", "ENABLE"]
 CrawlerStateType = Literal["READY", "RUNNING", "STOPPING"]
 CsvHeaderOptionType = Literal["ABSENT", "PRESENT", "UNKNOWN"]
-DataFormatType = Literal["AVRO", "JSON"]
+DataFormatType = Literal["AVRO", "JSON", "PROTOBUF"]
 DeleteBehaviorType = Literal["DELETE_FROM_DATABASE", "DEPRECATE_IN_DATABASE", "LOG"]
 EnableHybridValuesType = Literal["FALSE", "TRUE"]
 ExistConditionType = Literal["MUST_EXIST", "NONE", "NOT_EXIST"]
+FilterLogicalOperatorType = Literal["AND", "OR"]
+FilterOperationType = Literal["EQ", "GT", "GTE", "ISNULL", "LT", "LTE", "REGEX"]
+FilterValueTypeType = Literal["COLUMNEXTRACTED", "CONSTANT"]
 GetClassifiersPaginatorName = Literal["get_classifiers"]
 GetConnectionsPaginatorName = Literal["get_connections"]
 GetCrawlerMetricsPaginatorName = Literal["get_crawler_metrics"]
@@ -168,10 +208,55 @@ GetTableVersionsPaginatorName = Literal["get_table_versions"]
 GetTablesPaginatorName = Literal["get_tables"]
 GetTriggersPaginatorName = Literal["get_triggers"]
 GetUserDefinedFunctionsPaginatorName = Literal["get_user_defined_functions"]
+GlueRecordTypeType = Literal[
+    "BIGDECIMAL", "BYTE", "DATE", "DOUBLE", "FLOAT", "INT", "LONG", "SHORT", "STRING", "TIMESTAMP"
+]
+JDBCDataTypeType = Literal[
+    "ARRAY",
+    "BIGINT",
+    "BINARY",
+    "BIT",
+    "BLOB",
+    "BOOLEAN",
+    "CHAR",
+    "CLOB",
+    "DATALINK",
+    "DATE",
+    "DECIMAL",
+    "DISTINCT",
+    "DOUBLE",
+    "FLOAT",
+    "INTEGER",
+    "JAVA_OBJECT",
+    "LONGNVARCHAR",
+    "LONGVARBINARY",
+    "LONGVARCHAR",
+    "NCHAR",
+    "NCLOB",
+    "NULL",
+    "NUMERIC",
+    "NVARCHAR",
+    "OTHER",
+    "REAL",
+    "REF",
+    "REF_CURSOR",
+    "ROWID",
+    "SMALLINT",
+    "SQLXML",
+    "STRUCT",
+    "TIME",
+    "TIMESTAMP",
+    "TIMESTAMP_WITH_TIMEZONE",
+    "TIME_WITH_TIMEZONE",
+    "TINYINT",
+    "VARBINARY",
+    "VARCHAR",
+]
 JobBookmarksEncryptionModeType = Literal["CSE-KMS", "DISABLED"]
 JobRunStateType = Literal[
     "FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING", "SUCCEEDED", "TIMEOUT"
 ]
+JoinTypeType = Literal["equijoin", "left", "leftanti", "leftsemi", "outer", "right"]
 LanguageType = Literal["PYTHON", "SCALA"]
 LastCrawlStatusType = Literal["CANCELLED", "FAILED", "SUCCEEDED"]
 ListRegistriesPaginatorName = Literal["list_registries"]
@@ -181,6 +266,7 @@ LogicalOperatorType = Literal["EQUALS"]
 LogicalType = Literal["AND", "ANY"]
 MLUserDataEncryptionModeStringType = Literal["DISABLED", "SSE-KMS"]
 NodeTypeType = Literal["CRAWLER", "JOB", "TRIGGER"]
+ParquetCompressionTypeType = Literal["gzip", "lzo", "none", "snappy", "uncompressed"]
 PartitionIndexStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED"]
 PermissionType = Literal[
     "ALL",
@@ -193,7 +279,10 @@ PermissionType = Literal[
     "INSERT",
     "SELECT",
 ]
+PermissionTypeType = Literal["CELL_FILTER_PERMISSION", "COLUMN_PERMISSION"]
+PiiTypeType = Literal["ColumnAudit", "ColumnMasking", "RowAudit", "RowMasking"]
 PrincipalTypeType = Literal["GROUP", "ROLE", "USER"]
+QuoteCharType = Literal["disabled", "quillemet", "quote", "single_quote"]
 RecrawlBehaviorType = Literal["CRAWL_EVENT_MODE", "CRAWL_EVERYTHING", "CRAWL_NEW_FOLDERS_ONLY"]
 RegistryStatusType = Literal["AVAILABLE", "DELETING"]
 ResourceShareTypeType = Literal["ALL", "FOREIGN"]
@@ -203,8 +292,13 @@ ScheduleStateType = Literal["NOT_SCHEDULED", "SCHEDULED", "TRANSITIONING"]
 SchemaDiffTypeType = Literal["SYNTAX_DIFF"]
 SchemaStatusType = Literal["AVAILABLE", "DELETING", "PENDING"]
 SchemaVersionStatusType = Literal["AVAILABLE", "DELETING", "FAILURE", "PENDING"]
+SeparatorType = Literal["comma", "ctrla", "pipe", "semicolon", "tab"]
+SessionStatusType = Literal["FAILED", "PROVISIONING", "READY", "STOPPED", "STOPPING", "TIMEOUT"]
 SortDirectionTypeType = Literal["ASCENDING", "DESCENDING"]
 SortType = Literal["ASC", "DESC"]
+StartingPositionType = Literal["earliest", "latest", "trim_horizon"]
+StatementStateType = Literal["AVAILABLE", "CANCELLED", "CANCELLING", "ERROR", "RUNNING", "WAITING"]
+TargetFormatType = Literal["avro", "csv", "json", "orc", "parquet"]
 TaskRunSortColumnTypeType = Literal["STARTED", "STATUS", "TASK_RUN_TYPE"]
 TaskStatusTypeType = Literal[
     "FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING", "SUCCEEDED", "TIMEOUT"
@@ -228,6 +322,8 @@ TriggerStateType = Literal[
     "UPDATING",
 ]
 TriggerTypeType = Literal["CONDITIONAL", "EVENT", "ON_DEMAND", "SCHEDULED"]
+UnionTypeType = Literal["ALL", "DISTINCT"]
 UpdateBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
+UpdateCatalogBehaviorType = Literal["LOG", "UPDATE_IN_DATABASE"]
 WorkerTypeType = Literal["G.1X", "G.2X", "Standard"]
 WorkflowRunStatusType = Literal["COMPLETED", "ERROR", "RUNNING", "STOPPED", "STOPPING"]

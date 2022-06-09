@@ -20,6 +20,7 @@ from .literals import (
     ErrorCauseType,
     ExportStatusType,
     LedgerStateType,
+    OutputFormatType,
     PermissionsModeType,
     S3ObjectEncryptionTypeType,
     StreamStatusType,
@@ -191,8 +192,8 @@ DescribeLedgerResponseTypeDef = TypedDict(
     },
 )
 
-ExportJournalToS3RequestRequestTypeDef = TypedDict(
-    "ExportJournalToS3RequestRequestTypeDef",
+_RequiredExportJournalToS3RequestRequestTypeDef = TypedDict(
+    "_RequiredExportJournalToS3RequestRequestTypeDef",
     {
         "Name": str,
         "InclusiveStartTime": Union[datetime, str],
@@ -201,6 +202,18 @@ ExportJournalToS3RequestRequestTypeDef = TypedDict(
         "RoleArn": str,
     },
 )
+_OptionalExportJournalToS3RequestRequestTypeDef = TypedDict(
+    "_OptionalExportJournalToS3RequestRequestTypeDef",
+    {
+        "OutputFormat": OutputFormatType,
+    },
+    total=False,
+)
+
+class ExportJournalToS3RequestRequestTypeDef(
+    _RequiredExportJournalToS3RequestRequestTypeDef, _OptionalExportJournalToS3RequestRequestTypeDef
+):
+    pass
 
 ExportJournalToS3ResponseTypeDef = TypedDict(
     "ExportJournalToS3ResponseTypeDef",
@@ -313,8 +326,8 @@ class JournalKinesisStreamDescriptionTypeDef(
 ):
     pass
 
-JournalS3ExportDescriptionTypeDef = TypedDict(
-    "JournalS3ExportDescriptionTypeDef",
+_RequiredJournalS3ExportDescriptionTypeDef = TypedDict(
+    "_RequiredJournalS3ExportDescriptionTypeDef",
     {
         "LedgerName": str,
         "ExportId": str,
@@ -326,6 +339,18 @@ JournalS3ExportDescriptionTypeDef = TypedDict(
         "RoleArn": str,
     },
 )
+_OptionalJournalS3ExportDescriptionTypeDef = TypedDict(
+    "_OptionalJournalS3ExportDescriptionTypeDef",
+    {
+        "OutputFormat": OutputFormatType,
+    },
+    total=False,
+)
+
+class JournalS3ExportDescriptionTypeDef(
+    _RequiredJournalS3ExportDescriptionTypeDef, _OptionalJournalS3ExportDescriptionTypeDef
+):
+    pass
 
 _RequiredKinesisConfigurationTypeDef = TypedDict(
     "_RequiredKinesisConfigurationTypeDef",

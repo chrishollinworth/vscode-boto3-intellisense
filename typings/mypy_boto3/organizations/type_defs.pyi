@@ -47,6 +47,7 @@ __all__ = (
     "CancelHandshakeRequestRequestTypeDef",
     "CancelHandshakeResponseTypeDef",
     "ChildTypeDef",
+    "CloseAccountRequestRequestTypeDef",
     "CreateAccountRequestRequestTypeDef",
     "CreateAccountResponseTypeDef",
     "CreateAccountStatusTypeDef",
@@ -207,6 +208,13 @@ ChildTypeDef = TypedDict(
         "Type": ChildTypeType,
     },
     total=False,
+)
+
+CloseAccountRequestRequestTypeDef = TypedDict(
+    "CloseAccountRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
 )
 
 _RequiredCreateAccountRequestRequestTypeDef = TypedDict(

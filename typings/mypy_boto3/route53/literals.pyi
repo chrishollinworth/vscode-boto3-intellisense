@@ -22,12 +22,16 @@ __all__ = (
     "AccountLimitTypeType",
     "ChangeActionType",
     "ChangeStatusType",
+    "CidrCollectionChangeActionType",
     "CloudWatchRegionType",
     "ComparisonOperatorType",
     "HealthCheckRegionType",
     "HealthCheckTypeType",
     "HostedZoneLimitTypeType",
     "InsufficientDataHealthStatusType",
+    "ListCidrBlocksPaginatorName",
+    "ListCidrCollectionsPaginatorName",
+    "ListCidrLocationsPaginatorName",
     "ListHealthChecksPaginatorName",
     "ListHostedZonesPaginatorName",
     "ListQueryLoggingConfigsPaginatorName",
@@ -53,6 +57,7 @@ AccountLimitTypeType = Literal[
 ]
 ChangeActionType = Literal["CREATE", "DELETE", "UPSERT"]
 ChangeStatusType = Literal["INSYNC", "PENDING"]
+CidrCollectionChangeActionType = Literal["DELETE_IF_EXISTS", "PUT"]
 CloudWatchRegionType = Literal[
     "af-south-1",
     "ap-east-1",
@@ -112,6 +117,9 @@ HealthCheckTypeType = Literal[
 ]
 HostedZoneLimitTypeType = Literal["MAX_RRSETS_BY_ZONE", "MAX_VPCS_ASSOCIATED_BY_ZONE"]
 InsufficientDataHealthStatusType = Literal["Healthy", "LastKnownStatus", "Unhealthy"]
+ListCidrBlocksPaginatorName = Literal["list_cidr_blocks"]
+ListCidrCollectionsPaginatorName = Literal["list_cidr_collections"]
+ListCidrLocationsPaginatorName = Literal["list_cidr_locations"]
 ListHealthChecksPaginatorName = Literal["list_health_checks"]
 ListHostedZonesPaginatorName = Literal["list_hosted_zones"]
 ListQueryLoggingConfigsPaginatorName = Literal["list_query_logging_configs"]

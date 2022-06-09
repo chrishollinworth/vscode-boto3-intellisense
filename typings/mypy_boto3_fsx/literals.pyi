@@ -29,9 +29,12 @@ __all__ = (
     "DataRepositoryTaskFilterNameType",
     "DataRepositoryTaskLifecycleType",
     "DataRepositoryTaskTypeType",
+    "DeleteFileSystemOpenZFSOptionType",
     "DeleteOpenZFSVolumeOptionType",
     "DescribeBackupsPaginatorName",
     "DescribeFileSystemsPaginatorName",
+    "DescribeStorageVirtualMachinesPaginatorName",
+    "DescribeVolumesPaginatorName",
     "DiskIopsConfigurationModeType",
     "DriveCacheTypeType",
     "EventTypeType",
@@ -96,14 +99,23 @@ DataRepositoryTaskLifecycleType = Literal[
     "CANCELED", "CANCELING", "EXECUTING", "FAILED", "PENDING", "SUCCEEDED"
 ]
 DataRepositoryTaskTypeType = Literal["EXPORT_TO_REPOSITORY", "IMPORT_METADATA_FROM_REPOSITORY"]
+DeleteFileSystemOpenZFSOptionType = Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]
 DeleteOpenZFSVolumeOptionType = Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]
 DescribeBackupsPaginatorName = Literal["describe_backups"]
 DescribeFileSystemsPaginatorName = Literal["describe_file_systems"]
+DescribeStorageVirtualMachinesPaginatorName = Literal["describe_storage_virtual_machines"]
+DescribeVolumesPaginatorName = Literal["describe_volumes"]
 DiskIopsConfigurationModeType = Literal["AUTOMATIC", "USER_PROVISIONED"]
 DriveCacheTypeType = Literal["NONE", "READ"]
 EventTypeType = Literal["CHANGED", "DELETED", "NEW"]
 FileSystemLifecycleType = Literal[
-    "AVAILABLE", "CREATING", "DELETING", "FAILED", "MISCONFIGURED", "UPDATING"
+    "AVAILABLE",
+    "CREATING",
+    "DELETING",
+    "FAILED",
+    "MISCONFIGURED",
+    "MISCONFIGURED_UNAVAILABLE",
+    "UPDATING",
 ]
 FileSystemMaintenanceOperationType = Literal["BACKING_UP", "PATCHING"]
 FileSystemTypeType = Literal["LUSTRE", "ONTAP", "OPENZFS", "WINDOWS"]
@@ -114,10 +126,10 @@ FlexCacheEndpointTypeType = Literal["CACHE", "NONE", "ORIGIN"]
 ListTagsForResourcePaginatorName = Literal["list_tags_for_resource"]
 LustreAccessAuditLogLevelType = Literal["DISABLED", "ERROR_ONLY", "WARN_ERROR", "WARN_ONLY"]
 LustreDeploymentTypeType = Literal["PERSISTENT_1", "PERSISTENT_2", "SCRATCH_1", "SCRATCH_2"]
-OntapDeploymentTypeType = Literal["MULTI_AZ_1"]
+OntapDeploymentTypeType = Literal["MULTI_AZ_1", "SINGLE_AZ_1"]
 OntapVolumeTypeType = Literal["DP", "LS", "RW"]
 OpenZFSCopyStrategyType = Literal["CLONE", "FULL_COPY"]
-OpenZFSDataCompressionTypeType = Literal["NONE", "ZSTD"]
+OpenZFSDataCompressionTypeType = Literal["LZ4", "NONE", "ZSTD"]
 OpenZFSDeploymentTypeType = Literal["SINGLE_AZ_1"]
 OpenZFSQuotaTypeType = Literal["GROUP", "USER"]
 ReportFormatType = Literal["REPORT_CSV_20191124"]

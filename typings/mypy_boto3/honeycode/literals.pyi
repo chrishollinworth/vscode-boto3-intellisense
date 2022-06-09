@@ -6,9 +6,9 @@ Type annotations for honeycode service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_honeycode.literals import FormatType
+    from mypy_boto3_honeycode.literals import ErrorCodeType
 
-    data: FormatType = "ACCOUNTING"
+    data: ErrorCodeType = "ACCESS_DENIED"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ErrorCodeType",
     "FormatType",
     "ImportDataCharacterEncodingType",
     "ImportSourceDataFormatType",
@@ -30,6 +31,22 @@ __all__ = (
     "UpsertActionType",
 )
 
+ErrorCodeType = Literal[
+    "ACCESS_DENIED",
+    "FILE_EMPTY_ERROR",
+    "FILE_NOT_FOUND_ERROR",
+    "FILE_PARSING_ERROR",
+    "FILE_SIZE_LIMIT_ERROR",
+    "INVALID_FILE_TYPE_ERROR",
+    "INVALID_IMPORT_OPTIONS_ERROR",
+    "INVALID_TABLE_COLUMN_ID_ERROR",
+    "INVALID_TABLE_ID_ERROR",
+    "INVALID_URL_ERROR",
+    "RESOURCE_NOT_FOUND_ERROR",
+    "SYSTEM_LIMIT_ERROR",
+    "TABLE_NOT_FOUND_ERROR",
+    "UNKNOWN_ERROR",
+]
 FormatType = Literal[
     "ACCOUNTING",
     "AUTO",
@@ -40,6 +57,7 @@ FormatType = Literal[
     "NUMBER",
     "PERCENTAGE",
     "ROWLINK",
+    "ROWSET",
     "TEXT",
     "TIME",
 ]

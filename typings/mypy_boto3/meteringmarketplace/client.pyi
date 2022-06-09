@@ -30,6 +30,7 @@ __all__ = ("MarketplaceMeteringClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -56,11 +57,12 @@ class Exceptions:
 
 class MarketplaceMeteringClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/meteringmarketplace.html#MarketplaceMetering.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/meteringmarketplace.html#MarketplaceMetering.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -70,17 +72,17 @@ class MarketplaceMeteringClient(BaseClient):
         self, *, UsageRecords: List["UsageRecordTypeDef"], ProductCode: str
     ) -> BatchMeterUsageResultTypeDef:
         """
-        BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace
-        to post metering records for a set of customers.
+        `BatchMeterUsage` is called from a SaaS application listed on AWS Marketplace to
+        post metering records for a set of customers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.batch_meter_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.batch_meter_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#batch_meter_usage)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#can_paginate)
         """
     def generate_presigned_url(
@@ -93,7 +95,7 @@ class MarketplaceMeteringClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#generate_presigned_url)
         """
     def meter_usage(
@@ -109,7 +111,7 @@ class MarketplaceMeteringClient(BaseClient):
         """
         API to emit metering records.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.meter_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.meter_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#meter_usage)
         """
     def register_usage(
@@ -117,16 +119,17 @@ class MarketplaceMeteringClient(BaseClient):
     ) -> RegisterUsageResultTypeDef:
         """
         Paid container software products sold through AWS Marketplace must integrate
-        with the AWS Marketplace Metering Service and call the RegisterUsage operation
+        with the AWS Marketplace Metering Service and call the `RegisterUsage` operation
         for software entitlement and metering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.register_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.register_usage)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#register_usage)
         """
     def resolve_customer(self, *, RegistrationToken: str) -> ResolveCustomerResultTypeDef:
         """
-        ResolveCustomer is called by a SaaS application during the registration process.
+        `ResolveCustomer` is called by a SaaS application during the registration
+        process.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.resolve_customer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.resolve_customer)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#resolve_customer)
         """

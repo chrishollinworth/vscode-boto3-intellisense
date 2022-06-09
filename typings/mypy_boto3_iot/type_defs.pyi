@@ -65,6 +65,7 @@ from .literals import (
     ProtocolType,
     ReportTypeType,
     ResourceTypeType,
+    RetryableFailureTypeType,
     ServerCertificateStatusType,
     ServiceTypeType,
     StatusType,
@@ -376,6 +377,7 @@ __all__ = (
     "JobExecutionSummaryForThingTypeDef",
     "JobExecutionSummaryTypeDef",
     "JobExecutionTypeDef",
+    "JobExecutionsRetryConfigTypeDef",
     "JobExecutionsRolloutConfigTypeDef",
     "JobProcessDetailsTypeDef",
     "JobSummaryTypeDef",
@@ -433,6 +435,8 @@ __all__ = (
     "ListJobsResponseTypeDef",
     "ListManagedJobTemplatesRequestRequestTypeDef",
     "ListManagedJobTemplatesResponseTypeDef",
+    "ListMetricValuesRequestRequestTypeDef",
+    "ListMetricValuesResponseTypeDef",
     "ListMitigationActionsRequestRequestTypeDef",
     "ListMitigationActionsResponseTypeDef",
     "ListOTAUpdatesRequestRequestTypeDef",
@@ -500,6 +504,7 @@ __all__ = (
     "LoggingOptionsPayloadTypeDef",
     "MachineLearningDetectionConfigTypeDef",
     "ManagedJobTemplateSummaryTypeDef",
+    "MetricDatumTypeDef",
     "MetricDimensionTypeDef",
     "MetricToRetainTypeDef",
     "MetricValueTypeDef",
@@ -545,6 +550,7 @@ __all__ = (
     "RepublishActionTypeDef",
     "ResourceIdentifierTypeDef",
     "ResponseMetadataTypeDef",
+    "RetryCriteriaTypeDef",
     "RoleAliasDescriptionTypeDef",
     "S3ActionTypeDef",
     "S3DestinationTypeDef",
@@ -1815,6 +1821,7 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
         "tags": List["TagTypeDef"],
         "namespaceId": str,
         "jobTemplateArn": str,
+        "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
         "documentParameters": Dict[str, str],
     },
     total=False,
@@ -1853,6 +1860,7 @@ _OptionalCreateJobTemplateRequestRequestTypeDef = TypedDict(
         "abortConfig": "AbortConfigTypeDef",
         "timeoutConfig": "TimeoutConfigTypeDef",
         "tags": List["TagTypeDef"],
+        "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
     },
     total=False,
 )
@@ -3126,6 +3134,7 @@ DescribeJobTemplateResponseTypeDef = TypedDict(
         "jobExecutionsRolloutConfig": "JobExecutionsRolloutConfigTypeDef",
         "abortConfig": "AbortConfigTypeDef",
         "timeoutConfig": "TimeoutConfigTypeDef",
+        "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4111,6 +4120,7 @@ JobExecutionSummaryTypeDef = TypedDict(
         "startedAt": datetime,
         "lastUpdatedAt": datetime,
         "executionNumber": int,
+        "retryAttempt": int,
     },
     total=False,
 )
@@ -4131,6 +4141,13 @@ JobExecutionTypeDef = TypedDict(
         "approximateSecondsBeforeTimedOut": int,
     },
     total=False,
+)
+
+JobExecutionsRetryConfigTypeDef = TypedDict(
+    "JobExecutionsRetryConfigTypeDef",
+    {
+        "criteriaList": List["RetryCriteriaTypeDef"],
+    },
 )
 
 JobExecutionsRolloutConfigTypeDef = TypedDict(
@@ -4169,6 +4186,7 @@ JobSummaryTypeDef = TypedDict(
         "createdAt": datetime,
         "lastUpdatedAt": datetime,
         "completedAt": datetime,
+        "isConcurrent": bool,
     },
     total=False,
 )
@@ -4206,7 +4224,9 @@ JobTypeDef = TypedDict(
         "timeoutConfig": "TimeoutConfigTypeDef",
         "namespaceId": str,
         "jobTemplateArn": str,
+        "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
         "documentParameters": Dict[str, str],
+        "isConcurrent": bool,
     },
     total=False,
 )
@@ -4759,6 +4779,7 @@ _OptionalListJobExecutionsForThingRequestRequestTypeDef = TypedDict(
         "namespaceId": str,
         "maxResults": int,
         "nextToken": str,
+        "jobId": str,
     },
     total=False,
 )
@@ -4833,6 +4854,40 @@ ListManagedJobTemplatesResponseTypeDef = TypedDict(
     "ListManagedJobTemplatesResponseTypeDef",
     {
         "managedJobTemplates": List["ManagedJobTemplateSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListMetricValuesRequestRequestTypeDef = TypedDict(
+    "_RequiredListMetricValuesRequestRequestTypeDef",
+    {
+        "thingName": str,
+        "metricName": str,
+        "startTime": Union[datetime, str],
+        "endTime": Union[datetime, str],
+    },
+)
+_OptionalListMetricValuesRequestRequestTypeDef = TypedDict(
+    "_OptionalListMetricValuesRequestRequestTypeDef",
+    {
+        "dimensionName": str,
+        "dimensionValueOperator": DimensionValueOperatorType,
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListMetricValuesRequestRequestTypeDef(
+    _RequiredListMetricValuesRequestRequestTypeDef, _OptionalListMetricValuesRequestRequestTypeDef
+):
+    pass
+
+ListMetricValuesResponseTypeDef = TypedDict(
+    "ListMetricValuesResponseTypeDef",
+    {
+        "metricDatumList": List["MetricDatumTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -5656,6 +5711,15 @@ ManagedJobTemplateSummaryTypeDef = TypedDict(
     total=False,
 )
 
+MetricDatumTypeDef = TypedDict(
+    "MetricDatumTypeDef",
+    {
+        "timestamp": datetime,
+        "value": "MetricValueTypeDef",
+    },
+    total=False,
+)
+
 _RequiredMetricDimensionTypeDef = TypedDict(
     "_RequiredMetricDimensionTypeDef",
     {
@@ -6227,6 +6291,14 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+RetryCriteriaTypeDef = TypedDict(
+    "RetryCriteriaTypeDef",
+    {
+        "failureType": RetryableFailureTypeType,
+        "numberOfRetries": int,
     },
 )
 
@@ -7418,6 +7490,7 @@ _OptionalUpdateJobRequestRequestTypeDef = TypedDict(
         "abortConfig": "AbortConfigTypeDef",
         "timeoutConfig": "TimeoutConfigTypeDef",
         "namespaceId": str,
+        "jobExecutionsRetryConfig": "JobExecutionsRetryConfigTypeDef",
     },
     total=False,
 )

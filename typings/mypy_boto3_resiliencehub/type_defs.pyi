@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     AlarmTypeType,
+    AppAssessmentScheduleTypeType,
     AppComplianceStatusTypeType,
     AppStatusTypeType,
     AssessmentInvokerType,
@@ -140,6 +141,8 @@ __all__ = (
     "ResiliencyScoreTypeDef",
     "ResolveAppVersionResourcesRequestRequestTypeDef",
     "ResolveAppVersionResourcesResponseTypeDef",
+    "ResourceErrorTypeDef",
+    "ResourceErrorsDetailsTypeDef",
     "ResourceMappingTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
@@ -147,6 +150,7 @@ __all__ = (
     "StartAppAssessmentRequestRequestTypeDef",
     "StartAppAssessmentResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TerraformSourceTypeDef",
     "TestRecommendationTypeDef",
     "UnsupportedResourceTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -249,6 +253,7 @@ _OptionalAppAssessmentTypeDef = TypedDict(
         "message": str,
         "policy": "ResiliencyPolicyTypeDef",
         "resiliencyScore": "ResiliencyScoreTypeDef",
+        "resourceErrorsDetails": "ResourceErrorsDetailsTypeDef",
         "startTime": datetime,
         "tags": Dict[str, str],
     },
@@ -290,6 +295,7 @@ _RequiredAppSummaryTypeDef = TypedDict(
 _OptionalAppSummaryTypeDef = TypedDict(
     "_OptionalAppSummaryTypeDef",
     {
+        "assessmentSchedule": AppAssessmentScheduleTypeType,
         "complianceStatus": AppComplianceStatusTypeType,
         "description": str,
         "resiliencyScore": float,
@@ -311,6 +317,7 @@ _RequiredAppTypeDef = TypedDict(
 _OptionalAppTypeDef = TypedDict(
     "_OptionalAppTypeDef",
     {
+        "assessmentSchedule": AppAssessmentScheduleTypeType,
         "complianceStatus": AppComplianceStatusTypeType,
         "description": str,
         "lastAppComplianceEvaluationTime": datetime,
@@ -389,6 +396,7 @@ _RequiredCreateAppRequestRequestTypeDef = TypedDict(
 _OptionalCreateAppRequestRequestTypeDef = TypedDict(
     "_OptionalCreateAppRequestRequestTypeDef",
     {
+        "assessmentSchedule": AppAssessmentScheduleTypeType,
         "clientToken": str,
         "description": str,
         "policyArn": str,
@@ -741,13 +749,26 @@ FailurePolicyTypeDef = TypedDict(
     },
 )
 
-ImportResourcesToDraftAppVersionRequestRequestTypeDef = TypedDict(
-    "ImportResourcesToDraftAppVersionRequestRequestTypeDef",
+_RequiredImportResourcesToDraftAppVersionRequestRequestTypeDef = TypedDict(
+    "_RequiredImportResourcesToDraftAppVersionRequestRequestTypeDef",
     {
         "appArn": str,
-        "sourceArns": List[str],
     },
 )
+_OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef = TypedDict(
+    "_OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef",
+    {
+        "sourceArns": List[str],
+        "terraformSources": List["TerraformSourceTypeDef"],
+    },
+    total=False,
+)
+
+class ImportResourcesToDraftAppVersionRequestRequestTypeDef(
+    _RequiredImportResourcesToDraftAppVersionRequestRequestTypeDef,
+    _OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef,
+):
+    pass
 
 ImportResourcesToDraftAppVersionResponseTypeDef = TypedDict(
     "ImportResourcesToDraftAppVersionResponseTypeDef",
@@ -756,6 +777,7 @@ ImportResourcesToDraftAppVersionResponseTypeDef = TypedDict(
         "appVersion": str,
         "sourceArns": List[str],
         "status": ResourceImportStatusTypeType,
+        "terraformSources": List["TerraformSourceTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1177,6 +1199,7 @@ _OptionalLogicalResourceIdTypeDef = TypedDict(
     {
         "logicalStackName": str,
         "resourceGroupName": str,
+        "terraformSourceName": str,
     },
     total=False,
 )
@@ -1338,6 +1361,7 @@ _OptionalRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef = TypedDict(
         "logicalStackNames": List[str],
         "resourceGroupNames": List[str],
         "resourceNames": List[str],
+        "terraformSourceNames": List[str],
     },
     total=False,
 )
@@ -1400,6 +1424,25 @@ ResolveAppVersionResourcesResponseTypeDef = TypedDict(
     },
 )
 
+ResourceErrorTypeDef = TypedDict(
+    "ResourceErrorTypeDef",
+    {
+        "logicalResourceId": str,
+        "physicalResourceId": str,
+        "reason": str,
+    },
+    total=False,
+)
+
+ResourceErrorsDetailsTypeDef = TypedDict(
+    "ResourceErrorsDetailsTypeDef",
+    {
+        "hasMoreErrors": bool,
+        "resourceErrors": List["ResourceErrorTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredResourceMappingTypeDef = TypedDict(
     "_RequiredResourceMappingTypeDef",
     {
@@ -1414,6 +1457,7 @@ _OptionalResourceMappingTypeDef = TypedDict(
         "logicalStackName": str,
         "resourceGroupName": str,
         "resourceName": str,
+        "terraformSourceName": str,
     },
     total=False,
 )
@@ -1505,6 +1549,13 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TerraformSourceTypeDef = TypedDict(
+    "TerraformSourceTypeDef",
+    {
+        "s3StateFileUrl": str,
+    },
+)
+
 _RequiredTestRecommendationTypeDef = TypedDict(
     "_RequiredTestRecommendationTypeDef",
     {
@@ -1515,6 +1566,7 @@ _OptionalTestRecommendationTypeDef = TypedDict(
     "_OptionalTestRecommendationTypeDef",
     {
         "appComponentName": str,
+        "dependsOnAlarms": List[str],
         "description": str,
         "intent": str,
         "items": List["RecommendationItemTypeDef"],
@@ -1558,6 +1610,7 @@ _RequiredUpdateAppRequestRequestTypeDef = TypedDict(
 _OptionalUpdateAppRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateAppRequestRequestTypeDef",
     {
+        "assessmentSchedule": AppAssessmentScheduleTypeType,
         "clearResiliencyPolicyArn": bool,
         "description": str,
         "policyArn": str,

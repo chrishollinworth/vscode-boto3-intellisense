@@ -28,6 +28,7 @@ from .literals import (
     LogTypeType,
     OptionStateType,
     OutboundCrossClusterSearchConnectionStatusCodeType,
+    OverallChangeStatusType,
     PackageStatusType,
     ReservedElasticsearchInstancePaymentOptionType,
     RollbackOnDisableType,
@@ -70,6 +71,9 @@ __all__ = (
     "AutoTuneTypeDef",
     "CancelElasticsearchServiceSoftwareUpdateRequestRequestTypeDef",
     "CancelElasticsearchServiceSoftwareUpdateResponseTypeDef",
+    "ChangeProgressDetailsTypeDef",
+    "ChangeProgressStageTypeDef",
+    "ChangeProgressStatusDetailsTypeDef",
     "CognitoOptionsStatusTypeDef",
     "CognitoOptionsTypeDef",
     "ColdStorageOptionsTypeDef",
@@ -90,6 +94,8 @@ __all__ = (
     "DeletePackageResponseTypeDef",
     "DescribeDomainAutoTunesRequestRequestTypeDef",
     "DescribeDomainAutoTunesResponseTypeDef",
+    "DescribeDomainChangeProgressRequestRequestTypeDef",
+    "DescribeDomainChangeProgressResponseTypeDef",
     "DescribeElasticsearchDomainConfigRequestRequestTypeDef",
     "DescribeElasticsearchDomainConfigResponseTypeDef",
     "DescribeElasticsearchDomainRequestRequestTypeDef",
@@ -256,6 +262,7 @@ AdvancedSecurityOptionsInputTypeDef = TypedDict(
         "InternalUserDatabaseEnabled": bool,
         "MasterUserOptions": "MasterUserOptionsTypeDef",
         "SAMLOptions": "SAMLOptionsInputTypeDef",
+        "AnonymousAuthEnabled": bool,
     },
     total=False,
 )
@@ -274,6 +281,8 @@ AdvancedSecurityOptionsTypeDef = TypedDict(
         "Enabled": bool,
         "InternalUserDatabaseEnabled": bool,
         "SAMLOptions": "SAMLOptionsOutputTypeDef",
+        "AnonymousAuthDisableDate": datetime,
+        "AnonymousAuthEnabled": bool,
     },
     total=False,
 )
@@ -392,6 +401,40 @@ CancelElasticsearchServiceSoftwareUpdateResponseTypeDef = TypedDict(
         "ServiceSoftwareOptions": "ServiceSoftwareOptionsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ChangeProgressDetailsTypeDef = TypedDict(
+    "ChangeProgressDetailsTypeDef",
+    {
+        "ChangeId": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+ChangeProgressStageTypeDef = TypedDict(
+    "ChangeProgressStageTypeDef",
+    {
+        "Name": str,
+        "Status": str,
+        "Description": str,
+        "LastUpdated": datetime,
+    },
+    total=False,
+)
+
+ChangeProgressStatusDetailsTypeDef = TypedDict(
+    "ChangeProgressStatusDetailsTypeDef",
+    {
+        "ChangeId": str,
+        "StartTime": datetime,
+        "Status": OverallChangeStatusType,
+        "PendingProperties": List[str],
+        "CompletedProperties": List[str],
+        "TotalNumberOfStages": int,
+        "ChangeProgressStages": List["ChangeProgressStageTypeDef"],
+    },
+    total=False,
 )
 
 CognitoOptionsStatusTypeDef = TypedDict(
@@ -607,6 +650,34 @@ DescribeDomainAutoTunesResponseTypeDef = TypedDict(
     {
         "AutoTunes": List["AutoTuneTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeDomainChangeProgressRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeDomainChangeProgressRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalDescribeDomainChangeProgressRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeDomainChangeProgressRequestRequestTypeDef",
+    {
+        "ChangeId": str,
+    },
+    total=False,
+)
+
+class DescribeDomainChangeProgressRequestRequestTypeDef(
+    _RequiredDescribeDomainChangeProgressRequestRequestTypeDef,
+    _OptionalDescribeDomainChangeProgressRequestRequestTypeDef,
+):
+    pass
+
+DescribeDomainChangeProgressResponseTypeDef = TypedDict(
+    "DescribeDomainChangeProgressResponseTypeDef",
+    {
+        "ChangeProgressStatus": "ChangeProgressStatusDetailsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -952,6 +1023,7 @@ ElasticsearchDomainConfigTypeDef = TypedDict(
         "DomainEndpointOptions": "DomainEndpointOptionsStatusTypeDef",
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsStatusTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsStatusTypeDef",
+        "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
     },
     total=False,
 )
@@ -988,6 +1060,7 @@ _OptionalElasticsearchDomainStatusTypeDef = TypedDict(
         "DomainEndpointOptions": "DomainEndpointOptionsTypeDef",
         "AdvancedSecurityOptions": "AdvancedSecurityOptionsTypeDef",
         "AutoTuneOptions": "AutoTuneOptionsOutputTypeDef",
+        "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
     },
     total=False,
 )
@@ -1774,6 +1847,7 @@ UpgradeElasticsearchDomainResponseTypeDef = TypedDict(
         "DomainName": str,
         "TargetVersion": str,
         "PerformCheckOnly": bool,
+        "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

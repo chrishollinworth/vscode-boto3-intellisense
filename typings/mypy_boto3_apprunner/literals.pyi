@@ -24,14 +24,18 @@ __all__ = (
     "ConfigurationSourceType",
     "ConnectionStatusType",
     "CustomDomainAssociationStatusType",
+    "EgressTypeType",
     "HealthCheckProtocolType",
     "ImageRepositoryTypeType",
+    "ObservabilityConfigurationStatusType",
     "OperationStatusType",
     "OperationTypeType",
     "ProviderTypeType",
     "RuntimeType",
     "ServiceStatusType",
     "SourceCodeVersionTypeType",
+    "TracingVendorType",
+    "VpcConnectorStatusType",
 )
 
 AutoScalingConfigurationStatusType = Literal["ACTIVE", "INACTIVE"]
@@ -47,8 +51,10 @@ CustomDomainAssociationStatusType = Literal[
     "DELETING",
     "PENDING_CERTIFICATE_DNS_VALIDATION",
 ]
+EgressTypeType = Literal["DEFAULT", "VPC"]
 HealthCheckProtocolType = Literal["HTTP", "TCP"]
 ImageRepositoryTypeType = Literal["ECR", "ECR_PUBLIC"]
+ObservabilityConfigurationStatusType = Literal["ACTIVE", "INACTIVE"]
 OperationStatusType = Literal[
     "FAILED",
     "IN_PROGRESS",
@@ -62,8 +68,10 @@ OperationTypeType = Literal[
     "CREATE_SERVICE", "DELETE_SERVICE", "PAUSE_SERVICE", "RESUME_SERVICE", "START_DEPLOYMENT"
 ]
 ProviderTypeType = Literal["GITHUB"]
-RuntimeType = Literal["NODEJS_12", "PYTHON_3"]
+RuntimeType = Literal["CORRETTO_11", "CORRETTO_8", "NODEJS_12", "NODEJS_14", "PYTHON_3"]
 ServiceStatusType = Literal[
     "CREATE_FAILED", "DELETED", "DELETE_FAILED", "OPERATION_IN_PROGRESS", "PAUSED", "RUNNING"
 ]
 SourceCodeVersionTypeType = Literal["BRANCH"]
+TracingVendorType = Literal["AWSXRAY"]
+VpcConnectorStatusType = Literal["ACTIVE", "INACTIVE"]

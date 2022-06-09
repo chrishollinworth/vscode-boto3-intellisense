@@ -24,7 +24,11 @@ else:
 __all__ = (
     "GetRoutingControlStateRequestRequestTypeDef",
     "GetRoutingControlStateResponseTypeDef",
+    "ListRoutingControlsRequestRequestTypeDef",
+    "ListRoutingControlsResponseTypeDef",
+    "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "RoutingControlTypeDef",
     "UpdateRoutingControlStateEntryTypeDef",
     "UpdateRoutingControlStateRequestRequestTypeDef",
     "UpdateRoutingControlStatesRequestRequestTypeDef",
@@ -42,8 +46,38 @@ GetRoutingControlStateResponseTypeDef = TypedDict(
     {
         "RoutingControlArn": str,
         "RoutingControlState": RoutingControlStateType,
+        "RoutingControlName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+ListRoutingControlsRequestRequestTypeDef = TypedDict(
+    "ListRoutingControlsRequestRequestTypeDef",
+    {
+        "ControlPanelArn": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListRoutingControlsResponseTypeDef = TypedDict(
+    "ListRoutingControlsResponseTypeDef",
+    {
+        "RoutingControls": List["RoutingControlTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
 ResponseMetadataTypeDef = TypedDict(
@@ -57,6 +91,18 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RoutingControlTypeDef = TypedDict(
+    "RoutingControlTypeDef",
+    {
+        "ControlPanelArn": str,
+        "ControlPanelName": str,
+        "RoutingControlArn": str,
+        "RoutingControlName": str,
+        "RoutingControlState": RoutingControlStateType,
+    },
+    total=False,
+)
+
 UpdateRoutingControlStateEntryTypeDef = TypedDict(
     "UpdateRoutingControlStateEntryTypeDef",
     {
@@ -65,17 +111,43 @@ UpdateRoutingControlStateEntryTypeDef = TypedDict(
     },
 )
 
-UpdateRoutingControlStateRequestRequestTypeDef = TypedDict(
-    "UpdateRoutingControlStateRequestRequestTypeDef",
+_RequiredUpdateRoutingControlStateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateRoutingControlStateRequestRequestTypeDef",
     {
         "RoutingControlArn": str,
         "RoutingControlState": RoutingControlStateType,
     },
 )
+_OptionalUpdateRoutingControlStateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateRoutingControlStateRequestRequestTypeDef",
+    {
+        "SafetyRulesToOverride": List[str],
+    },
+    total=False,
+)
 
-UpdateRoutingControlStatesRequestRequestTypeDef = TypedDict(
-    "UpdateRoutingControlStatesRequestRequestTypeDef",
+class UpdateRoutingControlStateRequestRequestTypeDef(
+    _RequiredUpdateRoutingControlStateRequestRequestTypeDef,
+    _OptionalUpdateRoutingControlStateRequestRequestTypeDef,
+):
+    pass
+
+_RequiredUpdateRoutingControlStatesRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateRoutingControlStatesRequestRequestTypeDef",
     {
         "UpdateRoutingControlStateEntries": List["UpdateRoutingControlStateEntryTypeDef"],
     },
 )
+_OptionalUpdateRoutingControlStatesRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateRoutingControlStatesRequestRequestTypeDef",
+    {
+        "SafetyRulesToOverride": List[str],
+    },
+    total=False,
+)
+
+class UpdateRoutingControlStatesRequestRequestTypeDef(
+    _RequiredUpdateRoutingControlStatesRequestRequestTypeDef,
+    _OptionalUpdateRoutingControlStatesRequestRequestTypeDef,
+):
+    pass

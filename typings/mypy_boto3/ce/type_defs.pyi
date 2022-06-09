@@ -19,6 +19,8 @@ from .literals import (
     AnomalyFeedbackTypeType,
     AnomalySubscriptionFrequencyType,
     ContextType,
+    CostAllocationTagStatusType,
+    CostAllocationTagTypeType,
     CostCategoryInheritedValueDimensionNameType,
     CostCategoryRuleTypeType,
     CostCategorySplitChargeMethodType,
@@ -60,6 +62,8 @@ __all__ = (
     "AnomalyScoreTypeDef",
     "AnomalySubscriptionTypeDef",
     "AnomalyTypeDef",
+    "CostAllocationTagStatusEntryTypeDef",
+    "CostAllocationTagTypeDef",
     "CostCategoryInheritedValueDimensionTypeDef",
     "CostCategoryProcessingStatusTypeDef",
     "CostCategoryReferenceTypeDef",
@@ -139,8 +143,12 @@ __all__ = (
     "GroupTypeDef",
     "ImpactTypeDef",
     "InstanceDetailsTypeDef",
+    "ListCostAllocationTagsRequestRequestTypeDef",
+    "ListCostAllocationTagsResponseTypeDef",
     "ListCostCategoryDefinitionsRequestRequestTypeDef",
     "ListCostCategoryDefinitionsResponseTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MetricValueTypeDef",
     "ModifyRecommendationDetailTypeDef",
     "NetworkResourceUtilizationTypeDef",
@@ -156,6 +164,7 @@ __all__ = (
     "ReservationPurchaseRecommendationTypeDef",
     "ReservationUtilizationGroupTypeDef",
     "ResourceDetailsTypeDef",
+    "ResourceTagTypeDef",
     "ResourceUtilizationTypeDef",
     "ResponseMetadataTypeDef",
     "ResultByTimeTypeDef",
@@ -180,14 +189,19 @@ __all__ = (
     "ServiceSpecificationTypeDef",
     "SortDefinitionTypeDef",
     "SubscriberTypeDef",
+    "TagResourceRequestRequestTypeDef",
     "TagValuesTypeDef",
     "TargetInstanceTypeDef",
     "TerminateRecommendationDetailTypeDef",
     "TotalImpactFilterTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateAnomalyMonitorRequestRequestTypeDef",
     "UpdateAnomalyMonitorResponseTypeDef",
     "UpdateAnomalySubscriptionRequestRequestTypeDef",
     "UpdateAnomalySubscriptionResponseTypeDef",
+    "UpdateCostAllocationTagsStatusErrorTypeDef",
+    "UpdateCostAllocationTagsStatusRequestRequestTypeDef",
+    "UpdateCostAllocationTagsStatusResponseTypeDef",
     "UpdateCostCategoryDefinitionRequestRequestTypeDef",
     "UpdateCostCategoryDefinitionResponseTypeDef",
     "UtilizationByTimeTypeDef",
@@ -291,6 +305,23 @@ _OptionalAnomalyTypeDef = TypedDict(
 
 class AnomalyTypeDef(_RequiredAnomalyTypeDef, _OptionalAnomalyTypeDef):
     pass
+
+CostAllocationTagStatusEntryTypeDef = TypedDict(
+    "CostAllocationTagStatusEntryTypeDef",
+    {
+        "TagKey": str,
+        "Status": CostAllocationTagStatusType,
+    },
+)
+
+CostAllocationTagTypeDef = TypedDict(
+    "CostAllocationTagTypeDef",
+    {
+        "TagKey": str,
+        "Type": CostAllocationTagTypeType,
+        "Status": CostAllocationTagStatusType,
+    },
+)
 
 CostCategoryInheritedValueDimensionTypeDef = TypedDict(
     "CostCategoryInheritedValueDimensionTypeDef",
@@ -449,12 +480,25 @@ CoverageTypeDef = TypedDict(
     total=False,
 )
 
-CreateAnomalyMonitorRequestRequestTypeDef = TypedDict(
-    "CreateAnomalyMonitorRequestRequestTypeDef",
+_RequiredCreateAnomalyMonitorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAnomalyMonitorRequestRequestTypeDef",
     {
         "AnomalyMonitor": "AnomalyMonitorTypeDef",
     },
 )
+_OptionalCreateAnomalyMonitorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAnomalyMonitorRequestRequestTypeDef",
+    {
+        "ResourceTags": List["ResourceTagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAnomalyMonitorRequestRequestTypeDef(
+    _RequiredCreateAnomalyMonitorRequestRequestTypeDef,
+    _OptionalCreateAnomalyMonitorRequestRequestTypeDef,
+):
+    pass
 
 CreateAnomalyMonitorResponseTypeDef = TypedDict(
     "CreateAnomalyMonitorResponseTypeDef",
@@ -464,12 +508,25 @@ CreateAnomalyMonitorResponseTypeDef = TypedDict(
     },
 )
 
-CreateAnomalySubscriptionRequestRequestTypeDef = TypedDict(
-    "CreateAnomalySubscriptionRequestRequestTypeDef",
+_RequiredCreateAnomalySubscriptionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAnomalySubscriptionRequestRequestTypeDef",
     {
         "AnomalySubscription": "AnomalySubscriptionTypeDef",
     },
 )
+_OptionalCreateAnomalySubscriptionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAnomalySubscriptionRequestRequestTypeDef",
+    {
+        "ResourceTags": List["ResourceTagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateAnomalySubscriptionRequestRequestTypeDef(
+    _RequiredCreateAnomalySubscriptionRequestRequestTypeDef,
+    _OptionalCreateAnomalySubscriptionRequestRequestTypeDef,
+):
+    pass
 
 CreateAnomalySubscriptionResponseTypeDef = TypedDict(
     "CreateAnomalySubscriptionResponseTypeDef",
@@ -492,6 +549,7 @@ _OptionalCreateCostCategoryDefinitionRequestRequestTypeDef = TypedDict(
     {
         "DefaultValue": str,
         "SplitChargeRules": List["CostCategorySplitChargeRuleTypeDef"],
+        "ResourceTags": List["ResourceTagTypeDef"],
     },
     total=False,
 )
@@ -1375,6 +1433,27 @@ InstanceDetailsTypeDef = TypedDict(
     total=False,
 )
 
+ListCostAllocationTagsRequestRequestTypeDef = TypedDict(
+    "ListCostAllocationTagsRequestRequestTypeDef",
+    {
+        "Status": CostAllocationTagStatusType,
+        "TagKeys": List[str],
+        "Type": CostAllocationTagTypeType,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListCostAllocationTagsResponseTypeDef = TypedDict(
+    "ListCostAllocationTagsResponseTypeDef",
+    {
+        "CostAllocationTags": List["CostAllocationTagTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCostCategoryDefinitionsRequestRequestTypeDef = TypedDict(
     "ListCostCategoryDefinitionsRequestRequestTypeDef",
     {
@@ -1390,6 +1469,21 @@ ListCostCategoryDefinitionsResponseTypeDef = TypedDict(
     {
         "CostCategoryReferences": List["CostCategoryReferenceTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {
+        "ResourceTags": List["ResourceTagTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1575,6 +1669,14 @@ ResourceDetailsTypeDef = TypedDict(
         "EC2ResourceDetails": "EC2ResourceDetailsTypeDef",
     },
     total=False,
+)
+
+ResourceTagTypeDef = TypedDict(
+    "ResourceTagTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
 )
 
 ResourceUtilizationTypeDef = TypedDict(
@@ -1878,6 +1980,14 @@ SubscriberTypeDef = TypedDict(
     total=False,
 )
 
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourceTags": List["ResourceTagTypeDef"],
+    },
+)
+
 TagValuesTypeDef = TypedDict(
     "TagValuesTypeDef",
     {
@@ -1930,6 +2040,14 @@ class TotalImpactFilterTypeDef(
     _RequiredTotalImpactFilterTypeDef, _OptionalTotalImpactFilterTypeDef
 ):
     pass
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourceTagKeys": List[str],
+    },
+)
 
 _RequiredUpdateAnomalyMonitorRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateAnomalyMonitorRequestRequestTypeDef",
@@ -1987,6 +2105,31 @@ UpdateAnomalySubscriptionResponseTypeDef = TypedDict(
     "UpdateAnomalySubscriptionResponseTypeDef",
     {
         "SubscriptionArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateCostAllocationTagsStatusErrorTypeDef = TypedDict(
+    "UpdateCostAllocationTagsStatusErrorTypeDef",
+    {
+        "TagKey": str,
+        "Code": str,
+        "Message": str,
+    },
+    total=False,
+)
+
+UpdateCostAllocationTagsStatusRequestRequestTypeDef = TypedDict(
+    "UpdateCostAllocationTagsStatusRequestRequestTypeDef",
+    {
+        "CostAllocationTagsStatus": List["CostAllocationTagStatusEntryTypeDef"],
+    },
+)
+
+UpdateCostAllocationTagsStatusResponseTypeDef = TypedDict(
+    "UpdateCostAllocationTagsStatusResponseTypeDef",
+    {
+        "Errors": List["UpdateCostAllocationTagsStatusErrorTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

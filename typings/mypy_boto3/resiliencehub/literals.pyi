@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "AlarmTypeType",
+    "AppAssessmentScheduleTypeType",
     "AppComplianceStatusTypeType",
     "AppStatusTypeType",
     "AssessmentInvokerType",
@@ -46,6 +47,7 @@ __all__ = (
 )
 
 AlarmTypeType = Literal["Canary", "Composite", "Event", "Logs", "Metric"]
+AppAssessmentScheduleTypeType = Literal["Daily", "Disabled"]
 AppComplianceStatusTypeType = Literal[
     "ChangesDetected", "NotAssessed", "PolicyBreached", "PolicyMet"
 ]
@@ -73,7 +75,9 @@ ResiliencyPolicyTierType = Literal[
     "CoreServices", "Critical", "Important", "MissionCritical", "NonCritical"
 ]
 ResourceImportStatusTypeType = Literal["Failed", "InProgress", "Pending", "Success"]
-ResourceMappingTypeType = Literal["AppRegistryApp", "CfnStack", "Resource", "ResourceGroup"]
+ResourceMappingTypeType = Literal[
+    "AppRegistryApp", "CfnStack", "Resource", "ResourceGroup", "Terraform"
+]
 ResourceResolutionStatusTypeType = Literal["Failed", "InProgress", "Pending", "Success"]
 SopServiceTypeType = Literal["SSM"]
 TemplateFormatType = Literal["CfnJson", "CfnYaml"]

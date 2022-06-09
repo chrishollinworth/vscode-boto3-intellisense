@@ -23,6 +23,7 @@ from .literals import (
     FieldNameStringType,
     OptimizerTypeType,
     PermissionType,
+    PermissionTypeType,
     QueryStateStringType,
     ResourceShareTypeType,
     ResourceTypeType,
@@ -40,6 +41,7 @@ __all__ = (
     "AddLFTagsToResourceRequestRequestTypeDef",
     "AddLFTagsToResourceResponseTypeDef",
     "AddObjectInputTypeDef",
+    "AuditContextTypeDef",
     "BatchGrantPermissionsRequestRequestTypeDef",
     "BatchGrantPermissionsResponseTypeDef",
     "BatchPermissionsFailureEntryTypeDef",
@@ -87,6 +89,10 @@ __all__ = (
     "GetResourceLFTagsResponseTypeDef",
     "GetTableObjectsRequestRequestTypeDef",
     "GetTableObjectsResponseTypeDef",
+    "GetTemporaryGluePartitionCredentialsRequestRequestTypeDef",
+    "GetTemporaryGluePartitionCredentialsResponseTypeDef",
+    "GetTemporaryGlueTableCredentialsRequestRequestTypeDef",
+    "GetTemporaryGlueTableCredentialsResponseTypeDef",
     "GetWorkUnitResultsRequestRequestTypeDef",
     "GetWorkUnitResultsResponseTypeDef",
     "GetWorkUnitsRequestRequestTypeDef",
@@ -111,6 +117,7 @@ __all__ = (
     "ListTransactionsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PartitionObjectsTypeDef",
+    "PartitionValueListTypeDef",
     "PlanningStatisticsTypeDef",
     "PrincipalPermissionsTypeDef",
     "PrincipalResourcePermissionsTypeDef",
@@ -196,6 +203,14 @@ _OptionalAddObjectInputTypeDef = TypedDict(
 
 class AddObjectInputTypeDef(_RequiredAddObjectInputTypeDef, _OptionalAddObjectInputTypeDef):
     pass
+
+AuditContextTypeDef = TypedDict(
+    "AuditContextTypeDef",
+    {
+        "AdditionalAuditContext": str,
+    },
+    total=False,
+)
 
 _RequiredBatchGrantPermissionsRequestRequestTypeDef = TypedDict(
     "_RequiredBatchGrantPermissionsRequestRequestTypeDef",
@@ -398,6 +413,9 @@ DataLakeSettingsTypeDef = TypedDict(
         "CreateDatabaseDefaultPermissions": List["PrincipalPermissionsTypeDef"],
         "CreateTableDefaultPermissions": List["PrincipalPermissionsTypeDef"],
         "TrustedResourceOwners": List[str],
+        "AllowExternalDataFiltering": bool,
+        "ExternalDataFilteringAllowList": List["DataLakePrincipalTypeDef"],
+        "AuthorizedSessionTagValueList": List[str],
     },
     total=False,
 )
@@ -766,6 +784,75 @@ GetTableObjectsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetTemporaryGluePartitionCredentialsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTemporaryGluePartitionCredentialsRequestRequestTypeDef",
+    {
+        "TableArn": str,
+        "Partition": "PartitionValueListTypeDef",
+        "SupportedPermissionTypes": List[PermissionTypeType],
+    },
+)
+_OptionalGetTemporaryGluePartitionCredentialsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTemporaryGluePartitionCredentialsRequestRequestTypeDef",
+    {
+        "Permissions": List[PermissionType],
+        "DurationSeconds": int,
+        "AuditContext": "AuditContextTypeDef",
+    },
+    total=False,
+)
+
+class GetTemporaryGluePartitionCredentialsRequestRequestTypeDef(
+    _RequiredGetTemporaryGluePartitionCredentialsRequestRequestTypeDef,
+    _OptionalGetTemporaryGluePartitionCredentialsRequestRequestTypeDef,
+):
+    pass
+
+GetTemporaryGluePartitionCredentialsResponseTypeDef = TypedDict(
+    "GetTemporaryGluePartitionCredentialsResponseTypeDef",
+    {
+        "AccessKeyId": str,
+        "SecretAccessKey": str,
+        "SessionToken": str,
+        "Expiration": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetTemporaryGlueTableCredentialsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTemporaryGlueTableCredentialsRequestRequestTypeDef",
+    {
+        "TableArn": str,
+        "SupportedPermissionTypes": List[PermissionTypeType],
+    },
+)
+_OptionalGetTemporaryGlueTableCredentialsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTemporaryGlueTableCredentialsRequestRequestTypeDef",
+    {
+        "Permissions": List[PermissionType],
+        "DurationSeconds": int,
+        "AuditContext": "AuditContextTypeDef",
+    },
+    total=False,
+)
+
+class GetTemporaryGlueTableCredentialsRequestRequestTypeDef(
+    _RequiredGetTemporaryGlueTableCredentialsRequestRequestTypeDef,
+    _OptionalGetTemporaryGlueTableCredentialsRequestRequestTypeDef,
+):
+    pass
+
+GetTemporaryGlueTableCredentialsResponseTypeDef = TypedDict(
+    "GetTemporaryGlueTableCredentialsResponseTypeDef",
+    {
+        "AccessKeyId": str,
+        "SecretAccessKey": str,
+        "SessionToken": str,
+        "Expiration": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetWorkUnitResultsRequestRequestTypeDef = TypedDict(
     "GetWorkUnitResultsRequestRequestTypeDef",
     {
@@ -1059,6 +1146,13 @@ PartitionObjectsTypeDef = TypedDict(
         "Objects": List["TableObjectTypeDef"],
     },
     total=False,
+)
+
+PartitionValueListTypeDef = TypedDict(
+    "PartitionValueListTypeDef",
+    {
+        "Values": List[str],
+    },
 )
 
 PlanningStatisticsTypeDef = TypedDict(
@@ -1473,7 +1567,6 @@ _RequiredUpdateTableObjectsRequestRequestTypeDef = TypedDict(
     {
         "DatabaseName": str,
         "TableName": str,
-        "TransactionId": str,
         "WriteOperations": List["WriteOperationTypeDef"],
     },
 )
@@ -1481,6 +1574,7 @@ _OptionalUpdateTableObjectsRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateTableObjectsRequestRequestTypeDef",
     {
         "CatalogId": str,
+        "TransactionId": str,
     },
     total=False,
 )

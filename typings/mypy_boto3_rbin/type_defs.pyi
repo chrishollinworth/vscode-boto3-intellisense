@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List
 
-from .literals import RuleStatusType
+from .literals import ResourceTypeType, RuleStatusType
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -51,7 +51,7 @@ _RequiredCreateRuleRequestRequestTypeDef = TypedDict(
     "_RequiredCreateRuleRequestRequestTypeDef",
     {
         "RetentionPeriod": "RetentionPeriodTypeDef",
-        "ResourceType": Literal["EBS_SNAPSHOT"],
+        "ResourceType": ResourceTypeType,
     },
 )
 _OptionalCreateRuleRequestRequestTypeDef = TypedDict(
@@ -76,7 +76,7 @@ CreateRuleResponseTypeDef = TypedDict(
         "RetentionPeriod": "RetentionPeriodTypeDef",
         "Description": str,
         "Tags": List["TagTypeDef"],
-        "ResourceType": Literal["EBS_SNAPSHOT"],
+        "ResourceType": ResourceTypeType,
         "ResourceTags": List["ResourceTagTypeDef"],
         "Status": RuleStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -102,7 +102,7 @@ GetRuleResponseTypeDef = TypedDict(
     {
         "Identifier": str,
         "Description": str,
-        "ResourceType": Literal["EBS_SNAPSHOT"],
+        "ResourceType": ResourceTypeType,
         "RetentionPeriod": "RetentionPeriodTypeDef",
         "ResourceTags": List["ResourceTagTypeDef"],
         "Status": RuleStatusType,
@@ -113,7 +113,7 @@ GetRuleResponseTypeDef = TypedDict(
 _RequiredListRulesRequestRequestTypeDef = TypedDict(
     "_RequiredListRulesRequestRequestTypeDef",
     {
-        "ResourceType": Literal["EBS_SNAPSHOT"],
+        "ResourceType": ResourceTypeType,
     },
 )
 _OptionalListRulesRequestRequestTypeDef = TypedDict(
@@ -246,7 +246,7 @@ _OptionalUpdateRuleRequestRequestTypeDef = TypedDict(
     {
         "RetentionPeriod": "RetentionPeriodTypeDef",
         "Description": str,
-        "ResourceType": Literal["EBS_SNAPSHOT"],
+        "ResourceType": ResourceTypeType,
         "ResourceTags": List["ResourceTagTypeDef"],
     },
     total=False,
@@ -263,7 +263,7 @@ UpdateRuleResponseTypeDef = TypedDict(
         "Identifier": str,
         "RetentionPeriod": "RetentionPeriodTypeDef",
         "Description": str,
-        "ResourceType": Literal["EBS_SNAPSHOT"],
+        "ResourceType": ResourceTypeType,
         "ResourceTags": List["ResourceTagTypeDef"],
         "Status": RuleStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",

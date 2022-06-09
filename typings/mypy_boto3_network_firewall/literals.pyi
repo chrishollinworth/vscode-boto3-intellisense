@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AttachmentStatusType",
     "ConfigurationSyncStateType",
+    "EncryptionTypeType",
     "FirewallStatusValueType",
     "GeneratedRulesTypeType",
     "ListFirewallPoliciesPaginatorName",
@@ -32,6 +33,7 @@ __all__ = (
     "OverrideActionType",
     "PerObjectSyncStatusType",
     "ResourceManagedStatusType",
+    "ResourceManagedTypeType",
     "ResourceStatusType",
     "RuleGroupTypeType",
     "RuleOrderType",
@@ -44,6 +46,7 @@ __all__ = (
 
 AttachmentStatusType = Literal["CREATING", "DELETING", "READY", "SCALING"]
 ConfigurationSyncStateType = Literal["IN_SYNC", "PENDING"]
+EncryptionTypeType = Literal["AWS_OWNED_KMS_KEY", "CUSTOMER_KMS"]
 FirewallStatusValueType = Literal["DELETING", "PROVISIONING", "READY"]
 GeneratedRulesTypeType = Literal["ALLOWLIST", "DENYLIST"]
 ListFirewallPoliciesPaginatorName = Literal["list_firewall_policies"]
@@ -55,6 +58,7 @@ LogTypeType = Literal["ALERT", "FLOW"]
 OverrideActionType = Literal["DROP_TO_ALERT"]
 PerObjectSyncStatusType = Literal["IN_SYNC", "PENDING"]
 ResourceManagedStatusType = Literal["ACCOUNT", "MANAGED"]
+ResourceManagedTypeType = Literal["AWS_MANAGED_DOMAIN_LISTS", "AWS_MANAGED_THREAT_SIGNATURES"]
 ResourceStatusType = Literal["ACTIVE", "DELETING"]
 RuleGroupTypeType = Literal["STATEFUL", "STATELESS"]
 RuleOrderType = Literal["DEFAULT_ACTION_ORDER", "STRICT_ORDER"]

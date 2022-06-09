@@ -1344,6 +1344,7 @@ _OptionalOutputTypeDef = TypedDict(
         "PartitionColumns": List[str],
         "Overwrite": bool,
         "FormatOptions": "OutputFormatOptionsTypeDef",
+        "MaxOutputFiles": int,
     },
     total=False,
 )
@@ -1595,6 +1596,7 @@ _OptionalS3LocationTypeDef = TypedDict(
     "_OptionalS3LocationTypeDef",
     {
         "Key": str,
+        "BucketOwner": str,
     },
     total=False,
 )

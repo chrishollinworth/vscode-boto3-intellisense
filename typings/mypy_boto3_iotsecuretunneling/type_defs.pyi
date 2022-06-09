@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List
 
-from .literals import ConnectionStatusType, TunnelStatusType
+from .literals import ClientModeType, ConnectionStatusType, TunnelStatusType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -35,6 +35,8 @@ __all__ = (
     "OpenTunnelRequestRequestTypeDef",
     "OpenTunnelResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "RotateTunnelAccessTokenRequestRequestTypeDef",
+    "RotateTunnelAccessTokenResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TimeoutConfigTypeDef",
@@ -169,6 +171,37 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+_RequiredRotateTunnelAccessTokenRequestRequestTypeDef = TypedDict(
+    "_RequiredRotateTunnelAccessTokenRequestRequestTypeDef",
+    {
+        "tunnelId": str,
+        "clientMode": ClientModeType,
+    },
+)
+_OptionalRotateTunnelAccessTokenRequestRequestTypeDef = TypedDict(
+    "_OptionalRotateTunnelAccessTokenRequestRequestTypeDef",
+    {
+        "destinationConfig": "DestinationConfigTypeDef",
+    },
+    total=False,
+)
+
+class RotateTunnelAccessTokenRequestRequestTypeDef(
+    _RequiredRotateTunnelAccessTokenRequestRequestTypeDef,
+    _OptionalRotateTunnelAccessTokenRequestRequestTypeDef,
+):
+    pass
+
+RotateTunnelAccessTokenResponseTypeDef = TypedDict(
+    "RotateTunnelAccessTokenResponseTypeDef",
+    {
+        "tunnelArn": str,
+        "sourceAccessToken": str,
+        "destinationAccessToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

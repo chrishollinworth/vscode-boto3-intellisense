@@ -18,6 +18,7 @@ from typing import Any, Dict, List
 from .literals import (
     LifeCycleStateType,
     PerformanceModeType,
+    ReplicationStatusType,
     ResourceIdTypeType,
     ResourceType,
     StatusType,
@@ -42,12 +43,14 @@ __all__ = (
     "CreateAccessPointRequestRequestTypeDef",
     "CreateFileSystemRequestRequestTypeDef",
     "CreateMountTargetRequestRequestTypeDef",
+    "CreateReplicationConfigurationRequestRequestTypeDef",
     "CreateTagsRequestRequestTypeDef",
     "CreationInfoTypeDef",
     "DeleteAccessPointRequestRequestTypeDef",
     "DeleteFileSystemPolicyRequestRequestTypeDef",
     "DeleteFileSystemRequestRequestTypeDef",
     "DeleteMountTargetRequestRequestTypeDef",
+    "DeleteReplicationConfigurationRequestRequestTypeDef",
     "DeleteTagsRequestRequestTypeDef",
     "DescribeAccessPointsRequestRequestTypeDef",
     "DescribeAccessPointsResponseTypeDef",
@@ -62,8 +65,12 @@ __all__ = (
     "DescribeMountTargetSecurityGroupsResponseTypeDef",
     "DescribeMountTargetsRequestRequestTypeDef",
     "DescribeMountTargetsResponseTypeDef",
+    "DescribeReplicationConfigurationsRequestRequestTypeDef",
+    "DescribeReplicationConfigurationsResponseTypeDef",
     "DescribeTagsRequestRequestTypeDef",
     "DescribeTagsResponseTypeDef",
+    "DestinationToCreateTypeDef",
+    "DestinationTypeDef",
     "FileSystemDescriptionResponseMetadataTypeDef",
     "FileSystemDescriptionTypeDef",
     "FileSystemPolicyDescriptionTypeDef",
@@ -82,6 +89,8 @@ __all__ = (
     "PutBackupPolicyRequestRequestTypeDef",
     "PutFileSystemPolicyRequestRequestTypeDef",
     "PutLifecycleConfigurationRequestRequestTypeDef",
+    "ReplicationConfigurationDescriptionResponseMetadataTypeDef",
+    "ReplicationConfigurationDescriptionTypeDef",
     "ResourceIdPreferenceTypeDef",
     "ResponseMetadataTypeDef",
     "RootDirectoryTypeDef",
@@ -209,6 +218,14 @@ class CreateMountTargetRequestRequestTypeDef(
 ):
     pass
 
+CreateReplicationConfigurationRequestRequestTypeDef = TypedDict(
+    "CreateReplicationConfigurationRequestRequestTypeDef",
+    {
+        "SourceFileSystemId": str,
+        "Destinations": List["DestinationToCreateTypeDef"],
+    },
+)
+
 CreateTagsRequestRequestTypeDef = TypedDict(
     "CreateTagsRequestRequestTypeDef",
     {
@@ -251,6 +268,13 @@ DeleteMountTargetRequestRequestTypeDef = TypedDict(
     "DeleteMountTargetRequestRequestTypeDef",
     {
         "MountTargetId": str,
+    },
+)
+
+DeleteReplicationConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteReplicationConfigurationRequestRequestTypeDef",
+    {
+        "SourceFileSystemId": str,
     },
 )
 
@@ -379,6 +403,25 @@ DescribeMountTargetsResponseTypeDef = TypedDict(
     },
 )
 
+DescribeReplicationConfigurationsRequestRequestTypeDef = TypedDict(
+    "DescribeReplicationConfigurationsRequestRequestTypeDef",
+    {
+        "FileSystemId": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+DescribeReplicationConfigurationsResponseTypeDef = TypedDict(
+    "DescribeReplicationConfigurationsResponseTypeDef",
+    {
+        "Replications": List["ReplicationConfigurationDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribeTagsRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeTagsRequestRequestTypeDef",
     {
@@ -408,6 +451,35 @@ DescribeTagsResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+DestinationToCreateTypeDef = TypedDict(
+    "DestinationToCreateTypeDef",
+    {
+        "Region": str,
+        "AvailabilityZoneName": str,
+        "KmsKeyId": str,
+    },
+    total=False,
+)
+
+_RequiredDestinationTypeDef = TypedDict(
+    "_RequiredDestinationTypeDef",
+    {
+        "Status": ReplicationStatusType,
+        "FileSystemId": str,
+        "Region": str,
+    },
+)
+_OptionalDestinationTypeDef = TypedDict(
+    "_OptionalDestinationTypeDef",
+    {
+        "LastReplicatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+class DestinationTypeDef(_RequiredDestinationTypeDef, _OptionalDestinationTypeDef):
+    pass
 
 FileSystemDescriptionResponseMetadataTypeDef = TypedDict(
     "FileSystemDescriptionResponseMetadataTypeDef",
@@ -683,6 +755,31 @@ PutLifecycleConfigurationRequestRequestTypeDef = TypedDict(
     {
         "FileSystemId": str,
         "LifecyclePolicies": List["LifecyclePolicyTypeDef"],
+    },
+)
+
+ReplicationConfigurationDescriptionResponseMetadataTypeDef = TypedDict(
+    "ReplicationConfigurationDescriptionResponseMetadataTypeDef",
+    {
+        "SourceFileSystemId": str,
+        "SourceFileSystemRegion": str,
+        "SourceFileSystemArn": str,
+        "OriginalSourceFileSystemArn": str,
+        "CreationTime": datetime,
+        "Destinations": List["DestinationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ReplicationConfigurationDescriptionTypeDef = TypedDict(
+    "ReplicationConfigurationDescriptionTypeDef",
+    {
+        "SourceFileSystemId": str,
+        "SourceFileSystemRegion": str,
+        "SourceFileSystemArn": str,
+        "OriginalSourceFileSystemArn": str,
+        "CreationTime": datetime,
+        "Destinations": List["DestinationTypeDef"],
     },
 )
 

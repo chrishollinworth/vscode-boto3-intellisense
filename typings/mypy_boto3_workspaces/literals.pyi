@@ -22,6 +22,7 @@ __all__ = (
     "AccessPropertyValueType",
     "ApplicationType",
     "AssociationStatusType",
+    "ClientDeviceTypeType",
     "ComputeType",
     "ConnectionAliasStateType",
     "ConnectionStateType",
@@ -61,8 +62,24 @@ AssociationStatusType = Literal[
     "PENDING_ASSOCIATION",
     "PENDING_DISASSOCIATION",
 ]
+ClientDeviceTypeType = Literal[
+    "DeviceTypeAndroid",
+    "DeviceTypeIos",
+    "DeviceTypeLinux",
+    "DeviceTypeOsx",
+    "DeviceTypeWeb",
+    "DeviceTypeWindows",
+]
 ComputeType = Literal[
-    "GRAPHICS", "GRAPHICSPRO", "PERFORMANCE", "POWER", "POWERPRO", "STANDARD", "VALUE"
+    "GRAPHICS",
+    "GRAPHICSPRO",
+    "GRAPHICSPRO_G4DN",
+    "GRAPHICS_G4DN",
+    "PERFORMANCE",
+    "POWER",
+    "POWERPRO",
+    "STANDARD",
+    "VALUE",
 ]
 ConnectionAliasStateType = Literal["CREATED", "CREATING", "DELETING"]
 ConnectionStateType = Literal["CONNECTED", "DISCONNECTED", "UNKNOWN"]
@@ -90,7 +107,7 @@ WorkspaceDirectoryStateType = Literal[
 ]
 WorkspaceDirectoryTypeType = Literal["AD_CONNECTOR", "SIMPLE_AD"]
 WorkspaceImageIngestionProcessType = Literal[
-    "BYOL_GRAPHICS", "BYOL_GRAPHICSPRO", "BYOL_REGULAR", "BYOL_REGULAR_WSP"
+    "BYOL_GRAPHICS", "BYOL_GRAPHICSPRO", "BYOL_GRAPHICS_G4DN", "BYOL_REGULAR", "BYOL_REGULAR_WSP"
 ]
 WorkspaceImageRequiredTenancyType = Literal["DEDICATED", "DEFAULT"]
 WorkspaceImageStateType = Literal["AVAILABLE", "ERROR", "PENDING"]

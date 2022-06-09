@@ -26,12 +26,12 @@ __all__ = ("ResourceRequestSuccessWaiter",)
 
 class ResourceRequestSuccessWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters.html#resourcerequestsuccesswaiter)
     """
 
     def wait(self, *, RequestToken: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters.html#resourcerequestsuccesswaiter)
         """

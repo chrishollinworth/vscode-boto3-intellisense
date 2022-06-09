@@ -107,7 +107,7 @@ __all__ = (
 
 class ServiceResourceGroupsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.groups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.groups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourcegroupscollection)
     """
 
@@ -140,7 +140,7 @@ class ServiceResourceGroupsCollection(ResourceCollection):
 
 class ServiceResourceInstanceProfilesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.instance_profiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.instance_profiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourceinstanceprofilescollection)
     """
 
@@ -173,7 +173,7 @@ class ServiceResourceInstanceProfilesCollection(ResourceCollection):
 
 class ServiceResourcePoliciesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.policies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.policies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourcepoliciescollection)
     """
 
@@ -213,7 +213,7 @@ class ServiceResourcePoliciesCollection(ResourceCollection):
 
 class ServiceResourceRolesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.roles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.roles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourcerolescollection)
     """
 
@@ -246,7 +246,7 @@ class ServiceResourceRolesCollection(ResourceCollection):
 
 class ServiceResourceSamlProvidersCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.saml_providers)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.saml_providers)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourcesamlproviderscollection)
     """
 
@@ -277,7 +277,7 @@ class ServiceResourceSamlProvidersCollection(ResourceCollection):
 
 class ServiceResourceServerCertificatesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.server_certificates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.server_certificates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourceservercertificatescollection)
     """
 
@@ -310,7 +310,7 @@ class ServiceResourceServerCertificatesCollection(ResourceCollection):
 
 class ServiceResourceUsersCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.users)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.users)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourceuserscollection)
     """
 
@@ -343,7 +343,7 @@ class ServiceResourceUsersCollection(ResourceCollection):
 
 class ServiceResourceVirtualMfaDevicesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.virtual_mfa_devices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.virtual_mfa_devices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#serviceresourcevirtualmfadevicescollection)
     """
 
@@ -380,7 +380,7 @@ class ServiceResourceVirtualMfaDevicesCollection(ResourceCollection):
 
 class CurrentUserAccessKeysCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.CurrentUser.access_keys)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.CurrentUser.access_keys)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#currentuseraccesskeyscollection)
     """
 
@@ -413,7 +413,7 @@ class CurrentUserAccessKeysCollection(ResourceCollection):
 
 class CurrentUserMfaDevicesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.CurrentUser.mfa_devices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.CurrentUser.mfa_devices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#currentusermfadevicescollection)
     """
 
@@ -446,7 +446,7 @@ class CurrentUserMfaDevicesCollection(ResourceCollection):
 
 class CurrentUserSigningCertificatesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.CurrentUser.signing_certificates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.CurrentUser.signing_certificates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#currentusersigningcertificatescollection)
     """
 
@@ -479,7 +479,7 @@ class CurrentUserSigningCertificatesCollection(ResourceCollection):
 
 class GroupAttachedPoliciesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.attached_policies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.attached_policies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupattachedpoliciescollection)
     """
 
@@ -512,7 +512,7 @@ class GroupAttachedPoliciesCollection(ResourceCollection):
 
 class GroupPoliciesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.policies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.policies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppoliciescollection)
     """
 
@@ -545,7 +545,7 @@ class GroupPoliciesCollection(ResourceCollection):
 
 class GroupUsersCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.users)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.users)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupuserscollection)
     """
 
@@ -578,7 +578,7 @@ class GroupUsersCollection(ResourceCollection):
 
 class PolicyAttachedGroupsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.attached_groups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.attached_groups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyattachedgroupscollection)
     """
 
@@ -617,7 +617,7 @@ class PolicyAttachedGroupsCollection(ResourceCollection):
 
 class PolicyAttachedRolesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.attached_roles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.attached_roles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyattachedrolescollection)
     """
 
@@ -656,7 +656,7 @@ class PolicyAttachedRolesCollection(ResourceCollection):
 
 class PolicyAttachedUsersCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.attached_users)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.attached_users)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyattacheduserscollection)
     """
 
@@ -695,7 +695,7 @@ class PolicyAttachedUsersCollection(ResourceCollection):
 
 class PolicyVersionsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.versions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.versions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyversionscollection)
     """
 
@@ -728,7 +728,7 @@ class PolicyVersionsCollection(ResourceCollection):
 
 class RoleAttachedPoliciesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.attached_policies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.attached_policies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roleattachedpoliciescollection)
     """
 
@@ -761,7 +761,7 @@ class RoleAttachedPoliciesCollection(ResourceCollection):
 
 class RoleInstanceProfilesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.instance_profiles)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.instance_profiles)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roleinstanceprofilescollection)
     """
 
@@ -794,7 +794,7 @@ class RoleInstanceProfilesCollection(ResourceCollection):
 
 class RolePoliciesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.policies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.policies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepoliciescollection)
     """
 
@@ -827,7 +827,7 @@ class RolePoliciesCollection(ResourceCollection):
 
 class UserAccessKeysCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.access_keys)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.access_keys)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#useraccesskeyscollection)
     """
 
@@ -860,7 +860,7 @@ class UserAccessKeysCollection(ResourceCollection):
 
 class UserAttachedPoliciesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.attached_policies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.attached_policies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userattachedpoliciescollection)
     """
 
@@ -893,7 +893,7 @@ class UserAttachedPoliciesCollection(ResourceCollection):
 
 class UserGroupsCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.groups)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.groups)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usergroupscollection)
     """
 
@@ -926,7 +926,7 @@ class UserGroupsCollection(ResourceCollection):
 
 class UserMfaDevicesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.mfa_devices)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.mfa_devices)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usermfadevicescollection)
     """
 
@@ -959,7 +959,7 @@ class UserMfaDevicesCollection(ResourceCollection):
 
 class UserPoliciesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.policies)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.policies)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpoliciescollection)
     """
 
@@ -992,7 +992,7 @@ class UserPoliciesCollection(ResourceCollection):
 
 class UserSigningCertificatesCollection(ResourceCollection):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.signing_certificates)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.signing_certificates)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usersigningcertificatescollection)
     """
 
@@ -1025,7 +1025,7 @@ class UserSigningCertificatesCollection(ResourceCollection):
 
 class AccessKeyPair(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccessKeyPair)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccessKeyPair)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeypair)
     """
 
@@ -1036,12 +1036,13 @@ class AccessKeyPair(Boto3ServiceResource):
     user_name: str
     id: str
     secret: str
+
     def activate(self, *, Status: statusTypeType) -> None:
         """
         Changes the status of the specified access key from Active to Inactive, or vice
         versa.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKeyPair.activate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKeyPair.activate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeypairactivate-method)
         """
     def deactivate(self, *, Status: statusTypeType) -> None:
@@ -1049,21 +1050,21 @@ class AccessKeyPair(Boto3ServiceResource):
         Changes the status of the specified access key from Active to Inactive, or vice
         versa.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKeyPair.deactivate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKeyPair.deactivate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeypairdeactivate-method)
         """
     def delete(self) -> None:
         """
         Deletes the access key pair associated with the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKeyPair.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKeyPair.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeypairdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKeyPair.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKeyPair.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeypairget_available_subresources-method)
         """
 
@@ -1071,7 +1072,7 @@ _AccessKeyPair = AccessKeyPair
 
 class AccountPasswordPolicy(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccountPasswordPolicy)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccountPasswordPolicy)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountpasswordpolicy)
     """
 
@@ -1085,18 +1086,19 @@ class AccountPasswordPolicy(Boto3ServiceResource):
     max_password_age: int
     password_reuse_prevention: int
     hard_expiry: bool
+
     def delete(self) -> None:
         """
         Deletes the password policy for the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountPasswordPolicy.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountPasswordPolicy.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountpasswordpolicydelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountPasswordPolicy.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountPasswordPolicy.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountpasswordpolicyget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1104,7 +1106,7 @@ class AccountPasswordPolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_account_password_policy` to update the attributes
         of the AccountPasswordPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountPasswordPolicy.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountPasswordPolicy.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountpasswordpolicyload-method)
         """
     def reload(self) -> None:
@@ -1112,7 +1114,7 @@ class AccountPasswordPolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_account_password_policy` to update the attributes
         of the AccountPasswordPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountPasswordPolicy.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountPasswordPolicy.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountpasswordpolicyreload-method)
         """
     def update(
@@ -1131,7 +1133,7 @@ class AccountPasswordPolicy(Boto3ServiceResource):
         """
         Updates the password policy settings for the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountPasswordPolicy.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountPasswordPolicy.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountpasswordpolicyupdate-method)
         """
 
@@ -1139,16 +1141,17 @@ _AccountPasswordPolicy = AccountPasswordPolicy
 
 class AccountSummary(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccountSummary)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccountSummary)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountsummary)
     """
 
     summary_map: Dict[str, Any]
+
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountSummary.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountSummary.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountsummaryget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1156,7 +1159,7 @@ class AccountSummary(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_account_summary` to update the attributes of the
         AccountSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountSummary.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountSummary.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountsummaryload-method)
         """
     def reload(self) -> None:
@@ -1164,7 +1167,7 @@ class AccountSummary(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_account_summary` to update the attributes of the
         AccountSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccountSummary.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccountSummary.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accountsummaryreload-method)
         """
 
@@ -1172,7 +1175,7 @@ _AccountSummary = AccountSummary
 
 class CurrentUser(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.CurrentUser)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.CurrentUser)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#currentuser)
     """
 
@@ -1188,11 +1191,12 @@ class CurrentUser(Boto3ServiceResource):
     access_keys: CurrentUserAccessKeysCollection
     mfa_devices: CurrentUserMfaDevicesCollection
     signing_certificates: CurrentUserSigningCertificatesCollection
+
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.CurrentUser.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.CurrentUser.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#currentuserget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1200,7 +1204,7 @@ class CurrentUser(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_user` to update the attributes of the CurrentUser
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.CurrentUser.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.CurrentUser.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#currentuserload-method)
         """
     def reload(self) -> None:
@@ -1208,7 +1212,7 @@ class CurrentUser(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_user` to update the attributes of the CurrentUser
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.CurrentUser.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.CurrentUser.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#currentuserreload-method)
         """
 
@@ -1216,7 +1220,7 @@ _CurrentUser = CurrentUser
 
 class InstanceProfile(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.InstanceProfile)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.InstanceProfile)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#instanceprofile)
     """
 
@@ -1229,25 +1233,26 @@ class InstanceProfile(Boto3ServiceResource):
     tags: List[Any]
     name: str
     roles: "Role"
+
     def add_role(self, *, RoleName: str) -> None:
         """
         Adds the specified IAM role to the specified instance profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.InstanceProfile.add_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.InstanceProfile.add_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#instanceprofileadd_role-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified instance profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.InstanceProfile.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.InstanceProfile.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#instanceprofiledelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.InstanceProfile.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.InstanceProfile.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#instanceprofileget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1255,7 +1260,7 @@ class InstanceProfile(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_instance_profile` to update the attributes of the
         InstanceProfile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.InstanceProfile.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.InstanceProfile.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#instanceprofileload-method)
         """
     def reload(self) -> None:
@@ -1263,14 +1268,14 @@ class InstanceProfile(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_instance_profile` to update the attributes of the
         InstanceProfile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.InstanceProfile.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.InstanceProfile.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#instanceprofilereload-method)
         """
     def remove_role(self, *, RoleName: str) -> None:
         """
         Removes the specified IAM role from the specified EC2 instance profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.InstanceProfile.remove_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.InstanceProfile.remove_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#instanceprofileremove_role-method)
         """
 
@@ -1278,7 +1283,7 @@ _InstanceProfile = InstanceProfile
 
 class PolicyVersion(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.PolicyVersion)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.PolicyVersion)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyversion)
     """
 
@@ -1287,18 +1292,19 @@ class PolicyVersion(Boto3ServiceResource):
     create_date: datetime
     arn: str
     version_id: str
+
     def delete(self) -> None:
         """
         Deletes the specified version from the specified managed policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.PolicyVersion.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.PolicyVersion.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyversiondelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.PolicyVersion.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.PolicyVersion.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyversionget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1306,7 +1312,7 @@ class PolicyVersion(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_policy_version` to update the attributes of the
         PolicyVersion resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.PolicyVersion.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.PolicyVersion.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyversionload-method)
         """
     def reload(self) -> None:
@@ -1314,7 +1320,7 @@ class PolicyVersion(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_policy_version` to update the attributes of the
         PolicyVersion resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.PolicyVersion.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.PolicyVersion.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyversionreload-method)
         """
     def set_as_default(self) -> None:
@@ -1322,7 +1328,7 @@ class PolicyVersion(Boto3ServiceResource):
         Sets the specified version of the specified policy as the policy's default
         (operative) version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.PolicyVersion.set_as_default)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.PolicyVersion.set_as_default)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyversionset_as_default-method)
         """
 
@@ -1330,7 +1336,7 @@ _PolicyVersion = PolicyVersion
 
 class SamlProvider(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.SamlProvider)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.SamlProvider)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#samlprovider)
     """
 
@@ -1339,18 +1345,19 @@ class SamlProvider(Boto3ServiceResource):
     valid_until: datetime
     tags: List[Any]
     arn: str
+
     def delete(self) -> None:
         """
         Deletes a SAML provider resource in IAM.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SamlProvider.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SamlProvider.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#samlproviderdelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SamlProvider.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SamlProvider.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#samlproviderget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1358,7 +1365,7 @@ class SamlProvider(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_saml_provider` to update the attributes of the
         SamlProvider resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SamlProvider.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SamlProvider.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#samlproviderload-method)
         """
     def reload(self) -> None:
@@ -1366,14 +1373,14 @@ class SamlProvider(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_saml_provider` to update the attributes of the
         SamlProvider resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SamlProvider.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SamlProvider.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#samlproviderreload-method)
         """
     def update(self, *, SAMLMetadataDocument: str) -> UpdateSAMLProviderResponseTypeDef:
         """
         Updates the metadata document for an existing SAML provider resource object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SamlProvider.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SamlProvider.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#samlproviderupdate-method)
         """
 
@@ -1381,7 +1388,7 @@ _SamlProvider = SamlProvider
 
 class VirtualMfaDevice(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.VirtualMfaDevice)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.VirtualMfaDevice)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#virtualmfadevice)
     """
 
@@ -1392,18 +1399,19 @@ class VirtualMfaDevice(Boto3ServiceResource):
     tags: List[Any]
     serial_number: str
     user: "User"
+
     def delete(self) -> None:
         """
         Deletes a virtual MFA device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.VirtualMfaDevice.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.VirtualMfaDevice.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#virtualmfadevicedelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.VirtualMfaDevice.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.VirtualMfaDevice.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#virtualmfadeviceget_available_subresources-method)
         """
 
@@ -1411,7 +1419,7 @@ _VirtualMfaDevice = VirtualMfaDevice
 
 class AccessKey(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccessKey)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccessKey)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskey)
     """
 
@@ -1420,11 +1428,12 @@ class AccessKey(Boto3ServiceResource):
     create_date: datetime
     user_name: str
     id: str
+
     def User(self) -> "_User":
         """
         Creates a User resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKey.User)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKey.User)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeyuser-method)
         """
     def activate(self, *, Status: statusTypeType) -> None:
@@ -1432,7 +1441,7 @@ class AccessKey(Boto3ServiceResource):
         Changes the status of the specified access key from Active to Inactive, or vice
         versa.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKey.activate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKey.activate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeyactivate-method)
         """
     def deactivate(self, *, Status: statusTypeType) -> None:
@@ -1440,21 +1449,21 @@ class AccessKey(Boto3ServiceResource):
         Changes the status of the specified access key from Active to Inactive, or vice
         versa.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKey.deactivate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKey.deactivate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeydeactivate-method)
         """
     def delete(self) -> None:
         """
         Deletes the access key pair associated with the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKey.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKey.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeydelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AccessKey.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AccessKey.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#accesskeyget_available_subresources-method)
         """
 
@@ -1462,30 +1471,31 @@ _AccessKey = AccessKey
 
 class AssumeRolePolicy(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AssumeRolePolicy)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AssumeRolePolicy)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#assumerolepolicy)
     """
 
     role_name: str
+
     def Role(self) -> "_Role":
         """
         Creates a Role resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AssumeRolePolicy.Role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AssumeRolePolicy.Role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#assumerolepolicyrole-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AssumeRolePolicy.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AssumeRolePolicy.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#assumerolepolicyget_available_subresources-method)
         """
     def update(self, *, PolicyDocument: str) -> None:
         """
         Updates the policy that grants an IAM entity permission to assume a role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.AssumeRolePolicy.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.AssumeRolePolicy.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#assumerolepolicyupdate-method)
         """
 
@@ -1493,7 +1503,7 @@ _AssumeRolePolicy = AssumeRolePolicy
 
 class GroupPolicy(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.GroupPolicy)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.GroupPolicy)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicy)
     """
 
@@ -1501,25 +1511,26 @@ class GroupPolicy(Boto3ServiceResource):
     policy_document: str
     group_name: str
     name: str
+
     def Group(self) -> "_Group":
         """
         Creates a Group resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.GroupPolicy.Group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.GroupPolicy.Group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicygroup-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified inline policy that is embedded in the specified IAM group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.GroupPolicy.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.GroupPolicy.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicydelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.GroupPolicy.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.GroupPolicy.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicyget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1527,7 +1538,7 @@ class GroupPolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_group_policy` to update the attributes of the
         GroupPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.GroupPolicy.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.GroupPolicy.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicyload-method)
         """
     def put(self, *, PolicyDocument: str) -> None:
@@ -1535,7 +1546,7 @@ class GroupPolicy(Boto3ServiceResource):
         Adds or updates an inline policy document that is embedded in the specified IAM
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.GroupPolicy.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.GroupPolicy.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicyput-method)
         """
     def reload(self) -> None:
@@ -1543,7 +1554,7 @@ class GroupPolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_group_policy` to update the attributes of the
         GroupPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.GroupPolicy.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.GroupPolicy.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicyreload-method)
         """
 
@@ -1551,25 +1562,26 @@ _GroupPolicy = GroupPolicy
 
 class MfaDevice(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.MfaDevice)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.MfaDevice)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#mfadevice)
     """
 
     enable_date: datetime
     user_name: str
     serial_number: str
+
     def User(self) -> "_User":
         """
         Creates a User resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.MfaDevice.User)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.MfaDevice.User)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#mfadeviceuser-method)
         """
     def associate(self, *, AuthenticationCode1: str, AuthenticationCode2: str) -> None:
         """
         Enables the specified MFA device and associates it with the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.MfaDevice.associate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.MfaDevice.associate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#mfadeviceassociate-method)
         """
     def disassociate(self) -> None:
@@ -1577,14 +1589,14 @@ class MfaDevice(Boto3ServiceResource):
         Deactivates the specified MFA device and removes it from association with the
         user name for which it was originally enabled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.MfaDevice.disassociate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.MfaDevice.disassociate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#mfadevicedisassociate-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.MfaDevice.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.MfaDevice.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#mfadeviceget_available_subresources-method)
         """
     def resync(self, *, AuthenticationCode1: str, AuthenticationCode2: str) -> None:
@@ -1592,7 +1604,7 @@ class MfaDevice(Boto3ServiceResource):
         Synchronizes the specified MFA device with its IAM resource object on the Amazon
         Web Services servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.MfaDevice.resync)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.MfaDevice.resync)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#mfadeviceresync-method)
         """
 
@@ -1600,7 +1612,7 @@ _MfaDevice = MfaDevice
 
 class Policy(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.Policy)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.Policy)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policy)
     """
 
@@ -1621,67 +1633,68 @@ class Policy(Boto3ServiceResource):
     attached_roles: PolicyAttachedRolesCollection
     attached_users: PolicyAttachedUsersCollection
     versions: PolicyVersionsCollection
+
     def attach_group(self, *, GroupName: str) -> None:
         """
         Attaches the specified managed policy to the specified IAM group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.attach_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.attach_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyattach_group-method)
         """
     def attach_role(self, *, RoleName: str) -> None:
         """
         Attaches the specified managed policy to the specified IAM role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.attach_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.attach_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyattach_role-method)
         """
     def attach_user(self, *, UserName: str) -> None:
         """
         Attaches the specified managed policy to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.attach_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.attach_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyattach_user-method)
         """
     def create_version(self, *, PolicyDocument: str, SetAsDefault: bool = None) -> _PolicyVersion:
         """
         Creates a new version of the specified managed policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.create_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.create_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policycreate_version-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified managed policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policydelete-method)
         """
     def detach_group(self, *, GroupName: str) -> None:
         """
         Removes the specified managed policy from the specified IAM group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.detach_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.detach_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policydetach_group-method)
         """
     def detach_role(self, *, RoleName: str) -> None:
         """
         Removes the specified managed policy from the specified role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.detach_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.detach_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policydetach_role-method)
         """
     def detach_user(self, *, UserName: str) -> None:
         """
         Removes the specified managed policy from the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.detach_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.detach_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policydetach_user-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1689,7 +1702,7 @@ class Policy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_policy` to update the attributes of the Policy
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyload-method)
         """
     def reload(self) -> None:
@@ -1697,7 +1710,7 @@ class Policy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_policy` to update the attributes of the Policy
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Policy.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Policy.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#policyreload-method)
         """
 
@@ -1705,7 +1718,7 @@ _Policy = Policy
 
 class RolePolicy(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.RolePolicy)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.RolePolicy)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicy)
     """
 
@@ -1713,25 +1726,26 @@ class RolePolicy(Boto3ServiceResource):
     policy_document: str
     role_name: str
     name: str
+
     def Role(self) -> "_Role":
         """
         Creates a Role resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.RolePolicy.Role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.RolePolicy.Role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicyrole-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified inline policy that is embedded in the specified IAM role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.RolePolicy.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.RolePolicy.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicydelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.RolePolicy.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.RolePolicy.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicyget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1739,7 +1753,7 @@ class RolePolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_role_policy` to update the attributes of the
         RolePolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.RolePolicy.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.RolePolicy.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicyload-method)
         """
     def put(self, *, PolicyDocument: str) -> None:
@@ -1747,7 +1761,7 @@ class RolePolicy(Boto3ServiceResource):
         Adds or updates an inline policy document that is embedded in the specified IAM
         role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.RolePolicy.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.RolePolicy.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicyput-method)
         """
     def reload(self) -> None:
@@ -1755,7 +1769,7 @@ class RolePolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_role_policy` to update the attributes of the
         RolePolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.RolePolicy.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.RolePolicy.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicyreload-method)
         """
 
@@ -1763,7 +1777,7 @@ _RolePolicy = RolePolicy
 
 class ServerCertificate(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.ServerCertificate)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.ServerCertificate)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#servercertificate)
     """
 
@@ -1772,18 +1786,19 @@ class ServerCertificate(Boto3ServiceResource):
     certificate_chain: str
     tags: List[Any]
     name: str
+
     def delete(self) -> None:
         """
         Deletes the specified server certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServerCertificate.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServerCertificate.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#servercertificatedelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServerCertificate.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServerCertificate.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#servercertificateget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1791,7 +1806,7 @@ class ServerCertificate(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_server_certificate` to update the attributes of
         the ServerCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServerCertificate.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServerCertificate.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#servercertificateload-method)
         """
     def reload(self) -> None:
@@ -1799,7 +1814,7 @@ class ServerCertificate(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_server_certificate` to update the attributes of
         the ServerCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServerCertificate.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServerCertificate.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#servercertificatereload-method)
         """
     def update(
@@ -1809,7 +1824,7 @@ class ServerCertificate(Boto3ServiceResource):
         Updates the name and/or the path of the specified server certificate stored in
         IAM.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServerCertificate.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServerCertificate.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#servercertificateupdate-method)
         """
 
@@ -1817,7 +1832,7 @@ _ServerCertificate = ServerCertificate
 
 class SigningCertificate(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.SigningCertificate)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.SigningCertificate)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#signingcertificate)
     """
 
@@ -1827,11 +1842,12 @@ class SigningCertificate(Boto3ServiceResource):
     upload_date: datetime
     user_name: str
     id: str
+
     def User(self) -> "_User":
         """
         Creates a User resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SigningCertificate.User)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SigningCertificate.User)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#signingcertificateuser-method)
         """
     def activate(self, *, Status: statusTypeType) -> None:
@@ -1839,7 +1855,7 @@ class SigningCertificate(Boto3ServiceResource):
         Changes the status of the specified user signing certificate from active to
         disabled, or vice versa.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SigningCertificate.activate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SigningCertificate.activate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#signingcertificateactivate-method)
         """
     def deactivate(self, *, Status: statusTypeType) -> None:
@@ -1847,21 +1863,21 @@ class SigningCertificate(Boto3ServiceResource):
         Changes the status of the specified user signing certificate from active to
         disabled, or vice versa.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SigningCertificate.deactivate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SigningCertificate.deactivate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#signingcertificatedeactivate-method)
         """
     def delete(self) -> None:
         """
         Deletes a signing certificate associated with the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SigningCertificate.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SigningCertificate.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#signingcertificatedelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.SigningCertificate.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.SigningCertificate.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#signingcertificateget_available_subresources-method)
         """
 
@@ -1869,7 +1885,7 @@ _SigningCertificate = SigningCertificate
 
 class UserPolicy(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.UserPolicy)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.UserPolicy)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicy)
     """
 
@@ -1877,25 +1893,26 @@ class UserPolicy(Boto3ServiceResource):
     policy_document: str
     user_name: str
     name: str
+
     def User(self) -> "_User":
         """
         Creates a User resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.UserPolicy.User)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.UserPolicy.User)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicyuser-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified inline policy that is embedded in the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.UserPolicy.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.UserPolicy.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicydelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.UserPolicy.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.UserPolicy.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicyget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1903,7 +1920,7 @@ class UserPolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_user_policy` to update the attributes of the
         UserPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.UserPolicy.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.UserPolicy.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicyload-method)
         """
     def put(self, *, PolicyDocument: str) -> None:
@@ -1911,7 +1928,7 @@ class UserPolicy(Boto3ServiceResource):
         Adds or updates an inline policy document that is embedded in the specified IAM
         user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.UserPolicy.put)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.UserPolicy.put)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicyput-method)
         """
     def reload(self) -> None:
@@ -1919,7 +1936,7 @@ class UserPolicy(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_user_policy` to update the attributes of the
         UserPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.UserPolicy.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.UserPolicy.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicyreload-method)
         """
 
@@ -1927,25 +1944,26 @@ _UserPolicy = UserPolicy
 
 class LoginProfile(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.LoginProfile)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.LoginProfile)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofile)
     """
 
     create_date: datetime
     password_reset_required: bool
     user_name: str
+
     def User(self) -> "_User":
         """
         Creates a User resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.LoginProfile.User)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.LoginProfile.User)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofileuser-method)
         """
     def create(self, *, Password: str, PasswordResetRequired: bool = None) -> "_LoginProfile":
         """
         Creates a password for the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.LoginProfile.create)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.LoginProfile.create)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofilecreate-method)
         """
     def delete(self) -> None:
@@ -1954,14 +1972,14 @@ class LoginProfile(Boto3ServiceResource):
         ability to access Amazon Web Services services through the Amazon Web Services
         Management Console.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.LoginProfile.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.LoginProfile.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofiledelete-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.LoginProfile.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.LoginProfile.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofileget_available_subresources-method)
         """
     def load(self) -> None:
@@ -1969,7 +1987,7 @@ class LoginProfile(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_login_profile` to update the attributes of the
         LoginProfile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.LoginProfile.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.LoginProfile.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofileload-method)
         """
     def reload(self) -> None:
@@ -1977,14 +1995,14 @@ class LoginProfile(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_login_profile` to update the attributes of the
         LoginProfile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.LoginProfile.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.LoginProfile.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofilereload-method)
         """
     def update(self, *, Password: str = None, PasswordResetRequired: bool = None) -> None:
         """
         Changes the password for the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.LoginProfile.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.LoginProfile.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#loginprofileupdate-method)
         """
 
@@ -1992,7 +2010,7 @@ _LoginProfile = LoginProfile
 
 class Role(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.Role)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.Role)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#role)
     """
 
@@ -2011,46 +2029,47 @@ class Role(Boto3ServiceResource):
     attached_policies: RoleAttachedPoliciesCollection
     instance_profiles: RoleInstanceProfilesCollection
     policies: RolePoliciesCollection
+
     def AssumeRolePolicy(self) -> _AssumeRolePolicy:
         """
         Creates a AssumeRolePolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.AssumeRolePolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.AssumeRolePolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roleassumerolepolicy-method)
         """
     def Policy(self, name: str) -> _RolePolicy:
         """
         Creates a RolePolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.Policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.Policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolepolicy-method)
         """
     def attach_policy(self, *, PolicyArn: str) -> None:
         """
         Attaches the specified managed policy to the specified IAM role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.attach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.attach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roleattach_policy-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roledelete-method)
         """
     def detach_policy(self, *, PolicyArn: str) -> None:
         """
         Removes the specified managed policy from the specified role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.detach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.detach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roledetach_policy-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roleget_available_subresources-method)
         """
     def load(self) -> None:
@@ -2058,7 +2077,7 @@ class Role(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_role` to update the attributes of the Role
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#roleload-method)
         """
     def reload(self) -> None:
@@ -2066,7 +2085,7 @@ class Role(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_role` to update the attributes of the Role
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Role.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Role.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#rolereload-method)
         """
 
@@ -2074,7 +2093,7 @@ _Role = Role
 
 class Group(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.Group)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.Group)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#group)
     """
 
@@ -2087,32 +2106,33 @@ class Group(Boto3ServiceResource):
     attached_policies: GroupAttachedPoliciesCollection
     policies: GroupPoliciesCollection
     users: GroupUsersCollection
+
     def Policy(self, name: str) -> _GroupPolicy:
         """
         Creates a GroupPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.Policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.Policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#grouppolicy-method)
         """
     def add_user(self, *, UserName: str) -> None:
         """
         Adds the specified user to the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.add_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.add_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupadd_user-method)
         """
     def attach_policy(self, *, PolicyArn: str) -> None:
         """
         Attaches the specified managed policy to the specified IAM group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.attach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.attach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupattach_policy-method)
         """
     def create(self, *, Path: str = None) -> "_Group":
         """
         Creates a new group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.create)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.create)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupcreate-method)
         """
     def create_policy(self, *, PolicyName: str, PolicyDocument: str) -> _GroupPolicy:
@@ -2120,28 +2140,28 @@ class Group(Boto3ServiceResource):
         Adds or updates an inline policy document that is embedded in the specified IAM
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.create_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.create_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupcreate_policy-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified IAM group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupdelete-method)
         """
     def detach_policy(self, *, PolicyArn: str) -> None:
         """
         Removes the specified managed policy from the specified IAM group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.detach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.detach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupdetach_policy-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupget_available_subresources-method)
         """
     def load(self) -> None:
@@ -2149,7 +2169,7 @@ class Group(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_group` to update the attributes of the Group
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupload-method)
         """
     def reload(self) -> None:
@@ -2157,21 +2177,21 @@ class Group(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_group` to update the attributes of the Group
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupreload-method)
         """
     def remove_user(self, *, UserName: str) -> None:
         """
         Removes the specified user from the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.remove_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.remove_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupremove_user-method)
         """
     def update(self, *, NewPath: str = None, NewGroupName: str = None) -> "_Group":
         """
         Updates the name and/or the path of the specified IAM group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.Group.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.Group.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#groupupdate-method)
         """
 
@@ -2179,7 +2199,7 @@ _Group = Group
 
 class User(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.User)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.User)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#user)
     """
 
@@ -2198,53 +2218,54 @@ class User(Boto3ServiceResource):
     mfa_devices: UserMfaDevicesCollection
     policies: UserPoliciesCollection
     signing_certificates: UserSigningCertificatesCollection
+
     def AccessKey(self, id: str) -> _AccessKey:
         """
         Creates a AccessKey resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.AccessKey)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.AccessKey)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#useraccesskey-method)
         """
     def LoginProfile(self) -> _LoginProfile:
         """
         Creates a LoginProfile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.LoginProfile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.LoginProfile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userloginprofile-method)
         """
     def MfaDevice(self, serial_number: str) -> _MfaDevice:
         """
         Creates a MfaDevice resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.MfaDevice)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.MfaDevice)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usermfadevice-method)
         """
     def Policy(self, name: str) -> _UserPolicy:
         """
         Creates a UserPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.Policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.Policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userpolicy-method)
         """
     def SigningCertificate(self, id: str) -> _SigningCertificate:
         """
         Creates a SigningCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.SigningCertificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.SigningCertificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usersigningcertificate-method)
         """
     def add_group(self, *, GroupName: str) -> None:
         """
         Adds the specified user to the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.add_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.add_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#useradd_group-method)
         """
     def attach_policy(self, *, PolicyArn: str) -> None:
         """
         Attaches the specified managed policy to the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.attach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.attach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userattach_policy-method)
         """
     def create(
@@ -2253,7 +2274,7 @@ class User(Boto3ServiceResource):
         """
         Creates a new IAM user for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.create)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.create)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usercreate-method)
         """
     def create_access_key_pair(self) -> _AccessKeyPair:
@@ -2261,7 +2282,7 @@ class User(Boto3ServiceResource):
         Creates a new Amazon Web Services secret access key and corresponding Amazon Web
         Services access key ID for the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.create_access_key_pair)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.create_access_key_pair)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usercreate_access_key_pair-method)
         """
     def create_login_profile(
@@ -2270,7 +2291,7 @@ class User(Boto3ServiceResource):
         """
         Creates a password for the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.create_login_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.create_login_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usercreate_login_profile-method)
         """
     def create_policy(self, *, PolicyName: str, PolicyDocument: str) -> _UserPolicy:
@@ -2278,21 +2299,21 @@ class User(Boto3ServiceResource):
         Adds or updates an inline policy document that is embedded in the specified IAM
         user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.create_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.create_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#usercreate_policy-method)
         """
     def delete(self) -> None:
         """
         Deletes the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.delete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.delete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userdelete-method)
         """
     def detach_policy(self, *, PolicyArn: str) -> None:
         """
         Removes the specified managed policy from the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.detach_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.detach_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userdetach_policy-method)
         """
     def enable_mfa(
@@ -2301,14 +2322,14 @@ class User(Boto3ServiceResource):
         """
         Enables the specified MFA device and associates it with the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.enable_mfa)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.enable_mfa)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userenable_mfa-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userget_available_subresources-method)
         """
     def load(self) -> None:
@@ -2316,7 +2337,7 @@ class User(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_user` to update the attributes of the User
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.load)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.load)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userload-method)
         """
     def reload(self) -> None:
@@ -2324,21 +2345,21 @@ class User(Boto3ServiceResource):
         Calls :py:meth:`IAM.Client.get_user` to update the attributes of the User
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.reload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.reload)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userreload-method)
         """
     def remove_group(self, *, GroupName: str) -> None:
         """
         Removes the specified user from the specified group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.remove_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.remove_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userremove_group-method)
         """
     def update(self, *, NewPath: str = None, NewUserName: str = None) -> "_User":
         """
         Updates the name and/or the path of the specified IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.User.update)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.User.update)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#userupdate-method)
         """
 
@@ -2349,7 +2370,7 @@ class IAMResourceMeta(ResourceMeta):
 
 class IAMServiceResource(Boto3ServiceResource):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html)
     """
 
@@ -2362,165 +2383,166 @@ class IAMServiceResource(Boto3ServiceResource):
     server_certificates: ServiceResourceServerCertificatesCollection
     users: ServiceResourceUsersCollection
     virtual_mfa_devices: ServiceResourceVirtualMfaDevicesCollection
+
     def AccessKey(self, user_name: str, id: str) -> _AccessKey:
         """
         Creates a AccessKey resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccessKey)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccessKey)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceaccesskey-method)
         """
     def AccessKeyPair(self, user_name: str, id: str, secret: str) -> _AccessKeyPair:
         """
         Creates a AccessKeyPair resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccessKeyPair)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccessKeyPair)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceaccesskeypair-method)
         """
     def AccountPasswordPolicy(self) -> _AccountPasswordPolicy:
         """
         Creates a AccountPasswordPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccountPasswordPolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccountPasswordPolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceaccountpasswordpolicy-method)
         """
     def AccountSummary(self) -> _AccountSummary:
         """
         Creates a AccountSummary resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AccountSummary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AccountSummary)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceaccountsummary-method)
         """
     def AssumeRolePolicy(self, role_name: str) -> _AssumeRolePolicy:
         """
         Creates a AssumeRolePolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.AssumeRolePolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.AssumeRolePolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceassumerolepolicy-method)
         """
     def CurrentUser(self) -> _CurrentUser:
         """
         Creates a CurrentUser resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.CurrentUser)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.CurrentUser)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecurrentuser-method)
         """
     def Group(self, name: str) -> _Group:
         """
         Creates a Group resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.Group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.Group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcegroup-method)
         """
     def GroupPolicy(self, group_name: str, name: str) -> _GroupPolicy:
         """
         Creates a GroupPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.GroupPolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.GroupPolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcegrouppolicy-method)
         """
     def InstanceProfile(self, name: str) -> _InstanceProfile:
         """
         Creates a InstanceProfile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.InstanceProfile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.InstanceProfile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceinstanceprofile-method)
         """
     def LoginProfile(self, user_name: str) -> _LoginProfile:
         """
         Creates a LoginProfile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.LoginProfile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.LoginProfile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceloginprofile-method)
         """
     def MfaDevice(self, user_name: str, serial_number: str) -> _MfaDevice:
         """
         Creates a MfaDevice resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.MfaDevice)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.MfaDevice)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcemfadevice-method)
         """
     def Policy(self, policy_arn: str) -> _Policy:
         """
         Creates a Policy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.Policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.Policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcepolicy-method)
         """
     def PolicyVersion(self, arn: str, version_id: str) -> _PolicyVersion:
         """
         Creates a PolicyVersion resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.PolicyVersion)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.PolicyVersion)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcepolicyversion-method)
         """
     def Role(self, name: str) -> _Role:
         """
         Creates a Role resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.Role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.Role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcerole-method)
         """
     def RolePolicy(self, role_name: str, name: str) -> _RolePolicy:
         """
         Creates a RolePolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.RolePolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.RolePolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcerolepolicy-method)
         """
     def SamlProvider(self, arn: str) -> _SamlProvider:
         """
         Creates a SamlProvider resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.SamlProvider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.SamlProvider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcesamlprovider-method)
         """
     def ServerCertificate(self, name: str) -> _ServerCertificate:
         """
         Creates a ServerCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.ServerCertificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.ServerCertificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceservercertificate-method)
         """
     def SigningCertificate(self, user_name: str, id: str) -> _SigningCertificate:
         """
         Creates a SigningCertificate resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.SigningCertificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.SigningCertificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcesigningcertificate-method)
         """
     def User(self, name: str) -> _User:
         """
         Creates a User resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.User)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.User)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceuser-method)
         """
     def UserPolicy(self, user_name: str, name: str) -> _UserPolicy:
         """
         Creates a UserPolicy resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.UserPolicy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.UserPolicy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceuserpolicy-method)
         """
     def VirtualMfaDevice(self, serial_number: str) -> _VirtualMfaDevice:
         """
         Creates a VirtualMfaDevice resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.VirtualMfaDevice)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.VirtualMfaDevice)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcevirtualmfadevice-method)
         """
     def change_password(self, *, OldPassword: str, NewPassword: str) -> None:
         """
         Changes the password of the IAM user who is calling this operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.change_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.change_password)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcechange_password-method)
         """
     def create_account_alias(self, *, AccountAlias: str) -> None:
         """
         Creates an alias for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_account_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_account_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_account_alias-method)
         """
     def create_account_password_policy(
@@ -2539,14 +2561,14 @@ class IAMServiceResource(Boto3ServiceResource):
         """
         Updates the password policy settings for the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_account_password_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_account_password_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_account_password_policy-method)
         """
     def create_group(self, *, GroupName: str, Path: str = None) -> _Group:
         """
         Creates a new group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_group-method)
         """
     def create_instance_profile(
@@ -2555,7 +2577,7 @@ class IAMServiceResource(Boto3ServiceResource):
         """
         Creates a new instance profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_instance_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_instance_profile)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_instance_profile-method)
         """
     def create_policy(
@@ -2570,7 +2592,7 @@ class IAMServiceResource(Boto3ServiceResource):
         """
         Creates a new managed policy for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_policy)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_policy-method)
         """
     def create_role(
@@ -2587,7 +2609,7 @@ class IAMServiceResource(Boto3ServiceResource):
         """
         Creates a new role for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_role-method)
         """
     def create_saml_provider(
@@ -2597,7 +2619,7 @@ class IAMServiceResource(Boto3ServiceResource):
         Creates an IAM resource that describes an identity provider (IdP) that supports
         SAML 2.0.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_saml_provider)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_saml_provider)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_saml_provider-method)
         """
     def create_server_certificate(
@@ -2613,7 +2635,7 @@ class IAMServiceResource(Boto3ServiceResource):
         """
         Uploads a server certificate entity for the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_server_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_server_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_server_certificate-method)
         """
     def create_signing_certificate(
@@ -2623,7 +2645,7 @@ class IAMServiceResource(Boto3ServiceResource):
         Uploads an X.509 signing certificate and associates it with the specified IAM
         user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_signing_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_signing_certificate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_signing_certificate-method)
         """
     def create_user(
@@ -2637,7 +2659,7 @@ class IAMServiceResource(Boto3ServiceResource):
         """
         Creates a new IAM user for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_user)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_user-method)
         """
     def create_virtual_mfa_device(
@@ -2646,13 +2668,13 @@ class IAMServiceResource(Boto3ServiceResource):
         """
         Creates a new virtual MFA device for the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.create_virtual_mfa_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.create_virtual_mfa_device)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourcecreate_virtual_mfa_device-method)
         """
     def get_available_subresources(self) -> List[str]:
         """
         Returns a list of all the available sub-resources for this Resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/iam.html#IAM.ServiceResource.get_available_subresources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/iam.html#IAM.ServiceResource.get_available_subresources)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/service_resource.html#iamserviceresourceget_available_subresources-method)
         """

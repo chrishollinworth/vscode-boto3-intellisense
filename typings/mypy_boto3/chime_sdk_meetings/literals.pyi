@@ -6,9 +6,9 @@ Type annotations for chime-sdk-meetings service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_chime_sdk_meetings.literals import MeetingFeatureStatusType
+    from mypy_boto3_chime_sdk_meetings.literals import MediaCapabilitiesType
 
-    data: MeetingFeatureStatusType = "AVAILABLE"
+    data: MediaCapabilitiesType = "None"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "MediaCapabilitiesType",
     "MeetingFeatureStatusType",
     "TranscribeContentIdentificationTypeType",
     "TranscribeContentRedactionTypeType",
@@ -33,6 +34,7 @@ __all__ = (
     "TranscribeVocabularyFilterMethodType",
 )
 
+MediaCapabilitiesType = Literal["None", "Receive", "Send", "SendReceive"]
 MeetingFeatureStatusType = Literal["AVAILABLE", "UNAVAILABLE"]
 TranscribeContentIdentificationTypeType = Literal["PII"]
 TranscribeContentRedactionTypeType = Literal["PII"]

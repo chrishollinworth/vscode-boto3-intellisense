@@ -42,6 +42,7 @@ from .literals import (
     NotebookExecutionStatusType,
     OnDemandCapacityReservationPreferenceType,
     PlacementGroupStrategyType,
+    ReconfigurationTypeType,
     RepoUpgradeOnBootType,
     ScaleDownBehaviorType,
     SpotProvisioningTimeoutActionType,
@@ -186,6 +187,7 @@ __all__ = (
     "ModifyInstanceGroupsInputRequestTypeDef",
     "NotebookExecutionSummaryTypeDef",
     "NotebookExecutionTypeDef",
+    "OSReleaseTypeDef",
     "OnDemandCapacityReservationOptionsTypeDef",
     "OnDemandProvisioningSpecificationTypeDef",
     "PaginatorConfigTypeDef",
@@ -538,6 +540,7 @@ ClusterTypeDef = TypedDict(
         "OutpostArn": str,
         "StepConcurrencyLevel": int,
         "PlacementGroups": List["PlacementGroupConfigTypeDef"],
+        "OSReleaseLabel": str,
     },
     total=False,
 )
@@ -762,6 +765,7 @@ DescribeReleaseLabelOutputTypeDef = TypedDict(
         "ReleaseLabel": str,
         "Applications": List["SimplifiedApplicationTypeDef"],
         "NextToken": str,
+        "AvailableOSReleases": List["OSReleaseTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1178,6 +1182,7 @@ _OptionalInstanceGroupModifyConfigTypeDef = TypedDict(
         "InstanceCount": int,
         "EC2InstanceIdsToTerminate": List[str],
         "ShrinkPolicy": "ShrinkPolicyTypeDef",
+        "ReconfigurationType": ReconfigurationTypeType,
         "Configurations": List["ConfigurationTypeDef"],
     },
     total=False,
@@ -1832,6 +1837,14 @@ NotebookExecutionTypeDef = TypedDict(
     total=False,
 )
 
+OSReleaseTypeDef = TypedDict(
+    "OSReleaseTypeDef",
+    {
+        "Label": str,
+    },
+    total=False,
+)
+
 OnDemandCapacityReservationOptionsTypeDef = TypedDict(
     "OnDemandCapacityReservationOptionsTypeDef",
     {
@@ -2058,6 +2071,7 @@ _OptionalRunJobFlowInputRequestTypeDef = TypedDict(
         "ManagedScalingPolicy": "ManagedScalingPolicyTypeDef",
         "PlacementGroupConfigs": List["PlacementGroupConfigTypeDef"],
         "AutoTerminationPolicy": "AutoTerminationPolicyTypeDef",
+        "OSReleaseLabel": str,
     },
     total=False,
 )

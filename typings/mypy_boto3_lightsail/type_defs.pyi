@@ -18,10 +18,12 @@ from typing import Any, Dict, List, Union
 from .literals import (
     AccessDirectionType,
     AccessTypeType,
+    AccountLevelBpaSyncStatusType,
     AlarmStateType,
     AutoSnapshotStatusType,
     BehaviorEnumType,
     BlueprintTypeType,
+    BPAStatusMessageType,
     BucketMetricNameType,
     CertificateStatusType,
     ComparisonOperatorType,
@@ -89,6 +91,7 @@ __all__ = (
     "AccessKeyLastUsedTypeDef",
     "AccessKeyTypeDef",
     "AccessRulesTypeDef",
+    "AccountLevelBpaSyncTypeDef",
     "AddOnRequestTypeDef",
     "AddOnTypeDef",
     "AlarmTypeDef",
@@ -127,6 +130,8 @@ __all__ = (
     "ContainerImageTypeDef",
     "ContainerServiceDeploymentRequestTypeDef",
     "ContainerServiceDeploymentTypeDef",
+    "ContainerServiceECRImagePullerRoleRequestTypeDef",
+    "ContainerServiceECRImagePullerRoleTypeDef",
     "ContainerServiceEndpointTypeDef",
     "ContainerServiceHealthCheckConfigTypeDef",
     "ContainerServiceLogEventTypeDef",
@@ -334,6 +339,8 @@ __all__ = (
     "GetLoadBalancerResultTypeDef",
     "GetLoadBalancerTlsCertificatesRequestRequestTypeDef",
     "GetLoadBalancerTlsCertificatesResultTypeDef",
+    "GetLoadBalancerTlsPoliciesRequestRequestTypeDef",
+    "GetLoadBalancerTlsPoliciesResultTypeDef",
     "GetLoadBalancersRequestRequestTypeDef",
     "GetLoadBalancersResultTypeDef",
     "GetOperationRequestRequestTypeDef",
@@ -396,6 +403,7 @@ __all__ = (
     "LoadBalancerTlsCertificateRenewalSummaryTypeDef",
     "LoadBalancerTlsCertificateSummaryTypeDef",
     "LoadBalancerTlsCertificateTypeDef",
+    "LoadBalancerTlsPolicyTypeDef",
     "LoadBalancerTypeDef",
     "LogEventTypeDef",
     "MetricDatapointTypeDef",
@@ -411,6 +419,8 @@ __all__ = (
     "PendingMaintenanceActionTypeDef",
     "PendingModifiedRelationalDatabaseValuesTypeDef",
     "PortInfoTypeDef",
+    "PrivateRegistryAccessRequestTypeDef",
+    "PrivateRegistryAccessTypeDef",
     "PutAlarmRequestRequestTypeDef",
     "PutAlarmResultTypeDef",
     "PutInstancePublicPortsRequestRequestTypeDef",
@@ -510,6 +520,17 @@ AccessRulesTypeDef = TypedDict(
     {
         "getObject": AccessTypeType,
         "allowPublicOverrides": bool,
+    },
+    total=False,
+)
+
+AccountLevelBpaSyncTypeDef = TypedDict(
+    "AccountLevelBpaSyncTypeDef",
+    {
+        "status": AccountLevelBpaSyncStatusType,
+        "lastSyncedAt": datetime,
+        "message": BPAStatusMessageType,
+        "bpaImpactsLightsail": bool,
     },
     total=False,
 )
@@ -964,6 +985,23 @@ ContainerServiceDeploymentTypeDef = TypedDict(
     total=False,
 )
 
+ContainerServiceECRImagePullerRoleRequestTypeDef = TypedDict(
+    "ContainerServiceECRImagePullerRoleRequestTypeDef",
+    {
+        "isActive": bool,
+    },
+    total=False,
+)
+
+ContainerServiceECRImagePullerRoleTypeDef = TypedDict(
+    "ContainerServiceECRImagePullerRoleTypeDef",
+    {
+        "isActive": bool,
+        "principalArn": str,
+    },
+    total=False,
+)
+
 ContainerServiceEndpointTypeDef = TypedDict(
     "ContainerServiceEndpointTypeDef",
     {
@@ -1050,6 +1088,7 @@ ContainerServiceTypeDef = TypedDict(
         "privateDomainName": str,
         "publicDomainNames": Dict[str, List[str]],
         "url": str,
+        "privateRegistryAccess": "PrivateRegistryAccessTypeDef",
     },
     total=False,
 )
@@ -1271,6 +1310,7 @@ _OptionalCreateContainerServiceRequestRequestTypeDef = TypedDict(
         "tags": List["TagTypeDef"],
         "publicDomainNames": Dict[str, List[str]],
         "deployment": "ContainerServiceDeploymentRequestTypeDef",
+        "privateRegistryAccess": "PrivateRegistryAccessRequestTypeDef",
     },
     total=False,
 )
@@ -1611,6 +1651,7 @@ _OptionalCreateLoadBalancerRequestRequestTypeDef = TypedDict(
         "certificateAlternativeNames": List[str],
         "tags": List["TagTypeDef"],
         "ipAddressType": IpAddressTypeType,
+        "tlsPolicyName": str,
     },
     total=False,
 )
@@ -2011,12 +2052,24 @@ DeleteInstanceSnapshotResultTypeDef = TypedDict(
     },
 )
 
-DeleteKeyPairRequestRequestTypeDef = TypedDict(
-    "DeleteKeyPairRequestRequestTypeDef",
+_RequiredDeleteKeyPairRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteKeyPairRequestRequestTypeDef",
     {
         "keyPairName": str,
     },
 )
+_OptionalDeleteKeyPairRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteKeyPairRequestRequestTypeDef",
+    {
+        "expectedFingerprint": str,
+    },
+    total=False,
+)
+
+class DeleteKeyPairRequestRequestTypeDef(
+    _RequiredDeleteKeyPairRequestRequestTypeDef, _OptionalDeleteKeyPairRequestRequestTypeDef
+):
+    pass
 
 DeleteKeyPairResultTypeDef = TypedDict(
     "DeleteKeyPairResultTypeDef",
@@ -2343,6 +2396,7 @@ DownloadDefaultKeyPairResultTypeDef = TypedDict(
     {
         "publicKeyBase64": str,
         "privateKeyBase64": str,
+        "createdAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2565,6 +2619,7 @@ GetBucketsResultTypeDef = TypedDict(
     {
         "buckets": List["BucketTypeDef"],
         "nextPageToken": str,
+        "accountLevelBpaSync": "AccountLevelBpaSyncTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3086,6 +3141,7 @@ GetKeyPairsRequestRequestTypeDef = TypedDict(
     "GetKeyPairsRequestRequestTypeDef",
     {
         "pageToken": str,
+        "includeDefaultKeyPair": bool,
     },
     total=False,
 )
@@ -3147,6 +3203,23 @@ GetLoadBalancerTlsCertificatesResultTypeDef = TypedDict(
     "GetLoadBalancerTlsCertificatesResultTypeDef",
     {
         "tlsCertificates": List["LoadBalancerTlsCertificateTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetLoadBalancerTlsPoliciesRequestRequestTypeDef = TypedDict(
+    "GetLoadBalancerTlsPoliciesRequestRequestTypeDef",
+    {
+        "pageToken": str,
+    },
+    total=False,
+)
+
+GetLoadBalancerTlsPoliciesResultTypeDef = TypedDict(
+    "GetLoadBalancerTlsPoliciesResultTypeDef",
+    {
+        "tlsPolicies": List["LoadBalancerTlsPolicyTypeDef"],
+        "nextPageToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3268,6 +3341,7 @@ GetRelationalDatabaseBundlesRequestRequestTypeDef = TypedDict(
     "GetRelationalDatabaseBundlesRequestRequestTypeDef",
     {
         "pageToken": str,
+        "includeInactive": bool,
     },
     total=False,
 )
@@ -3873,6 +3947,18 @@ LoadBalancerTlsCertificateTypeDef = TypedDict(
     total=False,
 )
 
+LoadBalancerTlsPolicyTypeDef = TypedDict(
+    "LoadBalancerTlsPolicyTypeDef",
+    {
+        "name": str,
+        "isDefault": bool,
+        "description": str,
+        "protocols": List[str],
+        "ciphers": List[str],
+    },
+    total=False,
+)
+
 LoadBalancerTypeDef = TypedDict(
     "LoadBalancerTypeDef",
     {
@@ -3893,6 +3979,8 @@ LoadBalancerTypeDef = TypedDict(
         "tlsCertificateSummaries": List["LoadBalancerTlsCertificateSummaryTypeDef"],
         "configurationOptions": Dict[LoadBalancerAttributeNameType, str],
         "ipAddressType": IpAddressTypeType,
+        "httpsRedirectionEnabled": bool,
+        "tlsPolicyName": str,
     },
     total=False,
 )
@@ -4040,6 +4128,22 @@ PortInfoTypeDef = TypedDict(
         "cidrs": List[str],
         "ipv6Cidrs": List[str],
         "cidrListAliases": List[str],
+    },
+    total=False,
+)
+
+PrivateRegistryAccessRequestTypeDef = TypedDict(
+    "PrivateRegistryAccessRequestTypeDef",
+    {
+        "ecrImagePullerRole": "ContainerServiceECRImagePullerRoleRequestTypeDef",
+    },
+    total=False,
+)
+
+PrivateRegistryAccessTypeDef = TypedDict(
+    "PrivateRegistryAccessTypeDef",
+    {
+        "ecrImagePullerRole": "ContainerServiceECRImagePullerRoleTypeDef",
     },
     total=False,
 )
@@ -4676,6 +4780,7 @@ _OptionalUpdateContainerServiceRequestRequestTypeDef = TypedDict(
         "scale": int,
         "isDisabled": bool,
         "publicDomainNames": Dict[str, List[str]],
+        "privateRegistryAccess": "PrivateRegistryAccessRequestTypeDef",
     },
     total=False,
 )

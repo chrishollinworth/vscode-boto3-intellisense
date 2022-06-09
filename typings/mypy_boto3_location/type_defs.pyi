@@ -22,6 +22,7 @@ from .literals import (
     IntendedUseType,
     PositionFilteringType,
     PricingPlanType,
+    RouteMatrixErrorCodeType,
     TravelModeType,
     VehicleWeightUnitType,
 )
@@ -55,6 +56,9 @@ __all__ = (
     "BatchUpdateDevicePositionRequestRequestTypeDef",
     "BatchUpdateDevicePositionResponseTypeDef",
     "CalculateRouteCarModeOptionsTypeDef",
+    "CalculateRouteMatrixRequestRequestTypeDef",
+    "CalculateRouteMatrixResponseTypeDef",
+    "CalculateRouteMatrixSummaryTypeDef",
     "CalculateRouteRequestRequestTypeDef",
     "CalculateRouteResponseTypeDef",
     "CalculateRouteSummaryTypeDef",
@@ -138,6 +142,8 @@ __all__ = (
     "PutGeofenceRequestRequestTypeDef",
     "PutGeofenceResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "RouteMatrixEntryErrorTypeDef",
+    "RouteMatrixEntryTypeDef",
     "SearchForPositionResultTypeDef",
     "SearchForSuggestionsResultTypeDef",
     "SearchForTextResultTypeDef",
@@ -359,6 +365,54 @@ CalculateRouteCarModeOptionsTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredCalculateRouteMatrixRequestRequestTypeDef = TypedDict(
+    "_RequiredCalculateRouteMatrixRequestRequestTypeDef",
+    {
+        "CalculatorName": str,
+        "DeparturePositions": List[List[float]],
+        "DestinationPositions": List[List[float]],
+    },
+)
+_OptionalCalculateRouteMatrixRequestRequestTypeDef = TypedDict(
+    "_OptionalCalculateRouteMatrixRequestRequestTypeDef",
+    {
+        "CarModeOptions": "CalculateRouteCarModeOptionsTypeDef",
+        "DepartNow": bool,
+        "DepartureTime": Union[datetime, str],
+        "DistanceUnit": DistanceUnitType,
+        "TravelMode": TravelModeType,
+        "TruckModeOptions": "CalculateRouteTruckModeOptionsTypeDef",
+    },
+    total=False,
+)
+
+class CalculateRouteMatrixRequestRequestTypeDef(
+    _RequiredCalculateRouteMatrixRequestRequestTypeDef,
+    _OptionalCalculateRouteMatrixRequestRequestTypeDef,
+):
+    pass
+
+CalculateRouteMatrixResponseTypeDef = TypedDict(
+    "CalculateRouteMatrixResponseTypeDef",
+    {
+        "RouteMatrix": List[List["RouteMatrixEntryTypeDef"]],
+        "SnappedDeparturePositions": List[List[float]],
+        "SnappedDestinationPositions": List[List[float]],
+        "Summary": "CalculateRouteMatrixSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CalculateRouteMatrixSummaryTypeDef = TypedDict(
+    "CalculateRouteMatrixSummaryTypeDef",
+    {
+        "DataSource": str,
+        "DistanceUnit": DistanceUnitType,
+        "ErrorCount": int,
+        "RouteCount": int,
+    },
+)
+
 _RequiredCalculateRouteRequestRequestTypeDef = TypedDict(
     "_RequiredCalculateRouteRequestRequestTypeDef",
     {
@@ -422,7 +476,6 @@ _RequiredCreateGeofenceCollectionRequestRequestTypeDef = TypedDict(
     "_RequiredCreateGeofenceCollectionRequestRequestTypeDef",
     {
         "CollectionName": str,
-        "PricingPlan": PricingPlanType,
     },
 )
 _OptionalCreateGeofenceCollectionRequestRequestTypeDef = TypedDict(
@@ -430,6 +483,7 @@ _OptionalCreateGeofenceCollectionRequestRequestTypeDef = TypedDict(
     {
         "Description": str,
         "KmsKeyId": str,
+        "PricingPlan": PricingPlanType,
         "PricingPlanDataSource": str,
         "Tags": Dict[str, str],
     },
@@ -457,13 +511,13 @@ _RequiredCreateMapRequestRequestTypeDef = TypedDict(
     {
         "Configuration": "MapConfigurationTypeDef",
         "MapName": str,
-        "PricingPlan": PricingPlanType,
     },
 )
 _OptionalCreateMapRequestRequestTypeDef = TypedDict(
     "_OptionalCreateMapRequestRequestTypeDef",
     {
         "Description": str,
+        "PricingPlan": PricingPlanType,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -489,7 +543,6 @@ _RequiredCreatePlaceIndexRequestRequestTypeDef = TypedDict(
     {
         "DataSource": str,
         "IndexName": str,
-        "PricingPlan": PricingPlanType,
     },
 )
 _OptionalCreatePlaceIndexRequestRequestTypeDef = TypedDict(
@@ -497,6 +550,7 @@ _OptionalCreatePlaceIndexRequestRequestTypeDef = TypedDict(
     {
         "DataSourceConfiguration": "DataSourceConfigurationTypeDef",
         "Description": str,
+        "PricingPlan": PricingPlanType,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -522,13 +576,13 @@ _RequiredCreateRouteCalculatorRequestRequestTypeDef = TypedDict(
     {
         "CalculatorName": str,
         "DataSource": str,
-        "PricingPlan": PricingPlanType,
     },
 )
 _OptionalCreateRouteCalculatorRequestRequestTypeDef = TypedDict(
     "_OptionalCreateRouteCalculatorRequestRequestTypeDef",
     {
         "Description": str,
+        "PricingPlan": PricingPlanType,
         "Tags": Dict[str, str],
     },
     total=False,
@@ -553,7 +607,6 @@ CreateRouteCalculatorResponseTypeDef = TypedDict(
 _RequiredCreateTrackerRequestRequestTypeDef = TypedDict(
     "_RequiredCreateTrackerRequestRequestTypeDef",
     {
-        "PricingPlan": PricingPlanType,
         "TrackerName": str,
     },
 )
@@ -563,6 +616,7 @@ _OptionalCreateTrackerRequestRequestTypeDef = TypedDict(
         "Description": str,
         "KmsKeyId": str,
         "PositionFiltering": PositionFilteringType,
+        "PricingPlan": PricingPlanType,
         "PricingPlanDataSource": str,
         "Tags": Dict[str, str],
     },
@@ -812,6 +866,7 @@ _OptionalGetDevicePositionHistoryRequestRequestTypeDef = TypedDict(
     "_OptionalGetDevicePositionHistoryRequestRequestTypeDef",
     {
         "EndTimeExclusive": Union[datetime, str],
+        "MaxResults": int,
         "NextToken": str,
         "StartTimeInclusive": Union[datetime, str],
     },
@@ -1041,13 +1096,13 @@ _RequiredListGeofenceCollectionsResponseEntryTypeDef = TypedDict(
         "CollectionName": str,
         "CreateTime": datetime,
         "Description": str,
-        "PricingPlan": PricingPlanType,
         "UpdateTime": datetime,
     },
 )
 _OptionalListGeofenceCollectionsResponseEntryTypeDef = TypedDict(
     "_OptionalListGeofenceCollectionsResponseEntryTypeDef",
     {
+        "PricingPlan": PricingPlanType,
         "PricingPlanDataSource": str,
     },
     total=False,
@@ -1088,6 +1143,7 @@ _RequiredListGeofencesRequestRequestTypeDef = TypedDict(
 _OptionalListGeofencesRequestRequestTypeDef = TypedDict(
     "_OptionalListGeofencesRequestRequestTypeDef",
     {
+        "MaxResults": int,
         "NextToken": str,
     },
     total=False,
@@ -1116,17 +1172,28 @@ ListMapsRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
-ListMapsResponseEntryTypeDef = TypedDict(
-    "ListMapsResponseEntryTypeDef",
+_RequiredListMapsResponseEntryTypeDef = TypedDict(
+    "_RequiredListMapsResponseEntryTypeDef",
     {
         "CreateTime": datetime,
         "DataSource": str,
         "Description": str,
         "MapName": str,
-        "PricingPlan": PricingPlanType,
         "UpdateTime": datetime,
     },
 )
+_OptionalListMapsResponseEntryTypeDef = TypedDict(
+    "_OptionalListMapsResponseEntryTypeDef",
+    {
+        "PricingPlan": PricingPlanType,
+    },
+    total=False,
+)
+
+class ListMapsResponseEntryTypeDef(
+    _RequiredListMapsResponseEntryTypeDef, _OptionalListMapsResponseEntryTypeDef
+):
+    pass
 
 ListMapsResponseTypeDef = TypedDict(
     "ListMapsResponseTypeDef",
@@ -1146,17 +1213,28 @@ ListPlaceIndexesRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
-ListPlaceIndexesResponseEntryTypeDef = TypedDict(
-    "ListPlaceIndexesResponseEntryTypeDef",
+_RequiredListPlaceIndexesResponseEntryTypeDef = TypedDict(
+    "_RequiredListPlaceIndexesResponseEntryTypeDef",
     {
         "CreateTime": datetime,
         "DataSource": str,
         "Description": str,
         "IndexName": str,
-        "PricingPlan": PricingPlanType,
         "UpdateTime": datetime,
     },
 )
+_OptionalListPlaceIndexesResponseEntryTypeDef = TypedDict(
+    "_OptionalListPlaceIndexesResponseEntryTypeDef",
+    {
+        "PricingPlan": PricingPlanType,
+    },
+    total=False,
+)
+
+class ListPlaceIndexesResponseEntryTypeDef(
+    _RequiredListPlaceIndexesResponseEntryTypeDef, _OptionalListPlaceIndexesResponseEntryTypeDef
+):
+    pass
 
 ListPlaceIndexesResponseTypeDef = TypedDict(
     "ListPlaceIndexesResponseTypeDef",
@@ -1176,17 +1254,29 @@ ListRouteCalculatorsRequestRequestTypeDef = TypedDict(
     total=False,
 )
 
-ListRouteCalculatorsResponseEntryTypeDef = TypedDict(
-    "ListRouteCalculatorsResponseEntryTypeDef",
+_RequiredListRouteCalculatorsResponseEntryTypeDef = TypedDict(
+    "_RequiredListRouteCalculatorsResponseEntryTypeDef",
     {
         "CalculatorName": str,
         "CreateTime": datetime,
         "DataSource": str,
         "Description": str,
-        "PricingPlan": PricingPlanType,
         "UpdateTime": datetime,
     },
 )
+_OptionalListRouteCalculatorsResponseEntryTypeDef = TypedDict(
+    "_OptionalListRouteCalculatorsResponseEntryTypeDef",
+    {
+        "PricingPlan": PricingPlanType,
+    },
+    total=False,
+)
+
+class ListRouteCalculatorsResponseEntryTypeDef(
+    _RequiredListRouteCalculatorsResponseEntryTypeDef,
+    _OptionalListRouteCalculatorsResponseEntryTypeDef,
+):
+    pass
 
 ListRouteCalculatorsResponseTypeDef = TypedDict(
     "ListRouteCalculatorsResponseTypeDef",
@@ -1256,7 +1346,6 @@ _RequiredListTrackersResponseEntryTypeDef = TypedDict(
     {
         "CreateTime": datetime,
         "Description": str,
-        "PricingPlan": PricingPlanType,
         "TrackerName": str,
         "UpdateTime": datetime,
     },
@@ -1264,6 +1353,7 @@ _RequiredListTrackersResponseEntryTypeDef = TypedDict(
 _OptionalListTrackersResponseEntryTypeDef = TypedDict(
     "_OptionalListTrackersResponseEntryTypeDef",
     {
+        "PricingPlan": PricingPlanType,
         "PricingPlanDataSource": str,
     },
     total=False,
@@ -1370,6 +1460,35 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+_RequiredRouteMatrixEntryErrorTypeDef = TypedDict(
+    "_RequiredRouteMatrixEntryErrorTypeDef",
+    {
+        "Code": RouteMatrixErrorCodeType,
+    },
+)
+_OptionalRouteMatrixEntryErrorTypeDef = TypedDict(
+    "_OptionalRouteMatrixEntryErrorTypeDef",
+    {
+        "Message": str,
+    },
+    total=False,
+)
+
+class RouteMatrixEntryErrorTypeDef(
+    _RequiredRouteMatrixEntryErrorTypeDef, _OptionalRouteMatrixEntryErrorTypeDef
+):
+    pass
+
+RouteMatrixEntryTypeDef = TypedDict(
+    "RouteMatrixEntryTypeDef",
+    {
+        "Distance": float,
+        "DurationSeconds": float,
+        "Error": "RouteMatrixEntryErrorTypeDef",
+    },
+    total=False,
 )
 
 SearchForPositionResultTypeDef = TypedDict(

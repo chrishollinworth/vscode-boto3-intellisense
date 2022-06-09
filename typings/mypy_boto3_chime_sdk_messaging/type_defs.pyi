@@ -26,6 +26,7 @@ from .literals import (
     ErrorCodeType,
     FallbackActionType,
     PushNotificationTypeType,
+    SearchFieldOperatorType,
     SortOrderType,
 )
 
@@ -136,6 +137,9 @@ __all__ = (
     "RedactChannelMessageRequestRequestTypeDef",
     "RedactChannelMessageResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "SearchChannelsRequestRequestTypeDef",
+    "SearchChannelsResponseTypeDef",
+    "SearchFieldTypeDef",
     "SendChannelMessageRequestRequestTypeDef",
     "SendChannelMessageResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -354,6 +358,8 @@ _OptionalChannelMessageCallbackTypeDef = TypedDict(
     {
         "Content": str,
         "Metadata": str,
+        "PushNotification": "PushNotificationConfigurationTypeDef",
+        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
     },
     total=False,
 )
@@ -568,6 +574,9 @@ _OptionalCreateChannelRequestRequestTypeDef = TypedDict(
         "Privacy": ChannelPrivacyType,
         "Metadata": str,
         "Tags": List["TagTypeDef"],
+        "ChannelId": str,
+        "MemberArns": List[str],
+        "ModeratorArns": List[str],
     },
     total=False,
 )
@@ -1177,6 +1186,7 @@ PushNotificationConfigurationTypeDef = TypedDict(
         "Body": str,
         "Type": PushNotificationTypeType,
     },
+    total=False,
 )
 
 _RequiredPushNotificationPreferencesTypeDef = TypedDict(
@@ -1244,6 +1254,45 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+_RequiredSearchChannelsRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchChannelsRequestRequestTypeDef",
+    {
+        "Fields": List["SearchFieldTypeDef"],
+    },
+)
+_OptionalSearchChannelsRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchChannelsRequestRequestTypeDef",
+    {
+        "ChimeBearer": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class SearchChannelsRequestRequestTypeDef(
+    _RequiredSearchChannelsRequestRequestTypeDef, _OptionalSearchChannelsRequestRequestTypeDef
+):
+    pass
+
+SearchChannelsResponseTypeDef = TypedDict(
+    "SearchChannelsResponseTypeDef",
+    {
+        "Channels": List["ChannelSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SearchFieldTypeDef = TypedDict(
+    "SearchFieldTypeDef",
+    {
+        "Key": Literal["MEMBERS"],
+        "Values": List[str],
+        "Operator": SearchFieldOperatorType,
     },
 )
 
@@ -1378,14 +1427,14 @@ _RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateChannelRequestRequestTypeDef",
     {
         "ChannelArn": str,
-        "Name": str,
-        "Mode": ChannelModeType,
         "ChimeBearer": str,
     },
 )
 _OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateChannelRequestRequestTypeDef",
     {
+        "Name": str,
+        "Mode": ChannelModeType,
         "Metadata": str,
     },
     total=False,

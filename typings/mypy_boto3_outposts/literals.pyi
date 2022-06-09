@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "AddressTypeType",
+    "AssetTypeType",
     "CatalogItemClassType",
     "CatalogItemStatusType",
     "FiberOpticCableTypeType",
@@ -41,6 +42,7 @@ __all__ = (
 )
 
 AddressTypeType = Literal["OPERATING_ADDRESS", "SHIPPING_ADDRESS"]
+AssetTypeType = Literal["COMPUTE"]
 CatalogItemClassType = Literal["RACK", "SERVER"]
 CatalogItemStatusType = Literal["AVAILABLE", "DISCONTINUED"]
 FiberOpticCableTypeType = Literal["MULTI_MODE", "SINGLE_MODE"]

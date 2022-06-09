@@ -26,6 +26,7 @@ from .literals import (
     DestinationTypeType,
     LogDeliveryConfigurationStatusType,
     LogFormatType,
+    LogTypeType,
     MultiAZStatusType,
     NodeUpdateInitiatedByType,
     NodeUpdateStatusType,
@@ -669,6 +670,7 @@ _OptionalCreateCacheClusterMessageRequestTypeDef = TypedDict(
         "PreferredOutpostArn": str,
         "PreferredOutpostArns": List[str],
         "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
+        "TransitEncryptionEnabled": bool,
     },
     total=False,
 )
@@ -1642,7 +1644,7 @@ ListTagsForResourceMessageRequestTypeDef = TypedDict(
 LogDeliveryConfigurationRequestTypeDef = TypedDict(
     "LogDeliveryConfigurationRequestTypeDef",
     {
-        "LogType": Literal["slow-log"],
+        "LogType": LogTypeType,
         "DestinationType": DestinationTypeType,
         "DestinationDetails": "DestinationDetailsTypeDef",
         "LogFormat": LogFormatType,
@@ -1654,7 +1656,7 @@ LogDeliveryConfigurationRequestTypeDef = TypedDict(
 LogDeliveryConfigurationTypeDef = TypedDict(
     "LogDeliveryConfigurationTypeDef",
     {
-        "LogType": Literal["slow-log"],
+        "LogType": LogTypeType,
         "DestinationType": DestinationTypeType,
         "DestinationDetails": "DestinationDetailsTypeDef",
         "LogFormat": LogFormatType,
@@ -2031,7 +2033,7 @@ ParameterTypeDef = TypedDict(
 PendingLogDeliveryConfigurationTypeDef = TypedDict(
     "PendingLogDeliveryConfigurationTypeDef",
     {
-        "LogType": Literal["slow-log"],
+        "LogType": LogTypeType,
         "DestinationType": DestinationTypeType,
         "DestinationDetails": "DestinationDetailsTypeDef",
         "LogFormat": LogFormatType,

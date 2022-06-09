@@ -37,10 +37,10 @@ GetLatestConfigurationRequestRequestTypeDef = TypedDict(
 GetLatestConfigurationResponseTypeDef = TypedDict(
     "GetLatestConfigurationResponseTypeDef",
     {
-        "Configuration": bytes,
-        "ContentType": str,
         "NextPollConfigurationToken": str,
         "NextPollIntervalInSeconds": int,
+        "ContentType": str,
+        "Configuration": bytes,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -60,8 +60,8 @@ _RequiredStartConfigurationSessionRequestRequestTypeDef = TypedDict(
     "_RequiredStartConfigurationSessionRequestRequestTypeDef",
     {
         "ApplicationIdentifier": str,
-        "ConfigurationProfileIdentifier": str,
         "EnvironmentIdentifier": str,
+        "ConfigurationProfileIdentifier": str,
     },
 )
 _OptionalStartConfigurationSessionRequestRequestTypeDef = TypedDict(

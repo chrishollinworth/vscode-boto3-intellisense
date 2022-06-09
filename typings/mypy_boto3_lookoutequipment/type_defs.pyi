@@ -6,9 +6,9 @@ Type annotations for lookoutequipment service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lookoutequipment.type_defs import CreateDatasetRequestRequestTypeDef
+    from mypy_boto3_lookoutequipment.type_defs import CategoricalValuesTypeDef
 
-    data: CreateDatasetRequestRequestTypeDef = {...}
+    data: CategoricalValuesTypeDef = {...}
     ```
 """
 import sys
@@ -22,6 +22,8 @@ from .literals import (
     InferenceSchedulerStatusType,
     IngestionJobStatusType,
     ModelStatusType,
+    MonotonicityType,
+    StatisticalIssueStatusType,
     TargetSamplingRateType,
 )
 
@@ -31,6 +33,8 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "CategoricalValuesTypeDef",
+    "CountPercentTypeDef",
     "CreateDatasetRequestRequestTypeDef",
     "CreateDatasetResponseTypeDef",
     "CreateInferenceSchedulerRequestRequestTypeDef",
@@ -39,6 +43,7 @@ __all__ = (
     "CreateModelResponseTypeDef",
     "DataIngestionJobSummaryTypeDef",
     "DataPreProcessingConfigurationTypeDef",
+    "DataQualitySummaryTypeDef",
     "DatasetSchemaTypeDef",
     "DatasetSummaryTypeDef",
     "DeleteDatasetRequestRequestTypeDef",
@@ -52,6 +57,7 @@ __all__ = (
     "DescribeInferenceSchedulerResponseTypeDef",
     "DescribeModelRequestRequestTypeDef",
     "DescribeModelResponseTypeDef",
+    "DuplicateTimestampsTypeDef",
     "InferenceExecutionSummaryTypeDef",
     "InferenceInputConfigurationTypeDef",
     "InferenceInputNameConfigurationTypeDef",
@@ -59,10 +65,14 @@ __all__ = (
     "InferenceS3InputConfigurationTypeDef",
     "InferenceS3OutputConfigurationTypeDef",
     "InferenceSchedulerSummaryTypeDef",
+    "IngestedFilesSummaryTypeDef",
     "IngestionInputConfigurationTypeDef",
     "IngestionS3InputConfigurationTypeDef",
+    "InsufficientSensorDataTypeDef",
+    "InvalidSensorDataTypeDef",
     "LabelsInputConfigurationTypeDef",
     "LabelsS3InputConfigurationTypeDef",
+    "LargeTimestampGapsTypeDef",
     "ListDataIngestionJobsRequestRequestTypeDef",
     "ListDataIngestionJobsResponseTypeDef",
     "ListDatasetsRequestRequestTypeDef",
@@ -73,11 +83,19 @@ __all__ = (
     "ListInferenceSchedulersResponseTypeDef",
     "ListModelsRequestRequestTypeDef",
     "ListModelsResponseTypeDef",
+    "ListSensorStatisticsRequestRequestTypeDef",
+    "ListSensorStatisticsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MissingCompleteSensorDataTypeDef",
+    "MissingSensorDataTypeDef",
     "ModelSummaryTypeDef",
+    "MonotonicValuesTypeDef",
+    "MultipleOperatingModesTypeDef",
     "ResponseMetadataTypeDef",
     "S3ObjectTypeDef",
+    "SensorStatisticsSummaryTypeDef",
+    "SensorsWithShortDateRangeTypeDef",
     "StartDataIngestionJobRequestRequestTypeDef",
     "StartDataIngestionJobResponseTypeDef",
     "StartInferenceSchedulerRequestRequestTypeDef",
@@ -86,21 +104,49 @@ __all__ = (
     "StopInferenceSchedulerResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "UnsupportedTimestampsTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateInferenceSchedulerRequestRequestTypeDef",
+)
+
+_RequiredCategoricalValuesTypeDef = TypedDict(
+    "_RequiredCategoricalValuesTypeDef",
+    {
+        "Status": StatisticalIssueStatusType,
+    },
+)
+_OptionalCategoricalValuesTypeDef = TypedDict(
+    "_OptionalCategoricalValuesTypeDef",
+    {
+        "NumberOfCategory": int,
+    },
+    total=False,
+)
+
+class CategoricalValuesTypeDef(
+    _RequiredCategoricalValuesTypeDef, _OptionalCategoricalValuesTypeDef
+):
+    pass
+
+CountPercentTypeDef = TypedDict(
+    "CountPercentTypeDef",
+    {
+        "Count": int,
+        "Percentage": float,
+    },
 )
 
 _RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDatasetRequestRequestTypeDef",
     {
         "DatasetName": str,
-        "DatasetSchema": "DatasetSchemaTypeDef",
         "ClientToken": str,
     },
 )
 _OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
     "_OptionalCreateDatasetRequestRequestTypeDef",
     {
+        "DatasetSchema": "DatasetSchemaTypeDef",
         "ServerSideKmsKeyId": str,
         "Tags": List["TagTypeDef"],
     },
@@ -220,6 +266,17 @@ DataPreProcessingConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+DataQualitySummaryTypeDef = TypedDict(
+    "DataQualitySummaryTypeDef",
+    {
+        "InsufficientSensorData": "InsufficientSensorDataTypeDef",
+        "MissingSensorData": "MissingSensorDataTypeDef",
+        "InvalidSensorData": "InvalidSensorDataTypeDef",
+        "UnsupportedTimestamps": "UnsupportedTimestampsTypeDef",
+        "DuplicateTimestamps": "DuplicateTimestampsTypeDef",
+    },
+)
+
 DatasetSchemaTypeDef = TypedDict(
     "DatasetSchemaTypeDef",
     {
@@ -277,6 +334,12 @@ DescribeDataIngestionJobResponseTypeDef = TypedDict(
         "CreatedAt": datetime,
         "Status": IngestionJobStatusType,
         "FailedReason": str,
+        "DataQualitySummary": "DataQualitySummaryTypeDef",
+        "IngestedFilesSummary": "IngestedFilesSummaryTypeDef",
+        "StatusDetail": str,
+        "IngestedDataSize": int,
+        "DataStartTime": datetime,
+        "DataEndTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -299,6 +362,11 @@ DescribeDatasetResponseTypeDef = TypedDict(
         "Schema": str,
         "ServerSideKmsKeyId": str,
         "IngestionInputConfiguration": "IngestionInputConfigurationTypeDef",
+        "DataQualitySummary": "DataQualitySummaryTypeDef",
+        "IngestedFilesSummary": "IngestedFilesSummaryTypeDef",
+        "RoleArn": str,
+        "DataStartTime": datetime,
+        "DataEndTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -362,6 +430,13 @@ DescribeModelResponseTypeDef = TypedDict(
         "ServerSideKmsKeyId": str,
         "OffCondition": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DuplicateTimestampsTypeDef = TypedDict(
+    "DuplicateTimestampsTypeDef",
+    {
+        "TotalNumberOfDuplicateTimestamps": int,
     },
 )
 
@@ -474,6 +549,26 @@ InferenceSchedulerSummaryTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredIngestedFilesSummaryTypeDef = TypedDict(
+    "_RequiredIngestedFilesSummaryTypeDef",
+    {
+        "TotalNumberOfFiles": int,
+        "IngestedNumberOfFiles": int,
+    },
+)
+_OptionalIngestedFilesSummaryTypeDef = TypedDict(
+    "_OptionalIngestedFilesSummaryTypeDef",
+    {
+        "DiscardedFiles": List["S3ObjectTypeDef"],
+    },
+    total=False,
+)
+
+class IngestedFilesSummaryTypeDef(
+    _RequiredIngestedFilesSummaryTypeDef, _OptionalIngestedFilesSummaryTypeDef
+):
+    pass
+
 IngestionInputConfigurationTypeDef = TypedDict(
     "IngestionInputConfigurationTypeDef",
     {
@@ -491,6 +586,7 @@ _OptionalIngestionS3InputConfigurationTypeDef = TypedDict(
     "_OptionalIngestionS3InputConfigurationTypeDef",
     {
         "Prefix": str,
+        "KeyPattern": str,
     },
     total=False,
 )
@@ -499,6 +595,22 @@ class IngestionS3InputConfigurationTypeDef(
     _RequiredIngestionS3InputConfigurationTypeDef, _OptionalIngestionS3InputConfigurationTypeDef
 ):
     pass
+
+InsufficientSensorDataTypeDef = TypedDict(
+    "InsufficientSensorDataTypeDef",
+    {
+        "MissingCompleteSensorData": "MissingCompleteSensorDataTypeDef",
+        "SensorsWithShortDateRange": "SensorsWithShortDateRangeTypeDef",
+    },
+)
+
+InvalidSensorDataTypeDef = TypedDict(
+    "InvalidSensorDataTypeDef",
+    {
+        "AffectedSensorCount": int,
+        "TotalNumberOfInvalidValues": int,
+    },
+)
 
 LabelsInputConfigurationTypeDef = TypedDict(
     "LabelsInputConfigurationTypeDef",
@@ -523,6 +635,26 @@ _OptionalLabelsS3InputConfigurationTypeDef = TypedDict(
 
 class LabelsS3InputConfigurationTypeDef(
     _RequiredLabelsS3InputConfigurationTypeDef, _OptionalLabelsS3InputConfigurationTypeDef
+):
+    pass
+
+_RequiredLargeTimestampGapsTypeDef = TypedDict(
+    "_RequiredLargeTimestampGapsTypeDef",
+    {
+        "Status": StatisticalIssueStatusType,
+    },
+)
+_OptionalLargeTimestampGapsTypeDef = TypedDict(
+    "_OptionalLargeTimestampGapsTypeDef",
+    {
+        "NumberOfLargeTimestampGaps": int,
+        "MaxTimestampGapInDays": int,
+    },
+    total=False,
+)
+
+class LargeTimestampGapsTypeDef(
+    _RequiredLargeTimestampGapsTypeDef, _OptionalLargeTimestampGapsTypeDef
 ):
     pass
 
@@ -639,6 +771,37 @@ ListModelsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListSensorStatisticsRequestRequestTypeDef = TypedDict(
+    "_RequiredListSensorStatisticsRequestRequestTypeDef",
+    {
+        "DatasetName": str,
+    },
+)
+_OptionalListSensorStatisticsRequestRequestTypeDef = TypedDict(
+    "_OptionalListSensorStatisticsRequestRequestTypeDef",
+    {
+        "IngestionJobId": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListSensorStatisticsRequestRequestTypeDef(
+    _RequiredListSensorStatisticsRequestRequestTypeDef,
+    _OptionalListSensorStatisticsRequestRequestTypeDef,
+):
+    pass
+
+ListSensorStatisticsResponseTypeDef = TypedDict(
+    "ListSensorStatisticsResponseTypeDef",
+    {
+        "SensorStatisticsSummaries": List["SensorStatisticsSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -654,6 +817,21 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+MissingCompleteSensorDataTypeDef = TypedDict(
+    "MissingCompleteSensorDataTypeDef",
+    {
+        "AffectedSensorCount": int,
+    },
+)
+
+MissingSensorDataTypeDef = TypedDict(
+    "MissingSensorDataTypeDef",
+    {
+        "AffectedSensorCount": int,
+        "TotalNumberOfMissingValues": int,
+    },
+)
+
 ModelSummaryTypeDef = TypedDict(
     "ModelSummaryTypeDef",
     {
@@ -665,6 +843,30 @@ ModelSummaryTypeDef = TypedDict(
         "CreatedAt": datetime,
     },
     total=False,
+)
+
+_RequiredMonotonicValuesTypeDef = TypedDict(
+    "_RequiredMonotonicValuesTypeDef",
+    {
+        "Status": StatisticalIssueStatusType,
+    },
+)
+_OptionalMonotonicValuesTypeDef = TypedDict(
+    "_OptionalMonotonicValuesTypeDef",
+    {
+        "Monotonicity": MonotonicityType,
+    },
+    total=False,
+)
+
+class MonotonicValuesTypeDef(_RequiredMonotonicValuesTypeDef, _OptionalMonotonicValuesTypeDef):
+    pass
+
+MultipleOperatingModesTypeDef = TypedDict(
+    "MultipleOperatingModesTypeDef",
+    {
+        "Status": StatisticalIssueStatusType,
+    },
 )
 
 ResponseMetadataTypeDef = TypedDict(
@@ -683,6 +885,33 @@ S3ObjectTypeDef = TypedDict(
     {
         "Bucket": str,
         "Key": str,
+    },
+)
+
+SensorStatisticsSummaryTypeDef = TypedDict(
+    "SensorStatisticsSummaryTypeDef",
+    {
+        "ComponentName": str,
+        "SensorName": str,
+        "DataExists": bool,
+        "MissingValues": "CountPercentTypeDef",
+        "InvalidValues": "CountPercentTypeDef",
+        "InvalidDateEntries": "CountPercentTypeDef",
+        "DuplicateTimestamps": "CountPercentTypeDef",
+        "CategoricalValues": "CategoricalValuesTypeDef",
+        "MultipleOperatingModes": "MultipleOperatingModesTypeDef",
+        "LargeTimestampGaps": "LargeTimestampGapsTypeDef",
+        "MonotonicValues": "MonotonicValuesTypeDef",
+        "DataStartTime": datetime,
+        "DataEndTime": datetime,
+    },
+    total=False,
+)
+
+SensorsWithShortDateRangeTypeDef = TypedDict(
+    "SensorsWithShortDateRangeTypeDef",
+    {
+        "AffectedSensorCount": int,
     },
 )
 
@@ -756,6 +985,13 @@ TagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+    },
+)
+
+UnsupportedTimestampsTypeDef = TypedDict(
+    "UnsupportedTimestampsTypeDef",
+    {
+        "TotalNumberOfUnsupportedTimestamps": int,
     },
 )
 

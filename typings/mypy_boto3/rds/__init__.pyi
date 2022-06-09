@@ -15,7 +15,6 @@ Usage::
         DBSnapshotCompletedWaiter,
         DBSnapshotDeletedWaiter,
         DescribeCertificatesPaginator,
-        DescribeCustomAvailabilityZonesPaginator,
         DescribeDBClusterBacktracksPaginator,
         DescribeDBClusterEndpointsPaginator,
         DescribeDBClusterParameterGroupsPaginator,
@@ -41,7 +40,6 @@ Usage::
         DescribeEventsPaginator,
         DescribeExportTasksPaginator,
         DescribeGlobalClustersPaginator,
-        DescribeInstallationMediaPaginator,
         DescribeOptionGroupOptionsPaginator,
         DescribeOptionGroupsPaginator,
         DescribeOrderableDBInstanceOptionsPaginator,
@@ -67,7 +65,6 @@ Usage::
     db_snapshot_deleted_waiter: DBSnapshotDeletedWaiter = client.get_waiter("db_snapshot_deleted")
 
     describe_certificates_paginator: DescribeCertificatesPaginator = client.get_paginator("describe_certificates")
-    describe_custom_availability_zones_paginator: DescribeCustomAvailabilityZonesPaginator = client.get_paginator("describe_custom_availability_zones")
     describe_db_cluster_backtracks_paginator: DescribeDBClusterBacktracksPaginator = client.get_paginator("describe_db_cluster_backtracks")
     describe_db_cluster_endpoints_paginator: DescribeDBClusterEndpointsPaginator = client.get_paginator("describe_db_cluster_endpoints")
     describe_db_cluster_parameter_groups_paginator: DescribeDBClusterParameterGroupsPaginator = client.get_paginator("describe_db_cluster_parameter_groups")
@@ -93,7 +90,6 @@ Usage::
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
     describe_export_tasks_paginator: DescribeExportTasksPaginator = client.get_paginator("describe_export_tasks")
     describe_global_clusters_paginator: DescribeGlobalClustersPaginator = client.get_paginator("describe_global_clusters")
-    describe_installation_media_paginator: DescribeInstallationMediaPaginator = client.get_paginator("describe_installation_media")
     describe_option_group_options_paginator: DescribeOptionGroupOptionsPaginator = client.get_paginator("describe_option_group_options")
     describe_option_groups_paginator: DescribeOptionGroupsPaginator = client.get_paginator("describe_option_groups")
     describe_orderable_db_instance_options_paginator: DescribeOrderableDBInstanceOptionsPaginator = client.get_paginator("describe_orderable_db_instance_options")
@@ -107,7 +103,6 @@ Usage::
 from .client import RDSClient
 from .paginator import (
     DescribeCertificatesPaginator,
-    DescribeCustomAvailabilityZonesPaginator,
     DescribeDBClusterBacktracksPaginator,
     DescribeDBClusterEndpointsPaginator,
     DescribeDBClusterParameterGroupsPaginator,
@@ -133,7 +128,6 @@ from .paginator import (
     DescribeEventSubscriptionsPaginator,
     DescribeExportTasksPaginator,
     DescribeGlobalClustersPaginator,
-    DescribeInstallationMediaPaginator,
     DescribeOptionGroupOptionsPaginator,
     DescribeOptionGroupsPaginator,
     DescribeOrderableDBInstanceOptionsPaginator,
@@ -165,7 +159,6 @@ __all__ = (
     "DBSnapshotCompletedWaiter",
     "DBSnapshotDeletedWaiter",
     "DescribeCertificatesPaginator",
-    "DescribeCustomAvailabilityZonesPaginator",
     "DescribeDBClusterBacktracksPaginator",
     "DescribeDBClusterEndpointsPaginator",
     "DescribeDBClusterParameterGroupsPaginator",
@@ -191,7 +184,6 @@ __all__ = (
     "DescribeEventsPaginator",
     "DescribeExportTasksPaginator",
     "DescribeGlobalClustersPaginator",
-    "DescribeInstallationMediaPaginator",
     "DescribeOptionGroupOptionsPaginator",
     "DescribeOptionGroupsPaginator",
     "DescribeOrderableDBInstanceOptionsPaginator",

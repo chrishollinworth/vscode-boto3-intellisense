@@ -27,6 +27,7 @@ __all__ = (
     "ListLFTagsPaginatorName",
     "OptimizerTypeType",
     "PermissionType",
+    "PermissionTypeType",
     "QueryStateStringType",
     "ResourceShareTypeType",
     "ResourceTypeType",
@@ -58,20 +59,18 @@ OptimizerTypeType = Literal["ALL", "COMPACTION", "GARBAGE_COLLECTION"]
 PermissionType = Literal[
     "ALL",
     "ALTER",
-    "ALTER_TAG",
-    "ASSOCIATE_TAG",
+    "ASSOCIATE",
     "CREATE_DATABASE",
     "CREATE_TABLE",
     "CREATE_TAG",
     "DATA_LOCATION_ACCESS",
     "DELETE",
-    "DELETE_TAG",
     "DESCRIBE",
-    "DESCRIBE_TAG",
     "DROP",
     "INSERT",
     "SELECT",
 ]
+PermissionTypeType = Literal["CELL_FILTER_PERMISSION", "COLUMN_PERMISSION"]
 QueryStateStringType = Literal["ERROR", "EXPIRED", "FINISHED", "PENDING", "WORKUNITS_AVAILABLE"]
 ResourceShareTypeType = Literal["ALL", "FOREIGN"]
 ResourceTypeType = Literal["DATABASE", "TABLE"]

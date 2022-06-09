@@ -76,6 +76,7 @@ __all__ = (
     "DeleteDocumentClassifierRequestRequestTypeDef",
     "DeleteEndpointRequestRequestTypeDef",
     "DeleteEntityRecognizerRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestRequestTypeDef",
     "DescribeDocumentClassificationJobRequestRequestTypeDef",
     "DescribeDocumentClassificationJobResponseTypeDef",
     "DescribeDocumentClassifierRequestRequestTypeDef",
@@ -94,8 +95,12 @@ __all__ = (
     "DescribeKeyPhrasesDetectionJobResponseTypeDef",
     "DescribePiiEntitiesDetectionJobRequestRequestTypeDef",
     "DescribePiiEntitiesDetectionJobResponseTypeDef",
+    "DescribeResourcePolicyRequestRequestTypeDef",
+    "DescribeResourcePolicyResponseTypeDef",
     "DescribeSentimentDetectionJobRequestRequestTypeDef",
     "DescribeSentimentDetectionJobResponseTypeDef",
+    "DescribeTargetedSentimentDetectionJobRequestRequestTypeDef",
+    "DescribeTargetedSentimentDetectionJobResponseTypeDef",
     "DescribeTopicsDetectionJobRequestRequestTypeDef",
     "DescribeTopicsDetectionJobResponseTypeDef",
     "DetectDominantLanguageRequestRequestTypeDef",
@@ -143,6 +148,8 @@ __all__ = (
     "EntityTypesListItemTypeDef",
     "EventsDetectionJobFilterTypeDef",
     "EventsDetectionJobPropertiesTypeDef",
+    "ImportModelRequestRequestTypeDef",
+    "ImportModelResponseTypeDef",
     "InputDataConfigTypeDef",
     "KeyPhraseTypeDef",
     "KeyPhrasesDetectionJobFilterTypeDef",
@@ -173,6 +180,8 @@ __all__ = (
     "ListSentimentDetectionJobsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTargetedSentimentDetectionJobsRequestRequestTypeDef",
+    "ListTargetedSentimentDetectionJobsResponseTypeDef",
     "ListTopicsDetectionJobsRequestRequestTypeDef",
     "ListTopicsDetectionJobsResponseTypeDef",
     "OutputDataConfigTypeDef",
@@ -182,6 +191,8 @@ __all__ = (
     "PiiEntitiesDetectionJobPropertiesTypeDef",
     "PiiEntityTypeDef",
     "PiiOutputDataConfigTypeDef",
+    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyResponseTypeDef",
     "RedactionConfigTypeDef",
     "ResponseMetadataTypeDef",
     "SentimentDetectionJobFilterTypeDef",
@@ -201,6 +212,8 @@ __all__ = (
     "StartPiiEntitiesDetectionJobResponseTypeDef",
     "StartSentimentDetectionJobRequestRequestTypeDef",
     "StartSentimentDetectionJobResponseTypeDef",
+    "StartTargetedSentimentDetectionJobRequestRequestTypeDef",
+    "StartTargetedSentimentDetectionJobResponseTypeDef",
     "StartTopicsDetectionJobRequestRequestTypeDef",
     "StartTopicsDetectionJobResponseTypeDef",
     "StopDominantLanguageDetectionJobRequestRequestTypeDef",
@@ -215,11 +228,15 @@ __all__ = (
     "StopPiiEntitiesDetectionJobResponseTypeDef",
     "StopSentimentDetectionJobRequestRequestTypeDef",
     "StopSentimentDetectionJobResponseTypeDef",
+    "StopTargetedSentimentDetectionJobRequestRequestTypeDef",
+    "StopTargetedSentimentDetectionJobResponseTypeDef",
     "StopTrainingDocumentClassifierRequestRequestTypeDef",
     "StopTrainingEntityRecognizerRequestRequestTypeDef",
     "SyntaxTokenTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TargetedSentimentDetectionJobFilterTypeDef",
+    "TargetedSentimentDetectionJobPropertiesTypeDef",
     "TopicsDetectionJobFilterTypeDef",
     "TopicsDetectionJobPropertiesTypeDef",
     "UntagResourceRequestRequestTypeDef",
@@ -469,6 +486,7 @@ _OptionalCreateDocumentClassifierRequestRequestTypeDef = TypedDict(
         "VpcConfig": "VpcConfigTypeDef",
         "Mode": DocumentClassifierModeType,
         "ModelKmsKeyId": str,
+        "ModelPolicy": str,
     },
     total=False,
 )
@@ -536,6 +554,7 @@ _OptionalCreateEntityRecognizerRequestRequestTypeDef = TypedDict(
         "VolumeKmsKeyId": str,
         "VpcConfig": "VpcConfigTypeDef",
         "ModelKmsKeyId": str,
+        "ModelPolicy": str,
     },
     total=False,
 )
@@ -574,6 +593,26 @@ DeleteEntityRecognizerRequestRequestTypeDef = TypedDict(
         "EntityRecognizerArn": str,
     },
 )
+
+_RequiredDeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+_OptionalDeleteResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteResourcePolicyRequestRequestTypeDef",
+    {
+        "PolicyRevisionId": str,
+    },
+    total=False,
+)
+
+class DeleteResourcePolicyRequestRequestTypeDef(
+    _RequiredDeleteResourcePolicyRequestRequestTypeDef,
+    _OptionalDeleteResourcePolicyRequestRequestTypeDef,
+):
+    pass
 
 DescribeDocumentClassificationJobRequestRequestTypeDef = TypedDict(
     "DescribeDocumentClassificationJobRequestRequestTypeDef",
@@ -710,6 +749,24 @@ DescribePiiEntitiesDetectionJobResponseTypeDef = TypedDict(
     },
 )
 
+DescribeResourcePolicyRequestRequestTypeDef = TypedDict(
+    "DescribeResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+    },
+)
+
+DescribeResourcePolicyResponseTypeDef = TypedDict(
+    "DescribeResourcePolicyResponseTypeDef",
+    {
+        "ResourcePolicy": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "PolicyRevisionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeSentimentDetectionJobRequestRequestTypeDef = TypedDict(
     "DescribeSentimentDetectionJobRequestRequestTypeDef",
     {
@@ -721,6 +778,21 @@ DescribeSentimentDetectionJobResponseTypeDef = TypedDict(
     "DescribeSentimentDetectionJobResponseTypeDef",
     {
         "SentimentDetectionJobProperties": "SentimentDetectionJobPropertiesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeTargetedSentimentDetectionJobRequestRequestTypeDef = TypedDict(
+    "DescribeTargetedSentimentDetectionJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+DescribeTargetedSentimentDetectionJobResponseTypeDef = TypedDict(
+    "DescribeTargetedSentimentDetectionJobResponseTypeDef",
+    {
+        "TargetedSentimentDetectionJobProperties": "TargetedSentimentDetectionJobPropertiesTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -940,6 +1012,7 @@ DocumentClassifierPropertiesTypeDef = TypedDict(
         "Mode": DocumentClassifierModeType,
         "ModelKmsKeyId": str,
         "VersionName": str,
+        "SourceModelArn": str,
     },
     total=False,
 )
@@ -1223,6 +1296,7 @@ EntityRecognizerPropertiesTypeDef = TypedDict(
         "VpcConfig": "VpcConfigTypeDef",
         "ModelKmsKeyId": str,
         "VersionName": str,
+        "SourceModelArn": str,
     },
     total=False,
 )
@@ -1296,6 +1370,37 @@ EventsDetectionJobPropertiesTypeDef = TypedDict(
         "TargetEventTypes": List[str],
     },
     total=False,
+)
+
+_RequiredImportModelRequestRequestTypeDef = TypedDict(
+    "_RequiredImportModelRequestRequestTypeDef",
+    {
+        "SourceModelArn": str,
+    },
+)
+_OptionalImportModelRequestRequestTypeDef = TypedDict(
+    "_OptionalImportModelRequestRequestTypeDef",
+    {
+        "ModelName": str,
+        "VersionName": str,
+        "ModelKmsKeyId": str,
+        "DataAccessRoleArn": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class ImportModelRequestRequestTypeDef(
+    _RequiredImportModelRequestRequestTypeDef, _OptionalImportModelRequestRequestTypeDef
+):
+    pass
+
+ImportModelResponseTypeDef = TypedDict(
+    "ImportModelResponseTypeDef",
+    {
+        "ModelArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredInputDataConfigTypeDef = TypedDict(
@@ -1604,6 +1709,27 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListTargetedSentimentDetectionJobsRequestRequestTypeDef = TypedDict(
+    "ListTargetedSentimentDetectionJobsRequestRequestTypeDef",
+    {
+        "Filter": "TargetedSentimentDetectionJobFilterTypeDef",
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListTargetedSentimentDetectionJobsResponseTypeDef = TypedDict(
+    "ListTargetedSentimentDetectionJobsResponseTypeDef",
+    {
+        "TargetedSentimentDetectionJobPropertiesList": List[
+            "TargetedSentimentDetectionJobPropertiesTypeDef"
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTopicsDetectionJobsRequestRequestTypeDef = TypedDict(
     "ListTopicsDetectionJobsRequestRequestTypeDef",
     {
@@ -1719,6 +1845,34 @@ class PiiOutputDataConfigTypeDef(
     _RequiredPiiOutputDataConfigTypeDef, _OptionalPiiOutputDataConfigTypeDef
 ):
     pass
+
+_RequiredPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_RequiredPutResourcePolicyRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
+        "ResourcePolicy": str,
+    },
+)
+_OptionalPutResourcePolicyRequestRequestTypeDef = TypedDict(
+    "_OptionalPutResourcePolicyRequestRequestTypeDef",
+    {
+        "PolicyRevisionId": str,
+    },
+    total=False,
+)
+
+class PutResourcePolicyRequestRequestTypeDef(
+    _RequiredPutResourcePolicyRequestRequestTypeDef, _OptionalPutResourcePolicyRequestRequestTypeDef
+):
+    pass
+
+PutResourcePolicyResponseTypeDef = TypedDict(
+    "PutResourcePolicyResponseTypeDef",
+    {
+        "PolicyRevisionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 RedactionConfigTypeDef = TypedDict(
     "RedactionConfigTypeDef",
@@ -2041,6 +2195,43 @@ StartSentimentDetectionJobResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredStartTargetedSentimentDetectionJobRequestRequestTypeDef = TypedDict(
+    "_RequiredStartTargetedSentimentDetectionJobRequestRequestTypeDef",
+    {
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "OutputDataConfigTypeDef",
+        "DataAccessRoleArn": str,
+        "LanguageCode": LanguageCodeType,
+    },
+)
+_OptionalStartTargetedSentimentDetectionJobRequestRequestTypeDef = TypedDict(
+    "_OptionalStartTargetedSentimentDetectionJobRequestRequestTypeDef",
+    {
+        "JobName": str,
+        "ClientRequestToken": str,
+        "VolumeKmsKeyId": str,
+        "VpcConfig": "VpcConfigTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class StartTargetedSentimentDetectionJobRequestRequestTypeDef(
+    _RequiredStartTargetedSentimentDetectionJobRequestRequestTypeDef,
+    _OptionalStartTargetedSentimentDetectionJobRequestRequestTypeDef,
+):
+    pass
+
+StartTargetedSentimentDetectionJobResponseTypeDef = TypedDict(
+    "StartTargetedSentimentDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "JobArn": str,
+        "JobStatus": JobStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredStartTopicsDetectionJobRequestRequestTypeDef = TypedDict(
     "_RequiredStartTopicsDetectionJobRequestRequestTypeDef",
     {
@@ -2174,6 +2365,22 @@ StopSentimentDetectionJobResponseTypeDef = TypedDict(
     },
 )
 
+StopTargetedSentimentDetectionJobRequestRequestTypeDef = TypedDict(
+    "StopTargetedSentimentDetectionJobRequestRequestTypeDef",
+    {
+        "JobId": str,
+    },
+)
+
+StopTargetedSentimentDetectionJobResponseTypeDef = TypedDict(
+    "StopTargetedSentimentDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "JobStatus": JobStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StopTrainingDocumentClassifierRequestRequestTypeDef = TypedDict(
     "StopTrainingDocumentClassifierRequestRequestTypeDef",
     {
@@ -2224,6 +2431,37 @@ _OptionalTagTypeDef = TypedDict(
 
 class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
     pass
+
+TargetedSentimentDetectionJobFilterTypeDef = TypedDict(
+    "TargetedSentimentDetectionJobFilterTypeDef",
+    {
+        "JobName": str,
+        "JobStatus": JobStatusType,
+        "SubmitTimeBefore": Union[datetime, str],
+        "SubmitTimeAfter": Union[datetime, str],
+    },
+    total=False,
+)
+
+TargetedSentimentDetectionJobPropertiesTypeDef = TypedDict(
+    "TargetedSentimentDetectionJobPropertiesTypeDef",
+    {
+        "JobId": str,
+        "JobArn": str,
+        "JobName": str,
+        "JobStatus": JobStatusType,
+        "Message": str,
+        "SubmitTime": datetime,
+        "EndTime": datetime,
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "OutputDataConfigTypeDef",
+        "LanguageCode": LanguageCodeType,
+        "DataAccessRoleArn": str,
+        "VolumeKmsKeyId": str,
+        "VpcConfig": "VpcConfigTypeDef",
+    },
+    total=False,
+)
 
 TopicsDetectionJobFilterTypeDef = TypedDict(
     "TopicsDetectionJobFilterTypeDef",

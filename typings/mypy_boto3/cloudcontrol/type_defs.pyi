@@ -37,6 +37,7 @@ __all__ = (
     "ListResourceRequestsOutputTypeDef",
     "ListResourcesInputRequestTypeDef",
     "ListResourcesOutputTypeDef",
+    "PaginatorConfigTypeDef",
     "ProgressEventTypeDef",
     "ResourceDescriptionTypeDef",
     "ResourceRequestStatusFilterTypeDef",
@@ -216,6 +217,16 @@ ListResourcesOutputTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
 ProgressEventTypeDef = TypedDict(

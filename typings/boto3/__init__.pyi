@@ -36,11 +36,13 @@ from mypy_boto3_autoscaling_plans.client import AutoScalingPlansClient
 from mypy_boto3_backup.client import BackupClient
 from mypy_boto3_backup_gateway.client import BackupGatewayClient
 from mypy_boto3_batch.client import BatchClient
+from mypy_boto3_billingconductor.client import BillingConductorClient
 from mypy_boto3_braket.client import BraketClient
 from mypy_boto3_budgets.client import BudgetsClient
 from mypy_boto3_ce.client import CostExplorerClient
 from mypy_boto3_chime.client import ChimeClient
 from mypy_boto3_chime_sdk_identity.client import ChimeSDKIdentityClient
+from mypy_boto3_chime_sdk_media_pipelines.client import ChimeSDKMediaPipelinesClient
 from mypy_boto3_chime_sdk_meetings.client import ChimeSDKMeetingsClient
 from mypy_boto3_chime_sdk_messaging.client import ChimeSDKMessagingClient
 from mypy_boto3_cloud9.client import Cloud9Client
@@ -113,6 +115,7 @@ from mypy_boto3_elb.client import ElasticLoadBalancingClient
 from mypy_boto3_elbv2.client import ElasticLoadBalancingv2Client
 from mypy_boto3_emr.client import EMRClient
 from mypy_boto3_emr_containers.client import EMRContainersClient
+from mypy_boto3_emr_serverless.client import EMRServerlessClient
 from mypy_boto3_es.client import ElasticsearchServiceClient
 from mypy_boto3_events.client import EventBridgeClient
 from mypy_boto3_evidently.client import CloudWatchEvidentlyClient
@@ -126,6 +129,7 @@ from mypy_boto3_forecastquery.client import ForecastQueryServiceClient
 from mypy_boto3_frauddetector.client import FraudDetectorClient
 from mypy_boto3_fsx.client import FSxClient
 from mypy_boto3_gamelift.client import GameLiftClient
+from mypy_boto3_gamesparks.client import GameSparksClient
 from mypy_boto3_glacier.client import GlacierClient
 from mypy_boto3_glacier.service_resource import GlacierServiceResource
 from mypy_boto3_globalaccelerator.client import GlobalAcceleratorClient
@@ -161,9 +165,11 @@ from mypy_boto3_iotthingsgraph.client import IoTThingsGraphClient
 from mypy_boto3_iottwinmaker.client import IoTTwinMakerClient
 from mypy_boto3_iotwireless.client import IoTWirelessClient
 from mypy_boto3_ivs.client import IVSClient
+from mypy_boto3_ivschat.client import ivschatClient
 from mypy_boto3_kafka.client import KafkaClient
 from mypy_boto3_kafkaconnect.client import KafkaConnectClient
 from mypy_boto3_kendra.client import kendraClient
+from mypy_boto3_keyspaces.client import KeyspacesClient
 from mypy_boto3_kinesis.client import KinesisClient
 from mypy_boto3_kinesis_video_archived_media.client import KinesisVideoArchivedMediaClient
 from mypy_boto3_kinesis_video_media.client import KinesisVideoMediaClient
@@ -185,6 +191,7 @@ from mypy_boto3_logs.client import CloudWatchLogsClient
 from mypy_boto3_lookoutequipment.client import LookoutEquipmentClient
 from mypy_boto3_lookoutmetrics.client import LookoutMetricsClient
 from mypy_boto3_lookoutvision.client import LookoutforVisionClient
+from mypy_boto3_m2.client import MainframeModernizationClient
 from mypy_boto3_machinelearning.client import MachineLearningClient
 from mypy_boto3_macie2.client import Macie2Client
 from mypy_boto3_macie.client import MacieClient
@@ -229,6 +236,7 @@ from mypy_boto3_pi.client import PIClient
 from mypy_boto3_pinpoint.client import PinpointClient
 from mypy_boto3_pinpoint_email.client import PinpointEmailClient
 from mypy_boto3_pinpoint_sms_voice.client import PinpointSMSVoiceClient
+from mypy_boto3_pinpoint_sms_voice_v2.client import PinpointSMSVoiceV2Client
 from mypy_boto3_polly.client import PollyClient
 from mypy_boto3_pricing.client import PricingClient
 from mypy_boto3_proton.client import ProtonClient
@@ -241,6 +249,7 @@ from mypy_boto3_rds.client import RDSClient
 from mypy_boto3_rds_data.client import RDSDataServiceClient
 from mypy_boto3_redshift.client import RedshiftClient
 from mypy_boto3_redshift_data.client import RedshiftDataAPIServiceClient
+from mypy_boto3_redshift_serverless.client import RedshiftServerlessClient
 from mypy_boto3_rekognition.client import RekognitionClient
 from mypy_boto3_resiliencehub.client import ResilienceHubClient
 from mypy_boto3_resource_groups.client import ResourceGroupsClient
@@ -744,6 +753,19 @@ def client(
 ) -> BatchClient: ...
 @overload
 def client(
+    service_name: Literal["billingconductor"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> BillingConductorClient: ...
+@overload
+def client(
     service_name: Literal["braket"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -807,6 +829,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> ChimeSDKIdentityClient: ...
+@overload
+def client(
+    service_name: Literal["chime-sdk-media-pipelines"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ChimeSDKMediaPipelinesClient: ...
 @overload
 def client(
     service_name: Literal["chime-sdk-meetings"],
@@ -1693,6 +1728,19 @@ def client(
 ) -> EMRContainersClient: ...
 @overload
 def client(
+    service_name: Literal["emr-serverless"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> EMRServerlessClient: ...
+@overload
+def client(
     service_name: Literal["es"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -1860,6 +1908,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> GameLiftClient: ...
+@overload
+def client(
+    service_name: Literal["gamesparks"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> GameSparksClient: ...
 @overload
 def client(
     service_name: Literal["glacier"],
@@ -2291,6 +2352,19 @@ def client(
 ) -> IVSClient: ...
 @overload
 def client(
+    service_name: Literal["ivschat"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> ivschatClient: ...
+@overload
+def client(
     service_name: Literal["kafka"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -2328,6 +2402,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> kendraClient: ...
+@overload
+def client(
+    service_name: Literal["keyspaces"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> KeyspacesClient: ...
 @overload
 def client(
     service_name: Literal["kinesis"],
@@ -2601,6 +2688,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> LookoutforVisionClient: ...
+@overload
+def client(
+    service_name: Literal["m2"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> MainframeModernizationClient: ...
 @overload
 def client(
     service_name: Literal["machinelearning"],
@@ -3162,6 +3262,19 @@ def client(
 ) -> PinpointSMSVoiceClient: ...
 @overload
 def client(
+    service_name: Literal["pinpoint-sms-voice-v2"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> PinpointSMSVoiceV2Client: ...
+@overload
+def client(
     service_name: Literal["polly"],
     region_name: Optional[str] = None,
     api_version: Optional[str] = None,
@@ -3316,6 +3429,19 @@ def client(
     aws_session_token: Optional[str] = None,
     config: Optional[Config] = None,
 ) -> RedshiftDataAPIServiceClient: ...
+@overload
+def client(
+    service_name: Literal["redshift-serverless"],
+    region_name: Optional[str] = None,
+    api_version: Optional[str] = None,
+    use_ssl: Optional[bool] = None,
+    verify: Union[bool, str, None] = None,
+    endpoint_url: Optional[str] = None,
+    aws_access_key_id: Optional[str] = None,
+    aws_secret_access_key: Optional[str] = None,
+    aws_session_token: Optional[str] = None,
+    config: Optional[Config] = None,
+) -> RedshiftServerlessClient: ...
 @overload
 def client(
     service_name: Literal["rekognition"],

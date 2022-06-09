@@ -22,6 +22,7 @@ __all__ = (
     "AttributeTypeType",
     "AutoMLOverrideStrategyType",
     "DatasetTypeType",
+    "DayOfWeekType",
     "DomainType",
     "EvaluationTypeType",
     "FeaturizationMethodNameType",
@@ -29,10 +30,15 @@ __all__ = (
     "ListDatasetGroupsPaginatorName",
     "ListDatasetImportJobsPaginatorName",
     "ListDatasetsPaginatorName",
+    "ListExplainabilitiesPaginatorName",
+    "ListExplainabilityExportsPaginatorName",
     "ListForecastExportJobsPaginatorName",
     "ListForecastsPaginatorName",
+    "ListMonitorEvaluationsPaginatorName",
+    "ListMonitorsPaginatorName",
     "ListPredictorBacktestExportJobsPaginatorName",
     "ListPredictorsPaginatorName",
+    "MonthType",
     "OptimizationMetricType",
     "ScalingTypeType",
     "StateType",
@@ -43,6 +49,9 @@ __all__ = (
 AttributeTypeType = Literal["float", "geolocation", "integer", "string", "timestamp"]
 AutoMLOverrideStrategyType = Literal["AccuracyOptimized", "LatencyOptimized"]
 DatasetTypeType = Literal["ITEM_METADATA", "RELATED_TIME_SERIES", "TARGET_TIME_SERIES"]
+DayOfWeekType = Literal[
+    "FRIDAY", "MONDAY", "SATURDAY", "SUNDAY", "THURSDAY", "TUESDAY", "WEDNESDAY"
+]
 DomainType = Literal[
     "CUSTOM", "EC2_CAPACITY", "INVENTORY_PLANNING", "METRICS", "RETAIL", "WEB_TRAFFIC", "WORK_FORCE"
 ]
@@ -52,10 +61,28 @@ FilterConditionStringType = Literal["IS", "IS_NOT"]
 ListDatasetGroupsPaginatorName = Literal["list_dataset_groups"]
 ListDatasetImportJobsPaginatorName = Literal["list_dataset_import_jobs"]
 ListDatasetsPaginatorName = Literal["list_datasets"]
+ListExplainabilitiesPaginatorName = Literal["list_explainabilities"]
+ListExplainabilityExportsPaginatorName = Literal["list_explainability_exports"]
 ListForecastExportJobsPaginatorName = Literal["list_forecast_export_jobs"]
 ListForecastsPaginatorName = Literal["list_forecasts"]
+ListMonitorEvaluationsPaginatorName = Literal["list_monitor_evaluations"]
+ListMonitorsPaginatorName = Literal["list_monitors"]
 ListPredictorBacktestExportJobsPaginatorName = Literal["list_predictor_backtest_export_jobs"]
 ListPredictorsPaginatorName = Literal["list_predictors"]
+MonthType = Literal[
+    "APRIL",
+    "AUGUST",
+    "DECEMBER",
+    "FEBRUARY",
+    "JANUARY",
+    "JULY",
+    "JUNE",
+    "MARCH",
+    "MAY",
+    "NOVEMBER",
+    "OCTOBER",
+    "SEPTEMBER",
+]
 OptimizationMetricType = Literal["AverageWeightedQuantileLoss", "MAPE", "MASE", "RMSE", "WAPE"]
 ScalingTypeType = Literal["Auto", "Linear", "Logarithmic", "ReverseLogarithmic"]
 StateType = Literal["Active", "Deleted"]

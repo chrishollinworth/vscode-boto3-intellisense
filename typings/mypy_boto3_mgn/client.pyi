@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Type, overload
 from botocore.client import BaseClient, ClientMeta
 
 from .literals import (
+    BootModeType,
     LaunchDispositionType,
     ReplicationConfigurationDataPlaneRoutingType,
     ReplicationConfigurationDefaultLargeStagingDiskTypeType,
@@ -62,6 +63,7 @@ __all__ = ("mgnClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -79,11 +81,12 @@ class Exceptions:
 
 class mgnClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -93,7 +96,7 @@ class mgnClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#can_paginate)
         """
     def change_server_life_cycle_state(
@@ -106,7 +109,7 @@ class mgnClient(BaseClient):
         Allows the user to set the SourceServer.LifeCycle.state property for specific
         Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.change_server_life_cycle_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.change_server_life_cycle_state)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#change_server_life_cycle_state)
         """
     def create_replication_configuration_template(
@@ -129,14 +132,14 @@ class mgnClient(BaseClient):
         """
         Creates a new ReplicationConfigurationTemplate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.create_replication_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.create_replication_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#create_replication_configuration_template)
         """
     def delete_job(self, *, jobID: str) -> Dict[str, Any]:
         """
         Deletes a single Job by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.delete_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.delete_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#delete_job)
         """
     def delete_replication_configuration_template(
@@ -148,78 +151,78 @@ class mgnClient(BaseClient):
         icationConfigurationTemplate>`_ **Request Syntax** response =
         client.delete_replication_configuration_template( replicatio...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.delete_replication_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.delete_replication_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#delete_replication_configuration_template)
         """
     def delete_source_server(self, *, sourceServerID: str) -> Dict[str, Any]:
         """
         Deletes a single source server by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.delete_source_server)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.delete_source_server)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#delete_source_server)
         """
     def delete_vcenter_client(self, *, vcenterClientID: str) -> None:
         """
-        Deletes a single vCenter client by ID.
+        Deletes a given vCenter client by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.delete_vcenter_client)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.delete_vcenter_client)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#delete_vcenter_client)
         """
     def describe_job_log_items(
         self, *, jobID: str, maxResults: int = None, nextToken: str = None
     ) -> DescribeJobLogItemsResponseTypeDef:
         """
-        Retrieves detailed Job log with paging.
+        Retrieves detailed job log items with paging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.describe_job_log_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.describe_job_log_items)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#describe_job_log_items)
         """
     def describe_jobs(
         self,
         *,
-        filters: "DescribeJobsRequestFiltersTypeDef",
+        filters: "DescribeJobsRequestFiltersTypeDef" = None,
         maxResults: int = None,
         nextToken: str = None
     ) -> DescribeJobsResponseTypeDef:
         """
         Returns a list of Jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.describe_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.describe_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#describe_jobs)
         """
     def describe_replication_configuration_templates(
         self,
         *,
-        replicationConfigurationTemplateIDs: List[str],
         maxResults: int = None,
-        nextToken: str = None
+        nextToken: str = None,
+        replicationConfigurationTemplateIDs: List[str] = None
     ) -> DescribeReplicationConfigurationTemplatesResponseTypeDef:
         """
         Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.describe_replication_configuration_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.describe_replication_configuration_templates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#describe_replication_configuration_templates)
         """
     def describe_source_servers(
         self,
         *,
-        filters: "DescribeSourceServersRequestFiltersTypeDef",
+        filters: "DescribeSourceServersRequestFiltersTypeDef" = None,
         maxResults: int = None,
         nextToken: str = None
     ) -> DescribeSourceServersResponseTypeDef:
         """
         Retrieves all SourceServers or multiple SourceServers by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.describe_source_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.describe_source_servers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#describe_source_servers)
         """
     def describe_vcenter_clients(
         self, *, maxResults: int = None, nextToken: str = None
     ) -> DescribeVcenterClientsResponseTypeDef:
         """
-        Lists all vCenter clients.
+        Returns a list of the installed vCenter clients.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.describe_vcenter_clients)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.describe_vcenter_clients)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#describe_vcenter_clients)
         """
     def disconnect_from_service(
@@ -228,14 +231,14 @@ class mgnClient(BaseClient):
         """
         Disconnects specific Source Servers from Application Migration Service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.disconnect_from_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.disconnect_from_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#disconnect_from_service)
         """
     def finalize_cutover(self, *, sourceServerID: str) -> SourceServerResponseMetadataTypeDef:
         """
         Finalizes the cutover immediately for specific Source Servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.finalize_cutover)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.finalize_cutover)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#finalize_cutover)
         """
     def generate_presigned_url(
@@ -248,14 +251,14 @@ class mgnClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#generate_presigned_url)
         """
     def get_launch_configuration(self, *, sourceServerID: str) -> LaunchConfigurationTypeDef:
         """
         Lists all LaunchConfigurations available, filtered by Source Server IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.get_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.get_launch_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#get_launch_configuration)
         """
     def get_replication_configuration(
@@ -264,21 +267,21 @@ class mgnClient(BaseClient):
         """
         Lists all ReplicationConfigurations, filtered by Source Server ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.get_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.get_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#get_replication_configuration)
         """
     def initialize_service(self) -> Dict[str, Any]:
         """
         Initialize Application Migration Service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.initialize_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.initialize_service)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#initialize_service)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         List all tags for your Application Migration Service resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#list_tags_for_resource)
         """
     def mark_as_archived(self, *, sourceServerID: str) -> SourceServerResponseMetadataTypeDef:
@@ -286,7 +289,7 @@ class mgnClient(BaseClient):
         Archives specific Source Servers by setting the SourceServer.isArchived property
         to true for specified SourceServers by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.mark_as_archived)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.mark_as_archived)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#mark_as_archived)
         """
     def retry_data_replication(self, *, sourceServerID: str) -> SourceServerResponseMetadataTypeDef:
@@ -295,7 +298,7 @@ class mgnClient(BaseClient):
         Handshake for specified SourceServer IDs, regardless of when the previous
         initiation started.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.retry_data_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.retry_data_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#retry_data_replication)
         """
     def start_cutover(
@@ -304,23 +307,23 @@ class mgnClient(BaseClient):
         """
         Launches a Cutover Instance for specific Source Servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.start_cutover)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.start_cutover)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#start_cutover)
         """
     def start_replication(self, *, sourceServerID: str) -> SourceServerResponseMetadataTypeDef:
         """
-        Starts replication on source server by ID.
+        Starts replication for SNAPSHOT_SHIPPING agents.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.start_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.start_replication)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#start_replication)
         """
     def start_test(
         self, *, sourceServerIDs: List[str], tags: Dict[str, str] = None
     ) -> StartTestResponseTypeDef:
         """
-        Lauches a Test Instance for specific Source Servers.
+        Launches a Test Instance for specific Source Servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.start_test)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.start_test)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#start_test)
         """
     def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> None:
@@ -328,7 +331,7 @@ class mgnClient(BaseClient):
         Adds or overwrites only the specified tags for the specified Application
         Migration Service resource or resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#tag_resource)
         """
     def terminate_target_instances(
@@ -337,7 +340,7 @@ class mgnClient(BaseClient):
         """
         Starts a job that terminates specific launched EC2 Test and Cutover instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.terminate_target_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.terminate_target_instances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#terminate_target_instances)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> None:
@@ -345,13 +348,14 @@ class mgnClient(BaseClient):
         Deletes the specified set of tags from the specified set of Application
         Migration Service resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#untag_resource)
         """
     def update_launch_configuration(
         self,
         *,
         sourceServerID: str,
+        bootMode: BootModeType = None,
         copyPrivateIp: bool = None,
         copyTags: bool = None,
         launchDisposition: LaunchDispositionType = None,
@@ -362,7 +366,7 @@ class mgnClient(BaseClient):
         """
         Updates multiple LaunchConfigurations by Source Server ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.update_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.update_launch_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#update_launch_configuration)
         """
     def update_replication_configuration(
@@ -387,7 +391,7 @@ class mgnClient(BaseClient):
         """
         Allows you to update multiple ReplicationConfigurations by Source Server ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.update_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.update_replication_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#update_replication_configuration)
         """
     def update_replication_configuration_template(
@@ -411,16 +415,17 @@ class mgnClient(BaseClient):
         """
         Updates multiple ReplicationConfigurationTemplates by ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.update_replication_configuration_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.update_replication_configuration_template)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#update_replication_configuration_template)
         """
     def update_source_server_replication_type(
         self, *, replicationType: ReplicationTypeType, sourceServerID: str
     ) -> SourceServerResponseMetadataTypeDef:
         """
-        Updates source server Replication Type by ID.
+        Allows you to change between the AGENT_BASED replication type and the
+        SNAPSHOT_SHIPPING replication type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Client.update_source_server_replication_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Client.update_source_server_replication_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/client.html#update_source_server_replication_type)
         """
     @overload
@@ -428,13 +433,13 @@ class mgnClient(BaseClient):
         self, operation_name: Literal["describe_job_log_items"]
     ) -> DescribeJobLogItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Paginator.DescribeJobLogItems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Paginator.DescribeJobLogItems)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describejoblogitemspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_jobs"]) -> DescribeJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Paginator.DescribeJobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Paginator.DescribeJobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describejobspaginator)
         """
     @overload
@@ -442,7 +447,7 @@ class mgnClient(BaseClient):
         self, operation_name: Literal["describe_replication_configuration_templates"]
     ) -> DescribeReplicationConfigurationTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Paginator.DescribeReplicationConfigurationTemplates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Paginator.DescribeReplicationConfigurationTemplates)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describereplicationconfigurationtemplatespaginator)
         """
     @overload
@@ -450,7 +455,7 @@ class mgnClient(BaseClient):
         self, operation_name: Literal["describe_source_servers"]
     ) -> DescribeSourceServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Paginator.DescribeSourceServers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Paginator.DescribeSourceServers)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describesourceserverspaginator)
         """
     @overload
@@ -458,6 +463,6 @@ class mgnClient(BaseClient):
         self, operation_name: Literal["describe_vcenter_clients"]
     ) -> DescribeVcenterClientsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/mgn.html#mgn.Paginator.DescribeVcenterClients)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/mgn.html#mgn.Paginator.DescribeVcenterClients)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mgn/paginators.html#describevcenterclientspaginator)
         """

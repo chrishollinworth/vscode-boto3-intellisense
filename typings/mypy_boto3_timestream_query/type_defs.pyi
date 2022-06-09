@@ -481,7 +481,7 @@ ResponseMetadataTypeDef = TypedDict(
 RowTypeDef = TypedDict(
     "RowTypeDef",
     {
-        "Data": List["DatumTypeDef"],
+        "Data": List[Dict[str, Any]],
     },
 )
 

@@ -22,6 +22,7 @@ from .literals import (
     AuthTypeValueType,
     CannedAclForObjectsValueType,
     CharLengthSemanticsType,
+    CollectorStatusType,
     CompressionTypeValueType,
     DataFormatValueType,
     DatePartitionDelimiterValueType,
@@ -44,6 +45,7 @@ from .literals import (
     SslSecurityProtocolValueType,
     StartReplicationTaskTypeValueType,
     TargetDbTypeType,
+    VersionStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -64,25 +66,36 @@ __all__ = (
     "CancelReplicationTaskAssessmentRunMessageRequestTypeDef",
     "CancelReplicationTaskAssessmentRunResponseTypeDef",
     "CertificateTypeDef",
+    "CollectorHealthCheckTypeDef",
+    "CollectorResponseTypeDef",
+    "CollectorShortInfoResponseTypeDef",
     "ConnectionTypeDef",
     "CreateEndpointMessageRequestTypeDef",
     "CreateEndpointResponseTypeDef",
     "CreateEventSubscriptionMessageRequestTypeDef",
     "CreateEventSubscriptionResponseTypeDef",
+    "CreateFleetAdvisorCollectorRequestRequestTypeDef",
+    "CreateFleetAdvisorCollectorResponseTypeDef",
     "CreateReplicationInstanceMessageRequestTypeDef",
     "CreateReplicationInstanceResponseTypeDef",
     "CreateReplicationSubnetGroupMessageRequestTypeDef",
     "CreateReplicationSubnetGroupResponseTypeDef",
     "CreateReplicationTaskMessageRequestTypeDef",
     "CreateReplicationTaskResponseTypeDef",
+    "DatabaseInstanceSoftwareDetailsResponseTypeDef",
+    "DatabaseResponseTypeDef",
+    "DatabaseShortInfoResponseTypeDef",
     "DeleteCertificateMessageRequestTypeDef",
     "DeleteCertificateResponseTypeDef",
+    "DeleteCollectorRequestRequestTypeDef",
     "DeleteConnectionMessageRequestTypeDef",
     "DeleteConnectionResponseTypeDef",
     "DeleteEndpointMessageRequestTypeDef",
     "DeleteEndpointResponseTypeDef",
     "DeleteEventSubscriptionMessageRequestTypeDef",
     "DeleteEventSubscriptionResponseTypeDef",
+    "DeleteFleetAdvisorDatabasesRequestRequestTypeDef",
+    "DeleteFleetAdvisorDatabasesResponseTypeDef",
     "DeleteReplicationInstanceMessageRequestTypeDef",
     "DeleteReplicationInstanceResponseTypeDef",
     "DeleteReplicationSubnetGroupMessageRequestTypeDef",
@@ -109,6 +122,16 @@ __all__ = (
     "DescribeEventSubscriptionsResponseTypeDef",
     "DescribeEventsMessageRequestTypeDef",
     "DescribeEventsResponseTypeDef",
+    "DescribeFleetAdvisorCollectorsRequestRequestTypeDef",
+    "DescribeFleetAdvisorCollectorsResponseTypeDef",
+    "DescribeFleetAdvisorDatabasesRequestRequestTypeDef",
+    "DescribeFleetAdvisorDatabasesResponseTypeDef",
+    "DescribeFleetAdvisorLsaAnalysisRequestRequestTypeDef",
+    "DescribeFleetAdvisorLsaAnalysisResponseTypeDef",
+    "DescribeFleetAdvisorSchemaObjectSummaryRequestRequestTypeDef",
+    "DescribeFleetAdvisorSchemaObjectSummaryResponseTypeDef",
+    "DescribeFleetAdvisorSchemasRequestRequestTypeDef",
+    "DescribeFleetAdvisorSchemasResponseTypeDef",
     "DescribeOrderableReplicationInstancesMessageRequestTypeDef",
     "DescribeOrderableReplicationInstancesResponseTypeDef",
     "DescribePendingMaintenanceActionsMessageRequestTypeDef",
@@ -143,10 +166,13 @@ __all__ = (
     "EventSubscriptionTypeDef",
     "EventTypeDef",
     "FilterTypeDef",
+    "FleetAdvisorLsaAnalysisResponseTypeDef",
+    "FleetAdvisorSchemaObjectResponseTypeDef",
     "GcpMySQLSettingsTypeDef",
     "IBMDb2SettingsTypeDef",
     "ImportCertificateMessageRequestTypeDef",
     "ImportCertificateResponseTypeDef",
+    "InventoryDataTypeDef",
     "KafkaSettingsTypeDef",
     "KinesisSettingsTypeDef",
     "ListTagsForResourceMessageRequestTypeDef",
@@ -194,7 +220,11 @@ __all__ = (
     "ReplicationTaskTypeDef",
     "ResourcePendingMaintenanceActionsTypeDef",
     "ResponseMetadataTypeDef",
+    "RunFleetAdvisorLsaAnalysisResponseTypeDef",
     "S3SettingsTypeDef",
+    "SchemaResponseTypeDef",
+    "SchemaShortInfoResponseTypeDef",
+    "ServerShortInfoResponseTypeDef",
     "StartReplicationTaskAssessmentMessageRequestTypeDef",
     "StartReplicationTaskAssessmentResponseTypeDef",
     "StartReplicationTaskAssessmentRunMessageRequestTypeDef",
@@ -286,6 +316,46 @@ CertificateTypeDef = TypedDict(
         "ValidToDate": datetime,
         "SigningAlgorithm": str,
         "KeyLength": int,
+    },
+    total=False,
+)
+
+CollectorHealthCheckTypeDef = TypedDict(
+    "CollectorHealthCheckTypeDef",
+    {
+        "CollectorStatus": CollectorStatusType,
+        "LocalCollectorS3Access": bool,
+        "WebCollectorS3Access": bool,
+        "WebCollectorGrantedRoleBasedAccess": bool,
+    },
+    total=False,
+)
+
+CollectorResponseTypeDef = TypedDict(
+    "CollectorResponseTypeDef",
+    {
+        "CollectorReferencedId": str,
+        "CollectorName": str,
+        "CollectorVersion": str,
+        "VersionStatus": VersionStatusType,
+        "Description": str,
+        "S3BucketName": str,
+        "ServiceAccessRoleArn": str,
+        "CollectorHealthCheck": "CollectorHealthCheckTypeDef",
+        "LastDataReceived": str,
+        "RegisteredDate": str,
+        "CreatedDate": str,
+        "ModifiedDate": str,
+        "InventoryData": "InventoryDataTypeDef",
+    },
+    total=False,
+)
+
+CollectorShortInfoResponseTypeDef = TypedDict(
+    "CollectorShortInfoResponseTypeDef",
+    {
+        "CollectorReferencedId": str,
+        "CollectorName": str,
     },
     total=False,
 )
@@ -391,6 +461,40 @@ CreateEventSubscriptionResponseTypeDef = TypedDict(
     "CreateEventSubscriptionResponseTypeDef",
     {
         "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateFleetAdvisorCollectorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFleetAdvisorCollectorRequestRequestTypeDef",
+    {
+        "CollectorName": str,
+        "ServiceAccessRoleArn": str,
+        "S3BucketName": str,
+    },
+)
+_OptionalCreateFleetAdvisorCollectorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFleetAdvisorCollectorRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class CreateFleetAdvisorCollectorRequestRequestTypeDef(
+    _RequiredCreateFleetAdvisorCollectorRequestRequestTypeDef,
+    _OptionalCreateFleetAdvisorCollectorRequestRequestTypeDef,
+):
+    pass
+
+CreateFleetAdvisorCollectorResponseTypeDef = TypedDict(
+    "CreateFleetAdvisorCollectorResponseTypeDef",
+    {
+        "CollectorReferencedId": str,
+        "CollectorName": str,
+        "Description": str,
+        "ServiceAccessRoleArn": str,
+        "S3BucketName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -505,6 +609,45 @@ CreateReplicationTaskResponseTypeDef = TypedDict(
     },
 )
 
+DatabaseInstanceSoftwareDetailsResponseTypeDef = TypedDict(
+    "DatabaseInstanceSoftwareDetailsResponseTypeDef",
+    {
+        "Engine": str,
+        "EngineVersion": str,
+        "EngineEdition": str,
+        "ServicePack": str,
+        "SupportLevel": str,
+        "OsArchitecture": int,
+        "Tooltip": str,
+    },
+    total=False,
+)
+
+DatabaseResponseTypeDef = TypedDict(
+    "DatabaseResponseTypeDef",
+    {
+        "DatabaseId": str,
+        "DatabaseName": str,
+        "IpAddress": str,
+        "NumberOfSchemas": int,
+        "Server": "ServerShortInfoResponseTypeDef",
+        "SoftwareDetails": "DatabaseInstanceSoftwareDetailsResponseTypeDef",
+        "Collectors": List["CollectorShortInfoResponseTypeDef"],
+    },
+    total=False,
+)
+
+DatabaseShortInfoResponseTypeDef = TypedDict(
+    "DatabaseShortInfoResponseTypeDef",
+    {
+        "DatabaseId": str,
+        "DatabaseName": str,
+        "DatabaseIpAddress": str,
+        "DatabaseEngine": str,
+    },
+    total=False,
+)
+
 DeleteCertificateMessageRequestTypeDef = TypedDict(
     "DeleteCertificateMessageRequestTypeDef",
     {
@@ -517,6 +660,13 @@ DeleteCertificateResponseTypeDef = TypedDict(
     {
         "Certificate": "CertificateTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteCollectorRequestRequestTypeDef = TypedDict(
+    "DeleteCollectorRequestRequestTypeDef",
+    {
+        "CollectorReferencedId": str,
     },
 )
 
@@ -562,6 +712,21 @@ DeleteEventSubscriptionResponseTypeDef = TypedDict(
     "DeleteEventSubscriptionResponseTypeDef",
     {
         "EventSubscription": "EventSubscriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteFleetAdvisorDatabasesRequestRequestTypeDef = TypedDict(
+    "DeleteFleetAdvisorDatabasesRequestRequestTypeDef",
+    {
+        "DatabaseIds": List[str],
+    },
+)
+
+DeleteFleetAdvisorDatabasesResponseTypeDef = TypedDict(
+    "DeleteFleetAdvisorDatabasesResponseTypeDef",
+    {
+        "DatabaseIds": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -814,6 +979,100 @@ DescribeEventsResponseTypeDef = TypedDict(
     {
         "Marker": str,
         "Events": List["EventTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetAdvisorCollectorsRequestRequestTypeDef = TypedDict(
+    "DescribeFleetAdvisorCollectorsRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetAdvisorCollectorsResponseTypeDef = TypedDict(
+    "DescribeFleetAdvisorCollectorsResponseTypeDef",
+    {
+        "Collectors": List["CollectorResponseTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetAdvisorDatabasesRequestRequestTypeDef = TypedDict(
+    "DescribeFleetAdvisorDatabasesRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetAdvisorDatabasesResponseTypeDef = TypedDict(
+    "DescribeFleetAdvisorDatabasesResponseTypeDef",
+    {
+        "Databases": List["DatabaseResponseTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetAdvisorLsaAnalysisRequestRequestTypeDef = TypedDict(
+    "DescribeFleetAdvisorLsaAnalysisRequestRequestTypeDef",
+    {
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetAdvisorLsaAnalysisResponseTypeDef = TypedDict(
+    "DescribeFleetAdvisorLsaAnalysisResponseTypeDef",
+    {
+        "Analysis": List["FleetAdvisorLsaAnalysisResponseTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetAdvisorSchemaObjectSummaryRequestRequestTypeDef = TypedDict(
+    "DescribeFleetAdvisorSchemaObjectSummaryRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetAdvisorSchemaObjectSummaryResponseTypeDef = TypedDict(
+    "DescribeFleetAdvisorSchemaObjectSummaryResponseTypeDef",
+    {
+        "FleetAdvisorSchemaObjects": List["FleetAdvisorSchemaObjectResponseTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFleetAdvisorSchemasRequestRequestTypeDef = TypedDict(
+    "DescribeFleetAdvisorSchemasRequestRequestTypeDef",
+    {
+        "Filters": List["FilterTypeDef"],
+        "MaxRecords": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeFleetAdvisorSchemasResponseTypeDef = TypedDict(
+    "DescribeFleetAdvisorSchemasResponseTypeDef",
+    {
+        "FleetAdvisorSchemas": List["SchemaResponseTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1237,6 +1496,27 @@ FilterTypeDef = TypedDict(
     },
 )
 
+FleetAdvisorLsaAnalysisResponseTypeDef = TypedDict(
+    "FleetAdvisorLsaAnalysisResponseTypeDef",
+    {
+        "LsaAnalysisId": str,
+        "Status": str,
+    },
+    total=False,
+)
+
+FleetAdvisorSchemaObjectResponseTypeDef = TypedDict(
+    "FleetAdvisorSchemaObjectResponseTypeDef",
+    {
+        "SchemaId": str,
+        "ObjectType": str,
+        "NumberOfObjects": int,
+        "CodeLineCount": int,
+        "CodeSize": int,
+    },
+    total=False,
+)
+
 GcpMySQLSettingsTypeDef = TypedDict(
     "GcpMySQLSettingsTypeDef",
     {
@@ -1302,6 +1582,15 @@ ImportCertificateResponseTypeDef = TypedDict(
         "Certificate": "CertificateTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+InventoryDataTypeDef = TypedDict(
+    "InventoryDataTypeDef",
+    {
+        "NumberOfDatabases": int,
+        "NumberOfSchemas": int,
+    },
+    total=False,
 )
 
 KafkaSettingsTypeDef = TypedDict(
@@ -2098,6 +2387,15 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RunFleetAdvisorLsaAnalysisResponseTypeDef = TypedDict(
+    "RunFleetAdvisorLsaAnalysisResponseTypeDef",
+    {
+        "LsaAnalysisId": str,
+        "Status": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 S3SettingsTypeDef = TypedDict(
     "S3SettingsTypeDef",
     {
@@ -2139,6 +2437,44 @@ S3SettingsTypeDef = TypedDict(
         "MaxFileSize": int,
         "Rfc4180": bool,
         "DatePartitionTimezone": str,
+    },
+    total=False,
+)
+
+SchemaResponseTypeDef = TypedDict(
+    "SchemaResponseTypeDef",
+    {
+        "CodeLineCount": int,
+        "CodeSize": int,
+        "Complexity": str,
+        "Server": "ServerShortInfoResponseTypeDef",
+        "DatabaseInstance": "DatabaseShortInfoResponseTypeDef",
+        "SchemaId": str,
+        "SchemaName": str,
+        "OriginalSchema": "SchemaShortInfoResponseTypeDef",
+        "Similarity": float,
+    },
+    total=False,
+)
+
+SchemaShortInfoResponseTypeDef = TypedDict(
+    "SchemaShortInfoResponseTypeDef",
+    {
+        "SchemaId": str,
+        "SchemaName": str,
+        "DatabaseId": str,
+        "DatabaseName": str,
+        "DatabaseIpAddress": str,
+    },
+    total=False,
+)
+
+ServerShortInfoResponseTypeDef = TypedDict(
+    "ServerShortInfoResponseTypeDef",
+    {
+        "ServerId": str,
+        "IpAddress": str,
+        "ServerName": str,
     },
     total=False,
 )

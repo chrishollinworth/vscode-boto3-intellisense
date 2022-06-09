@@ -607,6 +607,7 @@ class GetExperimentResultsRequestRequestTypeDef(
 GetExperimentResultsResponseTypeDef = TypedDict(
     "GetExperimentResultsResponseTypeDef",
     {
+        "details": str,
         "reports": List["ExperimentReportTypeDef"],
         "resultsData": List["ExperimentResultsDataTypeDef"],
         "timestamps": List[datetime],
@@ -750,6 +751,7 @@ _OptionalListExperimentsRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "status": ExperimentStatusType,
     },
     total=False,
 )
@@ -808,6 +810,7 @@ _OptionalListLaunchesRequestRequestTypeDef = TypedDict(
     {
         "maxResults": int,
         "nextToken": str,
+        "status": LaunchStatusType,
     },
     total=False,
 )
@@ -859,17 +862,27 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
-MetricDefinitionConfigTypeDef = TypedDict(
-    "MetricDefinitionConfigTypeDef",
+_RequiredMetricDefinitionConfigTypeDef = TypedDict(
+    "_RequiredMetricDefinitionConfigTypeDef",
     {
         "entityIdKey": str,
-        "eventPattern": str,
         "name": str,
-        "unitLabel": str,
         "valueKey": str,
+    },
+)
+_OptionalMetricDefinitionConfigTypeDef = TypedDict(
+    "_OptionalMetricDefinitionConfigTypeDef",
+    {
+        "eventPattern": str,
+        "unitLabel": str,
     },
     total=False,
 )
+
+class MetricDefinitionConfigTypeDef(
+    _RequiredMetricDefinitionConfigTypeDef, _OptionalMetricDefinitionConfigTypeDef
+):
+    pass
 
 MetricDefinitionTypeDef = TypedDict(
     "MetricDefinitionTypeDef",

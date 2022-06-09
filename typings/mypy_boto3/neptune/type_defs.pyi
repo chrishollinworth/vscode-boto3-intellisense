@@ -54,6 +54,8 @@ __all__ = (
     "CreateDBSubnetGroupResultTypeDef",
     "CreateEventSubscriptionMessageRequestTypeDef",
     "CreateEventSubscriptionResultTypeDef",
+    "CreateGlobalClusterMessageRequestTypeDef",
+    "CreateGlobalClusterResultTypeDef",
     "DBClusterEndpointMessageTypeDef",
     "DBClusterEndpointTypeDef",
     "DBClusterMemberTypeDef",
@@ -95,6 +97,8 @@ __all__ = (
     "DeleteDBSubnetGroupMessageRequestTypeDef",
     "DeleteEventSubscriptionMessageRequestTypeDef",
     "DeleteEventSubscriptionResultTypeDef",
+    "DeleteGlobalClusterMessageRequestTypeDef",
+    "DeleteGlobalClusterResultTypeDef",
     "DescribeDBClusterEndpointsMessageRequestTypeDef",
     "DescribeDBClusterParameterGroupsMessageRequestTypeDef",
     "DescribeDBClusterParametersMessageRequestTypeDef",
@@ -114,6 +118,7 @@ __all__ = (
     "DescribeEventCategoriesMessageRequestTypeDef",
     "DescribeEventSubscriptionsMessageRequestTypeDef",
     "DescribeEventsMessageRequestTypeDef",
+    "DescribeGlobalClustersMessageRequestTypeDef",
     "DescribeOrderableDBInstanceOptionsMessageRequestTypeDef",
     "DescribePendingMaintenanceActionsMessageRequestTypeDef",
     "DescribeValidDBInstanceModificationsMessageRequestTypeDef",
@@ -130,7 +135,12 @@ __all__ = (
     "EventsMessageTypeDef",
     "FailoverDBClusterMessageRequestTypeDef",
     "FailoverDBClusterResultTypeDef",
+    "FailoverGlobalClusterMessageRequestTypeDef",
+    "FailoverGlobalClusterResultTypeDef",
     "FilterTypeDef",
+    "GlobalClusterMemberTypeDef",
+    "GlobalClusterTypeDef",
+    "GlobalClustersMessageTypeDef",
     "ListTagsForResourceMessageRequestTypeDef",
     "ModifyDBClusterEndpointMessageRequestTypeDef",
     "ModifyDBClusterEndpointOutputTypeDef",
@@ -146,6 +156,8 @@ __all__ = (
     "ModifyDBSubnetGroupResultTypeDef",
     "ModifyEventSubscriptionMessageRequestTypeDef",
     "ModifyEventSubscriptionResultTypeDef",
+    "ModifyGlobalClusterMessageRequestTypeDef",
+    "ModifyGlobalClusterResultTypeDef",
     "OptionGroupMembershipTypeDef",
     "OrderableDBInstanceOptionTypeDef",
     "OrderableDBInstanceOptionsMessageTypeDef",
@@ -160,6 +172,8 @@ __all__ = (
     "RangeTypeDef",
     "RebootDBInstanceMessageRequestTypeDef",
     "RebootDBInstanceResultTypeDef",
+    "RemoveFromGlobalClusterMessageRequestTypeDef",
+    "RemoveFromGlobalClusterResultTypeDef",
     "RemoveRoleFromDBClusterMessageRequestTypeDef",
     "RemoveSourceIdentifierFromSubscriptionMessageRequestTypeDef",
     "RemoveSourceIdentifierFromSubscriptionResultTypeDef",
@@ -442,6 +456,7 @@ _OptionalCreateDBClusterMessageRequestTypeDef = TypedDict(
         "EnableIAMDatabaseAuthentication": bool,
         "EnableCloudwatchLogsExports": List[str],
         "DeletionProtection": bool,
+        "GlobalClusterIdentifier": str,
         "SourceRegion": str,
     },
     total=False,
@@ -680,6 +695,38 @@ CreateEventSubscriptionResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateGlobalClusterMessageRequestTypeDef = TypedDict(
+    "_RequiredCreateGlobalClusterMessageRequestTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+    },
+)
+_OptionalCreateGlobalClusterMessageRequestTypeDef = TypedDict(
+    "_OptionalCreateGlobalClusterMessageRequestTypeDef",
+    {
+        "SourceDBClusterIdentifier": str,
+        "Engine": str,
+        "EngineVersion": str,
+        "DeletionProtection": bool,
+        "StorageEncrypted": bool,
+    },
+    total=False,
+)
+
+class CreateGlobalClusterMessageRequestTypeDef(
+    _RequiredCreateGlobalClusterMessageRequestTypeDef,
+    _OptionalCreateGlobalClusterMessageRequestTypeDef,
+):
+    pass
+
+CreateGlobalClusterResultTypeDef = TypedDict(
+    "CreateGlobalClusterResultTypeDef",
+    {
+        "GlobalCluster": "GlobalClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DBClusterEndpointMessageTypeDef = TypedDict(
     "DBClusterEndpointMessageTypeDef",
     {
@@ -907,6 +954,7 @@ DBEngineVersionTypeDef = TypedDict(
         "ExportableLogTypes": List[str],
         "SupportsLogExportsToCloudwatchLogs": bool,
         "SupportsReadReplica": bool,
+        "SupportsGlobalDatabases": bool,
     },
     total=False,
 )
@@ -1199,6 +1247,21 @@ DeleteEventSubscriptionResultTypeDef = TypedDict(
     },
 )
 
+DeleteGlobalClusterMessageRequestTypeDef = TypedDict(
+    "DeleteGlobalClusterMessageRequestTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+    },
+)
+
+DeleteGlobalClusterResultTypeDef = TypedDict(
+    "DeleteGlobalClusterResultTypeDef",
+    {
+        "GlobalCluster": "GlobalClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeDBClusterEndpointsMessageRequestTypeDef = TypedDict(
     "DescribeDBClusterEndpointsMessageRequestTypeDef",
     {
@@ -1454,6 +1517,16 @@ DescribeEventsMessageRequestTypeDef = TypedDict(
     total=False,
 )
 
+DescribeGlobalClustersMessageRequestTypeDef = TypedDict(
+    "DescribeGlobalClustersMessageRequestTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+        "MaxRecords": int,
+        "Marker": str,
+    },
+    total=False,
+)
+
 _RequiredDescribeOrderableDBInstanceOptionsMessageRequestTypeDef = TypedDict(
     "_RequiredDescribeOrderableDBInstanceOptionsMessageRequestTypeDef",
     {
@@ -1628,11 +1701,62 @@ FailoverDBClusterResultTypeDef = TypedDict(
     },
 )
 
+FailoverGlobalClusterMessageRequestTypeDef = TypedDict(
+    "FailoverGlobalClusterMessageRequestTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+        "TargetDbClusterIdentifier": str,
+    },
+)
+
+FailoverGlobalClusterResultTypeDef = TypedDict(
+    "FailoverGlobalClusterResultTypeDef",
+    {
+        "GlobalCluster": "GlobalClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
     {
         "Name": str,
         "Values": List[str],
+    },
+)
+
+GlobalClusterMemberTypeDef = TypedDict(
+    "GlobalClusterMemberTypeDef",
+    {
+        "DBClusterArn": str,
+        "Readers": List[str],
+        "IsWriter": bool,
+    },
+    total=False,
+)
+
+GlobalClusterTypeDef = TypedDict(
+    "GlobalClusterTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+        "GlobalClusterResourceId": str,
+        "GlobalClusterArn": str,
+        "Status": str,
+        "Engine": str,
+        "EngineVersion": str,
+        "StorageEncrypted": bool,
+        "DeletionProtection": bool,
+        "GlobalClusterMembers": List["GlobalClusterMemberTypeDef"],
+    },
+    total=False,
+)
+
+GlobalClustersMessageTypeDef = TypedDict(
+    "GlobalClustersMessageTypeDef",
+    {
+        "Marker": str,
+        "GlobalClusters": List["GlobalClusterTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1906,6 +2030,37 @@ ModifyEventSubscriptionResultTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyGlobalClusterMessageRequestTypeDef = TypedDict(
+    "_RequiredModifyGlobalClusterMessageRequestTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+    },
+)
+_OptionalModifyGlobalClusterMessageRequestTypeDef = TypedDict(
+    "_OptionalModifyGlobalClusterMessageRequestTypeDef",
+    {
+        "NewGlobalClusterIdentifier": str,
+        "DeletionProtection": bool,
+        "EngineVersion": str,
+        "AllowMajorVersionUpgrade": bool,
+    },
+    total=False,
+)
+
+class ModifyGlobalClusterMessageRequestTypeDef(
+    _RequiredModifyGlobalClusterMessageRequestTypeDef,
+    _OptionalModifyGlobalClusterMessageRequestTypeDef,
+):
+    pass
+
+ModifyGlobalClusterResultTypeDef = TypedDict(
+    "ModifyGlobalClusterResultTypeDef",
+    {
+        "GlobalCluster": "GlobalClusterTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 OptionGroupMembershipTypeDef = TypedDict(
     "OptionGroupMembershipTypeDef",
     {
@@ -1938,6 +2093,7 @@ OrderableDBInstanceOptionTypeDef = TypedDict(
         "MaxIopsPerDbInstance": int,
         "MinIopsPerGib": float,
         "MaxIopsPerGib": float,
+        "SupportsGlobalDatabases": bool,
     },
     total=False,
 )
@@ -2078,6 +2234,22 @@ RebootDBInstanceResultTypeDef = TypedDict(
     "RebootDBInstanceResultTypeDef",
     {
         "DBInstance": "DBInstanceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RemoveFromGlobalClusterMessageRequestTypeDef = TypedDict(
+    "RemoveFromGlobalClusterMessageRequestTypeDef",
+    {
+        "GlobalClusterIdentifier": str,
+        "DbClusterIdentifier": str,
+    },
+)
+
+RemoveFromGlobalClusterResultTypeDef = TypedDict(
+    "RemoveFromGlobalClusterResultTypeDef",
+    {
+        "GlobalCluster": "GlobalClusterTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2346,6 +2518,7 @@ UpgradeTargetTypeDef = TypedDict(
         "Description": str,
         "AutoUpgrade": bool,
         "IsMajorVersionUpgrade": bool,
+        "SupportsGlobalDatabases": bool,
     },
     total=False,
 )

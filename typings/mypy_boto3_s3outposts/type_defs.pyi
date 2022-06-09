@@ -29,6 +29,8 @@ __all__ = (
     "EndpointTypeDef",
     "ListEndpointsRequestRequestTypeDef",
     "ListEndpointsResultTypeDef",
+    "ListSharedEndpointsRequestRequestTypeDef",
+    "ListSharedEndpointsResultTypeDef",
     "NetworkInterfaceTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
@@ -101,6 +103,36 @@ ListEndpointsRequestRequestTypeDef = TypedDict(
 
 ListEndpointsResultTypeDef = TypedDict(
     "ListEndpointsResultTypeDef",
+    {
+        "Endpoints": List["EndpointTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListSharedEndpointsRequestRequestTypeDef = TypedDict(
+    "_RequiredListSharedEndpointsRequestRequestTypeDef",
+    {
+        "OutpostId": str,
+    },
+)
+_OptionalListSharedEndpointsRequestRequestTypeDef = TypedDict(
+    "_OptionalListSharedEndpointsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListSharedEndpointsRequestRequestTypeDef(
+    _RequiredListSharedEndpointsRequestRequestTypeDef,
+    _OptionalListSharedEndpointsRequestRequestTypeDef,
+):
+    pass
+
+ListSharedEndpointsResultTypeDef = TypedDict(
+    "ListSharedEndpointsResultTypeDef",
     {
         "Endpoints": List["EndpointTypeDef"],
         "NextToken": str,

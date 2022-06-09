@@ -1491,6 +1491,7 @@ _OptionalExecuteStatementInputRequestTypeDef = TypedDict(
         "ConsistentRead": bool,
         "NextToken": str,
         "ReturnConsumedCapacity": ReturnConsumedCapacityType,
+        "Limit": int,
     },
     total=False,
 )
@@ -1526,6 +1527,25 @@ ExecuteStatementOutputTypeDef = TypedDict(
         ],
         "NextToken": str,
         "ConsumedCapacity": "ConsumedCapacityTypeDef",
+        "LastEvaluatedKey": Dict[
+            str,
+            Union[
+                bytes,
+                bytearray,
+                str,
+                int,
+                Decimal,
+                bool,
+                Set[int],
+                Set[Decimal],
+                Set[str],
+                Set[bytes],
+                Set[bytearray],
+                List[Any],
+                Dict[str, Any],
+                None,
+            ],
+        ],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

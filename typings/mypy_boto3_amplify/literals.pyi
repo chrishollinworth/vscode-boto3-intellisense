@@ -27,6 +27,7 @@ __all__ = (
     "ListDomainAssociationsPaginatorName",
     "ListJobsPaginatorName",
     "PlatformType",
+    "RepositoryCloneMethodType",
     "StageType",
 )
 
@@ -48,5 +49,6 @@ ListAppsPaginatorName = Literal["list_apps"]
 ListBranchesPaginatorName = Literal["list_branches"]
 ListDomainAssociationsPaginatorName = Literal["list_domain_associations"]
 ListJobsPaginatorName = Literal["list_jobs"]
-PlatformType = Literal["WEB"]
+PlatformType = Literal["WEB", "WEB_DYNAMIC"]
+RepositoryCloneMethodType = Literal["SIGV4", "SSH", "TOKEN"]
 StageType = Literal["BETA", "DEVELOPMENT", "EXPERIMENTAL", "PRODUCTION", "PULL_REQUEST"]

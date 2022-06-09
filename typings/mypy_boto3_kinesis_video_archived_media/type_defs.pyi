@@ -24,13 +24,20 @@ from .literals import (
     DASHDisplayFragmentTimestampType,
     DASHFragmentSelectorTypeType,
     DASHPlaybackModeType,
+    FormatType,
     FragmentSelectorTypeType,
     HLSDiscontinuityModeType,
     HLSDisplayFragmentTimestampType,
     HLSFragmentSelectorTypeType,
     HLSPlaybackModeType,
+    ImageErrorType,
+    ImageSelectorTypeType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -49,10 +56,13 @@ __all__ = (
     "GetDASHStreamingSessionURLOutputTypeDef",
     "GetHLSStreamingSessionURLInputRequestTypeDef",
     "GetHLSStreamingSessionURLOutputTypeDef",
+    "GetImagesInputRequestTypeDef",
+    "GetImagesOutputTypeDef",
     "GetMediaForFragmentListInputRequestTypeDef",
     "GetMediaForFragmentListOutputTypeDef",
     "HLSFragmentSelectorTypeDef",
     "HLSTimestampRangeTypeDef",
+    "ImageTypeDef",
     "ListFragmentsInputRequestTypeDef",
     "ListFragmentsOutputTypeDef",
     "PaginatorConfigTypeDef",
@@ -190,6 +200,44 @@ GetHLSStreamingSessionURLOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredGetImagesInputRequestTypeDef = TypedDict(
+    "_RequiredGetImagesInputRequestTypeDef",
+    {
+        "ImageSelectorType": ImageSelectorTypeType,
+        "StartTimestamp": Union[datetime, str],
+        "EndTimestamp": Union[datetime, str],
+        "SamplingInterval": int,
+        "Format": FormatType,
+    },
+)
+_OptionalGetImagesInputRequestTypeDef = TypedDict(
+    "_OptionalGetImagesInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+        "FormatConfig": Dict[Literal["JPEGQuality"], str],
+        "WidthPixels": int,
+        "HeightPixels": int,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class GetImagesInputRequestTypeDef(
+    _RequiredGetImagesInputRequestTypeDef, _OptionalGetImagesInputRequestTypeDef
+):
+    pass
+
+GetImagesOutputTypeDef = TypedDict(
+    "GetImagesOutputTypeDef",
+    {
+        "Images": List["ImageTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetMediaForFragmentListInputRequestTypeDef = TypedDict(
     "_RequiredGetMediaForFragmentListInputRequestTypeDef",
     {
@@ -234,6 +282,16 @@ HLSTimestampRangeTypeDef = TypedDict(
     {
         "StartTimestamp": Union[datetime, str],
         "EndTimestamp": Union[datetime, str],
+    },
+    total=False,
+)
+
+ImageTypeDef = TypedDict(
+    "ImageTypeDef",
+    {
+        "TimeStamp": datetime,
+        "Error": ImageErrorType,
+        "ImageContent": str,
     },
     total=False,
 )

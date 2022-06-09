@@ -19,19 +19,18 @@ from .literals import (
     CustomStepStatusType,
     DomainType,
     EndpointTypeType,
+    ExecutionErrorTypeType,
     ExecutionStatusType,
     HomeDirectoryTypeType,
     IdentityProviderTypeType,
     OverwriteExistingType,
     ProtocolType,
+    SetStatOptionType,
     StateType,
+    TlsSessionResumptionModeType,
     WorkflowStepTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -128,6 +127,7 @@ __all__ = (
     "UpdateUserRequestRequestTypeDef",
     "UpdateUserResponseTypeDef",
     "UserDetailsTypeDef",
+    "WaiterConfigTypeDef",
     "WorkflowDetailTypeDef",
     "WorkflowDetailsTypeDef",
     "WorkflowStepTypeDef",
@@ -139,6 +139,7 @@ CopyStepDetailsTypeDef = TypedDict(
         "Name": str,
         "DestinationFileLocation": "InputFileLocationTypeDef",
         "OverwriteExisting": OverwriteExistingType,
+        "SourceFileLocation": str,
     },
     total=False,
 )
@@ -188,7 +189,10 @@ CreateServerRequestRequestTypeDef = TypedDict(
         "IdentityProviderDetails": "IdentityProviderDetailsTypeDef",
         "IdentityProviderType": IdentityProviderTypeType,
         "LoggingRole": str,
+        "PostAuthenticationLoginBanner": str,
+        "PreAuthenticationLoginBanner": str,
         "Protocols": List[ProtocolType],
+        "ProtocolDetails": "ProtocolDetailsTypeDef",
         "SecurityPolicyName": str,
         "Tags": List["TagTypeDef"],
         "WorkflowDetails": "WorkflowDetailsTypeDef",
@@ -275,6 +279,7 @@ CustomStepDetailsTypeDef = TypedDict(
         "Name": str,
         "Target": str,
         "TimeoutSeconds": int,
+        "SourceFileLocation": str,
     },
     total=False,
 )
@@ -307,6 +312,7 @@ DeleteStepDetailsTypeDef = TypedDict(
     "DeleteStepDetailsTypeDef",
     {
         "Name": str,
+        "SourceFileLocation": str,
     },
     total=False,
 )
@@ -492,6 +498,8 @@ _OptionalDescribedServerTypeDef = TypedDict(
         "IdentityProviderDetails": "IdentityProviderDetailsTypeDef",
         "IdentityProviderType": IdentityProviderTypeType,
         "LoggingRole": str,
+        "PostAuthenticationLoginBanner": str,
+        "PreAuthenticationLoginBanner": str,
         "Protocols": List[ProtocolType],
         "SecurityPolicyName": str,
         "ServerId": str,
@@ -578,7 +586,7 @@ EndpointDetailsTypeDef = TypedDict(
 ExecutionErrorTypeDef = TypedDict(
     "ExecutionErrorTypeDef",
     {
-        "Type": Literal["PERMISSION_DENIED"],
+        "Type": ExecutionErrorTypeType,
         "Message": str,
     },
 )
@@ -950,6 +958,8 @@ ProtocolDetailsTypeDef = TypedDict(
     "ProtocolDetailsTypeDef",
     {
         "PassiveIp": str,
+        "TlsSessionResumptionMode": TlsSessionResumptionModeType,
+        "SetStatOption": SetStatOptionType,
     },
     total=False,
 )
@@ -1046,6 +1056,7 @@ TagStepDetailsTypeDef = TypedDict(
     {
         "Name": str,
         "Tags": List["S3TagTypeDef"],
+        "SourceFileLocation": str,
     },
     total=False,
 )
@@ -1150,6 +1161,8 @@ _OptionalUpdateServerRequestRequestTypeDef = TypedDict(
         "HostKey": str,
         "IdentityProviderDetails": "IdentityProviderDetailsTypeDef",
         "LoggingRole": str,
+        "PostAuthenticationLoginBanner": str,
+        "PreAuthenticationLoginBanner": str,
         "Protocols": List[ProtocolType],
         "SecurityPolicyName": str,
         "WorkflowDetails": "WorkflowDetailsTypeDef",
@@ -1221,6 +1234,15 @@ _OptionalUserDetailsTypeDef = TypedDict(
 
 class UserDetailsTypeDef(_RequiredUserDetailsTypeDef, _OptionalUserDetailsTypeDef):
     pass
+
+WaiterConfigTypeDef = TypedDict(
+    "WaiterConfigTypeDef",
+    {
+        "Delay": int,
+        "MaxAttempts": int,
+    },
+    total=False,
+)
 
 WorkflowDetailTypeDef = TypedDict(
     "WorkflowDetailTypeDef",

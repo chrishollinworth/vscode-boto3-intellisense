@@ -58,6 +58,8 @@ __all__ = (
     "CreatePermissionRequestRequestTypeDef",
     "CrlConfigurationTypeDef",
     "CsrExtensionsTypeDef",
+    "CustomAttributeTypeDef",
+    "CustomExtensionTypeDef",
     "DeleteCertificateAuthorityRequestRequestTypeDef",
     "DeletePermissionRequestRequestTypeDef",
     "DeletePolicyRequestRequestTypeDef",
@@ -124,6 +126,7 @@ ASN1SubjectTypeDef = TypedDict(
         "Initials": str,
         "Pseudonym": str,
         "GenerationQualifier": str,
+        "CustomAttributes": List["CustomAttributeTypeDef"],
     },
     total=False,
 )
@@ -297,6 +300,32 @@ CsrExtensionsTypeDef = TypedDict(
     total=False,
 )
 
+CustomAttributeTypeDef = TypedDict(
+    "CustomAttributeTypeDef",
+    {
+        "ObjectIdentifier": str,
+        "Value": str,
+    },
+)
+
+_RequiredCustomExtensionTypeDef = TypedDict(
+    "_RequiredCustomExtensionTypeDef",
+    {
+        "ObjectIdentifier": str,
+        "Value": str,
+    },
+)
+_OptionalCustomExtensionTypeDef = TypedDict(
+    "_OptionalCustomExtensionTypeDef",
+    {
+        "Critical": bool,
+    },
+    total=False,
+)
+
+class CustomExtensionTypeDef(_RequiredCustomExtensionTypeDef, _OptionalCustomExtensionTypeDef):
+    pass
+
 _RequiredDeleteCertificateAuthorityRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteCertificateAuthorityRequestRequestTypeDef",
     {
@@ -411,6 +440,7 @@ ExtensionsTypeDef = TypedDict(
         "ExtendedKeyUsage": List["ExtendedKeyUsageTypeDef"],
         "KeyUsage": "KeyUsageTypeDef",
         "SubjectAlternativeNames": List["GeneralNameTypeDef"],
+        "CustomExtensions": List["CustomExtensionTypeDef"],
     },
     total=False,
 )

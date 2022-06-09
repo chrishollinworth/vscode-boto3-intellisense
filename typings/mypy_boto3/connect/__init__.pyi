@@ -15,6 +15,7 @@ Usage::
         ListContactFlowModulesPaginator,
         ListContactFlowsPaginator,
         ListContactReferencesPaginator,
+        ListDefaultVocabulariesPaginator,
         ListHoursOfOperationsPaginator,
         ListInstanceAttributesPaginator,
         ListInstanceStorageConfigsPaginator,
@@ -23,6 +24,7 @@ Usage::
         ListLambdaFunctionsPaginator,
         ListLexBotsPaginator,
         ListPhoneNumbersPaginator,
+        ListPhoneNumbersV2Paginator,
         ListPromptsPaginator,
         ListQueueQuickConnectsPaginator,
         ListQueuesPaginator,
@@ -32,9 +34,13 @@ Usage::
         ListSecurityKeysPaginator,
         ListSecurityProfilePermissionsPaginator,
         ListSecurityProfilesPaginator,
+        ListTaskTemplatesPaginator,
         ListUseCasesPaginator,
         ListUserHierarchyGroupsPaginator,
         ListUsersPaginator,
+        SearchAvailablePhoneNumbersPaginator,
+        SearchUsersPaginator,
+        SearchVocabulariesPaginator,
     )
 
     session = boto3.Session()
@@ -49,6 +55,7 @@ Usage::
     list_contact_flow_modules_paginator: ListContactFlowModulesPaginator = client.get_paginator("list_contact_flow_modules")
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
     list_contact_references_paginator: ListContactReferencesPaginator = client.get_paginator("list_contact_references")
+    list_default_vocabularies_paginator: ListDefaultVocabulariesPaginator = client.get_paginator("list_default_vocabularies")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
     list_instance_storage_configs_paginator: ListInstanceStorageConfigsPaginator = client.get_paginator("list_instance_storage_configs")
@@ -57,6 +64,7 @@ Usage::
     list_lambda_functions_paginator: ListLambdaFunctionsPaginator = client.get_paginator("list_lambda_functions")
     list_lex_bots_paginator: ListLexBotsPaginator = client.get_paginator("list_lex_bots")
     list_phone_numbers_paginator: ListPhoneNumbersPaginator = client.get_paginator("list_phone_numbers")
+    list_phone_numbers_v2_paginator: ListPhoneNumbersV2Paginator = client.get_paginator("list_phone_numbers_v2")
     list_prompts_paginator: ListPromptsPaginator = client.get_paginator("list_prompts")
     list_queue_quick_connects_paginator: ListQueueQuickConnectsPaginator = client.get_paginator("list_queue_quick_connects")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
@@ -66,9 +74,13 @@ Usage::
     list_security_keys_paginator: ListSecurityKeysPaginator = client.get_paginator("list_security_keys")
     list_security_profile_permissions_paginator: ListSecurityProfilePermissionsPaginator = client.get_paginator("list_security_profile_permissions")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
+    list_task_templates_paginator: ListTaskTemplatesPaginator = client.get_paginator("list_task_templates")
     list_use_cases_paginator: ListUseCasesPaginator = client.get_paginator("list_use_cases")
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
+    search_available_phone_numbers_paginator: SearchAvailablePhoneNumbersPaginator = client.get_paginator("search_available_phone_numbers")
+    search_users_paginator: SearchUsersPaginator = client.get_paginator("search_users")
+    search_vocabularies_paginator: SearchVocabulariesPaginator = client.get_paginator("search_vocabularies")
     ```
 """
 from .client import ConnectClient
@@ -80,6 +92,7 @@ from .paginator import (
     ListContactFlowModulesPaginator,
     ListContactFlowsPaginator,
     ListContactReferencesPaginator,
+    ListDefaultVocabulariesPaginator,
     ListHoursOfOperationsPaginator,
     ListInstanceAttributesPaginator,
     ListInstancesPaginator,
@@ -88,6 +101,7 @@ from .paginator import (
     ListLambdaFunctionsPaginator,
     ListLexBotsPaginator,
     ListPhoneNumbersPaginator,
+    ListPhoneNumbersV2Paginator,
     ListPromptsPaginator,
     ListQueueQuickConnectsPaginator,
     ListQueuesPaginator,
@@ -97,9 +111,13 @@ from .paginator import (
     ListSecurityKeysPaginator,
     ListSecurityProfilePermissionsPaginator,
     ListSecurityProfilesPaginator,
+    ListTaskTemplatesPaginator,
     ListUseCasesPaginator,
     ListUserHierarchyGroupsPaginator,
     ListUsersPaginator,
+    SearchAvailablePhoneNumbersPaginator,
+    SearchUsersPaginator,
+    SearchVocabulariesPaginator,
 )
 
 Client = ConnectClient
@@ -114,6 +132,7 @@ __all__ = (
     "ListContactFlowModulesPaginator",
     "ListContactFlowsPaginator",
     "ListContactReferencesPaginator",
+    "ListDefaultVocabulariesPaginator",
     "ListHoursOfOperationsPaginator",
     "ListInstanceAttributesPaginator",
     "ListInstanceStorageConfigsPaginator",
@@ -122,6 +141,7 @@ __all__ = (
     "ListLambdaFunctionsPaginator",
     "ListLexBotsPaginator",
     "ListPhoneNumbersPaginator",
+    "ListPhoneNumbersV2Paginator",
     "ListPromptsPaginator",
     "ListQueueQuickConnectsPaginator",
     "ListQueuesPaginator",
@@ -131,7 +151,11 @@ __all__ = (
     "ListSecurityKeysPaginator",
     "ListSecurityProfilePermissionsPaginator",
     "ListSecurityProfilesPaginator",
+    "ListTaskTemplatesPaginator",
     "ListUseCasesPaginator",
     "ListUserHierarchyGroupsPaginator",
     "ListUsersPaginator",
+    "SearchAvailablePhoneNumbersPaginator",
+    "SearchUsersPaginator",
+    "SearchVocabulariesPaginator",
 )

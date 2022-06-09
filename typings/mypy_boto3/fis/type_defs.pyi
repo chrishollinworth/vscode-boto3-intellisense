@@ -28,6 +28,7 @@ __all__ = (
     "ActionTargetTypeDef",
     "ActionTypeDef",
     "CreateExperimentTemplateActionInputTypeDef",
+    "CreateExperimentTemplateLogConfigurationInputTypeDef",
     "CreateExperimentTemplateRequestRequestTypeDef",
     "CreateExperimentTemplateResponseTypeDef",
     "CreateExperimentTemplateStopConditionInputTypeDef",
@@ -36,12 +37,20 @@ __all__ = (
     "DeleteExperimentTemplateResponseTypeDef",
     "ExperimentActionStateTypeDef",
     "ExperimentActionTypeDef",
+    "ExperimentCloudWatchLogsLogConfigurationTypeDef",
+    "ExperimentLogConfigurationTypeDef",
+    "ExperimentS3LogConfigurationTypeDef",
     "ExperimentStateTypeDef",
     "ExperimentStopConditionTypeDef",
     "ExperimentSummaryTypeDef",
     "ExperimentTargetFilterTypeDef",
     "ExperimentTargetTypeDef",
     "ExperimentTemplateActionTypeDef",
+    "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
+    "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
+    "ExperimentTemplateLogConfigurationTypeDef",
+    "ExperimentTemplateS3LogConfigurationInputTypeDef",
+    "ExperimentTemplateS3LogConfigurationTypeDef",
     "ExperimentTemplateStopConditionTypeDef",
     "ExperimentTemplateSummaryTypeDef",
     "ExperimentTemplateTargetFilterTypeDef",
@@ -55,6 +64,8 @@ __all__ = (
     "GetExperimentResponseTypeDef",
     "GetExperimentTemplateRequestRequestTypeDef",
     "GetExperimentTemplateResponseTypeDef",
+    "GetTargetResourceTypeRequestRequestTypeDef",
+    "GetTargetResourceTypeResponseTypeDef",
     "ListActionsRequestRequestTypeDef",
     "ListActionsResponseTypeDef",
     "ListExperimentTemplatesRequestRequestTypeDef",
@@ -63,14 +74,20 @@ __all__ = (
     "ListExperimentsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTargetResourceTypesRequestRequestTypeDef",
+    "ListTargetResourceTypesResponseTypeDef",
     "ResponseMetadataTypeDef",
     "StartExperimentRequestRequestTypeDef",
     "StartExperimentResponseTypeDef",
     "StopExperimentRequestRequestTypeDef",
     "StopExperimentResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TargetResourceTypeParameterTypeDef",
+    "TargetResourceTypeSummaryTypeDef",
+    "TargetResourceTypeTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateExperimentTemplateActionInputItemTypeDef",
+    "UpdateExperimentTemplateLogConfigurationInputTypeDef",
     "UpdateExperimentTemplateRequestRequestTypeDef",
     "UpdateExperimentTemplateResponseTypeDef",
     "UpdateExperimentTemplateStopConditionInputTypeDef",
@@ -140,6 +157,27 @@ class CreateExperimentTemplateActionInputTypeDef(
 ):
     pass
 
+_RequiredCreateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
+    "_RequiredCreateExperimentTemplateLogConfigurationInputTypeDef",
+    {
+        "logSchemaVersion": int,
+    },
+)
+_OptionalCreateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
+    "_OptionalCreateExperimentTemplateLogConfigurationInputTypeDef",
+    {
+        "cloudWatchLogsConfiguration": "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
+        "s3Configuration": "ExperimentTemplateS3LogConfigurationInputTypeDef",
+    },
+    total=False,
+)
+
+class CreateExperimentTemplateLogConfigurationInputTypeDef(
+    _RequiredCreateExperimentTemplateLogConfigurationInputTypeDef,
+    _OptionalCreateExperimentTemplateLogConfigurationInputTypeDef,
+):
+    pass
+
 _RequiredCreateExperimentTemplateRequestRequestTypeDef = TypedDict(
     "_RequiredCreateExperimentTemplateRequestRequestTypeDef",
     {
@@ -155,6 +193,7 @@ _OptionalCreateExperimentTemplateRequestRequestTypeDef = TypedDict(
     {
         "targets": Dict[str, "CreateExperimentTemplateTargetInputTypeDef"],
         "tags": Dict[str, str],
+        "logConfiguration": "CreateExperimentTemplateLogConfigurationInputTypeDef",
     },
     total=False,
 )
@@ -206,6 +245,7 @@ _OptionalCreateExperimentTemplateTargetInputTypeDef = TypedDict(
         "resourceArns": List[str],
         "resourceTags": Dict[str, str],
         "filters": List["ExperimentTemplateTargetInputFilterTypeDef"],
+        "parameters": Dict[str, str],
     },
     total=False,
 )
@@ -249,6 +289,35 @@ ExperimentActionTypeDef = TypedDict(
         "targets": Dict[str, str],
         "startAfter": List[str],
         "state": "ExperimentActionStateTypeDef",
+        "startTime": datetime,
+        "endTime": datetime,
+    },
+    total=False,
+)
+
+ExperimentCloudWatchLogsLogConfigurationTypeDef = TypedDict(
+    "ExperimentCloudWatchLogsLogConfigurationTypeDef",
+    {
+        "logGroupArn": str,
+    },
+    total=False,
+)
+
+ExperimentLogConfigurationTypeDef = TypedDict(
+    "ExperimentLogConfigurationTypeDef",
+    {
+        "cloudWatchLogsConfiguration": "ExperimentCloudWatchLogsLogConfigurationTypeDef",
+        "s3Configuration": "ExperimentS3LogConfigurationTypeDef",
+        "logSchemaVersion": int,
+    },
+    total=False,
+)
+
+ExperimentS3LogConfigurationTypeDef = TypedDict(
+    "ExperimentS3LogConfigurationTypeDef",
+    {
+        "bucketName": str,
+        "prefix": str,
     },
     total=False,
 )
@@ -300,6 +369,7 @@ ExperimentTargetTypeDef = TypedDict(
         "resourceTags": Dict[str, str],
         "filters": List["ExperimentTargetFilterTypeDef"],
         "selectionMode": str,
+        "parameters": Dict[str, str],
     },
     total=False,
 )
@@ -312,6 +382,60 @@ ExperimentTemplateActionTypeDef = TypedDict(
         "parameters": Dict[str, str],
         "targets": Dict[str, str],
         "startAfter": List[str],
+    },
+    total=False,
+)
+
+ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef = TypedDict(
+    "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
+    {
+        "logGroupArn": str,
+    },
+)
+
+ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef = TypedDict(
+    "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
+    {
+        "logGroupArn": str,
+    },
+    total=False,
+)
+
+ExperimentTemplateLogConfigurationTypeDef = TypedDict(
+    "ExperimentTemplateLogConfigurationTypeDef",
+    {
+        "cloudWatchLogsConfiguration": "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
+        "s3Configuration": "ExperimentTemplateS3LogConfigurationTypeDef",
+        "logSchemaVersion": int,
+    },
+    total=False,
+)
+
+_RequiredExperimentTemplateS3LogConfigurationInputTypeDef = TypedDict(
+    "_RequiredExperimentTemplateS3LogConfigurationInputTypeDef",
+    {
+        "bucketName": str,
+    },
+)
+_OptionalExperimentTemplateS3LogConfigurationInputTypeDef = TypedDict(
+    "_OptionalExperimentTemplateS3LogConfigurationInputTypeDef",
+    {
+        "prefix": str,
+    },
+    total=False,
+)
+
+class ExperimentTemplateS3LogConfigurationInputTypeDef(
+    _RequiredExperimentTemplateS3LogConfigurationInputTypeDef,
+    _OptionalExperimentTemplateS3LogConfigurationInputTypeDef,
+):
+    pass
+
+ExperimentTemplateS3LogConfigurationTypeDef = TypedDict(
+    "ExperimentTemplateS3LogConfigurationTypeDef",
+    {
+        "bucketName": str,
+        "prefix": str,
     },
     total=False,
 )
@@ -362,6 +486,7 @@ ExperimentTemplateTargetTypeDef = TypedDict(
         "resourceTags": Dict[str, str],
         "filters": List["ExperimentTemplateTargetFilterTypeDef"],
         "selectionMode": str,
+        "parameters": Dict[str, str],
     },
     total=False,
 )
@@ -378,6 +503,7 @@ ExperimentTemplateTypeDef = TypedDict(
         "lastUpdateTime": datetime,
         "roleArn": str,
         "tags": Dict[str, str],
+        "logConfiguration": "ExperimentTemplateLogConfigurationTypeDef",
     },
     total=False,
 )
@@ -396,6 +522,7 @@ ExperimentTypeDef = TypedDict(
         "startTime": datetime,
         "endTime": datetime,
         "tags": Dict[str, str],
+        "logConfiguration": "ExperimentLogConfigurationTypeDef",
     },
     total=False,
 )
@@ -441,6 +568,21 @@ GetExperimentTemplateResponseTypeDef = TypedDict(
     "GetExperimentTemplateResponseTypeDef",
     {
         "experimentTemplate": "ExperimentTemplateTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetTargetResourceTypeRequestRequestTypeDef = TypedDict(
+    "GetTargetResourceTypeRequestRequestTypeDef",
+    {
+        "resourceType": str,
+    },
+)
+
+GetTargetResourceTypeResponseTypeDef = TypedDict(
+    "GetTargetResourceTypeResponseTypeDef",
+    {
+        "targetResourceType": "TargetResourceTypeTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -514,6 +656,24 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListTargetResourceTypesRequestRequestTypeDef = TypedDict(
+    "ListTargetResourceTypesRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListTargetResourceTypesResponseTypeDef = TypedDict(
+    "ListTargetResourceTypesResponseTypeDef",
+    {
+        "targetResourceTypes": List["TargetResourceTypeSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -576,6 +736,34 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TargetResourceTypeParameterTypeDef = TypedDict(
+    "TargetResourceTypeParameterTypeDef",
+    {
+        "description": str,
+        "required": bool,
+    },
+    total=False,
+)
+
+TargetResourceTypeSummaryTypeDef = TypedDict(
+    "TargetResourceTypeSummaryTypeDef",
+    {
+        "resourceType": str,
+        "description": str,
+    },
+    total=False,
+)
+
+TargetResourceTypeTypeDef = TypedDict(
+    "TargetResourceTypeTypeDef",
+    {
+        "resourceType": str,
+        "description": str,
+        "parameters": Dict[str, "TargetResourceTypeParameterTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredUntagResourceRequestRequestTypeDef = TypedDict(
     "_RequiredUntagResourceRequestRequestTypeDef",
     {
@@ -607,6 +795,16 @@ UpdateExperimentTemplateActionInputItemTypeDef = TypedDict(
     total=False,
 )
 
+UpdateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
+    "UpdateExperimentTemplateLogConfigurationInputTypeDef",
+    {
+        "cloudWatchLogsConfiguration": "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
+        "s3Configuration": "ExperimentTemplateS3LogConfigurationInputTypeDef",
+        "logSchemaVersion": int,
+    },
+    total=False,
+)
+
 _RequiredUpdateExperimentTemplateRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateExperimentTemplateRequestRequestTypeDef",
     {
@@ -621,6 +819,7 @@ _OptionalUpdateExperimentTemplateRequestRequestTypeDef = TypedDict(
         "targets": Dict[str, "UpdateExperimentTemplateTargetInputTypeDef"],
         "actions": Dict[str, "UpdateExperimentTemplateActionInputItemTypeDef"],
         "roleArn": str,
+        "logConfiguration": "UpdateExperimentTemplateLogConfigurationInputTypeDef",
     },
     total=False,
 )
@@ -672,6 +871,7 @@ _OptionalUpdateExperimentTemplateTargetInputTypeDef = TypedDict(
         "resourceArns": List[str],
         "resourceTags": Dict[str, str],
         "filters": List["ExperimentTemplateTargetInputFilterTypeDef"],
+        "parameters": Dict[str, str],
     },
     total=False,
 )

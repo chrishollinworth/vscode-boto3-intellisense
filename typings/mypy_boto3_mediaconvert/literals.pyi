@@ -51,6 +51,7 @@ __all__ = (
     "AudioSelectorTypeType",
     "AudioTypeControlType",
     "Av1AdaptiveQuantizationType",
+    "Av1BitDepthType",
     "Av1FramerateControlType",
     "Av1FramerateConversionAlgorithmType",
     "Av1RateControlModeType",
@@ -97,8 +98,10 @@ __all__ = (
     "CmfcAudioTrackTypeType",
     "CmfcDescriptiveVideoServiceFlagType",
     "CmfcIFrameOnlyManifestType",
+    "CmfcKlvMetadataType",
     "CmfcScte35EsamType",
     "CmfcScte35SourceType",
+    "CmfcTimedMetadataType",
     "ColorMetadataType",
     "ColorSpaceConversionType",
     "ColorSpaceType",
@@ -123,6 +126,7 @@ __all__ = (
     "DescribeEndpointsModeType",
     "DescribeEndpointsPaginatorName",
     "DolbyVisionLevel6ModeType",
+    "DolbyVisionMappingType",
     "DolbyVisionProfileType",
     "DropFrameTimecodeType",
     "DvbSubSubtitleFallbackFontType",
@@ -162,6 +166,7 @@ __all__ = (
     "Eac3SurroundModeType",
     "EmbeddedConvert608To708Type",
     "EmbeddedTerminateCaptionsType",
+    "EmbeddedTimecodeOverrideType",
     "F4vMoovPlacementType",
     "FileSourceConvert608To708Type",
     "FileSourceTimeDeltaUnitsType",
@@ -220,6 +225,7 @@ __all__ = (
     "HlsAudioOnlyHeaderType",
     "HlsAudioTrackTypeType",
     "HlsCaptionLanguageSettingType",
+    "HlsCaptionSegmentLengthControlType",
     "HlsClientCacheType",
     "HlsCodecSpecificationType",
     "HlsDescriptiveVideoServiceFlagType",
@@ -240,6 +246,7 @@ __all__ = (
     "HlsStreamInfResolutionType",
     "HlsTargetDurationCompatibilityModeType",
     "HlsTimedMetadataId3FrameType",
+    "ImscAccessibilitySubsType",
     "ImscStylePassthroughType",
     "InputDeblockFilterType",
     "InputDenoiseFilterType",
@@ -266,6 +273,7 @@ __all__ = (
     "M2tsEbpPlacementType",
     "M2tsEsRateInPesType",
     "M2tsForceTsVideoEbpOrderType",
+    "M2tsKlvMetadataType",
     "M2tsNielsenId3Type",
     "M2tsPcrControlType",
     "M2tsRateModeType",
@@ -291,8 +299,10 @@ __all__ = (
     "MpdAccessibilityCaptionHintsType",
     "MpdAudioDurationType",
     "MpdCaptionContainerTypeType",
+    "MpdKlvMetadataType",
     "MpdScte35EsamType",
     "MpdScte35SourceType",
+    "MpdTimedMetadataType",
     "Mpeg2AdaptiveQuantizationType",
     "Mpeg2CodecLevelType",
     "Mpeg2CodecProfileType",
@@ -321,11 +331,13 @@ __all__ = (
     "NielsenActiveWatermarkProcessTypeType",
     "NielsenSourceWatermarkStatusTypeType",
     "NielsenUniqueTicPerAudioTrackTypeType",
+    "NoiseFilterPostTemporalSharpeningStrengthType",
     "NoiseFilterPostTemporalSharpeningType",
     "NoiseReducerFilterType",
     "OrderType",
     "OutputGroupTypeType",
     "OutputSdtType",
+    "PadVideoType",
     "PresetListByType",
     "PricingPlanType",
     "ProresChromaSamplingType",
@@ -340,8 +352,10 @@ __all__ = (
     "QueueListByType",
     "QueueStatusType",
     "RenewalTypeType",
+    "RequiredFlagType",
     "ReservationPlanStatusType",
     "RespondToAfdType",
+    "RuleTypeType",
     "S3ObjectCannedAclType",
     "S3ServerSideEncryptionTypeType",
     "SampleRangeConversionType",
@@ -378,6 +392,7 @@ __all__ = (
     "Vp9RateControlModeType",
     "WatermarkingStrengthType",
     "WavFormatType",
+    "WebvttAccessibilitySubsType",
     "WebvttStylePassthroughType",
     "Xavc4kIntraCbgProfileClassType",
     "Xavc4kIntraVbrProfileClassType",
@@ -456,6 +471,7 @@ AudioNormalizationPeakCalculationType = Literal["NONE", "TRUE_PEAK"]
 AudioSelectorTypeType = Literal["HLS_RENDITION_GROUP", "LANGUAGE_CODE", "PID", "TRACK"]
 AudioTypeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 Av1AdaptiveQuantizationType = Literal["HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
+Av1BitDepthType = Literal["BIT_10", "BIT_8"]
 Av1FramerateControlType = Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"]
 Av1FramerateConversionAlgorithmType = Literal["DUPLICATE_DROP", "FRAMEFORMER", "INTERPOLATE"]
 Av1RateControlModeType = Literal["QVBR"]
@@ -544,8 +560,10 @@ CmfcAudioTrackTypeType = Literal[
 ]
 CmfcDescriptiveVideoServiceFlagType = Literal["DONT_FLAG", "FLAG"]
 CmfcIFrameOnlyManifestType = Literal["EXCLUDE", "INCLUDE"]
+CmfcKlvMetadataType = Literal["NONE", "PASSTHROUGH"]
 CmfcScte35EsamType = Literal["INSERT", "NONE"]
 CmfcScte35SourceType = Literal["NONE", "PASSTHROUGH"]
+CmfcTimedMetadataType = Literal["NONE", "PASSTHROUGH"]
 ColorMetadataType = Literal["IGNORE", "INSERT"]
 ColorSpaceConversionType = Literal[
     "FORCE_601", "FORCE_709", "FORCE_HDR10", "FORCE_HLG_2020", "NONE"
@@ -576,7 +594,8 @@ DeinterlacerModeType = Literal["ADAPTIVE", "DEINTERLACE", "INVERSE_TELECINE"]
 DescribeEndpointsModeType = Literal["DEFAULT", "GET_ONLY"]
 DescribeEndpointsPaginatorName = Literal["describe_endpoints"]
 DolbyVisionLevel6ModeType = Literal["PASSTHROUGH", "RECALCULATE", "SPECIFY"]
-DolbyVisionProfileType = Literal["PROFILE_5"]
+DolbyVisionMappingType = Literal["HDR10_1000", "HDR10_NOMAP"]
+DolbyVisionProfileType = Literal["PROFILE_5", "PROFILE_8_1"]
 DropFrameTimecodeType = Literal["DISABLED", "ENABLED"]
 DvbSubSubtitleFallbackFontType = Literal[
     "BEST_MATCH",
@@ -637,6 +656,7 @@ Eac3SurroundExModeType = Literal["DISABLED", "ENABLED", "NOT_INDICATED"]
 Eac3SurroundModeType = Literal["DISABLED", "ENABLED", "NOT_INDICATED"]
 EmbeddedConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
 EmbeddedTerminateCaptionsType = Literal["DISABLED", "END_OF_INPUT"]
+EmbeddedTimecodeOverrideType = Literal["NONE", "USE_MDPM"]
 F4vMoovPlacementType = Literal["NORMAL", "PROGRESSIVE_DOWNLOAD"]
 FileSourceConvert608To708Type = Literal["DISABLED", "UPCONVERT"]
 FileSourceTimeDeltaUnitsType = Literal["MILLISECONDS", "SECONDS"]
@@ -687,7 +707,7 @@ H264SyntaxType = Literal["DEFAULT", "RP2027"]
 H264TelecineType = Literal["HARD", "NONE", "SOFT"]
 H264TemporalAdaptiveQuantizationType = Literal["DISABLED", "ENABLED"]
 H264UnregisteredSeiTimecodeType = Literal["DISABLED", "ENABLED"]
-H265AdaptiveQuantizationType = Literal["HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
+H265AdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
 H265AlternateTransferFunctionSeiType = Literal["DISABLED", "ENABLED"]
 H265CodecLevelType = Literal[
     "AUTO",
@@ -748,6 +768,7 @@ HlsAudioTrackTypeType = Literal[
     "AUDIO_ONLY_VARIANT_STREAM",
 ]
 HlsCaptionLanguageSettingType = Literal["INSERT", "NONE", "OMIT"]
+HlsCaptionSegmentLengthControlType = Literal["LARGE_SEGMENTS", "MATCH_VIDEO"]
 HlsClientCacheType = Literal["DISABLED", "ENABLED"]
 HlsCodecSpecificationType = Literal["RFC_4281", "RFC_6381"]
 HlsDescriptiveVideoServiceFlagType = Literal["DONT_FLAG", "FLAG"]
@@ -768,6 +789,7 @@ HlsSegmentLengthControlType = Literal["EXACT", "GOP_MULTIPLE"]
 HlsStreamInfResolutionType = Literal["EXCLUDE", "INCLUDE"]
 HlsTargetDurationCompatibilityModeType = Literal["LEGACY", "SPEC_COMPLIANT"]
 HlsTimedMetadataId3FrameType = Literal["NONE", "PRIV", "TDRL"]
+ImscAccessibilitySubsType = Literal["DISABLED", "ENABLED"]
 ImscStylePassthroughType = Literal["DISABLED", "ENABLED"]
 InputDeblockFilterType = Literal["DISABLED", "ENABLED"]
 InputDenoiseFilterType = Literal["DISABLED", "ENABLED"]
@@ -939,6 +961,7 @@ LanguageCodeType = Literal[
     "SQI",
     "SRB",
     "SRD",
+    "SRP",
     "SSW",
     "SUN",
     "SWA",
@@ -986,6 +1009,7 @@ M2tsEbpAudioIntervalType = Literal["VIDEO_AND_FIXED_INTERVALS", "VIDEO_INTERVAL"
 M2tsEbpPlacementType = Literal["VIDEO_AND_AUDIO_PIDS", "VIDEO_PID"]
 M2tsEsRateInPesType = Literal["EXCLUDE", "INCLUDE"]
 M2tsForceTsVideoEbpOrderType = Literal["DEFAULT", "FORCE"]
+M2tsKlvMetadataType = Literal["NONE", "PASSTHROUGH"]
 M2tsNielsenId3Type = Literal["INSERT", "NONE"]
 M2tsPcrControlType = Literal["CONFIGURED_PCR_PERIOD", "PCR_EVERY_PES_PACKET"]
 M2tsRateModeType = Literal["CBR", "VBR"]
@@ -1013,8 +1037,10 @@ Mp4MoovPlacementType = Literal["NORMAL", "PROGRESSIVE_DOWNLOAD"]
 MpdAccessibilityCaptionHintsType = Literal["EXCLUDE", "INCLUDE"]
 MpdAudioDurationType = Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"]
 MpdCaptionContainerTypeType = Literal["FRAGMENTED_MP4", "RAW"]
+MpdKlvMetadataType = Literal["NONE", "PASSTHROUGH"]
 MpdScte35EsamType = Literal["INSERT", "NONE"]
 MpdScte35SourceType = Literal["NONE", "PASSTHROUGH"]
+MpdTimedMetadataType = Literal["NONE", "PASSTHROUGH"]
 Mpeg2AdaptiveQuantizationType = Literal["HIGH", "LOW", "MEDIUM", "OFF"]
 Mpeg2CodecLevelType = Literal["AUTO", "HIGH", "HIGH1440", "LOW", "MAIN"]
 Mpeg2CodecProfileType = Literal["MAIN", "PROFILE_422"]
@@ -1053,6 +1079,7 @@ NielsenSourceWatermarkStatusTypeType = Literal["CLEAN", "WATERMARKED"]
 NielsenUniqueTicPerAudioTrackTypeType = Literal[
     "RESERVE_UNIQUE_TICS_PER_TRACK", "SAME_TICS_PER_TRACK"
 ]
+NoiseFilterPostTemporalSharpeningStrengthType = Literal["HIGH", "LOW", "MEDIUM"]
 NoiseFilterPostTemporalSharpeningType = Literal["AUTO", "DISABLED", "ENABLED"]
 NoiseReducerFilterType = Literal[
     "BILATERAL", "CONSERVE", "GAUSSIAN", "LANCZOS", "MEAN", "SHARPEN", "SPATIAL", "TEMPORAL"
@@ -1066,6 +1093,7 @@ OutputGroupTypeType = Literal[
     "MS_SMOOTH_GROUP_SETTINGS",
 ]
 OutputSdtType = Literal["SDT_FOLLOW", "SDT_FOLLOW_IF_PRESENT", "SDT_MANUAL", "SDT_NONE"]
+PadVideoType = Literal["BLACK", "DISABLED"]
 PresetListByType = Literal["CREATION_DATE", "NAME", "SYSTEM"]
 PricingPlanType = Literal["ON_DEMAND", "RESERVED"]
 ProresChromaSamplingType = Literal["PRESERVE_444_SAMPLING", "SUBSAMPLE_TO_422"]
@@ -1089,8 +1117,15 @@ ProresTelecineType = Literal["HARD", "NONE"]
 QueueListByType = Literal["CREATION_DATE", "NAME"]
 QueueStatusType = Literal["ACTIVE", "PAUSED"]
 RenewalTypeType = Literal["AUTO_RENEW", "EXPIRE"]
+RequiredFlagType = Literal["DISABLED", "ENABLED"]
 ReservationPlanStatusType = Literal["ACTIVE", "EXPIRED"]
 RespondToAfdType = Literal["NONE", "PASSTHROUGH", "RESPOND"]
+RuleTypeType = Literal[
+    "ALLOWED_RENDITIONS",
+    "FORCE_INCLUDE_RENDITIONS",
+    "MIN_BOTTOM_RENDITION_SIZE",
+    "MIN_TOP_RENDITION_SIZE",
+]
 S3ObjectCannedAclType = Literal[
     "AUTHENTICATED_READ", "BUCKET_OWNER_FULL_CONTROL", "BUCKET_OWNER_READ", "PUBLIC_READ"
 ]
@@ -1179,7 +1214,8 @@ Vp9QualityTuningLevelType = Literal["MULTI_PASS", "MULTI_PASS_HQ"]
 Vp9RateControlModeType = Literal["VBR"]
 WatermarkingStrengthType = Literal["DEFAULT", "LIGHTER", "LIGHTEST", "STRONGER", "STRONGEST"]
 WavFormatType = Literal["RF64", "RIFF"]
-WebvttStylePassthroughType = Literal["DISABLED", "ENABLED"]
+WebvttAccessibilitySubsType = Literal["DISABLED", "ENABLED"]
+WebvttStylePassthroughType = Literal["DISABLED", "ENABLED", "STRICT"]
 Xavc4kIntraCbgProfileClassType = Literal["CLASS_100", "CLASS_300", "CLASS_480"]
 Xavc4kIntraVbrProfileClassType = Literal["CLASS_100", "CLASS_300", "CLASS_480"]
 Xavc4kProfileBitrateClassType = Literal[

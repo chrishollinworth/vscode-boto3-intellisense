@@ -22,6 +22,7 @@ from .literals import (
     CETypeType,
     CRAllocationStrategyType,
     CRTypeType,
+    CRUpdateAllocationStrategyType,
     DeviceCgroupPermissionType,
     EFSAuthorizationConfigIAMType,
     EFSTransitEncryptionType,
@@ -130,6 +131,7 @@ __all__ = (
     "UpdateComputeEnvironmentResponseTypeDef",
     "UpdateJobQueueRequestRequestTypeDef",
     "UpdateJobQueueResponseTypeDef",
+    "UpdatePolicyTypeDef",
     "UpdateSchedulingPolicyRequestRequestTypeDef",
     "VolumeTypeDef",
 )
@@ -198,13 +200,13 @@ _RequiredComputeEnvironmentDetailTypeDef = TypedDict(
     {
         "computeEnvironmentName": str,
         "computeEnvironmentArn": str,
-        "ecsClusterArn": str,
     },
 )
 _OptionalComputeEnvironmentDetailTypeDef = TypedDict(
     "_OptionalComputeEnvironmentDetailTypeDef",
     {
         "unmanagedvCpus": int,
+        "ecsClusterArn": str,
         "tags": Dict[str, str],
         "type": CETypeType,
         "state": CEStateType,
@@ -212,6 +214,7 @@ _OptionalComputeEnvironmentDetailTypeDef = TypedDict(
         "statusReason": str,
         "computeResources": "ComputeResourceTypeDef",
         "serviceRole": str,
+        "updatePolicy": "UpdatePolicyTypeDef",
     },
     total=False,
 )
@@ -269,6 +272,18 @@ ComputeResourceUpdateTypeDef = TypedDict(
         "desiredvCpus": int,
         "subnets": List[str],
         "securityGroupIds": List[str],
+        "allocationStrategy": CRUpdateAllocationStrategyType,
+        "instanceTypes": List[str],
+        "ec2KeyPair": str,
+        "instanceRole": str,
+        "tags": Dict[str, str],
+        "placementGroup": str,
+        "bidPercentage": int,
+        "launchTemplate": "LaunchTemplateSpecificationTypeDef",
+        "ec2Configuration": List["Ec2ConfigurationTypeDef"],
+        "updateToLatestImageVersion": bool,
+        "type": CRTypeType,
+        "imageId": str,
     },
     total=False,
 )
@@ -1268,6 +1283,7 @@ _OptionalUpdateComputeEnvironmentRequestRequestTypeDef = TypedDict(
         "unmanagedvCpus": int,
         "computeResources": "ComputeResourceUpdateTypeDef",
         "serviceRole": str,
+        "updatePolicy": "UpdatePolicyTypeDef",
     },
     total=False,
 )
@@ -1316,6 +1332,15 @@ UpdateJobQueueResponseTypeDef = TypedDict(
         "jobQueueArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+UpdatePolicyTypeDef = TypedDict(
+    "UpdatePolicyTypeDef",
+    {
+        "terminateJobsOnUpdate": bool,
+        "jobExecutionTimeoutMinutes": int,
+    },
+    total=False,
 )
 
 _RequiredUpdateSchedulingPolicyRequestRequestTypeDef = TypedDict(

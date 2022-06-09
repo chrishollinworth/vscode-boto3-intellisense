@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     AnalysisTypeType,
+    ConfigFileStateType,
     EncryptionOptionType,
     JobStateType,
     ProviderTypeType,
@@ -190,6 +191,7 @@ CodeReviewTypeDef = TypedDict(
         "AssociationArn": str,
         "Metrics": "MetricsTypeDef",
         "AnalysisTypes": List[AnalysisTypeType],
+        "ConfigFileState": ConfigFileStateType,
     },
     total=False,
 )
@@ -479,6 +481,7 @@ MetricsSummaryTypeDef = TypedDict(
     "MetricsSummaryTypeDef",
     {
         "MeteredLinesOfCodeCount": int,
+        "SuppressedLinesOfCodeCount": int,
         "FindingsCount": int,
     },
     total=False,
@@ -488,6 +491,7 @@ MetricsTypeDef = TypedDict(
     "MetricsTypeDef",
     {
         "MeteredLinesOfCodeCount": int,
+        "SuppressedLinesOfCodeCount": int,
         "FindingsCount": int,
     },
     total=False,

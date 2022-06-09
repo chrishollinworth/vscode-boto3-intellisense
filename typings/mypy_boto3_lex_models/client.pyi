@@ -100,6 +100,7 @@ __all__ = ("LexModelBuildingServiceClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -117,11 +118,12 @@ class Exceptions:
 
 class LexModelBuildingServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -131,7 +133,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#can_paginate)
         """
     def create_bot_version(
@@ -140,7 +142,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Creates a new version of the bot based on the `$LATEST` version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.create_bot_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.create_bot_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#create_bot_version)
         """
     def create_intent_version(
@@ -149,7 +151,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Creates a new version of an intent based on the `$LATEST` version of the intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.create_intent_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.create_intent_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#create_intent_version)
         """
     def create_slot_type_version(
@@ -159,70 +161,70 @@ class LexModelBuildingServiceClient(BaseClient):
         Creates a new version of a slot type based on the `$LATEST` version of the
         specified slot type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.create_slot_type_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.create_slot_type_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#create_slot_type_version)
         """
     def delete_bot(self, *, name: str) -> None:
         """
         Deletes all versions of the bot, including the `$LATEST` version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_bot)
         """
     def delete_bot_alias(self, *, name: str, botName: str) -> None:
         """
         Deletes an alias for the specified bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_bot_alias)
         """
     def delete_bot_channel_association(self, *, name: str, botName: str, botAlias: str) -> None:
         """
         Deletes the association between an Amazon Lex bot and a messaging platform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot_channel_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot_channel_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_bot_channel_association)
         """
     def delete_bot_version(self, *, name: str, version: str) -> None:
         """
         Deletes a specific version of a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_bot_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_bot_version)
         """
     def delete_intent(self, *, name: str) -> None:
         """
         Deletes all versions of the intent, including the `$LATEST` version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_intent)
         """
     def delete_intent_version(self, *, name: str, version: str) -> None:
         """
         Deletes a specific version of an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_intent_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_intent_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_intent_version)
         """
     def delete_slot_type(self, *, name: str) -> None:
         """
         Deletes all versions of the slot type, including the `$LATEST` version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_slot_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_slot_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_slot_type)
         """
     def delete_slot_type_version(self, *, name: str, version: str) -> None:
         """
         Deletes a specific version of a slot type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_slot_type_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_slot_type_version)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_slot_type_version)
         """
     def delete_utterances(self, *, botName: str, userId: str) -> None:
         """
         Deletes stored utterances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.delete_utterances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.delete_utterances)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#delete_utterances)
         """
     def generate_presigned_url(
@@ -235,21 +237,21 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#generate_presigned_url)
         """
     def get_bot(self, *, name: str, versionOrAlias: str) -> GetBotResponseTypeDef:
         """
         Returns metadata information for a specific bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_bot)
         """
     def get_bot_alias(self, *, name: str, botName: str) -> GetBotAliasResponseTypeDef:
         """
         Returns information about an Amazon Lex bot alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_bot_alias)
         """
     def get_bot_aliases(
@@ -263,7 +265,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Returns a list of aliases for a specified Amazon Lex bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_aliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_bot_aliases)
         """
     def get_bot_channel_association(
@@ -273,7 +275,7 @@ class LexModelBuildingServiceClient(BaseClient):
         Returns information about the association between an Amazon Lex bot and a
         messaging platform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_channel_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_channel_association)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_bot_channel_association)
         """
     def get_bot_channel_associations(
@@ -288,7 +290,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Returns a list of all of the channels associated with the specified bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_channel_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_channel_associations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_bot_channel_associations)
         """
     def get_bot_versions(
@@ -297,7 +299,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Gets information about all of the versions of a bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_bot_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_bot_versions)
         """
     def get_bots(
@@ -308,14 +310,14 @@ class LexModelBuildingServiceClient(BaseClient):
         the response includes information for the `$LATEST` version of all bots whose
         name contains the specified string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_bots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_bots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_bots)
         """
     def get_builtin_intent(self, *, signature: str) -> GetBuiltinIntentResponseTypeDef:
         """
         Returns information about a built-in intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_builtin_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_builtin_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_builtin_intent)
         """
     def get_builtin_intents(
@@ -329,7 +331,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Gets a list of built-in intents that meet the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_builtin_intents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_builtin_intents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_builtin_intents)
         """
     def get_builtin_slot_types(
@@ -343,7 +345,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Gets a list of built-in slot types that meet the specified criteria.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_builtin_slot_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_builtin_slot_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_builtin_slot_types)
         """
     def get_export(
@@ -352,21 +354,21 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Exports the contents of a Amazon Lex resource in a specified format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_export)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_export)
         """
     def get_import(self, *, importId: str) -> GetImportResponseTypeDef:
         """
         Gets information about an import job started with the `StartImport` operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_import)
         """
     def get_intent(self, *, name: str, version: str) -> GetIntentResponseTypeDef:
         """
         Returns information about an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_intent)
         """
     def get_intent_versions(
@@ -375,7 +377,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Gets information about all of the versions of an intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_intent_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_intent_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_intent_versions)
         """
     def get_intents(
@@ -385,7 +387,7 @@ class LexModelBuildingServiceClient(BaseClient):
         Returns intent information as follows * If you specify the `nameContains` field,
         returns the `$LATEST` version of all intents that contain the specified string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_intents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_intents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_intents)
         """
     def get_migration(self, *, migrationId: str) -> GetMigrationResponseTypeDef:
@@ -393,7 +395,7 @@ class LexModelBuildingServiceClient(BaseClient):
         Provides details about an ongoing or complete migration from an Amazon Lex V1
         bot to an Amazon Lex V2 bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_migration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_migration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_migration)
         """
     def get_migrations(
@@ -409,14 +411,14 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Gets a list of migrations between Amazon Lex V1 and Amazon Lex V2.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_migrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_migrations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_migrations)
         """
     def get_slot_type(self, *, name: str, version: str) -> GetSlotTypeResponseTypeDef:
         """
         Returns information about a specific version of a slot type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_slot_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_slot_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_slot_type)
         """
     def get_slot_type_versions(
@@ -425,7 +427,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Gets information about all versions of a slot type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_slot_type_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_slot_type_versions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_slot_type_versions)
         """
     def get_slot_types(
@@ -436,7 +438,7 @@ class LexModelBuildingServiceClient(BaseClient):
         field, returns the `$LATEST` version of all slot types that contain the
         specified string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_slot_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_slot_types)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_slot_types)
         """
     def get_utterances_view(
@@ -446,14 +448,14 @@ class LexModelBuildingServiceClient(BaseClient):
         Use the `GetUtterancesView` operation to get information about the utterances
         that your users have made to your bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.get_utterances_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.get_utterances_view)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#get_utterances_view)
         """
     def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
         Gets a list of tags associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#list_tags_for_resource)
         """
     def put_bot(
@@ -479,7 +481,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Creates an Amazon Lex conversational bot or replaces an existing bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.put_bot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.put_bot)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#put_bot)
         """
     def put_bot_alias(
@@ -497,7 +499,7 @@ class LexModelBuildingServiceClient(BaseClient):
         Creates an alias for the specified version of the bot or replaces an alias for
         the specified bot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.put_bot_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.put_bot_alias)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#put_bot_alias)
         """
     def put_intent(
@@ -523,7 +525,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Creates an intent or replaces an existing intent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.put_intent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.put_intent)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#put_intent)
         """
     def put_slot_type(
@@ -541,7 +543,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Creates a custom slot type or replaces an existing custom slot type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.put_slot_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.put_slot_type)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#put_slot_type)
         """
     def start_import(
@@ -555,7 +557,7 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Starts a job to import a resource to Amazon Lex.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.start_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.start_import)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#start_import)
         """
     def start_migration(
@@ -570,27 +572,27 @@ class LexModelBuildingServiceClient(BaseClient):
         """
         Starts migrating a bot from Amazon Lex V1 to Amazon Lex V2.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.start_migration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.start_migration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#start_migration)
         """
     def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#tag_resource)
         """
     def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from a bot, bot alias or bot channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/client.html#untag_resource)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_bot_aliases"]) -> GetBotAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotAliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotAliases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getbotaliasespaginator)
         """
     @overload
@@ -598,19 +600,19 @@ class LexModelBuildingServiceClient(BaseClient):
         self, operation_name: Literal["get_bot_channel_associations"]
     ) -> GetBotChannelAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotChannelAssociations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotChannelAssociations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getbotchannelassociationspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_bot_versions"]) -> GetBotVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getbotversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_bots"]) -> GetBotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBots)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getbotspaginator)
         """
     @overload
@@ -618,7 +620,7 @@ class LexModelBuildingServiceClient(BaseClient):
         self, operation_name: Literal["get_builtin_intents"]
     ) -> GetBuiltinIntentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinIntents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinIntents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getbuiltinintentspaginator)
         """
     @overload
@@ -626,7 +628,7 @@ class LexModelBuildingServiceClient(BaseClient):
         self, operation_name: Literal["get_builtin_slot_types"]
     ) -> GetBuiltinSlotTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinSlotTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinSlotTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getbuiltinslottypespaginator)
         """
     @overload
@@ -634,13 +636,13 @@ class LexModelBuildingServiceClient(BaseClient):
         self, operation_name: Literal["get_intent_versions"]
     ) -> GetIntentVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntentVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntentVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getintentversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_intents"]) -> GetIntentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntents)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getintentspaginator)
         """
     @overload
@@ -648,12 +650,12 @@ class LexModelBuildingServiceClient(BaseClient):
         self, operation_name: Literal["get_slot_type_versions"]
     ) -> GetSlotTypeVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypeVersions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypeVersions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getslottypeversionspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["get_slot_types"]) -> GetSlotTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypes)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/paginators.html#getslottypespaginator)
         """

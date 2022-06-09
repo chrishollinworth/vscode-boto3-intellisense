@@ -316,6 +316,7 @@ __all__ = (
     "ResponseHeadersPolicyListTypeDef",
     "ResponseHeadersPolicyReferrerPolicyTypeDef",
     "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
+    "ResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
     "ResponseHeadersPolicyStrictTransportSecurityTypeDef",
     "ResponseHeadersPolicySummaryTypeDef",
     "ResponseHeadersPolicyTypeDef",
@@ -3530,6 +3531,7 @@ _OptionalResponseHeadersPolicyConfigTypeDef = TypedDict(
         "CorsConfig": "ResponseHeadersPolicyCorsConfigTypeDef",
         "SecurityHeadersConfig": "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
         "CustomHeadersConfig": "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
+        "ServerTimingHeadersConfig": "ResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
     },
     total=False,
 )
@@ -3656,6 +3658,26 @@ ResponseHeadersPolicySecurityHeadersConfigTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredResponseHeadersPolicyServerTimingHeadersConfigTypeDef = TypedDict(
+    "_RequiredResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
+    {
+        "Enabled": bool,
+    },
+)
+_OptionalResponseHeadersPolicyServerTimingHeadersConfigTypeDef = TypedDict(
+    "_OptionalResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
+    {
+        "SamplingRate": float,
+    },
+    total=False,
+)
+
+class ResponseHeadersPolicyServerTimingHeadersConfigTypeDef(
+    _RequiredResponseHeadersPolicyServerTimingHeadersConfigTypeDef,
+    _OptionalResponseHeadersPolicyServerTimingHeadersConfigTypeDef,
+):
+    pass
 
 _RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef = TypedDict(
     "_RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef",

@@ -15,12 +15,15 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import DomainStatusType, JobStatusType, JobTypeType, StageType
+from .literals import (
+    DomainStatusType,
+    JobStatusType,
+    JobTypeType,
+    PlatformType,
+    RepositoryCloneMethodType,
+    StageType,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -125,7 +128,7 @@ _RequiredAppTypeDef = TypedDict(
         "name": str,
         "description": str,
         "repository": str,
-        "platform": Literal["WEB"],
+        "platform": PlatformType,
         "createTime": datetime,
         "updateTime": datetime,
         "environmentVariables": Dict[str, str],
@@ -148,6 +151,7 @@ _OptionalAppTypeDef = TypedDict(
         "enableAutoBranchCreation": bool,
         "autoBranchCreationPatterns": List[str],
         "autoBranchCreationConfig": "AutoBranchCreationConfigTypeDef",
+        "repositoryCloneMethod": RepositoryCloneMethodType,
     },
     total=False,
 )
@@ -256,7 +260,7 @@ _OptionalCreateAppRequestRequestTypeDef = TypedDict(
     {
         "description": str,
         "repository": str,
-        "platform": Literal["WEB"],
+        "platform": PlatformType,
         "iamServiceRoleArn": str,
         "oauthToken": str,
         "accessToken": str,
@@ -1159,7 +1163,7 @@ _OptionalUpdateAppRequestRequestTypeDef = TypedDict(
     {
         "name": str,
         "description": str,
-        "platform": Literal["WEB"],
+        "platform": PlatformType,
         "iamServiceRoleArn": str,
         "environmentVariables": Dict[str, str],
         "enableBranchAutoBuild": bool,
@@ -1239,13 +1243,13 @@ _RequiredUpdateDomainAssociationRequestRequestTypeDef = TypedDict(
     {
         "appId": str,
         "domainName": str,
-        "subDomainSettings": List["SubDomainSettingTypeDef"],
     },
 )
 _OptionalUpdateDomainAssociationRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateDomainAssociationRequestRequestTypeDef",
     {
         "enableAutoSubDomain": bool,
+        "subDomainSettings": List["SubDomainSettingTypeDef"],
         "autoSubDomainCreationPatterns": List[str],
         "autoSubDomainIAMRole": str,
     },

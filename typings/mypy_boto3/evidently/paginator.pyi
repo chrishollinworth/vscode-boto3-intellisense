@@ -28,6 +28,7 @@ from typing import Iterator
 
 from botocore.paginate import Paginator as Boto3Paginator
 
+from .literals import ExperimentStatusType, LaunchStatusType
 from .type_defs import (
     ListExperimentsResponseTypeDef,
     ListFeaturesResponseTypeDef,
@@ -45,21 +46,25 @@ __all__ = (
 
 class ListExperimentsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListExperiments)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListExperiments)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listexperimentspaginator)
     """
 
     def paginate(
-        self, *, project: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        project: str,
+        status: ExperimentStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExperimentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListExperiments.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListExperiments.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listexperimentspaginator)
         """
 
 class ListFeaturesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListFeatures)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListFeatures)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listfeaturespaginator)
     """
 
@@ -67,27 +72,31 @@ class ListFeaturesPaginator(Boto3Paginator):
         self, *, project: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFeaturesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListFeatures.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListFeatures.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listfeaturespaginator)
         """
 
 class ListLaunchesPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListLaunches)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListLaunches)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listlaunchespaginator)
     """
 
     def paginate(
-        self, *, project: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        *,
+        project: str,
+        status: LaunchStatusType = None,
+        PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLaunchesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListLaunches.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListLaunches.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listlaunchespaginator)
         """
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListProjects)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListProjects)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listprojectspaginator)
     """
 
@@ -95,6 +104,6 @@ class ListProjectsPaginator(Boto3Paginator):
         self, *, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListProjects.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListProjects.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listprojectspaginator)
         """

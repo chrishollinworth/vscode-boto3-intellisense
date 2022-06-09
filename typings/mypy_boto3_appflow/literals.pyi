@@ -21,7 +21,9 @@ else:
 __all__ = (
     "AggregationTypeType",
     "AmplitudeConnectorOperatorType",
+    "AuthenticationTypeType",
     "ConnectionModeType",
+    "ConnectorProvisioningTypeType",
     "ConnectorTypeType",
     "DataPullModeType",
     "DatadogConnectorOperatorType",
@@ -32,8 +34,11 @@ __all__ = (
     "GoogleAnalyticsConnectorOperatorType",
     "InforNexusConnectorOperatorType",
     "MarketoConnectorOperatorType",
+    "OAuth2CustomPropTypeType",
+    "OAuth2GrantTypeType",
     "OperatorPropertiesKeysType",
     "OperatorType",
+    "OperatorsType",
     "PrefixFormatType",
     "PrefixTypeType",
     "PrivateConnectionProvisioningFailureCauseType",
@@ -56,9 +61,12 @@ __all__ = (
 
 AggregationTypeType = Literal["None", "SingleFile"]
 AmplitudeConnectorOperatorType = Literal["BETWEEN"]
+AuthenticationTypeType = Literal["APIKEY", "BASIC", "CUSTOM", "OAUTH2"]
 ConnectionModeType = Literal["Private", "Public"]
+ConnectorProvisioningTypeType = Literal["LAMBDA"]
 ConnectorTypeType = Literal[
     "Amplitude",
+    "CustomConnector",
     "CustomerProfiles",
     "Datadog",
     "Dynatrace",
@@ -155,6 +163,8 @@ MarketoConnectorOperatorType = Literal[
     "VALIDATE_NON_ZERO",
     "VALIDATE_NUMERIC",
 ]
+OAuth2CustomPropTypeType = Literal["AUTH_URL", "TOKEN_URL"]
+OAuth2GrantTypeType = Literal["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS"]
 OperatorPropertiesKeysType = Literal[
     "CONCAT_FORMAT",
     "DATA_TYPE",
@@ -173,6 +183,29 @@ OperatorPropertiesKeysType = Literal[
     "VALUES",
 ]
 OperatorType = Literal[
+    "ADDITION",
+    "BETWEEN",
+    "CONTAINS",
+    "DIVISION",
+    "EQUAL_TO",
+    "GREATER_THAN",
+    "GREATER_THAN_OR_EQUAL_TO",
+    "LESS_THAN",
+    "LESS_THAN_OR_EQUAL_TO",
+    "MASK_ALL",
+    "MASK_FIRST_N",
+    "MASK_LAST_N",
+    "MULTIPLICATION",
+    "NOT_EQUAL_TO",
+    "NO_OP",
+    "PROJECTION",
+    "SUBTRACTION",
+    "VALIDATE_NON_NEGATIVE",
+    "VALIDATE_NON_NULL",
+    "VALIDATE_NON_ZERO",
+    "VALIDATE_NUMERIC",
+]
+OperatorsType = Literal[
     "ADDITION",
     "BETWEEN",
     "CONTAINS",
@@ -332,7 +365,7 @@ SlackConnectorOperatorType = Literal[
     "VALIDATE_NUMERIC",
 ]
 TaskTypeType = Literal[
-    "Arithmetic", "Filter", "Map", "Map_all", "Mask", "Merge", "Truncate", "Validate"
+    "Arithmetic", "Filter", "Map", "Map_all", "Mask", "Merge", "Passthrough", "Truncate", "Validate"
 ]
 TrendmicroConnectorOperatorType = Literal[
     "ADDITION",
@@ -374,7 +407,7 @@ VeevaConnectorOperatorType = Literal[
     "VALIDATE_NON_ZERO",
     "VALIDATE_NUMERIC",
 ]
-WriteOperationTypeType = Literal["INSERT", "UPDATE", "UPSERT"]
+WriteOperationTypeType = Literal["DELETE", "INSERT", "UPDATE", "UPSERT"]
 ZendeskConnectorOperatorType = Literal[
     "ADDITION",
     "DIVISION",

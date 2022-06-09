@@ -6,9 +6,9 @@ Type annotations for finspace-data service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_finspace_data.literals import ChangeTypeType
+    from mypy_boto3_finspace_data.literals import ApiAccessType
 
-    data: ChangeTypeType = "APPEND"
+    data: ApiAccessType = "DISABLED"
     ```
 """
 import sys
@@ -19,19 +19,36 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ApiAccessType",
+    "ApplicationPermissionType",
     "ChangeTypeType",
     "ColumnDataTypeType",
     "DataViewStatusType",
     "DatasetKindType",
     "DatasetStatusType",
     "ErrorCategoryType",
+    "ExportFileFormatType",
     "IngestionStatusType",
     "ListChangesetsPaginatorName",
     "ListDataViewsPaginatorName",
     "ListDatasetsPaginatorName",
+    "ListPermissionGroupsPaginatorName",
+    "ListUsersPaginatorName",
+    "UserStatusType",
+    "UserTypeType",
     "locationTypeType",
 )
 
+ApiAccessType = Literal["DISABLED", "ENABLED"]
+ApplicationPermissionType = Literal[
+    "AccessNotebooks",
+    "CreateDataset",
+    "GetTemporaryCredentials",
+    "ManageAttributeSets",
+    "ManageClusters",
+    "ManageUsersAndGroups",
+    "ViewAuditData",
+]
 ChangeTypeType = Literal["APPEND", "MODIFY", "REPLACE"]
 ColumnDataTypeType = Literal[
     "BIGINT",
@@ -69,8 +86,13 @@ ErrorCategoryType = Literal[
     "USER_RECOVERABLE",
     "VALIDATION",
 ]
+ExportFileFormatType = Literal["DELIMITED_TEXT", "PARQUET"]
 IngestionStatusType = Literal["FAILED", "PENDING", "RUNNING", "STOP_REQUESTED", "SUCCESS"]
 ListChangesetsPaginatorName = Literal["list_changesets"]
 ListDataViewsPaginatorName = Literal["list_data_views"]
 ListDatasetsPaginatorName = Literal["list_datasets"]
+ListPermissionGroupsPaginatorName = Literal["list_permission_groups"]
+ListUsersPaginatorName = Literal["list_users"]
+UserStatusType = Literal["CREATING", "DISABLED", "ENABLED"]
+UserTypeType = Literal["APP_USER", "SUPER_USER"]
 locationTypeType = Literal["INGESTION", "SAGEMAKER"]

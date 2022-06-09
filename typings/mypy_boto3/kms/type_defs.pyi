@@ -31,6 +31,7 @@ from .literals import (
     KeySpecType,
     KeyStateType,
     KeyUsageTypeType,
+    MacAlgorithmSpecType,
     MessageTypeType,
     MultiRegionKeyTypeType,
     OriginTypeType,
@@ -83,6 +84,8 @@ __all__ = (
     "GenerateDataKeyResponseTypeDef",
     "GenerateDataKeyWithoutPlaintextRequestRequestTypeDef",
     "GenerateDataKeyWithoutPlaintextResponseTypeDef",
+    "GenerateMacRequestRequestTypeDef",
+    "GenerateMacResponseTypeDef",
     "GenerateRandomRequestRequestTypeDef",
     "GenerateRandomResponseTypeDef",
     "GetKeyPolicyRequestRequestTypeDef",
@@ -131,6 +134,8 @@ __all__ = (
     "UpdateCustomKeyStoreRequestRequestTypeDef",
     "UpdateKeyDescriptionRequestRequestTypeDef",
     "UpdatePrimaryRegionRequestRequestTypeDef",
+    "VerifyMacRequestRequestTypeDef",
+    "VerifyMacResponseTypeDef",
     "VerifyRequestRequestTypeDef",
     "VerifyResponseTypeDef",
 )
@@ -566,6 +571,37 @@ GenerateDataKeyWithoutPlaintextResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGenerateMacRequestRequestTypeDef = TypedDict(
+    "_RequiredGenerateMacRequestRequestTypeDef",
+    {
+        "Message": Union[bytes, IO[bytes], StreamingBody],
+        "KeyId": str,
+        "MacAlgorithm": MacAlgorithmSpecType,
+    },
+)
+_OptionalGenerateMacRequestRequestTypeDef = TypedDict(
+    "_OptionalGenerateMacRequestRequestTypeDef",
+    {
+        "GrantTokens": List[str],
+    },
+    total=False,
+)
+
+class GenerateMacRequestRequestTypeDef(
+    _RequiredGenerateMacRequestRequestTypeDef, _OptionalGenerateMacRequestRequestTypeDef
+):
+    pass
+
+GenerateMacResponseTypeDef = TypedDict(
+    "GenerateMacResponseTypeDef",
+    {
+        "Mac": bytes,
+        "MacAlgorithm": MacAlgorithmSpecType,
+        "KeyId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GenerateRandomRequestRequestTypeDef = TypedDict(
     "GenerateRandomRequestRequestTypeDef",
     {
@@ -753,6 +789,7 @@ _OptionalKeyMetadataTypeDef = TypedDict(
         "MultiRegion": bool,
         "MultiRegionConfiguration": "MultiRegionConfigurationTypeDef",
         "PendingDeletionWindowInDays": int,
+        "MacAlgorithms": List[MacAlgorithmSpecType],
     },
     total=False,
 )
@@ -1191,6 +1228,38 @@ UpdatePrimaryRegionRequestRequestTypeDef = TypedDict(
     {
         "KeyId": str,
         "PrimaryRegion": str,
+    },
+)
+
+_RequiredVerifyMacRequestRequestTypeDef = TypedDict(
+    "_RequiredVerifyMacRequestRequestTypeDef",
+    {
+        "Message": Union[bytes, IO[bytes], StreamingBody],
+        "KeyId": str,
+        "MacAlgorithm": MacAlgorithmSpecType,
+        "Mac": Union[bytes, IO[bytes], StreamingBody],
+    },
+)
+_OptionalVerifyMacRequestRequestTypeDef = TypedDict(
+    "_OptionalVerifyMacRequestRequestTypeDef",
+    {
+        "GrantTokens": List[str],
+    },
+    total=False,
+)
+
+class VerifyMacRequestRequestTypeDef(
+    _RequiredVerifyMacRequestRequestTypeDef, _OptionalVerifyMacRequestRequestTypeDef
+):
+    pass
+
+VerifyMacResponseTypeDef = TypedDict(
+    "VerifyMacResponseTypeDef",
+    {
+        "KeyId": str,
+        "MacValid": bool,
+        "MacAlgorithm": MacAlgorithmSpecType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 

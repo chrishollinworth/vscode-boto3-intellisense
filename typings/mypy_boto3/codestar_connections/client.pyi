@@ -33,6 +33,7 @@ __all__ = ("CodeStarconnectionsClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -47,11 +48,12 @@ class Exceptions:
 
 class CodeStarconnectionsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -61,7 +63,7 @@ class CodeStarconnectionsClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#can_paginate)
         """
     def create_connection(
@@ -76,7 +78,7 @@ class CodeStarconnectionsClient(BaseClient):
         Creates a connection that can then be given to other AWS services like
         CodePipeline so that it can access third-party code repositories.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.create_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.create_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#create_connection)
         """
     def create_host(
@@ -92,21 +94,21 @@ class CodeStarconnectionsClient(BaseClient):
         Creates a resource that represents the infrastructure where a third-party
         provider is installed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.create_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.create_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#create_host)
         """
     def delete_connection(self, *, ConnectionArn: str) -> Dict[str, Any]:
         """
         The connection to be deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.delete_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.delete_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#delete_connection)
         """
     def delete_host(self, *, HostArn: str) -> Dict[str, Any]:
         """
         The host to be deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.delete_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.delete_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#delete_host)
         """
     def generate_presigned_url(
@@ -119,14 +121,14 @@ class CodeStarconnectionsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#generate_presigned_url)
         """
     def get_connection(self, *, ConnectionArn: str) -> GetConnectionOutputTypeDef:
         """
         Returns the connection ARN and details such as status, owner, and provider type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.get_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.get_connection)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#get_connection)
         """
     def get_host(self, *, HostArn: str) -> GetHostOutputTypeDef:
@@ -134,7 +136,7 @@ class CodeStarconnectionsClient(BaseClient):
         Returns the host ARN and details such as status, provider type, endpoint, and,
         if applicable, the VPC configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.get_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.get_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#get_host)
         """
     def list_connections(
@@ -148,7 +150,7 @@ class CodeStarconnectionsClient(BaseClient):
         """
         Lists the connections associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.list_connections)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.list_connections)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#list_connections)
         """
     def list_hosts(
@@ -157,28 +159,28 @@ class CodeStarconnectionsClient(BaseClient):
         """
         Lists the hosts associated with your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.list_hosts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.list_hosts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#list_hosts)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceOutputTypeDef:
         """
         Gets the set of key-value pairs (metadata) that are used to manage the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#list_tags_for_resource)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds to or modifies the tags of the given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes tags from an AWS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#untag_resource)
         """
     def update_host(
@@ -191,6 +193,6 @@ class CodeStarconnectionsClient(BaseClient):
         """
         Updates a specified host with the provided configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/codestar-connections.html#CodeStarconnections.Client.update_host)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/codestar-connections.html#CodeStarconnections.Client.update_host)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/client.html#update_host)
         """

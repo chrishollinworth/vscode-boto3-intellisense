@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
+    ErrorCodeType,
     FormatType,
     ImportDataCharacterEncodingType,
     TableDataImportJobStatusType,
@@ -65,6 +66,8 @@ __all__ = (
     "ListTableRowsResultTypeDef",
     "ListTablesRequestRequestTypeDef",
     "ListTablesResultTypeDef",
+    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceResultTypeDef",
     "PaginatorConfigTypeDef",
     "QueryTableRowsRequestRequestTypeDef",
     "QueryTableRowsResultTypeDef",
@@ -78,6 +81,8 @@ __all__ = (
     "TableDataImportJobMetadataTypeDef",
     "TableRowTypeDef",
     "TableTypeDef",
+    "TagResourceRequestRequestTypeDef",
+    "UntagResourceRequestRequestTypeDef",
     "UpdateRowDataTypeDef",
     "UpsertRowDataTypeDef",
     "UpsertRowsResultTypeDef",
@@ -214,6 +219,7 @@ CellInputTypeDef = TypedDict(
     "CellInputTypeDef",
     {
         "fact": str,
+        "facts": List[str],
     },
     total=False,
 )
@@ -225,6 +231,7 @@ CellTypeDef = TypedDict(
         "format": FormatType,
         "rawValue": str,
         "formattedValue": str,
+        "formattedValues": List[str],
     },
     total=False,
 )
@@ -291,6 +298,7 @@ DescribeTableDataImportJobResultTypeDef = TypedDict(
         "jobStatus": TableDataImportJobStatusType,
         "message": str,
         "jobMetadata": "TableDataImportJobMetadataTypeDef",
+        "errorCode": ErrorCodeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -521,6 +529,21 @@ ListTablesResultTypeDef = TypedDict(
     },
 )
 
+ListTagsForResourceRequestRequestTypeDef = TypedDict(
+    "ListTagsForResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+    },
+)
+
+ListTagsForResourceResultTypeDef = TypedDict(
+    "ListTagsForResourceResultTypeDef",
+    {
+        "tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -664,6 +687,22 @@ TableTypeDef = TypedDict(
         "tableName": str,
     },
     total=False,
+)
+
+TagResourceRequestRequestTypeDef = TypedDict(
+    "TagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tags": Dict[str, str],
+    },
+)
+
+UntagResourceRequestRequestTypeDef = TypedDict(
+    "UntagResourceRequestRequestTypeDef",
+    {
+        "resourceArn": str,
+        "tagKeys": List[str],
+    },
 )
 
 UpdateRowDataTypeDef = TypedDict(

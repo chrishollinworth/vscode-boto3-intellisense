@@ -42,6 +42,9 @@ __all__ = (
     "BatchAcknowledgeAlarmRequestRequestTypeDef",
     "BatchAcknowledgeAlarmResponseTypeDef",
     "BatchAlarmActionErrorEntryTypeDef",
+    "BatchDeleteDetectorErrorEntryTypeDef",
+    "BatchDeleteDetectorRequestRequestTypeDef",
+    "BatchDeleteDetectorResponseTypeDef",
     "BatchDisableAlarmRequestRequestTypeDef",
     "BatchDisableAlarmResponseTypeDef",
     "BatchEnableAlarmRequestRequestTypeDef",
@@ -57,6 +60,7 @@ __all__ = (
     "BatchUpdateDetectorRequestRequestTypeDef",
     "BatchUpdateDetectorResponseTypeDef",
     "CustomerActionTypeDef",
+    "DeleteDetectorRequestTypeDef",
     "DescribeAlarmRequestRequestTypeDef",
     "DescribeAlarmResponseTypeDef",
     "DescribeDetectorRequestRequestTypeDef",
@@ -184,6 +188,31 @@ BatchAlarmActionErrorEntryTypeDef = TypedDict(
     total=False,
 )
 
+BatchDeleteDetectorErrorEntryTypeDef = TypedDict(
+    "BatchDeleteDetectorErrorEntryTypeDef",
+    {
+        "messageId": str,
+        "errorCode": ErrorCodeType,
+        "errorMessage": str,
+    },
+    total=False,
+)
+
+BatchDeleteDetectorRequestRequestTypeDef = TypedDict(
+    "BatchDeleteDetectorRequestRequestTypeDef",
+    {
+        "detectors": List["DeleteDetectorRequestTypeDef"],
+    },
+)
+
+BatchDeleteDetectorResponseTypeDef = TypedDict(
+    "BatchDeleteDetectorResponseTypeDef",
+    {
+        "batchDeleteDetectorErrorEntries": List["BatchDeleteDetectorErrorEntryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 BatchDisableAlarmRequestRequestTypeDef = TypedDict(
     "BatchDisableAlarmRequestRequestTypeDef",
     {
@@ -306,6 +335,26 @@ CustomerActionTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDeleteDetectorRequestTypeDef = TypedDict(
+    "_RequiredDeleteDetectorRequestTypeDef",
+    {
+        "messageId": str,
+        "detectorModelName": str,
+    },
+)
+_OptionalDeleteDetectorRequestTypeDef = TypedDict(
+    "_OptionalDeleteDetectorRequestTypeDef",
+    {
+        "keyValue": str,
+    },
+    total=False,
+)
+
+class DeleteDetectorRequestTypeDef(
+    _RequiredDeleteDetectorRequestTypeDef, _OptionalDeleteDetectorRequestTypeDef
+):
+    pass
 
 _RequiredDescribeAlarmRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeAlarmRequestRequestTypeDef",

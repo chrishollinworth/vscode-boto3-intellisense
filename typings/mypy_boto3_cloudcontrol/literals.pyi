@@ -20,6 +20,8 @@ else:
 
 __all__ = (
     "HandlerErrorCodeType",
+    "ListResourceRequestsPaginatorName",
+    "ListResourcesPaginatorName",
     "OperationStatusType",
     "OperationType",
     "ResourceRequestSuccessWaiterName",
@@ -42,6 +44,8 @@ HandlerErrorCodeType = Literal[
     "ServiceTimeout",
     "Throttling",
 ]
+ListResourceRequestsPaginatorName = Literal["list_resource_requests"]
+ListResourcesPaginatorName = Literal["list_resources"]
 OperationStatusType = Literal[
     "CANCEL_COMPLETE", "CANCEL_IN_PROGRESS", "FAILED", "IN_PROGRESS", "PENDING", "SUCCESS"
 ]

@@ -355,6 +355,7 @@ OperatingSystemType = Literal[
     "ORACLE_LINUX",
     "RASPBIAN",
     "REDHAT_ENTERPRISE_LINUX",
+    "ROCKY_LINUX",
     "SUSE",
     "UBUNTU",
     "WINDOWS",
@@ -468,6 +469,7 @@ PlatformTypeType = Literal["Linux", "MacOS", "Windows"]
 RebootOptionType = Literal["NoReboot", "RebootIfNeeded"]
 ResourceDataSyncS3FormatType = Literal["JsonSerDe"]
 ResourceTypeForTaggingType = Literal[
+    "Automation",
     "Document",
     "MaintenanceWindow",
     "ManagedInstance",

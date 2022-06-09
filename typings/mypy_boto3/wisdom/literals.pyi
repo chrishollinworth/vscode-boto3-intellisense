@@ -32,6 +32,9 @@ __all__ = (
     "ListContentsPaginatorName",
     "ListKnowledgeBasesPaginatorName",
     "QueryAssistantPaginatorName",
+    "RecommendationSourceTypeType",
+    "RecommendationTriggerTypeType",
+    "RecommendationTypeType",
     "RelevanceLevelType",
     "SearchContentPaginatorName",
     "SearchSessionsPaginatorName",
@@ -72,6 +75,9 @@ ListAssistantsPaginatorName = Literal["list_assistants"]
 ListContentsPaginatorName = Literal["list_contents"]
 ListKnowledgeBasesPaginatorName = Literal["list_knowledge_bases"]
 QueryAssistantPaginatorName = Literal["query_assistant"]
+RecommendationSourceTypeType = Literal["ISSUE_DETECTION", "OTHER", "RULE_EVALUATION"]
+RecommendationTriggerTypeType = Literal["QUERY"]
+RecommendationTypeType = Literal["KNOWLEDGE_CONTENT"]
 RelevanceLevelType = Literal["HIGH", "LOW", "MEDIUM"]
 SearchContentPaginatorName = Literal["search_content"]
 SearchSessionsPaginatorName = Literal["search_sessions"]

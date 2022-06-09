@@ -50,13 +50,13 @@ OriginationType = Literal["ALLOW", "DENY"]
 PlaylistTypeType = Literal["EVENT", "NONE", "VOD"]
 PresetSpeke20AudioType = Literal["PRESET-AUDIO-1"]
 PresetSpeke20VideoType = Literal["PRESET-VIDEO-1"]
-ProfileType = Literal["HBBTV_1_5", "NONE"]
+ProfileType = Literal["DVB_DASH_2014", "HBBTV_1_5", "HYBRIDCAST", "NONE"]
 SegmentTemplateFormatType = Literal[
     "NUMBER_WITH_DURATION", "NUMBER_WITH_TIMELINE", "TIME_WITH_TIMELINE"
 ]
 StatusType = Literal["FAILED", "IN_PROGRESS", "SUCCEEDED"]
 StreamOrderType = Literal["ORIGINAL", "VIDEO_BITRATE_ASCENDING", "VIDEO_BITRATE_DESCENDING"]
-UtcTimingType = Literal["HTTP-HEAD", "HTTP-ISO", "NONE"]
+UtcTimingType = Literal["HTTP-HEAD", "HTTP-ISO", "HTTP-XSDATE", "NONE"]
 __AdTriggersElementType = Literal[
     "BREAK",
     "DISTRIBUTOR_ADVERTISEMENT",

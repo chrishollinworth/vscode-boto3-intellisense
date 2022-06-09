@@ -31,13 +31,25 @@ __all__ = (
 )
 
 BlockTypeType = Literal[
-    "CELL", "KEY_VALUE_SET", "LINE", "PAGE", "SELECTION_ELEMENT", "TABLE", "WORD"
+    "CELL",
+    "KEY_VALUE_SET",
+    "LINE",
+    "MERGED_CELL",
+    "PAGE",
+    "QUERY",
+    "QUERY_RESULT",
+    "SELECTION_ELEMENT",
+    "TABLE",
+    "TITLE",
+    "WORD",
 ]
 ContentClassifierType = Literal["FreeOfAdultContent", "FreeOfPersonallyIdentifiableInformation"]
-EntityTypeType = Literal["KEY", "VALUE"]
-FeatureTypeType = Literal["FORMS", "TABLES"]
+EntityTypeType = Literal["COLUMN_HEADER", "KEY", "VALUE"]
+FeatureTypeType = Literal["FORMS", "QUERIES", "TABLES"]
 JobStatusType = Literal["FAILED", "IN_PROGRESS", "PARTIAL_SUCCESS", "SUCCEEDED"]
-RelationshipTypeType = Literal["CHILD", "COMPLEX_FEATURES", "VALUE"]
+RelationshipTypeType = Literal[
+    "ANSWER", "CHILD", "COMPLEX_FEATURES", "MERGED_CELL", "TITLE", "VALUE"
+]
 SelectionStatusType = Literal["NOT_SELECTED", "SELECTED"]
 TextTypeType = Literal["HANDWRITING", "PRINTED"]
 ValueTypeType = Literal["DATE"]

@@ -57,6 +57,7 @@ __all__ = (
     "CityTypeDef",
     "CloudTrailConfigurationResultTypeDef",
     "ConditionTypeDef",
+    "ContainerTypeDef",
     "CountryTypeDef",
     "CreateDetectorRequestRequestTypeDef",
     "CreateDetectorResponseTypeDef",
@@ -98,6 +99,7 @@ __all__ = (
     "DisassociateMembersResponseTypeDef",
     "DnsRequestActionTypeDef",
     "DomainDetailsTypeDef",
+    "EksClusterDetailsTypeDef",
     "EnableOrganizationAdminAccountRequestRequestTypeDef",
     "EvidenceTypeDef",
     "FindingCriteriaTypeDef",
@@ -126,11 +128,20 @@ __all__ = (
     "GetThreatIntelSetResponseTypeDef",
     "GetUsageStatisticsRequestRequestTypeDef",
     "GetUsageStatisticsResponseTypeDef",
+    "HostPathTypeDef",
     "IamInstanceProfileTypeDef",
     "InstanceDetailsTypeDef",
     "InvitationTypeDef",
     "InviteMembersRequestRequestTypeDef",
     "InviteMembersResponseTypeDef",
+    "KubernetesApiCallActionTypeDef",
+    "KubernetesAuditLogsConfigurationResultTypeDef",
+    "KubernetesAuditLogsConfigurationTypeDef",
+    "KubernetesConfigurationResultTypeDef",
+    "KubernetesConfigurationTypeDef",
+    "KubernetesDetailsTypeDef",
+    "KubernetesUserDetailsTypeDef",
+    "KubernetesWorkloadDetailsTypeDef",
     "ListDetectorsRequestRequestTypeDef",
     "ListDetectorsResponseTypeDef",
     "ListFiltersRequestRequestTypeDef",
@@ -160,6 +171,10 @@ __all__ = (
     "NetworkInterfaceTypeDef",
     "OrganizationDataSourceConfigurationsResultTypeDef",
     "OrganizationDataSourceConfigurationsTypeDef",
+    "OrganizationKubernetesAuditLogsConfigurationResultTypeDef",
+    "OrganizationKubernetesAuditLogsConfigurationTypeDef",
+    "OrganizationKubernetesConfigurationResultTypeDef",
+    "OrganizationKubernetesConfigurationTypeDef",
     "OrganizationS3LogsConfigurationResultTypeDef",
     "OrganizationS3LogsConfigurationTypeDef",
     "OrganizationTypeDef",
@@ -171,6 +186,7 @@ __all__ = (
     "PrivateIpAddressDetailsTypeDef",
     "ProductCodeTypeDef",
     "PublicAccessTypeDef",
+    "RemoteAccountDetailsTypeDef",
     "RemoteIpDetailsTypeDef",
     "RemotePortDetailsTypeDef",
     "ResourceTypeDef",
@@ -178,6 +194,7 @@ __all__ = (
     "S3BucketDetailTypeDef",
     "S3LogsConfigurationResultTypeDef",
     "S3LogsConfigurationTypeDef",
+    "SecurityContextTypeDef",
     "SecurityGroupTypeDef",
     "ServiceTypeDef",
     "SortCriteriaTypeDef",
@@ -207,6 +224,8 @@ __all__ = (
     "UsageDataSourceResultTypeDef",
     "UsageResourceResultTypeDef",
     "UsageStatisticsTypeDef",
+    "VolumeMountTypeDef",
+    "VolumeTypeDef",
 )
 
 AcceptInvitationRequestRequestTypeDef = TypedDict(
@@ -262,6 +281,7 @@ ActionTypeDef = TypedDict(
         "DnsRequestAction": "DnsRequestActionTypeDef",
         "NetworkConnectionAction": "NetworkConnectionActionTypeDef",
         "PortProbeAction": "PortProbeActionTypeDef",
+        "KubernetesApiCallAction": "KubernetesApiCallActionTypeDef",
     },
     total=False,
 )
@@ -290,8 +310,10 @@ AwsApiCallActionTypeDef = TypedDict(
         "CallerType": str,
         "DomainDetails": "DomainDetailsTypeDef",
         "ErrorCode": str,
+        "UserAgent": str,
         "RemoteIpDetails": "RemoteIpDetailsTypeDef",
         "ServiceName": str,
+        "RemoteAccountDetails": "RemoteAccountDetailsTypeDef",
     },
     total=False,
 )
@@ -356,6 +378,20 @@ ConditionTypeDef = TypedDict(
         "GreaterThanOrEqual": int,
         "LessThan": int,
         "LessThanOrEqual": int,
+    },
+    total=False,
+)
+
+ContainerTypeDef = TypedDict(
+    "ContainerTypeDef",
+    {
+        "ContainerRuntime": str,
+        "Id": str,
+        "Name": str,
+        "Image": str,
+        "ImagePrefix": str,
+        "VolumeMounts": List["VolumeMountTypeDef"],
+        "SecurityContext": "SecurityContextTypeDef",
     },
     total=False,
 )
@@ -570,8 +606,8 @@ DNSLogsConfigurationResultTypeDef = TypedDict(
     },
 )
 
-DataSourceConfigurationsResultTypeDef = TypedDict(
-    "DataSourceConfigurationsResultTypeDef",
+_RequiredDataSourceConfigurationsResultTypeDef = TypedDict(
+    "_RequiredDataSourceConfigurationsResultTypeDef",
     {
         "CloudTrail": "CloudTrailConfigurationResultTypeDef",
         "DNSLogs": "DNSLogsConfigurationResultTypeDef",
@@ -579,11 +615,24 @@ DataSourceConfigurationsResultTypeDef = TypedDict(
         "S3Logs": "S3LogsConfigurationResultTypeDef",
     },
 )
+_OptionalDataSourceConfigurationsResultTypeDef = TypedDict(
+    "_OptionalDataSourceConfigurationsResultTypeDef",
+    {
+        "Kubernetes": "KubernetesConfigurationResultTypeDef",
+    },
+    total=False,
+)
+
+class DataSourceConfigurationsResultTypeDef(
+    _RequiredDataSourceConfigurationsResultTypeDef, _OptionalDataSourceConfigurationsResultTypeDef
+):
+    pass
 
 DataSourceConfigurationsTypeDef = TypedDict(
     "DataSourceConfigurationsTypeDef",
     {
         "S3Logs": "S3LogsConfigurationTypeDef",
+        "Kubernetes": "KubernetesConfigurationTypeDef",
     },
     total=False,
 )
@@ -779,6 +828,19 @@ DomainDetailsTypeDef = TypedDict(
     "DomainDetailsTypeDef",
     {
         "Domain": str,
+    },
+    total=False,
+)
+
+EksClusterDetailsTypeDef = TypedDict(
+    "EksClusterDetailsTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+        "VpcId": str,
+        "Status": str,
+        "Tags": List["TagTypeDef"],
+        "CreatedAt": datetime,
     },
     total=False,
 )
@@ -1089,6 +1151,14 @@ GetUsageStatisticsResponseTypeDef = TypedDict(
     },
 )
 
+HostPathTypeDef = TypedDict(
+    "HostPathTypeDef",
+    {
+        "Path": str,
+    },
+    total=False,
+)
+
 IamInstanceProfileTypeDef = TypedDict(
     "IamInstanceProfileTypeDef",
     {
@@ -1156,6 +1226,81 @@ InviteMembersResponseTypeDef = TypedDict(
         "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+KubernetesApiCallActionTypeDef = TypedDict(
+    "KubernetesApiCallActionTypeDef",
+    {
+        "RequestUri": str,
+        "Verb": str,
+        "SourceIps": List[str],
+        "UserAgent": str,
+        "RemoteIpDetails": "RemoteIpDetailsTypeDef",
+        "StatusCode": int,
+        "Parameters": str,
+    },
+    total=False,
+)
+
+KubernetesAuditLogsConfigurationResultTypeDef = TypedDict(
+    "KubernetesAuditLogsConfigurationResultTypeDef",
+    {
+        "Status": DataSourceStatusType,
+    },
+)
+
+KubernetesAuditLogsConfigurationTypeDef = TypedDict(
+    "KubernetesAuditLogsConfigurationTypeDef",
+    {
+        "Enable": bool,
+    },
+)
+
+KubernetesConfigurationResultTypeDef = TypedDict(
+    "KubernetesConfigurationResultTypeDef",
+    {
+        "AuditLogs": "KubernetesAuditLogsConfigurationResultTypeDef",
+    },
+)
+
+KubernetesConfigurationTypeDef = TypedDict(
+    "KubernetesConfigurationTypeDef",
+    {
+        "AuditLogs": "KubernetesAuditLogsConfigurationTypeDef",
+    },
+)
+
+KubernetesDetailsTypeDef = TypedDict(
+    "KubernetesDetailsTypeDef",
+    {
+        "KubernetesUserDetails": "KubernetesUserDetailsTypeDef",
+        "KubernetesWorkloadDetails": "KubernetesWorkloadDetailsTypeDef",
+    },
+    total=False,
+)
+
+KubernetesUserDetailsTypeDef = TypedDict(
+    "KubernetesUserDetailsTypeDef",
+    {
+        "Username": str,
+        "Uid": str,
+        "Groups": List[str],
+    },
+    total=False,
+)
+
+KubernetesWorkloadDetailsTypeDef = TypedDict(
+    "KubernetesWorkloadDetailsTypeDef",
+    {
+        "Name": str,
+        "Type": str,
+        "Uid": str,
+        "Namespace": str,
+        "HostNetwork": bool,
+        "Containers": List["ContainerTypeDef"],
+        "Volumes": List["VolumeTypeDef"],
+    },
+    total=False,
 )
 
 ListDetectorsRequestRequestTypeDef = TypedDict(
@@ -1495,19 +1640,61 @@ NetworkInterfaceTypeDef = TypedDict(
     total=False,
 )
 
-OrganizationDataSourceConfigurationsResultTypeDef = TypedDict(
-    "OrganizationDataSourceConfigurationsResultTypeDef",
+_RequiredOrganizationDataSourceConfigurationsResultTypeDef = TypedDict(
+    "_RequiredOrganizationDataSourceConfigurationsResultTypeDef",
     {
         "S3Logs": "OrganizationS3LogsConfigurationResultTypeDef",
     },
 )
+_OptionalOrganizationDataSourceConfigurationsResultTypeDef = TypedDict(
+    "_OptionalOrganizationDataSourceConfigurationsResultTypeDef",
+    {
+        "Kubernetes": "OrganizationKubernetesConfigurationResultTypeDef",
+    },
+    total=False,
+)
+
+class OrganizationDataSourceConfigurationsResultTypeDef(
+    _RequiredOrganizationDataSourceConfigurationsResultTypeDef,
+    _OptionalOrganizationDataSourceConfigurationsResultTypeDef,
+):
+    pass
 
 OrganizationDataSourceConfigurationsTypeDef = TypedDict(
     "OrganizationDataSourceConfigurationsTypeDef",
     {
         "S3Logs": "OrganizationS3LogsConfigurationTypeDef",
+        "Kubernetes": "OrganizationKubernetesConfigurationTypeDef",
     },
     total=False,
+)
+
+OrganizationKubernetesAuditLogsConfigurationResultTypeDef = TypedDict(
+    "OrganizationKubernetesAuditLogsConfigurationResultTypeDef",
+    {
+        "AutoEnable": bool,
+    },
+)
+
+OrganizationKubernetesAuditLogsConfigurationTypeDef = TypedDict(
+    "OrganizationKubernetesAuditLogsConfigurationTypeDef",
+    {
+        "AutoEnable": bool,
+    },
+)
+
+OrganizationKubernetesConfigurationResultTypeDef = TypedDict(
+    "OrganizationKubernetesConfigurationResultTypeDef",
+    {
+        "AuditLogs": "OrganizationKubernetesAuditLogsConfigurationResultTypeDef",
+    },
+)
+
+OrganizationKubernetesConfigurationTypeDef = TypedDict(
+    "OrganizationKubernetesConfigurationTypeDef",
+    {
+        "AuditLogs": "OrganizationKubernetesAuditLogsConfigurationTypeDef",
+    },
 )
 
 OrganizationS3LogsConfigurationResultTypeDef = TypedDict(
@@ -1608,6 +1795,15 @@ PublicAccessTypeDef = TypedDict(
     total=False,
 )
 
+RemoteAccountDetailsTypeDef = TypedDict(
+    "RemoteAccountDetailsTypeDef",
+    {
+        "AccountId": str,
+        "Affiliated": bool,
+    },
+    total=False,
+)
+
 RemoteIpDetailsTypeDef = TypedDict(
     "RemoteIpDetailsTypeDef",
     {
@@ -1635,6 +1831,8 @@ ResourceTypeDef = TypedDict(
         "AccessKeyDetails": "AccessKeyDetailsTypeDef",
         "S3BucketDetails": List["S3BucketDetailTypeDef"],
         "InstanceDetails": "InstanceDetailsTypeDef",
+        "EksClusterDetails": "EksClusterDetailsTypeDef",
+        "KubernetesDetails": "KubernetesDetailsTypeDef",
         "ResourceType": str,
     },
     total=False,
@@ -1678,6 +1876,14 @@ S3LogsConfigurationTypeDef = TypedDict(
     {
         "Enable": bool,
     },
+)
+
+SecurityContextTypeDef = TypedDict(
+    "SecurityContextTypeDef",
+    {
+        "Privileged": bool,
+    },
+    total=False,
 )
 
 SecurityGroupTypeDef = TypedDict(
@@ -2048,6 +2254,24 @@ UsageStatisticsTypeDef = TypedDict(
         "SumByDataSource": List["UsageDataSourceResultTypeDef"],
         "SumByResource": List["UsageResourceResultTypeDef"],
         "TopResources": List["UsageResourceResultTypeDef"],
+    },
+    total=False,
+)
+
+VolumeMountTypeDef = TypedDict(
+    "VolumeMountTypeDef",
+    {
+        "Name": str,
+        "MountPath": str,
+    },
+    total=False,
+)
+
+VolumeTypeDef = TypedDict(
+    "VolumeTypeDef",
+    {
+        "Name": str,
+        "HostPath": "HostPathTypeDef",
     },
     total=False,
 )

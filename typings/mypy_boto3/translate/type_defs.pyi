@@ -19,6 +19,7 @@ from botocore.response import StreamingBody
 
 from .literals import (
     DirectionalityType,
+    FormalityType,
     JobStatusType,
     ParallelDataFormatType,
     ParallelDataStatusType,
@@ -576,6 +577,7 @@ TranslateTextResponseTypeDef = TypedDict(
 TranslationSettingsTypeDef = TypedDict(
     "TranslationSettingsTypeDef",
     {
+        "Formality": FormalityType,
         "Profanity": Literal["MASK"],
     },
     total=False,

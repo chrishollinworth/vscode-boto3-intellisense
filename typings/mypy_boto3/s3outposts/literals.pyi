@@ -18,8 +18,14 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("EndpointAccessTypeType", "EndpointStatusType", "ListEndpointsPaginatorName")
+__all__ = (
+    "EndpointAccessTypeType",
+    "EndpointStatusType",
+    "ListEndpointsPaginatorName",
+    "ListSharedEndpointsPaginatorName",
+)
 
 EndpointAccessTypeType = Literal["CustomerOwnedIp", "Private"]
 EndpointStatusType = Literal["Available", "Deleting", "Pending"]
 ListEndpointsPaginatorName = Literal["list_endpoints"]
+ListSharedEndpointsPaginatorName = Literal["list_shared_endpoints"]

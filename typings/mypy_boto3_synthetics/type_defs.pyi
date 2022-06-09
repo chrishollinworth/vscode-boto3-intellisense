@@ -20,14 +20,11 @@ from botocore.response import StreamingBody
 from .literals import (
     CanaryRunStateReasonCodeType,
     CanaryRunStateType,
+    CanaryStateReasonCodeType,
     CanaryStateType,
     EncryptionModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -235,7 +232,7 @@ CanaryStatusTypeDef = TypedDict(
     {
         "State": CanaryStateType,
         "StateReason": str,
-        "StateReasonCode": Literal["INVALID_PERMISSIONS"],
+        "StateReasonCode": CanaryStateReasonCodeType,
     },
     total=False,
 )
@@ -312,18 +309,31 @@ CreateCanaryResponseTypeDef = TypedDict(
     },
 )
 
-DeleteCanaryRequestRequestTypeDef = TypedDict(
-    "DeleteCanaryRequestRequestTypeDef",
+_RequiredDeleteCanaryRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteCanaryRequestRequestTypeDef",
     {
         "Name": str,
     },
 )
+_OptionalDeleteCanaryRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteCanaryRequestRequestTypeDef",
+    {
+        "DeleteLambda": bool,
+    },
+    total=False,
+)
+
+class DeleteCanaryRequestRequestTypeDef(
+    _RequiredDeleteCanaryRequestRequestTypeDef, _OptionalDeleteCanaryRequestRequestTypeDef
+):
+    pass
 
 DescribeCanariesLastRunRequestRequestTypeDef = TypedDict(
     "DescribeCanariesLastRunRequestRequestTypeDef",
     {
         "NextToken": str,
         "MaxResults": int,
+        "Names": List[str],
     },
     total=False,
 )
@@ -342,6 +352,7 @@ DescribeCanariesRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "Names": List[str],
     },
     total=False,
 )

@@ -6,9 +6,9 @@ Type annotations for drs service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_drs.type_defs import CPUTypeDef
+    from mypy_boto3_drs.type_defs import AccountTypeDef
 
-    data: CPUTypeDef = {...}
+    data: AccountTypeDef = {...}
     ```
 """
 import sys
@@ -20,6 +20,7 @@ from .literals import (
     DataReplicationInitiationStepStatusType,
     DataReplicationStateType,
     EC2InstanceStateType,
+    ExtensionStatusType,
     FailbackReplicationErrorType,
     FailbackStateType,
     InitiatedByType,
@@ -48,7 +49,11 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AccountTypeDef",
     "CPUTypeDef",
+    "ConversionPropertiesTypeDef",
+    "CreateExtendedSourceServerRequestRequestTypeDef",
+    "CreateExtendedSourceServerResponseTypeDef",
     "CreateReplicationConfigurationTemplateRequestRequestTypeDef",
     "DataReplicationErrorTypeDef",
     "DataReplicationInfoReplicatedDiskTypeDef",
@@ -91,6 +96,10 @@ __all__ = (
     "LifeCycleLastLaunchInitiatedTypeDef",
     "LifeCycleLastLaunchTypeDef",
     "LifeCycleTypeDef",
+    "ListExtensibleSourceServersRequestRequestTypeDef",
+    "ListExtensibleSourceServersResponseTypeDef",
+    "ListStagingAccountsRequestRequestTypeDef",
+    "ListStagingAccountsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NetworkInterfaceTypeDef",
@@ -117,6 +126,8 @@ __all__ = (
     "SourcePropertiesTypeDef",
     "SourceServerResponseMetadataTypeDef",
     "SourceServerTypeDef",
+    "StagingAreaTypeDef",
+    "StagingSourceServerTypeDef",
     "StartFailbackLaunchRequestRequestTypeDef",
     "StartFailbackLaunchResponseTypeDef",
     "StartRecoveryRequestRequestTypeDef",
@@ -133,6 +144,14 @@ __all__ = (
     "UpdateReplicationConfigurationTemplateRequestRequestTypeDef",
 )
 
+AccountTypeDef = TypedDict(
+    "AccountTypeDef",
+    {
+        "accountID": str,
+    },
+    total=False,
+)
+
 CPUTypeDef = TypedDict(
     "CPUTypeDef",
     {
@@ -140,6 +159,46 @@ CPUTypeDef = TypedDict(
         "modelName": str,
     },
     total=False,
+)
+
+ConversionPropertiesTypeDef = TypedDict(
+    "ConversionPropertiesTypeDef",
+    {
+        "dataTimestamp": str,
+        "forceUefi": bool,
+        "rootVolumeName": str,
+        "volumeToConversionMap": Dict[str, Dict[str, str]],
+        "volumeToVolumeSize": Dict[str, int],
+    },
+    total=False,
+)
+
+_RequiredCreateExtendedSourceServerRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateExtendedSourceServerRequestRequestTypeDef",
+    {
+        "sourceServerArn": str,
+    },
+)
+_OptionalCreateExtendedSourceServerRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateExtendedSourceServerRequestRequestTypeDef",
+    {
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateExtendedSourceServerRequestRequestTypeDef(
+    _RequiredCreateExtendedSourceServerRequestRequestTypeDef,
+    _OptionalCreateExtendedSourceServerRequestRequestTypeDef,
+):
+    pass
+
+CreateExtendedSourceServerResponseTypeDef = TypedDict(
+    "CreateExtendedSourceServerResponseTypeDef",
+    {
+        "sourceServer": "SourceServerTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
@@ -295,25 +354,15 @@ DescribeJobsRequestFiltersTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredDescribeJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeJobsRequestRequestTypeDef",
+DescribeJobsRequestRequestTypeDef = TypedDict(
+    "DescribeJobsRequestRequestTypeDef",
     {
         "filters": "DescribeJobsRequestFiltersTypeDef",
-    },
-)
-_OptionalDescribeJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeJobsRequestRequestTypeDef",
-    {
         "maxResults": int,
         "nextToken": str,
     },
     total=False,
 )
-
-class DescribeJobsRequestRequestTypeDef(
-    _RequiredDescribeJobsRequestRequestTypeDef, _OptionalDescribeJobsRequestRequestTypeDef
-):
-    pass
 
 DescribeJobsResponseTypeDef = TypedDict(
     "DescribeJobsResponseTypeDef",
@@ -333,26 +382,15 @@ DescribeRecoveryInstancesRequestFiltersTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredDescribeRecoveryInstancesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRecoveryInstancesRequestRequestTypeDef",
+DescribeRecoveryInstancesRequestRequestTypeDef = TypedDict(
+    "DescribeRecoveryInstancesRequestRequestTypeDef",
     {
         "filters": "DescribeRecoveryInstancesRequestFiltersTypeDef",
-    },
-)
-_OptionalDescribeRecoveryInstancesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRecoveryInstancesRequestRequestTypeDef",
-    {
         "maxResults": int,
         "nextToken": str,
     },
     total=False,
 )
-
-class DescribeRecoveryInstancesRequestRequestTypeDef(
-    _RequiredDescribeRecoveryInstancesRequestRequestTypeDef,
-    _OptionalDescribeRecoveryInstancesRequestRequestTypeDef,
-):
-    pass
 
 DescribeRecoveryInstancesResponseTypeDef = TypedDict(
     "DescribeRecoveryInstancesResponseTypeDef",
@@ -404,26 +442,15 @@ DescribeRecoverySnapshotsResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredDescribeReplicationConfigurationTemplatesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
-    {
-        "replicationConfigurationTemplateIDs": List[str],
-    },
-)
-_OptionalDescribeReplicationConfigurationTemplatesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
+DescribeReplicationConfigurationTemplatesRequestRequestTypeDef = TypedDict(
+    "DescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
     {
         "maxResults": int,
         "nextToken": str,
+        "replicationConfigurationTemplateIDs": List[str],
     },
     total=False,
 )
-
-class DescribeReplicationConfigurationTemplatesRequestRequestTypeDef(
-    _RequiredDescribeReplicationConfigurationTemplatesRequestRequestTypeDef,
-    _OptionalDescribeReplicationConfigurationTemplatesRequestRequestTypeDef,
-):
-    pass
 
 DescribeReplicationConfigurationTemplatesResponseTypeDef = TypedDict(
     "DescribeReplicationConfigurationTemplatesResponseTypeDef",
@@ -439,30 +466,20 @@ DescribeSourceServersRequestFiltersTypeDef = TypedDict(
     {
         "hardwareId": str,
         "sourceServerIDs": List[str],
+        "stagingAccountIDs": List[str],
     },
     total=False,
 )
 
-_RequiredDescribeSourceServersRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeSourceServersRequestRequestTypeDef",
+DescribeSourceServersRequestRequestTypeDef = TypedDict(
+    "DescribeSourceServersRequestRequestTypeDef",
     {
         "filters": "DescribeSourceServersRequestFiltersTypeDef",
-    },
-)
-_OptionalDescribeSourceServersRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeSourceServersRequestRequestTypeDef",
-    {
         "maxResults": int,
         "nextToken": str,
     },
     total=False,
 )
-
-class DescribeSourceServersRequestRequestTypeDef(
-    _RequiredDescribeSourceServersRequestRequestTypeDef,
-    _OptionalDescribeSourceServersRequestRequestTypeDef,
-):
-    pass
 
 DescribeSourceServersResponseTypeDef = TypedDict(
     "DescribeSourceServersResponseTypeDef",
@@ -542,6 +559,7 @@ IdentificationHintsTypeDef = TypedDict(
 JobLogEventDataTypeDef = TypedDict(
     "JobLogEventDataTypeDef",
     {
+        "conversionProperties": "ConversionPropertiesTypeDef",
         "conversionServerID": str,
         "rawError": str,
         "sourceServerID": str,
@@ -635,6 +653,54 @@ LifeCycleTypeDef = TypedDict(
         "lastSeenByServiceDateTime": str,
     },
     total=False,
+)
+
+_RequiredListExtensibleSourceServersRequestRequestTypeDef = TypedDict(
+    "_RequiredListExtensibleSourceServersRequestRequestTypeDef",
+    {
+        "stagingAccountID": str,
+    },
+)
+_OptionalListExtensibleSourceServersRequestRequestTypeDef = TypedDict(
+    "_OptionalListExtensibleSourceServersRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class ListExtensibleSourceServersRequestRequestTypeDef(
+    _RequiredListExtensibleSourceServersRequestRequestTypeDef,
+    _OptionalListExtensibleSourceServersRequestRequestTypeDef,
+):
+    pass
+
+ListExtensibleSourceServersResponseTypeDef = TypedDict(
+    "ListExtensibleSourceServersResponseTypeDef",
+    {
+        "items": List["StagingSourceServerTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListStagingAccountsRequestRequestTypeDef = TypedDict(
+    "ListStagingAccountsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListStagingAccountsResponseTypeDef = TypedDict(
+    "ListStagingAccountsResponseTypeDef",
+    {
+        "accounts": List["AccountTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
@@ -976,6 +1042,7 @@ SourceServerResponseMetadataTypeDef = TypedDict(
         "recoveryInstanceId": str,
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
+        "stagingArea": "StagingAreaTypeDef",
         "tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -991,6 +1058,28 @@ SourceServerTypeDef = TypedDict(
         "recoveryInstanceId": str,
         "sourceProperties": "SourcePropertiesTypeDef",
         "sourceServerID": str,
+        "stagingArea": "StagingAreaTypeDef",
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+StagingAreaTypeDef = TypedDict(
+    "StagingAreaTypeDef",
+    {
+        "errorMessage": str,
+        "stagingAccountID": str,
+        "stagingSourceServerArn": str,
+        "status": ExtensionStatusType,
+    },
+    total=False,
+)
+
+StagingSourceServerTypeDef = TypedDict(
+    "StagingSourceServerTypeDef",
+    {
+        "arn": str,
+        "hostname": str,
         "tags": Dict[str, str],
     },
     total=False,

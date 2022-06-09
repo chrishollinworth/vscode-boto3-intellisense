@@ -62,6 +62,7 @@ __all__ = (
     "MaximumExecutionFrequencyType",
     "MemberAccountRuleStatusType",
     "MessageTypeType",
+    "OrganizationConfigRuleTriggerTypeNoSNType",
     "OrganizationConfigRuleTriggerTypeType",
     "OrganizationResourceDetailedStatusType",
     "OrganizationResourceStatusType",
@@ -166,6 +167,9 @@ MessageTypeType = Literal[
     "OversizedConfigurationItemChangeNotification",
     "ScheduledNotification",
 ]
+OrganizationConfigRuleTriggerTypeNoSNType = Literal[
+    "ConfigurationItemChangeNotification", "OversizedConfigurationItemChangeNotification"
+]
 OrganizationConfigRuleTriggerTypeType = Literal[
     "ConfigurationItemChangeNotification",
     "OversizedConfigurationItemChangeNotification",
@@ -204,7 +208,7 @@ OrganizationRuleStatusType = Literal[
     "UPDATE_IN_PROGRESS",
     "UPDATE_SUCCESSFUL",
 ]
-OwnerType = Literal["AWS", "CUSTOM_LAMBDA"]
+OwnerType = Literal["AWS", "CUSTOM_LAMBDA", "CUSTOM_POLICY"]
 RecorderStatusType = Literal["Failure", "Pending", "Success"]
 RemediationExecutionStateType = Literal["FAILED", "IN_PROGRESS", "QUEUED", "SUCCEEDED"]
 RemediationExecutionStepStateType = Literal["FAILED", "PENDING", "SUCCEEDED"]
@@ -230,6 +234,9 @@ ResourceTypeType = Literal[
     "AWS::CloudTrail::Trail",
     "AWS::CloudWatch::Alarm",
     "AWS::CodeBuild::Project",
+    "AWS::CodeDeploy::Application",
+    "AWS::CodeDeploy::DeploymentConfig",
+    "AWS::CodeDeploy::DeploymentGroup",
     "AWS::CodePipeline::Pipeline",
     "AWS::Config::ConformancePackCompliance",
     "AWS::Config::ResourceCompliance",
@@ -241,6 +248,7 @@ ResourceTypeType = Literal[
     "AWS::EC2::Host",
     "AWS::EC2::Instance",
     "AWS::EC2::InternetGateway",
+    "AWS::EC2::LaunchTemplate",
     "AWS::EC2::NatGateway",
     "AWS::EC2::NetworkAcl",
     "AWS::EC2::NetworkInterface",
@@ -248,6 +256,7 @@ ResourceTypeType = Literal[
     "AWS::EC2::RouteTable",
     "AWS::EC2::SecurityGroup",
     "AWS::EC2::Subnet",
+    "AWS::EC2::TransitGateway",
     "AWS::EC2::VPC",
     "AWS::EC2::VPCEndpoint",
     "AWS::EC2::VPCEndpointService",
@@ -255,6 +264,7 @@ ResourceTypeType = Literal[
     "AWS::EC2::VPNConnection",
     "AWS::EC2::VPNGateway",
     "AWS::EC2::Volume",
+    "AWS::ECR::PublicRepository",
     "AWS::ECR::Repository",
     "AWS::ECS::Cluster",
     "AWS::ECS::Service",
@@ -262,17 +272,21 @@ ResourceTypeType = Literal[
     "AWS::EFS::AccessPoint",
     "AWS::EFS::FileSystem",
     "AWS::EKS::Cluster",
+    "AWS::EMR::SecurityConfiguration",
     "AWS::ElasticBeanstalk::Application",
     "AWS::ElasticBeanstalk::ApplicationVersion",
     "AWS::ElasticBeanstalk::Environment",
     "AWS::ElasticLoadBalancing::LoadBalancer",
     "AWS::ElasticLoadBalancingV2::LoadBalancer",
     "AWS::Elasticsearch::Domain",
+    "AWS::GuardDuty::Detector",
     "AWS::IAM::Group",
     "AWS::IAM::Policy",
     "AWS::IAM::Role",
     "AWS::IAM::User",
     "AWS::KMS::Key",
+    "AWS::Kinesis::Stream",
+    "AWS::Kinesis::StreamConsumer",
     "AWS::Lambda::Function",
     "AWS::NetworkFirewall::Firewall",
     "AWS::NetworkFirewall::FirewallPolicy",
@@ -300,6 +314,7 @@ ResourceTypeType = Literal[
     "AWS::SSM::FileData",
     "AWS::SSM::ManagedInstanceInventory",
     "AWS::SSM::PatchCompliance",
+    "AWS::SageMaker::CodeRepository",
     "AWS::SecretsManager::Secret",
     "AWS::ServiceCatalog::CloudFormationProduct",
     "AWS::ServiceCatalog::CloudFormationProvisionedProduct",

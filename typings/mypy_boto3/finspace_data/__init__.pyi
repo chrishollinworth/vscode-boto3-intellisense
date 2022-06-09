@@ -11,6 +11,8 @@ Usage::
         ListChangesetsPaginator,
         ListDataViewsPaginator,
         ListDatasetsPaginator,
+        ListPermissionGroupsPaginator,
+        ListUsersPaginator,
     )
 
     session = boto3.Session()
@@ -21,10 +23,18 @@ Usage::
     list_changesets_paginator: ListChangesetsPaginator = client.get_paginator("list_changesets")
     list_data_views_paginator: ListDataViewsPaginator = client.get_paginator("list_data_views")
     list_datasets_paginator: ListDatasetsPaginator = client.get_paginator("list_datasets")
+    list_permission_groups_paginator: ListPermissionGroupsPaginator = client.get_paginator("list_permission_groups")
+    list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
 from .client import FinSpaceDataClient
-from .paginator import ListChangesetsPaginator, ListDatasetsPaginator, ListDataViewsPaginator
+from .paginator import (
+    ListChangesetsPaginator,
+    ListDatasetsPaginator,
+    ListDataViewsPaginator,
+    ListPermissionGroupsPaginator,
+    ListUsersPaginator,
+)
 
 Client = FinSpaceDataClient
 
@@ -34,4 +44,6 @@ __all__ = (
     "ListChangesetsPaginator",
     "ListDataViewsPaginator",
     "ListDatasetsPaginator",
+    "ListPermissionGroupsPaginator",
+    "ListUsersPaginator",
 )

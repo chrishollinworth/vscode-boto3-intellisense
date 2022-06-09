@@ -21,6 +21,7 @@ else:
 __all__ = (
     "DirectionalityType",
     "EncryptionKeyTypeType",
+    "FormalityType",
     "JobStatusType",
     "ListTerminologiesPaginatorName",
     "MergeStrategyType",
@@ -32,6 +33,7 @@ __all__ = (
 
 DirectionalityType = Literal["MULTI", "UNI"]
 EncryptionKeyTypeType = Literal["KMS"]
+FormalityType = Literal["FORMAL", "INFORMAL"]
 JobStatusType = Literal[
     "COMPLETED",
     "COMPLETED_WITH_ERROR",

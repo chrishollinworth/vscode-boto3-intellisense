@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AccessEndpointTypeType",
     "ActionType",
+    "AppVisibilityType",
     "ApplicationAttributeType",
     "AuthenticationTypeType",
     "DescribeDirectoryConfigsPaginatorName",
@@ -68,6 +69,7 @@ ActionType = Literal[
     "FILE_UPLOAD",
     "PRINTING_TO_LOCAL_DEVICE",
 ]
+AppVisibilityType = Literal["ALL", "ASSOCIATED"]
 ApplicationAttributeType = Literal["LAUNCH_PARAMETERS", "WORKING_DIRECTORY"]
 AuthenticationTypeType = Literal["API", "SAML", "USERPOOL"]
 DescribeDirectoryConfigsPaginatorName = Literal["describe_directory_configs"]
@@ -81,6 +83,7 @@ DescribeUsersPaginatorName = Literal["describe_users"]
 FleetAttributeType = Literal[
     "DOMAIN_JOIN_INFO",
     "IAM_ROLE_ARN",
+    "SESSION_SCRIPT_S3_LOCATION",
     "USB_DEVICE_FILTER_STRINGS",
     "VPC_CONFIGURATION",
     "VPC_CONFIGURATION_SECURITY_GROUP_IDS",

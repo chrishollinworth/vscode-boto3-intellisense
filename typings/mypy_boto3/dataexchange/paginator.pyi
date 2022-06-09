@@ -49,7 +49,7 @@ __all__ = (
 
 class ListDataSetRevisionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listdatasetrevisionspaginator)
     """
 
@@ -57,13 +57,13 @@ class ListDataSetRevisionsPaginator(Boto3Paginator):
         self, *, DataSetId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSetRevisionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listdatasetrevisionspaginator)
         """
 
 class ListDataSetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listdatasetspaginator)
     """
 
@@ -71,13 +71,13 @@ class ListDataSetsPaginator(Boto3Paginator):
         self, *, Origin: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listdatasetspaginator)
         """
 
 class ListEventActionsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListEventActions)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListEventActions)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listeventactionspaginator)
     """
 
@@ -85,13 +85,13 @@ class ListEventActionsPaginator(Boto3Paginator):
         self, *, EventSourceId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventActionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListEventActions.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListEventActions.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listeventactionspaginator)
         """
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listjobspaginator)
     """
 
@@ -103,13 +103,13 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listjobspaginator)
         """
 
 class ListRevisionAssetsPaginator(Boto3Paginator):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listrevisionassetspaginator)
     """
 
@@ -117,6 +117,6 @@ class ListRevisionAssetsPaginator(Boto3Paginator):
         self, *, DataSetId: str, RevisionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRevisionAssetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets.paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets.paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/paginators.html#listrevisionassetspaginator)
         """

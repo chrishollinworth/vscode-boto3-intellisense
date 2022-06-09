@@ -1,12 +1,4 @@
-#upgrade python
 sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
-# wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
-# tar -xf Python-3.9.7.tgz
-# cd Python-3.9.7
-# ./configure --enable-optimizations
-# make -j 4
-# sudo make altinstall
-# python3.9 --version
 
 sudo apt install -y python3-pip
 pip3 install virtualenv

@@ -13,6 +13,8 @@ Usage::
         DescribeRecoverySnapshotsPaginator,
         DescribeReplicationConfigurationTemplatesPaginator,
         DescribeSourceServersPaginator,
+        ListExtensibleSourceServersPaginator,
+        ListStagingAccountsPaginator,
         drsClient,
     )
 
@@ -27,6 +29,8 @@ Usage::
     describe_recovery_snapshots_paginator: DescribeRecoverySnapshotsPaginator = client.get_paginator("describe_recovery_snapshots")
     describe_replication_configuration_templates_paginator: DescribeReplicationConfigurationTemplatesPaginator = client.get_paginator("describe_replication_configuration_templates")
     describe_source_servers_paginator: DescribeSourceServersPaginator = client.get_paginator("describe_source_servers")
+    list_extensible_source_servers_paginator: ListExtensibleSourceServersPaginator = client.get_paginator("list_extensible_source_servers")
+    list_staging_accounts_paginator: ListStagingAccountsPaginator = client.get_paginator("list_staging_accounts")
     ```
 """
 from .client import drsClient
@@ -37,6 +41,8 @@ from .paginator import (
     DescribeRecoverySnapshotsPaginator,
     DescribeReplicationConfigurationTemplatesPaginator,
     DescribeSourceServersPaginator,
+    ListExtensibleSourceServersPaginator,
+    ListStagingAccountsPaginator,
 )
 
 Client = drsClient
@@ -49,5 +55,7 @@ __all__ = (
     "DescribeRecoverySnapshotsPaginator",
     "DescribeReplicationConfigurationTemplatesPaginator",
     "DescribeSourceServersPaginator",
+    "ListExtensibleSourceServersPaginator",
+    "ListStagingAccountsPaginator",
     "drsClient",
 )

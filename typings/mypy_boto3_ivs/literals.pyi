@@ -27,6 +27,7 @@ __all__ = (
     "ListStreamKeysPaginatorName",
     "ListStreamsPaginatorName",
     "RecordingConfigurationStateType",
+    "RecordingModeType",
     "StreamHealthType",
     "StreamStateType",
 )
@@ -39,5 +40,6 @@ ListRecordingConfigurationsPaginatorName = Literal["list_recording_configuration
 ListStreamKeysPaginatorName = Literal["list_stream_keys"]
 ListStreamsPaginatorName = Literal["list_streams"]
 RecordingConfigurationStateType = Literal["ACTIVE", "CREATE_FAILED", "CREATING"]
+RecordingModeType = Literal["DISABLED", "INTERVAL"]
 StreamHealthType = Literal["HEALTHY", "STARVING", "UNKNOWN"]
 StreamStateType = Literal["LIVE", "OFFLINE"]

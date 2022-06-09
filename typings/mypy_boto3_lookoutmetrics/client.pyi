@@ -16,12 +16,13 @@ from typing import Any, Dict, List, Type
 
 from botocore.client import BaseClient, ClientMeta
 
-from .literals import FrequencyType
+from .literals import FrequencyType, RelationshipTypeType
 from .type_defs import (
     ActionTypeDef,
     AnomalyDetectorConfigTypeDef,
     AnomalyGroupTimeSeriesFeedbackTypeDef,
     AnomalyGroupTimeSeriesTypeDef,
+    AutoDetectionMetricSourceTypeDef,
     CreateAlertResponseTypeDef,
     CreateAnomalyDetectorResponseTypeDef,
     CreateMetricSetResponseTypeDef,
@@ -29,11 +30,13 @@ from .type_defs import (
     DescribeAnomalyDetectionExecutionsResponseTypeDef,
     DescribeAnomalyDetectorResponseTypeDef,
     DescribeMetricSetResponseTypeDef,
+    DetectMetricSetConfigResponseTypeDef,
     GetAnomalyGroupResponseTypeDef,
     GetFeedbackResponseTypeDef,
     GetSampleDataResponseTypeDef,
     ListAlertsResponseTypeDef,
     ListAnomalyDetectorsResponseTypeDef,
+    ListAnomalyGroupRelatedMetricsResponseTypeDef,
     ListAnomalyGroupSummariesResponseTypeDef,
     ListAnomalyGroupTimeSeriesResponseTypeDef,
     ListMetricSetsResponseTypeDef,
@@ -50,6 +53,7 @@ __all__ = ("LookoutMetricsClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -66,11 +70,12 @@ class Exceptions:
 
 class LookoutMetricsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -80,21 +85,21 @@ class LookoutMetricsClient(BaseClient):
         """
         Activates an anomaly detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.activate_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.activate_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#activate_anomaly_detector)
         """
     def back_test_anomaly_detector(self, *, AnomalyDetectorArn: str) -> Dict[str, Any]:
         """
         Runs a backtest for anomaly detection for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.back_test_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.back_test_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#back_test_anomaly_detector)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#can_paginate)
         """
     def create_alert(
@@ -110,7 +115,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Creates an alert for an anomaly detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.create_alert)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.create_alert)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#create_alert)
         """
     def create_anomaly_detector(
@@ -125,7 +130,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Creates an anomaly detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.create_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.create_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#create_anomaly_detector)
         """
     def create_metric_set(
@@ -146,28 +151,35 @@ class LookoutMetricsClient(BaseClient):
         """
         Creates a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.create_metric_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.create_metric_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#create_metric_set)
+        """
+    def deactivate_anomaly_detector(self, *, AnomalyDetectorArn: str) -> Dict[str, Any]:
+        """
+        Deactivates an anomaly detector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.deactivate_anomaly_detector)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#deactivate_anomaly_detector)
         """
     def delete_alert(self, *, AlertArn: str) -> Dict[str, Any]:
         """
         Deletes an alert.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.delete_alert)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.delete_alert)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#delete_alert)
         """
     def delete_anomaly_detector(self, *, AnomalyDetectorArn: str) -> Dict[str, Any]:
         """
         Deletes a detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.delete_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.delete_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#delete_anomaly_detector)
         """
     def describe_alert(self, *, AlertArn: str) -> DescribeAlertResponseTypeDef:
         """
         Describes an alert.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_alert)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_alert)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#describe_alert)
         """
     def describe_anomaly_detection_executions(
@@ -181,7 +193,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Returns information about the status of the specified anomaly detection jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_anomaly_detection_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_anomaly_detection_executions)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#describe_anomaly_detection_executions)
         """
     def describe_anomaly_detector(
@@ -190,15 +202,27 @@ class LookoutMetricsClient(BaseClient):
         """
         Describes a detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#describe_anomaly_detector)
         """
     def describe_metric_set(self, *, MetricSetArn: str) -> DescribeMetricSetResponseTypeDef:
         """
         Describes a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_metric_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.describe_metric_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#describe_metric_set)
+        """
+    def detect_metric_set_config(
+        self,
+        *,
+        AnomalyDetectorArn: str,
+        AutoDetectionMetricSource: "AutoDetectionMetricSourceTypeDef"
+    ) -> DetectMetricSetConfigResponseTypeDef:
+        """
+        Detects an Amazon S3 dataset's file format, interval, and offset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.detect_metric_set_config)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#detect_metric_set_config)
         """
     def generate_presigned_url(
         self,
@@ -210,7 +234,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#generate_presigned_url)
         """
     def get_anomaly_group(
@@ -219,7 +243,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Returns details about a group of anomalous metrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.get_anomaly_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.get_anomaly_group)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#get_anomaly_group)
         """
     def get_feedback(
@@ -233,7 +257,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Get feedback for an anomaly group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.get_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.get_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#get_feedback)
         """
     def get_sample_data(
@@ -242,7 +266,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Returns a selection of sample records from an Amazon S3 datasource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.get_sample_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.get_sample_data)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#get_sample_data)
         """
     def list_alerts(
@@ -251,7 +275,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Lists the alerts attached to a detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_alerts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_alerts)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#list_alerts)
         """
     def list_anomaly_detectors(
@@ -260,8 +284,24 @@ class LookoutMetricsClient(BaseClient):
         """
         Lists the detectors in the current AWS Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_anomaly_detectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_anomaly_detectors)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#list_anomaly_detectors)
+        """
+    def list_anomaly_group_related_metrics(
+        self,
+        *,
+        AnomalyDetectorArn: str,
+        AnomalyGroupId: str,
+        RelationshipTypeFilter: RelationshipTypeType = None,
+        MaxResults: int = None,
+        NextToken: str = None
+    ) -> ListAnomalyGroupRelatedMetricsResponseTypeDef:
+        """
+        Returns a list of measures that are potential causes or effects of an anomaly
+        group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_anomaly_group_related_metrics)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#list_anomaly_group_related_metrics)
         """
     def list_anomaly_group_summaries(
         self,
@@ -274,7 +314,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Returns a list of anomaly groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_anomaly_group_summaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_anomaly_group_summaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#list_anomaly_group_summaries)
         """
     def list_anomaly_group_time_series(
@@ -289,7 +329,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Gets a list of anomalous metrics for a measure in an anomaly group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_anomaly_group_time_series)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_anomaly_group_time_series)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#list_anomaly_group_time_series)
         """
     def list_metric_sets(
@@ -298,7 +338,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Lists the datasets in the current AWS Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_metric_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_metric_sets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#list_metric_sets)
         """
     def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
@@ -307,7 +347,7 @@ class LookoutMetricsClient(BaseClient):
         <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html>`__
         for a detector, dataset, or alert.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.list_tags_for_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#list_tags_for_resource)
         """
     def put_feedback(
@@ -319,7 +359,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Add feedback for an anomalous metric.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.put_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.put_feedback)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#put_feedback)
         """
     def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
@@ -327,7 +367,7 @@ class LookoutMetricsClient(BaseClient):
         Adds `tags <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-
         tags.html>`__ to a detector, dataset, or alert.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.tag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#tag_resource)
         """
     def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
@@ -335,7 +375,7 @@ class LookoutMetricsClient(BaseClient):
         Removes `tags <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-
         tags.html>`__ from a detector, dataset, or alert.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.untag_resource)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#untag_resource)
         """
     def update_anomaly_detector(
@@ -349,7 +389,7 @@ class LookoutMetricsClient(BaseClient):
         """
         Updates a detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.update_anomaly_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.update_anomaly_detector)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#update_anomaly_detector)
         """
     def update_metric_set(
@@ -367,6 +407,6 @@ class LookoutMetricsClient(BaseClient):
         """
         Updates a dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/lookoutmetrics.html#LookoutMetrics.Client.update_metric_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/lookoutmetrics.html#LookoutMetrics.Client.update_metric_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/client.html#update_metric_set)
         """

@@ -35,6 +35,8 @@ __all__ = (
     "FilterNameType",
     "FindingReasonCodeType",
     "FindingType",
+    "InferredWorkloadTypeType",
+    "InferredWorkloadTypesPreferenceType",
     "InstanceRecommendationFindingReasonCodeType",
     "JobFilterNameType",
     "JobStatusType",
@@ -47,6 +49,7 @@ __all__ = (
     "LambdaFunctionRecommendationFindingType",
     "MetricNameType",
     "MetricStatisticType",
+    "MigrationEffortType",
     "PlatformDifferenceType",
     "RecommendationPreferenceNameType",
     "RecommendationSourceTypeType",
@@ -86,7 +89,9 @@ ExportableAutoScalingGroupFieldType = Literal[
     "CurrentVCpus",
     "EffectiveRecommendationPreferencesCpuVendorArchitectures",
     "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+    "EffectiveRecommendationPreferencesInferredWorkloadTypes",
     "Finding",
+    "InferredWorkloadTypes",
     "LastRefreshTimestamp",
     "LookbackPeriodInDays",
     "RecommendationOptionsConfigurationDesiredCapacity",
@@ -96,6 +101,7 @@ ExportableAutoScalingGroupFieldType = Literal[
     "RecommendationOptionsEstimatedMonthlySavingsCurrency",
     "RecommendationOptionsEstimatedMonthlySavingsValue",
     "RecommendationOptionsMemory",
+    "RecommendationOptionsMigrationEffort",
     "RecommendationOptionsNetwork",
     "RecommendationOptionsOnDemandPrice",
     "RecommendationOptionsPerformanceRisk",
@@ -134,8 +140,10 @@ ExportableInstanceFieldType = Literal[
     "CurrentVCpus",
     "EffectiveRecommendationPreferencesCpuVendorArchitectures",
     "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+    "EffectiveRecommendationPreferencesInferredWorkloadTypes",
     "Finding",
     "FindingReasonCodes",
+    "InferredWorkloadTypes",
     "InstanceArn",
     "InstanceName",
     "LastRefreshTimestamp",
@@ -144,6 +152,7 @@ ExportableInstanceFieldType = Literal[
     "RecommendationOptionsEstimatedMonthlySavingsValue",
     "RecommendationOptionsInstanceType",
     "RecommendationOptionsMemory",
+    "RecommendationOptionsMigrationEffort",
     "RecommendationOptionsNetwork",
     "RecommendationOptionsOnDemandPrice",
     "RecommendationOptionsPerformanceRisk",
@@ -234,6 +243,10 @@ FileFormatType = Literal["Csv"]
 FilterNameType = Literal["Finding", "FindingReasonCodes", "RecommendationSourceType"]
 FindingReasonCodeType = Literal["MemoryOverprovisioned", "MemoryUnderprovisioned"]
 FindingType = Literal["NotOptimized", "Optimized", "Overprovisioned", "Underprovisioned"]
+InferredWorkloadTypeType = Literal[
+    "AmazonEmr", "ApacheCassandra", "ApacheHadoop", "Memcached", "Nginx", "PostgreSql", "Redis"
+]
+InferredWorkloadTypesPreferenceType = Literal["Active", "Inactive"]
 InstanceRecommendationFindingReasonCodeType = Literal[
     "CPUOverprovisioned",
     "CPUUnderprovisioned",
@@ -280,6 +293,7 @@ MetricNameType = Literal[
     "NETWORK_PACKETS_OUT_PER_SECOND",
 ]
 MetricStatisticType = Literal["Average", "Maximum"]
+MigrationEffortType = Literal["High", "Low", "Medium", "VeryLow"]
 PlatformDifferenceType = Literal[
     "Architecture",
     "Hypervisor",
@@ -288,10 +302,12 @@ PlatformDifferenceType = Literal[
     "StorageInterface",
     "VirtualizationType",
 ]
-RecommendationPreferenceNameType = Literal["EnhancedInfrastructureMetrics"]
+RecommendationPreferenceNameType = Literal["EnhancedInfrastructureMetrics", "InferredWorkloadTypes"]
 RecommendationSourceTypeType = Literal[
     "AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction"
 ]
-ResourceTypeType = Literal["AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction"]
+ResourceTypeType = Literal[
+    "AutoScalingGroup", "EbsVolume", "Ec2Instance", "LambdaFunction", "NotApplicable"
+]
 ScopeNameType = Literal["AccountId", "Organization", "ResourceArn"]
 StatusType = Literal["Active", "Failed", "Inactive", "Pending"]

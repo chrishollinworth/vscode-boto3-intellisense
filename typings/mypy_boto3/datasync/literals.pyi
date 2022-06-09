@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AgentStatusType",
     "AtimeType",
+    "EfsInTransitEncryptionType",
     "EndpointTypeType",
     "FilterTypeType",
     "GidType",
@@ -37,6 +38,7 @@ __all__ = (
     "MtimeType",
     "NfsVersionType",
     "ObjectStorageServerProtocolType",
+    "ObjectTagsType",
     "OperatorType",
     "OverwriteModeType",
     "PhaseStatusType",
@@ -57,6 +59,7 @@ __all__ = (
 
 AgentStatusType = Literal["OFFLINE", "ONLINE"]
 AtimeType = Literal["BEST_EFFORT", "NONE"]
+EfsInTransitEncryptionType = Literal["NONE", "TLS1_2"]
 EndpointTypeType = Literal["FIPS", "PRIVATE_LINK", "PUBLIC"]
 FilterTypeType = Literal["SIMPLE_PATTERN"]
 GidType = Literal["BOTH", "INT_VALUE", "NAME", "NONE"]
@@ -73,6 +76,7 @@ LogLevelType = Literal["BASIC", "OFF", "TRANSFER"]
 MtimeType = Literal["NONE", "PRESERVE"]
 NfsVersionType = Literal["AUTOMATIC", "NFS3", "NFS4_0", "NFS4_1"]
 ObjectStorageServerProtocolType = Literal["HTTP", "HTTPS"]
+ObjectTagsType = Literal["NONE", "PRESERVE"]
 OperatorType = Literal[
     "BeginsWith",
     "Contains",

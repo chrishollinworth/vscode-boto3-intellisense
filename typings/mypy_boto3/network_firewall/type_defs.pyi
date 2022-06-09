@@ -12,17 +12,20 @@ Usage::
     ```
 """
 import sys
+from datetime import datetime
 from typing import Any, Dict, List
 
 from .literals import (
     AttachmentStatusType,
     ConfigurationSyncStateType,
+    EncryptionTypeType,
     FirewallStatusValueType,
     GeneratedRulesTypeType,
     LogDestinationTypeType,
     LogTypeType,
     PerObjectSyncStatusType,
     ResourceManagedStatusType,
+    ResourceManagedTypeType,
     ResourceStatusType,
     RuleGroupTypeType,
     RuleOrderType,
@@ -79,6 +82,7 @@ __all__ = (
     "DimensionTypeDef",
     "DisassociateSubnetsRequestRequestTypeDef",
     "DisassociateSubnetsResponseTypeDef",
+    "EncryptionConfigurationTypeDef",
     "FirewallMetadataTypeDef",
     "FirewallPolicyMetadataTypeDef",
     "FirewallPolicyResponseTypeDef",
@@ -113,6 +117,7 @@ __all__ = (
     "RuleVariablesTypeDef",
     "RulesSourceListTypeDef",
     "RulesSourceTypeDef",
+    "SourceMetadataTypeDef",
     "StatefulEngineOptionsTypeDef",
     "StatefulRuleGroupOverrideTypeDef",
     "StatefulRuleGroupReferenceTypeDef",
@@ -131,6 +136,8 @@ __all__ = (
     "UpdateFirewallDeleteProtectionResponseTypeDef",
     "UpdateFirewallDescriptionRequestRequestTypeDef",
     "UpdateFirewallDescriptionResponseTypeDef",
+    "UpdateFirewallEncryptionConfigurationRequestRequestTypeDef",
+    "UpdateFirewallEncryptionConfigurationResponseTypeDef",
     "UpdateFirewallPolicyChangeProtectionRequestRequestTypeDef",
     "UpdateFirewallPolicyChangeProtectionResponseTypeDef",
     "UpdateFirewallPolicyRequestRequestTypeDef",
@@ -246,6 +253,7 @@ _OptionalCreateFirewallPolicyRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Tags": List["TagTypeDef"],
         "DryRun": bool,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
     },
     total=False,
 )
@@ -282,6 +290,7 @@ _OptionalCreateFirewallRequestRequestTypeDef = TypedDict(
         "FirewallPolicyChangeProtection": bool,
         "Description": str,
         "Tags": List["TagTypeDef"],
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
     },
     total=False,
 )
@@ -316,6 +325,8 @@ _OptionalCreateRuleGroupRequestRequestTypeDef = TypedDict(
         "Description": str,
         "Tags": List["TagTypeDef"],
         "DryRun": bool,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "SourceMetadata": "SourceMetadataTypeDef",
     },
     total=False,
 )
@@ -492,6 +503,7 @@ DescribeRuleGroupMetadataResponseTypeDef = TypedDict(
         "Type": RuleGroupTypeType,
         "Capacity": int,
         "StatefulRuleOptions": "StatefulRuleOptionsTypeDef",
+        "LastModifiedTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -556,6 +568,25 @@ DisassociateSubnetsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredEncryptionConfigurationTypeDef = TypedDict(
+    "_RequiredEncryptionConfigurationTypeDef",
+    {
+        "Type": EncryptionTypeType,
+    },
+)
+_OptionalEncryptionConfigurationTypeDef = TypedDict(
+    "_OptionalEncryptionConfigurationTypeDef",
+    {
+        "KeyId": str,
+    },
+    total=False,
+)
+
+class EncryptionConfigurationTypeDef(
+    _RequiredEncryptionConfigurationTypeDef, _OptionalEncryptionConfigurationTypeDef
+):
+    pass
+
 FirewallMetadataTypeDef = TypedDict(
     "FirewallMetadataTypeDef",
     {
@@ -591,6 +622,8 @@ _OptionalFirewallPolicyResponseTypeDef = TypedDict(
         "ConsumedStatelessRuleCapacity": int,
         "ConsumedStatefulRuleCapacity": int,
         "NumberOfAssociations": int,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "LastModifiedTime": datetime,
     },
     total=False,
 )
@@ -659,6 +692,7 @@ _OptionalFirewallTypeDef = TypedDict(
         "FirewallPolicyChangeProtection": bool,
         "Description": str,
         "Tags": List["TagTypeDef"],
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
     },
     total=False,
 )
@@ -728,6 +762,8 @@ ListRuleGroupsRequestRequestTypeDef = TypedDict(
         "NextToken": str,
         "MaxResults": int,
         "Scope": ResourceManagedStatusType,
+        "ManagedType": ResourceManagedTypeType,
+        "Type": RuleGroupTypeType,
     },
     total=False,
 )
@@ -896,6 +932,10 @@ _OptionalRuleGroupResponseTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "ConsumedCapacity": int,
         "NumberOfAssociations": int,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "SourceMetadata": "SourceMetadataTypeDef",
+        "SnsTopic": str,
+        "LastModifiedTime": datetime,
     },
     total=False,
 )
@@ -965,6 +1005,15 @@ RulesSourceTypeDef = TypedDict(
         "RulesSourceList": "RulesSourceListTypeDef",
         "StatefulRules": List["StatefulRuleTypeDef"],
         "StatelessRulesAndCustomActions": "StatelessRulesAndCustomActionsTypeDef",
+    },
+    total=False,
+)
+
+SourceMetadataTypeDef = TypedDict(
+    "SourceMetadataTypeDef",
+    {
+        "SourceArn": str,
+        "SourceUpdateToken": str,
     },
     total=False,
 )
@@ -1169,6 +1218,28 @@ UpdateFirewallDescriptionResponseTypeDef = TypedDict(
     },
 )
 
+UpdateFirewallEncryptionConfigurationRequestRequestTypeDef = TypedDict(
+    "UpdateFirewallEncryptionConfigurationRequestRequestTypeDef",
+    {
+        "UpdateToken": str,
+        "FirewallArn": str,
+        "FirewallName": str,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+    },
+    total=False,
+)
+
+UpdateFirewallEncryptionConfigurationResponseTypeDef = TypedDict(
+    "UpdateFirewallEncryptionConfigurationResponseTypeDef",
+    {
+        "FirewallArn": str,
+        "FirewallName": str,
+        "UpdateToken": str,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef",
     {
@@ -1216,6 +1287,7 @@ _OptionalUpdateFirewallPolicyRequestRequestTypeDef = TypedDict(
         "FirewallPolicyName": str,
         "Description": str,
         "DryRun": bool,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
     },
     total=False,
 )
@@ -1271,6 +1343,8 @@ _OptionalUpdateRuleGroupRequestRequestTypeDef = TypedDict(
         "Type": RuleGroupTypeType,
         "Description": str,
         "DryRun": bool,
+        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
+        "SourceMetadata": "SourceMetadataTypeDef",
     },
     total=False,
 )

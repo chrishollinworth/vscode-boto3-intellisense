@@ -45,6 +45,7 @@ __all__ = ("SupportClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -63,11 +64,12 @@ class Exceptions:
 
 class SupportClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -79,7 +81,7 @@ class SupportClient(BaseClient):
         """
         Adds one or more attachments to an attachment set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.add_attachments_to_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.add_attachments_to_set)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#add_attachments_to_set)
         """
     def add_communication_to_case(
@@ -93,14 +95,14 @@ class SupportClient(BaseClient):
         """
         Adds additional customer communication to an Amazon Web Services Support case.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.add_communication_to_case)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.add_communication_to_case)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#add_communication_to_case)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#can_paginate)
         """
     def create_case(
@@ -119,14 +121,14 @@ class SupportClient(BaseClient):
         """
         Creates a case in the Amazon Web Services Support Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.create_case)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.create_case)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#create_case)
         """
     def describe_attachment(self, *, attachmentId: str) -> DescribeAttachmentResponseTypeDef:
         """
         Returns the attachment that has the specified ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_attachment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_attachment)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_attachment)
         """
     def describe_cases(
@@ -145,7 +147,7 @@ class SupportClient(BaseClient):
         """
         Returns a list of cases that you specify by passing one or more case IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_cases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_cases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_cases)
         """
     def describe_communications(
@@ -160,7 +162,7 @@ class SupportClient(BaseClient):
         """
         Returns communications and attachments for one or more support cases.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_communications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_communications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_communications)
         """
     def describe_services(
@@ -170,7 +172,7 @@ class SupportClient(BaseClient):
         Returns the current list of Amazon Web Services services and a list of service
         categories for each service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_services)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_services)
         """
     def describe_severity_levels(
@@ -179,7 +181,7 @@ class SupportClient(BaseClient):
         """
         Returns the list of severity levels that you can assign to a support case.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_severity_levels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_severity_levels)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_severity_levels)
         """
     def describe_trusted_advisor_check_refresh_statuses(
@@ -189,7 +191,7 @@ class SupportClient(BaseClient):
         Returns the refresh status of the Trusted Advisor checks that have the specified
         check IDs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_trusted_advisor_check_refresh_statuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_trusted_advisor_check_refresh_statuses)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_trusted_advisor_check_refresh_statuses)
         """
     def describe_trusted_advisor_check_result(
@@ -199,7 +201,7 @@ class SupportClient(BaseClient):
         Returns the results of the Trusted Advisor check that has the specified check
         ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_trusted_advisor_check_result)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_trusted_advisor_check_result)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_trusted_advisor_check_result)
         """
     def describe_trusted_advisor_check_summaries(
@@ -209,7 +211,7 @@ class SupportClient(BaseClient):
         Returns the results for the Trusted Advisor check summaries for the check IDs
         that you specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_trusted_advisor_check_summaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_trusted_advisor_check_summaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_trusted_advisor_check_summaries)
         """
     def describe_trusted_advisor_checks(
@@ -219,7 +221,7 @@ class SupportClient(BaseClient):
         Returns information about all available Trusted Advisor checks, including the
         name, ID, category, description, and metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.describe_trusted_advisor_checks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.describe_trusted_advisor_checks)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#describe_trusted_advisor_checks)
         """
     def generate_presigned_url(
@@ -232,7 +234,7 @@ class SupportClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#generate_presigned_url)
         """
     def refresh_trusted_advisor_check(
@@ -241,20 +243,20 @@ class SupportClient(BaseClient):
         """
         Refreshes the Trusted Advisor check that you specify using the check ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.refresh_trusted_advisor_check)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.refresh_trusted_advisor_check)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#refresh_trusted_advisor_check)
         """
     def resolve_case(self, *, caseId: str = None) -> ResolveCaseResponseTypeDef:
         """
         Resolves a support case.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Client.resolve_case)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Client.resolve_case)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/client.html#resolve_case)
         """
     @overload
     def get_paginator(self, operation_name: Literal["describe_cases"]) -> DescribeCasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Paginator.DescribeCases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Paginator.DescribeCases)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/paginators.html#describecasespaginator)
         """
     @overload
@@ -262,6 +264,6 @@ class SupportClient(BaseClient):
         self, operation_name: Literal["describe_communications"]
     ) -> DescribeCommunicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/support.html#Support.Paginator.DescribeCommunications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/support.html#Support.Paginator.DescribeCommunications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/paginators.html#describecommunicationspaginator)
         """

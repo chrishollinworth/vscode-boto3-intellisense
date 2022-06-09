@@ -147,6 +147,7 @@ CreateApplicationRequestRequestTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "AutoConfigEnabled": bool,
         "AutoCreate": bool,
+        "GroupingType": Literal["ACCOUNT_BASED"],
     },
     total=False,
 )

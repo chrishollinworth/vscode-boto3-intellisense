@@ -37,7 +37,10 @@ __all__ = (
     "DeleteHypervisorOutputTypeDef",
     "DisassociateGatewayFromServerInputRequestTypeDef",
     "DisassociateGatewayFromServerOutputTypeDef",
+    "GatewayDetailsTypeDef",
     "GatewayTypeDef",
+    "GetGatewayInputRequestTypeDef",
+    "GetGatewayOutputTypeDef",
     "HypervisorTypeDef",
     "ImportHypervisorConfigurationInputRequestTypeDef",
     "ImportHypervisorConfigurationOutputTypeDef",
@@ -61,6 +64,8 @@ __all__ = (
     "UntagResourceOutputTypeDef",
     "UpdateGatewayInformationInputRequestTypeDef",
     "UpdateGatewayInformationOutputTypeDef",
+    "UpdateGatewaySoftwareNowInputRequestTypeDef",
+    "UpdateGatewaySoftwareNowOutputTypeDef",
     "UpdateHypervisorInputRequestTypeDef",
     "UpdateHypervisorOutputTypeDef",
     "VirtualMachineTypeDef",
@@ -156,6 +161,20 @@ DisassociateGatewayFromServerOutputTypeDef = TypedDict(
     },
 )
 
+GatewayDetailsTypeDef = TypedDict(
+    "GatewayDetailsTypeDef",
+    {
+        "GatewayArn": str,
+        "GatewayDisplayName": str,
+        "GatewayType": Literal["BACKUP_VM"],
+        "HypervisorId": str,
+        "LastSeenTime": datetime,
+        "NextUpdateAvailabilityTime": datetime,
+        "VpcEndpoint": str,
+    },
+    total=False,
+)
+
 GatewayTypeDef = TypedDict(
     "GatewayTypeDef",
     {
@@ -166,6 +185,21 @@ GatewayTypeDef = TypedDict(
         "LastSeenTime": datetime,
     },
     total=False,
+)
+
+GetGatewayInputRequestTypeDef = TypedDict(
+    "GetGatewayInputRequestTypeDef",
+    {
+        "GatewayArn": str,
+    },
+)
+
+GetGatewayOutputTypeDef = TypedDict(
+    "GetGatewayOutputTypeDef",
+    {
+        "Gateway": "GatewayDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 HypervisorTypeDef = TypedDict(
@@ -424,6 +458,21 @@ UpdateGatewayInformationOutputTypeDef = TypedDict(
     },
 )
 
+UpdateGatewaySoftwareNowInputRequestTypeDef = TypedDict(
+    "UpdateGatewaySoftwareNowInputRequestTypeDef",
+    {
+        "GatewayArn": str,
+    },
+)
+
+UpdateGatewaySoftwareNowOutputTypeDef = TypedDict(
+    "UpdateGatewaySoftwareNowOutputTypeDef",
+    {
+        "GatewayArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredUpdateHypervisorInputRequestTypeDef = TypedDict(
     "_RequiredUpdateHypervisorInputRequestTypeDef",
     {
@@ -434,6 +483,7 @@ _OptionalUpdateHypervisorInputRequestTypeDef = TypedDict(
     "_OptionalUpdateHypervisorInputRequestTypeDef",
     {
         "Host": str,
+        "Name": str,
         "Password": str,
         "Username": str,
     },

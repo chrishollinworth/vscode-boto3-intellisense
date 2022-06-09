@@ -41,6 +41,7 @@ from .literals import (
     QualityFilterType,
     ReasonType,
     SegmentTypeType,
+    StreamProcessorParameterToDeleteType,
     StreamProcessorStatusType,
     TechnicalCueTypeType,
     TextTypesType,
@@ -68,6 +69,8 @@ __all__ = (
     "CompareFacesResponseTypeDef",
     "ComparedFaceTypeDef",
     "ComparedSourceImageFaceTypeDef",
+    "ConnectedHomeSettingsForUpdateTypeDef",
+    "ConnectedHomeSettingsTypeDef",
     "ContentModerationDetectionTypeDef",
     "CoversBodyPartTypeDef",
     "CreateCollectionRequestRequestTypeDef",
@@ -165,6 +168,7 @@ __all__ = (
     "IndexFacesResponseTypeDef",
     "InstanceTypeDef",
     "KinesisDataStreamTypeDef",
+    "KinesisVideoStreamStartSelectorTypeDef",
     "KinesisVideoStreamTypeDef",
     "KnownGenderTypeDef",
     "LabelDetectionTypeDef",
@@ -204,6 +208,7 @@ __all__ = (
     "RecognizeCelebritiesResponseTypeDef",
     "RegionOfInterestTypeDef",
     "ResponseMetadataTypeDef",
+    "S3DestinationTypeDef",
     "S3ObjectTypeDef",
     "SearchFacesByImageRequestRequestTypeDef",
     "SearchFacesByImageResponseTypeDef",
@@ -232,6 +237,7 @@ __all__ = (
     "StartSegmentDetectionResponseTypeDef",
     "StartShotDetectionFilterTypeDef",
     "StartStreamProcessorRequestRequestTypeDef",
+    "StartStreamProcessorResponseTypeDef",
     "StartTechnicalCueDetectionFilterTypeDef",
     "StartTextDetectionFiltersTypeDef",
     "StartTextDetectionRequestRequestTypeDef",
@@ -239,8 +245,13 @@ __all__ = (
     "StopProjectVersionRequestRequestTypeDef",
     "StopProjectVersionResponseTypeDef",
     "StopStreamProcessorRequestRequestTypeDef",
+    "StreamProcessingStartSelectorTypeDef",
+    "StreamProcessingStopSelectorTypeDef",
+    "StreamProcessorDataSharingPreferenceTypeDef",
     "StreamProcessorInputTypeDef",
+    "StreamProcessorNotificationChannelTypeDef",
     "StreamProcessorOutputTypeDef",
+    "StreamProcessorSettingsForUpdateTypeDef",
     "StreamProcessorSettingsTypeDef",
     "StreamProcessorTypeDef",
     "SummaryTypeDef",
@@ -256,6 +267,7 @@ __all__ = (
     "UnindexedFaceTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDatasetEntriesRequestRequestTypeDef",
+    "UpdateStreamProcessorRequestRequestTypeDef",
     "ValidationDataTypeDef",
     "VideoMetadataTypeDef",
     "VideoTypeDef",
@@ -420,6 +432,34 @@ ComparedSourceImageFaceTypeDef = TypedDict(
     total=False,
 )
 
+ConnectedHomeSettingsForUpdateTypeDef = TypedDict(
+    "ConnectedHomeSettingsForUpdateTypeDef",
+    {
+        "Labels": List[str],
+        "MinConfidence": float,
+    },
+    total=False,
+)
+
+_RequiredConnectedHomeSettingsTypeDef = TypedDict(
+    "_RequiredConnectedHomeSettingsTypeDef",
+    {
+        "Labels": List[str],
+    },
+)
+_OptionalConnectedHomeSettingsTypeDef = TypedDict(
+    "_OptionalConnectedHomeSettingsTypeDef",
+    {
+        "MinConfidence": float,
+    },
+    total=False,
+)
+
+class ConnectedHomeSettingsTypeDef(
+    _RequiredConnectedHomeSettingsTypeDef, _OptionalConnectedHomeSettingsTypeDef
+):
+    pass
+
 ContentModerationDetectionTypeDef = TypedDict(
     "ContentModerationDetectionTypeDef",
     {
@@ -557,6 +597,10 @@ _OptionalCreateStreamProcessorRequestRequestTypeDef = TypedDict(
     "_OptionalCreateStreamProcessorRequestRequestTypeDef",
     {
         "Tags": Dict[str, str],
+        "NotificationChannel": "StreamProcessorNotificationChannelTypeDef",
+        "KmsKeyId": str,
+        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
+        "DataSharingPreference": "StreamProcessorDataSharingPreferenceTypeDef",
     },
     total=False,
 )
@@ -834,6 +878,10 @@ DescribeStreamProcessorResponseTypeDef = TypedDict(
         "Output": "StreamProcessorOutputTypeDef",
         "RoleArn": str,
         "Settings": "StreamProcessorSettingsTypeDef",
+        "NotificationChannel": "StreamProcessorNotificationChannelTypeDef",
+        "KmsKeyId": str,
+        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
+        "DataSharingPreference": "StreamProcessorDataSharingPreferenceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1161,6 +1209,7 @@ FaceTypeDef = TypedDict(
         "ImageId": str,
         "ExternalImageId": str,
         "Confidence": float,
+        "IndexFacesModelVersion": str,
     },
     total=False,
 )
@@ -1582,6 +1631,15 @@ KinesisDataStreamTypeDef = TypedDict(
     total=False,
 )
 
+KinesisVideoStreamStartSelectorTypeDef = TypedDict(
+    "KinesisVideoStreamStartSelectorTypeDef",
+    {
+        "ProducerTimestamp": int,
+        "FragmentNumber": str,
+    },
+    total=False,
+)
+
 KinesisVideoStreamTypeDef = TypedDict(
     "KinesisVideoStreamTypeDef",
     {
@@ -1975,6 +2033,7 @@ RegionOfInterestTypeDef = TypedDict(
     "RegionOfInterestTypeDef",
     {
         "BoundingBox": "BoundingBoxTypeDef",
+        "Polygon": List["PointTypeDef"],
     },
     total=False,
 )
@@ -1988,6 +2047,15 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+S3DestinationTypeDef = TypedDict(
+    "S3DestinationTypeDef",
+    {
+        "Bucket": str,
+        "KeyPrefix": str,
+    },
+    total=False,
 )
 
 S3ObjectTypeDef = TypedDict(
@@ -2360,10 +2428,32 @@ StartShotDetectionFilterTypeDef = TypedDict(
     total=False,
 )
 
-StartStreamProcessorRequestRequestTypeDef = TypedDict(
-    "StartStreamProcessorRequestRequestTypeDef",
+_RequiredStartStreamProcessorRequestRequestTypeDef = TypedDict(
+    "_RequiredStartStreamProcessorRequestRequestTypeDef",
     {
         "Name": str,
+    },
+)
+_OptionalStartStreamProcessorRequestRequestTypeDef = TypedDict(
+    "_OptionalStartStreamProcessorRequestRequestTypeDef",
+    {
+        "StartSelector": "StreamProcessingStartSelectorTypeDef",
+        "StopSelector": "StreamProcessingStopSelectorTypeDef",
+    },
+    total=False,
+)
+
+class StartStreamProcessorRequestRequestTypeDef(
+    _RequiredStartStreamProcessorRequestRequestTypeDef,
+    _OptionalStartStreamProcessorRequestRequestTypeDef,
+):
+    pass
+
+StartStreamProcessorResponseTypeDef = TypedDict(
+    "StartStreamProcessorResponseTypeDef",
+    {
+        "SessionId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -2438,6 +2528,29 @@ StopStreamProcessorRequestRequestTypeDef = TypedDict(
     },
 )
 
+StreamProcessingStartSelectorTypeDef = TypedDict(
+    "StreamProcessingStartSelectorTypeDef",
+    {
+        "KVSStreamStartSelector": "KinesisVideoStreamStartSelectorTypeDef",
+    },
+    total=False,
+)
+
+StreamProcessingStopSelectorTypeDef = TypedDict(
+    "StreamProcessingStopSelectorTypeDef",
+    {
+        "MaxDurationInSeconds": int,
+    },
+    total=False,
+)
+
+StreamProcessorDataSharingPreferenceTypeDef = TypedDict(
+    "StreamProcessorDataSharingPreferenceTypeDef",
+    {
+        "OptIn": bool,
+    },
+)
+
 StreamProcessorInputTypeDef = TypedDict(
     "StreamProcessorInputTypeDef",
     {
@@ -2446,10 +2559,26 @@ StreamProcessorInputTypeDef = TypedDict(
     total=False,
 )
 
+StreamProcessorNotificationChannelTypeDef = TypedDict(
+    "StreamProcessorNotificationChannelTypeDef",
+    {
+        "SNSTopicArn": str,
+    },
+)
+
 StreamProcessorOutputTypeDef = TypedDict(
     "StreamProcessorOutputTypeDef",
     {
         "KinesisDataStream": "KinesisDataStreamTypeDef",
+        "S3Destination": "S3DestinationTypeDef",
+    },
+    total=False,
+)
+
+StreamProcessorSettingsForUpdateTypeDef = TypedDict(
+    "StreamProcessorSettingsForUpdateTypeDef",
+    {
+        "ConnectedHomeForUpdate": "ConnectedHomeSettingsForUpdateTypeDef",
     },
     total=False,
 )
@@ -2458,6 +2587,7 @@ StreamProcessorSettingsTypeDef = TypedDict(
     "StreamProcessorSettingsTypeDef",
     {
         "FaceSearch": "FaceSearchSettingsTypeDef",
+        "ConnectedHome": "ConnectedHomeSettingsTypeDef",
     },
     total=False,
 )
@@ -2588,6 +2718,29 @@ UpdateDatasetEntriesRequestRequestTypeDef = TypedDict(
         "Changes": "DatasetChangesTypeDef",
     },
 )
+
+_RequiredUpdateStreamProcessorRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateStreamProcessorRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalUpdateStreamProcessorRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateStreamProcessorRequestRequestTypeDef",
+    {
+        "SettingsForUpdate": "StreamProcessorSettingsForUpdateTypeDef",
+        "RegionsOfInterestForUpdate": List["RegionOfInterestTypeDef"],
+        "DataSharingPreferenceForUpdate": "StreamProcessorDataSharingPreferenceTypeDef",
+        "ParametersToDelete": List[StreamProcessorParameterToDeleteType],
+    },
+    total=False,
+)
+
+class UpdateStreamProcessorRequestRequestTypeDef(
+    _RequiredUpdateStreamProcessorRequestRequestTypeDef,
+    _OptionalUpdateStreamProcessorRequestRequestTypeDef,
+):
+    pass
 
 ValidationDataTypeDef = TypedDict(
     "ValidationDataTypeDef",

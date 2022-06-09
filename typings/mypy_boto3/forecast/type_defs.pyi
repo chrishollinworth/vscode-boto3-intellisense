@@ -19,9 +19,11 @@ from .literals import (
     AttributeTypeType,
     AutoMLOverrideStrategyType,
     DatasetTypeType,
+    DayOfWeekType,
     DomainType,
     EvaluationTypeType,
     FilterConditionStringType,
+    MonthType,
     OptimizationMetricType,
     ScalingTypeType,
     StateType,
@@ -41,6 +43,8 @@ else:
 __all__ = (
     "AdditionalDatasetTypeDef",
     "AttributeConfigTypeDef",
+    "BaselineMetricTypeDef",
+    "BaselineTypeDef",
     "CategoricalParameterRangeTypeDef",
     "ContinuousParameterRangeTypeDef",
     "CreateAutoPredictorRequestRequestTypeDef",
@@ -59,6 +63,8 @@ __all__ = (
     "CreateForecastExportJobResponseTypeDef",
     "CreateForecastRequestRequestTypeDef",
     "CreateForecastResponseTypeDef",
+    "CreateMonitorRequestRequestTypeDef",
+    "CreateMonitorResponseTypeDef",
     "CreatePredictorBacktestExportJobRequestRequestTypeDef",
     "CreatePredictorBacktestExportJobResponseTypeDef",
     "CreatePredictorRequestRequestTypeDef",
@@ -76,6 +82,7 @@ __all__ = (
     "DeleteExplainabilityRequestRequestTypeDef",
     "DeleteForecastExportJobRequestRequestTypeDef",
     "DeleteForecastRequestRequestTypeDef",
+    "DeleteMonitorRequestRequestTypeDef",
     "DeletePredictorBacktestExportJobRequestRequestTypeDef",
     "DeletePredictorRequestRequestTypeDef",
     "DeleteResourceTreeRequestRequestTypeDef",
@@ -95,6 +102,8 @@ __all__ = (
     "DescribeForecastExportJobResponseTypeDef",
     "DescribeForecastRequestRequestTypeDef",
     "DescribeForecastResponseTypeDef",
+    "DescribeMonitorRequestRequestTypeDef",
+    "DescribeMonitorResponseTypeDef",
     "DescribePredictorBacktestExportJobRequestRequestTypeDef",
     "DescribePredictorBacktestExportJobResponseTypeDef",
     "DescribePredictorRequestRequestTypeDef",
@@ -132,21 +141,34 @@ __all__ = (
     "ListForecastExportJobsResponseTypeDef",
     "ListForecastsRequestRequestTypeDef",
     "ListForecastsResponseTypeDef",
+    "ListMonitorEvaluationsRequestRequestTypeDef",
+    "ListMonitorEvaluationsResponseTypeDef",
+    "ListMonitorsRequestRequestTypeDef",
+    "ListMonitorsResponseTypeDef",
     "ListPredictorBacktestExportJobsRequestRequestTypeDef",
     "ListPredictorBacktestExportJobsResponseTypeDef",
     "ListPredictorsRequestRequestTypeDef",
     "ListPredictorsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MetricResultTypeDef",
     "MetricsTypeDef",
+    "MonitorConfigTypeDef",
+    "MonitorDataSourceTypeDef",
+    "MonitorInfoTypeDef",
+    "MonitorSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterRangesTypeDef",
     "PredictorBacktestExportJobSummaryTypeDef",
+    "PredictorBaselineTypeDef",
+    "PredictorEventTypeDef",
     "PredictorExecutionDetailsTypeDef",
     "PredictorExecutionTypeDef",
+    "PredictorMonitorEvaluationTypeDef",
     "PredictorSummaryTypeDef",
     "ReferencePredictorSummaryTypeDef",
     "ResponseMetadataTypeDef",
+    "ResumeResourceRequestRequestTypeDef",
     "S3ConfigTypeDef",
     "SchemaAttributeTypeDef",
     "SchemaTypeDef",
@@ -156,6 +178,9 @@ __all__ = (
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
     "TestWindowSummaryTypeDef",
+    "TimeAlignmentBoundaryTypeDef",
+    "TimeSeriesIdentifiersTypeDef",
+    "TimeSeriesSelectorTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateDatasetGroupRequestRequestTypeDef",
     "WeightedQuantileLossTypeDef",
@@ -187,6 +212,23 @@ AttributeConfigTypeDef = TypedDict(
         "AttributeName": str,
         "Transformations": Dict[str, str],
     },
+)
+
+BaselineMetricTypeDef = TypedDict(
+    "BaselineMetricTypeDef",
+    {
+        "Name": str,
+        "Value": float,
+    },
+    total=False,
+)
+
+BaselineTypeDef = TypedDict(
+    "BaselineTypeDef",
+    {
+        "PredictorBaseline": "PredictorBaselineTypeDef",
+    },
+    total=False,
 )
 
 CategoricalParameterRangeTypeDef = TypedDict(
@@ -237,6 +279,8 @@ _OptionalCreateAutoPredictorRequestRequestTypeDef = TypedDict(
         "OptimizationMetric": OptimizationMetricType,
         "ExplainPredictor": bool,
         "Tags": List["TagTypeDef"],
+        "MonitorConfig": "MonitorConfigTypeDef",
+        "TimeAlignmentBoundary": "TimeAlignmentBoundaryTypeDef",
     },
     total=False,
 )
@@ -301,6 +345,7 @@ _OptionalCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
         "UseGeolocationForTimeZone": bool,
         "GeolocationFormat": str,
         "Tags": List["TagTypeDef"],
+        "Format": str,
     },
     total=False,
 )
@@ -363,6 +408,7 @@ _OptionalCreateExplainabilityExportRequestRequestTypeDef = TypedDict(
     "_OptionalCreateExplainabilityExportRequestRequestTypeDef",
     {
         "Tags": List["TagTypeDef"],
+        "Format": str,
     },
     total=False,
 )
@@ -428,6 +474,7 @@ _OptionalCreateForecastExportJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateForecastExportJobRequestRequestTypeDef",
     {
         "Tags": List["TagTypeDef"],
+        "Format": str,
     },
     total=False,
 )
@@ -458,6 +505,7 @@ _OptionalCreateForecastRequestRequestTypeDef = TypedDict(
     {
         "ForecastTypes": List[str],
         "Tags": List["TagTypeDef"],
+        "TimeSeriesSelector": "TimeSeriesSelectorTypeDef",
     },
     total=False,
 )
@@ -475,6 +523,34 @@ CreateForecastResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateMonitorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateMonitorRequestRequestTypeDef",
+    {
+        "MonitorName": str,
+        "ResourceArn": str,
+    },
+)
+_OptionalCreateMonitorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateMonitorRequestRequestTypeDef",
+    {
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateMonitorRequestRequestTypeDef(
+    _RequiredCreateMonitorRequestRequestTypeDef, _OptionalCreateMonitorRequestRequestTypeDef
+):
+    pass
+
+CreateMonitorResponseTypeDef = TypedDict(
+    "CreateMonitorResponseTypeDef",
+    {
+        "MonitorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreatePredictorBacktestExportJobRequestRequestTypeDef = TypedDict(
     "_RequiredCreatePredictorBacktestExportJobRequestRequestTypeDef",
     {
@@ -487,6 +563,7 @@ _OptionalCreatePredictorBacktestExportJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreatePredictorBacktestExportJobRequestRequestTypeDef",
     {
         "Tags": List["TagTypeDef"],
+        "Format": str,
     },
     total=False,
 )
@@ -664,6 +741,13 @@ DeleteForecastRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteMonitorRequestRequestTypeDef = TypedDict(
+    "DeleteMonitorRequestRequestTypeDef",
+    {
+        "MonitorArn": str,
+    },
+)
+
 DeletePredictorBacktestExportJobRequestRequestTypeDef = TypedDict(
     "DeletePredictorBacktestExportJobRequestRequestTypeDef",
     {
@@ -700,6 +784,7 @@ DescribeAutoPredictorResponseTypeDef = TypedDict(
         "ForecastHorizon": int,
         "ForecastTypes": List[str],
         "ForecastFrequency": str,
+        "ForecastDimensions": List[str],
         "DatasetImportJobArns": List[str],
         "DataConfig": "DataConfigTypeDef",
         "EncryptionConfig": "EncryptionConfigTypeDef",
@@ -711,6 +796,8 @@ DescribeAutoPredictorResponseTypeDef = TypedDict(
         "LastModificationTime": datetime,
         "OptimizationMetric": OptimizationMetricType,
         "ExplainabilityInfo": "ExplainabilityInfoTypeDef",
+        "MonitorInfo": "MonitorInfoTypeDef",
+        "TimeAlignmentBoundary": "TimeAlignmentBoundaryTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -761,6 +848,7 @@ DescribeDatasetImportJobResponseTypeDef = TypedDict(
         "Message": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+        "Format": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -807,6 +895,7 @@ DescribeExplainabilityExportResponseTypeDef = TypedDict(
         "Status": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+        "Format": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -857,6 +946,7 @@ DescribeForecastExportJobResponseTypeDef = TypedDict(
         "Status": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+        "Format": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -881,6 +971,32 @@ DescribeForecastResponseTypeDef = TypedDict(
         "Message": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+        "TimeSeriesSelector": "TimeSeriesSelectorTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeMonitorRequestRequestTypeDef = TypedDict(
+    "DescribeMonitorRequestRequestTypeDef",
+    {
+        "MonitorArn": str,
+    },
+)
+
+DescribeMonitorResponseTypeDef = TypedDict(
+    "DescribeMonitorResponseTypeDef",
+    {
+        "MonitorName": str,
+        "MonitorArn": str,
+        "ResourceArn": str,
+        "Status": str,
+        "LastEvaluationTime": datetime,
+        "LastEvaluationState": str,
+        "Baseline": "BaselineTypeDef",
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+        "EstimatedEvaluationTimeRemainingInMinutes": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -903,6 +1019,7 @@ DescribePredictorBacktestExportJobResponseTypeDef = TypedDict(
         "Status": str,
         "CreationTime": datetime,
         "LastModificationTime": datetime,
+        "Format": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1319,6 +1436,56 @@ ListForecastsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListMonitorEvaluationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListMonitorEvaluationsRequestRequestTypeDef",
+    {
+        "MonitorArn": str,
+    },
+)
+_OptionalListMonitorEvaluationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListMonitorEvaluationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+class ListMonitorEvaluationsRequestRequestTypeDef(
+    _RequiredListMonitorEvaluationsRequestRequestTypeDef,
+    _OptionalListMonitorEvaluationsRequestRequestTypeDef,
+):
+    pass
+
+ListMonitorEvaluationsResponseTypeDef = TypedDict(
+    "ListMonitorEvaluationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "PredictorMonitorEvaluations": List["PredictorMonitorEvaluationTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListMonitorsRequestRequestTypeDef = TypedDict(
+    "ListMonitorsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Filters": List["FilterTypeDef"],
+    },
+    total=False,
+)
+
+ListMonitorsResponseTypeDef = TypedDict(
+    "ListMonitorsResponseTypeDef",
+    {
+        "Monitors": List["MonitorSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListPredictorBacktestExportJobsRequestRequestTypeDef = TypedDict(
     "ListPredictorBacktestExportJobsRequestRequestTypeDef",
     {
@@ -1372,6 +1539,15 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+MetricResultTypeDef = TypedDict(
+    "MetricResultTypeDef",
+    {
+        "MetricName": str,
+        "MetricValue": float,
+    },
+    total=False,
+)
+
 MetricsTypeDef = TypedDict(
     "MetricsTypeDef",
     {
@@ -1379,6 +1555,45 @@ MetricsTypeDef = TypedDict(
         "WeightedQuantileLosses": List["WeightedQuantileLossTypeDef"],
         "ErrorMetrics": List["ErrorMetricTypeDef"],
         "AverageWeightedQuantileLoss": float,
+    },
+    total=False,
+)
+
+MonitorConfigTypeDef = TypedDict(
+    "MonitorConfigTypeDef",
+    {
+        "MonitorName": str,
+    },
+)
+
+MonitorDataSourceTypeDef = TypedDict(
+    "MonitorDataSourceTypeDef",
+    {
+        "DatasetImportJobArn": str,
+        "ForecastArn": str,
+        "PredictorArn": str,
+    },
+    total=False,
+)
+
+MonitorInfoTypeDef = TypedDict(
+    "MonitorInfoTypeDef",
+    {
+        "MonitorArn": str,
+        "Status": str,
+    },
+    total=False,
+)
+
+MonitorSummaryTypeDef = TypedDict(
+    "MonitorSummaryTypeDef",
+    {
+        "MonitorArn": str,
+        "MonitorName": str,
+        "ResourceArn": str,
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
     },
     total=False,
 )
@@ -1417,6 +1632,23 @@ PredictorBacktestExportJobSummaryTypeDef = TypedDict(
     total=False,
 )
 
+PredictorBaselineTypeDef = TypedDict(
+    "PredictorBaselineTypeDef",
+    {
+        "BaselineMetrics": List["BaselineMetricTypeDef"],
+    },
+    total=False,
+)
+
+PredictorEventTypeDef = TypedDict(
+    "PredictorEventTypeDef",
+    {
+        "Detail": str,
+        "Datetime": datetime,
+    },
+    total=False,
+)
+
 PredictorExecutionDetailsTypeDef = TypedDict(
     "PredictorExecutionDetailsTypeDef",
     {
@@ -1430,6 +1662,24 @@ PredictorExecutionTypeDef = TypedDict(
     {
         "AlgorithmArn": str,
         "TestWindows": List["TestWindowSummaryTypeDef"],
+    },
+    total=False,
+)
+
+PredictorMonitorEvaluationTypeDef = TypedDict(
+    "PredictorMonitorEvaluationTypeDef",
+    {
+        "ResourceArn": str,
+        "MonitorArn": str,
+        "EvaluationTime": datetime,
+        "EvaluationState": str,
+        "WindowStartDatetime": datetime,
+        "WindowEndDatetime": datetime,
+        "PredictorEvent": "PredictorEventTypeDef",
+        "MonitorDataSource": "MonitorDataSourceTypeDef",
+        "MetricResults": List["MetricResultTypeDef"],
+        "NumItemsEvaluated": int,
+        "Message": str,
     },
     total=False,
 )
@@ -1467,6 +1717,13 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPStatusCode": int,
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
+    },
+)
+
+ResumeResourceRequestRequestTypeDef = TypedDict(
+    "ResumeResourceRequestRequestTypeDef",
+    {
+        "ResourceArn": str,
     },
 )
 
@@ -1562,6 +1819,35 @@ TestWindowSummaryTypeDef = TypedDict(
         "TestWindowEnd": datetime,
         "Status": str,
         "Message": str,
+    },
+    total=False,
+)
+
+TimeAlignmentBoundaryTypeDef = TypedDict(
+    "TimeAlignmentBoundaryTypeDef",
+    {
+        "Month": MonthType,
+        "DayOfMonth": int,
+        "DayOfWeek": DayOfWeekType,
+        "Hour": int,
+    },
+    total=False,
+)
+
+TimeSeriesIdentifiersTypeDef = TypedDict(
+    "TimeSeriesIdentifiersTypeDef",
+    {
+        "DataSource": "DataSourceTypeDef",
+        "Schema": "SchemaTypeDef",
+        "Format": str,
+    },
+    total=False,
+)
+
+TimeSeriesSelectorTypeDef = TypedDict(
+    "TimeSeriesSelectorTypeDef",
+    {
+        "TimeSeriesIdentifiers": "TimeSeriesIdentifiersTypeDef",
     },
     total=False,
 )

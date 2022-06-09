@@ -20,6 +20,7 @@ else:
 
 __all__ = (
     "AdminStatusType",
+    "AutoEnableStandardsType",
     "AwsIamAccessKeyStatusType",
     "AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType",
     "ComplianceStatusType",
@@ -48,6 +49,7 @@ __all__ = (
     "SeverityRatingType",
     "SortOrderType",
     "StandardsStatusType",
+    "StatusReasonCodeType",
     "StringFilterComparisonType",
     "ThreatIntelIndicatorCategoryType",
     "ThreatIntelIndicatorTypeType",
@@ -57,6 +59,7 @@ __all__ = (
 )
 
 AdminStatusType = Literal["DISABLE_IN_PROGRESS", "ENABLED"]
+AutoEnableStandardsType = Literal["DEFAULT", "NONE"]
 AwsIamAccessKeyStatusType = Literal["Active", "Inactive"]
 AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType = Literal["Prefix", "Suffix"]
 ComplianceStatusType = Literal["FAILED", "NOT_AVAILABLE", "PASSED", "WARNING"]
@@ -105,6 +108,7 @@ SeverityLabelType = Literal["CRITICAL", "HIGH", "INFORMATIONAL", "LOW", "MEDIUM"
 SeverityRatingType = Literal["CRITICAL", "HIGH", "LOW", "MEDIUM"]
 SortOrderType = Literal["asc", "desc"]
 StandardsStatusType = Literal["DELETING", "FAILED", "INCOMPLETE", "PENDING", "READY"]
+StatusReasonCodeType = Literal["INTERNAL_ERROR", "NO_AVAILABLE_CONFIGURATION_RECORDER"]
 StringFilterComparisonType = Literal["EQUALS", "NOT_EQUALS", "PREFIX", "PREFIX_NOT_EQUALS"]
 ThreatIntelIndicatorCategoryType = Literal[
     "BACKDOOR", "CARD_STEALER", "COMMAND_AND_CONTROL", "DROP_SITE", "EXPLOIT_SITE", "KEYLOGGER"

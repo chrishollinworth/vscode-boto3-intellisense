@@ -902,6 +902,7 @@ _OptionalApplicationResponseTypeDef = TypedDict(
     "_OptionalApplicationResponseTypeDef",
     {
         "tags": Dict[str, str],
+        "CreationDate": str,
     },
     total=False,
 )
@@ -5895,6 +5896,7 @@ _OptionalWriteJourneyRequestTypeDef = TypedDict(
         "State": StateType,
         "WaitForQuietTime": bool,
         "RefreshOnSegmentUpdate": bool,
+        "JourneyChannelSettings": "JourneyChannelSettingsTypeDef",
     },
     total=False,
 )

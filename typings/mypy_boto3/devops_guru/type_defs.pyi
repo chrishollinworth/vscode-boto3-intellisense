@@ -25,6 +25,7 @@ from .literals import (
     CostEstimationStatusType,
     EventClassType,
     EventDataSourceType,
+    EventSourceOptInStatusType,
     InsightFeedbackOptionType,
     InsightSeverityType,
     InsightStatusType,
@@ -47,9 +48,11 @@ __all__ = (
     "AccountInsightHealthTypeDef",
     "AddNotificationChannelRequestRequestTypeDef",
     "AddNotificationChannelResponseTypeDef",
+    "AmazonCodeGuruProfilerIntegrationTypeDef",
     "AnomalyReportedTimeRangeTypeDef",
     "AnomalyResourceTypeDef",
     "AnomalySourceDetailsTypeDef",
+    "AnomalySourceMetadataTypeDef",
     "AnomalyTimeRangeTypeDef",
     "CloudFormationCollectionFilterTypeDef",
     "CloudFormationCollectionTypeDef",
@@ -60,11 +63,13 @@ __all__ = (
     "CloudWatchMetricsDimensionTypeDef",
     "CostEstimationResourceCollectionFilterTypeDef",
     "CostEstimationTimeRangeTypeDef",
+    "DeleteInsightRequestRequestTypeDef",
     "DescribeAccountHealthResponseTypeDef",
     "DescribeAccountOverviewRequestRequestTypeDef",
     "DescribeAccountOverviewResponseTypeDef",
     "DescribeAnomalyRequestRequestTypeDef",
     "DescribeAnomalyResponseTypeDef",
+    "DescribeEventSourcesConfigResponseTypeDef",
     "DescribeFeedbackRequestRequestTypeDef",
     "DescribeFeedbackResponseTypeDef",
     "DescribeInsightRequestRequestTypeDef",
@@ -80,6 +85,7 @@ __all__ = (
     "DescribeServiceIntegrationResponseTypeDef",
     "EndTimeRangeTypeDef",
     "EventResourceTypeDef",
+    "EventSourcesConfigTypeDef",
     "EventTimeRangeTypeDef",
     "EventTypeDef",
     "GetCostEstimationRequestRequestTypeDef",
@@ -162,6 +168,7 @@ __all__ = (
     "TagHealthTypeDef",
     "TimestampMetricValuePairTypeDef",
     "UpdateCloudFormationCollectionFilterTypeDef",
+    "UpdateEventSourcesConfigRequestRequestTypeDef",
     "UpdateResourceCollectionFilterTypeDef",
     "UpdateResourceCollectionRequestRequestTypeDef",
     "UpdateServiceIntegrationConfigTypeDef",
@@ -202,6 +209,14 @@ AddNotificationChannelResponseTypeDef = TypedDict(
     },
 )
 
+AmazonCodeGuruProfilerIntegrationTypeDef = TypedDict(
+    "AmazonCodeGuruProfilerIntegrationTypeDef",
+    {
+        "Status": EventSourceOptInStatusType,
+    },
+    total=False,
+)
+
 _RequiredAnomalyReportedTimeRangeTypeDef = TypedDict(
     "_RequiredAnomalyReportedTimeRangeTypeDef",
     {
@@ -235,6 +250,16 @@ AnomalySourceDetailsTypeDef = TypedDict(
     {
         "CloudWatchMetrics": List["CloudWatchMetricsDetailTypeDef"],
         "PerformanceInsightsMetrics": List["PerformanceInsightsMetricsDetailTypeDef"],
+    },
+    total=False,
+)
+
+AnomalySourceMetadataTypeDef = TypedDict(
+    "AnomalySourceMetadataTypeDef",
+    {
+        "Source": str,
+        "SourceResourceName": str,
+        "SourceResourceType": str,
     },
     total=False,
 )
@@ -339,6 +364,13 @@ CostEstimationTimeRangeTypeDef = TypedDict(
     total=False,
 )
 
+DeleteInsightRequestRequestTypeDef = TypedDict(
+    "DeleteInsightRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+
 DescribeAccountHealthResponseTypeDef = TypedDict(
     "DescribeAccountHealthResponseTypeDef",
     {
@@ -404,6 +436,14 @@ DescribeAnomalyResponseTypeDef = TypedDict(
     {
         "ProactiveAnomaly": "ProactiveAnomalyTypeDef",
         "ReactiveAnomaly": "ReactiveAnomalyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeEventSourcesConfigResponseTypeDef = TypedDict(
+    "DescribeEventSourcesConfigResponseTypeDef",
+    {
+        "EventSources": "EventSourcesConfigTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -533,6 +573,7 @@ DescribeOrganizationResourceCollectionHealthResponseTypeDef = TypedDict(
         "Service": List["ServiceHealthTypeDef"],
         "Account": List["AccountHealthTypeDef"],
         "NextToken": str,
+        "Tags": List["TagHealthTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -591,6 +632,14 @@ EventResourceTypeDef = TypedDict(
         "Type": str,
         "Name": str,
         "Arn": str,
+    },
+    total=False,
+)
+
+EventSourcesConfigTypeDef = TypedDict(
+    "EventSourcesConfigTypeDef",
+    {
+        "AmazonCodeGuruProfiler": "AmazonCodeGuruProfilerIntegrationTypeDef",
     },
     total=False,
 )
@@ -1075,6 +1124,8 @@ ProactiveAnomalySummaryTypeDef = TypedDict(
         "AssociatedInsightId": str,
         "ResourceCollection": "ResourceCollectionTypeDef",
         "Limit": float,
+        "SourceMetadata": "AnomalySourceMetadataTypeDef",
+        "AnomalyResources": List["AnomalyResourceTypeDef"],
     },
     total=False,
 )
@@ -1093,6 +1144,8 @@ ProactiveAnomalyTypeDef = TypedDict(
         "AssociatedInsightId": str,
         "ResourceCollection": "ResourceCollectionTypeDef",
         "Limit": float,
+        "SourceMetadata": "AnomalySourceMetadataTypeDef",
+        "AnomalyResources": List["AnomalyResourceTypeDef"],
     },
     total=False,
 )
@@ -1124,6 +1177,7 @@ ProactiveInsightTypeDef = TypedDict(
         "PredictionTimeRange": "PredictionTimeRangeTypeDef",
         "ResourceCollection": "ResourceCollectionTypeDef",
         "SsmOpsItemId": str,
+        "Description": str,
     },
     total=False,
 )
@@ -1218,6 +1272,7 @@ ReactiveInsightTypeDef = TypedDict(
         "InsightTimeRange": "InsightTimeRangeTypeDef",
         "ResourceCollection": "ResourceCollectionTypeDef",
         "SsmOpsItemId": str,
+        "Description": str,
     },
     total=False,
 )
@@ -1301,6 +1356,7 @@ RecommendationTypeDef = TypedDict(
         "Reason": str,
         "RelatedEvents": List["RecommendationRelatedEventTypeDef"],
         "RelatedAnomalies": List["RecommendationRelatedAnomalyTypeDef"],
+        "Category": str,
     },
     total=False,
 )
@@ -1559,6 +1615,14 @@ UpdateCloudFormationCollectionFilterTypeDef = TypedDict(
     "UpdateCloudFormationCollectionFilterTypeDef",
     {
         "StackNames": List[str],
+    },
+    total=False,
+)
+
+UpdateEventSourcesConfigRequestRequestTypeDef = TypedDict(
+    "UpdateEventSourcesConfigRequestRequestTypeDef",
+    {
+        "EventSources": "EventSourcesConfigTypeDef",
     },
     total=False,
 )

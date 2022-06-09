@@ -6,9 +6,9 @@ Type annotations for mgn service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mgn.literals import ChangeServerLifeCycleStateSourceServerLifecycleStateType
+    from mypy_boto3_mgn.literals import BootModeType
 
-    data: ChangeServerLifeCycleStateSourceServerLifecycleStateType = "CUTOVER"
+    data: BootModeType = "LEGACY_BIOS"
     ```
 """
 import sys
@@ -19,6 +19,7 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "BootModeType",
     "ChangeServerLifeCycleStateSourceServerLifecycleStateType",
     "DataReplicationErrorStringType",
     "DataReplicationInitiationStepNameType",
@@ -45,6 +46,7 @@ __all__ = (
     "TargetInstanceTypeRightSizingMethodType",
 )
 
+BootModeType = Literal["LEGACY_BIOS", "UEFI"]
 ChangeServerLifeCycleStateSourceServerLifecycleStateType = Literal[
     "CUTOVER", "READY_FOR_CUTOVER", "READY_FOR_TEST"
 ]
@@ -139,10 +141,10 @@ LifeCycleStateType = Literal[
     "TESTING",
 ]
 ReplicationConfigurationDataPlaneRoutingType = Literal["PRIVATE_IP", "PUBLIC_IP"]
-ReplicationConfigurationDefaultLargeStagingDiskTypeType = Literal["GP2", "ST1"]
+ReplicationConfigurationDefaultLargeStagingDiskTypeType = Literal["GP2", "GP3", "ST1"]
 ReplicationConfigurationEbsEncryptionType = Literal["CUSTOM", "DEFAULT"]
 ReplicationConfigurationReplicatedDiskStagingDiskTypeType = Literal[
-    "AUTO", "GP2", "IO1", "SC1", "ST1", "STANDARD"
+    "AUTO", "GP2", "GP3", "IO1", "IO2", "SC1", "ST1", "STANDARD"
 ]
 ReplicationTypeType = Literal["AGENT_BASED", "SNAPSHOT_SHIPPING"]
 TargetInstanceTypeRightSizingMethodType = Literal["BASIC", "NONE"]

@@ -17,6 +17,7 @@ from typing import Any, Dict, List
 
 from .literals import (
     AdminStatusType,
+    AutoEnableStandardsType,
     AwsIamAccessKeyStatusType,
     AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType,
     ComplianceStatusType,
@@ -32,6 +33,7 @@ from .literals import (
     SeverityRatingType,
     SortOrderType,
     StandardsStatusType,
+    StatusReasonCodeType,
     StringFilterComparisonType,
     ThreatIntelIndicatorCategoryType,
     ThreatIntelIndicatorTypeType,
@@ -73,11 +75,19 @@ __all__ = (
     "AwsApiGatewayV2ApiDetailsTypeDef",
     "AwsApiGatewayV2RouteSettingsTypeDef",
     "AwsApiGatewayV2StageDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef",
     "AwsAutoScalingAutoScalingGroupDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef",
+    "AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef",
     "AwsCertificateManagerCertificateDetailsTypeDef",
     "AwsCertificateManagerCertificateDomainValidationOptionTypeDef",
     "AwsCertificateManagerCertificateExtendedKeyUsageTypeDef",
@@ -225,6 +235,7 @@ __all__ = (
     "AwsElbAppCookieStickinessPolicyTypeDef",
     "AwsElbLbCookieStickinessPolicyTypeDef",
     "AwsElbLoadBalancerAccessLogTypeDef",
+    "AwsElbLoadBalancerAdditionalAttributeTypeDef",
     "AwsElbLoadBalancerAttributesTypeDef",
     "AwsElbLoadBalancerBackendServerDescriptionTypeDef",
     "AwsElbLoadBalancerConnectionDrainingTypeDef",
@@ -265,6 +276,10 @@ __all__ = (
     "AwsLambdaFunctionTracingConfigTypeDef",
     "AwsLambdaFunctionVpcConfigTypeDef",
     "AwsLambdaLayerVersionDetailsTypeDef",
+    "AwsNetworkFirewallFirewallDetailsTypeDef",
+    "AwsNetworkFirewallFirewallPolicyDetailsTypeDef",
+    "AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef",
+    "AwsNetworkFirewallRuleGroupDetailsTypeDef",
     "AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef",
     "AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef",
     "AwsOpenSearchServiceDomainDetailsTypeDef",
@@ -289,6 +304,9 @@ __all__ = (
     "AwsRdsDbParameterGroupTypeDef",
     "AwsRdsDbPendingModifiedValuesTypeDef",
     "AwsRdsDbProcessorFeatureTypeDef",
+    "AwsRdsDbSecurityGroupDetailsTypeDef",
+    "AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef",
+    "AwsRdsDbSecurityGroupIpRangeTypeDef",
     "AwsRdsDbSnapshotDetailsTypeDef",
     "AwsRdsDbStatusInfoTypeDef",
     "AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef",
@@ -307,6 +325,7 @@ __all__ = (
     "AwsRedshiftClusterEndpointTypeDef",
     "AwsRedshiftClusterHsmStatusTypeDef",
     "AwsRedshiftClusterIamRoleTypeDef",
+    "AwsRedshiftClusterLoggingStatusTypeDef",
     "AwsRedshiftClusterPendingModifiedValuesTypeDef",
     "AwsRedshiftClusterResizeInfoTypeDef",
     "AwsRedshiftClusterRestoreStatusTypeDef",
@@ -322,6 +341,7 @@ __all__ = (
     "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef",
+    "AwsS3BucketBucketVersioningConfigurationTypeDef",
     "AwsS3BucketDetailsTypeDef",
     "AwsS3BucketLoggingConfigurationTypeDef",
     "AwsS3BucketNotificationConfigurationDetailTypeDef",
@@ -365,6 +385,7 @@ __all__ = (
     "BatchUpdateFindingsRequestRequestTypeDef",
     "BatchUpdateFindingsResponseTypeDef",
     "BatchUpdateFindingsUnprocessedFindingTypeDef",
+    "BooleanFilterTypeDef",
     "CellTypeDef",
     "CidrBlockAssociationTypeDef",
     "CityTypeDef",
@@ -420,6 +441,10 @@ __all__ = (
     "FindingAggregatorTypeDef",
     "FindingProviderFieldsTypeDef",
     "FindingProviderSeverityTypeDef",
+    "FirewallPolicyDetailsTypeDef",
+    "FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef",
+    "FirewallPolicyStatelessCustomActionsDetailsTypeDef",
+    "FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef",
     "GeoLocationTypeDef",
     "GetAdministratorAccountResponseTypeDef",
     "GetEnabledStandardsRequestRequestTypeDef",
@@ -491,6 +516,25 @@ __all__ = (
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "ResultTypeDef",
+    "RuleGroupDetailsTypeDef",
+    "RuleGroupSourceCustomActionsDetailsTypeDef",
+    "RuleGroupSourceListDetailsTypeDef",
+    "RuleGroupSourceStatefulRulesDetailsTypeDef",
+    "RuleGroupSourceStatefulRulesHeaderDetailsTypeDef",
+    "RuleGroupSourceStatefulRulesOptionsDetailsTypeDef",
+    "RuleGroupSourceStatelessRuleDefinitionTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesTypeDef",
+    "RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef",
+    "RuleGroupSourceStatelessRulesDetailsTypeDef",
+    "RuleGroupSourceTypeDef",
+    "RuleGroupVariablesIpSetsDetailsTypeDef",
+    "RuleGroupVariablesPortSetsDetailsTypeDef",
+    "RuleGroupVariablesTypeDef",
     "SensitiveDataDetectionsTypeDef",
     "SensitiveDataResultTypeDef",
     "SeverityTypeDef",
@@ -499,8 +543,12 @@ __all__ = (
     "SortCriterionTypeDef",
     "StandardTypeDef",
     "StandardsControlTypeDef",
+    "StandardsStatusReasonTypeDef",
     "StandardsSubscriptionRequestTypeDef",
     "StandardsSubscriptionTypeDef",
+    "StatelessCustomActionDefinitionTypeDef",
+    "StatelessCustomPublishMetricActionDimensionTypeDef",
+    "StatelessCustomPublishMetricActionTypeDef",
     "StatusReasonTypeDef",
     "StringFilterTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -800,6 +848,14 @@ AwsApiGatewayV2StageDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef = TypedDict(
+    "AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
+
 AwsAutoScalingAutoScalingGroupDetailsTypeDef = TypedDict(
     "AwsAutoScalingAutoScalingGroupDetailsTypeDef",
     {
@@ -808,6 +864,74 @@ AwsAutoScalingAutoScalingGroupDetailsTypeDef = TypedDict(
         "HealthCheckType": str,
         "HealthCheckGracePeriod": int,
         "CreatedTime": str,
+        "MixedInstancesPolicy": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef",
+        "AvailabilityZones": List[
+            "AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef"
+        ],
+        "LaunchTemplate": "AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef",
+        "CapacityRebalance": bool,
+    },
+    total=False,
+)
+
+AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef = TypedDict(
+    "AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef",
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef = TypedDict(
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef",
+    {
+        "InstancesDistribution": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef",
+        "LaunchTemplate": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef",
+    },
+    total=False,
+)
+
+AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef = TypedDict(
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef",
+    {
+        "OnDemandAllocationStrategy": str,
+        "OnDemandBaseCapacity": int,
+        "OnDemandPercentageAboveBaseCapacity": int,
+        "SpotAllocationStrategy": str,
+        "SpotInstancePools": int,
+        "SpotMaxPrice": str,
+    },
+    total=False,
+)
+
+AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef = TypedDict(
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef",
+    {
+        "LaunchTemplateSpecification": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef",
+        "Overrides": List[
+            "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef"
+        ],
+    },
+    total=False,
+)
+
+AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef = TypedDict(
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef",
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef = TypedDict(
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef",
+    {
+        "InstanceType": str,
+        "WeightedCapacity": str,
     },
     total=False,
 )
@@ -859,6 +983,7 @@ AwsAutoScalingLaunchConfigurationDetailsTypeDef = TypedDict(
         "SecurityGroups": List[str],
         "SpotPrice": str,
         "UserData": str,
+        "MetadataOptions": "AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef",
     },
     total=False,
 )
@@ -867,6 +992,16 @@ AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef = TypedDict(
     "AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef",
     {
         "Enabled": bool,
+    },
+    total=False,
+)
+
+AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef = TypedDict(
+    "AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef",
+    {
+        "HttpEndpoint": str,
+        "HttpPutResponseHopLimit": int,
+        "HttpTokens": str,
     },
     total=False,
 )
@@ -1141,6 +1276,7 @@ AwsCodeBuildProjectDetailsTypeDef = TypedDict(
         "ServiceRole": str,
         "LogsConfig": "AwsCodeBuildProjectLogsConfigDetailsTypeDef",
         "VpcConfig": "AwsCodeBuildProjectVpcConfigTypeDef",
+        "SecondaryArtifacts": List["AwsCodeBuildProjectArtifactsDetailsTypeDef"],
     },
     total=False,
 )
@@ -2583,6 +2719,15 @@ AwsElbLoadBalancerAccessLogTypeDef = TypedDict(
     total=False,
 )
 
+AwsElbLoadBalancerAdditionalAttributeTypeDef = TypedDict(
+    "AwsElbLoadBalancerAdditionalAttributeTypeDef",
+    {
+        "Key": str,
+        "Value": str,
+    },
+    total=False,
+)
+
 AwsElbLoadBalancerAttributesTypeDef = TypedDict(
     "AwsElbLoadBalancerAttributesTypeDef",
     {
@@ -2590,6 +2735,7 @@ AwsElbLoadBalancerAttributesTypeDef = TypedDict(
         "ConnectionDraining": "AwsElbLoadBalancerConnectionDrainingTypeDef",
         "ConnectionSettings": "AwsElbLoadBalancerConnectionSettingsTypeDef",
         "CrossZoneLoadBalancing": "AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef",
+        "AdditionalAttributes": List["AwsElbLoadBalancerAdditionalAttributeTypeDef"],
     },
     total=False,
 )
@@ -3040,6 +3186,57 @@ AwsLambdaLayerVersionDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsNetworkFirewallFirewallDetailsTypeDef = TypedDict(
+    "AwsNetworkFirewallFirewallDetailsTypeDef",
+    {
+        "DeleteProtection": bool,
+        "Description": str,
+        "FirewallArn": str,
+        "FirewallId": str,
+        "FirewallName": str,
+        "FirewallPolicyArn": str,
+        "FirewallPolicyChangeProtection": bool,
+        "SubnetChangeProtection": bool,
+        "SubnetMappings": List["AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef"],
+        "VpcId": str,
+    },
+    total=False,
+)
+
+AwsNetworkFirewallFirewallPolicyDetailsTypeDef = TypedDict(
+    "AwsNetworkFirewallFirewallPolicyDetailsTypeDef",
+    {
+        "FirewallPolicy": "FirewallPolicyDetailsTypeDef",
+        "FirewallPolicyArn": str,
+        "FirewallPolicyId": str,
+        "FirewallPolicyName": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef = TypedDict(
+    "AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef",
+    {
+        "SubnetId": str,
+    },
+    total=False,
+)
+
+AwsNetworkFirewallRuleGroupDetailsTypeDef = TypedDict(
+    "AwsNetworkFirewallRuleGroupDetailsTypeDef",
+    {
+        "Capacity": int,
+        "Description": str,
+        "RuleGroup": "RuleGroupDetailsTypeDef",
+        "RuleGroupArn": str,
+        "RuleGroupId": str,
+        "RuleGroupName": str,
+        "Type": str,
+    },
+    total=False,
+)
+
 AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef = TypedDict(
     "AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef",
     {
@@ -3409,6 +3606,40 @@ AwsRdsDbProcessorFeatureTypeDef = TypedDict(
     total=False,
 )
 
+AwsRdsDbSecurityGroupDetailsTypeDef = TypedDict(
+    "AwsRdsDbSecurityGroupDetailsTypeDef",
+    {
+        "DbSecurityGroupArn": str,
+        "DbSecurityGroupDescription": str,
+        "DbSecurityGroupName": str,
+        "Ec2SecurityGroups": List["AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef"],
+        "IpRanges": List["AwsRdsDbSecurityGroupIpRangeTypeDef"],
+        "OwnerId": str,
+        "VpcId": str,
+    },
+    total=False,
+)
+
+AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef = TypedDict(
+    "AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef",
+    {
+        "Ec2SecurityGroupId": str,
+        "Ec2SecurityGroupName": str,
+        "Ec2SecurityGroupOwnerId": str,
+        "Status": str,
+    },
+    total=False,
+)
+
+AwsRdsDbSecurityGroupIpRangeTypeDef = TypedDict(
+    "AwsRdsDbSecurityGroupIpRangeTypeDef",
+    {
+        "CidrIp": str,
+        "Status": str,
+    },
+    total=False,
+)
+
 AwsRdsDbSnapshotDetailsTypeDef = TypedDict(
     "AwsRdsDbSnapshotDetailsTypeDef",
     {
@@ -3617,6 +3848,7 @@ AwsRedshiftClusterDetailsTypeDef = TypedDict(
         "SnapshotScheduleState": str,
         "VpcId": str,
         "VpcSecurityGroups": List["AwsRedshiftClusterVpcSecurityGroupTypeDef"],
+        "LoggingStatus": "AwsRedshiftClusterLoggingStatusTypeDef",
     },
     total=False,
 )
@@ -3654,6 +3886,19 @@ AwsRedshiftClusterIamRoleTypeDef = TypedDict(
     {
         "ApplyStatus": str,
         "IamRoleArn": str,
+    },
+    total=False,
+)
+
+AwsRedshiftClusterLoggingStatusTypeDef = TypedDict(
+    "AwsRedshiftClusterLoggingStatusTypeDef",
+    {
+        "BucketName": str,
+        "LastFailureMessage": str,
+        "LastFailureTime": str,
+        "LastSuccessfulDeliveryTime": str,
+        "LoggingEnabled": bool,
+        "S3KeyPrefix": str,
     },
     total=False,
 )
@@ -3826,6 +4071,15 @@ AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef = TypedDic
     total=False,
 )
 
+AwsS3BucketBucketVersioningConfigurationTypeDef = TypedDict(
+    "AwsS3BucketBucketVersioningConfigurationTypeDef",
+    {
+        "IsMfaDeleteEnabled": bool,
+        "Status": str,
+    },
+    total=False,
+)
+
 AwsS3BucketDetailsTypeDef = TypedDict(
     "AwsS3BucketDetailsTypeDef",
     {
@@ -3840,6 +4094,7 @@ AwsS3BucketDetailsTypeDef = TypedDict(
         "BucketLoggingConfiguration": "AwsS3BucketLoggingConfigurationTypeDef",
         "BucketWebsiteConfiguration": "AwsS3BucketWebsiteConfigurationTypeDef",
         "BucketNotificationConfiguration": "AwsS3BucketNotificationConfigurationTypeDef",
+        "BucketVersioningConfiguration": "AwsS3BucketBucketVersioningConfigurationTypeDef",
     },
     total=False,
 )
@@ -4105,6 +4360,7 @@ AwsSecurityFindingFiltersTypeDef = TypedDict(
         "FindingProviderFieldsSeverityLabel": List["StringFilterTypeDef"],
         "FindingProviderFieldsSeverityOriginal": List["StringFilterTypeDef"],
         "FindingProviderFieldsTypes": List["StringFilterTypeDef"],
+        "Sample": List["BooleanFilterTypeDef"],
     },
     total=False,
 )
@@ -4164,6 +4420,7 @@ _OptionalAwsSecurityFindingTypeDef = TypedDict(
         "PatchSummary": "PatchSummaryTypeDef",
         "Action": "ActionTypeDef",
         "FindingProviderFields": "FindingProviderFieldsTypeDef",
+        "Sample": bool,
     },
     total=False,
 )
@@ -4416,6 +4673,14 @@ BatchUpdateFindingsUnprocessedFindingTypeDef = TypedDict(
         "ErrorCode": str,
         "ErrorMessage": str,
     },
+)
+
+BooleanFilterTypeDef = TypedDict(
+    "BooleanFilterTypeDef",
+    {
+        "Value": bool,
+    },
+    total=False,
 )
 
 CellTypeDef = TypedDict(
@@ -4763,6 +5028,7 @@ DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
     {
         "AutoEnable": bool,
         "MemberAccountLimitReached": bool,
+        "AutoEnableStandards": AutoEnableStandardsType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -4921,6 +5187,48 @@ FindingProviderSeverityTypeDef = TypedDict(
     {
         "Label": SeverityLabelType,
         "Original": str,
+    },
+    total=False,
+)
+
+FirewallPolicyDetailsTypeDef = TypedDict(
+    "FirewallPolicyDetailsTypeDef",
+    {
+        "StatefulRuleGroupReferences": List[
+            "FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef"
+        ],
+        "StatelessCustomActions": List["FirewallPolicyStatelessCustomActionsDetailsTypeDef"],
+        "StatelessDefaultActions": List[str],
+        "StatelessFragmentDefaultActions": List[str],
+        "StatelessRuleGroupReferences": List[
+            "FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef"
+        ],
+    },
+    total=False,
+)
+
+FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef = TypedDict(
+    "FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef",
+    {
+        "ResourceArn": str,
+    },
+    total=False,
+)
+
+FirewallPolicyStatelessCustomActionsDetailsTypeDef = TypedDict(
+    "FirewallPolicyStatelessCustomActionsDetailsTypeDef",
+    {
+        "ActionDefinition": "StatelessCustomActionDefinitionTypeDef",
+        "ActionName": str,
+    },
+    total=False,
+)
+
+FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef = TypedDict(
+    "FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef",
+    {
+        "Priority": int,
+        "ResourceArn": str,
     },
     total=False,
 )
@@ -5658,6 +5966,10 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsWafRegionalRateBasedRule": "AwsWafRegionalRateBasedRuleDetailsTypeDef",
         "AwsEcrRepository": "AwsEcrRepositoryDetailsTypeDef",
         "AwsEksCluster": "AwsEksClusterDetailsTypeDef",
+        "AwsNetworkFirewallFirewallPolicy": "AwsNetworkFirewallFirewallPolicyDetailsTypeDef",
+        "AwsNetworkFirewallFirewall": "AwsNetworkFirewallFirewallDetailsTypeDef",
+        "AwsNetworkFirewallRuleGroup": "AwsNetworkFirewallRuleGroupDetailsTypeDef",
+        "AwsRdsDbSecurityGroup": "AwsRdsDbSecurityGroupDetailsTypeDef",
     },
     total=False,
 )
@@ -5701,6 +6013,187 @@ ResultTypeDef = TypedDict(
     {
         "AccountId": str,
         "ProcessingResult": str,
+    },
+    total=False,
+)
+
+RuleGroupDetailsTypeDef = TypedDict(
+    "RuleGroupDetailsTypeDef",
+    {
+        "RuleVariables": "RuleGroupVariablesTypeDef",
+        "RulesSource": "RuleGroupSourceTypeDef",
+    },
+    total=False,
+)
+
+RuleGroupSourceCustomActionsDetailsTypeDef = TypedDict(
+    "RuleGroupSourceCustomActionsDetailsTypeDef",
+    {
+        "ActionDefinition": "StatelessCustomActionDefinitionTypeDef",
+        "ActionName": str,
+    },
+    total=False,
+)
+
+RuleGroupSourceListDetailsTypeDef = TypedDict(
+    "RuleGroupSourceListDetailsTypeDef",
+    {
+        "GeneratedRulesType": str,
+        "TargetTypes": List[str],
+        "Targets": List[str],
+    },
+    total=False,
+)
+
+RuleGroupSourceStatefulRulesDetailsTypeDef = TypedDict(
+    "RuleGroupSourceStatefulRulesDetailsTypeDef",
+    {
+        "Action": str,
+        "Header": "RuleGroupSourceStatefulRulesHeaderDetailsTypeDef",
+        "RuleOptions": List["RuleGroupSourceStatefulRulesOptionsDetailsTypeDef"],
+    },
+    total=False,
+)
+
+RuleGroupSourceStatefulRulesHeaderDetailsTypeDef = TypedDict(
+    "RuleGroupSourceStatefulRulesHeaderDetailsTypeDef",
+    {
+        "Destination": str,
+        "DestinationPort": str,
+        "Direction": str,
+        "Protocol": str,
+        "Source": str,
+        "SourcePort": str,
+    },
+    total=False,
+)
+
+RuleGroupSourceStatefulRulesOptionsDetailsTypeDef = TypedDict(
+    "RuleGroupSourceStatefulRulesOptionsDetailsTypeDef",
+    {
+        "Keyword": str,
+        "Settings": List[str],
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRuleDefinitionTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRuleDefinitionTypeDef",
+    {
+        "Actions": List[str],
+        "MatchAttributes": "RuleGroupSourceStatelessRuleMatchAttributesTypeDef",
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef",
+    {
+        "AddressDefinition": str,
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef",
+    {
+        "FromPort": int,
+        "ToPort": int,
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef",
+    {
+        "AddressDefinition": str,
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef",
+    {
+        "Flags": List[str],
+        "Masks": List[str],
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRuleMatchAttributesTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRuleMatchAttributesTypeDef",
+    {
+        "DestinationPorts": List[
+            "RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef"
+        ],
+        "Destinations": List["RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef"],
+        "Protocols": List[int],
+        "SourcePorts": List["RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef"],
+        "Sources": List["RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef"],
+        "TcpFlags": List["RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef"],
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef",
+    {
+        "CustomActions": List["RuleGroupSourceCustomActionsDetailsTypeDef"],
+        "StatelessRules": List["RuleGroupSourceStatelessRulesDetailsTypeDef"],
+    },
+    total=False,
+)
+
+RuleGroupSourceStatelessRulesDetailsTypeDef = TypedDict(
+    "RuleGroupSourceStatelessRulesDetailsTypeDef",
+    {
+        "Priority": int,
+        "RuleDefinition": "RuleGroupSourceStatelessRuleDefinitionTypeDef",
+    },
+    total=False,
+)
+
+RuleGroupSourceTypeDef = TypedDict(
+    "RuleGroupSourceTypeDef",
+    {
+        "RulesSourceList": "RuleGroupSourceListDetailsTypeDef",
+        "RulesString": str,
+        "StatefulRules": List["RuleGroupSourceStatefulRulesDetailsTypeDef"],
+        "StatelessRulesAndCustomActions": "RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef",
+    },
+    total=False,
+)
+
+RuleGroupVariablesIpSetsDetailsTypeDef = TypedDict(
+    "RuleGroupVariablesIpSetsDetailsTypeDef",
+    {
+        "Definition": List[str],
+    },
+    total=False,
+)
+
+RuleGroupVariablesPortSetsDetailsTypeDef = TypedDict(
+    "RuleGroupVariablesPortSetsDetailsTypeDef",
+    {
+        "Definition": List[str],
+    },
+    total=False,
+)
+
+RuleGroupVariablesTypeDef = TypedDict(
+    "RuleGroupVariablesTypeDef",
+    {
+        "IpSets": "RuleGroupVariablesIpSetsDetailsTypeDef",
+        "PortSets": "RuleGroupVariablesPortSetsDetailsTypeDef",
     },
     total=False,
 )
@@ -5797,6 +6290,13 @@ StandardsControlTypeDef = TypedDict(
     total=False,
 )
 
+StandardsStatusReasonTypeDef = TypedDict(
+    "StandardsStatusReasonTypeDef",
+    {
+        "StatusReasonCode": StatusReasonCodeType,
+    },
+)
+
 _RequiredStandardsSubscriptionRequestTypeDef = TypedDict(
     "_RequiredStandardsSubscriptionRequestTypeDef",
     {
@@ -5816,14 +6316,50 @@ class StandardsSubscriptionRequestTypeDef(
 ):
     pass
 
-StandardsSubscriptionTypeDef = TypedDict(
-    "StandardsSubscriptionTypeDef",
+_RequiredStandardsSubscriptionTypeDef = TypedDict(
+    "_RequiredStandardsSubscriptionTypeDef",
     {
         "StandardsSubscriptionArn": str,
         "StandardsArn": str,
         "StandardsInput": Dict[str, str],
         "StandardsStatus": StandardsStatusType,
     },
+)
+_OptionalStandardsSubscriptionTypeDef = TypedDict(
+    "_OptionalStandardsSubscriptionTypeDef",
+    {
+        "StandardsStatusReason": "StandardsStatusReasonTypeDef",
+    },
+    total=False,
+)
+
+class StandardsSubscriptionTypeDef(
+    _RequiredStandardsSubscriptionTypeDef, _OptionalStandardsSubscriptionTypeDef
+):
+    pass
+
+StatelessCustomActionDefinitionTypeDef = TypedDict(
+    "StatelessCustomActionDefinitionTypeDef",
+    {
+        "PublishMetricAction": "StatelessCustomPublishMetricActionTypeDef",
+    },
+    total=False,
+)
+
+StatelessCustomPublishMetricActionDimensionTypeDef = TypedDict(
+    "StatelessCustomPublishMetricActionDimensionTypeDef",
+    {
+        "Value": str,
+    },
+    total=False,
+)
+
+StatelessCustomPublishMetricActionTypeDef = TypedDict(
+    "StatelessCustomPublishMetricActionTypeDef",
+    {
+        "Dimensions": List["StatelessCustomPublishMetricActionDimensionTypeDef"],
+    },
+    total=False,
 )
 
 _RequiredStatusReasonTypeDef = TypedDict(
@@ -5975,12 +6511,25 @@ class UpdateInsightRequestRequestTypeDef(
 ):
     pass
 
-UpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
+_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef",
     {
         "AutoEnable": bool,
     },
 )
+_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef",
+    {
+        "AutoEnableStandards": AutoEnableStandardsType,
+    },
+    total=False,
+)
+
+class UpdateOrganizationConfigurationRequestRequestTypeDef(
+    _RequiredUpdateOrganizationConfigurationRequestRequestTypeDef,
+    _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef,
+):
+    pass
 
 UpdateSecurityHubConfigurationRequestRequestTypeDef = TypedDict(
     "UpdateSecurityHubConfigurationRequestRequestTypeDef",

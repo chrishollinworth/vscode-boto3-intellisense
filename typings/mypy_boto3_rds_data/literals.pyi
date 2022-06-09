@@ -18,7 +18,9 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("DecimalReturnTypeType", "TypeHintType")
+__all__ = ("DecimalReturnTypeType", "LongReturnTypeType", "RecordsFormatTypeType", "TypeHintType")
 
 DecimalReturnTypeType = Literal["DOUBLE_OR_LONG", "STRING"]
+LongReturnTypeType = Literal["LONG", "STRING"]
+RecordsFormatTypeType = Literal["JSON", "NONE"]
 TypeHintType = Literal["DATE", "DECIMAL", "JSON", "TIME", "TIMESTAMP", "UUID"]

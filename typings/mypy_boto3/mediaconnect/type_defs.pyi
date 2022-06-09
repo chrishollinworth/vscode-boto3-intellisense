@@ -22,6 +22,7 @@ from .literals import (
     EntitlementStatusType,
     FailoverModeType,
     KeyTypeType,
+    MaintenanceDayType,
     MediaStreamTypeType,
     NetworkInterfaceTypeType,
     ProtocolType,
@@ -52,6 +53,7 @@ __all__ = (
     "AddFlowSourcesResponseTypeDef",
     "AddFlowVpcInterfacesRequestRequestTypeDef",
     "AddFlowVpcInterfacesResponseTypeDef",
+    "AddMaintenanceTypeDef",
     "AddMediaStreamRequestTypeDef",
     "AddOutputRequestTypeDef",
     "CreateFlowRequestRequestTypeDef",
@@ -93,6 +95,7 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListedEntitlementTypeDef",
     "ListedFlowTypeDef",
+    "MaintenanceTypeDef",
     "MediaStreamAttributesRequestTypeDef",
     "MediaStreamAttributesTypeDef",
     "MediaStreamOutputConfigurationRequestTypeDef",
@@ -141,6 +144,7 @@ __all__ = (
     "UpdateFlowResponseTypeDef",
     "UpdateFlowSourceRequestRequestTypeDef",
     "UpdateFlowSourceResponseTypeDef",
+    "UpdateMaintenanceTypeDef",
     "VpcInterfaceAttachmentTypeDef",
     "VpcInterfaceRequestTypeDef",
     "VpcInterfaceTypeDef",
@@ -215,6 +219,14 @@ AddFlowVpcInterfacesResponseTypeDef = TypedDict(
     },
 )
 
+AddMaintenanceTypeDef = TypedDict(
+    "AddMaintenanceTypeDef",
+    {
+        "MaintenanceDay": MaintenanceDayType,
+        "MaintenanceStartHour": str,
+    },
+)
+
 _RequiredAddMediaStreamRequestTypeDef = TypedDict(
     "_RequiredAddMediaStreamRequestTypeDef",
     {
@@ -258,6 +270,7 @@ _OptionalAddOutputRequestTypeDef = TypedDict(
         "Name": str,
         "Port": int,
         "RemoteId": str,
+        "SenderControlPort": int,
         "SmoothingLatency": int,
         "StreamId": str,
         "VpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
@@ -285,6 +298,7 @@ _OptionalCreateFlowRequestRequestTypeDef = TypedDict(
         "SourceFailoverConfig": "FailoverConfigTypeDef",
         "Sources": List["SetSourceRequestTypeDef"],
         "VpcInterfaces": List["VpcInterfaceRequestTypeDef"],
+        "Maintenance": "AddMaintenanceTypeDef",
     },
     total=False,
 )
@@ -477,6 +491,7 @@ _OptionalFlowTypeDef = TypedDict(
         "SourceFailoverConfig": "FailoverConfigTypeDef",
         "Sources": List["SourceTypeDef"],
         "VpcInterfaces": List["VpcInterfaceTypeDef"],
+        "Maintenance": "MaintenanceTypeDef",
     },
     total=False,
 )
@@ -690,8 +705,8 @@ class ListedEntitlementTypeDef(
 ):
     pass
 
-ListedFlowTypeDef = TypedDict(
-    "ListedFlowTypeDef",
+_RequiredListedFlowTypeDef = TypedDict(
+    "_RequiredListedFlowTypeDef",
     {
         "AvailabilityZone": str,
         "Description": str,
@@ -700,6 +715,27 @@ ListedFlowTypeDef = TypedDict(
         "SourceType": SourceTypeType,
         "Status": StatusType,
     },
+)
+_OptionalListedFlowTypeDef = TypedDict(
+    "_OptionalListedFlowTypeDef",
+    {
+        "Maintenance": "MaintenanceTypeDef",
+    },
+    total=False,
+)
+
+class ListedFlowTypeDef(_RequiredListedFlowTypeDef, _OptionalListedFlowTypeDef):
+    pass
+
+MaintenanceTypeDef = TypedDict(
+    "MaintenanceTypeDef",
+    {
+        "MaintenanceDay": MaintenanceDayType,
+        "MaintenanceDeadline": str,
+        "MaintenanceScheduledDate": str,
+        "MaintenanceStartHour": str,
+    },
+    total=False,
 )
 
 MediaStreamAttributesRequestTypeDef = TypedDict(
@@ -1062,6 +1098,8 @@ SetSourceRequestTypeDef = TypedDict(
         "MinLatency": int,
         "Name": str,
         "Protocol": ProtocolType,
+        "SenderControlPort": int,
+        "SenderIpAddress": str,
         "StreamId": str,
         "VpcInterfaceName": str,
         "WhitelistCidr": str,
@@ -1094,6 +1132,8 @@ _OptionalSourceTypeDef = TypedDict(
         "IngestIp": str,
         "IngestPort": int,
         "MediaStreamSourceConfigurations": List["MediaStreamSourceConfigurationTypeDef"],
+        "SenderControlPort": int,
+        "SenderIpAddress": str,
         "Transport": "TransportTypeDef",
         "VpcInterfaceName": str,
         "WhitelistCidr": str,
@@ -1159,6 +1199,8 @@ _OptionalTransportTypeDef = TypedDict(
         "MaxSyncBuffer": int,
         "MinLatency": int,
         "RemoteId": str,
+        "SenderControlPort": int,
+        "SenderIpAddress": str,
         "SmoothingLatency": int,
         "StreamId": str,
     },
@@ -1290,6 +1332,8 @@ _OptionalUpdateFlowOutputRequestRequestTypeDef = TypedDict(
         "Port": int,
         "Protocol": ProtocolType,
         "RemoteId": str,
+        "SenderControlPort": int,
+        "SenderIpAddress": str,
         "SmoothingLatency": int,
         "StreamId": str,
         "VpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
@@ -1321,6 +1365,7 @@ _OptionalUpdateFlowRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateFlowRequestRequestTypeDef",
     {
         "SourceFailoverConfig": "UpdateFailoverConfigTypeDef",
+        "Maintenance": "UpdateMaintenanceTypeDef",
     },
     total=False,
 )
@@ -1358,6 +1403,8 @@ _OptionalUpdateFlowSourceRequestRequestTypeDef = TypedDict(
         "MediaStreamSourceConfigurations": List["MediaStreamSourceConfigurationRequestTypeDef"],
         "MinLatency": int,
         "Protocol": ProtocolType,
+        "SenderControlPort": int,
+        "SenderIpAddress": str,
         "StreamId": str,
         "VpcInterfaceName": str,
         "WhitelistCidr": str,
@@ -1377,6 +1424,16 @@ UpdateFlowSourceResponseTypeDef = TypedDict(
         "Source": "SourceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+UpdateMaintenanceTypeDef = TypedDict(
+    "UpdateMaintenanceTypeDef",
+    {
+        "MaintenanceDay": MaintenanceDayType,
+        "MaintenanceScheduledDate": str,
+        "MaintenanceStartHour": str,
+    },
+    total=False,
 )
 
 VpcInterfaceAttachmentTypeDef = TypedDict(

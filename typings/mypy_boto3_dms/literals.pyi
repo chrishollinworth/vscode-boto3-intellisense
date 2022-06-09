@@ -23,6 +23,7 @@ __all__ = (
     "AuthTypeValueType",
     "CannedAclForObjectsValueType",
     "CharLengthSemanticsType",
+    "CollectorStatusType",
     "CompressionTypeValueType",
     "DataFormatValueType",
     "DatePartitionDelimiterValueType",
@@ -68,6 +69,7 @@ __all__ = (
     "StartReplicationTaskTypeValueType",
     "TargetDbTypeType",
     "TestConnectionSucceedsWaiterName",
+    "VersionStatusType",
 )
 
 AuthMechanismValueType = Literal["default", "mongodb_cr", "scram_sha_1"]
@@ -83,6 +85,7 @@ CannedAclForObjectsValueType = Literal[
     "public-read-write",
 ]
 CharLengthSemanticsType = Literal["byte", "char", "default"]
+CollectorStatusType = Literal["ACTIVE", "UNREGISTERED"]
 CompressionTypeValueType = Literal["gzip", "none"]
 DataFormatValueType = Literal["csv", "parquet"]
 DatePartitionDelimiterValueType = Literal["DASH", "NONE", "SLASH", "UNDERSCORE"]
@@ -138,3 +141,4 @@ StartReplicationTaskTypeValueType = Literal[
 ]
 TargetDbTypeType = Literal["multiple-databases", "specific-database"]
 TestConnectionSucceedsWaiterName = Literal["test_connection_succeeds"]
+VersionStatusType = Literal["OUTDATED", "UNSUPPORTED", "UP_TO_DATE"]

@@ -73,6 +73,8 @@ __all__ = (
     "NotificationChannelTypeDef",
     "OutputConfigTypeDef",
     "PointTypeDef",
+    "QueriesConfigTypeDef",
+    "QueryTypeDef",
     "RelationshipTypeDef",
     "ResponseMetadataTypeDef",
     "S3ObjectTypeDef",
@@ -96,6 +98,7 @@ _OptionalAnalyzeDocumentRequestRequestTypeDef = TypedDict(
     "_OptionalAnalyzeDocumentRequestRequestTypeDef",
     {
         "HumanLoopConfig": "HumanLoopConfigTypeDef",
+        "QueriesConfig": "QueriesConfigTypeDef",
     },
     total=False,
 )
@@ -186,6 +189,7 @@ BlockTypeDef = TypedDict(
         "EntityTypes": List[EntityTypeType],
         "SelectionStatus": SelectionStatusType,
         "Page": int,
+        "Query": "QueryTypeDef",
     },
     total=False,
 )
@@ -511,6 +515,31 @@ PointTypeDef = TypedDict(
     total=False,
 )
 
+QueriesConfigTypeDef = TypedDict(
+    "QueriesConfigTypeDef",
+    {
+        "Queries": List["QueryTypeDef"],
+    },
+)
+
+_RequiredQueryTypeDef = TypedDict(
+    "_RequiredQueryTypeDef",
+    {
+        "Text": str,
+    },
+)
+_OptionalQueryTypeDef = TypedDict(
+    "_OptionalQueryTypeDef",
+    {
+        "Alias": str,
+        "Pages": List[str],
+    },
+    total=False,
+)
+
+class QueryTypeDef(_RequiredQueryTypeDef, _OptionalQueryTypeDef):
+    pass
+
 RelationshipTypeDef = TypedDict(
     "RelationshipTypeDef",
     {
@@ -556,6 +585,7 @@ _OptionalStartDocumentAnalysisRequestRequestTypeDef = TypedDict(
         "NotificationChannel": "NotificationChannelTypeDef",
         "OutputConfig": "OutputConfigTypeDef",
         "KMSKeyId": str,
+        "QueriesConfig": "QueriesConfigTypeDef",
     },
     total=False,
 )

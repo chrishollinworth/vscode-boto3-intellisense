@@ -27,6 +27,7 @@ __all__ = (
     "GrpcRetryPolicyEventType",
     "HttpMethodType",
     "HttpSchemeType",
+    "IpPreferenceType",
     "ListGatewayRoutesPaginatorName",
     "ListMeshesPaginatorName",
     "ListRoutesPaginatorName",
@@ -60,6 +61,7 @@ HttpMethodType = Literal[
     "CONNECT", "DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT", "TRACE"
 ]
 HttpSchemeType = Literal["http", "https"]
+IpPreferenceType = Literal["IPv4_ONLY", "IPv4_PREFERRED", "IPv6_ONLY", "IPv6_PREFERRED"]
 ListGatewayRoutesPaginatorName = Literal["list_gateway_routes"]
 ListMeshesPaginatorName = Literal["list_meshes"]
 ListRoutesPaginatorName = Literal["list_routes"]

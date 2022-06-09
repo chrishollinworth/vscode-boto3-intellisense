@@ -22,6 +22,7 @@ from .literals import (
     ReplicationSetStatusType,
     SortOrderType,
     SsmTargetAccountType,
+    VariableTypeType,
 )
 
 if sys.version_info >= (3, 8):
@@ -52,6 +53,7 @@ __all__ = (
     "DeleteResourcePolicyInputRequestTypeDef",
     "DeleteResponsePlanInputRequestTypeDef",
     "DeleteTimelineEventInputRequestTypeDef",
+    "DynamicSsmParameterValueTypeDef",
     "EventSummaryTypeDef",
     "FilterTypeDef",
     "GetIncidentRecordInputRequestTypeDef",
@@ -306,6 +308,14 @@ DeleteTimelineEventInputRequestTypeDef = TypedDict(
         "eventId": str,
         "incidentRecordArn": str,
     },
+)
+
+DynamicSsmParameterValueTypeDef = TypedDict(
+    "DynamicSsmParameterValueTypeDef",
+    {
+        "variable": VariableTypeType,
+    },
+    total=False,
 )
 
 EventSummaryTypeDef = TypedDict(
@@ -827,6 +837,7 @@ _OptionalSsmAutomationTypeDef = TypedDict(
     "_OptionalSsmAutomationTypeDef",
     {
         "documentVersion": str,
+        "dynamicParameters": Dict[str, "DynamicSsmParameterValueTypeDef"],
         "parameters": Dict[str, List[str]],
         "targetAccount": SsmTargetAccountType,
     },

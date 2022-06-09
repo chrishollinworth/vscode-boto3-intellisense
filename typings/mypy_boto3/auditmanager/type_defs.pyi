@@ -694,7 +694,6 @@ CreateAssessmentFrameworkControlTypeDef = TypedDict(
     {
         "id": str,
     },
-    total=False,
 )
 
 _RequiredCreateAssessmentFrameworkRequestRequestTypeDef = TypedDict(
@@ -1713,7 +1712,6 @@ RoleTypeDef = TypedDict(
         "roleType": RoleTypeType,
         "roleArn": str,
     },
-    total=False,
 )
 
 ScopeTypeDef = TypedDict(
@@ -1865,13 +1863,13 @@ _RequiredUpdateAssessmentFrameworkControlSetTypeDef = TypedDict(
     "_RequiredUpdateAssessmentFrameworkControlSetTypeDef",
     {
         "name": str,
+        "controls": List["CreateAssessmentFrameworkControlTypeDef"],
     },
 )
 _OptionalUpdateAssessmentFrameworkControlSetTypeDef = TypedDict(
     "_OptionalUpdateAssessmentFrameworkControlSetTypeDef",
     {
         "id": str,
-        "controls": List["CreateAssessmentFrameworkControlTypeDef"],
     },
     total=False,
 )

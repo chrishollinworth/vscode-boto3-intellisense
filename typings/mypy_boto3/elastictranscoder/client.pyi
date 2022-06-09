@@ -58,6 +58,7 @@ __all__ = ("ElasticTranscoderClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -74,11 +75,12 @@ class Exceptions:
 
 class ElasticTranscoderClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -88,14 +90,14 @@ class ElasticTranscoderClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#can_paginate)
         """
     def cancel_job(self, *, Id: str) -> Dict[str, Any]:
         """
         The CancelJob operation cancels an unfinished job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.cancel_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.cancel_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#cancel_job)
         """
     def create_job(
@@ -114,7 +116,7 @@ class ElasticTranscoderClient(BaseClient):
         When you create a job, Elastic Transcoder returns JSON data that includes the
         values that you specified plus information about the job that is created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#create_job)
         """
     def create_pipeline(
@@ -132,7 +134,7 @@ class ElasticTranscoderClient(BaseClient):
         """
         The CreatePipeline operation creates a pipeline with settings that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#create_pipeline)
         """
     def create_preset(
@@ -148,21 +150,21 @@ class ElasticTranscoderClient(BaseClient):
         """
         The CreatePreset operation creates a preset with settings that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_preset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_preset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#create_preset)
         """
     def delete_pipeline(self, *, Id: str) -> Dict[str, Any]:
         """
         The DeletePipeline operation removes a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#delete_pipeline)
         """
     def delete_preset(self, *, Id: str) -> Dict[str, Any]:
         """
         The DeletePreset operation removes a preset that you've added in an AWS region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_preset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_preset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#delete_preset)
         """
     def generate_presigned_url(
@@ -175,7 +177,7 @@ class ElasticTranscoderClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#generate_presigned_url)
         """
     def list_jobs_by_pipeline(
@@ -185,7 +187,7 @@ class ElasticTranscoderClient(BaseClient):
         The ListJobsByPipeline operation gets a list of the jobs currently in a
         pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#list_jobs_by_pipeline)
         """
     def list_jobs_by_status(
@@ -194,7 +196,7 @@ class ElasticTranscoderClient(BaseClient):
         """
         The ListJobsByStatus operation gets a list of jobs that have a specified status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#list_jobs_by_status)
         """
     def list_pipelines(
@@ -204,7 +206,7 @@ class ElasticTranscoderClient(BaseClient):
         The ListPipelines operation gets a list of the pipelines associated with the
         current AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#list_pipelines)
         """
     def list_presets(
@@ -214,28 +216,28 @@ class ElasticTranscoderClient(BaseClient):
         The ListPresets operation gets a list of the default presets included with
         Elastic Transcoder and the presets that you've added in an AWS region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_presets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_presets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#list_presets)
         """
     def read_job(self, *, Id: str) -> ReadJobResponseTypeDef:
         """
         The ReadJob operation returns detailed information about a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_job)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#read_job)
         """
     def read_pipeline(self, *, Id: str) -> ReadPipelineResponseTypeDef:
         """
         The ReadPipeline operation gets detailed information about a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#read_pipeline)
         """
     def read_preset(self, *, Id: str) -> ReadPresetResponseTypeDef:
         """
         The ReadPreset operation gets detailed information about a preset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_preset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_preset)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#read_preset)
         """
     def test_role(
@@ -244,7 +246,7 @@ class ElasticTranscoderClient(BaseClient):
         """
         The TestRole operation tests the IAM role used to create the pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.test_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.test_role)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#test_role)
         """
     def update_pipeline(
@@ -262,7 +264,7 @@ class ElasticTranscoderClient(BaseClient):
         """
         Use the `UpdatePipeline` operation to update settings for a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#update_pipeline)
         """
     def update_pipeline_notifications(
@@ -272,7 +274,7 @@ class ElasticTranscoderClient(BaseClient):
         With the UpdatePipelineNotifications operation, you can update Amazon Simple
         Notification Service (Amazon SNS) notifications for a pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_notifications)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#update_pipeline_notifications)
         """
     def update_pipeline_status(
@@ -282,7 +284,7 @@ class ElasticTranscoderClient(BaseClient):
         The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the
         pipeline stops or restarts the processing of jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/client.html#update_pipeline_status)
         """
     @overload
@@ -290,7 +292,7 @@ class ElasticTranscoderClient(BaseClient):
         self, operation_name: Literal["list_jobs_by_pipeline"]
     ) -> ListJobsByPipelinePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/paginators.html#listjobsbypipelinepaginator)
         """
     @overload
@@ -298,23 +300,23 @@ class ElasticTranscoderClient(BaseClient):
         self, operation_name: Literal["list_jobs_by_status"]
     ) -> ListJobsByStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/paginators.html#listjobsbystatuspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/paginators.html#listpipelinespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_presets"]) -> ListPresetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/paginators.html#listpresetspaginator)
         """
     def get_waiter(self, waiter_name: Literal["job_complete"]) -> JobCompleteWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/waiters.html#jobcompletewaiter)
         """

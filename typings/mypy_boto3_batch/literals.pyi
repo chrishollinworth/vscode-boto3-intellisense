@@ -26,6 +26,7 @@ __all__ = (
     "CETypeType",
     "CRAllocationStrategyType",
     "CRTypeType",
+    "CRUpdateAllocationStrategyType",
     "DescribeComputeEnvironmentsPaginatorName",
     "DescribeJobDefinitionsPaginatorName",
     "DescribeJobQueuesPaginatorName",
@@ -51,6 +52,7 @@ CEStatusType = Literal["CREATING", "DELETED", "DELETING", "INVALID", "UPDATING",
 CETypeType = Literal["MANAGED", "UNMANAGED"]
 CRAllocationStrategyType = Literal["BEST_FIT", "BEST_FIT_PROGRESSIVE", "SPOT_CAPACITY_OPTIMIZED"]
 CRTypeType = Literal["EC2", "FARGATE", "FARGATE_SPOT", "SPOT"]
+CRUpdateAllocationStrategyType = Literal["BEST_FIT_PROGRESSIVE", "SPOT_CAPACITY_OPTIMIZED"]
 DescribeComputeEnvironmentsPaginatorName = Literal["describe_compute_environments"]
 DescribeJobDefinitionsPaginatorName = Literal["describe_job_definitions"]
 DescribeJobQueuesPaginatorName = Literal["describe_job_queues"]

@@ -30,6 +30,8 @@ __all__ = (
     "FallbackActionType",
     "InvocationTypeType",
     "PushNotificationTypeType",
+    "SearchFieldKeyType",
+    "SearchFieldOperatorType",
     "SortOrderType",
 )
 
@@ -60,4 +62,6 @@ ErrorCodeType = Literal[
 FallbackActionType = Literal["ABORT", "CONTINUE"]
 InvocationTypeType = Literal["ASYNC"]
 PushNotificationTypeType = Literal["DEFAULT", "VOIP"]
+SearchFieldKeyType = Literal["MEMBERS"]
+SearchFieldOperatorType = Literal["EQUALS", "INCLUDES"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]

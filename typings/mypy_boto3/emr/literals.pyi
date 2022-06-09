@@ -60,6 +60,7 @@ __all__ = (
     "OnDemandCapacityReservationUsageStrategyType",
     "OnDemandProvisioningAllocationStrategyType",
     "PlacementGroupStrategyType",
+    "ReconfigurationTypeType",
     "RepoUpgradeOnBootType",
     "ScaleDownBehaviorType",
     "SpotProvisioningAllocationStrategyType",
@@ -185,6 +186,7 @@ OnDemandCapacityReservationPreferenceType = Literal["none", "open"]
 OnDemandCapacityReservationUsageStrategyType = Literal["use-capacity-reservations-first"]
 OnDemandProvisioningAllocationStrategyType = Literal["lowest-price"]
 PlacementGroupStrategyType = Literal["CLUSTER", "NONE", "PARTITION", "SPREAD"]
+ReconfigurationTypeType = Literal["MERGE", "OVERWRITE"]
 RepoUpgradeOnBootType = Literal["NONE", "SECURITY"]
 ScaleDownBehaviorType = Literal["TERMINATE_AT_INSTANCE_HOUR", "TERMINATE_AT_TASK_COMPLETION"]
 SpotProvisioningAllocationStrategyType = Literal["capacity-optimized"]

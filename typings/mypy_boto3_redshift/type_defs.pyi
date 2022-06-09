@@ -23,6 +23,7 @@ from .literals import (
     DataShareStatusForConsumerType,
     DataShareStatusForProducerType,
     DataShareStatusType,
+    LogDestinationTypeType,
     ModeType,
     NodeConfigurationOptionsFilterNameType,
     OperatorTypeType,
@@ -76,6 +77,7 @@ __all__ = (
     "ClusterCredentialsTypeDef",
     "ClusterDbRevisionTypeDef",
     "ClusterDbRevisionsMessageTypeDef",
+    "ClusterExtendedCredentialsTypeDef",
     "ClusterIamRoleTypeDef",
     "ClusterNodeTypeDef",
     "ClusterParameterGroupDetailsTypeDef",
@@ -216,6 +218,7 @@ __all__ = (
     "EventTypeDef",
     "EventsMessageTypeDef",
     "GetClusterCredentialsMessageRequestTypeDef",
+    "GetClusterCredentialsWithIAMMessageRequestTypeDef",
     "GetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef",
     "GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef",
     "GetReservedNodeExchangeOfferingsInputMessageRequestTypeDef",
@@ -398,6 +401,7 @@ _OptionalAssociateDataShareConsumerMessageRequestTypeDef = TypedDict(
     {
         "AssociateEntireAccount": bool,
         "ConsumerArn": str,
+        "ConsumerRegion": str,
     },
     total=False,
 )
@@ -610,6 +614,17 @@ ClusterDbRevisionsMessageTypeDef = TypedDict(
     {
         "Marker": str,
         "ClusterDbRevisions": List["ClusterDbRevisionTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ClusterExtendedCredentialsTypeDef = TypedDict(
+    "ClusterExtendedCredentialsTypeDef",
+    {
+        "DbUser": str,
+        "DbPassword": str,
+        "Expiration": datetime,
+        "NextRefreshTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -929,6 +944,7 @@ _OptionalCreateClusterMessageRequestTypeDef = TypedDict(
         "AvailabilityZoneRelocation": bool,
         "AquaConfigurationStatus": AquaConfigurationStatusType,
         "DefaultIamRoleArn": str,
+        "LoadSampleData": str,
     },
     total=False,
 )
@@ -1297,6 +1313,7 @@ DataShareAssociationTypeDef = TypedDict(
     {
         "ConsumerIdentifier": str,
         "Status": DataShareStatusType,
+        "ConsumerRegion": str,
         "CreatedDate": datetime,
         "StatusChangeDate": datetime,
     },
@@ -1310,6 +1327,7 @@ DataShareResponseMetadataTypeDef = TypedDict(
         "ProducerArn": str,
         "AllowPubliclyAccessibleConsumers": bool,
         "DataShareAssociations": List["DataShareAssociationTypeDef"],
+        "ManagedBy": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1321,6 +1339,7 @@ DataShareTypeDef = TypedDict(
         "ProducerArn": str,
         "AllowPubliclyAccessibleConsumers": bool,
         "DataShareAssociations": List["DataShareAssociationTypeDef"],
+        "ManagedBy": str,
     },
     total=False,
 )
@@ -2097,6 +2116,7 @@ _OptionalDisassociateDataShareConsumerMessageRequestTypeDef = TypedDict(
     {
         "DisassociateEntireAccount": bool,
         "ConsumerArn": str,
+        "ConsumerRegion": str,
     },
     total=False,
 )
@@ -2131,13 +2151,15 @@ _RequiredEnableLoggingMessageRequestTypeDef = TypedDict(
     "_RequiredEnableLoggingMessageRequestTypeDef",
     {
         "ClusterIdentifier": str,
-        "BucketName": str,
     },
 )
 _OptionalEnableLoggingMessageRequestTypeDef = TypedDict(
     "_OptionalEnableLoggingMessageRequestTypeDef",
     {
+        "BucketName": str,
         "S3KeyPrefix": str,
+        "LogDestinationType": LogDestinationTypeType,
+        "LogExports": List[str],
     },
     total=False,
 )
@@ -2374,6 +2396,27 @@ class GetClusterCredentialsMessageRequestTypeDef(
 ):
     pass
 
+_RequiredGetClusterCredentialsWithIAMMessageRequestTypeDef = TypedDict(
+    "_RequiredGetClusterCredentialsWithIAMMessageRequestTypeDef",
+    {
+        "ClusterIdentifier": str,
+    },
+)
+_OptionalGetClusterCredentialsWithIAMMessageRequestTypeDef = TypedDict(
+    "_OptionalGetClusterCredentialsWithIAMMessageRequestTypeDef",
+    {
+        "DbName": str,
+        "DurationSeconds": int,
+    },
+    total=False,
+)
+
+class GetClusterCredentialsWithIAMMessageRequestTypeDef(
+    _RequiredGetClusterCredentialsWithIAMMessageRequestTypeDef,
+    _OptionalGetClusterCredentialsWithIAMMessageRequestTypeDef,
+):
+    pass
+
 _RequiredGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef = TypedDict(
     "_RequiredGetReservedNodeExchangeConfigurationOptionsInputMessageRequestTypeDef",
     {
@@ -2505,6 +2548,8 @@ LoggingStatusTypeDef = TypedDict(
         "LastSuccessfulDeliveryTime": datetime,
         "LastFailureTime": datetime,
         "LastFailureMessage": str,
+        "LogDestinationType": LogDestinationTypeType,
+        "LogExports": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3371,6 +3416,7 @@ _OptionalRestoreFromClusterSnapshotMessageRequestTypeDef = TypedDict(
         "DefaultIamRoleArn": str,
         "ReservedNodeId": str,
         "TargetReservedNodeOfferingId": str,
+        "Encrypted": bool,
     },
     total=False,
 )

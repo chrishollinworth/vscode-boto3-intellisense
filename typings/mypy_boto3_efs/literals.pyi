@@ -24,6 +24,7 @@ __all__ = (
     "DescribeTagsPaginatorName",
     "LifeCycleStateType",
     "PerformanceModeType",
+    "ReplicationStatusType",
     "ResourceIdTypeType",
     "ResourceType",
     "StatusType",
@@ -37,6 +38,7 @@ DescribeMountTargetsPaginatorName = Literal["describe_mount_targets"]
 DescribeTagsPaginatorName = Literal["describe_tags"]
 LifeCycleStateType = Literal["available", "creating", "deleted", "deleting", "error", "updating"]
 PerformanceModeType = Literal["generalPurpose", "maxIO"]
+ReplicationStatusType = Literal["DELETING", "ENABLED", "ENABLING", "ERROR"]
 ResourceIdTypeType = Literal["LONG_ID", "SHORT_ID"]
 ResourceType = Literal["FILE_SYSTEM", "MOUNT_TARGET"]
 StatusType = Literal["DISABLED", "DISABLING", "ENABLED", "ENABLING"]

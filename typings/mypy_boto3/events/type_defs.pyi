@@ -23,11 +23,13 @@ from .literals import (
     ConnectionAuthorizationTypeType,
     ConnectionOAuthHttpMethodType,
     ConnectionStateType,
+    EndpointStateType,
     EventSourceStateType,
     LaunchTypeType,
     PlacementConstraintTypeType,
     PlacementStrategyTypeType,
     ReplayStateType,
+    ReplicationStateType,
     RuleStateType,
 )
 
@@ -73,6 +75,8 @@ __all__ = (
     "CreateConnectionOAuthRequestParametersTypeDef",
     "CreateConnectionRequestRequestTypeDef",
     "CreateConnectionResponseTypeDef",
+    "CreateEndpointRequestRequestTypeDef",
+    "CreateEndpointResponseTypeDef",
     "CreateEventBusRequestRequestTypeDef",
     "CreateEventBusResponseTypeDef",
     "CreatePartnerEventSourceRequestRequestTypeDef",
@@ -85,6 +89,7 @@ __all__ = (
     "DeleteArchiveRequestRequestTypeDef",
     "DeleteConnectionRequestRequestTypeDef",
     "DeleteConnectionResponseTypeDef",
+    "DeleteEndpointRequestRequestTypeDef",
     "DeleteEventBusRequestRequestTypeDef",
     "DeletePartnerEventSourceRequestRequestTypeDef",
     "DeleteRuleRequestRequestTypeDef",
@@ -94,6 +99,8 @@ __all__ = (
     "DescribeArchiveResponseTypeDef",
     "DescribeConnectionRequestRequestTypeDef",
     "DescribeConnectionResponseTypeDef",
+    "DescribeEndpointRequestRequestTypeDef",
+    "DescribeEndpointResponseTypeDef",
     "DescribeEventBusRequestRequestTypeDef",
     "DescribeEventBusResponseTypeDef",
     "DescribeEventSourceRequestRequestTypeDef",
@@ -107,8 +114,11 @@ __all__ = (
     "DisableRuleRequestRequestTypeDef",
     "EcsParametersTypeDef",
     "EnableRuleRequestRequestTypeDef",
+    "EndpointEventBusTypeDef",
+    "EndpointTypeDef",
     "EventBusTypeDef",
     "EventSourceTypeDef",
+    "FailoverConfigTypeDef",
     "HttpParametersTypeDef",
     "InputTransformerTypeDef",
     "KinesisParametersTypeDef",
@@ -118,6 +128,8 @@ __all__ = (
     "ListArchivesResponseTypeDef",
     "ListConnectionsRequestRequestTypeDef",
     "ListConnectionsResponseTypeDef",
+    "ListEndpointsRequestRequestTypeDef",
+    "ListEndpointsResponseTypeDef",
     "ListEventBusesRequestRequestTypeDef",
     "ListEventBusesResponseTypeDef",
     "ListEventSourcesRequestRequestTypeDef",
@@ -142,6 +154,7 @@ __all__ = (
     "PartnerEventSourceTypeDef",
     "PlacementConstraintTypeDef",
     "PlacementStrategyTypeDef",
+    "PrimaryTypeDef",
     "PutEventsRequestEntryTypeDef",
     "PutEventsRequestRequestTypeDef",
     "PutEventsResponseTypeDef",
@@ -163,13 +176,16 @@ __all__ = (
     "RemoveTargetsResultEntryTypeDef",
     "ReplayDestinationTypeDef",
     "ReplayTypeDef",
+    "ReplicationConfigTypeDef",
     "ResponseMetadataTypeDef",
     "RetryPolicyTypeDef",
+    "RoutingConfigTypeDef",
     "RuleTypeDef",
     "RunCommandParametersTypeDef",
     "RunCommandTargetTypeDef",
     "SageMakerPipelineParameterTypeDef",
     "SageMakerPipelineParametersTypeDef",
+    "SecondaryTypeDef",
     "SqsParametersTypeDef",
     "StartReplayRequestRequestTypeDef",
     "StartReplayResponseTypeDef",
@@ -190,6 +206,8 @@ __all__ = (
     "UpdateConnectionOAuthRequestParametersTypeDef",
     "UpdateConnectionRequestRequestTypeDef",
     "UpdateConnectionResponseTypeDef",
+    "UpdateEndpointRequestRequestTypeDef",
+    "UpdateEndpointResponseTypeDef",
 )
 
 ActivateEventSourceRequestRequestTypeDef = TypedDict(
@@ -589,6 +607,43 @@ CreateConnectionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEndpointRequestRequestTypeDef",
+    {
+        "Name": str,
+        "RoutingConfig": "RoutingConfigTypeDef",
+        "EventBuses": List["EndpointEventBusTypeDef"],
+    },
+)
+_OptionalCreateEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEndpointRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ReplicationConfig": "ReplicationConfigTypeDef",
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+class CreateEndpointRequestRequestTypeDef(
+    _RequiredCreateEndpointRequestRequestTypeDef, _OptionalCreateEndpointRequestRequestTypeDef
+):
+    pass
+
+CreateEndpointResponseTypeDef = TypedDict(
+    "CreateEndpointResponseTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+        "RoutingConfig": "RoutingConfigTypeDef",
+        "ReplicationConfig": "ReplicationConfigTypeDef",
+        "EventBuses": List["EndpointEventBusTypeDef"],
+        "RoleArn": str,
+        "State": EndpointStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateEventBusRequestRequestTypeDef = TypedDict(
     "_RequiredCreateEventBusRequestRequestTypeDef",
     {
@@ -700,6 +755,13 @@ DeleteConnectionResponseTypeDef = TypedDict(
     },
 )
 
+DeleteEndpointRequestRequestTypeDef = TypedDict(
+    "DeleteEndpointRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
 DeleteEventBusRequestRequestTypeDef = TypedDict(
     "DeleteEventBusRequestRequestTypeDef",
     {
@@ -805,6 +867,45 @@ DescribeConnectionResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "LastAuthorizedTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeEndpointRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalDescribeEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeEndpointRequestRequestTypeDef",
+    {
+        "HomeRegion": str,
+    },
+    total=False,
+)
+
+class DescribeEndpointRequestRequestTypeDef(
+    _RequiredDescribeEndpointRequestRequestTypeDef, _OptionalDescribeEndpointRequestRequestTypeDef
+):
+    pass
+
+DescribeEndpointResponseTypeDef = TypedDict(
+    "DescribeEndpointResponseTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "Arn": str,
+        "RoutingConfig": "RoutingConfigTypeDef",
+        "ReplicationConfig": "ReplicationConfigTypeDef",
+        "EventBuses": List["EndpointEventBusTypeDef"],
+        "RoleArn": str,
+        "EndpointId": str,
+        "EndpointUrl": str,
+        "State": EndpointStateType,
+        "StateReason": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -992,6 +1093,33 @@ class EnableRuleRequestRequestTypeDef(
 ):
     pass
 
+EndpointEventBusTypeDef = TypedDict(
+    "EndpointEventBusTypeDef",
+    {
+        "EventBusArn": str,
+    },
+)
+
+EndpointTypeDef = TypedDict(
+    "EndpointTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "Arn": str,
+        "RoutingConfig": "RoutingConfigTypeDef",
+        "ReplicationConfig": "ReplicationConfigTypeDef",
+        "EventBuses": List["EndpointEventBusTypeDef"],
+        "RoleArn": str,
+        "EndpointId": str,
+        "EndpointUrl": str,
+        "State": EndpointStateType,
+        "StateReason": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
 EventBusTypeDef = TypedDict(
     "EventBusTypeDef",
     {
@@ -1013,6 +1141,14 @@ EventSourceTypeDef = TypedDict(
         "State": EventSourceStateType,
     },
     total=False,
+)
+
+FailoverConfigTypeDef = TypedDict(
+    "FailoverConfigTypeDef",
+    {
+        "Primary": "PrimaryTypeDef",
+        "Secondary": "SecondaryTypeDef",
+    },
 )
 
 HttpParametersTypeDef = TypedDict(
@@ -1105,6 +1241,26 @@ ListConnectionsResponseTypeDef = TypedDict(
     "ListConnectionsResponseTypeDef",
     {
         "Connections": List["ConnectionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListEndpointsRequestRequestTypeDef = TypedDict(
+    "ListEndpointsRequestRequestTypeDef",
+    {
+        "NamePrefix": str,
+        "HomeRegion": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListEndpointsResponseTypeDef = TypedDict(
+    "ListEndpointsResponseTypeDef",
+    {
+        "Endpoints": List["EndpointTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1381,6 +1537,13 @@ PlacementStrategyTypeDef = TypedDict(
     total=False,
 )
 
+PrimaryTypeDef = TypedDict(
+    "PrimaryTypeDef",
+    {
+        "HealthCheck": str,
+    },
+)
+
 PutEventsRequestEntryTypeDef = TypedDict(
     "PutEventsRequestEntryTypeDef",
     {
@@ -1395,12 +1558,24 @@ PutEventsRequestEntryTypeDef = TypedDict(
     total=False,
 )
 
-PutEventsRequestRequestTypeDef = TypedDict(
-    "PutEventsRequestRequestTypeDef",
+_RequiredPutEventsRequestRequestTypeDef = TypedDict(
+    "_RequiredPutEventsRequestRequestTypeDef",
     {
         "Entries": List["PutEventsRequestEntryTypeDef"],
     },
 )
+_OptionalPutEventsRequestRequestTypeDef = TypedDict(
+    "_OptionalPutEventsRequestRequestTypeDef",
+    {
+        "EndpointId": str,
+    },
+    total=False,
+)
+
+class PutEventsRequestRequestTypeDef(
+    _RequiredPutEventsRequestRequestTypeDef, _OptionalPutEventsRequestRequestTypeDef
+):
+    pass
 
 PutEventsResponseTypeDef = TypedDict(
     "PutEventsResponseTypeDef",
@@ -1652,6 +1827,14 @@ ReplayTypeDef = TypedDict(
     total=False,
 )
 
+ReplicationConfigTypeDef = TypedDict(
+    "ReplicationConfigTypeDef",
+    {
+        "State": ReplicationStateType,
+    },
+    total=False,
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1670,6 +1853,13 @@ RetryPolicyTypeDef = TypedDict(
         "MaximumEventAgeInSeconds": int,
     },
     total=False,
+)
+
+RoutingConfigTypeDef = TypedDict(
+    "RoutingConfigTypeDef",
+    {
+        "FailoverConfig": "FailoverConfigTypeDef",
+    },
 )
 
 RuleTypeDef = TypedDict(
@@ -1717,6 +1907,13 @@ SageMakerPipelineParametersTypeDef = TypedDict(
         "PipelineParameterList": List["SageMakerPipelineParameterTypeDef"],
     },
     total=False,
+)
+
+SecondaryTypeDef = TypedDict(
+    "SecondaryTypeDef",
+    {
+        "Route": str,
+    },
 )
 
 SqsParametersTypeDef = TypedDict(
@@ -1977,6 +2174,45 @@ UpdateConnectionResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "LastAuthorizedTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdateEndpointRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEndpointRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalUpdateEndpointRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEndpointRequestRequestTypeDef",
+    {
+        "Description": str,
+        "RoutingConfig": "RoutingConfigTypeDef",
+        "ReplicationConfig": "ReplicationConfigTypeDef",
+        "EventBuses": List["EndpointEventBusTypeDef"],
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+class UpdateEndpointRequestRequestTypeDef(
+    _RequiredUpdateEndpointRequestRequestTypeDef, _OptionalUpdateEndpointRequestRequestTypeDef
+):
+    pass
+
+UpdateEndpointResponseTypeDef = TypedDict(
+    "UpdateEndpointResponseTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+        "RoutingConfig": "RoutingConfigTypeDef",
+        "ReplicationConfig": "ReplicationConfigTypeDef",
+        "EventBuses": List["EndpointEventBusTypeDef"],
+        "RoleArn": str,
+        "EndpointId": str,
+        "EndpointUrl": str,
+        "State": EndpointStateType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

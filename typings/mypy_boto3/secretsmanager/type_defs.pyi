@@ -525,6 +525,7 @@ _OptionalRotateSecretRequestRequestTypeDef = TypedDict(
         "ClientRequestToken": str,
         "RotationLambdaARN": str,
         "RotationRules": "RotationRulesTypeTypeDef",
+        "RotateImmediately": bool,
     },
     total=False,
 )
@@ -548,6 +549,8 @@ RotationRulesTypeTypeDef = TypedDict(
     "RotationRulesTypeTypeDef",
     {
         "AutomaticallyAfterDays": int,
+        "Duration": str,
+        "ScheduleExpression": str,
     },
     total=False,
 )

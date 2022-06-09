@@ -144,6 +144,7 @@ __all__ = (
     "ListRestoreJobsOutputTypeDef",
     "ListTagsInputRequestTypeDef",
     "ListTagsOutputTypeDef",
+    "PaginatorConfigTypeDef",
     "ProtectedResourceTypeDef",
     "PutBackupVaultAccessPolicyInputRequestTypeDef",
     "PutBackupVaultLockConfigurationInputRequestTypeDef",
@@ -1150,6 +1151,8 @@ ListBackupJobsInputRequestTypeDef = TypedDict(
         "ByCreatedAfter": Union[datetime, str],
         "ByResourceType": str,
         "ByAccountId": str,
+        "ByCompleteAfter": Union[datetime, str],
+        "ByCompleteBefore": Union[datetime, str],
     },
     total=False,
 )
@@ -1290,6 +1293,8 @@ ListCopyJobsInputRequestTypeDef = TypedDict(
         "ByResourceType": str,
         "ByDestinationVaultArn": str,
         "ByAccountId": str,
+        "ByCompleteBefore": Union[datetime, str],
+        "ByCompleteAfter": Union[datetime, str],
     },
     total=False,
 )
@@ -1453,6 +1458,8 @@ ListRestoreJobsInputRequestTypeDef = TypedDict(
         "ByCreatedBefore": Union[datetime, str],
         "ByCreatedAfter": Union[datetime, str],
         "ByStatus": RestoreJobStatusType,
+        "ByCompleteBefore": Union[datetime, str],
+        "ByCompleteAfter": Union[datetime, str],
     },
     total=False,
 )
@@ -1493,6 +1500,16 @@ ListTagsOutputTypeDef = TypedDict(
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
 )
 
 ProtectedResourceTypeDef = TypedDict(

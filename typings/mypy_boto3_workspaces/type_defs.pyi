@@ -13,12 +13,15 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AccessPropertyValueType,
     ApplicationType,
     AssociationStatusType,
+    ClientDeviceTypeType,
     ComputeType,
     ConnectionAliasStateType,
     ConnectionStateType,
@@ -58,11 +61,14 @@ __all__ = (
     "ClientPropertiesResultTypeDef",
     "ClientPropertiesTypeDef",
     "ComputeTypeTypeDef",
+    "ConnectClientAddInTypeDef",
     "ConnectionAliasAssociationTypeDef",
     "ConnectionAliasPermissionTypeDef",
     "ConnectionAliasTypeDef",
     "CopyWorkspaceImageRequestRequestTypeDef",
     "CopyWorkspaceImageResultTypeDef",
+    "CreateConnectClientAddInRequestRequestTypeDef",
+    "CreateConnectClientAddInResultTypeDef",
     "CreateConnectionAliasRequestRequestTypeDef",
     "CreateConnectionAliasResultTypeDef",
     "CreateIpGroupRequestRequestTypeDef",
@@ -74,7 +80,11 @@ __all__ = (
     "CreateWorkspaceBundleResultTypeDef",
     "CreateWorkspacesRequestRequestTypeDef",
     "CreateWorkspacesResultTypeDef",
+    "DefaultClientBrandingAttributesTypeDef",
+    "DefaultImportClientBrandingAttributesTypeDef",
     "DefaultWorkspaceCreationPropertiesTypeDef",
+    "DeleteClientBrandingRequestRequestTypeDef",
+    "DeleteConnectClientAddInRequestRequestTypeDef",
     "DeleteConnectionAliasRequestRequestTypeDef",
     "DeleteIpGroupRequestRequestTypeDef",
     "DeleteTagsRequestRequestTypeDef",
@@ -84,8 +94,12 @@ __all__ = (
     "DescribeAccountModificationsRequestRequestTypeDef",
     "DescribeAccountModificationsResultTypeDef",
     "DescribeAccountResultTypeDef",
+    "DescribeClientBrandingRequestRequestTypeDef",
+    "DescribeClientBrandingResultTypeDef",
     "DescribeClientPropertiesRequestRequestTypeDef",
     "DescribeClientPropertiesResultTypeDef",
+    "DescribeConnectClientAddInsRequestRequestTypeDef",
+    "DescribeConnectClientAddInsResultTypeDef",
     "DescribeConnectionAliasPermissionsRequestRequestTypeDef",
     "DescribeConnectionAliasPermissionsResultTypeDef",
     "DescribeConnectionAliasesRequestRequestTypeDef",
@@ -113,8 +127,12 @@ __all__ = (
     "FailedCreateWorkspaceRequestTypeDef",
     "FailedWorkspaceChangeRequestTypeDef",
     "ImagePermissionTypeDef",
+    "ImportClientBrandingRequestRequestTypeDef",
+    "ImportClientBrandingResultTypeDef",
     "ImportWorkspaceImageRequestRequestTypeDef",
     "ImportWorkspaceImageResultTypeDef",
+    "IosClientBrandingAttributesTypeDef",
+    "IosImportClientBrandingAttributesTypeDef",
     "IpRuleItemTypeDef",
     "ListAvailableManagementCidrRangesRequestRequestTypeDef",
     "ListAvailableManagementCidrRangesResultTypeDef",
@@ -153,6 +171,7 @@ __all__ = (
     "TerminateRequestTypeDef",
     "TerminateWorkspacesRequestRequestTypeDef",
     "TerminateWorkspacesResultTypeDef",
+    "UpdateConnectClientAddInRequestRequestTypeDef",
     "UpdateConnectionAliasPermissionRequestRequestTypeDef",
     "UpdateResultTypeDef",
     "UpdateRulesOfIpGroupRequestRequestTypeDef",
@@ -241,6 +260,17 @@ ComputeTypeTypeDef = TypedDict(
     total=False,
 )
 
+ConnectClientAddInTypeDef = TypedDict(
+    "ConnectClientAddInTypeDef",
+    {
+        "AddInId": str,
+        "ResourceId": str,
+        "Name": str,
+        "URL": str,
+    },
+    total=False,
+)
+
 ConnectionAliasAssociationTypeDef = TypedDict(
     "ConnectionAliasAssociationTypeDef",
     {
@@ -299,6 +329,23 @@ CopyWorkspaceImageResultTypeDef = TypedDict(
     "CopyWorkspaceImageResultTypeDef",
     {
         "ImageId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+CreateConnectClientAddInRequestRequestTypeDef = TypedDict(
+    "CreateConnectClientAddInRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+        "Name": str,
+        "URL": str,
+    },
+)
+
+CreateConnectClientAddInResultTypeDef = TypedDict(
+    "CreateConnectClientAddInResultTypeDef",
+    {
+        "AddInId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -447,6 +494,30 @@ CreateWorkspacesResultTypeDef = TypedDict(
     },
 )
 
+DefaultClientBrandingAttributesTypeDef = TypedDict(
+    "DefaultClientBrandingAttributesTypeDef",
+    {
+        "LogoUrl": str,
+        "SupportEmail": str,
+        "SupportLink": str,
+        "ForgotPasswordLink": str,
+        "LoginMessage": Dict[str, str],
+    },
+    total=False,
+)
+
+DefaultImportClientBrandingAttributesTypeDef = TypedDict(
+    "DefaultImportClientBrandingAttributesTypeDef",
+    {
+        "Logo": Union[bytes, IO[bytes], StreamingBody],
+        "SupportEmail": str,
+        "SupportLink": str,
+        "ForgotPasswordLink": str,
+        "LoginMessage": Dict[str, str],
+    },
+    total=False,
+)
+
 DefaultWorkspaceCreationPropertiesTypeDef = TypedDict(
     "DefaultWorkspaceCreationPropertiesTypeDef",
     {
@@ -458,6 +529,22 @@ DefaultWorkspaceCreationPropertiesTypeDef = TypedDict(
         "EnableMaintenanceMode": bool,
     },
     total=False,
+)
+
+DeleteClientBrandingRequestRequestTypeDef = TypedDict(
+    "DeleteClientBrandingRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+        "Platforms": List[ClientDeviceTypeType],
+    },
+)
+
+DeleteConnectClientAddInRequestRequestTypeDef = TypedDict(
+    "DeleteConnectClientAddInRequestRequestTypeDef",
+    {
+        "AddInId": str,
+        "ResourceId": str,
+    },
 )
 
 DeleteConnectionAliasRequestRequestTypeDef = TypedDict(
@@ -530,6 +617,26 @@ DescribeAccountResultTypeDef = TypedDict(
     },
 )
 
+DescribeClientBrandingRequestRequestTypeDef = TypedDict(
+    "DescribeClientBrandingRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
+)
+
+DescribeClientBrandingResultTypeDef = TypedDict(
+    "DescribeClientBrandingResultTypeDef",
+    {
+        "DeviceTypeWindows": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeOsx": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeAndroid": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeIos": "IosClientBrandingAttributesTypeDef",
+        "DeviceTypeLinux": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeWeb": "DefaultClientBrandingAttributesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeClientPropertiesRequestRequestTypeDef = TypedDict(
     "DescribeClientPropertiesRequestRequestTypeDef",
     {
@@ -541,6 +648,36 @@ DescribeClientPropertiesResultTypeDef = TypedDict(
     "DescribeClientPropertiesResultTypeDef",
     {
         "ClientPropertiesList": List["ClientPropertiesResultTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeConnectClientAddInsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeConnectClientAddInsRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
+)
+_OptionalDescribeConnectClientAddInsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeConnectClientAddInsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeConnectClientAddInsRequestRequestTypeDef(
+    _RequiredDescribeConnectClientAddInsRequestRequestTypeDef,
+    _OptionalDescribeConnectClientAddInsRequestRequestTypeDef,
+):
+    pass
+
+DescribeConnectClientAddInsResultTypeDef = TypedDict(
+    "DescribeConnectClientAddInsResultTypeDef",
+    {
+        "AddIns": List["ConnectClientAddInTypeDef"],
+        "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -818,6 +955,44 @@ ImagePermissionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredImportClientBrandingRequestRequestTypeDef = TypedDict(
+    "_RequiredImportClientBrandingRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+    },
+)
+_OptionalImportClientBrandingRequestRequestTypeDef = TypedDict(
+    "_OptionalImportClientBrandingRequestRequestTypeDef",
+    {
+        "DeviceTypeWindows": "DefaultImportClientBrandingAttributesTypeDef",
+        "DeviceTypeOsx": "DefaultImportClientBrandingAttributesTypeDef",
+        "DeviceTypeAndroid": "DefaultImportClientBrandingAttributesTypeDef",
+        "DeviceTypeIos": "IosImportClientBrandingAttributesTypeDef",
+        "DeviceTypeLinux": "DefaultImportClientBrandingAttributesTypeDef",
+        "DeviceTypeWeb": "DefaultImportClientBrandingAttributesTypeDef",
+    },
+    total=False,
+)
+
+class ImportClientBrandingRequestRequestTypeDef(
+    _RequiredImportClientBrandingRequestRequestTypeDef,
+    _OptionalImportClientBrandingRequestRequestTypeDef,
+):
+    pass
+
+ImportClientBrandingResultTypeDef = TypedDict(
+    "ImportClientBrandingResultTypeDef",
+    {
+        "DeviceTypeWindows": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeOsx": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeAndroid": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeIos": "IosClientBrandingAttributesTypeDef",
+        "DeviceTypeLinux": "DefaultClientBrandingAttributesTypeDef",
+        "DeviceTypeWeb": "DefaultClientBrandingAttributesTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredImportWorkspaceImageRequestRequestTypeDef = TypedDict(
     "_RequiredImportWorkspaceImageRequestRequestTypeDef",
     {
@@ -848,6 +1023,34 @@ ImportWorkspaceImageResultTypeDef = TypedDict(
         "ImageId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+IosClientBrandingAttributesTypeDef = TypedDict(
+    "IosClientBrandingAttributesTypeDef",
+    {
+        "LogoUrl": str,
+        "Logo2xUrl": str,
+        "Logo3xUrl": str,
+        "SupportEmail": str,
+        "SupportLink": str,
+        "ForgotPasswordLink": str,
+        "LoginMessage": Dict[str, str],
+    },
+    total=False,
+)
+
+IosImportClientBrandingAttributesTypeDef = TypedDict(
+    "IosImportClientBrandingAttributesTypeDef",
+    {
+        "Logo": Union[bytes, IO[bytes], StreamingBody],
+        "Logo2x": Union[bytes, IO[bytes], StreamingBody],
+        "Logo3x": Union[bytes, IO[bytes], StreamingBody],
+        "SupportEmail": str,
+        "SupportLink": str,
+        "ForgotPasswordLink": str,
+        "LoginMessage": Dict[str, str],
+    },
+    total=False,
 )
 
 IpRuleItemTypeDef = TypedDict(
@@ -1196,6 +1399,28 @@ TerminateWorkspacesResultTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredUpdateConnectClientAddInRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateConnectClientAddInRequestRequestTypeDef",
+    {
+        "AddInId": str,
+        "ResourceId": str,
+    },
+)
+_OptionalUpdateConnectClientAddInRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateConnectClientAddInRequestRequestTypeDef",
+    {
+        "Name": str,
+        "URL": str,
+    },
+    total=False,
+)
+
+class UpdateConnectClientAddInRequestRequestTypeDef(
+    _RequiredUpdateConnectClientAddInRequestRequestTypeDef,
+    _OptionalUpdateConnectClientAddInRequestRequestTypeDef,
+):
+    pass
 
 UpdateConnectionAliasPermissionRequestRequestTypeDef = TypedDict(
     "UpdateConnectionAliasPermissionRequestRequestTypeDef",

@@ -36,6 +36,7 @@ __all__ = (
     "ListGrantsPaginatorName",
     "ListKeyPoliciesPaginatorName",
     "ListKeysPaginatorName",
+    "MacAlgorithmSpecType",
     "MessageTypeType",
     "MultiRegionKeyTypeType",
     "OriginTypeType",
@@ -63,6 +64,10 @@ CustomerMasterKeySpecType = Literal[
     "ECC_NIST_P384",
     "ECC_NIST_P521",
     "ECC_SECG_P256K1",
+    "HMAC_224",
+    "HMAC_256",
+    "HMAC_384",
+    "HMAC_512",
     "RSA_2048",
     "RSA_3072",
     "RSA_4096",
@@ -89,12 +94,14 @@ GrantOperationType = Literal[
     "GenerateDataKeyPair",
     "GenerateDataKeyPairWithoutPlaintext",
     "GenerateDataKeyWithoutPlaintext",
+    "GenerateMac",
     "GetPublicKey",
     "ReEncryptFrom",
     "ReEncryptTo",
     "RetireGrant",
     "Sign",
     "Verify",
+    "VerifyMac",
 ]
 KeyManagerTypeType = Literal["AWS", "CUSTOMER"]
 KeySpecType = Literal[
@@ -102,6 +109,10 @@ KeySpecType = Literal[
     "ECC_NIST_P384",
     "ECC_NIST_P521",
     "ECC_SECG_P256K1",
+    "HMAC_224",
+    "HMAC_256",
+    "HMAC_384",
+    "HMAC_512",
     "RSA_2048",
     "RSA_3072",
     "RSA_4096",
@@ -117,11 +128,12 @@ KeyStateType = Literal[
     "Unavailable",
     "Updating",
 ]
-KeyUsageTypeType = Literal["ENCRYPT_DECRYPT", "SIGN_VERIFY"]
+KeyUsageTypeType = Literal["ENCRYPT_DECRYPT", "GENERATE_VERIFY_MAC", "SIGN_VERIFY"]
 ListAliasesPaginatorName = Literal["list_aliases"]
 ListGrantsPaginatorName = Literal["list_grants"]
 ListKeyPoliciesPaginatorName = Literal["list_key_policies"]
 ListKeysPaginatorName = Literal["list_keys"]
+MacAlgorithmSpecType = Literal["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
 MessageTypeType = Literal["DIGEST", "RAW"]
 MultiRegionKeyTypeType = Literal["PRIMARY", "REPLICA"]
 OriginTypeType = Literal["AWS_CLOUDHSM", "AWS_KMS", "EXTERNAL"]

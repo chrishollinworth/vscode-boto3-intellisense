@@ -19,6 +19,7 @@ from .literals import (
     EncryptionMethodType,
     ManifestLayoutType,
     ProfileType,
+    ScteMarkersSourceType,
     SegmentTemplateFormatType,
     StreamOrderType,
 )
@@ -304,6 +305,7 @@ DashManifestTypeDef = TypedDict(
         "ManifestName": str,
         "MinBufferTimeSeconds": int,
         "Profile": ProfileType,
+        "ScteMarkersSource": ScteMarkersSourceType,
         "StreamSelection": "StreamSelectionTypeDef",
     },
     total=False,

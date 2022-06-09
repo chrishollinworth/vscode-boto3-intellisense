@@ -21,12 +21,15 @@ from .literals import (
     ConfigurationSourceType,
     ConnectionStatusType,
     CustomDomainAssociationStatusType,
+    EgressTypeType,
     HealthCheckProtocolType,
     ImageRepositoryTypeType,
+    ObservabilityConfigurationStatusType,
     OperationStatusType,
     OperationTypeType,
     RuntimeType,
     ServiceStatusType,
+    VpcConnectorStatusType,
 )
 
 if sys.version_info >= (3, 8):
@@ -54,23 +57,36 @@ __all__ = (
     "CreateAutoScalingConfigurationResponseTypeDef",
     "CreateConnectionRequestRequestTypeDef",
     "CreateConnectionResponseTypeDef",
+    "CreateObservabilityConfigurationRequestRequestTypeDef",
+    "CreateObservabilityConfigurationResponseTypeDef",
     "CreateServiceRequestRequestTypeDef",
     "CreateServiceResponseTypeDef",
+    "CreateVpcConnectorRequestRequestTypeDef",
+    "CreateVpcConnectorResponseTypeDef",
     "CustomDomainTypeDef",
     "DeleteAutoScalingConfigurationRequestRequestTypeDef",
     "DeleteAutoScalingConfigurationResponseTypeDef",
     "DeleteConnectionRequestRequestTypeDef",
     "DeleteConnectionResponseTypeDef",
+    "DeleteObservabilityConfigurationRequestRequestTypeDef",
+    "DeleteObservabilityConfigurationResponseTypeDef",
     "DeleteServiceRequestRequestTypeDef",
     "DeleteServiceResponseTypeDef",
+    "DeleteVpcConnectorRequestRequestTypeDef",
+    "DeleteVpcConnectorResponseTypeDef",
     "DescribeAutoScalingConfigurationRequestRequestTypeDef",
     "DescribeAutoScalingConfigurationResponseTypeDef",
     "DescribeCustomDomainsRequestRequestTypeDef",
     "DescribeCustomDomainsResponseTypeDef",
+    "DescribeObservabilityConfigurationRequestRequestTypeDef",
+    "DescribeObservabilityConfigurationResponseTypeDef",
     "DescribeServiceRequestRequestTypeDef",
     "DescribeServiceResponseTypeDef",
+    "DescribeVpcConnectorRequestRequestTypeDef",
+    "DescribeVpcConnectorResponseTypeDef",
     "DisassociateCustomDomainRequestRequestTypeDef",
     "DisassociateCustomDomainResponseTypeDef",
+    "EgressConfigurationTypeDef",
     "EncryptionConfigurationTypeDef",
     "HealthCheckConfigurationTypeDef",
     "ImageConfigurationTypeDef",
@@ -80,18 +96,26 @@ __all__ = (
     "ListAutoScalingConfigurationsResponseTypeDef",
     "ListConnectionsRequestRequestTypeDef",
     "ListConnectionsResponseTypeDef",
+    "ListObservabilityConfigurationsRequestRequestTypeDef",
+    "ListObservabilityConfigurationsResponseTypeDef",
     "ListOperationsRequestRequestTypeDef",
     "ListOperationsResponseTypeDef",
     "ListServicesRequestRequestTypeDef",
     "ListServicesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListVpcConnectorsRequestRequestTypeDef",
+    "ListVpcConnectorsResponseTypeDef",
+    "NetworkConfigurationTypeDef",
+    "ObservabilityConfigurationSummaryTypeDef",
+    "ObservabilityConfigurationTypeDef",
     "OperationSummaryTypeDef",
     "PauseServiceRequestRequestTypeDef",
     "PauseServiceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "ResumeServiceRequestRequestTypeDef",
     "ResumeServiceResponseTypeDef",
+    "ServiceObservabilityConfigurationTypeDef",
     "ServiceSummaryTypeDef",
     "ServiceTypeDef",
     "SourceCodeVersionTypeDef",
@@ -100,9 +124,11 @@ __all__ = (
     "StartDeploymentResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "TraceConfigurationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateServiceRequestRequestTypeDef",
     "UpdateServiceResponseTypeDef",
+    "VpcConnectorTypeDef",
 )
 
 _RequiredAssociateCustomDomainRequestRequestTypeDef = TypedDict(
@@ -325,6 +351,35 @@ CreateConnectionResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateObservabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateObservabilityConfigurationRequestRequestTypeDef",
+    {
+        "ObservabilityConfigurationName": str,
+    },
+)
+_OptionalCreateObservabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateObservabilityConfigurationRequestRequestTypeDef",
+    {
+        "TraceConfiguration": "TraceConfigurationTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateObservabilityConfigurationRequestRequestTypeDef(
+    _RequiredCreateObservabilityConfigurationRequestRequestTypeDef,
+    _OptionalCreateObservabilityConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateObservabilityConfigurationResponseTypeDef = TypedDict(
+    "CreateObservabilityConfigurationResponseTypeDef",
+    {
+        "ObservabilityConfiguration": "ObservabilityConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateServiceRequestRequestTypeDef = TypedDict(
     "_RequiredCreateServiceRequestRequestTypeDef",
     {
@@ -340,6 +395,8 @@ _OptionalCreateServiceRequestRequestTypeDef = TypedDict(
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
         "HealthCheckConfiguration": "HealthCheckConfigurationTypeDef",
         "AutoScalingConfigurationArn": str,
+        "NetworkConfiguration": "NetworkConfigurationTypeDef",
+        "ObservabilityConfiguration": "ServiceObservabilityConfigurationTypeDef",
     },
     total=False,
 )
@@ -354,6 +411,36 @@ CreateServiceResponseTypeDef = TypedDict(
     {
         "Service": "ServiceTypeDef",
         "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateVpcConnectorRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVpcConnectorRequestRequestTypeDef",
+    {
+        "VpcConnectorName": str,
+        "Subnets": List[str],
+    },
+)
+_OptionalCreateVpcConnectorRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVpcConnectorRequestRequestTypeDef",
+    {
+        "SecurityGroups": List[str],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateVpcConnectorRequestRequestTypeDef(
+    _RequiredCreateVpcConnectorRequestRequestTypeDef,
+    _OptionalCreateVpcConnectorRequestRequestTypeDef,
+):
+    pass
+
+CreateVpcConnectorResponseTypeDef = TypedDict(
+    "CreateVpcConnectorResponseTypeDef",
+    {
+        "VpcConnector": "VpcConnectorTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -407,6 +494,21 @@ DeleteConnectionResponseTypeDef = TypedDict(
     },
 )
 
+DeleteObservabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteObservabilityConfigurationRequestRequestTypeDef",
+    {
+        "ObservabilityConfigurationArn": str,
+    },
+)
+
+DeleteObservabilityConfigurationResponseTypeDef = TypedDict(
+    "DeleteObservabilityConfigurationResponseTypeDef",
+    {
+        "ObservabilityConfiguration": "ObservabilityConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DeleteServiceRequestRequestTypeDef = TypedDict(
     "DeleteServiceRequestRequestTypeDef",
     {
@@ -419,6 +521,21 @@ DeleteServiceResponseTypeDef = TypedDict(
     {
         "Service": "ServiceTypeDef",
         "OperationId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteVpcConnectorRequestRequestTypeDef = TypedDict(
+    "DeleteVpcConnectorRequestRequestTypeDef",
+    {
+        "VpcConnectorArn": str,
+    },
+)
+
+DeleteVpcConnectorResponseTypeDef = TypedDict(
+    "DeleteVpcConnectorResponseTypeDef",
+    {
+        "VpcConnector": "VpcConnectorTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -470,6 +587,21 @@ DescribeCustomDomainsResponseTypeDef = TypedDict(
     },
 )
 
+DescribeObservabilityConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeObservabilityConfigurationRequestRequestTypeDef",
+    {
+        "ObservabilityConfigurationArn": str,
+    },
+)
+
+DescribeObservabilityConfigurationResponseTypeDef = TypedDict(
+    "DescribeObservabilityConfigurationResponseTypeDef",
+    {
+        "ObservabilityConfiguration": "ObservabilityConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeServiceRequestRequestTypeDef = TypedDict(
     "DescribeServiceRequestRequestTypeDef",
     {
@@ -481,6 +613,21 @@ DescribeServiceResponseTypeDef = TypedDict(
     "DescribeServiceResponseTypeDef",
     {
         "Service": "ServiceTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeVpcConnectorRequestRequestTypeDef = TypedDict(
+    "DescribeVpcConnectorRequestRequestTypeDef",
+    {
+        "VpcConnectorArn": str,
+    },
+)
+
+DescribeVpcConnectorResponseTypeDef = TypedDict(
+    "DescribeVpcConnectorResponseTypeDef",
+    {
+        "VpcConnector": "VpcConnectorTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -501,6 +648,15 @@ DisassociateCustomDomainResponseTypeDef = TypedDict(
         "CustomDomain": "CustomDomainTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+EgressConfigurationTypeDef = TypedDict(
+    "EgressConfigurationTypeDef",
+    {
+        "EgressType": EgressTypeType,
+        "VpcConnectorArn": str,
+    },
+    total=False,
 )
 
 EncryptionConfigurationTypeDef = TypedDict(
@@ -600,6 +756,26 @@ ListConnectionsResponseTypeDef = TypedDict(
     },
 )
 
+ListObservabilityConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListObservabilityConfigurationsRequestRequestTypeDef",
+    {
+        "ObservabilityConfigurationName": str,
+        "LatestOnly": bool,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListObservabilityConfigurationsResponseTypeDef = TypedDict(
+    "ListObservabilityConfigurationsResponseTypeDef",
+    {
+        "ObservabilityConfigurationSummaryList": List["ObservabilityConfigurationSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListOperationsRequestRequestTypeDef = TypedDict(
     "_RequiredListOperationsRequestRequestTypeDef",
     {
@@ -662,6 +838,57 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListVpcConnectorsRequestRequestTypeDef = TypedDict(
+    "ListVpcConnectorsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListVpcConnectorsResponseTypeDef = TypedDict(
+    "ListVpcConnectorsResponseTypeDef",
+    {
+        "VpcConnectors": List["VpcConnectorTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+NetworkConfigurationTypeDef = TypedDict(
+    "NetworkConfigurationTypeDef",
+    {
+        "EgressConfiguration": "EgressConfigurationTypeDef",
+    },
+    total=False,
+)
+
+ObservabilityConfigurationSummaryTypeDef = TypedDict(
+    "ObservabilityConfigurationSummaryTypeDef",
+    {
+        "ObservabilityConfigurationArn": str,
+        "ObservabilityConfigurationName": str,
+        "ObservabilityConfigurationRevision": int,
+    },
+    total=False,
+)
+
+ObservabilityConfigurationTypeDef = TypedDict(
+    "ObservabilityConfigurationTypeDef",
+    {
+        "ObservabilityConfigurationArn": str,
+        "ObservabilityConfigurationName": str,
+        "TraceConfiguration": "TraceConfigurationTypeDef",
+        "ObservabilityConfigurationRevision": int,
+        "Latest": bool,
+        "Status": ObservabilityConfigurationStatusType,
+        "CreatedAt": datetime,
+        "DeletedAt": datetime,
+    },
+    total=False,
+)
+
 OperationSummaryTypeDef = TypedDict(
     "OperationSummaryTypeDef",
     {
@@ -719,6 +946,26 @@ ResumeServiceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredServiceObservabilityConfigurationTypeDef = TypedDict(
+    "_RequiredServiceObservabilityConfigurationTypeDef",
+    {
+        "ObservabilityEnabled": bool,
+    },
+)
+_OptionalServiceObservabilityConfigurationTypeDef = TypedDict(
+    "_OptionalServiceObservabilityConfigurationTypeDef",
+    {
+        "ObservabilityConfigurationArn": str,
+    },
+    total=False,
+)
+
+class ServiceObservabilityConfigurationTypeDef(
+    _RequiredServiceObservabilityConfigurationTypeDef,
+    _OptionalServiceObservabilityConfigurationTypeDef,
+):
+    pass
+
 ServiceSummaryTypeDef = TypedDict(
     "ServiceSummaryTypeDef",
     {
@@ -746,6 +993,7 @@ _RequiredServiceTypeDef = TypedDict(
         "SourceConfiguration": "SourceConfigurationTypeDef",
         "InstanceConfiguration": "InstanceConfigurationTypeDef",
         "AutoScalingConfigurationSummary": "AutoScalingConfigurationSummaryTypeDef",
+        "NetworkConfiguration": "NetworkConfigurationTypeDef",
     },
 )
 _OptionalServiceTypeDef = TypedDict(
@@ -754,6 +1002,7 @@ _OptionalServiceTypeDef = TypedDict(
         "DeletedAt": datetime,
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
         "HealthCheckConfiguration": "HealthCheckConfigurationTypeDef",
+        "ObservabilityConfiguration": "ServiceObservabilityConfigurationTypeDef",
     },
     total=False,
 )
@@ -812,6 +1061,13 @@ TagTypeDef = TypedDict(
     total=False,
 )
 
+TraceConfigurationTypeDef = TypedDict(
+    "TraceConfigurationTypeDef",
+    {
+        "Vendor": Literal["AWSXRAY"],
+    },
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -833,6 +1089,8 @@ _OptionalUpdateServiceRequestRequestTypeDef = TypedDict(
         "InstanceConfiguration": "InstanceConfigurationTypeDef",
         "AutoScalingConfigurationArn": str,
         "HealthCheckConfiguration": "HealthCheckConfigurationTypeDef",
+        "NetworkConfiguration": "NetworkConfigurationTypeDef",
+        "ObservabilityConfiguration": "ServiceObservabilityConfigurationTypeDef",
     },
     total=False,
 )
@@ -849,4 +1107,19 @@ UpdateServiceResponseTypeDef = TypedDict(
         "OperationId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+VpcConnectorTypeDef = TypedDict(
+    "VpcConnectorTypeDef",
+    {
+        "VpcConnectorName": str,
+        "VpcConnectorArn": str,
+        "VpcConnectorRevision": int,
+        "Subnets": List[str],
+        "SecurityGroups": List[str],
+        "Status": VpcConnectorStatusType,
+        "CreatedAt": datetime,
+        "DeletedAt": datetime,
+    },
+    total=False,
 )

@@ -24,6 +24,7 @@ from .literals import (
     ConnectorConfigProviderType,
     ErrorCodeType,
     FargateProfileStatusType,
+    IpFamilyType,
     LogTypeType,
     NodegroupIssueCodeType,
     NodegroupStatusType,
@@ -809,6 +810,7 @@ KubernetesNetworkConfigRequestTypeDef = TypedDict(
     "KubernetesNetworkConfigRequestTypeDef",
     {
         "serviceIpv4Cidr": str,
+        "ipFamily": IpFamilyType,
     },
     total=False,
 )
@@ -817,6 +819,8 @@ KubernetesNetworkConfigResponseTypeDef = TypedDict(
     "KubernetesNetworkConfigResponseTypeDef",
     {
         "serviceIpv4Cidr": str,
+        "serviceIpv6Cidr": str,
+        "ipFamily": IpFamilyType,
     },
     total=False,
 )

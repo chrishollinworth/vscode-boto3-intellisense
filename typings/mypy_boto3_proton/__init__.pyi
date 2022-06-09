@@ -7,8 +7,13 @@ Usage::
     import boto3
     from mypy_boto3_proton import (
         Client,
+        ComponentDeletedWaiter,
+        ComponentDeployedWaiter,
         EnvironmentDeployedWaiter,
         EnvironmentTemplateVersionRegisteredWaiter,
+        ListComponentOutputsPaginator,
+        ListComponentProvisionedResourcesPaginator,
+        ListComponentsPaginator,
         ListEnvironmentAccountConnectionsPaginator,
         ListEnvironmentOutputsPaginator,
         ListEnvironmentProvisionedResourcesPaginator,
@@ -40,6 +45,8 @@ Usage::
     client: ProtonClient = boto3.client("proton")
     session_client: ProtonClient = session.client("proton")
 
+    component_deleted_waiter: ComponentDeletedWaiter = client.get_waiter("component_deleted")
+    component_deployed_waiter: ComponentDeployedWaiter = client.get_waiter("component_deployed")
     environment_deployed_waiter: EnvironmentDeployedWaiter = client.get_waiter("environment_deployed")
     environment_template_version_registered_waiter: EnvironmentTemplateVersionRegisteredWaiter = client.get_waiter("environment_template_version_registered")
     service_created_waiter: ServiceCreatedWaiter = client.get_waiter("service_created")
@@ -49,6 +56,9 @@ Usage::
     service_template_version_registered_waiter: ServiceTemplateVersionRegisteredWaiter = client.get_waiter("service_template_version_registered")
     service_updated_waiter: ServiceUpdatedWaiter = client.get_waiter("service_updated")
 
+    list_component_outputs_paginator: ListComponentOutputsPaginator = client.get_paginator("list_component_outputs")
+    list_component_provisioned_resources_paginator: ListComponentProvisionedResourcesPaginator = client.get_paginator("list_component_provisioned_resources")
+    list_components_paginator: ListComponentsPaginator = client.get_paginator("list_components")
     list_environment_account_connections_paginator: ListEnvironmentAccountConnectionsPaginator = client.get_paginator("list_environment_account_connections")
     list_environment_outputs_paginator: ListEnvironmentOutputsPaginator = client.get_paginator("list_environment_outputs")
     list_environment_provisioned_resources_paginator: ListEnvironmentProvisionedResourcesPaginator = client.get_paginator("list_environment_provisioned_resources")
@@ -70,6 +80,9 @@ Usage::
 """
 from .client import ProtonClient
 from .paginator import (
+    ListComponentOutputsPaginator,
+    ListComponentProvisionedResourcesPaginator,
+    ListComponentsPaginator,
     ListEnvironmentAccountConnectionsPaginator,
     ListEnvironmentOutputsPaginator,
     ListEnvironmentProvisionedResourcesPaginator,
@@ -89,6 +102,8 @@ from .paginator import (
     ListTagsForResourcePaginator,
 )
 from .waiter import (
+    ComponentDeletedWaiter,
+    ComponentDeployedWaiter,
     EnvironmentDeployedWaiter,
     EnvironmentTemplateVersionRegisteredWaiter,
     ServiceCreatedWaiter,
@@ -103,8 +118,13 @@ Client = ProtonClient
 
 __all__ = (
     "Client",
+    "ComponentDeletedWaiter",
+    "ComponentDeployedWaiter",
     "EnvironmentDeployedWaiter",
     "EnvironmentTemplateVersionRegisteredWaiter",
+    "ListComponentOutputsPaginator",
+    "ListComponentProvisionedResourcesPaginator",
+    "ListComponentsPaginator",
     "ListEnvironmentAccountConnectionsPaginator",
     "ListEnvironmentOutputsPaginator",
     "ListEnvironmentProvisionedResourcesPaginator",

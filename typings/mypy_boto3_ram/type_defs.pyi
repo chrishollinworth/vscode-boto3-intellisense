@@ -60,6 +60,8 @@ __all__ = (
     "GetResourceSharesResponseTypeDef",
     "ListPendingInvitationResourcesRequestRequestTypeDef",
     "ListPendingInvitationResourcesResponseTypeDef",
+    "ListPermissionVersionsRequestRequestTypeDef",
+    "ListPermissionVersionsResponseTypeDef",
     "ListPermissionsRequestRequestTypeDef",
     "ListPermissionsResponseTypeDef",
     "ListPrincipalsRequestRequestTypeDef",
@@ -488,6 +490,36 @@ ListPendingInvitationResourcesResponseTypeDef = TypedDict(
     "ListPendingInvitationResourcesResponseTypeDef",
     {
         "resources": List["ResourceTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListPermissionVersionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListPermissionVersionsRequestRequestTypeDef",
+    {
+        "permissionArn": str,
+    },
+)
+_OptionalListPermissionVersionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListPermissionVersionsRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class ListPermissionVersionsRequestRequestTypeDef(
+    _RequiredListPermissionVersionsRequestRequestTypeDef,
+    _OptionalListPermissionVersionsRequestRequestTypeDef,
+):
+    pass
+
+ListPermissionVersionsResponseTypeDef = TypedDict(
+    "ListPermissionVersionsResponseTypeDef",
+    {
+        "permissions": List["ResourceSharePermissionSummaryTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },

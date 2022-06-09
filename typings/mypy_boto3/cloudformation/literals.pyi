@@ -25,6 +25,7 @@ __all__ = (
     "CategoryType",
     "ChangeActionType",
     "ChangeSetCreateCompleteWaiterName",
+    "ChangeSetHooksStatusType",
     "ChangeSetStatusType",
     "ChangeSetTypeType",
     "ChangeSourceType",
@@ -38,6 +39,10 @@ __all__ = (
     "EvaluationTypeType",
     "ExecutionStatusType",
     "HandlerErrorCodeType",
+    "HookFailureModeType",
+    "HookInvocationPointType",
+    "HookStatusType",
+    "HookTargetTypeType",
     "IdentityProviderType",
     "ListChangeSetsPaginatorName",
     "ListExportsPaginatorName",
@@ -95,6 +100,7 @@ CapabilityType = Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY
 CategoryType = Literal["ACTIVATED", "AWS_TYPES", "REGISTERED", "THIRD_PARTY"]
 ChangeActionType = Literal["Add", "Dynamic", "Import", "Modify", "Remove"]
 ChangeSetCreateCompleteWaiterName = Literal["change_set_create_complete"]
+ChangeSetHooksStatusType = Literal["PLANNED", "PLANNING", "UNAVAILABLE"]
 ChangeSetStatusType = Literal[
     "CREATE_COMPLETE",
     "CREATE_IN_PROGRESS",
@@ -133,11 +139,13 @@ HandlerErrorCodeType = Literal[
     "AccessDenied",
     "AlreadyExists",
     "GeneralServiceException",
+    "HandlerInternalFailure",
     "InternalFailure",
     "InvalidCredentials",
     "InvalidRequest",
     "InvalidTypeConfiguration",
     "NetworkFailure",
+    "NonCompliant",
     "NotFound",
     "NotStabilized",
     "NotUpdatable",
@@ -145,7 +153,14 @@ HandlerErrorCodeType = Literal[
     "ServiceInternalError",
     "ServiceLimitExceeded",
     "Throttling",
+    "Unknown",
 ]
+HookFailureModeType = Literal["FAIL", "WARN"]
+HookInvocationPointType = Literal["PRE_PROVISION"]
+HookStatusType = Literal[
+    "HOOK_COMPLETE_FAILED", "HOOK_COMPLETE_SUCCEEDED", "HOOK_FAILED", "HOOK_IN_PROGRESS"
+]
+HookTargetTypeType = Literal["RESOURCE"]
 IdentityProviderType = Literal["AWS_Marketplace", "Bitbucket", "GitHub"]
 ListChangeSetsPaginatorName = Literal["list_change_sets"]
 ListExportsPaginatorName = Literal["list_exports"]
@@ -164,7 +179,7 @@ ProvisioningTypeType = Literal["FULLY_MUTABLE", "IMMUTABLE", "NON_PROVISIONABLE"
 PublisherStatusType = Literal["UNVERIFIED", "VERIFIED"]
 RegionConcurrencyTypeType = Literal["PARALLEL", "SEQUENTIAL"]
 RegistrationStatusType = Literal["COMPLETE", "FAILED", "IN_PROGRESS"]
-RegistryTypeType = Literal["MODULE", "RESOURCE"]
+RegistryTypeType = Literal["HOOK", "MODULE", "RESOURCE"]
 ReplacementType = Literal["Conditional", "False", "True"]
 RequiresRecreationType = Literal["Always", "Conditionally", "Never"]
 ResourceAttributeType = Literal[
@@ -251,7 +266,7 @@ StackStatusType = Literal[
 ]
 StackUpdateCompleteWaiterName = Literal["stack_update_complete"]
 TemplateStageType = Literal["Original", "Processed"]
-ThirdPartyTypeType = Literal["MODULE", "RESOURCE"]
+ThirdPartyTypeType = Literal["HOOK", "MODULE", "RESOURCE"]
 TypeRegistrationCompleteWaiterName = Literal["type_registration_complete"]
 TypeTestsStatusType = Literal["FAILED", "IN_PROGRESS", "NOT_TESTED", "PASSED"]
 VersionBumpType = Literal["MAJOR", "MINOR"]

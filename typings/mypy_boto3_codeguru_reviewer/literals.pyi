@@ -21,6 +21,7 @@ else:
 __all__ = (
     "AnalysisTypeType",
     "CodeReviewCompletedWaiterName",
+    "ConfigFileStateType",
     "EncryptionOptionType",
     "JobStateType",
     "ListRepositoryAssociationsPaginatorName",
@@ -36,6 +37,7 @@ __all__ = (
 
 AnalysisTypeType = Literal["CodeQuality", "Security"]
 CodeReviewCompletedWaiterName = Literal["code_review_completed"]
+ConfigFileStateType = Literal["Absent", "Present", "PresentWithErrors"]
 EncryptionOptionType = Literal["AWS_OWNED_CMK", "CUSTOMER_MANAGED_CMK"]
 JobStateType = Literal["Completed", "Deleting", "Failed", "Pending"]
 ListRepositoryAssociationsPaginatorName = Literal["list_repository_associations"]

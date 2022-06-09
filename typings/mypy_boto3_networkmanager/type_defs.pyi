@@ -57,6 +57,7 @@ __all__ = (
     "AWSLocationTypeDef",
     "AcceptAttachmentRequestRequestTypeDef",
     "AcceptAttachmentResponseTypeDef",
+    "AccountStatusTypeDef",
     "AssociateConnectPeerRequestRequestTypeDef",
     "AssociateConnectPeerResponseTypeDef",
     "AssociateCustomerGatewayRequestRequestTypeDef",
@@ -198,6 +199,8 @@ __all__ = (
     "ListCoreNetworkPolicyVersionsResponseTypeDef",
     "ListCoreNetworksRequestRequestTypeDef",
     "ListCoreNetworksResponseTypeDef",
+    "ListOrganizationServiceAccessStatusRequestRequestTypeDef",
+    "ListOrganizationServiceAccessStatusResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocationTypeDef",
@@ -207,6 +210,7 @@ __all__ = (
     "NetworkRouteDestinationTypeDef",
     "NetworkRouteTypeDef",
     "NetworkTelemetryTypeDef",
+    "OrganizationStatusTypeDef",
     "PaginatorConfigTypeDef",
     "PathComponentTypeDef",
     "ProposedSegmentChangeTypeDef",
@@ -229,6 +233,8 @@ __all__ = (
     "RouteTableIdentifierTypeDef",
     "SiteToSiteVpnAttachmentTypeDef",
     "SiteTypeDef",
+    "StartOrganizationServiceAccessUpdateRequestRequestTypeDef",
+    "StartOrganizationServiceAccessUpdateResponseTypeDef",
     "StartRouteAnalysisRequestRequestTypeDef",
     "StartRouteAnalysisResponseTypeDef",
     "TagResourceRequestRequestTypeDef",
@@ -279,6 +285,15 @@ AcceptAttachmentResponseTypeDef = TypedDict(
         "Attachment": "AttachmentTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+AccountStatusTypeDef = TypedDict(
+    "AccountStatusTypeDef",
+    {
+        "AccountId": str,
+        "SLRDeploymentStatus": str,
+    },
+    total=False,
 )
 
 _RequiredAssociateConnectPeerRequestRequestTypeDef = TypedDict(
@@ -2018,6 +2033,24 @@ ListCoreNetworksResponseTypeDef = TypedDict(
     },
 )
 
+ListOrganizationServiceAccessStatusRequestRequestTypeDef = TypedDict(
+    "ListOrganizationServiceAccessStatusRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListOrganizationServiceAccessStatusResponseTypeDef = TypedDict(
+    "ListOrganizationServiceAccessStatusResponseTypeDef",
+    {
+        "OrganizationStatus": "OrganizationStatusTypeDef",
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListTagsForResourceRequestRequestTypeDef = TypedDict(
     "ListTagsForResourceRequestRequestTypeDef",
     {
@@ -2120,6 +2153,17 @@ NetworkTelemetryTypeDef = TypedDict(
         "ResourceArn": str,
         "Address": str,
         "Health": "ConnectionHealthTypeDef",
+    },
+    total=False,
+)
+
+OrganizationStatusTypeDef = TypedDict(
+    "OrganizationStatusTypeDef",
+    {
+        "OrganizationId": str,
+        "OrganizationAwsServiceAccessStatus": str,
+        "SLRDeploymentStatus": str,
+        "AccountStatusList": List["AccountStatusTypeDef"],
     },
     total=False,
 )
@@ -2347,6 +2391,21 @@ SiteTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
     },
     total=False,
+)
+
+StartOrganizationServiceAccessUpdateRequestRequestTypeDef = TypedDict(
+    "StartOrganizationServiceAccessUpdateRequestRequestTypeDef",
+    {
+        "Action": str,
+    },
+)
+
+StartOrganizationServiceAccessUpdateResponseTypeDef = TypedDict(
+    "StartOrganizationServiceAccessUpdateResponseTypeDef",
+    {
+        "OrganizationStatus": "OrganizationStatusTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredStartRouteAnalysisRequestRequestTypeDef = TypedDict(

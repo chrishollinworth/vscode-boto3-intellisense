@@ -61,6 +61,7 @@ __all__ = (
     "DescribeUsageLimitsPaginatorName",
     "GetReservedNodeExchangeConfigurationOptionsPaginatorName",
     "GetReservedNodeExchangeOfferingsPaginatorName",
+    "LogDestinationTypeType",
     "ModeType",
     "NodeConfigurationOptionsFilterNameType",
     "OperatorTypeType",
@@ -132,6 +133,7 @@ GetReservedNodeExchangeConfigurationOptionsPaginatorName = Literal[
     "get_reserved_node_exchange_configuration_options"
 ]
 GetReservedNodeExchangeOfferingsPaginatorName = Literal["get_reserved_node_exchange_offerings"]
+LogDestinationTypeType = Literal["cloudwatch", "s3"]
 ModeType = Literal["high-performance", "standard"]
 NodeConfigurationOptionsFilterNameType = Literal[
     "EstimatedDiskUtilizationPercent", "Mode", "NodeType", "NumberOfNodes"
@@ -160,6 +162,6 @@ SourceTypeType = Literal[
 ]
 TableRestoreStatusTypeType = Literal["CANCELED", "FAILED", "IN_PROGRESS", "PENDING", "SUCCEEDED"]
 UsageLimitBreachActionType = Literal["disable", "emit-metric", "log"]
-UsageLimitFeatureTypeType = Literal["concurrency-scaling", "spectrum"]
+UsageLimitFeatureTypeType = Literal["concurrency-scaling", "cross-region-datasharing", "spectrum"]
 UsageLimitLimitTypeType = Literal["data-scanned", "time"]
 UsageLimitPeriodType = Literal["daily", "monthly", "weekly"]

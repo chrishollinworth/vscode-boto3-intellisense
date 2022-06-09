@@ -24,6 +24,7 @@ __all__ = (
     "DeviceStateType",
     "DlClassType",
     "EventNotificationPartnerTypeType",
+    "EventNotificationResourceTypeType",
     "EventNotificationTopicStatusType",
     "EventType",
     "ExpressionTypeType",
@@ -54,6 +55,7 @@ DeviceStateType = Literal[
 ]
 DlClassType = Literal["ClassB", "ClassC"]
 EventNotificationPartnerTypeType = Literal["Sidewalk"]
+EventNotificationResourceTypeType = Literal["SidewalkAccount", "WirelessDevice", "WirelessGateway"]
 EventNotificationTopicStatusType = Literal["Disabled", "Enabled"]
 EventType = Literal["ack", "discovered", "lost", "nack", "passthrough"]
 ExpressionTypeType = Literal["MqttTopic", "RuleName"]
@@ -73,7 +75,9 @@ FuotaDeviceStatusType = Literal[
 FuotaTaskStatusType = Literal[
     "Delete_Waiting", "FuotaDone", "FuotaSession_Waiting", "In_FuotaSession", "Pending"
 ]
-IdentifierTypeType = Literal["PartnerAccountId"]
+IdentifierTypeType = Literal[
+    "DevEui", "GatewayEui", "PartnerAccountId", "WirelessDeviceId", "WirelessGatewayId"
+]
 LogLevelType = Literal["DISABLED", "ERROR", "INFO"]
 MessageTypeType = Literal[
     "CUSTOM_COMMAND_ID_GET",

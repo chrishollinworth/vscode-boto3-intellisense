@@ -6,9 +6,9 @@ Type annotations for route53-recovery-cluster service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_route53_recovery_cluster.literals import RoutingControlStateType
+    from mypy_boto3_route53_recovery_cluster.literals import ListRoutingControlsPaginatorName
 
-    data: RoutingControlStateType = "Off"
+    data: ListRoutingControlsPaginatorName = "list_routing_controls"
     ```
 """
 import sys
@@ -18,6 +18,7 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("RoutingControlStateType",)
+__all__ = ("ListRoutingControlsPaginatorName", "RoutingControlStateType")
 
+ListRoutingControlsPaginatorName = Literal["list_routing_controls"]
 RoutingControlStateType = Literal["Off", "On"]

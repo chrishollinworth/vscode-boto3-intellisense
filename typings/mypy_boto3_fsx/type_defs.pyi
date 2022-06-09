@@ -36,6 +36,7 @@ from .literals import (
     FlexCacheEndpointTypeType,
     LustreAccessAuditLogLevelType,
     LustreDeploymentTypeType,
+    OntapDeploymentTypeType,
     OntapVolumeTypeType,
     OpenZFSCopyStrategyType,
     OpenZFSDataCompressionTypeType,
@@ -167,6 +168,7 @@ __all__ = (
     "LustreFileSystemConfigurationTypeDef",
     "LustreLogConfigurationTypeDef",
     "LustreLogCreateConfigurationTypeDef",
+    "LustreRootSquashConfigurationTypeDef",
     "OntapFileSystemConfigurationTypeDef",
     "OntapVolumeConfigurationTypeDef",
     "OpenZFSClientConfigurationTypeDef",
@@ -551,6 +553,7 @@ CreateFileSystemLustreConfigurationTypeDef = TypedDict(
         "DriveCacheType": DriveCacheTypeType,
         "DataCompressionType": DataCompressionTypeType,
         "LogConfiguration": "LustreLogCreateConfigurationTypeDef",
+        "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
     },
     total=False,
 )
@@ -558,7 +561,7 @@ CreateFileSystemLustreConfigurationTypeDef = TypedDict(
 _RequiredCreateFileSystemOntapConfigurationTypeDef = TypedDict(
     "_RequiredCreateFileSystemOntapConfigurationTypeDef",
     {
-        "DeploymentType": Literal["MULTI_AZ_1"],
+        "DeploymentType": OntapDeploymentTypeType,
         "ThroughputCapacity": int,
     },
 )
@@ -719,6 +722,7 @@ _OptionalCreateOpenZFSVolumeConfigurationTypeDef = TypedDict(
     {
         "StorageCapacityReservationGiB": int,
         "StorageCapacityQuotaGiB": int,
+        "RecordSizeKiB": int,
         "DataCompressionType": OpenZFSDataCompressionTypeType,
         "CopyTagsToSnapshots": bool,
         "OriginSnapshot": "CreateOpenZFSOriginSnapshotConfigurationTypeDef",
@@ -1059,6 +1063,7 @@ DeleteFileSystemOpenZFSConfigurationTypeDef = TypedDict(
     {
         "SkipFinalBackup": bool,
         "FinalBackupTags": List["TagTypeDef"],
+        "Options": List[Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]],
     },
     total=False,
 )
@@ -1492,7 +1497,7 @@ FileSystemTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "WindowsConfiguration": "WindowsFileSystemConfigurationTypeDef",
         "LustreConfiguration": "LustreFileSystemConfigurationTypeDef",
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
+        "AdministrativeActions": List[Dict[str, Any]],
         "OntapConfiguration": "OntapFileSystemConfigurationTypeDef",
         "FileSystemTypeVersion": str,
         "OpenZFSConfiguration": "OpenZFSFileSystemConfigurationTypeDef",
@@ -1561,6 +1566,7 @@ LustreFileSystemConfigurationTypeDef = TypedDict(
         "DriveCacheType": DriveCacheTypeType,
         "DataCompressionType": DataCompressionTypeType,
         "LogConfiguration": "LustreLogConfigurationTypeDef",
+        "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
     },
     total=False,
 )
@@ -1603,12 +1609,21 @@ class LustreLogCreateConfigurationTypeDef(
 ):
     pass
 
+LustreRootSquashConfigurationTypeDef = TypedDict(
+    "LustreRootSquashConfigurationTypeDef",
+    {
+        "RootSquash": str,
+        "NoSquashNids": List[str],
+    },
+    total=False,
+)
+
 OntapFileSystemConfigurationTypeDef = TypedDict(
     "OntapFileSystemConfigurationTypeDef",
     {
         "AutomaticBackupRetentionDays": int,
         "DailyAutomaticBackupStartTime": str,
-        "DeploymentType": Literal["MULTI_AZ_1"],
+        "DeploymentType": OntapDeploymentTypeType,
         "EndpointIpAddressRange": str,
         "Endpoints": "FileSystemEndpointsTypeDef",
         "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
@@ -1648,6 +1663,7 @@ OpenZFSClientConfigurationTypeDef = TypedDict(
 OpenZFSCreateRootVolumeConfigurationTypeDef = TypedDict(
     "OpenZFSCreateRootVolumeConfigurationTypeDef",
     {
+        "RecordSizeKiB": int,
         "DataCompressionType": OpenZFSDataCompressionTypeType,
         "NfsExports": List["OpenZFSNfsExportTypeDef"],
         "UserAndGroupQuotas": List["OpenZFSUserOrGroupQuotaTypeDef"],
@@ -1705,6 +1721,7 @@ OpenZFSVolumeConfigurationTypeDef = TypedDict(
         "VolumePath": str,
         "StorageCapacityReservationGiB": int,
         "StorageCapacityQuotaGiB": int,
+        "RecordSizeKiB": int,
         "DataCompressionType": OpenZFSDataCompressionTypeType,
         "CopyTagsToSnapshots": bool,
         "OriginSnapshot": "OpenZFSOriginSnapshotConfigurationTypeDef",
@@ -1868,8 +1885,9 @@ SnapshotTypeDef = TypedDict(
         "VolumeId": str,
         "CreationTime": datetime,
         "Lifecycle": SnapshotLifecycleType,
+        "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
         "Tags": List["TagTypeDef"],
-        "AdministrativeActions": List[Dict[str, Any]],
+        "AdministrativeActions": List["AdministrativeActionTypeDef"],
     },
     total=False,
 )
@@ -2004,6 +2022,7 @@ UpdateFileSystemLustreConfigurationTypeDef = TypedDict(
         "AutoImportPolicy": AutoImportPolicyTypeType,
         "DataCompressionType": DataCompressionTypeType,
         "LogConfiguration": "LustreLogCreateConfigurationTypeDef",
+        "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
     },
     total=False,
 )
@@ -2015,6 +2034,8 @@ UpdateFileSystemOntapConfigurationTypeDef = TypedDict(
         "DailyAutomaticBackupStartTime": str,
         "FsxAdminPassword": str,
         "WeeklyMaintenanceStartTime": str,
+        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
+        "ThroughputCapacity": int,
     },
     total=False,
 )
@@ -2095,6 +2116,7 @@ UpdateOpenZFSVolumeConfigurationTypeDef = TypedDict(
     {
         "StorageCapacityReservationGiB": int,
         "StorageCapacityQuotaGiB": int,
+        "RecordSizeKiB": int,
         "DataCompressionType": OpenZFSDataCompressionTypeType,
         "NfsExports": List["OpenZFSNfsExportTypeDef"],
         "UserAndGroupQuotas": List["OpenZFSUserOrGroupQuotaTypeDef"],

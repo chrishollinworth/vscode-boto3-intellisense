@@ -34,6 +34,7 @@ __all__ = (
     "ListFlowsPaginatorName",
     "ListOfferingsPaginatorName",
     "ListReservationsPaginatorName",
+    "MaintenanceDayType",
     "MediaStreamTypeType",
     "NetworkInterfaceTypeType",
     "PriceUnitsType",
@@ -63,11 +64,22 @@ ListEntitlementsPaginatorName = Literal["list_entitlements"]
 ListFlowsPaginatorName = Literal["list_flows"]
 ListOfferingsPaginatorName = Literal["list_offerings"]
 ListReservationsPaginatorName = Literal["list_reservations"]
+MaintenanceDayType = Literal[
+    "Friday", "Monday", "Saturday", "Sunday", "Thursday", "Tuesday", "Wednesday"
+]
 MediaStreamTypeType = Literal["ancillary-data", "audio", "video"]
 NetworkInterfaceTypeType = Literal["efa", "ena"]
 PriceUnitsType = Literal["HOURLY"]
 ProtocolType = Literal[
-    "cdi", "rist", "rtp", "rtp-fec", "srt-listener", "st2110-jpegxs", "zixi-pull", "zixi-push"
+    "cdi",
+    "fujitsu-qos",
+    "rist",
+    "rtp",
+    "rtp-fec",
+    "srt-listener",
+    "st2110-jpegxs",
+    "zixi-pull",
+    "zixi-push",
 ]
 RangeType = Literal["FULL", "FULLPROTECT", "NARROW"]
 ReservationStateType = Literal["ACTIVE", "CANCELED", "EXPIRED", "PROCESSING"]

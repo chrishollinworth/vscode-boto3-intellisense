@@ -30,6 +30,10 @@ from .literals import (
     IPAddressVersionType,
     JsonMatchScopeType,
     LabelMatchScopeType,
+    MapMatchScopeType,
+    OversizeHandlingType,
+    PayloadTypeType,
+    PlatformType,
     PositionalConstraintType,
     RateBasedStatementAggregateKeyTypeType,
     ResourceTypeType,
@@ -49,6 +53,7 @@ __all__ = (
     "AndStatementTypeDef",
     "AssociateWebACLRequestRequestTypeDef",
     "BlockActionTypeDef",
+    "BodyTypeDef",
     "ByteMatchStatementTypeDef",
     "CaptchaActionTypeDef",
     "CaptchaConfigTypeDef",
@@ -56,6 +61,8 @@ __all__ = (
     "CheckCapacityRequestRequestTypeDef",
     "CheckCapacityResponseTypeDef",
     "ConditionTypeDef",
+    "CookieMatchPatternTypeDef",
+    "CookiesTypeDef",
     "CountActionTypeDef",
     "CreateIPSetRequestRequestTypeDef",
     "CreateIPSetResponseTypeDef",
@@ -87,6 +94,8 @@ __all__ = (
     "FirewallManagerRuleGroupTypeDef",
     "FirewallManagerStatementTypeDef",
     "ForwardedIPConfigTypeDef",
+    "GenerateMobileSdkReleaseUrlRequestRequestTypeDef",
+    "GenerateMobileSdkReleaseUrlResponseTypeDef",
     "GeoMatchStatementTypeDef",
     "GetIPSetRequestRequestTypeDef",
     "GetIPSetResponseTypeDef",
@@ -94,6 +103,8 @@ __all__ = (
     "GetLoggingConfigurationResponseTypeDef",
     "GetManagedRuleSetRequestRequestTypeDef",
     "GetManagedRuleSetResponseTypeDef",
+    "GetMobileSdkReleaseRequestRequestTypeDef",
+    "GetMobileSdkReleaseResponseTypeDef",
     "GetPermissionPolicyRequestRequestTypeDef",
     "GetPermissionPolicyResponseTypeDef",
     "GetRateBasedStatementManagedKeysRequestRequestTypeDef",
@@ -110,6 +121,8 @@ __all__ = (
     "GetWebACLResponseTypeDef",
     "HTTPHeaderTypeDef",
     "HTTPRequestTypeDef",
+    "HeaderMatchPatternTypeDef",
+    "HeadersTypeDef",
     "IPSetForwardedIPConfigTypeDef",
     "IPSetReferenceStatementTypeDef",
     "IPSetSummaryTypeDef",
@@ -131,6 +144,8 @@ __all__ = (
     "ListLoggingConfigurationsResponseTypeDef",
     "ListManagedRuleSetsRequestRequestTypeDef",
     "ListManagedRuleSetsResponseTypeDef",
+    "ListMobileSdkReleasesRequestRequestTypeDef",
+    "ListMobileSdkReleasesResponseTypeDef",
     "ListRegexPatternSetsRequestRequestTypeDef",
     "ListRegexPatternSetsResponseTypeDef",
     "ListResourcesForWebACLRequestRequestTypeDef",
@@ -143,15 +158,18 @@ __all__ = (
     "ListWebACLsResponseTypeDef",
     "LoggingConfigurationTypeDef",
     "LoggingFilterTypeDef",
+    "ManagedRuleGroupConfigTypeDef",
     "ManagedRuleGroupStatementTypeDef",
     "ManagedRuleGroupSummaryTypeDef",
     "ManagedRuleGroupVersionTypeDef",
     "ManagedRuleSetSummaryTypeDef",
     "ManagedRuleSetTypeDef",
     "ManagedRuleSetVersionTypeDef",
+    "MobileSdkReleaseTypeDef",
     "NotStatementTypeDef",
     "OrStatementTypeDef",
     "OverrideActionTypeDef",
+    "PasswordFieldTypeDef",
     "PutLoggingConfigurationRequestRequestTypeDef",
     "PutLoggingConfigurationResponseTypeDef",
     "PutManagedRuleSetVersionsRequestRequestTypeDef",
@@ -164,6 +182,7 @@ __all__ = (
     "RegexPatternSetSummaryTypeDef",
     "RegexPatternSetTypeDef",
     "RegexTypeDef",
+    "ReleaseSummaryTypeDef",
     "ResponseMetadataTypeDef",
     "RuleActionTypeDef",
     "RuleGroupReferenceStatementTypeDef",
@@ -193,6 +212,7 @@ __all__ = (
     "UpdateRuleGroupResponseTypeDef",
     "UpdateWebACLRequestRequestTypeDef",
     "UpdateWebACLResponseTypeDef",
+    "UsernameFieldTypeDef",
     "VersionToPublishTypeDef",
     "VisibilityConfigTypeDef",
     "WebACLSummaryTypeDef",
@@ -218,7 +238,7 @@ AllowActionTypeDef = TypedDict(
 AndStatementTypeDef = TypedDict(
     "AndStatementTypeDef",
     {
-        "Statements": List["StatementTypeDef"],
+        "Statements": List[Dict[str, Any]],
     },
 )
 
@@ -234,6 +254,14 @@ BlockActionTypeDef = TypedDict(
     "BlockActionTypeDef",
     {
         "CustomResponse": "CustomResponseTypeDef",
+    },
+    total=False,
+)
+
+BodyTypeDef = TypedDict(
+    "BodyTypeDef",
+    {
+        "OversizeHandling": OversizeHandlingType,
     },
     total=False,
 )
@@ -297,6 +325,25 @@ ConditionTypeDef = TypedDict(
         "LabelNameCondition": "LabelNameConditionTypeDef",
     },
     total=False,
+)
+
+CookieMatchPatternTypeDef = TypedDict(
+    "CookieMatchPatternTypeDef",
+    {
+        "All": Dict[str, Any],
+        "IncludedCookies": List[str],
+        "ExcludedCookies": List[str],
+    },
+    total=False,
+)
+
+CookiesTypeDef = TypedDict(
+    "CookiesTypeDef",
+    {
+        "MatchPattern": "CookieMatchPatternTypeDef",
+        "MatchScope": MapMatchScopeType,
+        "OversizeHandling": OversizeHandlingType,
+    },
 )
 
 CountActionTypeDef = TypedDict(
@@ -614,9 +661,11 @@ FieldToMatchTypeDef = TypedDict(
         "AllQueryArguments": Dict[str, Any],
         "UriPath": Dict[str, Any],
         "QueryString": Dict[str, Any],
-        "Body": Dict[str, Any],
+        "Body": "BodyTypeDef",
         "Method": Dict[str, Any],
         "JsonBody": "JsonBodyTypeDef",
+        "Headers": "HeadersTypeDef",
+        "Cookies": "CookiesTypeDef",
     },
     total=False,
 )
@@ -655,6 +704,22 @@ ForwardedIPConfigTypeDef = TypedDict(
     {
         "HeaderName": str,
         "FallbackBehavior": FallbackBehaviorType,
+    },
+)
+
+GenerateMobileSdkReleaseUrlRequestRequestTypeDef = TypedDict(
+    "GenerateMobileSdkReleaseUrlRequestRequestTypeDef",
+    {
+        "Platform": PlatformType,
+        "ReleaseVersion": str,
+    },
+)
+
+GenerateMobileSdkReleaseUrlResponseTypeDef = TypedDict(
+    "GenerateMobileSdkReleaseUrlResponseTypeDef",
+    {
+        "Url": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -714,6 +779,22 @@ GetManagedRuleSetResponseTypeDef = TypedDict(
     {
         "ManagedRuleSet": "ManagedRuleSetTypeDef",
         "LockToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetMobileSdkReleaseRequestRequestTypeDef = TypedDict(
+    "GetMobileSdkReleaseRequestRequestTypeDef",
+    {
+        "Platform": PlatformType,
+        "ReleaseVersion": str,
+    },
+)
+
+GetMobileSdkReleaseResponseTypeDef = TypedDict(
+    "GetMobileSdkReleaseResponseTypeDef",
+    {
+        "MobileSdkRelease": "MobileSdkReleaseTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -853,6 +934,7 @@ GetWebACLResponseTypeDef = TypedDict(
     {
         "WebACL": "WebACLTypeDef",
         "LockToken": str,
+        "ApplicationIntegrationURL": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -877,6 +959,25 @@ HTTPRequestTypeDef = TypedDict(
         "Headers": List["HTTPHeaderTypeDef"],
     },
     total=False,
+)
+
+HeaderMatchPatternTypeDef = TypedDict(
+    "HeaderMatchPatternTypeDef",
+    {
+        "All": Dict[str, Any],
+        "IncludedHeaders": List[str],
+        "ExcludedHeaders": List[str],
+    },
+    total=False,
+)
+
+HeadersTypeDef = TypedDict(
+    "HeadersTypeDef",
+    {
+        "MatchPattern": "HeaderMatchPatternTypeDef",
+        "MatchScope": MapMatchScopeType,
+        "OversizeHandling": OversizeHandlingType,
+    },
 )
 
 IPSetForwardedIPConfigTypeDef = TypedDict(
@@ -958,6 +1059,7 @@ _OptionalJsonBodyTypeDef = TypedDict(
     "_OptionalJsonBodyTypeDef",
     {
         "InvalidFallbackBehavior": BodyParsingFallbackBehaviorType,
+        "OversizeHandling": OversizeHandlingType,
     },
     total=False,
 )
@@ -1032,6 +1134,7 @@ ListAvailableManagedRuleGroupVersionsResponseTypeDef = TypedDict(
     {
         "NextMarker": str,
         "Versions": List["ManagedRuleGroupVersionTypeDef"],
+        "CurrentDefaultVersion": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1151,6 +1254,36 @@ ListManagedRuleSetsResponseTypeDef = TypedDict(
     {
         "NextMarker": str,
         "ManagedRuleSets": List["ManagedRuleSetSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListMobileSdkReleasesRequestRequestTypeDef = TypedDict(
+    "_RequiredListMobileSdkReleasesRequestRequestTypeDef",
+    {
+        "Platform": PlatformType,
+    },
+)
+_OptionalListMobileSdkReleasesRequestRequestTypeDef = TypedDict(
+    "_OptionalListMobileSdkReleasesRequestRequestTypeDef",
+    {
+        "NextMarker": str,
+        "Limit": int,
+    },
+    total=False,
+)
+
+class ListMobileSdkReleasesRequestRequestTypeDef(
+    _RequiredListMobileSdkReleasesRequestRequestTypeDef,
+    _OptionalListMobileSdkReleasesRequestRequestTypeDef,
+):
+    pass
+
+ListMobileSdkReleasesResponseTypeDef = TypedDict(
+    "ListMobileSdkReleasesResponseTypeDef",
+    {
+        "ReleaseSummaries": List["ReleaseSummaryTypeDef"],
+        "NextMarker": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1331,6 +1464,17 @@ LoggingFilterTypeDef = TypedDict(
     },
 )
 
+ManagedRuleGroupConfigTypeDef = TypedDict(
+    "ManagedRuleGroupConfigTypeDef",
+    {
+        "LoginPath": str,
+        "PayloadType": PayloadTypeType,
+        "UsernameField": "UsernameFieldTypeDef",
+        "PasswordField": "PasswordFieldTypeDef",
+    },
+    total=False,
+)
+
 _RequiredManagedRuleGroupStatementTypeDef = TypedDict(
     "_RequiredManagedRuleGroupStatementTypeDef",
     {
@@ -1344,6 +1488,7 @@ _OptionalManagedRuleGroupStatementTypeDef = TypedDict(
         "Version": str,
         "ExcludedRules": List["ExcludedRuleTypeDef"],
         "ScopeDownStatement": "StatementTypeDef",
+        "ManagedRuleGroupConfigs": List["ManagedRuleGroupConfigTypeDef"],
     },
     total=False,
 )
@@ -1358,6 +1503,7 @@ ManagedRuleGroupSummaryTypeDef = TypedDict(
     {
         "VendorName": str,
         "Name": str,
+        "VersioningSupported": bool,
         "Description": str,
     },
     total=False,
@@ -1420,10 +1566,21 @@ ManagedRuleSetVersionTypeDef = TypedDict(
     total=False,
 )
 
+MobileSdkReleaseTypeDef = TypedDict(
+    "MobileSdkReleaseTypeDef",
+    {
+        "ReleaseVersion": str,
+        "Timestamp": datetime,
+        "ReleaseNotes": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 NotStatementTypeDef = TypedDict(
     "NotStatementTypeDef",
     {
-        "Statement": Dict[str, Any],
+        "Statement": "StatementTypeDef",
     },
 )
 
@@ -1441,6 +1598,13 @@ OverrideActionTypeDef = TypedDict(
         "None": Dict[str, Any],
     },
     total=False,
+)
+
+PasswordFieldTypeDef = TypedDict(
+    "PasswordFieldTypeDef",
+    {
+        "Identifier": str,
+    },
 )
 
 PutLoggingConfigurationRequestRequestTypeDef = TypedDict(
@@ -1574,6 +1738,15 @@ RegexTypeDef = TypedDict(
     "RegexTypeDef",
     {
         "RegexString": str,
+    },
+    total=False,
+)
+
+ReleaseSummaryTypeDef = TypedDict(
+    "ReleaseSummaryTypeDef",
+    {
+        "ReleaseVersion": str,
+        "Timestamp": datetime,
     },
     total=False,
 )
@@ -1968,6 +2141,13 @@ UpdateWebACLResponseTypeDef = TypedDict(
     {
         "NextLockToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UsernameFieldTypeDef = TypedDict(
+    "UsernameFieldTypeDef",
+    {
+        "Identifier": str,
     },
 )
 

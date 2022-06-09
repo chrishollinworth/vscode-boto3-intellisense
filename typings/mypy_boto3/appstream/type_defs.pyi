@@ -18,6 +18,7 @@ from typing import Any, Dict, List
 from .literals import (
     ActionType,
     ApplicationAttributeType,
+    AppVisibilityType,
     AuthenticationTypeType,
     FleetAttributeType,
     FleetErrorCodeType,
@@ -59,6 +60,7 @@ __all__ = (
     "ApplicationTypeDef",
     "AssociateApplicationFleetRequestRequestTypeDef",
     "AssociateApplicationFleetResultTypeDef",
+    "AssociateApplicationToEntitlementRequestRequestTypeDef",
     "AssociateFleetRequestRequestTypeDef",
     "BatchAssociateUserStackRequestRequestTypeDef",
     "BatchAssociateUserStackResultTypeDef",
@@ -74,6 +76,8 @@ __all__ = (
     "CreateApplicationResultTypeDef",
     "CreateDirectoryConfigRequestRequestTypeDef",
     "CreateDirectoryConfigResultTypeDef",
+    "CreateEntitlementRequestRequestTypeDef",
+    "CreateEntitlementResultTypeDef",
     "CreateFleetRequestRequestTypeDef",
     "CreateFleetResultTypeDef",
     "CreateImageBuilderRequestRequestTypeDef",
@@ -91,6 +95,7 @@ __all__ = (
     "DeleteAppBlockRequestRequestTypeDef",
     "DeleteApplicationRequestRequestTypeDef",
     "DeleteDirectoryConfigRequestRequestTypeDef",
+    "DeleteEntitlementRequestRequestTypeDef",
     "DeleteFleetRequestRequestTypeDef",
     "DeleteImageBuilderRequestRequestTypeDef",
     "DeleteImageBuilderResultTypeDef",
@@ -107,6 +112,8 @@ __all__ = (
     "DescribeApplicationsResultTypeDef",
     "DescribeDirectoryConfigsRequestRequestTypeDef",
     "DescribeDirectoryConfigsResultTypeDef",
+    "DescribeEntitlementsRequestRequestTypeDef",
+    "DescribeEntitlementsResultTypeDef",
     "DescribeFleetsRequestRequestTypeDef",
     "DescribeFleetsResultTypeDef",
     "DescribeImageBuildersRequestRequestTypeDef",
@@ -128,9 +135,13 @@ __all__ = (
     "DirectoryConfigTypeDef",
     "DisableUserRequestRequestTypeDef",
     "DisassociateApplicationFleetRequestRequestTypeDef",
+    "DisassociateApplicationFromEntitlementRequestRequestTypeDef",
     "DisassociateFleetRequestRequestTypeDef",
     "DomainJoinInfoTypeDef",
     "EnableUserRequestRequestTypeDef",
+    "EntitledApplicationTypeDef",
+    "EntitlementAttributeTypeDef",
+    "EntitlementTypeDef",
     "ExpireSessionRequestRequestTypeDef",
     "FleetErrorTypeDef",
     "FleetTypeDef",
@@ -144,6 +155,8 @@ __all__ = (
     "ListAssociatedFleetsResultTypeDef",
     "ListAssociatedStacksRequestRequestTypeDef",
     "ListAssociatedStacksResultTypeDef",
+    "ListEntitledApplicationsRequestRequestTypeDef",
+    "ListEntitledApplicationsResultTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NetworkAccessConfigurationTypeDef",
@@ -170,6 +183,8 @@ __all__ = (
     "UpdateApplicationResultTypeDef",
     "UpdateDirectoryConfigRequestRequestTypeDef",
     "UpdateDirectoryConfigResultTypeDef",
+    "UpdateEntitlementRequestRequestTypeDef",
+    "UpdateEntitlementResultTypeDef",
     "UpdateFleetRequestRequestTypeDef",
     "UpdateFleetResultTypeDef",
     "UpdateImagePermissionsRequestRequestTypeDef",
@@ -295,6 +310,15 @@ AssociateApplicationFleetResultTypeDef = TypedDict(
     {
         "ApplicationFleetAssociation": "ApplicationFleetAssociationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+AssociateApplicationToEntitlementRequestRequestTypeDef = TypedDict(
+    "AssociateApplicationToEntitlementRequestRequestTypeDef",
+    {
+        "StackName": str,
+        "EntitlementName": str,
+        "ApplicationIdentifier": str,
     },
 )
 
@@ -489,6 +513,36 @@ CreateDirectoryConfigResultTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateEntitlementRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEntitlementRequestRequestTypeDef",
+    {
+        "Name": str,
+        "StackName": str,
+        "AppVisibility": AppVisibilityType,
+        "Attributes": List["EntitlementAttributeTypeDef"],
+    },
+)
+_OptionalCreateEntitlementRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEntitlementRequestRequestTypeDef",
+    {
+        "Description": str,
+    },
+    total=False,
+)
+
+class CreateEntitlementRequestRequestTypeDef(
+    _RequiredCreateEntitlementRequestRequestTypeDef, _OptionalCreateEntitlementRequestRequestTypeDef
+):
+    pass
+
+CreateEntitlementResultTypeDef = TypedDict(
+    "CreateEntitlementResultTypeDef",
+    {
+        "Entitlement": "EntitlementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateFleetRequestRequestTypeDef = TypedDict(
     "_RequiredCreateFleetRequestRequestTypeDef",
     {
@@ -517,6 +571,7 @@ _OptionalCreateFleetRequestRequestTypeDef = TypedDict(
         "Platform": PlatformTypeType,
         "MaxConcurrentSessions": int,
         "UsbDeviceFilterStrings": List[str],
+        "SessionScriptS3Location": "S3LocationTypeDef",
     },
     total=False,
 )
@@ -756,6 +811,14 @@ DeleteDirectoryConfigRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteEntitlementRequestRequestTypeDef = TypedDict(
+    "DeleteEntitlementRequestRequestTypeDef",
+    {
+        "Name": str,
+        "StackName": str,
+    },
+)
+
 DeleteFleetRequestRequestTypeDef = TypedDict(
     "DeleteFleetRequestRequestTypeDef",
     {
@@ -888,6 +951,37 @@ DescribeDirectoryConfigsResultTypeDef = TypedDict(
     "DescribeDirectoryConfigsResultTypeDef",
     {
         "DirectoryConfigs": List["DirectoryConfigTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeEntitlementsRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeEntitlementsRequestRequestTypeDef",
+    {
+        "StackName": str,
+    },
+)
+_OptionalDescribeEntitlementsRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeEntitlementsRequestRequestTypeDef",
+    {
+        "Name": str,
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class DescribeEntitlementsRequestRequestTypeDef(
+    _RequiredDescribeEntitlementsRequestRequestTypeDef,
+    _OptionalDescribeEntitlementsRequestRequestTypeDef,
+):
+    pass
+
+DescribeEntitlementsResultTypeDef = TypedDict(
+    "DescribeEntitlementsResultTypeDef",
+    {
+        "Entitlements": List["EntitlementTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1136,6 +1230,15 @@ DisassociateApplicationFleetRequestRequestTypeDef = TypedDict(
     },
 )
 
+DisassociateApplicationFromEntitlementRequestRequestTypeDef = TypedDict(
+    "DisassociateApplicationFromEntitlementRequestRequestTypeDef",
+    {
+        "StackName": str,
+        "EntitlementName": str,
+        "ApplicationIdentifier": str,
+    },
+)
+
 DisassociateFleetRequestRequestTypeDef = TypedDict(
     "DisassociateFleetRequestRequestTypeDef",
     {
@@ -1160,6 +1263,43 @@ EnableUserRequestRequestTypeDef = TypedDict(
         "AuthenticationType": AuthenticationTypeType,
     },
 )
+
+EntitledApplicationTypeDef = TypedDict(
+    "EntitledApplicationTypeDef",
+    {
+        "ApplicationIdentifier": str,
+    },
+)
+
+EntitlementAttributeTypeDef = TypedDict(
+    "EntitlementAttributeTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+)
+
+_RequiredEntitlementTypeDef = TypedDict(
+    "_RequiredEntitlementTypeDef",
+    {
+        "Name": str,
+        "StackName": str,
+        "AppVisibility": AppVisibilityType,
+        "Attributes": List["EntitlementAttributeTypeDef"],
+    },
+)
+_OptionalEntitlementTypeDef = TypedDict(
+    "_OptionalEntitlementTypeDef",
+    {
+        "Description": str,
+        "CreatedTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+class EntitlementTypeDef(_RequiredEntitlementTypeDef, _OptionalEntitlementTypeDef):
+    pass
 
 ExpireSessionRequestRequestTypeDef = TypedDict(
     "ExpireSessionRequestRequestTypeDef",
@@ -1208,6 +1348,7 @@ _OptionalFleetTypeDef = TypedDict(
         "Platform": PlatformTypeType,
         "MaxConcurrentSessions": int,
         "UsbDeviceFilterStrings": List[str],
+        "SessionScriptS3Location": "S3LocationTypeDef",
     },
     total=False,
 )
@@ -1369,6 +1510,37 @@ ListAssociatedStacksResultTypeDef = TypedDict(
     "ListAssociatedStacksResultTypeDef",
     {
         "Names": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEntitledApplicationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListEntitledApplicationsRequestRequestTypeDef",
+    {
+        "StackName": str,
+        "EntitlementName": str,
+    },
+)
+_OptionalListEntitledApplicationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListEntitledApplicationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListEntitledApplicationsRequestRequestTypeDef(
+    _RequiredListEntitledApplicationsRequestRequestTypeDef,
+    _OptionalListEntitledApplicationsRequestRequestTypeDef,
+):
+    pass
+
+ListEntitledApplicationsResultTypeDef = TypedDict(
+    "ListEntitledApplicationsResultTypeDef",
+    {
+        "EntitledApplications": List["EntitledApplicationTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1687,6 +1859,36 @@ UpdateDirectoryConfigResultTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdateEntitlementRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEntitlementRequestRequestTypeDef",
+    {
+        "Name": str,
+        "StackName": str,
+    },
+)
+_OptionalUpdateEntitlementRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEntitlementRequestRequestTypeDef",
+    {
+        "Description": str,
+        "AppVisibility": AppVisibilityType,
+        "Attributes": List["EntitlementAttributeTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateEntitlementRequestRequestTypeDef(
+    _RequiredUpdateEntitlementRequestRequestTypeDef, _OptionalUpdateEntitlementRequestRequestTypeDef
+):
+    pass
+
+UpdateEntitlementResultTypeDef = TypedDict(
+    "UpdateEntitlementResultTypeDef",
+    {
+        "Entitlement": "EntitlementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateFleetRequestRequestTypeDef = TypedDict(
     "UpdateFleetRequestRequestTypeDef",
     {
@@ -1710,6 +1912,7 @@ UpdateFleetRequestRequestTypeDef = TypedDict(
         "Platform": PlatformTypeType,
         "MaxConcurrentSessions": int,
         "UsbDeviceFilterStrings": List[str],
+        "SessionScriptS3Location": "S3LocationTypeDef",
     },
     total=False,
 )

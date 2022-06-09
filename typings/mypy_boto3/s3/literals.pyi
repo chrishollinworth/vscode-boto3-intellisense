@@ -28,6 +28,8 @@ __all__ = (
     "BucketLogsPermissionType",
     "BucketNotExistsWaiterName",
     "BucketVersioningStatusType",
+    "ChecksumAlgorithmType",
+    "ChecksumModeType",
     "CompressionTypeType",
     "DeleteMarkerReplicationStatusType",
     "EncodingTypeType",
@@ -53,6 +55,7 @@ __all__ = (
     "MFADeleteType",
     "MetadataDirectiveType",
     "MetricsStatusType",
+    "ObjectAttributesType",
     "ObjectCannedACLType",
     "ObjectExistsWaiterName",
     "ObjectLockEnabledType",
@@ -120,6 +123,8 @@ BucketLocationConstraintType = Literal[
 BucketLogsPermissionType = Literal["FULL_CONTROL", "READ", "WRITE"]
 BucketNotExistsWaiterName = Literal["bucket_not_exists"]
 BucketVersioningStatusType = Literal["Enabled", "Suspended"]
+ChecksumAlgorithmType = Literal["CRC32", "CRC32C", "SHA1", "SHA256"]
+ChecksumModeType = Literal["ENABLED"]
 CompressionTypeType = Literal["BZIP2", "GZIP", "NONE"]
 DeleteMarkerReplicationStatusType = Literal["Disabled", "Enabled"]
 EncodingTypeType = Literal["url"]
@@ -164,6 +169,7 @@ InventoryFrequencyType = Literal["Daily", "Weekly"]
 InventoryIncludedObjectVersionsType = Literal["All", "Current"]
 InventoryOptionalFieldType = Literal[
     "BucketKeyStatus",
+    "ChecksumAlgorithm",
     "ETag",
     "EncryptionStatus",
     "IntelligentTieringAccessTier",
@@ -186,6 +192,7 @@ MFADeleteStatusType = Literal["Disabled", "Enabled"]
 MFADeleteType = Literal["Disabled", "Enabled"]
 MetadataDirectiveType = Literal["COPY", "REPLACE"]
 MetricsStatusType = Literal["Disabled", "Enabled"]
+ObjectAttributesType = Literal["Checksum", "ETag", "ObjectParts", "ObjectSize", "StorageClass"]
 ObjectCannedACLType = Literal[
     "authenticated-read",
     "aws-exec-read",

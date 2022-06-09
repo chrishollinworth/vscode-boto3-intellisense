@@ -62,6 +62,7 @@ __all__ = (
     "CreateBackendAuthResourceConfigTypeDef",
     "CreateBackendAuthResponseTypeDef",
     "CreateBackendAuthUserPoolConfigTypeDef",
+    "CreateBackendAuthVerificationMessageConfigTypeDef",
     "CreateBackendConfigRequestRequestTypeDef",
     "CreateBackendConfigResponseTypeDef",
     "CreateBackendRequestRequestTypeDef",
@@ -129,6 +130,7 @@ __all__ = (
     "UpdateBackendAuthResourceConfigTypeDef",
     "UpdateBackendAuthResponseTypeDef",
     "UpdateBackendAuthUserPoolConfigTypeDef",
+    "UpdateBackendAuthVerificationMessageConfigTypeDef",
     "UpdateBackendConfigRequestRequestTypeDef",
     "UpdateBackendConfigResponseTypeDef",
     "UpdateBackendJobRequestRequestTypeDef",
@@ -442,12 +444,34 @@ _OptionalCreateBackendAuthUserPoolConfigTypeDef = TypedDict(
         "Mfa": "CreateBackendAuthMFAConfigTypeDef",
         "OAuth": "CreateBackendAuthOAuthConfigTypeDef",
         "PasswordPolicy": "CreateBackendAuthPasswordPolicyConfigTypeDef",
+        "VerificationMessage": "CreateBackendAuthVerificationMessageConfigTypeDef",
     },
     total=False,
 )
 
 class CreateBackendAuthUserPoolConfigTypeDef(
     _RequiredCreateBackendAuthUserPoolConfigTypeDef, _OptionalCreateBackendAuthUserPoolConfigTypeDef
+):
+    pass
+
+_RequiredCreateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
+    "_RequiredCreateBackendAuthVerificationMessageConfigTypeDef",
+    {
+        "DeliveryMethod": DeliveryMethodType,
+    },
+)
+_OptionalCreateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
+    "_OptionalCreateBackendAuthVerificationMessageConfigTypeDef",
+    {
+        "EmailSettings": "EmailSettingsTypeDef",
+        "SmsSettings": "SmsSettingsTypeDef",
+    },
+    total=False,
+)
+
+class CreateBackendAuthVerificationMessageConfigTypeDef(
+    _RequiredCreateBackendAuthVerificationMessageConfigTypeDef,
+    _OptionalCreateBackendAuthVerificationMessageConfigTypeDef,
 ):
     pass
 
@@ -1279,9 +1303,31 @@ UpdateBackendAuthUserPoolConfigTypeDef = TypedDict(
         "Mfa": "UpdateBackendAuthMFAConfigTypeDef",
         "OAuth": "UpdateBackendAuthOAuthConfigTypeDef",
         "PasswordPolicy": "UpdateBackendAuthPasswordPolicyConfigTypeDef",
+        "VerificationMessage": "UpdateBackendAuthVerificationMessageConfigTypeDef",
     },
     total=False,
 )
+
+_RequiredUpdateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
+    "_RequiredUpdateBackendAuthVerificationMessageConfigTypeDef",
+    {
+        "DeliveryMethod": DeliveryMethodType,
+    },
+)
+_OptionalUpdateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
+    "_OptionalUpdateBackendAuthVerificationMessageConfigTypeDef",
+    {
+        "EmailSettings": "EmailSettingsTypeDef",
+        "SmsSettings": "SmsSettingsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateBackendAuthVerificationMessageConfigTypeDef(
+    _RequiredUpdateBackendAuthVerificationMessageConfigTypeDef,
+    _OptionalUpdateBackendAuthVerificationMessageConfigTypeDef,
+):
+    pass
 
 _RequiredUpdateBackendConfigRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateBackendConfigRequestRequestTypeDef",

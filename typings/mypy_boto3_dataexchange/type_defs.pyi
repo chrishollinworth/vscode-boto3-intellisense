@@ -111,6 +111,8 @@ __all__ = (
     "RevisionDestinationEntryTypeDef",
     "RevisionEntryTypeDef",
     "RevisionPublishedTypeDef",
+    "RevokeRevisionRequestRequestTypeDef",
+    "RevokeRevisionResponseTypeDef",
     "S3SnapshotAssetTypeDef",
     "SendApiAssetRequestRequestTypeDef",
     "SendApiAssetResponseTypeDef",
@@ -376,6 +378,9 @@ CreateRevisionResponseTypeDef = TypedDict(
         "SourceId": str,
         "Tags": Dict[str, str],
         "UpdatedAt": datetime,
+        "RevocationComment": str,
+        "Revoked": bool,
+        "RevokedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -714,6 +719,9 @@ GetRevisionResponseTypeDef = TypedDict(
         "SourceId": str,
         "Tags": Dict[str, str],
         "UpdatedAt": datetime,
+        "RevocationComment": str,
+        "Revoked": bool,
+        "RevokedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1136,6 +1144,9 @@ _OptionalRevisionEntryTypeDef = TypedDict(
         "Comment": str,
         "Finalized": bool,
         "SourceId": str,
+        "RevocationComment": str,
+        "Revoked": bool,
+        "RevokedAt": datetime,
     },
     total=False,
 )
@@ -1147,6 +1158,33 @@ RevisionPublishedTypeDef = TypedDict(
     "RevisionPublishedTypeDef",
     {
         "DataSetId": str,
+    },
+)
+
+RevokeRevisionRequestRequestTypeDef = TypedDict(
+    "RevokeRevisionRequestRequestTypeDef",
+    {
+        "DataSetId": str,
+        "RevisionId": str,
+        "RevocationComment": str,
+    },
+)
+
+RevokeRevisionResponseTypeDef = TypedDict(
+    "RevokeRevisionResponseTypeDef",
+    {
+        "Arn": str,
+        "Comment": str,
+        "CreatedAt": datetime,
+        "DataSetId": str,
+        "Finalized": bool,
+        "Id": str,
+        "SourceId": str,
+        "UpdatedAt": datetime,
+        "RevocationComment": str,
+        "Revoked": bool,
+        "RevokedAt": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1342,6 +1380,9 @@ UpdateRevisionResponseTypeDef = TypedDict(
         "Id": str,
         "SourceId": str,
         "UpdatedAt": datetime,
+        "RevocationComment": str,
+        "Revoked": bool,
+        "RevokedAt": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

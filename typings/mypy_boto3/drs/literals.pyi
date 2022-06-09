@@ -30,6 +30,7 @@ __all__ = (
     "DescribeReplicationConfigurationTemplatesPaginatorName",
     "DescribeSourceServersPaginatorName",
     "EC2InstanceStateType",
+    "ExtensionStatusType",
     "FailbackReplicationErrorType",
     "FailbackStateType",
     "InitiatedByType",
@@ -40,6 +41,8 @@ __all__ = (
     "LastLaunchTypeType",
     "LaunchDispositionType",
     "LaunchStatusType",
+    "ListExtensibleSourceServersPaginatorName",
+    "ListStagingAccountsPaginatorName",
     "PITPolicyRuleUnitsType",
     "RecoveryInstanceDataReplicationInitiationStepNameType",
     "RecoveryInstanceDataReplicationInitiationStepStatusType",
@@ -107,6 +110,7 @@ DescribeSourceServersPaginatorName = Literal["describe_source_servers"]
 EC2InstanceStateType = Literal[
     "NOT_FOUND", "PENDING", "RUNNING", "SHUTTING-DOWN", "STOPPED", "STOPPING", "TERMINATED"
 ]
+ExtensionStatusType = Literal["EXTENDED", "EXTENSION_ERROR", "NOT_EXTENDED"]
 FailbackReplicationErrorType = Literal[
     "AGENT_NOT_SEEN",
     "FAILBACK_CLIENT_NOT_SEEN",
@@ -126,7 +130,12 @@ FailbackStateType = Literal[
     "FAILBACK_READY_FOR_LAUNCH",
 ]
 InitiatedByType = Literal[
-    "DIAGNOSTIC", "FAILBACK", "START_DRILL", "START_RECOVERY", "TERMINATE_RECOVERY_INSTANCES"
+    "DIAGNOSTIC",
+    "FAILBACK",
+    "START_DRILL",
+    "START_RECOVERY",
+    "TARGET_ACCOUNT",
+    "TERMINATE_RECOVERY_INSTANCES",
 ]
 JobLogEventType = Literal[
     "CLEANUP_END",
@@ -148,11 +157,13 @@ JobLogEventType = Literal[
     "USING_PREVIOUS_SNAPSHOT_FAILED",
 ]
 JobStatusType = Literal["COMPLETED", "PENDING", "STARTED"]
-JobTypeType = Literal["LAUNCH", "TERMINATE"]
+JobTypeType = Literal["CREATE_CONVERTED_SNAPSHOT", "LAUNCH", "TERMINATE"]
 LastLaunchResultType = Literal["FAILED", "NOT_STARTED", "PENDING", "SUCCEEDED"]
 LastLaunchTypeType = Literal["DRILL", "RECOVERY"]
 LaunchDispositionType = Literal["STARTED", "STOPPED"]
 LaunchStatusType = Literal["FAILED", "IN_PROGRESS", "LAUNCHED", "PENDING", "TERMINATED"]
+ListExtensibleSourceServersPaginatorName = Literal["list_extensible_source_servers"]
+ListStagingAccountsPaginatorName = Literal["list_staging_accounts"]
 PITPolicyRuleUnitsType = Literal["DAY", "HOUR", "MINUTE"]
 RecoveryInstanceDataReplicationInitiationStepNameType = Literal[
     "COMPLETE_VOLUME_MAPPING",

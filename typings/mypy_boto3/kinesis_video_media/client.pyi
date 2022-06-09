@@ -22,6 +22,7 @@ __all__ = ("KinesisVideoMediaClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -37,11 +38,12 @@ class Exceptions:
 
 class KinesisVideoMediaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -51,7 +53,7 @@ class KinesisVideoMediaClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html#can_paginate)
         """
     def generate_presigned_url(
@@ -64,7 +66,7 @@ class KinesisVideoMediaClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html#generate_presigned_url)
         """
     def get_media(
@@ -77,6 +79,6 @@ class KinesisVideoMediaClient(BaseClient):
         """
         Use this API to retrieve media content from a Kinesis video stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.get_media)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.get_media)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/client.html#get_media)
         """

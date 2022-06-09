@@ -6,9 +6,9 @@ Type annotations for lexv2-models service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lexv2_models.type_defs import AggregatedUtterancesFilterTypeDef
+    from mypy_boto3_lexv2_models.type_defs import AdvancedRecognitionSettingTypeDef
 
-    data: AggregatedUtterancesFilterTypeDef = {...}
+    data: AdvancedRecognitionSettingTypeDef = {...}
     ```
 """
 import sys
@@ -25,10 +25,13 @@ from .literals import (
     BotLocaleStatusType,
     BotRecommendationStatusType,
     BotStatusType,
+    CustomVocabularyStatusType,
     EffectType,
     ExportFilterOperatorType,
     ExportStatusType,
+    ImportExportFileFormatType,
     ImportFilterOperatorType,
+    ImportResourceTypeType,
     ImportStatusType,
     IntentFilterOperatorType,
     IntentSortAttributeType,
@@ -58,6 +61,7 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AdvancedRecognitionSettingTypeDef",
     "AggregatedUtterancesFilterTypeDef",
     "AggregatedUtterancesSortByTypeDef",
     "AggregatedUtterancesSummaryTypeDef",
@@ -117,6 +121,8 @@ __all__ = (
     "CreateSlotTypeResponseTypeDef",
     "CreateUploadUrlResponseTypeDef",
     "CustomPayloadTypeDef",
+    "CustomVocabularyExportSpecificationTypeDef",
+    "CustomVocabularyImportSpecificationTypeDef",
     "DataPrivacyTypeDef",
     "DateRangeFilterTypeDef",
     "DeleteBotAliasRequestRequestTypeDef",
@@ -127,6 +133,8 @@ __all__ = (
     "DeleteBotResponseTypeDef",
     "DeleteBotVersionRequestRequestTypeDef",
     "DeleteBotVersionResponseTypeDef",
+    "DeleteCustomVocabularyRequestRequestTypeDef",
+    "DeleteCustomVocabularyResponseTypeDef",
     "DeleteExportRequestRequestTypeDef",
     "DeleteExportResponseTypeDef",
     "DeleteImportRequestRequestTypeDef",
@@ -149,6 +157,8 @@ __all__ = (
     "DescribeBotResponseTypeDef",
     "DescribeBotVersionRequestRequestTypeDef",
     "DescribeBotVersionResponseTypeDef",
+    "DescribeCustomVocabularyMetadataRequestRequestTypeDef",
+    "DescribeCustomVocabularyMetadataResponseTypeDef",
     "DescribeExportRequestRequestTypeDef",
     "DescribeExportResponseTypeDef",
     "DescribeImportRequestRequestTypeDef",
@@ -288,6 +298,14 @@ __all__ = (
     "VoiceSettingsTypeDef",
     "WaitAndContinueSpecificationTypeDef",
     "WaiterConfigTypeDef",
+)
+
+AdvancedRecognitionSettingTypeDef = TypedDict(
+    "AdvancedRecognitionSettingTypeDef",
+    {
+        "audioRecognitionStrategy": Literal["UseSlotValuesAsCustomVocabulary"],
+    },
+    total=False,
 )
 
 AggregatedUtterancesFilterTypeDef = TypedDict(
@@ -838,7 +856,7 @@ _RequiredCreateExportRequestRequestTypeDef = TypedDict(
     "_RequiredCreateExportRequestRequestTypeDef",
     {
         "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": Literal["LexJson"],
+        "fileFormat": ImportExportFileFormatType,
     },
 )
 _OptionalCreateExportRequestRequestTypeDef = TypedDict(
@@ -859,7 +877,7 @@ CreateExportResponseTypeDef = TypedDict(
     {
         "exportId": str,
         "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": Literal["LexJson"],
+        "fileFormat": ImportExportFileFormatType,
         "exportStatus": ExportStatusType,
         "creationDateTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -975,7 +993,6 @@ _RequiredCreateSlotRequestRequestTypeDef = TypedDict(
     "_RequiredCreateSlotRequestRequestTypeDef",
     {
         "slotName": str,
-        "slotTypeId": str,
         "valueElicitationSetting": "SlotValueElicitationSettingTypeDef",
         "botId": str,
         "botVersion": str,
@@ -987,6 +1004,7 @@ _OptionalCreateSlotRequestRequestTypeDef = TypedDict(
     "_OptionalCreateSlotRequestRequestTypeDef",
     {
         "description": str,
+        "slotTypeId": str,
         "obfuscationSetting": "ObfuscationSettingTypeDef",
         "multipleValuesSetting": "MultipleValuesSettingTypeDef",
     },
@@ -1074,6 +1092,24 @@ CustomPayloadTypeDef = TypedDict(
     "CustomPayloadTypeDef",
     {
         "value": str,
+    },
+)
+
+CustomVocabularyExportSpecificationTypeDef = TypedDict(
+    "CustomVocabularyExportSpecificationTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+
+CustomVocabularyImportSpecificationTypeDef = TypedDict(
+    "CustomVocabularyImportSpecificationTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
     },
 )
 
@@ -1196,6 +1232,26 @@ DeleteBotVersionResponseTypeDef = TypedDict(
         "botId": str,
         "botVersion": str,
         "botStatus": BotStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteCustomVocabularyRequestRequestTypeDef = TypedDict(
+    "DeleteCustomVocabularyRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+
+DeleteCustomVocabularyResponseTypeDef = TypedDict(
+    "DeleteCustomVocabularyResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "customVocabularyStatus": CustomVocabularyStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1489,6 +1545,28 @@ DescribeBotVersionResponseTypeDef = TypedDict(
     },
 )
 
+DescribeCustomVocabularyMetadataRequestRequestTypeDef = TypedDict(
+    "DescribeCustomVocabularyMetadataRequestRequestTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+    },
+)
+
+DescribeCustomVocabularyMetadataResponseTypeDef = TypedDict(
+    "DescribeCustomVocabularyMetadataResponseTypeDef",
+    {
+        "botId": str,
+        "botVersion": str,
+        "localeId": str,
+        "customVocabularyStatus": CustomVocabularyStatusType,
+        "creationDateTime": datetime,
+        "lastUpdatedDateTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeExportRequestRequestTypeDef = TypedDict(
     "DescribeExportRequestRequestTypeDef",
     {
@@ -1501,7 +1579,7 @@ DescribeExportResponseTypeDef = TypedDict(
     {
         "exportId": str,
         "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": Literal["LexJson"],
+        "fileFormat": ImportExportFileFormatType,
         "exportStatus": ExportStatusType,
         "failureReasons": List[str],
         "downloadUrl": str,
@@ -1677,6 +1755,7 @@ ExportResourceSpecificationTypeDef = TypedDict(
     {
         "botExportSpecification": "BotExportSpecificationTypeDef",
         "botLocaleExportSpecification": "BotLocaleExportSpecificationTypeDef",
+        "customVocabularyExportSpecification": "CustomVocabularyExportSpecificationTypeDef",
     },
     total=False,
 )
@@ -1694,7 +1773,7 @@ ExportSummaryTypeDef = TypedDict(
     {
         "exportId": str,
         "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": Literal["LexJson"],
+        "fileFormat": ImportExportFileFormatType,
         "exportStatus": ExportStatusType,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
@@ -1856,6 +1935,7 @@ ImportResourceSpecificationTypeDef = TypedDict(
     {
         "botImportSpecification": "BotImportSpecificationTypeDef",
         "botLocaleImportSpecification": "BotLocaleImportSpecificationTypeDef",
+        "customVocabularyImportSpecification": "CustomVocabularyImportSpecificationTypeDef",
     },
     total=False,
 )
@@ -1878,6 +1958,7 @@ ImportSummaryTypeDef = TypedDict(
         "mergeStrategy": MergeStrategyType,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
+        "importedResourceType": ImportResourceTypeType,
     },
     total=False,
 )
@@ -2270,6 +2351,7 @@ ListExportsRequestRequestTypeDef = TypedDict(
         "filters": List["ExportFilterTypeDef"],
         "maxResults": int,
         "nextToken": str,
+        "localeId": str,
     },
     total=False,
 )
@@ -2281,6 +2363,7 @@ ListExportsResponseTypeDef = TypedDict(
         "botVersion": str,
         "exportSummaries": List["ExportSummaryTypeDef"],
         "nextToken": str,
+        "localeId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2294,6 +2377,7 @@ ListImportsRequestRequestTypeDef = TypedDict(
         "filters": List["ImportFilterTypeDef"],
         "maxResults": int,
         "nextToken": str,
+        "localeId": str,
     },
     total=False,
 )
@@ -2305,6 +2389,7 @@ ListImportsResponseTypeDef = TypedDict(
         "botVersion": str,
         "importSummaries": List["ImportSummaryTypeDef"],
         "nextToken": str,
+        "localeId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2874,6 +2959,7 @@ _OptionalSlotValueSelectionSettingTypeDef = TypedDict(
     "_OptionalSlotValueSelectionSettingTypeDef",
     {
         "regexFilter": "SlotValueRegexFilterTypeDef",
+        "advancedRecognitionSetting": "AdvancedRecognitionSettingTypeDef",
     },
     total=False,
 )
@@ -3198,7 +3284,7 @@ UpdateExportResponseTypeDef = TypedDict(
     {
         "exportId": str,
         "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": Literal["LexJson"],
+        "fileFormat": ImportExportFileFormatType,
         "exportStatus": ExportStatusType,
         "creationDateTime": datetime,
         "lastUpdatedDateTime": datetime,
@@ -3299,7 +3385,6 @@ _RequiredUpdateSlotRequestRequestTypeDef = TypedDict(
     {
         "slotId": str,
         "slotName": str,
-        "slotTypeId": str,
         "valueElicitationSetting": "SlotValueElicitationSettingTypeDef",
         "botId": str,
         "botVersion": str,
@@ -3311,6 +3396,7 @@ _OptionalUpdateSlotRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateSlotRequestRequestTypeDef",
     {
         "description": str,
+        "slotTypeId": str,
         "obfuscationSetting": "ObfuscationSettingTypeDef",
         "multipleValuesSetting": "MultipleValuesSettingTypeDef",
     },

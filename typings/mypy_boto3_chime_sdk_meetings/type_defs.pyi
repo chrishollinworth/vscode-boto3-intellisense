@@ -6,15 +6,16 @@ Type annotations for chime-sdk-meetings service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_chime_sdk_meetings.type_defs import AttendeeTypeDef
+    from mypy_boto3_chime_sdk_meetings.type_defs import AttendeeCapabilitiesTypeDef
 
-    data: AttendeeTypeDef = {...}
+    data: AttendeeCapabilitiesTypeDef = {...}
     ```
 """
 import sys
 from typing import Any, Dict, List
 
 from .literals import (
+    MediaCapabilitiesType,
     MeetingFeatureStatusType,
     TranscribeLanguageCodeType,
     TranscribeMedicalRegionType,
@@ -35,10 +36,13 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AttendeeCapabilitiesTypeDef",
+    "AttendeeIdItemTypeDef",
     "AttendeeTypeDef",
     "AudioFeaturesTypeDef",
     "BatchCreateAttendeeRequestRequestTypeDef",
     "BatchCreateAttendeeResponseTypeDef",
+    "BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef",
     "CreateAttendeeErrorTypeDef",
     "CreateAttendeeRequestItemTypeDef",
     "CreateAttendeeRequestRequestTypeDef",
@@ -65,6 +69,24 @@ __all__ = (
     "StartMeetingTranscriptionRequestRequestTypeDef",
     "StopMeetingTranscriptionRequestRequestTypeDef",
     "TranscriptionConfigurationTypeDef",
+    "UpdateAttendeeCapabilitiesRequestRequestTypeDef",
+    "UpdateAttendeeCapabilitiesResponseTypeDef",
+)
+
+AttendeeCapabilitiesTypeDef = TypedDict(
+    "AttendeeCapabilitiesTypeDef",
+    {
+        "Audio": MediaCapabilitiesType,
+        "Video": MediaCapabilitiesType,
+        "Content": MediaCapabilitiesType,
+    },
+)
+
+AttendeeIdItemTypeDef = TypedDict(
+    "AttendeeIdItemTypeDef",
+    {
+        "AttendeeId": str,
+    },
 )
 
 AttendeeTypeDef = TypedDict(
@@ -73,6 +95,7 @@ AttendeeTypeDef = TypedDict(
         "ExternalUserId": str,
         "AttendeeId": str,
         "JoinToken": str,
+        "Capabilities": "AttendeeCapabilitiesTypeDef",
     },
     total=False,
 )
@@ -102,6 +125,15 @@ BatchCreateAttendeeResponseTypeDef = TypedDict(
     },
 )
 
+BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef = TypedDict(
+    "BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef",
+    {
+        "MeetingId": str,
+        "ExcludedAttendeeIds": List["AttendeeIdItemTypeDef"],
+        "Capabilities": "AttendeeCapabilitiesTypeDef",
+    },
+)
+
 CreateAttendeeErrorTypeDef = TypedDict(
     "CreateAttendeeErrorTypeDef",
     {
@@ -112,20 +144,44 @@ CreateAttendeeErrorTypeDef = TypedDict(
     total=False,
 )
 
-CreateAttendeeRequestItemTypeDef = TypedDict(
-    "CreateAttendeeRequestItemTypeDef",
+_RequiredCreateAttendeeRequestItemTypeDef = TypedDict(
+    "_RequiredCreateAttendeeRequestItemTypeDef",
     {
         "ExternalUserId": str,
     },
 )
+_OptionalCreateAttendeeRequestItemTypeDef = TypedDict(
+    "_OptionalCreateAttendeeRequestItemTypeDef",
+    {
+        "Capabilities": "AttendeeCapabilitiesTypeDef",
+    },
+    total=False,
+)
 
-CreateAttendeeRequestRequestTypeDef = TypedDict(
-    "CreateAttendeeRequestRequestTypeDef",
+class CreateAttendeeRequestItemTypeDef(
+    _RequiredCreateAttendeeRequestItemTypeDef, _OptionalCreateAttendeeRequestItemTypeDef
+):
+    pass
+
+_RequiredCreateAttendeeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateAttendeeRequestRequestTypeDef",
     {
         "MeetingId": str,
         "ExternalUserId": str,
     },
 )
+_OptionalCreateAttendeeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateAttendeeRequestRequestTypeDef",
+    {
+        "Capabilities": "AttendeeCapabilitiesTypeDef",
+    },
+    total=False,
+)
+
+class CreateAttendeeRequestRequestTypeDef(
+    _RequiredCreateAttendeeRequestRequestTypeDef, _OptionalCreateAttendeeRequestRequestTypeDef
+):
+    pass
 
 CreateAttendeeResponseTypeDef = TypedDict(
     "CreateAttendeeResponseTypeDef",
@@ -149,6 +205,7 @@ _OptionalCreateMeetingRequestRequestTypeDef = TypedDict(
         "MeetingHostId": str,
         "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
         "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
+        "PrimaryMeetingId": str,
     },
     total=False,
 )
@@ -181,6 +238,7 @@ _OptionalCreateMeetingWithAttendeesRequestRequestTypeDef = TypedDict(
         "MeetingHostId": str,
         "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
         "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
+        "PrimaryMeetingId": str,
     },
     total=False,
 )
@@ -239,15 +297,10 @@ class EngineTranscribeMedicalSettingsTypeDef(
 ):
     pass
 
-_RequiredEngineTranscribeSettingsTypeDef = TypedDict(
-    "_RequiredEngineTranscribeSettingsTypeDef",
+EngineTranscribeSettingsTypeDef = TypedDict(
+    "EngineTranscribeSettingsTypeDef",
     {
         "LanguageCode": TranscribeLanguageCodeType,
-    },
-)
-_OptionalEngineTranscribeSettingsTypeDef = TypedDict(
-    "_OptionalEngineTranscribeSettingsTypeDef",
-    {
         "VocabularyFilterMethod": TranscribeVocabularyFilterMethodType,
         "VocabularyFilterName": str,
         "VocabularyName": str,
@@ -258,14 +311,12 @@ _OptionalEngineTranscribeSettingsTypeDef = TypedDict(
         "ContentRedactionType": Literal["PII"],
         "PiiEntityTypes": str,
         "LanguageModelName": str,
+        "IdentifyLanguage": bool,
+        "LanguageOptions": str,
+        "PreferredLanguage": TranscribeLanguageCodeType,
     },
     total=False,
 )
-
-class EngineTranscribeSettingsTypeDef(
-    _RequiredEngineTranscribeSettingsTypeDef, _OptionalEngineTranscribeSettingsTypeDef
-):
-    pass
 
 GetAttendeeRequestRequestTypeDef = TypedDict(
     "GetAttendeeRequestRequestTypeDef",
@@ -359,6 +410,7 @@ MeetingTypeDef = TypedDict(
         "MediaRegion": str,
         "MediaPlacement": "MediaPlacementTypeDef",
         "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
+        "PrimaryMeetingId": str,
     },
     total=False,
 )
@@ -406,4 +458,21 @@ TranscriptionConfigurationTypeDef = TypedDict(
         "EngineTranscribeMedicalSettings": "EngineTranscribeMedicalSettingsTypeDef",
     },
     total=False,
+)
+
+UpdateAttendeeCapabilitiesRequestRequestTypeDef = TypedDict(
+    "UpdateAttendeeCapabilitiesRequestRequestTypeDef",
+    {
+        "MeetingId": str,
+        "AttendeeId": str,
+        "Capabilities": "AttendeeCapabilitiesTypeDef",
+    },
+)
+
+UpdateAttendeeCapabilitiesResponseTypeDef = TypedDict(
+    "UpdateAttendeeCapabilitiesResponseTypeDef",
+    {
+        "Attendee": "AttendeeTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )

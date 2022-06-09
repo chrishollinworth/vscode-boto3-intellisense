@@ -20,13 +20,20 @@ from .literals import (
     CustomerPolicyScopeIdTypeType,
     DependentServiceNameType,
     DestinationTypeType,
+    FirewallDeploymentModelType,
+    MarketplaceSubscriptionOnboardingStatusType,
     PolicyComplianceStatusTypeType,
     RemediationActionTypeType,
     SecurityServiceTypeType,
     TargetTypeType,
+    ThirdPartyFirewallAssociationStatusType,
     ViolationReasonType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -38,6 +45,8 @@ __all__ = (
     "AppsListDataSummaryTypeDef",
     "AppsListDataTypeDef",
     "AssociateAdminAccountRequestRequestTypeDef",
+    "AssociateThirdPartyFirewallRequestRequestTypeDef",
+    "AssociateThirdPartyFirewallResponseTypeDef",
     "AwsEc2InstanceViolationTypeDef",
     "AwsEc2NetworkInterfaceViolationTypeDef",
     "AwsVPCSecurityGroupViolationTypeDef",
@@ -45,6 +54,8 @@ __all__ = (
     "DeleteAppsListRequestRequestTypeDef",
     "DeletePolicyRequestRequestTypeDef",
     "DeleteProtocolsListRequestRequestTypeDef",
+    "DisassociateThirdPartyFirewallRequestRequestTypeDef",
+    "DisassociateThirdPartyFirewallResponseTypeDef",
     "DnsDuplicateRuleGroupViolationTypeDef",
     "DnsRuleGroupLimitExceededViolationTypeDef",
     "DnsRuleGroupPriorityConflictViolationTypeDef",
@@ -57,6 +68,9 @@ __all__ = (
     "EC2ReplaceRouteTableAssociationActionTypeDef",
     "EvaluationResultTypeDef",
     "ExpectedRouteTypeDef",
+    "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
+    "FirewallSubnetIsOutOfScopeViolationTypeDef",
+    "FirewallSubnetMissingVPCEndpointViolationTypeDef",
     "GetAdminAccountResponseTypeDef",
     "GetAppsListRequestRequestTypeDef",
     "GetAppsListResponseTypeDef",
@@ -69,6 +83,8 @@ __all__ = (
     "GetProtectionStatusResponseTypeDef",
     "GetProtocolsListRequestRequestTypeDef",
     "GetProtocolsListResponseTypeDef",
+    "GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef",
+    "GetThirdPartyFirewallAssociationStatusResponseTypeDef",
     "GetViolationDetailsRequestRequestTypeDef",
     "GetViolationDetailsResponseTypeDef",
     "ListAppsListsRequestRequestTypeDef",
@@ -83,6 +99,8 @@ __all__ = (
     "ListProtocolsListsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
+    "ListThirdPartyFirewallFirewallPoliciesResponseTypeDef",
     "NetworkFirewallBlackHoleRouteDetectedViolationTypeDef",
     "NetworkFirewallInternetTrafficNotInspectedViolationTypeDef",
     "NetworkFirewallInvalidRouteConfigurationViolationTypeDef",
@@ -92,12 +110,14 @@ __all__ = (
     "NetworkFirewallMissingSubnetViolationTypeDef",
     "NetworkFirewallPolicyDescriptionTypeDef",
     "NetworkFirewallPolicyModifiedViolationTypeDef",
+    "NetworkFirewallPolicyTypeDef",
     "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
     "NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef",
     "PaginatorConfigTypeDef",
     "PartialMatchTypeDef",
     "PolicyComplianceDetailTypeDef",
     "PolicyComplianceStatusTypeDef",
+    "PolicyOptionTypeDef",
     "PolicySummaryTypeDef",
     "PolicyTypeDef",
     "PossibleRemediationActionTypeDef",
@@ -116,6 +136,7 @@ __all__ = (
     "ResourceTagTypeDef",
     "ResourceViolationTypeDef",
     "ResponseMetadataTypeDef",
+    "RouteHasOutOfScopeEndpointViolationTypeDef",
     "RouteTypeDef",
     "SecurityGroupRemediationActionTypeDef",
     "SecurityGroupRuleDescriptionTypeDef",
@@ -124,6 +145,11 @@ __all__ = (
     "StatelessRuleGroupTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TagTypeDef",
+    "ThirdPartyFirewallFirewallPolicyTypeDef",
+    "ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef",
+    "ThirdPartyFirewallMissingFirewallViolationTypeDef",
+    "ThirdPartyFirewallMissingSubnetViolationTypeDef",
+    "ThirdPartyFirewallPolicyTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "ViolationDetailTypeDef",
 )
@@ -186,6 +212,21 @@ AssociateAdminAccountRequestRequestTypeDef = TypedDict(
     },
 )
 
+AssociateThirdPartyFirewallRequestRequestTypeDef = TypedDict(
+    "AssociateThirdPartyFirewallRequestRequestTypeDef",
+    {
+        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+    },
+)
+
+AssociateThirdPartyFirewallResponseTypeDef = TypedDict(
+    "AssociateThirdPartyFirewallResponseTypeDef",
+    {
+        "ThirdPartyFirewallStatus": ThirdPartyFirewallAssociationStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 AwsEc2InstanceViolationTypeDef = TypedDict(
     "AwsEc2InstanceViolationTypeDef",
     {
@@ -221,6 +262,7 @@ ComplianceViolatorTypeDef = TypedDict(
         "ResourceId": str,
         "ViolationReason": ViolationReasonType,
         "ResourceType": str,
+        "Metadata": Dict[str, str],
     },
     total=False,
 )
@@ -255,6 +297,21 @@ DeleteProtocolsListRequestRequestTypeDef = TypedDict(
     "DeleteProtocolsListRequestRequestTypeDef",
     {
         "ListId": str,
+    },
+)
+
+DisassociateThirdPartyFirewallRequestRequestTypeDef = TypedDict(
+    "DisassociateThirdPartyFirewallRequestRequestTypeDef",
+    {
+        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+    },
+)
+
+DisassociateThirdPartyFirewallResponseTypeDef = TypedDict(
+    "DisassociateThirdPartyFirewallResponseTypeDef",
+    {
+        "ThirdPartyFirewallStatus": ThirdPartyFirewallAssociationStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -462,6 +519,38 @@ ExpectedRouteTypeDef = TypedDict(
     total=False,
 )
 
+FMSPolicyUpdateFirewallCreationConfigActionTypeDef = TypedDict(
+    "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
+    {
+        "Description": str,
+        "FirewallCreationConfig": str,
+    },
+    total=False,
+)
+
+FirewallSubnetIsOutOfScopeViolationTypeDef = TypedDict(
+    "FirewallSubnetIsOutOfScopeViolationTypeDef",
+    {
+        "FirewallSubnetId": str,
+        "VpcId": str,
+        "SubnetAvailabilityZone": str,
+        "SubnetAvailabilityZoneId": str,
+        "VpcEndpointId": str,
+    },
+    total=False,
+)
+
+FirewallSubnetMissingVPCEndpointViolationTypeDef = TypedDict(
+    "FirewallSubnetMissingVPCEndpointViolationTypeDef",
+    {
+        "FirewallSubnetId": str,
+        "VpcId": str,
+        "SubnetAvailabilityZone": str,
+        "SubnetAvailabilityZoneId": str,
+    },
+    total=False,
+)
+
 GetAdminAccountResponseTypeDef = TypedDict(
     "GetAdminAccountResponseTypeDef",
     {
@@ -599,6 +688,22 @@ GetProtocolsListResponseTypeDef = TypedDict(
     {
         "ProtocolsList": "ProtocolsListDataTypeDef",
         "ProtocolsListArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef = TypedDict(
+    "GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef",
+    {
+        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+    },
+)
+
+GetThirdPartyFirewallAssociationStatusResponseTypeDef = TypedDict(
+    "GetThirdPartyFirewallAssociationStatusResponseTypeDef",
+    {
+        "ThirdPartyFirewallStatus": ThirdPartyFirewallAssociationStatusType,
+        "MarketplaceOnboardingStatus": MarketplaceSubscriptionOnboardingStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -761,6 +866,36 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef = TypedDict(
+    "_RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
+    {
+        "ThirdPartyFirewall": Literal["PALO_ALTO_NETWORKS_CLOUD_NGFW"],
+        "MaxResults": int,
+    },
+)
+_OptionalListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef = TypedDict(
+    "_OptionalListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef(
+    _RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef,
+    _OptionalListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef,
+):
+    pass
+
+ListThirdPartyFirewallFirewallPoliciesResponseTypeDef = TypedDict(
+    "ListThirdPartyFirewallFirewallPoliciesResponseTypeDef",
+    {
+        "ThirdPartyFirewallFirewallPolicies": List["ThirdPartyFirewallFirewallPolicyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 NetworkFirewallBlackHoleRouteDetectedViolationTypeDef = TypedDict(
     "NetworkFirewallBlackHoleRouteDetectedViolationTypeDef",
     {
@@ -883,6 +1018,14 @@ NetworkFirewallPolicyModifiedViolationTypeDef = TypedDict(
     total=False,
 )
 
+NetworkFirewallPolicyTypeDef = TypedDict(
+    "NetworkFirewallPolicyTypeDef",
+    {
+        "FirewallDeploymentModel": FirewallDeploymentModelType,
+    },
+    total=False,
+)
+
 NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef = TypedDict(
     "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
     {
@@ -949,6 +1092,15 @@ PolicyComplianceStatusTypeDef = TypedDict(
         "EvaluationResults": List["EvaluationResultTypeDef"],
         "LastUpdated": datetime,
         "IssueInfoMap": Dict[DependentServiceNameType, str],
+    },
+    total=False,
+)
+
+PolicyOptionTypeDef = TypedDict(
+    "PolicyOptionTypeDef",
+    {
+        "NetworkFirewallPolicy": "NetworkFirewallPolicyTypeDef",
+        "ThirdPartyFirewallPolicy": "ThirdPartyFirewallPolicyTypeDef",
     },
     total=False,
 )
@@ -1161,6 +1313,7 @@ RemediationActionTypeDef = TypedDict(
         "EC2ReplaceRouteTableAssociationAction": "EC2ReplaceRouteTableAssociationActionTypeDef",
         "EC2AssociateRouteTableAction": "EC2AssociateRouteTableActionTypeDef",
         "EC2CreateRouteTableAction": "EC2CreateRouteTableActionTypeDef",
+        "FMSPolicyUpdateFirewallCreationConfigAction": "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
     },
     total=False,
 )
@@ -1211,6 +1364,12 @@ ResourceViolationTypeDef = TypedDict(
         "DnsDuplicateRuleGroupViolation": "DnsDuplicateRuleGroupViolationTypeDef",
         "DnsRuleGroupLimitExceededViolation": "DnsRuleGroupLimitExceededViolationTypeDef",
         "PossibleRemediationActions": "PossibleRemediationActionsTypeDef",
+        "FirewallSubnetIsOutOfScopeViolation": "FirewallSubnetIsOutOfScopeViolationTypeDef",
+        "RouteHasOutOfScopeEndpointViolation": "RouteHasOutOfScopeEndpointViolationTypeDef",
+        "ThirdPartyFirewallMissingFirewallViolation": "ThirdPartyFirewallMissingFirewallViolationTypeDef",
+        "ThirdPartyFirewallMissingSubnetViolation": "ThirdPartyFirewallMissingSubnetViolationTypeDef",
+        "ThirdPartyFirewallMissingExpectedRouteTableViolation": "ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef",
+        "FirewallSubnetMissingVPCEndpointViolation": "FirewallSubnetMissingVPCEndpointViolationTypeDef",
     },
     total=False,
 )
@@ -1224,6 +1383,25 @@ ResponseMetadataTypeDef = TypedDict(
         "HTTPHeaders": Dict[str, Any],
         "RetryAttempts": int,
     },
+)
+
+RouteHasOutOfScopeEndpointViolationTypeDef = TypedDict(
+    "RouteHasOutOfScopeEndpointViolationTypeDef",
+    {
+        "SubnetId": str,
+        "VpcId": str,
+        "RouteTableId": str,
+        "ViolatingRoutes": List["RouteTypeDef"],
+        "SubnetAvailabilityZone": str,
+        "SubnetAvailabilityZoneId": str,
+        "CurrentFirewallSubnetRouteTable": str,
+        "FirewallSubnetId": str,
+        "FirewallSubnetRoutes": List["RouteTypeDef"],
+        "InternetGatewayId": str,
+        "CurrentInternetGatewayRouteTable": str,
+        "InternetGatewayRoutes": List["RouteTypeDef"],
+    },
+    total=False,
 )
 
 RouteTypeDef = TypedDict(
@@ -1271,6 +1449,7 @@ _OptionalSecurityServicePolicyDataTypeDef = TypedDict(
     "_OptionalSecurityServicePolicyDataTypeDef",
     {
         "ManagedServiceData": str,
+        "PolicyOption": "PolicyOptionTypeDef",
     },
     total=False,
 )
@@ -1313,6 +1492,57 @@ TagTypeDef = TypedDict(
         "Key": str,
         "Value": str,
     },
+)
+
+ThirdPartyFirewallFirewallPolicyTypeDef = TypedDict(
+    "ThirdPartyFirewallFirewallPolicyTypeDef",
+    {
+        "FirewallPolicyId": str,
+        "FirewallPolicyName": str,
+    },
+    total=False,
+)
+
+ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef = TypedDict(
+    "ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef",
+    {
+        "ViolationTarget": str,
+        "VPC": str,
+        "AvailabilityZone": str,
+        "CurrentRouteTable": str,
+        "ExpectedRouteTable": str,
+    },
+    total=False,
+)
+
+ThirdPartyFirewallMissingFirewallViolationTypeDef = TypedDict(
+    "ThirdPartyFirewallMissingFirewallViolationTypeDef",
+    {
+        "ViolationTarget": str,
+        "VPC": str,
+        "AvailabilityZone": str,
+        "TargetViolationReason": str,
+    },
+    total=False,
+)
+
+ThirdPartyFirewallMissingSubnetViolationTypeDef = TypedDict(
+    "ThirdPartyFirewallMissingSubnetViolationTypeDef",
+    {
+        "ViolationTarget": str,
+        "VPC": str,
+        "AvailabilityZone": str,
+        "TargetViolationReason": str,
+    },
+    total=False,
+)
+
+ThirdPartyFirewallPolicyTypeDef = TypedDict(
+    "ThirdPartyFirewallPolicyTypeDef",
+    {
+        "FirewallDeploymentModel": FirewallDeploymentModelType,
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(

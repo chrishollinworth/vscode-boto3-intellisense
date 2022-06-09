@@ -97,7 +97,7 @@ LogDeliveryConfigurationStatusType = Literal[
     "active", "disabling", "enabling", "error", "modifying"
 ]
 LogFormatType = Literal["json", "text"]
-LogTypeType = Literal["slow-log"]
+LogTypeType = Literal["engine-log", "slow-log"]
 MultiAZStatusType = Literal["disabled", "enabled"]
 NodeUpdateInitiatedByType = Literal["customer", "system"]
 NodeUpdateStatusType = Literal[

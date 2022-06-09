@@ -40,6 +40,7 @@ from .literals import (
     IndexEditionType,
     IndexStatusType,
     IntervalType,
+    IssueSubEntityType,
     KeyLocationType,
     MetricTypeType,
     ModeType,
@@ -60,8 +61,10 @@ from .literals import (
     ServiceNowAuthenticationTypeType,
     ServiceNowBuildVersionTypeType,
     SharePointVersionType,
+    SlackEntityType,
     SortOrderType,
     ThesaurusStatusType,
+    TypeType,
     UserContextPolicyType,
     UserGroupResolutionModeType,
     WebCrawlerModeType,
@@ -97,6 +100,7 @@ __all__ = (
     "BatchPutDocumentRequestRequestTypeDef",
     "BatchPutDocumentResponseFailedDocumentTypeDef",
     "BatchPutDocumentResponseTypeDef",
+    "BoxConfigurationTypeDef",
     "CapacityUnitsConfigurationTypeDef",
     "ClearQuerySuggestionsRequestRequestTypeDef",
     "ClickFeedbackTypeDef",
@@ -112,6 +116,7 @@ __all__ = (
     "ConfluenceSpaceToIndexFieldMappingTypeDef",
     "ConnectionConfigurationTypeDef",
     "ContentSourceConfigurationTypeDef",
+    "CorrectionTypeDef",
     "CreateDataSourceRequestRequestTypeDef",
     "CreateDataSourceResponseTypeDef",
     "CreateExperienceRequestRequestTypeDef",
@@ -183,10 +188,13 @@ __all__ = (
     "FailedEntityTypeDef",
     "FaqStatisticsTypeDef",
     "FaqSummaryTypeDef",
+    "FsxConfigurationTypeDef",
     "GetQuerySuggestionsRequestRequestTypeDef",
     "GetQuerySuggestionsResponseTypeDef",
     "GetSnapshotsRequestRequestTypeDef",
     "GetSnapshotsResponseTypeDef",
+    "GitHubConfigurationTypeDef",
+    "GitHubDocumentCrawlPropertiesTypeDef",
     "GoogleDriveConfigurationTypeDef",
     "GroupMembersTypeDef",
     "GroupOrderingIdSummaryTypeDef",
@@ -197,6 +205,7 @@ __all__ = (
     "IndexConfigurationSummaryTypeDef",
     "IndexStatisticsTypeDef",
     "InlineCustomDocumentEnrichmentConfigurationTypeDef",
+    "JiraConfigurationTypeDef",
     "JsonTokenTypeConfigurationTypeDef",
     "JwtTokenTypeConfigurationTypeDef",
     "ListDataSourceSyncJobsRequestRequestTypeDef",
@@ -223,6 +232,7 @@ __all__ = (
     "ListThesauriResponseTypeDef",
     "MemberGroupTypeDef",
     "MemberUserTypeDef",
+    "OnPremiseConfigurationTypeDef",
     "OneDriveConfigurationTypeDef",
     "OneDriveUsersTypeDef",
     "PersonasSummaryTypeDef",
@@ -233,11 +243,13 @@ __all__ = (
     "QueryResultItemTypeDef",
     "QueryResultTypeDef",
     "QuerySuggestionsBlockListSummaryTypeDef",
+    "QuipConfigurationTypeDef",
     "RelevanceFeedbackTypeDef",
     "RelevanceTypeDef",
     "ResponseMetadataTypeDef",
     "S3DataSourceConfigurationTypeDef",
     "S3PathTypeDef",
+    "SaaSConfigurationTypeDef",
     "SalesforceChatterFeedConfigurationTypeDef",
     "SalesforceConfigurationTypeDef",
     "SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef",
@@ -254,7 +266,10 @@ __all__ = (
     "ServiceNowServiceCatalogConfigurationTypeDef",
     "SharePointConfigurationTypeDef",
     "SiteMapsConfigurationTypeDef",
+    "SlackConfigurationTypeDef",
     "SortingConfigurationTypeDef",
+    "SpellCorrectedQueryTypeDef",
+    "SpellCorrectionConfigurationTypeDef",
     "SqlConfigurationTypeDef",
     "StartDataSourceSyncJobRequestRequestTypeDef",
     "StartDataSourceSyncJobResponseTypeDef",
@@ -283,6 +298,7 @@ __all__ = (
     "UserGroupResolutionConfigurationTypeDef",
     "UserIdentityConfigurationTypeDef",
     "UserTokenConfigurationTypeDef",
+    "WarningTypeDef",
     "WebCrawlerConfigurationTypeDef",
     "WorkDocsConfigurationTypeDef",
 )
@@ -492,6 +508,34 @@ BatchPutDocumentResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredBoxConfigurationTypeDef = TypedDict(
+    "_RequiredBoxConfigurationTypeDef",
+    {
+        "EnterpriseId": str,
+        "SecretArn": str,
+    },
+)
+_OptionalBoxConfigurationTypeDef = TypedDict(
+    "_OptionalBoxConfigurationTypeDef",
+    {
+        "UseChangeLog": bool,
+        "CrawlComments": bool,
+        "CrawlTasks": bool,
+        "CrawlWebLinks": bool,
+        "FileFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "TaskFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "CommentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "WebLinkFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class BoxConfigurationTypeDef(_RequiredBoxConfigurationTypeDef, _OptionalBoxConfigurationTypeDef):
+    pass
+
 CapacityUnitsConfigurationTypeDef = TypedDict(
     "CapacityUnitsConfigurationTypeDef",
     {
@@ -658,6 +702,17 @@ ContentSourceConfigurationTypeDef = TypedDict(
         "DataSourceIds": List[str],
         "FaqIds": List[str],
         "DirectPutContent": bool,
+    },
+    total=False,
+)
+
+CorrectionTypeDef = TypedDict(
+    "CorrectionTypeDef",
+    {
+        "BeginOffset": int,
+        "EndOffset": int,
+        "Term": str,
+        "CorrectedTerm": str,
     },
     total=False,
 )
@@ -887,6 +942,12 @@ DataSourceConfigurationTypeDef = TypedDict(
         "GoogleDriveConfiguration": "GoogleDriveConfigurationTypeDef",
         "WebCrawlerConfiguration": "WebCrawlerConfigurationTypeDef",
         "WorkDocsConfiguration": "WorkDocsConfigurationTypeDef",
+        "FsxConfiguration": "FsxConfigurationTypeDef",
+        "SlackConfiguration": "SlackConfigurationTypeDef",
+        "BoxConfiguration": "BoxConfigurationTypeDef",
+        "QuipConfiguration": "QuipConfigurationTypeDef",
+        "JiraConfiguration": "JiraConfigurationTypeDef",
+        "GitHubConfiguration": "GitHubConfigurationTypeDef",
     },
     total=False,
 )
@@ -1378,6 +1439,7 @@ DocumentAttributeValueCountPairTypeDef = TypedDict(
     {
         "DocumentAttributeValue": "DocumentAttributeValueTypeDef",
         "Count": int,
+        "FacetResults": List[Dict[str, Any]],
     },
     total=False,
 )
@@ -1543,7 +1605,7 @@ FacetResultTypeDef = TypedDict(
     {
         "DocumentAttributeKey": str,
         "DocumentAttributeValueType": DocumentAttributeValueTypeType,
-        "DocumentAttributeValueCountPairs": List["DocumentAttributeValueCountPairTypeDef"],
+        "DocumentAttributeValueCountPairs": List[Dict[str, Any]],
     },
     total=False,
 )
@@ -1552,6 +1614,8 @@ FacetTypeDef = TypedDict(
     "FacetTypeDef",
     {
         "DocumentAttributeKey": str,
+        "Facets": List[Dict[str, Any]],
+        "MaxResults": int,
     },
     total=False,
 )
@@ -1585,6 +1649,28 @@ FaqSummaryTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredFsxConfigurationTypeDef = TypedDict(
+    "_RequiredFsxConfigurationTypeDef",
+    {
+        "FileSystemId": str,
+        "FileSystemType": Literal["WINDOWS"],
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+    },
+)
+_OptionalFsxConfigurationTypeDef = TypedDict(
+    "_OptionalFsxConfigurationTypeDef",
+    {
+        "SecretArn": str,
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+    },
+    total=False,
+)
+
+class FsxConfigurationTypeDef(_RequiredFsxConfigurationTypeDef, _OptionalFsxConfigurationTypeDef):
+    pass
 
 _RequiredGetQuerySuggestionsRequestRequestTypeDef = TypedDict(
     "_RequiredGetQuerySuggestionsRequestRequestTypeDef",
@@ -1647,6 +1733,71 @@ GetSnapshotsResponseTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredGitHubConfigurationTypeDef = TypedDict(
+    "_RequiredGitHubConfigurationTypeDef",
+    {
+        "SecretArn": str,
+    },
+)
+_OptionalGitHubConfigurationTypeDef = TypedDict(
+    "_OptionalGitHubConfigurationTypeDef",
+    {
+        "SaaSConfiguration": "SaaSConfigurationTypeDef",
+        "OnPremiseConfiguration": "OnPremiseConfigurationTypeDef",
+        "Type": TypeType,
+        "UseChangeLog": bool,
+        "GitHubDocumentCrawlProperties": "GitHubDocumentCrawlPropertiesTypeDef",
+        "RepositoryFilter": List[str],
+        "InclusionFolderNamePatterns": List[str],
+        "InclusionFileTypePatterns": List[str],
+        "InclusionFileNamePatterns": List[str],
+        "ExclusionFolderNamePatterns": List[str],
+        "ExclusionFileTypePatterns": List[str],
+        "ExclusionFileNamePatterns": List[str],
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+        "GitHubRepositoryConfigurationFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "GitHubCommitConfigurationFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "GitHubIssueDocumentConfigurationFieldMappings": List[
+            "DataSourceToIndexFieldMappingTypeDef"
+        ],
+        "GitHubIssueCommentConfigurationFieldMappings": List[
+            "DataSourceToIndexFieldMappingTypeDef"
+        ],
+        "GitHubIssueAttachmentConfigurationFieldMappings": List[
+            "DataSourceToIndexFieldMappingTypeDef"
+        ],
+        "GitHubPullRequestCommentConfigurationFieldMappings": List[
+            "DataSourceToIndexFieldMappingTypeDef"
+        ],
+        "GitHubPullRequestDocumentConfigurationFieldMappings": List[
+            "DataSourceToIndexFieldMappingTypeDef"
+        ],
+        "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings": List[
+            "DataSourceToIndexFieldMappingTypeDef"
+        ],
+    },
+    total=False,
+)
+
+class GitHubConfigurationTypeDef(
+    _RequiredGitHubConfigurationTypeDef, _OptionalGitHubConfigurationTypeDef
+):
+    pass
+
+GitHubDocumentCrawlPropertiesTypeDef = TypedDict(
+    "GitHubDocumentCrawlPropertiesTypeDef",
+    {
+        "CrawlRepositoryDocuments": bool,
+        "CrawlIssue": bool,
+        "CrawlIssueComment": bool,
+        "CrawlIssueCommentAttachment": bool,
+        "CrawlPullRequest": bool,
+        "CrawlPullRequestComment": bool,
+        "CrawlPullRequestCommentAttachment": bool,
+    },
+    total=False,
 )
 
 _RequiredGoogleDriveConfigurationTypeDef = TypedDict(
@@ -1790,6 +1941,38 @@ InlineCustomDocumentEnrichmentConfigurationTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredJiraConfigurationTypeDef = TypedDict(
+    "_RequiredJiraConfigurationTypeDef",
+    {
+        "JiraAccountUrl": str,
+        "SecretArn": str,
+    },
+)
+_OptionalJiraConfigurationTypeDef = TypedDict(
+    "_OptionalJiraConfigurationTypeDef",
+    {
+        "UseChangeLog": bool,
+        "Project": List[str],
+        "IssueType": List[str],
+        "Status": List[str],
+        "IssueSubEntityFilter": List[IssueSubEntityType],
+        "AttachmentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "CommentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "IssueFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "ProjectFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "WorkLogFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class JiraConfigurationTypeDef(
+    _RequiredJiraConfigurationTypeDef, _OptionalJiraConfigurationTypeDef
+):
+    pass
 
 JsonTokenTypeConfigurationTypeDef = TypedDict(
     "JsonTokenTypeConfigurationTypeDef",
@@ -2152,6 +2335,15 @@ MemberUserTypeDef = TypedDict(
     },
 )
 
+OnPremiseConfigurationTypeDef = TypedDict(
+    "OnPremiseConfigurationTypeDef",
+    {
+        "HostUrl": str,
+        "OrganizationName": str,
+        "SslCertificateS3Path": "S3PathTypeDef",
+    },
+)
+
 _RequiredOneDriveConfigurationTypeDef = TypedDict(
     "_RequiredOneDriveConfigurationTypeDef",
     {
@@ -2263,12 +2455,12 @@ _RequiredQueryRequestRequestTypeDef = TypedDict(
     "_RequiredQueryRequestRequestTypeDef",
     {
         "IndexId": str,
-        "QueryText": str,
     },
 )
 _OptionalQueryRequestRequestTypeDef = TypedDict(
     "_OptionalQueryRequestRequestTypeDef",
     {
+        "QueryText": str,
         "AttributeFilter": "AttributeFilterTypeDef",
         "Facets": List["FacetTypeDef"],
         "RequestedDocumentAttributes": List[str],
@@ -2279,6 +2471,7 @@ _OptionalQueryRequestRequestTypeDef = TypedDict(
         "SortingConfiguration": "SortingConfigurationTypeDef",
         "UserContext": "UserContextTypeDef",
         "VisitorId": str,
+        "SpellCorrectionConfiguration": "SpellCorrectionConfigurationTypeDef",
     },
     total=False,
 )
@@ -2312,6 +2505,8 @@ QueryResultTypeDef = TypedDict(
         "ResultItems": List["QueryResultItemTypeDef"],
         "FacetResults": List["FacetResultTypeDef"],
         "TotalNumberOfResults": int,
+        "Warnings": List["WarningTypeDef"],
+        "SpellCorrectedQueries": List["SpellCorrectedQueryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2328,6 +2523,35 @@ QuerySuggestionsBlockListSummaryTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredQuipConfigurationTypeDef = TypedDict(
+    "_RequiredQuipConfigurationTypeDef",
+    {
+        "Domain": str,
+        "SecretArn": str,
+    },
+)
+_OptionalQuipConfigurationTypeDef = TypedDict(
+    "_OptionalQuipConfigurationTypeDef",
+    {
+        "CrawlFileComments": bool,
+        "CrawlChatRooms": bool,
+        "CrawlAttachments": bool,
+        "FolderIds": List[str],
+        "ThreadFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "MessageFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "AttachmentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+    },
+    total=False,
+)
+
+class QuipConfigurationTypeDef(
+    _RequiredQuipConfigurationTypeDef, _OptionalQuipConfigurationTypeDef
+):
+    pass
 
 RelevanceFeedbackTypeDef = TypedDict(
     "RelevanceFeedbackTypeDef",
@@ -2388,6 +2612,14 @@ S3PathTypeDef = TypedDict(
     {
         "Bucket": str,
         "Key": str,
+    },
+)
+
+SaaSConfigurationTypeDef = TypedDict(
+    "SaaSConfigurationTypeDef",
+    {
+        "OrganizationName": str,
+        "HostUrl": str,
     },
 )
 
@@ -2690,11 +2922,58 @@ SiteMapsConfigurationTypeDef = TypedDict(
     },
 )
 
+_RequiredSlackConfigurationTypeDef = TypedDict(
+    "_RequiredSlackConfigurationTypeDef",
+    {
+        "TeamId": str,
+        "SecretArn": str,
+        "SlackEntityList": List[SlackEntityType],
+        "SinceCrawlDate": str,
+    },
+)
+_OptionalSlackConfigurationTypeDef = TypedDict(
+    "_OptionalSlackConfigurationTypeDef",
+    {
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+        "UseChangeLog": bool,
+        "CrawlBotMessage": bool,
+        "ExcludeArchived": bool,
+        "LookBackPeriod": int,
+        "PrivateChannelFilter": List[str],
+        "PublicChannelFilter": List[str],
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+    },
+    total=False,
+)
+
+class SlackConfigurationTypeDef(
+    _RequiredSlackConfigurationTypeDef, _OptionalSlackConfigurationTypeDef
+):
+    pass
+
 SortingConfigurationTypeDef = TypedDict(
     "SortingConfigurationTypeDef",
     {
         "DocumentAttributeKey": str,
         "SortOrder": SortOrderType,
+    },
+)
+
+SpellCorrectedQueryTypeDef = TypedDict(
+    "SpellCorrectedQueryTypeDef",
+    {
+        "SuggestedQueryText": str,
+        "Corrections": List["CorrectionTypeDef"],
+    },
+    total=False,
+)
+
+SpellCorrectionConfigurationTypeDef = TypedDict(
+    "SpellCorrectionConfigurationTypeDef",
+    {
+        "IncludeQuerySpellCheckSuggestions": bool,
     },
 )
 
@@ -3045,6 +3324,15 @@ UserTokenConfigurationTypeDef = TypedDict(
     {
         "JwtTokenTypeConfiguration": "JwtTokenTypeConfigurationTypeDef",
         "JsonTokenTypeConfiguration": "JsonTokenTypeConfigurationTypeDef",
+    },
+    total=False,
+)
+
+WarningTypeDef = TypedDict(
+    "WarningTypeDef",
+    {
+        "Message": str,
+        "Code": Literal["QUERY_LANGUAGE_INVALID_SYNTAX"],
     },
     total=False,
 )

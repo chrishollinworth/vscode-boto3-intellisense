@@ -398,6 +398,8 @@ _OptionalCreateUserSettingsRequestRequestTypeDef = TypedDict(
     "_OptionalCreateUserSettingsRequestRequestTypeDef",
     {
         "clientToken": str,
+        "disconnectTimeoutInMinutes": int,
+        "idleDisconnectTimeoutInMinutes": int,
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -1093,7 +1095,9 @@ _OptionalUpdateUserSettingsRequestRequestTypeDef = TypedDict(
     {
         "clientToken": str,
         "copyAllowed": EnabledTypeType,
+        "disconnectTimeoutInMinutes": int,
         "downloadAllowed": EnabledTypeType,
+        "idleDisconnectTimeoutInMinutes": int,
         "pasteAllowed": EnabledTypeType,
         "printAllowed": EnabledTypeType,
         "uploadAllowed": EnabledTypeType,
@@ -1119,7 +1123,9 @@ UserSettingsSummaryTypeDef = TypedDict(
     "UserSettingsSummaryTypeDef",
     {
         "copyAllowed": EnabledTypeType,
+        "disconnectTimeoutInMinutes": int,
         "downloadAllowed": EnabledTypeType,
+        "idleDisconnectTimeoutInMinutes": int,
         "pasteAllowed": EnabledTypeType,
         "printAllowed": EnabledTypeType,
         "uploadAllowed": EnabledTypeType,
@@ -1139,7 +1145,9 @@ _OptionalUserSettingsTypeDef = TypedDict(
     {
         "associatedPortalArns": List[str],
         "copyAllowed": EnabledTypeType,
+        "disconnectTimeoutInMinutes": int,
         "downloadAllowed": EnabledTypeType,
+        "idleDisconnectTimeoutInMinutes": int,
         "pasteAllowed": EnabledTypeType,
         "printAllowed": EnabledTypeType,
         "uploadAllowed": EnabledTypeType,

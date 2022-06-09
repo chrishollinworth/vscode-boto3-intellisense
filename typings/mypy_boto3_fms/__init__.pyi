@@ -13,6 +13,7 @@ Usage::
         ListMemberAccountsPaginator,
         ListPoliciesPaginator,
         ListProtocolsListsPaginator,
+        ListThirdPartyFirewallFirewallPoliciesPaginator,
     )
 
     session = boto3.Session()
@@ -25,6 +26,7 @@ Usage::
     list_member_accounts_paginator: ListMemberAccountsPaginator = client.get_paginator("list_member_accounts")
     list_policies_paginator: ListPoliciesPaginator = client.get_paginator("list_policies")
     list_protocols_lists_paginator: ListProtocolsListsPaginator = client.get_paginator("list_protocols_lists")
+    list_third_party_firewall_firewall_policies_paginator: ListThirdPartyFirewallFirewallPoliciesPaginator = client.get_paginator("list_third_party_firewall_firewall_policies")
     ```
 """
 from .client import FMSClient
@@ -34,6 +36,7 @@ from .paginator import (
     ListMemberAccountsPaginator,
     ListPoliciesPaginator,
     ListProtocolsListsPaginator,
+    ListThirdPartyFirewallFirewallPoliciesPaginator,
 )
 
 Client = FMSClient
@@ -46,4 +49,5 @@ __all__ = (
     "ListMemberAccountsPaginator",
     "ListPoliciesPaginator",
     "ListProtocolsListsPaginator",
+    "ListThirdPartyFirewallFirewallPoliciesPaginator",
 )

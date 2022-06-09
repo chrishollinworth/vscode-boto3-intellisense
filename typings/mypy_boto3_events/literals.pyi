@@ -26,6 +26,7 @@ __all__ = (
     "ConnectionAuthorizationTypeType",
     "ConnectionOAuthHttpMethodType",
     "ConnectionStateType",
+    "EndpointStateType",
     "EventSourceStateType",
     "LaunchTypeType",
     "ListRuleNamesByTargetPaginatorName",
@@ -35,6 +36,7 @@ __all__ = (
     "PlacementStrategyTypeType",
     "PropagateTagsType",
     "ReplayStateType",
+    "ReplicationStateType",
     "RuleStateType",
 )
 
@@ -49,6 +51,9 @@ ConnectionOAuthHttpMethodType = Literal["GET", "POST", "PUT"]
 ConnectionStateType = Literal[
     "AUTHORIZED", "AUTHORIZING", "CREATING", "DEAUTHORIZED", "DEAUTHORIZING", "DELETING", "UPDATING"
 ]
+EndpointStateType = Literal[
+    "ACTIVE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"
+]
 EventSourceStateType = Literal["ACTIVE", "DELETED", "PENDING"]
 LaunchTypeType = Literal["EC2", "EXTERNAL", "FARGATE"]
 ListRuleNamesByTargetPaginatorName = Literal["list_rule_names_by_target"]
@@ -58,4 +63,5 @@ PlacementConstraintTypeType = Literal["distinctInstance", "memberOf"]
 PlacementStrategyTypeType = Literal["binpack", "random", "spread"]
 PropagateTagsType = Literal["TASK_DEFINITION"]
 ReplayStateType = Literal["CANCELLED", "CANCELLING", "COMPLETED", "FAILED", "RUNNING", "STARTING"]
+ReplicationStateType = Literal["DISABLED", "ENABLED"]
 RuleStateType = Literal["DISABLED", "ENABLED"]

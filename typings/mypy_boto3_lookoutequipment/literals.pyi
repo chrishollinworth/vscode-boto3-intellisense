@@ -25,6 +25,8 @@ __all__ = (
     "InferenceSchedulerStatusType",
     "IngestionJobStatusType",
     "ModelStatusType",
+    "MonotonicityType",
+    "StatisticalIssueStatusType",
     "TargetSamplingRateType",
 )
 
@@ -34,6 +36,8 @@ InferenceExecutionStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
 InferenceSchedulerStatusType = Literal["PENDING", "RUNNING", "STOPPED", "STOPPING"]
 IngestionJobStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
 ModelStatusType = Literal["FAILED", "IN_PROGRESS", "SUCCESS"]
+MonotonicityType = Literal["DECREASING", "INCREASING", "STATIC"]
+StatisticalIssueStatusType = Literal["NO_ISSUE_DETECTED", "POTENTIAL_ISSUE_DETECTED"]
 TargetSamplingRateType = Literal[
     "PT10M", "PT10S", "PT15M", "PT15S", "PT1H", "PT1M", "PT1S", "PT30M", "PT30S", "PT5M", "PT5S"
 ]

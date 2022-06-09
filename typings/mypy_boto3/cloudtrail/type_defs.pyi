@@ -15,7 +15,13 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import InsightTypeType, LookupAttributeKeyType, ReadWriteTypeType
+from .literals import (
+    EventDataStoreStatusType,
+    InsightTypeType,
+    LookupAttributeKeyType,
+    QueryStatusType,
+    ReadWriteTypeType,
+)
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -30,25 +36,41 @@ __all__ = (
     "AddTagsRequestRequestTypeDef",
     "AdvancedEventSelectorTypeDef",
     "AdvancedFieldSelectorTypeDef",
+    "CancelQueryRequestRequestTypeDef",
+    "CancelQueryResponseTypeDef",
+    "CreateEventDataStoreRequestRequestTypeDef",
+    "CreateEventDataStoreResponseTypeDef",
     "CreateTrailRequestRequestTypeDef",
     "CreateTrailResponseTypeDef",
     "DataResourceTypeDef",
+    "DeleteEventDataStoreRequestRequestTypeDef",
     "DeleteTrailRequestRequestTypeDef",
+    "DescribeQueryRequestRequestTypeDef",
+    "DescribeQueryResponseTypeDef",
     "DescribeTrailsRequestRequestTypeDef",
     "DescribeTrailsResponseTypeDef",
+    "EventDataStoreTypeDef",
     "EventSelectorTypeDef",
     "EventTypeDef",
+    "GetEventDataStoreRequestRequestTypeDef",
+    "GetEventDataStoreResponseTypeDef",
     "GetEventSelectorsRequestRequestTypeDef",
     "GetEventSelectorsResponseTypeDef",
     "GetInsightSelectorsRequestRequestTypeDef",
     "GetInsightSelectorsResponseTypeDef",
+    "GetQueryResultsRequestRequestTypeDef",
+    "GetQueryResultsResponseTypeDef",
     "GetTrailRequestRequestTypeDef",
     "GetTrailResponseTypeDef",
     "GetTrailStatusRequestRequestTypeDef",
     "GetTrailStatusResponseTypeDef",
     "InsightSelectorTypeDef",
+    "ListEventDataStoresRequestRequestTypeDef",
+    "ListEventDataStoresResponseTypeDef",
     "ListPublicKeysRequestRequestTypeDef",
     "ListPublicKeysResponseTypeDef",
+    "ListQueriesRequestRequestTypeDef",
+    "ListQueriesResponseTypeDef",
     "ListTagsRequestRequestTypeDef",
     "ListTagsResponseTypeDef",
     "ListTrailsRequestRequestTypeDef",
@@ -62,37 +84,35 @@ __all__ = (
     "PutEventSelectorsResponseTypeDef",
     "PutInsightSelectorsRequestRequestTypeDef",
     "PutInsightSelectorsResponseTypeDef",
+    "QueryStatisticsForDescribeQueryTypeDef",
+    "QueryStatisticsTypeDef",
+    "QueryTypeDef",
     "RemoveTagsRequestRequestTypeDef",
     "ResourceTagTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
+    "RestoreEventDataStoreRequestRequestTypeDef",
+    "RestoreEventDataStoreResponseTypeDef",
     "StartLoggingRequestRequestTypeDef",
+    "StartQueryRequestRequestTypeDef",
+    "StartQueryResponseTypeDef",
     "StopLoggingRequestRequestTypeDef",
     "TagTypeDef",
     "TrailInfoTypeDef",
     "TrailTypeDef",
+    "UpdateEventDataStoreRequestRequestTypeDef",
+    "UpdateEventDataStoreResponseTypeDef",
     "UpdateTrailRequestRequestTypeDef",
     "UpdateTrailResponseTypeDef",
 )
 
-_RequiredAddTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredAddTagsRequestRequestTypeDef",
+AddTagsRequestRequestTypeDef = TypedDict(
+    "AddTagsRequestRequestTypeDef",
     {
         "ResourceId": str,
-    },
-)
-_OptionalAddTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalAddTagsRequestRequestTypeDef",
-    {
         "TagsList": List["TagTypeDef"],
     },
-    total=False,
 )
-
-class AddTagsRequestRequestTypeDef(
-    _RequiredAddTagsRequestRequestTypeDef, _OptionalAddTagsRequestRequestTypeDef
-):
-    pass
 
 _RequiredAdvancedEventSelectorTypeDef = TypedDict(
     "_RequiredAdvancedEventSelectorTypeDef",
@@ -136,6 +156,66 @@ class AdvancedFieldSelectorTypeDef(
     _RequiredAdvancedFieldSelectorTypeDef, _OptionalAdvancedFieldSelectorTypeDef
 ):
     pass
+
+CancelQueryRequestRequestTypeDef = TypedDict(
+    "CancelQueryRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+        "QueryId": str,
+    },
+)
+
+CancelQueryResponseTypeDef = TypedDict(
+    "CancelQueryResponseTypeDef",
+    {
+        "QueryId": str,
+        "QueryStatus": QueryStatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateEventDataStoreRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateEventDataStoreRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateEventDataStoreRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateEventDataStoreRequestRequestTypeDef",
+    {
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "MultiRegionEnabled": bool,
+        "OrganizationEnabled": bool,
+        "RetentionPeriod": int,
+        "TerminationProtectionEnabled": bool,
+        "TagsList": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+class CreateEventDataStoreRequestRequestTypeDef(
+    _RequiredCreateEventDataStoreRequestRequestTypeDef,
+    _OptionalCreateEventDataStoreRequestRequestTypeDef,
+):
+    pass
+
+CreateEventDataStoreResponseTypeDef = TypedDict(
+    "CreateEventDataStoreResponseTypeDef",
+    {
+        "EventDataStoreArn": str,
+        "Name": str,
+        "Status": EventDataStoreStatusType,
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "MultiRegionEnabled": bool,
+        "OrganizationEnabled": bool,
+        "RetentionPeriod": int,
+        "TerminationProtectionEnabled": bool,
+        "TagsList": List["TagTypeDef"],
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredCreateTrailRequestRequestTypeDef = TypedDict(
     "_RequiredCreateTrailRequestRequestTypeDef",
@@ -195,10 +275,37 @@ DataResourceTypeDef = TypedDict(
     total=False,
 )
 
+DeleteEventDataStoreRequestRequestTypeDef = TypedDict(
+    "DeleteEventDataStoreRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+)
+
 DeleteTrailRequestRequestTypeDef = TypedDict(
     "DeleteTrailRequestRequestTypeDef",
     {
         "Name": str,
+    },
+)
+
+DescribeQueryRequestRequestTypeDef = TypedDict(
+    "DescribeQueryRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+        "QueryId": str,
+    },
+)
+
+DescribeQueryResponseTypeDef = TypedDict(
+    "DescribeQueryResponseTypeDef",
+    {
+        "QueryId": str,
+        "QueryString": str,
+        "QueryStatus": QueryStatusType,
+        "QueryStatistics": "QueryStatisticsForDescribeQueryTypeDef",
+        "ErrorMessage": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -217,6 +324,23 @@ DescribeTrailsResponseTypeDef = TypedDict(
         "trailList": List["TrailTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+EventDataStoreTypeDef = TypedDict(
+    "EventDataStoreTypeDef",
+    {
+        "EventDataStoreArn": str,
+        "Name": str,
+        "TerminationProtectionEnabled": bool,
+        "Status": EventDataStoreStatusType,
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "MultiRegionEnabled": bool,
+        "OrganizationEnabled": bool,
+        "RetentionPeriod": int,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+    },
+    total=False,
 )
 
 EventSelectorTypeDef = TypedDict(
@@ -244,6 +368,30 @@ EventTypeDef = TypedDict(
         "CloudTrailEvent": str,
     },
     total=False,
+)
+
+GetEventDataStoreRequestRequestTypeDef = TypedDict(
+    "GetEventDataStoreRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+)
+
+GetEventDataStoreResponseTypeDef = TypedDict(
+    "GetEventDataStoreResponseTypeDef",
+    {
+        "EventDataStoreArn": str,
+        "Name": str,
+        "Status": EventDataStoreStatusType,
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "MultiRegionEnabled": bool,
+        "OrganizationEnabled": bool,
+        "RetentionPeriod": int,
+        "TerminationProtectionEnabled": bool,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 GetEventSelectorsRequestRequestTypeDef = TypedDict(
@@ -275,6 +423,39 @@ GetInsightSelectorsResponseTypeDef = TypedDict(
     {
         "TrailARN": str,
         "InsightSelectors": List["InsightSelectorTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetQueryResultsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetQueryResultsRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+        "QueryId": str,
+    },
+)
+_OptionalGetQueryResultsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetQueryResultsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxQueryResults": int,
+    },
+    total=False,
+)
+
+class GetQueryResultsRequestRequestTypeDef(
+    _RequiredGetQueryResultsRequestRequestTypeDef, _OptionalGetQueryResultsRequestRequestTypeDef
+):
+    pass
+
+GetQueryResultsResponseTypeDef = TypedDict(
+    "GetQueryResultsResponseTypeDef",
+    {
+        "QueryStatus": QueryStatusType,
+        "QueryStatistics": "QueryStatisticsTypeDef",
+        "QueryResultRows": List[List[Dict[str, str]]],
+        "NextToken": str,
+        "ErrorMessage": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -333,6 +514,24 @@ InsightSelectorTypeDef = TypedDict(
     total=False,
 )
 
+ListEventDataStoresRequestRequestTypeDef = TypedDict(
+    "ListEventDataStoresRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListEventDataStoresResponseTypeDef = TypedDict(
+    "ListEventDataStoresResponseTypeDef",
+    {
+        "EventDataStores": List["EventDataStoreTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListPublicKeysRequestRequestTypeDef = TypedDict(
     "ListPublicKeysRequestRequestTypeDef",
     {
@@ -347,6 +546,38 @@ ListPublicKeysResponseTypeDef = TypedDict(
     "ListPublicKeysResponseTypeDef",
     {
         "PublicKeyList": List["PublicKeyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListQueriesRequestRequestTypeDef = TypedDict(
+    "_RequiredListQueriesRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+)
+_OptionalListQueriesRequestRequestTypeDef = TypedDict(
+    "_OptionalListQueriesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+        "QueryStatus": QueryStatusType,
+    },
+    total=False,
+)
+
+class ListQueriesRequestRequestTypeDef(
+    _RequiredListQueriesRequestRequestTypeDef, _OptionalListQueriesRequestRequestTypeDef
+):
+    pass
+
+ListQueriesResponseTypeDef = TypedDict(
+    "ListQueriesResponseTypeDef",
+    {
+        "Queries": List["QueryTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -495,24 +726,45 @@ PutInsightSelectorsResponseTypeDef = TypedDict(
     },
 )
 
-_RequiredRemoveTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredRemoveTagsRequestRequestTypeDef",
+QueryStatisticsForDescribeQueryTypeDef = TypedDict(
+    "QueryStatisticsForDescribeQueryTypeDef",
     {
-        "ResourceId": str,
-    },
-)
-_OptionalRemoveTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalRemoveTagsRequestRequestTypeDef",
-    {
-        "TagsList": List["TagTypeDef"],
+        "EventsMatched": int,
+        "EventsScanned": int,
+        "BytesScanned": int,
+        "ExecutionTimeInMillis": int,
+        "CreationTime": datetime,
     },
     total=False,
 )
 
-class RemoveTagsRequestRequestTypeDef(
-    _RequiredRemoveTagsRequestRequestTypeDef, _OptionalRemoveTagsRequestRequestTypeDef
-):
-    pass
+QueryStatisticsTypeDef = TypedDict(
+    "QueryStatisticsTypeDef",
+    {
+        "ResultsCount": int,
+        "TotalResultsCount": int,
+        "BytesScanned": int,
+    },
+    total=False,
+)
+
+QueryTypeDef = TypedDict(
+    "QueryTypeDef",
+    {
+        "QueryId": str,
+        "QueryStatus": QueryStatusType,
+        "CreationTime": datetime,
+    },
+    total=False,
+)
+
+RemoveTagsRequestRequestTypeDef = TypedDict(
+    "RemoveTagsRequestRequestTypeDef",
+    {
+        "ResourceId": str,
+        "TagsList": List["TagTypeDef"],
+    },
+)
 
 ResourceTagTypeDef = TypedDict(
     "ResourceTagTypeDef",
@@ -543,10 +795,49 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RestoreEventDataStoreRequestRequestTypeDef = TypedDict(
+    "RestoreEventDataStoreRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+)
+
+RestoreEventDataStoreResponseTypeDef = TypedDict(
+    "RestoreEventDataStoreResponseTypeDef",
+    {
+        "EventDataStoreArn": str,
+        "Name": str,
+        "Status": EventDataStoreStatusType,
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "MultiRegionEnabled": bool,
+        "OrganizationEnabled": bool,
+        "RetentionPeriod": int,
+        "TerminationProtectionEnabled": bool,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 StartLoggingRequestRequestTypeDef = TypedDict(
     "StartLoggingRequestRequestTypeDef",
     {
         "Name": str,
+    },
+)
+
+StartQueryRequestRequestTypeDef = TypedDict(
+    "StartQueryRequestRequestTypeDef",
+    {
+        "QueryStatement": str,
+    },
+)
+
+StartQueryResponseTypeDef = TypedDict(
+    "StartQueryResponseTypeDef",
+    {
+        "QueryId": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -605,6 +896,48 @@ TrailTypeDef = TypedDict(
         "IsOrganizationTrail": bool,
     },
     total=False,
+)
+
+_RequiredUpdateEventDataStoreRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateEventDataStoreRequestRequestTypeDef",
+    {
+        "EventDataStore": str,
+    },
+)
+_OptionalUpdateEventDataStoreRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateEventDataStoreRequestRequestTypeDef",
+    {
+        "Name": str,
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "MultiRegionEnabled": bool,
+        "OrganizationEnabled": bool,
+        "RetentionPeriod": int,
+        "TerminationProtectionEnabled": bool,
+    },
+    total=False,
+)
+
+class UpdateEventDataStoreRequestRequestTypeDef(
+    _RequiredUpdateEventDataStoreRequestRequestTypeDef,
+    _OptionalUpdateEventDataStoreRequestRequestTypeDef,
+):
+    pass
+
+UpdateEventDataStoreResponseTypeDef = TypedDict(
+    "UpdateEventDataStoreResponseTypeDef",
+    {
+        "EventDataStoreArn": str,
+        "Name": str,
+        "Status": EventDataStoreStatusType,
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+        "MultiRegionEnabled": bool,
+        "OrganizationEnabled": bool,
+        "RetentionPeriod": int,
+        "TerminationProtectionEnabled": bool,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 _RequiredUpdateTrailRequestRequestTypeDef = TypedDict(

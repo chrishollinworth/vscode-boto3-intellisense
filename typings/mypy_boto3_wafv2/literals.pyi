@@ -31,6 +31,10 @@ __all__ = (
     "IPAddressVersionType",
     "JsonMatchScopeType",
     "LabelMatchScopeType",
+    "MapMatchScopeType",
+    "OversizeHandlingType",
+    "PayloadTypeType",
+    "PlatformType",
     "PositionalConstraintType",
     "RateBasedStatementAggregateKeyTypeType",
     "ResourceTypeType",
@@ -287,6 +291,7 @@ CountryCodeType = Literal[
     "VU",
     "WF",
     "WS",
+    "XK",
     "YE",
     "YT",
     "ZA",
@@ -301,6 +306,10 @@ ForwardedIPPositionType = Literal["ANY", "FIRST", "LAST"]
 IPAddressVersionType = Literal["IPV4", "IPV6"]
 JsonMatchScopeType = Literal["ALL", "KEY", "VALUE"]
 LabelMatchScopeType = Literal["LABEL", "NAMESPACE"]
+MapMatchScopeType = Literal["ALL", "KEY", "VALUE"]
+OversizeHandlingType = Literal["CONTINUE", "MATCH", "NO_MATCH"]
+PayloadTypeType = Literal["FORM_ENCODED", "JSON"]
+PlatformType = Literal["ANDROID", "IOS"]
 PositionalConstraintType = Literal[
     "CONTAINS", "CONTAINS_WORD", "ENDS_WITH", "EXACTLY", "STARTS_WITH"
 ]

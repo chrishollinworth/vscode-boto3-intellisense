@@ -22,6 +22,7 @@ __all__ = (
     "ApplicationInstanceHealthStatusType",
     "ApplicationInstanceStatusType",
     "ConnectionTypeType",
+    "DeviceBrandType",
     "DeviceConnectionStatusType",
     "DeviceStatusType",
     "DeviceTypeType",
@@ -43,6 +44,7 @@ __all__ = (
 ApplicationInstanceHealthStatusType = Literal["ERROR", "NOT_AVAILABLE", "RUNNING"]
 ApplicationInstanceStatusType = Literal[
     "DEPLOYMENT_ERROR",
+    "DEPLOYMENT_FAILED",
     "DEPLOYMENT_IN_PROGRESS",
     "DEPLOYMENT_PENDING",
     "DEPLOYMENT_REQUESTED",
@@ -54,6 +56,7 @@ ApplicationInstanceStatusType = Literal[
     "REMOVAL_SUCCEEDED",
 ]
 ConnectionTypeType = Literal["DHCP", "STATIC_IP"]
+DeviceBrandType = Literal["AWS_PANORAMA", "LENOVO"]
 DeviceConnectionStatusType = Literal[
     "AWAITING_CREDENTIALS", "ERROR", "NOT_AVAILABLE", "OFFLINE", "ONLINE"
 ]
@@ -63,16 +66,17 @@ DeviceStatusType = Literal[
 DeviceTypeType = Literal["PANORAMA_APPLIANCE", "PANORAMA_APPLIANCE_DEVELOPER_KIT"]
 JobResourceTypeType = Literal["PACKAGE"]
 JobTypeType = Literal["OTA"]
-NetworkConnectionStatusType = Literal["CONNECTED", "NOT_CONNECTED"]
+NetworkConnectionStatusType = Literal["CONNECTED", "CONNECTING", "NOT_CONNECTED"]
 NodeCategoryType = Literal["BUSINESS_LOGIC", "MEDIA_SINK", "MEDIA_SOURCE", "ML_MODEL"]
 NodeFromTemplateJobStatusType = Literal["FAILED", "PENDING", "SUCCEEDED"]
 NodeInstanceStatusType = Literal["ERROR", "NOT_AVAILABLE", "RUNNING"]
 PackageImportJobStatusType = Literal["FAILED", "PENDING", "SUCCEEDED"]
-PackageImportJobTypeType = Literal["NODE_PACKAGE_VERSION"]
+PackageImportJobTypeType = Literal["MARKETPLACE_NODE_PACKAGE_VERSION", "NODE_PACKAGE_VERSION"]
 PackageVersionStatusType = Literal["DELETING", "FAILED", "REGISTER_COMPLETED", "REGISTER_PENDING"]
 PortTypeType = Literal["BOOLEAN", "FLOAT32", "INT32", "MEDIA", "STRING"]
 StatusFilterType = Literal[
     "DEPLOYMENT_ERROR",
+    "DEPLOYMENT_FAILED",
     "DEPLOYMENT_SUCCEEDED",
     "PROCESSING_DEPLOYMENT",
     "PROCESSING_REMOVAL",

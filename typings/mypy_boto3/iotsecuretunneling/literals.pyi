@@ -6,9 +6,9 @@ Type annotations for iotsecuretunneling service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_iotsecuretunneling.literals import ConnectionStatusType
+    from mypy_boto3_iotsecuretunneling.literals import ClientModeType
 
-    data: ConnectionStatusType = "CONNECTED"
+    data: ClientModeType = "ALL"
     ```
 """
 import sys
@@ -18,7 +18,8 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import Literal
 
-__all__ = ("ConnectionStatusType", "TunnelStatusType")
+__all__ = ("ClientModeType", "ConnectionStatusType", "TunnelStatusType")
 
+ClientModeType = Literal["ALL", "DESTINATION", "SOURCE"]
 ConnectionStatusType = Literal["CONNECTED", "DISCONNECTED"]
 TunnelStatusType = Literal["CLOSED", "OPEN"]

@@ -945,6 +945,7 @@ ImageDetailTypeDef = TypedDict(
         "imageScanFindingsSummary": "ImageScanFindingsSummaryTypeDef",
         "imageManifestMediaType": str,
         "artifactMediaType": str,
+        "lastRecordedPullTime": datetime,
     },
     total=False,
 )

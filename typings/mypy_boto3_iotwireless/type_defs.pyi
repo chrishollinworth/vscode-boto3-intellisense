@@ -20,11 +20,13 @@ from .literals import (
     ConnectionStatusType,
     DeviceStateType,
     DlClassType,
+    EventNotificationResourceTypeType,
     EventNotificationTopicStatusType,
     EventType,
     ExpressionTypeType,
     FuotaDeviceStatusType,
     FuotaTaskStatusType,
+    IdentifierTypeType,
     LogLevelType,
     MessageTypeType,
     SigningAlgType,
@@ -62,6 +64,8 @@ __all__ = (
     "AssociateWirelessGatewayWithThingRequestRequestTypeDef",
     "CancelMulticastGroupSessionRequestRequestTypeDef",
     "CertificateListTypeDef",
+    "ConnectionStatusEventConfigurationTypeDef",
+    "ConnectionStatusResourceTypeEventConfigurationTypeDef",
     "CreateDestinationRequestRequestTypeDef",
     "CreateDestinationResponseTypeDef",
     "CreateDeviceProfileRequestRequestTypeDef",
@@ -70,6 +74,8 @@ __all__ = (
     "CreateFuotaTaskResponseTypeDef",
     "CreateMulticastGroupRequestRequestTypeDef",
     "CreateMulticastGroupResponseTypeDef",
+    "CreateNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    "CreateNetworkAnalyzerConfigurationResponseTypeDef",
     "CreateServiceProfileRequestRequestTypeDef",
     "CreateServiceProfileResponseTypeDef",
     "CreateWirelessDeviceRequestRequestTypeDef",
@@ -84,6 +90,8 @@ __all__ = (
     "DeleteDeviceProfileRequestRequestTypeDef",
     "DeleteFuotaTaskRequestRequestTypeDef",
     "DeleteMulticastGroupRequestRequestTypeDef",
+    "DeleteNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    "DeleteQueuedMessagesRequestRequestTypeDef",
     "DeleteServiceProfileRequestRequestTypeDef",
     "DeleteWirelessDeviceRequestRequestTypeDef",
     "DeleteWirelessGatewayRequestRequestTypeDef",
@@ -92,6 +100,7 @@ __all__ = (
     "DestinationsTypeDef",
     "DeviceProfileTypeDef",
     "DeviceRegistrationStateEventConfigurationTypeDef",
+    "DeviceRegistrationStateResourceTypeEventConfigurationTypeDef",
     "DisassociateAwsAccountFromPartnerAccountRequestRequestTypeDef",
     "DisassociateMulticastGroupFromFuotaTaskRequestRequestTypeDef",
     "DisassociateWirelessDeviceFromFuotaTaskRequestRequestTypeDef",
@@ -99,12 +108,16 @@ __all__ = (
     "DisassociateWirelessDeviceFromThingRequestRequestTypeDef",
     "DisassociateWirelessGatewayFromCertificateRequestRequestTypeDef",
     "DisassociateWirelessGatewayFromThingRequestRequestTypeDef",
+    "DownlinkQueueMessageTypeDef",
+    "EventConfigurationItemTypeDef",
+    "EventNotificationItemConfigurationsTypeDef",
     "FPortsTypeDef",
     "FuotaTaskTypeDef",
     "GetDestinationRequestRequestTypeDef",
     "GetDestinationResponseTypeDef",
     "GetDeviceProfileRequestRequestTypeDef",
     "GetDeviceProfileResponseTypeDef",
+    "GetEventConfigurationByResourceTypesResponseTypeDef",
     "GetFuotaTaskRequestRequestTypeDef",
     "GetFuotaTaskResponseTypeDef",
     "GetLogLevelsByResourceTypesResponseTypeDef",
@@ -140,18 +153,26 @@ __all__ = (
     "GetWirelessGatewayTaskDefinitionResponseTypeDef",
     "GetWirelessGatewayTaskRequestRequestTypeDef",
     "GetWirelessGatewayTaskResponseTypeDef",
+    "JoinEventConfigurationTypeDef",
+    "JoinResourceTypeEventConfigurationTypeDef",
     "ListDestinationsRequestRequestTypeDef",
     "ListDestinationsResponseTypeDef",
     "ListDeviceProfilesRequestRequestTypeDef",
     "ListDeviceProfilesResponseTypeDef",
+    "ListEventConfigurationsRequestRequestTypeDef",
+    "ListEventConfigurationsResponseTypeDef",
     "ListFuotaTasksRequestRequestTypeDef",
     "ListFuotaTasksResponseTypeDef",
     "ListMulticastGroupsByFuotaTaskRequestRequestTypeDef",
     "ListMulticastGroupsByFuotaTaskResponseTypeDef",
     "ListMulticastGroupsRequestRequestTypeDef",
     "ListMulticastGroupsResponseTypeDef",
+    "ListNetworkAnalyzerConfigurationsRequestRequestTypeDef",
+    "ListNetworkAnalyzerConfigurationsResponseTypeDef",
     "ListPartnerAccountsRequestRequestTypeDef",
     "ListPartnerAccountsResponseTypeDef",
+    "ListQueuedMessagesRequestRequestTypeDef",
+    "ListQueuedMessagesResponseTypeDef",
     "ListServiceProfilesRequestRequestTypeDef",
     "ListServiceProfilesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
@@ -162,6 +183,8 @@ __all__ = (
     "ListWirelessGatewayTaskDefinitionsResponseTypeDef",
     "ListWirelessGatewaysRequestRequestTypeDef",
     "ListWirelessGatewaysResponseTypeDef",
+    "LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef",
+    "LoRaWANConnectionStatusResourceTypeEventConfigurationTypeDef",
     "LoRaWANDeviceMetadataTypeDef",
     "LoRaWANDeviceProfileTypeDef",
     "LoRaWANDeviceTypeDef",
@@ -172,6 +195,8 @@ __all__ = (
     "LoRaWANGatewayTypeDef",
     "LoRaWANGatewayVersionTypeDef",
     "LoRaWANGetServiceProfileInfoTypeDef",
+    "LoRaWANJoinEventNotificationConfigurationsTypeDef",
+    "LoRaWANJoinResourceTypeEventConfigurationTypeDef",
     "LoRaWANListDeviceTypeDef",
     "LoRaWANMulticastGetTypeDef",
     "LoRaWANMulticastMetadataTypeDef",
@@ -186,9 +211,11 @@ __all__ = (
     "MulticastGroupByFuotaTaskTypeDef",
     "MulticastGroupTypeDef",
     "MulticastWirelessMetadataTypeDef",
+    "NetworkAnalyzerConfigurationsTypeDef",
     "OtaaV1_0_xTypeDef",
     "OtaaV1_1TypeDef",
     "ProximityEventConfigurationTypeDef",
+    "ProximityResourceTypeEventConfigurationTypeDef",
     "PutResourceLogLevelRequestRequestTypeDef",
     "ResetResourceLogLevelRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
@@ -205,6 +232,7 @@ __all__ = (
     "SidewalkDeviceTypeDef",
     "SidewalkEventNotificationConfigurationsTypeDef",
     "SidewalkListDeviceTypeDef",
+    "SidewalkResourceTypeEventConfigurationTypeDef",
     "SidewalkSendDataToDeviceTypeDef",
     "SidewalkUpdateAccountTypeDef",
     "StartBulkAssociateWirelessDeviceWithMulticastGroupRequestRequestTypeDef",
@@ -217,7 +245,10 @@ __all__ = (
     "TestWirelessDeviceResponseTypeDef",
     "TraceContentTypeDef",
     "UntagResourceRequestRequestTypeDef",
+    "UpdateAbpV1_0_xTypeDef",
+    "UpdateAbpV1_1TypeDef",
     "UpdateDestinationRequestRequestTypeDef",
+    "UpdateEventConfigurationByResourceTypesRequestRequestTypeDef",
     "UpdateFuotaTaskRequestRequestTypeDef",
     "UpdateLogLevelsByResourceTypesRequestRequestTypeDef",
     "UpdateMulticastGroupRequestRequestTypeDef",
@@ -242,6 +273,7 @@ AbpV1_0_xTypeDef = TypedDict(
     {
         "DevAddr": str,
         "SessionKeys": "SessionKeysAbpV1_0_xTypeDef",
+        "FCntStart": int,
     },
     total=False,
 )
@@ -251,6 +283,7 @@ AbpV1_1TypeDef = TypedDict(
     {
         "DevAddr": str,
         "SessionKeys": "SessionKeysAbpV1_1TypeDef",
+        "FCntStart": int,
     },
     total=False,
 )
@@ -354,6 +387,23 @@ CertificateListTypeDef = TypedDict(
         "SigningAlg": SigningAlgType,
         "Value": str,
     },
+)
+
+ConnectionStatusEventConfigurationTypeDef = TypedDict(
+    "ConnectionStatusEventConfigurationTypeDef",
+    {
+        "LoRaWAN": "LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef",
+        "WirelessGatewayIdEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
+ConnectionStatusResourceTypeEventConfigurationTypeDef = TypedDict(
+    "ConnectionStatusResourceTypeEventConfigurationTypeDef",
+    {
+        "LoRaWAN": "LoRaWANConnectionStatusResourceTypeEventConfigurationTypeDef",
+    },
+    total=False,
 )
 
 _RequiredCreateDestinationRequestRequestTypeDef = TypedDict(
@@ -470,6 +520,40 @@ CreateMulticastGroupResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateNetworkAnalyzerConfigurationRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalCreateNetworkAnalyzerConfigurationRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    {
+        "TraceContent": "TraceContentTypeDef",
+        "WirelessDevices": List[str],
+        "WirelessGateways": List[str],
+        "Description": str,
+        "Tags": List["TagTypeDef"],
+        "ClientRequestToken": str,
+    },
+    total=False,
+)
+
+class CreateNetworkAnalyzerConfigurationRequestRequestTypeDef(
+    _RequiredCreateNetworkAnalyzerConfigurationRequestRequestTypeDef,
+    _OptionalCreateNetworkAnalyzerConfigurationRequestRequestTypeDef,
+):
+    pass
+
+CreateNetworkAnalyzerConfigurationResponseTypeDef = TypedDict(
+    "CreateNetworkAnalyzerConfigurationResponseTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -637,6 +721,34 @@ DeleteMulticastGroupRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteNetworkAnalyzerConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteNetworkAnalyzerConfigurationRequestRequestTypeDef",
+    {
+        "ConfigurationName": str,
+    },
+)
+
+_RequiredDeleteQueuedMessagesRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteQueuedMessagesRequestRequestTypeDef",
+    {
+        "Id": str,
+        "MessageId": str,
+    },
+)
+_OptionalDeleteQueuedMessagesRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteQueuedMessagesRequestRequestTypeDef",
+    {
+        "WirelessDeviceType": WirelessDeviceTypeType,
+    },
+    total=False,
+)
+
+class DeleteQueuedMessagesRequestRequestTypeDef(
+    _RequiredDeleteQueuedMessagesRequestRequestTypeDef,
+    _OptionalDeleteQueuedMessagesRequestRequestTypeDef,
+):
+    pass
+
 DeleteServiceProfileRequestRequestTypeDef = TypedDict(
     "DeleteServiceProfileRequestRequestTypeDef",
     {
@@ -699,6 +811,15 @@ DeviceRegistrationStateEventConfigurationTypeDef = TypedDict(
     "DeviceRegistrationStateEventConfigurationTypeDef",
     {
         "Sidewalk": "SidewalkEventNotificationConfigurationsTypeDef",
+        "WirelessDeviceIdEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
+DeviceRegistrationStateResourceTypeEventConfigurationTypeDef = TypedDict(
+    "DeviceRegistrationStateResourceTypeEventConfigurationTypeDef",
+    {
+        "Sidewalk": "SidewalkResourceTypeEventConfigurationTypeDef",
     },
     total=False,
 )
@@ -756,6 +877,39 @@ DisassociateWirelessGatewayFromThingRequestRequestTypeDef = TypedDict(
     },
 )
 
+DownlinkQueueMessageTypeDef = TypedDict(
+    "DownlinkQueueMessageTypeDef",
+    {
+        "MessageId": str,
+        "TransmitMode": int,
+        "ReceivedAt": str,
+        "LoRaWAN": "LoRaWANSendDataToDeviceTypeDef",
+    },
+    total=False,
+)
+
+EventConfigurationItemTypeDef = TypedDict(
+    "EventConfigurationItemTypeDef",
+    {
+        "Identifier": str,
+        "IdentifierType": IdentifierTypeType,
+        "PartnerType": Literal["Sidewalk"],
+        "Events": "EventNotificationItemConfigurationsTypeDef",
+    },
+    total=False,
+)
+
+EventNotificationItemConfigurationsTypeDef = TypedDict(
+    "EventNotificationItemConfigurationsTypeDef",
+    {
+        "DeviceRegistrationState": "DeviceRegistrationStateEventConfigurationTypeDef",
+        "Proximity": "ProximityEventConfigurationTypeDef",
+        "Join": "JoinEventConfigurationTypeDef",
+        "ConnectionStatus": "ConnectionStatusEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
 FPortsTypeDef = TypedDict(
     "FPortsTypeDef",
     {
@@ -810,6 +964,17 @@ GetDeviceProfileResponseTypeDef = TypedDict(
         "Name": str,
         "Id": str,
         "LoRaWAN": "LoRaWANDeviceProfileTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEventConfigurationByResourceTypesResponseTypeDef = TypedDict(
+    "GetEventConfigurationByResourceTypesResponseTypeDef",
+    {
+        "DeviceRegistrationState": "DeviceRegistrationStateResourceTypeEventConfigurationTypeDef",
+        "Proximity": "ProximityResourceTypeEventConfigurationTypeDef",
+        "Join": "JoinResourceTypeEventConfigurationTypeDef",
+        "ConnectionStatus": "ConnectionStatusResourceTypeEventConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -896,6 +1061,9 @@ GetNetworkAnalyzerConfigurationResponseTypeDef = TypedDict(
         "TraceContent": "TraceContentTypeDef",
         "WirelessDevices": List[str],
         "WirelessGateways": List[str],
+        "Description": str,
+        "Arn": str,
+        "Name": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -921,7 +1089,7 @@ _RequiredGetResourceEventConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredGetResourceEventConfigurationRequestRequestTypeDef",
     {
         "Identifier": str,
-        "IdentifierType": Literal["PartnerAccountId"],
+        "IdentifierType": IdentifierTypeType,
     },
 )
 _OptionalGetResourceEventConfigurationRequestRequestTypeDef = TypedDict(
@@ -943,6 +1111,8 @@ GetResourceEventConfigurationResponseTypeDef = TypedDict(
     {
         "DeviceRegistrationState": "DeviceRegistrationStateEventConfigurationTypeDef",
         "Proximity": "ProximityEventConfigurationTypeDef",
+        "Join": "JoinEventConfigurationTypeDef",
+        "ConnectionStatus": "ConnectionStatusEventConfigurationTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1149,6 +1319,23 @@ GetWirelessGatewayTaskResponseTypeDef = TypedDict(
     },
 )
 
+JoinEventConfigurationTypeDef = TypedDict(
+    "JoinEventConfigurationTypeDef",
+    {
+        "LoRaWAN": "LoRaWANJoinEventNotificationConfigurationsTypeDef",
+        "WirelessDeviceIdEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
+JoinResourceTypeEventConfigurationTypeDef = TypedDict(
+    "JoinResourceTypeEventConfigurationTypeDef",
+    {
+        "LoRaWAN": "LoRaWANJoinResourceTypeEventConfigurationTypeDef",
+    },
+    total=False,
+)
+
 ListDestinationsRequestRequestTypeDef = TypedDict(
     "ListDestinationsRequestRequestTypeDef",
     {
@@ -1181,6 +1368,36 @@ ListDeviceProfilesResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "DeviceProfileList": List["DeviceProfileTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListEventConfigurationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListEventConfigurationsRequestRequestTypeDef",
+    {
+        "ResourceType": EventNotificationResourceTypeType,
+    },
+)
+_OptionalListEventConfigurationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListEventConfigurationsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListEventConfigurationsRequestRequestTypeDef(
+    _RequiredListEventConfigurationsRequestRequestTypeDef,
+    _OptionalListEventConfigurationsRequestRequestTypeDef,
+):
+    pass
+
+ListEventConfigurationsResponseTypeDef = TypedDict(
+    "ListEventConfigurationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "EventConfigurationsList": List["EventConfigurationItemTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1251,6 +1468,24 @@ ListMulticastGroupsResponseTypeDef = TypedDict(
     },
 )
 
+ListNetworkAnalyzerConfigurationsRequestRequestTypeDef = TypedDict(
+    "ListNetworkAnalyzerConfigurationsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListNetworkAnalyzerConfigurationsResponseTypeDef = TypedDict(
+    "ListNetworkAnalyzerConfigurationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "NetworkAnalyzerConfigurationList": List["NetworkAnalyzerConfigurationsTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListPartnerAccountsRequestRequestTypeDef = TypedDict(
     "ListPartnerAccountsRequestRequestTypeDef",
     {
@@ -1265,6 +1500,37 @@ ListPartnerAccountsResponseTypeDef = TypedDict(
     {
         "NextToken": str,
         "Sidewalk": List["SidewalkAccountInfoWithFingerprintTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListQueuedMessagesRequestRequestTypeDef = TypedDict(
+    "_RequiredListQueuedMessagesRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalListQueuedMessagesRequestRequestTypeDef = TypedDict(
+    "_OptionalListQueuedMessagesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "WirelessDeviceType": WirelessDeviceTypeType,
+    },
+    total=False,
+)
+
+class ListQueuedMessagesRequestRequestTypeDef(
+    _RequiredListQueuedMessagesRequestRequestTypeDef,
+    _OptionalListQueuedMessagesRequestRequestTypeDef,
+):
+    pass
+
+ListQueuedMessagesResponseTypeDef = TypedDict(
+    "ListQueuedMessagesResponseTypeDef",
+    {
+        "NextToken": str,
+        "DownlinkQueueMessagesList": List["DownlinkQueueMessageTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1361,6 +1627,22 @@ ListWirelessGatewaysResponseTypeDef = TypedDict(
         "WirelessGatewayList": List["WirelessGatewayStatisticsTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef = TypedDict(
+    "LoRaWANConnectionStatusEventNotificationConfigurationsTypeDef",
+    {
+        "GatewayEuiEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
+LoRaWANConnectionStatusResourceTypeEventConfigurationTypeDef = TypedDict(
+    "LoRaWANConnectionStatusResourceTypeEventConfigurationTypeDef",
+    {
+        "WirelessGatewayEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
 )
 
 LoRaWANDeviceMetadataTypeDef = TypedDict(
@@ -1500,6 +1782,22 @@ LoRaWANGetServiceProfileInfoTypeDef = TypedDict(
     total=False,
 )
 
+LoRaWANJoinEventNotificationConfigurationsTypeDef = TypedDict(
+    "LoRaWANJoinEventNotificationConfigurationsTypeDef",
+    {
+        "DevEuiEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
+LoRaWANJoinResourceTypeEventConfigurationTypeDef = TypedDict(
+    "LoRaWANJoinResourceTypeEventConfigurationTypeDef",
+    {
+        "WirelessDeviceEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
 LoRaWANListDeviceTypeDef = TypedDict(
     "LoRaWANListDeviceTypeDef",
     {
@@ -1576,6 +1874,8 @@ LoRaWANUpdateDeviceTypeDef = TypedDict(
     {
         "DeviceProfileId": str,
         "ServiceProfileId": str,
+        "AbpV1_1": "UpdateAbpV1_1TypeDef",
+        "AbpV1_0_x": "UpdateAbpV1_0_xTypeDef",
     },
     total=False,
 )
@@ -1626,6 +1926,15 @@ MulticastWirelessMetadataTypeDef = TypedDict(
     total=False,
 )
 
+NetworkAnalyzerConfigurationsTypeDef = TypedDict(
+    "NetworkAnalyzerConfigurationsTypeDef",
+    {
+        "Arn": str,
+        "Name": str,
+    },
+    total=False,
+)
+
 OtaaV1_0_xTypeDef = TypedDict(
     "OtaaV1_0_xTypeDef",
     {
@@ -1650,6 +1959,15 @@ ProximityEventConfigurationTypeDef = TypedDict(
     "ProximityEventConfigurationTypeDef",
     {
         "Sidewalk": "SidewalkEventNotificationConfigurationsTypeDef",
+        "WirelessDeviceIdEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
+ProximityResourceTypeEventConfigurationTypeDef = TypedDict(
+    "ProximityResourceTypeEventConfigurationTypeDef",
+    {
+        "Sidewalk": "SidewalkResourceTypeEventConfigurationTypeDef",
     },
     total=False,
 )
@@ -1819,6 +2137,14 @@ SidewalkListDeviceTypeDef = TypedDict(
     total=False,
 )
 
+SidewalkResourceTypeEventConfigurationTypeDef = TypedDict(
+    "SidewalkResourceTypeEventConfigurationTypeDef",
+    {
+        "WirelessDeviceEventTopic": EventNotificationTopicStatusType,
+    },
+    total=False,
+)
+
 SidewalkSendDataToDeviceTypeDef = TypedDict(
     "SidewalkSendDataToDeviceTypeDef",
     {
@@ -1953,6 +2279,22 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+UpdateAbpV1_0_xTypeDef = TypedDict(
+    "UpdateAbpV1_0_xTypeDef",
+    {
+        "FCntStart": int,
+    },
+    total=False,
+)
+
+UpdateAbpV1_1TypeDef = TypedDict(
+    "UpdateAbpV1_1TypeDef",
+    {
+        "FCntStart": int,
+    },
+    total=False,
+)
+
 _RequiredUpdateDestinationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateDestinationRequestRequestTypeDef",
     {
@@ -1974,6 +2316,17 @@ class UpdateDestinationRequestRequestTypeDef(
     _RequiredUpdateDestinationRequestRequestTypeDef, _OptionalUpdateDestinationRequestRequestTypeDef
 ):
     pass
+
+UpdateEventConfigurationByResourceTypesRequestRequestTypeDef = TypedDict(
+    "UpdateEventConfigurationByResourceTypesRequestRequestTypeDef",
+    {
+        "DeviceRegistrationState": "DeviceRegistrationStateResourceTypeEventConfigurationTypeDef",
+        "Proximity": "ProximityResourceTypeEventConfigurationTypeDef",
+        "Join": "JoinResourceTypeEventConfigurationTypeDef",
+        "ConnectionStatus": "ConnectionStatusResourceTypeEventConfigurationTypeDef",
+    },
+    total=False,
+)
 
 _RequiredUpdateFuotaTaskRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateFuotaTaskRequestRequestTypeDef",
@@ -2044,6 +2397,7 @@ _OptionalUpdateNetworkAnalyzerConfigurationRequestRequestTypeDef = TypedDict(
         "WirelessDevicesToRemove": List[str],
         "WirelessGatewaysToAdd": List[str],
         "WirelessGatewaysToRemove": List[str],
+        "Description": str,
     },
     total=False,
 )
@@ -2067,7 +2421,7 @@ _RequiredUpdateResourceEventConfigurationRequestRequestTypeDef = TypedDict(
     "_RequiredUpdateResourceEventConfigurationRequestRequestTypeDef",
     {
         "Identifier": str,
-        "IdentifierType": Literal["PartnerAccountId"],
+        "IdentifierType": IdentifierTypeType,
     },
 )
 _OptionalUpdateResourceEventConfigurationRequestRequestTypeDef = TypedDict(
@@ -2076,6 +2430,8 @@ _OptionalUpdateResourceEventConfigurationRequestRequestTypeDef = TypedDict(
         "PartnerType": Literal["Sidewalk"],
         "DeviceRegistrationState": "DeviceRegistrationStateEventConfigurationTypeDef",
         "Proximity": "ProximityEventConfigurationTypeDef",
+        "Join": "JoinEventConfigurationTypeDef",
+        "ConnectionStatus": "ConnectionStatusEventConfigurationTypeDef",
     },
     total=False,
 )

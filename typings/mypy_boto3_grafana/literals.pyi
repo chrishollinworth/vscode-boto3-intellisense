@@ -37,14 +37,21 @@ __all__ = (
 AccountAccessTypeType = Literal["CURRENT_ACCOUNT", "ORGANIZATION"]
 AuthenticationProviderTypesType = Literal["AWS_SSO", "SAML"]
 DataSourceTypeType = Literal[
-    "AMAZON_OPENSEARCH_SERVICE", "CLOUDWATCH", "PROMETHEUS", "SITEWISE", "TIMESTREAM", "XRAY"
+    "AMAZON_OPENSEARCH_SERVICE",
+    "ATHENA",
+    "CLOUDWATCH",
+    "PROMETHEUS",
+    "REDSHIFT",
+    "SITEWISE",
+    "TIMESTREAM",
+    "XRAY",
 ]
 LicenseTypeType = Literal["ENTERPRISE", "ENTERPRISE_FREE_TRIAL"]
 ListPermissionsPaginatorName = Literal["list_permissions"]
 ListWorkspacesPaginatorName = Literal["list_workspaces"]
 NotificationDestinationTypeType = Literal["SNS"]
 PermissionTypeType = Literal["CUSTOMER_MANAGED", "SERVICE_MANAGED"]
-RoleType = Literal["ADMIN", "EDITOR"]
+RoleType = Literal["ADMIN", "EDITOR", "VIEWER"]
 SamlConfigurationStatusType = Literal["CONFIGURED", "NOT_CONFIGURED"]
 UpdateActionType = Literal["ADD", "REVOKE"]
 UserTypeType = Literal["SSO_GROUP", "SSO_USER"]

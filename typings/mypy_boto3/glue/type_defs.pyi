@@ -16,6 +16,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Union
 
 from .literals import (
+    AggFunctionType,
     BackfillErrorCodeType,
     BlueprintRunStateType,
     BlueprintStatusType,
@@ -24,6 +25,7 @@ from .literals import (
     ColumnStatisticsTypeType,
     ComparatorType,
     CompatibilityType,
+    CompressionTypeType,
     ConnectionPropertyKeyType,
     ConnectionTypeType,
     CrawlerLineageSettingsType,
@@ -34,16 +36,26 @@ from .literals import (
     DeleteBehaviorType,
     EnableHybridValuesType,
     ExistConditionType,
+    FilterLogicalOperatorType,
+    FilterOperationType,
+    FilterValueTypeType,
+    GlueRecordTypeType,
+    JDBCDataTypeType,
     JobBookmarksEncryptionModeType,
     JobRunStateType,
+    JoinTypeType,
     LanguageType,
     LastCrawlStatusType,
     LogicalType,
     MLUserDataEncryptionModeStringType,
     NodeTypeType,
+    ParquetCompressionTypeType,
     PartitionIndexStatusType,
     PermissionType,
+    PermissionTypeType,
+    PiiTypeType,
     PrincipalTypeType,
+    QuoteCharType,
     RecrawlBehaviorType,
     RegistryStatusType,
     ResourceShareTypeType,
@@ -52,8 +64,13 @@ from .literals import (
     ScheduleStateType,
     SchemaStatusType,
     SchemaVersionStatusType,
+    SeparatorType,
+    SessionStatusType,
     SortDirectionTypeType,
     SortType,
+    StartingPositionType,
+    StatementStateType,
+    TargetFormatType,
     TaskRunSortColumnTypeType,
     TaskStatusTypeType,
     TaskTypeType,
@@ -61,7 +78,9 @@ from .literals import (
     TransformStatusTypeType,
     TriggerStateType,
     TriggerTypeType,
+    UnionTypeType,
     UpdateBehaviorType,
+    UpdateCatalogBehaviorType,
     WorkerTypeType,
     WorkflowRunStatusType,
 )
@@ -77,7 +96,13 @@ else:
 
 __all__ = (
     "ActionTypeDef",
+    "AggregateOperationTypeDef",
+    "AggregateTypeDef",
+    "ApplyMappingTypeDef",
+    "AthenaConnectorSourceTypeDef",
+    "AuditContextTypeDef",
     "BackfillErrorTypeDef",
+    "BasicCatalogTargetTypeDef",
     "BatchCreatePartitionRequestRequestTypeDef",
     "BatchCreatePartitionResponseTypeDef",
     "BatchDeleteConnectionRequestRequestTypeDef",
@@ -92,6 +117,8 @@ __all__ = (
     "BatchGetBlueprintsResponseTypeDef",
     "BatchGetCrawlersRequestRequestTypeDef",
     "BatchGetCrawlersResponseTypeDef",
+    "BatchGetCustomEntityTypesRequestRequestTypeDef",
+    "BatchGetCustomEntityTypesResponseTypeDef",
     "BatchGetDevEndpointsRequestRequestTypeDef",
     "BatchGetDevEndpointsResponseTypeDef",
     "BatchGetJobsRequestRequestTypeDef",
@@ -117,18 +144,25 @@ __all__ = (
     "BooleanColumnStatisticsDataTypeDef",
     "CancelMLTaskRunRequestRequestTypeDef",
     "CancelMLTaskRunResponseTypeDef",
+    "CancelStatementRequestRequestTypeDef",
     "CatalogEntryTypeDef",
     "CatalogImportStatusTypeDef",
+    "CatalogKafkaSourceTypeDef",
+    "CatalogKinesisSourceTypeDef",
+    "CatalogSchemaChangePolicyTypeDef",
+    "CatalogSourceTypeDef",
     "CatalogTargetTypeDef",
     "CheckSchemaVersionValidityInputRequestTypeDef",
     "CheckSchemaVersionValidityResponseTypeDef",
     "ClassifierTypeDef",
     "CloudWatchEncryptionTypeDef",
+    "CodeGenConfigurationNodeTypeDef",
     "CodeGenEdgeTypeDef",
     "CodeGenNodeArgTypeDef",
     "CodeGenNodeTypeDef",
     "ColumnErrorTypeDef",
     "ColumnImportanceTypeDef",
+    "ColumnRowFilterTypeDef",
     "ColumnStatisticsDataTypeDef",
     "ColumnStatisticsErrorTypeDef",
     "ColumnStatisticsTypeDef",
@@ -150,6 +184,8 @@ __all__ = (
     "CreateConnectionRequestRequestTypeDef",
     "CreateCrawlerRequestRequestTypeDef",
     "CreateCsvClassifierRequestTypeDef",
+    "CreateCustomEntityTypeRequestRequestTypeDef",
+    "CreateCustomEntityTypeResponseTypeDef",
     "CreateDatabaseRequestRequestTypeDef",
     "CreateDevEndpointRequestRequestTypeDef",
     "CreateDevEndpointResponseTypeDef",
@@ -169,6 +205,8 @@ __all__ = (
     "CreateScriptResponseTypeDef",
     "CreateSecurityConfigurationRequestRequestTypeDef",
     "CreateSecurityConfigurationResponseTypeDef",
+    "CreateSessionRequestRequestTypeDef",
+    "CreateSessionResponseTypeDef",
     "CreateTableRequestRequestTypeDef",
     "CreateTriggerRequestRequestTypeDef",
     "CreateTriggerResponseTypeDef",
@@ -177,11 +215,14 @@ __all__ = (
     "CreateWorkflowResponseTypeDef",
     "CreateXMLClassifierRequestTypeDef",
     "CsvClassifierTypeDef",
+    "CustomCodeTypeDef",
+    "CustomEntityTypeTypeDef",
     "DataCatalogEncryptionSettingsTypeDef",
     "DataLakePrincipalTypeDef",
     "DatabaseIdentifierTypeDef",
     "DatabaseInputTypeDef",
     "DatabaseTypeDef",
+    "DatatypeTypeDef",
     "DateColumnStatisticsDataTypeDef",
     "DecimalColumnStatisticsDataTypeDef",
     "DecimalNumberTypeDef",
@@ -192,6 +233,8 @@ __all__ = (
     "DeleteColumnStatisticsForTableRequestRequestTypeDef",
     "DeleteConnectionRequestRequestTypeDef",
     "DeleteCrawlerRequestRequestTypeDef",
+    "DeleteCustomEntityTypeRequestRequestTypeDef",
+    "DeleteCustomEntityTypeResponseTypeDef",
     "DeleteDatabaseRequestRequestTypeDef",
     "DeleteDevEndpointRequestRequestTypeDef",
     "DeleteJobRequestRequestTypeDef",
@@ -208,6 +251,8 @@ __all__ = (
     "DeleteSchemaVersionsInputRequestTypeDef",
     "DeleteSchemaVersionsResponseTypeDef",
     "DeleteSecurityConfigurationRequestRequestTypeDef",
+    "DeleteSessionRequestRequestTypeDef",
+    "DeleteSessionResponseTypeDef",
     "DeleteTableRequestRequestTypeDef",
     "DeleteTableVersionRequestRequestTypeDef",
     "DeleteTriggerRequestRequestTypeDef",
@@ -215,9 +260,17 @@ __all__ = (
     "DeleteUserDefinedFunctionRequestRequestTypeDef",
     "DeleteWorkflowRequestRequestTypeDef",
     "DeleteWorkflowResponseTypeDef",
+    "DeltaTargetTypeDef",
     "DevEndpointCustomLibrariesTypeDef",
     "DevEndpointTypeDef",
+    "DirectKafkaSourceTypeDef",
+    "DirectKinesisSourceTypeDef",
+    "DirectSchemaChangePolicyTypeDef",
     "DoubleColumnStatisticsDataTypeDef",
+    "DropDuplicatesTypeDef",
+    "DropFieldsTypeDef",
+    "DropNullFieldsTypeDef",
+    "DynamoDBCatalogSourceTypeDef",
     "DynamoDBTargetTypeDef",
     "EdgeTypeDef",
     "EncryptionAtRestTypeDef",
@@ -228,6 +281,10 @@ __all__ = (
     "EventBatchingConditionTypeDef",
     "ExecutionPropertyTypeDef",
     "ExportLabelsTaskRunPropertiesTypeDef",
+    "FillMissingValuesTypeDef",
+    "FilterExpressionTypeDef",
+    "FilterTypeDef",
+    "FilterValueTypeDef",
     "FindMatchesMetricsTypeDef",
     "FindMatchesParametersTypeDef",
     "FindMatchesTaskRunPropertiesTypeDef",
@@ -258,6 +315,8 @@ __all__ = (
     "GetCrawlerResponseTypeDef",
     "GetCrawlersRequestRequestTypeDef",
     "GetCrawlersResponseTypeDef",
+    "GetCustomEntityTypeRequestRequestTypeDef",
+    "GetCustomEntityTypeResponseTypeDef",
     "GetDataCatalogEncryptionSettingsRequestRequestTypeDef",
     "GetDataCatalogEncryptionSettingsResponseTypeDef",
     "GetDatabaseRequestRequestTypeDef",
@@ -316,6 +375,10 @@ __all__ = (
     "GetSecurityConfigurationResponseTypeDef",
     "GetSecurityConfigurationsRequestRequestTypeDef",
     "GetSecurityConfigurationsResponseTypeDef",
+    "GetSessionRequestRequestTypeDef",
+    "GetSessionResponseTypeDef",
+    "GetStatementRequestRequestTypeDef",
+    "GetStatementResponseTypeDef",
     "GetTableRequestRequestTypeDef",
     "GetTableResponseTypeDef",
     "GetTableVersionRequestRequestTypeDef",
@@ -330,6 +393,12 @@ __all__ = (
     "GetTriggerResponseTypeDef",
     "GetTriggersRequestRequestTypeDef",
     "GetTriggersResponseTypeDef",
+    "GetUnfilteredPartitionMetadataRequestRequestTypeDef",
+    "GetUnfilteredPartitionMetadataResponseTypeDef",
+    "GetUnfilteredPartitionsMetadataRequestRequestTypeDef",
+    "GetUnfilteredPartitionsMetadataResponseTypeDef",
+    "GetUnfilteredTableMetadataRequestRequestTypeDef",
+    "GetUnfilteredTableMetadataResponseTypeDef",
     "GetUserDefinedFunctionRequestRequestTypeDef",
     "GetUserDefinedFunctionResponseTypeDef",
     "GetUserDefinedFunctionsRequestRequestTypeDef",
@@ -343,10 +412,17 @@ __all__ = (
     "GetWorkflowRunsRequestRequestTypeDef",
     "GetWorkflowRunsResponseTypeDef",
     "GluePolicyTypeDef",
+    "GlueSchemaTypeDef",
+    "GlueStudioSchemaColumnTypeDef",
     "GlueTableTypeDef",
+    "GovernedCatalogSourceTypeDef",
+    "GovernedCatalogTargetTypeDef",
     "GrokClassifierTypeDef",
     "ImportCatalogToGlueRequestRequestTypeDef",
     "ImportLabelsTaskRunPropertiesTypeDef",
+    "JDBCConnectorOptionsTypeDef",
+    "JDBCConnectorSourceTypeDef",
+    "JDBCConnectorTargetTypeDef",
     "JdbcTargetTypeDef",
     "JobBookmarkEntryTypeDef",
     "JobBookmarksEncryptionTypeDef",
@@ -355,9 +431,14 @@ __all__ = (
     "JobRunTypeDef",
     "JobTypeDef",
     "JobUpdateTypeDef",
+    "JoinColumnTypeDef",
+    "JoinTypeDef",
     "JsonClassifierTypeDef",
+    "KafkaStreamingSourceOptionsTypeDef",
     "KeySchemaElementTypeDef",
+    "KinesisStreamingSourceOptionsTypeDef",
     "LabelingSetGenerationTaskRunPropertiesTypeDef",
+    "LakeFormationConfigurationTypeDef",
     "LastActiveDefinitionTypeDef",
     "LastCrawlInfoTypeDef",
     "LineageConfigurationTypeDef",
@@ -365,6 +446,8 @@ __all__ = (
     "ListBlueprintsResponseTypeDef",
     "ListCrawlersRequestRequestTypeDef",
     "ListCrawlersResponseTypeDef",
+    "ListCustomEntityTypesRequestRequestTypeDef",
+    "ListCustomEntityTypesResponseTypeDef",
     "ListDevEndpointsRequestRequestTypeDef",
     "ListDevEndpointsResponseTypeDef",
     "ListJobsRequestRequestTypeDef",
@@ -377,6 +460,10 @@ __all__ = (
     "ListSchemaVersionsResponseTypeDef",
     "ListSchemasInputRequestTypeDef",
     "ListSchemasResponseTypeDef",
+    "ListSessionsRequestRequestTypeDef",
+    "ListSessionsResponseTypeDef",
+    "ListStatementsRequestRequestTypeDef",
+    "ListStatementsResponseTypeDef",
     "ListTriggersRequestRequestTypeDef",
     "ListTriggersResponseTypeDef",
     "ListWorkflowsRequestRequestTypeDef",
@@ -386,13 +473,24 @@ __all__ = (
     "MLTransformTypeDef",
     "MLUserDataEncryptionTypeDef",
     "MappingEntryTypeDef",
+    "MappingTypeDef",
+    "MergeTypeDef",
     "MetadataInfoTypeDef",
     "MetadataKeyValuePairTypeDef",
+    "MicrosoftSQLServerCatalogSourceTypeDef",
+    "MicrosoftSQLServerCatalogTargetTypeDef",
     "MongoDBTargetTypeDef",
+    "MySQLCatalogSourceTypeDef",
+    "MySQLCatalogTargetTypeDef",
     "NodeTypeDef",
     "NotificationPropertyTypeDef",
+    "NullCheckBoxListTypeDef",
+    "NullValueFieldTypeDef",
+    "OracleSQLCatalogSourceTypeDef",
+    "OracleSQLCatalogTargetTypeDef",
     "OrderTypeDef",
     "OtherMetadataValueListItemTypeDef",
+    "PIIDetectionTypeDef",
     "PaginatorConfigTypeDef",
     "PartitionErrorTypeDef",
     "PartitionIndexDescriptorTypeDef",
@@ -401,6 +499,8 @@ __all__ = (
     "PartitionTypeDef",
     "PartitionValueListTypeDef",
     "PhysicalConnectionRequirementsTypeDef",
+    "PostgreSQLCatalogSourceTypeDef",
+    "PostgreSQLCatalogTargetTypeDef",
     "PredecessorTypeDef",
     "PredicateTypeDef",
     "PrincipalPermissionsTypeDef",
@@ -414,19 +514,34 @@ __all__ = (
     "QuerySchemaVersionMetadataInputRequestTypeDef",
     "QuerySchemaVersionMetadataResponseTypeDef",
     "RecrawlPolicyTypeDef",
+    "RedshiftSourceTypeDef",
+    "RedshiftTargetTypeDef",
     "RegisterSchemaVersionInputRequestTypeDef",
     "RegisterSchemaVersionResponseTypeDef",
     "RegistryIdTypeDef",
     "RegistryListItemTypeDef",
+    "RelationalCatalogSourceTypeDef",
     "RemoveSchemaVersionMetadataInputRequestTypeDef",
     "RemoveSchemaVersionMetadataResponseTypeDef",
+    "RenameFieldTypeDef",
     "ResetJobBookmarkRequestRequestTypeDef",
     "ResetJobBookmarkResponseTypeDef",
     "ResourceUriTypeDef",
     "ResponseMetadataTypeDef",
     "ResumeWorkflowRunRequestRequestTypeDef",
     "ResumeWorkflowRunResponseTypeDef",
+    "RunStatementRequestRequestTypeDef",
+    "RunStatementResponseTypeDef",
+    "S3CatalogSourceTypeDef",
+    "S3CatalogTargetTypeDef",
+    "S3CsvSourceTypeDef",
+    "S3DirectSourceAdditionalOptionsTypeDef",
+    "S3DirectTargetTypeDef",
     "S3EncryptionTypeDef",
+    "S3GlueParquetTargetTypeDef",
+    "S3JsonSourceTypeDef",
+    "S3ParquetSourceTypeDef",
+    "S3SourceAdditionalOptionsTypeDef",
     "S3TargetTypeDef",
     "ScheduleTypeDef",
     "SchemaChangePolicyTypeDef",
@@ -441,9 +556,19 @@ __all__ = (
     "SearchTablesResponseTypeDef",
     "SecurityConfigurationTypeDef",
     "SegmentTypeDef",
+    "SelectFieldsTypeDef",
+    "SelectFromCollectionTypeDef",
     "SerDeInfoTypeDef",
+    "SessionCommandTypeDef",
+    "SessionTypeDef",
     "SkewedInfoTypeDef",
     "SortCriterionTypeDef",
+    "SparkConnectorSourceTypeDef",
+    "SparkConnectorTargetTypeDef",
+    "SparkSQLTypeDef",
+    "SpigotTypeDef",
+    "SplitFieldsTypeDef",
+    "SqlAliasTypeDef",
     "StartBlueprintRunRequestRequestTypeDef",
     "StartBlueprintRunResponseTypeDef",
     "StartCrawlerRequestRequestTypeDef",
@@ -463,12 +588,18 @@ __all__ = (
     "StartWorkflowRunRequestRequestTypeDef",
     "StartWorkflowRunResponseTypeDef",
     "StartingEventBatchConditionTypeDef",
+    "StatementOutputDataTypeDef",
+    "StatementOutputTypeDef",
+    "StatementTypeDef",
     "StopCrawlerRequestRequestTypeDef",
     "StopCrawlerScheduleRequestRequestTypeDef",
+    "StopSessionRequestRequestTypeDef",
+    "StopSessionResponseTypeDef",
     "StopTriggerRequestRequestTypeDef",
     "StopTriggerResponseTypeDef",
     "StopWorkflowRunRequestRequestTypeDef",
     "StorageDescriptorTypeDef",
+    "StreamingDataPreviewOptionsTypeDef",
     "StringColumnStatisticsDataTypeDef",
     "TableErrorTypeDef",
     "TableIdentifierTypeDef",
@@ -488,6 +619,8 @@ __all__ = (
     "TriggerNodeDetailsTypeDef",
     "TriggerTypeDef",
     "TriggerUpdateTypeDef",
+    "UnfilteredPartitionTypeDef",
+    "UnionTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateBlueprintRequestRequestTypeDef",
     "UpdateBlueprintResponseTypeDef",
@@ -520,6 +653,7 @@ __all__ = (
     "UpdateWorkflowRequestRequestTypeDef",
     "UpdateWorkflowResponseTypeDef",
     "UpdateXMLClassifierRequestTypeDef",
+    "UpsertRedshiftTargetOptionsTypeDef",
     "UserDefinedFunctionInputTypeDef",
     "UserDefinedFunctionTypeDef",
     "WorkflowGraphTypeDef",
@@ -542,6 +676,67 @@ ActionTypeDef = TypedDict(
     total=False,
 )
 
+AggregateOperationTypeDef = TypedDict(
+    "AggregateOperationTypeDef",
+    {
+        "Column": List[str],
+        "AggFunc": AggFunctionType,
+    },
+)
+
+AggregateTypeDef = TypedDict(
+    "AggregateTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Groups": List[List[str]],
+        "Aggs": List["AggregateOperationTypeDef"],
+    },
+)
+
+ApplyMappingTypeDef = TypedDict(
+    "ApplyMappingTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Mapping": List["MappingTypeDef"],
+    },
+)
+
+_RequiredAthenaConnectorSourceTypeDef = TypedDict(
+    "_RequiredAthenaConnectorSourceTypeDef",
+    {
+        "Name": str,
+        "ConnectionName": str,
+        "ConnectorName": str,
+        "ConnectionType": str,
+        "SchemaName": str,
+    },
+)
+_OptionalAthenaConnectorSourceTypeDef = TypedDict(
+    "_OptionalAthenaConnectorSourceTypeDef",
+    {
+        "ConnectionTable": str,
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class AthenaConnectorSourceTypeDef(
+    _RequiredAthenaConnectorSourceTypeDef, _OptionalAthenaConnectorSourceTypeDef
+):
+    pass
+
+AuditContextTypeDef = TypedDict(
+    "AuditContextTypeDef",
+    {
+        "AdditionalAuditContext": str,
+        "RequestedColumns": List[str],
+        "AllColumnsRequested": bool,
+    },
+    total=False,
+)
+
 BackfillErrorTypeDef = TypedDict(
     "BackfillErrorTypeDef",
     {
@@ -549,6 +744,16 @@ BackfillErrorTypeDef = TypedDict(
         "Partitions": List["PartitionValueListTypeDef"],
     },
     total=False,
+)
+
+BasicCatalogTargetTypeDef = TypedDict(
+    "BasicCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Database": str,
+        "Table": str,
+    },
 )
 
 _RequiredBatchCreatePartitionRequestRequestTypeDef = TypedDict(
@@ -741,6 +946,22 @@ BatchGetCrawlersResponseTypeDef = TypedDict(
     {
         "Crawlers": List["CrawlerTypeDef"],
         "CrawlersNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+BatchGetCustomEntityTypesRequestRequestTypeDef = TypedDict(
+    "BatchGetCustomEntityTypesRequestRequestTypeDef",
+    {
+        "Names": List[str],
+    },
+)
+
+BatchGetCustomEntityTypesResponseTypeDef = TypedDict(
+    "BatchGetCustomEntityTypesResponseTypeDef",
+    {
+        "CustomEntityTypes": List["CustomEntityTypeTypeDef"],
+        "CustomEntityTypesNotFound": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1013,6 +1234,26 @@ CancelMLTaskRunResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCancelStatementRequestRequestTypeDef = TypedDict(
+    "_RequiredCancelStatementRequestRequestTypeDef",
+    {
+        "SessionId": str,
+        "Id": int,
+    },
+)
+_OptionalCancelStatementRequestRequestTypeDef = TypedDict(
+    "_OptionalCancelStatementRequestRequestTypeDef",
+    {
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+class CancelStatementRequestRequestTypeDef(
+    _RequiredCancelStatementRequestRequestTypeDef, _OptionalCancelStatementRequestRequestTypeDef
+):
+    pass
+
 CatalogEntryTypeDef = TypedDict(
     "CatalogEntryTypeDef",
     {
@@ -1031,13 +1272,89 @@ CatalogImportStatusTypeDef = TypedDict(
     total=False,
 )
 
-CatalogTargetTypeDef = TypedDict(
-    "CatalogTargetTypeDef",
+_RequiredCatalogKafkaSourceTypeDef = TypedDict(
+    "_RequiredCatalogKafkaSourceTypeDef",
+    {
+        "Name": str,
+        "Table": str,
+        "Database": str,
+    },
+)
+_OptionalCatalogKafkaSourceTypeDef = TypedDict(
+    "_OptionalCatalogKafkaSourceTypeDef",
+    {
+        "WindowSize": int,
+        "DetectSchema": bool,
+        "StreamingOptions": "KafkaStreamingSourceOptionsTypeDef",
+        "DataPreviewOptions": "StreamingDataPreviewOptionsTypeDef",
+    },
+    total=False,
+)
+
+class CatalogKafkaSourceTypeDef(
+    _RequiredCatalogKafkaSourceTypeDef, _OptionalCatalogKafkaSourceTypeDef
+):
+    pass
+
+_RequiredCatalogKinesisSourceTypeDef = TypedDict(
+    "_RequiredCatalogKinesisSourceTypeDef",
+    {
+        "Name": str,
+        "Table": str,
+        "Database": str,
+    },
+)
+_OptionalCatalogKinesisSourceTypeDef = TypedDict(
+    "_OptionalCatalogKinesisSourceTypeDef",
+    {
+        "WindowSize": int,
+        "DetectSchema": bool,
+        "StreamingOptions": "KinesisStreamingSourceOptionsTypeDef",
+        "DataPreviewOptions": "StreamingDataPreviewOptionsTypeDef",
+    },
+    total=False,
+)
+
+class CatalogKinesisSourceTypeDef(
+    _RequiredCatalogKinesisSourceTypeDef, _OptionalCatalogKinesisSourceTypeDef
+):
+    pass
+
+CatalogSchemaChangePolicyTypeDef = TypedDict(
+    "CatalogSchemaChangePolicyTypeDef",
+    {
+        "EnableUpdateCatalog": bool,
+        "UpdateBehavior": UpdateCatalogBehaviorType,
+    },
+    total=False,
+)
+
+CatalogSourceTypeDef = TypedDict(
+    "CatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+
+_RequiredCatalogTargetTypeDef = TypedDict(
+    "_RequiredCatalogTargetTypeDef",
     {
         "DatabaseName": str,
         "Tables": List[str],
     },
 )
+_OptionalCatalogTargetTypeDef = TypedDict(
+    "_OptionalCatalogTargetTypeDef",
+    {
+        "ConnectionName": str,
+    },
+    total=False,
+)
+
+class CatalogTargetTypeDef(_RequiredCatalogTargetTypeDef, _OptionalCatalogTargetTypeDef):
+    pass
 
 CheckSchemaVersionValidityInputRequestTypeDef = TypedDict(
     "CheckSchemaVersionValidityInputRequestTypeDef",
@@ -1072,6 +1389,63 @@ CloudWatchEncryptionTypeDef = TypedDict(
     {
         "CloudWatchEncryptionMode": CloudWatchEncryptionModeType,
         "KmsKeyArn": str,
+    },
+    total=False,
+)
+
+CodeGenConfigurationNodeTypeDef = TypedDict(
+    "CodeGenConfigurationNodeTypeDef",
+    {
+        "AthenaConnectorSource": "AthenaConnectorSourceTypeDef",
+        "JDBCConnectorSource": "JDBCConnectorSourceTypeDef",
+        "SparkConnectorSource": "SparkConnectorSourceTypeDef",
+        "CatalogSource": "CatalogSourceTypeDef",
+        "RedshiftSource": "RedshiftSourceTypeDef",
+        "S3CatalogSource": "S3CatalogSourceTypeDef",
+        "S3CsvSource": "S3CsvSourceTypeDef",
+        "S3JsonSource": "S3JsonSourceTypeDef",
+        "S3ParquetSource": "S3ParquetSourceTypeDef",
+        "RelationalCatalogSource": "RelationalCatalogSourceTypeDef",
+        "DynamoDBCatalogSource": "DynamoDBCatalogSourceTypeDef",
+        "JDBCConnectorTarget": "JDBCConnectorTargetTypeDef",
+        "SparkConnectorTarget": "SparkConnectorTargetTypeDef",
+        "CatalogTarget": "BasicCatalogTargetTypeDef",
+        "RedshiftTarget": "RedshiftTargetTypeDef",
+        "S3CatalogTarget": "S3CatalogTargetTypeDef",
+        "S3GlueParquetTarget": "S3GlueParquetTargetTypeDef",
+        "S3DirectTarget": "S3DirectTargetTypeDef",
+        "ApplyMapping": "ApplyMappingTypeDef",
+        "SelectFields": "SelectFieldsTypeDef",
+        "DropFields": "DropFieldsTypeDef",
+        "RenameField": "RenameFieldTypeDef",
+        "Spigot": "SpigotTypeDef",
+        "Join": "JoinTypeDef",
+        "SplitFields": "SplitFieldsTypeDef",
+        "SelectFromCollection": "SelectFromCollectionTypeDef",
+        "FillMissingValues": "FillMissingValuesTypeDef",
+        "Filter": "FilterTypeDef",
+        "CustomCode": "CustomCodeTypeDef",
+        "SparkSQL": "SparkSQLTypeDef",
+        "DirectKinesisSource": "DirectKinesisSourceTypeDef",
+        "DirectKafkaSource": "DirectKafkaSourceTypeDef",
+        "CatalogKinesisSource": "CatalogKinesisSourceTypeDef",
+        "CatalogKafkaSource": "CatalogKafkaSourceTypeDef",
+        "DropNullFields": "DropNullFieldsTypeDef",
+        "Merge": "MergeTypeDef",
+        "Union": "UnionTypeDef",
+        "PIIDetection": "PIIDetectionTypeDef",
+        "Aggregate": "AggregateTypeDef",
+        "DropDuplicates": "DropDuplicatesTypeDef",
+        "GovernedCatalogTarget": "GovernedCatalogTargetTypeDef",
+        "GovernedCatalogSource": "GovernedCatalogSourceTypeDef",
+        "MicrosoftSQLServerCatalogSource": "MicrosoftSQLServerCatalogSourceTypeDef",
+        "MySQLCatalogSource": "MySQLCatalogSourceTypeDef",
+        "OracleSQLCatalogSource": "OracleSQLCatalogSourceTypeDef",
+        "PostgreSQLCatalogSource": "PostgreSQLCatalogSourceTypeDef",
+        "MicrosoftSQLServerCatalogTarget": "MicrosoftSQLServerCatalogTargetTypeDef",
+        "MySQLCatalogTarget": "MySQLCatalogTargetTypeDef",
+        "OracleSQLCatalogTarget": "OracleSQLCatalogTargetTypeDef",
+        "PostgreSQLCatalogTarget": "PostgreSQLCatalogTargetTypeDef",
     },
     total=False,
 )
@@ -1145,6 +1519,15 @@ ColumnImportanceTypeDef = TypedDict(
     {
         "ColumnName": str,
         "Importance": float,
+    },
+    total=False,
+)
+
+ColumnRowFilterTypeDef = TypedDict(
+    "ColumnRowFilterTypeDef",
+    {
+        "ColumnName": str,
+        "RowFilterExpression": str,
     },
     total=False,
 )
@@ -1343,6 +1726,7 @@ CrawlerTargetsTypeDef = TypedDict(
         "MongoDBTargets": List["MongoDBTargetTypeDef"],
         "DynamoDBTargets": List["DynamoDBTargetTypeDef"],
         "CatalogTargets": List["CatalogTargetTypeDef"],
+        "DeltaTargets": List["DeltaTargetTypeDef"],
     },
     total=False,
 )
@@ -1369,6 +1753,7 @@ CrawlerTypeDef = TypedDict(
         "Version": int,
         "Configuration": str,
         "CrawlerSecurityConfiguration": str,
+        "LakeFormationConfiguration": "LakeFormationConfigurationTypeDef",
     },
     total=False,
 )
@@ -1452,6 +1837,7 @@ _OptionalCreateCrawlerRequestRequestTypeDef = TypedDict(
         "SchemaChangePolicy": "SchemaChangePolicyTypeDef",
         "RecrawlPolicy": "RecrawlPolicyTypeDef",
         "LineageConfiguration": "LineageConfigurationTypeDef",
+        "LakeFormationConfiguration": "LakeFormationConfigurationTypeDef",
         "Configuration": str,
         "CrawlerSecurityConfiguration": str,
         "Tags": Dict[str, str],
@@ -1487,6 +1873,35 @@ class CreateCsvClassifierRequestTypeDef(
     _RequiredCreateCsvClassifierRequestTypeDef, _OptionalCreateCsvClassifierRequestTypeDef
 ):
     pass
+
+_RequiredCreateCustomEntityTypeRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateCustomEntityTypeRequestRequestTypeDef",
+    {
+        "Name": str,
+        "RegexString": str,
+    },
+)
+_OptionalCreateCustomEntityTypeRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateCustomEntityTypeRequestRequestTypeDef",
+    {
+        "ContextWords": List[str],
+    },
+    total=False,
+)
+
+class CreateCustomEntityTypeRequestRequestTypeDef(
+    _RequiredCreateCustomEntityTypeRequestRequestTypeDef,
+    _OptionalCreateCustomEntityTypeRequestRequestTypeDef,
+):
+    pass
+
+CreateCustomEntityTypeResponseTypeDef = TypedDict(
+    "CreateCustomEntityTypeResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 _RequiredCreateDatabaseRequestRequestTypeDef = TypedDict(
     "_RequiredCreateDatabaseRequestRequestTypeDef",
@@ -1613,6 +2028,7 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
         "GlueVersion": str,
         "NumberOfWorkers": int,
         "WorkerType": WorkerTypeType,
+        "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
     },
     total=False,
 )
@@ -1831,6 +2247,46 @@ CreateSecurityConfigurationResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateSessionRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Role": str,
+        "Command": "SessionCommandTypeDef",
+    },
+)
+_OptionalCreateSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateSessionRequestRequestTypeDef",
+    {
+        "Description": str,
+        "Timeout": int,
+        "IdleTimeout": int,
+        "DefaultArguments": Dict[str, str],
+        "Connections": "ConnectionsListTypeDef",
+        "MaxCapacity": float,
+        "NumberOfWorkers": int,
+        "WorkerType": WorkerTypeType,
+        "SecurityConfiguration": str,
+        "GlueVersion": str,
+        "Tags": Dict[str, str],
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+class CreateSessionRequestRequestTypeDef(
+    _RequiredCreateSessionRequestRequestTypeDef, _OptionalCreateSessionRequestRequestTypeDef
+):
+    pass
+
+CreateSessionResponseTypeDef = TypedDict(
+    "CreateSessionResponseTypeDef",
+    {
+        "Session": "SessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateTableRequestRequestTypeDef = TypedDict(
     "_RequiredCreateTableRequestRequestTypeDef",
     {
@@ -1984,6 +2440,44 @@ _OptionalCsvClassifierTypeDef = TypedDict(
 class CsvClassifierTypeDef(_RequiredCsvClassifierTypeDef, _OptionalCsvClassifierTypeDef):
     pass
 
+_RequiredCustomCodeTypeDef = TypedDict(
+    "_RequiredCustomCodeTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Code": str,
+        "ClassName": str,
+    },
+)
+_OptionalCustomCodeTypeDef = TypedDict(
+    "_OptionalCustomCodeTypeDef",
+    {
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class CustomCodeTypeDef(_RequiredCustomCodeTypeDef, _OptionalCustomCodeTypeDef):
+    pass
+
+_RequiredCustomEntityTypeTypeDef = TypedDict(
+    "_RequiredCustomEntityTypeTypeDef",
+    {
+        "Name": str,
+        "RegexString": str,
+    },
+)
+_OptionalCustomEntityTypeTypeDef = TypedDict(
+    "_OptionalCustomEntityTypeTypeDef",
+    {
+        "ContextWords": List[str],
+    },
+    total=False,
+)
+
+class CustomEntityTypeTypeDef(_RequiredCustomEntityTypeTypeDef, _OptionalCustomEntityTypeTypeDef):
+    pass
+
 DataCatalogEncryptionSettingsTypeDef = TypedDict(
     "DataCatalogEncryptionSettingsTypeDef",
     {
@@ -2053,6 +2547,14 @@ _OptionalDatabaseTypeDef = TypedDict(
 
 class DatabaseTypeDef(_RequiredDatabaseTypeDef, _OptionalDatabaseTypeDef):
     pass
+
+DatatypeTypeDef = TypedDict(
+    "DatatypeTypeDef",
+    {
+        "Id": str,
+        "Label": str,
+    },
+)
 
 _RequiredDateColumnStatisticsDataTypeDef = TypedDict(
     "_RequiredDateColumnStatisticsDataTypeDef",
@@ -2194,6 +2696,21 @@ DeleteCrawlerRequestRequestTypeDef = TypedDict(
     "DeleteCrawlerRequestRequestTypeDef",
     {
         "Name": str,
+    },
+)
+
+DeleteCustomEntityTypeRequestRequestTypeDef = TypedDict(
+    "DeleteCustomEntityTypeRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+DeleteCustomEntityTypeResponseTypeDef = TypedDict(
+    "DeleteCustomEntityTypeResponseTypeDef",
+    {
+        "Name": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -2362,6 +2879,33 @@ DeleteSecurityConfigurationRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredDeleteSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteSessionRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalDeleteSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteSessionRequestRequestTypeDef",
+    {
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+class DeleteSessionRequestRequestTypeDef(
+    _RequiredDeleteSessionRequestRequestTypeDef, _OptionalDeleteSessionRequestRequestTypeDef
+):
+    pass
+
+DeleteSessionResponseTypeDef = TypedDict(
+    "DeleteSessionResponseTypeDef",
+    {
+        "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDeleteTableRequestRequestTypeDef = TypedDict(
     "_RequiredDeleteTableRequestRequestTypeDef",
     {
@@ -2456,6 +3000,16 @@ DeleteWorkflowResponseTypeDef = TypedDict(
     },
 )
 
+DeltaTargetTypeDef = TypedDict(
+    "DeltaTargetTypeDef",
+    {
+        "DeltaTables": List[str],
+        "ConnectionName": str,
+        "WriteManifest": bool,
+    },
+    total=False,
+)
+
 DevEndpointCustomLibrariesTypeDef = TypedDict(
     "DevEndpointCustomLibrariesTypeDef",
     {
@@ -2497,6 +3051,61 @@ DevEndpointTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDirectKafkaSourceTypeDef = TypedDict(
+    "_RequiredDirectKafkaSourceTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalDirectKafkaSourceTypeDef = TypedDict(
+    "_OptionalDirectKafkaSourceTypeDef",
+    {
+        "StreamingOptions": "KafkaStreamingSourceOptionsTypeDef",
+        "WindowSize": int,
+        "DetectSchema": bool,
+        "DataPreviewOptions": "StreamingDataPreviewOptionsTypeDef",
+    },
+    total=False,
+)
+
+class DirectKafkaSourceTypeDef(
+    _RequiredDirectKafkaSourceTypeDef, _OptionalDirectKafkaSourceTypeDef
+):
+    pass
+
+_RequiredDirectKinesisSourceTypeDef = TypedDict(
+    "_RequiredDirectKinesisSourceTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalDirectKinesisSourceTypeDef = TypedDict(
+    "_OptionalDirectKinesisSourceTypeDef",
+    {
+        "WindowSize": int,
+        "DetectSchema": bool,
+        "StreamingOptions": "KinesisStreamingSourceOptionsTypeDef",
+        "DataPreviewOptions": "StreamingDataPreviewOptionsTypeDef",
+    },
+    total=False,
+)
+
+class DirectKinesisSourceTypeDef(
+    _RequiredDirectKinesisSourceTypeDef, _OptionalDirectKinesisSourceTypeDef
+):
+    pass
+
+DirectSchemaChangePolicyTypeDef = TypedDict(
+    "DirectSchemaChangePolicyTypeDef",
+    {
+        "EnableUpdateCatalog": bool,
+        "UpdateBehavior": UpdateCatalogBehaviorType,
+        "Table": str,
+        "Database": str,
+    },
+    total=False,
+)
+
 _RequiredDoubleColumnStatisticsDataTypeDef = TypedDict(
     "_RequiredDoubleColumnStatisticsDataTypeDef",
     {
@@ -2517,6 +3126,61 @@ class DoubleColumnStatisticsDataTypeDef(
     _RequiredDoubleColumnStatisticsDataTypeDef, _OptionalDoubleColumnStatisticsDataTypeDef
 ):
     pass
+
+_RequiredDropDuplicatesTypeDef = TypedDict(
+    "_RequiredDropDuplicatesTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+    },
+)
+_OptionalDropDuplicatesTypeDef = TypedDict(
+    "_OptionalDropDuplicatesTypeDef",
+    {
+        "Columns": List[List[str]],
+    },
+    total=False,
+)
+
+class DropDuplicatesTypeDef(_RequiredDropDuplicatesTypeDef, _OptionalDropDuplicatesTypeDef):
+    pass
+
+DropFieldsTypeDef = TypedDict(
+    "DropFieldsTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Paths": List[List[str]],
+    },
+)
+
+_RequiredDropNullFieldsTypeDef = TypedDict(
+    "_RequiredDropNullFieldsTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+    },
+)
+_OptionalDropNullFieldsTypeDef = TypedDict(
+    "_OptionalDropNullFieldsTypeDef",
+    {
+        "NullCheckBoxList": "NullCheckBoxListTypeDef",
+        "NullTextList": List["NullValueFieldTypeDef"],
+    },
+    total=False,
+)
+
+class DropNullFieldsTypeDef(_RequiredDropNullFieldsTypeDef, _OptionalDropNullFieldsTypeDef):
+    pass
+
+DynamoDBCatalogSourceTypeDef = TypedDict(
+    "DynamoDBCatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
 
 DynamoDBTargetTypeDef = TypedDict(
     "DynamoDBTargetTypeDef",
@@ -2634,6 +3298,63 @@ ExportLabelsTaskRunPropertiesTypeDef = TypedDict(
         "OutputS3Path": str,
     },
     total=False,
+)
+
+_RequiredFillMissingValuesTypeDef = TypedDict(
+    "_RequiredFillMissingValuesTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "ImputedPath": str,
+    },
+)
+_OptionalFillMissingValuesTypeDef = TypedDict(
+    "_OptionalFillMissingValuesTypeDef",
+    {
+        "FilledPath": str,
+    },
+    total=False,
+)
+
+class FillMissingValuesTypeDef(
+    _RequiredFillMissingValuesTypeDef, _OptionalFillMissingValuesTypeDef
+):
+    pass
+
+_RequiredFilterExpressionTypeDef = TypedDict(
+    "_RequiredFilterExpressionTypeDef",
+    {
+        "Operation": FilterOperationType,
+        "Values": List["FilterValueTypeDef"],
+    },
+)
+_OptionalFilterExpressionTypeDef = TypedDict(
+    "_OptionalFilterExpressionTypeDef",
+    {
+        "Negated": bool,
+    },
+    total=False,
+)
+
+class FilterExpressionTypeDef(_RequiredFilterExpressionTypeDef, _OptionalFilterExpressionTypeDef):
+    pass
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "LogicalOperator": FilterLogicalOperatorType,
+        "Filters": List["FilterExpressionTypeDef"],
+    },
+)
+
+FilterValueTypeDef = TypedDict(
+    "FilterValueTypeDef",
+    {
+        "Type": FilterValueTypeType,
+        "Value": List[str],
+    },
 )
 
 FindMatchesMetricsTypeDef = TypedDict(
@@ -2961,6 +3682,23 @@ GetCrawlersResponseTypeDef = TypedDict(
     {
         "Crawlers": List["CrawlerTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetCustomEntityTypeRequestRequestTypeDef = TypedDict(
+    "GetCustomEntityTypeRequestRequestTypeDef",
+    {
+        "Name": str,
+    },
+)
+
+GetCustomEntityTypeResponseTypeDef = TypedDict(
+    "GetCustomEntityTypeResponseTypeDef",
+    {
+        "Name": str,
+        "RegexString": str,
+        "ContextWords": List[str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3639,6 +4377,61 @@ GetSecurityConfigurationsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredGetSessionRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalGetSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalGetSessionRequestRequestTypeDef",
+    {
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+class GetSessionRequestRequestTypeDef(
+    _RequiredGetSessionRequestRequestTypeDef, _OptionalGetSessionRequestRequestTypeDef
+):
+    pass
+
+GetSessionResponseTypeDef = TypedDict(
+    "GetSessionResponseTypeDef",
+    {
+        "Session": "SessionTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetStatementRequestRequestTypeDef = TypedDict(
+    "_RequiredGetStatementRequestRequestTypeDef",
+    {
+        "SessionId": str,
+        "Id": int,
+    },
+)
+_OptionalGetStatementRequestRequestTypeDef = TypedDict(
+    "_OptionalGetStatementRequestRequestTypeDef",
+    {
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+class GetStatementRequestRequestTypeDef(
+    _RequiredGetStatementRequestRequestTypeDef, _OptionalGetStatementRequestRequestTypeDef
+):
+    pass
+
+GetStatementResponseTypeDef = TypedDict(
+    "GetStatementResponseTypeDef",
+    {
+        "Statement": "StatementTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetTableRequestRequestTypeDef = TypedDict(
     "_RequiredGetTableRequestRequestTypeDef",
     {
@@ -3807,6 +4600,110 @@ GetTriggersResponseTypeDef = TypedDict(
     {
         "Triggers": List["TriggerTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetUnfilteredPartitionMetadataRequestRequestTypeDef = TypedDict(
+    "_RequiredGetUnfilteredPartitionMetadataRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "PartitionValues": List[str],
+        "SupportedPermissionTypes": List[PermissionTypeType],
+    },
+)
+_OptionalGetUnfilteredPartitionMetadataRequestRequestTypeDef = TypedDict(
+    "_OptionalGetUnfilteredPartitionMetadataRequestRequestTypeDef",
+    {
+        "AuditContext": "AuditContextTypeDef",
+    },
+    total=False,
+)
+
+class GetUnfilteredPartitionMetadataRequestRequestTypeDef(
+    _RequiredGetUnfilteredPartitionMetadataRequestRequestTypeDef,
+    _OptionalGetUnfilteredPartitionMetadataRequestRequestTypeDef,
+):
+    pass
+
+GetUnfilteredPartitionMetadataResponseTypeDef = TypedDict(
+    "GetUnfilteredPartitionMetadataResponseTypeDef",
+    {
+        "Partition": "PartitionTypeDef",
+        "AuthorizedColumns": List[str],
+        "IsRegisteredWithLakeFormation": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetUnfilteredPartitionsMetadataRequestRequestTypeDef = TypedDict(
+    "_RequiredGetUnfilteredPartitionsMetadataRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "SupportedPermissionTypes": List[PermissionTypeType],
+    },
+)
+_OptionalGetUnfilteredPartitionsMetadataRequestRequestTypeDef = TypedDict(
+    "_OptionalGetUnfilteredPartitionsMetadataRequestRequestTypeDef",
+    {
+        "Expression": str,
+        "AuditContext": "AuditContextTypeDef",
+        "NextToken": str,
+        "Segment": "SegmentTypeDef",
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetUnfilteredPartitionsMetadataRequestRequestTypeDef(
+    _RequiredGetUnfilteredPartitionsMetadataRequestRequestTypeDef,
+    _OptionalGetUnfilteredPartitionsMetadataRequestRequestTypeDef,
+):
+    pass
+
+GetUnfilteredPartitionsMetadataResponseTypeDef = TypedDict(
+    "GetUnfilteredPartitionsMetadataResponseTypeDef",
+    {
+        "UnfilteredPartitions": List["UnfilteredPartitionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetUnfilteredTableMetadataRequestRequestTypeDef = TypedDict(
+    "_RequiredGetUnfilteredTableMetadataRequestRequestTypeDef",
+    {
+        "CatalogId": str,
+        "DatabaseName": str,
+        "Name": str,
+        "SupportedPermissionTypes": List[PermissionTypeType],
+    },
+)
+_OptionalGetUnfilteredTableMetadataRequestRequestTypeDef = TypedDict(
+    "_OptionalGetUnfilteredTableMetadataRequestRequestTypeDef",
+    {
+        "AuditContext": "AuditContextTypeDef",
+    },
+    total=False,
+)
+
+class GetUnfilteredTableMetadataRequestRequestTypeDef(
+    _RequiredGetUnfilteredTableMetadataRequestRequestTypeDef,
+    _OptionalGetUnfilteredTableMetadataRequestRequestTypeDef,
+):
+    pass
+
+GetUnfilteredTableMetadataResponseTypeDef = TypedDict(
+    "GetUnfilteredTableMetadataResponseTypeDef",
+    {
+        "Table": "TableTypeDef",
+        "AuthorizedColumns": List[str],
+        "IsRegisteredWithLakeFormation": bool,
+        "CellFilters": List["ColumnRowFilterTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3984,6 +4881,33 @@ GluePolicyTypeDef = TypedDict(
     total=False,
 )
 
+GlueSchemaTypeDef = TypedDict(
+    "GlueSchemaTypeDef",
+    {
+        "Columns": List["GlueStudioSchemaColumnTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredGlueStudioSchemaColumnTypeDef = TypedDict(
+    "_RequiredGlueStudioSchemaColumnTypeDef",
+    {
+        "Name": str,
+    },
+)
+_OptionalGlueStudioSchemaColumnTypeDef = TypedDict(
+    "_OptionalGlueStudioSchemaColumnTypeDef",
+    {
+        "Type": str,
+    },
+    total=False,
+)
+
+class GlueStudioSchemaColumnTypeDef(
+    _RequiredGlueStudioSchemaColumnTypeDef, _OptionalGlueStudioSchemaColumnTypeDef
+):
+    pass
+
 _RequiredGlueTableTypeDef = TypedDict(
     "_RequiredGlueTableTypeDef",
     {
@@ -4001,6 +4925,51 @@ _OptionalGlueTableTypeDef = TypedDict(
 )
 
 class GlueTableTypeDef(_RequiredGlueTableTypeDef, _OptionalGlueTableTypeDef):
+    pass
+
+_RequiredGovernedCatalogSourceTypeDef = TypedDict(
+    "_RequiredGovernedCatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalGovernedCatalogSourceTypeDef = TypedDict(
+    "_OptionalGovernedCatalogSourceTypeDef",
+    {
+        "PartitionPredicate": str,
+        "AdditionalOptions": "S3SourceAdditionalOptionsTypeDef",
+    },
+    total=False,
+)
+
+class GovernedCatalogSourceTypeDef(
+    _RequiredGovernedCatalogSourceTypeDef, _OptionalGovernedCatalogSourceTypeDef
+):
+    pass
+
+_RequiredGovernedCatalogTargetTypeDef = TypedDict(
+    "_RequiredGovernedCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Table": str,
+        "Database": str,
+    },
+)
+_OptionalGovernedCatalogTargetTypeDef = TypedDict(
+    "_OptionalGovernedCatalogTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "SchemaChangePolicy": "CatalogSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class GovernedCatalogTargetTypeDef(
+    _RequiredGovernedCatalogTargetTypeDef, _OptionalGovernedCatalogTargetTypeDef
+):
     pass
 
 _RequiredGrokClassifierTypeDef = TypedDict(
@@ -4041,6 +5010,71 @@ ImportLabelsTaskRunPropertiesTypeDef = TypedDict(
     },
     total=False,
 )
+
+JDBCConnectorOptionsTypeDef = TypedDict(
+    "JDBCConnectorOptionsTypeDef",
+    {
+        "FilterPredicate": str,
+        "PartitionColumn": str,
+        "LowerBound": int,
+        "UpperBound": int,
+        "NumPartitions": int,
+        "JobBookmarkKeys": List[str],
+        "JobBookmarkKeysSortOrder": str,
+        "DataTypeMapping": Dict[JDBCDataTypeType, GlueRecordTypeType],
+    },
+    total=False,
+)
+
+_RequiredJDBCConnectorSourceTypeDef = TypedDict(
+    "_RequiredJDBCConnectorSourceTypeDef",
+    {
+        "Name": str,
+        "ConnectionName": str,
+        "ConnectorName": str,
+        "ConnectionType": str,
+    },
+)
+_OptionalJDBCConnectorSourceTypeDef = TypedDict(
+    "_OptionalJDBCConnectorSourceTypeDef",
+    {
+        "AdditionalOptions": "JDBCConnectorOptionsTypeDef",
+        "ConnectionTable": str,
+        "Query": str,
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class JDBCConnectorSourceTypeDef(
+    _RequiredJDBCConnectorSourceTypeDef, _OptionalJDBCConnectorSourceTypeDef
+):
+    pass
+
+_RequiredJDBCConnectorTargetTypeDef = TypedDict(
+    "_RequiredJDBCConnectorTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "ConnectionName": str,
+        "ConnectionTable": str,
+        "ConnectorName": str,
+        "ConnectionType": str,
+    },
+)
+_OptionalJDBCConnectorTargetTypeDef = TypedDict(
+    "_OptionalJDBCConnectorTargetTypeDef",
+    {
+        "AdditionalOptions": Dict[str, str],
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class JDBCConnectorTargetTypeDef(
+    _RequiredJDBCConnectorTargetTypeDef, _OptionalJDBCConnectorTargetTypeDef
+):
+    pass
 
 JdbcTargetTypeDef = TypedDict(
     "JdbcTargetTypeDef",
@@ -4118,6 +5152,7 @@ JobRunTypeDef = TypedDict(
         "LogGroupName": str,
         "NotificationProperty": "NotificationPropertyTypeDef",
         "GlueVersion": str,
+        "DPUSeconds": float,
     },
     total=False,
 )
@@ -4145,6 +5180,7 @@ JobTypeDef = TypedDict(
         "SecurityConfiguration": str,
         "NotificationProperty": "NotificationPropertyTypeDef",
         "GlueVersion": str,
+        "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
     },
     total=False,
 )
@@ -4169,8 +5205,27 @@ JobUpdateTypeDef = TypedDict(
         "SecurityConfiguration": str,
         "NotificationProperty": "NotificationPropertyTypeDef",
         "GlueVersion": str,
+        "CodeGenConfigurationNodes": Dict[str, "CodeGenConfigurationNodeTypeDef"],
     },
     total=False,
+)
+
+JoinColumnTypeDef = TypedDict(
+    "JoinColumnTypeDef",
+    {
+        "From": str,
+        "Keys": List[List[str]],
+    },
+)
+
+JoinTypeDef = TypedDict(
+    "JoinTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "JoinType": JoinTypeType,
+        "Columns": List["JoinColumnTypeDef"],
+    },
 )
 
 _RequiredJsonClassifierTypeDef = TypedDict(
@@ -4193,6 +5248,28 @@ _OptionalJsonClassifierTypeDef = TypedDict(
 class JsonClassifierTypeDef(_RequiredJsonClassifierTypeDef, _OptionalJsonClassifierTypeDef):
     pass
 
+KafkaStreamingSourceOptionsTypeDef = TypedDict(
+    "KafkaStreamingSourceOptionsTypeDef",
+    {
+        "BootstrapServers": str,
+        "SecurityProtocol": str,
+        "ConnectionName": str,
+        "TopicName": str,
+        "Assign": str,
+        "SubscribePattern": str,
+        "Classification": str,
+        "Delimiter": str,
+        "StartingOffsets": str,
+        "EndingOffsets": str,
+        "PollTimeoutMs": int,
+        "NumRetries": int,
+        "RetryIntervalMs": int,
+        "MaxOffsetsPerTrigger": int,
+        "MinPartitions": int,
+    },
+    total=False,
+)
+
 KeySchemaElementTypeDef = TypedDict(
     "KeySchemaElementTypeDef",
     {
@@ -4201,10 +5278,44 @@ KeySchemaElementTypeDef = TypedDict(
     },
 )
 
+KinesisStreamingSourceOptionsTypeDef = TypedDict(
+    "KinesisStreamingSourceOptionsTypeDef",
+    {
+        "EndpointUrl": str,
+        "StreamName": str,
+        "Classification": str,
+        "Delimiter": str,
+        "StartingPosition": StartingPositionType,
+        "MaxFetchTimeInMs": int,
+        "MaxFetchRecordsPerShard": int,
+        "MaxRecordPerRead": int,
+        "AddIdleTimeBetweenReads": bool,
+        "IdleTimeBetweenReadsInMs": int,
+        "DescribeShardInterval": int,
+        "NumRetries": int,
+        "RetryIntervalMs": int,
+        "MaxRetryIntervalMs": int,
+        "AvoidEmptyBatches": bool,
+        "StreamArn": str,
+        "RoleArn": str,
+        "RoleSessionName": str,
+    },
+    total=False,
+)
+
 LabelingSetGenerationTaskRunPropertiesTypeDef = TypedDict(
     "LabelingSetGenerationTaskRunPropertiesTypeDef",
     {
         "OutputS3Path": str,
+    },
+    total=False,
+)
+
+LakeFormationConfigurationTypeDef = TypedDict(
+    "LakeFormationConfigurationTypeDef",
+    {
+        "UseLakeFormationCredentials": bool,
+        "AccountId": str,
     },
     total=False,
 )
@@ -4275,6 +5386,24 @@ ListCrawlersResponseTypeDef = TypedDict(
     "ListCrawlersResponseTypeDef",
     {
         "CrawlerNames": List[str],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCustomEntityTypesRequestRequestTypeDef = TypedDict(
+    "ListCustomEntityTypesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+ListCustomEntityTypesResponseTypeDef = TypedDict(
+    "ListCustomEntityTypesResponseTypeDef",
+    {
+        "CustomEntityTypes": List["CustomEntityTypeTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -4400,6 +5529,56 @@ ListSchemasResponseTypeDef = TypedDict(
     "ListSchemasResponseTypeDef",
     {
         "Schemas": List["SchemaListItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListSessionsRequestRequestTypeDef = TypedDict(
+    "ListSessionsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Tags": Dict[str, str],
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+ListSessionsResponseTypeDef = TypedDict(
+    "ListSessionsResponseTypeDef",
+    {
+        "Ids": List[str],
+        "Sessions": List["SessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListStatementsRequestRequestTypeDef = TypedDict(
+    "_RequiredListStatementsRequestRequestTypeDef",
+    {
+        "SessionId": str,
+    },
+)
+_OptionalListStatementsRequestRequestTypeDef = TypedDict(
+    "_OptionalListStatementsRequestRequestTypeDef",
+    {
+        "RequestOrigin": str,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListStatementsRequestRequestTypeDef(
+    _RequiredListStatementsRequestRequestTypeDef, _OptionalListStatementsRequestRequestTypeDef
+):
+    pass
+
+ListStatementsResponseTypeDef = TypedDict(
+    "ListStatementsResponseTypeDef",
+    {
+        "Statements": List["StatementTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -4532,6 +5711,29 @@ MappingEntryTypeDef = TypedDict(
     total=False,
 )
 
+MappingTypeDef = TypedDict(
+    "MappingTypeDef",
+    {
+        "ToKey": str,
+        "FromPath": List[str],
+        "FromType": str,
+        "ToType": str,
+        "Dropped": bool,
+        "Children": List[Dict[str, Any]],
+    },
+    total=False,
+)
+
+MergeTypeDef = TypedDict(
+    "MergeTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Source": str,
+        "PrimaryKeys": List[List[str]],
+    },
+)
+
 MetadataInfoTypeDef = TypedDict(
     "MetadataInfoTypeDef",
     {
@@ -4551,6 +5753,25 @@ MetadataKeyValuePairTypeDef = TypedDict(
     total=False,
 )
 
+MicrosoftSQLServerCatalogSourceTypeDef = TypedDict(
+    "MicrosoftSQLServerCatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+
+MicrosoftSQLServerCatalogTargetTypeDef = TypedDict(
+    "MicrosoftSQLServerCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Database": str,
+        "Table": str,
+    },
+)
+
 MongoDBTargetTypeDef = TypedDict(
     "MongoDBTargetTypeDef",
     {
@@ -4559,6 +5780,25 @@ MongoDBTargetTypeDef = TypedDict(
         "ScanAll": bool,
     },
     total=False,
+)
+
+MySQLCatalogSourceTypeDef = TypedDict(
+    "MySQLCatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+
+MySQLCatalogTargetTypeDef = TypedDict(
+    "MySQLCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Database": str,
+        "Table": str,
+    },
 )
 
 NodeTypeDef = TypedDict(
@@ -4582,6 +5822,43 @@ NotificationPropertyTypeDef = TypedDict(
     total=False,
 )
 
+NullCheckBoxListTypeDef = TypedDict(
+    "NullCheckBoxListTypeDef",
+    {
+        "IsEmpty": bool,
+        "IsNullString": bool,
+        "IsNegOne": bool,
+    },
+    total=False,
+)
+
+NullValueFieldTypeDef = TypedDict(
+    "NullValueFieldTypeDef",
+    {
+        "Value": str,
+        "Datatype": "DatatypeTypeDef",
+    },
+)
+
+OracleSQLCatalogSourceTypeDef = TypedDict(
+    "OracleSQLCatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+
+OracleSQLCatalogTargetTypeDef = TypedDict(
+    "OracleSQLCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Database": str,
+        "Table": str,
+    },
+)
+
 OrderTypeDef = TypedDict(
     "OrderTypeDef",
     {
@@ -4598,6 +5875,29 @@ OtherMetadataValueListItemTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredPIIDetectionTypeDef = TypedDict(
+    "_RequiredPIIDetectionTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "PiiType": PiiTypeType,
+        "EntityTypesToDetect": List[str],
+    },
+)
+_OptionalPIIDetectionTypeDef = TypedDict(
+    "_OptionalPIIDetectionTypeDef",
+    {
+        "OutputColumnName": str,
+        "SampleFraction": float,
+        "ThresholdFraction": float,
+        "MaskValue": str,
+    },
+    total=False,
+)
+
+class PIIDetectionTypeDef(_RequiredPIIDetectionTypeDef, _OptionalPIIDetectionTypeDef):
+    pass
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
@@ -4690,6 +5990,25 @@ PhysicalConnectionRequirementsTypeDef = TypedDict(
         "AvailabilityZone": str,
     },
     total=False,
+)
+
+PostgreSQLCatalogSourceTypeDef = TypedDict(
+    "PostgreSQLCatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+
+PostgreSQLCatalogTargetTypeDef = TypedDict(
+    "PostgreSQLCatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Database": str,
+        "Table": str,
+    },
 )
 
 PredecessorTypeDef = TypedDict(
@@ -4856,6 +6175,48 @@ RecrawlPolicyTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredRedshiftSourceTypeDef = TypedDict(
+    "_RequiredRedshiftSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalRedshiftSourceTypeDef = TypedDict(
+    "_OptionalRedshiftSourceTypeDef",
+    {
+        "RedshiftTmpDir": str,
+        "TmpDirIAMRole": str,
+    },
+    total=False,
+)
+
+class RedshiftSourceTypeDef(_RequiredRedshiftSourceTypeDef, _OptionalRedshiftSourceTypeDef):
+    pass
+
+_RequiredRedshiftTargetTypeDef = TypedDict(
+    "_RequiredRedshiftTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalRedshiftTargetTypeDef = TypedDict(
+    "_OptionalRedshiftTargetTypeDef",
+    {
+        "RedshiftTmpDir": str,
+        "TmpDirIAMRole": str,
+        "UpsertRedshiftOptions": "UpsertRedshiftTargetOptionsTypeDef",
+    },
+    total=False,
+)
+
+class RedshiftTargetTypeDef(_RequiredRedshiftTargetTypeDef, _OptionalRedshiftTargetTypeDef):
+    pass
+
 RegisterSchemaVersionInputRequestTypeDef = TypedDict(
     "RegisterSchemaVersionInputRequestTypeDef",
     {
@@ -4896,6 +6257,15 @@ RegistryListItemTypeDef = TypedDict(
     total=False,
 )
 
+RelationalCatalogSourceTypeDef = TypedDict(
+    "RelationalCatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+
 _RequiredRemoveSchemaVersionMetadataInputRequestTypeDef = TypedDict(
     "_RequiredRemoveSchemaVersionMetadataInputRequestTypeDef",
     {
@@ -4930,6 +6300,16 @@ RemoveSchemaVersionMetadataResponseTypeDef = TypedDict(
         "MetadataKey": str,
         "MetadataValue": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+RenameFieldTypeDef = TypedDict(
+    "RenameFieldTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "SourcePath": List[str],
+        "TargetPath": List[str],
     },
 )
 
@@ -4998,11 +6378,233 @@ ResumeWorkflowRunResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredRunStatementRequestRequestTypeDef = TypedDict(
+    "_RequiredRunStatementRequestRequestTypeDef",
+    {
+        "SessionId": str,
+        "Code": str,
+    },
+)
+_OptionalRunStatementRequestRequestTypeDef = TypedDict(
+    "_OptionalRunStatementRequestRequestTypeDef",
+    {
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+class RunStatementRequestRequestTypeDef(
+    _RequiredRunStatementRequestRequestTypeDef, _OptionalRunStatementRequestRequestTypeDef
+):
+    pass
+
+RunStatementResponseTypeDef = TypedDict(
+    "RunStatementResponseTypeDef",
+    {
+        "Id": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredS3CatalogSourceTypeDef = TypedDict(
+    "_RequiredS3CatalogSourceTypeDef",
+    {
+        "Name": str,
+        "Database": str,
+        "Table": str,
+    },
+)
+_OptionalS3CatalogSourceTypeDef = TypedDict(
+    "_OptionalS3CatalogSourceTypeDef",
+    {
+        "PartitionPredicate": str,
+        "AdditionalOptions": "S3SourceAdditionalOptionsTypeDef",
+    },
+    total=False,
+)
+
+class S3CatalogSourceTypeDef(_RequiredS3CatalogSourceTypeDef, _OptionalS3CatalogSourceTypeDef):
+    pass
+
+_RequiredS3CatalogTargetTypeDef = TypedDict(
+    "_RequiredS3CatalogTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Table": str,
+        "Database": str,
+    },
+)
+_OptionalS3CatalogTargetTypeDef = TypedDict(
+    "_OptionalS3CatalogTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "SchemaChangePolicy": "CatalogSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class S3CatalogTargetTypeDef(_RequiredS3CatalogTargetTypeDef, _OptionalS3CatalogTargetTypeDef):
+    pass
+
+_RequiredS3CsvSourceTypeDef = TypedDict(
+    "_RequiredS3CsvSourceTypeDef",
+    {
+        "Name": str,
+        "Paths": List[str],
+        "Separator": SeparatorType,
+        "QuoteChar": QuoteCharType,
+    },
+)
+_OptionalS3CsvSourceTypeDef = TypedDict(
+    "_OptionalS3CsvSourceTypeDef",
+    {
+        "CompressionType": CompressionTypeType,
+        "Exclusions": List[str],
+        "GroupSize": str,
+        "GroupFiles": str,
+        "Recurse": bool,
+        "MaxBand": int,
+        "MaxFilesInBand": int,
+        "AdditionalOptions": "S3DirectSourceAdditionalOptionsTypeDef",
+        "Escaper": str,
+        "Multiline": bool,
+        "WithHeader": bool,
+        "WriteHeader": bool,
+        "SkipFirst": bool,
+        "OptimizePerformance": bool,
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class S3CsvSourceTypeDef(_RequiredS3CsvSourceTypeDef, _OptionalS3CsvSourceTypeDef):
+    pass
+
+S3DirectSourceAdditionalOptionsTypeDef = TypedDict(
+    "S3DirectSourceAdditionalOptionsTypeDef",
+    {
+        "BoundedSize": int,
+        "BoundedFiles": int,
+        "EnableSamplePath": bool,
+        "SamplePath": str,
+    },
+    total=False,
+)
+
+_RequiredS3DirectTargetTypeDef = TypedDict(
+    "_RequiredS3DirectTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Path": str,
+        "Format": TargetFormatType,
+    },
+)
+_OptionalS3DirectTargetTypeDef = TypedDict(
+    "_OptionalS3DirectTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "Compression": str,
+        "SchemaChangePolicy": "DirectSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class S3DirectTargetTypeDef(_RequiredS3DirectTargetTypeDef, _OptionalS3DirectTargetTypeDef):
+    pass
+
 S3EncryptionTypeDef = TypedDict(
     "S3EncryptionTypeDef",
     {
         "S3EncryptionMode": S3EncryptionModeType,
         "KmsKeyArn": str,
+    },
+    total=False,
+)
+
+_RequiredS3GlueParquetTargetTypeDef = TypedDict(
+    "_RequiredS3GlueParquetTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Path": str,
+    },
+)
+_OptionalS3GlueParquetTargetTypeDef = TypedDict(
+    "_OptionalS3GlueParquetTargetTypeDef",
+    {
+        "PartitionKeys": List[List[str]],
+        "Compression": ParquetCompressionTypeType,
+        "SchemaChangePolicy": "DirectSchemaChangePolicyTypeDef",
+    },
+    total=False,
+)
+
+class S3GlueParquetTargetTypeDef(
+    _RequiredS3GlueParquetTargetTypeDef, _OptionalS3GlueParquetTargetTypeDef
+):
+    pass
+
+_RequiredS3JsonSourceTypeDef = TypedDict(
+    "_RequiredS3JsonSourceTypeDef",
+    {
+        "Name": str,
+        "Paths": List[str],
+    },
+)
+_OptionalS3JsonSourceTypeDef = TypedDict(
+    "_OptionalS3JsonSourceTypeDef",
+    {
+        "CompressionType": CompressionTypeType,
+        "Exclusions": List[str],
+        "GroupSize": str,
+        "GroupFiles": str,
+        "Recurse": bool,
+        "MaxBand": int,
+        "MaxFilesInBand": int,
+        "AdditionalOptions": "S3DirectSourceAdditionalOptionsTypeDef",
+        "JsonPath": str,
+        "Multiline": bool,
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class S3JsonSourceTypeDef(_RequiredS3JsonSourceTypeDef, _OptionalS3JsonSourceTypeDef):
+    pass
+
+_RequiredS3ParquetSourceTypeDef = TypedDict(
+    "_RequiredS3ParquetSourceTypeDef",
+    {
+        "Name": str,
+        "Paths": List[str],
+    },
+)
+_OptionalS3ParquetSourceTypeDef = TypedDict(
+    "_OptionalS3ParquetSourceTypeDef",
+    {
+        "CompressionType": ParquetCompressionTypeType,
+        "Exclusions": List[str],
+        "GroupSize": str,
+        "GroupFiles": str,
+        "Recurse": bool,
+        "MaxBand": int,
+        "MaxFilesInBand": int,
+        "AdditionalOptions": "S3DirectSourceAdditionalOptionsTypeDef",
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class S3ParquetSourceTypeDef(_RequiredS3ParquetSourceTypeDef, _OptionalS3ParquetSourceTypeDef):
+    pass
+
+S3SourceAdditionalOptionsTypeDef = TypedDict(
+    "S3SourceAdditionalOptionsTypeDef",
+    {
+        "BoundedSize": int,
+        "BoundedFiles": int,
     },
     total=False,
 )
@@ -5152,12 +6754,59 @@ SegmentTypeDef = TypedDict(
     },
 )
 
+SelectFieldsTypeDef = TypedDict(
+    "SelectFieldsTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Paths": List[List[str]],
+    },
+)
+
+SelectFromCollectionTypeDef = TypedDict(
+    "SelectFromCollectionTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Index": int,
+    },
+)
+
 SerDeInfoTypeDef = TypedDict(
     "SerDeInfoTypeDef",
     {
         "Name": str,
         "SerializationLibrary": str,
         "Parameters": Dict[str, str],
+    },
+    total=False,
+)
+
+SessionCommandTypeDef = TypedDict(
+    "SessionCommandTypeDef",
+    {
+        "Name": str,
+        "PythonVersion": str,
+    },
+    total=False,
+)
+
+SessionTypeDef = TypedDict(
+    "SessionTypeDef",
+    {
+        "Id": str,
+        "CreatedOn": datetime,
+        "Status": SessionStatusType,
+        "ErrorMessage": str,
+        "Description": str,
+        "Role": str,
+        "Command": "SessionCommandTypeDef",
+        "DefaultArguments": Dict[str, str],
+        "Connections": "ConnectionsListTypeDef",
+        "Progress": float,
+        "MaxCapacity": float,
+        "SecurityConfiguration": str,
+        "GlueVersion": str,
     },
     total=False,
 )
@@ -5179,6 +6828,110 @@ SortCriterionTypeDef = TypedDict(
         "Sort": SortType,
     },
     total=False,
+)
+
+_RequiredSparkConnectorSourceTypeDef = TypedDict(
+    "_RequiredSparkConnectorSourceTypeDef",
+    {
+        "Name": str,
+        "ConnectionName": str,
+        "ConnectorName": str,
+        "ConnectionType": str,
+    },
+)
+_OptionalSparkConnectorSourceTypeDef = TypedDict(
+    "_OptionalSparkConnectorSourceTypeDef",
+    {
+        "AdditionalOptions": Dict[str, str],
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class SparkConnectorSourceTypeDef(
+    _RequiredSparkConnectorSourceTypeDef, _OptionalSparkConnectorSourceTypeDef
+):
+    pass
+
+_RequiredSparkConnectorTargetTypeDef = TypedDict(
+    "_RequiredSparkConnectorTargetTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "ConnectionName": str,
+        "ConnectorName": str,
+        "ConnectionType": str,
+    },
+)
+_OptionalSparkConnectorTargetTypeDef = TypedDict(
+    "_OptionalSparkConnectorTargetTypeDef",
+    {
+        "AdditionalOptions": Dict[str, str],
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class SparkConnectorTargetTypeDef(
+    _RequiredSparkConnectorTargetTypeDef, _OptionalSparkConnectorTargetTypeDef
+):
+    pass
+
+_RequiredSparkSQLTypeDef = TypedDict(
+    "_RequiredSparkSQLTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "SqlQuery": str,
+        "SqlAliases": List["SqlAliasTypeDef"],
+    },
+)
+_OptionalSparkSQLTypeDef = TypedDict(
+    "_OptionalSparkSQLTypeDef",
+    {
+        "OutputSchemas": List["GlueSchemaTypeDef"],
+    },
+    total=False,
+)
+
+class SparkSQLTypeDef(_RequiredSparkSQLTypeDef, _OptionalSparkSQLTypeDef):
+    pass
+
+_RequiredSpigotTypeDef = TypedDict(
+    "_RequiredSpigotTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Path": str,
+    },
+)
+_OptionalSpigotTypeDef = TypedDict(
+    "_OptionalSpigotTypeDef",
+    {
+        "Topk": int,
+        "Prob": float,
+    },
+    total=False,
+)
+
+class SpigotTypeDef(_RequiredSpigotTypeDef, _OptionalSpigotTypeDef):
+    pass
+
+SplitFieldsTypeDef = TypedDict(
+    "SplitFieldsTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "Paths": List[List[str]],
+    },
+)
+
+SqlAliasTypeDef = TypedDict(
+    "SqlAliasTypeDef",
+    {
+        "From": str,
+        "Alias": str,
+    },
 )
 
 _RequiredStartBlueprintRunRequestRequestTypeDef = TypedDict(
@@ -5349,12 +7102,24 @@ StartTriggerResponseTypeDef = TypedDict(
     },
 )
 
-StartWorkflowRunRequestRequestTypeDef = TypedDict(
-    "StartWorkflowRunRequestRequestTypeDef",
+_RequiredStartWorkflowRunRequestRequestTypeDef = TypedDict(
+    "_RequiredStartWorkflowRunRequestRequestTypeDef",
     {
         "Name": str,
     },
 )
+_OptionalStartWorkflowRunRequestRequestTypeDef = TypedDict(
+    "_OptionalStartWorkflowRunRequestRequestTypeDef",
+    {
+        "RunProperties": Dict[str, str],
+    },
+    total=False,
+)
+
+class StartWorkflowRunRequestRequestTypeDef(
+    _RequiredStartWorkflowRunRequestRequestTypeDef, _OptionalStartWorkflowRunRequestRequestTypeDef
+):
+    pass
 
 StartWorkflowRunResponseTypeDef = TypedDict(
     "StartWorkflowRunResponseTypeDef",
@@ -5373,6 +7138,41 @@ StartingEventBatchConditionTypeDef = TypedDict(
     total=False,
 )
 
+StatementOutputDataTypeDef = TypedDict(
+    "StatementOutputDataTypeDef",
+    {
+        "TextPlain": str,
+    },
+    total=False,
+)
+
+StatementOutputTypeDef = TypedDict(
+    "StatementOutputTypeDef",
+    {
+        "Data": "StatementOutputDataTypeDef",
+        "ExecutionCount": int,
+        "Status": StatementStateType,
+        "ErrorName": str,
+        "ErrorValue": str,
+        "Traceback": List[str],
+    },
+    total=False,
+)
+
+StatementTypeDef = TypedDict(
+    "StatementTypeDef",
+    {
+        "Id": int,
+        "Code": str,
+        "State": StatementStateType,
+        "Output": "StatementOutputTypeDef",
+        "Progress": float,
+        "StartedOn": int,
+        "CompletedOn": int,
+    },
+    total=False,
+)
+
 StopCrawlerRequestRequestTypeDef = TypedDict(
     "StopCrawlerRequestRequestTypeDef",
     {
@@ -5384,6 +7184,33 @@ StopCrawlerScheduleRequestRequestTypeDef = TypedDict(
     "StopCrawlerScheduleRequestRequestTypeDef",
     {
         "CrawlerName": str,
+    },
+)
+
+_RequiredStopSessionRequestRequestTypeDef = TypedDict(
+    "_RequiredStopSessionRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
+_OptionalStopSessionRequestRequestTypeDef = TypedDict(
+    "_OptionalStopSessionRequestRequestTypeDef",
+    {
+        "RequestOrigin": str,
+    },
+    total=False,
+)
+
+class StopSessionRequestRequestTypeDef(
+    _RequiredStopSessionRequestRequestTypeDef, _OptionalStopSessionRequestRequestTypeDef
+):
+    pass
+
+StopSessionResponseTypeDef = TypedDict(
+    "StopSessionResponseTypeDef",
+    {
+        "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -5415,6 +7242,7 @@ StorageDescriptorTypeDef = TypedDict(
     {
         "Columns": List["ColumnTypeDef"],
         "Location": str,
+        "AdditionalLocations": List[str],
         "InputFormat": str,
         "OutputFormat": str,
         "Compressed": bool,
@@ -5426,6 +7254,15 @@ StorageDescriptorTypeDef = TypedDict(
         "SkewedInfo": "SkewedInfoTypeDef",
         "StoredAsSubDirectories": bool,
         "SchemaReference": "SchemaReferenceTypeDef",
+    },
+    total=False,
+)
+
+StreamingDataPreviewOptionsTypeDef = TypedDict(
+    "StreamingDataPreviewOptionsTypeDef",
+    {
+        "PollingTime": int,
+        "RecordPollingLimit": int,
     },
     total=False,
 )
@@ -5514,6 +7351,7 @@ _OptionalTableTypeDef = TypedDict(
         "IsRegisteredWithLakeFormation": bool,
         "TargetTable": "TableIdentifierTypeDef",
         "CatalogId": str,
+        "VersionId": str,
     },
     total=False,
 )
@@ -5686,6 +7524,25 @@ TriggerUpdateTypeDef = TypedDict(
     total=False,
 )
 
+UnfilteredPartitionTypeDef = TypedDict(
+    "UnfilteredPartitionTypeDef",
+    {
+        "Partition": "PartitionTypeDef",
+        "AuthorizedColumns": List[str],
+        "IsRegisteredWithLakeFormation": bool,
+    },
+    total=False,
+)
+
+UnionTypeDef = TypedDict(
+    "UnionTypeDef",
+    {
+        "Name": str,
+        "Inputs": List[str],
+        "UnionType": UnionTypeType,
+    },
+)
+
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",
     {
@@ -5833,6 +7690,7 @@ _OptionalUpdateCrawlerRequestRequestTypeDef = TypedDict(
         "SchemaChangePolicy": "SchemaChangePolicyTypeDef",
         "RecrawlPolicy": "RecrawlPolicyTypeDef",
         "LineageConfiguration": "LineageConfigurationTypeDef",
+        "LakeFormationConfiguration": "LakeFormationConfigurationTypeDef",
         "Configuration": str,
         "CrawlerSecurityConfiguration": str,
     },
@@ -6108,6 +7966,7 @@ _OptionalUpdateTableRequestRequestTypeDef = TypedDict(
         "CatalogId": str,
         "SkipArchive": bool,
         "TransactionId": str,
+        "VersionId": str,
     },
     total=False,
 )
@@ -6203,6 +8062,16 @@ class UpdateXMLClassifierRequestTypeDef(
     _RequiredUpdateXMLClassifierRequestTypeDef, _OptionalUpdateXMLClassifierRequestTypeDef
 ):
     pass
+
+UpsertRedshiftTargetOptionsTypeDef = TypedDict(
+    "UpsertRedshiftTargetOptionsTypeDef",
+    {
+        "TableLocation": str,
+        "ConnectionName": str,
+        "UpsertKeys": List[str],
+    },
+    total=False,
+)
 
 UserDefinedFunctionInputTypeDef = TypedDict(
     "UserDefinedFunctionInputTypeDef",

@@ -13,7 +13,8 @@ Usage::
     ```
 """
 import sys
-from typing import Any, Dict, List, Type
+from datetime import datetime
+from typing import Any, Dict, List, Type, Union, overload
 
 from botocore.client import BaseClient, ClientMeta
 
@@ -22,11 +23,13 @@ from .literals import (
     DASHDisplayFragmentNumberType,
     DASHDisplayFragmentTimestampType,
     DASHPlaybackModeType,
+    FormatType,
     HLSDiscontinuityModeType,
     HLSDisplayFragmentTimestampType,
     HLSPlaybackModeType,
+    ImageSelectorTypeType,
 )
-from .paginator import ListFragmentsPaginator
+from .paginator import GetImagesPaginator, ListFragmentsPaginator
 from .type_defs import (
     ClipFragmentSelectorTypeDef,
     DASHFragmentSelectorTypeDef,
@@ -34,6 +37,7 @@ from .type_defs import (
     GetClipOutputTypeDef,
     GetDASHStreamingSessionURLOutputTypeDef,
     GetHLSStreamingSessionURLOutputTypeDef,
+    GetImagesOutputTypeDef,
     GetMediaForFragmentListOutputTypeDef,
     HLSFragmentSelectorTypeDef,
     ListFragmentsOutputTypeDef,
@@ -48,6 +52,7 @@ __all__ = ("KinesisVideoArchivedMediaClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -66,11 +71,12 @@ class Exceptions:
 
 class KinesisVideoArchivedMediaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -80,7 +86,7 @@ class KinesisVideoArchivedMediaClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#can_paginate)
         """
     def generate_presigned_url(
@@ -93,7 +99,7 @@ class KinesisVideoArchivedMediaClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#generate_presigned_url)
         """
     def get_clip(
@@ -107,7 +113,7 @@ class KinesisVideoArchivedMediaClient(BaseClient):
         Downloads an MP4 file (clip) containing the archived, on-demand media from the
         specified video stream over the specified time range.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_clip)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_clip)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#get_clip)
         """
     def get_dash_streaming_session_url(
@@ -126,7 +132,7 @@ class KinesisVideoArchivedMediaClient(BaseClient):
         Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the
         stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_dash_streaming_session_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_dash_streaming_session_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#get_dash_streaming_session_url)
         """
     def get_hls_streaming_session_url(
@@ -145,8 +151,31 @@ class KinesisVideoArchivedMediaClient(BaseClient):
         """
         Retrieves an HTTP Live Streaming (HLS) URL for the stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_hls_streaming_session_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_hls_streaming_session_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#get_hls_streaming_session_url)
+        """
+    def get_images(
+        self,
+        *,
+        ImageSelectorType: ImageSelectorTypeType,
+        StartTimestamp: Union[datetime, str],
+        EndTimestamp: Union[datetime, str],
+        SamplingInterval: int,
+        Format: FormatType,
+        StreamName: str = None,
+        StreamARN: str = None,
+        FormatConfig: Dict[Literal["JPEGQuality"], str] = None,
+        WidthPixels: int = None,
+        HeightPixels: int = None,
+        MaxResults: int = None,
+        NextToken: str = None
+    ) -> GetImagesOutputTypeDef:
+        """
+        Retrieves a list of Images corresponding to each timestamp for a given time
+        range, sampling interval, and image format configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_images)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#get_images)
         """
     def get_media_for_fragment_list(
         self, *, Fragments: List[str], StreamName: str = None, StreamARN: str = None
@@ -155,7 +184,7 @@ class KinesisVideoArchivedMediaClient(BaseClient):
         Gets media for a list of fragments (specified by fragment number) from the
         archived data in an Amazon Kinesis video stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_media_for_fragment_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_media_for_fragment_list)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#get_media_for_fragment_list)
         """
     def list_fragments(
@@ -171,11 +200,18 @@ class KinesisVideoArchivedMediaClient(BaseClient):
         Returns a list of  Fragment objects from the specified stream and timestamp
         range within the archived data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.list_fragments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.list_fragments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/client.html#list_fragments)
         """
+    @overload
+    def get_paginator(self, operation_name: Literal["get_images"]) -> GetImagesPaginator:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.GetImages)
+        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/paginators.html#getimagespaginator)
+        """
+    @overload
     def get_paginator(self, operation_name: Literal["list_fragments"]) -> ListFragmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/paginators.html#listfragmentspaginator)
         """

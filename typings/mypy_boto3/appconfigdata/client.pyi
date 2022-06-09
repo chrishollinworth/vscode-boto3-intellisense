@@ -25,6 +25,7 @@ __all__ = ("AppConfigDataClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -38,11 +39,12 @@ class Exceptions:
 
 class AppConfigDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appconfigdata.html#AppConfigData.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/appconfigdata.html#AppConfigData.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -52,7 +54,7 @@ class AppConfigDataClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appconfigdata.html#AppConfigData.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/appconfigdata.html#AppConfigData.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#can_paginate)
         """
     def generate_presigned_url(
@@ -65,7 +67,7 @@ class AppConfigDataClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appconfigdata.html#AppConfigData.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/appconfigdata.html#AppConfigData.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#generate_presigned_url)
         """
     def get_latest_configuration(
@@ -74,20 +76,20 @@ class AppConfigDataClient(BaseClient):
         """
         Retrieves the latest deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appconfigdata.html#AppConfigData.Client.get_latest_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/appconfigdata.html#AppConfigData.Client.get_latest_configuration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#get_latest_configuration)
         """
     def start_configuration_session(
         self,
         *,
         ApplicationIdentifier: str,
-        ConfigurationProfileIdentifier: str,
         EnvironmentIdentifier: str,
+        ConfigurationProfileIdentifier: str,
         RequiredMinimumPollIntervalInSeconds: int = None
     ) -> StartConfigurationSessionResponseTypeDef:
         """
         Starts a configuration session used to retrieve a deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/appconfigdata.html#AppConfigData.Client.start_configuration_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/appconfigdata.html#AppConfigData.Client.start_configuration_session)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#start_configuration_session)
         """

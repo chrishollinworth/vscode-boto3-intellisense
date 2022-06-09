@@ -29,8 +29,10 @@ from .literals import (
     NetworkOriginType,
     ObjectLambdaAllowedFeatureType,
     OperationNameType,
+    ReplicationStatusType,
     RequestedJobStatusType,
     S3CannedAccessControlListType,
+    S3ChecksumAlgorithmType,
     S3GlacierJobTierType,
     S3GranteeTypeIdentifierType,
     S3MetadataDirectiveType,
@@ -97,6 +99,7 @@ __all__ = (
     "DescribeMultiRegionAccessPointOperationResultTypeDef",
     "EstablishedMultiRegionAccessPointPolicyTypeDef",
     "ExcludeTypeDef",
+    "GeneratedManifestEncryptionTypeDef",
     "GetAccessPointConfigurationForObjectLambdaRequestRequestTypeDef",
     "GetAccessPointConfigurationForObjectLambdaResultTypeDef",
     "GetAccessPointForObjectLambdaRequestRequestTypeDef",
@@ -137,12 +140,15 @@ __all__ = (
     "JobDescriptorTypeDef",
     "JobFailureTypeDef",
     "JobListDescriptorTypeDef",
+    "JobManifestGeneratorFilterTypeDef",
+    "JobManifestGeneratorTypeDef",
     "JobManifestLocationTypeDef",
     "JobManifestSpecTypeDef",
     "JobManifestTypeDef",
     "JobOperationTypeDef",
     "JobProgressSummaryTypeDef",
     "JobReportTypeDef",
+    "JobTimersTypeDef",
     "LambdaInvokeOperationTypeDef",
     "LifecycleConfigurationTypeDef",
     "LifecycleExpirationTypeDef",
@@ -199,9 +205,12 @@ __all__ = (
     "S3AccessControlPolicyTypeDef",
     "S3BucketDestinationTypeDef",
     "S3CopyObjectOperationTypeDef",
+    "S3GeneratedManifestDescriptorTypeDef",
     "S3GrantTypeDef",
     "S3GranteeTypeDef",
     "S3InitiateRestoreObjectOperationTypeDef",
+    "S3JobManifestGeneratorTypeDef",
+    "S3ManifestOutputLocationTypeDef",
     "S3ObjectLockLegalHoldTypeDef",
     "S3ObjectMetadataTypeDef",
     "S3ObjectOwnerTypeDef",
@@ -211,6 +220,7 @@ __all__ = (
     "S3SetObjectRetentionOperationTypeDef",
     "S3SetObjectTaggingOperationTypeDef",
     "S3TagTypeDef",
+    "SSEKMSEncryptionTypeDef",
     "SSEKMSTypeDef",
     "SelectionCriteriaTypeDef",
     "StorageLensAwsOrgTypeDef",
@@ -458,7 +468,6 @@ _RequiredCreateJobRequestRequestTypeDef = TypedDict(
         "Operation": "JobOperationTypeDef",
         "Report": "JobReportTypeDef",
         "ClientRequestToken": str,
-        "Manifest": "JobManifestTypeDef",
         "Priority": int,
         "RoleArn": str,
     },
@@ -467,8 +476,10 @@ _OptionalCreateJobRequestRequestTypeDef = TypedDict(
     "_OptionalCreateJobRequestRequestTypeDef",
     {
         "ConfirmationRequired": bool,
+        "Manifest": "JobManifestTypeDef",
         "Description": str,
         "Tags": List["S3TagTypeDef"],
+        "ManifestGenerator": "JobManifestGeneratorTypeDef",
     },
     total=False,
 )
@@ -688,6 +699,15 @@ ExcludeTypeDef = TypedDict(
     {
         "Buckets": List[str],
         "Regions": List[str],
+    },
+    total=False,
+)
+
+GeneratedManifestEncryptionTypeDef = TypedDict(
+    "GeneratedManifestEncryptionTypeDef",
+    {
+        "SSES3": Dict[str, Any],
+        "SSEKMS": "SSEKMSEncryptionTypeDef",
     },
     total=False,
 )
@@ -1020,6 +1040,8 @@ JobDescriptorTypeDef = TypedDict(
         "RoleArn": str,
         "SuspendedDate": datetime,
         "SuspendedCause": str,
+        "ManifestGenerator": "JobManifestGeneratorTypeDef",
+        "GeneratedManifestDescriptor": "S3GeneratedManifestDescriptorTypeDef",
     },
     total=False,
 )
@@ -1044,6 +1066,25 @@ JobListDescriptorTypeDef = TypedDict(
         "CreationTime": datetime,
         "TerminationDate": datetime,
         "ProgressSummary": "JobProgressSummaryTypeDef",
+    },
+    total=False,
+)
+
+JobManifestGeneratorFilterTypeDef = TypedDict(
+    "JobManifestGeneratorFilterTypeDef",
+    {
+        "EligibleForReplication": bool,
+        "CreatedAfter": Union[datetime, str],
+        "CreatedBefore": Union[datetime, str],
+        "ObjectReplicationStatuses": List[ReplicationStatusType],
+    },
+    total=False,
+)
+
+JobManifestGeneratorTypeDef = TypedDict(
+    "JobManifestGeneratorTypeDef",
+    {
+        "S3JobManifestGenerator": "S3JobManifestGeneratorTypeDef",
     },
     total=False,
 )
@@ -1104,6 +1145,7 @@ JobOperationTypeDef = TypedDict(
         "S3InitiateRestoreObject": "S3InitiateRestoreObjectOperationTypeDef",
         "S3PutObjectLegalHold": "S3SetObjectLegalHoldOperationTypeDef",
         "S3PutObjectRetention": "S3SetObjectRetentionOperationTypeDef",
+        "S3ReplicateObject": Dict[str, Any],
     },
     total=False,
 )
@@ -1114,6 +1156,7 @@ JobProgressSummaryTypeDef = TypedDict(
         "TotalNumberOfTasks": int,
         "NumberOfTasksSucceeded": int,
         "NumberOfTasksFailed": int,
+        "Timers": "JobTimersTypeDef",
     },
     total=False,
 )
@@ -1137,6 +1180,14 @@ _OptionalJobReportTypeDef = TypedDict(
 
 class JobReportTypeDef(_RequiredJobReportTypeDef, _OptionalJobReportTypeDef):
     pass
+
+JobTimersTypeDef = TypedDict(
+    "JobTimersTypeDef",
+    {
+        "ElapsedTimeInActiveSeconds": int,
+    },
+    total=False,
+)
 
 LambdaInvokeOperationTypeDef = TypedDict(
     "LambdaInvokeOperationTypeDef",
@@ -1842,6 +1893,16 @@ S3CopyObjectOperationTypeDef = TypedDict(
         "ObjectLockMode": S3ObjectLockModeType,
         "ObjectLockRetainUntilDate": Union[datetime, str],
         "BucketKeyEnabled": bool,
+        "ChecksumAlgorithm": S3ChecksumAlgorithmType,
+    },
+    total=False,
+)
+
+S3GeneratedManifestDescriptorTypeDef = TypedDict(
+    "S3GeneratedManifestDescriptorTypeDef",
+    {
+        "Format": Literal["S3InventoryReport_CSV_20211130"],
+        "Location": "JobManifestLocationTypeDef",
     },
     total=False,
 )
@@ -1873,6 +1934,50 @@ S3InitiateRestoreObjectOperationTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredS3JobManifestGeneratorTypeDef = TypedDict(
+    "_RequiredS3JobManifestGeneratorTypeDef",
+    {
+        "SourceBucket": str,
+        "EnableManifestOutput": bool,
+    },
+)
+_OptionalS3JobManifestGeneratorTypeDef = TypedDict(
+    "_OptionalS3JobManifestGeneratorTypeDef",
+    {
+        "ExpectedBucketOwner": str,
+        "ManifestOutputLocation": "S3ManifestOutputLocationTypeDef",
+        "Filter": "JobManifestGeneratorFilterTypeDef",
+    },
+    total=False,
+)
+
+class S3JobManifestGeneratorTypeDef(
+    _RequiredS3JobManifestGeneratorTypeDef, _OptionalS3JobManifestGeneratorTypeDef
+):
+    pass
+
+_RequiredS3ManifestOutputLocationTypeDef = TypedDict(
+    "_RequiredS3ManifestOutputLocationTypeDef",
+    {
+        "Bucket": str,
+        "ManifestFormat": Literal["S3InventoryReport_CSV_20211130"],
+    },
+)
+_OptionalS3ManifestOutputLocationTypeDef = TypedDict(
+    "_OptionalS3ManifestOutputLocationTypeDef",
+    {
+        "ExpectedManifestBucketOwner": str,
+        "ManifestPrefix": str,
+        "ManifestEncryption": "GeneratedManifestEncryptionTypeDef",
+    },
+    total=False,
+)
+
+class S3ManifestOutputLocationTypeDef(
+    _RequiredS3ManifestOutputLocationTypeDef, _OptionalS3ManifestOutputLocationTypeDef
+):
+    pass
 
 S3ObjectLockLegalHoldTypeDef = TypedDict(
     "S3ObjectLockLegalHoldTypeDef",
@@ -1964,6 +2069,13 @@ S3TagTypeDef = TypedDict(
     {
         "Key": str,
         "Value": str,
+    },
+)
+
+SSEKMSEncryptionTypeDef = TypedDict(
+    "SSEKMSEncryptionTypeDef",
+    {
+        "KeyId": str,
     },
 )
 

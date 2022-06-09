@@ -26,6 +26,6 @@ __all__ = (
 )
 
 ListRulesPaginatorName = Literal["list_rules"]
-ResourceTypeType = Literal["EBS_SNAPSHOT"]
+ResourceTypeType = Literal["EBS_SNAPSHOT", "EC2_IMAGE"]
 RetentionPeriodUnitType = Literal["DAYS"]
 RuleStatusType = Literal["available", "pending"]

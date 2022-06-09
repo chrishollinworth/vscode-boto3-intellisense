@@ -52,6 +52,9 @@ __all__ = (
     "RecognizeUtteranceRequestRequestTypeDef",
     "RecognizeUtteranceResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "RuntimeHintDetailsTypeDef",
+    "RuntimeHintValueTypeDef",
+    "RuntimeHintsTypeDef",
     "SentimentResponseTypeDef",
     "SentimentScoreTypeDef",
     "SessionStateTypeDef",
@@ -348,6 +351,28 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
+RuntimeHintDetailsTypeDef = TypedDict(
+    "RuntimeHintDetailsTypeDef",
+    {
+        "runtimeHintValues": List["RuntimeHintValueTypeDef"],
+    },
+)
+
+RuntimeHintValueTypeDef = TypedDict(
+    "RuntimeHintValueTypeDef",
+    {
+        "phrase": str,
+    },
+)
+
+RuntimeHintsTypeDef = TypedDict(
+    "RuntimeHintsTypeDef",
+    {
+        "slotHints": Dict[str, Dict[str, "RuntimeHintDetailsTypeDef"]],
+    },
+    total=False,
+)
+
 SentimentResponseTypeDef = TypedDict(
     "SentimentResponseTypeDef",
     {
@@ -376,6 +401,7 @@ SessionStateTypeDef = TypedDict(
         "activeContexts": List["ActiveContextTypeDef"],
         "sessionAttributes": Dict[str, str],
         "originatingRequestId": str,
+        "runtimeHints": "RuntimeHintsTypeDef",
     },
     total=False,
 )

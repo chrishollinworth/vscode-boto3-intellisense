@@ -208,6 +208,7 @@ LastUpdateTypeDef = TypedDict(
     {
         "CreatedAt": datetime,
         "Error": "UpdateErrorTypeDef",
+        "Source": str,
         "Status": UpdateStatusType,
     },
     total=False,

@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Union
 
 from .literals import (
     AggregationTypeType,
+    AuthenticationTypeType,
     ConnectionModeType,
     ConnectorTypeType,
     DatadogConnectorOperatorType,
@@ -28,7 +29,10 @@ from .literals import (
     GoogleAnalyticsConnectorOperatorType,
     InforNexusConnectorOperatorType,
     MarketoConnectorOperatorType,
+    OAuth2CustomPropTypeType,
+    OAuth2GrantTypeType,
     OperatorPropertiesKeysType,
+    OperatorsType,
     OperatorType,
     PrefixFormatType,
     PrefixTypeType,
@@ -63,8 +67,12 @@ __all__ = (
     "AggregationConfigTypeDef",
     "AmplitudeConnectorProfileCredentialsTypeDef",
     "AmplitudeSourcePropertiesTypeDef",
+    "ApiKeyCredentialsTypeDef",
+    "AuthParameterTypeDef",
+    "AuthenticationConfigTypeDef",
     "BasicAuthCredentialsTypeDef",
     "ConnectorConfigurationTypeDef",
+    "ConnectorDetailTypeDef",
     "ConnectorEntityFieldTypeDef",
     "ConnectorEntityTypeDef",
     "ConnectorMetadataTypeDef",
@@ -74,10 +82,18 @@ __all__ = (
     "ConnectorProfileCredentialsTypeDef",
     "ConnectorProfilePropertiesTypeDef",
     "ConnectorProfileTypeDef",
+    "ConnectorProvisioningConfigTypeDef",
+    "ConnectorRuntimeSettingTypeDef",
     "CreateConnectorProfileRequestRequestTypeDef",
     "CreateConnectorProfileResponseTypeDef",
     "CreateFlowRequestRequestTypeDef",
     "CreateFlowResponseTypeDef",
+    "CustomAuthConfigTypeDef",
+    "CustomAuthCredentialsTypeDef",
+    "CustomConnectorDestinationPropertiesTypeDef",
+    "CustomConnectorProfileCredentialsTypeDef",
+    "CustomConnectorProfilePropertiesTypeDef",
+    "CustomConnectorSourcePropertiesTypeDef",
     "CustomerProfilesDestinationPropertiesTypeDef",
     "DatadogConnectorProfileCredentialsTypeDef",
     "DatadogConnectorProfilePropertiesTypeDef",
@@ -88,6 +104,8 @@ __all__ = (
     "DescribeConnectorEntityResponseTypeDef",
     "DescribeConnectorProfilesRequestRequestTypeDef",
     "DescribeConnectorProfilesResponseTypeDef",
+    "DescribeConnectorRequestRequestTypeDef",
+    "DescribeConnectorResponseTypeDef",
     "DescribeConnectorsRequestRequestTypeDef",
     "DescribeConnectorsResponseTypeDef",
     "DescribeFlowExecutionRecordsRequestRequestTypeDef",
@@ -118,22 +136,33 @@ __all__ = (
     "InforNexusConnectorProfileCredentialsTypeDef",
     "InforNexusConnectorProfilePropertiesTypeDef",
     "InforNexusSourcePropertiesTypeDef",
+    "LambdaConnectorProvisioningConfigTypeDef",
     "ListConnectorEntitiesRequestRequestTypeDef",
     "ListConnectorEntitiesResponseTypeDef",
+    "ListConnectorsRequestRequestTypeDef",
+    "ListConnectorsResponseTypeDef",
     "ListFlowsRequestRequestTypeDef",
     "ListFlowsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MarketoConnectorProfileCredentialsTypeDef",
     "MarketoConnectorProfilePropertiesTypeDef",
+    "MarketoDestinationPropertiesTypeDef",
     "MarketoSourcePropertiesTypeDef",
+    "OAuth2CredentialsTypeDef",
+    "OAuth2CustomParameterTypeDef",
+    "OAuth2DefaultsTypeDef",
+    "OAuth2PropertiesTypeDef",
     "OAuthCredentialsTypeDef",
     "OAuthPropertiesTypeDef",
     "PrefixConfigTypeDef",
     "PrivateConnectionProvisioningStateTypeDef",
+    "RangeTypeDef",
     "RedshiftConnectorProfileCredentialsTypeDef",
     "RedshiftConnectorProfilePropertiesTypeDef",
     "RedshiftDestinationPropertiesTypeDef",
+    "RegisterConnectorRequestRequestTypeDef",
+    "RegisterConnectorResponseTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationPropertiesTypeDef",
     "S3InputFormatConfigTypeDef",
@@ -141,6 +170,7 @@ __all__ = (
     "S3SourcePropertiesTypeDef",
     "SAPODataConnectorProfileCredentialsTypeDef",
     "SAPODataConnectorProfilePropertiesTypeDef",
+    "SAPODataDestinationPropertiesTypeDef",
     "SAPODataSourcePropertiesTypeDef",
     "SalesforceConnectorProfileCredentialsTypeDef",
     "SalesforceConnectorProfilePropertiesTypeDef",
@@ -168,6 +198,7 @@ __all__ = (
     "StartFlowResponseTypeDef",
     "StopFlowRequestRequestTypeDef",
     "StopFlowResponseTypeDef",
+    "SuccessResponseHandlingConfigTypeDef",
     "SupportedFieldTypeDetailsTypeDef",
     "TagResourceRequestRequestTypeDef",
     "TaskTypeDef",
@@ -175,6 +206,7 @@ __all__ = (
     "TrendmicroSourcePropertiesTypeDef",
     "TriggerConfigTypeDef",
     "TriggerPropertiesTypeDef",
+    "UnregisterConnectorRequestRequestTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateConnectorProfileRequestRequestTypeDef",
     "UpdateConnectorProfileResponseTypeDef",
@@ -215,6 +247,51 @@ AmplitudeSourcePropertiesTypeDef = TypedDict(
     },
 )
 
+_RequiredApiKeyCredentialsTypeDef = TypedDict(
+    "_RequiredApiKeyCredentialsTypeDef",
+    {
+        "apiKey": str,
+    },
+)
+_OptionalApiKeyCredentialsTypeDef = TypedDict(
+    "_OptionalApiKeyCredentialsTypeDef",
+    {
+        "apiSecretKey": str,
+    },
+    total=False,
+)
+
+class ApiKeyCredentialsTypeDef(
+    _RequiredApiKeyCredentialsTypeDef, _OptionalApiKeyCredentialsTypeDef
+):
+    pass
+
+AuthParameterTypeDef = TypedDict(
+    "AuthParameterTypeDef",
+    {
+        "key": str,
+        "isRequired": bool,
+        "label": str,
+        "description": str,
+        "isSensitiveField": bool,
+        "connectorSuppliedValues": List[str],
+    },
+    total=False,
+)
+
+AuthenticationConfigTypeDef = TypedDict(
+    "AuthenticationConfigTypeDef",
+    {
+        "isBasicAuthSupported": bool,
+        "isApiKeyAuthSupported": bool,
+        "isOAuth2Supported": bool,
+        "isCustomAuthSupported": bool,
+        "oAuth2Defaults": "OAuth2DefaultsTypeDef",
+        "customAuthConfigs": List["CustomAuthConfigTypeDef"],
+    },
+    total=False,
+)
+
 BasicAuthCredentialsTypeDef = TypedDict(
     "BasicAuthCredentialsTypeDef",
     {
@@ -234,6 +311,42 @@ ConnectorConfigurationTypeDef = TypedDict(
         "isPrivateLinkEndpointUrlRequired": bool,
         "supportedTriggerTypes": List[TriggerTypeType],
         "connectorMetadata": "ConnectorMetadataTypeDef",
+        "connectorType": ConnectorTypeType,
+        "connectorLabel": str,
+        "connectorDescription": str,
+        "connectorOwner": str,
+        "connectorName": str,
+        "connectorVersion": str,
+        "connectorArn": str,
+        "connectorModes": List[str],
+        "authenticationConfig": "AuthenticationConfigTypeDef",
+        "connectorRuntimeSettings": List["ConnectorRuntimeSettingTypeDef"],
+        "supportedApiVersions": List[str],
+        "supportedOperators": List[OperatorsType],
+        "supportedWriteOperations": List[WriteOperationTypeType],
+        "connectorProvisioningType": Literal["LAMBDA"],
+        "connectorProvisioningConfig": "ConnectorProvisioningConfigTypeDef",
+        "logoURL": str,
+        "registeredAt": datetime,
+        "registeredBy": str,
+    },
+    total=False,
+)
+
+ConnectorDetailTypeDef = TypedDict(
+    "ConnectorDetailTypeDef",
+    {
+        "connectorDescription": str,
+        "connectorName": str,
+        "connectorOwner": str,
+        "connectorVersion": str,
+        "applicationType": str,
+        "connectorType": ConnectorTypeType,
+        "connectorLabel": str,
+        "registeredAt": datetime,
+        "registeredBy": str,
+        "connectorProvisioningType": Literal["LAMBDA"],
+        "connectorModes": List[str],
     },
     total=False,
 )
@@ -247,11 +360,16 @@ _RequiredConnectorEntityFieldTypeDef = TypedDict(
 _OptionalConnectorEntityFieldTypeDef = TypedDict(
     "_OptionalConnectorEntityFieldTypeDef",
     {
+        "parentIdentifier": str,
         "label": str,
+        "isPrimaryKey": bool,
+        "defaultValue": str,
+        "isDeprecated": bool,
         "supportedFieldTypeDetails": "SupportedFieldTypeDetailsTypeDef",
         "description": str,
         "sourceProperties": "SourceFieldPropertiesTypeDef",
         "destinationProperties": "DestinationFieldPropertiesTypeDef",
+        "customProperties": Dict[str, str],
     },
     total=False,
 )
@@ -334,6 +452,7 @@ ConnectorOperatorTypeDef = TypedDict(
         "Veeva": VeevaConnectorOperatorType,
         "Zendesk": ZendeskConnectorOperatorType,
         "SAPOData": SAPODataConnectorOperatorType,
+        "CustomConnector": OperatorType,
     },
     total=False,
 )
@@ -366,6 +485,7 @@ ConnectorProfileCredentialsTypeDef = TypedDict(
         "Veeva": "VeevaConnectorProfileCredentialsTypeDef",
         "Zendesk": "ZendeskConnectorProfileCredentialsTypeDef",
         "SAPOData": "SAPODataConnectorProfileCredentialsTypeDef",
+        "CustomConnector": "CustomConnectorProfileCredentialsTypeDef",
     },
     total=False,
 )
@@ -390,6 +510,7 @@ ConnectorProfilePropertiesTypeDef = TypedDict(
         "Veeva": "VeevaConnectorProfilePropertiesTypeDef",
         "Zendesk": "ZendeskConnectorProfilePropertiesTypeDef",
         "SAPOData": "SAPODataConnectorProfilePropertiesTypeDef",
+        "CustomConnector": "CustomConnectorProfilePropertiesTypeDef",
     },
     total=False,
 )
@@ -400,12 +521,35 @@ ConnectorProfileTypeDef = TypedDict(
         "connectorProfileArn": str,
         "connectorProfileName": str,
         "connectorType": ConnectorTypeType,
+        "connectorLabel": str,
         "connectionMode": ConnectionModeType,
         "credentialsArn": str,
         "connectorProfileProperties": "ConnectorProfilePropertiesTypeDef",
         "createdAt": datetime,
         "lastUpdatedAt": datetime,
         "privateConnectionProvisioningState": "PrivateConnectionProvisioningStateTypeDef",
+    },
+    total=False,
+)
+
+ConnectorProvisioningConfigTypeDef = TypedDict(
+    "ConnectorProvisioningConfigTypeDef",
+    {
+        "lambda": "LambdaConnectorProvisioningConfigTypeDef",
+    },
+    total=False,
+)
+
+ConnectorRuntimeSettingTypeDef = TypedDict(
+    "ConnectorRuntimeSettingTypeDef",
+    {
+        "key": str,
+        "dataType": str,
+        "isRequired": bool,
+        "label": str,
+        "description": str,
+        "scope": str,
+        "connectorSuppliedValueOptions": List[str],
     },
     total=False,
 )
@@ -423,6 +567,7 @@ _OptionalCreateConnectorProfileRequestRequestTypeDef = TypedDict(
     "_OptionalCreateConnectorProfileRequestRequestTypeDef",
     {
         "kmsArn": str,
+        "connectorLabel": str,
     },
     total=False,
 )
@@ -474,6 +619,108 @@ CreateFlowResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+CustomAuthConfigTypeDef = TypedDict(
+    "CustomAuthConfigTypeDef",
+    {
+        "customAuthenticationType": str,
+        "authParameters": List["AuthParameterTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredCustomAuthCredentialsTypeDef = TypedDict(
+    "_RequiredCustomAuthCredentialsTypeDef",
+    {
+        "customAuthenticationType": str,
+    },
+)
+_OptionalCustomAuthCredentialsTypeDef = TypedDict(
+    "_OptionalCustomAuthCredentialsTypeDef",
+    {
+        "credentialsMap": Dict[str, str],
+    },
+    total=False,
+)
+
+class CustomAuthCredentialsTypeDef(
+    _RequiredCustomAuthCredentialsTypeDef, _OptionalCustomAuthCredentialsTypeDef
+):
+    pass
+
+_RequiredCustomConnectorDestinationPropertiesTypeDef = TypedDict(
+    "_RequiredCustomConnectorDestinationPropertiesTypeDef",
+    {
+        "entityName": str,
+    },
+)
+_OptionalCustomConnectorDestinationPropertiesTypeDef = TypedDict(
+    "_OptionalCustomConnectorDestinationPropertiesTypeDef",
+    {
+        "errorHandlingConfig": "ErrorHandlingConfigTypeDef",
+        "writeOperationType": WriteOperationTypeType,
+        "idFieldNames": List[str],
+        "customProperties": Dict[str, str],
+    },
+    total=False,
+)
+
+class CustomConnectorDestinationPropertiesTypeDef(
+    _RequiredCustomConnectorDestinationPropertiesTypeDef,
+    _OptionalCustomConnectorDestinationPropertiesTypeDef,
+):
+    pass
+
+_RequiredCustomConnectorProfileCredentialsTypeDef = TypedDict(
+    "_RequiredCustomConnectorProfileCredentialsTypeDef",
+    {
+        "authenticationType": AuthenticationTypeType,
+    },
+)
+_OptionalCustomConnectorProfileCredentialsTypeDef = TypedDict(
+    "_OptionalCustomConnectorProfileCredentialsTypeDef",
+    {
+        "basic": "BasicAuthCredentialsTypeDef",
+        "oauth2": "OAuth2CredentialsTypeDef",
+        "apiKey": "ApiKeyCredentialsTypeDef",
+        "custom": "CustomAuthCredentialsTypeDef",
+    },
+    total=False,
+)
+
+class CustomConnectorProfileCredentialsTypeDef(
+    _RequiredCustomConnectorProfileCredentialsTypeDef,
+    _OptionalCustomConnectorProfileCredentialsTypeDef,
+):
+    pass
+
+CustomConnectorProfilePropertiesTypeDef = TypedDict(
+    "CustomConnectorProfilePropertiesTypeDef",
+    {
+        "profileProperties": Dict[str, str],
+        "oAuth2Properties": "OAuth2PropertiesTypeDef",
+    },
+    total=False,
+)
+
+_RequiredCustomConnectorSourcePropertiesTypeDef = TypedDict(
+    "_RequiredCustomConnectorSourcePropertiesTypeDef",
+    {
+        "entityName": str,
+    },
+)
+_OptionalCustomConnectorSourcePropertiesTypeDef = TypedDict(
+    "_OptionalCustomConnectorSourcePropertiesTypeDef",
+    {
+        "customProperties": Dict[str, str],
+    },
+    total=False,
+)
+
+class CustomConnectorSourcePropertiesTypeDef(
+    _RequiredCustomConnectorSourcePropertiesTypeDef, _OptionalCustomConnectorSourcePropertiesTypeDef
+):
+    pass
 
 _RequiredCustomerProfilesDestinationPropertiesTypeDef = TypedDict(
     "_RequiredCustomerProfilesDestinationPropertiesTypeDef",
@@ -567,6 +814,7 @@ _OptionalDescribeConnectorEntityRequestRequestTypeDef = TypedDict(
     {
         "connectorType": ConnectorTypeType,
         "connectorProfileName": str,
+        "apiVersion": str,
     },
     total=False,
 )
@@ -590,6 +838,7 @@ DescribeConnectorProfilesRequestRequestTypeDef = TypedDict(
     {
         "connectorProfileNames": List[str],
         "connectorType": ConnectorTypeType,
+        "connectorLabel": str,
         "maxResults": int,
         "nextToken": str,
     },
@@ -605,10 +854,38 @@ DescribeConnectorProfilesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeConnectorRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeConnectorRequestRequestTypeDef",
+    {
+        "connectorType": ConnectorTypeType,
+    },
+)
+_OptionalDescribeConnectorRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeConnectorRequestRequestTypeDef",
+    {
+        "connectorLabel": str,
+    },
+    total=False,
+)
+
+class DescribeConnectorRequestRequestTypeDef(
+    _RequiredDescribeConnectorRequestRequestTypeDef, _OptionalDescribeConnectorRequestRequestTypeDef
+):
+    pass
+
+DescribeConnectorResponseTypeDef = TypedDict(
+    "DescribeConnectorResponseTypeDef",
+    {
+        "connectorConfiguration": "ConnectorConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeConnectorsRequestRequestTypeDef = TypedDict(
     "DescribeConnectorsRequestRequestTypeDef",
     {
         "connectorTypes": List[ConnectorTypeType],
+        "maxResults": int,
         "nextToken": str,
     },
     total=False,
@@ -618,6 +895,7 @@ DescribeConnectorsResponseTypeDef = TypedDict(
     "DescribeConnectorsResponseTypeDef",
     {
         "connectorConfigurations": Dict[ConnectorTypeType, "ConnectorConfigurationTypeDef"],
+        "connectors": List["ConnectorDetailTypeDef"],
         "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -696,6 +974,9 @@ DestinationConnectorPropertiesTypeDef = TypedDict(
         "Honeycode": "HoneycodeDestinationPropertiesTypeDef",
         "CustomerProfiles": "CustomerProfilesDestinationPropertiesTypeDef",
         "Zendesk": "ZendeskDestinationPropertiesTypeDef",
+        "Marketo": "MarketoDestinationPropertiesTypeDef",
+        "CustomConnector": "CustomConnectorDestinationPropertiesTypeDef",
+        "SAPOData": "SAPODataDestinationPropertiesTypeDef",
     },
     total=False,
 )
@@ -707,6 +988,7 @@ DestinationFieldPropertiesTypeDef = TypedDict(
         "isNullable": bool,
         "isUpsertable": bool,
         "isUpdatable": bool,
+        "isDefaultedOnCreate": bool,
         "supportedWriteOperations": List[WriteOperationTypeType],
     },
     total=False,
@@ -722,6 +1004,7 @@ _RequiredDestinationFlowConfigTypeDef = TypedDict(
 _OptionalDestinationFlowConfigTypeDef = TypedDict(
     "_OptionalDestinationFlowConfigTypeDef",
     {
+        "apiVersion": str,
         "connectorProfileName": str,
     },
     total=False,
@@ -838,6 +1121,10 @@ _OptionalFieldTypeDetailsTypeDef = TypedDict(
     "_OptionalFieldTypeDetailsTypeDef",
     {
         "supportedValues": List[str],
+        "valueRegexPattern": str,
+        "supportedDateFormat": str,
+        "fieldValueRange": "RangeTypeDef",
+        "fieldLengthRange": "RangeTypeDef",
     },
     total=False,
 )
@@ -853,7 +1140,9 @@ FlowDefinitionTypeDef = TypedDict(
         "flowName": str,
         "flowStatus": FlowStatusType,
         "sourceConnectorType": ConnectorTypeType,
+        "sourceConnectorLabel": str,
         "destinationConnectorType": ConnectorTypeType,
+        "destinationConnectorLabel": str,
         "triggerType": TriggerTypeType,
         "createdAt": datetime,
         "lastUpdatedAt": datetime,
@@ -972,12 +1261,20 @@ InforNexusSourcePropertiesTypeDef = TypedDict(
     },
 )
 
+LambdaConnectorProvisioningConfigTypeDef = TypedDict(
+    "LambdaConnectorProvisioningConfigTypeDef",
+    {
+        "lambdaArn": str,
+    },
+)
+
 ListConnectorEntitiesRequestRequestTypeDef = TypedDict(
     "ListConnectorEntitiesRequestRequestTypeDef",
     {
         "connectorProfileName": str,
         "connectorType": ConnectorTypeType,
         "entitiesPath": str,
+        "apiVersion": str,
     },
     total=False,
 )
@@ -986,6 +1283,24 @@ ListConnectorEntitiesResponseTypeDef = TypedDict(
     "ListConnectorEntitiesResponseTypeDef",
     {
         "connectorEntityMap": Dict[str, List["ConnectorEntityTypeDef"]],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListConnectorsRequestRequestTypeDef = TypedDict(
+    "ListConnectorsRequestRequestTypeDef",
+    {
+        "maxResults": int,
+        "nextToken": str,
+    },
+    total=False,
+)
+
+ListConnectorsResponseTypeDef = TypedDict(
+    "ListConnectorsResponseTypeDef",
+    {
+        "connectors": List["ConnectorDetailTypeDef"],
+        "nextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1052,12 +1367,87 @@ MarketoConnectorProfilePropertiesTypeDef = TypedDict(
     },
 )
 
+_RequiredMarketoDestinationPropertiesTypeDef = TypedDict(
+    "_RequiredMarketoDestinationPropertiesTypeDef",
+    {
+        "object": str,
+    },
+)
+_OptionalMarketoDestinationPropertiesTypeDef = TypedDict(
+    "_OptionalMarketoDestinationPropertiesTypeDef",
+    {
+        "errorHandlingConfig": "ErrorHandlingConfigTypeDef",
+    },
+    total=False,
+)
+
+class MarketoDestinationPropertiesTypeDef(
+    _RequiredMarketoDestinationPropertiesTypeDef, _OptionalMarketoDestinationPropertiesTypeDef
+):
+    pass
+
 MarketoSourcePropertiesTypeDef = TypedDict(
     "MarketoSourcePropertiesTypeDef",
     {
         "object": str,
     },
 )
+
+OAuth2CredentialsTypeDef = TypedDict(
+    "OAuth2CredentialsTypeDef",
+    {
+        "clientId": str,
+        "clientSecret": str,
+        "accessToken": str,
+        "refreshToken": str,
+        "oAuthRequest": "ConnectorOAuthRequestTypeDef",
+    },
+    total=False,
+)
+
+OAuth2CustomParameterTypeDef = TypedDict(
+    "OAuth2CustomParameterTypeDef",
+    {
+        "key": str,
+        "isRequired": bool,
+        "label": str,
+        "description": str,
+        "isSensitiveField": bool,
+        "connectorSuppliedValues": List[str],
+        "type": OAuth2CustomPropTypeType,
+    },
+    total=False,
+)
+
+OAuth2DefaultsTypeDef = TypedDict(
+    "OAuth2DefaultsTypeDef",
+    {
+        "oauthScopes": List[str],
+        "tokenUrls": List[str],
+        "authCodeUrls": List[str],
+        "oauth2GrantTypesSupported": List[OAuth2GrantTypeType],
+        "oauth2CustomProperties": List["OAuth2CustomParameterTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredOAuth2PropertiesTypeDef = TypedDict(
+    "_RequiredOAuth2PropertiesTypeDef",
+    {
+        "tokenUrl": str,
+        "oAuth2GrantType": OAuth2GrantTypeType,
+    },
+)
+_OptionalOAuth2PropertiesTypeDef = TypedDict(
+    "_OptionalOAuth2PropertiesTypeDef",
+    {
+        "tokenUrlCustomProperties": Dict[str, str],
+    },
+    total=False,
+)
+
+class OAuth2PropertiesTypeDef(_RequiredOAuth2PropertiesTypeDef, _OptionalOAuth2PropertiesTypeDef):
+    pass
 
 _RequiredOAuthCredentialsTypeDef = TypedDict(
     "_RequiredOAuthCredentialsTypeDef",
@@ -1103,6 +1493,15 @@ PrivateConnectionProvisioningStateTypeDef = TypedDict(
         "status": PrivateConnectionProvisioningStatusType,
         "failureMessage": str,
         "failureCause": PrivateConnectionProvisioningFailureCauseType,
+    },
+    total=False,
+)
+
+RangeTypeDef = TypedDict(
+    "RangeTypeDef",
+    {
+        "maximum": float,
+        "minimum": float,
     },
     total=False,
 )
@@ -1158,6 +1557,25 @@ class RedshiftDestinationPropertiesTypeDef(
 ):
     pass
 
+RegisterConnectorRequestRequestTypeDef = TypedDict(
+    "RegisterConnectorRequestRequestTypeDef",
+    {
+        "connectorLabel": str,
+        "description": str,
+        "connectorProvisioningType": Literal["LAMBDA"],
+        "connectorProvisioningConfig": "ConnectorProvisioningConfigTypeDef",
+    },
+    total=False,
+)
+
+RegisterConnectorResponseTypeDef = TypedDict(
+    "RegisterConnectorResponseTypeDef",
+    {
+        "connectorArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ResponseMetadataTypeDef = TypedDict(
     "ResponseMetadataTypeDef",
     {
@@ -1203,6 +1621,7 @@ S3OutputFormatConfigTypeDef = TypedDict(
         "fileType": FileTypeType,
         "prefixConfig": "PrefixConfigTypeDef",
         "aggregationConfig": "AggregationConfigTypeDef",
+        "preserveSourceDataTyping": bool,
     },
     total=False,
 )
@@ -1258,6 +1677,28 @@ _OptionalSAPODataConnectorProfilePropertiesTypeDef = TypedDict(
 class SAPODataConnectorProfilePropertiesTypeDef(
     _RequiredSAPODataConnectorProfilePropertiesTypeDef,
     _OptionalSAPODataConnectorProfilePropertiesTypeDef,
+):
+    pass
+
+_RequiredSAPODataDestinationPropertiesTypeDef = TypedDict(
+    "_RequiredSAPODataDestinationPropertiesTypeDef",
+    {
+        "objectPath": str,
+    },
+)
+_OptionalSAPODataDestinationPropertiesTypeDef = TypedDict(
+    "_OptionalSAPODataDestinationPropertiesTypeDef",
+    {
+        "successResponseHandlingConfig": "SuccessResponseHandlingConfigTypeDef",
+        "idFieldNames": List[str],
+        "errorHandlingConfig": "ErrorHandlingConfigTypeDef",
+        "writeOperationType": WriteOperationTypeType,
+    },
+    total=False,
+)
+
+class SAPODataDestinationPropertiesTypeDef(
+    _RequiredSAPODataDestinationPropertiesTypeDef, _OptionalSAPODataDestinationPropertiesTypeDef
 ):
     pass
 
@@ -1353,6 +1794,7 @@ _OptionalScheduledTriggerPropertiesTypeDef = TypedDict(
         "timezone": str,
         "scheduleOffset": int,
         "firstExecutionFrom": Union[datetime, str],
+        "flowErrorDeactivationThreshold": int,
     },
     total=False,
 )
@@ -1522,6 +1964,7 @@ SourceConnectorPropertiesTypeDef = TypedDict(
         "Veeva": "VeevaSourcePropertiesTypeDef",
         "Zendesk": "ZendeskSourcePropertiesTypeDef",
         "SAPOData": "SAPODataSourcePropertiesTypeDef",
+        "CustomConnector": "CustomConnectorSourcePropertiesTypeDef",
     },
     total=False,
 )
@@ -1531,6 +1974,7 @@ SourceFieldPropertiesTypeDef = TypedDict(
     {
         "isRetrievable": bool,
         "isQueryable": bool,
+        "isTimestampFieldForIncrementalQueries": bool,
     },
     total=False,
 )
@@ -1545,6 +1989,7 @@ _RequiredSourceFlowConfigTypeDef = TypedDict(
 _OptionalSourceFlowConfigTypeDef = TypedDict(
     "_OptionalSourceFlowConfigTypeDef",
     {
+        "apiVersion": str,
         "connectorProfileName": str,
         "incrementalPullConfig": "IncrementalPullConfigTypeDef",
     },
@@ -1585,6 +2030,15 @@ StopFlowResponseTypeDef = TypedDict(
         "flowStatus": FlowStatusType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+SuccessResponseHandlingConfigTypeDef = TypedDict(
+    "SuccessResponseHandlingConfigTypeDef",
+    {
+        "bucketPrefix": str,
+        "bucketName": str,
+    },
+    total=False,
 )
 
 SupportedFieldTypeDetailsTypeDef = TypedDict(
@@ -1660,6 +2114,26 @@ TriggerPropertiesTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredUnregisterConnectorRequestRequestTypeDef = TypedDict(
+    "_RequiredUnregisterConnectorRequestRequestTypeDef",
+    {
+        "connectorLabel": str,
+    },
+)
+_OptionalUnregisterConnectorRequestRequestTypeDef = TypedDict(
+    "_OptionalUnregisterConnectorRequestRequestTypeDef",
+    {
+        "forceDelete": bool,
+    },
+    total=False,
+)
+
+class UnregisterConnectorRequestRequestTypeDef(
+    _RequiredUnregisterConnectorRequestRequestTypeDef,
+    _OptionalUnregisterConnectorRequestRequestTypeDef,
+):
+    pass
 
 UntagResourceRequestRequestTypeDef = TypedDict(
     "UntagResourceRequestRequestTypeDef",

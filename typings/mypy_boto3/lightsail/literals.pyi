@@ -21,9 +21,11 @@ else:
 __all__ = (
     "AccessDirectionType",
     "AccessTypeType",
+    "AccountLevelBpaSyncStatusType",
     "AddOnTypeType",
     "AlarmStateType",
     "AutoSnapshotStatusType",
+    "BPAStatusMessageType",
     "BehaviorEnumType",
     "BlueprintTypeType",
     "BucketMetricNameType",
@@ -105,9 +107,13 @@ __all__ = (
 
 AccessDirectionType = Literal["inbound", "outbound"]
 AccessTypeType = Literal["private", "public"]
+AccountLevelBpaSyncStatusType = Literal["Defaulted", "Failed", "InSync", "NeverSynced"]
 AddOnTypeType = Literal["AutoSnapshot"]
 AlarmStateType = Literal["ALARM", "INSUFFICIENT_DATA", "OK"]
 AutoSnapshotStatusType = Literal["Failed", "InProgress", "NotFound", "Success"]
+BPAStatusMessageType = Literal[
+    "DEFAULTED_FOR_SLR_MISSING", "DEFAULTED_FOR_SLR_MISSING_ON_HOLD", "SYNC_ON_HOLD", "Unknown"
+]
 BehaviorEnumType = Literal["cache", "dont-cache"]
 BlueprintTypeType = Literal["app", "os"]
 BucketMetricNameType = Literal["BucketSizeBytes", "NumberOfObjects"]
@@ -228,7 +234,11 @@ InstancePlatformType = Literal["LINUX_UNIX", "WINDOWS"]
 InstanceSnapshotStateType = Literal["available", "error", "pending"]
 IpAddressTypeType = Literal["dualstack", "ipv4"]
 LoadBalancerAttributeNameType = Literal[
-    "HealthCheckPath", "SessionStickinessEnabled", "SessionStickiness_LB_CookieDurationSeconds"
+    "HealthCheckPath",
+    "HttpsRedirectionEnabled",
+    "SessionStickinessEnabled",
+    "SessionStickiness_LB_CookieDurationSeconds",
+    "TlsPolicyName",
 ]
 LoadBalancerMetricNameType = Literal[
     "ClientTLSNegotiationErrorCount",

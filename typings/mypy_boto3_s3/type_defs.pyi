@@ -26,6 +26,7 @@ from .literals import (
     BucketLocationConstraintType,
     BucketLogsPermissionType,
     BucketVersioningStatusType,
+    ChecksumAlgorithmType,
     CompressionTypeType,
     DeleteMarkerReplicationStatusType,
     EventType,
@@ -44,6 +45,7 @@ from .literals import (
     MetricsStatusType,
     MFADeleteStatusType,
     MFADeleteType,
+    ObjectAttributesType,
     ObjectCannedACLType,
     ObjectLockLegalHoldStatusType,
     ObjectLockModeType,
@@ -102,6 +104,7 @@ __all__ = (
     "CORSRuleTypeDef",
     "CSVInputTypeDef",
     "CSVOutputTypeDef",
+    "ChecksumTypeDef",
     "ClientCopyRequestTypeDef",
     "ClientDownloadFileRequestTypeDef",
     "ClientDownloadFileobjRequestTypeDef",
@@ -218,6 +221,9 @@ __all__ = (
     "GetBucketWebsiteRequestRequestTypeDef",
     "GetObjectAclOutputTypeDef",
     "GetObjectAclRequestRequestTypeDef",
+    "GetObjectAttributesOutputTypeDef",
+    "GetObjectAttributesPartsTypeDef",
+    "GetObjectAttributesRequestRequestTypeDef",
     "GetObjectLegalHoldOutputTypeDef",
     "GetObjectLegalHoldRequestRequestTypeDef",
     "GetObjectLockConfigurationOutputTypeDef",
@@ -305,6 +311,7 @@ __all__ = (
     "ObjectLockRetentionTypeDef",
     "ObjectLockRuleTypeDef",
     "ObjectMultipartUploadRequestTypeDef",
+    "ObjectPartTypeDef",
     "ObjectSummaryMultipartUploadRequestTypeDef",
     "ObjectSummaryVersionRequestTypeDef",
     "ObjectTypeDef",
@@ -782,6 +789,17 @@ CSVOutputTypeDef = TypedDict(
     total=False,
 )
 
+ChecksumTypeDef = TypedDict(
+    "ChecksumTypeDef",
+    {
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
+    },
+    total=False,
+)
+
 _RequiredClientCopyRequestTypeDef = TypedDict(
     "_RequiredClientCopyRequestTypeDef",
     {
@@ -949,6 +967,10 @@ CompleteMultipartUploadOutputTypeDef = TypedDict(
         "Key": str,
         "Expiration": str,
         "ETag": str,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "ServerSideEncryption": ServerSideEncryptionType,
         "VersionId": str,
         "SSEKMSKeyId": str,
@@ -962,8 +984,15 @@ CompleteMultipartUploadRequestMultipartUploadTypeDef = TypedDict(
     "CompleteMultipartUploadRequestMultipartUploadTypeDef",
     {
         "MultipartUpload": "CompletedMultipartUploadTypeDef",
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "RequestPayer": Literal["requester"],
         "ExpectedBucketOwner": str,
+        "SSECustomerAlgorithm": str,
+        "SSECustomerKey": str,
+        "SSECustomerKeyMD5": str,
     },
     total=False,
 )
@@ -980,8 +1009,15 @@ _OptionalCompleteMultipartUploadRequestRequestTypeDef = TypedDict(
     "_OptionalCompleteMultipartUploadRequestRequestTypeDef",
     {
         "MultipartUpload": "CompletedMultipartUploadTypeDef",
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "RequestPayer": Literal["requester"],
         "ExpectedBucketOwner": str,
+        "SSECustomerAlgorithm": str,
+        "SSECustomerKey": str,
+        "SSECustomerKeyMD5": str,
     },
     total=False,
 )
@@ -1004,6 +1040,10 @@ CompletedPartTypeDef = TypedDict(
     "CompletedPartTypeDef",
     {
         "ETag": str,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "PartNumber": int,
     },
     total=False,
@@ -1047,6 +1087,7 @@ _OptionalCopyObjectRequestObjectSummaryTypeDef = TypedDict(
     {
         "ACL": ObjectCannedACLType,
         "CacheControl": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ContentDisposition": str,
         "ContentEncoding": str,
         "ContentLanguage": str,
@@ -1102,6 +1143,7 @@ _OptionalCopyObjectRequestObjectTypeDef = TypedDict(
     {
         "ACL": ObjectCannedACLType,
         "CacheControl": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ContentDisposition": str,
         "ContentEncoding": str,
         "ContentLanguage": str,
@@ -1159,6 +1201,7 @@ _OptionalCopyObjectRequestRequestTypeDef = TypedDict(
     {
         "ACL": ObjectCannedACLType,
         "CacheControl": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ContentDisposition": str,
         "ContentEncoding": str,
         "ContentLanguage": str,
@@ -1208,6 +1251,10 @@ CopyObjectResultTypeDef = TypedDict(
     {
         "ETag": str,
         "LastModified": datetime,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
     },
     total=False,
 )
@@ -1217,6 +1264,10 @@ CopyPartResultTypeDef = TypedDict(
     {
         "ETag": str,
         "LastModified": datetime,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
     },
     total=False,
 )
@@ -1341,6 +1392,7 @@ CreateMultipartUploadOutputTypeDef = TypedDict(
         "SSEKMSEncryptionContext": str,
         "BucketKeyEnabled": bool,
         "RequestCharged": Literal["requester"],
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1375,6 +1427,7 @@ CreateMultipartUploadRequestObjectSummaryTypeDef = TypedDict(
         "ObjectLockRetainUntilDate": Union[datetime, str],
         "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
         "ExpectedBucketOwner": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
     },
     total=False,
 )
@@ -1409,6 +1462,7 @@ CreateMultipartUploadRequestObjectTypeDef = TypedDict(
         "ObjectLockRetainUntilDate": Union[datetime, str],
         "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
         "ExpectedBucketOwner": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
     },
     total=False,
 )
@@ -1450,6 +1504,7 @@ _OptionalCreateMultipartUploadRequestRequestTypeDef = TypedDict(
         "ObjectLockRetainUntilDate": Union[datetime, str],
         "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
         "ExpectedBucketOwner": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
     },
     total=False,
 )
@@ -1917,6 +1972,7 @@ _OptionalDeleteObjectsRequestBucketTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "BypassGovernanceRetention": bool,
         "ExpectedBucketOwner": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
     },
     total=False,
 )
@@ -1940,6 +1996,7 @@ _OptionalDeleteObjectsRequestRequestTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "BypassGovernanceRetention": bool,
         "ExpectedBucketOwner": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
     },
     total=False,
 )
@@ -2680,6 +2737,64 @@ class GetObjectAclRequestRequestTypeDef(
 ):
     pass
 
+GetObjectAttributesOutputTypeDef = TypedDict(
+    "GetObjectAttributesOutputTypeDef",
+    {
+        "DeleteMarker": bool,
+        "LastModified": datetime,
+        "VersionId": str,
+        "RequestCharged": Literal["requester"],
+        "ETag": str,
+        "Checksum": "ChecksumTypeDef",
+        "ObjectParts": "GetObjectAttributesPartsTypeDef",
+        "StorageClass": StorageClassType,
+        "ObjectSize": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetObjectAttributesPartsTypeDef = TypedDict(
+    "GetObjectAttributesPartsTypeDef",
+    {
+        "TotalPartsCount": int,
+        "PartNumberMarker": int,
+        "NextPartNumberMarker": int,
+        "MaxParts": int,
+        "IsTruncated": bool,
+        "Parts": List["ObjectPartTypeDef"],
+    },
+    total=False,
+)
+
+_RequiredGetObjectAttributesRequestRequestTypeDef = TypedDict(
+    "_RequiredGetObjectAttributesRequestRequestTypeDef",
+    {
+        "Bucket": str,
+        "Key": str,
+        "ObjectAttributes": List[ObjectAttributesType],
+    },
+)
+_OptionalGetObjectAttributesRequestRequestTypeDef = TypedDict(
+    "_OptionalGetObjectAttributesRequestRequestTypeDef",
+    {
+        "VersionId": str,
+        "MaxParts": int,
+        "PartNumberMarker": int,
+        "SSECustomerAlgorithm": str,
+        "SSECustomerKey": str,
+        "SSECustomerKeyMD5": str,
+        "RequestPayer": Literal["requester"],
+        "ExpectedBucketOwner": str,
+    },
+    total=False,
+)
+
+class GetObjectAttributesRequestRequestTypeDef(
+    _RequiredGetObjectAttributesRequestRequestTypeDef,
+    _OptionalGetObjectAttributesRequestRequestTypeDef,
+):
+    pass
+
 GetObjectLegalHoldOutputTypeDef = TypedDict(
     "GetObjectLegalHoldOutputTypeDef",
     {
@@ -2750,6 +2865,10 @@ GetObjectOutputTypeDef = TypedDict(
         "LastModified": datetime,
         "ContentLength": int,
         "ETag": str,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "MissingMeta": int,
         "VersionId": str,
         "CacheControl": str,
@@ -2799,6 +2918,7 @@ GetObjectRequestObjectSummaryTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "PartNumber": int,
         "ExpectedBucketOwner": str,
+        "ChecksumMode": Literal["ENABLED"],
     },
     total=False,
 )
@@ -2824,6 +2944,7 @@ GetObjectRequestObjectTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "PartNumber": int,
         "ExpectedBucketOwner": str,
+        "ChecksumMode": Literal["ENABLED"],
     },
     total=False,
 )
@@ -2848,6 +2969,7 @@ GetObjectRequestObjectVersionTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "PartNumber": int,
         "ExpectedBucketOwner": str,
+        "ChecksumMode": Literal["ENABLED"],
     },
     total=False,
 )
@@ -2880,6 +3002,7 @@ _OptionalGetObjectRequestRequestTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "PartNumber": int,
         "ExpectedBucketOwner": str,
+        "ChecksumMode": Literal["ENABLED"],
     },
     total=False,
 )
@@ -3074,6 +3197,10 @@ HeadObjectOutputTypeDef = TypedDict(
         "ArchiveStatus": ArchiveStatusType,
         "LastModified": datetime,
         "ContentLength": int,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "ETag": str,
         "MissingMeta": int,
         "VersionId": str,
@@ -3115,6 +3242,7 @@ HeadObjectRequestObjectVersionTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "PartNumber": int,
         "ExpectedBucketOwner": str,
+        "ChecksumMode": Literal["ENABLED"],
     },
     total=False,
 )
@@ -3141,6 +3269,7 @@ _OptionalHeadObjectRequestRequestTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "PartNumber": int,
         "ExpectedBucketOwner": str,
+        "ChecksumMode": Literal["ENABLED"],
     },
     total=False,
 )
@@ -3726,6 +3855,7 @@ ListPartsOutputTypeDef = TypedDict(
         "Owner": "OwnerTypeDef",
         "StorageClass": StorageClassType,
         "RequestCharged": Literal["requester"],
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -3745,6 +3875,9 @@ _OptionalListPartsRequestRequestTypeDef = TypedDict(
         "PartNumberMarker": int,
         "RequestPayer": Literal["requester"],
         "ExpectedBucketOwner": str,
+        "SSECustomerAlgorithm": str,
+        "SSECustomerKey": str,
+        "SSECustomerKeyMD5": str,
     },
     total=False,
 )
@@ -3854,6 +3987,7 @@ MultipartUploadTypeDef = TypedDict(
         "StorageClass": StorageClassType,
         "Owner": "OwnerTypeDef",
         "Initiator": "InitiatorTypeDef",
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
     },
     total=False,
 )
@@ -4049,6 +4183,19 @@ ObjectMultipartUploadRequestTypeDef = TypedDict(
     },
 )
 
+ObjectPartTypeDef = TypedDict(
+    "ObjectPartTypeDef",
+    {
+        "PartNumber": int,
+        "Size": int,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
+    },
+    total=False,
+)
+
 ObjectSummaryMultipartUploadRequestTypeDef = TypedDict(
     "ObjectSummaryMultipartUploadRequestTypeDef",
     {
@@ -4069,6 +4216,7 @@ ObjectTypeDef = TypedDict(
         "Key": str,
         "LastModified": datetime,
         "ETag": str,
+        "ChecksumAlgorithm": List[ChecksumAlgorithmType],
         "Size": int,
         "StorageClass": ObjectStorageClassType,
         "Owner": "OwnerTypeDef",
@@ -4129,6 +4277,7 @@ ObjectVersionTypeDef = TypedDict(
     "ObjectVersionTypeDef",
     {
         "ETag": str,
+        "ChecksumAlgorithm": List[ChecksumAlgorithmType],
         "Size": int,
         "StorageClass": Literal["STANDARD"],
         "Key": str,
@@ -4197,6 +4346,10 @@ PartTypeDef = TypedDict(
         "LastModified": datetime,
         "ETag": str,
         "Size": int,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
     },
     total=False,
 )
@@ -4249,6 +4402,7 @@ _OptionalPutBucketAccelerateConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketAccelerateConfigurationRequestRequestTypeDef",
     {
         "ExpectedBucketOwner": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
     },
     total=False,
 )
@@ -4264,6 +4418,7 @@ PutBucketAclRequestBucketAclTypeDef = TypedDict(
     {
         "ACL": BucketCannedACLType,
         "AccessControlPolicy": "AccessControlPolicyTypeDef",
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "GrantFullControl": str,
         "GrantRead": str,
         "GrantReadACP": str,
@@ -4285,6 +4440,7 @@ _OptionalPutBucketAclRequestRequestTypeDef = TypedDict(
     {
         "ACL": BucketCannedACLType,
         "AccessControlPolicy": "AccessControlPolicyTypeDef",
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "GrantFullControl": str,
         "GrantRead": str,
         "GrantReadACP": str,
@@ -4331,6 +4487,7 @@ _RequiredPutBucketCorsRequestBucketCorsTypeDef = TypedDict(
 _OptionalPutBucketCorsRequestBucketCorsTypeDef = TypedDict(
     "_OptionalPutBucketCorsRequestBucketCorsTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4351,6 +4508,7 @@ _RequiredPutBucketCorsRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketCorsRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketCorsRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4372,6 +4530,7 @@ _OptionalPutBucketEncryptionRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketEncryptionRequestRequestTypeDef",
     {
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4417,6 +4576,7 @@ class PutBucketInventoryConfigurationRequestRequestTypeDef(
 PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationTypeDef = TypedDict(
     "PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "LifecycleConfiguration": "BucketLifecycleConfigurationTypeDef",
         "ExpectedBucketOwner": str,
     },
@@ -4432,6 +4592,7 @@ _RequiredPutBucketLifecycleConfigurationRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketLifecycleConfigurationRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketLifecycleConfigurationRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "LifecycleConfiguration": "BucketLifecycleConfigurationTypeDef",
         "ExpectedBucketOwner": str,
     },
@@ -4447,6 +4608,7 @@ class PutBucketLifecycleConfigurationRequestRequestTypeDef(
 PutBucketLifecycleRequestBucketLifecycleTypeDef = TypedDict(
     "PutBucketLifecycleRequestBucketLifecycleTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "LifecycleConfiguration": "LifecycleConfigurationTypeDef",
         "ExpectedBucketOwner": str,
     },
@@ -4462,6 +4624,7 @@ _RequiredPutBucketLifecycleRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketLifecycleRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketLifecycleRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "LifecycleConfiguration": "LifecycleConfigurationTypeDef",
         "ExpectedBucketOwner": str,
     },
@@ -4483,6 +4646,7 @@ _RequiredPutBucketLoggingRequestBucketLoggingTypeDef = TypedDict(
 _OptionalPutBucketLoggingRequestBucketLoggingTypeDef = TypedDict(
     "_OptionalPutBucketLoggingRequestBucketLoggingTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4504,6 +4668,7 @@ _RequiredPutBucketLoggingRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketLoggingRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketLoggingRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4589,6 +4754,7 @@ _RequiredPutBucketNotificationRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketNotificationRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketNotificationRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4631,6 +4797,7 @@ _RequiredPutBucketPolicyRequestBucketPolicyTypeDef = TypedDict(
 _OptionalPutBucketPolicyRequestBucketPolicyTypeDef = TypedDict(
     "_OptionalPutBucketPolicyRequestBucketPolicyTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ConfirmRemoveSelfBucketAccess": bool,
         "ExpectedBucketOwner": str,
     },
@@ -4653,6 +4820,7 @@ _RequiredPutBucketPolicyRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketPolicyRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketPolicyRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ConfirmRemoveSelfBucketAccess": bool,
         "ExpectedBucketOwner": str,
     },
@@ -4674,6 +4842,7 @@ _RequiredPutBucketReplicationRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketReplicationRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketReplicationRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "Token": str,
         "ExpectedBucketOwner": str,
     },
@@ -4695,6 +4864,7 @@ _RequiredPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef = TypedDict(
 _OptionalPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef = TypedDict(
     "_OptionalPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4716,6 +4886,7 @@ _RequiredPutBucketRequestPaymentRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketRequestPaymentRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketRequestPaymentRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4736,6 +4907,7 @@ _RequiredPutBucketTaggingRequestBucketTaggingTypeDef = TypedDict(
 _OptionalPutBucketTaggingRequestBucketTaggingTypeDef = TypedDict(
     "_OptionalPutBucketTaggingRequestBucketTaggingTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4757,6 +4929,7 @@ _RequiredPutBucketTaggingRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketTaggingRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketTaggingRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4776,6 +4949,7 @@ _RequiredPutBucketVersioningRequestBucketVersioningTypeDef = TypedDict(
 _OptionalPutBucketVersioningRequestBucketVersioningTypeDef = TypedDict(
     "_OptionalPutBucketVersioningRequestBucketVersioningTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "MFA": str,
         "ExpectedBucketOwner": str,
     },
@@ -4798,6 +4972,7 @@ _RequiredPutBucketVersioningRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketVersioningRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketVersioningRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "MFA": str,
         "ExpectedBucketOwner": str,
     },
@@ -4819,6 +4994,7 @@ _RequiredPutBucketWebsiteRequestBucketWebsiteTypeDef = TypedDict(
 _OptionalPutBucketWebsiteRequestBucketWebsiteTypeDef = TypedDict(
     "_OptionalPutBucketWebsiteRequestBucketWebsiteTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4840,6 +5016,7 @@ _RequiredPutBucketWebsiteRequestRequestTypeDef = TypedDict(
 _OptionalPutBucketWebsiteRequestRequestTypeDef = TypedDict(
     "_OptionalPutBucketWebsiteRequestRequestTypeDef",
     {
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4863,6 +5040,7 @@ PutObjectAclRequestObjectAclTypeDef = TypedDict(
     {
         "ACL": ObjectCannedACLType,
         "AccessControlPolicy": "AccessControlPolicyTypeDef",
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "GrantFullControl": str,
         "GrantRead": str,
         "GrantReadACP": str,
@@ -4887,6 +5065,7 @@ _OptionalPutObjectAclRequestRequestTypeDef = TypedDict(
     {
         "ACL": ObjectCannedACLType,
         "AccessControlPolicy": "AccessControlPolicyTypeDef",
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "GrantFullControl": str,
         "GrantRead": str,
         "GrantReadACP": str,
@@ -4926,6 +5105,7 @@ _OptionalPutObjectLegalHoldRequestRequestTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "VersionId": str,
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4958,6 +5138,7 @@ _OptionalPutObjectLockConfigurationRequestRequestTypeDef = TypedDict(
         "RequestPayer": Literal["requester"],
         "Token": str,
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -4974,6 +5155,10 @@ PutObjectOutputTypeDef = TypedDict(
     {
         "Expiration": str,
         "ETag": str,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "ServerSideEncryption": ServerSideEncryptionType,
         "VersionId": str,
         "SSECustomerAlgorithm": str,
@@ -5004,6 +5189,11 @@ _OptionalPutObjectRequestBucketTypeDef = TypedDict(
         "ContentLength": int,
         "ContentMD5": str,
         "ContentType": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "Expires": Union[datetime, str],
         "GrantFullControl": str,
         "GrantRead": str,
@@ -5046,6 +5236,11 @@ PutObjectRequestObjectSummaryTypeDef = TypedDict(
         "ContentLength": int,
         "ContentMD5": str,
         "ContentType": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "Expires": Union[datetime, str],
         "GrantFullControl": str,
         "GrantRead": str,
@@ -5083,6 +5278,11 @@ PutObjectRequestObjectTypeDef = TypedDict(
         "ContentLength": int,
         "ContentMD5": str,
         "ContentType": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "Expires": Union[datetime, str],
         "GrantFullControl": str,
         "GrantRead": str,
@@ -5127,6 +5327,11 @@ _OptionalPutObjectRequestRequestTypeDef = TypedDict(
         "ContentLength": int,
         "ContentMD5": str,
         "ContentType": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "Expires": Union[datetime, str],
         "GrantFullControl": str,
         "GrantRead": str,
@@ -5180,6 +5385,7 @@ _OptionalPutObjectRetentionRequestRequestTypeDef = TypedDict(
         "VersionId": str,
         "BypassGovernanceRetention": bool,
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -5212,6 +5418,7 @@ _OptionalPutObjectTaggingRequestRequestTypeDef = TypedDict(
     {
         "VersionId": str,
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
         "RequestPayer": Literal["requester"],
     },
@@ -5234,6 +5441,7 @@ _OptionalPutPublicAccessBlockRequestRequestTypeDef = TypedDict(
     "_OptionalPutPublicAccessBlockRequestRequestTypeDef",
     {
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -5431,6 +5639,7 @@ RestoreObjectRequestObjectSummaryTypeDef = TypedDict(
         "VersionId": str,
         "RestoreRequest": "RestoreRequestTypeDef",
         "RequestPayer": Literal["requester"],
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -5442,6 +5651,7 @@ RestoreObjectRequestObjectTypeDef = TypedDict(
         "VersionId": str,
         "RestoreRequest": "RestoreRequestTypeDef",
         "RequestPayer": Literal["requester"],
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -5460,6 +5670,7 @@ _OptionalRestoreObjectRequestRequestTypeDef = TypedDict(
         "VersionId": str,
         "RestoreRequest": "RestoreRequestTypeDef",
         "RequestPayer": Literal["requester"],
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
         "ExpectedBucketOwner": str,
     },
     total=False,
@@ -6015,6 +6226,10 @@ UploadPartOutputTypeDef = TypedDict(
     {
         "ServerSideEncryption": ServerSideEncryptionType,
         "ETag": str,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "SSECustomerAlgorithm": str,
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
@@ -6030,6 +6245,11 @@ UploadPartRequestMultipartUploadPartTypeDef = TypedDict(
         "Body": Union[bytes, IO[bytes], StreamingBody],
         "ContentLength": int,
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "SSECustomerAlgorithm": str,
         "SSECustomerKey": str,
         "SSECustomerKeyMD5": str,
@@ -6054,6 +6274,11 @@ _OptionalUploadPartRequestRequestTypeDef = TypedDict(
         "Body": Union[bytes, IO[bytes], StreamingBody],
         "ContentLength": int,
         "ContentMD5": str,
+        "ChecksumAlgorithm": ChecksumAlgorithmType,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "SSECustomerAlgorithm": str,
         "SSECustomerKey": str,
         "SSECustomerKeyMD5": str,
@@ -6119,6 +6344,10 @@ _OptionalWriteGetObjectResponseRequestRequestTypeDef = TypedDict(
         "ContentLength": int,
         "ContentRange": str,
         "ContentType": str,
+        "ChecksumCRC32": str,
+        "ChecksumCRC32C": str,
+        "ChecksumSHA1": str,
+        "ChecksumSHA256": str,
         "DeleteMarker": bool,
         "ETag": str,
         "Expires": Union[datetime, str],

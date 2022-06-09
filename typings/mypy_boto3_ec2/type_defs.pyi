@@ -77,6 +77,7 @@ from .literals import (
     DiskImageFormatType,
     DiskTypeType,
     DnsNameStateType,
+    DnsRecordIpTypeType,
     DnsSupportValueType,
     DomainTypeType,
     EbsEncryptionSupportType,
@@ -91,6 +92,7 @@ from .literals import (
     ExcessCapacityTerminationPolicyType,
     ExportEnvironmentType,
     ExportTaskStateType,
+    FastLaunchStateCodeType,
     FastSnapshotRestoreStateCodeType,
     FindingsFoundType,
     FleetActivityStatusType,
@@ -115,6 +117,7 @@ from .literals import (
     ImageStateType,
     ImageTypeValuesType,
     InstanceAttributeNameType,
+    InstanceAutoRecoveryStateType,
     InstanceEventWindowStateType,
     InstanceGenerationType,
     InstanceHealthStatusType,
@@ -125,12 +128,14 @@ from .literals import (
     InstanceMetadataEndpointStateType,
     InstanceMetadataOptionsStateType,
     InstanceMetadataProtocolStateType,
+    InstanceMetadataTagsStateType,
     InstanceStateNameType,
     InstanceStorageEncryptionSupportType,
     InstanceTypeHypervisorType,
     InstanceTypeType,
     InterfacePermissionTypeType,
     InterfaceProtocolTypeType,
+    IpAddressTypeType,
     IpamAddressHistoryResourceTypeType,
     IpamComplianceStatusType,
     IpamManagementStateType,
@@ -143,12 +148,15 @@ from .literals import (
     IpamScopeTypeType,
     IpamStateType,
     Ipv6SupportValueType,
+    KeyFormatType,
     KeyTypeType,
+    LaunchTemplateAutoRecoveryStateType,
     LaunchTemplateErrorCodeType,
     LaunchTemplateHttpTokensStateType,
     LaunchTemplateInstanceMetadataEndpointStateType,
     LaunchTemplateInstanceMetadataOptionsStateType,
     LaunchTemplateInstanceMetadataProtocolIpv6Type,
+    LaunchTemplateInstanceMetadataTagsStateType,
     ListingStateType,
     ListingStatusType,
     LocalGatewayRouteStateType,
@@ -195,6 +203,7 @@ from .literals import (
     RouteTableAssociationStateCodeType,
     RuleActionType,
     SelfServicePortalType,
+    ServiceConnectivityTypeType,
     ServiceStateType,
     ServiceTypeType,
     ShutdownBehaviorType,
@@ -294,6 +303,7 @@ __all__ = (
     "ActiveInstanceTypeDef",
     "AddIpamOperatingRegionTypeDef",
     "AddPrefixListEntryTypeDef",
+    "AdditionalDetailTypeDef",
     "AddressAttributeTypeDef",
     "AddressTypeDef",
     "AdvertiseByoipCidrRequestRequestTypeDef",
@@ -435,6 +445,8 @@ __all__ = (
     "ClientConnectOptionsTypeDef",
     "ClientConnectResponseOptionsTypeDef",
     "ClientDataTypeDef",
+    "ClientLoginBannerOptionsTypeDef",
+    "ClientLoginBannerResponseOptionsTypeDef",
     "ClientVpnAuthenticationRequestTypeDef",
     "ClientVpnAuthenticationTypeDef",
     "ClientVpnAuthorizationRuleStatusTypeDef",
@@ -832,6 +844,9 @@ __all__ = (
     "DescribeExportImageTasksResultTypeDef",
     "DescribeExportTasksRequestRequestTypeDef",
     "DescribeExportTasksResultTypeDef",
+    "DescribeFastLaunchImagesRequestRequestTypeDef",
+    "DescribeFastLaunchImagesResultTypeDef",
+    "DescribeFastLaunchImagesSuccessItemTypeDef",
     "DescribeFastSnapshotRestoreSuccessItemTypeDef",
     "DescribeFastSnapshotRestoresRequestRequestTypeDef",
     "DescribeFastSnapshotRestoresResultTypeDef",
@@ -1077,6 +1092,8 @@ __all__ = (
     "DirectoryServiceAuthenticationTypeDef",
     "DisableEbsEncryptionByDefaultRequestRequestTypeDef",
     "DisableEbsEncryptionByDefaultResultTypeDef",
+    "DisableFastLaunchRequestRequestTypeDef",
+    "DisableFastLaunchResultTypeDef",
     "DisableFastSnapshotRestoreErrorItemTypeDef",
     "DisableFastSnapshotRestoreStateErrorItemTypeDef",
     "DisableFastSnapshotRestoreStateErrorTypeDef",
@@ -1127,6 +1144,8 @@ __all__ = (
     "DiskImageVolumeDescriptionTypeDef",
     "DiskInfoTypeDef",
     "DnsEntryTypeDef",
+    "DnsOptionsSpecificationTypeDef",
+    "DnsOptionsTypeDef",
     "DnsServersOptionsModifyStructureTypeDef",
     "EbsBlockDeviceTypeDef",
     "EbsInfoTypeDef",
@@ -1144,6 +1163,8 @@ __all__ = (
     "ElasticInferenceAcceleratorTypeDef",
     "EnableEbsEncryptionByDefaultRequestRequestTypeDef",
     "EnableEbsEncryptionByDefaultResultTypeDef",
+    "EnableFastLaunchRequestRequestTypeDef",
+    "EnableFastLaunchResultTypeDef",
     "EnableFastSnapshotRestoreErrorItemTypeDef",
     "EnableFastSnapshotRestoreStateErrorItemTypeDef",
     "EnableFastSnapshotRestoreStateErrorTypeDef",
@@ -1186,6 +1207,10 @@ __all__ = (
     "ExportTransitGatewayRoutesResultTypeDef",
     "FailedCapacityReservationFleetCancellationResultTypeDef",
     "FailedQueuedPurchaseDeletionTypeDef",
+    "FastLaunchLaunchTemplateSpecificationRequestTypeDef",
+    "FastLaunchLaunchTemplateSpecificationResponseTypeDef",
+    "FastLaunchSnapshotConfigurationRequestTypeDef",
+    "FastLaunchSnapshotConfigurationResponseTypeDef",
     "FederatedAuthenticationRequestTypeDef",
     "FederatedAuthenticationTypeDef",
     "FilterTypeDef",
@@ -1235,6 +1260,8 @@ __all__ = (
     "GetHostReservationPurchasePreviewResultTypeDef",
     "GetInstanceTypesFromInstanceRequirementsRequestRequestTypeDef",
     "GetInstanceTypesFromInstanceRequirementsResultTypeDef",
+    "GetInstanceUefiDataRequestRequestTypeDef",
+    "GetInstanceUefiDataResultTypeDef",
     "GetIpamAddressHistoryRequestRequestTypeDef",
     "GetIpamAddressHistoryResultTypeDef",
     "GetIpamPoolAllocationsRequestRequestTypeDef",
@@ -1300,6 +1327,7 @@ __all__ = (
     "IdFormatTypeDef",
     "ImageAttributeTypeDef",
     "ImageDiskContainerTypeDef",
+    "ImageRecycleBinInfoTypeDef",
     "ImageTypeDef",
     "ImportClientVpnClientCertificateRevocationListRequestRequestTypeDef",
     "ImportClientVpnClientCertificateRevocationListResultTypeDef",
@@ -1345,6 +1373,8 @@ __all__ = (
     "InstanceIpv6AddressRequestTypeDef",
     "InstanceIpv6AddressTypeDef",
     "InstanceIpv6PrefixTypeDef",
+    "InstanceMaintenanceOptionsRequestTypeDef",
+    "InstanceMaintenanceOptionsTypeDef",
     "InstanceMarketOptionsRequestTypeDef",
     "InstanceMetadataOptionsRequestTypeDef",
     "InstanceMetadataOptionsResponseTypeDef",
@@ -1421,6 +1451,8 @@ __all__ = (
     "LaunchTemplateHibernationOptionsTypeDef",
     "LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef",
     "LaunchTemplateIamInstanceProfileSpecificationTypeDef",
+    "LaunchTemplateInstanceMaintenanceOptionsRequestTypeDef",
+    "LaunchTemplateInstanceMaintenanceOptionsTypeDef",
     "LaunchTemplateInstanceMarketOptionsRequestTypeDef",
     "LaunchTemplateInstanceMarketOptionsTypeDef",
     "LaunchTemplateInstanceMetadataOptionsRequestTypeDef",
@@ -1445,6 +1477,8 @@ __all__ = (
     "LaunchTemplatesMonitoringTypeDef",
     "LicenseConfigurationRequestTypeDef",
     "LicenseConfigurationTypeDef",
+    "ListImagesInRecycleBinRequestRequestTypeDef",
+    "ListImagesInRecycleBinResultTypeDef",
     "ListSnapshotsInRecycleBinRequestRequestTypeDef",
     "ListSnapshotsInRecycleBinResultTypeDef",
     "LoadBalancersConfigTypeDef",
@@ -1498,6 +1532,8 @@ __all__ = (
     "ModifyInstanceEventStartTimeResultTypeDef",
     "ModifyInstanceEventWindowRequestRequestTypeDef",
     "ModifyInstanceEventWindowResultTypeDef",
+    "ModifyInstanceMaintenanceOptionsRequestRequestTypeDef",
+    "ModifyInstanceMaintenanceOptionsResultTypeDef",
     "ModifyInstanceMetadataOptionsRequestRequestTypeDef",
     "ModifyInstanceMetadataOptionsResultTypeDef",
     "ModifyInstancePlacementRequestRequestTypeDef",
@@ -1555,6 +1591,8 @@ __all__ = (
     "ModifyVpcEndpointResultTypeDef",
     "ModifyVpcEndpointServiceConfigurationRequestRequestTypeDef",
     "ModifyVpcEndpointServiceConfigurationResultTypeDef",
+    "ModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef",
+    "ModifyVpcEndpointServicePayerResponsibilityResultTypeDef",
     "ModifyVpcEndpointServicePermissionsRequestRequestTypeDef",
     "ModifyVpcEndpointServicePermissionsResultTypeDef",
     "ModifyVpcPeeringConnectionOptionsRequestRequestTypeDef",
@@ -1761,6 +1799,8 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RestoreAddressToClassicRequestRequestTypeDef",
     "RestoreAddressToClassicResultTypeDef",
+    "RestoreImageFromRecycleBinRequestRequestTypeDef",
+    "RestoreImageFromRecycleBinResultTypeDef",
     "RestoreManagedPrefixListVersionRequestRequestTypeDef",
     "RestoreManagedPrefixListVersionResultTypeDef",
     "RestoreSnapshotFromRecycleBinRequestRequestTypeDef",
@@ -1945,6 +1985,7 @@ __all__ = (
     "TransitGatewayRouteAttachmentTypeDef",
     "TransitGatewayRouteTableAssociationTypeDef",
     "TransitGatewayRouteTablePropagationTypeDef",
+    "TransitGatewayRouteTableRouteTypeDef",
     "TransitGatewayRouteTableTypeDef",
     "TransitGatewayRouteTypeDef",
     "TransitGatewayTypeDef",
@@ -2293,6 +2334,15 @@ class AddPrefixListEntryTypeDef(
 ):
     pass
 
+AdditionalDetailTypeDef = TypedDict(
+    "AdditionalDetailTypeDef",
+    {
+        "AdditionalDetailType": str,
+        "Component": "AnalysisComponentTypeDef",
+    },
+    total=False,
+)
+
 AddressAttributeTypeDef = TypedDict(
     "AddressAttributeTypeDef",
     {
@@ -2398,6 +2448,7 @@ _OptionalAllocateHostsRequestRequestTypeDef = TypedDict(
         "InstanceFamily": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "HostRecovery": HostRecoveryType,
+        "OutpostArn": str,
     },
     total=False,
 )
@@ -4032,6 +4083,7 @@ CapacityReservationTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "OutpostArn": str,
         "CapacityReservationFleetId": str,
+        "PlacementGroupArn": str,
     },
     total=False,
 )
@@ -4155,6 +4207,24 @@ ClientDataTypeDef = TypedDict(
     total=False,
 )
 
+ClientLoginBannerOptionsTypeDef = TypedDict(
+    "ClientLoginBannerOptionsTypeDef",
+    {
+        "Enabled": bool,
+        "BannerText": str,
+    },
+    total=False,
+)
+
+ClientLoginBannerResponseOptionsTypeDef = TypedDict(
+    "ClientLoginBannerResponseOptionsTypeDef",
+    {
+        "Enabled": bool,
+        "BannerText": str,
+    },
+    total=False,
+)
+
 ClientVpnAuthenticationRequestTypeDef = TypedDict(
     "ClientVpnAuthenticationRequestTypeDef",
     {
@@ -4258,6 +4328,8 @@ ClientVpnEndpointTypeDef = TypedDict(
         "VpcId": str,
         "SelfServicePortalUrl": str,
         "ClientConnectOptions": "ClientConnectResponseOptionsTypeDef",
+        "SessionTimeoutHours": int,
+        "ClientLoginBannerOptions": "ClientLoginBannerResponseOptionsTypeDef",
     },
     total=False,
 )
@@ -4599,6 +4671,7 @@ _OptionalCreateCapacityReservationRequestRequestTypeDef = TypedDict(
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "DryRun": bool,
         "OutpostArn": str,
+        "PlacementGroupArn": str,
     },
     total=False,
 )
@@ -4671,6 +4744,8 @@ _OptionalCreateClientVpnEndpointRequestRequestTypeDef = TypedDict(
         "VpcId": str,
         "SelfServicePortal": SelfServicePortalType,
         "ClientConnectOptions": "ClientConnectOptionsTypeDef",
+        "SessionTimeoutHours": int,
+        "ClientLoginBannerOptions": "ClientLoginBannerOptionsTypeDef",
     },
     total=False,
 )
@@ -5154,6 +5229,7 @@ _RequiredCreateIpamPoolRequestRequestTypeDef = TypedDict(
     "_RequiredCreateIpamPoolRequestRequestTypeDef",
     {
         "IpamScopeId": str,
+        "AddressFamily": AddressFamilyType,
     },
 )
 _OptionalCreateIpamPoolRequestRequestTypeDef = TypedDict(
@@ -5163,7 +5239,6 @@ _OptionalCreateIpamPoolRequestRequestTypeDef = TypedDict(
         "Locale": str,
         "SourceIpamPoolId": str,
         "Description": str,
-        "AddressFamily": AddressFamilyType,
         "AutoImport": bool,
         "PubliclyAdvertisable": bool,
         "AllocationMinNetmaskLength": int,
@@ -5252,6 +5327,7 @@ _OptionalCreateKeyPairRequestRequestTypeDef = TypedDict(
         "DryRun": bool,
         "KeyType": KeyTypeType,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "KeyFormat": KeyFormatType,
     },
     total=False,
 )
@@ -5273,6 +5349,7 @@ _OptionalCreateKeyPairRequestServiceResourceTypeDef = TypedDict(
         "DryRun": bool,
         "KeyType": KeyTypeType,
         "TagSpecifications": List["TagSpecificationTypeDef"],
+        "KeyFormat": KeyFormatType,
     },
     total=False,
 )
@@ -6268,9 +6345,9 @@ _RequiredCreateSubnetCidrReservationRequestRequestTypeDef = TypedDict(
 _OptionalCreateSubnetCidrReservationRequestRequestTypeDef = TypedDict(
     "_OptionalCreateSubnetCidrReservationRequestRequestTypeDef",
     {
-        "TagSpecifications": List["TagSpecificationTypeDef"],
         "Description": str,
         "DryRun": bool,
+        "TagSpecifications": List["TagSpecificationTypeDef"],
     },
     total=False,
 )
@@ -6741,6 +6818,7 @@ CreateTrafficMirrorTargetRequestRequestTypeDef = TypedDict(
         "TagSpecifications": List["TagSpecificationTypeDef"],
         "DryRun": bool,
         "ClientToken": str,
+        "GatewayLoadBalancerEndpointId": str,
     },
     total=False,
 )
@@ -7176,6 +7254,8 @@ _OptionalCreateVpcEndpointRequestRequestTypeDef = TypedDict(
         "RouteTableIds": List[str],
         "SubnetIds": List[str],
         "SecurityGroupIds": List[str],
+        "IpAddressType": IpAddressTypeType,
+        "DnsOptions": "DnsOptionsSpecificationTypeDef",
         "ClientToken": str,
         "PrivateDnsEnabled": bool,
         "TagSpecifications": List["TagSpecificationTypeDef"],
@@ -7205,6 +7285,7 @@ CreateVpcEndpointServiceConfigurationRequestRequestTypeDef = TypedDict(
         "PrivateDnsName": str,
         "NetworkLoadBalancerArns": List[str],
         "GatewayLoadBalancerArns": List[str],
+        "SupportedIpAddressTypes": List[str],
         "ClientToken": str,
         "TagSpecifications": List["TagSpecificationTypeDef"],
     },
@@ -7779,6 +7860,7 @@ _OptionalDeleteIpamRequestRequestTypeDef = TypedDict(
     "_OptionalDeleteIpamRequestRequestTypeDef",
     {
         "DryRun": bool,
+        "Cascade": bool,
     },
     total=False,
 )
@@ -9865,6 +9947,43 @@ DescribeExportTasksResultTypeDef = TypedDict(
     },
 )
 
+DescribeFastLaunchImagesRequestRequestTypeDef = TypedDict(
+    "DescribeFastLaunchImagesRequestRequestTypeDef",
+    {
+        "ImageIds": List[str],
+        "Filters": List["FilterTypeDef"],
+        "MaxResults": int,
+        "NextToken": str,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+DescribeFastLaunchImagesResultTypeDef = TypedDict(
+    "DescribeFastLaunchImagesResultTypeDef",
+    {
+        "FastLaunchImages": List["DescribeFastLaunchImagesSuccessItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeFastLaunchImagesSuccessItemTypeDef = TypedDict(
+    "DescribeFastLaunchImagesSuccessItemTypeDef",
+    {
+        "ImageId": str,
+        "ResourceType": Literal["snapshot"],
+        "SnapshotConfiguration": "FastLaunchSnapshotConfigurationResponseTypeDef",
+        "LaunchTemplate": "FastLaunchLaunchTemplateSpecificationResponseTypeDef",
+        "MaxParallelLaunches": int,
+        "OwnerId": str,
+        "State": FastLaunchStateCodeType,
+        "StateTransitionReason": str,
+        "StateTransitionTime": datetime,
+    },
+    total=False,
+)
+
 DescribeFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     "DescribeFastSnapshotRestoreSuccessItemTypeDef",
     {
@@ -10614,6 +10733,7 @@ DescribeKeyPairsRequestRequestTypeDef = TypedDict(
         "KeyNames": List[str],
         "KeyPairIds": List[str],
         "DryRun": bool,
+        "IncludePublicKey": bool,
     },
     total=False,
 )
@@ -12749,6 +12869,42 @@ DisableEbsEncryptionByDefaultResultTypeDef = TypedDict(
     },
 )
 
+_RequiredDisableFastLaunchRequestRequestTypeDef = TypedDict(
+    "_RequiredDisableFastLaunchRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalDisableFastLaunchRequestRequestTypeDef = TypedDict(
+    "_OptionalDisableFastLaunchRequestRequestTypeDef",
+    {
+        "Force": bool,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class DisableFastLaunchRequestRequestTypeDef(
+    _RequiredDisableFastLaunchRequestRequestTypeDef, _OptionalDisableFastLaunchRequestRequestTypeDef
+):
+    pass
+
+DisableFastLaunchResultTypeDef = TypedDict(
+    "DisableFastLaunchResultTypeDef",
+    {
+        "ImageId": str,
+        "ResourceType": Literal["snapshot"],
+        "SnapshotConfiguration": "FastLaunchSnapshotConfigurationResponseTypeDef",
+        "LaunchTemplate": "FastLaunchLaunchTemplateSpecificationResponseTypeDef",
+        "MaxParallelLaunches": int,
+        "OwnerId": str,
+        "State": FastLaunchStateCodeType,
+        "StateTransitionReason": str,
+        "StateTransitionTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DisableFastSnapshotRestoreErrorItemTypeDef = TypedDict(
     "DisableFastSnapshotRestoreErrorItemTypeDef",
     {
@@ -13336,6 +13492,22 @@ DnsEntryTypeDef = TypedDict(
     total=False,
 )
 
+DnsOptionsSpecificationTypeDef = TypedDict(
+    "DnsOptionsSpecificationTypeDef",
+    {
+        "DnsRecordIpType": DnsRecordIpTypeType,
+    },
+    total=False,
+)
+
+DnsOptionsTypeDef = TypedDict(
+    "DnsOptionsTypeDef",
+    {
+        "DnsRecordIpType": DnsRecordIpTypeType,
+    },
+    total=False,
+)
+
 DnsServersOptionsModifyStructureTypeDef = TypedDict(
     "DnsServersOptionsModifyStructureTypeDef",
     {
@@ -13513,6 +13685,45 @@ EnableEbsEncryptionByDefaultResultTypeDef = TypedDict(
     "EnableEbsEncryptionByDefaultResultTypeDef",
     {
         "EbsEncryptionByDefault": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredEnableFastLaunchRequestRequestTypeDef = TypedDict(
+    "_RequiredEnableFastLaunchRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalEnableFastLaunchRequestRequestTypeDef = TypedDict(
+    "_OptionalEnableFastLaunchRequestRequestTypeDef",
+    {
+        "ResourceType": str,
+        "SnapshotConfiguration": "FastLaunchSnapshotConfigurationRequestTypeDef",
+        "LaunchTemplate": "FastLaunchLaunchTemplateSpecificationRequestTypeDef",
+        "MaxParallelLaunches": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class EnableFastLaunchRequestRequestTypeDef(
+    _RequiredEnableFastLaunchRequestRequestTypeDef, _OptionalEnableFastLaunchRequestRequestTypeDef
+):
+    pass
+
+EnableFastLaunchResultTypeDef = TypedDict(
+    "EnableFastLaunchResultTypeDef",
+    {
+        "ImageId": str,
+        "ResourceType": Literal["snapshot"],
+        "SnapshotConfiguration": "FastLaunchSnapshotConfigurationResponseTypeDef",
+        "LaunchTemplate": "FastLaunchLaunchTemplateSpecificationResponseTypeDef",
+        "MaxParallelLaunches": int,
+        "OwnerId": str,
+        "State": FastLaunchStateCodeType,
+        "StateTransitionReason": str,
+        "StateTransitionTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -13868,6 +14079,10 @@ ExplanationTypeDef = TypedDict(
         "VpcEndpoint": "AnalysisComponentTypeDef",
         "VpnConnection": "AnalysisComponentTypeDef",
         "VpnGateway": "AnalysisComponentTypeDef",
+        "TransitGateway": "AnalysisComponentTypeDef",
+        "TransitGatewayRouteTable": "AnalysisComponentTypeDef",
+        "TransitGatewayRouteTableRoute": "TransitGatewayRouteTableRouteTypeDef",
+        "TransitGatewayAttachment": "AnalysisComponentTypeDef",
     },
     total=False,
 )
@@ -14094,6 +14309,53 @@ FailedQueuedPurchaseDeletionTypeDef = TypedDict(
     {
         "Error": "DeleteQueuedReservedInstancesErrorTypeDef",
         "ReservedInstancesId": str,
+    },
+    total=False,
+)
+
+_RequiredFastLaunchLaunchTemplateSpecificationRequestTypeDef = TypedDict(
+    "_RequiredFastLaunchLaunchTemplateSpecificationRequestTypeDef",
+    {
+        "Version": str,
+    },
+)
+_OptionalFastLaunchLaunchTemplateSpecificationRequestTypeDef = TypedDict(
+    "_OptionalFastLaunchLaunchTemplateSpecificationRequestTypeDef",
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+    },
+    total=False,
+)
+
+class FastLaunchLaunchTemplateSpecificationRequestTypeDef(
+    _RequiredFastLaunchLaunchTemplateSpecificationRequestTypeDef,
+    _OptionalFastLaunchLaunchTemplateSpecificationRequestTypeDef,
+):
+    pass
+
+FastLaunchLaunchTemplateSpecificationResponseTypeDef = TypedDict(
+    "FastLaunchLaunchTemplateSpecificationResponseTypeDef",
+    {
+        "LaunchTemplateId": str,
+        "LaunchTemplateName": str,
+        "Version": str,
+    },
+    total=False,
+)
+
+FastLaunchSnapshotConfigurationRequestTypeDef = TypedDict(
+    "FastLaunchSnapshotConfigurationRequestTypeDef",
+    {
+        "TargetResourceCount": int,
+    },
+    total=False,
+)
+
+FastLaunchSnapshotConfigurationResponseTypeDef = TypedDict(
+    "FastLaunchSnapshotConfigurationResponseTypeDef",
+    {
+        "TargetResourceCount": int,
     },
     total=False,
 )
@@ -14720,6 +14982,35 @@ GetInstanceTypesFromInstanceRequirementsResultTypeDef = TypedDict(
     {
         "InstanceTypes": List["InstanceTypeInfoFromInstanceRequirementsTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetInstanceUefiDataRequestRequestTypeDef = TypedDict(
+    "_RequiredGetInstanceUefiDataRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalGetInstanceUefiDataRequestRequestTypeDef = TypedDict(
+    "_OptionalGetInstanceUefiDataRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class GetInstanceUefiDataRequestRequestTypeDef(
+    _RequiredGetInstanceUefiDataRequestRequestTypeDef,
+    _OptionalGetInstanceUefiDataRequestRequestTypeDef,
+):
+    pass
+
+GetInstanceUefiDataResultTypeDef = TypedDict(
+    "GetInstanceUefiDataResultTypeDef",
+    {
+        "InstanceId": str,
+        "UefiData": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -15519,6 +15810,7 @@ HostTypeDef = TypedDict(
         "OwnerId": str,
         "AvailabilityZoneId": str,
         "MemberOfServiceLinkedResourceGroup": bool,
+        "OutpostArn": str,
     },
     total=False,
 )
@@ -15600,6 +15892,9 @@ ImageAttributeTypeDef = TypedDict(
         "RamdiskId": "AttributeValueTypeDef",
         "SriovNetSupport": "AttributeValueTypeDef",
         "BootMode": "AttributeValueTypeDef",
+        "TpmSupport": "AttributeValueTypeDef",
+        "UefiData": "AttributeValueTypeDef",
+        "LastLaunchedTime": "AttributeValueTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -15613,6 +15908,18 @@ ImageDiskContainerTypeDef = TypedDict(
         "SnapshotId": str,
         "Url": str,
         "UserBucket": "UserBucketTypeDef",
+    },
+    total=False,
+)
+
+ImageRecycleBinInfoTypeDef = TypedDict(
+    "ImageRecycleBinInfoTypeDef",
+    {
+        "ImageId": str,
+        "Name": str,
+        "Description": str,
+        "RecycleBinEnterTime": datetime,
+        "RecycleBinExitTime": datetime,
     },
     total=False,
 )
@@ -15647,6 +15954,7 @@ ImageTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "VirtualizationType": VirtualizationTypeType,
         "BootMode": BootModeValuesType,
+        "TpmSupport": Literal["v2.0"],
         "DeprecationTime": str,
     },
     total=False,
@@ -16011,6 +16319,7 @@ InstanceAttributeTypeDef = TypedDict(
         "SourceDestCheck": "AttributeBooleanValueTypeDef",
         "SriovNetSupport": "AttributeValueTypeDef",
         "UserData": "AttributeValueTypeDef",
+        "DisableApiStop": "AttributeBooleanValueTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -16206,6 +16515,22 @@ InstanceIpv6PrefixTypeDef = TypedDict(
     total=False,
 )
 
+InstanceMaintenanceOptionsRequestTypeDef = TypedDict(
+    "InstanceMaintenanceOptionsRequestTypeDef",
+    {
+        "AutoRecovery": InstanceAutoRecoveryStateType,
+    },
+    total=False,
+)
+
+InstanceMaintenanceOptionsTypeDef = TypedDict(
+    "InstanceMaintenanceOptionsTypeDef",
+    {
+        "AutoRecovery": InstanceAutoRecoveryStateType,
+    },
+    total=False,
+)
+
 InstanceMarketOptionsRequestTypeDef = TypedDict(
     "InstanceMarketOptionsRequestTypeDef",
     {
@@ -16222,6 +16547,7 @@ InstanceMetadataOptionsRequestTypeDef = TypedDict(
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": InstanceMetadataEndpointStateType,
         "HttpProtocolIpv6": InstanceMetadataProtocolStateType,
+        "InstanceMetadataTags": InstanceMetadataTagsStateType,
     },
     total=False,
 )
@@ -16234,6 +16560,7 @@ InstanceMetadataOptionsResponseTypeDef = TypedDict(
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": InstanceMetadataEndpointStateType,
         "HttpProtocolIpv6": InstanceMetadataProtocolStateType,
+        "InstanceMetadataTags": InstanceMetadataTagsStateType,
     },
     total=False,
 )
@@ -16563,6 +16890,8 @@ InstanceTypeDef = TypedDict(
         "UsageOperationUpdateTime": datetime,
         "PrivateDnsNameOptions": "PrivateDnsNameOptionsResponseTypeDef",
         "Ipv6Address": str,
+        "TpmSupport": str,
+        "MaintenanceOptions": "InstanceMaintenanceOptionsTypeDef",
     },
     total=False,
 )
@@ -16933,6 +17262,8 @@ KeyPairInfoTypeDef = TypedDict(
         "KeyName": str,
         "KeyType": KeyTypeType,
         "Tags": List["TagTypeDef"],
+        "PublicKey": str,
+        "CreateTime": datetime,
     },
     total=False,
 )
@@ -17185,6 +17516,22 @@ LaunchTemplateIamInstanceProfileSpecificationTypeDef = TypedDict(
     total=False,
 )
 
+LaunchTemplateInstanceMaintenanceOptionsRequestTypeDef = TypedDict(
+    "LaunchTemplateInstanceMaintenanceOptionsRequestTypeDef",
+    {
+        "AutoRecovery": LaunchTemplateAutoRecoveryStateType,
+    },
+    total=False,
+)
+
+LaunchTemplateInstanceMaintenanceOptionsTypeDef = TypedDict(
+    "LaunchTemplateInstanceMaintenanceOptionsTypeDef",
+    {
+        "AutoRecovery": LaunchTemplateAutoRecoveryStateType,
+    },
+    total=False,
+)
+
 LaunchTemplateInstanceMarketOptionsRequestTypeDef = TypedDict(
     "LaunchTemplateInstanceMarketOptionsRequestTypeDef",
     {
@@ -17210,6 +17557,7 @@ LaunchTemplateInstanceMetadataOptionsRequestTypeDef = TypedDict(
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": LaunchTemplateInstanceMetadataEndpointStateType,
         "HttpProtocolIpv6": LaunchTemplateInstanceMetadataProtocolIpv6Type,
+        "InstanceMetadataTags": LaunchTemplateInstanceMetadataTagsStateType,
     },
     total=False,
 )
@@ -17222,6 +17570,7 @@ LaunchTemplateInstanceMetadataOptionsTypeDef = TypedDict(
         "HttpPutResponseHopLimit": int,
         "HttpEndpoint": LaunchTemplateInstanceMetadataEndpointStateType,
         "HttpProtocolIpv6": LaunchTemplateInstanceMetadataProtocolIpv6Type,
+        "InstanceMetadataTags": LaunchTemplateInstanceMetadataTagsStateType,
     },
     total=False,
 )
@@ -17469,6 +17818,26 @@ LicenseConfigurationTypeDef = TypedDict(
         "LicenseConfigurationArn": str,
     },
     total=False,
+)
+
+ListImagesInRecycleBinRequestRequestTypeDef = TypedDict(
+    "ListImagesInRecycleBinRequestRequestTypeDef",
+    {
+        "ImageIds": List[str],
+        "NextToken": str,
+        "MaxResults": int,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+ListImagesInRecycleBinResultTypeDef = TypedDict(
+    "ListImagesInRecycleBinResultTypeDef",
+    {
+        "Images": List["ImageRecycleBinInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 ListSnapshotsInRecycleBinRequestRequestTypeDef = TypedDict(
@@ -17836,6 +18205,8 @@ _OptionalModifyClientVpnEndpointRequestRequestTypeDef = TypedDict(
         "VpcId": str,
         "SelfServicePortal": SelfServicePortalType,
         "ClientConnectOptions": "ClientConnectOptionsTypeDef",
+        "SessionTimeoutHours": int,
+        "ClientLoginBannerOptions": "ClientLoginBannerOptionsTypeDef",
     },
     total=False,
 )
@@ -18092,6 +18463,7 @@ ModifyInstanceAttributeRequestInstanceTypeDef = TypedDict(
         "SriovNetSupport": "AttributeValueTypeDef",
         "UserData": "BlobAttributeValueTypeDef",
         "Value": str,
+        "DisableApiStop": "AttributeBooleanValueTypeDef",
     },
     total=False,
 )
@@ -18120,6 +18492,7 @@ _OptionalModifyInstanceAttributeRequestRequestTypeDef = TypedDict(
         "SriovNetSupport": "AttributeValueTypeDef",
         "UserData": "BlobAttributeValueTypeDef",
         "Value": str,
+        "DisableApiStop": "AttributeBooleanValueTypeDef",
     },
     total=False,
 )
@@ -18254,6 +18627,36 @@ ModifyInstanceEventWindowResultTypeDef = TypedDict(
     },
 )
 
+_RequiredModifyInstanceMaintenanceOptionsRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyInstanceMaintenanceOptionsRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalModifyInstanceMaintenanceOptionsRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyInstanceMaintenanceOptionsRequestRequestTypeDef",
+    {
+        "AutoRecovery": InstanceAutoRecoveryStateType,
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyInstanceMaintenanceOptionsRequestRequestTypeDef(
+    _RequiredModifyInstanceMaintenanceOptionsRequestRequestTypeDef,
+    _OptionalModifyInstanceMaintenanceOptionsRequestRequestTypeDef,
+):
+    pass
+
+ModifyInstanceMaintenanceOptionsResultTypeDef = TypedDict(
+    "ModifyInstanceMaintenanceOptionsResultTypeDef",
+    {
+        "InstanceId": str,
+        "AutoRecovery": InstanceAutoRecoveryStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredModifyInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
     "_RequiredModifyInstanceMetadataOptionsRequestRequestTypeDef",
     {
@@ -18268,6 +18671,7 @@ _OptionalModifyInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
         "HttpEndpoint": InstanceMetadataEndpointStateType,
         "DryRun": bool,
         "HttpProtocolIpv6": InstanceMetadataProtocolStateType,
+        "InstanceMetadataTags": InstanceMetadataTagsStateType,
     },
     total=False,
 )
@@ -19103,6 +19507,8 @@ _OptionalModifyVpcEndpointRequestRequestTypeDef = TypedDict(
         "RemoveSubnetIds": List[str],
         "AddSecurityGroupIds": List[str],
         "RemoveSecurityGroupIds": List[str],
+        "IpAddressType": IpAddressTypeType,
+        "DnsOptions": "DnsOptionsSpecificationTypeDef",
         "PrivateDnsEnabled": bool,
     },
     total=False,
@@ -19138,6 +19544,8 @@ _OptionalModifyVpcEndpointServiceConfigurationRequestRequestTypeDef = TypedDict(
         "RemoveNetworkLoadBalancerArns": List[str],
         "AddGatewayLoadBalancerArns": List[str],
         "RemoveGatewayLoadBalancerArns": List[str],
+        "AddSupportedIpAddressTypes": List[str],
+        "RemoveSupportedIpAddressTypes": List[str],
     },
     total=False,
 )
@@ -19152,6 +19560,35 @@ ModifyVpcEndpointServiceConfigurationResultTypeDef = TypedDict(
     "ModifyVpcEndpointServiceConfigurationResultTypeDef",
     {
         "Return": bool,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef = TypedDict(
+    "_RequiredModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef",
+    {
+        "ServiceId": str,
+        "PayerResponsibility": Literal["ServiceOwner"],
+    },
+)
+_OptionalModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef = TypedDict(
+    "_OptionalModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class ModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef(
+    _RequiredModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef,
+    _OptionalModifyVpcEndpointServicePayerResponsibilityRequestRequestTypeDef,
+):
+    pass
+
+ModifyVpcEndpointServicePayerResponsibilityResultTypeDef = TypedDict(
+    "ModifyVpcEndpointServicePayerResponsibilityResultTypeDef",
+    {
+        "ReturnValue": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -19463,16 +19900,27 @@ MoveAddressToVpcResultTypeDef = TypedDict(
     },
 )
 
-MoveByoipCidrToIpamRequestRequestTypeDef = TypedDict(
-    "MoveByoipCidrToIpamRequestRequestTypeDef",
+_RequiredMoveByoipCidrToIpamRequestRequestTypeDef = TypedDict(
+    "_RequiredMoveByoipCidrToIpamRequestRequestTypeDef",
     {
-        "DryRun": bool,
         "Cidr": str,
         "IpamPoolId": str,
         "IpamPoolOwner": str,
     },
+)
+_OptionalMoveByoipCidrToIpamRequestRequestTypeDef = TypedDict(
+    "_OptionalMoveByoipCidrToIpamRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
     total=False,
 )
+
+class MoveByoipCidrToIpamRequestRequestTypeDef(
+    _RequiredMoveByoipCidrToIpamRequestRequestTypeDef,
+    _OptionalMoveByoipCidrToIpamRequestRequestTypeDef,
+):
+    pass
 
 MoveByoipCidrToIpamResultTypeDef = TypedDict(
     "MoveByoipCidrToIpamResultTypeDef",
@@ -19885,6 +20333,9 @@ PathComponentTypeDef = TypedDict(
         "SourceVpc": "AnalysisComponentTypeDef",
         "Subnet": "AnalysisComponentTypeDef",
         "Vpc": "AnalysisComponentTypeDef",
+        "AdditionalDetails": List["AdditionalDetailTypeDef"],
+        "TransitGateway": "AnalysisComponentTypeDef",
+        "TransitGatewayRouteTableRoute": "TransitGatewayRouteTableRouteTypeDef",
     },
     total=False,
 )
@@ -20070,6 +20521,7 @@ PlacementGroupTypeDef = TypedDict(
         "PartitionCount": int,
         "GroupId": str,
         "Tags": List["TagTypeDef"],
+        "GroupArn": str,
     },
     total=False,
 )
@@ -20614,6 +21066,8 @@ _OptionalRegisterImageRequestRequestTypeDef = TypedDict(
         "SriovNetSupport": str,
         "VirtualizationType": str,
         "BootMode": BootModeValuesType,
+        "TpmSupport": Literal["v2.0"],
+        "UefiData": str,
     },
     total=False,
 )
@@ -20645,6 +21099,8 @@ _OptionalRegisterImageRequestServiceResourceTypeDef = TypedDict(
         "SriovNetSupport": str,
         "VirtualizationType": str,
         "BootMode": BootModeValuesType,
+        "TpmSupport": Literal["v2.0"],
+        "UefiData": str,
     },
     total=False,
 )
@@ -20921,13 +21377,13 @@ _RequiredReleaseIpamPoolAllocationRequestRequestTypeDef = TypedDict(
     {
         "IpamPoolId": str,
         "Cidr": str,
+        "IpamPoolAllocationId": str,
     },
 )
 _OptionalReleaseIpamPoolAllocationRequestRequestTypeDef = TypedDict(
     "_OptionalReleaseIpamPoolAllocationRequestRequestTypeDef",
     {
         "DryRun": bool,
-        "IpamPoolAllocationId": str,
     },
     total=False,
 )
@@ -21323,6 +21779,8 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
         "EnclaveOptions": "LaunchTemplateEnclaveOptionsRequestTypeDef",
         "InstanceRequirements": "InstanceRequirementsRequestTypeDef",
         "PrivateDnsNameOptions": "LaunchTemplatePrivateDnsNameOptionsRequestTypeDef",
+        "MaintenanceOptions": "LaunchTemplateInstanceMaintenanceOptionsRequestTypeDef",
+        "DisableApiStop": bool,
     },
     total=False,
 )
@@ -21867,6 +22325,8 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
         "EnclaveOptions": "LaunchTemplateEnclaveOptionsTypeDef",
         "InstanceRequirements": "InstanceRequirementsTypeDef",
         "PrivateDnsNameOptions": "LaunchTemplatePrivateDnsNameOptionsTypeDef",
+        "MaintenanceOptions": "LaunchTemplateInstanceMaintenanceOptionsTypeDef",
+        "DisableApiStop": bool,
     },
     total=False,
 )
@@ -21907,6 +22367,34 @@ RestoreAddressToClassicResultTypeDef = TypedDict(
     {
         "PublicIp": str,
         "Status": StatusType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredRestoreImageFromRecycleBinRequestRequestTypeDef = TypedDict(
+    "_RequiredRestoreImageFromRecycleBinRequestRequestTypeDef",
+    {
+        "ImageId": str,
+    },
+)
+_OptionalRestoreImageFromRecycleBinRequestRequestTypeDef = TypedDict(
+    "_OptionalRestoreImageFromRecycleBinRequestRequestTypeDef",
+    {
+        "DryRun": bool,
+    },
+    total=False,
+)
+
+class RestoreImageFromRecycleBinRequestRequestTypeDef(
+    _RequiredRestoreImageFromRecycleBinRequestRequestTypeDef,
+    _OptionalRestoreImageFromRecycleBinRequestRequestTypeDef,
+):
+    pass
+
+RestoreImageFromRecycleBinResultTypeDef = TypedDict(
+    "RestoreImageFromRecycleBinResultTypeDef",
+    {
+        "Return": bool,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -22251,6 +22739,8 @@ _OptionalRunInstancesRequestRequestTypeDef = TypedDict(
         "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
         "PrivateDnsNameOptions": "PrivateDnsNameOptionsRequestTypeDef",
+        "MaintenanceOptions": "InstanceMaintenanceOptionsRequestTypeDef",
+        "DisableApiStop": bool,
     },
     total=False,
 )
@@ -22306,6 +22796,8 @@ _OptionalRunInstancesRequestServiceResourceTypeDef = TypedDict(
         "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
         "PrivateDnsNameOptions": "PrivateDnsNameOptionsRequestTypeDef",
+        "MaintenanceOptions": "InstanceMaintenanceOptionsRequestTypeDef",
+        "DisableApiStop": bool,
     },
     total=False,
 )
@@ -22361,6 +22853,8 @@ _OptionalRunInstancesRequestSubnetTypeDef = TypedDict(
         "MetadataOptions": "InstanceMetadataOptionsRequestTypeDef",
         "EnclaveOptions": "EnclaveOptionsRequestTypeDef",
         "PrivateDnsNameOptions": "PrivateDnsNameOptionsRequestTypeDef",
+        "MaintenanceOptions": "InstanceMaintenanceOptionsRequestTypeDef",
+        "DisableApiStop": bool,
     },
     total=False,
 )
@@ -22809,9 +23303,11 @@ ServiceConfigurationTypeDef = TypedDict(
         "ManagesVpcEndpoints": bool,
         "NetworkLoadBalancerArns": List[str],
         "GatewayLoadBalancerArns": List[str],
+        "SupportedIpAddressTypes": List[ServiceConnectivityTypeType],
         "BaseEndpointDnsNames": List[str],
         "PrivateDnsName": str,
         "PrivateDnsNameConfiguration": "PrivateDnsNameConfigurationTypeDef",
+        "PayerResponsibility": Literal["ServiceOwner"],
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -22831,8 +23327,10 @@ ServiceDetailTypeDef = TypedDict(
         "VpcEndpointPolicySupported": bool,
         "AcceptanceRequired": bool,
         "ManagesVpcEndpoints": bool,
+        "PayerResponsibility": Literal["ServiceOwner"],
         "Tags": List["TagTypeDef"],
         "PrivateDnsNameVerificationState": DnsNameStateType,
+        "SupportedIpAddressTypes": List[ServiceConnectivityTypeType],
     },
     total=False,
 )
@@ -24045,6 +24543,7 @@ TrafficMirrorTargetTypeDef = TypedDict(
         "Description": str,
         "OwnerId": str,
         "Tags": List["TagTypeDef"],
+        "GatewayLoadBalancerEndpointId": str,
     },
     total=False,
 )
@@ -24380,6 +24879,20 @@ TransitGatewayRouteTablePropagationTypeDef = TypedDict(
         "ResourceId": str,
         "ResourceType": TransitGatewayAttachmentResourceTypeType,
         "State": TransitGatewayPropagationStateType,
+    },
+    total=False,
+)
+
+TransitGatewayRouteTableRouteTypeDef = TypedDict(
+    "TransitGatewayRouteTableRouteTypeDef",
+    {
+        "DestinationCidr": str,
+        "State": str,
+        "RouteOrigin": str,
+        "PrefixListId": str,
+        "AttachmentId": str,
+        "ResourceId": str,
+        "ResourceType": str,
     },
     total=False,
 )
@@ -24990,6 +25503,7 @@ VpcEndpointConnectionTypeDef = TypedDict(
         "DnsEntries": List["DnsEntryTypeDef"],
         "NetworkLoadBalancerArns": List[str],
         "GatewayLoadBalancerArns": List[str],
+        "IpAddressType": IpAddressTypeType,
     },
     total=False,
 )
@@ -25006,6 +25520,8 @@ VpcEndpointTypeDef = TypedDict(
         "RouteTableIds": List[str],
         "SubnetIds": List[str],
         "Groups": List["SecurityGroupIdentifierTypeDef"],
+        "IpAddressType": IpAddressTypeType,
+        "DnsOptions": "DnsOptionsTypeDef",
         "PrivateDnsEnabled": bool,
         "RequesterManaged": bool,
         "NetworkInterfaceIds": List[str],

@@ -30,6 +30,7 @@ from .literals import (
     MaximumExecutionFrequencyType,
     MemberAccountRuleStatusType,
     MessageTypeType,
+    OrganizationConfigRuleTriggerTypeNoSNType,
     OrganizationConfigRuleTriggerTypeType,
     OrganizationResourceDetailedStatusType,
     OrganizationResourceStatusType,
@@ -95,6 +96,7 @@ __all__ = (
     "ConformancePackInputParameterTypeDef",
     "ConformancePackRuleComplianceTypeDef",
     "ConformancePackStatusDetailTypeDef",
+    "CustomPolicyDetailsTypeDef",
     "DeleteAggregationAuthorizationRequestRequestTypeDef",
     "DeleteConfigRuleRequestRequestTypeDef",
     "DeleteConfigurationAggregatorRequestRequestTypeDef",
@@ -196,12 +198,16 @@ __all__ = (
     "GetConformancePackComplianceDetailsResponseTypeDef",
     "GetConformancePackComplianceSummaryRequestRequestTypeDef",
     "GetConformancePackComplianceSummaryResponseTypeDef",
+    "GetCustomRulePolicyRequestRequestTypeDef",
+    "GetCustomRulePolicyResponseTypeDef",
     "GetDiscoveredResourceCountsRequestRequestTypeDef",
     "GetDiscoveredResourceCountsResponseTypeDef",
     "GetOrganizationConfigRuleDetailedStatusRequestRequestTypeDef",
     "GetOrganizationConfigRuleDetailedStatusResponseTypeDef",
     "GetOrganizationConformancePackDetailedStatusRequestRequestTypeDef",
     "GetOrganizationConformancePackDetailedStatusResponseTypeDef",
+    "GetOrganizationCustomRulePolicyRequestRequestTypeDef",
+    "GetOrganizationCustomRulePolicyResponseTypeDef",
     "GetResourceConfigHistoryRequestRequestTypeDef",
     "GetResourceConfigHistoryResponseTypeDef",
     "GetStoredQueryRequestRequestTypeDef",
@@ -222,6 +228,8 @@ __all__ = (
     "OrganizationConformancePackDetailedStatusTypeDef",
     "OrganizationConformancePackStatusTypeDef",
     "OrganizationConformancePackTypeDef",
+    "OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef",
+    "OrganizationCustomPolicyRuleMetadataTypeDef",
     "OrganizationCustomRuleMetadataTypeDef",
     "OrganizationManagedRuleMetadataTypeDef",
     "OrganizationResourceDetailedStatusFiltersTypeDef",
@@ -610,6 +618,9 @@ ConfigRuleEvaluationStatusTypeDef = TypedDict(
         "LastErrorCode": str,
         "LastErrorMessage": str,
         "FirstEvaluationStarted": bool,
+        "LastDebugLogDeliveryStatus": str,
+        "LastDebugLogDeliveryStatusReason": str,
+        "LastDebugLogDeliveryTime": datetime,
     },
     total=False,
 )
@@ -837,6 +848,26 @@ _OptionalConformancePackStatusDetailTypeDef = TypedDict(
 
 class ConformancePackStatusDetailTypeDef(
     _RequiredConformancePackStatusDetailTypeDef, _OptionalConformancePackStatusDetailTypeDef
+):
+    pass
+
+_RequiredCustomPolicyDetailsTypeDef = TypedDict(
+    "_RequiredCustomPolicyDetailsTypeDef",
+    {
+        "PolicyRuntime": str,
+        "PolicyText": str,
+    },
+)
+_OptionalCustomPolicyDetailsTypeDef = TypedDict(
+    "_OptionalCustomPolicyDetailsTypeDef",
+    {
+        "EnableDebugLogDelivery": bool,
+    },
+    total=False,
+)
+
+class CustomPolicyDetailsTypeDef(
+    _RequiredCustomPolicyDetailsTypeDef, _OptionalCustomPolicyDetailsTypeDef
 ):
     pass
 
@@ -1958,6 +1989,22 @@ GetConformancePackComplianceSummaryResponseTypeDef = TypedDict(
     },
 )
 
+GetCustomRulePolicyRequestRequestTypeDef = TypedDict(
+    "GetCustomRulePolicyRequestRequestTypeDef",
+    {
+        "ConfigRuleName": str,
+    },
+    total=False,
+)
+
+GetCustomRulePolicyResponseTypeDef = TypedDict(
+    "GetCustomRulePolicyResponseTypeDef",
+    {
+        "PolicyText": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetDiscoveredResourceCountsRequestRequestTypeDef = TypedDict(
     "GetDiscoveredResourceCountsRequestRequestTypeDef",
     {
@@ -2038,6 +2085,21 @@ GetOrganizationConformancePackDetailedStatusResponseTypeDef = TypedDict(
             "OrganizationConformancePackDetailedStatusTypeDef"
         ],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetOrganizationCustomRulePolicyRequestRequestTypeDef = TypedDict(
+    "GetOrganizationCustomRulePolicyRequestRequestTypeDef",
+    {
+        "OrganizationConfigRuleName": str,
+    },
+)
+
+GetOrganizationCustomRulePolicyResponseTypeDef = TypedDict(
+    "GetOrganizationCustomRulePolicyResponseTypeDef",
+    {
+        "PolicyText": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2291,6 +2353,7 @@ _OptionalOrganizationConfigRuleTypeDef = TypedDict(
         "OrganizationCustomRuleMetadata": "OrganizationCustomRuleMetadataTypeDef",
         "ExcludedAccounts": List[str],
         "LastUpdateTime": datetime,
+        "OrganizationCustomPolicyRuleMetadata": "OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef",
     },
     total=False,
 )
@@ -2368,6 +2431,52 @@ _OptionalOrganizationConformancePackTypeDef = TypedDict(
 
 class OrganizationConformancePackTypeDef(
     _RequiredOrganizationConformancePackTypeDef, _OptionalOrganizationConformancePackTypeDef
+):
+    pass
+
+OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef = TypedDict(
+    "OrganizationCustomPolicyRuleMetadataNoPolicyTypeDef",
+    {
+        "Description": str,
+        "OrganizationConfigRuleTriggerTypes": List[OrganizationConfigRuleTriggerTypeNoSNType],
+        "InputParameters": str,
+        "MaximumExecutionFrequency": MaximumExecutionFrequencyType,
+        "ResourceTypesScope": List[str],
+        "ResourceIdScope": str,
+        "TagKeyScope": str,
+        "TagValueScope": str,
+        "PolicyRuntime": str,
+        "DebugLogDeliveryAccounts": List[str],
+    },
+    total=False,
+)
+
+_RequiredOrganizationCustomPolicyRuleMetadataTypeDef = TypedDict(
+    "_RequiredOrganizationCustomPolicyRuleMetadataTypeDef",
+    {
+        "PolicyRuntime": str,
+        "PolicyText": str,
+    },
+)
+_OptionalOrganizationCustomPolicyRuleMetadataTypeDef = TypedDict(
+    "_OptionalOrganizationCustomPolicyRuleMetadataTypeDef",
+    {
+        "Description": str,
+        "OrganizationConfigRuleTriggerTypes": List[OrganizationConfigRuleTriggerTypeNoSNType],
+        "InputParameters": str,
+        "MaximumExecutionFrequency": MaximumExecutionFrequencyType,
+        "ResourceTypesScope": List[str],
+        "ResourceIdScope": str,
+        "TagKeyScope": str,
+        "TagValueScope": str,
+        "DebugLogDeliveryAccounts": List[str],
+    },
+    total=False,
+)
+
+class OrganizationCustomPolicyRuleMetadataTypeDef(
+    _RequiredOrganizationCustomPolicyRuleMetadataTypeDef,
+    _OptionalOrganizationCustomPolicyRuleMetadataTypeDef,
 ):
     pass
 
@@ -2622,6 +2731,7 @@ _OptionalPutOrganizationConfigRuleRequestRequestTypeDef = TypedDict(
         "OrganizationManagedRuleMetadata": "OrganizationManagedRuleMetadataTypeDef",
         "OrganizationCustomRuleMetadata": "OrganizationCustomRuleMetadataTypeDef",
         "ExcludedAccounts": List[str],
+        "OrganizationCustomPolicyRuleMetadata": "OrganizationCustomPolicyRuleMetadataTypeDef",
     },
     total=False,
 )
@@ -3069,13 +3179,14 @@ _RequiredSourceTypeDef = TypedDict(
     "_RequiredSourceTypeDef",
     {
         "Owner": OwnerType,
-        "SourceIdentifier": str,
     },
 )
 _OptionalSourceTypeDef = TypedDict(
     "_OptionalSourceTypeDef",
     {
+        "SourceIdentifier": str,
         "SourceDetails": List["SourceDetailTypeDef"],
+        "CustomPolicyDetails": "CustomPolicyDetailsTypeDef",
     },
     total=False,
 )

@@ -6,9 +6,9 @@ Type annotations for amplifyuibuilder service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_amplifyuibuilder.literals import ListComponentsPaginatorName
+    from mypy_boto3_amplifyuibuilder.literals import ExportComponentsPaginatorName
 
-    data: ListComponentsPaginatorName = "list_components"
+    data: ExportComponentsPaginatorName = "export_components"
     ```
 """
 import sys
@@ -19,12 +19,16 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ExportComponentsPaginatorName",
+    "ExportThemesPaginatorName",
     "ListComponentsPaginatorName",
     "ListThemesPaginatorName",
     "SortDirectionType",
     "TokenProvidersType",
 )
 
+ExportComponentsPaginatorName = Literal["export_components"]
+ExportThemesPaginatorName = Literal["export_themes"]
 ListComponentsPaginatorName = Literal["list_components"]
 ListThemesPaginatorName = Literal["list_themes"]
 SortDirectionType = Literal["ASC", "DESC"]

@@ -24,7 +24,9 @@ from .literals import (
     ExportableInstanceFieldType,
     ExportableLambdaFunctionFieldType,
     ExportableVolumeFieldType,
+    InferredWorkloadTypesPreferenceType,
     MetricStatisticType,
+    RecommendationPreferenceNameType,
     ResourceTypeType,
     StatusType,
 )
@@ -64,6 +66,7 @@ __all__ = ("ComputeOptimizerClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -82,11 +85,12 @@ class Exceptions:
 
 class ComputeOptimizerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -96,20 +100,20 @@ class ComputeOptimizerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#can_paginate)
         """
     def delete_recommendation_preferences(
         self,
         *,
         resourceType: ResourceTypeType,
-        recommendationPreferenceNames: List[Literal["EnhancedInfrastructureMetrics"]],
+        recommendationPreferenceNames: List[RecommendationPreferenceNameType],
         scope: "ScopeTypeDef" = None
     ) -> Dict[str, Any]:
         """
         Deletes a recommendation preference, such as enhanced infrastructure metrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.delete_recommendation_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.delete_recommendation_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#delete_recommendation_preferences)
         """
     def describe_recommendation_export_jobs(
@@ -123,7 +127,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Describes recommendation export jobs created in the last seven days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.describe_recommendation_export_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.describe_recommendation_export_jobs)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#describe_recommendation_export_jobs)
         """
     def export_auto_scaling_group_recommendations(
@@ -140,7 +144,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Exports optimization recommendations for Auto Scaling groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_auto_scaling_group_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_auto_scaling_group_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_auto_scaling_group_recommendations)
         """
     def export_ebs_volume_recommendations(
@@ -156,7 +160,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Exports optimization recommendations for Amazon EBS volumes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ebs_volume_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ebs_volume_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_ebs_volume_recommendations)
         """
     def export_ec2_instance_recommendations(
@@ -173,7 +177,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Exports optimization recommendations for Amazon EC2 instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ec2_instance_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ec2_instance_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_ec2_instance_recommendations)
         """
     def export_lambda_function_recommendations(
@@ -189,7 +193,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Exports optimization recommendations for Lambda functions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_lambda_function_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_lambda_function_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#export_lambda_function_recommendations)
         """
     def generate_presigned_url(
@@ -202,7 +206,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#generate_presigned_url)
         """
     def get_auto_scaling_group_recommendations(
@@ -218,7 +222,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Returns Auto Scaling group recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_auto_scaling_group_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_auto_scaling_group_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_auto_scaling_group_recommendations)
         """
     def get_ebs_volume_recommendations(
@@ -233,7 +237,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ebs_volume_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ebs_volume_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_ebs_volume_recommendations)
         """
     def get_ec2_instance_recommendations(
@@ -249,7 +253,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Returns Amazon EC2 instance recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_instance_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_instance_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_ec2_instance_recommendations)
         """
     def get_ec2_recommendation_projected_metrics(
@@ -266,7 +270,7 @@ class ComputeOptimizerClient(BaseClient):
         Returns the projected utilization metrics of Amazon EC2 instance
         recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_recommendation_projected_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_recommendation_projected_metrics)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_ec2_recommendation_projected_metrics)
         """
     def get_effective_recommendation_preferences(
@@ -276,7 +280,7 @@ class ComputeOptimizerClient(BaseClient):
         Returns the recommendation preferences that are in effect for a given resource,
         such as enhanced infrastructure metrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_effective_recommendation_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_effective_recommendation_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_effective_recommendation_preferences)
         """
     def get_enrollment_status(self) -> GetEnrollmentStatusResponseTypeDef:
@@ -284,7 +288,7 @@ class ComputeOptimizerClient(BaseClient):
         Returns the enrollment (opt in) status of an account to the Compute Optimizer
         service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_enrollment_status)
         """
     def get_enrollment_statuses_for_organization(
@@ -298,7 +302,7 @@ class ComputeOptimizerClient(BaseClient):
         Returns the Compute Optimizer enrollment (opt-in) status of organization member
         accounts, if your account is an organization management account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_statuses_for_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_statuses_for_organization)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_enrollment_statuses_for_organization)
         """
     def get_lambda_function_recommendations(
@@ -313,7 +317,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Returns Lambda function recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_lambda_function_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_lambda_function_recommendations)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_lambda_function_recommendations)
         """
     def get_recommendation_preferences(
@@ -328,7 +332,7 @@ class ComputeOptimizerClient(BaseClient):
         Returns existing recommendation preferences, such as enhanced infrastructure
         metrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_recommendation_preferences)
         """
     def get_recommendation_summaries(
@@ -337,7 +341,7 @@ class ComputeOptimizerClient(BaseClient):
         """
         Returns the optimization findings for an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_summaries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_summaries)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#get_recommendation_summaries)
         """
     def put_recommendation_preferences(
@@ -345,13 +349,14 @@ class ComputeOptimizerClient(BaseClient):
         *,
         resourceType: ResourceTypeType,
         scope: "ScopeTypeDef" = None,
-        enhancedInfrastructureMetrics: EnhancedInfrastructureMetricsType = None
+        enhancedInfrastructureMetrics: EnhancedInfrastructureMetricsType = None,
+        inferredWorkloadTypes: InferredWorkloadTypesPreferenceType = None
     ) -> Dict[str, Any]:
         """
         Creates a new recommendation preference or updates an existing recommendation
         preference, such as enhanced infrastructure metrics.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.put_recommendation_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.put_recommendation_preferences)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#put_recommendation_preferences)
         """
     def update_enrollment_status(
@@ -361,6 +366,6 @@ class ComputeOptimizerClient(BaseClient):
         Updates the enrollment (opt in and opt out) status of an account to the Compute
         Optimizer service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/compute-optimizer.html#ComputeOptimizer.Client.update_enrollment_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.update_enrollment_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/client.html#update_enrollment_status)
         """

@@ -54,6 +54,7 @@ __all__ = (
     "DelegateTypeDef",
     "DeleteAccessControlRuleRequestRequestTypeDef",
     "DeleteAliasRequestRequestTypeDef",
+    "DeleteEmailMonitoringConfigurationRequestRequestTypeDef",
     "DeleteGroupRequestRequestTypeDef",
     "DeleteMailboxPermissionsRequestRequestTypeDef",
     "DeleteMobileDeviceAccessOverrideRequestRequestTypeDef",
@@ -65,6 +66,8 @@ __all__ = (
     "DeleteUserRequestRequestTypeDef",
     "DeregisterFromWorkMailRequestRequestTypeDef",
     "DeregisterMailDomainRequestRequestTypeDef",
+    "DescribeEmailMonitoringConfigurationRequestRequestTypeDef",
+    "DescribeEmailMonitoringConfigurationResponseTypeDef",
     "DescribeGroupRequestRequestTypeDef",
     "DescribeGroupResponseTypeDef",
     "DescribeInboundDmarcSettingsRequestRequestTypeDef",
@@ -133,6 +136,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PermissionTypeDef",
     "PutAccessControlRuleRequestRequestTypeDef",
+    "PutEmailMonitoringConfigurationRequestRequestTypeDef",
     "PutInboundDmarcSettingsRequestRequestTypeDef",
     "PutMailboxPermissionsRequestRequestTypeDef",
     "PutMobileDeviceAccessOverrideRequestRequestTypeDef",
@@ -366,6 +370,13 @@ DeleteAliasRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteEmailMonitoringConfigurationRequestRequestTypeDef = TypedDict(
+    "DeleteEmailMonitoringConfigurationRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+
 DeleteGroupRequestRequestTypeDef = TypedDict(
     "DeleteGroupRequestRequestTypeDef",
     {
@@ -467,6 +478,22 @@ DeregisterMailDomainRequestRequestTypeDef = TypedDict(
     {
         "OrganizationId": str,
         "DomainName": str,
+    },
+)
+
+DescribeEmailMonitoringConfigurationRequestRequestTypeDef = TypedDict(
+    "DescribeEmailMonitoringConfigurationRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+    },
+)
+
+DescribeEmailMonitoringConfigurationResponseTypeDef = TypedDict(
+    "DescribeEmailMonitoringConfigurationResponseTypeDef",
+    {
+        "RoleArn": str,
+        "LogGroupArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1302,6 +1329,15 @@ class PutAccessControlRuleRequestRequestTypeDef(
     _OptionalPutAccessControlRuleRequestRequestTypeDef,
 ):
     pass
+
+PutEmailMonitoringConfigurationRequestRequestTypeDef = TypedDict(
+    "PutEmailMonitoringConfigurationRequestRequestTypeDef",
+    {
+        "OrganizationId": str,
+        "RoleArn": str,
+        "LogGroupArn": str,
+    },
+)
 
 PutInboundDmarcSettingsRequestRequestTypeDef = TypedDict(
     "PutInboundDmarcSettingsRequestRequestTypeDef",

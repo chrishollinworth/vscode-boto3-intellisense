@@ -87,14 +87,20 @@ __all__ = (
     "DetectorVersionSummaryTypeDef",
     "EntityTypeDef",
     "EntityTypeTypeDef",
+    "EvaluatedExternalModelTypeDef",
+    "EvaluatedModelVersionTypeDef",
+    "EvaluatedRuleTypeDef",
+    "EventPredictionSummaryTypeDef",
     "EventTypeDef",
     "EventTypeTypeDef",
+    "EventVariableSummaryTypeDef",
     "ExternalEventsDetailTypeDef",
     "ExternalModelOutputsTypeDef",
     "ExternalModelSummaryTypeDef",
     "ExternalModelTypeDef",
     "FieldValidationMessageTypeDef",
     "FileValidationMessageTypeDef",
+    "FilterConditionTypeDef",
     "GetBatchImportJobsRequestRequestTypeDef",
     "GetBatchImportJobsResultTypeDef",
     "GetBatchPredictionJobsRequestRequestTypeDef",
@@ -107,6 +113,8 @@ __all__ = (
     "GetDetectorsResultTypeDef",
     "GetEntityTypesRequestRequestTypeDef",
     "GetEntityTypesResultTypeDef",
+    "GetEventPredictionMetadataRequestRequestTypeDef",
+    "GetEventPredictionMetadataResultTypeDef",
     "GetEventPredictionRequestRequestTypeDef",
     "GetEventPredictionResultTypeDef",
     "GetEventRequestRequestTypeDef",
@@ -134,6 +142,8 @@ __all__ = (
     "KMSKeyTypeDef",
     "LabelSchemaTypeDef",
     "LabelTypeDef",
+    "ListEventPredictionsRequestRequestTypeDef",
+    "ListEventPredictionsResultTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "LogOddsMetricTypeDef",
@@ -144,8 +154,11 @@ __all__ = (
     "ModelScoresTypeDef",
     "ModelTypeDef",
     "ModelVersionDetailTypeDef",
+    "ModelVersionEvaluationTypeDef",
     "ModelVersionTypeDef",
     "OutcomeTypeDef",
+    "PredictionExplanationsTypeDef",
+    "PredictionTimeRangeTypeDef",
     "PutDetectorRequestRequestTypeDef",
     "PutEntityTypeRequestRequestTypeDef",
     "PutEventTypeRequestRequestTypeDef",
@@ -177,6 +190,7 @@ __all__ = (
     "UpdateRuleVersionResultTypeDef",
     "UpdateVariableRequestRequestTypeDef",
     "VariableEntryTypeDef",
+    "VariableImpactExplanationTypeDef",
     "VariableImportanceMetricsTypeDef",
     "VariableTypeDef",
 )
@@ -736,6 +750,55 @@ EntityTypeTypeDef = TypedDict(
     total=False,
 )
 
+EvaluatedExternalModelTypeDef = TypedDict(
+    "EvaluatedExternalModelTypeDef",
+    {
+        "modelEndpoint": str,
+        "useEventVariables": bool,
+        "inputVariables": Dict[str, str],
+        "outputVariables": Dict[str, str],
+    },
+    total=False,
+)
+
+EvaluatedModelVersionTypeDef = TypedDict(
+    "EvaluatedModelVersionTypeDef",
+    {
+        "modelId": str,
+        "modelVersion": str,
+        "modelType": str,
+        "evaluations": List["ModelVersionEvaluationTypeDef"],
+    },
+    total=False,
+)
+
+EvaluatedRuleTypeDef = TypedDict(
+    "EvaluatedRuleTypeDef",
+    {
+        "ruleId": str,
+        "ruleVersion": str,
+        "expression": str,
+        "expressionWithValues": str,
+        "outcomes": List[str],
+        "evaluated": bool,
+        "matched": bool,
+    },
+    total=False,
+)
+
+EventPredictionSummaryTypeDef = TypedDict(
+    "EventPredictionSummaryTypeDef",
+    {
+        "eventId": str,
+        "eventTypeName": str,
+        "eventTimestamp": str,
+        "predictionTimestamp": str,
+        "detectorId": str,
+        "detectorVersionId": str,
+    },
+    total=False,
+)
+
 EventTypeDef = TypedDict(
     "EventTypeDef",
     {
@@ -763,6 +826,16 @@ EventTypeTypeDef = TypedDict(
         "lastUpdatedTime": str,
         "createdTime": str,
         "arn": str,
+    },
+    total=False,
+)
+
+EventVariableSummaryTypeDef = TypedDict(
+    "EventVariableSummaryTypeDef",
+    {
+        "name": str,
+        "value": str,
+        "source": str,
     },
     total=False,
 )
@@ -827,6 +900,14 @@ FileValidationMessageTypeDef = TypedDict(
         "title": str,
         "content": str,
         "type": str,
+    },
+    total=False,
+)
+
+FilterConditionTypeDef = TypedDict(
+    "FilterConditionTypeDef",
+    {
+        "value": str,
     },
     total=False,
 )
@@ -945,6 +1026,39 @@ GetEntityTypesResultTypeDef = TypedDict(
     {
         "entityTypes": List["EntityTypeTypeDef"],
         "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+GetEventPredictionMetadataRequestRequestTypeDef = TypedDict(
+    "GetEventPredictionMetadataRequestRequestTypeDef",
+    {
+        "eventId": str,
+        "eventTypeName": str,
+        "detectorId": str,
+        "detectorVersionId": str,
+        "predictionTimestamp": str,
+    },
+)
+
+GetEventPredictionMetadataResultTypeDef = TypedDict(
+    "GetEventPredictionMetadataResultTypeDef",
+    {
+        "eventId": str,
+        "eventTypeName": str,
+        "entityId": str,
+        "entityType": str,
+        "eventTimestamp": str,
+        "detectorId": str,
+        "detectorVersionId": str,
+        "detectorVersionStatus": str,
+        "eventVariables": List["EventVariableSummaryTypeDef"],
+        "rules": List["EvaluatedRuleTypeDef"],
+        "ruleExecutionMode": RuleExecutionModeType,
+        "outcomes": List[str],
+        "evaluatedModelVersions": List["EvaluatedModelVersionTypeDef"],
+        "evaluatedExternalModels": List["EvaluatedExternalModelTypeDef"],
+        "predictionTimestamp": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1244,6 +1358,29 @@ LabelTypeDef = TypedDict(
     total=False,
 )
 
+ListEventPredictionsRequestRequestTypeDef = TypedDict(
+    "ListEventPredictionsRequestRequestTypeDef",
+    {
+        "eventId": "FilterConditionTypeDef",
+        "eventType": "FilterConditionTypeDef",
+        "detectorId": "FilterConditionTypeDef",
+        "detectorVersionId": "FilterConditionTypeDef",
+        "predictionTimeRange": "PredictionTimeRangeTypeDef",
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+ListEventPredictionsResultTypeDef = TypedDict(
+    "ListEventPredictionsResultTypeDef",
+    {
+        "eventPredictionSummaries": List["EventPredictionSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
     "_RequiredListTagsForResourceRequestRequestTypeDef",
     {
@@ -1387,6 +1524,16 @@ ModelVersionDetailTypeDef = TypedDict(
     total=False,
 )
 
+ModelVersionEvaluationTypeDef = TypedDict(
+    "ModelVersionEvaluationTypeDef",
+    {
+        "outputVariableName": str,
+        "evaluationScore": str,
+        "predictionExplanations": "PredictionExplanationsTypeDef",
+    },
+    total=False,
+)
+
 _RequiredModelVersionTypeDef = TypedDict(
     "_RequiredModelVersionTypeDef",
     {
@@ -1416,6 +1563,22 @@ OutcomeTypeDef = TypedDict(
         "arn": str,
     },
     total=False,
+)
+
+PredictionExplanationsTypeDef = TypedDict(
+    "PredictionExplanationsTypeDef",
+    {
+        "variableImpactExplanations": List["VariableImpactExplanationTypeDef"],
+    },
+    total=False,
+)
+
+PredictionTimeRangeTypeDef = TypedDict(
+    "PredictionTimeRangeTypeDef",
+    {
+        "startTime": str,
+        "endTime": str,
+    },
 )
 
 _RequiredPutDetectorRequestRequestTypeDef = TypedDict(
@@ -1862,6 +2025,16 @@ VariableEntryTypeDef = TypedDict(
         "defaultValue": str,
         "description": str,
         "variableType": str,
+    },
+    total=False,
+)
+
+VariableImpactExplanationTypeDef = TypedDict(
+    "VariableImpactExplanationTypeDef",
+    {
+        "eventVariableName": str,
+        "relativeImpact": str,
+        "logOddsImpact": float,
     },
     total=False,
 )

@@ -322,13 +322,23 @@ _OptionalInputFileConfigTypeDef = TypedDict(
 class InputFileConfigTypeDef(_RequiredInputFileConfigTypeDef, _OptionalInputFileConfigTypeDef):
     pass
 
-InstanceConfigTypeDef = TypedDict(
-    "InstanceConfigTypeDef",
+_RequiredInstanceConfigTypeDef = TypedDict(
+    "_RequiredInstanceConfigTypeDef",
     {
         "instanceType": InstanceTypeType,
         "volumeSizeInGb": int,
     },
 )
+_OptionalInstanceConfigTypeDef = TypedDict(
+    "_OptionalInstanceConfigTypeDef",
+    {
+        "instanceCount": int,
+    },
+    total=False,
+)
+
+class InstanceConfigTypeDef(_RequiredInstanceConfigTypeDef, _OptionalInstanceConfigTypeDef):
+    pass
 
 _RequiredJobCheckpointConfigTypeDef = TypedDict(
     "_RequiredJobCheckpointConfigTypeDef",

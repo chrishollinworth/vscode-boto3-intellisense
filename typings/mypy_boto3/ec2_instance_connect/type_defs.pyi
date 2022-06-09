@@ -38,15 +38,26 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
-SendSSHPublicKeyRequestRequestTypeDef = TypedDict(
-    "SendSSHPublicKeyRequestRequestTypeDef",
+_RequiredSendSSHPublicKeyRequestRequestTypeDef = TypedDict(
+    "_RequiredSendSSHPublicKeyRequestRequestTypeDef",
     {
         "InstanceId": str,
         "InstanceOSUser": str,
         "SSHPublicKey": str,
-        "AvailabilityZone": str,
     },
 )
+_OptionalSendSSHPublicKeyRequestRequestTypeDef = TypedDict(
+    "_OptionalSendSSHPublicKeyRequestRequestTypeDef",
+    {
+        "AvailabilityZone": str,
+    },
+    total=False,
+)
+
+class SendSSHPublicKeyRequestRequestTypeDef(
+    _RequiredSendSSHPublicKeyRequestRequestTypeDef, _OptionalSendSSHPublicKeyRequestRequestTypeDef
+):
+    pass
 
 SendSSHPublicKeyResponseTypeDef = TypedDict(
     "SendSSHPublicKeyResponseTypeDef",

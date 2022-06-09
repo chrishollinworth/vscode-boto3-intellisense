@@ -20,6 +20,7 @@ from .literals import (
     ActionSubTypeType,
     ActionTypeType,
     ApprovalModelType,
+    AutoAdjustTypeType,
     BudgetTypeType,
     ComparisonOperatorType,
     EventTypeType,
@@ -41,6 +42,8 @@ __all__ = (
     "ActionHistoryTypeDef",
     "ActionThresholdTypeDef",
     "ActionTypeDef",
+    "AutoAdjustDataTypeDef",
+    "BudgetNotificationsForAccountTypeDef",
     "BudgetPerformanceHistoryTypeDef",
     "BudgetTypeDef",
     "BudgetedAndActualAmountsTypeDef",
@@ -65,6 +68,8 @@ __all__ = (
     "DescribeBudgetActionsForAccountResponseTypeDef",
     "DescribeBudgetActionsForBudgetRequestRequestTypeDef",
     "DescribeBudgetActionsForBudgetResponseTypeDef",
+    "DescribeBudgetNotificationsForAccountRequestRequestTypeDef",
+    "DescribeBudgetNotificationsForAccountResponseTypeDef",
     "DescribeBudgetPerformanceHistoryRequestRequestTypeDef",
     "DescribeBudgetPerformanceHistoryResponseTypeDef",
     "DescribeBudgetRequestRequestTypeDef",
@@ -77,6 +82,7 @@ __all__ = (
     "DescribeSubscribersForNotificationResponseTypeDef",
     "ExecuteBudgetActionRequestRequestTypeDef",
     "ExecuteBudgetActionResponseTypeDef",
+    "HistoricalOptionsTypeDef",
     "IamActionDefinitionTypeDef",
     "NotificationTypeDef",
     "NotificationWithSubscribersTypeDef",
@@ -136,6 +142,33 @@ ActionTypeDef = TypedDict(
     },
 )
 
+_RequiredAutoAdjustDataTypeDef = TypedDict(
+    "_RequiredAutoAdjustDataTypeDef",
+    {
+        "AutoAdjustType": AutoAdjustTypeType,
+    },
+)
+_OptionalAutoAdjustDataTypeDef = TypedDict(
+    "_OptionalAutoAdjustDataTypeDef",
+    {
+        "HistoricalOptions": "HistoricalOptionsTypeDef",
+        "LastAutoAdjustTime": Union[datetime, str],
+    },
+    total=False,
+)
+
+class AutoAdjustDataTypeDef(_RequiredAutoAdjustDataTypeDef, _OptionalAutoAdjustDataTypeDef):
+    pass
+
+BudgetNotificationsForAccountTypeDef = TypedDict(
+    "BudgetNotificationsForAccountTypeDef",
+    {
+        "Notifications": List["NotificationTypeDef"],
+        "BudgetName": str,
+    },
+    total=False,
+)
+
 BudgetPerformanceHistoryTypeDef = TypedDict(
     "BudgetPerformanceHistoryTypeDef",
     {
@@ -167,6 +200,7 @@ _OptionalBudgetTypeDef = TypedDict(
         "TimePeriod": "TimePeriodTypeDef",
         "CalculatedSpend": "CalculatedSpendTypeDef",
         "LastUpdatedTime": Union[datetime, str],
+        "AutoAdjustData": "AutoAdjustDataTypeDef",
     },
     total=False,
 )
@@ -453,6 +487,36 @@ DescribeBudgetActionsForBudgetResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredDescribeBudgetNotificationsForAccountRequestRequestTypeDef = TypedDict(
+    "_RequiredDescribeBudgetNotificationsForAccountRequestRequestTypeDef",
+    {
+        "AccountId": str,
+    },
+)
+_OptionalDescribeBudgetNotificationsForAccountRequestRequestTypeDef = TypedDict(
+    "_OptionalDescribeBudgetNotificationsForAccountRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class DescribeBudgetNotificationsForAccountRequestRequestTypeDef(
+    _RequiredDescribeBudgetNotificationsForAccountRequestRequestTypeDef,
+    _OptionalDescribeBudgetNotificationsForAccountRequestRequestTypeDef,
+):
+    pass
+
+DescribeBudgetNotificationsForAccountResponseTypeDef = TypedDict(
+    "DescribeBudgetNotificationsForAccountResponseTypeDef",
+    {
+        "BudgetNotificationsForAccount": List["BudgetNotificationsForAccountTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef",
     {
@@ -613,6 +677,25 @@ ExecuteBudgetActionResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredHistoricalOptionsTypeDef = TypedDict(
+    "_RequiredHistoricalOptionsTypeDef",
+    {
+        "BudgetAdjustmentPeriod": int,
+    },
+)
+_OptionalHistoricalOptionsTypeDef = TypedDict(
+    "_OptionalHistoricalOptionsTypeDef",
+    {
+        "LookBackAvailablePeriods": int,
+    },
+    total=False,
+)
+
+class HistoricalOptionsTypeDef(
+    _RequiredHistoricalOptionsTypeDef, _OptionalHistoricalOptionsTypeDef
+):
+    pass
 
 _RequiredIamActionDefinitionTypeDef = TypedDict(
     "_RequiredIamActionDefinitionTypeDef",

@@ -6,9 +6,9 @@ Type annotations for connect service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connect.type_defs import AgentInfoTypeDef
+    from mypy_boto3_connect.type_defs import AgentContactReferenceTypeDef
 
-    data: AgentInfoTypeDef = {...}
+    data: AgentContactReferenceTypeDef = {...}
     ```
 """
 import sys
@@ -24,9 +24,11 @@ from .literals import (
     ContactFlowStateType,
     ContactFlowTypeType,
     ContactInitiationMethodType,
+    ContactStateType,
     CurrentMetricNameType,
     DirectoryTypeType,
     GroupingType,
+    HierarchyGroupMatchTypeType,
     HistoricalMetricNameType,
     HoursOfOperationDaysType,
     InstanceAttributeTypeType,
@@ -36,6 +38,7 @@ from .literals import (
     LexVersionType,
     PhoneNumberCountryCodeType,
     PhoneNumberTypeType,
+    PhoneNumberWorkflowStatusType,
     PhoneTypeType,
     QueueStatusType,
     QueueTypeType,
@@ -45,9 +48,14 @@ from .literals import (
     SourceTypeType,
     StatisticType,
     StorageTypeType,
+    StringComparisonTypeType,
+    TaskTemplateFieldTypeType,
+    TaskTemplateStatusType,
     TrafficTypeType,
     UnitType,
     UseCaseTypeType,
+    VocabularyLanguageCodeType,
+    VocabularyStateType,
     VoiceRecordingTrackType,
 )
 
@@ -61,29 +69,39 @@ else:
     from typing_extensions import TypedDict
 
 __all__ = (
+    "AgentContactReferenceTypeDef",
     "AgentInfoTypeDef",
+    "AgentStatusReferenceTypeDef",
     "AgentStatusSummaryTypeDef",
     "AgentStatusTypeDef",
     "AnswerMachineDetectionConfigTypeDef",
     "AssociateApprovedOriginRequestRequestTypeDef",
     "AssociateBotRequestRequestTypeDef",
+    "AssociateDefaultVocabularyRequestRequestTypeDef",
     "AssociateInstanceStorageConfigRequestRequestTypeDef",
     "AssociateInstanceStorageConfigResponseTypeDef",
     "AssociateLambdaFunctionRequestRequestTypeDef",
     "AssociateLexBotRequestRequestTypeDef",
+    "AssociatePhoneNumberContactFlowRequestRequestTypeDef",
     "AssociateQueueQuickConnectsRequestRequestTypeDef",
     "AssociateRoutingProfileQueuesRequestRequestTypeDef",
     "AssociateSecurityKeyRequestRequestTypeDef",
     "AssociateSecurityKeyResponseTypeDef",
     "AttachmentReferenceTypeDef",
     "AttributeTypeDef",
+    "AvailableNumberSummaryTypeDef",
     "ChatMessageTypeDef",
     "ChatStreamingConfigurationTypeDef",
+    "ClaimPhoneNumberRequestRequestTypeDef",
+    "ClaimPhoneNumberResponseTypeDef",
+    "ClaimedPhoneNumberSummaryTypeDef",
+    "ContactFilterTypeDef",
     "ContactFlowModuleSummaryTypeDef",
     "ContactFlowModuleTypeDef",
     "ContactFlowSummaryTypeDef",
     "ContactFlowTypeDef",
     "ContactTypeDef",
+    "ControlPlaneTagFilterTypeDef",
     "CreateAgentStatusRequestRequestTypeDef",
     "CreateAgentStatusResponseTypeDef",
     "CreateContactFlowModuleRequestRequestTypeDef",
@@ -104,16 +122,22 @@ __all__ = (
     "CreateRoutingProfileResponseTypeDef",
     "CreateSecurityProfileRequestRequestTypeDef",
     "CreateSecurityProfileResponseTypeDef",
+    "CreateTaskTemplateRequestRequestTypeDef",
+    "CreateTaskTemplateResponseTypeDef",
     "CreateUseCaseRequestRequestTypeDef",
     "CreateUseCaseResponseTypeDef",
     "CreateUserHierarchyGroupRequestRequestTypeDef",
     "CreateUserHierarchyGroupResponseTypeDef",
     "CreateUserRequestRequestTypeDef",
     "CreateUserResponseTypeDef",
+    "CreateVocabularyRequestRequestTypeDef",
+    "CreateVocabularyResponseTypeDef",
     "CredentialsTypeDef",
     "CurrentMetricDataTypeDef",
     "CurrentMetricResultTypeDef",
     "CurrentMetricTypeDef",
+    "DateReferenceTypeDef",
+    "DefaultVocabularyTypeDef",
     "DeleteContactFlowModuleRequestRequestTypeDef",
     "DeleteContactFlowRequestRequestTypeDef",
     "DeleteHoursOfOperationRequestRequestTypeDef",
@@ -121,9 +145,12 @@ __all__ = (
     "DeleteIntegrationAssociationRequestRequestTypeDef",
     "DeleteQuickConnectRequestRequestTypeDef",
     "DeleteSecurityProfileRequestRequestTypeDef",
+    "DeleteTaskTemplateRequestRequestTypeDef",
     "DeleteUseCaseRequestRequestTypeDef",
     "DeleteUserHierarchyGroupRequestRequestTypeDef",
     "DeleteUserRequestRequestTypeDef",
+    "DeleteVocabularyRequestRequestTypeDef",
+    "DeleteVocabularyResponseTypeDef",
     "DescribeAgentStatusRequestRequestTypeDef",
     "DescribeAgentStatusResponseTypeDef",
     "DescribeContactFlowModuleRequestRequestTypeDef",
@@ -140,6 +167,8 @@ __all__ = (
     "DescribeInstanceResponseTypeDef",
     "DescribeInstanceStorageConfigRequestRequestTypeDef",
     "DescribeInstanceStorageConfigResponseTypeDef",
+    "DescribePhoneNumberRequestRequestTypeDef",
+    "DescribePhoneNumberResponseTypeDef",
     "DescribeQueueRequestRequestTypeDef",
     "DescribeQueueResponseTypeDef",
     "DescribeQuickConnectRequestRequestTypeDef",
@@ -154,29 +183,40 @@ __all__ = (
     "DescribeUserHierarchyStructureResponseTypeDef",
     "DescribeUserRequestRequestTypeDef",
     "DescribeUserResponseTypeDef",
+    "DescribeVocabularyRequestRequestTypeDef",
+    "DescribeVocabularyResponseTypeDef",
     "DimensionsTypeDef",
     "DisassociateApprovedOriginRequestRequestTypeDef",
     "DisassociateBotRequestRequestTypeDef",
     "DisassociateInstanceStorageConfigRequestRequestTypeDef",
     "DisassociateLambdaFunctionRequestRequestTypeDef",
     "DisassociateLexBotRequestRequestTypeDef",
+    "DisassociatePhoneNumberContactFlowRequestRequestTypeDef",
     "DisassociateQueueQuickConnectsRequestRequestTypeDef",
     "DisassociateRoutingProfileQueuesRequestRequestTypeDef",
     "DisassociateSecurityKeyRequestRequestTypeDef",
+    "EmailReferenceTypeDef",
     "EncryptionConfigTypeDef",
     "FiltersTypeDef",
     "GetContactAttributesRequestRequestTypeDef",
     "GetContactAttributesResponseTypeDef",
     "GetCurrentMetricDataRequestRequestTypeDef",
     "GetCurrentMetricDataResponseTypeDef",
+    "GetCurrentUserDataRequestRequestTypeDef",
+    "GetCurrentUserDataResponseTypeDef",
     "GetFederationTokenRequestRequestTypeDef",
     "GetFederationTokenResponseTypeDef",
     "GetMetricDataRequestRequestTypeDef",
     "GetMetricDataResponseTypeDef",
+    "GetTaskTemplateRequestRequestTypeDef",
+    "GetTaskTemplateResponseTypeDef",
+    "HierarchyGroupConditionTypeDef",
+    "HierarchyGroupSummaryReferenceTypeDef",
     "HierarchyGroupSummaryTypeDef",
     "HierarchyGroupTypeDef",
     "HierarchyLevelTypeDef",
     "HierarchyLevelUpdateTypeDef",
+    "HierarchyPathReferenceTypeDef",
     "HierarchyPathTypeDef",
     "HierarchyStructureTypeDef",
     "HierarchyStructureUpdateTypeDef",
@@ -192,6 +232,7 @@ __all__ = (
     "InstanceSummaryTypeDef",
     "InstanceTypeDef",
     "IntegrationAssociationSummaryTypeDef",
+    "InvisibleFieldInfoTypeDef",
     "KinesisFirehoseConfigTypeDef",
     "KinesisStreamConfigTypeDef",
     "KinesisVideoStreamConfigTypeDef",
@@ -210,6 +251,8 @@ __all__ = (
     "ListContactFlowsResponseTypeDef",
     "ListContactReferencesRequestRequestTypeDef",
     "ListContactReferencesResponseTypeDef",
+    "ListDefaultVocabulariesRequestRequestTypeDef",
+    "ListDefaultVocabulariesResponseTypeDef",
     "ListHoursOfOperationsRequestRequestTypeDef",
     "ListHoursOfOperationsResponseTypeDef",
     "ListInstanceAttributesRequestRequestTypeDef",
@@ -226,6 +269,9 @@ __all__ = (
     "ListLexBotsResponseTypeDef",
     "ListPhoneNumbersRequestRequestTypeDef",
     "ListPhoneNumbersResponseTypeDef",
+    "ListPhoneNumbersSummaryTypeDef",
+    "ListPhoneNumbersV2RequestRequestTypeDef",
+    "ListPhoneNumbersV2ResponseTypeDef",
     "ListPromptsRequestRequestTypeDef",
     "ListPromptsResponseTypeDef",
     "ListQueueQuickConnectsRequestRequestTypeDef",
@@ -246,6 +292,8 @@ __all__ = (
     "ListSecurityProfilesResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTaskTemplatesRequestRequestTypeDef",
+    "ListTaskTemplatesResponseTypeDef",
     "ListUseCasesRequestRequestTypeDef",
     "ListUseCasesResponseTypeDef",
     "ListUserHierarchyGroupsRequestRequestTypeDef",
@@ -253,12 +301,15 @@ __all__ = (
     "ListUsersRequestRequestTypeDef",
     "ListUsersResponseTypeDef",
     "MediaConcurrencyTypeDef",
+    "NumberReferenceTypeDef",
     "OutboundCallerConfigTypeDef",
     "PaginatorConfigTypeDef",
     "ParticipantDetailsTypeDef",
     "PhoneNumberQuickConnectConfigTypeDef",
+    "PhoneNumberStatusTypeDef",
     "PhoneNumberSummaryTypeDef",
     "PromptSummaryTypeDef",
+    "PutUserStatusRequestRequestTypeDef",
     "QueueInfoTypeDef",
     "QueueQuickConnectConfigTypeDef",
     "QueueReferenceTypeDef",
@@ -267,16 +318,26 @@ __all__ = (
     "QuickConnectConfigTypeDef",
     "QuickConnectSummaryTypeDef",
     "QuickConnectTypeDef",
+    "ReadOnlyFieldInfoTypeDef",
     "ReferenceSummaryTypeDef",
     "ReferenceTypeDef",
+    "ReleasePhoneNumberRequestRequestTypeDef",
+    "RequiredFieldInfoTypeDef",
     "ResponseMetadataTypeDef",
     "ResumeContactRecordingRequestRequestTypeDef",
     "RoutingProfileQueueConfigSummaryTypeDef",
     "RoutingProfileQueueConfigTypeDef",
     "RoutingProfileQueueReferenceTypeDef",
+    "RoutingProfileReferenceTypeDef",
     "RoutingProfileSummaryTypeDef",
     "RoutingProfileTypeDef",
     "S3ConfigTypeDef",
+    "SearchAvailablePhoneNumbersRequestRequestTypeDef",
+    "SearchAvailablePhoneNumbersResponseTypeDef",
+    "SearchUsersRequestRequestTypeDef",
+    "SearchUsersResponseTypeDef",
+    "SearchVocabulariesRequestRequestTypeDef",
+    "SearchVocabulariesResponseTypeDef",
     "SecurityKeyTypeDef",
     "SecurityProfileSummaryTypeDef",
     "SecurityProfileTypeDef",
@@ -292,9 +353,20 @@ __all__ = (
     "StopContactRecordingRequestRequestTypeDef",
     "StopContactRequestRequestTypeDef",
     "StopContactStreamingRequestRequestTypeDef",
+    "StringConditionTypeDef",
+    "StringReferenceTypeDef",
     "SuspendContactRecordingRequestRequestTypeDef",
+    "TagConditionTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "TaskTemplateConstraintsTypeDef",
+    "TaskTemplateDefaultFieldValueTypeDef",
+    "TaskTemplateDefaultsTypeDef",
+    "TaskTemplateFieldIdentifierTypeDef",
+    "TaskTemplateFieldTypeDef",
+    "TaskTemplateMetadataTypeDef",
     "ThresholdTypeDef",
+    "TransferContactRequestRequestTypeDef",
+    "TransferContactResponseTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateAgentStatusRequestRequestTypeDef",
     "UpdateContactAttributesRequestRequestTypeDef",
@@ -308,6 +380,8 @@ __all__ = (
     "UpdateHoursOfOperationRequestRequestTypeDef",
     "UpdateInstanceAttributeRequestRequestTypeDef",
     "UpdateInstanceStorageConfigRequestRequestTypeDef",
+    "UpdatePhoneNumberRequestRequestTypeDef",
+    "UpdatePhoneNumberResponseTypeDef",
     "UpdateQueueHoursOfOperationRequestRequestTypeDef",
     "UpdateQueueMaxContactsRequestRequestTypeDef",
     "UpdateQueueNameRequestRequestTypeDef",
@@ -320,6 +394,8 @@ __all__ = (
     "UpdateRoutingProfileNameRequestRequestTypeDef",
     "UpdateRoutingProfileQueuesRequestRequestTypeDef",
     "UpdateSecurityProfileRequestRequestTypeDef",
+    "UpdateTaskTemplateRequestRequestTypeDef",
+    "UpdateTaskTemplateResponseTypeDef",
     "UpdateUserHierarchyGroupNameRequestRequestTypeDef",
     "UpdateUserHierarchyRequestRequestTypeDef",
     "UpdateUserHierarchyStructureRequestRequestTypeDef",
@@ -329,12 +405,35 @@ __all__ = (
     "UpdateUserSecurityProfilesRequestRequestTypeDef",
     "UrlReferenceTypeDef",
     "UseCaseTypeDef",
+    "UserDataFiltersTypeDef",
+    "UserDataTypeDef",
+    "UserIdentityInfoLiteTypeDef",
     "UserIdentityInfoTypeDef",
     "UserPhoneConfigTypeDef",
     "UserQuickConnectConfigTypeDef",
+    "UserReferenceTypeDef",
+    "UserSearchCriteriaTypeDef",
+    "UserSearchFilterTypeDef",
+    "UserSearchSummaryTypeDef",
     "UserSummaryTypeDef",
     "UserTypeDef",
+    "VocabularySummaryTypeDef",
+    "VocabularyTypeDef",
     "VoiceRecordingConfigurationTypeDef",
+)
+
+AgentContactReferenceTypeDef = TypedDict(
+    "AgentContactReferenceTypeDef",
+    {
+        "ContactId": str,
+        "Channel": ChannelType,
+        "InitiationMethod": ContactInitiationMethodType,
+        "AgentContactState": ContactStateType,
+        "StateStartTimestamp": datetime,
+        "ConnectedToAgentTimestamp": datetime,
+        "Queue": "QueueReferenceTypeDef",
+    },
+    total=False,
 )
 
 AgentInfoTypeDef = TypedDict(
@@ -342,6 +441,15 @@ AgentInfoTypeDef = TypedDict(
     {
         "Id": str,
         "ConnectedToAgentTimestamp": datetime,
+    },
+    total=False,
+)
+
+AgentStatusReferenceTypeDef = TypedDict(
+    "AgentStatusReferenceTypeDef",
+    {
+        "StatusStartTimestamp": datetime,
+        "StatusArn": str,
     },
     total=False,
 )
@@ -409,6 +517,27 @@ class AssociateBotRequestRequestTypeDef(
 ):
     pass
 
+_RequiredAssociateDefaultVocabularyRequestRequestTypeDef = TypedDict(
+    "_RequiredAssociateDefaultVocabularyRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "LanguageCode": VocabularyLanguageCodeType,
+    },
+)
+_OptionalAssociateDefaultVocabularyRequestRequestTypeDef = TypedDict(
+    "_OptionalAssociateDefaultVocabularyRequestRequestTypeDef",
+    {
+        "VocabularyId": str,
+    },
+    total=False,
+)
+
+class AssociateDefaultVocabularyRequestRequestTypeDef(
+    _RequiredAssociateDefaultVocabularyRequestRequestTypeDef,
+    _OptionalAssociateDefaultVocabularyRequestRequestTypeDef,
+):
+    pass
+
 AssociateInstanceStorageConfigRequestRequestTypeDef = TypedDict(
     "AssociateInstanceStorageConfigRequestRequestTypeDef",
     {
@@ -439,6 +568,15 @@ AssociateLexBotRequestRequestTypeDef = TypedDict(
     {
         "InstanceId": str,
         "LexBot": "LexBotTypeDef",
+    },
+)
+
+AssociatePhoneNumberContactFlowRequestRequestTypeDef = TypedDict(
+    "AssociatePhoneNumberContactFlowRequestRequestTypeDef",
+    {
+        "PhoneNumberId": str,
+        "InstanceId": str,
+        "ContactFlowId": str,
     },
 )
 
@@ -495,6 +633,16 @@ AttributeTypeDef = TypedDict(
     total=False,
 )
 
+AvailableNumberSummaryTypeDef = TypedDict(
+    "AvailableNumberSummaryTypeDef",
+    {
+        "PhoneNumber": str,
+        "PhoneNumberCountryCode": PhoneNumberCountryCodeType,
+        "PhoneNumberType": PhoneNumberTypeType,
+    },
+    total=False,
+)
+
 ChatMessageTypeDef = TypedDict(
     "ChatMessageTypeDef",
     {
@@ -508,6 +656,61 @@ ChatStreamingConfigurationTypeDef = TypedDict(
     {
         "StreamingEndpointArn": str,
     },
+)
+
+_RequiredClaimPhoneNumberRequestRequestTypeDef = TypedDict(
+    "_RequiredClaimPhoneNumberRequestRequestTypeDef",
+    {
+        "TargetArn": str,
+        "PhoneNumber": str,
+    },
+)
+_OptionalClaimPhoneNumberRequestRequestTypeDef = TypedDict(
+    "_OptionalClaimPhoneNumberRequestRequestTypeDef",
+    {
+        "PhoneNumberDescription": str,
+        "Tags": Dict[str, str],
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ClaimPhoneNumberRequestRequestTypeDef(
+    _RequiredClaimPhoneNumberRequestRequestTypeDef, _OptionalClaimPhoneNumberRequestRequestTypeDef
+):
+    pass
+
+ClaimPhoneNumberResponseTypeDef = TypedDict(
+    "ClaimPhoneNumberResponseTypeDef",
+    {
+        "PhoneNumberId": str,
+        "PhoneNumberArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ClaimedPhoneNumberSummaryTypeDef = TypedDict(
+    "ClaimedPhoneNumberSummaryTypeDef",
+    {
+        "PhoneNumberId": str,
+        "PhoneNumberArn": str,
+        "PhoneNumber": str,
+        "PhoneNumberCountryCode": PhoneNumberCountryCodeType,
+        "PhoneNumberType": PhoneNumberTypeType,
+        "PhoneNumberDescription": str,
+        "TargetArn": str,
+        "Tags": Dict[str, str],
+        "PhoneNumberStatus": "PhoneNumberStatusTypeDef",
+    },
+    total=False,
+)
+
+ContactFilterTypeDef = TypedDict(
+    "ContactFilterTypeDef",
+    {
+        "ContactStates": List[ContactStateType],
+    },
+    total=False,
 )
 
 ContactFlowModuleSummaryTypeDef = TypedDict(
@@ -580,6 +783,16 @@ ContactTypeDef = TypedDict(
         "DisconnectTimestamp": datetime,
         "LastUpdateTimestamp": datetime,
         "ScheduledTimestamp": datetime,
+    },
+    total=False,
+)
+
+ControlPlaneTagFilterTypeDef = TypedDict(
+    "ControlPlaneTagFilterTypeDef",
+    {
+        "OrConditions": List[List["TagConditionTypeDef"]],
+        "AndConditions": List["TagConditionTypeDef"],
+        "TagCondition": "TagConditionTypeDef",
     },
     total=False,
 )
@@ -912,6 +1125,42 @@ CreateSecurityProfileResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateTaskTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateTaskTemplateRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Name": str,
+        "Fields": List["TaskTemplateFieldTypeDef"],
+    },
+)
+_OptionalCreateTaskTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateTaskTemplateRequestRequestTypeDef",
+    {
+        "Description": str,
+        "ContactFlowId": str,
+        "Constraints": "TaskTemplateConstraintsTypeDef",
+        "Defaults": "TaskTemplateDefaultsTypeDef",
+        "Status": TaskTemplateStatusType,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class CreateTaskTemplateRequestRequestTypeDef(
+    _RequiredCreateTaskTemplateRequestRequestTypeDef,
+    _OptionalCreateTaskTemplateRequestRequestTypeDef,
+):
+    pass
+
+CreateTaskTemplateResponseTypeDef = TypedDict(
+    "CreateTaskTemplateResponseTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredCreateUseCaseRequestRequestTypeDef = TypedDict(
     "_RequiredCreateUseCaseRequestRequestTypeDef",
     {
@@ -953,6 +1202,7 @@ _OptionalCreateUserHierarchyGroupRequestRequestTypeDef = TypedDict(
     "_OptionalCreateUserHierarchyGroupRequestRequestTypeDef",
     {
         "ParentGroupId": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -1008,6 +1258,39 @@ CreateUserResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredCreateVocabularyRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateVocabularyRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "VocabularyName": str,
+        "LanguageCode": VocabularyLanguageCodeType,
+        "Content": str,
+    },
+)
+_OptionalCreateVocabularyRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateVocabularyRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateVocabularyRequestRequestTypeDef(
+    _RequiredCreateVocabularyRequestRequestTypeDef, _OptionalCreateVocabularyRequestRequestTypeDef
+):
+    pass
+
+CreateVocabularyResponseTypeDef = TypedDict(
+    "CreateVocabularyResponseTypeDef",
+    {
+        "VocabularyArn": str,
+        "VocabularyId": str,
+        "State": VocabularyStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 CredentialsTypeDef = TypedDict(
     "CredentialsTypeDef",
     {
@@ -1044,6 +1327,25 @@ CurrentMetricTypeDef = TypedDict(
         "Unit": UnitType,
     },
     total=False,
+)
+
+DateReferenceTypeDef = TypedDict(
+    "DateReferenceTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+    total=False,
+)
+
+DefaultVocabularyTypeDef = TypedDict(
+    "DefaultVocabularyTypeDef",
+    {
+        "InstanceId": str,
+        "LanguageCode": VocabularyLanguageCodeType,
+        "VocabularyId": str,
+        "VocabularyName": str,
+    },
 )
 
 DeleteContactFlowModuleRequestRequestTypeDef = TypedDict(
@@ -1101,6 +1403,14 @@ DeleteSecurityProfileRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteTaskTemplateRequestRequestTypeDef = TypedDict(
+    "DeleteTaskTemplateRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "TaskTemplateId": str,
+    },
+)
+
 DeleteUseCaseRequestRequestTypeDef = TypedDict(
     "DeleteUseCaseRequestRequestTypeDef",
     {
@@ -1123,6 +1433,24 @@ DeleteUserRequestRequestTypeDef = TypedDict(
     {
         "InstanceId": str,
         "UserId": str,
+    },
+)
+
+DeleteVocabularyRequestRequestTypeDef = TypedDict(
+    "DeleteVocabularyRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "VocabularyId": str,
+    },
+)
+
+DeleteVocabularyResponseTypeDef = TypedDict(
+    "DeleteVocabularyResponseTypeDef",
+    {
+        "VocabularyArn": str,
+        "VocabularyId": str,
+        "State": VocabularyStateType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
 
@@ -1254,6 +1582,21 @@ DescribeInstanceStorageConfigResponseTypeDef = TypedDict(
     },
 )
 
+DescribePhoneNumberRequestRequestTypeDef = TypedDict(
+    "DescribePhoneNumberRequestRequestTypeDef",
+    {
+        "PhoneNumberId": str,
+    },
+)
+
+DescribePhoneNumberResponseTypeDef = TypedDict(
+    "DescribePhoneNumberResponseTypeDef",
+    {
+        "ClaimedPhoneNumberSummary": "ClaimedPhoneNumberSummaryTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeQueueRequestRequestTypeDef = TypedDict(
     "DescribeQueueRequestRequestTypeDef",
     {
@@ -1365,6 +1708,22 @@ DescribeUserResponseTypeDef = TypedDict(
     },
 )
 
+DescribeVocabularyRequestRequestTypeDef = TypedDict(
+    "DescribeVocabularyRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "VocabularyId": str,
+    },
+)
+
+DescribeVocabularyResponseTypeDef = TypedDict(
+    "DescribeVocabularyResponseTypeDef",
+    {
+        "Vocabulary": "VocabularyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DimensionsTypeDef = TypedDict(
     "DimensionsTypeDef",
     {
@@ -1428,6 +1787,14 @@ DisassociateLexBotRequestRequestTypeDef = TypedDict(
     },
 )
 
+DisassociatePhoneNumberContactFlowRequestRequestTypeDef = TypedDict(
+    "DisassociatePhoneNumberContactFlowRequestRequestTypeDef",
+    {
+        "PhoneNumberId": str,
+        "InstanceId": str,
+    },
+)
+
 DisassociateQueueQuickConnectsRequestRequestTypeDef = TypedDict(
     "DisassociateQueueQuickConnectsRequestRequestTypeDef",
     {
@@ -1452,6 +1819,15 @@ DisassociateSecurityKeyRequestRequestTypeDef = TypedDict(
         "InstanceId": str,
         "AssociationId": str,
     },
+)
+
+EmailReferenceTypeDef = TypedDict(
+    "EmailReferenceTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+    total=False,
 )
 
 EncryptionConfigTypeDef = TypedDict(
@@ -1521,6 +1897,37 @@ GetCurrentMetricDataResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetCurrentUserDataRequestRequestTypeDef = TypedDict(
+    "_RequiredGetCurrentUserDataRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "Filters": "UserDataFiltersTypeDef",
+    },
+)
+_OptionalGetCurrentUserDataRequestRequestTypeDef = TypedDict(
+    "_OptionalGetCurrentUserDataRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetCurrentUserDataRequestRequestTypeDef(
+    _RequiredGetCurrentUserDataRequestRequestTypeDef,
+    _OptionalGetCurrentUserDataRequestRequestTypeDef,
+):
+    pass
+
+GetCurrentUserDataResponseTypeDef = TypedDict(
+    "GetCurrentUserDataResponseTypeDef",
+    {
+        "NextToken": str,
+        "UserDataList": List["UserDataTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 GetFederationTokenRequestRequestTypeDef = TypedDict(
     "GetFederationTokenRequestRequestTypeDef",
     {
@@ -1570,6 +1977,64 @@ GetMetricDataResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredGetTaskTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredGetTaskTemplateRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "TaskTemplateId": str,
+    },
+)
+_OptionalGetTaskTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalGetTaskTemplateRequestRequestTypeDef",
+    {
+        "SnapshotVersion": str,
+    },
+    total=False,
+)
+
+class GetTaskTemplateRequestRequestTypeDef(
+    _RequiredGetTaskTemplateRequestRequestTypeDef, _OptionalGetTaskTemplateRequestRequestTypeDef
+):
+    pass
+
+GetTaskTemplateResponseTypeDef = TypedDict(
+    "GetTaskTemplateResponseTypeDef",
+    {
+        "InstanceId": str,
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "Description": str,
+        "ContactFlowId": str,
+        "Constraints": "TaskTemplateConstraintsTypeDef",
+        "Defaults": "TaskTemplateDefaultsTypeDef",
+        "Fields": List["TaskTemplateFieldTypeDef"],
+        "Status": TaskTemplateStatusType,
+        "LastModifiedTime": datetime,
+        "CreatedTime": datetime,
+        "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+HierarchyGroupConditionTypeDef = TypedDict(
+    "HierarchyGroupConditionTypeDef",
+    {
+        "Value": str,
+        "HierarchyGroupMatchType": HierarchyGroupMatchTypeType,
+    },
+    total=False,
+)
+
+HierarchyGroupSummaryReferenceTypeDef = TypedDict(
+    "HierarchyGroupSummaryReferenceTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+    },
+    total=False,
+)
+
 HierarchyGroupSummaryTypeDef = TypedDict(
     "HierarchyGroupSummaryTypeDef",
     {
@@ -1588,6 +2053,7 @@ HierarchyGroupTypeDef = TypedDict(
         "Name": str,
         "LevelId": str,
         "HierarchyPath": "HierarchyPathTypeDef",
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -1607,6 +2073,18 @@ HierarchyLevelUpdateTypeDef = TypedDict(
     {
         "Name": str,
     },
+)
+
+HierarchyPathReferenceTypeDef = TypedDict(
+    "HierarchyPathReferenceTypeDef",
+    {
+        "LevelOne": "HierarchyGroupSummaryReferenceTypeDef",
+        "LevelTwo": "HierarchyGroupSummaryReferenceTypeDef",
+        "LevelThree": "HierarchyGroupSummaryReferenceTypeDef",
+        "LevelFour": "HierarchyGroupSummaryReferenceTypeDef",
+        "LevelFive": "HierarchyGroupSummaryReferenceTypeDef",
+    },
+    total=False,
 )
 
 HierarchyPathTypeDef = TypedDict(
@@ -1790,6 +2268,14 @@ IntegrationAssociationSummaryTypeDef = TypedDict(
         "SourceApplicationUrl": str,
         "SourceApplicationName": str,
         "SourceType": SourceTypeType,
+    },
+    total=False,
+)
+
+InvisibleFieldInfoTypeDef = TypedDict(
+    "InvisibleFieldInfoTypeDef",
+    {
+        "Id": "TaskTemplateFieldIdentifierTypeDef",
     },
     total=False,
 )
@@ -2025,6 +2511,37 @@ ListContactReferencesResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListDefaultVocabulariesRequestRequestTypeDef = TypedDict(
+    "_RequiredListDefaultVocabulariesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalListDefaultVocabulariesRequestRequestTypeDef = TypedDict(
+    "_OptionalListDefaultVocabulariesRequestRequestTypeDef",
+    {
+        "LanguageCode": VocabularyLanguageCodeType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListDefaultVocabulariesRequestRequestTypeDef(
+    _RequiredListDefaultVocabulariesRequestRequestTypeDef,
+    _OptionalListDefaultVocabulariesRequestRequestTypeDef,
+):
+    pass
+
+ListDefaultVocabulariesResponseTypeDef = TypedDict(
+    "ListDefaultVocabulariesResponseTypeDef",
+    {
+        "DefaultVocabularyList": List["DefaultVocabularyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListHoursOfOperationsRequestRequestTypeDef = TypedDict(
     "_RequiredListHoursOfOperationsRequestRequestTypeDef",
     {
@@ -2251,6 +2768,41 @@ ListPhoneNumbersResponseTypeDef = TypedDict(
     {
         "PhoneNumberSummaryList": List["PhoneNumberSummaryTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListPhoneNumbersSummaryTypeDef = TypedDict(
+    "ListPhoneNumbersSummaryTypeDef",
+    {
+        "PhoneNumberId": str,
+        "PhoneNumberArn": str,
+        "PhoneNumber": str,
+        "PhoneNumberCountryCode": PhoneNumberCountryCodeType,
+        "PhoneNumberType": PhoneNumberTypeType,
+        "TargetArn": str,
+    },
+    total=False,
+)
+
+ListPhoneNumbersV2RequestRequestTypeDef = TypedDict(
+    "ListPhoneNumbersV2RequestRequestTypeDef",
+    {
+        "TargetArn": str,
+        "MaxResults": int,
+        "NextToken": str,
+        "PhoneNumberCountryCodes": List[PhoneNumberCountryCodeType],
+        "PhoneNumberTypes": List[PhoneNumberTypeType],
+        "PhoneNumberPrefix": str,
+    },
+    total=False,
+)
+
+ListPhoneNumbersV2ResponseTypeDef = TypedDict(
+    "ListPhoneNumbersV2ResponseTypeDef",
+    {
+        "NextToken": str,
+        "ListPhoneNumbersSummaryList": List["ListPhoneNumbersSummaryTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2541,6 +3093,37 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListTaskTemplatesRequestRequestTypeDef = TypedDict(
+    "_RequiredListTaskTemplatesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalListTaskTemplatesRequestRequestTypeDef = TypedDict(
+    "_OptionalListTaskTemplatesRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+        "Status": TaskTemplateStatusType,
+        "Name": str,
+    },
+    total=False,
+)
+
+class ListTaskTemplatesRequestRequestTypeDef(
+    _RequiredListTaskTemplatesRequestRequestTypeDef, _OptionalListTaskTemplatesRequestRequestTypeDef
+):
+    pass
+
+ListTaskTemplatesResponseTypeDef = TypedDict(
+    "ListTaskTemplatesResponseTypeDef",
+    {
+        "TaskTemplates": List["TaskTemplateMetadataTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredListUseCasesRequestRequestTypeDef = TypedDict(
     "_RequiredListUseCasesRequestRequestTypeDef",
     {
@@ -2638,6 +3221,15 @@ MediaConcurrencyTypeDef = TypedDict(
     },
 )
 
+NumberReferenceTypeDef = TypedDict(
+    "NumberReferenceTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+    total=False,
+)
+
 OutboundCallerConfigTypeDef = TypedDict(
     "OutboundCallerConfigTypeDef",
     {
@@ -2672,6 +3264,15 @@ PhoneNumberQuickConnectConfigTypeDef = TypedDict(
     },
 )
 
+PhoneNumberStatusTypeDef = TypedDict(
+    "PhoneNumberStatusTypeDef",
+    {
+        "Status": PhoneNumberWorkflowStatusType,
+        "Message": str,
+    },
+    total=False,
+)
+
 PhoneNumberSummaryTypeDef = TypedDict(
     "PhoneNumberSummaryTypeDef",
     {
@@ -2692,6 +3293,15 @@ PromptSummaryTypeDef = TypedDict(
         "Name": str,
     },
     total=False,
+)
+
+PutUserStatusRequestRequestTypeDef = TypedDict(
+    "PutUserStatusRequestRequestTypeDef",
+    {
+        "UserId": str,
+        "InstanceId": str,
+        "AgentStatusId": str,
+    },
 )
 
 QueueInfoTypeDef = TypedDict(
@@ -2792,11 +3402,23 @@ QuickConnectTypeDef = TypedDict(
     total=False,
 )
 
+ReadOnlyFieldInfoTypeDef = TypedDict(
+    "ReadOnlyFieldInfoTypeDef",
+    {
+        "Id": "TaskTemplateFieldIdentifierTypeDef",
+    },
+    total=False,
+)
+
 ReferenceSummaryTypeDef = TypedDict(
     "ReferenceSummaryTypeDef",
     {
         "Url": "UrlReferenceTypeDef",
         "Attachment": "AttachmentReferenceTypeDef",
+        "String": "StringReferenceTypeDef",
+        "Number": "NumberReferenceTypeDef",
+        "Date": "DateReferenceTypeDef",
+        "Email": "EmailReferenceTypeDef",
     },
     total=False,
 )
@@ -2807,6 +3429,34 @@ ReferenceTypeDef = TypedDict(
         "Value": str,
         "Type": ReferenceTypeType,
     },
+)
+
+_RequiredReleasePhoneNumberRequestRequestTypeDef = TypedDict(
+    "_RequiredReleasePhoneNumberRequestRequestTypeDef",
+    {
+        "PhoneNumberId": str,
+    },
+)
+_OptionalReleasePhoneNumberRequestRequestTypeDef = TypedDict(
+    "_OptionalReleasePhoneNumberRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class ReleasePhoneNumberRequestRequestTypeDef(
+    _RequiredReleasePhoneNumberRequestRequestTypeDef,
+    _OptionalReleasePhoneNumberRequestRequestTypeDef,
+):
+    pass
+
+RequiredFieldInfoTypeDef = TypedDict(
+    "RequiredFieldInfoTypeDef",
+    {
+        "Id": "TaskTemplateFieldIdentifierTypeDef",
+    },
+    total=False,
 )
 
 ResponseMetadataTypeDef = TypedDict(
@@ -2858,6 +3508,15 @@ RoutingProfileQueueReferenceTypeDef = TypedDict(
     },
 )
 
+RoutingProfileReferenceTypeDef = TypedDict(
+    "RoutingProfileReferenceTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+    },
+    total=False,
+)
+
 RoutingProfileSummaryTypeDef = TypedDict(
     "RoutingProfileSummaryTypeDef",
     {
@@ -2900,6 +3559,94 @@ _OptionalS3ConfigTypeDef = TypedDict(
 
 class S3ConfigTypeDef(_RequiredS3ConfigTypeDef, _OptionalS3ConfigTypeDef):
     pass
+
+_RequiredSearchAvailablePhoneNumbersRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchAvailablePhoneNumbersRequestRequestTypeDef",
+    {
+        "TargetArn": str,
+        "PhoneNumberCountryCode": PhoneNumberCountryCodeType,
+        "PhoneNumberType": PhoneNumberTypeType,
+    },
+)
+_OptionalSearchAvailablePhoneNumbersRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchAvailablePhoneNumbersRequestRequestTypeDef",
+    {
+        "PhoneNumberPrefix": str,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class SearchAvailablePhoneNumbersRequestRequestTypeDef(
+    _RequiredSearchAvailablePhoneNumbersRequestRequestTypeDef,
+    _OptionalSearchAvailablePhoneNumbersRequestRequestTypeDef,
+):
+    pass
+
+SearchAvailablePhoneNumbersResponseTypeDef = TypedDict(
+    "SearchAvailablePhoneNumbersResponseTypeDef",
+    {
+        "NextToken": str,
+        "AvailableNumbersList": List["AvailableNumberSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+SearchUsersRequestRequestTypeDef = TypedDict(
+    "SearchUsersRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "NextToken": str,
+        "MaxResults": int,
+        "SearchFilter": "UserSearchFilterTypeDef",
+        "SearchCriteria": "UserSearchCriteriaTypeDef",
+    },
+    total=False,
+)
+
+SearchUsersResponseTypeDef = TypedDict(
+    "SearchUsersResponseTypeDef",
+    {
+        "Users": List["UserSearchSummaryTypeDef"],
+        "NextToken": str,
+        "ApproximateTotalCount": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredSearchVocabulariesRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchVocabulariesRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+    },
+)
+_OptionalSearchVocabulariesRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchVocabulariesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+        "State": VocabularyStateType,
+        "NameStartsWith": str,
+        "LanguageCode": VocabularyLanguageCodeType,
+    },
+    total=False,
+)
+
+class SearchVocabulariesRequestRequestTypeDef(
+    _RequiredSearchVocabulariesRequestRequestTypeDef,
+    _OptionalSearchVocabulariesRequestRequestTypeDef,
+):
+    pass
+
+SearchVocabulariesResponseTypeDef = TypedDict(
+    "SearchVocabulariesResponseTypeDef",
+    {
+        "VocabularySummaryList": List["VocabularySummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 SecurityKeyTypeDef = TypedDict(
     "SecurityKeyTypeDef",
@@ -2948,6 +3695,8 @@ _OptionalStartChatContactRequestRequestTypeDef = TypedDict(
         "Attributes": Dict[str, str],
         "InitialMessage": "ChatMessageTypeDef",
         "ClientToken": str,
+        "ChatDurationInMinutes": int,
+        "SupportedMessagingContentTypes": List[str],
     },
     total=False,
 )
@@ -3035,7 +3784,6 @@ _RequiredStartTaskContactRequestRequestTypeDef = TypedDict(
     "_RequiredStartTaskContactRequestRequestTypeDef",
     {
         "InstanceId": str,
-        "ContactFlowId": str,
         "Name": str,
     },
 )
@@ -3043,11 +3791,14 @@ _OptionalStartTaskContactRequestRequestTypeDef = TypedDict(
     "_OptionalStartTaskContactRequestRequestTypeDef",
     {
         "PreviousContactId": str,
+        "ContactFlowId": str,
         "Attributes": Dict[str, str],
         "References": Dict[str, "ReferenceTypeDef"],
         "Description": str,
         "ClientToken": str,
         "ScheduledTime": Union[datetime, str],
+        "TaskTemplateId": str,
+        "QuickConnectId": str,
     },
     total=False,
 )
@@ -3091,6 +3842,25 @@ StopContactStreamingRequestRequestTypeDef = TypedDict(
     },
 )
 
+StringConditionTypeDef = TypedDict(
+    "StringConditionTypeDef",
+    {
+        "FieldName": str,
+        "Value": str,
+        "ComparisonType": StringComparisonTypeType,
+    },
+    total=False,
+)
+
+StringReferenceTypeDef = TypedDict(
+    "StringReferenceTypeDef",
+    {
+        "Name": str,
+        "Value": str,
+    },
+    total=False,
+)
+
 SuspendContactRecordingRequestRequestTypeDef = TypedDict(
     "SuspendContactRecordingRequestRequestTypeDef",
     {
@@ -3098,6 +3868,15 @@ SuspendContactRecordingRequestRequestTypeDef = TypedDict(
         "ContactId": str,
         "InitialContactId": str,
     },
+)
+
+TagConditionTypeDef = TypedDict(
+    "TagConditionTypeDef",
+    {
+        "TagKey": str,
+        "TagValue": str,
+    },
+    total=False,
 )
 
 TagResourceRequestRequestTypeDef = TypedDict(
@@ -3108,6 +3887,76 @@ TagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
+TaskTemplateConstraintsTypeDef = TypedDict(
+    "TaskTemplateConstraintsTypeDef",
+    {
+        "RequiredFields": List["RequiredFieldInfoTypeDef"],
+        "ReadOnlyFields": List["ReadOnlyFieldInfoTypeDef"],
+        "InvisibleFields": List["InvisibleFieldInfoTypeDef"],
+    },
+    total=False,
+)
+
+TaskTemplateDefaultFieldValueTypeDef = TypedDict(
+    "TaskTemplateDefaultFieldValueTypeDef",
+    {
+        "Id": "TaskTemplateFieldIdentifierTypeDef",
+        "DefaultValue": str,
+    },
+    total=False,
+)
+
+TaskTemplateDefaultsTypeDef = TypedDict(
+    "TaskTemplateDefaultsTypeDef",
+    {
+        "DefaultFieldValues": List["TaskTemplateDefaultFieldValueTypeDef"],
+    },
+    total=False,
+)
+
+TaskTemplateFieldIdentifierTypeDef = TypedDict(
+    "TaskTemplateFieldIdentifierTypeDef",
+    {
+        "Name": str,
+    },
+    total=False,
+)
+
+_RequiredTaskTemplateFieldTypeDef = TypedDict(
+    "_RequiredTaskTemplateFieldTypeDef",
+    {
+        "Id": "TaskTemplateFieldIdentifierTypeDef",
+    },
+)
+_OptionalTaskTemplateFieldTypeDef = TypedDict(
+    "_OptionalTaskTemplateFieldTypeDef",
+    {
+        "Description": str,
+        "Type": TaskTemplateFieldTypeType,
+        "SingleSelectOptions": List[str],
+    },
+    total=False,
+)
+
+class TaskTemplateFieldTypeDef(
+    _RequiredTaskTemplateFieldTypeDef, _OptionalTaskTemplateFieldTypeDef
+):
+    pass
+
+TaskTemplateMetadataTypeDef = TypedDict(
+    "TaskTemplateMetadataTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "Description": str,
+        "Status": TaskTemplateStatusType,
+        "LastModifiedTime": datetime,
+        "CreatedTime": datetime,
+    },
+    total=False,
+)
+
 ThresholdTypeDef = TypedDict(
     "ThresholdTypeDef",
     {
@@ -3115,6 +3964,38 @@ ThresholdTypeDef = TypedDict(
         "ThresholdValue": float,
     },
     total=False,
+)
+
+_RequiredTransferContactRequestRequestTypeDef = TypedDict(
+    "_RequiredTransferContactRequestRequestTypeDef",
+    {
+        "InstanceId": str,
+        "ContactId": str,
+        "ContactFlowId": str,
+    },
+)
+_OptionalTransferContactRequestRequestTypeDef = TypedDict(
+    "_OptionalTransferContactRequestRequestTypeDef",
+    {
+        "QueueId": str,
+        "UserId": str,
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class TransferContactRequestRequestTypeDef(
+    _RequiredTransferContactRequestRequestTypeDef, _OptionalTransferContactRequestRequestTypeDef
+):
+    pass
+
+TransferContactResponseTypeDef = TypedDict(
+    "TransferContactResponseTypeDef",
+    {
+        "ContactId": str,
+        "ContactArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(
@@ -3318,6 +4199,35 @@ UpdateInstanceStorageConfigRequestRequestTypeDef = TypedDict(
     },
 )
 
+_RequiredUpdatePhoneNumberRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdatePhoneNumberRequestRequestTypeDef",
+    {
+        "PhoneNumberId": str,
+        "TargetArn": str,
+    },
+)
+_OptionalUpdatePhoneNumberRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdatePhoneNumberRequestRequestTypeDef",
+    {
+        "ClientToken": str,
+    },
+    total=False,
+)
+
+class UpdatePhoneNumberRequestRequestTypeDef(
+    _RequiredUpdatePhoneNumberRequestRequestTypeDef, _OptionalUpdatePhoneNumberRequestRequestTypeDef
+):
+    pass
+
+UpdatePhoneNumberResponseTypeDef = TypedDict(
+    "UpdatePhoneNumberResponseTypeDef",
+    {
+        "PhoneNumberId": str,
+        "PhoneNumberArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateQueueHoursOfOperationRequestRequestTypeDef = TypedDict(
     "UpdateQueueHoursOfOperationRequestRequestTypeDef",
     {
@@ -3489,6 +4399,52 @@ class UpdateSecurityProfileRequestRequestTypeDef(
 ):
     pass
 
+_RequiredUpdateTaskTemplateRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateTaskTemplateRequestRequestTypeDef",
+    {
+        "TaskTemplateId": str,
+        "InstanceId": str,
+    },
+)
+_OptionalUpdateTaskTemplateRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateTaskTemplateRequestRequestTypeDef",
+    {
+        "Name": str,
+        "Description": str,
+        "ContactFlowId": str,
+        "Constraints": "TaskTemplateConstraintsTypeDef",
+        "Defaults": "TaskTemplateDefaultsTypeDef",
+        "Status": TaskTemplateStatusType,
+        "Fields": List["TaskTemplateFieldTypeDef"],
+    },
+    total=False,
+)
+
+class UpdateTaskTemplateRequestRequestTypeDef(
+    _RequiredUpdateTaskTemplateRequestRequestTypeDef,
+    _OptionalUpdateTaskTemplateRequestRequestTypeDef,
+):
+    pass
+
+UpdateTaskTemplateResponseTypeDef = TypedDict(
+    "UpdateTaskTemplateResponseTypeDef",
+    {
+        "InstanceId": str,
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "Description": str,
+        "ContactFlowId": str,
+        "Constraints": "TaskTemplateConstraintsTypeDef",
+        "Defaults": "TaskTemplateDefaultsTypeDef",
+        "Fields": List["TaskTemplateFieldTypeDef"],
+        "Status": TaskTemplateStatusType,
+        "LastModifiedTime": datetime,
+        "CreatedTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 UpdateUserHierarchyGroupNameRequestRequestTypeDef = TypedDict(
     "UpdateUserHierarchyGroupNameRequestRequestTypeDef",
     {
@@ -3582,6 +4538,39 @@ UseCaseTypeDef = TypedDict(
     total=False,
 )
 
+UserDataFiltersTypeDef = TypedDict(
+    "UserDataFiltersTypeDef",
+    {
+        "Queues": List[str],
+        "ContactFilter": "ContactFilterTypeDef",
+    },
+    total=False,
+)
+
+UserDataTypeDef = TypedDict(
+    "UserDataTypeDef",
+    {
+        "User": "UserReferenceTypeDef",
+        "RoutingProfile": "RoutingProfileReferenceTypeDef",
+        "HierarchyPath": "HierarchyPathReferenceTypeDef",
+        "Status": "AgentStatusReferenceTypeDef",
+        "AvailableSlotsByChannel": Dict[ChannelType, int],
+        "MaxSlotsByChannel": Dict[ChannelType, int],
+        "ActiveSlotsByChannel": Dict[ChannelType, int],
+        "Contacts": List["AgentContactReferenceTypeDef"],
+    },
+    total=False,
+)
+
+UserIdentityInfoLiteTypeDef = TypedDict(
+    "UserIdentityInfoLiteTypeDef",
+    {
+        "FirstName": str,
+        "LastName": str,
+    },
+    total=False,
+)
+
 UserIdentityInfoTypeDef = TypedDict(
     "UserIdentityInfoTypeDef",
     {
@@ -3619,6 +4608,51 @@ UserQuickConnectConfigTypeDef = TypedDict(
     },
 )
 
+UserReferenceTypeDef = TypedDict(
+    "UserReferenceTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+    },
+    total=False,
+)
+
+UserSearchCriteriaTypeDef = TypedDict(
+    "UserSearchCriteriaTypeDef",
+    {
+        "OrConditions": List[Dict[str, Any]],
+        "AndConditions": List[Dict[str, Any]],
+        "StringCondition": "StringConditionTypeDef",
+        "HierarchyGroupCondition": "HierarchyGroupConditionTypeDef",
+    },
+    total=False,
+)
+
+UserSearchFilterTypeDef = TypedDict(
+    "UserSearchFilterTypeDef",
+    {
+        "TagFilter": "ControlPlaneTagFilterTypeDef",
+    },
+    total=False,
+)
+
+UserSearchSummaryTypeDef = TypedDict(
+    "UserSearchSummaryTypeDef",
+    {
+        "Arn": str,
+        "DirectoryUserId": str,
+        "HierarchyGroupId": str,
+        "Id": str,
+        "IdentityInfo": "UserIdentityInfoLiteTypeDef",
+        "PhoneConfig": "UserPhoneConfigTypeDef",
+        "RoutingProfileId": str,
+        "SecurityProfileIds": List[str],
+        "Tags": Dict[str, str],
+        "Username": str,
+    },
+    total=False,
+)
+
 UserSummaryTypeDef = TypedDict(
     "UserSummaryTypeDef",
     {
@@ -3645,6 +4679,54 @@ UserTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredVocabularySummaryTypeDef = TypedDict(
+    "_RequiredVocabularySummaryTypeDef",
+    {
+        "Name": str,
+        "Id": str,
+        "Arn": str,
+        "LanguageCode": VocabularyLanguageCodeType,
+        "State": VocabularyStateType,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalVocabularySummaryTypeDef = TypedDict(
+    "_OptionalVocabularySummaryTypeDef",
+    {
+        "FailureReason": str,
+    },
+    total=False,
+)
+
+class VocabularySummaryTypeDef(
+    _RequiredVocabularySummaryTypeDef, _OptionalVocabularySummaryTypeDef
+):
+    pass
+
+_RequiredVocabularyTypeDef = TypedDict(
+    "_RequiredVocabularyTypeDef",
+    {
+        "Name": str,
+        "Id": str,
+        "Arn": str,
+        "LanguageCode": VocabularyLanguageCodeType,
+        "State": VocabularyStateType,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalVocabularyTypeDef = TypedDict(
+    "_OptionalVocabularyTypeDef",
+    {
+        "FailureReason": str,
+        "Content": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class VocabularyTypeDef(_RequiredVocabularyTypeDef, _OptionalVocabularyTypeDef):
+    pass
 
 VoiceRecordingConfigurationTypeDef = TypedDict(
     "VoiceRecordingConfigurationTypeDef",

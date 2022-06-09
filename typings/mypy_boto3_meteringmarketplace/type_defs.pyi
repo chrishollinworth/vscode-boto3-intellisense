@@ -127,6 +127,7 @@ ResolveCustomerResultTypeDef = TypedDict(
     {
         "CustomerIdentifier": str,
         "ProductCode": str,
+        "CustomerAWSAccountId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

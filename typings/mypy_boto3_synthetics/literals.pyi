@@ -28,7 +28,20 @@ __all__ = (
 
 CanaryRunStateReasonCodeType = Literal["CANARY_FAILURE", "EXECUTION_FAILURE"]
 CanaryRunStateType = Literal["FAILED", "PASSED", "RUNNING"]
-CanaryStateReasonCodeType = Literal["INVALID_PERMISSIONS"]
+CanaryStateReasonCodeType = Literal[
+    "CREATE_FAILED",
+    "CREATE_IN_PROGRESS",
+    "CREATE_PENDING",
+    "DELETE_FAILED",
+    "DELETE_IN_PROGRESS",
+    "INVALID_PERMISSIONS",
+    "ROLLBACK_COMPLETE",
+    "ROLLBACK_FAILED",
+    "SYNC_DELETE_IN_PROGRESS",
+    "UPDATE_COMPLETE",
+    "UPDATE_IN_PROGRESS",
+    "UPDATE_PENDING",
+]
 CanaryStateType = Literal[
     "CREATING",
     "DELETING",

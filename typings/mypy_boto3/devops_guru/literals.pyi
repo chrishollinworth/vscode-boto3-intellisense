@@ -30,6 +30,7 @@ __all__ = (
     "DescribeResourceCollectionHealthPaginatorName",
     "EventClassType",
     "EventDataSourceType",
+    "EventSourceOptInStatusType",
     "GetCostEstimationPaginatorName",
     "GetResourceCollectionPaginatorName",
     "InsightFeedbackOptionType",
@@ -69,6 +70,7 @@ EventClassType = Literal[
     "CONFIG_CHANGE", "DEPLOYMENT", "INFRASTRUCTURE", "SCHEMA_CHANGE", "SECURITY_CHANGE"
 ]
 EventDataSourceType = Literal["AWS_CLOUD_TRAIL", "AWS_CODE_DEPLOY"]
+EventSourceOptInStatusType = Literal["DISABLED", "ENABLED"]
 GetCostEstimationPaginatorName = Literal["get_cost_estimation"]
 GetResourceCollectionPaginatorName = Literal["get_resource_collection"]
 InsightFeedbackOptionType = Literal[
@@ -102,7 +104,7 @@ LocaleType = Literal[
 ]
 OptInStatusType = Literal["DISABLED", "ENABLED"]
 OrganizationResourceCollectionTypeType = Literal[
-    "AWS_ACCOUNT", "AWS_CLOUD_FORMATION", "AWS_SERVICE"
+    "AWS_ACCOUNT", "AWS_CLOUD_FORMATION", "AWS_SERVICE", "AWS_TAGS"
 ]
 ResourceCollectionTypeType = Literal["AWS_CLOUD_FORMATION", "AWS_SERVICE", "AWS_TAGS"]
 SearchInsightsPaginatorName = Literal["search_insights"]

@@ -51,6 +51,7 @@ __all__ = ("DataPipelineClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -65,11 +66,12 @@ class Exceptions:
 
 class DataPipelineClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -85,21 +87,21 @@ class DataPipelineClient(BaseClient):
         """
         Validates the specified pipeline and starts processing pipeline tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.activate_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.activate_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#activate_pipeline)
         """
     def add_tags(self, *, pipelineId: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
         Adds or modifies tags for the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.add_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.add_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#add_tags)
         """
     def can_paginate(self, operation_name: str) -> bool:
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#can_paginate)
         """
     def create_pipeline(
@@ -108,21 +110,21 @@ class DataPipelineClient(BaseClient):
         """
         Creates a new, empty pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.create_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.create_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#create_pipeline)
         """
     def deactivate_pipeline(self, *, pipelineId: str, cancelActive: bool = None) -> Dict[str, Any]:
         """
         Deactivates the specified running pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.deactivate_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.deactivate_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#deactivate_pipeline)
         """
     def delete_pipeline(self, *, pipelineId: str) -> None:
         """
         Deletes a pipeline, its pipeline definition, and its run history.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.delete_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.delete_pipeline)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#delete_pipeline)
         """
     def describe_objects(
@@ -136,14 +138,14 @@ class DataPipelineClient(BaseClient):
         """
         Gets the object definitions for a set of objects associated with the pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.describe_objects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.describe_objects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#describe_objects)
         """
     def describe_pipelines(self, *, pipelineIds: List[str]) -> DescribePipelinesOutputTypeDef:
         """
         Retrieves metadata about one or more pipelines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.describe_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.describe_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#describe_pipelines)
         """
     def evaluate_expression(
@@ -153,7 +155,7 @@ class DataPipelineClient(BaseClient):
         Task runners call `EvaluateExpression` to evaluate a string in the context of
         the specified object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.evaluate_expression)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.evaluate_expression)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#evaluate_expression)
         """
     def generate_presigned_url(
@@ -166,7 +168,7 @@ class DataPipelineClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#generate_presigned_url)
         """
     def get_pipeline_definition(
@@ -175,7 +177,7 @@ class DataPipelineClient(BaseClient):
         """
         Gets the definition of the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.get_pipeline_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.get_pipeline_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#get_pipeline_definition)
         """
     def list_pipelines(self, *, marker: str = None) -> ListPipelinesOutputTypeDef:
@@ -183,7 +185,7 @@ class DataPipelineClient(BaseClient):
         Lists the pipeline identifiers for all active pipelines that you have permission
         to access.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.list_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.list_pipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#list_pipelines)
         """
     def poll_for_task(
@@ -197,7 +199,7 @@ class DataPipelineClient(BaseClient):
         Task runners call `PollForTask` to receive a task to perform from AWS Data
         Pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.poll_for_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.poll_for_task)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#poll_for_task)
         """
     def put_pipeline_definition(
@@ -211,7 +213,7 @@ class DataPipelineClient(BaseClient):
         """
         Adds tasks, schedules, and preconditions to the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.put_pipeline_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.put_pipeline_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#put_pipeline_definition)
         """
     def query_objects(
@@ -227,14 +229,14 @@ class DataPipelineClient(BaseClient):
         Queries the specified pipeline for the names of objects that match the specified
         set of conditions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.query_objects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.query_objects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#query_objects)
         """
     def remove_tags(self, *, pipelineId: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
         Removes existing tags from the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.remove_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.remove_tags)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#remove_tags)
         """
     def report_task_progress(
@@ -244,7 +246,7 @@ class DataPipelineClient(BaseClient):
         Task runners call `ReportTaskProgress` when assigned a task to acknowledge that
         it has the task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.report_task_progress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.report_task_progress)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#report_task_progress)
         """
     def report_task_runner_heartbeat(
@@ -254,7 +256,7 @@ class DataPipelineClient(BaseClient):
         Task runners call `ReportTaskRunnerHeartbeat` every 15 minutes to indicate that
         they are operational.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.report_task_runner_heartbeat)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.report_task_runner_heartbeat)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#report_task_runner_heartbeat)
         """
     def set_status(self, *, pipelineId: str, objectIds: List[str], status: str) -> None:
@@ -262,7 +264,7 @@ class DataPipelineClient(BaseClient):
         Requests that the status of the specified physical or logical pipeline objects
         be updated in the specified pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.set_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.set_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#set_status)
         """
     def set_task_status(
@@ -278,7 +280,7 @@ class DataPipelineClient(BaseClient):
         Task runners call `SetTaskStatus` to notify AWS Data Pipeline that a task is
         completed and provide information about the final status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.set_task_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.set_task_status)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#set_task_status)
         """
     def validate_pipeline_definition(
@@ -293,7 +295,7 @@ class DataPipelineClient(BaseClient):
         Validates the specified pipeline definition to ensure that it is well formed and
         can be run without error.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Client.validate_pipeline_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Client.validate_pipeline_definition)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/client.html#validate_pipeline_definition)
         """
     @overload
@@ -301,18 +303,18 @@ class DataPipelineClient(BaseClient):
         self, operation_name: Literal["describe_objects"]
     ) -> DescribeObjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/paginators.html#describeobjectspaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/paginators.html#listpipelinespaginator)
         """
     @overload
     def get_paginator(self, operation_name: Literal["query_objects"]) -> QueryObjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/paginators.html#queryobjectspaginator)
         """

@@ -43,6 +43,7 @@ __all__ = (
     "ListEffectiveDeploymentsPaginatorName",
     "ListInstalledComponentsPaginatorName",
     "RecipeOutputFormatType",
+    "VendorGuidanceType",
 )
 
 CloudComponentStateType = Literal["DEPLOYABLE", "DEPRECATED", "FAILED", "INITIATED", "REQUESTED"]
@@ -75,3 +76,4 @@ ListDeploymentsPaginatorName = Literal["list_deployments"]
 ListEffectiveDeploymentsPaginatorName = Literal["list_effective_deployments"]
 ListInstalledComponentsPaginatorName = Literal["list_installed_components"]
 RecipeOutputFormatType = Literal["JSON", "YAML"]
+VendorGuidanceType = Literal["ACTIVE", "DELETED", "DISCONTINUED"]

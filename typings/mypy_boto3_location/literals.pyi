@@ -34,6 +34,7 @@ __all__ = (
     "ListTrackersPaginatorName",
     "PositionFilteringType",
     "PricingPlanType",
+    "RouteMatrixErrorCodeType",
     "TravelModeType",
     "VehicleWeightUnitType",
 )
@@ -60,5 +61,13 @@ ListTrackerConsumersPaginatorName = Literal["list_tracker_consumers"]
 ListTrackersPaginatorName = Literal["list_trackers"]
 PositionFilteringType = Literal["AccuracyBased", "DistanceBased", "TimeBased"]
 PricingPlanType = Literal["MobileAssetManagement", "MobileAssetTracking", "RequestBasedUsage"]
+RouteMatrixErrorCodeType = Literal[
+    "DeparturePositionNotFound",
+    "DestinationPositionNotFound",
+    "OtherValidationError",
+    "PositionsNotFound",
+    "RouteNotFound",
+    "RouteTooLong",
+]
 TravelModeType = Literal["Car", "Truck", "Walking"]
 VehicleWeightUnitType = Literal["Kilograms", "Pounds"]

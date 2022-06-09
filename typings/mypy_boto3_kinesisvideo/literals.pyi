@@ -24,6 +24,10 @@ __all__ = (
     "ChannelRoleType",
     "ChannelTypeType",
     "ComparisonOperatorType",
+    "ConfigurationStatusType",
+    "FormatConfigKeyType",
+    "FormatType",
+    "ImageSelectorTypeType",
     "ListSignalingChannelsPaginatorName",
     "ListStreamsPaginatorName",
     "StatusType",
@@ -34,6 +38,7 @@ APINameType = Literal[
     "GET_CLIP",
     "GET_DASH_STREAMING_SESSION_URL",
     "GET_HLS_STREAMING_SESSION_URL",
+    "GET_IMAGES",
     "GET_MEDIA",
     "GET_MEDIA_FOR_FRAGMENT_LIST",
     "LIST_FRAGMENTS",
@@ -41,8 +46,12 @@ APINameType = Literal[
 ]
 ChannelProtocolType = Literal["HTTPS", "WSS"]
 ChannelRoleType = Literal["MASTER", "VIEWER"]
-ChannelTypeType = Literal["SINGLE_MASTER"]
+ChannelTypeType = Literal["FULL_MESH", "SINGLE_MASTER"]
 ComparisonOperatorType = Literal["BEGINS_WITH"]
+ConfigurationStatusType = Literal["DISABLED", "ENABLED"]
+FormatConfigKeyType = Literal["JPEGQuality"]
+FormatType = Literal["JPEG", "PNG"]
+ImageSelectorTypeType = Literal["PRODUCER_TIMESTAMP", "SERVER_TIMESTAMP"]
 ListSignalingChannelsPaginatorName = Literal["list_signaling_channels"]
 ListStreamsPaginatorName = Literal["list_streams"]
 StatusType = Literal["ACTIVE", "CREATING", "DELETING", "UPDATING"]

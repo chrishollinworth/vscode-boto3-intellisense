@@ -87,6 +87,7 @@ __all__ = (
     "ListJobExecutionsForThingPaginatorName",
     "ListJobTemplatesPaginatorName",
     "ListJobsPaginatorName",
+    "ListMetricValuesPaginatorName",
     "ListMitigationActionsPaginatorName",
     "ListOTAUpdatesPaginatorName",
     "ListOutgoingCertificatesPaginatorName",
@@ -128,6 +129,7 @@ __all__ = (
     "ProtocolType",
     "ReportTypeType",
     "ResourceTypeType",
+    "RetryableFailureTypeType",
     "ServerCertificateStatusType",
     "ServiceTypeType",
     "StatusType",
@@ -287,6 +289,7 @@ ListJobExecutionsForJobPaginatorName = Literal["list_job_executions_for_job"]
 ListJobExecutionsForThingPaginatorName = Literal["list_job_executions_for_thing"]
 ListJobTemplatesPaginatorName = Literal["list_job_templates"]
 ListJobsPaginatorName = Literal["list_jobs"]
+ListMetricValuesPaginatorName = Literal["list_metric_values"]
 ListMitigationActionsPaginatorName = Literal["list_mitigation_actions"]
 ListOTAUpdatesPaginatorName = Literal["list_ota_updates"]
 ListOutgoingCertificatesPaginatorName = Literal["list_outgoing_certificates"]
@@ -318,7 +321,7 @@ ListTopicRulesPaginatorName = Literal["list_topic_rules"]
 ListV2LoggingLevelsPaginatorName = Literal["list_v2_logging_levels"]
 ListViolationEventsPaginatorName = Literal["list_violation_events"]
 LogLevelType = Literal["DEBUG", "DISABLED", "ERROR", "INFO", "WARN"]
-LogTargetTypeType = Literal["DEFAULT", "THING_GROUP"]
+LogTargetTypeType = Literal["CLIENT_ID", "DEFAULT", "PRINCIPAL_ID", "SOURCE_IP", "THING_GROUP"]
 MessageFormatType = Literal["JSON", "RAW"]
 MitigationActionTypeType = Literal[
     "ADD_THINGS_TO_THING_GROUP",
@@ -346,6 +349,7 @@ ResourceTypeType = Literal[
     "IOT_POLICY",
     "ROLE_ALIAS",
 ]
+RetryableFailureTypeType = Literal["ALL", "FAILED", "TIMED_OUT"]
 ServerCertificateStatusType = Literal["INVALID", "VALID"]
 ServiceTypeType = Literal["CREDENTIAL_PROVIDER", "DATA", "JOBS"]
 StatusType = Literal["Cancelled", "Cancelling", "Completed", "Failed", "InProgress"]

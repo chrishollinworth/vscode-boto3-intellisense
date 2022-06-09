@@ -23,11 +23,13 @@ __all__ = (
     "ActionSubTypeType",
     "ActionTypeType",
     "ApprovalModelType",
+    "AutoAdjustTypeType",
     "BudgetTypeType",
     "ComparisonOperatorType",
     "DescribeBudgetActionHistoriesPaginatorName",
     "DescribeBudgetActionsForAccountPaginatorName",
     "DescribeBudgetActionsForBudgetPaginatorName",
+    "DescribeBudgetNotificationsForAccountPaginatorName",
     "DescribeBudgetPerformanceHistoryPaginatorName",
     "DescribeBudgetsPaginatorName",
     "DescribeNotificationsForBudgetPaginatorName",
@@ -56,6 +58,7 @@ ActionStatusType = Literal[
 ActionSubTypeType = Literal["STOP_EC2_INSTANCES", "STOP_RDS_INSTANCES"]
 ActionTypeType = Literal["APPLY_IAM_POLICY", "APPLY_SCP_POLICY", "RUN_SSM_DOCUMENTS"]
 ApprovalModelType = Literal["AUTOMATIC", "MANUAL"]
+AutoAdjustTypeType = Literal["FORECAST", "HISTORICAL"]
 BudgetTypeType = Literal[
     "COST",
     "RI_COVERAGE",
@@ -68,6 +71,9 @@ ComparisonOperatorType = Literal["EQUAL_TO", "GREATER_THAN", "LESS_THAN"]
 DescribeBudgetActionHistoriesPaginatorName = Literal["describe_budget_action_histories"]
 DescribeBudgetActionsForAccountPaginatorName = Literal["describe_budget_actions_for_account"]
 DescribeBudgetActionsForBudgetPaginatorName = Literal["describe_budget_actions_for_budget"]
+DescribeBudgetNotificationsForAccountPaginatorName = Literal[
+    "describe_budget_notifications_for_account"
+]
 DescribeBudgetPerformanceHistoryPaginatorName = Literal["describe_budget_performance_history"]
 DescribeBudgetsPaginatorName = Literal["describe_budgets"]
 DescribeNotificationsForBudgetPaginatorName = Literal["describe_notifications_for_budget"]

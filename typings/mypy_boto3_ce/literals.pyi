@@ -23,6 +23,8 @@ __all__ = (
     "AnomalyFeedbackTypeType",
     "AnomalySubscriptionFrequencyType",
     "ContextType",
+    "CostAllocationTagStatusType",
+    "CostAllocationTagTypeType",
     "CostCategoryInheritedValueDimensionNameType",
     "CostCategoryRuleTypeType",
     "CostCategoryRuleVersionType",
@@ -57,6 +59,8 @@ AccountScopeType = Literal["LINKED", "PAYER"]
 AnomalyFeedbackTypeType = Literal["NO", "PLANNED_ACTIVITY", "YES"]
 AnomalySubscriptionFrequencyType = Literal["DAILY", "IMMEDIATE", "WEEKLY"]
 ContextType = Literal["COST_AND_USAGE", "RESERVATIONS", "SAVINGS_PLANS"]
+CostAllocationTagStatusType = Literal["Active", "Inactive"]
+CostAllocationTagTypeType = Literal["AWSGenerated", "UserDefined"]
 CostCategoryInheritedValueDimensionNameType = Literal["LINKED_ACCOUNT_NAME", "TAG"]
 CostCategoryRuleTypeType = Literal["INHERITED_VALUE", "REGULAR"]
 CostCategoryRuleVersionType = Literal["CostCategoryExpression.v1"]
@@ -74,6 +78,7 @@ DimensionType = Literal[
     "DEPLOYMENT_OPTION",
     "INSTANCE_TYPE",
     "INSTANCE_TYPE_FAMILY",
+    "INVOICING_ENTITY",
     "LEGAL_ENTITY_NAME",
     "LINKED_ACCOUNT",
     "LINKED_ACCOUNT_NAME",

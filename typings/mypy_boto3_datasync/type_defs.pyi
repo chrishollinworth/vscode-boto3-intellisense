@@ -20,6 +20,7 @@ from botocore.response import StreamingBody
 from .literals import (
     AgentStatusType,
     AtimeType,
+    EfsInTransitEncryptionType,
     EndpointTypeType,
     GidType,
     HdfsAuthenticationTypeType,
@@ -30,6 +31,7 @@ from .literals import (
     MtimeType,
     NfsVersionType,
     ObjectStorageServerProtocolType,
+    ObjectTagsType,
     OperatorType,
     OverwriteModeType,
     PhaseStatusType,
@@ -64,6 +66,10 @@ __all__ = (
     "CreateAgentResponseTypeDef",
     "CreateLocationEfsRequestRequestTypeDef",
     "CreateLocationEfsResponseTypeDef",
+    "CreateLocationFsxLustreRequestRequestTypeDef",
+    "CreateLocationFsxLustreResponseTypeDef",
+    "CreateLocationFsxOpenZfsRequestRequestTypeDef",
+    "CreateLocationFsxOpenZfsResponseTypeDef",
     "CreateLocationFsxWindowsRequestRequestTypeDef",
     "CreateLocationFsxWindowsResponseTypeDef",
     "CreateLocationHdfsRequestRequestTypeDef",
@@ -85,6 +91,10 @@ __all__ = (
     "DescribeAgentResponseTypeDef",
     "DescribeLocationEfsRequestRequestTypeDef",
     "DescribeLocationEfsResponseTypeDef",
+    "DescribeLocationFsxLustreRequestRequestTypeDef",
+    "DescribeLocationFsxLustreResponseTypeDef",
+    "DescribeLocationFsxOpenZfsRequestRequestTypeDef",
+    "DescribeLocationFsxOpenZfsResponseTypeDef",
     "DescribeLocationFsxWindowsRequestRequestTypeDef",
     "DescribeLocationFsxWindowsResponseTypeDef",
     "DescribeLocationHdfsRequestRequestTypeDef",
@@ -103,6 +113,8 @@ __all__ = (
     "DescribeTaskResponseTypeDef",
     "Ec2ConfigTypeDef",
     "FilterRuleTypeDef",
+    "FsxProtocolNfsTypeDef",
+    "FsxProtocolTypeDef",
     "HdfsNameNodeTypeDef",
     "ListAgentsRequestRequestTypeDef",
     "ListAgentsResponseTypeDef",
@@ -204,6 +216,9 @@ _OptionalCreateLocationEfsRequestRequestTypeDef = TypedDict(
     {
         "Subdirectory": str,
         "Tags": List["TagListEntryTypeDef"],
+        "AccessPointArn": str,
+        "FileSystemAccessRoleArn": str,
+        "InTransitEncryption": EfsInTransitEncryptionType,
     },
     total=False,
 )
@@ -215,6 +230,67 @@ class CreateLocationEfsRequestRequestTypeDef(
 
 CreateLocationEfsResponseTypeDef = TypedDict(
     "CreateLocationEfsResponseTypeDef",
+    {
+        "LocationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocationFsxLustreRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocationFsxLustreRequestRequestTypeDef",
+    {
+        "FsxFilesystemArn": str,
+        "SecurityGroupArns": List[str],
+    },
+)
+_OptionalCreateLocationFsxLustreRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocationFsxLustreRequestRequestTypeDef",
+    {
+        "Subdirectory": str,
+        "Tags": List["TagListEntryTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLocationFsxLustreRequestRequestTypeDef(
+    _RequiredCreateLocationFsxLustreRequestRequestTypeDef,
+    _OptionalCreateLocationFsxLustreRequestRequestTypeDef,
+):
+    pass
+
+CreateLocationFsxLustreResponseTypeDef = TypedDict(
+    "CreateLocationFsxLustreResponseTypeDef",
+    {
+        "LocationArn": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLocationFsxOpenZfsRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLocationFsxOpenZfsRequestRequestTypeDef",
+    {
+        "FsxFilesystemArn": str,
+        "Protocol": "FsxProtocolTypeDef",
+        "SecurityGroupArns": List[str],
+    },
+)
+_OptionalCreateLocationFsxOpenZfsRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLocationFsxOpenZfsRequestRequestTypeDef",
+    {
+        "Subdirectory": str,
+        "Tags": List["TagListEntryTypeDef"],
+    },
+    total=False,
+)
+
+class CreateLocationFsxOpenZfsRequestRequestTypeDef(
+    _RequiredCreateLocationFsxOpenZfsRequestRequestTypeDef,
+    _OptionalCreateLocationFsxOpenZfsRequestRequestTypeDef,
+):
+    pass
+
+CreateLocationFsxOpenZfsResponseTypeDef = TypedDict(
+    "CreateLocationFsxOpenZfsResponseTypeDef",
     {
         "LocationArn": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -512,6 +588,46 @@ DescribeLocationEfsResponseTypeDef = TypedDict(
         "LocationUri": str,
         "Ec2Config": "Ec2ConfigTypeDef",
         "CreationTime": datetime,
+        "AccessPointArn": str,
+        "FileSystemAccessRoleArn": str,
+        "InTransitEncryption": EfsInTransitEncryptionType,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocationFsxLustreRequestRequestTypeDef = TypedDict(
+    "DescribeLocationFsxLustreRequestRequestTypeDef",
+    {
+        "LocationArn": str,
+    },
+)
+
+DescribeLocationFsxLustreResponseTypeDef = TypedDict(
+    "DescribeLocationFsxLustreResponseTypeDef",
+    {
+        "LocationArn": str,
+        "LocationUri": str,
+        "SecurityGroupArns": List[str],
+        "CreationTime": datetime,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLocationFsxOpenZfsRequestRequestTypeDef = TypedDict(
+    "DescribeLocationFsxOpenZfsRequestRequestTypeDef",
+    {
+        "LocationArn": str,
+    },
+)
+
+DescribeLocationFsxOpenZfsResponseTypeDef = TypedDict(
+    "DescribeLocationFsxOpenZfsResponseTypeDef",
+    {
+        "LocationArn": str,
+        "LocationUri": str,
+        "SecurityGroupArns": List[str],
+        "Protocol": "FsxProtocolTypeDef",
+        "CreationTime": datetime,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -716,6 +832,22 @@ FilterRuleTypeDef = TypedDict(
     total=False,
 )
 
+FsxProtocolNfsTypeDef = TypedDict(
+    "FsxProtocolNfsTypeDef",
+    {
+        "MountOptions": "NfsMountOptionsTypeDef",
+    },
+    total=False,
+)
+
+FsxProtocolTypeDef = TypedDict(
+    "FsxProtocolTypeDef",
+    {
+        "NFS": "FsxProtocolNfsTypeDef",
+    },
+    total=False,
+)
+
 HdfsNameNodeTypeDef = TypedDict(
     "HdfsNameNodeTypeDef",
     {
@@ -879,6 +1011,7 @@ OptionsTypeDef = TypedDict(
         "LogLevel": LogLevelType,
         "TransferMode": TransferModeType,
         "SecurityDescriptorCopyFlags": SmbSecurityDescriptorCopyFlagsType,
+        "ObjectTags": ObjectTagsType,
     },
     total=False,
 )

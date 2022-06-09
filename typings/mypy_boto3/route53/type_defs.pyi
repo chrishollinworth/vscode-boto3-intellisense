@@ -19,6 +19,7 @@ from .literals import (
     AccountLimitTypeType,
     ChangeActionType,
     ChangeStatusType,
+    CidrCollectionChangeActionType,
     CloudWatchRegionType,
     ComparisonOperatorType,
     HealthCheckRegionType,
@@ -52,12 +53,21 @@ __all__ = (
     "AssociateVPCWithHostedZoneRequestRequestTypeDef",
     "AssociateVPCWithHostedZoneResponseTypeDef",
     "ChangeBatchTypeDef",
+    "ChangeCidrCollectionRequestRequestTypeDef",
+    "ChangeCidrCollectionResponseTypeDef",
     "ChangeInfoTypeDef",
     "ChangeResourceRecordSetsRequestRequestTypeDef",
     "ChangeResourceRecordSetsResponseTypeDef",
     "ChangeTagsForResourceRequestRequestTypeDef",
     "ChangeTypeDef",
+    "CidrBlockSummaryTypeDef",
+    "CidrCollectionChangeTypeDef",
+    "CidrCollectionTypeDef",
+    "CidrRoutingConfigTypeDef",
     "CloudWatchAlarmConfigurationTypeDef",
+    "CollectionSummaryTypeDef",
+    "CreateCidrCollectionRequestRequestTypeDef",
+    "CreateCidrCollectionResponseTypeDef",
     "CreateHealthCheckRequestRequestTypeDef",
     "CreateHealthCheckResponseTypeDef",
     "CreateHostedZoneRequestRequestTypeDef",
@@ -80,6 +90,7 @@ __all__ = (
     "DeactivateKeySigningKeyRequestRequestTypeDef",
     "DeactivateKeySigningKeyResponseTypeDef",
     "DelegationSetTypeDef",
+    "DeleteCidrCollectionRequestRequestTypeDef",
     "DeleteHealthCheckRequestRequestTypeDef",
     "DeleteHostedZoneRequestRequestTypeDef",
     "DeleteHostedZoneResponseTypeDef",
@@ -141,6 +152,12 @@ __all__ = (
     "HostedZoneTypeDef",
     "KeySigningKeyTypeDef",
     "LinkedServiceTypeDef",
+    "ListCidrBlocksRequestRequestTypeDef",
+    "ListCidrBlocksResponseTypeDef",
+    "ListCidrCollectionsRequestRequestTypeDef",
+    "ListCidrCollectionsResponseTypeDef",
+    "ListCidrLocationsRequestRequestTypeDef",
+    "ListCidrLocationsResponseTypeDef",
     "ListGeoLocationsRequestRequestTypeDef",
     "ListGeoLocationsResponseTypeDef",
     "ListHealthChecksRequestRequestTypeDef",
@@ -173,6 +190,7 @@ __all__ = (
     "ListTrafficPolicyVersionsResponseTypeDef",
     "ListVPCAssociationAuthorizationsRequestRequestTypeDef",
     "ListVPCAssociationAuthorizationsResponseTypeDef",
+    "LocationSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "QueryLoggingConfigTypeDef",
     "ResourceRecordSetTypeDef",
@@ -286,6 +304,35 @@ _OptionalChangeBatchTypeDef = TypedDict(
 class ChangeBatchTypeDef(_RequiredChangeBatchTypeDef, _OptionalChangeBatchTypeDef):
     pass
 
+_RequiredChangeCidrCollectionRequestRequestTypeDef = TypedDict(
+    "_RequiredChangeCidrCollectionRequestRequestTypeDef",
+    {
+        "Id": str,
+        "Changes": List["CidrCollectionChangeTypeDef"],
+    },
+)
+_OptionalChangeCidrCollectionRequestRequestTypeDef = TypedDict(
+    "_OptionalChangeCidrCollectionRequestRequestTypeDef",
+    {
+        "CollectionVersion": int,
+    },
+    total=False,
+)
+
+class ChangeCidrCollectionRequestRequestTypeDef(
+    _RequiredChangeCidrCollectionRequestRequestTypeDef,
+    _OptionalChangeCidrCollectionRequestRequestTypeDef,
+):
+    pass
+
+ChangeCidrCollectionResponseTypeDef = TypedDict(
+    "ChangeCidrCollectionResponseTypeDef",
+    {
+        "Id": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredChangeInfoTypeDef = TypedDict(
     "_RequiredChangeInfoTypeDef",
     {
@@ -351,6 +398,43 @@ ChangeTypeDef = TypedDict(
     },
 )
 
+CidrBlockSummaryTypeDef = TypedDict(
+    "CidrBlockSummaryTypeDef",
+    {
+        "CidrBlock": str,
+        "LocationName": str,
+    },
+    total=False,
+)
+
+CidrCollectionChangeTypeDef = TypedDict(
+    "CidrCollectionChangeTypeDef",
+    {
+        "LocationName": str,
+        "Action": CidrCollectionChangeActionType,
+        "CidrList": List[str],
+    },
+)
+
+CidrCollectionTypeDef = TypedDict(
+    "CidrCollectionTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Version": int,
+    },
+    total=False,
+)
+
+CidrRoutingConfigTypeDef = TypedDict(
+    "CidrRoutingConfigTypeDef",
+    {
+        "CollectionId": str,
+        "LocationName": str,
+    },
+)
+
 _RequiredCloudWatchAlarmConfigurationTypeDef = TypedDict(
     "_RequiredCloudWatchAlarmConfigurationTypeDef",
     {
@@ -375,6 +459,34 @@ class CloudWatchAlarmConfigurationTypeDef(
     _RequiredCloudWatchAlarmConfigurationTypeDef, _OptionalCloudWatchAlarmConfigurationTypeDef
 ):
     pass
+
+CollectionSummaryTypeDef = TypedDict(
+    "CollectionSummaryTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Version": int,
+    },
+    total=False,
+)
+
+CreateCidrCollectionRequestRequestTypeDef = TypedDict(
+    "CreateCidrCollectionRequestRequestTypeDef",
+    {
+        "Name": str,
+        "CallerReference": str,
+    },
+)
+
+CreateCidrCollectionResponseTypeDef = TypedDict(
+    "CreateCidrCollectionResponseTypeDef",
+    {
+        "Collection": "CidrCollectionTypeDef",
+        "Location": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 CreateHealthCheckRequestRequestTypeDef = TypedDict(
     "CreateHealthCheckRequestRequestTypeDef",
@@ -633,6 +745,13 @@ _OptionalDelegationSetTypeDef = TypedDict(
 
 class DelegationSetTypeDef(_RequiredDelegationSetTypeDef, _OptionalDelegationSetTypeDef):
     pass
+
+DeleteCidrCollectionRequestRequestTypeDef = TypedDict(
+    "DeleteCidrCollectionRequestRequestTypeDef",
+    {
+        "Id": str,
+    },
+)
 
 DeleteHealthCheckRequestRequestTypeDef = TypedDict(
     "DeleteHealthCheckRequestRequestTypeDef",
@@ -1207,6 +1326,83 @@ LinkedServiceTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredListCidrBlocksRequestRequestTypeDef = TypedDict(
+    "_RequiredListCidrBlocksRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+    },
+)
+_OptionalListCidrBlocksRequestRequestTypeDef = TypedDict(
+    "_OptionalListCidrBlocksRequestRequestTypeDef",
+    {
+        "LocationName": str,
+        "NextToken": str,
+        "MaxResults": str,
+    },
+    total=False,
+)
+
+class ListCidrBlocksRequestRequestTypeDef(
+    _RequiredListCidrBlocksRequestRequestTypeDef, _OptionalListCidrBlocksRequestRequestTypeDef
+):
+    pass
+
+ListCidrBlocksResponseTypeDef = TypedDict(
+    "ListCidrBlocksResponseTypeDef",
+    {
+        "NextToken": str,
+        "CidrBlocks": List["CidrBlockSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+ListCidrCollectionsRequestRequestTypeDef = TypedDict(
+    "ListCidrCollectionsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": str,
+    },
+    total=False,
+)
+
+ListCidrCollectionsResponseTypeDef = TypedDict(
+    "ListCidrCollectionsResponseTypeDef",
+    {
+        "NextToken": str,
+        "CidrCollections": List["CollectionSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListCidrLocationsRequestRequestTypeDef = TypedDict(
+    "_RequiredListCidrLocationsRequestRequestTypeDef",
+    {
+        "CollectionId": str,
+    },
+)
+_OptionalListCidrLocationsRequestRequestTypeDef = TypedDict(
+    "_OptionalListCidrLocationsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": str,
+    },
+    total=False,
+)
+
+class ListCidrLocationsRequestRequestTypeDef(
+    _RequiredListCidrLocationsRequestRequestTypeDef, _OptionalListCidrLocationsRequestRequestTypeDef
+):
+    pass
+
+ListCidrLocationsResponseTypeDef = TypedDict(
+    "ListCidrLocationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "CidrLocations": List["LocationSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListGeoLocationsRequestRequestTypeDef = TypedDict(
     "ListGeoLocationsRequestRequestTypeDef",
     {
@@ -1616,6 +1812,14 @@ ListVPCAssociationAuthorizationsResponseTypeDef = TypedDict(
     },
 )
 
+LocationSummaryTypeDef = TypedDict(
+    "LocationSummaryTypeDef",
+    {
+        "LocationName": str,
+    },
+    total=False,
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef",
     {
@@ -1656,6 +1860,7 @@ _OptionalResourceRecordSetTypeDef = TypedDict(
         "AliasTarget": "AliasTargetTypeDef",
         "HealthCheckId": str,
         "TrafficPolicyInstanceId": str,
+        "CidrRoutingConfig": "CidrRoutingConfigTypeDef",
     },
     total=False,
 )

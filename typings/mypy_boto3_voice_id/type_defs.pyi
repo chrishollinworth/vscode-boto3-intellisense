@@ -23,6 +23,7 @@ from .literals import (
     FraudDetectionActionType,
     FraudDetectionDecisionType,
     FraudsterRegistrationJobStatusType,
+    ServerSideEncryptionUpdateStatusType,
     SpeakerEnrollmentJobStatusType,
     SpeakerStatusType,
     StreamingStatusType,
@@ -84,9 +85,11 @@ __all__ = (
     "OptOutSpeakerRequestRequestTypeDef",
     "OptOutSpeakerResponseTypeDef",
     "OutputDataConfigTypeDef",
+    "PaginatorConfigTypeDef",
     "RegistrationConfigTypeDef",
     "ResponseMetadataTypeDef",
     "ServerSideEncryptionConfigurationTypeDef",
+    "ServerSideEncryptionUpdateDetailsTypeDef",
     "SpeakerEnrollmentJobSummaryTypeDef",
     "SpeakerEnrollmentJobTypeDef",
     "SpeakerSummaryTypeDef",
@@ -266,6 +269,7 @@ DomainSummaryTypeDef = TypedDict(
         "DomainStatus": DomainStatusType,
         "Name": str,
         "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
+        "ServerSideEncryptionUpdateDetails": "ServerSideEncryptionUpdateDetailsTypeDef",
         "UpdatedAt": datetime,
     },
     total=False,
@@ -281,6 +285,7 @@ DomainTypeDef = TypedDict(
         "DomainStatus": DomainStatusType,
         "Name": str,
         "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
+        "ServerSideEncryptionUpdateDetails": "ServerSideEncryptionUpdateDetailsTypeDef",
         "UpdatedAt": datetime,
     },
     total=False,
@@ -597,6 +602,16 @@ _OptionalOutputDataConfigTypeDef = TypedDict(
 class OutputDataConfigTypeDef(_RequiredOutputDataConfigTypeDef, _OptionalOutputDataConfigTypeDef):
     pass
 
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef",
+    {
+        "MaxItems": int,
+        "PageSize": int,
+        "StartingToken": str,
+    },
+    total=False,
+)
+
 RegistrationConfigTypeDef = TypedDict(
     "RegistrationConfigTypeDef",
     {
@@ -622,6 +637,16 @@ ServerSideEncryptionConfigurationTypeDef = TypedDict(
     {
         "KmsKeyId": str,
     },
+)
+
+ServerSideEncryptionUpdateDetailsTypeDef = TypedDict(
+    "ServerSideEncryptionUpdateDetailsTypeDef",
+    {
+        "Message": str,
+        "OldKmsKeyId": str,
+        "UpdateStatus": ServerSideEncryptionUpdateStatusType,
+    },
+    total=False,
 )
 
 SpeakerEnrollmentJobSummaryTypeDef = TypedDict(
@@ -665,6 +690,7 @@ SpeakerSummaryTypeDef = TypedDict(
         "CustomerSpeakerId": str,
         "DomainId": str,
         "GeneratedSpeakerId": str,
+        "LastAccessedAt": datetime,
         "Status": SpeakerStatusType,
         "UpdatedAt": datetime,
     },
@@ -678,6 +704,7 @@ SpeakerTypeDef = TypedDict(
         "CustomerSpeakerId": str,
         "DomainId": str,
         "GeneratedSpeakerId": str,
+        "LastAccessedAt": datetime,
         "Status": SpeakerStatusType,
         "UpdatedAt": datetime,
     },

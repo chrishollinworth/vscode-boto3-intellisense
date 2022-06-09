@@ -47,8 +47,10 @@ else:
 
 __all__ = (
     "AddressTypeDef",
+    "AssetInfoTypeDef",
     "CancelOrderInputRequestTypeDef",
     "CatalogItemTypeDef",
+    "ComputeAttributesTypeDef",
     "CreateOrderInputRequestTypeDef",
     "CreateOrderOutputTypeDef",
     "CreateOutpostInputRequestTypeDef",
@@ -73,6 +75,8 @@ __all__ = (
     "InstanceTypeItemTypeDef",
     "LineItemRequestTypeDef",
     "LineItemTypeDef",
+    "ListAssetsInputRequestTypeDef",
+    "ListAssetsOutputTypeDef",
     "ListCatalogItemsInputRequestTypeDef",
     "ListCatalogItemsOutputTypeDef",
     "ListOrdersInputRequestTypeDef",
@@ -127,6 +131,17 @@ _OptionalAddressTypeDef = TypedDict(
 class AddressTypeDef(_RequiredAddressTypeDef, _OptionalAddressTypeDef):
     pass
 
+AssetInfoTypeDef = TypedDict(
+    "AssetInfoTypeDef",
+    {
+        "AssetId": str,
+        "RackId": str,
+        "AssetType": Literal["COMPUTE"],
+        "ComputeAttributes": "ComputeAttributesTypeDef",
+    },
+    total=False,
+)
+
 CancelOrderInputRequestTypeDef = TypedDict(
     "CancelOrderInputRequestTypeDef",
     {
@@ -144,6 +159,14 @@ CatalogItemTypeDef = TypedDict(
         "WeightLbs": int,
         "SupportedUplinkGbps": List[int],
         "SupportedStorage": List[SupportedStorageEnumType],
+    },
+    total=False,
+)
+
+ComputeAttributesTypeDef = TypedDict(
+    "ComputeAttributesTypeDef",
+    {
+        "HostId": str,
     },
     total=False,
 )
@@ -403,6 +426,36 @@ LineItemTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredListAssetsInputRequestTypeDef = TypedDict(
+    "_RequiredListAssetsInputRequestTypeDef",
+    {
+        "OutpostIdentifier": str,
+    },
+)
+_OptionalListAssetsInputRequestTypeDef = TypedDict(
+    "_OptionalListAssetsInputRequestTypeDef",
+    {
+        "HostIdFilter": List[str],
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAssetsInputRequestTypeDef(
+    _RequiredListAssetsInputRequestTypeDef, _OptionalListAssetsInputRequestTypeDef
+):
+    pass
+
+ListAssetsOutputTypeDef = TypedDict(
+    "ListAssetsOutputTypeDef",
+    {
+        "Assets": List["AssetInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListCatalogItemsInputRequestTypeDef = TypedDict(
     "ListCatalogItemsInputRequestTypeDef",
     {
@@ -469,6 +522,9 @@ ListSitesInputRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "OperatingAddressCountryCodeFilter": List[str],
+        "OperatingAddressStateOrRegionFilter": List[str],
+        "OperatingAddressCityFilter": List[str],
     },
     total=False,
 )

@@ -19,6 +19,7 @@ from .literals import (
     ChannelLatencyModeType,
     ChannelTypeType,
     RecordingConfigurationStateType,
+    RecordingModeType,
     StreamHealthType,
     StreamStateType,
 )
@@ -95,6 +96,7 @@ __all__ = (
     "StreamSummaryTypeDef",
     "StreamTypeDef",
     "TagResourceRequestRequestTypeDef",
+    "ThumbnailConfigurationTypeDef",
     "UntagResourceRequestRequestTypeDef",
     "UpdateChannelRequestRequestTypeDef",
     "UpdateChannelResponseTypeDef",
@@ -216,6 +218,7 @@ _OptionalCreateRecordingConfigurationRequestRequestTypeDef = TypedDict(
     {
         "name": str,
         "tags": Dict[str, str],
+        "thumbnailConfiguration": "ThumbnailConfigurationTypeDef",
     },
     total=False,
 )
@@ -660,6 +663,7 @@ _OptionalRecordingConfigurationTypeDef = TypedDict(
     {
         "name": str,
         "tags": Dict[str, str],
+        "thumbnailConfiguration": "ThumbnailConfigurationTypeDef",
     },
     total=False,
 )
@@ -791,6 +795,15 @@ TagResourceRequestRequestTypeDef = TypedDict(
         "resourceArn": str,
         "tags": Dict[str, str],
     },
+)
+
+ThumbnailConfigurationTypeDef = TypedDict(
+    "ThumbnailConfigurationTypeDef",
+    {
+        "recordingMode": RecordingModeType,
+        "targetIntervalSeconds": int,
+    },
+    total=False,
 )
 
 UntagResourceRequestRequestTypeDef = TypedDict(

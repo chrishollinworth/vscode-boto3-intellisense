@@ -25,11 +25,16 @@ __all__ = (
     "DASHDisplayFragmentTimestampType",
     "DASHFragmentSelectorTypeType",
     "DASHPlaybackModeType",
+    "FormatConfigKeyType",
+    "FormatType",
     "FragmentSelectorTypeType",
+    "GetImagesPaginatorName",
     "HLSDiscontinuityModeType",
     "HLSDisplayFragmentTimestampType",
     "HLSFragmentSelectorTypeType",
     "HLSPlaybackModeType",
+    "ImageErrorType",
+    "ImageSelectorTypeType",
     "ListFragmentsPaginatorName",
 )
 
@@ -39,9 +44,14 @@ DASHDisplayFragmentNumberType = Literal["ALWAYS", "NEVER"]
 DASHDisplayFragmentTimestampType = Literal["ALWAYS", "NEVER"]
 DASHFragmentSelectorTypeType = Literal["PRODUCER_TIMESTAMP", "SERVER_TIMESTAMP"]
 DASHPlaybackModeType = Literal["LIVE", "LIVE_REPLAY", "ON_DEMAND"]
+FormatConfigKeyType = Literal["JPEGQuality"]
+FormatType = Literal["JPEG", "PNG"]
 FragmentSelectorTypeType = Literal["PRODUCER_TIMESTAMP", "SERVER_TIMESTAMP"]
+GetImagesPaginatorName = Literal["get_images"]
 HLSDiscontinuityModeType = Literal["ALWAYS", "NEVER", "ON_DISCONTINUITY"]
 HLSDisplayFragmentTimestampType = Literal["ALWAYS", "NEVER"]
 HLSFragmentSelectorTypeType = Literal["PRODUCER_TIMESTAMP", "SERVER_TIMESTAMP"]
 HLSPlaybackModeType = Literal["LIVE", "LIVE_REPLAY", "ON_DEMAND"]
+ImageErrorType = Literal["MEDIA_ERROR", "NO_MEDIA"]
+ImageSelectorTypeType = Literal["PRODUCER_TIMESTAMP", "SERVER_TIMESTAMP"]
 ListFragmentsPaginatorName = Literal["list_fragments"]

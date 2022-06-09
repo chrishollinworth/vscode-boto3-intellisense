@@ -23,10 +23,13 @@ __all__ = (
     "CodeSigningPolicyType",
     "EndPointTypeType",
     "EventSourcePositionType",
+    "FunctionActiveV2WaiterName",
     "FunctionActiveWaiterName",
     "FunctionExistsWaiterName",
     "FunctionResponseTypeType",
+    "FunctionUpdatedV2WaiterName",
     "FunctionUpdatedWaiterName",
+    "FunctionUrlAuthTypeType",
     "FunctionVersionType",
     "InvocationTypeType",
     "LastUpdateStatusReasonCodeType",
@@ -35,6 +38,7 @@ __all__ = (
     "ListCodeSigningConfigsPaginatorName",
     "ListEventSourceMappingsPaginatorName",
     "ListFunctionEventInvokeConfigsPaginatorName",
+    "ListFunctionUrlConfigsPaginatorName",
     "ListFunctionsByCodeSigningConfigPaginatorName",
     "ListFunctionsPaginatorName",
     "ListLayerVersionsPaginatorName",
@@ -55,10 +59,13 @@ ArchitectureType = Literal["arm64", "x86_64"]
 CodeSigningPolicyType = Literal["Enforce", "Warn"]
 EndPointTypeType = Literal["KAFKA_BOOTSTRAP_SERVERS"]
 EventSourcePositionType = Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"]
+FunctionActiveV2WaiterName = Literal["function_active_v2"]
 FunctionActiveWaiterName = Literal["function_active"]
 FunctionExistsWaiterName = Literal["function_exists"]
 FunctionResponseTypeType = Literal["ReportBatchItemFailures"]
+FunctionUpdatedV2WaiterName = Literal["function_updated_v2"]
 FunctionUpdatedWaiterName = Literal["function_updated"]
+FunctionUrlAuthTypeType = Literal["AWS_IAM", "NONE"]
 FunctionVersionType = Literal["ALL"]
 InvocationTypeType = Literal["DryRun", "Event", "RequestResponse"]
 LastUpdateStatusReasonCodeType = Literal[
@@ -78,6 +85,7 @@ ListAliasesPaginatorName = Literal["list_aliases"]
 ListCodeSigningConfigsPaginatorName = Literal["list_code_signing_configs"]
 ListEventSourceMappingsPaginatorName = Literal["list_event_source_mappings"]
 ListFunctionEventInvokeConfigsPaginatorName = Literal["list_function_event_invoke_configs"]
+ListFunctionUrlConfigsPaginatorName = Literal["list_function_url_configs"]
 ListFunctionsByCodeSigningConfigPaginatorName = Literal["list_functions_by_code_signing_config"]
 ListFunctionsPaginatorName = Literal["list_functions"]
 ListLayerVersionsPaginatorName = Literal["list_layer_versions"]
@@ -88,6 +96,7 @@ LogTypeType = Literal["None", "Tail"]
 PackageTypeType = Literal["Image", "Zip"]
 ProvisionedConcurrencyStatusEnumType = Literal["FAILED", "IN_PROGRESS", "READY"]
 RuntimeType = Literal[
+    "dotnet6",
     "dotnetcore1.0",
     "dotnetcore2.0",
     "dotnetcore2.1",
@@ -100,6 +109,7 @@ RuntimeType = Literal[
     "nodejs10.x",
     "nodejs12.x",
     "nodejs14.x",
+    "nodejs16.x",
     "nodejs4.3",
     "nodejs4.3-edge",
     "nodejs6.10",

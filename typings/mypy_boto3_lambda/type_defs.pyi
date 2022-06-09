@@ -21,6 +21,7 @@ from .literals import (
     ArchitectureType,
     CodeSigningPolicyType,
     EventSourcePositionType,
+    FunctionUrlAuthTypeType,
     InvocationTypeType,
     LastUpdateStatusReasonCodeType,
     LastUpdateStatusType,
@@ -58,11 +59,14 @@ __all__ = (
     "CodeSigningPoliciesTypeDef",
     "ConcurrencyResponseMetadataTypeDef",
     "ConcurrencyTypeDef",
+    "CorsTypeDef",
     "CreateAliasRequestRequestTypeDef",
     "CreateCodeSigningConfigRequestRequestTypeDef",
     "CreateCodeSigningConfigResponseTypeDef",
     "CreateEventSourceMappingRequestRequestTypeDef",
     "CreateFunctionRequestRequestTypeDef",
+    "CreateFunctionUrlConfigRequestRequestTypeDef",
+    "CreateFunctionUrlConfigResponseTypeDef",
     "DeadLetterConfigTypeDef",
     "DeleteAliasRequestRequestTypeDef",
     "DeleteCodeSigningConfigRequestRequestTypeDef",
@@ -71,12 +75,14 @@ __all__ = (
     "DeleteFunctionConcurrencyRequestRequestTypeDef",
     "DeleteFunctionEventInvokeConfigRequestRequestTypeDef",
     "DeleteFunctionRequestRequestTypeDef",
+    "DeleteFunctionUrlConfigRequestRequestTypeDef",
     "DeleteLayerVersionRequestRequestTypeDef",
     "DeleteProvisionedConcurrencyConfigRequestRequestTypeDef",
     "DestinationConfigTypeDef",
     "EnvironmentErrorTypeDef",
     "EnvironmentResponseTypeDef",
     "EnvironmentTypeDef",
+    "EphemeralStorageTypeDef",
     "EventSourceMappingConfigurationResponseMetadataTypeDef",
     "EventSourceMappingConfigurationTypeDef",
     "FileSystemConfigTypeDef",
@@ -88,6 +94,7 @@ __all__ = (
     "FunctionConfigurationTypeDef",
     "FunctionEventInvokeConfigResponseMetadataTypeDef",
     "FunctionEventInvokeConfigTypeDef",
+    "FunctionUrlConfigTypeDef",
     "GetAccountSettingsResponseTypeDef",
     "GetAliasRequestRequestTypeDef",
     "GetCodeSigningConfigRequestRequestTypeDef",
@@ -101,6 +108,8 @@ __all__ = (
     "GetFunctionEventInvokeConfigRequestRequestTypeDef",
     "GetFunctionRequestRequestTypeDef",
     "GetFunctionResponseTypeDef",
+    "GetFunctionUrlConfigRequestRequestTypeDef",
+    "GetFunctionUrlConfigResponseTypeDef",
     "GetLayerVersionByArnRequestRequestTypeDef",
     "GetLayerVersionPolicyRequestRequestTypeDef",
     "GetLayerVersionPolicyResponseTypeDef",
@@ -130,6 +139,8 @@ __all__ = (
     "ListEventSourceMappingsResponseTypeDef",
     "ListFunctionEventInvokeConfigsRequestRequestTypeDef",
     "ListFunctionEventInvokeConfigsResponseTypeDef",
+    "ListFunctionUrlConfigsRequestRequestTypeDef",
+    "ListFunctionUrlConfigsResponseTypeDef",
     "ListFunctionsByCodeSigningConfigRequestRequestTypeDef",
     "ListFunctionsByCodeSigningConfigResponseTypeDef",
     "ListFunctionsRequestRequestTypeDef",
@@ -173,6 +184,8 @@ __all__ = (
     "UpdateFunctionCodeRequestRequestTypeDef",
     "UpdateFunctionConfigurationRequestRequestTypeDef",
     "UpdateFunctionEventInvokeConfigRequestRequestTypeDef",
+    "UpdateFunctionUrlConfigRequestRequestTypeDef",
+    "UpdateFunctionUrlConfigResponseTypeDef",
     "VpcConfigResponseTypeDef",
     "VpcConfigTypeDef",
     "WaiterConfigTypeDef",
@@ -250,6 +263,8 @@ _OptionalAddPermissionRequestRequestTypeDef = TypedDict(
         "EventSourceToken": str,
         "Qualifier": str,
         "RevisionId": str,
+        "PrincipalOrgID": str,
+        "FunctionUrlAuthType": FunctionUrlAuthTypeType,
     },
     total=False,
 )
@@ -351,6 +366,19 @@ ConcurrencyTypeDef = TypedDict(
     "ConcurrencyTypeDef",
     {
         "ReservedConcurrentExecutions": int,
+    },
+    total=False,
+)
+
+CorsTypeDef = TypedDict(
+    "CorsTypeDef",
+    {
+        "AllowCredentials": bool,
+        "AllowHeaders": List[str],
+        "AllowMethods": List[str],
+        "AllowOrigins": List[str],
+        "ExposeHeaders": List[str],
+        "MaxAge": int,
     },
     total=False,
 )
@@ -472,6 +500,7 @@ _OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
         "ImageConfig": "ImageConfigTypeDef",
         "CodeSigningConfigArn": str,
         "Architectures": List[ArchitectureType],
+        "EphemeralStorage": "EphemeralStorageTypeDef",
     },
     total=False,
 )
@@ -480,6 +509,40 @@ class CreateFunctionRequestRequestTypeDef(
     _RequiredCreateFunctionRequestRequestTypeDef, _OptionalCreateFunctionRequestRequestTypeDef
 ):
     pass
+
+_RequiredCreateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+        "AuthType": FunctionUrlAuthTypeType,
+    },
+)
+_OptionalCreateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "Qualifier": str,
+        "Cors": "CorsTypeDef",
+    },
+    total=False,
+)
+
+class CreateFunctionUrlConfigRequestRequestTypeDef(
+    _RequiredCreateFunctionUrlConfigRequestRequestTypeDef,
+    _OptionalCreateFunctionUrlConfigRequestRequestTypeDef,
+):
+    pass
+
+CreateFunctionUrlConfigResponseTypeDef = TypedDict(
+    "CreateFunctionUrlConfigResponseTypeDef",
+    {
+        "FunctionUrl": str,
+        "FunctionArn": str,
+        "AuthType": FunctionUrlAuthTypeType,
+        "Cors": "CorsTypeDef",
+        "CreationTime": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DeadLetterConfigTypeDef = TypedDict(
     "DeadLetterConfigTypeDef",
@@ -564,6 +627,26 @@ class DeleteFunctionRequestRequestTypeDef(
 ):
     pass
 
+_RequiredDeleteFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredDeleteFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+    },
+)
+_OptionalDeleteFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalDeleteFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "Qualifier": str,
+    },
+    total=False,
+)
+
+class DeleteFunctionUrlConfigRequestRequestTypeDef(
+    _RequiredDeleteFunctionUrlConfigRequestRequestTypeDef,
+    _OptionalDeleteFunctionUrlConfigRequestRequestTypeDef,
+):
+    pass
+
 DeleteLayerVersionRequestRequestTypeDef = TypedDict(
     "DeleteLayerVersionRequestRequestTypeDef",
     {
@@ -613,6 +696,13 @@ EnvironmentTypeDef = TypedDict(
         "Variables": Dict[str, str],
     },
     total=False,
+)
+
+EphemeralStorageTypeDef = TypedDict(
+    "EphemeralStorageTypeDef",
+    {
+        "Size": int,
+    },
 )
 
 EventSourceMappingConfigurationResponseMetadataTypeDef = TypedDict(
@@ -757,6 +847,7 @@ FunctionConfigurationResponseMetadataTypeDef = TypedDict(
         "SigningProfileVersionArn": str,
         "SigningJobArn": str,
         "Architectures": List[ArchitectureType],
+        "EphemeralStorage": "EphemeralStorageTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -796,6 +887,7 @@ FunctionConfigurationTypeDef = TypedDict(
         "SigningProfileVersionArn": str,
         "SigningJobArn": str,
         "Architectures": List[ArchitectureType],
+        "EphemeralStorage": "EphemeralStorageTypeDef",
     },
     total=False,
 )
@@ -823,6 +915,29 @@ FunctionEventInvokeConfigTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredFunctionUrlConfigTypeDef = TypedDict(
+    "_RequiredFunctionUrlConfigTypeDef",
+    {
+        "FunctionUrl": str,
+        "FunctionArn": str,
+        "CreationTime": str,
+        "LastModifiedTime": str,
+        "AuthType": FunctionUrlAuthTypeType,
+    },
+)
+_OptionalFunctionUrlConfigTypeDef = TypedDict(
+    "_OptionalFunctionUrlConfigTypeDef",
+    {
+        "Cors": "CorsTypeDef",
+    },
+    total=False,
+)
+
+class FunctionUrlConfigTypeDef(
+    _RequiredFunctionUrlConfigTypeDef, _OptionalFunctionUrlConfigTypeDef
+):
+    pass
 
 GetAccountSettingsResponseTypeDef = TypedDict(
     "GetAccountSettingsResponseTypeDef",
@@ -960,6 +1075,39 @@ GetFunctionResponseTypeDef = TypedDict(
         "Code": "FunctionCodeLocationTypeDef",
         "Tags": Dict[str, str],
         "Concurrency": "ConcurrencyTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredGetFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+    },
+)
+_OptionalGetFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalGetFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "Qualifier": str,
+    },
+    total=False,
+)
+
+class GetFunctionUrlConfigRequestRequestTypeDef(
+    _RequiredGetFunctionUrlConfigRequestRequestTypeDef,
+    _OptionalGetFunctionUrlConfigRequestRequestTypeDef,
+):
+    pass
+
+GetFunctionUrlConfigResponseTypeDef = TypedDict(
+    "GetFunctionUrlConfigResponseTypeDef",
+    {
+        "FunctionUrl": str,
+        "FunctionArn": str,
+        "AuthType": FunctionUrlAuthTypeType,
+        "Cors": "CorsTypeDef",
+        "CreationTime": str,
+        "LastModifiedTime": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1291,6 +1439,36 @@ ListFunctionEventInvokeConfigsResponseTypeDef = TypedDict(
     "ListFunctionEventInvokeConfigsResponseTypeDef",
     {
         "FunctionEventInvokeConfigs": List["FunctionEventInvokeConfigTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListFunctionUrlConfigsRequestRequestTypeDef = TypedDict(
+    "_RequiredListFunctionUrlConfigsRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+    },
+)
+_OptionalListFunctionUrlConfigsRequestRequestTypeDef = TypedDict(
+    "_OptionalListFunctionUrlConfigsRequestRequestTypeDef",
+    {
+        "Marker": str,
+        "MaxItems": int,
+    },
+    total=False,
+)
+
+class ListFunctionUrlConfigsRequestRequestTypeDef(
+    _RequiredListFunctionUrlConfigsRequestRequestTypeDef,
+    _OptionalListFunctionUrlConfigsRequestRequestTypeDef,
+):
+    pass
+
+ListFunctionUrlConfigsResponseTypeDef = TypedDict(
+    "ListFunctionUrlConfigsResponseTypeDef",
+    {
+        "FunctionUrlConfigs": List["FunctionUrlConfigTypeDef"],
         "NextMarker": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1883,6 +2061,7 @@ _OptionalUpdateFunctionConfigurationRequestRequestTypeDef = TypedDict(
         "Layers": List[str],
         "FileSystemConfigs": List["FileSystemConfigTypeDef"],
         "ImageConfig": "ImageConfigTypeDef",
+        "EphemeralStorage": "EphemeralStorageTypeDef",
     },
     total=False,
 )
@@ -1915,6 +2094,41 @@ class UpdateFunctionEventInvokeConfigRequestRequestTypeDef(
     _OptionalUpdateFunctionEventInvokeConfigRequestRequestTypeDef,
 ):
     pass
+
+_RequiredUpdateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "FunctionName": str,
+    },
+)
+_OptionalUpdateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateFunctionUrlConfigRequestRequestTypeDef",
+    {
+        "Qualifier": str,
+        "AuthType": FunctionUrlAuthTypeType,
+        "Cors": "CorsTypeDef",
+    },
+    total=False,
+)
+
+class UpdateFunctionUrlConfigRequestRequestTypeDef(
+    _RequiredUpdateFunctionUrlConfigRequestRequestTypeDef,
+    _OptionalUpdateFunctionUrlConfigRequestRequestTypeDef,
+):
+    pass
+
+UpdateFunctionUrlConfigResponseTypeDef = TypedDict(
+    "UpdateFunctionUrlConfigResponseTypeDef",
+    {
+        "FunctionUrl": str,
+        "FunctionArn": str,
+        "AuthType": FunctionUrlAuthTypeType,
+        "Cors": "CorsTypeDef",
+        "CreationTime": str,
+        "LastModifiedTime": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 VpcConfigResponseTypeDef = TypedDict(
     "VpcConfigResponseTypeDef",

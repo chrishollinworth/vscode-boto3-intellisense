@@ -106,6 +106,8 @@ __all__ = (
     "MetricStatTypeDef",
     "MetricStreamEntryTypeDef",
     "MetricStreamFilterTypeDef",
+    "MetricStreamStatisticsConfigurationTypeDef",
+    "MetricStreamStatisticsMetricTypeDef",
     "MetricTypeDef",
     "PaginatorConfigTypeDef",
     "PartialFailureTypeDef",
@@ -650,6 +652,7 @@ GetMetricStreamOutputTypeDef = TypedDict(
         "CreationDate": datetime,
         "LastUpdateDate": datetime,
         "OutputFormat": MetricStreamOutputFormatType,
+        "StatisticsConfigurations": List["MetricStreamStatisticsConfigurationTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -965,6 +968,22 @@ MetricStreamFilterTypeDef = TypedDict(
     total=False,
 )
 
+MetricStreamStatisticsConfigurationTypeDef = TypedDict(
+    "MetricStreamStatisticsConfigurationTypeDef",
+    {
+        "IncludeMetrics": List["MetricStreamStatisticsMetricTypeDef"],
+        "AdditionalStatistics": List[str],
+    },
+)
+
+MetricStreamStatisticsMetricTypeDef = TypedDict(
+    "MetricStreamStatisticsMetricTypeDef",
+    {
+        "Namespace": str,
+        "MetricName": str,
+    },
+)
+
 MetricTypeDef = TypedDict(
     "MetricTypeDef",
     {
@@ -1171,6 +1190,7 @@ _OptionalPutMetricStreamInputRequestTypeDef = TypedDict(
         "IncludeFilters": List["MetricStreamFilterTypeDef"],
         "ExcludeFilters": List["MetricStreamFilterTypeDef"],
         "Tags": List["TagTypeDef"],
+        "StatisticsConfigurations": List["MetricStreamStatisticsConfigurationTypeDef"],
     },
     total=False,
 )

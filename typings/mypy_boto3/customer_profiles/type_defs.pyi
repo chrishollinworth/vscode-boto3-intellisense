@@ -30,11 +30,16 @@ from .literals import (
     ServiceNowConnectorOperatorType,
     SourceConnectorTypeType,
     StandardIdentifierType,
+    StatusType,
     TaskTypeType,
     TriggerTypeType,
     ZendeskConnectorOperatorType,
 )
 
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -44,12 +49,19 @@ __all__ = (
     "AddProfileKeyRequestRequestTypeDef",
     "AddProfileKeyResponseTypeDef",
     "AddressTypeDef",
+    "AppflowIntegrationTypeDef",
+    "AppflowIntegrationWorkflowAttributesTypeDef",
+    "AppflowIntegrationWorkflowMetricsTypeDef",
+    "AppflowIntegrationWorkflowStepTypeDef",
     "AutoMergingTypeDef",
+    "BatchTypeDef",
     "ConflictResolutionTypeDef",
     "ConnectorOperatorTypeDef",
     "ConsolidationTypeDef",
     "CreateDomainRequestRequestTypeDef",
     "CreateDomainResponseTypeDef",
+    "CreateIntegrationWorkflowRequestRequestTypeDef",
+    "CreateIntegrationWorkflowResponseTypeDef",
     "CreateProfileRequestRequestTypeDef",
     "CreateProfileResponseTypeDef",
     "DeleteDomainRequestRequestTypeDef",
@@ -64,6 +76,7 @@ __all__ = (
     "DeleteProfileObjectTypeResponseTypeDef",
     "DeleteProfileRequestRequestTypeDef",
     "DeleteProfileResponseTypeDef",
+    "DeleteWorkflowRequestRequestTypeDef",
     "DomainStatsTypeDef",
     "ExportingConfigTypeDef",
     "ExportingLocationTypeDef",
@@ -83,8 +96,13 @@ __all__ = (
     "GetProfileObjectTypeResponseTypeDef",
     "GetProfileObjectTypeTemplateRequestRequestTypeDef",
     "GetProfileObjectTypeTemplateResponseTypeDef",
+    "GetWorkflowRequestRequestTypeDef",
+    "GetWorkflowResponseTypeDef",
+    "GetWorkflowStepsRequestRequestTypeDef",
+    "GetWorkflowStepsResponseTypeDef",
     "IdentityResolutionJobTypeDef",
     "IncrementalPullConfigTypeDef",
+    "IntegrationConfigTypeDef",
     "JobScheduleTypeDef",
     "JobStatsTypeDef",
     "ListAccountIntegrationsRequestRequestTypeDef",
@@ -108,6 +126,9 @@ __all__ = (
     "ListProfileObjectsResponseTypeDef",
     "ListTagsForResourceRequestRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListWorkflowsItemTypeDef",
+    "ListWorkflowsRequestRequestTypeDef",
+    "ListWorkflowsResponseTypeDef",
     "MarketoSourcePropertiesTypeDef",
     "MatchItemTypeDef",
     "MatchingRequestTypeDef",
@@ -145,6 +166,9 @@ __all__ = (
     "UpdateDomainResponseTypeDef",
     "UpdateProfileRequestRequestTypeDef",
     "UpdateProfileResponseTypeDef",
+    "WorkflowAttributesTypeDef",
+    "WorkflowMetricsTypeDef",
+    "WorkflowStepItemTypeDef",
     "ZendeskSourcePropertiesTypeDef",
 )
 
@@ -184,6 +208,69 @@ AddressTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAppflowIntegrationTypeDef = TypedDict(
+    "_RequiredAppflowIntegrationTypeDef",
+    {
+        "FlowDefinition": "FlowDefinitionTypeDef",
+    },
+)
+_OptionalAppflowIntegrationTypeDef = TypedDict(
+    "_OptionalAppflowIntegrationTypeDef",
+    {
+        "Batches": List["BatchTypeDef"],
+    },
+    total=False,
+)
+
+class AppflowIntegrationTypeDef(
+    _RequiredAppflowIntegrationTypeDef, _OptionalAppflowIntegrationTypeDef
+):
+    pass
+
+_RequiredAppflowIntegrationWorkflowAttributesTypeDef = TypedDict(
+    "_RequiredAppflowIntegrationWorkflowAttributesTypeDef",
+    {
+        "SourceConnectorType": SourceConnectorTypeType,
+        "ConnectorProfileName": str,
+    },
+)
+_OptionalAppflowIntegrationWorkflowAttributesTypeDef = TypedDict(
+    "_OptionalAppflowIntegrationWorkflowAttributesTypeDef",
+    {
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+class AppflowIntegrationWorkflowAttributesTypeDef(
+    _RequiredAppflowIntegrationWorkflowAttributesTypeDef,
+    _OptionalAppflowIntegrationWorkflowAttributesTypeDef,
+):
+    pass
+
+AppflowIntegrationWorkflowMetricsTypeDef = TypedDict(
+    "AppflowIntegrationWorkflowMetricsTypeDef",
+    {
+        "RecordsProcessed": int,
+        "StepsCompleted": int,
+        "TotalSteps": int,
+    },
+)
+
+AppflowIntegrationWorkflowStepTypeDef = TypedDict(
+    "AppflowIntegrationWorkflowStepTypeDef",
+    {
+        "FlowName": str,
+        "Status": StatusType,
+        "ExecutionMessage": str,
+        "RecordsProcessed": int,
+        "BatchRecordsStartTime": str,
+        "BatchRecordsEndTime": str,
+        "CreatedAt": datetime,
+        "LastUpdatedAt": datetime,
+    },
+)
+
 _RequiredAutoMergingTypeDef = TypedDict(
     "_RequiredAutoMergingTypeDef",
     {
@@ -201,6 +288,14 @@ _OptionalAutoMergingTypeDef = TypedDict(
 
 class AutoMergingTypeDef(_RequiredAutoMergingTypeDef, _OptionalAutoMergingTypeDef):
     pass
+
+BatchTypeDef = TypedDict(
+    "BatchTypeDef",
+    {
+        "StartTime": Union[datetime, str],
+        "EndTime": Union[datetime, str],
+    },
+)
 
 _RequiredConflictResolutionTypeDef = TypedDict(
     "_RequiredConflictResolutionTypeDef",
@@ -274,6 +369,39 @@ CreateDomainResponseTypeDef = TypedDict(
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
         "Tags": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateIntegrationWorkflowRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateIntegrationWorkflowRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "WorkflowType": Literal["APPFLOW_INTEGRATION"],
+        "IntegrationConfig": "IntegrationConfigTypeDef",
+        "ObjectTypeName": str,
+        "RoleArn": str,
+    },
+)
+_OptionalCreateIntegrationWorkflowRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateIntegrationWorkflowRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateIntegrationWorkflowRequestRequestTypeDef(
+    _RequiredCreateIntegrationWorkflowRequestRequestTypeDef,
+    _OptionalCreateIntegrationWorkflowRequestRequestTypeDef,
+):
+    pass
+
+CreateIntegrationWorkflowResponseTypeDef = TypedDict(
+    "CreateIntegrationWorkflowResponseTypeDef",
+    {
+        "WorkflowId": str,
+        "Message": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -421,6 +549,14 @@ DeleteProfileResponseTypeDef = TypedDict(
     {
         "Message": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DeleteWorkflowRequestRequestTypeDef = TypedDict(
+    "DeleteWorkflowRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "WorkflowId": str,
     },
 )
 
@@ -586,6 +722,8 @@ GetIntegrationResponseTypeDef = TypedDict(
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
         "Tags": Dict[str, str],
+        "ObjectTypeNames": Dict[str, str],
+        "WorkflowId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -669,6 +807,61 @@ GetProfileObjectTypeTemplateResponseTypeDef = TypedDict(
     },
 )
 
+GetWorkflowRequestRequestTypeDef = TypedDict(
+    "GetWorkflowRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "WorkflowId": str,
+    },
+)
+
+GetWorkflowResponseTypeDef = TypedDict(
+    "GetWorkflowResponseTypeDef",
+    {
+        "WorkflowId": str,
+        "WorkflowType": Literal["APPFLOW_INTEGRATION"],
+        "Status": StatusType,
+        "ErrorDescription": str,
+        "StartDate": datetime,
+        "LastUpdatedAt": datetime,
+        "Attributes": "WorkflowAttributesTypeDef",
+        "Metrics": "WorkflowMetricsTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredGetWorkflowStepsRequestRequestTypeDef = TypedDict(
+    "_RequiredGetWorkflowStepsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+        "WorkflowId": str,
+    },
+)
+_OptionalGetWorkflowStepsRequestRequestTypeDef = TypedDict(
+    "_OptionalGetWorkflowStepsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class GetWorkflowStepsRequestRequestTypeDef(
+    _RequiredGetWorkflowStepsRequestRequestTypeDef, _OptionalGetWorkflowStepsRequestRequestTypeDef
+):
+    pass
+
+GetWorkflowStepsResponseTypeDef = TypedDict(
+    "GetWorkflowStepsResponseTypeDef",
+    {
+        "WorkflowId": str,
+        "WorkflowType": Literal["APPFLOW_INTEGRATION"],
+        "Items": List["WorkflowStepItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 IdentityResolutionJobTypeDef = TypedDict(
     "IdentityResolutionJobTypeDef",
     {
@@ -688,6 +881,14 @@ IncrementalPullConfigTypeDef = TypedDict(
     "IncrementalPullConfigTypeDef",
     {
         "DatetimeTypeFieldName": str,
+    },
+    total=False,
+)
+
+IntegrationConfigTypeDef = TypedDict(
+    "IntegrationConfigTypeDef",
+    {
+        "AppflowIntegration": "AppflowIntegrationTypeDef",
     },
     total=False,
 )
@@ -721,6 +922,7 @@ _OptionalListAccountIntegrationsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "IncludeHidden": bool,
     },
     total=False,
 )
@@ -812,7 +1014,6 @@ _RequiredListIntegrationItemTypeDef = TypedDict(
     {
         "DomainName": str,
         "Uri": str,
-        "ObjectTypeName": str,
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
     },
@@ -820,7 +1021,10 @@ _RequiredListIntegrationItemTypeDef = TypedDict(
 _OptionalListIntegrationItemTypeDef = TypedDict(
     "_OptionalListIntegrationItemTypeDef",
     {
+        "ObjectTypeName": str,
         "Tags": Dict[str, str],
+        "ObjectTypeNames": Dict[str, str],
+        "WorkflowId": str,
     },
     total=False,
 )
@@ -841,6 +1045,7 @@ _OptionalListIntegrationsRequestRequestTypeDef = TypedDict(
     {
         "NextToken": str,
         "MaxResults": int,
+        "IncludeHidden": bool,
     },
     total=False,
 )
@@ -997,6 +1202,51 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     },
 )
 
+ListWorkflowsItemTypeDef = TypedDict(
+    "ListWorkflowsItemTypeDef",
+    {
+        "WorkflowType": Literal["APPFLOW_INTEGRATION"],
+        "WorkflowId": str,
+        "Status": StatusType,
+        "StatusDescription": str,
+        "CreatedAt": datetime,
+        "LastUpdatedAt": datetime,
+    },
+)
+
+_RequiredListWorkflowsRequestRequestTypeDef = TypedDict(
+    "_RequiredListWorkflowsRequestRequestTypeDef",
+    {
+        "DomainName": str,
+    },
+)
+_OptionalListWorkflowsRequestRequestTypeDef = TypedDict(
+    "_OptionalListWorkflowsRequestRequestTypeDef",
+    {
+        "WorkflowType": Literal["APPFLOW_INTEGRATION"],
+        "Status": StatusType,
+        "QueryStartDate": Union[datetime, str],
+        "QueryEndDate": Union[datetime, str],
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListWorkflowsRequestRequestTypeDef(
+    _RequiredListWorkflowsRequestRequestTypeDef, _OptionalListWorkflowsRequestRequestTypeDef
+):
+    pass
+
+ListWorkflowsResponseTypeDef = TypedDict(
+    "ListWorkflowsResponseTypeDef",
+    {
+        "Items": List["ListWorkflowsItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 MarketoSourcePropertiesTypeDef = TypedDict(
     "MarketoSourcePropertiesTypeDef",
     {
@@ -1133,15 +1383,16 @@ _RequiredPutIntegrationRequestRequestTypeDef = TypedDict(
     "_RequiredPutIntegrationRequestRequestTypeDef",
     {
         "DomainName": str,
-        "ObjectTypeName": str,
     },
 )
 _OptionalPutIntegrationRequestRequestTypeDef = TypedDict(
     "_OptionalPutIntegrationRequestRequestTypeDef",
     {
         "Uri": str,
+        "ObjectTypeName": str,
         "Tags": Dict[str, str],
         "FlowDefinition": "FlowDefinitionTypeDef",
+        "ObjectTypeNames": Dict[str, str],
     },
     total=False,
 )
@@ -1160,6 +1411,8 @@ PutIntegrationResponseTypeDef = TypedDict(
         "CreatedAt": datetime,
         "LastUpdatedAt": datetime,
         "Tags": Dict[str, str],
+        "ObjectTypeNames": Dict[str, str],
+        "WorkflowId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -1562,6 +1815,30 @@ UpdateProfileResponseTypeDef = TypedDict(
         "ProfileId": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+WorkflowAttributesTypeDef = TypedDict(
+    "WorkflowAttributesTypeDef",
+    {
+        "AppflowIntegration": "AppflowIntegrationWorkflowAttributesTypeDef",
+    },
+    total=False,
+)
+
+WorkflowMetricsTypeDef = TypedDict(
+    "WorkflowMetricsTypeDef",
+    {
+        "AppflowIntegration": "AppflowIntegrationWorkflowMetricsTypeDef",
+    },
+    total=False,
+)
+
+WorkflowStepItemTypeDef = TypedDict(
+    "WorkflowStepItemTypeDef",
+    {
+        "AppflowIntegration": "AppflowIntegrationWorkflowStepTypeDef",
+    },
+    total=False,
 )
 
 ZendeskSourcePropertiesTypeDef = TypedDict(

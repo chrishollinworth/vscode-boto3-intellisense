@@ -1219,6 +1219,7 @@ DescribeProvisioningParametersOutputTypeDef = TypedDict(
         "TagOptions": List["TagOptionSummaryTypeDef"],
         "ProvisioningArtifactPreferences": "ProvisioningArtifactPreferencesTypeDef",
         "ProvisioningArtifactOutputs": List["ProvisioningArtifactOutputTypeDef"],
+        "ProvisioningArtifactOutputKeys": List["ProvisioningArtifactOutputTypeDef"],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )

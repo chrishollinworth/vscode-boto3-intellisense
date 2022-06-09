@@ -134,6 +134,7 @@ __all__ = (
     "InstanceRefreshTypeDef",
     "InstanceRefreshWarmPoolProgressTypeDef",
     "InstanceRequirementsTypeDef",
+    "InstanceReusePolicyTypeDef",
     "InstanceTypeDef",
     "InstancesDistributionTypeDef",
     "LaunchConfigurationNameTypeRequestTypeDef",
@@ -369,6 +370,7 @@ _OptionalAutoScalingGroupTypeDef = TypedDict(
         "WarmPoolSize": int,
         "Context": str,
         "DesiredCapacityType": str,
+        "DefaultInstanceWarmup": int,
     },
     total=False,
 )
@@ -562,6 +564,7 @@ _OptionalCreateAutoScalingGroupTypeRequestTypeDef = TypedDict(
         "MaxInstanceLifetime": int,
         "Context": str,
         "DesiredCapacityType": str,
+        "DefaultInstanceWarmup": int,
     },
     total=False,
 )
@@ -1349,6 +1352,14 @@ class InstanceRequirementsTypeDef(
 ):
     pass
 
+InstanceReusePolicyTypeDef = TypedDict(
+    "InstanceReusePolicyTypeDef",
+    {
+        "ReuseOnScaleIn": bool,
+    },
+    total=False,
+)
+
 _RequiredInstanceTypeDef = TypedDict(
     "_RequiredInstanceTypeDef",
     {
@@ -1975,6 +1986,7 @@ _OptionalPutWarmPoolTypeRequestTypeDef = TypedDict(
         "MaxGroupPreparedCapacity": int,
         "MinSize": int,
         "PoolState": WarmPoolStateType,
+        "InstanceReusePolicy": "InstanceReusePolicyTypeDef",
     },
     total=False,
 )
@@ -2336,6 +2348,7 @@ _OptionalUpdateAutoScalingGroupTypeRequestTypeDef = TypedDict(
         "CapacityRebalance": bool,
         "Context": str,
         "DesiredCapacityType": str,
+        "DefaultInstanceWarmup": int,
     },
     total=False,
 )
@@ -2370,6 +2383,7 @@ WarmPoolConfigurationTypeDef = TypedDict(
         "MinSize": int,
         "PoolState": WarmPoolStateType,
         "Status": Literal["PendingDelete"],
+        "InstanceReusePolicy": "InstanceReusePolicyTypeDef",
     },
     total=False,
 )

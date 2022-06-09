@@ -39,10 +39,12 @@ __all__ = (
     "ExperienceStatusType",
     "FaqFileFormatType",
     "FaqStatusType",
+    "FsxFileSystemTypeType",
     "HighlightTypeType",
     "IndexEditionType",
     "IndexStatusType",
     "IntervalType",
+    "IssueSubEntityType",
     "KeyLocationType",
     "MetricTypeType",
     "ModeType",
@@ -63,10 +65,13 @@ __all__ = (
     "ServiceNowAuthenticationTypeType",
     "ServiceNowBuildVersionTypeType",
     "SharePointVersionType",
+    "SlackEntityType",
     "SortOrderType",
     "ThesaurusStatusType",
+    "TypeType",
     "UserContextPolicyType",
     "UserGroupResolutionModeType",
+    "WarningCodeType",
     "WebCrawlerModeType",
 )
 
@@ -130,15 +135,21 @@ DataSourceSyncJobStatusType = Literal[
     "ABORTED", "FAILED", "INCOMPLETE", "STOPPING", "SUCCEEDED", "SYNCING", "SYNCING_INDEXING"
 ]
 DataSourceTypeType = Literal[
+    "BOX",
     "CONFLUENCE",
     "CUSTOM",
     "DATABASE",
+    "FSX",
+    "GITHUB",
     "GOOGLEDRIVE",
+    "JIRA",
     "ONEDRIVE",
+    "QUIP",
     "S3",
     "SALESFORCE",
     "SERVICENOW",
     "SHAREPOINT",
+    "SLACK",
     "WEBCRAWLER",
     "WORKDOCS",
 ]
@@ -157,12 +168,14 @@ ErrorCodeType = Literal["InternalError", "InvalidRequest"]
 ExperienceStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED"]
 FaqFileFormatType = Literal["CSV", "CSV_WITH_HEADER", "JSON"]
 FaqStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "UPDATING"]
+FsxFileSystemTypeType = Literal["WINDOWS"]
 HighlightTypeType = Literal["STANDARD", "THESAURUS_SYNONYM"]
 IndexEditionType = Literal["DEVELOPER_EDITION", "ENTERPRISE_EDITION"]
 IndexStatusType = Literal["ACTIVE", "CREATING", "DELETING", "FAILED", "SYSTEM_UPDATING", "UPDATING"]
 IntervalType = Literal[
     "ONE_MONTH_AGO", "ONE_WEEK_AGO", "THIS_MONTH", "THIS_WEEK", "TWO_MONTHS_AGO", "TWO_WEEKS_AGO"
 ]
+IssueSubEntityType = Literal["ATTACHMENTS", "COMMENTS", "WORKLOGS"]
 KeyLocationType = Literal["SECRET_MANAGER", "URL"]
 MetricTypeType = Literal[
     "AGG_QUERY_DOC_METRICS",
@@ -210,10 +223,13 @@ ScoreConfidenceType = Literal["HIGH", "LOW", "MEDIUM", "NOT_AVAILABLE", "VERY_HI
 ServiceNowAuthenticationTypeType = Literal["HTTP_BASIC", "OAUTH2"]
 ServiceNowBuildVersionTypeType = Literal["LONDON", "OTHERS"]
 SharePointVersionType = Literal["SHAREPOINT_2013", "SHAREPOINT_2016", "SHAREPOINT_ONLINE"]
+SlackEntityType = Literal["DIRECT_MESSAGE", "GROUP_MESSAGE", "PRIVATE_CHANNEL", "PUBLIC_CHANNEL"]
 SortOrderType = Literal["ASC", "DESC"]
 ThesaurusStatusType = Literal[
     "ACTIVE", "ACTIVE_BUT_UPDATE_FAILED", "CREATING", "DELETING", "FAILED", "UPDATING"
 ]
+TypeType = Literal["ON_PREMISE", "SAAS"]
 UserContextPolicyType = Literal["ATTRIBUTE_FILTER", "USER_TOKEN"]
 UserGroupResolutionModeType = Literal["AWS_SSO", "NONE"]
+WarningCodeType = Literal["QUERY_LANGUAGE_INVALID_SYNTAX"]
 WebCrawlerModeType = Literal["EVERYTHING", "HOST_ONLY", "SUBDOMAINS"]

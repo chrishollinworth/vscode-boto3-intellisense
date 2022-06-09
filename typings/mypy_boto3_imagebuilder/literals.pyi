@@ -6,9 +6,9 @@ Type annotations for imagebuilder service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_imagebuilder.literals import ComponentFormatType
+    from mypy_boto3_imagebuilder.literals import BuildTypeType
 
-    data: ComponentFormatType = "SHELL"
+    data: BuildTypeType = "IMPORT"
     ```
 """
 import sys
@@ -19,11 +19,13 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "BuildTypeType",
     "ComponentFormatType",
     "ComponentStatusType",
     "ComponentTypeType",
     "ContainerRepositoryServiceType",
     "ContainerTypeType",
+    "DiskImageFormatType",
     "EbsVolumeTypeType",
     "ImageStatusType",
     "ImageTypeType",
@@ -33,11 +35,13 @@ __all__ = (
     "PlatformType",
 )
 
+BuildTypeType = Literal["IMPORT", "SCHEDULED", "USER_INITIATED"]
 ComponentFormatType = Literal["SHELL"]
 ComponentStatusType = Literal["DEPRECATED"]
 ComponentTypeType = Literal["BUILD", "TEST"]
 ContainerRepositoryServiceType = Literal["ECR"]
 ContainerTypeType = Literal["DOCKER"]
+DiskImageFormatType = Literal["RAW", "VHD", "VMDK"]
 EbsVolumeTypeType = Literal["gp2", "gp3", "io1", "io2", "sc1", "st1", "standard"]
 ImageStatusType = Literal[
     "AVAILABLE",

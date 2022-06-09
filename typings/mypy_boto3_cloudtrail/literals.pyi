@@ -20,16 +20,19 @@ else:
 
 __all__ = (
     "EventCategoryType",
+    "EventDataStoreStatusType",
     "InsightTypeType",
     "ListPublicKeysPaginatorName",
     "ListTagsPaginatorName",
     "ListTrailsPaginatorName",
     "LookupAttributeKeyType",
     "LookupEventsPaginatorName",
+    "QueryStatusType",
     "ReadWriteTypeType",
 )
 
 EventCategoryType = Literal["insight"]
+EventDataStoreStatusType = Literal["CREATED", "ENABLED", "PENDING_DELETION"]
 InsightTypeType = Literal["ApiCallRateInsight", "ApiErrorRateInsight"]
 ListPublicKeysPaginatorName = Literal["list_public_keys"]
 ListTagsPaginatorName = Literal["list_tags"]
@@ -45,4 +48,5 @@ LookupAttributeKeyType = Literal[
     "Username",
 ]
 LookupEventsPaginatorName = Literal["lookup_events"]
+QueryStatusType = Literal["CANCELLED", "FAILED", "FINISHED", "QUEUED", "RUNNING", "TIMED_OUT"]
 ReadWriteTypeType = Literal["All", "ReadOnly", "WriteOnly"]

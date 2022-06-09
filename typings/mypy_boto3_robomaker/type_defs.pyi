@@ -1500,6 +1500,7 @@ LoggingConfigTypeDef = TypedDict(
     {
         "recordAllRosTopics": bool,
     },
+    total=False,
 )
 
 NetworkInterfaceTypeDef = TypedDict(
@@ -2162,6 +2163,7 @@ WorldExportJobSummaryTypeDef = TypedDict(
         "status": WorldExportJobStatusType,
         "createdAt": datetime,
         "worlds": List[str],
+        "outputLocation": "OutputLocationTypeDef",
     },
     total=False,
 )

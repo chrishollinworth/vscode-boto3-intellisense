@@ -23,6 +23,7 @@ __all__ = (
     "AggregatedUtterancesFilterOperatorType",
     "AggregatedUtterancesSortAttributeType",
     "AssociatedTranscriptFilterNameType",
+    "AudioRecognitionStrategyType",
     "BotAliasAvailableWaiterName",
     "BotAliasStatusType",
     "BotAvailableWaiterName",
@@ -44,6 +45,7 @@ __all__ = (
     "BotVersionSortAttributeType",
     "BuiltInIntentSortAttributeType",
     "BuiltInSlotTypeSortAttributeType",
+    "CustomVocabularyStatusType",
     "EffectType",
     "ExportFilterNameType",
     "ExportFilterOperatorType",
@@ -52,6 +54,7 @@ __all__ = (
     "ImportExportFileFormatType",
     "ImportFilterNameType",
     "ImportFilterOperatorType",
+    "ImportResourceTypeType",
     "ImportSortAttributeType",
     "ImportStatusType",
     "IntentFilterNameType",
@@ -79,6 +82,7 @@ AggregatedUtterancesFilterNameType = Literal["Utterance"]
 AggregatedUtterancesFilterOperatorType = Literal["CO", "EQ"]
 AggregatedUtterancesSortAttributeType = Literal["HitCount", "MissedCount"]
 AssociatedTranscriptFilterNameType = Literal["IntentId", "SlotTypeId"]
+AudioRecognitionStrategyType = Literal["UseSlotValuesAsCustomVocabulary"]
 BotAliasAvailableWaiterName = Literal["bot_alias_available"]
 BotAliasStatusType = Literal["Available", "Creating", "Deleting", "Failed"]
 BotAvailableWaiterName = Literal["bot_available"]
@@ -114,14 +118,16 @@ BotVersionAvailableWaiterName = Literal["bot_version_available"]
 BotVersionSortAttributeType = Literal["BotVersion"]
 BuiltInIntentSortAttributeType = Literal["IntentSignature"]
 BuiltInSlotTypeSortAttributeType = Literal["SlotTypeSignature"]
+CustomVocabularyStatusType = Literal["Creating", "Deleting", "Exporting", "Importing", "Ready"]
 EffectType = Literal["Allow", "Deny"]
 ExportFilterNameType = Literal["ExportResourceType"]
 ExportFilterOperatorType = Literal["CO", "EQ"]
 ExportSortAttributeType = Literal["LastUpdatedDateTime"]
 ExportStatusType = Literal["Completed", "Deleting", "Failed", "InProgress"]
-ImportExportFileFormatType = Literal["LexJson"]
+ImportExportFileFormatType = Literal["LexJson", "TSV"]
 ImportFilterNameType = Literal["ImportResourceType"]
 ImportFilterOperatorType = Literal["CO", "EQ"]
+ImportResourceTypeType = Literal["Bot", "BotLocale", "CustomVocabulary"]
 ImportSortAttributeType = Literal["LastUpdatedDateTime"]
 ImportStatusType = Literal["Completed", "Deleting", "Failed", "InProgress"]
 IntentFilterNameType = Literal["IntentName"]

@@ -15,12 +15,8 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Union
 
-from .literals import DetailStatusType
+from .literals import DetailStatusType, FeatureStatusType, ServiceTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -30,18 +26,29 @@ __all__ = (
     "DataPointTypeDef",
     "DescribeDimensionKeysRequestRequestTypeDef",
     "DescribeDimensionKeysResponseTypeDef",
+    "DimensionDetailTypeDef",
+    "DimensionGroupDetailTypeDef",
     "DimensionGroupTypeDef",
     "DimensionKeyDescriptionTypeDef",
     "DimensionKeyDetailTypeDef",
+    "FeatureMetadataTypeDef",
     "GetDimensionKeyDetailsRequestRequestTypeDef",
     "GetDimensionKeyDetailsResponseTypeDef",
+    "GetResourceMetadataRequestRequestTypeDef",
+    "GetResourceMetadataResponseTypeDef",
     "GetResourceMetricsRequestRequestTypeDef",
     "GetResourceMetricsResponseTypeDef",
+    "ListAvailableResourceDimensionsRequestRequestTypeDef",
+    "ListAvailableResourceDimensionsResponseTypeDef",
+    "ListAvailableResourceMetricsRequestRequestTypeDef",
+    "ListAvailableResourceMetricsResponseTypeDef",
+    "MetricDimensionGroupsTypeDef",
     "MetricKeyDataPointsTypeDef",
     "MetricQueryTypeDef",
     "ResponseMetadataTypeDef",
     "ResponsePartitionKeyTypeDef",
     "ResponseResourceMetricKeyTypeDef",
+    "ResponseResourceMetricTypeDef",
 )
 
 DataPointTypeDef = TypedDict(
@@ -55,7 +62,7 @@ DataPointTypeDef = TypedDict(
 _RequiredDescribeDimensionKeysRequestRequestTypeDef = TypedDict(
     "_RequiredDescribeDimensionKeysRequestRequestTypeDef",
     {
-        "ServiceType": Literal["RDS"],
+        "ServiceType": ServiceTypeType,
         "Identifier": str,
         "StartTime": Union[datetime, str],
         "EndTime": Union[datetime, str],
@@ -67,6 +74,7 @@ _OptionalDescribeDimensionKeysRequestRequestTypeDef = TypedDict(
     "_OptionalDescribeDimensionKeysRequestRequestTypeDef",
     {
         "PeriodInSeconds": int,
+        "AdditionalMetrics": List[str],
         "PartitionBy": "DimensionGroupTypeDef",
         "Filter": Dict[str, str],
         "MaxResults": int,
@@ -93,6 +101,23 @@ DescribeDimensionKeysResponseTypeDef = TypedDict(
     },
 )
 
+DimensionDetailTypeDef = TypedDict(
+    "DimensionDetailTypeDef",
+    {
+        "Identifier": str,
+    },
+    total=False,
+)
+
+DimensionGroupDetailTypeDef = TypedDict(
+    "DimensionGroupDetailTypeDef",
+    {
+        "Group": str,
+        "Dimensions": List["DimensionDetailTypeDef"],
+    },
+    total=False,
+)
+
 _RequiredDimensionGroupTypeDef = TypedDict(
     "_RequiredDimensionGroupTypeDef",
     {
@@ -116,6 +141,7 @@ DimensionKeyDescriptionTypeDef = TypedDict(
     {
         "Dimensions": Dict[str, str],
         "Total": float,
+        "AdditionalMetrics": Dict[str, float],
         "Partitions": List[float],
     },
     total=False,
@@ -131,10 +157,18 @@ DimensionKeyDetailTypeDef = TypedDict(
     total=False,
 )
 
+FeatureMetadataTypeDef = TypedDict(
+    "FeatureMetadataTypeDef",
+    {
+        "Status": FeatureStatusType,
+    },
+    total=False,
+)
+
 _RequiredGetDimensionKeyDetailsRequestRequestTypeDef = TypedDict(
     "_RequiredGetDimensionKeyDetailsRequestRequestTypeDef",
     {
-        "ServiceType": Literal["RDS"],
+        "ServiceType": ServiceTypeType,
         "Identifier": str,
         "Group": str,
         "GroupIdentifier": str,
@@ -162,10 +196,27 @@ GetDimensionKeyDetailsResponseTypeDef = TypedDict(
     },
 )
 
+GetResourceMetadataRequestRequestTypeDef = TypedDict(
+    "GetResourceMetadataRequestRequestTypeDef",
+    {
+        "ServiceType": ServiceTypeType,
+        "Identifier": str,
+    },
+)
+
+GetResourceMetadataResponseTypeDef = TypedDict(
+    "GetResourceMetadataResponseTypeDef",
+    {
+        "Identifier": str,
+        "Features": Dict[str, "FeatureMetadataTypeDef"],
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 _RequiredGetResourceMetricsRequestRequestTypeDef = TypedDict(
     "_RequiredGetResourceMetricsRequestRequestTypeDef",
     {
-        "ServiceType": Literal["RDS"],
+        "ServiceType": ServiceTypeType,
         "Identifier": str,
         "MetricQueries": List["MetricQueryTypeDef"],
         "StartTime": Union[datetime, str],
@@ -198,6 +249,79 @@ GetResourceMetricsResponseTypeDef = TypedDict(
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+_RequiredListAvailableResourceDimensionsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAvailableResourceDimensionsRequestRequestTypeDef",
+    {
+        "ServiceType": ServiceTypeType,
+        "Identifier": str,
+        "Metrics": List[str],
+    },
+)
+_OptionalListAvailableResourceDimensionsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAvailableResourceDimensionsRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAvailableResourceDimensionsRequestRequestTypeDef(
+    _RequiredListAvailableResourceDimensionsRequestRequestTypeDef,
+    _OptionalListAvailableResourceDimensionsRequestRequestTypeDef,
+):
+    pass
+
+ListAvailableResourceDimensionsResponseTypeDef = TypedDict(
+    "ListAvailableResourceDimensionsResponseTypeDef",
+    {
+        "MetricDimensions": List["MetricDimensionGroupsTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAvailableResourceMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAvailableResourceMetricsRequestRequestTypeDef",
+    {
+        "ServiceType": ServiceTypeType,
+        "Identifier": str,
+        "MetricTypes": List[str],
+    },
+)
+_OptionalListAvailableResourceMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAvailableResourceMetricsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class ListAvailableResourceMetricsRequestRequestTypeDef(
+    _RequiredListAvailableResourceMetricsRequestRequestTypeDef,
+    _OptionalListAvailableResourceMetricsRequestRequestTypeDef,
+):
+    pass
+
+ListAvailableResourceMetricsResponseTypeDef = TypedDict(
+    "ListAvailableResourceMetricsResponseTypeDef",
+    {
+        "Metrics": List["ResponseResourceMetricTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+MetricDimensionGroupsTypeDef = TypedDict(
+    "MetricDimensionGroupsTypeDef",
+    {
+        "Metric": str,
+        "Groups": List["DimensionGroupDetailTypeDef"],
+    },
+    total=False,
 )
 
 MetricKeyDataPointsTypeDef = TypedDict(
@@ -263,3 +387,13 @@ class ResponseResourceMetricKeyTypeDef(
     _RequiredResponseResourceMetricKeyTypeDef, _OptionalResponseResourceMetricKeyTypeDef
 ):
     pass
+
+ResponseResourceMetricTypeDef = TypedDict(
+    "ResponseResourceMetricTypeDef",
+    {
+        "Metric": str,
+        "Description": str,
+        "Unit": str,
+    },
+    total=False,
+)

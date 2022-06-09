@@ -22,6 +22,7 @@ __all__ = ("SagemakerEdgeManagerClient",)
 
 class BotocoreClientError(BaseException):
     MSG_TEMPLATE: str
+
     def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
         self.response: Dict[str, Any]
         self.operation_name: str
@@ -32,11 +33,12 @@ class Exceptions:
 
 class SagemakerEdgeManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html)
     """
 
     meta: ClientMeta
+
     @property
     def exceptions(self) -> Exceptions:
         """
@@ -46,7 +48,7 @@ class SagemakerEdgeManagerClient(BaseClient):
         """
         Check if an operation can be paginated.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.can_paginate)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#can_paginate)
         """
     def generate_presigned_url(
@@ -59,7 +61,7 @@ class SagemakerEdgeManagerClient(BaseClient):
         """
         Generate a presigned url given a client, its method, and arguments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.generate_presigned_url)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#generate_presigned_url)
         """
     def get_device_registration(
@@ -68,7 +70,7 @@ class SagemakerEdgeManagerClient(BaseClient):
         """
         Use to check if a device is registered with SageMaker Edge Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.get_device_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.get_device_registration)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#get_device_registration)
         """
     def send_heartbeat(
@@ -83,6 +85,6 @@ class SagemakerEdgeManagerClient(BaseClient):
         """
         Use to get the current status of devices registered on SageMaker Edge Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.send_heartbeat)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.send_heartbeat)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#send_heartbeat)
         """

@@ -21,6 +21,7 @@ from .literals import (
     CapabilityType,
     CategoryType,
     ChangeActionType,
+    ChangeSetHooksStatusType,
     ChangeSetStatusType,
     ChangeSetTypeType,
     ChangeSourceType,
@@ -29,6 +30,8 @@ from .literals import (
     EvaluationTypeType,
     ExecutionStatusType,
     HandlerErrorCodeType,
+    HookFailureModeType,
+    HookStatusType,
     IdentityProviderType,
     OnFailureType,
     OperationStatusType,
@@ -82,6 +85,9 @@ __all__ = (
     "BatchDescribeTypeConfigurationsOutputTypeDef",
     "CancelUpdateStackInputRequestTypeDef",
     "CancelUpdateStackInputStackTypeDef",
+    "ChangeSetHookResourceTargetDetailsTypeDef",
+    "ChangeSetHookTargetDetailsTypeDef",
+    "ChangeSetHookTypeDef",
     "ChangeSetSummaryTypeDef",
     "ChangeTypeDef",
     "ContinueUpdateRollbackInputRequestTypeDef",
@@ -105,6 +111,8 @@ __all__ = (
     "DeregisterTypeInputRequestTypeDef",
     "DescribeAccountLimitsInputRequestTypeDef",
     "DescribeAccountLimitsOutputTypeDef",
+    "DescribeChangeSetHooksInputRequestTypeDef",
+    "DescribeChangeSetHooksOutputTypeDef",
     "DescribeChangeSetInputRequestTypeDef",
     "DescribeChangeSetOutputTypeDef",
     "DescribePublisherInputRequestTypeDef",
@@ -363,6 +371,38 @@ CancelUpdateStackInputStackTypeDef = TypedDict(
     total=False,
 )
 
+ChangeSetHookResourceTargetDetailsTypeDef = TypedDict(
+    "ChangeSetHookResourceTargetDetailsTypeDef",
+    {
+        "LogicalResourceId": str,
+        "ResourceType": str,
+        "ResourceAction": ChangeActionType,
+    },
+    total=False,
+)
+
+ChangeSetHookTargetDetailsTypeDef = TypedDict(
+    "ChangeSetHookTargetDetailsTypeDef",
+    {
+        "TargetType": Literal["RESOURCE"],
+        "ResourceTargetDetails": "ChangeSetHookResourceTargetDetailsTypeDef",
+    },
+    total=False,
+)
+
+ChangeSetHookTypeDef = TypedDict(
+    "ChangeSetHookTypeDef",
+    {
+        "InvocationPoint": Literal["PRE_PROVISION"],
+        "FailureMode": HookFailureModeType,
+        "TypeName": str,
+        "TypeVersionId": str,
+        "TypeConfigurationVersionId": str,
+        "TargetDetails": "ChangeSetHookTargetDetailsTypeDef",
+    },
+    total=False,
+)
+
 ChangeSetSummaryTypeDef = TypedDict(
     "ChangeSetSummaryTypeDef",
     {
@@ -386,6 +426,7 @@ ChangeTypeDef = TypedDict(
     "ChangeTypeDef",
     {
         "Type": Literal["Resource"],
+        "HookInvocationCount": int,
         "ResourceChange": "ResourceChangeTypeDef",
     },
     total=False,
@@ -753,6 +794,42 @@ DescribeAccountLimitsOutputTypeDef = TypedDict(
     {
         "AccountLimits": List["AccountLimitTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredDescribeChangeSetHooksInputRequestTypeDef = TypedDict(
+    "_RequiredDescribeChangeSetHooksInputRequestTypeDef",
+    {
+        "ChangeSetName": str,
+    },
+)
+_OptionalDescribeChangeSetHooksInputRequestTypeDef = TypedDict(
+    "_OptionalDescribeChangeSetHooksInputRequestTypeDef",
+    {
+        "StackName": str,
+        "NextToken": str,
+        "LogicalResourceId": str,
+    },
+    total=False,
+)
+
+class DescribeChangeSetHooksInputRequestTypeDef(
+    _RequiredDescribeChangeSetHooksInputRequestTypeDef,
+    _OptionalDescribeChangeSetHooksInputRequestTypeDef,
+):
+    pass
+
+DescribeChangeSetHooksOutputTypeDef = TypedDict(
+    "DescribeChangeSetHooksOutputTypeDef",
+    {
+        "ChangeSetId": str,
+        "ChangeSetName": str,
+        "Hooks": List["ChangeSetHookTypeDef"],
+        "Status": ChangeSetHooksStatusType,
+        "NextToken": str,
+        "StackId": str,
+        "StackName": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2084,6 +2161,11 @@ _OptionalStackEventTypeDef = TypedDict(
         "ResourceStatusReason": str,
         "ResourceProperties": str,
         "ClientRequestToken": str,
+        "HookType": str,
+        "HookStatus": HookStatusType,
+        "HookStatusReason": str,
+        "HookInvocationPoint": Literal["PRE_PROVISION"],
+        "HookFailureMode": HookFailureModeType,
     },
     total=False,
 )
@@ -2346,6 +2428,7 @@ StackSetOperationSummaryTypeDef = TypedDict(
         "Status": StackSetOperationStatusType,
         "CreationTimestamp": datetime,
         "EndTimestamp": datetime,
+        "StatusReason": str,
     },
     total=False,
 )
@@ -2365,6 +2448,7 @@ StackSetOperationTypeDef = TypedDict(
         "EndTimestamp": datetime,
         "DeploymentTargets": "DeploymentTargetsTypeDef",
         "StackSetDriftDetectionDetails": "StackSetDriftDetectionDetailsTypeDef",
+        "StatusReason": str,
     },
     total=False,
 )

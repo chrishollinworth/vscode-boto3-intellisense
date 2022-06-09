@@ -27,6 +27,7 @@ Usage::
         DescribeDhcpOptionsPaginator,
         DescribeEgressOnlyInternetGatewaysPaginator,
         DescribeExportImageTasksPaginator,
+        DescribeFastLaunchImagesPaginator,
         DescribeFastSnapshotRestoresPaginator,
         DescribeFleetsPaginator,
         DescribeFlowLogsPaginator,
@@ -140,8 +141,10 @@ Usage::
         InstanceTerminatedWaiter,
         InternetGatewayExistsWaiter,
         KeyPairExistsWaiter,
+        ListImagesInRecycleBinPaginator,
         ListSnapshotsInRecycleBinPaginator,
         NatGatewayAvailableWaiter,
+        NatGatewayDeletedWaiter,
         NetworkInterfaceAvailableWaiter,
         PasswordDataAvailableWaiter,
         SearchLocalGatewayRoutesPaginator,
@@ -188,6 +191,7 @@ Usage::
     internet_gateway_exists_waiter: InternetGatewayExistsWaiter = client.get_waiter("internet_gateway_exists")
     key_pair_exists_waiter: KeyPairExistsWaiter = client.get_waiter("key_pair_exists")
     nat_gateway_available_waiter: NatGatewayAvailableWaiter = client.get_waiter("nat_gateway_available")
+    nat_gateway_deleted_waiter: NatGatewayDeletedWaiter = client.get_waiter("nat_gateway_deleted")
     network_interface_available_waiter: NetworkInterfaceAvailableWaiter = client.get_waiter("network_interface_available")
     password_data_available_waiter: PasswordDataAvailableWaiter = client.get_waiter("password_data_available")
     security_group_exists_waiter: SecurityGroupExistsWaiter = client.get_waiter("security_group_exists")
@@ -220,6 +224,7 @@ Usage::
     describe_dhcp_options_paginator: DescribeDhcpOptionsPaginator = client.get_paginator("describe_dhcp_options")
     describe_egress_only_internet_gateways_paginator: DescribeEgressOnlyInternetGatewaysPaginator = client.get_paginator("describe_egress_only_internet_gateways")
     describe_export_image_tasks_paginator: DescribeExportImageTasksPaginator = client.get_paginator("describe_export_image_tasks")
+    describe_fast_launch_images_paginator: DescribeFastLaunchImagesPaginator = client.get_paginator("describe_fast_launch_images")
     describe_fast_snapshot_restores_paginator: DescribeFastSnapshotRestoresPaginator = client.get_paginator("describe_fast_snapshot_restores")
     describe_fleets_paginator: DescribeFleetsPaginator = client.get_paginator("describe_fleets")
     describe_flow_logs_paginator: DescribeFlowLogsPaginator = client.get_paginator("describe_flow_logs")
@@ -320,6 +325,7 @@ Usage::
     get_transit_gateway_route_table_associations_paginator: GetTransitGatewayRouteTableAssociationsPaginator = client.get_paginator("get_transit_gateway_route_table_associations")
     get_transit_gateway_route_table_propagations_paginator: GetTransitGatewayRouteTablePropagationsPaginator = client.get_paginator("get_transit_gateway_route_table_propagations")
     get_vpn_connection_device_types_paginator: GetVpnConnectionDeviceTypesPaginator = client.get_paginator("get_vpn_connection_device_types")
+    list_images_in_recycle_bin_paginator: ListImagesInRecycleBinPaginator = client.get_paginator("list_images_in_recycle_bin")
     list_snapshots_in_recycle_bin_paginator: ListSnapshotsInRecycleBinPaginator = client.get_paginator("list_snapshots_in_recycle_bin")
     search_local_gateway_routes_paginator: SearchLocalGatewayRoutesPaginator = client.get_paginator("search_local_gateway_routes")
     search_transit_gateway_multicast_groups_paginator: SearchTransitGatewayMulticastGroupsPaginator = client.get_paginator("search_transit_gateway_multicast_groups")
@@ -342,6 +348,7 @@ from .paginator import (
     DescribeDhcpOptionsPaginator,
     DescribeEgressOnlyInternetGatewaysPaginator,
     DescribeExportImageTasksPaginator,
+    DescribeFastLaunchImagesPaginator,
     DescribeFastSnapshotRestoresPaginator,
     DescribeFleetsPaginator,
     DescribeFlowLogsPaginator,
@@ -442,6 +449,7 @@ from .paginator import (
     GetTransitGatewayRouteTableAssociationsPaginator,
     GetTransitGatewayRouteTablePropagationsPaginator,
     GetVpnConnectionDeviceTypesPaginator,
+    ListImagesInRecycleBinPaginator,
     ListSnapshotsInRecycleBinPaginator,
     SearchLocalGatewayRoutesPaginator,
     SearchTransitGatewayMulticastGroupsPaginator,
@@ -465,6 +473,7 @@ from .waiter import (
     InternetGatewayExistsWaiter,
     KeyPairExistsWaiter,
     NatGatewayAvailableWaiter,
+    NatGatewayDeletedWaiter,
     NetworkInterfaceAvailableWaiter,
     PasswordDataAvailableWaiter,
     SecurityGroupExistsWaiter,
@@ -509,6 +518,7 @@ __all__ = (
     "DescribeDhcpOptionsPaginator",
     "DescribeEgressOnlyInternetGatewaysPaginator",
     "DescribeExportImageTasksPaginator",
+    "DescribeFastLaunchImagesPaginator",
     "DescribeFastSnapshotRestoresPaginator",
     "DescribeFleetsPaginator",
     "DescribeFlowLogsPaginator",
@@ -622,8 +632,10 @@ __all__ = (
     "InstanceTerminatedWaiter",
     "InternetGatewayExistsWaiter",
     "KeyPairExistsWaiter",
+    "ListImagesInRecycleBinPaginator",
     "ListSnapshotsInRecycleBinPaginator",
     "NatGatewayAvailableWaiter",
+    "NatGatewayDeletedWaiter",
     "NetworkInterfaceAvailableWaiter",
     "PasswordDataAvailableWaiter",
     "SearchLocalGatewayRoutesPaginator",

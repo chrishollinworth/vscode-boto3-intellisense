@@ -19,6 +19,10 @@ from .literals import (
     APINameType,
     ChannelProtocolType,
     ChannelRoleType,
+    ChannelTypeType,
+    ConfigurationStatusType,
+    FormatType,
+    ImageSelectorTypeType,
     StatusType,
     UpdateDataRetentionOperationType,
 )
@@ -41,6 +45,10 @@ __all__ = (
     "CreateStreamOutputTypeDef",
     "DeleteSignalingChannelInputRequestTypeDef",
     "DeleteStreamInputRequestTypeDef",
+    "DescribeImageGenerationConfigurationInputRequestTypeDef",
+    "DescribeImageGenerationConfigurationOutputTypeDef",
+    "DescribeNotificationConfigurationInputRequestTypeDef",
+    "DescribeNotificationConfigurationOutputTypeDef",
     "DescribeSignalingChannelInputRequestTypeDef",
     "DescribeSignalingChannelOutputTypeDef",
     "DescribeStreamInputRequestTypeDef",
@@ -49,6 +57,8 @@ __all__ = (
     "GetDataEndpointOutputTypeDef",
     "GetSignalingChannelEndpointInputRequestTypeDef",
     "GetSignalingChannelEndpointOutputTypeDef",
+    "ImageGenerationConfigurationTypeDef",
+    "ImageGenerationDestinationConfigTypeDef",
     "ListSignalingChannelsInputRequestTypeDef",
     "ListSignalingChannelsOutputTypeDef",
     "ListStreamsInputRequestTypeDef",
@@ -57,6 +67,8 @@ __all__ = (
     "ListTagsForResourceOutputTypeDef",
     "ListTagsForStreamInputRequestTypeDef",
     "ListTagsForStreamOutputTypeDef",
+    "NotificationConfigurationTypeDef",
+    "NotificationDestinationConfigTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceEndpointListItemTypeDef",
     "ResponseMetadataTypeDef",
@@ -70,6 +82,8 @@ __all__ = (
     "UntagResourceInputRequestTypeDef",
     "UntagStreamInputRequestTypeDef",
     "UpdateDataRetentionInputRequestTypeDef",
+    "UpdateImageGenerationConfigurationInputRequestTypeDef",
+    "UpdateNotificationConfigurationInputRequestTypeDef",
     "UpdateSignalingChannelInputRequestTypeDef",
     "UpdateStreamInputRequestTypeDef",
 )
@@ -79,7 +93,7 @@ ChannelInfoTypeDef = TypedDict(
     {
         "ChannelName": str,
         "ChannelARN": str,
-        "ChannelType": Literal["SINGLE_MASTER"],
+        "ChannelType": ChannelTypeType,
         "ChannelStatus": StatusType,
         "CreationTime": datetime,
         "SingleMasterConfiguration": "SingleMasterConfigurationTypeDef",
@@ -106,7 +120,7 @@ _RequiredCreateSignalingChannelInputRequestTypeDef = TypedDict(
 _OptionalCreateSignalingChannelInputRequestTypeDef = TypedDict(
     "_OptionalCreateSignalingChannelInputRequestTypeDef",
     {
-        "ChannelType": Literal["SINGLE_MASTER"],
+        "ChannelType": ChannelTypeType,
         "SingleMasterConfiguration": "SingleMasterConfigurationTypeDef",
         "Tags": List["TagTypeDef"],
     },
@@ -196,6 +210,40 @@ class DeleteStreamInputRequestTypeDef(
     _RequiredDeleteStreamInputRequestTypeDef, _OptionalDeleteStreamInputRequestTypeDef
 ):
     pass
+
+DescribeImageGenerationConfigurationInputRequestTypeDef = TypedDict(
+    "DescribeImageGenerationConfigurationInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+DescribeImageGenerationConfigurationOutputTypeDef = TypedDict(
+    "DescribeImageGenerationConfigurationOutputTypeDef",
+    {
+        "ImageGenerationConfiguration": "ImageGenerationConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeNotificationConfigurationInputRequestTypeDef = TypedDict(
+    "DescribeNotificationConfigurationInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+    },
+    total=False,
+)
+
+DescribeNotificationConfigurationOutputTypeDef = TypedDict(
+    "DescribeNotificationConfigurationOutputTypeDef",
+    {
+        "NotificationConfiguration": "NotificationConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
 
 DescribeSignalingChannelInputRequestTypeDef = TypedDict(
     "DescribeSignalingChannelInputRequestTypeDef",
@@ -287,6 +335,39 @@ GetSignalingChannelEndpointOutputTypeDef = TypedDict(
     },
 )
 
+_RequiredImageGenerationConfigurationTypeDef = TypedDict(
+    "_RequiredImageGenerationConfigurationTypeDef",
+    {
+        "Status": ConfigurationStatusType,
+        "ImageSelectorType": ImageSelectorTypeType,
+        "DestinationConfig": "ImageGenerationDestinationConfigTypeDef",
+        "SamplingInterval": int,
+        "Format": FormatType,
+    },
+)
+_OptionalImageGenerationConfigurationTypeDef = TypedDict(
+    "_OptionalImageGenerationConfigurationTypeDef",
+    {
+        "FormatConfig": Dict[Literal["JPEGQuality"], str],
+        "WidthPixels": int,
+        "HeightPixels": int,
+    },
+    total=False,
+)
+
+class ImageGenerationConfigurationTypeDef(
+    _RequiredImageGenerationConfigurationTypeDef, _OptionalImageGenerationConfigurationTypeDef
+):
+    pass
+
+ImageGenerationDestinationConfigTypeDef = TypedDict(
+    "ImageGenerationDestinationConfigTypeDef",
+    {
+        "Uri": str,
+        "DestinationRegion": str,
+    },
+)
+
 ListSignalingChannelsInputRequestTypeDef = TypedDict(
     "ListSignalingChannelsInputRequestTypeDef",
     {
@@ -369,6 +450,21 @@ ListTagsForStreamOutputTypeDef = TypedDict(
         "NextToken": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+NotificationConfigurationTypeDef = TypedDict(
+    "NotificationConfigurationTypeDef",
+    {
+        "Status": ConfigurationStatusType,
+        "DestinationConfig": "NotificationDestinationConfigTypeDef",
+    },
+)
+
+NotificationDestinationConfigTypeDef = TypedDict(
+    "NotificationDestinationConfigTypeDef",
+    {
+        "Uri": str,
     },
 )
 
@@ -529,6 +625,26 @@ class UpdateDataRetentionInputRequestTypeDef(
     _RequiredUpdateDataRetentionInputRequestTypeDef, _OptionalUpdateDataRetentionInputRequestTypeDef
 ):
     pass
+
+UpdateImageGenerationConfigurationInputRequestTypeDef = TypedDict(
+    "UpdateImageGenerationConfigurationInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+        "ImageGenerationConfiguration": "ImageGenerationConfigurationTypeDef",
+    },
+    total=False,
+)
+
+UpdateNotificationConfigurationInputRequestTypeDef = TypedDict(
+    "UpdateNotificationConfigurationInputRequestTypeDef",
+    {
+        "StreamName": str,
+        "StreamARN": str,
+        "NotificationConfiguration": "NotificationConfigurationTypeDef",
+    },
+    total=False,
+)
 
 _RequiredUpdateSignalingChannelInputRequestTypeDef = TypedDict(
     "_RequiredUpdateSignalingChannelInputRequestTypeDef",

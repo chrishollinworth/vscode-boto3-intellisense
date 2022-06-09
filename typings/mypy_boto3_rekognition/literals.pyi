@@ -51,6 +51,7 @@ __all__ = (
     "QualityFilterType",
     "ReasonType",
     "SegmentTypeType",
+    "StreamProcessorParameterToDeleteType",
     "StreamProcessorStatusType",
     "TechnicalCueTypeType",
     "TextTypesType",
@@ -149,7 +150,10 @@ ReasonType = Literal[
     "SMALL_BOUNDING_BOX",
 ]
 SegmentTypeType = Literal["SHOT", "TECHNICAL_CUE"]
-StreamProcessorStatusType = Literal["FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING"]
+StreamProcessorParameterToDeleteType = Literal["ConnectedHomeMinConfidence", "RegionsOfInterest"]
+StreamProcessorStatusType = Literal[
+    "FAILED", "RUNNING", "STARTING", "STOPPED", "STOPPING", "UPDATING"
+]
 TechnicalCueTypeType = Literal[
     "BlackFrames", "ColorBars", "Content", "EndCredits", "OpeningCredits", "Slate", "StudioLogo"
 ]

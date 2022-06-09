@@ -24,6 +24,7 @@ from .literals import (
     GrpcRetryPolicyEventType,
     HttpMethodType,
     HttpSchemeType,
+    IpPreferenceType,
     ListenerTlsModeType,
     MeshStatusCodeType,
     PortProtocolType,
@@ -167,6 +168,7 @@ __all__ = (
     "MatchRangeTypeDef",
     "MeshDataTypeDef",
     "MeshRefTypeDef",
+    "MeshServiceDiscoveryTypeDef",
     "MeshSpecTypeDef",
     "MeshStatusTypeDef",
     "OutlierDetectionTypeDef",
@@ -289,6 +291,7 @@ _OptionalAwsCloudMapServiceDiscoveryTypeDef = TypedDict(
     "_OptionalAwsCloudMapServiceDiscoveryTypeDef",
     {
         "attributes": List["AwsCloudMapInstanceAttributeTypeDef"],
+        "ipPreference": IpPreferenceType,
     },
     total=False,
 )
@@ -966,6 +969,7 @@ _RequiredDnsServiceDiscoveryTypeDef = TypedDict(
 _OptionalDnsServiceDiscoveryTypeDef = TypedDict(
     "_OptionalDnsServiceDiscoveryTypeDef",
     {
+        "ipPreference": IpPreferenceType,
         "responseType": DnsResponseTypeType,
     },
     total=False,
@@ -1863,10 +1867,19 @@ MeshRefTypeDef = TypedDict(
     },
 )
 
+MeshServiceDiscoveryTypeDef = TypedDict(
+    "MeshServiceDiscoveryTypeDef",
+    {
+        "ipPreference": IpPreferenceType,
+    },
+    total=False,
+)
+
 MeshSpecTypeDef = TypedDict(
     "MeshSpecTypeDef",
     {
         "egressFilter": "EgressFilterTypeDef",
+        "serviceDiscovery": "MeshServiceDiscoveryTypeDef",
     },
     total=False,
 )

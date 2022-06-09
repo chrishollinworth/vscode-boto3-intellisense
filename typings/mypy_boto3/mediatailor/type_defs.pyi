@@ -23,6 +23,7 @@ from .literals import (
     PlaybackModeType,
     RelativePositionType,
     ScheduleEntryTypeType,
+    TierType,
     TypeType,
 )
 
@@ -49,6 +50,8 @@ __all__ = (
     "ConfigureLogsForPlaybackConfigurationResponseTypeDef",
     "CreateChannelRequestRequestTypeDef",
     "CreateChannelResponseTypeDef",
+    "CreateLiveSourceRequestRequestTypeDef",
+    "CreateLiveSourceResponseTypeDef",
     "CreatePrefetchScheduleRequestRequestTypeDef",
     "CreatePrefetchScheduleResponseTypeDef",
     "CreateProgramRequestRequestTypeDef",
@@ -63,6 +66,7 @@ __all__ = (
     "DefaultSegmentDeliveryConfigurationTypeDef",
     "DeleteChannelPolicyRequestRequestTypeDef",
     "DeleteChannelRequestRequestTypeDef",
+    "DeleteLiveSourceRequestRequestTypeDef",
     "DeletePlaybackConfigurationRequestRequestTypeDef",
     "DeletePrefetchScheduleRequestRequestTypeDef",
     "DeleteProgramRequestRequestTypeDef",
@@ -70,6 +74,8 @@ __all__ = (
     "DeleteVodSourceRequestRequestTypeDef",
     "DescribeChannelRequestRequestTypeDef",
     "DescribeChannelResponseTypeDef",
+    "DescribeLiveSourceRequestRequestTypeDef",
+    "DescribeLiveSourceResponseTypeDef",
     "DescribeProgramRequestRequestTypeDef",
     "DescribeProgramResponseTypeDef",
     "DescribeSourceLocationRequestRequestTypeDef",
@@ -92,6 +98,8 @@ __all__ = (
     "ListAlertsResponseTypeDef",
     "ListChannelsRequestRequestTypeDef",
     "ListChannelsResponseTypeDef",
+    "ListLiveSourcesRequestRequestTypeDef",
+    "ListLiveSourcesResponseTypeDef",
     "ListPlaybackConfigurationsRequestRequestTypeDef",
     "ListPlaybackConfigurationsResponseTypeDef",
     "ListPrefetchSchedulesRequestRequestTypeDef",
@@ -103,6 +111,7 @@ __all__ = (
     "ListVodSourcesRequestRequestTypeDef",
     "ListVodSourcesResponseTypeDef",
     "LivePreRollConfigurationTypeDef",
+    "LiveSourceTypeDef",
     "LogConfigurationTypeDef",
     "ManifestProcessingRulesTypeDef",
     "PaginatorConfigTypeDef",
@@ -120,6 +129,7 @@ __all__ = (
     "ScheduleConfigurationTypeDef",
     "ScheduleEntryTypeDef",
     "SecretsManagerAccessTokenConfigurationTypeDef",
+    "SegmentDeliveryConfigurationTypeDef",
     "SlateSourceTypeDef",
     "SourceLocationTypeDef",
     "SpliceInsertMessageTypeDef",
@@ -130,6 +140,8 @@ __all__ = (
     "UntagResourceRequestRequestTypeDef",
     "UpdateChannelRequestRequestTypeDef",
     "UpdateChannelResponseTypeDef",
+    "UpdateLiveSourceRequestRequestTypeDef",
+    "UpdateLiveSourceResponseTypeDef",
     "UpdateSourceLocationRequestRequestTypeDef",
     "UpdateSourceLocationResponseTypeDef",
     "UpdateVodSourceRequestRequestTypeDef",
@@ -219,6 +231,7 @@ _RequiredChannelTypeDef = TypedDict(
         "ChannelState": str,
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
+        "Tier": str,
     },
 )
 _OptionalChannelTypeDef = TypedDict(
@@ -265,6 +278,7 @@ _OptionalCreateChannelRequestRequestTypeDef = TypedDict(
     {
         "FillerSlate": "SlateSourceTypeDef",
         "Tags": Dict[str, str],
+        "Tier": TierType,
     },
     total=False,
 )
@@ -285,6 +299,42 @@ CreateChannelResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
+        "Tags": Dict[str, str],
+        "Tier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredCreateLiveSourceRequestRequestTypeDef = TypedDict(
+    "_RequiredCreateLiveSourceRequestRequestTypeDef",
+    {
+        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
+        "LiveSourceName": str,
+        "SourceLocationName": str,
+    },
+)
+_OptionalCreateLiveSourceRequestRequestTypeDef = TypedDict(
+    "_OptionalCreateLiveSourceRequestRequestTypeDef",
+    {
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class CreateLiveSourceRequestRequestTypeDef(
+    _RequiredCreateLiveSourceRequestRequestTypeDef, _OptionalCreateLiveSourceRequestRequestTypeDef
+):
+    pass
+
+CreateLiveSourceResponseTypeDef = TypedDict(
+    "CreateLiveSourceResponseTypeDef",
+    {
+        "Arn": str,
+        "CreationTime": datetime,
+        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
+        "LastModifiedTime": datetime,
+        "LiveSourceName": str,
+        "SourceLocationName": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -333,13 +383,14 @@ _RequiredCreateProgramRequestRequestTypeDef = TypedDict(
         "ProgramName": str,
         "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
         "SourceLocationName": str,
-        "VodSourceName": str,
     },
 )
 _OptionalCreateProgramRequestRequestTypeDef = TypedDict(
     "_OptionalCreateProgramRequestRequestTypeDef",
     {
         "AdBreaks": List["AdBreakTypeDef"],
+        "LiveSourceName": str,
+        "VodSourceName": str,
     },
     total=False,
 )
@@ -356,6 +407,7 @@ CreateProgramResponseTypeDef = TypedDict(
         "Arn": str,
         "ChannelName": str,
         "CreationTime": datetime,
+        "LiveSourceName": str,
         "ProgramName": str,
         "ScheduledStartTime": datetime,
         "SourceLocationName": str,
@@ -376,6 +428,7 @@ _OptionalCreateSourceLocationRequestRequestTypeDef = TypedDict(
     {
         "AccessConfiguration": "AccessConfigurationTypeDef",
         "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
+        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
         "Tags": Dict[str, str],
     },
     total=False,
@@ -396,6 +449,7 @@ CreateSourceLocationResponseTypeDef = TypedDict(
         "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
         "HttpConfiguration": "HttpConfigurationTypeDef",
         "LastModifiedTime": datetime,
+        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
         "SourceLocationName": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -489,6 +543,14 @@ DeleteChannelRequestRequestTypeDef = TypedDict(
     },
 )
 
+DeleteLiveSourceRequestRequestTypeDef = TypedDict(
+    "DeleteLiveSourceRequestRequestTypeDef",
+    {
+        "LiveSourceName": str,
+        "SourceLocationName": str,
+    },
+)
+
 DeletePlaybackConfigurationRequestRequestTypeDef = TypedDict(
     "DeletePlaybackConfigurationRequestRequestTypeDef",
     {
@@ -546,6 +608,29 @@ DescribeChannelResponseTypeDef = TypedDict(
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
         "Tags": Dict[str, str],
+        "Tier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DescribeLiveSourceRequestRequestTypeDef = TypedDict(
+    "DescribeLiveSourceRequestRequestTypeDef",
+    {
+        "LiveSourceName": str,
+        "SourceLocationName": str,
+    },
+)
+
+DescribeLiveSourceResponseTypeDef = TypedDict(
+    "DescribeLiveSourceResponseTypeDef",
+    {
+        "Arn": str,
+        "CreationTime": datetime,
+        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
+        "LastModifiedTime": datetime,
+        "LiveSourceName": str,
+        "SourceLocationName": str,
+        "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -565,6 +650,7 @@ DescribeProgramResponseTypeDef = TypedDict(
         "Arn": str,
         "ChannelName": str,
         "CreationTime": datetime,
+        "LiveSourceName": str,
         "ProgramName": str,
         "ScheduledStartTime": datetime,
         "SourceLocationName": str,
@@ -589,6 +675,7 @@ DescribeSourceLocationResponseTypeDef = TypedDict(
         "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
         "HttpConfiguration": "HttpConfigurationTypeDef",
         "LastModifiedTime": datetime,
+        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
         "SourceLocationName": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
@@ -796,6 +883,35 @@ ListChannelsResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredListLiveSourcesRequestRequestTypeDef = TypedDict(
+    "_RequiredListLiveSourcesRequestRequestTypeDef",
+    {
+        "SourceLocationName": str,
+    },
+)
+_OptionalListLiveSourcesRequestRequestTypeDef = TypedDict(
+    "_OptionalListLiveSourcesRequestRequestTypeDef",
+    {
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListLiveSourcesRequestRequestTypeDef(
+    _RequiredListLiveSourcesRequestRequestTypeDef, _OptionalListLiveSourcesRequestRequestTypeDef
+):
+    pass
+
+ListLiveSourcesResponseTypeDef = TypedDict(
+    "ListLiveSourcesResponseTypeDef",
+    {
+        "Items": List["LiveSourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ListPlaybackConfigurationsRequestRequestTypeDef = TypedDict(
     "ListPlaybackConfigurationsRequestRequestTypeDef",
     {
@@ -915,6 +1031,28 @@ LivePreRollConfigurationTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredLiveSourceTypeDef = TypedDict(
+    "_RequiredLiveSourceTypeDef",
+    {
+        "Arn": str,
+        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
+        "LiveSourceName": str,
+        "SourceLocationName": str,
+    },
+)
+_OptionalLiveSourceTypeDef = TypedDict(
+    "_OptionalLiveSourceTypeDef",
+    {
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+class LiveSourceTypeDef(_RequiredLiveSourceTypeDef, _OptionalLiveSourceTypeDef):
+    pass
 
 LogConfigurationTypeDef = TypedDict(
     "LogConfigurationTypeDef",
@@ -1162,7 +1300,6 @@ _RequiredScheduleEntryTypeDef = TypedDict(
         "ChannelName": str,
         "ProgramName": str,
         "SourceLocationName": str,
-        "VodSourceName": str,
     },
 )
 _OptionalScheduleEntryTypeDef = TypedDict(
@@ -1170,8 +1307,10 @@ _OptionalScheduleEntryTypeDef = TypedDict(
     {
         "ApproximateDurationSeconds": int,
         "ApproximateStartTime": datetime,
+        "LiveSourceName": str,
         "ScheduleAdBreaks": List["ScheduleAdBreakTypeDef"],
         "ScheduleEntryType": ScheduleEntryTypeType,
+        "VodSourceName": str,
     },
     total=False,
 )
@@ -1185,6 +1324,15 @@ SecretsManagerAccessTokenConfigurationTypeDef = TypedDict(
         "HeaderName": str,
         "SecretArn": str,
         "SecretStringKey": str,
+    },
+    total=False,
+)
+
+SegmentDeliveryConfigurationTypeDef = TypedDict(
+    "SegmentDeliveryConfigurationTypeDef",
+    {
+        "BaseUrl": str,
+        "Name": str,
     },
     total=False,
 )
@@ -1213,6 +1361,7 @@ _OptionalSourceLocationTypeDef = TypedDict(
         "CreationTime": datetime,
         "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
         "LastModifiedTime": datetime,
+        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
         "Tags": Dict[str, str],
     },
     total=False,
@@ -1264,6 +1413,7 @@ _RequiredTransitionTypeDef = TypedDict(
 _OptionalTransitionTypeDef = TypedDict(
     "_OptionalTransitionTypeDef",
     {
+        "DurationMillis": int,
         "RelativeProgram": str,
         "ScheduledStartTimeMillis": int,
     },
@@ -1281,13 +1431,25 @@ UntagResourceRequestRequestTypeDef = TypedDict(
     },
 )
 
-UpdateChannelRequestRequestTypeDef = TypedDict(
-    "UpdateChannelRequestRequestTypeDef",
+_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdateChannelRequestRequestTypeDef",
     {
         "ChannelName": str,
         "Outputs": List["RequestOutputItemTypeDef"],
     },
 )
+_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdateChannelRequestRequestTypeDef",
+    {
+        "FillerSlate": "SlateSourceTypeDef",
+    },
+    total=False,
+)
+
+class UpdateChannelRequestRequestTypeDef(
+    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
+):
+    pass
 
 UpdateChannelResponseTypeDef = TypedDict(
     "UpdateChannelResponseTypeDef",
@@ -1300,6 +1462,30 @@ UpdateChannelResponseTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "Outputs": List["ResponseOutputItemTypeDef"],
         "PlaybackMode": str,
+        "Tags": Dict[str, str],
+        "Tier": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+UpdateLiveSourceRequestRequestTypeDef = TypedDict(
+    "UpdateLiveSourceRequestRequestTypeDef",
+    {
+        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
+        "LiveSourceName": str,
+        "SourceLocationName": str,
+    },
+)
+
+UpdateLiveSourceResponseTypeDef = TypedDict(
+    "UpdateLiveSourceResponseTypeDef",
+    {
+        "Arn": str,
+        "CreationTime": datetime,
+        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
+        "LastModifiedTime": datetime,
+        "LiveSourceName": str,
+        "SourceLocationName": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -1317,6 +1503,7 @@ _OptionalUpdateSourceLocationRequestRequestTypeDef = TypedDict(
     {
         "AccessConfiguration": "AccessConfigurationTypeDef",
         "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
+        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
     },
     total=False,
 )
@@ -1336,6 +1523,7 @@ UpdateSourceLocationResponseTypeDef = TypedDict(
         "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
         "HttpConfiguration": "HttpConfigurationTypeDef",
         "LastModifiedTime": datetime,
+        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
         "SourceLocationName": str,
         "Tags": Dict[str, str],
         "ResponseMetadata": "ResponseMetadataTypeDef",

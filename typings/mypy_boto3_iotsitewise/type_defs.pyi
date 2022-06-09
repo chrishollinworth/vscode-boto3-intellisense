@@ -22,6 +22,10 @@ from .literals import (
     AssetModelStateType,
     AssetStateType,
     AuthModeType,
+    BatchEntryCompletionStatusType,
+    BatchGetAssetPropertyAggregatesErrorCodeType,
+    BatchGetAssetPropertyValueErrorCodeType,
+    BatchGetAssetPropertyValueHistoryErrorCodeType,
     BatchPutAssetPropertyValueErrorCodeType,
     CapabilitySyncStatusType,
     ComputeLocationType,
@@ -86,6 +90,27 @@ __all__ = (
     "BatchAssociateProjectAssetsResponseTypeDef",
     "BatchDisassociateProjectAssetsRequestRequestTypeDef",
     "BatchDisassociateProjectAssetsResponseTypeDef",
+    "BatchGetAssetPropertyAggregatesEntryTypeDef",
+    "BatchGetAssetPropertyAggregatesErrorEntryTypeDef",
+    "BatchGetAssetPropertyAggregatesErrorInfoTypeDef",
+    "BatchGetAssetPropertyAggregatesRequestRequestTypeDef",
+    "BatchGetAssetPropertyAggregatesResponseTypeDef",
+    "BatchGetAssetPropertyAggregatesSkippedEntryTypeDef",
+    "BatchGetAssetPropertyAggregatesSuccessEntryTypeDef",
+    "BatchGetAssetPropertyValueEntryTypeDef",
+    "BatchGetAssetPropertyValueErrorEntryTypeDef",
+    "BatchGetAssetPropertyValueErrorInfoTypeDef",
+    "BatchGetAssetPropertyValueHistoryEntryTypeDef",
+    "BatchGetAssetPropertyValueHistoryErrorEntryTypeDef",
+    "BatchGetAssetPropertyValueHistoryErrorInfoTypeDef",
+    "BatchGetAssetPropertyValueHistoryRequestRequestTypeDef",
+    "BatchGetAssetPropertyValueHistoryResponseTypeDef",
+    "BatchGetAssetPropertyValueHistorySkippedEntryTypeDef",
+    "BatchGetAssetPropertyValueHistorySuccessEntryTypeDef",
+    "BatchGetAssetPropertyValueRequestRequestTypeDef",
+    "BatchGetAssetPropertyValueResponseTypeDef",
+    "BatchGetAssetPropertyValueSkippedEntryTypeDef",
+    "BatchGetAssetPropertyValueSuccessEntryTypeDef",
     "BatchPutAssetPropertyErrorEntryTypeDef",
     "BatchPutAssetPropertyErrorTypeDef",
     "BatchPutAssetPropertyValueRequestRequestTypeDef",
@@ -597,8 +622,8 @@ _OptionalAssetStatusTypeDef = TypedDict(
 class AssetStatusTypeDef(_RequiredAssetStatusTypeDef, _OptionalAssetStatusTypeDef):
     pass
 
-AssetSummaryTypeDef = TypedDict(
-    "AssetSummaryTypeDef",
+_RequiredAssetSummaryTypeDef = TypedDict(
+    "_RequiredAssetSummaryTypeDef",
     {
         "id": str,
         "arn": str,
@@ -610,6 +635,16 @@ AssetSummaryTypeDef = TypedDict(
         "hierarchies": List["AssetHierarchyTypeDef"],
     },
 )
+_OptionalAssetSummaryTypeDef = TypedDict(
+    "_OptionalAssetSummaryTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class AssetSummaryTypeDef(_RequiredAssetSummaryTypeDef, _OptionalAssetSummaryTypeDef):
+    pass
 
 _RequiredAssociateAssetsRequestRequestTypeDef = TypedDict(
     "_RequiredAssociateAssetsRequestRequestTypeDef",
@@ -654,8 +689,8 @@ class AssociateTimeSeriesToAssetPropertyRequestRequestTypeDef(
 ):
     pass
 
-AssociatedAssetsSummaryTypeDef = TypedDict(
-    "AssociatedAssetsSummaryTypeDef",
+_RequiredAssociatedAssetsSummaryTypeDef = TypedDict(
+    "_RequiredAssociatedAssetsSummaryTypeDef",
     {
         "id": str,
         "arn": str,
@@ -667,6 +702,18 @@ AssociatedAssetsSummaryTypeDef = TypedDict(
         "hierarchies": List["AssetHierarchyTypeDef"],
     },
 )
+_OptionalAssociatedAssetsSummaryTypeDef = TypedDict(
+    "_OptionalAssociatedAssetsSummaryTypeDef",
+    {
+        "description": str,
+    },
+    total=False,
+)
+
+class AssociatedAssetsSummaryTypeDef(
+    _RequiredAssociatedAssetsSummaryTypeDef, _OptionalAssociatedAssetsSummaryTypeDef
+):
+    pass
 
 AttributeTypeDef = TypedDict(
     "AttributeTypeDef",
@@ -733,6 +780,326 @@ BatchDisassociateProjectAssetsResponseTypeDef = TypedDict(
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
+
+_RequiredBatchGetAssetPropertyAggregatesEntryTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyAggregatesEntryTypeDef",
+    {
+        "entryId": str,
+        "aggregateTypes": List[AggregateTypeType],
+        "resolution": str,
+        "startDate": Union[datetime, str],
+        "endDate": Union[datetime, str],
+    },
+)
+_OptionalBatchGetAssetPropertyAggregatesEntryTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyAggregatesEntryTypeDef",
+    {
+        "assetId": str,
+        "propertyId": str,
+        "propertyAlias": str,
+        "qualities": List[QualityType],
+        "timeOrdering": TimeOrderingType,
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyAggregatesEntryTypeDef(
+    _RequiredBatchGetAssetPropertyAggregatesEntryTypeDef,
+    _OptionalBatchGetAssetPropertyAggregatesEntryTypeDef,
+):
+    pass
+
+BatchGetAssetPropertyAggregatesErrorEntryTypeDef = TypedDict(
+    "BatchGetAssetPropertyAggregatesErrorEntryTypeDef",
+    {
+        "errorCode": BatchGetAssetPropertyAggregatesErrorCodeType,
+        "errorMessage": str,
+        "entryId": str,
+    },
+)
+
+BatchGetAssetPropertyAggregatesErrorInfoTypeDef = TypedDict(
+    "BatchGetAssetPropertyAggregatesErrorInfoTypeDef",
+    {
+        "errorCode": BatchGetAssetPropertyAggregatesErrorCodeType,
+        "errorTimestamp": datetime,
+    },
+)
+
+_RequiredBatchGetAssetPropertyAggregatesRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyAggregatesRequestRequestTypeDef",
+    {
+        "entries": List["BatchGetAssetPropertyAggregatesEntryTypeDef"],
+    },
+)
+_OptionalBatchGetAssetPropertyAggregatesRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyAggregatesRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyAggregatesRequestRequestTypeDef(
+    _RequiredBatchGetAssetPropertyAggregatesRequestRequestTypeDef,
+    _OptionalBatchGetAssetPropertyAggregatesRequestRequestTypeDef,
+):
+    pass
+
+BatchGetAssetPropertyAggregatesResponseTypeDef = TypedDict(
+    "BatchGetAssetPropertyAggregatesResponseTypeDef",
+    {
+        "errorEntries": List["BatchGetAssetPropertyAggregatesErrorEntryTypeDef"],
+        "successEntries": List["BatchGetAssetPropertyAggregatesSuccessEntryTypeDef"],
+        "skippedEntries": List["BatchGetAssetPropertyAggregatesSkippedEntryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredBatchGetAssetPropertyAggregatesSkippedEntryTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyAggregatesSkippedEntryTypeDef",
+    {
+        "entryId": str,
+        "completionStatus": BatchEntryCompletionStatusType,
+    },
+)
+_OptionalBatchGetAssetPropertyAggregatesSkippedEntryTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyAggregatesSkippedEntryTypeDef",
+    {
+        "errorInfo": "BatchGetAssetPropertyAggregatesErrorInfoTypeDef",
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyAggregatesSkippedEntryTypeDef(
+    _RequiredBatchGetAssetPropertyAggregatesSkippedEntryTypeDef,
+    _OptionalBatchGetAssetPropertyAggregatesSkippedEntryTypeDef,
+):
+    pass
+
+BatchGetAssetPropertyAggregatesSuccessEntryTypeDef = TypedDict(
+    "BatchGetAssetPropertyAggregatesSuccessEntryTypeDef",
+    {
+        "entryId": str,
+        "aggregatedValues": List["AggregatedValueTypeDef"],
+    },
+)
+
+_RequiredBatchGetAssetPropertyValueEntryTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyValueEntryTypeDef",
+    {
+        "entryId": str,
+    },
+)
+_OptionalBatchGetAssetPropertyValueEntryTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyValueEntryTypeDef",
+    {
+        "assetId": str,
+        "propertyId": str,
+        "propertyAlias": str,
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyValueEntryTypeDef(
+    _RequiredBatchGetAssetPropertyValueEntryTypeDef, _OptionalBatchGetAssetPropertyValueEntryTypeDef
+):
+    pass
+
+BatchGetAssetPropertyValueErrorEntryTypeDef = TypedDict(
+    "BatchGetAssetPropertyValueErrorEntryTypeDef",
+    {
+        "errorCode": BatchGetAssetPropertyValueErrorCodeType,
+        "errorMessage": str,
+        "entryId": str,
+    },
+)
+
+BatchGetAssetPropertyValueErrorInfoTypeDef = TypedDict(
+    "BatchGetAssetPropertyValueErrorInfoTypeDef",
+    {
+        "errorCode": BatchGetAssetPropertyValueErrorCodeType,
+        "errorTimestamp": datetime,
+    },
+)
+
+_RequiredBatchGetAssetPropertyValueHistoryEntryTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyValueHistoryEntryTypeDef",
+    {
+        "entryId": str,
+    },
+)
+_OptionalBatchGetAssetPropertyValueHistoryEntryTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyValueHistoryEntryTypeDef",
+    {
+        "assetId": str,
+        "propertyId": str,
+        "propertyAlias": str,
+        "startDate": Union[datetime, str],
+        "endDate": Union[datetime, str],
+        "qualities": List[QualityType],
+        "timeOrdering": TimeOrderingType,
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyValueHistoryEntryTypeDef(
+    _RequiredBatchGetAssetPropertyValueHistoryEntryTypeDef,
+    _OptionalBatchGetAssetPropertyValueHistoryEntryTypeDef,
+):
+    pass
+
+BatchGetAssetPropertyValueHistoryErrorEntryTypeDef = TypedDict(
+    "BatchGetAssetPropertyValueHistoryErrorEntryTypeDef",
+    {
+        "errorCode": BatchGetAssetPropertyValueHistoryErrorCodeType,
+        "errorMessage": str,
+        "entryId": str,
+    },
+)
+
+BatchGetAssetPropertyValueHistoryErrorInfoTypeDef = TypedDict(
+    "BatchGetAssetPropertyValueHistoryErrorInfoTypeDef",
+    {
+        "errorCode": BatchGetAssetPropertyValueHistoryErrorCodeType,
+        "errorTimestamp": datetime,
+    },
+)
+
+_RequiredBatchGetAssetPropertyValueHistoryRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyValueHistoryRequestRequestTypeDef",
+    {
+        "entries": List["BatchGetAssetPropertyValueHistoryEntryTypeDef"],
+    },
+)
+_OptionalBatchGetAssetPropertyValueHistoryRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyValueHistoryRequestRequestTypeDef",
+    {
+        "nextToken": str,
+        "maxResults": int,
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyValueHistoryRequestRequestTypeDef(
+    _RequiredBatchGetAssetPropertyValueHistoryRequestRequestTypeDef,
+    _OptionalBatchGetAssetPropertyValueHistoryRequestRequestTypeDef,
+):
+    pass
+
+BatchGetAssetPropertyValueHistoryResponseTypeDef = TypedDict(
+    "BatchGetAssetPropertyValueHistoryResponseTypeDef",
+    {
+        "errorEntries": List["BatchGetAssetPropertyValueHistoryErrorEntryTypeDef"],
+        "successEntries": List["BatchGetAssetPropertyValueHistorySuccessEntryTypeDef"],
+        "skippedEntries": List["BatchGetAssetPropertyValueHistorySkippedEntryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredBatchGetAssetPropertyValueHistorySkippedEntryTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyValueHistorySkippedEntryTypeDef",
+    {
+        "entryId": str,
+        "completionStatus": BatchEntryCompletionStatusType,
+    },
+)
+_OptionalBatchGetAssetPropertyValueHistorySkippedEntryTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyValueHistorySkippedEntryTypeDef",
+    {
+        "errorInfo": "BatchGetAssetPropertyValueHistoryErrorInfoTypeDef",
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyValueHistorySkippedEntryTypeDef(
+    _RequiredBatchGetAssetPropertyValueHistorySkippedEntryTypeDef,
+    _OptionalBatchGetAssetPropertyValueHistorySkippedEntryTypeDef,
+):
+    pass
+
+BatchGetAssetPropertyValueHistorySuccessEntryTypeDef = TypedDict(
+    "BatchGetAssetPropertyValueHistorySuccessEntryTypeDef",
+    {
+        "entryId": str,
+        "assetPropertyValueHistory": List["AssetPropertyValueTypeDef"],
+    },
+)
+
+_RequiredBatchGetAssetPropertyValueRequestRequestTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyValueRequestRequestTypeDef",
+    {
+        "entries": List["BatchGetAssetPropertyValueEntryTypeDef"],
+    },
+)
+_OptionalBatchGetAssetPropertyValueRequestRequestTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyValueRequestRequestTypeDef",
+    {
+        "nextToken": str,
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyValueRequestRequestTypeDef(
+    _RequiredBatchGetAssetPropertyValueRequestRequestTypeDef,
+    _OptionalBatchGetAssetPropertyValueRequestRequestTypeDef,
+):
+    pass
+
+BatchGetAssetPropertyValueResponseTypeDef = TypedDict(
+    "BatchGetAssetPropertyValueResponseTypeDef",
+    {
+        "errorEntries": List["BatchGetAssetPropertyValueErrorEntryTypeDef"],
+        "successEntries": List["BatchGetAssetPropertyValueSuccessEntryTypeDef"],
+        "skippedEntries": List["BatchGetAssetPropertyValueSkippedEntryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredBatchGetAssetPropertyValueSkippedEntryTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyValueSkippedEntryTypeDef",
+    {
+        "entryId": str,
+        "completionStatus": BatchEntryCompletionStatusType,
+    },
+)
+_OptionalBatchGetAssetPropertyValueSkippedEntryTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyValueSkippedEntryTypeDef",
+    {
+        "errorInfo": "BatchGetAssetPropertyValueErrorInfoTypeDef",
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyValueSkippedEntryTypeDef(
+    _RequiredBatchGetAssetPropertyValueSkippedEntryTypeDef,
+    _OptionalBatchGetAssetPropertyValueSkippedEntryTypeDef,
+):
+    pass
+
+_RequiredBatchGetAssetPropertyValueSuccessEntryTypeDef = TypedDict(
+    "_RequiredBatchGetAssetPropertyValueSuccessEntryTypeDef",
+    {
+        "entryId": str,
+    },
+)
+_OptionalBatchGetAssetPropertyValueSuccessEntryTypeDef = TypedDict(
+    "_OptionalBatchGetAssetPropertyValueSuccessEntryTypeDef",
+    {
+        "assetPropertyValue": "AssetPropertyValueTypeDef",
+    },
+    total=False,
+)
+
+class BatchGetAssetPropertyValueSuccessEntryTypeDef(
+    _RequiredBatchGetAssetPropertyValueSuccessEntryTypeDef,
+    _OptionalBatchGetAssetPropertyValueSuccessEntryTypeDef,
+):
+    pass
 
 BatchPutAssetPropertyErrorEntryTypeDef = TypedDict(
     "BatchPutAssetPropertyErrorEntryTypeDef",
@@ -880,6 +1247,7 @@ _OptionalCreateAssetRequestRequestTypeDef = TypedDict(
     {
         "clientToken": str,
         "tags": Dict[str, str],
+        "assetDescription": str,
     },
     total=False,
 )
@@ -1300,6 +1668,7 @@ DescribeAssetResponseTypeDef = TypedDict(
         "assetCreationDate": datetime,
         "assetLastUpdateDate": datetime,
         "assetStatus": "AssetStatusTypeDef",
+        "assetDescription": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -2598,6 +2967,7 @@ _OptionalUpdateAssetRequestRequestTypeDef = TypedDict(
     "_OptionalUpdateAssetRequestRequestTypeDef",
     {
         "clientToken": str,
+        "assetDescription": str,
     },
     total=False,
 )

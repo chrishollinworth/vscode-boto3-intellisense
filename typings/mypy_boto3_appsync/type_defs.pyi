@@ -420,6 +420,7 @@ _OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
         "requestMappingTemplate": str,
         "responseMappingTemplate": str,
         "syncConfig": "SyncConfigTypeDef",
+        "maxBatchSize": int,
     },
     total=False,
 )
@@ -489,6 +490,7 @@ _OptionalCreateResolverRequestRequestTypeDef = TypedDict(
         "pipelineConfig": "PipelineConfigTypeDef",
         "syncConfig": "SyncConfigTypeDef",
         "cachingConfig": "CachingConfigTypeDef",
+        "maxBatchSize": int,
     },
     total=False,
 )
@@ -681,6 +683,7 @@ FunctionConfigurationTypeDef = TypedDict(
         "responseMappingTemplate": str,
         "functionVersion": str,
         "syncConfig": "SyncConfigTypeDef",
+        "maxBatchSize": int,
     },
     total=False,
 )
@@ -1248,6 +1251,7 @@ ResolverTypeDef = TypedDict(
         "pipelineConfig": "PipelineConfigTypeDef",
         "syncConfig": "SyncConfigTypeDef",
         "cachingConfig": "CachingConfigTypeDef",
+        "maxBatchSize": int,
     },
     total=False,
 )
@@ -1444,6 +1448,7 @@ _OptionalUpdateFunctionRequestRequestTypeDef = TypedDict(
         "requestMappingTemplate": str,
         "responseMappingTemplate": str,
         "syncConfig": "SyncConfigTypeDef",
+        "maxBatchSize": int,
     },
     total=False,
 )
@@ -1513,6 +1518,7 @@ _OptionalUpdateResolverRequestRequestTypeDef = TypedDict(
         "pipelineConfig": "PipelineConfigTypeDef",
         "syncConfig": "SyncConfigTypeDef",
         "cachingConfig": "CachingConfigTypeDef",
+        "maxBatchSize": int,
     },
     total=False,
 )

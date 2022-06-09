@@ -24,6 +24,7 @@ __all__ = (
     "BucketLocationConstraintType",
     "ExpirationStatusType",
     "FormatType",
+    "GeneratedManifestFormatType",
     "JobManifestFieldNameType",
     "JobManifestFormatType",
     "JobReportFormatType",
@@ -36,8 +37,10 @@ __all__ = (
     "ObjectLambdaTransformationConfigurationActionType",
     "OperationNameType",
     "OutputSchemaVersionType",
+    "ReplicationStatusType",
     "RequestedJobStatusType",
     "S3CannedAccessControlListType",
+    "S3ChecksumAlgorithmType",
     "S3GlacierJobTierType",
     "S3GranteeTypeIdentifierType",
     "S3MetadataDirectiveType",
@@ -71,6 +74,7 @@ BucketLocationConstraintType = Literal[
 ]
 ExpirationStatusType = Literal["Disabled", "Enabled"]
 FormatType = Literal["CSV", "Parquet"]
+GeneratedManifestFormatType = Literal["S3InventoryReport_CSV_20211130"]
 JobManifestFieldNameType = Literal["Bucket", "Ignore", "Key", "VersionId"]
 JobManifestFormatType = Literal["S3BatchOperations_CSV_20180820", "S3InventoryReport_CSV_20161130"]
 JobReportFormatType = Literal["Report_CSV_20180820"]
@@ -111,8 +115,10 @@ OperationNameType = Literal[
     "S3PutObjectLegalHold",
     "S3PutObjectRetention",
     "S3PutObjectTagging",
+    "S3ReplicateObject",
 ]
 OutputSchemaVersionType = Literal["V_1"]
+ReplicationStatusType = Literal["COMPLETED", "FAILED", "NONE", "REPLICA"]
 RequestedJobStatusType = Literal["Cancelled", "Ready"]
 S3CannedAccessControlListType = Literal[
     "authenticated-read",
@@ -123,6 +129,7 @@ S3CannedAccessControlListType = Literal[
     "public-read",
     "public-read-write",
 ]
+S3ChecksumAlgorithmType = Literal["CRC32", "CRC32C", "SHA1", "SHA256"]
 S3GlacierJobTierType = Literal["BULK", "STANDARD"]
 S3GranteeTypeIdentifierType = Literal["emailAddress", "id", "uri"]
 S3MetadataDirectiveType = Literal["COPY", "REPLACE"]
@@ -132,7 +139,13 @@ S3ObjectLockRetentionModeType = Literal["COMPLIANCE", "GOVERNANCE"]
 S3PermissionType = Literal["FULL_CONTROL", "READ", "READ_ACP", "WRITE", "WRITE_ACP"]
 S3SSEAlgorithmType = Literal["AES256", "KMS"]
 S3StorageClassType = Literal[
-    "DEEP_ARCHIVE", "GLACIER", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD", "STANDARD_IA"
+    "DEEP_ARCHIVE",
+    "GLACIER",
+    "GLACIER_IR",
+    "INTELLIGENT_TIERING",
+    "ONEZONE_IA",
+    "STANDARD",
+    "STANDARD_IA",
 ]
 TransitionStorageClassType = Literal[
     "DEEP_ARCHIVE", "GLACIER", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA"

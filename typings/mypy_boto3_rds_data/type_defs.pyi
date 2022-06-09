@@ -16,7 +16,7 @@ from typing import IO, Any, Dict, List, Union
 
 from botocore.response import StreamingBody
 
-from .literals import DecimalReturnTypeType, TypeHintType
+from .literals import DecimalReturnTypeType, LongReturnTypeType, RecordsFormatTypeType, TypeHintType
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -206,6 +206,7 @@ _OptionalExecuteStatementRequestRequestTypeDef = TypedDict(
     {
         "continueAfterTimeout": bool,
         "database": str,
+        "formatRecordsAs": RecordsFormatTypeType,
         "includeResultMetadata": bool,
         "parameters": List["SqlParameterTypeDef"],
         "resultSetOptions": "ResultSetOptionsTypeDef",
@@ -224,6 +225,7 @@ ExecuteStatementResponseTypeDef = TypedDict(
     "ExecuteStatementResponseTypeDef",
     {
         "columnMetadata": List["ColumnMetadataTypeDef"],
+        "formattedRecords": str,
         "generatedFields": List["FieldTypeDef"],
         "numberOfRecordsUpdated": int,
         "records": List[List["FieldTypeDef"]],
@@ -286,6 +288,7 @@ ResultSetOptionsTypeDef = TypedDict(
     "ResultSetOptionsTypeDef",
     {
         "decimalReturnType": DecimalReturnTypeType,
+        "longReturnType": LongReturnTypeType,
     },
     total=False,
 )
@@ -329,7 +332,7 @@ SqlStatementResultTypeDef = TypedDict(
 StructValueTypeDef = TypedDict(
     "StructValueTypeDef",
     {
-        "attributes": List[Dict[str, Any]],
+        "attributes": List["ValueTypeDef"],
     },
     total=False,
 )

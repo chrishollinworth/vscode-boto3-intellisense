@@ -26,12 +26,12 @@ __all__ = ("ResourceRecordSetsChangedWaiter",)
 
 class ResourceRecordSetsChangedWaiter(Boto3Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
     [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/waiters.html#resourcerecordsetschangedwaiter)
     """
 
     def wait(self, *, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.20.24/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged.wait)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.24.5/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged.wait)
         [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/waiters.html#resourcerecordsetschangedwaiter)
         """

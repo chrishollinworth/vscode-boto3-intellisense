@@ -20,10 +20,14 @@ from .literals import (
     AlertStatusType,
     AlertTypeType,
     AnomalyDetectionTaskStatusType,
+    AnomalyDetectorFailureTypeType,
     AnomalyDetectorStatusType,
+    ConfidenceType,
     CSVFileCompressionType,
     FrequencyType,
     JsonFileCompressionType,
+    RelationshipTypeType,
+    SnsFormatType,
 )
 
 if sys.version_info >= (3, 8):
@@ -45,7 +49,12 @@ __all__ = (
     "AnomalyGroupTimeSeriesTypeDef",
     "AnomalyGroupTypeDef",
     "AppFlowConfigTypeDef",
+    "AthenaSourceConfigTypeDef",
+    "AttributeValueTypeDef",
+    "AutoDetectionMetricSourceTypeDef",
+    "AutoDetectionS3SourceConfigTypeDef",
     "BackTestAnomalyDetectorRequestRequestTypeDef",
+    "BackTestConfigurationTypeDef",
     "CloudWatchConfigTypeDef",
     "ContributionMatrixTypeDef",
     "CreateAlertRequestRequestTypeDef",
@@ -55,6 +64,7 @@ __all__ = (
     "CreateMetricSetRequestRequestTypeDef",
     "CreateMetricSetResponseTypeDef",
     "CsvFormatDescriptorTypeDef",
+    "DeactivateAnomalyDetectorRequestRequestTypeDef",
     "DeleteAlertRequestRequestTypeDef",
     "DeleteAnomalyDetectorRequestRequestTypeDef",
     "DescribeAlertRequestRequestTypeDef",
@@ -65,6 +75,15 @@ __all__ = (
     "DescribeAnomalyDetectorResponseTypeDef",
     "DescribeMetricSetRequestRequestTypeDef",
     "DescribeMetricSetResponseTypeDef",
+    "DetectMetricSetConfigRequestRequestTypeDef",
+    "DetectMetricSetConfigResponseTypeDef",
+    "DetectedCsvFormatDescriptorTypeDef",
+    "DetectedFieldTypeDef",
+    "DetectedFileFormatDescriptorTypeDef",
+    "DetectedJsonFormatDescriptorTypeDef",
+    "DetectedMetricSetConfigTypeDef",
+    "DetectedMetricSourceTypeDef",
+    "DetectedS3SourceConfigTypeDef",
     "DimensionContributionTypeDef",
     "DimensionNameValueTypeDef",
     "DimensionValueContributionTypeDef",
@@ -76,6 +95,7 @@ __all__ = (
     "GetFeedbackResponseTypeDef",
     "GetSampleDataRequestRequestTypeDef",
     "GetSampleDataResponseTypeDef",
+    "InterMetricImpactDetailsTypeDef",
     "ItemizedMetricStatsTypeDef",
     "JsonFormatDescriptorTypeDef",
     "LambdaConfigurationTypeDef",
@@ -83,6 +103,8 @@ __all__ = (
     "ListAlertsResponseTypeDef",
     "ListAnomalyDetectorsRequestRequestTypeDef",
     "ListAnomalyDetectorsResponseTypeDef",
+    "ListAnomalyGroupRelatedMetricsRequestRequestTypeDef",
+    "ListAnomalyGroupRelatedMetricsResponseTypeDef",
     "ListAnomalyGroupSummariesRequestRequestTypeDef",
     "ListAnomalyGroupSummariesResponseTypeDef",
     "ListAnomalyGroupTimeSeriesRequestRequestTypeDef",
@@ -262,6 +284,51 @@ AppFlowConfigTypeDef = TypedDict(
         "RoleArn": str,
         "FlowName": str,
     },
+    total=False,
+)
+
+AthenaSourceConfigTypeDef = TypedDict(
+    "AthenaSourceConfigTypeDef",
+    {
+        "RoleArn": str,
+        "DatabaseName": str,
+        "DataCatalog": str,
+        "TableName": str,
+        "WorkGroupName": str,
+        "S3ResultsPath": str,
+        "BackTestConfiguration": "BackTestConfigurationTypeDef",
+    },
+    total=False,
+)
+
+AttributeValueTypeDef = TypedDict(
+    "AttributeValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": str,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[str],
+    },
+    total=False,
+)
+
+AutoDetectionMetricSourceTypeDef = TypedDict(
+    "AutoDetectionMetricSourceTypeDef",
+    {
+        "S3SourceConfig": "AutoDetectionS3SourceConfigTypeDef",
+    },
+    total=False,
+)
+
+AutoDetectionS3SourceConfigTypeDef = TypedDict(
+    "AutoDetectionS3SourceConfigTypeDef",
+    {
+        "TemplatedPathList": List[str],
+        "HistoricalDataPathList": List[str],
+    },
+    total=False,
 )
 
 BackTestAnomalyDetectorRequestRequestTypeDef = TypedDict(
@@ -271,11 +338,20 @@ BackTestAnomalyDetectorRequestRequestTypeDef = TypedDict(
     },
 )
 
+BackTestConfigurationTypeDef = TypedDict(
+    "BackTestConfigurationTypeDef",
+    {
+        "RunBackTestMode": bool,
+    },
+)
+
 CloudWatchConfigTypeDef = TypedDict(
     "CloudWatchConfigTypeDef",
     {
         "RoleArn": str,
+        "BackTestConfiguration": "BackTestConfigurationTypeDef",
     },
+    total=False,
 )
 
 ContributionMatrixTypeDef = TypedDict(
@@ -397,6 +473,13 @@ CsvFormatDescriptorTypeDef = TypedDict(
     total=False,
 )
 
+DeactivateAnomalyDetectorRequestRequestTypeDef = TypedDict(
+    "DeactivateAnomalyDetectorRequestRequestTypeDef",
+    {
+        "AnomalyDetectorArn": str,
+    },
+)
+
 DeleteAlertRequestRequestTypeDef = TypedDict(
     "DeleteAlertRequestRequestTypeDef",
     {
@@ -476,6 +559,7 @@ DescribeAnomalyDetectorResponseTypeDef = TypedDict(
         "Status": AnomalyDetectorStatusType,
         "FailureReason": str,
         "KmsKeyArn": str,
+        "FailureType": AnomalyDetectorFailureTypeType,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
@@ -505,6 +589,89 @@ DescribeMetricSetResponseTypeDef = TypedDict(
         "MetricSource": "MetricSourceTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
+)
+
+DetectMetricSetConfigRequestRequestTypeDef = TypedDict(
+    "DetectMetricSetConfigRequestRequestTypeDef",
+    {
+        "AnomalyDetectorArn": str,
+        "AutoDetectionMetricSource": "AutoDetectionMetricSourceTypeDef",
+    },
+)
+
+DetectMetricSetConfigResponseTypeDef = TypedDict(
+    "DetectMetricSetConfigResponseTypeDef",
+    {
+        "DetectedMetricSetConfig": "DetectedMetricSetConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+DetectedCsvFormatDescriptorTypeDef = TypedDict(
+    "DetectedCsvFormatDescriptorTypeDef",
+    {
+        "FileCompression": "DetectedFieldTypeDef",
+        "Charset": "DetectedFieldTypeDef",
+        "ContainsHeader": "DetectedFieldTypeDef",
+        "Delimiter": "DetectedFieldTypeDef",
+        "HeaderList": "DetectedFieldTypeDef",
+        "QuoteSymbol": "DetectedFieldTypeDef",
+    },
+    total=False,
+)
+
+DetectedFieldTypeDef = TypedDict(
+    "DetectedFieldTypeDef",
+    {
+        "Value": "AttributeValueTypeDef",
+        "Confidence": ConfidenceType,
+        "Message": str,
+    },
+    total=False,
+)
+
+DetectedFileFormatDescriptorTypeDef = TypedDict(
+    "DetectedFileFormatDescriptorTypeDef",
+    {
+        "CsvFormatDescriptor": "DetectedCsvFormatDescriptorTypeDef",
+        "JsonFormatDescriptor": "DetectedJsonFormatDescriptorTypeDef",
+    },
+    total=False,
+)
+
+DetectedJsonFormatDescriptorTypeDef = TypedDict(
+    "DetectedJsonFormatDescriptorTypeDef",
+    {
+        "FileCompression": "DetectedFieldTypeDef",
+        "Charset": "DetectedFieldTypeDef",
+    },
+    total=False,
+)
+
+DetectedMetricSetConfigTypeDef = TypedDict(
+    "DetectedMetricSetConfigTypeDef",
+    {
+        "Offset": "DetectedFieldTypeDef",
+        "MetricSetFrequency": "DetectedFieldTypeDef",
+        "MetricSource": "DetectedMetricSourceTypeDef",
+    },
+    total=False,
+)
+
+DetectedMetricSourceTypeDef = TypedDict(
+    "DetectedMetricSourceTypeDef",
+    {
+        "S3SourceConfig": "DetectedS3SourceConfigTypeDef",
+    },
+    total=False,
+)
+
+DetectedS3SourceConfigTypeDef = TypedDict(
+    "DetectedS3SourceConfigTypeDef",
+    {
+        "FileFormatDescriptor": "DetectedFileFormatDescriptorTypeDef",
+    },
+    total=False,
 )
 
 DimensionContributionTypeDef = TypedDict(
@@ -615,6 +782,17 @@ GetSampleDataResponseTypeDef = TypedDict(
     },
 )
 
+InterMetricImpactDetailsTypeDef = TypedDict(
+    "InterMetricImpactDetailsTypeDef",
+    {
+        "MetricName": str,
+        "AnomalyGroupId": str,
+        "RelationshipType": RelationshipTypeType,
+        "ContributionPercentage": float,
+    },
+    total=False,
+)
+
 ItemizedMetricStatsTypeDef = TypedDict(
     "ItemizedMetricStatsTypeDef",
     {
@@ -673,6 +851,38 @@ ListAnomalyDetectorsResponseTypeDef = TypedDict(
     "ListAnomalyDetectorsResponseTypeDef",
     {
         "AnomalyDetectorSummaryList": List["AnomalyDetectorSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredListAnomalyGroupRelatedMetricsRequestRequestTypeDef = TypedDict(
+    "_RequiredListAnomalyGroupRelatedMetricsRequestRequestTypeDef",
+    {
+        "AnomalyDetectorArn": str,
+        "AnomalyGroupId": str,
+    },
+)
+_OptionalListAnomalyGroupRelatedMetricsRequestRequestTypeDef = TypedDict(
+    "_OptionalListAnomalyGroupRelatedMetricsRequestRequestTypeDef",
+    {
+        "RelationshipTypeFilter": RelationshipTypeType,
+        "MaxResults": int,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+class ListAnomalyGroupRelatedMetricsRequestRequestTypeDef(
+    _RequiredListAnomalyGroupRelatedMetricsRequestRequestTypeDef,
+    _OptionalListAnomalyGroupRelatedMetricsRequestRequestTypeDef,
+):
+    pass
+
+ListAnomalyGroupRelatedMetricsResponseTypeDef = TypedDict(
+    "ListAnomalyGroupRelatedMetricsResponseTypeDef",
+    {
+        "InterMetricImpactList": List["InterMetricImpactDetailsTypeDef"],
         "NextToken": str,
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
@@ -811,6 +1021,7 @@ MetricSourceTypeDef = TypedDict(
         "CloudWatchConfig": "CloudWatchConfigTypeDef",
         "RDSSourceConfig": "RDSSourceConfigTypeDef",
         "RedshiftSourceConfig": "RedshiftSourceConfigTypeDef",
+        "AthenaSourceConfig": "AthenaSourceConfigTypeDef",
     },
     total=False,
 )
@@ -853,6 +1064,7 @@ RDSSourceConfigTypeDef = TypedDict(
         "RoleArn": str,
         "VpcConfiguration": "VpcConfigurationTypeDef",
     },
+    total=False,
 )
 
 RedshiftSourceConfigTypeDef = TypedDict(
@@ -867,6 +1079,7 @@ RedshiftSourceConfigTypeDef = TypedDict(
         "RoleArn": str,
         "VpcConfiguration": "VpcConfigurationTypeDef",
     },
+    total=False,
 )
 
 ResponseMetadataTypeDef = TypedDict(
@@ -880,15 +1093,10 @@ ResponseMetadataTypeDef = TypedDict(
     },
 )
 
-_RequiredS3SourceConfigTypeDef = TypedDict(
-    "_RequiredS3SourceConfigTypeDef",
+S3SourceConfigTypeDef = TypedDict(
+    "S3SourceConfigTypeDef",
     {
         "RoleArn": str,
-    },
-)
-_OptionalS3SourceConfigTypeDef = TypedDict(
-    "_OptionalS3SourceConfigTypeDef",
-    {
         "TemplatedPathList": List[str],
         "HistoricalDataPathList": List[str],
         "FileFormatDescriptor": "FileFormatDescriptorTypeDef",
@@ -896,16 +1104,23 @@ _OptionalS3SourceConfigTypeDef = TypedDict(
     total=False,
 )
 
-class S3SourceConfigTypeDef(_RequiredS3SourceConfigTypeDef, _OptionalS3SourceConfigTypeDef):
-    pass
-
-SNSConfigurationTypeDef = TypedDict(
-    "SNSConfigurationTypeDef",
+_RequiredSNSConfigurationTypeDef = TypedDict(
+    "_RequiredSNSConfigurationTypeDef",
     {
         "RoleArn": str,
         "SnsTopicArn": str,
     },
 )
+_OptionalSNSConfigurationTypeDef = TypedDict(
+    "_OptionalSNSConfigurationTypeDef",
+    {
+        "SnsFormat": SnsFormatType,
+    },
+    total=False,
+)
+
+class SNSConfigurationTypeDef(_RequiredSNSConfigurationTypeDef, _OptionalSNSConfigurationTypeDef):
+    pass
 
 _RequiredSampleDataS3SourceConfigTypeDef = TypedDict(
     "_RequiredSampleDataS3SourceConfigTypeDef",

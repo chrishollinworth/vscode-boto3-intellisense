@@ -34,6 +34,7 @@ __all__ = (
     "FargateProfileActiveWaiterName",
     "FargateProfileDeletedWaiterName",
     "FargateProfileStatusType",
+    "IpFamilyType",
     "ListAddonsPaginatorName",
     "ListClustersPaginatorName",
     "ListFargateProfilesPaginatorName",
@@ -58,7 +59,9 @@ AMITypesType = Literal[
     "AL2_x86_64",
     "AL2_x86_64_GPU",
     "BOTTLEROCKET_ARM_64",
+    "BOTTLEROCKET_ARM_64_NVIDIA",
     "BOTTLEROCKET_x86_64",
+    "BOTTLEROCKET_x86_64_NVIDIA",
     "CUSTOM",
 ]
 AddonActiveWaiterName = Literal["addon_active"]
@@ -108,6 +111,7 @@ FargateProfileDeletedWaiterName = Literal["fargate_profile_deleted"]
 FargateProfileStatusType = Literal[
     "ACTIVE", "CREATE_FAILED", "CREATING", "DELETE_FAILED", "DELETING"
 ]
+IpFamilyType = Literal["ipv4", "ipv6"]
 ListAddonsPaginatorName = Literal["list_addons"]
 ListClustersPaginatorName = Literal["list_clusters"]
 ListFargateProfilesPaginatorName = Literal["list_fargate_profiles"]
@@ -128,6 +132,7 @@ NodegroupIssueCodeType = Literal[
     "Ec2SecurityGroupDeletionFailure",
     "Ec2SecurityGroupNotFound",
     "Ec2SubnetInvalidConfiguration",
+    "Ec2SubnetMissingIpv6Assignment",
     "Ec2SubnetNotFound",
     "IamInstanceProfileNotFound",
     "IamLimitExceeded",

@@ -6,9 +6,9 @@ Type annotations for proton service literal definitions.
 Usage::
 
     ```python
-    from mypy_boto3_proton.literals import DeploymentStatusType
+    from mypy_boto3_proton.literals import ComponentDeletedWaiterName
 
-    data: DeploymentStatusType = "CANCELLED"
+    data: ComponentDeletedWaiterName = "component_deleted"
     ```
 """
 import sys
@@ -19,12 +19,18 @@ else:
     from typing_extensions import Literal
 
 __all__ = (
+    "ComponentDeletedWaiterName",
+    "ComponentDeployedWaiterName",
+    "ComponentDeploymentUpdateTypeType",
     "DeploymentStatusType",
     "DeploymentUpdateTypeType",
     "EnvironmentAccountConnectionRequesterAccountTypeType",
     "EnvironmentAccountConnectionStatusType",
     "EnvironmentDeployedWaiterName",
     "EnvironmentTemplateVersionRegisteredWaiterName",
+    "ListComponentOutputsPaginatorName",
+    "ListComponentProvisionedResourcesPaginatorName",
+    "ListComponentsPaginatorName",
     "ListEnvironmentAccountConnectionsPaginatorName",
     "ListEnvironmentOutputsPaginatorName",
     "ListEnvironmentProvisionedResourcesPaginatorName",
@@ -53,6 +59,7 @@ __all__ = (
     "ServiceInstanceDeployedWaiterName",
     "ServicePipelineDeployedWaiterName",
     "ServiceStatusType",
+    "ServiceTemplateSupportedComponentSourceTypeType",
     "ServiceTemplateVersionRegisteredWaiterName",
     "ServiceUpdatedWaiterName",
     "SyncTypeType",
@@ -60,6 +67,9 @@ __all__ = (
     "TemplateVersionStatusType",
 )
 
+ComponentDeletedWaiterName = Literal["component_deleted"]
+ComponentDeployedWaiterName = Literal["component_deployed"]
+ComponentDeploymentUpdateTypeType = Literal["CURRENT_VERSION", "NONE"]
 DeploymentStatusType = Literal[
     "CANCELLED",
     "CANCELLING",
@@ -77,6 +87,9 @@ EnvironmentAccountConnectionRequesterAccountTypeType = Literal[
 EnvironmentAccountConnectionStatusType = Literal["CONNECTED", "PENDING", "REJECTED"]
 EnvironmentDeployedWaiterName = Literal["environment_deployed"]
 EnvironmentTemplateVersionRegisteredWaiterName = Literal["environment_template_version_registered"]
+ListComponentOutputsPaginatorName = Literal["list_component_outputs"]
+ListComponentProvisionedResourcesPaginatorName = Literal["list_component_provisioned_resources"]
+ListComponentsPaginatorName = Literal["list_components"]
 ListEnvironmentAccountConnectionsPaginatorName = Literal["list_environment_account_connections"]
 ListEnvironmentOutputsPaginatorName = Literal["list_environment_outputs"]
 ListEnvironmentProvisionedResourcesPaginatorName = Literal["list_environment_provisioned_resources"]
@@ -124,6 +137,7 @@ ServiceStatusType = Literal[
     "UPDATE_FAILED_CLEANUP_IN_PROGRESS",
     "UPDATE_IN_PROGRESS",
 ]
+ServiceTemplateSupportedComponentSourceTypeType = Literal["DIRECTLY_DEFINED"]
 ServiceTemplateVersionRegisteredWaiterName = Literal["service_template_version_registered"]
 ServiceUpdatedWaiterName = Literal["service_updated"]
 SyncTypeType = Literal["TEMPLATE_SYNC"]

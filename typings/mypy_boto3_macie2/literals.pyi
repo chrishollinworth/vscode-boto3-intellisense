@@ -55,6 +55,7 @@ __all__ = (
     "MacieStatusType",
     "ManagedDataIdentifierSelectorType",
     "OrderByType",
+    "OriginTypeType",
     "RelationshipStatusType",
     "ScopeFilterKeyType",
     "SearchResourcesComparatorType",
@@ -128,6 +129,7 @@ ListOrganizationAdminAccountsPaginatorName = Literal["list_organization_admin_ac
 MacieStatusType = Literal["ENABLED", "PAUSED"]
 ManagedDataIdentifierSelectorType = Literal["ALL", "EXCLUDE", "INCLUDE", "NONE"]
 OrderByType = Literal["ASC", "DESC"]
+OriginTypeType = Literal["SENSITIVE_DATA_DISCOVERY_JOB"]
 RelationshipStatusType = Literal[
     "AccountSuspended",
     "Created",

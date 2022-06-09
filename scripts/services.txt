@@ -28,11 +28,13 @@ autoscaling_plans
 backup
 backup_gateway
 batch
+billingconductor
 braket
 budgets
 ce
 chime
 chime_sdk_identity
+chime_sdk_media_pipelines
 chime_sdk_meetings
 chime_sdk_messaging
 cloud9
@@ -101,6 +103,7 @@ elb
 elbv2
 emr
 emr_containers
+emr_serverless
 es
 events
 evidently
@@ -114,6 +117,7 @@ forecastquery
 frauddetector
 fsx
 gamelift
+gamesparks
 glacier
 globalaccelerator
 glue
@@ -147,9 +151,11 @@ iotthingsgraph
 iotwinmaker
 iotwireless
 ivs
+ivschat
 kafka
-kafka_connect
+kafkaconnect
 kendra
+keyspaces
 kinesis
 kinesis_video_archived_media
 kinesis_video_media
@@ -171,6 +177,7 @@ logs
 lookoutequipment
 lookoutmetrics
 lookoutvision
+m2
 machinelearning
 macie
 macie2
@@ -201,7 +208,7 @@ neptune
 network_firewall
 networkmanager
 nimble
-opsearch
+opensearch
 opsworks
 opsworkscm
 organizations
@@ -214,6 +221,7 @@ pi
 pinpoint
 pinpoint_email
 pinpoint_sms_voice
+pinpoint_sms_voice_v2
 polly
 pricing
 proton
@@ -226,6 +234,7 @@ rds
 rds_data
 redshift
 redshift_data
+redshift_serverless
 rekognition
 resiliencehub
 resource_groups

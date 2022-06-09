@@ -208,6 +208,8 @@ __all__ = (
     "DescribeFolderResolvedPermissionsRequestRequestTypeDef",
     "DescribeFolderResolvedPermissionsResponseTypeDef",
     "DescribeFolderResponseTypeDef",
+    "DescribeGroupMembershipRequestRequestTypeDef",
+    "DescribeGroupMembershipResponseTypeDef",
     "DescribeGroupRequestRequestTypeDef",
     "DescribeGroupResponseTypeDef",
     "DescribeIAMPolicyAssignmentRequestRequestTypeDef",
@@ -251,6 +253,7 @@ __all__ = (
     "GetSessionEmbedUrlRequestRequestTypeDef",
     "GetSessionEmbedUrlResponseTypeDef",
     "GroupMemberTypeDef",
+    "GroupSearchFilterTypeDef",
     "GroupTypeDef",
     "GutterStyleTypeDef",
     "IAMPolicyAssignmentSummaryTypeDef",
@@ -350,6 +353,8 @@ __all__ = (
     "SearchDashboardsResponseTypeDef",
     "SearchFoldersRequestRequestTypeDef",
     "SearchFoldersResponseTypeDef",
+    "SearchGroupsRequestRequestTypeDef",
+    "SearchGroupsResponseTypeDef",
     "ServiceNowParametersTypeDef",
     "SessionTagTypeDef",
     "SheetControlsOptionTypeDef",
@@ -421,6 +426,8 @@ __all__ = (
     "UpdateIAMPolicyAssignmentResponseTypeDef",
     "UpdateIpRestrictionRequestRequestTypeDef",
     "UpdateIpRestrictionResponseTypeDef",
+    "UpdatePublicSharingSettingsRequestRequestTypeDef",
+    "UpdatePublicSharingSettingsResponseTypeDef",
     "UpdateTemplateAliasRequestRequestTypeDef",
     "UpdateTemplateAliasResponseTypeDef",
     "UpdateTemplatePermissionsRequestRequestTypeDef",
@@ -456,6 +463,7 @@ AccountSettingsTypeDef = TypedDict(
         "Edition": EditionType,
         "DefaultNamespace": str,
         "NotificationEmail": str,
+        "PublicSharingEnabled": bool,
     },
     total=False,
 )
@@ -2224,6 +2232,26 @@ DescribeFolderResponseTypeDef = TypedDict(
     },
 )
 
+DescribeGroupMembershipRequestRequestTypeDef = TypedDict(
+    "DescribeGroupMembershipRequestRequestTypeDef",
+    {
+        "MemberName": str,
+        "GroupName": str,
+        "AwsAccountId": str,
+        "Namespace": str,
+    },
+)
+
+DescribeGroupMembershipResponseTypeDef = TypedDict(
+    "DescribeGroupMembershipResponseTypeDef",
+    {
+        "GroupMember": "GroupMemberTypeDef",
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 DescribeGroupRequestRequestTypeDef = TypedDict(
     "DescribeGroupRequestRequestTypeDef",
     {
@@ -2716,6 +2744,15 @@ GroupMemberTypeDef = TypedDict(
         "MemberName": str,
     },
     total=False,
+)
+
+GroupSearchFilterTypeDef = TypedDict(
+    "GroupSearchFilterTypeDef",
+    {
+        "Operator": Literal["StartsWith"],
+        "Name": Literal["GROUP_NAME"],
+        "Value": str,
+    },
 )
 
 GroupTypeDef = TypedDict(
@@ -4075,6 +4112,39 @@ SearchFoldersResponseTypeDef = TypedDict(
     },
 )
 
+_RequiredSearchGroupsRequestRequestTypeDef = TypedDict(
+    "_RequiredSearchGroupsRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+        "Namespace": str,
+        "Filters": List["GroupSearchFilterTypeDef"],
+    },
+)
+_OptionalSearchGroupsRequestRequestTypeDef = TypedDict(
+    "_OptionalSearchGroupsRequestRequestTypeDef",
+    {
+        "NextToken": str,
+        "MaxResults": int,
+    },
+    total=False,
+)
+
+class SearchGroupsRequestRequestTypeDef(
+    _RequiredSearchGroupsRequestRequestTypeDef, _OptionalSearchGroupsRequestRequestTypeDef
+):
+    pass
+
+SearchGroupsResponseTypeDef = TypedDict(
+    "SearchGroupsResponseTypeDef",
+    {
+        "GroupList": List["GroupTypeDef"],
+        "NextToken": str,
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
 ServiceNowParametersTypeDef = TypedDict(
     "ServiceNowParametersTypeDef",
     {
@@ -4987,6 +5057,35 @@ UpdateIpRestrictionResponseTypeDef = TypedDict(
     "UpdateIpRestrictionResponseTypeDef",
     {
         "AwsAccountId": str,
+        "RequestId": str,
+        "Status": int,
+        "ResponseMetadata": "ResponseMetadataTypeDef",
+    },
+)
+
+_RequiredUpdatePublicSharingSettingsRequestRequestTypeDef = TypedDict(
+    "_RequiredUpdatePublicSharingSettingsRequestRequestTypeDef",
+    {
+        "AwsAccountId": str,
+    },
+)
+_OptionalUpdatePublicSharingSettingsRequestRequestTypeDef = TypedDict(
+    "_OptionalUpdatePublicSharingSettingsRequestRequestTypeDef",
+    {
+        "PublicSharingEnabled": bool,
+    },
+    total=False,
+)
+
+class UpdatePublicSharingSettingsRequestRequestTypeDef(
+    _RequiredUpdatePublicSharingSettingsRequestRequestTypeDef,
+    _OptionalUpdatePublicSharingSettingsRequestRequestTypeDef,
+):
+    pass
+
+UpdatePublicSharingSettingsResponseTypeDef = TypedDict(
+    "UpdatePublicSharingSettingsResponseTypeDef",
+    {
         "RequestId": str,
         "Status": int,
         "ResponseMetadata": "ResponseMetadataTypeDef",

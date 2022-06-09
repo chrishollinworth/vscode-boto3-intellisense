@@ -51,6 +51,7 @@ __all__ = (
     "CreateTagsRequestRequestTypeDef",
     "CustomerAgentInfoTypeDef",
     "CustomerConnectorInfoTypeDef",
+    "CustomerMeCollectorInfoTypeDef",
     "DeleteApplicationsRequestRequestTypeDef",
     "DeleteTagsRequestRequestTypeDef",
     "DescribeAgentsRequestRequestTypeDef",
@@ -253,6 +254,19 @@ CustomerConnectorInfoTypeDef = TypedDict(
         "unhealthyConnectors": int,
         "totalConnectors": int,
         "unknownConnectors": int,
+    },
+)
+
+CustomerMeCollectorInfoTypeDef = TypedDict(
+    "CustomerMeCollectorInfoTypeDef",
+    {
+        "activeMeCollectors": int,
+        "healthyMeCollectors": int,
+        "denyListedMeCollectors": int,
+        "shutdownMeCollectors": int,
+        "unhealthyMeCollectors": int,
+        "totalMeCollectors": int,
+        "unknownMeCollectors": int,
     },
 )
 
@@ -479,6 +493,7 @@ GetDiscoverySummaryResponseTypeDef = TypedDict(
         "serversMappedtoTags": int,
         "agentSummary": "CustomerAgentInfoTypeDef",
         "connectorSummary": "CustomerConnectorInfoTypeDef",
+        "meCollectorSummary": "CustomerMeCollectorInfoTypeDef",
         "ResponseMetadata": "ResponseMetadataTypeDef",
     },
 )
